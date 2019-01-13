@@ -11,6 +11,9 @@
 # eventName (example) = Phosphorylation
 # actionFlow (example) = splitSimpleEvents
 #################################################
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
 
 - name: ${ eventName }_syntax_1a_verb
   priority: ${ priority }
@@ -20,7 +23,7 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj |"nsubj:xsubj"| nmod_agent | <"acl:relcl"|<advcl|<advcl_by) (<appos|/nsubj|appos|compound|conj_(and|or|nor)/){,2}
-    theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|dep|compound|nmod_of/{,2} (>> [word=by]){,2}
+    theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|${dep}|compound|nmod_of/{,2} (>> [word=by]){,2}
     site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
 
 
@@ -32,7 +35,7 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | <acl | <advcl)  (<appos|/appos|compound|conj_(and|or|nor)/{,2}) #becky and marco #/appos|compound|conj_(and|or|nor)/{,2}
-    site:Site? = (dobj | xcomp)? /appos|nmod_(at|on)|conj_(and|or|nor)|dep|compound|nmod_of/{,2} (>> [word=by]){,2}
+    site:Site? = (dobj | xcomp)? /appos|nmod_(at|on)|conj_(and|or|nor)|${dep}|compound|nmod_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
 
 - name: ${ eventName }_syntax_2a_verb
@@ -220,8 +223,8 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
     cause:BioChemicalEntity = (/nmod_by|nmod_agent/ |<advcl <advmod nsubj ) /conj_(and|or|nor)|compound/{,2}
-    theme:BioChemicalEntity = nmod_of? appos?  /dep|conj_(and|or|nor)|compound/{,2}
-    site:Site? = dep? /dep|nmod_|conj_(and|or|nor)|compound/{1,2}
+    theme:BioChemicalEntity = nmod_of? appos?  /${dep}|conj_(and|or|nor)|compound/{,2}
+    site:Site? = ${dep}? /${dep}|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 - name: ${ eventName }_syntax_3_noun
   priority: ${ priority }
