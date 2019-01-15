@@ -3,9 +3,11 @@ package org.clulab.reach.darpa
 import org.clulab.coref.CorefUtils._
 import org.clulab.odin._
 import org.clulab.reach.mentions._
+
 import scala.collection.mutable
-import org.clulab.processors.{Sentence, Document, ProcessorAnnotator}
+import org.clulab.processors.{Document, ProcessorAnnotator, Sentence}
 import org.clulab.reach.utils
+import org.clulab.struct.DirectedGraph
 
 object MentionFilter {
 
@@ -68,31 +70,25 @@ object MentionFilter {
       val synPath = m.paths("theme").get(theme)
       val pathfinder = new utils.PathFinder(m.sentenceObj)
       val allPaths = pathfinder.dependencyPaths(5, end = 13) //m.sentenceObj.lemmas.size)
-      println("all paths " + allPaths)
       // Does the synPath contain the trigger
+      val graph = m.sentenceObj.dependencies.get
       val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
-      val edges = mkPrev(theme.tokenInterval.start, m.sentenceObj)
-      val outgoingRelation = mkOutgoing(theme.tokenInterval.start, m.sentenceObj)
+      val edges = mkPrev(theme.tokenInterval.start, m.sentenceObj, graph)
+      val outgoingRelation = mkOutgoing(theme.tokenInterval.start, m.sentenceObj, graph)
       println("out rel: " + outgoingRelation.mkString(" "))
       trigger.tokenInterval.exists(tok => (tokensOnPath.contains(tok) || edges.contains(tok)) && !outgoingRelation.contains("appos"))
     } else false
   }
 
   //checks incoming rel for the given node (token int)
-  def mkPrev(node: Int, sent: Sentence): Seq[Int] = {
-    val graph = sent.dependencies.get
+  def mkPrev(node: Int, sent: Sentence, graph: DirectedGraph[String]): Seq[Int] = {
     val edges = graph.incomingEdges(node)
-    //val outgoing = graph.outgoingEdges(node)
-    //println("outgoing: " + outgoing.mkString(" "))
-    //println("-->", edges.mkString(" "))
     edges.map(_._1).distinct
   }
 
-  //check outgoing rel (rel label, e.g., 'appos'
-  def mkOutgoing(node: Int, sent: Sentence): Array[String] = {
-    val graph = sent.dependencies.get
+  //check outgoing rel (rel label, e.g., 'appos')
+  def mkOutgoing(node: Int, sent: Sentence, graph: DirectedGraph[String]): Array[String] = {
     val outgoing = graph.outgoingEdges(node)
-    //println("outgoing: " + outgoing.mkString(" "))
     outgoing.map(_._2).distinct
   }
 
