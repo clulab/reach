@@ -5,6 +5,7 @@ import org.clulab.odin._
 import org.clulab.reach.mentions._
 import scala.collection.mutable
 import org.clulab.processors.{Sentence, Document, ProcessorAnnotator}
+import org.clulab.reach.utils
 
 object MentionFilter {
 
@@ -50,7 +51,7 @@ object MentionFilter {
 
   def triggerOverlap(m1: Mention, m2: Mention): Boolean = {
     m2 match {
-      case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent")) =>
+      case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent") && !em.labels.contains("Amount")) =>
         // Does the synPath to the argument of m1 contain the trigger of m2?
         val m1Themes = m1.arguments.get("theme")
         val m2Themes = em.arguments.get("theme")
@@ -65,18 +66,34 @@ object MentionFilter {
   def synPathContainsTrigger(m: Mention, theme: Mention, trigger: Mention): Boolean = {
     if (m.paths.contains("theme")) {
       val synPath = m.paths("theme").get(theme)
+      val pathfinder = new utils.PathFinder(m.sentenceObj)
+      val allPaths = pathfinder.dependencyPaths(5, end = 13) //m.sentenceObj.lemmas.size)
+      println("all paths " + allPaths)
       // Does the synPath contain the trigger
       val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
       val edges = mkPrev(theme.tokenInterval.start, m.sentenceObj)
-      trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok) || edges.contains(tok))
+      val outgoingRelation = mkOutgoing(theme.tokenInterval.start, m.sentenceObj)
+      println("out rel: " + outgoingRelation.mkString(" "))
+      trigger.tokenInterval.exists(tok => (tokensOnPath.contains(tok) || edges.contains(tok)) && !outgoingRelation.contains("appos"))
     } else false
   }
 
-  //checks incoming rel for the given node
+  //checks incoming rel for the given node (token int)
   def mkPrev(node: Int, sent: Sentence): Seq[Int] = {
     val graph = sent.dependencies.get
     val edges = graph.incomingEdges(node)
+    //val outgoing = graph.outgoingEdges(node)
+    //println("outgoing: " + outgoing.mkString(" "))
+    //println("-->", edges.mkString(" "))
     edges.map(_._1).distinct
+  }
+
+  //check outgoing rel (rel label, e.g., 'appos'
+  def mkOutgoing(node: Int, sent: Sentence): Array[String] = {
+    val graph = sent.dependencies.get
+    val outgoing = graph.outgoingEdges(node)
+    //println("outgoing: " + outgoing.mkString(" "))
+    outgoing.map(_._2).distinct
   }
 
 
