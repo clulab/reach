@@ -11,6 +11,21 @@ import org.clulab.struct.DirectedGraph
 
 object MentionFilter {
 
+  // the filter removes (some of) the mentions that incorrectly grab arguments from other mentions
+  //E.g., in "Insulin stimulated tyrosine phosphorylation of IRS-1, PI 3-kinase activity, and Akt phosphorylation."
+  //the filter eliminates the following incorrect relations: phosphorylation1-Akt and phosphorylation2-IRS1
+  def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
+    // For each mention, check to see if any other mention has argument overlap and if there is arg overlap,
+    // check if the path from the trigger to the overlapping argument contains a trigger of the other mention +
+    //checks if the overlapping argument is connected to the trigger of another mention with an incoming edge
+    for {
+      i <- 0 until ms.length
+      m1 = ms(i)
+      overlapping = getOverlappingMentions(m1, ms)
+      if !triggerOverlap(m1, overlapping)
+    } yield m1
+  }
+
   def argumentsOverlap(m1: Mention, m2: Mention): Boolean = {
     val m1Themes = m1.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
     val m2Themes = m2.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
@@ -26,19 +41,6 @@ object MentionFilter {
     ms.filter(argumentsOverlap(m, _))
   }
 
-  def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
-    // For each mention, check to see if any other mention has argument overlap and if there is arg overlap,
-    // check if the path from the trigger to the overlapping argument contains a trigger of the other mention +
-    //checks if the overlapping argument is connected to the trigger of another mention with an incoming edge
-    for {
-      i <- 0 until ms.length
-      m1 = ms(i)
-      overlapping = getOverlappingMentions(m1, ms)
-      if !triggerOverlap(m1, overlapping)
-    } yield m1
-  }
-
-
   // fixme: make a better name
   // If argument overlap is found, check to see if it's a problem: i.e., if the synPath between the trigger
   // and an argument goes through another trigger
@@ -53,7 +55,7 @@ object MentionFilter {
 
   def triggerOverlap(m1: Mention, m2: Mention): Boolean = {
     m2 match {
-      case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent") && !em.labels.contains("Amount")) =>
+      case em: EventMention if (em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent") && !em.labels.contains("Amount")) =>
         // Does the synPath to the argument of m1 contain the trigger of m2?
         val m1Themes = m1.arguments.get("theme")
         val m2Themes = em.arguments.get("theme")
@@ -69,13 +71,14 @@ object MentionFilter {
     if (m.paths.contains("theme")) {
       val synPath = m.paths("theme").get(theme)
       val pathfinder = new utils.PathFinder(m.sentenceObj)
-      val allPaths = pathfinder.dependencyPaths(5, end = 13) //m.sentenceObj.lemmas.size)
+
       // Does the synPath contain the trigger
       val graph = m.sentenceObj.dependencies.get
       val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
-      val edges = mkPrev(theme.tokenInterval.start, m.sentenceObj, graph)
+      // get edges for each token of the argument (more than one for compound arguments)
+      val edges_prelim = for (node <- theme.tokenInterval) yield {mkPrev(node, m.sentenceObj, graph)}
+      val edges = edges_prelim.flatten
       val outgoingRelation = mkOutgoing(theme.tokenInterval.start, m.sentenceObj, graph)
-      println("out rel: " + outgoingRelation.mkString(" "))
       trigger.tokenInterval.exists(tok => (tokensOnPath.contains(tok) || edges.contains(tok)) && !outgoingRelation.contains("appos"))
     } else false
   }
