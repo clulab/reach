@@ -2,6 +2,10 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 
 - name: translocation_1a_noun
   priority: ${ priority }
@@ -10,7 +14,7 @@
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
-    theme:BioChemicalEntity = "nmod:poss" | dobj
+    theme:BioChemicalEntity = "nmod:poss" | ${objects}
     source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component? = nmod_from? nmod_to /conj|compound|dep/{,2}
 
@@ -34,10 +38,10 @@
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
-    theme:BioChemicalEntity = dobj
+    theme:BioChemicalEntity = ${objects}
     source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component? = nmod_from? nmod_to /conj|compound|dep/{,2}
-    cause:BioChemicalEntity? = nsubj | <"acl:relcl" <appos
+    cause:BioChemicalEntity? = ${agents} | <"acl:relcl" <appos
 
 
 - name: translocation_2b_verb_apposition
@@ -47,10 +51,10 @@
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
-    theme:BioChemicalEntity = dobj
+    theme:BioChemicalEntity = ${objects}
     source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component = nmod_from? nmod_to /conj|compound|dep/{,2}
-    cause:BioChemicalEntity? = (<"acl:relcl"| nsubj) <appos
+    cause:BioChemicalEntity? = (<"acl:relcl"| ${agents}) <appos
 
 
 - name: translocation_3a_verb_passive
@@ -112,8 +116,8 @@
   label: Translocation
   pattern: |
     trigger = [lemma=release & tag=/^V/]
-    theme:BioChemicalEntity = dobj
-    source:Cellular_component = <xcomp /dobj/
+    theme:BioChemicalEntity = ${objects}
+    source:Cellular_component = <xcomp /${objects}/
     destination:Cellular_component? = <nmod_in? nmod_to /conj|compound|dep/{,2}
 
 
@@ -124,8 +128,8 @@
   label: Translocation
   pattern: |
     trigger = [lemma=release & tag=/^V/]
-    theme:BioChemicalEntity = dobj
-    source:Cellular_component = /nsubj|aux|dobj/
+    theme:BioChemicalEntity = ${objects}
+    source:Cellular_component = /${agents}|aux|${objects}/
     destination:Cellular_component? = <nmod_in? nmod_to /conj|compound|dep/{,2}
 
 
@@ -159,7 +163,7 @@
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
-    theme:BioChemicalEntity = nsubj
+    theme:BioChemicalEntity = ${agents}
     source:Cellular_component = <nmod_in? nmod_of? nmod_to? nmod_from
     destination:Cellular_component? = <nmod_in? nmod_of? nmod_from? nmod_to /conj|dep/{,2}
 
@@ -170,6 +174,6 @@
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
-    theme:BioChemicalEntity = nsubj
+    theme:BioChemicalEntity = ${agents}
     source:Cellular_component? = <nmod_in? nmod_of? nmod_to? nmod_from
     destination:Cellular_component = <nmod_in? nmod_of? nmod_from? nmod_to /conj|dep/{,2}

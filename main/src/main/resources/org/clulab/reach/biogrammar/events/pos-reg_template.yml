@@ -8,6 +8,10 @@
 # use nmod_in$ instead of nmod_in, to avoid matching nmod_including, which has different semantics
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 # note: nsubjpass for controller should not be there in an ideal world; but it does show up in practice
 - name: Positive_${ ruleType }_syntax_1_verb
   priority: ${ priority }
@@ -16,9 +20,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = /(acl|advcl)_by/? (/dobj|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
-      (/conj|dep|dobj|compound|nmod_of|nmod_in$|amod/){,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | nmod_agent | <acl| <advcl) /appos|compound|conj_|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = /(acl|advcl)_by/? (/${objects}|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
+      (/conj|dep|${objects}|compound|nmod_of|nmod_in$|amod/){,2}
+    controller:${ controllerType } = <xcomp? (${agents} | nsubjpass | nmod_agent | <acl| <advcl) /appos|compound|conj_|nmod_of|nmod_in$/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1a_verb #Added by jmculnan
@@ -28,7 +32,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ posTriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ccomp dobj
+    controlled:${ controlledType } = ccomp ${objects}
     controller:${ controllerType } = "nsubj:xsubj" nmod_of?
 
 - name: Positive_${ ruleType }_syntax_1b_verb
@@ -38,8 +42,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
-    controlled:${ controlledType } = dobj /compound|amod/{,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nmod_agent) compound{,2}
+    controlled:${ controlledType } = ${objects} /compound|amod/{,2}
+    controller:${ controllerType } = <xcomp? (${agents} | nmod_agent) compound{,2}
 
 
 # Handles occurrence of nmod_by when NOT passive voice
@@ -50,8 +54,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
-    controlled:${ controlledType } = nmod_by /conj|dep|dobj|compound|nmod_of|nmod_in$|amod/{,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nmod_agent | <acl| <advcl) /appos|compound|conj_|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = nmod_by /conj|dep|${objects}|compound|nmod_of|nmod_in$|amod/{,2}
+    controller:${ controllerType } = <xcomp? (${agents} | nmod_agent | <acl| <advcl) /appos|compound|conj_|nmod_of|nmod_in$/{,2}
 
 
 # Note: Captures passive voice; thus verb must be VBD|VBN
@@ -61,7 +65,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (>/^nsubj/|nsubj|<acl|<advcl) /conj_|compound|dep|amod/{,2}
+    controlled:${ controlledType } = (>/^nsubj/|${agents}|<acl|<advcl) /conj_|compound|dep|amod/{,2}
     controller:${ controllerType } = (nmod_agent|nmod_by) /conj_|compound|dep|amod|nmod_of|nmod_in$/{,2}
 
 
@@ -83,8 +87,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (dobj [!lemma=/resistance|sensitivity/]) /compound|nmod_of/{,1}
-    controller:${ controllerType } = nsubj /nmod_of|compound/{,1}
+    controlled:${ controlledType } = (${objects} [!lemma=/resistance|sensitivity/]) /compound|nmod_of/{,1}
+    controller:${ controllerType } = ${agents} /nmod_of|compound/{,1}
 #this rule fixed 6/9 remaning act tests
 
 - name: Positive_${ ruleType }_syntax_4_verb
@@ -105,7 +109,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = dobj /compound|amod|conj_/{,2}
+    controlled:${ controlledType } = ${objects} /compound|amod|conj_/{,2}
     controller:${ controllerType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
 
 
@@ -128,7 +132,7 @@
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
     controlled:${ controlledType } = nmod_in$ | nmod_to
-    controller:${ controllerType } = (nsubj | <"acl:relcl") /appos|compound|amod|conj_/{,2}
+    controller:${ controllerType } = (${agents} | <"acl:relcl") /appos|compound|amod|conj_/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_8_verb
@@ -139,7 +143,7 @@
   pattern: |
     trigger = [lemma=result] in [word=/(?i)^(${ triggers })/]
     controlled:${ controlledType } = nmod_of compound?
-    controller:${ controllerType } = nsubj /appos|compound|nmod_of|amod|conj_/{,2}
+    controller:${ controllerType } = ${agents} /appos|compound|nmod_of|amod|conj_/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1_noun
@@ -227,7 +231,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
-    controller:${ controllerType } = nsubj
+    controller:${ controllerType } = ${agents}
     controlled:${ controlledType } = /nmod_of|nmod_in$/
 
 
@@ -313,7 +317,7 @@
 #  pattern: |
 #    trigger = [lemma=result] in # TODO: expand lemma pattern for trigger
 #    # xcomp for "A, resulting in B" pattern
-#    controller:${ controllerType } = nsubj|xcomp
+#    controller:${ controllerType } = ${agents}|xcomp
 #    controlled:${ controlledType } = nmod_in (nn|appos)?
 
 
@@ -326,6 +330,6 @@
     # TODO: expand lemma pattern for trigger
     trigger = [lemma=lead] to
     # xcomp for "A, leading to B" pattern
-    controller:${ controllerType } = nsubj|xcomp
+    controller:${ controllerType } = ${agents}|xcomp
     # "leading to activation"
     controlled:${ controlledType } = (?= nmod_to [word=/(?i)^(${ triggers })/]) nmod_to nmod_of? compound?

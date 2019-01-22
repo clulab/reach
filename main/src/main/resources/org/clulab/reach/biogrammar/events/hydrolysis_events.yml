@@ -4,6 +4,10 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 - name: hydrolysis_1
   label: Hydrolysis
   priority: ${ priority }
@@ -12,7 +16,7 @@
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (<compound? compound) | (nmod_of compound?) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = <nmod_of? <dobj? (nmod_for | nmod_on) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = <nmod_of? </${objects}/? (nmod_for | nmod_on) [!word=/^GAPs?$/]
     cause:MacroMolecule = nmod_by
 
 - name: hydrolysis_2
@@ -33,8 +37,8 @@
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (<nsubj dep ccomp dobj nmod_of) | (<nmod_of <dobj (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = <nsubj dep ccomp nmod_to
+    protein:BioChemicalEntity = (</${agents}/ dep ccomp ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = </${agents}/ dep ccomp nmod_to
 
 - name: hydrolysis_3
   label: Hydrolysis
@@ -54,7 +58,7 @@
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (<compound)? compound [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (<compound)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (<compound)? </${objects}/ [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] ${agents} [!word=/^GAPs?$/]
 
 - name: hydrolysis_token_1
   label: Hydrolysis
@@ -83,8 +87,8 @@
   example: "RasGAP hydrolyzes GTP to GDP"
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=/^VB[^N]?/]
-    theme:BioChemicalEntity = dobj [!word=/^GAPs?$/]
-    cause:MacroMolecule? = (nsubj | (<xcomp? <"acl:relcl" <appos?))
+    theme:BioChemicalEntity = ${objects} [!word=/^GAPs?$/]
+    cause:MacroMolecule? = (${agents} | (<xcomp? <"acl:relcl" <appos?))
 
 - name: hydrolysis_pass1
   label: Hydrolysis

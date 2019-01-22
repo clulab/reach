@@ -2,6 +2,11 @@
 # The rules below apply ONLY to regulations (not activations)
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+
 # This applies only to non-nested regs
 - name: Negative_${ ruleType }_in_response_to
   priority: ${ priority }

@@ -3,6 +3,10 @@
 # Template for negative regulation|activation
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 - name: Negative_${ ruleType }_syntax_1_verb
   priority: ${ priority }
   example: "X inhibits Y"
@@ -10,8 +14,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (advcl_by|acl)? (dobj | xcomp | ccomp) /conj|dep|dobj|compound|amod|nmod_of|nmod_in$/{,2} (>> [word=by]){,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nmod_agent | nsubjpass | <acl| <advcl) /appos|compound|amod|conj_|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = (advcl_by|acl)? (${objects} | xcomp | ccomp) /conj|dep|${objects}|compound|amod|nmod_of|nmod_in$/{,2} (>> [word=by]){,2}
+    controller:${ controllerType } = <xcomp? (${agents} | nmod_agent | nsubjpass | <acl| <advcl) /appos|compound|amod|conj_|nmod_of|nmod_in$/{,2}
 # Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
@@ -47,7 +51,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = dobj /compound|amod|conj_/{,2}
+    controlled:${ controlledType } = ${objects} /compound|amod|conj_/{,2}
     controller:${ controllerType } = (< /xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
 - name: Negative_${ ruleType }_syntax_6_verb
   priority: ${ priority }
@@ -76,7 +80,7 @@
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
     controlled:${ controlledType } = /nmod_of|nmod_in$/ /compound|amod|conj_/{,2}
-    controller:${ controllerType } = /nmod_of/? nmod_by (<dobj|nmod_by|nmod_agent|compound|amod|nmod_of|nmod_in$){1,2} /compound|amod|conj_/{,2} # the nmod_of may appear due to bad syntax
+    controller:${ controllerType } = /nmod_of/? nmod_by (</${objects}/|nmod_by|nmod_agent|compound|amod|nmod_of|nmod_in$){1,2} /compound|amod|conj_/{,2} # the nmod_of may appear due to bad syntax
 
 - name: Negative_${ ruleType }_syntax_2_noun
   priority: ${ priority }
@@ -161,7 +165,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
-    controller:${ controllerType } = nsubj
+    controller:${ controllerType } = ${agents}
     controlled:${ controlledType } = /nmod_of|nmod_in$/
 - name: Negative_${ ruleType }_possessive_noun
   priority: ${ priority }

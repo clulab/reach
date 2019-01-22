@@ -2,6 +2,10 @@
 # The rules below apply ONLY to regulations (not activations)
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 # This applies only to non-nested regs
 - name: Positive_${ ruleType }_in_response_to
   priority: ${ priority }
@@ -10,7 +14,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = in response to
-    controlled:SimpleEvent = <nmod_in dobj?
+    controlled:SimpleEvent = <nmod_in /${objects}/?
     controller:${ controllerType }? = <nmod_in? (nmod_to nmod_with? | nmod_with) ([lemma="treatment"] compound)?
 
 # This applies only to non-nested regs

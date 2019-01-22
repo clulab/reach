@@ -1,3 +1,7 @@
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 
 - name: ${ eventName }_syntax_1_noun
   priority: ${ priority }
@@ -48,8 +52,8 @@
     # these two should be the same
     # assertion on syntactic context of trigger
     # direct object of predicate must be the word "itself"
-    cause:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
-    theme:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
+    cause:BioChemicalEntity = (?= (${objects}|nmod_agent|nmod_by) [word=itself]) /^nsubj/
+    theme:BioChemicalEntity = (?= (${objects}|nmod_agent|nmod_by) [word=itself]) /^nsubj/
     site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
 
 
