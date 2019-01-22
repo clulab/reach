@@ -1,5 +1,10 @@
 #Transcription events require arguments of type BioChemicalEntity
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+
 - name: expression_1
   priority: ${ priority }
   example: "PTEN protein expression was detectable by Western blot in all cell lines."
@@ -36,7 +41,7 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
-    theme:BioChemicalEntity = <dobj nsubj nmod_of? /conj_/*
+    theme:BioChemicalEntity = </${objects}/ ${agents} nmod_of? /conj_/*
     cause:BioChemicalEntity? = compound{1,2}
 
 
