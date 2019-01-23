@@ -345,9 +345,6 @@ object MentionFilter {
           .map(_.toCorefMention)
       case Nil =>
         pruneMentions(other.map(_.toCorefMention))
-
-      //        val noTriggerOverlap = filterOverlappingMentions(other)
-      //        pruneMentions(noTriggerOverlap.map(_.toCorefMention))
     }
   }
 
