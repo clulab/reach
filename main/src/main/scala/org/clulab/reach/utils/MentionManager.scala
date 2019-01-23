@@ -280,8 +280,9 @@ object MentionManager {
   def isMutation (mod:Modification) = mod.isInstanceOf[Mutant]
 
 
-  def isNegated (mention:BioMention): Boolean =
+  def isNegated (mention:BioMention): Boolean = {
     mention.modifications.exists(isNegation)
+  }
 
   def isNegation (mod:Modification) = mod.isInstanceOf[Negation]
 
