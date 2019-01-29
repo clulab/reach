@@ -159,6 +159,9 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     )
   }
 
+  /** implements the extraction of TextBoundMentions from all types of events---TBMentions, EventMentions, and
+    * RelationMentions; necessary because relationMentions may contain multiple TBMentions(?) and the previous
+    * implementation did not handle RelationMentions*/
   def extractTB(m:Mention):Seq[TextBoundMention] = {
     m match {
       case tb:TextBoundMention => Seq(tb)
@@ -192,16 +195,6 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       } yield a.asInstanceOf[EventMention].trigger
       e.trigger +: argTriggers.toSeq
     }
-    // collect arguments as text bound mentions
-//    val entities = for {
-//      e <- events ++ relations
-//      a <- e.arguments.values.flatten
-//    } yield a match {
-//      case m: TextBoundMention => m
-//      case m: RelationMention => m.arguments.values.head.head.asInstanceOf[BioEventMention].trigger
-//      case m: EventMention => m.trigger //++ m.arguments.values
-//    }
-
 
 
     val entities = (events ++ relations).flatMap(extractTB)
