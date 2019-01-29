@@ -12,7 +12,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|${objects}|xcomp/]
-    theme1:BioChemicalEntity+ = <"acl:relcl" conj_and{,2} | ${agents} /compound|conj_/{,2} | <nmod_by{,2} ${agents}
+    theme1:BioChemicalEntity+ = <"acl:relcl" conj_and{,2} | ${agents} /compound|conj_/{,2} | </${passive_agents}/{,2} ${agents}
 
 - name: binding1b
   label: Binding
@@ -20,7 +20,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = <"acl:relcl" conj_and{,2} | ${agents} /compound|conj_/{,2} | <nmod_by{,2} ${agents}
+    theme1:BioChemicalEntity+ = <"acl:relcl" conj_and{,2} | ${agents} /compound|conj_/{,2} | </${passive_agents}/{,2} ${agents}
     theme2:BioChemicalEntity+ = ${objects} /compound|conj_/{,2} | xcomp? /nmod_(to|with)/
 
 - name: binding1forms
@@ -38,7 +38,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = binding (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = <nmod_by ${agents} /compound|conj_/{,2}
+    theme1:BioChemicalEntity+ = </${passive_agents}/ ${agents} /compound|conj_/{,2}
     theme2:BioChemicalEntity* = nmod_such_as
 
 - name: binding3
@@ -202,7 +202,7 @@ rules:
   pattern: |
     trigger = [lemma=/bind|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = (nsubjpass |<"acl:relcl") <appos?
-    theme2:BioChemicalEntity+ = /nmod_agent|nmod_to|nmod_with/ compound{,2} | ${objects} compound{,2}
+    theme2:BioChemicalEntity+ = /${passive_agents}|nmod_to|nmod_with/ compound{,2} | ${objects} compound{,2}
 
 - name: binding_18
   label: Binding
@@ -269,7 +269,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = "nmod:poss"
-    theme2:BioChemicalEntity* = (nmod_to|nmod_with|nmod_of|nmod_by) [!(lemma=member)] compound{,2} | (nmod_to|nmod_with|nmod_of|nmod_by) [lemma=member] compound{1,2}
+    theme2:BioChemicalEntity* = (nmod_to|nmod_with|nmod_of|/${passive_agents}/) [!(lemma=member)] compound{,2} | (nmod_to|nmod_with|nmod_of|/${passive_agents}/) [lemma=member] compound{1,2}
 
 - name: binding_syntax_25_verb
   example: "IKKgamma appears capable of binding linear polyubiquitin."

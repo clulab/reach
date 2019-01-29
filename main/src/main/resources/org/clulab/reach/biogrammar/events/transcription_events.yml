@@ -12,7 +12,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^N/]
     theme:BioChemicalEntity = compound{1,2}
-    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
+    cause:BioChemicalEntity? = /${passive_agents}/
 
 
 - name: expression_2
@@ -22,7 +22,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
     theme:BioChemicalEntity =  </acl|advcl/ /conj_/*
-    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
+    cause:BioChemicalEntity? = /${passive_agents}/
 
 
 - name: expression_3
@@ -32,7 +32,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
     theme:BioChemicalEntity = nsubjpass /conj_/*
-    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
+    cause:BioChemicalEntity? = /${passive_agents}/
 
 
 - name: transcription_0
@@ -52,7 +52,7 @@ rules:
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
     theme:BioChemicalEntity = nmod_of? compound{1,2} /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    cause:BioChemicalEntity? = ${passive_agents}
 
 
 - name: transcription_1b
@@ -62,7 +62,7 @@ rules:
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
     theme:BioChemicalEntity = nmod_of compound{,2} /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    cause:BioChemicalEntity? = ${passive_agents}
 
 
 - name: transcription_2
@@ -72,7 +72,7 @@ rules:
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
     theme:BioChemicalEntity = <dep /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    cause:BioChemicalEntity? = ${passive_agents}
 
 
 - name: transcription_3
@@ -82,4 +82,4 @@ rules:
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
     theme:BioChemicalEntity = nmod_of /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    cause:BioChemicalEntity? = ${passive_agents}

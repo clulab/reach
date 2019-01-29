@@ -67,7 +67,7 @@ rules:
     theme:BioChemicalEntity = (nsubjpass | <"acl:relcl") <appos
     source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component? = nmod_from? nmod_to /conj|compound|dep/{,2}
-    cause:BioChemicalEntity? = nmod_agent | /nmod_(to|from)/{,2} nmod_by
+    cause:BioChemicalEntity? = /${passive_agents}/ | /nmod_(to|from)/{,2} /${passive_agents}/
 
 
 - name: translocation_3b_verb_passive
@@ -80,7 +80,7 @@ rules:
     theme:BioChemicalEntity = nsubjpass | <"acl:relcl" <appos
     source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component = nmod_from? nmod_to /conj|compound|dep/{,2}
-    cause:BioChemicalEntity? = nmod_agent | /nmod_(to|from)/{,2} nmod_by
+    cause:BioChemicalEntity? = /${passive_agents}/ | /nmod_(to|from)/{,2} /${passive_agents}/
 
 
 - name: translocation_4a_noun_with_cause

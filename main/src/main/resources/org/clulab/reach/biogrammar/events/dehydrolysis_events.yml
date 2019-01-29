@@ -17,7 +17,7 @@ rules:
     trigger = [word=/(?i)de-?hydrolysis/]
     theme:BioChemicalEntity = (<compound? compound) | (nmod_of compound?) [!word=/^GAPs?$/]
     protein:BioChemicalEntity? = <nmod_of? </${objects}/? (nmod_for | nmod_on) [!word=/^GAPs?$/]
-    cause:MacroMolecule = nmod_by
+    cause:MacroMolecule = /${passive_agents}/
 
 - name: dehydrolysis_2
   label: Dehydrolysis
@@ -98,7 +98,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^de-?hydrolyz/ & tag=VBN]
     theme:BioChemicalEntity = ( </acl|advcl/ | nsubjpass | <"acl:relcl" ) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = nmod_agent
+    cause:MacroMolecule? = ${passive_agents}
 
 - name: dehydrolysis_subjnom1
   label: Dehydrolysis

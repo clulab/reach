@@ -48,5 +48,5 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:BioEntity = /compound|nmod_of|nmod_by/
+    controller:BioEntity = /compound|nmod_of|${passive_agents}/
     controlled:SimpleEvent = <nmod_following
