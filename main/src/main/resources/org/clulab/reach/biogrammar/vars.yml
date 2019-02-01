@@ -3,6 +3,7 @@ preps_site: "nmod_(at|on)|nmod_via|nmod_|nmod_in"
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
+nominal_passive_agents: "nmod_agent"
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
 conjunctions: "appos|conj_(and|or|nor)|conj_|conj"  # doesn't work!
 noun_modifiers: "amod|compound" # implemented

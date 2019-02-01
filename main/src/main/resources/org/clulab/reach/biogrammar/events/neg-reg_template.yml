@@ -15,7 +15,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (advcl_by|acl)? (${objects} | xcomp | ccomp) /conj|dep|${objects}|compound|amod|nmod_of|nmod_in$/{,2} (>> [word=by]){,2}
-    controller:${ controllerType } = <xcomp? (${agents} | /${passive_agents}/ | nsubjpass | <acl| <advcl) /appos|compound|amod|conj_|nmod_of|nmod_in$/{,2}
+    controller:${ controllerType } = <xcomp? (${agents} | ${nominal_passive_agents} | nsubjpass | <acl| <advcl) /appos|compound|amod|conj_|nmod_of|nmod_in$/{,2}
 # Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
