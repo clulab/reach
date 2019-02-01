@@ -159,6 +159,19 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     )
   }
 
+  /** implements the extraction of TextBoundMentions from all types of events---TBMentions, EventMentions, and
+    * RelationMentions; necessary because relationMentions may contain multiple TBMentions(?) and the previous
+    * implementation did not handle RelationMentions*/
+  def extractTB(m:Mention):Seq[TextBoundMention] = {
+    m match {
+      case tb:TextBoundMention => Seq(tb)
+      case ev:EventMention =>
+        Seq(ev.trigger) ++ ev.arguments.values.flatten.flatMap(extractTB)
+      case rl:RelationMention =>
+        rl.arguments.values.flatten.flatMap(extractTB).toSeq
+    }
+  }
+
   def mkJsonForReach(sentenceText: String, sent: Sentence, mentions: Seq[Mention]): Json.JsValueWrapper = {
     val topLevelTBM = mentions.flatMap {
       case m: TextBoundMention => Some(m)
@@ -182,15 +195,9 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       } yield a.asInstanceOf[EventMention].trigger
       e.trigger +: argTriggers.toSeq
     }
-    // collect arguments as text bound mentions
-    val entities = for {
-      e <- events ++ relations
-      a <- e.arguments.values.flatten
-    } yield a match {
-      case m: TextBoundMention => m
-      case m: RelationMention => ???
-      case m: EventMention => m.trigger
-    }
+
+
+    val entities = (events ++ relations).flatMap(extractTB)
     // generate id for each textbound mention
     val tbMentionToId = (entities ++ triggers ++ topLevelTBM)
       .distinct
@@ -265,18 +272,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   }
 
   def mkArgMentions(ev: Mention, tbmToId: Map[TextBoundMention, Int]): Seq[Json.JsValueWrapper] = {
-    val args = for {
-      argRole <- ev.arguments.keys
-      m <- ev.arguments(argRole)
-    } yield {
-      val arg = m match {
-        case m: TextBoundMention => m
-        case m: RelationMention => ???
-        case m: EventMention => m.trigger
-      }
-      mkArgMention(argRole, s"T${tbmToId(arg)}")
-    }
-    args.toSeq
+    ev.arguments.flatMap{
+      case (argRole, args) =>
+        args.flatMap(extractTB).map(tb => mkArgMention(argRole, s"T${tbmToId(tb)}"))
+    }.toSeq
   }
 
   def mkArgMention(argRole: String, id: String): Json.JsValueWrapper = {
