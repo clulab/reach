@@ -5,7 +5,8 @@ objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
 nominal_passive_agents: "nmod_agent"
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
-conjunctions: "appos|conj_(and|or|nor)|conj_|conj"  # doesn't work!
+conjunctions: "appos|conj|conj_"  # doesn't work!
+and_or_conjunctions: "conj_(and|or)"
 noun_modifiers: "amod|compound" # implemented
 adverbial_clause: "advcl|acl|(acl|advcl)_by|'acl:relcl'"  # doesn't work!
 dep: "dep"  # implemented

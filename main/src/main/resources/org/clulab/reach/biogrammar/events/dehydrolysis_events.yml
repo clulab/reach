@@ -88,7 +88,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^de-?hydrolyz/ & tag=/^VB[^N]?/]
     theme:BioChemicalEntity = ${objects} [!word=/^GAPs?$/]
-    cause:MacroMolecule? = (${agents} | (<xcomp? <"acl:relcl" <appos?))
+    cause:MacroMolecule? = (${agents} | (<xcomp? <"acl:relcl" </${conjunctions}/?))
 
 - name: dehydrolysis_pass1
   label: Dehydrolysis
