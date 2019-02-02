@@ -21,7 +21,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity =  </acl|advcl/ /conj_/*
+    theme:BioChemicalEntity =  </acl|advcl/ /${conjunctions}/*
     cause:BioChemicalEntity? = /${passive_agents}/
 
 
@@ -31,7 +31,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity = nsubjpass /conj_/*
+    theme:BioChemicalEntity = nsubjpass /${conjunctions}/*
     cause:BioChemicalEntity? = /${passive_agents}/
 
 
@@ -41,7 +41,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
-    theme:BioChemicalEntity = </${objects}/ ${agents} nmod_of? /conj_/*
+    theme:BioChemicalEntity = </${objects}/ ${agents} nmod_of? /${conjunctions}/*
     cause:BioChemicalEntity? = compound{1,2}
 
 
@@ -51,7 +51,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = nmod_of? compound{1,2} /conj_/*
+    theme:BioChemicalEntity = nmod_of? compound{1,2} /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 
@@ -61,7 +61,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = nmod_of compound{,2} /conj_/*
+    theme:BioChemicalEntity = nmod_of compound{,2} /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 
@@ -71,7 +71,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = <dep /conj_/*
+    theme:BioChemicalEntity = <dep /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 
@@ -81,5 +81,5 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = nmod_of /conj_/*
+    theme:BioChemicalEntity = nmod_of /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}

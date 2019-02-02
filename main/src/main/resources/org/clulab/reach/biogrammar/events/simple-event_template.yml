@@ -138,7 +138,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(VBN|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = /${passive_agents}/ /${noun_modifiers}|${conjunctions}/{,2}
-    theme:BioChemicalEntity = (</xcomp|appos/ | <"acl:relcl"){1,2} /${noun_modifiers}|${conjunctions}/{,2}
+    theme:BioChemicalEntity = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /${noun_modifiers}|${conjunctions}/{,2}
     site:Site? = /${objects}/? /nmod_(at|on)/ /${noun_modifiers}|${conjunctions}/{,2}
 
 - name: ${ eventName }_syntax_verb_underwent

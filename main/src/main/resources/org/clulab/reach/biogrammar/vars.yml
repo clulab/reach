@@ -10,3 +10,4 @@ and_or_conjunctions: "conj_(and|or)"
 noun_modifiers: "amod|compound" # implemented
 adverbial_clause: "advcl|acl|(acl|advcl)_by|'acl:relcl'"  # doesn't work!
 dep: "dep"  # implemented
+standalone_appositive: "appos"

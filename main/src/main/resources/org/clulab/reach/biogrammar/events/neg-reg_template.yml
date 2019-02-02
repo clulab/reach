@@ -52,7 +52,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = ${objects} /compound|amod|${conjunctions}/{,2}
-    controller:${ controllerType } = (< /xcomp|appos/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controller:${ controllerType } = (< /xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
 - name: Negative_${ ruleType }_syntax_6_verb
   priority: ${ priority }
   example: ""
@@ -60,7 +60,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
-    controlled:${ controlledType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controlled:${ controlledType } = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
     controller:${ controllerType } = /${passive_agents}/ /compound|amod|${conjunctions}|nmod_of|nmod_in$/{,2}
 - name: Negative_${ ruleType }_syntax_7_verb
   priority: ${ priority }
@@ -100,7 +100,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=/${passive_agents}/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = /nmod_of/ /${conjunctions}|compound|amod/{,2}
-    controller:${ controllerType } = /compound|amod/{1,2} | ${conjunctions} /${passive_agents}/ compound? #conj_or here
+    controller:${ controllerType } = /compound|amod/{1,2} | ${conjunctions} /${passive_agents}/ compound? 
 
 - name: Negative_${ ruleType }_syntax_5_noun
   priority: ${ priority }
@@ -140,7 +140,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = /${conjunctions}|compound|amod/{,2}
-    controller:${ controllerType } = /nmod_such_as|nmod_including|nmod_like/ (compound|appos)?
+    controller:${ controllerType } = /nmod_such_as|nmod_including|nmod_like/ (compound|${conjunctions})?
 - name: Negative_${ ruleType }_token_1_noun
   priority: ${ priority }
   example: "mTOR inhibitor Rapamycin"

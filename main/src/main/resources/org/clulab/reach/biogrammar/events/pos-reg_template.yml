@@ -21,8 +21,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = /(acl|advcl)_by/? (/${objects}|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
-      (/conj|dep|${objects}|compound|nmod_of|nmod_in$|amod/){,2}
-    controller:${ controllerType } = <xcomp? (${agents} | nsubjpass | /${passive_agents}/ | <acl| <advcl) /appos|compound|conj_|nmod_of|nmod_in$/{,2}
+      (/${conjunctions}|dep|${objects}|compound|nmod_of|nmod_in$|amod/){,2}
+    controller:${ controllerType } = <xcomp? (${agents} | nsubjpass | /${passive_agents}/ | <acl| <advcl) /compound|${conjunctions}|nmod_of|nmod_in$/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1a_verb #Added by jmculnan
@@ -54,8 +54,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
-    controlled:${ controlledType } = /${passive_agents}/ /conj|dep|${objects}|compound|nmod_of|nmod_in$|amod/{,2}
-    controller:${ controllerType } = <xcomp? (${agents} | /${passive_agents}/ | <acl| <advcl) /appos|compound|conj_|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = /${passive_agents}/ /${conjunctions}|dep|${objects}|compound|nmod_of|nmod_in$|amod/{,2}
+    controller:${ controllerType } = <xcomp? (${agents} | /${passive_agents}/ | <acl| <advcl) /compound|${conjunctions}|nmod_of|nmod_in$/{,2}
 
 
 # Note: Captures passive voice; thus verb must be VBD|VBN
@@ -65,8 +65,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (>/^nsubj/|${agents}|<acl|<advcl) /conj_|compound|dep|amod/{,2}
-    controller:${ controllerType } = (${passive_agents}) /conj_|compound|dep|amod|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = (>/^nsubj/|${agents}|<acl|<advcl) /${conjunctions}|compound|dep|amod/{,2}
+    controller:${ controllerType } = (${passive_agents}) /${conjunctions}|compound|dep|amod|nmod_of|nmod_in$/{,2}
 
 
 
@@ -77,8 +77,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ( (/nmod_[^b]|conj_|compound|amod/{,2}) | (< /nmod_|conj_|compound|amod/{1,2}) )
-    controller:${ controllerType } = <compound{,2} | (/${passive_agents}/) /compound|conj_|amod/{,2}
+    controlled:${ controlledType } = ( (/nmod_[^b]|${conjunctions}|compound|amod/{,2}) | (< /nmod_|${conjunctions}|compound|amod/{1,2}) )
+    controller:${ controllerType } = <compound{,2} | (/${passive_agents}/) /compound|${conjunctions}|amod/{,2}
 
 - name: Positive_${ ruleType }_syntax_3a_verb #Masha
   priority: ${ priority }
@@ -98,8 +98,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (nsubjpass /conj_|compound|amod/{,2})
-    controller:${ controllerType } = (/nmod_/ /conj_|compound|amod/{,2})? /nmod_/{,2} /${passive_agents}/ /conj_|compound|amod/{,2}
+    controlled:${ controlledType } = (nsubjpass /${conjunctions}|compound|amod/{,2})
+    controller:${ controllerType } = (/nmod_/ /${conjunctions}|compound|amod/{,2})? /nmod_/{,2} /${passive_agents}/ /${conjunctions}|compound|amod/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_5_verb
@@ -109,8 +109,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ${objects} /compound|amod|conj_/{,2}
-    controller:${ controllerType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
+    controlled:${ controlledType } = ${objects} /compound|amod|${conjunctions}/{,2}
+    controller:${ controllerType } = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_6_verb
@@ -120,8 +120,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
-    controlled:${ controlledType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
-    controller:${ controllerType } = /${passive_agents}/ /appos|compound|amod|conj_/{,2}
+    controlled:${ controlledType } = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controller:${ controllerType } = /${passive_agents}/ /compound|amod|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_7_verb
@@ -132,7 +132,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
     controlled:${ controlledType } = nmod_in$ | nmod_to
-    controller:${ controllerType } = (${agents} | <"acl:relcl") /appos|compound|amod|conj_/{,2}
+    controller:${ controllerType } = (${agents} | <"acl:relcl") /compound|amod|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_8_verb
@@ -143,7 +143,7 @@ rules:
   pattern: |
     trigger = [lemma=result] in [word=/(?i)^(${ triggers })/]
     controlled:${ controlledType } = nmod_of compound?
-    controller:${ controllerType } = ${agents} /appos|compound|nmod_of|amod|conj_/{,2}
+    controller:${ controllerType } = ${agents} /compound|nmod_of|amod|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1_noun
@@ -153,8 +153,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
-    controlled:${ controlledType } = /nmod_of|nmod_in$/ /compound|amod|conj_/{,2}
-    controller:${ controllerType } = /nmod_of/? /${passive_agents}/ (<dobj|${passive_agents}|compound|amod|nmod_of|nmod_in$){1,2} /compound|amod|conj_/{,2} # the nmod_of may appear due to bad syntax
+    controlled:${ controlledType } = /nmod_of|nmod_in$/ /compound|amod|${conjunctions}/{,2}
+    controller:${ controllerType } = /nmod_of/? /${passive_agents}/ (<dobj|${passive_agents}|compound|amod|nmod_of|nmod_in$){1,2} /compound|amod|${conjunctions}/{,2} # the nmod_of may appear due to bad syntax
 
 
 - name: Positive_${ ruleType }_syntax_2_noun
@@ -164,8 +164,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /nmod_of|nmod_in$/? /conj_|compound|amod/{1,2}
-    controller:${ controllerType } = /nmod_of/? /${passive_agents}/ /conj|compound|amod/{,2} # the nmod_of may appear due to bad syntax
+    controlled:${ controlledType } = /nmod_of|nmod_in$/? /${conjunctions}|compound|amod/{1,2}
+    controller:${ controllerType } = /nmod_of/? /${passive_agents}/ /${conjunctions}|compound|amod/{,2} # the nmod_of may appear due to bad syntax
 
 
 - name: Positive_${ ruleType }_syntax_3_noun
@@ -175,8 +175,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=/${passive_agents}/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]? (?! downstream)
-    controlled:${ controlledType } = /nmod_of|nmod_in$/ /conj_|compound|amod/{,2}
-    controller:${ controllerType } = /compound|amod/{1,2} | conj_or /${passive_agents}/ compound?
+    controlled:${ controlledType } = /nmod_of|nmod_in$/ /${conjunctions}|compound|amod/{,2}
+    controller:${ controllerType } = /compound|amod/{1,2} | ${conjunctions} /${passive_agents}/ compound? 
 
 
 - name: Positive_${ ruleType }_syntax_5_noun
@@ -186,8 +186,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = < /compound|amod/ > /nmod_/ /conj_|compound|amod/{,2}
-    controller:${ controllerType } = < /compound|amod/ /conj_|compound|amod/{,2}
+    controlled:${ controlledType } = < /compound|amod/ > /nmod_/ /${conjunctions}|compound|amod/{,2}
+    controller:${ controllerType } = < /compound|amod/ /${conjunctions}|compound|amod/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_6_noun
@@ -197,8 +197,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|conj_/{,2}){1,2}
-    controller:${ controllerType } = <nmod_via (${passive_agents}) /compound|amod|conj_/{,2}
+    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|${conjunctions}/{,2}){1,2}
+    controller:${ controllerType } = <nmod_via (${passive_agents}) /compound|amod|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_7_noun
@@ -208,8 +208,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = <dep /compound|amod|conj_/{,2}
-    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|conj_/{,2}){1,2}
+    controller:${ controllerType } = <dep /compound|amod|${conjunctions}/{,2}
+    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|${conjunctions}/{,2}){1,2}
 
 
 # Captures common Hearst patterns: hypernym such as hyponym
@@ -220,8 +220,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /conj_|compound|amod/{,2}
-    controller:${ controllerType } = /nmod_such_as|nmod_including|nmod_like/ (compound|appos)?
+    controlled:${ controlledType } = /${conjunctions}|compound|amod/{,2}
+    controller:${ controllerType } = /nmod_such_as|nmod_including|nmod_like/ (compound|${conjunctions})?
 
 
 - name: Positive_${ ruleType }_copula_1
@@ -318,7 +318,7 @@ rules:
 #    trigger = [lemma=result] in # TODO: expand lemma pattern for trigger
 #    # xcomp for "A, resulting in B" pattern
 #    controller:${ controllerType } = ${agents}|xcomp
-#    controlled:${ controlledType } = nmod_in (nn|appos)?
+#    controlled:${ controlledType } = nmod_in (nn|${conjunctions})?
 
 
 - name: Positive_${ ruleType }_nested_syntax_2_verb
