@@ -11,7 +11,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|${objects}|xcomp/]
+    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|${objects}|${complements}/]
     theme1:BioChemicalEntity+ = <"acl:relcl" /${conjunctions}/{,2} | ${agents} /compound|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
 
 - name: binding1b
@@ -21,7 +21,7 @@ rules:
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = <"acl:relcl" /${conjunctions}/{,2} | ${agents} /compound|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
-    theme2:BioChemicalEntity+ = ${objects} /compound|${conjunctions}/{,2} | xcomp? /nmod_(to|with)/
+    theme2:BioChemicalEntity+ = ${objects} /compound|${conjunctions}/{,2} | /${complements}/? /nmod_(to|with)/
 
 - name: binding1forms
   label: Binding
@@ -142,7 +142,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = /cooperation|affinity|association|interaction/
-      theme1:BioChemicalEntity+ = </nmod_(of|to)/{,2} xcomp? nmod_between /${conjunctions}/?
+      theme1:BioChemicalEntity+ = </nmod_(of|to)/{,2} /${complements}/? nmod_between /${conjunctions}/?
 
 ## Commented out because of event overgeneration in cases like
 ## "We analyze the associations between KRAS and BRAF mutations and patients' clinicopathological characteristics."
@@ -173,7 +173,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = /interact(s|ed)?/
-      theme1:BioChemicalEntity+ = (${agents} </${conjunctions}/{,2} | >/${conjunctions}/ <ccomp >nsubjpass)
+      theme1:BioChemicalEntity+ = (${agents} </${conjunctions}/{,2} | >/${conjunctions}/ </${complements}/ >nsubjpass)
       theme2:BioChemicalEntity+ = nmod_with
 
 - name: binding14
@@ -278,7 +278,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=binding & tag=VBG] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = <amod <nmod_of <xcomp{,2} ${agents}
+    theme1:BioChemicalEntity+ = <amod <nmod_of </${complements}/{,2} ${agents}
     theme2:BioChemicalEntity+ = <amod
 
 - name: binding_syntax_26_verb
@@ -298,7 +298,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=bind & tag=VB]
-    theme1:BioChemicalEntity+ = <xcomp [lemma="able"] ${agents}
+    theme1:BioChemicalEntity+ = </${complements}/ [lemma="able"] ${agents}
     theme2:BioChemicalEntity+ = ${objects}
 
 

@@ -20,9 +20,9 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = /(acl|advcl)_by/? (/${objects}|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
+    controlled:${ controlledType } = /(acl|advcl)_by/? (/${objects}|${complements}/ [!lemma=/resistance|sensitivity/])
       (/${conjunctions}|dep|${objects}|compound|nmod_of|nmod_in$|amod/){,2}
-    controller:${ controllerType } = <xcomp? (${agents} | nsubjpass | /${passive_agents}/ | <acl| <advcl) /compound|${conjunctions}|nmod_of|nmod_in$/{,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | nsubjpass | /${passive_agents}/ | <acl| <advcl) /compound|${conjunctions}|nmod_of|nmod_in$/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1a_verb #Added by jmculnan
@@ -32,7 +32,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ posTriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ccomp ${objects}
+    controlled:${ controlledType } = /${complements}/ ${objects}
     controller:${ controllerType } = /${passive_agents}/ nmod_of?
 
 - name: Positive_${ ruleType }_syntax_1b_verb
@@ -43,7 +43,7 @@ rules:
   pattern: |
     trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
     controlled:${ controlledType } = ${objects} /compound|amod/{,2}
-    controller:${ controllerType } = <xcomp? (${agents} | /${passive_agents}/) compound{,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | /${passive_agents}/) compound{,2}
 
 
 # Handles occurrence of nmod_by when NOT passive voice
@@ -55,7 +55,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
     controlled:${ controlledType } = /${passive_agents}/ /${conjunctions}|dep|${objects}|compound|nmod_of|nmod_in$|amod/{,2}
-    controller:${ controllerType } = <xcomp? (${agents} | /${passive_agents}/ | <acl| <advcl) /compound|${conjunctions}|nmod_of|nmod_in$/{,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | /${passive_agents}/ | <acl| <advcl) /compound|${conjunctions}|nmod_of|nmod_in$/{,2}
 
 
 # Note: Captures passive voice; thus verb must be VBD|VBN
@@ -110,7 +110,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = ${objects} /compound|amod|${conjunctions}/{,2}
-    controller:${ controllerType } = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controller:${ controllerType } = (</${complements}|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_6_verb
@@ -120,7 +120,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
-    controlled:${ controlledType } = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controlled:${ controlledType } = (</${complements}|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
     controller:${ controllerType } = /${passive_agents}/ /compound|amod|${conjunctions}/{,2}
 
 
@@ -317,7 +317,7 @@ rules:
 #  pattern: |
 #    trigger = [lemma=result] in # TODO: expand lemma pattern for trigger
 #    # xcomp for "A, resulting in B" pattern
-#    controller:${ controllerType } = ${agents}|xcomp
+#    controller:${ controllerType } = ${agents}|/${complements}/
 #    controlled:${ controlledType } = nmod_in (nn|${conjunctions})?
 
 
@@ -330,6 +330,6 @@ rules:
     # TODO: expand lemma pattern for trigger
     trigger = [lemma=lead] to
     # xcomp for "A, leading to B" pattern
-    controller:${ controllerType } = ${agents}|xcomp
+    controller:${ controllerType } = ${agents}|/${complements}/
     # "leading to activation"
     controlled:${ controlledType } = (?= nmod_to [word=/(?i)^(${ triggers })/]) nmod_to nmod_of? compound?

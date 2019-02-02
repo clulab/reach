@@ -14,8 +14,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (advcl_by|acl)? (${objects} | xcomp | ccomp) /${conjunctions}|dep|${objects}|compound|amod|nmod_of|nmod_in$/{,2} (>> [word=by]){,2}
-    controller:${ controllerType } = <xcomp? (${agents} | ${nominal_passive_agents} | nsubjpass | <acl| <advcl) /compound|amod|${conjunctions}|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = (advcl_by|acl)? (${objects} | ${complements}) /${conjunctions}|dep|${objects}|compound|amod|nmod_of|nmod_in$/{,2} (>> [word=by]){,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | ${nominal_passive_agents} | nsubjpass | <acl| <advcl) /compound|amod|${conjunctions}|nmod_of|nmod_in$/{,2}
 # Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
@@ -52,7 +52,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = ${objects} /compound|amod|${conjunctions}/{,2}
-    controller:${ controllerType } = (< /xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controller:${ controllerType } = (< /${complements}|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
 - name: Negative_${ ruleType }_syntax_6_verb
   priority: ${ priority }
   example: ""
@@ -60,7 +60,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
-    controlled:${ controlledType } = (</xcomp|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
+    controlled:${ controlledType } = (</${complements}|${standalone_appositive}/ | <"acl:relcl"){1,2} /compound|amod|${conjunctions}/{,2}
     controller:${ controllerType } = /${passive_agents}/ /compound|amod|${conjunctions}|nmod_of|nmod_in$/{,2}
 - name: Negative_${ ruleType }_syntax_7_verb
   priority: ${ priority }

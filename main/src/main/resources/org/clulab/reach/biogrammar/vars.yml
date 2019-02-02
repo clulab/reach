@@ -12,3 +12,4 @@ adverbial_clause: "advcl|acl|(acl|advcl)_by"  # doesn't work!
 dep: "dep"  # implemented
 standalone_appositive: "appos"
 relative_clause: "'acl:relcl'" #for the cases where it has to be only relcl, but not any other kind of clause
+complements: "xcomp|ccomp"

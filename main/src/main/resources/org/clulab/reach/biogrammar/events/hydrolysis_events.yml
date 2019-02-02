@@ -37,8 +37,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (</${agents}/ dep ccomp ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = </${agents}/ dep ccomp nmod_to
+    protein:BioChemicalEntity = (</${agents}/ dep /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = </${agents}/ dep /${complements}/ nmod_to
 
 - name: hydrolysis_3
   label: Hydrolysis
@@ -88,7 +88,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=/^VB[^N]?/]
     theme:BioChemicalEntity = ${objects} [!word=/^GAPs?$/]
-    cause:MacroMolecule? = (${agents} | (<xcomp? <"acl:relcl" </${conjunctions}/?))
+    cause:MacroMolecule? = (${agents} | (</${complements}/? <"acl:relcl" </${conjunctions}/?))
 
 - name: hydrolysis_pass1
   label: Hydrolysis
