@@ -8,6 +8,7 @@ passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
 conjunctions: "appos|conj|conj_"  # doesn't work!
 and_or_conjunctions: "conj_(and|or)"
 noun_modifiers: "amod|compound" # implemented
-adverbial_clause: "advcl|acl|(acl|advcl)_by|'acl:relcl'"  # doesn't work!
+adverbial_clause: "advcl|acl|(acl|advcl)_by"  # doesn't work!
 dep: "dep"  # implemented
 standalone_appositive: "appos"
+relative_clause: "'acl:relcl'" #for the cases where it has to be only relcl, but not any other kind of clause
