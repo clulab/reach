@@ -11,6 +11,7 @@ noun_modifiers: "amod|compound" # implemented
 dep: "dep"  # implemented
 standalone_appositive: "appos"
 complements: "xcomp|ccomp"
-adjective_clause: "acl|acl_by|'acl:relcl'|<'acl:relcl'"
+adjective_clause: "acl|acl_by"
 relative_clause: "'acl:relcl'|<'acl:relcl'" #sometimes has to only be relative clause, not any adjective clause
 adverbial_clause: "advcl|advcl_by"
+#TODO: variables in https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars

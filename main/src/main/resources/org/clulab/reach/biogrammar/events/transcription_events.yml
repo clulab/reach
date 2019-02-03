@@ -21,7 +21,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity =  </acl|advcl/ /${conjunctions}/*
+    theme:BioChemicalEntity =  </${adjective_clause}|${adverbial_clause}/ /${conjunctions}/*
     cause:BioChemicalEntity? = /${passive_agents}/
 
 

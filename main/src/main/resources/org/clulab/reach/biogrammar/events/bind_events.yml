@@ -228,7 +228,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = /${adjective_clause}/{,2} nmod_between
+    theme1:BioChemicalEntity+ = /${relative_clause}/{,2} nmod_between
 
 - name: binding_21
   label: Binding
@@ -256,7 +256,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma="bind" & tag=/^V/]
-    theme1:BioChemicalEntity+ = (${agents}|</${adjective_clause}/) /nmod_of|compound|${conjunctions}/{,2} </${conjunctions}/?
+    theme1:BioChemicalEntity+ = (${agents}|</${relative_clause}/) /nmod_of|compound|${conjunctions}/{,2} </${conjunctions}/?
     site:Site? = ${agents} | (${objects} nmod_at) # domain-style pattern
     theme2:BioChemicalEntity+ = ${objects} /nmod_of|nmod_with|compound|${conjunctions}/{,2}
 
@@ -378,8 +378,8 @@ rules:
   example: "Src tyrosyl phosphorylates Ras that is GTP bound"
   pattern: |
     trigger = [word=bound & tag=/^VB(D|N)$/]
-    theme1:BioChemicalEntity+ = (< /${adjective_clause}/ | </${adverbial_clause}/)
-    theme2:BioChemicalEntity+ = (< /${adjective_clause}/ | </${adverbial_clause}/) (< /${adjective_clause}/ | /${adjective_clause}/)
+    theme1:BioChemicalEntity+ = (< /${adjective_clause} |${relative_clause}| ${adverbial_clause}/)
+    theme2:BioChemicalEntity+ = (< /${adjective_clause} |${relative_clause}| ${adverbial_clause}/) (< /${adjective_clause}/ | /${relative_clause}/)
 
 - name: binding_thatisbound_surface
   label: Binding

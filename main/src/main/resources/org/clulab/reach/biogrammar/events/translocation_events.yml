@@ -41,7 +41,7 @@ rules:
     theme:BioChemicalEntity = ${objects}
     source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component? = nmod_from? nmod_to /${conjunctions}|compound|dep/{,2}
-    cause:BioChemicalEntity? = ${agents} | <"acl:relcl" </${conjunctions}/
+    cause:BioChemicalEntity? = ${agents} | </${relative_clause}/ </${conjunctions}/
 
 
 - name: translocation_2b_verb_apposition
@@ -54,7 +54,7 @@ rules:
     theme:BioChemicalEntity = ${objects}
     source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component = nmod_from? nmod_to /${conjunctions}|compound|dep/{,2}
-    cause:BioChemicalEntity? = (<"acl:relcl"| ${agents}) </${conjunctions}/
+    cause:BioChemicalEntity? = (</${relative_clause}/| ${agents}) </${conjunctions}/
 
 
 - name: translocation_3a_verb_passive
@@ -64,7 +64,7 @@ rules:
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
-    theme:BioChemicalEntity = (nsubjpass | <"acl:relcl") </${conjunctions}/
+    theme:BioChemicalEntity = (nsubjpass | </${relative_clause}/) </${conjunctions}/
     source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component? = nmod_from? nmod_to /${conjunctions}|compound|dep/{,2}
     cause:BioChemicalEntity? = /${passive_agents}/ | /nmod_(to|from)/{,2} /${passive_agents}/
@@ -77,7 +77,7 @@ rules:
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
-    theme:BioChemicalEntity = nsubjpass | <"acl:relcl" </${conjunctions}/
+    theme:BioChemicalEntity = nsubjpass | </${relative_clause}/ </${conjunctions}/
     source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component = nmod_from? nmod_to /${conjunctions}|compound|dep/{,2}
     cause:BioChemicalEntity? = /${passive_agents}/ | /nmod_(to|from)/{,2} /${passive_agents}/
