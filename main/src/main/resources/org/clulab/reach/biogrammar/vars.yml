@@ -5,11 +5,12 @@ objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
 nominal_passive_agents: "nmod_agent"
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
-conjunctions: "appos|conj|conj_"  # doesn't work!
-and_or_conjunctions: "conj_(and|or)"
+conjunctions: "appos|conj|conj_"  #done?
+and_or_conjunctions: "conj_(and|or)" #done?
 noun_modifiers: "amod|compound" # implemented
-adverbial_clause: "advcl|acl|(acl|advcl)_by"  # doesn't work!
 dep: "dep"  # implemented
 standalone_appositive: "appos"
-relative_clause: "'acl:relcl'" #for the cases where it has to be only relcl, but not any other kind of clause
 complements: "xcomp|ccomp"
+adjective_clause: "acl|acl_by|'acl:relcl'|<'acl:relcl'"
+relative_clause: "'acl:relcl'|<'acl:relcl'" #sometimes has to only be relative clause, not any adjective clause
+adverbial_clause: "advcl|advcl_by"

@@ -22,7 +22,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = </${complements}/? (${agents} |/${passive_agents}/ | </${adverbial_clause}/|</${relative_clause}/) (</${conjunctions}/|/${agents}|${noun_modifiers}|${conjunctions}/){,2}
+    cause:BioChemicalEntity? = </${complements}/? (${agents} |/${passive_agents}/ | </${adverbial_clause}|${adjective_clause}/) (</${conjunctions}/|/${agents}|${noun_modifiers}|${conjunctions}/){,2}
     theme:BioChemicalEntity = (${objects} | ${complements}) /${conjunctions}|${dep}|${noun_modifiers}|nmod_of/{,2} (>> [word=by]){,2}
     site:Site? = /${objects}/? /nmod_(at|on)|${noun_modifiers}|${conjunctions}/{,2}
 
@@ -33,7 +33,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = </${complements}/? (${agents} | /${passive_agents}/ | </${adverbial_clause}/)  (</${conjunctions}/|/${noun_modifiers}|${conjunctions}/{,2}) #becky and marco #/appos|${noun_modifiers}|conj_(and|or|nor)/{,2}
+    cause:BioChemicalEntity? = </${complements}/? (${agents} | /${passive_agents}/ | </${adjective_clause}/| </${adverbial_clause}/)  (</${conjunctions}/|/${noun_modifiers}|${conjunctions}/{,2}) #becky and marco #/appos|${noun_modifiers}|conj_(and|or|nor)/{,2}
     site:Site? = (${objects} | /${complements}/)? /nmod_(at|on)|${conjunctions}|${dep}|${noun_modifiers}|nmod_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = /${objects}/? /nmod_(at|on)|${noun_modifiers}|${conjunctions}/{,2}
 
@@ -44,7 +44,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = (/${passive_agents}/) (/${adverbial_clause}/ ${objects})? /${conjunctions}|${noun_modifiers}|nmod_of/{,2}
+    cause:BioChemicalEntity? = (/${passive_agents}/) (/${adverbial_clause}|${adjective_clause}/ ${objects})? /${conjunctions}|${noun_modifiers}|nmod_of/{,2}
     theme:BioChemicalEntity = >nsubjpass nmod_of? /${conjunctions}|${noun_modifiers}/{,2}
     site:Site? = (/${passive_agents}/ /${conjunctions}|${noun_modifiers}|nmod_of/{,2})? /nmod_(at|on)|${conjunctions}/{1,2}
 
@@ -56,8 +56,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity = (/${passive_agents}/) ((/${adverbial_clause}/) ${objects})? /${conjunctions}|${noun_modifiers}|nmod_of/{,2}
-    theme:BioChemicalEntity = </${adverbial_clause}/ /${conjunctions}|${noun_modifiers}/{,2}
+    cause:BioChemicalEntity = (/${passive_agents}/) ((${adverbial_clause}|${adjective_clause}) ${objects})? /${conjunctions}|${noun_modifiers}|nmod_of/{,2}
+    theme:BioChemicalEntity = </${adverbial_clause}|${adjective_clause}/ /${conjunctions}|${noun_modifiers}/{,2}
     site:Site? = (/${passive_agents}/ /${conjunctions}|${noun_modifiers}|nmod_of/{,2})? /nmod_(at|on)|${conjunctions}/{1,2}
 
 

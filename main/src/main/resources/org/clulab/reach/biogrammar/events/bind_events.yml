@@ -12,7 +12,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|${objects}|${complements}/]
-    theme1:BioChemicalEntity+ = <"acl:relcl" /${conjunctions}/{,2} | ${agents} /compound|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
+    theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /compound|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
 
 - name: binding1b
   label: Binding
@@ -20,7 +20,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = <"acl:relcl" /${conjunctions}/{,2} | ${agents} /compound|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
+    theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /compound|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
     theme2:BioChemicalEntity+ = ${objects} /compound|${conjunctions}/{,2} | /${complements}/? /nmod_(to|with)/
 
 - name: binding1forms
@@ -125,7 +125,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/bind|ligate/ & tag=/^V/]
-      theme1:BioChemicalEntity+ = </acl|advcl/ <nmod_with?
+      theme1:BioChemicalEntity+ = </${adjective_clause}|${adverbial_clause}/ <nmod_with?
 
 - name: binding10b
   label: Binding
@@ -133,7 +133,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/bind|ligate/ & tag=/^V/]
-      theme1:BioChemicalEntity = </acl|advcl/
+      theme1:BioChemicalEntity = </${adjective_clause}|${adverbial_clause}/
       theme2:BioChemicalEntity = /nmod_with|nmod_to/
 
 - name: binding11
@@ -182,7 +182,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = /interactions?/
-      theme1:BioChemicalEntity+ = </${objects}/ <"acl:relcl" >dep >/${conjunctions}/?
+      theme1:BioChemicalEntity+ = </${objects}/ </${adjective_clause}/ >dep >/${conjunctions}/?
 
 - name: binding_16
   label: Binding
@@ -190,7 +190,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=/ligate(s|d)?/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = </acl|advcl/ | ${agents}
+    theme1:BioChemicalEntity+ = </${adjective_clause}|${adverbial_clause}/ | ${agents}
     theme2:BioChemicalEntity* = /nmod_to|nmod_with/
 
 # ms: removed "associate", and "interact" from this rule. Too ambiguous
@@ -201,7 +201,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = (nsubjpass |<"acl:relcl") </${conjunctions}/?
+    theme1:BioChemicalEntity+ = (nsubjpass |</${adjective_clause}/) </${conjunctions}/?
     theme2:BioChemicalEntity+ = /${passive_agents}|nmod_to|nmod_with/ compound{,2} | ${objects} compound{,2}
 
 - name: binding_18
@@ -228,7 +228,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = ("acl:relcl"){,2} nmod_between
+    theme1:BioChemicalEntity+ = /${adjective_clause}/{,2} nmod_between
 
 - name: binding_21
   label: Binding
@@ -256,7 +256,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma="bind" & tag=/^V/]
-    theme1:BioChemicalEntity+ = (${agents}|<"acl:relcl") /nmod_of|compound|${conjunctions}/{,2} </${conjunctions}/?
+    theme1:BioChemicalEntity+ = (${agents}|</${adjective_clause}/) /nmod_of|compound|${conjunctions}/{,2} </${conjunctions}/?
     site:Site? = ${agents} | (${objects} nmod_at) # domain-style pattern
     theme2:BioChemicalEntity+ = ${objects} /nmod_of|nmod_with|compound|${conjunctions}/{,2}
 
@@ -288,7 +288,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=bind & tag=VB]
-    theme1:BioChemicalEntity+ = <acl_to [lemma="ability"] </${objects}/ [lemma=/exhibit|have|show|display/] ${agents}
+    theme1:BioChemicalEntity+ = </${adjective_clause}/ [lemma="ability"] </${objects}/ [lemma=/exhibit|have|show|display/] ${agents}
     theme2:BioChemicalEntity+ = ${objects}
 
 - name: binding_syntax_27_verb
@@ -378,8 +378,8 @@ rules:
   example: "Src tyrosyl phosphorylates Ras that is GTP bound"
   pattern: |
     trigger = [word=bound & tag=/^VB(D|N)$/]
-    theme1:BioChemicalEntity+ = (<"acl:relcl" | <acl| <advcl)
-    theme2:BioChemicalEntity+ = (<"acl:relcl" | <acl| <advcl) (<"acl:relcl" | "acl:relcl")
+    theme1:BioChemicalEntity+ = (< /${adjective_clause}/ | </${adverbial_clause}/)
+    theme2:BioChemicalEntity+ = (< /${adjective_clause}/ | </${adverbial_clause}/) (< /${adjective_clause}/ | /${adjective_clause}/)
 
 - name: binding_thatisbound_surface
   label: Binding
