@@ -62,6 +62,17 @@ rules:
       triggerPrefix: "!word=/(?i)^(de|auto)/"
       priority: "7"
 
+  # Phosphorylations
+  - import: org/clulab/reach/biogrammar/events/early_simple-event_template.yml
+    vars:
+      eventName: "Phosphorylation"
+      actionFlow: "mkBioMention"
+      label: "Phosphorylation"
+      verbalTriggerLemma: "phosphorylate"
+      nominalTriggerLemma: "phosphorylation"
+      triggerPrefix: "!word=/(?i)^(de|auto)/"
+      priority: "6"
+
   # AutoPhosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event-auto_template.yml
     vars:
