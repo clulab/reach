@@ -1,5 +1,6 @@
-preps_theme: "nmod_of|nmod_(to|with)"
-preps_site: "nmod_(at|on)|nmod_via|nmod_|nmod_in"
+# preps_theme: "nmod_of|nmod_(to|with)"
+# preps_site: "nmod_(at|on)|nmod_via|nmod_|nmod_in"
+preps: "nmod_(at|on|via|in|to|with)|nmod_|nmod_[^bt]|^nmod_o[nf]$"
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
@@ -7,7 +8,7 @@ nominal_passive_agents: "nmod_agent" # implemented for all events
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
 conjunctions: "appos|conj|conj_"  # implemented for all events
 and_or_conjunctions: "conj_(and|or)" # implemented for all events
-noun_modifiers: "amod|compound" # implemented for all events
+noun_modifiers: "amod|compound" # implemented for all events (only for simple)
 dep: "dep"  # implemented for all events
 standalone_appositive: "appos" # implemented for all events
 complements: "xcomp|ccomp" # implemented for all events
@@ -15,3 +16,4 @@ adjective_clause: "acl|acl_by" # implemented for all events
 relative_clause: "'acl:relcl'|<'acl:relcl'" #sometimes has to only be relative clause, not any adjective clause; implemented for all events
 adverbial_clause: "advcl|advcl_by" # implemented for all events
 #TODO: variables in https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
+#TODO: "nmod:npmod"?? nmod:poss?
