@@ -33,7 +33,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = </${complements}/? (${agents} | /${passive_agents}/ | </${adjective_clause}/| </${adverbial_clause}/)  (</${conjunctions}/|/${noun_modifiers}|${conjunctions}/{,2}) #becky and marco #/appos|${noun_modifiers}|conj_(and|or|nor)/{,2}
+    cause:BioChemicalEntity? = </${complements}/? (${agents} | /${passive_agents}/ | </${adjective_clause}/| </${adverbial_clause}/)  (</${conjunctions}/|/${noun_modifiers}|${conjunctions}/{,2}) #becky and marco #/${standalone_appositive}|${noun_modifiers}|conj_(and|or|nor)/{,2}
     site:Site? = (${objects} | /${complements}/)? /nmod_(at|on)|${conjunctions}|${dep}|${noun_modifiers}|nmod_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = /${objects}/? /nmod_(at|on)|${noun_modifiers}|${conjunctions}/{,2}
 

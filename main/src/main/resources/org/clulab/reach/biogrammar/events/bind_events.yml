@@ -68,7 +68,7 @@ rules:
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity* = "nmod:poss"
-      theme2:BioChemicalEntity+ = <compound (compound{,2} | <dep)
+      theme2:BioChemicalEntity+ = <compound (compound{,2} | </${dep}/)
       #dummy: <compound >compound [word=/protein|domain|site/]
 
 
@@ -182,7 +182,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = /interactions?/
-      theme1:BioChemicalEntity+ = </${objects}/ </${adjective_clause}/ >dep >/${conjunctions}/?
+      theme1:BioChemicalEntity+ = </${objects}/ </${adjective_clause}/ >/${dep}/ >/${conjunctions}/?
 
 - name: binding_16
   label: Binding
@@ -210,8 +210,8 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = binding (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = </${conjunctions}/{,2} nmod dep{1,2} (/nmod_(to|with)/)?
-    theme2:BioChemicalEntity+ = </${conjunctions}/{,2} nmod dep{1,2} (/nmod_(to|with)/)?
+    theme1:BioChemicalEntity+ = </${conjunctions}/{,2} nmod /${dep}/{1,2} (/nmod_(to|with)/)?
+    theme2:BioChemicalEntity+ = </${conjunctions}/{,2} nmod /${dep}/{1,2} (/nmod_(to|with)/)?
 
 - name: binding_19
   label: Binding

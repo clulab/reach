@@ -71,7 +71,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = <dep /${conjunctions}/*
+    theme:BioChemicalEntity = </${dep}/ /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 

@@ -26,7 +26,7 @@ rules:
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated dehydrolysis"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (compound | </${dep}/) [!word=/^GAPs?$/]
     protein:BioChemicalEntity = <nmod_to | nmod_for [!word=/^GAPs?$/]
 
 - name: dehydrolysis_2wrong
@@ -36,9 +36,9 @@ rules:
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated dehydrolysis"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (</${agents}/ dep /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = </${agents}/ dep /${complements}/ nmod_to
+    theme:BioChemicalEntity = (compound | </${dep}/) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ nmod_to
 
 - name: dehydrolysis_3
   label: Dehydrolysis
@@ -47,7 +47,7 @@ rules:
   example: "No increase in the rate of GTP dehydrolysis was observed for mUbRas"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (compound | </${dep}/) [!word=/^GAPs?$/]
     protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|nmod_in/ [!word=/^GAPs?$/]
 
 - name: dehydrolysis_4
