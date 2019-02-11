@@ -11,7 +11,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^N/]
-    theme:BioChemicalEntity = compound{1,2}
+    theme:BioChemicalEntity = /${noun_modifiers}/{1,2}
     cause:BioChemicalEntity? = /${passive_agents}/
 
 
@@ -42,7 +42,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
     theme:BioChemicalEntity = </${objects}/ ${agents} nmod_of? /${conjunctions}/*
-    cause:BioChemicalEntity? = compound{1,2}
+    cause:BioChemicalEntity? = /${noun_modifiers}/{1,2}
 
 
 - name: transcription_1
@@ -50,8 +50,8 @@ rules:
   example: "When looking at oxaliplatin, it can be concluded that when B-Raf is wild type (regardless of K-Ras mutation), increased levels of p73 protein correlate enhanced TAp73 transcription, in the presence of cetuximab (cetuximab or cetuximab plus oxaliplatin)."
   label: Transcription
   pattern: |
-    trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = nmod_of? compound{1,2} /${conjunctions}/*
+    trigger = [lemma=/transcription|expression/ & !outgoing=/${noun_modifiers}/]
+    theme:BioChemicalEntity = nmod_of? /${noun_modifiers}/{1,2} /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 
@@ -60,8 +60,8 @@ rules:
   example: "expression of NRF2 by Kras"
   label: Transcription
   pattern: |
-    trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = nmod_of compound{,2} /${conjunctions}/*
+    trigger = [lemma=/transcription|expression/ & !outgoing=/${noun_modifiers}/]
+    theme:BioChemicalEntity = nmod_of /${noun_modifiers}/{,2} /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 

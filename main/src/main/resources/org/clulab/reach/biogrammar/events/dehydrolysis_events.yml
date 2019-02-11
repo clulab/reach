@@ -15,7 +15,7 @@ rules:
   example: "We compared the rate of GTP dehydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (<compound? compound) | (nmod_of compound?) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (</${noun_modifiers}/? ${noun_modifiers}) | (nmod_of /${noun_modifiers}/?) [!word=/^GAPs?$/]
     protein:BioChemicalEntity? = <nmod_of? </${objects}/? (nmod_for | nmod_on) [!word=/^GAPs?$/]
     cause:MacroMolecule = /${passive_agents}/
 
@@ -26,7 +26,7 @@ rules:
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated dehydrolysis"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | </${dep}/) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
     protein:BioChemicalEntity = <nmod_to | nmod_for [!word=/^GAPs?$/]
 
 - name: dehydrolysis_2wrong
@@ -36,7 +36,7 @@ rules:
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated dehydrolysis"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | </${dep}/) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
     protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
     cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ nmod_to
 
@@ -47,7 +47,7 @@ rules:
   example: "No increase in the rate of GTP dehydrolysis was observed for mUbRas"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | </${dep}/) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
     protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|nmod_in/ [!word=/^GAPs?$/]
 
 - name: dehydrolysis_4
@@ -57,8 +57,8 @@ rules:
   example: "RasPDZ2UL retains intrinsic GTP dehydrolysis activity"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (<compound)? compound [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (<compound)? </${objects}/ [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] ${agents} [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (</${noun_modifiers}/)? ${noun_modifiers} [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (</${noun_modifiers}/)? </${objects}/ [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] ${agents} [!word=/^GAPs?$/]
 
 - name: dehydrolysis_token_1
   label: Dehydrolysis
@@ -108,4 +108,4 @@ rules:
   pattern: |
     trigger = [word=/(?i)^de-?hydrolysis/]
     theme:BioChemicalEntity = nmod_of [!word=/^GAPs?$/]
-    cause:MacroMolecule? = compound
+    cause:MacroMolecule? = ${noun_modifiers}

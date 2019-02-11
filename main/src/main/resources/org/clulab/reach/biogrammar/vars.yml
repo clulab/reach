@@ -8,7 +8,8 @@ nominal_passive_agents: "nmod_agent" # implemented for all events
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
 conjunctions: "appos|conj|conj_"  # implemented for all events
 and_or_conjunctions: "conj_(and|or)" # implemented for all events
-noun_modifiers: "amod|compound" # implemented for all events (only for simple)
+noun_modifiers: "amod|compound" # implemented for all events
+# TODO:  'compound' with specified lemma in pos-reg-only_template
 dep: "dep"  # implemented for all events
 standalone_appositive: "appos" # implemented for all events
 complements: "xcomp|ccomp" # implemented for all events
