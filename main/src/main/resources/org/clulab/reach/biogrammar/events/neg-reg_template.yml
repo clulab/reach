@@ -100,7 +100,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=/${passive_agents}/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = /nmod_of/ /${conjunctions}|${noun_modifiers}/{,2}
-    controller:${ controllerType } = /${noun_modifiers}/{1,2} | ${conjunctions} /${passive_agents}/ compound? 
+    controller:${ controllerType } = /${noun_modifiers}/{1,2} | ${conjunctions} /${passive_agents}/ compound?
 
 - name: Negative_${ ruleType }_syntax_5_noun
   priority: ${ priority }

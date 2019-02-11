@@ -6,7 +6,8 @@ genitive_case_marker: "nmod_of"
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
-nominal_passive_agents: "nmod_agent" # implemented for all events
+passive_voice_subject: "nsubjpass"
+nominal_passive_agents: "nmod_agent" # has to be separated from other passive agents
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
 conjunctions: "appos|conj|conj_"  # implemented for all events
 and_or_conjunctions: "conj_(and|or)" # implemented for all events
