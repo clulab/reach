@@ -7,12 +7,12 @@ genitive_case_marker: "nmod_of"
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
-nominal_passive_agents: "nmod_agent" # implemented for all events
+passive_voice_subject: "nsubjpass"
+nominal_passive_agents: "nmod_agent" # has to be separated from other passive agents
 passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented for all events
 conjunctions: "appos|conj|conj_"  # implemented for all events
 and_or_conjunctions: "conj_(and|or)" # implemented for all events
-noun_modifiers: "amod|compound" # implemented for all events
-# TODO:  'compound' with specified lemma in pos-reg-only_template
+noun_modifiers: "amod|compound|advmod|'nmod:poss'|'nmod:npmod'|nummod" # implemented for all events (only for simple)
 dep: "dep"  # implemented for all events
 standalone_appositive: "appos" # implemented for all events
 complements: "xcomp|ccomp" # implemented for all events
@@ -20,4 +20,4 @@ adjective_clause: "acl|acl_by" # implemented for all events
 relative_clause: "'acl:relcl'|<'acl:relcl'" #sometimes has to only be relative clause, not any adjective clause; implemented for all events
 adverbial_clause: "advcl|advcl_by" # implemented for all events
 #TODO: variables in https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
-#TODO: "nmod:npmod"?? nmod:poss?
+#TODO: nummod nsubjpass?
