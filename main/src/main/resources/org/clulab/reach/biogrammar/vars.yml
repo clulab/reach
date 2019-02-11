@@ -1,6 +1,7 @@
 # preps_theme: "nmod_of|nmod_(to|with)"
-# preps_site: "nmod_(at|on)|nmod_via|nmod_|nmod_in"
-preps: "nmod_(at|on|via|in|to|with)|nmod_|nmod_[^bt]|^nmod_o[nf]$"
+#preps_site: "nmod_(at|on)|nmod_via|nmod_in"
+preps: "nmod_(at|on|via|in|to|with)"
+genitive_case_marker: "nmod_of"
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
