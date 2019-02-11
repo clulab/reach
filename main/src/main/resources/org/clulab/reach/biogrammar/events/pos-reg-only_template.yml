@@ -14,8 +14,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = in response to
-    controlled:SimpleEvent = <nmod_in /${objects}/?
-    controller:${ controllerType }? = <nmod_in? (nmod_to nmod_with? | nmod_with) ([lemma="treatment"] compound)?
+    controlled:SimpleEvent = </${preps}/ /${objects}/?
+    controller:${ controllerType }? = </${preps}/? (/${preps}/ /${preps}/?) ([lemma="treatment"] compound)?
 
 # This applies only to non-nested regs
 - name: Positive_${ ruleType }_following_Controller_activation

@@ -11,7 +11,7 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|${objects}|${complements}/]
+    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/${preps}|${objects}|${complements}/]
     theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /${noun_modifiers}|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
 
 - name: binding1b
@@ -21,7 +21,7 @@ rules:
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = ${adjective_clause} /${conjunctions}/{,2} | ${agents} /${noun_modifiers}|${conjunctions}/{,2} | </${passive_agents}/{,2} ${agents}
-    theme2:BioChemicalEntity+ = ${objects} /${noun_modifiers}|${conjunctions}/{,2} | /${complements}/? /nmod_(to|with)/
+    theme2:BioChemicalEntity+ = ${objects} /${noun_modifiers}|${conjunctions}/{,2} | /${complements}/? /${preps}/
 
 - name: binding1forms
   label: Binding
@@ -30,7 +30,7 @@ rules:
   pattern: |
     trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
     theme1:BioChemicalEntity+ = ${agents} /${noun_modifiers}|${conjunctions}/{,2}
-    theme2:BioChemicalEntity* = ${objects} /${noun_modifiers}|${conjunctions}/{,2} | /nmod_(to|with)/
+    theme2:BioChemicalEntity* = ${objects} /${noun_modifiers}|${conjunctions}/{,2} | /${preps}/
 
 - name: binding2
   label: Binding
@@ -89,7 +89,7 @@ rules:
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = ${noun_modifiers} /${conjunctions}/?
-      theme2:BioChemicalEntity* = nmod_to /${conjunctions}/?
+      theme2:BioChemicalEntity* = ${preps} /${conjunctions}/?
 
 - name: binding7b
   label: Binding
@@ -98,7 +98,7 @@ rules:
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site" | lemma=to])
       theme1:BioChemicalEntity* = ${noun_modifiers} /${conjunctions}/?
-      theme2:BioChemicalEntity+ = nmod_to /${conjunctions}/?
+      theme2:BioChemicalEntity+ = ${preps} /${conjunctions}/?
 
 - name: binding7c
   label: Binding
@@ -107,7 +107,7 @@ rules:
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = ${noun_modifiers} /${conjunctions}/?
-      theme2:BioChemicalEntity+ = nmod_to /${conjunctions}/?
+      theme2:BioChemicalEntity+ = ${preps} /${conjunctions}/?
 
 - name: binding9
   label: Binding
@@ -116,7 +116,7 @@ rules:
   pattern: |
       trigger = interaction
       theme1:BioChemicalEntity+ = ${noun_modifiers} | nmod_of
-      theme2:BioChemicalEntity* = <nmod_through? >nmod_with
+      theme2:BioChemicalEntity* = <nmod_through? >/${preps}/
 
 # ms: remove "associate" and "interact" from binding10* rules; too ambiguous
 - name: binding10
@@ -125,7 +125,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/bind|ligate/ & tag=/^V/]
-      theme1:BioChemicalEntity+ = </${adjective_clause}|${adverbial_clause}/ <nmod_with?
+      theme1:BioChemicalEntity+ = </${adjective_clause}|${adverbial_clause}/ </${preps}/?
 
 - name: binding10b
   label: Binding
@@ -134,7 +134,7 @@ rules:
   pattern: |
       trigger = [lemma=/bind|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity = </${adjective_clause}|${adverbial_clause}/
-      theme2:BioChemicalEntity = /nmod_with|nmod_to/
+      theme2:BioChemicalEntity = /${preps}/
 
 - name: binding11
   label: Binding
@@ -174,7 +174,7 @@ rules:
   pattern: |
       trigger = /interact(s|ed)?/
       theme1:BioChemicalEntity+ = (${agents} </${conjunctions}/{,2} | >/${conjunctions}/ </${complements}/ >nsubjpass)
-      theme2:BioChemicalEntity+ = nmod_with
+      theme2:BioChemicalEntity+ = ${preps}
 
 - name: binding14
   label: Binding
@@ -191,7 +191,7 @@ rules:
   pattern: |
     trigger = [word=/ligate(s|d)?/ & tag=/^V/]
     theme1:BioChemicalEntity+ = </${adjective_clause}|${adverbial_clause}/ | ${agents}
-    theme2:BioChemicalEntity* = /nmod_to|nmod_with/
+    theme2:BioChemicalEntity* = /${preps}/
 
 # ms: removed "associate", and "interact" from this rule. Too ambiguous
 - name: binding_17
@@ -202,7 +202,7 @@ rules:
   pattern: |
     trigger = [lemma=/bind|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = (nsubjpass |</${adjective_clause}/) </${conjunctions}/?
-    theme2:BioChemicalEntity+ = /${passive_agents}|nmod_to|nmod_with/ /${noun_modifiers}/{,2} | ${objects} /${noun_modifiers}/{,2}
+    theme2:BioChemicalEntity+ = /${passive_agents}|${preps}/ /${noun_modifiers}/{,2} | ${objects} /${noun_modifiers}/{,2}
 
 - name: binding_18
   label: Binding
@@ -210,8 +210,8 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = binding (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = </${conjunctions}/{,2} nmod /${dep}/{1,2} (/nmod_(to|with)/)?
-    theme2:BioChemicalEntity+ = </${conjunctions}/{,2} nmod /${dep}/{1,2} (/nmod_(to|with)/)?
+    theme1:BioChemicalEntity+ = </${conjunctions}/{,2} nmod /${dep}/{1,2} (/${preps}/)?
+    theme2:BioChemicalEntity+ = </${conjunctions}/{,2} nmod /${dep}/{1,2} (/${preps}/)?
 
 - name: binding_19
   label: Binding
@@ -220,7 +220,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] partner
     theme1:BioChemicalEntity+ = </${conjunctions}/
-    theme2:BioChemicalEntity+ = /nmod_of|nmod_with/
+    theme2:BioChemicalEntity+ = /nmod_of|${preps}/
 
 - name: binding_20
   label: Binding
@@ -257,8 +257,8 @@ rules:
   pattern: |
     trigger = [lemma="bind" & tag=/^V/]
     theme1:BioChemicalEntity+ = (${agents}|</${relative_clause}/) /nmod_of|${noun_modifiers}|${conjunctions}/{,2} </${conjunctions}/?
-    site:Site? = ${agents} | (${objects} nmod_at) # domain-style pattern
-    theme2:BioChemicalEntity+ = ${objects} /nmod_of|nmod_with|${noun_modifiers}|${conjunctions}/{,2}
+    site:Site? = ${agents} | (${objects} /${preps}/) # domain-style pattern
+    theme2:BioChemicalEntity+ = ${objects} /nmod_of|${preps}|${noun_modifiers}|${conjunctions}/{,2}
 
 # possessive
 - name: binding_syntax_24_noun
@@ -269,7 +269,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = "nmod:poss"
-    theme2:BioChemicalEntity* = (nmod_to|nmod_with|nmod_of|/${passive_agents}/) [!(lemma=member)] /${noun_modifiers}/{,2} | (nmod_to|nmod_with|nmod_of|/${passive_agents}/) [lemma=member] /${noun_modifiers}/{1,2}
+    theme2:BioChemicalEntity* = (/${preps}/|nmod_of|/${passive_agents}/) [!(lemma=member)] /${noun_modifiers}/{,2} | (/${preps}/|nmod_of|/${passive_agents}/) [lemma=member] /${noun_modifiers}/{1,2}
 
 - name: binding_syntax_25_verb
   example: "IKKgamma appears capable of binding linear polyubiquitin."
@@ -400,7 +400,7 @@ rules:
   pattern: |
     trigger = [lemma=complex] [lemma=formation]
     theme1:BioChemicalEntity+ = >nmod_between /${noun_modifiers}|${conjunctions}/{,2}
-    theme2:BioChemicalEntity+ = >/${conjunctions}/ >nmod_on? /${noun_modifiers}|${conjunctions}/{,2}
+    theme2:BioChemicalEntity+ = >/${conjunctions}/ >/${preps}/? /${noun_modifiers}|${conjunctions}/{,2}
 
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B

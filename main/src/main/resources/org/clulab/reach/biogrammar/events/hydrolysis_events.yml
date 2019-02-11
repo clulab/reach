@@ -16,7 +16,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (</${noun_modifiers}/? ${noun_modifiers}) | (nmod_of /${noun_modifiers}/?) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = <nmod_of? </${objects}/? (nmod_for | nmod_on) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = <nmod_of? </${objects}/? (nmod_for | ${preps}) [!word=/^GAPs?$/]
     cause:MacroMolecule = /${passive_agents}/
 
 - name: hydrolysis_2
@@ -27,7 +27,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = <nmod_to | nmod_for [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = </${preps}/ | nmod_for [!word=/^GAPs?$/]
 
 - name: hydrolysis_2wrong
   label: Hydrolysis
@@ -37,8 +37,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ nmod_to
+    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|${preps})) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ /${preps}/
 
 - name: hydrolysis_3
   label: Hydrolysis
@@ -48,7 +48,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|nmod_in/ [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|${preps}/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_4
   label: Hydrolysis

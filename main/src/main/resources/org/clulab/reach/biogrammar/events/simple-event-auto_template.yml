@@ -39,7 +39,7 @@ rules:
     # these two should be the same
     cause:BioChemicalEntity = /^nsubj/
     theme:BioChemicalEntity = /^nsubj/
-    site:Site? = nmod_on
+    site:Site? = /${preps}/
 
 
 - name: ${ eventName }_syntax_2_verb

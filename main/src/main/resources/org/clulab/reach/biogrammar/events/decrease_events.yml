@@ -2,11 +2,11 @@
 vars: org/clulab/reach/biogrammar/vars.yml
 
 rules:
-  
+
 - name: decrease_amount_1
   priority: ${ priority }
   example: "loss of neurofibromin"
   label: DecreaseAmount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
-    theme:BioChemicalEntity = nmod_of | nmod_in
+    theme:BioChemicalEntity = nmod_of | ${preps}
