@@ -241,7 +241,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=/nmod_(by|of)/]
     theme:BioChemicalEntity = </${conjunctions}/? /${conjunctions}|${noun_modifiers}|${genitive_case_marker}/{,2}
-    site:Site? = /${noun_modifiers}/ | </${objects}/? /${preps}/ nummod? #unsure whether to use slashes or parens
+    site:Site? = /${noun_modifiers}/ | </${objects}/? /${preps}/ /${noun_modifiers}/? #unsure whether to use slashes or parens
 
 
 - name: ${ eventName }_syntax_5_noun
