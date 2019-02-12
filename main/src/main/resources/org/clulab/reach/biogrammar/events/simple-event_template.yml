@@ -393,7 +393,7 @@ rules:
 #  label: ${ label }
 #  action: ${ actionFlow }
 #  pattern: |
-#    (?<theme> [mention="BioChemicalEntity" & !incoming=/nmod_of|/${objects}//])
+#    (?<theme> [mention="BioChemicalEntity" & !incoming=/${genitive_case_marker}|/${objects}//])
 #    ("," @BioChemicalEntity)*
 #    "and"
 #    @BioChemicalEntity

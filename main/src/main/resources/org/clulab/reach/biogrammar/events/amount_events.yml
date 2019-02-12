@@ -10,4 +10,4 @@ rules:
   label: Amount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
-    theme:BioChemicalEntity = nmod_of /${noun_modifiers}/? | ${noun_modifiers}
+    theme:BioChemicalEntity = ${genitive_case_marker} /${noun_modifiers}/? | ${noun_modifiers}

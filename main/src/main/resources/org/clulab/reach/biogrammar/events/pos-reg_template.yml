@@ -21,8 +21,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = /${adjective_clause}|${adverbial_clause}/? (/${objects}|${complements}/ [!lemma=/resistance|sensitivity/])
-      (/${conjunctions}|${dep}|${objects}|${noun_modifiers}|nmod_of|nmod_in$/){,2}
-    controller:${ controllerType } = </${complements}/? (${agents} | nsubjpass | /${passive_agents}/ | </${adjective_clause}|${adverbial_clause}/) /${noun_modifiers}|${conjunctions}|nmod_of|nmod_in$/{,2}
+      (/${conjunctions}|${dep}|${objects}|${noun_modifiers}|${genitive_case_marker}|nmod_in$/){,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | nsubjpass | /${passive_agents}/ | </${adjective_clause}|${adverbial_clause}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|nmod_in$/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1a_verb #Added by jmculnan
@@ -33,7 +33,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ posTriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = /${complements}/ ${objects}
-    controller:${ controllerType } = /${passive_agents}/ nmod_of?
+    controller:${ controllerType } = /${passive_agents}/ /${genitive_case_marker}/?
 
 - name: Positive_${ ruleType }_syntax_1b_verb
   priority: ${ priority }
@@ -54,8 +54,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
-    controlled:${ controlledType } = /${passive_agents}/ /${conjunctions}|${dep}|${objects}|${noun_modifiers}|nmod_of|nmod_in$/{,2}
-    controller:${ controllerType } = </${complements}/? (${agents} | /${passive_agents}/ | </${adjective_clause}|${adverbial_clause}/) /${noun_modifiers}|${conjunctions}|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = /${passive_agents}/ /${conjunctions}|${dep}|${objects}|${noun_modifiers}|${genitive_case_marker}|nmod_in$/{,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | /${passive_agents}/ | </${adjective_clause}|${adverbial_clause}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|nmod_in$/{,2}
 
 
 # Note: Captures passive voice; thus verb must be VBD|VBN
@@ -66,7 +66,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (>/^nsubj/|${agents}|</${adjective_clause}|${adverbial_clause}/) /${conjunctions}|${noun_modifiers}|${dep}/{,2}
-    controller:${ controllerType } = (${passive_agents}) /${conjunctions}|${noun_modifiers}|${dep}|nmod_of|nmod_in$/{,2}
+    controller:${ controllerType } = (${passive_agents}) /${conjunctions}|${noun_modifiers}|${dep}|${genitive_case_marker}|nmod_in$/{,2}
 
 
 
@@ -77,7 +77,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ( (/nmod_[^b]|${conjunctions}|${noun_modifiers}/{,2}) | (< /nmod_|${conjunctions}|${noun_modifiers}/{1,2}) )
+    controlled:${ controlledType } = ( (/nmod_[^b]|${conjunctions}|${noun_modifiers}/{,2}) | (< /${any_preposition}|${conjunctions}|${noun_modifiers}/{1,2}) )
     controller:${ controllerType } = </${noun_modifiers}/{,2} | (/${passive_agents}/) /${noun_modifiers}|${conjunctions}/{,2}
 
 - name: Positive_${ ruleType }_syntax_3a_verb #Masha
@@ -87,8 +87,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (${objects} [!lemma=/resistance|sensitivity/]) /${noun_modifiers}|nmod_of/{,1}
-    controller:${ controllerType } = ${agents} /nmod_of|${noun_modifiers}/{,1}
+    controlled:${ controlledType } = (${objects} [!lemma=/resistance|sensitivity/]) /${noun_modifiers}|${genitive_case_marker}/{,1}
+    controller:${ controllerType } = ${agents} /${genitive_case_marker}|${noun_modifiers}/{,1}
 #this rule fixed 6/9 remaning act tests
 
 - name: Positive_${ ruleType }_syntax_4_verb
@@ -99,7 +99,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (nsubjpass /${conjunctions}|${noun_modifiers}/{,2})
-    controller:${ controllerType } = (/nmod_/ /${conjunctions}|${noun_modifiers}/{,2})? /nmod_/{,2} /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2}
+    controller:${ controllerType } = (/${any_preposition}/ /${conjunctions}|${noun_modifiers}/{,2})? /${any_preposition}/{,2} /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_5_verb
@@ -131,7 +131,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
-    controlled:${ controlledType } = nmod_in$ | nmod_to
+    controlled:${ controlledType } = nmod_in$ | /${preps}/
     controller:${ controllerType } = (${agents} | </${relative_clause}/) /${noun_modifiers}|${conjunctions}/{,2}
 
 
@@ -142,8 +142,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=result] in [word=/(?i)^(${ triggers })/]
-    controlled:${ controlledType } = nmod_of /${noun_modifiers}/?
-    controller:${ controllerType } = ${agents} /${noun_modifiers}|nmod_of|${conjunctions}/{,2}
+    controlled:${ controlledType } = ${genitive_case_marker} /${noun_modifiers}/?
+    controller:${ controllerType } = ${agents} /${noun_modifiers}|${genitive_case_marker}|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1_noun
@@ -153,8 +153,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
-    controlled:${ controlledType } = /nmod_of|nmod_in$/ /${noun_modifiers}|${conjunctions}/{,2}
-    controller:${ controllerType } = /nmod_of/? /${passive_agents}/ (<dobj|${passive_agents}|${noun_modifiers}|nmod_of|nmod_in$){1,2} /${noun_modifiers}|${conjunctions}/{,2} # the nmod_of may appear due to bad syntax
+    controlled:${ controlledType } = /${genitive_case_marker}|nmod_in$/ /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ (<dobj|${passive_agents}|${noun_modifiers}|${genitive_case_marker}|nmod_in$){1,2} /${noun_modifiers}|${conjunctions}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
 
 
 - name: Positive_${ ruleType }_syntax_2_noun
@@ -164,8 +164,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /nmod_of|nmod_in$/? /${conjunctions}|${noun_modifiers}/{1,2}
-    controller:${ controllerType } = /nmod_of/? /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2} # the nmod_of may appear due to bad syntax
+    controlled:${ controlledType } = /${genitive_case_marker}|nmod_in$/? /${conjunctions}|${noun_modifiers}/{1,2}
+    controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
 
 
 - name: Positive_${ ruleType }_syntax_3_noun
@@ -175,7 +175,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=/${passive_agents}/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]? (?! downstream)
-    controlled:${ controlledType } = /nmod_of|nmod_in$/ /${conjunctions}|${noun_modifiers}/{,2}
+    controlled:${ controlledType } = /${genitive_case_marker}|nmod_in$/ /${conjunctions}|${noun_modifiers}/{,2}
     controller:${ controllerType } = /${noun_modifiers}/{1,2} | ${conjunctions} /${passive_agents}/ /${noun_modifiers}/?
 
 
@@ -186,7 +186,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = < /${noun_modifiers}/ > /nmod_/ /${conjunctions}|${noun_modifiers}/{,2}
+    controlled:${ controlledType } = < /${noun_modifiers}/ > /${any_preposition}/ /${conjunctions}|${noun_modifiers}/{,2}
     controller:${ controllerType } = < /${noun_modifiers}/ /${conjunctions}|${noun_modifiers}/{,2}
 
 
@@ -197,8 +197,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
-    controller:${ controllerType } = <nmod_via (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = (/${genitive_case_marker}|nmod_in$/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
+    controller:${ controllerType } = </${preps}/ (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_7_noun
@@ -209,7 +209,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:${ controllerType } = </${dep}/ /${noun_modifiers}|${conjunctions}/{,2}
-    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
+    controlled:${ controlledType } = (/${genitive_case_marker}|nmod_in$/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
 
 
 # Captures common Hearst patterns: hypernym such as hyponym
@@ -221,7 +221,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = /${conjunctions}|${noun_modifiers}/{,2}
-    controller:${ controllerType } = /nmod_such_as|nmod_including|nmod_like/ (${noun_modifiers}|${conjunctions})?
+    controller:${ controllerType } = /${preps_example}/ (${noun_modifiers}|${conjunctions})?
 
 
 - name: Positive_${ ruleType }_copula_1
@@ -232,7 +232,7 @@ rules:
   pattern: |
     trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
     controller:${ controllerType } = ${agents}
-    controlled:${ controlledType } = /nmod_of|nmod_in$/
+    controlled:${ controlledType } = /${genitive_case_marker}|nmod_in$/
 
 
 - name: Positive_${ ruleType }_possessive_noun
@@ -332,4 +332,4 @@ rules:
     # xcomp for "A, leading to B" pattern
     controller:${ controllerType } = ${agents}|/${complements}/
     # "leading to activation"
-    controlled:${ controlledType } = (?= nmod_to [word=/(?i)^(${ triggers })/]) nmod_to nmod_of? /${noun_modifiers}/?
+    controlled:${ controlledType } = (?= /${preps}/ [word=/(?i)^(${ triggers })/]) /${preps}/ /${genitive_case_marker}/? /${noun_modifiers}/?

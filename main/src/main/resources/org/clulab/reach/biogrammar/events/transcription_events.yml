@@ -41,7 +41,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
-    theme:BioChemicalEntity = </${objects}/ ${agents} nmod_of? /${conjunctions}/*
+    theme:BioChemicalEntity = </${objects}/ ${agents} /${genitive_case_marker}/? /${conjunctions}/*
     cause:BioChemicalEntity? = /${noun_modifiers}/{1,2}
 
 
@@ -51,7 +51,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=/${noun_modifiers}/]
-    theme:BioChemicalEntity = nmod_of? /${noun_modifiers}/{1,2} /${conjunctions}/*
+    theme:BioChemicalEntity = /${genitive_case_marker}/? /${noun_modifiers}/{1,2} /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 
@@ -61,7 +61,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=/${noun_modifiers}/]
-    theme:BioChemicalEntity = nmod_of /${noun_modifiers}/{,2} /${conjunctions}/*
+    theme:BioChemicalEntity = /${genitive_case_marker}/ /${noun_modifiers}/{,2} /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}
 
 
@@ -81,5 +81,5 @@ rules:
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = nmod_of /${conjunctions}/*
+    theme:BioChemicalEntity = /${genitive_case_marker}/ /${conjunctions}/*
     cause:BioChemicalEntity? = ${passive_agents}

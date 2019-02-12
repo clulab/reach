@@ -15,8 +15,8 @@ rules:
   example: "We compared the rate of GTP hydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity = (</${noun_modifiers}/? ${noun_modifiers}) | (nmod_of /${noun_modifiers}/?) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = <nmod_of? </${objects}/? (nmod_for | ${preps}) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (</${noun_modifiers}/? ${noun_modifiers}) | (${genitive_case_marker} /${noun_modifiers}/?) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = </${genitive_case_marker}/? </${objects}/? ${preps} [!word=/^GAPs?$/]
     cause:MacroMolecule = /${passive_agents}/
 
 - name: hydrolysis_2
@@ -27,7 +27,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = </${preps}/ | nmod_for [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = </${preps}/ | /${preps}/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_2wrong
   label: Hydrolysis
@@ -37,7 +37,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} nmod_of) | (<nmod_of </${objects}/ (nmod_for|${preps})) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} ${genitive_case_marker}) | (</${genitive_case_marker}/ </${objects}/ ${preps}) [!word=/^GAPs?$/]
     cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ /${preps}/
 
 - name: hydrolysis_3
@@ -48,7 +48,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|${preps}/ [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (< /${any_preposition}/){,2} <nsubjpass /${preps}/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_4
   label: Hydrolysis
@@ -107,5 +107,5 @@ rules:
   example: "MEK hydrolysis of Ras-GDP increased."
   pattern: |
     trigger = [word=/(?i)^hydrolysis/]
-    theme:BioChemicalEntity = nmod_of [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = ${genitive_case_marker} [!word=/^GAPs?$/]
     cause:MacroMolecule? = ${noun_modifiers}

@@ -15,8 +15,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = "nmod:poss" | ${objects}
-    source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
-    destination:Cellular_component? = nmod_from? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    source:Cellular_component = /${preps}/? ${source_preposition} [tag=/^N/]
+    destination:Cellular_component? = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
 
 
 - name: translocation_1b_noun
@@ -27,8 +27,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = "nmod:poss"
-    source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
-    destination:Cellular_component = nmod_from? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    source:Cellular_component? = /${preps}/? ${source_preposition} [tag=/^N/]
+    destination:Cellular_component = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
 
 
 - name: translocation_2a_verb_apposition
@@ -39,8 +39,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
     theme:BioChemicalEntity = ${objects}
-    source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
-    destination:Cellular_component? = nmod_from? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    source:Cellular_component = /${preps}/? ${source_preposition} [tag=/^N/]
+    destination:Cellular_component? = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
     cause:BioChemicalEntity? = ${agents} | </${relative_clause}/ </${conjunctions}/
 
 
@@ -52,8 +52,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
     theme:BioChemicalEntity = ${objects}
-    source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
-    destination:Cellular_component = nmod_from? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    source:Cellular_component? = /${preps}/? ${source_preposition} [tag=/^N/]
+    destination:Cellular_component = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
     cause:BioChemicalEntity? = (</${relative_clause}/| ${agents}) </${conjunctions}/
 
 
@@ -65,9 +65,9 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
     theme:BioChemicalEntity = (nsubjpass | </${relative_clause}/) </${conjunctions}/
-    source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
-    destination:Cellular_component? = nmod_from? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
-    cause:BioChemicalEntity? = /${passive_agents}/ | /nmod_(to|from)/{,2} /${passive_agents}/
+    source:Cellular_component = /${preps}/? ${source_preposition} [tag=/^N/]
+    destination:Cellular_component? = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    cause:BioChemicalEntity? = /${passive_agents}/ | /${preps}|${source_preposition}/{,2} /${passive_agents}/
 
 
 - name: translocation_3b_verb_passive
@@ -78,9 +78,9 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
     theme:BioChemicalEntity = nsubjpass | </${relative_clause}/ </${conjunctions}/
-    source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
-    destination:Cellular_component = nmod_from? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
-    cause:BioChemicalEntity? = /${passive_agents}/ | /nmod_(to|from)/{,2} /${passive_agents}/
+    source:Cellular_component? = /${preps}/? ${source_preposition} [tag=/^N/]
+    destination:Cellular_component = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    cause:BioChemicalEntity? = /${passive_agents}/ | /${preps}|${source_preposition}/{,2} /${passive_agents}/
 
 
 - name: translocation_4a_noun_with_cause
@@ -90,9 +90,9 @@ rules:
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
-    theme:BioChemicalEntity = nmod_of | ${noun_modifiers} | </${dep}/
-    source:Cellular_component? = <nmod_in? nmod_of? nmod_to? nmod_from
-    destination:Cellular_component = <nmod_in? nmod_of? nmod_from? nmod_to /${conjunctions}|${dep}/{,2}
+    theme:BioChemicalEntity = ${genitive_case_marker} | ${noun_modifiers} | </${dep}/
+    source:Cellular_component? = </${preps}/? /${genitive_case_marker}/? /${preps}/? ${source_preposition}
+    destination:Cellular_component = </${preps}/? /${genitive_case_marker}/? /${source_preposition}/? /${preps}/ /${conjunctions}|${dep}/{,2}
     cause:BioChemicalEntity? = "nmod:poss"
 
 
@@ -103,9 +103,9 @@ rules:
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
-    theme:BioChemicalEntity = nmod_of | ${noun_modifiers} | </${dep}/
-    source:Cellular_component = <nmod_in? nmod_of? nmod_to? nmod_from
-    destination:Cellular_component? = <nmod_in? nmod_of? nmod_from? nmod_to /${conjunctions}|${dep}/{,2}
+    theme:BioChemicalEntity = ${genitive_case_marker} | ${noun_modifiers} | </${dep}/
+    source:Cellular_component = </${preps}/? /${genitive_case_marker}/? /${preps}/? ${source_preposition}
+    destination:Cellular_component? = </${preps}/? /${genitive_case_marker}/? /${source_preposition}/? /${preps}/ /${conjunctions}|${dep}/{,2}
     cause:BioChemicalEntity? = "nmod:poss"
 
 
@@ -118,7 +118,7 @@ rules:
     trigger = [lemma=release & tag=/^V/]
     theme:BioChemicalEntity = ${objects}
     source:Cellular_component = </${complements}/ /${objects}/
-    destination:Cellular_component? = <nmod_in? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    destination:Cellular_component? = </${preps}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
 
 
 - name: translocation_6_verb_active
@@ -130,7 +130,7 @@ rules:
     trigger = [lemma=release & tag=/^V/]
     theme:BioChemicalEntity = ${objects}
     source:Cellular_component = /${agents}|aux|${objects}/
-    destination:Cellular_component? = <nmod_in? nmod_to /${conjunctions}|${noun_modifiers}|${dep}/{,2}
+    destination:Cellular_component? = </${preps}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
 
 
 - name: translocation_7a_noun_no_cause
@@ -139,10 +139,10 @@ rules:
   example: "ASPP1 is common, and its recruitment to the plasma membrane increases with its phosphorylation"
   label: Translocation
   pattern: |
-    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=nmod_of]
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=/${genitive_case_marker}/]
     theme:BioChemicalEntity = "nmod:poss"
-    source:Cellular_component? = <nmod_in? nmod_of? nmod_to? nmod_from
-    destination:Cellular_component = <nmod_in? nmod_of? nmod_from? nmod_to /${conjunctions}|${dep}/{,2}
+    source:Cellular_component? = </${preps}/? /${genitive_case_marker}/? /${preps}/? ${source_preposition}
+    destination:Cellular_component = </${preps}/? /${genitive_case_marker}/? /${source_preposition}/? /${preps}/ /${conjunctions}|${dep}/{,2}
 
 
 - name: translocation_7b_noun_no_cause
@@ -151,10 +151,10 @@ rules:
   example: "ASPP1 is common, and its release from the cytosol increases with its phosphorylation"
   label: Translocation
   pattern: |
-    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=nmod_of]
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=/${genitive_case_marker}/]
     theme:BioChemicalEntity = "nmod:poss"
-    source:Cellular_component = <nmod_in? nmod_of? nmod_to? nmod_from
-    destination:Cellular_component? = <nmod_in? nmod_of? nmod_from? nmod_to /${conjunctions}|${dep}/{,2}
+    source:Cellular_component = </${preps}/? /${genitive_case_marker}/? /${preps}/? ${source_preposition}
+    destination:Cellular_component? = </${preps}/? /${genitive_case_marker}/? /${source_preposition}/? /${preps}/ /${conjunctions}|${dep}/{,2}
 
 - name: translocation_8a_verb_active_no_cause
   priotity: ${ priotity }
@@ -164,8 +164,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
     theme:BioChemicalEntity = ${agents}
-    source:Cellular_component = <nmod_in? nmod_of? nmod_to? nmod_from
-    destination:Cellular_component? = <nmod_in? nmod_of? nmod_from? nmod_to /${conjunctions}|${dep}/{,2}
+    source:Cellular_component = </${preps}/? /${genitive_case_marker}/? /${preps}/? ${source_preposition}
+    destination:Cellular_component? = </${preps}/? /${genitive_case_marker}/? /${source_preposition}/? /${preps}/ /${conjunctions}|${dep}/{,2}
 
 - name: translocation_8b_verb_active_no_cause
   priotity: ${ priotity }
@@ -175,5 +175,5 @@ rules:
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
     theme:BioChemicalEntity = ${agents}
-    source:Cellular_component? = <nmod_in? nmod_of? nmod_to? nmod_from
-    destination:Cellular_component = <nmod_in? nmod_of? nmod_from? nmod_to /${conjunctions}|${dep}/{,2}
+    source:Cellular_component? = </${preps}/? /${genitive_case_marker}/? /${preps}/? ${source_preposition}
+    destination:Cellular_component = </${preps}/? /${genitive_case_marker}/? /${source_preposition}/? /${preps}/ /${conjunctions}|${dep}/{,2}

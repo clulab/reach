@@ -9,4 +9,4 @@ rules:
   label: DecreaseAmount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
-    theme:BioChemicalEntity = nmod_of | ${preps}
+    theme:BioChemicalEntity = ${genitive_case_marker} | ${preps}

@@ -1,9 +1,14 @@
 # preps_theme: "nmod_of|nmod_(to|with)"
 #preps_site: "nmod_(at|on)|nmod_via|nmod_in"
-preps: "nmod_(at|on|via|in|to|with)"
-# TODO: combine with nmod_for? nmod_between? nmod_through? nmod_such_as? including?
-any_preposition: "nmod_"
-genitive_case_marker: "nmod_of"
+preps: "nmod_(at|on|via|in|to|with|for|following)" # implemented for all events
+preps_example: "nmod_(such_as|including|like)" # implemented for all events
+directional_preposition: "nmod_(between|through)" # implemented for all events
+source_preposition: "nmod_from" # implemented for all events
+any_preposition: "nmod_" # implemented for all events
+genitive_case_marker: "nmod_of" # implemented for all events
+# TODO: nmod_[^bt] and ^nmod_o[nf] and nmod_(by|of) in simple-event_template
+# TODO: nmod_[^b] in neg-reg_template
+# TODO: nmod_in$ and nmod_[^b] in pos-reg_template
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj" # implemented for all events
 agents: "nsubj" # implemented for all events
