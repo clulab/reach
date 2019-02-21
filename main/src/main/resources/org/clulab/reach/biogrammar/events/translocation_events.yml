@@ -129,7 +129,7 @@ rules:
   pattern: |
     trigger = [lemma=release & tag=/^V/]
     theme:BioChemicalEntity = ${objects}
-    source:Cellular_component = /${agents}|aux|${objects}/
+    source:Cellular_component = /${agents}|${aux}|${objects}/
     destination:Cellular_component? = </${preps}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
 
 

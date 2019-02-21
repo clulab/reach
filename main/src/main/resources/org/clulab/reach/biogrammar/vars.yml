@@ -1,33 +1,30 @@
-# preps_theme: "nmod_of|nmod_(to|with)"
-#preps_site: "nmod_(at|on)|nmod_via|nmod_in"
-preps: "nmod_(at|on|via|in|to|with|for|following)" # implemented
-preps_example: "nmod_(such_as|including|like)" # implemented
-preps_in$_singleton: "nmod_in$" # implemented
-directional_preposition: "nmod_(between|through)" # implemented
-source_preposition: "nmod_from" # implemented
-any_preposition: "nmod_" # implemented
-genitive_case_marker: "nmod_of" # implemented
-#agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
-objects: "dobj" # implemented
-agents: "nsubj" # implemented
-passive_voice_subject: "nsubjpass" # implemented
+preps: "nmod_(at|on|via|in|to|with|for|following)"
+preps_example: "nmod_(such_as|including|like)"
+preps_in$_singleton: "nmod_in$"
+directional_preposition: "nmod_(between|through)"
+source_preposition: "nmod_from"
+any_preposition: "nmod_"
+genitive_case_marker: "nmod_of"
+objects: "dobj"
+agents: "nsubj"
+passive_voice_subject: "nsubjpass"
 nominal_passive_agents: "nmod_agent" # has to be separated from other passive agents
-passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"  # implemented
-any_nominal_subject: "^nsubj" # implemented
-conjunctions: "appos|conj|conj_"  # implemented
-and_or_conjunctions: "conj_(and|or|nor)" # implemented
-noun_modifiers: "amod|compound|advmod|'nmod:poss'|'nmod:npmod'|nummod" # implemented
-dep: "dep"  # implemented for all events
-standalone_appositive: "appos" # implemented
-complements: "xcomp|ccomp" # implemented
-adjective_clause: "acl|acl_by" # implemented
-relative_clause: "'acl:relcl'|<'acl:relcl'" #sometimes has to only be relative clause, not any adjective clause; implemented
-adverbial_clause: "advcl|advcl_by" # implemented
-#TODO: variables in https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
-
+passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"
+any_nominal_subject: "^nsubj"
+conjunctions: "appos|conj|conj_"
+and_or_conjunctions: "conj_(and|or|nor)"
+noun_modifiers: "amod|compound|advmod|'nmod:poss'|'nmod:npmod'|nummod"
+dep: "dep"
+standalone_appositive: "appos"
+complements: "xcomp|ccomp"
+adjective_clause: "acl|acl_by"
+relative_clause: "'acl:relcl'|<'acl:relcl'" #sometimes has to only be relative clause, not any adjective clause
+adverbial_clause: "advcl|advcl_by"
 # other singleton variables:
-# aux in translocation_events
+aux: "aux"
 noun_modifier_[^b]: "nmod_[^b]"
 noun_modifier_[^bt]: "nmod_[^bt]"
 noun_modifier_(by|of): "nmod_(by|of)"
 noun_modifier_o[nf]$: "^nmod_o[nf]$"
+
+#ATTN: there are relations mentioned in this file, but variables have not been added https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
