@@ -15,7 +15,7 @@ rules:
   pattern: |
     trigger = in response to
     controlled:SimpleEvent = </${preps}/ /${objects}/?
-    controller:${ controllerType }? = </${preps}/? (/${preps}/ /${preps}/?) ([lemma="treatment"] compound)?
+    controller:${ controllerType }? = </${preps}/? (/${preps}/ /${preps}/?) ([lemma="treatment"] /${noun_modifiers}/)?
 
 # This applies only to non-nested regs
 - name: Positive_${ ruleType }_following_Controller_activation

@@ -67,7 +67,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-      theme1:BioChemicalEntity* = "nmod:poss"
+      theme1:BioChemicalEntity* = ${noun_modifiers}
       theme2:BioChemicalEntity+ = </${noun_modifiers}/ (/${noun_modifiers}/{,2} | </${dep}/)
       #dummy: </${noun_modifiers}/ >/${noun_modifiers}/ [word=/protein|domain|site/]
 
@@ -173,7 +173,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = /interact(s|ed)?/
-      theme1:BioChemicalEntity+ = (${agents} </${conjunctions}/{,2} | >/${conjunctions}/ </${complements}/ >nsubjpass)
+      theme1:BioChemicalEntity+ = (${agents} </${conjunctions}/{,2} | >/${conjunctions}/ </${complements}/ >/${passive_voice_subject}/)
       theme2:BioChemicalEntity+ = ${preps}
 
 - name: binding14
@@ -201,7 +201,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = (nsubjpass |</${adjective_clause}/) </${conjunctions}/?
+    theme1:BioChemicalEntity+ = (/${passive_voice_subject}/ |</${adjective_clause}/) </${conjunctions}/?
     theme2:BioChemicalEntity+ = /${passive_agents}|${preps}/ /${noun_modifiers}/{,2} | ${objects} /${noun_modifiers}/{,2}
 
 - name: binding_18
@@ -268,7 +268,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = "nmod:poss"
+    theme1:BioChemicalEntity+ = ${noun_modifiers}
     theme2:BioChemicalEntity* = (/${preps}/|${genitive_case_marker}|/${passive_agents}/) [!(lemma=member)] /${noun_modifiers}/{,2} | (/${preps}/|${genitive_case_marker}|/${passive_agents}/) [lemma=member] /${noun_modifiers}/{1,2}
 
 - name: binding_syntax_25_verb

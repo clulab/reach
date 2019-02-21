@@ -37,8 +37,8 @@ rules:
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & !mention=ModificationTrigger]
     # these two should be the same
-    cause:BioChemicalEntity = /^nsubj/
-    theme:BioChemicalEntity = /^nsubj/
+    cause:BioChemicalEntity = /${any_nominal_subject}/
+    theme:BioChemicalEntity = /${any_nominal_subject}/
     site:Site? = /${preps}/
 
 
@@ -52,8 +52,8 @@ rules:
     # these two should be the same
     # assertion on syntactic context of trigger
     # direct object of predicate must be the word "itself"
-    cause:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /^nsubj/
-    theme:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /^nsubj/
+    cause:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /${any_nominal_subject}/
+    theme:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /${any_nominal_subject}/
     site:Site? = /${preps}|${noun_modifiers}|${conjunctions}/{,2}
 
 

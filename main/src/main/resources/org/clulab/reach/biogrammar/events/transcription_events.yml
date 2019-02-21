@@ -31,7 +31,7 @@ rules:
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity = nsubjpass /${conjunctions}/*
+    theme:BioChemicalEntity = ${passive_voice_subject} /${conjunctions}/*
     cause:BioChemicalEntity? = /${passive_agents}/
 
 

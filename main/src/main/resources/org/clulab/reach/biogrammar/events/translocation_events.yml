@@ -64,7 +64,7 @@ rules:
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
-    theme:BioChemicalEntity = (nsubjpass | </${relative_clause}/) </${conjunctions}/
+    theme:BioChemicalEntity = (${passive_voice_subject} | </${relative_clause}/) </${conjunctions}/
     source:Cellular_component = /${preps}/? ${source_preposition} [tag=/^N/]
     destination:Cellular_component? = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
     cause:BioChemicalEntity? = /${passive_agents}/ | /${preps}|${source_preposition}/{,2} /${passive_agents}/
@@ -77,7 +77,7 @@ rules:
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
-    theme:BioChemicalEntity = nsubjpass | </${relative_clause}/ </${conjunctions}/
+    theme:BioChemicalEntity = ${passive_voice_subject} | </${relative_clause}/ </${conjunctions}/
     source:Cellular_component? = /${preps}/? ${source_preposition} [tag=/^N/]
     destination:Cellular_component = /${source_preposition}/? /${preps}/ /${conjunctions}|${noun_modifiers}|${dep}/{,2}
     cause:BioChemicalEntity? = /${passive_agents}/ | /${preps}|${source_preposition}/{,2} /${passive_agents}/
