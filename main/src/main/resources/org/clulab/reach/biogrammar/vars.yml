@@ -13,7 +13,7 @@ passive_agents: "nmod_agent|nmod_by|'nsubj:xsubj'"
 any_nominal_subject: "^nsubj"
 conjunctions: "appos|conj|conj_"
 and_or_conjunctions: "conj_(and|or|nor)"
-noun_modifiers: "amod|compound|advmod|'nmod:poss'|'nmod:npmod'|nummod"
+noun_modifiers: "amod|compound|advmod|'nmod:poss'|nummod|'nmod:npmod'|<'nmod:npmod'"
 dep: "dep"
 standalone_appositive: "appos"
 complements: "xcomp|ccomp"
@@ -27,4 +27,7 @@ noun_modifier_[^bt]: "nmod_[^bt]"
 noun_modifier_(by|of): "nmod_(by|of)"
 noun_modifier_o[nf]$: "^nmod_o[nf]$"
 
-#ATTN: there are relations mentioned in this file, but variables have not been added https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
+#ATTN: there are relations mentioned in the folder and file below, but the rules there are fairly specific,
+#so substituting with a variable could be damaging
+#https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
+#https://github.com/clulab/reach/blob/variables/main/src/main/scala/org/clulab/reach/darpa/DarpaActions.scala
