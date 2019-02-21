@@ -2,20 +2,19 @@ package org.clulab.reach
 
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
-
 import ai.lum.nxmlreader.NxmlDocument
 import com.typesafe.scalalogging.LazyLogging
-
 import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
-import org.clulab.processors.{ Document, ProcessorAnnotator }
+import org.clulab.processors.{Document, ProcessorAnnotator}
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
-import org.clulab.reach.darpa.{ DarpaActions, MentionFilter, NegationHandler }
+import org.clulab.reach.darpa.{DarpaActions, HyphenHandle, MentionFilter, NegationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
-import RuleReader.{ Rules, readResource }
+import RuleReader.{Rules, readResource}
+import org.clulab.reach.utils.Preprocess
 
 // import org.clulab.reach.utils.MentionManager
 
@@ -46,6 +45,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor annotator
+  val textPreProc = new Preprocess
   val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
   /** returns string with all rules used by the system */
@@ -53,6 +53,9 @@ class ReachSystem(
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
+    // note that this messes with the character offsets in the text...
+    val preprocessedText = textPreProc.preprocessText(text)
+    // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
     val doc = procAnnotator.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
@@ -83,12 +86,15 @@ class ReachSystem(
     val unfilteredEvents = extractEventsFrom(doc, entitiesWithContext)
     logger.debug(s"${unfilteredEvents.size} unfilteredEvents: ${display.summarizeMentions(unfilteredEvents,doc)}")
     val events = MentionFilter.keepMostCompleteMentions(unfilteredEvents, State(unfilteredEvents))
+
     logger.debug(s"${events.size} events after MentionFilter.keepMostCompleteMentions: ${display.summarizeMentions(events, doc)}")
     contextEngine.update(events)
     val eventsWithContext = contextEngine.assign(events)
+
     logger.debug(s"${eventsWithContext.size} events after contextEngine.assign: ${display.summarizeMentions(eventsWithContext, doc)}")
     val grounded = grounder(eventsWithContext)
     logger.debug(s"${grounded.size} events after grounder: ${display.summarizeMentions(grounded, doc)}")
+
     // Coref expects to get all mentions grouped
     // we group according to the standoff, if there is one
     // else we just make one group with all the mentions
@@ -100,7 +106,9 @@ class ReachSystem(
     val resolved = resolveCoref(groundedAndGrouped)
     logger.debug(s"${resolved.size} events after coref: ${display.summarizeMentions(resolved, doc)}")
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+
+    val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
+
     logger.debug(s"${complete.size} events after coref + 2nd MentionFilter.keepMostCompleteMentions: ${display.summarizeMentions(complete, doc)}")
     logger.debug(s"Resolving display...")
     resolveDisplay(complete)
@@ -129,7 +137,7 @@ class ReachSystem(
     // Coref expects to get all mentions grouped by document
     val resolved = resolveCoref(groupMentionsByDocument(grounded, documents))
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+    val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
 
     resolveDisplay(complete)
   }
@@ -197,7 +205,7 @@ class ReachSystem(
     val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
     // handle multiple Negation modifications
     NegationHandler.handleNegations(validMentions)
-    validMentions
+    HyphenHandle.handleHyphens(validMentions)
   }
 
   // this method groups the mentions by document

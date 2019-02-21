@@ -367,7 +367,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }*/
 
   val sent40 = "GSK-3 promotes the pathway by phosphorylating LRP5"
-  sent40 should "contain 1 positive regulation and 1 phosphorylation" in {
+  ignore should "contain 1 positive regulation and 1 phosphorylation" in {
     val mentions = getBioMentions(sent40)
     mentions.filter(_ matches "Negative_regulation") should have size (0)
     mentions.filter(_ matches "Positive_regulation") should have size (1)

@@ -354,20 +354,22 @@ class DarpaActions extends Actions with LazyLogging {
   }
 }
 
-object DarpaActions {
+object DarpaActions extends LazyLogging {
 
   def hasNegativePolarity(m: Mention): Boolean = if (m.label.toLowerCase startsWith "negative") true else false
   // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|target".r
+  val SEMANTIC_NEGATIVE_PATTERN = "(?i)(^(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)|-KD$)".r
 
   val MODIFIER_LABELS = "amod".r
 
-  val NOUN_LABELS = "nn".r
+  val NOUN_LABELS = "compound".r
 
-  val OF_LABELS = "prep_of".r
+  val OF_LABELS = "nmod_of".r
+
+  val PARTICLE_LABELS = "compound:prt".r
 
   // patterns for "reverse" modifications
   val deAcetylatPat     = "(?i)de-?acetylat".r
@@ -428,13 +430,27 @@ object DarpaActions {
   def switchLabel(mention: Mention): BioMention = mention.toBioMention match {
     // We can only attempt to flip the polarity of ComplexEvents with a trigger
     case ce: BioEventMention if ce matches "ComplexEvent" =>
+
       val trigger = ce.trigger
-      val arguments = ce.arguments.values.flatten
+      //val arguments = ce.arguments
+      val arguments = for{
+        k <- ce.arguments.keys
+        v <- ce.arguments(k)
+      } yield (k, v)
+
       // get token indices to exclude in the negation search
       // do not exclude args as they may involve regulations
-      val excluded = trigger.tokenInterval.toSet
+      val excluded = trigger.tokenInterval.toSet /*| (arguments flatMap (_._2.tokenInterval)).toSet*/
+
+      // tokens with an incoming  prepc_by dependency
+      val deps = mention.sentenceObj.dependencies.get
+      val prepc_byed = (mention.tokenInterval filter (tok => deps.getIncomingEdges(tok).map(_._2).contains("advcl_by"))).toSet
       // count total number of negatives between trigger and each argument
-      val numNegatives = arguments.flatMap(arg => countSemanticNegatives(trigger, arg, excluded)).toSeq.distinct.length
+      val numNegatives = arguments.flatMap{
+        case (relation, arg) =>
+          countSemanticNegatives(trigger, arg, if(relation == "controller") excluded else excluded ++ prepc_byed)
+      }.toSeq.distinct.length
+      logger.debug(s"Total negatives: $numNegatives")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
@@ -472,15 +488,19 @@ object DarpaActions {
       case None => Nil
       case Some(path) =>
         val shortestPathWithAdjMods = addAdjectivalModifiers(path, deps)
-        val nnMods = nounModifiers(arg.tokenInterval.indices, deps)
-        val ofMods = ofModifiers(arg.tokenInterval.indices, deps)
+        val nnMods = nounModifiers(arg.tokenInterval, deps)
+        val ofMods = ofModifiers(arg.tokenInterval, deps)
+        val prpMods = particleModifiers(path, deps)
         // get all tokens considered negatives
         val negatives = for {
-          tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods).distinct // a single token can't negate twice
+          tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods ++ prpMods).distinct // a single token can't negate twice
           if !excluded.contains(tok)
           lemma = trigger.sentenceObj.lemmas.get(tok)
           if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
-        } yield tok
+        } yield {
+          logger.debug(s"Negative lexical unit: $lemma")
+          tok
+        }
         // return number of negatives
         negatives
     }
@@ -508,8 +528,18 @@ object DarpaActions {
   } yield token
 
   def getNounModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
-    (tok, dep) <- deps.getIncomingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
+    (tok, dep) <- deps.getIncomingEdges(token) ++ deps.getOutgoingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
     if NOUN_LABELS.findFirstIn(dep).isDefined
+  } yield tok
+
+  def particleModifiers(tokens:Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
+    t <- tokens
+    token <- t +: getParticleModifiers(t, deps)
+  } yield token
+
+  def getParticleModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
+    (tok, dep) <- deps.getOutgoingEdges(token)
+    if PARTICLE_LABELS.findFirstIn(dep).isDefined
   } yield tok
 
   def ofModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
@@ -654,8 +684,8 @@ object DarpaActions {
     }
     for {
       i <- edges.indices.tail
-      if edges(i-1).exists(_.startsWith("prep"))
-      if edges(i).exists(_.startsWith("prep"))
+      if edges(i-1).exists(_.startsWith("nmod"))
+      if edges(i).exists(_.startsWith("nmod"))
     } return true
     false
   }

@@ -67,7 +67,7 @@ object CorpusBuilder {
 
     val sentences = for {
       i <- start to end
-    } yield doc.sentences(i).getSentenceText()
+    } yield doc.sentences(i).getSentenceText
 
     sentences.mkString("  ")
   }

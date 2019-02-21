@@ -5,6 +5,8 @@ import org.clulab.struct.Interval
 import org.clulab.processors.Document
 import org.clulab.reach.context.Context
 
+import scala.collection.mutable
+
 class BioTextBoundMention(
   labels: Seq[String],
   tokenInterval: Interval,
@@ -46,6 +48,24 @@ class BioEventMention(
 
   def this(m: EventMention, isDirect: Boolean) =
     this(m.labels, m.trigger, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy, isDirect = isDirect)
+
+  // Copy constructor for EventMention
+  def copyWithMods(
+    labels: Seq[String] = this.labels,
+    trigger: TextBoundMention = this.trigger,
+    arguments: Map[String, Seq[Mention]] = this.arguments,
+    paths: Map[String, Map[Mention, SynPath]] = this.paths,
+    sentence: Int = this.sentence,
+    document: Document = this.document,
+    keep: Boolean = this.keep,
+    foundBy: String = this.foundBy,
+    modifications:Set[Modification] = this.modifications): BioEventMention = {
+    val bem = new BioEventMention(labels, trigger, arguments, paths, sentence, document, keep, foundBy)
+    val copyMods = new mutable.HashSet[Modification]()
+    copyMods ++= modifications
+    bem.modifications = copyMods.toSet
+    bem
+  }
 }
 
 class BioRelationMention(
@@ -66,6 +86,24 @@ class BioRelationMention(
 
   def this(m: RelationMention) =
     this(m.labels, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy)
+
+  // Copy constructor for RelationMention
+  def copyWithMods(
+    labels: Seq[String] = this.labels,
+    tokenInterval: Interval = this.tokenInterval,
+    arguments: Map[String, Seq[Mention]] = this.arguments,
+    paths: Map[String, Map[Mention, SynPath]] = this.paths,
+    sentence: Int = this.sentence,
+    document: Document = this.document,
+    keep: Boolean = this.keep,
+    foundBy: String = this.foundBy,
+    modifications:Set[Modification] = this.modifications): BioRelationMention = {
+    val brm = new BioRelationMention(labels, arguments, paths, sentence, document, keep, foundBy)
+    val copyMods = new mutable.HashSet[Modification]()
+    copyMods ++= modifications
+    brm.modifications = copyMods.toSet
+    brm
+  }
 }
 
 object BioMention{

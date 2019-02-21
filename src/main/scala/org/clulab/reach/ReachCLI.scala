@@ -26,7 +26,6 @@ import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
 
-
 /**
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
@@ -164,6 +163,8 @@ class ReachCLI (
     outputType: String,
     withAssembly: Boolean
   ) = {
+
+
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
     (outputType.toLowerCase, withAssembly) match {
 
