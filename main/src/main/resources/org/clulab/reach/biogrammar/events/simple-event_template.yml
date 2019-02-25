@@ -182,7 +182,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = ((</${objects}/|</${noun_modifiers}/)? (${passive_agents}|/${passive_agents}/) | ${noun_modifiers} | /${genitive_case_marker}/ /${passive_agents}/) /${noun_modifiers}|${conjunctions}/{,2} | /${noun_modifiers}/
+    cause:BioChemicalEntity? = ((</${objects}/|${noun_modifiers})? (${passive_agents}|/${passive_agents}/) | ${noun_modifiers} | /${genitive_case_marker}/ /${passive_agents}/) /${noun_modifiers}|${conjunctions}/{,2} | /${noun_modifiers}/
     theme:BioChemicalEntity = /${genitive_case_marker}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
     site:Site? = (/${any_preposition}/? /${noun_modifiers}/{,2}){1,2}
 
