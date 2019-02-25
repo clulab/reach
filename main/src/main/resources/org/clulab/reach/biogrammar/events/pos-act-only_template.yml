@@ -14,7 +14,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = </${preps}/ [lemma=result] ${agents} /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = </${preps_general}/ [lemma=result] ${agents} /${noun_modifiers}|${conjunctions}/{,2}
     controlled:${ controlledType } = /${noun_modifiers}|${genitive_case_marker}/
 
 

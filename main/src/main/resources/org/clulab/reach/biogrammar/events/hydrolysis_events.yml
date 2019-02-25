@@ -16,7 +16,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (</${noun_modifiers}/? ${noun_modifiers}) | (${genitive_case_marker} /${noun_modifiers}/?) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = </${genitive_case_marker}/? </${objects}/? ${preps} [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = </${genitive_case_marker}/? </${objects}/? ${preps_general} [!word=/^GAPs?$/]
     cause:MacroMolecule = /${passive_agents}/
 
 - name: hydrolysis_2
@@ -27,7 +27,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = </${preps}/ | /${preps}/ [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = </${preps_general}/ | /${preps_general}/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_2wrong
   label: Hydrolysis
@@ -37,8 +37,8 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} ${genitive_case_marker}) | (</${genitive_case_marker}/ </${objects}/ ${preps}) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ /${preps}/
+    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} ${genitive_case_marker}) | (</${genitive_case_marker}/ </${objects}/ ${preps_general}) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ /${preps_general}/
 
 - name: hydrolysis_3
   label: Hydrolysis
@@ -48,7 +48,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (< /${any_preposition}/){,2} </${passive_voice_subject}/ /${preps}/ [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (< /${any_preposition}/){,2} </${passive_voice_subject}/ /${preps_general}/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_4
   label: Hydrolysis

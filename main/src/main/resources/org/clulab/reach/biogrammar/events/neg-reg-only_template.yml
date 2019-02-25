@@ -49,4 +49,4 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:BioEntity = /compound|${genitive_case_marker}|${passive_agents}/
-    controlled:SimpleEvent = </${preps}/
+    controlled:SimpleEvent = </${preps_general}/

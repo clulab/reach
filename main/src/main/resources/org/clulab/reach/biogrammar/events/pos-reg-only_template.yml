@@ -14,8 +14,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = in response to
-    controlled:SimpleEvent = </${preps}/ /${objects}/?
-    controller:${ controllerType }? = </${preps}/? (/${preps}/ /${preps}/?) ([lemma="treatment"] /${noun_modifiers}/)?
+    controlled:SimpleEvent = </${preps_general}/ /${objects}/?
+    controller:${ controllerType }? = </${preps_general}/? (/${preps_general}/ /${preps_general}/?) ([lemma="treatment"] /${noun_modifiers}/)?
 
 # This applies only to non-nested regs
 - name: Positive_${ ruleType }_following_Controller_activation
@@ -50,4 +50,4 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:BioEntity = /${noun_modifiers}|${genitive_case_marker}|${passive_agents}/
-    controlled:SimpleEvent = </${preps}/
+    controlled:SimpleEvent = </${preps_general}/

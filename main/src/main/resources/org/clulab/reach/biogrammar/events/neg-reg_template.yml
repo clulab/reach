@@ -14,8 +14,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (${adverbial_clause}|${adjective_clause})? (${objects} | ${complements}) /${conjunctions}|${dep}|${objects}|${noun_modifiers}|${genitive_case_marker}|${preps}/{,2} (>> [word=by]){,2}
-    controller:${ controllerType } = </${complements}/? (${agents} | ${nominal_passive_agents} | ${passive_voice_subject} | </${adverbial_clause}|${adjective_clause}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps}/{,2}
+    controlled:${ controlledType } = (${adverbial_clause}|${adjective_clause})? (${objects} | ${complements}) /${conjunctions}|${dep}|${objects}|${noun_modifiers}|${genitive_case_marker}|${preps_general}/{,2} (>> [word=by]){,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | ${nominal_passive_agents} | ${passive_voice_subject} | </${adverbial_clause}|${adjective_clause}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_general}/{,2}
 # Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
@@ -25,7 +25,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (>/${passive_voice_subject}/|</${adverbial_clause}|${adjective_clause}/) /${conjunctions}|${noun_modifiers}/{,2}
-    controller:${ controllerType } = (${passive_agents}) /${conjunctions}|${noun_modifiers}|${genitive_case_marker}|${preps}/{,2}
+    controller:${ controllerType } = (${passive_agents}) /${conjunctions}|${noun_modifiers}|${genitive_case_marker}|${preps_general}/{,2}
 - name: Negative_${ ruleType }_syntax_3_verb
   priority: ${ priority }
   example: ""
@@ -34,7 +34,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !outgoing=${passive_voice_subject} & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = ( (/${noun_modifier_[^b]}|${conjunctions}|${noun_modifiers}/{1,2}) | (< /${any_preposition}|${conjunctions}|${noun_modifiers}/{1,2}) )
-    controller:${ controllerType } = </${noun_modifiers}/{,2} | (/${passive_agents}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps}/{,2}
+    controller:${ controllerType } = </${noun_modifiers}/{,2} | (/${passive_agents}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_general}/{,2}
 - name: Negative_${ ruleType }_syntax_4_verb
   priority: ${ priority }
   example: ""
@@ -61,7 +61,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
     controlled:${ controlledType } = (</${complements}|${standalone_appositive}/ | </${relative_clause}/){1,2} /${noun_modifiers}|${conjunctions}/{,2}
-    controller:${ controllerType } = /${passive_agents}/ /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps}/{,2}
+    controller:${ controllerType } = /${passive_agents}/ /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_general}/{,2}
 - name: Negative_${ ruleType }_syntax_7_verb
   priority: ${ priority }
   example: "Cells were additionally inhibited with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
@@ -69,8 +69,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
-    controlled:${ controlledType } = ${preps} (${adverbial_clause}|${adjective_clause}) ${preps}
-    controller:${ controllerType } = ${preps}
+    controlled:${ controlledType } = ${preps_general} (${adverbial_clause}|${adjective_clause}) ${preps_general}
+    controller:${ controllerType } = ${preps_general}
 
 - name: Negative_${ ruleType }_syntax_1_noun
   priority: ${ priority }
@@ -79,8 +79,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
-    controlled:${ controlledType } = /${genitive_case_marker}|${preps}/ /${noun_modifiers}|${conjunctions}/{,2}
-    controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ (</${objects}/|${passive_agents}|${noun_modifiers}|${genitive_case_marker}|${preps}){1,2} /${noun_modifiers}|${conjunctions}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
+    controlled:${ controlledType } = /${genitive_case_marker}|${preps_general}/ /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ (</${objects}/|${passive_agents}|${noun_modifiers}|${genitive_case_marker}|${preps_general}){1,2} /${noun_modifiers}|${conjunctions}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
 
 - name: Negative_${ ruleType }_syntax_2_noun
   priority: ${ priority }
@@ -89,7 +89,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /${genitive_case_marker}|${preps}/? /${conjunctions}|${noun_modifiers}/{1,2}
+    controlled:${ controlledType } = /${genitive_case_marker}|${preps_general}/? /${conjunctions}|${noun_modifiers}/{1,2}
     controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
 
 - name: Negative_${ ruleType }_syntax_3_noun
@@ -119,8 +119,8 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = </${preps}/ (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
-    controlled:${ controlledType } = (/${genitive_case_marker}|${preps}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
+    controller:${ controllerType } = </${preps_general}/ (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = (/${genitive_case_marker}|${preps_general}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
 
 - name: Negative_${ ruleType }_syntax_7_noun
   priority: ${ priority }
@@ -130,7 +130,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:${ controllerType } = </${dep}/ /${noun_modifiers}|${conjunctions}/{,2}
-    controlled:${ controlledType } = (/${genitive_case_marker}|${preps}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
+    controlled:${ controlledType } = (/${genitive_case_marker}|${preps_general}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
 # Captures common Hearst patterns: hypernym such as hyponym
 - name: Negative_${ ruleType }_syntax_noun_Hearst
   priority: ${ priority }
@@ -166,7 +166,7 @@ rules:
   pattern: |
     trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
     controller:${ controllerType } = ${agents}
-    controlled:${ controlledType } = /${genitive_case_marker}|${preps}/
+    controlled:${ controlledType } = /${genitive_case_marker}|${preps_general}/
 - name: Negative_${ ruleType }_possessive_noun
   priority: ${ priority }
   example: "ASPP1 is common, as is its inhibition by ASPP2."

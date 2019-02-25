@@ -131,7 +131,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
-    controlled:${ controlledType } = ${preps_in$_singleton} | /${preps}/
+    controlled:${ controlledType } = ${preps_in$_singleton} | /${preps_general}/
     controller:${ controllerType } = (${agents} | </${relative_clause}/) /${noun_modifiers}|${conjunctions}/{,2}
 
 
@@ -198,7 +198,7 @@ rules:
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = (/${genitive_case_marker}|${preps_in$_singleton}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
-    controller:${ controllerType } = </${preps}/ (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = </${preps_general}/ (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_7_noun
@@ -332,4 +332,4 @@ rules:
     # xcomp for "A, leading to B" pattern
     controller:${ controllerType } = ${agents}|/${complements}/
     # "leading to activation"
-    controlled:${ controlledType } = (?= /${preps}/ [word=/(?i)^(${ triggers })/]) /${preps}/ /${genitive_case_marker}/? /${noun_modifiers}/?
+    controlled:${ controlledType } = (?= /${preps_general}/ [word=/(?i)^(${ triggers })/]) /${preps_general}/ /${genitive_case_marker}/? /${noun_modifiers}/?

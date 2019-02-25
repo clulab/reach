@@ -13,7 +13,7 @@ rules:
     # these two should be the same
     cause:BioChemicalEntity = ${noun_modifiers}
     theme:BioChemicalEntity = ${noun_modifiers}
-    site:Site? = /${preps}|${noun_modifiers}|${conjunctions}/{,2}
+    site:Site? = /${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: ${ eventName }_syntax_2_noun
@@ -26,7 +26,7 @@ rules:
     # these two should be the same
     cause:BioChemicalEntity = ${genitive_case_marker}
     theme:BioChemicalEntity = ${genitive_case_marker}
-    site:Site? = /${genitive_case_marker}/? /${preps}|${noun_modifiers}|${conjunctions}/{,2}
+    site:Site? = /${genitive_case_marker}/? /${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: ${ eventName }_syntax_1_verb
@@ -39,7 +39,7 @@ rules:
     # these two should be the same
     cause:BioChemicalEntity = /${any_nominal_subject}/
     theme:BioChemicalEntity = /${any_nominal_subject}/
-    site:Site? = /${preps}/
+    site:Site? = /${preps_general}/
 
 
 - name: ${ eventName }_syntax_2_verb
@@ -54,7 +54,7 @@ rules:
     # direct object of predicate must be the word "itself"
     cause:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /${any_nominal_subject}/
     theme:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /${any_nominal_subject}/
-    site:Site? = /${preps}|${noun_modifiers}|${conjunctions}/{,2}
+    site:Site? = /${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 # This is the only way to get this, due to horrible misparsing.
