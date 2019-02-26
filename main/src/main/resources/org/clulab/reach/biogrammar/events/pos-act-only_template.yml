@@ -2,6 +2,11 @@
 # The rules below apply ONLY to activations (not regulations)
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+
 - name: Positive_${ ruleType }_syntax_results_in
   priority: ${ priority }
   example: "AKT1 results in subsequent MEK activation."
@@ -9,8 +14,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = <nmod_in [lemma=result] nsubj /compound|amod|conj_/{,2}
-    controlled:${ controlledType } = /compound|nmod_of/
+    controller:${ controllerType } = </${preps_general}/ [lemma=result] ${agents} /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = /${noun_modifiers}|${genitive_case_marker}/
 
 
 #- name: "Positive_activation_surface_treated_with"

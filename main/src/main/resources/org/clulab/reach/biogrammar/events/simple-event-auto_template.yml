@@ -1,3 +1,7 @@
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 
 - name: ${ eventName }_syntax_1_noun
   priority: ${ priority }
@@ -7,9 +11,9 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & tag=/^N/ & !mention=ModificationTrigger]
     # these two should be the same
-    cause:BioChemicalEntity = compound
-    theme:BioChemicalEntity = compound
-    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
+    cause:BioChemicalEntity = ${noun_modifiers}
+    theme:BioChemicalEntity = ${noun_modifiers}
+    site:Site? = /${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: ${ eventName }_syntax_2_noun
@@ -20,9 +24,9 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & tag=/^N/ & !mention=ModificationTrigger]
     # these two should be the same
-    cause:BioChemicalEntity = nmod_of
-    theme:BioChemicalEntity = nmod_of
-    site:Site? = nmod_of? /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
+    cause:BioChemicalEntity = ${genitive_case_marker}
+    theme:BioChemicalEntity = ${genitive_case_marker}
+    site:Site? = /${genitive_case_marker}/? /${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: ${ eventName }_syntax_1_verb
@@ -33,9 +37,9 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & !mention=ModificationTrigger]
     # these two should be the same
-    cause:BioChemicalEntity = /^nsubj/
-    theme:BioChemicalEntity = /^nsubj/
-    site:Site? = nmod_on
+    cause:BioChemicalEntity = /${any_nominal_subject}/
+    theme:BioChemicalEntity = /${any_nominal_subject}/
+    site:Site? = /${preps_general}/
 
 
 - name: ${ eventName }_syntax_2_verb
@@ -48,9 +52,9 @@
     # these two should be the same
     # assertion on syntactic context of trigger
     # direct object of predicate must be the word "itself"
-    cause:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
-    theme:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
-    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
+    cause:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /${any_nominal_subject}/
+    theme:BioChemicalEntity = (?= (${objects}|${passive_agents}) [word=itself]) /${any_nominal_subject}/
+    site:Site? = /${preps_general}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 # This is the only way to get this, due to horrible misparsing.
