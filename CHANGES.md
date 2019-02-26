@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.5.1** - Implements variables for grammar templates.
 + **1.5.0** - We now use Universal Dependency syntax for all grammar rules rather than Stanford dependencies.
 + **1.4.1** - Switched default processor to BioNLPProcessor rather than the server. The client/server config remains available.
 + **1.4.1** - Update to use released Processors 6.3.0 as new Reach base. Update Scala to 2.11.11.
