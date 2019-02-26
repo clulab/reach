@@ -73,7 +73,11 @@ noun_modifier_[^bt]: "nmod_[^bt]"
 noun_modifier_(by|of): "nmod_(by|of)"
 noun_modifier_o[nf]$: "^nmod_o[nf]$"
 
-#ATTN: there are relations mentioned in the folder and file below, but the rules there are fairly specific,
-#so substituting with a variable could be damaging
-#https://github.com/clulab/reach/tree/master/assembly/src/main/resources/org/clulab/reach/assembly/grammars
-#https://github.com/clulab/reach/blob/variables/main/src/main/scala/org/clulab/reach/darpa/DarpaActions.scala
+#ATTN: there are relations mentioned in the folders and files below, but the rules there are fairly specific,
+#so substituting with a variable could be damaging; changes might need to be made manually in these files if the names of
+#relations change in the next versions of Universal Dependencies
+#../reach/main/src/main/resources/org/clulab/reach/biogrammar/coref
+#../reach/main/src/main/resources/org/clulab/reach/biogrammar/context
+#../reach/main/src/main/resources/org/clulab/reach/biogrammar/modifications/modifications.yml
+#../assembly/src/main/resources/org/clulab/reach/assembly/grammars
+#../main/src/main/scala/org/clulab/reach/darpa/DarpaActions.scala
