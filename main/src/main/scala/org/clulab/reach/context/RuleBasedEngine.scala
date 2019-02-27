@@ -7,7 +7,7 @@ import org.clulab.reach.mentions._
 abstract class RuleBasedContextEngine extends ContextEngine {
 
   // Fields
-  // To be overriden in the implementations. Returns a sequence of (Type, Val) features
+  // To be overridden in the implementations. Returns a sequence of (Type, Val) features
   // Feature order should be kept consistent for all return values
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   // This is to keep the default species if necessary
