@@ -169,6 +169,12 @@ object JsonOutputter {
     if (ACTIVATION_EVENTS.contains(label))
       return "activation"
 
+    if (label == "Gene_expression")
+      return "gene_expression"
+
+    if (label == "Localization")
+      return "localization"
+
     throw new RuntimeException("ERROR: unknown event type: " + label + " in event:\n" + mention.json(pretty = true))
   }
 
