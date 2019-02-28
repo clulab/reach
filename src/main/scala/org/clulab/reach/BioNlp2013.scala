@@ -9,6 +9,9 @@ import org.clulab.processors.{Document, Sentence}
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.mentions._
 import ai.lum.common.FileUtils._
+import ai.lum.common.ConfigUtils._
+
+import com.typesafe.config.ConfigFactory
 
 import scala.collection.mutable
 
@@ -16,17 +19,13 @@ object BioNlp2013 {
 
   def main(args: Array[String]): Unit = {
 
+    val config = ConfigFactory.load()
     // initializing all our stuff
     val bionlpSystem = new BioNlp2013System
-
-    //    val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_devel_data_rev3")
-    //    val outDir = new File("/home/marco/data/reach/output")
-    //    val dataDir = new File("/home/dane/data/bionlp/2011/BioNLP-ST_2011_genia_devel_data_rev1")
-    //    val outDir = new File("/home/dane/data/bionlp/2011/output")
-//    val dataDir = new File("/home/dane/data/bionlp/2013/BioNLP-ST-2013_GE_devel_data_rev3")
-//    val outDir = new File("/home/dane/data/bionlp/2013/output")
-    val dataDir = new File("/home/dane/data/bionlp/2013/BioNLP-ST-2013_GE_test_data_rev1")
-    val outDir = new File("/home/dane/data/bionlp/2013/output-test")
+    
+    val conf    = ConfigFactory.load()
+    val dataDir = config[File]("bionlpEvaluation.data")
+    val outDir  = config[File]("bionlpEvaluation.output")
 
     for (txtFile <- dataDir.listFilesByWildcard("*.txt").toSeq.par) {
       try {
