@@ -52,7 +52,7 @@ case class Trigger(docId: Option[String], sentIdx: Int, start: Int, end: Int) ex
 
 // a brat textbound mention
 case class BratTBM(id: String, label: String, start: Int, end: Int, text: String) extends Serializable {
-  val standoff: String = s"T$id\t$label $start $end\t$text\n"
+  val standoff: String = s"$id\t$label $start $end\t$text\n"
 }
 
 class BioNlp2013System {
@@ -268,13 +268,15 @@ class BioNlp2013System {
         )
         // update map
         triggerMap = triggerMap + (trigger -> triggerTBM)
+
+        // append new trigger standoff
+        standoff ++= triggerTBM.standoff
+
         triggerTBM
       } else {
         triggerMap(trigger)
       }
-      // append trigger standoff
-      standoff ++= repr.standoff
-      standoff ++= s"E$currEMID\t$lbl:T${repr.id} "
+      standoff ++= s"E$currEMID\t$lbl:${repr.id} "
 
       var themeSeen = false
       for {
@@ -317,13 +319,15 @@ class BioNlp2013System {
           )
           // update map
           triggerMap = triggerMap + (trigger -> triggerTBM)
+
+          // append new trigger standoff
+          standoff ++= triggerTBM.standoff
+
           triggerTBM
         } else {
           triggerMap(trigger)
         }
-        // append trigger standoff
-        standoff ++= repr.standoff
-        standoff ++= s"E$currEMID\t$promotedLabel:T${repr.id} "
+        standoff ++= s"E$currEMID\t$promotedLabel:${repr.id} "
 
         for {
           (name, args) <- ce.arguments
@@ -374,13 +378,15 @@ class BioNlp2013System {
           )
           // update map
           triggerMap = triggerMap + (trigger -> triggerTBM)
+
+          // append new trigger standoff
+          standoff ++= triggerTBM.standoff
+
           triggerTBM
         } else {
           triggerMap(trigger)
         }
-        // append trigger standoff
-        standoff ++= repr.standoff
-        standoff ++= s"E$currEMID\t${ce.label}:T${repr.id} "
+        standoff ++= s"E$currEMID\t${ce.label}:${repr.id} "
 
         for {
           (name, args) <- ce.arguments
