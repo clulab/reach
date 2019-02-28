@@ -659,7 +659,7 @@ class NxmlSearcher(val indexDir:String) {
 
   def useCaseBioNlp2013(resultDir:String, maxDocs:Int = Int.MaxValue): Unit = {
     // find phophorylation, gene expression, and localization events based on trigger patterns observed in the BioNLP 2013 training data
-    val query = """.*(phosphoryl|co\-?express|concentrat|co\-?produc|detect|express|induc|induct|introducing|make|overexpress|present|produc|staining|(co\-?)?transfect|amount|(co\-?)?transfection|co\-?express|concentrat|co\-?produc|detect|express|express|induct|introduc|knock\-?out|level|over\-?express|produc|re\-?express|secret|stain|synthesis|transfect|transgen|detect|localiz|locat|releas|secret|translocat).*"""
+    val query = """phosphorylation OR co\-transfected OR co\-transfection OR coexpress OR concentration OR coproduce OR coproduced OR coproducing OR detectable OR detected OR devoid OR express OR expressed OR expressing OR expression OR gene expression OR induction OR introducing OR introduction OR knock\-out OR localization OR localize OR localized OR localizes OR located OR location OR overexpressed OR overexpressing OR overexpression OR produce OR produced OR producing OR production OR re\-expression OR reexpression OR release OR released OR secreted OR secretion OR staining OR synthesis OR transfected OR transfecting OR transfection OR transgenic OR translocate OR translocation"""
     vanillaUseCase(query, resultDir, maxDocs)
   }
 
@@ -702,8 +702,10 @@ object NxmlSearcher {
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
-    val indexDir = props.getProperty("index")
-    val resultDir = props.getProperty("output")
+    //val indexDir = props.getProperty("index")
+    val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_jun2005_index"
+    //val resultDir = props.getProperty("output")
+    val resultDir = "/data/nlp/corpora/pmc_openaccess/bionlp-2013"
     val searcher = new NxmlSearcher(indexDir)
 
     if(props.containsKey("ids")) {
