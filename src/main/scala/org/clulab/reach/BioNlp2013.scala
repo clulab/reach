@@ -48,7 +48,7 @@ object BioNlp2013 {
 }
 
 // represents a trigger as a span of text.  Used to keep track of seen triggers.
-case class Trigger(docId: Option[String], sentIdx: Int, start: Int, end: Int) extends Serializable
+case class TextualSpan(docId: Option[String], sentIdx: Int, start: Int, end: Int) extends Serializable
 
 // a brat textbound mention
 case class BratTBM(id: String, label: String, start: Int, end: Int, text: String) extends Serializable {
@@ -56,6 +56,25 @@ case class BratTBM(id: String, label: String, start: Int, end: Int, text: String
 }
 
 class BioNlp2013System {
+
+  // These are the only SimpleEvents allowed in the task
+  val targetLabels = Set(
+    "Binding",
+    "AutoPhosphorylation",
+    "Phosphorylation",
+    "Ubiquitination",
+    "Acetylation",
+    "Deacetylation",
+    "Translocation",
+    "Transcription"
+  )
+
+  // Change labels for print-out to work with BioNLP labels
+  def labelTranslator(in: String): String = in match {
+    case "Translocation" => "Localization"
+    case "AutoPhosphorylation" => "Phosphorylation"
+    case other => other
+  }
 
   // initialize processor
   val processor = new BioNLPProcessor(withRuleNER = false, maxSentenceLength = 160)
@@ -161,7 +180,11 @@ class BioNlp2013System {
     case w       => List(w)
   }
 
+  /**
+    * Change Document word offsets to align with pre-tokenized offsets so that we can identify the right NER entities
+    */
   def adjustOffsets(doc: Document, text: String) = {
+    // where to start each word search from
     var from = 0
     for {
       (s, i) <- doc.sentences.zipWithIndex
@@ -169,10 +192,12 @@ class BioNlp2013System {
     } {
       // try all candidates
       val candidates = tokenCandidates(w).flatMap { c =>
+        // find the index of this word in the pre-tokenized text
         val idx = text.indexOf(c, from)
         // don't consider candidate if index is -1
         if (idx == -1) None else Some((c, idx))
       }
+      // the alignment didn't work because the word wasn't found in the original text
       if (candidates.isEmpty) {
         println("ERROR")
         println(text.slice(s.startOffsets.head, s.endOffsets.last))
@@ -191,7 +216,11 @@ class BioNlp2013System {
     }
   }
 
+  /**
+    * From entities (text-bound mentions) in the a1 file, populate entities in the sentence to base TextBoundMentions on
+    */
   def mkTags(sent: Sentence, tbms: Vector[BratTBM]): Option[Array[String]] = tbms match {
+    // no TBMS => no entities
     case Vector() => Some(Array.fill(sent.words.length)("O"))
     case nonemptyTbms =>
       val tags = Array.fill(sent.words.length)("O")
@@ -199,6 +228,7 @@ class BioNlp2013System {
       for (m <- nonemptyTbms if m.start >= sent.startOffsets.head && m.end <= sent.endOffsets.last) {
         var first = true
         for (i <- tags.indices) {
+          // a1 TBM must be within the bounds of this token in the Document
           if (m.start >= sent.startOffsets(i) && m.end <= sent.endOffsets(i)) {
             val tag = if (first) {
               first = false
@@ -215,13 +245,18 @@ class BioNlp2013System {
       Some(tags)
   }
 
+  /**
+    * Translate Reach event mentions and new entity mentions (triggers and sites) into BRAT output for normalization
+    * and evaluation
+    */
   def dumpA2Annotations(mentions: Seq[BioMention], entities: Seq[BratTBM]): String = {
 
     // keep track of triggers dumped to standoff in order to reuse ID
-    var triggerMap: Map[Trigger, BratTBM] = Map.empty[Trigger, BratTBM]
+    var triggerMap: Map[TextualSpan, BratTBM] = Map.empty[TextualSpan, BratTBM]
 
     // start standoff
-    val standoff = new StringBuilder
+    val entityStandoff = new StringBuilder
+    val eventStandoff = new StringBuilder
     var currTBMID = entities.size
     var currEMID = 0
     // retrieve all textbound mentions
@@ -244,20 +279,132 @@ class BioNlp2013System {
     // keep track of SimpleEvent IDs for regulations later
     val semToId = mutable.Map[Mention, String]()
 
+    // look up TBMs with PTM modifications -- these are events in BioNLP terms
+    val modifieds = mentions
+      .filter(_.isInstanceOf[BioTextBoundMention])
+      .filter(m => tbmToId.contains(m.asInstanceOf[BioTextBoundMention]))
+      .filter(_.modifications.exists(m => m.isInstanceOf[PTM] && targetLabels.contains(m.label)))
+    for {
+      modified <- modifieds
+      mod <- modified.modifications
+      // ensure it's a PTM we care about
+      if mod.isInstanceOf[PTM] && targetLabels.contains(mod.label) && mod.asInstanceOf[PTM].evidence.nonEmpty
+    } {
+      val ptmMod = mod.asInstanceOf[PTM]
+
+      // make a trigger from the modification's evidence
+      currTBMID += 1
+      currEMID += 1
+      semToId(modified) = s"E$currEMID"
+      val lbl = ptmMod.label
+      // If the same trigger is used for multiple events (ex. event split because of a coordination),
+      // we need to reuse its ID.
+      //
+      // represent the trigger
+      val trigger = TextualSpan(
+        modified.document.id,
+        modified.sentence,
+        ptmMod.evidence.get.startOffset,
+        ptmMod.evidence.get.endOffset
+      )
+      val repr: BratTBM = if (! triggerMap.contains(trigger)) {
+        val triggerTBM = BratTBM(
+          id = s"T$currTBMID",
+          label = lbl,
+          start = ptmMod.evidence.get.startOffset,
+          end = ptmMod.evidence.get.endOffset,
+          text = ptmMod.evidence.get.text
+        )
+        // update map
+        triggerMap = triggerMap + (trigger -> triggerTBM)
+
+        // append new trigger standoff
+        entityStandoff ++= triggerTBM.standoff
+
+        triggerTBM
+      } else {
+        triggerMap(trigger)
+      }
+      eventStandoff ++= s"E$currEMID\t$lbl:${repr.id} "
+
+      // the theme is just the original TBM (that has the modification) which already exists in the tbmToId
+      val id = tbmToId(modified.asInstanceOf[BioTextBoundMention])
+      eventStandoff ++= s"Theme:$id "
+
+      // if there's a site, print it as well
+      if (ptmMod.site.nonEmpty) {
+        val site = ptmMod.site.get
+        val ts = TextualSpan(
+          docId = site.document.id,
+          sentIdx = site.sentence,
+          start = site.startOffset,
+          end = site.endOffset
+        )
+        // check if Site in triggerMap
+        val knownSite = if (! triggerMap.contains(ts)) {
+          currTBMID += 1
+          val bratTBM = BratTBM(
+            id = s"T$currTBMID",
+            label = "Entity",
+            start = site.startOffset,
+            end = site.endOffset,
+            text = site.text
+          )
+          // update triggerMap
+          triggerMap = triggerMap + (ts -> bratTBM)
+          entityStandoff ++= bratTBM.standoff
+          bratTBM
+        } else {
+          triggerMap(ts)
+        }
+        // write site standoff
+        eventStandoff ++= s"Site:${knownSite.id} "
+      }
+
+      eventStandoff ++= "\n"
+    }
+
+    /**
+      * This SimpleEvent has at least one theme that was found in the a1-derived TBM list and isn't generic
+      */
+    def hasValidArgs(mention: BioMention): Boolean = {
+      mention.arguments.contains("theme") &&
+        mention.arguments("theme")
+          .filter(a => tbmToId.contains(a.asInstanceOf[BioTextBoundMention]) &&
+            !a.toCorefMention.isGeneric)
+          .nonEmpty
+    }
+
+    /**
+      * If this is a binding, it's got to have at least two valid themes
+      */
+    def validBinding(mention: BioMention): Boolean = mention match {
+      case binding if mention matches "Binding" =>
+        binding.arguments("theme")
+          .filter(a => tbmToId.contains(a.asInstanceOf[BioTextBoundMention]) &&
+            !a.toCorefMention.isGeneric)
+          .size > 1
+      case other => true
+    }
+
     // report simple events that aren't the controlled of a BioRelationMention regulation
+    // filters ensure that theme exists in .a1 file and that the SimpleEvent at least has a theme
     val sems = mentions.filter(_ matches "SimpleEvent")
-      .filterNot(regThemes.contains)
+      .filter(m => targetLabels contains m.label) // ignore irrelevant events
+      .filterNot(regThemes.contains) // handle simple-event-with-cause separately
+      .filter(hasValidArgs)
+      .filter(validBinding)
       .map(_.asInstanceOf[BioEventMention])
     for (se <- sems) {
       currTBMID += 1
       currEMID += 1
       semToId(se) = s"E$currEMID"
-      val lbl = se.label.replaceFirst("Auto", "").capitalize
+      val lbl = se.label
       // If the same trigger is used for multiple events (ex. event split because of a coordination),
       // we need to reuse its ID.
       //
       // represent the trigger
-      val trigger = Trigger(se.document.id, se.sentence, se.trigger.startOffset, se.trigger.endOffset)
+      val trigger = TextualSpan(se.document.id, se.sentence, se.trigger.startOffset, se.trigger.endOffset)
       val repr: BratTBM = if (! triggerMap.contains(trigger)) {
         val triggerTBM = BratTBM(
           id = s"T$currTBMID",
@@ -270,13 +417,13 @@ class BioNlp2013System {
         triggerMap = triggerMap + (trigger -> triggerTBM)
 
         // append new trigger standoff
-        standoff ++= triggerTBM.standoff
+        entityStandoff ++= triggerTBM.standoff
 
         triggerTBM
       } else {
         triggerMap(trigger)
       }
-      standoff ++= s"E$currEMID\t$lbl:${repr.id} "
+      eventStandoff ++= s"E$currEMID\t$lbl:${repr.id} "
 
       var themeSeen = false
       for {
@@ -287,88 +434,169 @@ class BioNlp2013System {
           case m: BioTextBoundMention if tbmToId contains m =>
             val id = tbmToId(m)
             val label = if (name == "theme" && themeSeen) "Theme2" else name.capitalize
-            standoff ++= s"$label:$id "
+            eventStandoff ++= s"$label:$id "
             if (name == "theme") themeSeen = true
+          case site: BioTextBoundMention if name == "site" =>
+            val ts = TextualSpan(
+              docId = site.document.id,
+              sentIdx = site.sentence,
+              start = site.startOffset,
+              end = site.endOffset
+            )
+            // check if Site in triggerMap
+            val knownSite = if (! triggerMap.contains(ts)) {
+              currTBMID += 1
+              val bratTBM = BratTBM(
+                id = s"T$currTBMID",
+                label = "Entity",
+                start = site.startOffset,
+                end = site.endOffset,
+                text = site.text
+              )
+              // update triggerMap
+              triggerMap = triggerMap + (ts -> bratTBM)
+              entityStandoff ++= bratTBM.standoff
+              bratTBM
+            } else {
+              triggerMap(ts)
+            }
+            // write site standoff
+            eventStandoff ++= s"Site:${knownSite.id} "
           case _ => ()
         }
       }
-      standoff ++= "\n"
+      eventStandoff ++= "\n"
+    }
+
+    /** Check whether or not a mention's args are known or TextBound */
+    def seenIt(mns: Seq[Mention]): Boolean = mns.forall{
+      case btm: TextBoundMention =>
+        tbmToId.contains(btm.asInstanceOf[BioTextBoundMention])
+      case other =>
+        semToId.contains(other)
     }
 
     // report regulation events
-    val rems = mentions.filter(_ matches "Regulation")
+    val rems = mentions
+      .filter(_ matches "Regulation")
+      .filter(m => m.arguments.contains("controlled") && m.arguments.contains("controller"))
+      .filter{ reg =>
+        // we check the controlled simple event for themes that won't print
+        val regulated = reg.arguments("controlled")
+        val regulator = reg.arguments("controller")
+        // ensure that at least one theme is not generic and exists in the map
+        val regulatedOkay = regulated.exists(r => targetLabels.contains(r.label) &&
+          hasValidArgs(r.asInstanceOf[BioMention]) &&
+          validBinding(r.asInstanceOf[BioMention]))
+        val regulatorOkay = seenIt(regulator)
+        regulatedOkay && regulatorOkay
+      }
+
     for (ce <- rems) ce match {
       // e.g. A phosphorylates B
       case ce: BioRelationMention =>
-        currTBMID += 1
-        currEMID += 1
-        val promoted = ce.arguments("controlled").head.asInstanceOf[BioEventMention]
-        val promotedLabel = promoted.label.replaceFirst("Auto", "").capitalize
-        // If the same trigger is used for multiple events (ex. event split because of a coordination),
-        // we need to reuse its ID.
-        //
-        // represent the trigger
-        val trigger = Trigger(promoted.document.id, promoted.sentence, promoted.startOffset, promoted.trigger.endOffset)
-        val repr: BratTBM = if (! triggerMap.contains(trigger)) {
-          val triggerTBM = BratTBM(
-            id = s"T$currTBMID",
-            label = promotedLabel,
-            start = promoted.trigger.startOffset,
-            end = promoted.trigger.endOffset,
-            text = promoted.trigger.text
-          )
-          // update map
-          triggerMap = triggerMap + (trigger -> triggerTBM)
+        val promoteds = ce.arguments("controlled")
+          .filter(m => hasValidArgs(m.asInstanceOf[BioMention]))
+          .filter(m => validBinding(m.asInstanceOf[BioMention]))
+        for (p <- promoteds) {
+          currEMID += 1
+          val promoted = p.asInstanceOf[BioEventMention]
+          val promotedLabel = labelTranslator(promoted.label)
+          // If the same trigger is used for multiple events (ex. event split because of a coordination),
+          // we need to reuse its ID.
+          //
+          // represent the trigger
+          val trigger = TextualSpan(promoted.document.id, promoted.sentence, promoted.startOffset, promoted.trigger.endOffset)
+          val repr: BratTBM = if (!triggerMap.contains(trigger)) {
+            currTBMID += 1
+            val triggerTBM = BratTBM(
+              id = s"T$currTBMID",
+              label = promotedLabel,
+              start = promoted.trigger.startOffset,
+              end = promoted.trigger.endOffset,
+              text = promoted.trigger.text
+            )
+            // update map
+            triggerMap = triggerMap + (trigger -> triggerTBM)
 
-          // append new trigger standoff
-          standoff ++= triggerTBM.standoff
+            // append new trigger standoff
+            entityStandoff ++= triggerTBM.standoff
 
-          triggerTBM
-        } else {
-          triggerMap(trigger)
-        }
-        standoff ++= s"E$currEMID\t$promotedLabel:${repr.id} "
-
-        for {
-          (name, args) <- ce.arguments
-          arg <- args
-        } {
-          arg match {
-            case tbm: BioTextBoundMention if tbmToId.contains(tbm) && !promoted.label.startsWith("Auto")  =>
-              val id = tbmToId(tbm)
-              standoff ++= s"Cause:$id "
-            case evm: BioEventMention =>
-              val subArgs = evm.arguments
-                .map{ case (n, a) =>
-                  n -> a.filter(_.isInstanceOf[BioTextBoundMention])
-                }
-                .filter{ case (n, a) => a.nonEmpty }
-              for {
-                (subName, subArgs) <- subArgs
-                subArg <- subArgs
-              } {
-                subArg match {
-                  case tbm: BioTextBoundMention if tbmToId contains tbm =>
-                    val id = tbmToId(tbm)
-                    standoff ++= s"${subName.capitalize}:$id "
-                  case _ => ()
-                }
-              }
-            case _ => ()
+            triggerTBM
+          } else {
+            triggerMap(trigger)
           }
+          eventStandoff ++= s"E$currEMID\t$promotedLabel:${repr.id} "
+
+          for {
+            (name, args) <- ce.arguments
+            arg <- args
+          } {
+            arg match {
+              case tbm: BioTextBoundMention if tbmToId.contains(tbm) && !promoted.label.startsWith("Auto") =>
+                val id = tbmToId(tbm)
+                eventStandoff ++= s"Cause:$id "
+              case evm: BioEventMention =>
+                val subArgs = evm.arguments
+                  .map { case (n, a) =>
+                    n -> a.filter(_.isInstanceOf[BioTextBoundMention])
+                  }
+                  .filter { case (n, a) => a.nonEmpty }
+                for {
+                  (subName, subArgs) <- subArgs
+                  subArg <- subArgs
+                } {
+                  subArg match {
+                    case tbm: BioTextBoundMention if tbmToId contains tbm =>
+                      val id = tbmToId(tbm)
+                      eventStandoff ++= s"${subName.capitalize}:$id "
+                    case site: BioTextBoundMention if subName == "site" =>
+                      val ts = TextualSpan(
+                        docId = site.document.id,
+                        sentIdx = site.sentence,
+                        start = site.startOffset,
+                        end = site.endOffset
+                      )
+                      // check if Site in triggerMap
+                      val knownSite = if (! triggerMap.contains(ts)) {
+                        currTBMID += 1
+                        val bratTBM = BratTBM(
+                          id = s"T$currTBMID",
+                          label = "Entity",
+                          start = site.startOffset,
+                          end = site.endOffset,
+                          text = site.text
+                        )
+                        // update triggerMap
+                        triggerMap = triggerMap + (ts -> bratTBM)
+                        entityStandoff ++= bratTBM.standoff
+                        bratTBM
+                      } else {
+                        triggerMap(ts)
+                      }
+                      // write site standoff
+                      eventStandoff ++= s"Site:${knownSite.id} "
+                    case _ => ()
+                  }
+                }
+
+              case _ => ()
+            }
+          }
+          eventStandoff ++= "\n"
         }
-        standoff ++= "\n"
+
       // e.g. A upregulates the phosphorylation of B by C
       case ce: BioEventMention =>
-        currTBMID += 1
         currEMID += 1
 
         // If the same trigger is used for multiple events (ex. event split because of a coordination),
         // we need to reuse its ID.
         //
         // represent the trigger
-        val trigger = Trigger(ce.document.id, ce.sentence, ce.startOffset, ce.trigger.endOffset)
+        val trigger = TextualSpan(ce.document.id, ce.sentence, ce.startOffset, ce.trigger.endOffset)
         val repr: BratTBM = if (! triggerMap.contains(trigger)) {
+          currTBMID += 1
           val triggerTBM = BratTBM(
             id = s"T$currTBMID",
             label = ce.label,
@@ -380,17 +608,18 @@ class BioNlp2013System {
           triggerMap = triggerMap + (trigger -> triggerTBM)
 
           // append new trigger standoff
-          standoff ++= triggerTBM.standoff
+          entityStandoff ++= triggerTBM.standoff
 
           triggerTBM
         } else {
           triggerMap(trigger)
         }
-        standoff ++= s"E$currEMID\t${ce.label}:${repr.id} "
+        eventStandoff ++= s"E$currEMID\t${ce.label}:${repr.id} "
 
         for {
           (name, args) <- ce.arguments
           arg <- args
+          if !(name == "controller" && ce.label == "Transcription")
         } {
           val label = name match {
             case "controlled" => "Theme"
@@ -402,17 +631,44 @@ class BioNlp2013System {
           arg match {
             case m: BioTextBoundMention if tbmToId contains m =>
               val id = tbmToId(m)
-              standoff ++= s"$label:$id "
+              eventStandoff ++= s"$label:$id "
             case em if (em matches "Event") && (semToId contains em) =>
               val id = semToId(em)
-              standoff ++= s"$label:$id "
+              eventStandoff ++= s"$label:$id "
+            case site: BioTextBoundMention if name == "site" =>
+              val ts = TextualSpan(
+                docId = site.document.id,
+                sentIdx = site.sentence,
+                start = site.startOffset,
+                end = site.endOffset
+              )
+              // check if Site in triggerMap
+              val knownSite = if (! triggerMap.contains(ts)) {
+                currTBMID += 1
+                val bratTBM = BratTBM(
+                  id = s"T$currTBMID",
+                  label = "Entity",
+                  start = site.startOffset,
+                  end = site.endOffset,
+                  text = site.text
+                )
+                // update triggerMap
+                triggerMap = triggerMap + (ts -> bratTBM)
+                entityStandoff ++= bratTBM.standoff
+                bratTBM
+              } else {
+                triggerMap(ts)
+              }
+              // write site standoff
+              eventStandoff ++= s"Site:${knownSite.id} "
+
             case _ => ()
           }
         }
-        standoff ++= "\n"
+        eventStandoff ++= "\n"
     }
 
-    standoff.mkString
+    entityStandoff.mkString + eventStandoff.mkString
   }
 
 }
