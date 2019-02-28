@@ -65,8 +65,10 @@ class BioNlp2013System {
     "Ubiquitination",
     "Acetylation",
     "Deacetylation",
-    "Translocation",
-    "Transcription"
+    //"Translocation",
+    "Transcription",
+    "Localization",
+    "Gene_expression"
   )
 
   // Change labels for print-out to work with BioNLP labels
