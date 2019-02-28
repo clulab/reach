@@ -657,6 +657,12 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  def useCaseBioNlp2013(resultDir:String, maxDocs:Int = Int.MaxValue): Unit = {
+    // find phophorylation, gene expression, and localization events based on trigger patterns observed in the BioNLP 2013 training data
+    val query = """.*(phosphoryl|co\-?express|concentrat|co\-?produc|detect|express|induc|induct|introducing|make|overexpress|present|produc|staining|(co\-?)?transfect|amount|(co\-?)?transfection|co\-?express|concentrat|co\-?produc|detect|express|express|induct|introduc|knock\-?out|level|over\-?express|produc|re\-?express|secret|stain|synthesis|transfect|transgen|detect|localiz|locat|releas|secret|translocat).*"""
+    vanillaUseCase(query, resultDir, maxDocs)
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
@@ -704,7 +710,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseAnyInteraction(resultDir, 100000)
+      //searcher.useCaseAnyInteraction(resultDir, 100000)
 
       //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
@@ -713,6 +719,7 @@ object NxmlSearcher {
       //searcher.useCaseFall2017Eval(resultDir)
       //searcher.useCaseUPittJan2018(resultDir)
       //searcher.useCaseAFib(resultDir, 100000)
+      searcher.useCaseBioNlp2013(resultDir, 100000)
     }
 
     searcher.close()

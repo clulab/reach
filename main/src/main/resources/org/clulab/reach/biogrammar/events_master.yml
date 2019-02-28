@@ -51,6 +51,36 @@ rules:
   #
   ###############################################################################
 
+  # Gene_expressions
+  - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Gene_expression"
+      actionFlow: "mkBioMention"
+      label: "Gene_expression"
+      verbalTriggerLemma: "co\\-?express|concentrat|co\\-?produc|detect|express|induc|induct|introducing|make|overexpress|present|produc|staining|(co\\-?)?transfect"
+      nominalTriggerLemma: "amount|(co\\-?)?transfection|co\\-?express|concentrat|co\\-?produc|detect|express|express|induct|introduc|knock\\-?out|level|over\\-?express|produc|re\\-?express|secret|stain|synthesis|transfect|transgen"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "7"
+
+#  - import: org/clulab/reach/biogrammar/events/gene_expression.yml
+#    vars:
+#      priority: "7"
+
+  # Localization
+  - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Localization"
+      actionFlow: "mkBioMention"
+      label: "Localization"
+      verbalTriggerLemma: "detect|localiz|locat|releas|secret|translocat"
+      nominalTriggerLemma: "detect|localiz|locat|releas|secret|translocat"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "7"
+
+#  - import: org/clulab/reach/biogrammar/events/gene_expression.yml
+#    vars:
+#      priority: "7"
+
   # Phosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
     vars:

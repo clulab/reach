@@ -28,6 +28,9 @@
             - Binding
             - Generic_event
             - Translocation
+            # These two specific to BioNLP
+            - Localization
+            - Gene_expression
             - Amount:
               - IncreaseAmount:
                 - Transcription
