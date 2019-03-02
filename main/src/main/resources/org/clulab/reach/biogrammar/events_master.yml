@@ -41,10 +41,6 @@ rules:
     vars:
       priority: "7"
 
-  - import: org/clulab/reach/biogrammar/events/translocation_events.yml
-    vars:
-      priority: "7"
-
   ###############################################################################
   #
   # Simple events
@@ -74,9 +70,9 @@ rules:
       triggerPrefix: "!word=/(?i)^de/"
       priority: "7"
 
-#  - import: org/clulab/reach/biogrammar/events/gene_expression.yml
-#    vars:
-#      priority: "7"
+  - import: org/clulab/reach/biogrammar/events/localization.yml
+    vars:
+      priority: "7"
 
   # Phosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
