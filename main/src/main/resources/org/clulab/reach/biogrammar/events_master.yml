@@ -69,8 +69,8 @@ rules:
       eventName: "Localization"
       actionFlow: "mkBioMention"
       label: "Localization"
-      verbalTriggerLemma: "detect|localiz|locat|releas|secret|translocat"
-      nominalTriggerLemma: "detect|localiz|locat|releas|secret|translocat"
+      verbalTriggerLemma: "localiz|locat|release|secrete|translocate"
+      nominalTriggerLemma: "localization|location|release|translocation"
       triggerPrefix: "!word=/(?i)^de/"
       priority: "7"
 
