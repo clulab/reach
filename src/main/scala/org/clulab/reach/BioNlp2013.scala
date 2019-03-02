@@ -65,7 +65,7 @@ class BioNlp2013System {
     "Ubiquitination",
     "Acetylation",
     "Deacetylation",
-    //"Translocation",
+    "Translocation",
     //"Transcription",
     "Localization",
     "Gene_expression"
@@ -73,7 +73,7 @@ class BioNlp2013System {
 
   // Change labels for print-out to work with BioNLP labels
   def labelTranslator(in: String): String = in match {
-    //case "Translocation" => "Localization"
+    case "Translocation" => "Localization"
     case "AutoPhosphorylation" => "Phosphorylation"
     case other => other
   }
