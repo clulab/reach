@@ -5,14 +5,13 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import java.io.File
 import java.util.Date
+import java.util.concurrent.Executors
 
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
-
 import org.clulab.odin._
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
@@ -25,6 +24,10 @@ import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
+
+import scala.concurrent.duration.Duration
+import scala.concurrent.{ Await, ExecutionContext, Future }
+import scala.util.{ Failure, Success, Try }
 
 
 /**
@@ -66,50 +69,51 @@ class ReachCLI (
   }
 
   /** Process papers **/
-  def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
+  def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Unit = {
     logger.info("Initializing Reach ...")
 
-    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toVector.par
+    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toSeq//.toVector.par
 
     // limit parallelization
-    if (threadLimit.nonEmpty) {
-      files.tasksupport =
-        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
+    implicit val ec: ExecutionContext = threadLimit match {
+      case Some(numThreads) =>
+        ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
+      case _ => ExecutionContext.global
     }
 
-    val errorCount = for {
+    val futures: Seq[Future[Unit]] = for {
       file <- files
       filename = file.getName
       paperID = FilenameUtils.removeExtension(filename)
       if ! skipFiles.contains(filename)
     } yield {
-      val error: Int = try {
-        processPaper(file, withAssembly)
-        0                                   // no error
-      } catch {
-        case e: Exception =>
-          val report =
-            s"""
-               |==========
-               |
+      Future {
+        Try {
+          processPaper(file, withAssembly)
+        } match {
+          case Success(_) => ()
+          case Failure(e) =>
+            val report =
+              s"""
+                 |==========
+                 |
             | ¡¡¡ NxmlReader error !!!
-               |
+                 |
             |paper: $paperID
-               |
+                 |
             |error:
-               |${e.toString}
-               |
+                 |${e.toString}
+                 |
             |stack trace:
-               |${e.getStackTrace.mkString("\n")}
-               |
+                 |${e.getStackTrace.mkString("\n")}
+                 |
             |==========
-               |""".stripMargin
-          logger.error(report)
-          1
+                 |""".stripMargin
+            logger.error(report)
+        }
       }
-      error
     }
-    errorCount.sum
+    Await.result(Future.sequence(futures), atMost = Duration.Inf)
   }
 
   def prepareMentionsForMITRE (mentions: Seq[Mention]): Seq[CorefMention] = {
