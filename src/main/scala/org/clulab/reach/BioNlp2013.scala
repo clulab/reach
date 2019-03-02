@@ -333,35 +333,35 @@ class BioNlp2013System {
       val id = tbmToId(modified.asInstanceOf[BioTextBoundMention])
       eventStandoff ++= s"Theme:$id "
 
-      // if there's a site, print it as well
-      if (ptmMod.site.nonEmpty) {
-        val site = ptmMod.site.get
-        val ts = TextualSpan(
-          docId = site.document.id,
-          sentIdx = site.sentence,
-          start = site.startOffset,
-          end = site.endOffset
-        )
-        // check if Site in triggerMap
-        val knownSite = if (! triggerMap.contains(ts)) {
-          currTBMID += 1
-          val bratTBM = BratTBM(
-            id = s"T$currTBMID",
-            label = "Entity",
-            start = site.startOffset,
-            end = site.endOffset,
-            text = site.text
-          )
-          // update triggerMap
-          triggerMap = triggerMap + (ts -> bratTBM)
-          entityStandoff ++= bratTBM.standoff
-          bratTBM
-        } else {
-          triggerMap(ts)
-        }
-        // write site standoff
-        eventStandoff ++= s"Site:${knownSite.id} "
-      }
+//      // if there's a site, print it as well
+//      if (ptmMod.site.nonEmpty) {
+//        val site = ptmMod.site.get
+//        val ts = TextualSpan(
+//          docId = site.document.id,
+//          sentIdx = site.sentence,
+//          start = site.startOffset,
+//          end = site.endOffset
+//        )
+//        // check if Site in triggerMap
+//        val knownSite = if (! triggerMap.contains(ts)) {
+//          currTBMID += 1
+//          val bratTBM = BratTBM(
+//            id = s"T$currTBMID",
+//            label = "Entity",
+//            start = site.startOffset,
+//            end = site.endOffset,
+//            text = site.text
+//          )
+//          // update triggerMap
+//          triggerMap = triggerMap + (ts -> bratTBM)
+//          entityStandoff ++= bratTBM.standoff
+//          bratTBM
+//        } else {
+//          triggerMap(ts)
+//        }
+//        // write site standoff
+//        eventStandoff ++= s"Site:${knownSite.id} "
+//      }
 
       eventStandoff ++= "\n"
     }
@@ -438,32 +438,32 @@ class BioNlp2013System {
             val label = if (name == "theme" && themeSeen) "Theme2" else name.capitalize
             eventStandoff ++= s"$label:$id "
             if (name == "theme") themeSeen = true
-          case site: BioTextBoundMention if name == "site" =>
-            val ts = TextualSpan(
-              docId = site.document.id,
-              sentIdx = site.sentence,
-              start = site.startOffset,
-              end = site.endOffset
-            )
-            // check if Site in triggerMap
-            val knownSite = if (! triggerMap.contains(ts)) {
-              currTBMID += 1
-              val bratTBM = BratTBM(
-                id = s"T$currTBMID",
-                label = "Entity",
-                start = site.startOffset,
-                end = site.endOffset,
-                text = site.text
-              )
-              // update triggerMap
-              triggerMap = triggerMap + (ts -> bratTBM)
-              entityStandoff ++= bratTBM.standoff
-              bratTBM
-            } else {
-              triggerMap(ts)
-            }
-            // write site standoff
-            eventStandoff ++= s"Site:${knownSite.id} "
+//          case site: BioTextBoundMention if name == "site" =>
+//            val ts = TextualSpan(
+//              docId = site.document.id,
+//              sentIdx = site.sentence,
+//              start = site.startOffset,
+//              end = site.endOffset
+//            )
+//            // check if Site in triggerMap
+//            val knownSite = if (! triggerMap.contains(ts)) {
+//              currTBMID += 1
+//              val bratTBM = BratTBM(
+//                id = s"T$currTBMID",
+//                label = "Entity",
+//                start = site.startOffset,
+//                end = site.endOffset,
+//                text = site.text
+//              )
+//              // update triggerMap
+//              triggerMap = triggerMap + (ts -> bratTBM)
+//              entityStandoff ++= bratTBM.standoff
+//              bratTBM
+//            } else {
+//              triggerMap(ts)
+//            }
+//            // write site standoff
+//            eventStandoff ++= s"Site:${knownSite.id} "
           case _ => ()
         }
       }
@@ -552,32 +552,32 @@ class BioNlp2013System {
                     case tbm: BioTextBoundMention if tbmToId contains tbm =>
                       val id = tbmToId(tbm)
                       eventStandoff ++= s"${subName.capitalize}:$id "
-                    case site: BioTextBoundMention if subName == "site" =>
-                      val ts = TextualSpan(
-                        docId = site.document.id,
-                        sentIdx = site.sentence,
-                        start = site.startOffset,
-                        end = site.endOffset
-                      )
-                      // check if Site in triggerMap
-                      val knownSite = if (! triggerMap.contains(ts)) {
-                        currTBMID += 1
-                        val bratTBM = BratTBM(
-                          id = s"T$currTBMID",
-                          label = "Entity",
-                          start = site.startOffset,
-                          end = site.endOffset,
-                          text = site.text
-                        )
-                        // update triggerMap
-                        triggerMap = triggerMap + (ts -> bratTBM)
-                        entityStandoff ++= bratTBM.standoff
-                        bratTBM
-                      } else {
-                        triggerMap(ts)
-                      }
-                      // write site standoff
-                      eventStandoff ++= s"Site:${knownSite.id} "
+//                    case site: BioTextBoundMention if subName == "site" =>
+//                      val ts = TextualSpan(
+//                        docId = site.document.id,
+//                        sentIdx = site.sentence,
+//                        start = site.startOffset,
+//                        end = site.endOffset
+//                      )
+//                      // check if Site in triggerMap
+//                      val knownSite = if (! triggerMap.contains(ts)) {
+//                        currTBMID += 1
+//                        val bratTBM = BratTBM(
+//                          id = s"T$currTBMID",
+//                          label = "Entity",
+//                          start = site.startOffset,
+//                          end = site.endOffset,
+//                          text = site.text
+//                        )
+//                        // update triggerMap
+//                        triggerMap = triggerMap + (ts -> bratTBM)
+//                        entityStandoff ++= bratTBM.standoff
+//                        bratTBM
+//                      } else {
+//                        triggerMap(ts)
+//                      }
+//                      // write site standoff
+//                      eventStandoff ++= s"Site:${knownSite.id} "
                     case _ => ()
                   }
                 }
@@ -637,32 +637,32 @@ class BioNlp2013System {
             case em if (em matches "Event") && (semToId contains em) =>
               val id = semToId(em)
               eventStandoff ++= s"$label:$id "
-            case site: BioTextBoundMention if name == "site" =>
-              val ts = TextualSpan(
-                docId = site.document.id,
-                sentIdx = site.sentence,
-                start = site.startOffset,
-                end = site.endOffset
-              )
-              // check if Site in triggerMap
-              val knownSite = if (! triggerMap.contains(ts)) {
-                currTBMID += 1
-                val bratTBM = BratTBM(
-                  id = s"T$currTBMID",
-                  label = "Entity",
-                  start = site.startOffset,
-                  end = site.endOffset,
-                  text = site.text
-                )
-                // update triggerMap
-                triggerMap = triggerMap + (ts -> bratTBM)
-                entityStandoff ++= bratTBM.standoff
-                bratTBM
-              } else {
-                triggerMap(ts)
-              }
-              // write site standoff
-              eventStandoff ++= s"Site:${knownSite.id} "
+//            case site: BioTextBoundMention if name == "site" =>
+//              val ts = TextualSpan(
+//                docId = site.document.id,
+//                sentIdx = site.sentence,
+//                start = site.startOffset,
+//                end = site.endOffset
+//              )
+//              // check if Site in triggerMap
+//              val knownSite = if (! triggerMap.contains(ts)) {
+//                currTBMID += 1
+//                val bratTBM = BratTBM(
+//                  id = s"T$currTBMID",
+//                  label = "Entity",
+//                  start = site.startOffset,
+//                  end = site.endOffset,
+//                  text = site.text
+//                )
+//                // update triggerMap
+//                triggerMap = triggerMap + (ts -> bratTBM)
+//                entityStandoff ++= bratTBM.standoff
+//                bratTBM
+//              } else {
+//                triggerMap(ts)
+//              }
+//              // write site standoff
+//              eventStandoff ++= s"Site:${knownSite.id} "
 
             case _ => ()
           }
