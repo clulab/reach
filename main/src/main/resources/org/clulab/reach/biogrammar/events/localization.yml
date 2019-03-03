@@ -1,0 +1,58 @@
+- name: localization_1a_noun
+  priority: ${ priority }
+  action: mkBioMention
+  example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation from the cytosol/nucleus and increased binding to p53"
+  label: Localization
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
+    theme:BioChemicalEntity = poss | dobj
+
+
+- name: localization_3a_verb_passive
+  priority: ${ priority }
+  action: mkBioMention
+  example: "ASPP2, a protein which is translocated from the membrane by ASPP1, is subsequently phosphorylated"
+  label: Localization
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
+    theme:BioChemicalEntity = nsubjpass | <rcmod <appos
+
+
+- name: localization_4a_noun_with_cause
+  priority: ${ priority }
+  action: mkBioMention
+  example: "Recruitment of p53 to the plasma membrane increases with phosphorylation"
+  label: Localization
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
+    theme:BioChemicalEntity = prep_of | nn | <dep
+
+
+- name: localization_5_verb_infinitive_with_cause
+  priority: ${ priority }
+  example: "Phosphorylation leads the plasma membrane to release p53 to the cytosol."
+  action: mkBioMention
+  label: Localization
+  pattern: |
+    trigger = [lemma=release & tag=/^V/]
+    theme:BioChemicalEntity = dobj
+
+
+- name: localization_7a_noun_no_cause
+  priority: ${ priority }
+  action: mkBioMention
+  example: "ASPP1 is common, and its recruitment to the plasma membrane increases with its phosphorylation"
+  label: Localization
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=prep_of]
+    theme:BioChemicalEntity = poss
+
+
+- name: localization_8a_verb_active_no_cause
+  priotity: ${ priotity }
+  action: mkBioMention
+  example: "We observed that endogenous ASPP2 translocates from cell junctions to the cytosol/nucleus following RAS activation"
+  label: Localization
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
+    theme:BioChemicalEntity = nsubj

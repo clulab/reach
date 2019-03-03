@@ -41,9 +41,9 @@ rules:
     vars:
       priority: "7"
 
-  - import: org/clulab/reach/biogrammar/events/translocation_events.yml
-    vars:
-      priority: "7"
+#  - import: org/clulab/reach/biogrammar/events/translocation_events.yml
+#    vars:
+#      priority: "7"
 
   ###############################################################################
   #
@@ -52,7 +52,7 @@ rules:
   ###############################################################################
 
   # Gene_expressions
-  - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
+  - import: org/clulab/reach/biogrammar/events/theme-only-simple-event_template.yml
     vars:
       eventName: "Gene_expression"
       actionFlow: "mkBioMention"
@@ -67,7 +67,7 @@ rules:
 #      priority: "7"
 
   # Localization
-  - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
+  - import: org/clulab/reach/biogrammar/events/theme-only-simple-event_template.yml
     vars:
       eventName: "Localization"
       actionFlow: "mkBioMention"
@@ -77,9 +77,9 @@ rules:
       triggerPrefix: "!word=/(?i)^de/"
       priority: "7"
 
-#  - import: org/clulab/reach/biogrammar/events/gene_expression.yml
-#    vars:
-#      priority: "7"
+  - import: org/clulab/reach/biogrammar/events/localization.yml
+    vars:
+      priority: "7"
 
   # Phosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
