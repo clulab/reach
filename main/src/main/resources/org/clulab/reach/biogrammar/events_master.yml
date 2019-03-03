@@ -58,7 +58,7 @@ rules:
       actionFlow: "mkBioMention"
       label: "Gene_expression"
       verbalTriggerLemma: "concentrat|detect|express|induc|induct|introducing|make|overexpress|present|produc|staining|transfect"
-      nominalTriggerLemma: "amount|transfection|concentrat|detect|express|express|induct|introduc|level|produc|secret|stain|synthesis|transfect|transgen"
+      nominalTriggerLemma: "amount|transfection|concentrat|detect|express|induct|introduc|level|produc|secret|stain|synthesis|transfect|transgen"
       triggerPrefix: "!word=/(?i)^de/"
       priority: "7"
 
