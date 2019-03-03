@@ -66,7 +66,7 @@ class BioNlp2013System {
     "Acetylation",
     "Deacetylation",
     //"Translocation",
-    "Transcription",
+    //"Transcription",
     "Localization",
     "Gene_expression"
   )
