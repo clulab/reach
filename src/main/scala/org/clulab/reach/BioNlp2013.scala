@@ -48,7 +48,13 @@ object BioNlp2013 {
 }
 
 // represents a trigger as a span of text.  Used to keep track of seen triggers.
-case class TextualSpan(docId: Option[String], sentIdx: Int, start: Int, end: Int) extends Serializable
+case class TextualSpan(
+  docId: Option[String],
+  label: String,
+  sentIdx: Int,
+  start: Int,
+  end: Int
+) extends Serializable
 
 // a brat textbound mention
 case class BratTBM(id: String, label: String, start: Int, end: Int, text: String) extends Serializable {
@@ -305,6 +311,7 @@ class BioNlp2013System {
       // represent the trigger
       val trigger = TextualSpan(
         modified.document.id,
+        lbl,
         modified.sentence,
         ptmMod.evidence.get.startOffset,
         ptmMod.evidence.get.endOffset
@@ -406,7 +413,7 @@ class BioNlp2013System {
       // we need to reuse its ID.
       //
       // represent the trigger
-      val trigger = TextualSpan(se.document.id, se.sentence, se.trigger.startOffset, se.trigger.endOffset)
+      val trigger = TextualSpan(se.document.id, lbl, se.sentence, se.trigger.startOffset, se.trigger.endOffset)
       val repr: BratTBM = if (! triggerMap.contains(trigger)) {
         val triggerTBM = BratTBM(
           id = s"T$currTBMID",
@@ -441,6 +448,7 @@ class BioNlp2013System {
 //          case site: BioTextBoundMention if name == "site" =>
 //            val ts = TextualSpan(
 //              docId = site.document.id,
+//              label = "Site"
 //              sentIdx = site.sentence,
 //              start = site.startOffset,
 //              end = site.endOffset
@@ -508,7 +516,7 @@ class BioNlp2013System {
           // we need to reuse its ID.
           //
           // represent the trigger
-          val trigger = TextualSpan(promoted.document.id, promoted.sentence, promoted.startOffset, promoted.trigger.endOffset)
+          val trigger = TextualSpan(promoted.document.id, promotedLabel, promoted.sentence, promoted.startOffset, promoted.trigger.endOffset)
           val repr: BratTBM = if (!triggerMap.contains(trigger)) {
             currTBMID += 1
             val triggerTBM = BratTBM(
@@ -596,7 +604,7 @@ class BioNlp2013System {
         // we need to reuse its ID.
         //
         // represent the trigger
-        val trigger = TextualSpan(ce.document.id, ce.sentence, ce.startOffset, ce.trigger.endOffset)
+        val trigger = TextualSpan(ce.document.id, ce.label, ce.sentence, ce.startOffset, ce.trigger.endOffset)
         val repr: BratTBM = if (! triggerMap.contains(trigger)) {
           currTBMID += 1
           val triggerTBM = BratTBM(
