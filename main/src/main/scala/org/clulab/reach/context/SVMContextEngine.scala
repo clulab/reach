@@ -14,8 +14,8 @@ class SVMContextEngine extends ContextEngine {
 
 
   val svmWrapper = new LinearSVMWrapper(null)
-  val trainedSVMInstance = svmWrapper.loadFrom("/Users/shraddha/datascience/ScalaContext/src/main/resources/svmTrainedModel.dat")
-
+  val trainedSVMInstanceWrapper = svmWrapper.loadFrom("/Users/shraddha/datascience/ScalaContext/src/main/resources/svmTrainedModel.dat")
+  val trainedSVMInstance = trainedSVMInstanceWrapper.classifier
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
