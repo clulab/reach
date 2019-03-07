@@ -5,8 +5,6 @@ import org.ml4ai.data.utils.correctDataPrep.Utils
 import org.ml4ai.data.utils.correctDataPrep.AggregatedRowNew
 import org.ml4ai.data.utils.oldDataPrep.InputRow
 
-import scala.io.Source
-
 class SVMContextEngine extends ContextEngine {
 
   type Pair = (BioEventMention, BioTextBoundMention)
@@ -157,8 +155,6 @@ class SVMContextEngine extends ContextEngine {
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
-    val hardCodedNonAgg = Seq("closesCtxOfClass", "context_frequency",
-      "evtNegationInTail", "evtSentenceFirstPerson", "evtSentencePastTense", "evtSentencePresentTense", "sentenceDistance", "dependencyDistance")
 
     instances.map(i => {
       val closesCtxOfClassSet = collection.mutable.ListBuffer[Double]()
@@ -221,7 +217,25 @@ class SVMContextEngine extends ContextEngine {
       featureSetValues ++= List(dependencyDistanceStats._1, dependencyDistanceStats._2, dependencyDistanceStats._3)
     })
 
+    val inputRows = instances.map(i => i._2)
+    for(in <- inputRows) {
+      val ctxMappings = Utils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
+      val evtMappings = Utils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
+      val finalCtxPairings = Utils.finalFeatValuePairing(ctxMappings)
+      val finalEvtPairings = Utils.finalFeatValuePairing(evtMappings)
 
+      def addToFeaturesArray(input: Seq[((String,String,String), (Double,Double,Double))]):Unit = {
+        for((nameTup, valueTup) <- input) {
+          val nameList = List(nameTup._1, nameTup._2, nameTup._3)
+          val valueList = List(valueTup._1, valueTup._2, valueTup._3)
+          featureSetNames ++= nameList
+          featureSetValues ++= valueList
+        }
+      }
+      addToFeaturesArray(finalCtxPairings)
+      addToFeaturesArray(finalEvtPairings)
+
+    }
     val newAggRow = AggregatedRowNew(sentInd, pmcid, evntId, ctxId, label, featureSetValues.toArray,featureSetNames.toArray)
 
     //check with Enrique to see how Pairs in a given Seq[(Pair, InputRow)] can be consolidated to a single Pair in the aggregated row
