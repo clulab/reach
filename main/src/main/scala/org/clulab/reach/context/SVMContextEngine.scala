@@ -1,9 +1,11 @@
 package org.clulab.reach.context
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai
+import org.ml4ai.data.utils.correctDataPrep.Utils
 import org.ml4ai.data.utils.correctDataPrep.AggregatedRowNew
 import org.ml4ai.data.utils.oldDataPrep.InputRow
+
+import scala.io.Source
 
 class SVMContextEngine extends ContextEngine {
 
@@ -34,7 +36,7 @@ class SVMContextEngine extends ContextEngine {
         // Extract features for each of the pairs
         val features:Seq[InputRow] = pairs map extractFeatures
 
-        // Aggregaget the features of all the instances of a pair
+        // Aggregate the features of all the instances of a pair
         val aggregatesFeatures:Map[EventID, (Pair, AggregatedRowNew)] =
           (pairs zip features).groupBy{
             case (pair, feats) => extractEvtId(pair._1) // Group by their EventMention
@@ -45,7 +47,7 @@ class SVMContextEngine extends ContextEngine {
         val predictions:Map[EventID, (Pair, Boolean)] =
           aggregatesFeatures map {
             case (evtId, (pair, aggregatedFeatures)) =>
-              // TODO Shraddah: Uncomment this when ready
+              // TODO Shraddha: Uncomment this when ready
               //val prediction = trainedSVMInstance.predict(...)
               val prediction = true
               evtId -> (pair, prediction)
@@ -83,10 +85,82 @@ class SVMContextEngine extends ContextEngine {
 
   private def isContextMention(mention: BioTextBoundMention):Boolean =  ContextEngine.isContextMention(mention)
 
-  private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow = throw new UnsupportedOperationException()
+  // the following code examines the best performing set from the ml4ai package.
+  // the basic logic is that if a feature exists, it should have value 1 else 0.
+  // When we apply this logic to any Seq[InputRow] (refer to ml4ai.data.oldDataPrep for the code), we may get many rows having value 1 for the same feature.
+  // Note that this will affect the _min, _mean and _max values for every feature for that Seq[InputRow].
+  // Given that the dataset on which we will test the model here is not read from file unlike ml4ai,
+  // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
+  // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
-  private def extractEvtId(evt:BioEventMention):EventID = throw new UnsupportedOperationException()
+  private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
+  { val file="/Users/shraddha/datascience/ScalaContext/src/main/resources/allFeaturesFile.txt"
+    val PMCID = datum._1.document.id match {
+      case Some(c) => c
+      case None => "Unknown"
+    }
+    val label = None
+    val sentencePos = datum._1.sentence
+    val evntId = extractEvtId(datum._1)
+    val ctxId = ContextEngine.getContextKey(datum._2)
+    val (allFeatures, bestFeatureSet) = featureConstructor(file)
+    var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist = 0.0
+    val hardCodedFeatures = Seq("closesCtxOfClass", "context_frequency",
+      "evtNegationInTail", "evtSentenceFirstPerson", "evtSentencePastTense", "evtSentencePresentTense", "sentenceDistance", "dependencyDistance")
+    val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
+    closestContext = if(bestFeatureSet.contains("closesCtxOfClass")) 1.0 else 0.0
+    context_freq = if(bestFeatureSet.contains("context_frequency")) 1.0 else 0.0
+    evtNegTail = if(bestFeatureSet.contains("evtNegationInTail")) 1.0 else 0.0
+    evtSentFirst = if(bestFeatureSet.contains("evtSentenceFirstPerson")) 1.0 else 0.0
+    evtSentPast = if(bestFeatureSet.contains("evtSentencePastTense")) 1.0 else 0.0
+    evtSentPresent = if(bestFeatureSet.contains("evtSentencePresentTense")) 1.0 else 0.0
+    sentDist = if(bestFeatureSet.contains("sentenceDistance")) 1.0 else 0.0
+    depDist = if(bestFeatureSet.contains("dependencyDistance")) 1.0 else 0.0
+    val ctxDepFeatures = collection.mutable.ListBuffer[String]()
+    val evtDepFeatures = collection.mutable.ListBuffer[String]()
+    dependencyFeatures foreach {
+      case evt:String if evt.startsWith("evtDepTail") => evtDepFeatures += evt
+      case ctx:String if ctx.startsWith("ctxDepTail") => ctxDepFeatures += ctx
+    }
+    InputRow(sentencePos,
+      PMCID,
+      label,
+      evntId,
+      ctxId._2,
+      closestContext,
+      context_freq,
+      evtNegTail,
+      evtSentFirst,
+      evtSentPast,
+      evtSentPresent,
+      sentDist,
+      depDist,
+      ctxDepFeatures.toSet,
+      evtDepFeatures.toSet)
+  }
+
+  private def extractEvtId(evt:BioEventMention):EventID = {
+    val sentIndex = evt.sentence
+    val tokenIntervalStart = (evt.tokenInterval.start).toString()
+    val tokenIntervalEnd = (evt.tokenInterval.end).toString()
+    sentIndex+tokenIntervalStart+tokenIntervalEnd
+  }
 
   private def aggregateFeatures(instances:Seq[(Pair, InputRow)]):(Pair, AggregatedRowNew) = throw new UnsupportedOperationException()
+  private def featureConstructor(file:String):(Seq[String], Seq[String]) = {
+    val allFeatures = collection.mutable.ListBuffer[String]()
+    for(l <- Source.fromFile(file).getLines) {
+      val contents = l.split(",")
+      contents.map(allFeatures+=_)
+    }
+    (allFeatures, createBestFeatureSet(allFeatures))
+  }
 
+  private def createBestFeatureSet(allFeatures:Seq[String]):Seq[String] = {
+    val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
+    val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
+    val featureDict = Utils.createFeatureDictionary(numericFeatures.toSeq)
+    val bestFeatureSet = featureDict("NonDep_Context")
+    bestFeatureSet
+  }
 }
