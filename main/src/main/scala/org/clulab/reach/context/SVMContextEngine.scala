@@ -103,7 +103,7 @@ class SVMContextEngine extends ContextEngine {
     val sentencePos = datum._1.sentence
     val evntId = extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
-    val (allFeatures, bestFeatureSet) = featureConstructor(file)
+    val (allFeatures, bestFeatureSet) = Utils.featureConstructor(file)
     var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist = 0.0
     val hardCodedFeatures = Seq("closesCtxOfClass", "context_frequency",
       "evtNegationInTail", "evtSentenceFirstPerson", "evtSentencePastTense", "evtSentencePresentTense", "sentenceDistance", "dependencyDistance")
@@ -119,8 +119,8 @@ class SVMContextEngine extends ContextEngine {
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
     dependencyFeatures foreach {
-      case evt:String if evt.startsWith("evtDepTail") => evtDepFeatures += evt
-      case ctx:String if ctx.startsWith("ctxDepTail") => ctxDepFeatures += ctx
+      case evt:String if evt.startsWith("evtDepTail") && bestFeatureSet.contains(evt) => evtDepFeatures += evt
+      case ctx:String if ctx.startsWith("ctxDepTail") && bestFeatureSet.contains(ctx)=> ctxDepFeatures += ctx
     }
     InputRow(sentencePos,
       PMCID,
@@ -146,21 +146,88 @@ class SVMContextEngine extends ContextEngine {
     sentIndex+tokenIntervalStart+tokenIntervalEnd
   }
 
-  private def aggregateFeatures(instances:Seq[(Pair, InputRow)]):(Pair, AggregatedRowNew) = throw new UnsupportedOperationException()
-  private def featureConstructor(file:String):(Seq[String], Seq[String]) = {
-    val allFeatures = collection.mutable.ListBuffer[String]()
-    for(l <- Source.fromFile(file).getLines) {
-      val contents = l.split(",")
-      contents.map(allFeatures+=_)
-    }
-    (allFeatures, createBestFeatureSet(allFeatures))
+  private def aggregateFeatures(instances:Seq[(Pair, InputRow)]):(Pair, AggregatedRowNew) = {
+    val idMakerPair = instances(0)._1
+    val sentInd = idMakerPair._1.sentence
+    val pmcid = idMakerPair._1.document.id match {
+      case Some(c) => c
+      case None => "Unknown"}
+    val evntId = extractEvtId(idMakerPair._1)
+    val ctxId = ContextEngine.getContextKey(idMakerPair._2)._2
+    val label = None
+    val featureSetNames = collection.mutable.ListBuffer[String]()
+    val featureSetValues = collection.mutable.ListBuffer[Double]()
+    val hardCodedNonAgg = Seq("closesCtxOfClass", "context_frequency",
+      "evtNegationInTail", "evtSentenceFirstPerson", "evtSentencePastTense", "evtSentencePresentTense", "sentenceDistance", "dependencyDistance")
+
+    instances.map(i => {
+      val closesCtxOfClassSet = collection.mutable.ListBuffer[Double]()
+      closesCtxOfClassSet+=i._2.closesCtxOfClass
+      val closestCtxStats = Utils.createStats(closesCtxOfClassSet)
+      val closestExtended = Utils.extendFeatureName("closesCtxOfClass")
+      featureSetNames ++= List(closestExtended._1, closestExtended._2, closestExtended._3)
+      featureSetValues ++= List(closestCtxStats._1, closestCtxStats._2, closestCtxStats._3)
+
+      val context_frequencySet = collection.mutable.ListBuffer[Double]()
+      context_frequencySet += i._2.context_frequency
+      val context_frequencyStats = Utils.createStats(context_frequencySet)
+      val context_frequencyended = Utils.extendFeatureName("context_frequency")
+      featureSetNames ++= List(context_frequencyended._1, context_frequencyended._2, context_frequencyended._3)
+      featureSetValues ++= List(context_frequencyStats._1, context_frequencyStats._2, context_frequencyStats._3)
+
+      val evtNegationInTailSet = collection.mutable.ListBuffer[Double]()
+      evtNegationInTailSet += i._2.evtNegationInTail
+      val evtNegationInTailStats = Utils.createStats(evtNegationInTailSet)
+      val evtNegationInTailended = Utils.extendFeatureName("evtNegationInTail")
+      featureSetNames ++= List(evtNegationInTailended._1, evtNegationInTailended._2, evtNegationInTailended._3)
+      featureSetValues ++= List(evtNegationInTailStats._1, evtNegationInTailStats._2, evtNegationInTailStats._3)
+
+      val evtSentenceFirstPersonSet = collection.mutable.ListBuffer[Double]()
+      evtSentenceFirstPersonSet += i._2.evtSentenceFirstPerson
+      val evtSentenceFirstPersonStats = Utils.createStats(evtSentenceFirstPersonSet)
+      val evtSentenceFirstPersonended = Utils.extendFeatureName("evtSentenceFirstPerson")
+      featureSetNames ++= List(evtSentenceFirstPersonended._1, evtSentenceFirstPersonended._2, evtSentenceFirstPersonended._3)
+      featureSetValues ++= List(evtSentenceFirstPersonStats._1, evtSentenceFirstPersonStats._2, evtSentenceFirstPersonStats._3)
+
+      val evtSentencePastTenseSet = collection.mutable.ListBuffer[Double]()
+      evtSentencePastTenseSet += i._2.evtSentencePastTense
+      val evtSentencePastTenseStats = Utils.createStats(evtSentencePastTenseSet)
+      val evtSentencePastTenseended = Utils.extendFeatureName("evtSentencePastTense")
+      featureSetNames ++= List(evtSentencePastTenseended._1, evtSentencePastTenseended._2, evtSentencePastTenseended._3)
+      featureSetValues ++= List(evtSentencePastTenseStats._1, evtSentencePastTenseStats._2, evtSentencePastTenseStats._3)
+
+
+      val evtSentencePresentTenseSet = collection.mutable.ListBuffer[Double]()
+      evtSentencePresentTenseSet += i._2.evtSentencePresentTense
+      val evtSentencePresentTenseStats = Utils.createStats(evtSentencePresentTenseSet)
+      val evtSentencePresentTenseended = Utils.extendFeatureName("evtSentencePresentTense")
+      featureSetNames ++= List(evtSentencePresentTenseended._1, evtSentencePresentTenseended._2, evtSentencePresentTenseended._3)
+      featureSetValues ++= List(evtSentencePresentTenseStats._1,evtSentencePresentTenseStats._2, evtSentencePresentTenseStats._3)
+
+
+      val sentenceDistanceSet = collection.mutable.ListBuffer[Double]()
+      sentenceDistanceSet += i._2.sentenceDistance
+      val sentenceDistanceStats = Utils.createStats(sentenceDistanceSet)
+      val sentenceDistanceended = Utils.extendFeatureName("sentenceDistance")
+      featureSetNames ++= List(sentenceDistanceended._1, sentenceDistanceended._2, sentenceDistanceended._3)
+      featureSetValues ++= List(sentenceDistanceStats._1, sentenceDistanceStats._2, sentenceDistanceStats._3)
+
+
+      val dependencyDistanceSet = collection.mutable.ListBuffer[Double]()
+      dependencyDistanceSet += i._2.dependencyDistance
+      val dependencyDistanceStats = Utils.createStats(dependencyDistanceSet)
+      val dependencyDistanceended = Utils.extendFeatureName("dependencyDistance")
+      featureSetNames ++= List(dependencyDistanceended._1, dependencyDistanceended._2, dependencyDistanceended._3)
+      featureSetValues ++= List(dependencyDistanceStats._1, dependencyDistanceStats._2, dependencyDistanceStats._3)
+    })
+
+
+    val newAggRow = AggregatedRowNew(sentInd, pmcid, evntId, ctxId, label, featureSetValues.toArray,featureSetNames.toArray)
+
+    //check with Enrique to see how Pairs in a given Seq[(Pair, InputRow)] can be consolidated to a single Pair in the aggregated row
+    // will take the first pair for now
+    (idMakerPair, newAggRow)
   }
 
-  private def createBestFeatureSet(allFeatures:Seq[String]):Seq[String] = {
-    val nonNumericFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "")
-    val numericFeatures = allFeatures.toSet -- nonNumericFeatures.toSet
-    val featureDict = Utils.createFeatureDictionary(numericFeatures.toSeq)
-    val bestFeatureSet = featureDict("NonDep_Context")
-    bestFeatureSet
-  }
+
 }
