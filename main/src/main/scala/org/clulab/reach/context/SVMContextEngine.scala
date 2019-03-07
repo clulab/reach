@@ -44,6 +44,7 @@ class SVMContextEngine extends ContextEngine {
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, (Pair, Boolean)] =
           aggregatesFeatures map {
+            // confirm the signature of this with Enrique.
             case (evtId, (pair, aggregatedFeatures)) =>
               // TODO Shraddha: Uncomment this when ready
               //val prediction = trainedSVMInstance.predict(...)
