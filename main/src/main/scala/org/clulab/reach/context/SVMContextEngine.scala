@@ -45,6 +45,13 @@ class SVMContextEngine extends ContextEngine {
         val predictions:Map[EventID, (Pair, Boolean)] =
           aggregatesFeatures map {
             // confirm the signature of this with Enrique.
+            // should we take individual aggregatedRowNew and construct and RVFDatum out of each of them,
+            // OR
+            // should we take Seq[AggregatedRowNew] and then construct RVFDatum out of them?
+            // the current code looks like it takes individual aggregatedRowNew, but it has the name aggregatedFeatures,
+            // so I need a suggestion for which might be a cleverer approach. I think taking Seq[AggregatedRowNew] might be better,
+            // in which case, the signature of the following: (evtId, (pair, aggregatedFeatures))
+            // must be verified to match this.
             case (evtId, (pair, aggregatedFeatures)) =>
               // TODO Shraddha: Uncomment this when ready
               //val prediction = trainedSVMInstance.predict(...)
