@@ -14,8 +14,7 @@ class SVMContextEngine extends ContextEngine {
 
 
   val svmWrapper = new LinearSVMWrapper(null)
-  val trainedSVMInstanceWrapper = svmWrapper.loadFrom("/Users/shraddha/datascience/ScalaContext/src/main/resources/svmTrainedModel.dat")
-  val trainedSVMInstance = trainedSVMInstanceWrapper.classifier
+  val trainedSVMInstance = svmWrapper.loadFrom("/Users/shraddha/datascience/ScalaContext/src/main/resources/svmTrainedModel.dat")
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
@@ -44,18 +43,20 @@ class SVMContextEngine extends ContextEngine {
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, (Pair, Boolean)] =
           aggregatesFeatures map {
-            // confirm the signature of this with Enrique.
-            // should we take individual aggregatedRowNew and construct and RVFDatum out of each of them,
-            // OR
-            // should we take Seq[AggregatedRowNew] and then construct RVFDatum out of them?
-            // the current code looks like it takes individual aggregatedRowNew, but it has the name aggregatedFeatures,
-            // so I need a suggestion for which might be a cleverer approach. I think taking Seq[AggregatedRowNew] might be better,
-            // in which case, the signature of the following: (evtId, (pair, aggregatedFeatures))
-            // must be verified to match this.
-            case (evtId, (pair, aggregatedFeatures)) =>
+            // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
+            // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
+            // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
+            case (evtId, (pair, aggregatedFeature)) =>
               // TODO Shraddha: Uncomment this when ready
-              //val prediction = trainedSVMInstance.predict(...)
-              val prediction = true
+              val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
+              val prediction = {
+                predArrayIntForm(0) match {
+                  case 1=> true
+                  case 0 => false
+                  case _ => false
+                }
+              }
+              //val prediction = true
               evtId -> (pair, prediction)
           }
 
