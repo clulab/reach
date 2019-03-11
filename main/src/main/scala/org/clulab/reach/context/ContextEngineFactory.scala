@@ -11,6 +11,7 @@ object ContextEngineFactory {
       val Policy2 = Value("Policy2")
       val Policy3 = Value("Policy3")
       val Policy4 = Value("Policy4")
+      val SVMPolicy = Value("SVM")
     }
     import Engine._
 
@@ -36,6 +37,7 @@ object ContextEngineFactory {
                 case None => new BidirectionalPaddingContext
             }
             case Dummy => new DummyContextEngine
+            case SVMPolicy => new SVMContextEngine
             case _ => new DummyContextEngine
         }
     }
