@@ -2,7 +2,7 @@ package org.clulab.reach.darpa
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
-import org.clulab.polarity.LinguisticPolarityEngine
+import org.clulab.polarity.{LinguisticPolarityEngine, PolarityEngine}
 import org.clulab.reach._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
@@ -171,9 +171,8 @@ class DarpaActions extends Actions with LazyLogging {
       pairs.flatten
     case _  => Nil
   }
-
-  // TODO: Replace this line by a factory method call
-  val polarityEngine = LinguisticPolarityEngine
+  l
+  private val polarityEngine = PolarityEngine.engineFromConfig
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions

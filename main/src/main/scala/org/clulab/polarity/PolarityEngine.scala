@@ -1,5 +1,6 @@
 package org.clulab.polarity
 
+import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.mentions.BioEventMention
 
@@ -77,5 +78,34 @@ trait PolarityEngine extends LazyLogging{
     val newTrigger = evt.trigger.copy(labels = newLabels)
     // return new mention with flipped label
     new BioEventMention(evt.copy(labels = newLabels, trigger = newTrigger), evt.isDirect)
+  }
+}
+
+object PolarityEngine extends LazyLogging {
+
+  private val defaultEngine = LinguisticPolarityEngine
+
+  def apply(engineName:String): PolarityEngine = {
+    case "Linguistic" =>
+      LinguisticPolarityEngine
+    case _ =>
+      logger.error(s"Requesting an unknown polarity engine: $engineName. Returning the default engine")
+      // Return the default engine
+    defaultEngine
+  }
+
+  def engineFromConfig: PolarityEngine = {
+    val config = ConfigFactory.load()
+
+    val configPath = "polarity.engine"
+
+    if(config.hasPath(configPath)) {
+      val engineName = config.getString("polarity.engine")
+      PolarityEngine(engineName)
+    }
+    else{
+      logger.error("Config file doesn't have polarity engine configured. Returning the default engine")
+      defaultEngine
+    }
   }
 }
