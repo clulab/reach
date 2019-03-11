@@ -9,6 +9,7 @@ class SVMContextEngine extends ContextEngine {
 
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
+  type ContextID = (String, String)
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
 
@@ -34,30 +35,34 @@ class SVMContextEngine extends ContextEngine {
         val features:Seq[InputRow] = pairs map extractFeatures
 
         // Aggregate the features of all the instances of a pair
-        val aggregatesFeatures:Map[EventID, (Pair, AggregatedRowNew)] =
+        val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedRowNew)]] =
           (pairs zip features).groupBy{
-            case (pair, feats) => extractEvtId(pair._1) // Group by their EventMention
-          }.mapValues(aggregateFeatures)
+            case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
+          }.mapValues{
+            v =>
+              v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
+          }
 
 
         // Run the classifier for each pair and store the predictions
-        val predictions:Map[EventID, (Pair, Boolean)] =
-          aggregatesFeatures map {
+        val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
+          aggregatedFeatures mapValues {
             // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
             // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
-            case (evtId, (pair, aggregatedFeature)) =>
-              // TODO Shraddha: Uncomment this when ready
-              val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-              val prediction = {
-                predArrayIntForm(0) match {
-                  case 1=> true
-                  case 0 => false
-                  case _ => false
+            _.map {
+              case (ctxId, aggregatedFeature) =>
+                val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
+                val prediction = {
+                  predArrayIntForm(0) match {
+                    case 1 => true
+                    case 0 => false
+                    case _ => false
+                  }
                 }
-              }
-              //val prediction = true
-              evtId -> (pair, prediction)
+                //val prediction = true
+                (ctxId, prediction)
+            }
           }
 
         // Loop over all the mentions to generate the context dictionary
@@ -70,7 +75,14 @@ class SVMContextEngine extends ContextEngine {
               // fetch its predicted pairs
               val contexts = predictions(evtId)
 
-              // TODO Enrique: Assigns the context dictionary to the event mention
+              val contextMap =
+                (contexts collect {
+                  case (ctx, true) => ctx
+                } groupBy (_._1)).mapValues(x => x.map(_._2))
+
+              // Assign the context map to the mention
+              evt.context = if(contextMap != Map.empty) Some(contextMap) else None
+              // Return the modified event
               evt
             // If it's not an event mention, leave it as is
             case m: BioMention =>
@@ -153,49 +165,49 @@ class SVMContextEngine extends ContextEngine {
     sentIndex+tokenIntervalStart+tokenIntervalEnd
   }
 
-  private def aggregateFeatures(instances:Seq[(Pair, InputRow)]):(Pair, AggregatedRowNew) = {
-    val idMakerPair = instances(0)._1
-    val sentInd = idMakerPair._1.sentence
-    val pmcid = idMakerPair._1.document.id match {
-      case Some(c) => c
-      case None => "Unknown"}
-    val evntId = extractEvtId(idMakerPair._1)
-    val ctxId = ContextEngine.getContextKey(idMakerPair._2)._2
+  private def aggregateFeatures(instances:Seq[InputRow]):AggregatedRowNew = {
+    //val idMakerPair = instances(0)._1
+    //val sentInd = idMakerPair._1.sentence
+    //val pmcid = idMakerPair._1.document.id match {
+    //  case Some(c) => c
+    //  case None => "Unknown"}
+    //val evntId = extractEvtId(idMakerPair._1)
+    //val ctxId = ContextEngine.getContextKey(idMakerPair._2)._2
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
 
     instances.map(i => {
       val closesCtxOfClassSet = collection.mutable.ListBuffer[Double]()
-      closesCtxOfClassSet+=i._2.closesCtxOfClass
+      closesCtxOfClassSet+=i.closesCtxOfClass
       val closestCtxStats = Utils.createStats(closesCtxOfClassSet)
       val closestExtended = Utils.extendFeatureName("closesCtxOfClass")
       featureSetNames ++= List(closestExtended._1, closestExtended._2, closestExtended._3)
       featureSetValues ++= List(closestCtxStats._1, closestCtxStats._2, closestCtxStats._3)
 
       val context_frequencySet = collection.mutable.ListBuffer[Double]()
-      context_frequencySet += i._2.context_frequency
+      context_frequencySet += i.context_frequency
       val context_frequencyStats = Utils.createStats(context_frequencySet)
       val context_frequencyended = Utils.extendFeatureName("context_frequency")
       featureSetNames ++= List(context_frequencyended._1, context_frequencyended._2, context_frequencyended._3)
       featureSetValues ++= List(context_frequencyStats._1, context_frequencyStats._2, context_frequencyStats._3)
 
       val evtNegationInTailSet = collection.mutable.ListBuffer[Double]()
-      evtNegationInTailSet += i._2.evtNegationInTail
+      evtNegationInTailSet += i.evtNegationInTail
       val evtNegationInTailStats = Utils.createStats(evtNegationInTailSet)
       val evtNegationInTailended = Utils.extendFeatureName("evtNegationInTail")
       featureSetNames ++= List(evtNegationInTailended._1, evtNegationInTailended._2, evtNegationInTailended._3)
       featureSetValues ++= List(evtNegationInTailStats._1, evtNegationInTailStats._2, evtNegationInTailStats._3)
 
       val evtSentenceFirstPersonSet = collection.mutable.ListBuffer[Double]()
-      evtSentenceFirstPersonSet += i._2.evtSentenceFirstPerson
+      evtSentenceFirstPersonSet += i.evtSentenceFirstPerson
       val evtSentenceFirstPersonStats = Utils.createStats(evtSentenceFirstPersonSet)
       val evtSentenceFirstPersonended = Utils.extendFeatureName("evtSentenceFirstPerson")
       featureSetNames ++= List(evtSentenceFirstPersonended._1, evtSentenceFirstPersonended._2, evtSentenceFirstPersonended._3)
       featureSetValues ++= List(evtSentenceFirstPersonStats._1, evtSentenceFirstPersonStats._2, evtSentenceFirstPersonStats._3)
 
       val evtSentencePastTenseSet = collection.mutable.ListBuffer[Double]()
-      evtSentencePastTenseSet += i._2.evtSentencePastTense
+      evtSentencePastTenseSet += i.evtSentencePastTense
       val evtSentencePastTenseStats = Utils.createStats(evtSentencePastTenseSet)
       val evtSentencePastTenseended = Utils.extendFeatureName("evtSentencePastTense")
       featureSetNames ++= List(evtSentencePastTenseended._1, evtSentencePastTenseended._2, evtSentencePastTenseended._3)
@@ -203,7 +215,7 @@ class SVMContextEngine extends ContextEngine {
 
 
       val evtSentencePresentTenseSet = collection.mutable.ListBuffer[Double]()
-      evtSentencePresentTenseSet += i._2.evtSentencePresentTense
+      evtSentencePresentTenseSet += i.evtSentencePresentTense
       val evtSentencePresentTenseStats = Utils.createStats(evtSentencePresentTenseSet)
       val evtSentencePresentTenseended = Utils.extendFeatureName("evtSentencePresentTense")
       featureSetNames ++= List(evtSentencePresentTenseended._1, evtSentencePresentTenseended._2, evtSentencePresentTenseended._3)
@@ -211,7 +223,7 @@ class SVMContextEngine extends ContextEngine {
 
 
       val sentenceDistanceSet = collection.mutable.ListBuffer[Double]()
-      sentenceDistanceSet += i._2.sentenceDistance
+      sentenceDistanceSet += i.sentenceDistance
       val sentenceDistanceStats = Utils.createStats(sentenceDistanceSet)
       val sentenceDistanceended = Utils.extendFeatureName("sentenceDistance")
       featureSetNames ++= List(sentenceDistanceended._1, sentenceDistanceended._2, sentenceDistanceended._3)
@@ -219,14 +231,14 @@ class SVMContextEngine extends ContextEngine {
 
 
       val dependencyDistanceSet = collection.mutable.ListBuffer[Double]()
-      dependencyDistanceSet += i._2.dependencyDistance
+      dependencyDistanceSet += i.dependencyDistance
       val dependencyDistanceStats = Utils.createStats(dependencyDistanceSet)
       val dependencyDistanceended = Utils.extendFeatureName("dependencyDistance")
       featureSetNames ++= List(dependencyDistanceended._1, dependencyDistanceended._2, dependencyDistanceended._3)
       featureSetValues ++= List(dependencyDistanceStats._1, dependencyDistanceStats._2, dependencyDistanceStats._3)
     })
 
-    val inputRows = instances.map(i => i._2)
+    val inputRows = instances
     for(in <- inputRows) {
       val ctxMappings = Utils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
       val evtMappings = Utils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
@@ -245,11 +257,12 @@ class SVMContextEngine extends ContextEngine {
       addToFeaturesArray(finalEvtPairings)
 
     }
-    val newAggRow = AggregatedRowNew(sentInd, pmcid, evntId, ctxId, label, featureSetValues.toArray,featureSetNames.toArray)
+    val newAggRow = AggregatedRowNew(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
 
     //check with Enrique to see how Pairs in a given Seq[(Pair, InputRow)] can be consolidated to a single Pair in the aggregated row
     // will take the first pair for now
-    (idMakerPair, newAggRow)
+    //(idMakerPair, newAggRow)
+    newAggRow
   }
 
 
