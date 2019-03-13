@@ -16,8 +16,13 @@ class SVMContextEngine extends ContextEngine {
 
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
-  val modelPath = config.getString("contextEngine.params.svmPath")
-  val trainedSVMInstance = svmWrapper.loadFrom(modelPath)
+  val configPath = config.getString("contextEngine.params.svmPath")
+  val defaultPath = "./src/main/resources/org/clulab/context/svmTrainedModel.dat"
+  val modelPath = config.hasPath(configPath) match {
+    case true => configPath
+    case false => defaultPath
+  }
+  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
