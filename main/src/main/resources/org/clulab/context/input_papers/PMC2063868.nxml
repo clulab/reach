@@ -1,0 +1,561 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cell Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Cell Biol</journal-id>
+      <journal-id journal-id-type="publisher-id">JCB</journal-id>
+      <journal-title-group>
+        <journal-title>The Journal of Cell Biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0021-9525</issn>
+      <issn pub-type="epub">1540-8140</issn>
+      <publisher>
+        <publisher-name>The Rockefeller University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">16702230</article-id>
+      <article-id pub-id-type="pmc">2063868</article-id>
+      <article-id pub-id-type="publisher-id">200508204</article-id>
+      <article-id pub-id-type="doi">10.1083/jcb.200508204</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Articles</subject>
+          <subj-group>
+            <subject>Article</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Semaphorin 4D/Plexin-B1&#x2013;mediated R-Ras GAP activity inhibits cell migration by regulating &#x3B2;<sub>1</sub> integrin activity</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Oinuma</surname>
+            <given-names>Izumi</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Katoh</surname>
+            <given-names>Hironori</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Negishi</surname>
+            <given-names>Manabu</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <aff id="N0x1bee150N0x1d9ad28">Laboratory of Molecular Neurobiology, Graduate School of Biostudies, Kyoto University, Sakyo-ku, Kyoto 606-8502, Japan</aff>
+      <author-notes>
+        <fn>
+          <p>Correspondence to Manabu Negishi: <email>mnegishi@pharm.kyoto-u.ac.jp</email>
+</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>22</day>
+        <month>5</month>
+        <year>2006</year>
+      </pub-date>
+      <volume>173</volume>
+      <issue>4</issue>
+      <fpage>601</fpage>
+      <lpage>613</lpage>
+      <history>
+        <date date-type="received">
+          <day>31</day>
+          <month>8</month>
+          <year>2005</year>
+        </date>
+        <date date-type="accepted">
+          <day>18</day>
+          <month>4</month>
+          <year>2006</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2006, The Rockefeller University Press</copyright-statement>
+        <copyright-year>2006</copyright-year>
+        <license license-type="openaccess">
+          <license-p>This article is distributed under the terms of an Attribution&#x2013;Noncommercial&#x2013;Share Alike&#x2013;No Mirror Sites license for the first six months after the publication date (see <ext-link ext-link-type="uri" xlink:href="http://www.rupress.org/terms">http://www.rupress.org/terms</ext-link>). After six months it is available under a Creative Commons License (Attribution&#x2013;Noncommercial&#x2013;Share Alike 4.0 Unported license, as described at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-sa/4.0/">http://creativecommons.org/licenses/by-nc-sa/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <self-uri xlink:title="pdf" xlink:type="simple" xlink:href="jcb1730601.pdf"/>
+      <abstract>
+        <p>Plexins are cell surface receptors for semaphorins and regulate cell migration in many cell types. We recently reported that the semaphorin 4D (Sema4D) receptor Plexin-B1 functions as a GTPase-activating protein (GAP) for R-Ras, a member of Ras family GTPases implicated in regulation of integrin activity and cell migration (Oinuma, I., Y. Ishikawa, H. Katoh, and M. Negishi. 2004. <italic>Science</italic>. 305:862&#x2013;865). We characterized the role of R-Ras downstream of Sema4D/Plexin-B1 in cell migration. Activation of Plexin-B1 by Sema4D suppressed the ECM-dependent R-Ras activation, R-Ras&#x2013;mediated phosphatydylinositol 3-kinase activation, and &#x3B2;<sub>1</sub> integrin activation through its R-Ras GAP domain, leading to inhibition of cell migration. In addition, inactivation of R-Ras by overexpression of the R-Ras&#x2013;specific GAP or knockdown of R-Ras by RNA interference was sufficient for suppressing &#x3B2;<sub>1</sub> integrin activation and cell migration in response to the ECM stimulation. Thus, we conclude that R-Ras activity is critical for ECM-mediated &#x3B2;<sub>1</sub> integrin activation and cell migration and that inactivation of R-Ras by Sema4D/Plexin-B1&#x2013;mediated R-Ras GAP activity controls cell migration by modulating the activity of &#x3B2;<sub>1</sub> integrins.</p>
+      </abstract>
+    </article-meta>
+    <notes>
+      <fn-group>
+        <fn>
+          <p>Abbreviations used in this paper: GAP, GTPase-activating protein; HS, horse serum; PE, phycoerythrin; PI3-K, phosphatydylinositol 3-kinase; WT, wild type.</p>
+        </fn>
+      </fn-group>
+    </notes>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Semaphorins comprise a large family of secreted and transmembrane molecules that play central roles in axon guidance in the developing nervous system (<xref rid="bib18" ref-type="bibr">Kolodkin et al., 1993</xref>; <xref rid="bib43" ref-type="bibr">Tamagnone et al., 1999</xref>). The function of semaphorins is mediated by plexins, which are classified into four subfamilies: Plexin-A, -B, -C, and -D (<xref rid="bib43" ref-type="bibr">Tamagnone et al., 1999</xref>). Semaphorins were originally identified as repulsive axonal guidance molecules, but they have recently been shown to regulate integrin-mediated cell migration in a variety of cells (<xref rid="bib42" ref-type="bibr">Tamagnone and Comoglio, 2004</xref>). Sema3A exerts an essential permissive role in the execution of vasculature remodeling by inhibiting integrin-mediated adhesion of endothelial cells to the ECM (<xref rid="bib35" ref-type="bibr">Serini et al., 2003</xref>). Activation of Plexin-B1 negatively regulates integrin-based cell adhesion and migration of NIH-3T3 cells (<xref rid="bib1" ref-type="bibr">Barberis et al., 2004</xref>). Plexin-C1 inhibits integrin-mediated adhesion and chemokine-induced migration of dendritic cells (<xref rid="bib45" ref-type="bibr">Walzer et al., 2005</xref>). Thus, semaphorin/plexin signaling plays an important role in the migration of a variety of cells. However, the molecular mechanisms underlying the inhibition of integrin-mediated cell migration by semaphorins through plexins remain unclear.</p>
+      <p>Rho family small GTPases are signal transduction molecules that remodel the actin cytoskeleton and play fundamental roles in numerous cellular processes (<xref rid="bib24" ref-type="bibr">Negishi and Katoh, 2002</xref>). The small GTPase Rnd1, a constitutively active GTPase (<xref rid="bib25" ref-type="bibr">Nobes et al., 1998</xref>), is known to interact directly with the cytoplasmic domain of Plexin-B1 (<xref rid="bib28" ref-type="bibr">Oinuma et al., 2003</xref>). We recently revealed that Plexin-B1 functions as an R-Ras GTPase-activating protein (GAP) and directly and specifically down-regulates R-Ras activity in response to Sema4D, inducing repulsive response in hippocampal neurons, and that the expression of R-Ras GAP activity of Plexin-B1 requires Rnd1 association with the receptor (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>). Furthermore, expression of constitutively active R-Ras prevents growth cone collapse induced by Sema4D/Plexin-B1 as well as Sema3A/Plexin-A1, whereas R-Ras siRNA caused a growth cone collapse similar to those induced by semaphorins (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>).</p>
+      <p>Integrins are a family of &#x3B1;/&#x3B2; heterodimeric cell surface receptors that bind to the ECM, such as collagens and fibronectins, and play a central part in regulating cell growth, survival, migration, and tumor metastasis (<xref rid="bib9" ref-type="bibr">Hood and Cheresh, 2002</xref>). Activation of integrins is essential for cell adhesion and cell migration, and several studies show that the Ras family of small GTPases regulates integrin activity (<xref rid="bib17" ref-type="bibr">Kinbara et al., 2003</xref>). Among the Ras family GTPases, activated R-Ras was shown to induce integrin activation and increase cell adhesion and matrix assembly, suggesting that R-Ras plays an important role in the regulation of integrin activity (<xref rid="bib48" ref-type="bibr">Zhang et al., 1996</xref>; <xref rid="bib36" ref-type="bibr">Sethi et al., 1999</xref>). However, how R-Ras activity is regulated and how R-Ras activates integrins remain obscure. Significantly, Sema4D was the first extracellular stimulus shown to influence the activity of R-Ras. These facts collectively prompted us to speculate that plexins regulate integrin-mediated cell migration by their R-Ras GAP activity.</p>
+      <p>In this study, we characterized the role of R-Ras downstream of Sema4D/Plexin-B1 in regulation of integrin activation and cell migration. The activation of R-Ras by ECM is required for ECM-mediated integrin activation and cell migration, and Sema4D/Plexin-B1 inhibits integrin activation and cell migration through R-Ras GAP activity. We also revealed that down-regulation of phosphatydylinositol 3-kinase (PI3-K) activity is responsible for Sema4D/Plexin-B1&#x2013;induced suppression of &#x3B2;<sub>1</sub> integrin activity and cell migration.</p>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Sema4D antagonizes integrin-mediated cell migration</title>
+        <p>We examined the effect of Sema4D on integrin-mediated migration of PC12 cells in a cell migration assay (<xref rid="fig1" ref-type="fig">Fig. 1, A and B</xref>). Transwell chambers were coated on the lower side with varying concentrations of collagen I. PC12 cells exhibited a collagen concentration&#x2013;dependent promotion of cell migration, which was antagonized by Sema4D. The collagen-dependent PC12 cell migration is mediated by &#x3B1;<sub>1</sub> and &#x3B2;<sub>1</sub> integrin subunits, as functional blocking antibodies against &#x3B1;<sub>1</sub> (<xref rid="fig1" ref-type="fig">Fig. 1, C and D</xref>) and &#x3B2;<sub>1</sub> (<xref rid="fig1" ref-type="fig">Fig. 1, E and F</xref>) integrin subunits strongly impaired the migration. These results indicate that Sema4D antagonizes the collagen receptor, &#x3B1;<sub>1</sub>/&#x3B2;<sub>1</sub> integrin&#x2013;dependent PC12 cell migration.</p>
+        <fig id="fig1" position="float">
+          <label>Figure 1.</label>
+          <caption>
+            <p>
+<bold>Sema4D antagonizes integrin-mediated cell migration.</bold> (A) PC12 cells were tested in the transwell assay either in the presence or absence of Sema4D. Transwell chambers were coated on the lower side with varying concentrations of collagen I. Migrated cells were visualized by the staining of crystal violet. (C and E) PC12 cells were pretreated with 5 &#x3BC;g/ml of functional blocking monoclonal antibodies against &#x3B1;<sub>1</sub> and &#x3B2;<sub>1</sub> integrin subunits (3A3 and P5D2, respectively) or control mouse IgG1 and subjected to the transwell assay. Migrated cells were visualized by the staining of crystal violet. (B, D, and F) Relative cell migration was determined by the number of the migrated cells normalized to the total number of cells. Results are the means &#xB1; SEM of three independent experiments. Bars, 1 mm.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f01"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Sema4D through Plexin-B1 inhibits ECM-mediated activation of R-Ras and &#x3B2;<sub>1</sub> integrins</title>
+        <p>R-Ras is implicated in integrin-mediated cell migration, and expression of a constitutively active form of R-Ras has been shown to stimulate cell migration (<xref rid="bib15" ref-type="bibr">Keely et al., 1999</xref>). We previously reported that Sema4D stimulation down-regulates NGF-stimulated R-Ras activity via the R-Ras GAP activity of Plexin-B1 to induce neurite retraction (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>). We next tested whether stimulation of PC12 cells with collagen and Sema4D affects R-Ras activity. PC12 cells were plated onto collagen-coated dishes and lysed, and the lysates were incubated with the GST-fused Ras binding domain of c-Raf-1 (GST-RBD) to pull down activated R-Ras (<xref rid="bib6" ref-type="bibr">de Rooij and Bos, 1997</xref>). As shown in <xref rid="fig2" ref-type="fig">Fig. 2 A</xref>, cells plated on collagen-coated dishes showed a collagen concentration&#x2013;dependent increase in endogenous R-Ras activity, whereas those kept in suspension or plated onto the non&#x2013;integrin-dependent substrate poly-<sc>d</sc>-lysine did not. Furthermore, the collagen-dependent activation of R-Ras was inhibited by a functional blocking antibody against &#x3B2;<sub>1</sub> integrins, P5D2, and was enhanced by affinity-related activation of &#x3B2;<sub>1</sub> integrins by the monoclonal antibody 8A2, which mechanically induces a high-affinity state of &#x3B2;<sub>1</sub> integrins. These data suggest that &#x3B2;<sub>1</sub> integrins are required for R-Ras activation upon ECM-mediated adhesion. Sema4D stimulation strongly inhibited the collagen-induced activation of R-Ras, and affinity-related activation of &#x3B2;<sub>1</sub> integrins by the 8A2 antibody attenuated the inhibitory effect of Sema4D on ECM-mediated R-Ras activation. R-Ras is known to regulate &#x3B2;<sub>1</sub> integrin activation (<xref rid="bib48" ref-type="bibr">Zhang et al., 1996</xref>). To examine the effect of Sema4D on &#x3B2;<sub>1</sub> integrin activity, we measured the activity of &#x3B2;<sub>1</sub> integrins in cells with or without Sema4D stimulation by the immunoprecipitation assay with the monoclonal antibody against active conformations of &#x3B2;<sub>1</sub> integrins, HUTS-4, which detects hybrid domain swing-out in &#x3B2;<sub>1</sub> integrins, a process most commonly associated with ligand binding (<xref rid="bib23" ref-type="bibr">Mould et al., 2003</xref>). Sema4D antagonized the collagen-dependent activation of &#x3B2;<sub>1</sub> integrins (<xref rid="fig2" ref-type="fig">Fig. 2 B</xref>). Inhibition of &#x3B2;<sub>1</sub> integrin activity by Sema4D was also observed in the ELISA using the HUTS-4 antibody, which was performed under a detergent-free condition (<xref rid="fig2" ref-type="fig">Fig. 2 C</xref>). To further ascertain that Sema4D indeed affects the activity of &#x3B2;<sub>1</sub> integrins, we performed flow cytometry analysis using the HUTS-4 antibody. As shown in <xref rid="fig2" ref-type="fig">Fig. 2 D</xref>, cells treated with Sema4D showed a decrease in the level of HUTS-4 binding (FITC staining). Mn<sup>2+</sup> treatment, which induces the activation of &#x3B2;<sub>1</sub> integrins, resulting in the effective interaction with the ECM ligands and increased HUTS-4 binding (<xref rid="bib20" ref-type="bibr">Luque et al., 1996</xref>), completely overcame the Sema4D-induced decrease in HUTS-4 binding. These results suggest that decreased HUTS-4 binding induced by Sema4D is due to affinity modulation of &#x3B2;<sub>1</sub> integrins. FAK is known to be autophosphorylated at tyrosine upon integrin activation (<xref rid="bib8" ref-type="bibr">Hildebrand et al., 1993</xref>), and FAK phosphorylation downstream of &#x3B2;<sub>1</sub> integrins is the important step for integrin-mediated cell migration (<xref rid="bib31" ref-type="bibr">Parsons et al., 2000</xref>; <xref rid="bib38" ref-type="bibr">Sieg et al., 2000</xref>).As shown in <xref rid="fig2" ref-type="fig">Fig. 2 E</xref>, Sema4D inhibited the collagen-mediated FAK tyrosine phosphorylation. These results suggest that Sema4D inhibits ECM-mediated activation of R-Ras and &#x3B2;<sub>1</sub> integrins.</p>
+        <fig id="fig2" position="float">
+          <label>Figure 2.</label>
+          <caption>
+            <p>
+<bold>Sema4D inhibits ECM-mediated activation of R-Ras and functional activation of &#x3B2;<sub>1</sub> integrins.</bold> (A) PC12 cells were collected and kept in suspension (SUSP) or replated onto poly-<sc>d</sc>-lysine (PDL)&#x2013; or collagen (COL)&#x2013;coated (1 or 10 &#x3BC;g/ml) dishes with or without Sema4D in the plating media. 15 min after plating, the cells were lysed and the lysates were incubated with GST-RBD, and bound R-Ras protein and total lysates were analyzed by immunoblotting. For the indicated samples, cells were treated with 5 &#x3BC;g/ml of monoclonal &#x3B2;<sub>1</sub> integrin blocking (P5D2) or activating (8A2) antibody before replating. Relative R-Ras activity was determined by the amount of R-Ras bound to GST-RBD normalized to the amount of R-Ras in cell lysates analyzed by NIH Image software (bottom). (B and E) PC12 cells were seeded onto noncoated or collagen-coated (10 &#x3BC;g/ml) dishes, with or without Sema4D in the plating media. Cells were lysed, and the lysates were immunoprecipitated with an antibody against the active &#x3B2;<sub>1</sub> integrins, HUTS-4 (B), or an antibody against FAK (E) to measure the activity of &#x3B2;<sub>1</sub> integrins or tyrosine phosphorylated FAK, respectively. (C) The ELISA using HUTS-4 antibody was performed to confirm the effect of Sema4D on activity of &#x3B2;<sub>1</sub> integrins under a detergent-free condition. Results are the means &#xB1; SEM of three independent experiments. (D) PC12 cells were treated for 3 h at 37&#xB0;C with control medium or with medium containing Sema4D or Sema4D plus 1 mM Mn<sup>2+</sup>. Cells were incubated with HUTS-4 antibody or buffer alone (&#x2212;1st Ab), followed by labeling with the FITC-conjugated secondary antibody. Fluorescence intensity was determined by flow cytometry analysis. Error bars indicate SEM.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f02"/>
+        </fig>
+        <p>We also confirmed the involvement of the endogenous Plexin-B1 receptor in Sema4D-dependent inhibition of R-Ras activity and integrin functions. As shown in <xref rid="fig3" ref-type="fig">Fig. 3</xref>, both Sema4D-dependent inhibition of collagen-mediated activation of R-Ras and cell migration were blocked by the monoclonal antibody against Plexin-B1, which recognizes the extracellular ligand binding region of the receptor. These results suggest that Sema4D through Plexin-B1 inhibits ECM-mediated activation of R-Ras, functional activation of &#x3B2;<sub>1</sub> integrins, and inhibition of cell migration.</p>
+        <fig id="fig3" position="float">
+          <label>Figure 3.</label>
+          <caption>
+            <p>
+<bold>Sema4D-dependent inhibition of R-Ras activity and ECM-mediated cell migration involves the endogenous Plexin-B1 receptor.</bold> (A) PC12 cells were pretreated with 5 &#x3BC;g/ml of a mouse monoclonal antibody against the extracellular ligand binding region of Plexin-B1 (PlexB1 Ab) or the control mouse IgG2b (Control Ab). PC12 cells were seeded onto noncoated or collagen-coated (10 &#x3BC;g/ml) dishes with or without Sema4D in the plating media, and relative R-Ras activity was determined as described in the legend to <xref rid="fig2" ref-type="fig">Fig. 2 A</xref>. (B) PC12 cells were pretreated with 5 &#x3BC;g/ml of the monoclonal antibody against Plexin-B1 and were subsequently subjected to the transwell assay in either the presence or absence of Sema4D. Migrated cells were visualized by the staining of crystal violet. (C) Relative cell migration was determined by the number of the migrated cells normalized to the total number of cells. Results are the means &#xB1; SEM of three independent experiments. Bar, 1 mm.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f03"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Inhibition of cell migration by Sema4D is mediated by suppression of &#x3B2;<sub>1</sub> integrin activity</title>
+        <p>We tested whether Sema4D-mediated inhibition of cell migration is mediated by suppression of &#x3B2;<sub>1</sub> integrin activity. PC12 cells preincubated with 5 &#x3BC;g/ml &#x3B2;<sub>1</sub> integrin activating monoclonal antibody (8A2) were subjected to the transwell assay. We tested the migration at relatively low concentrations of collagen (&#x223C;3.0 &#x3BC;g/ml) because this antibody inhibits cell migration at high concentration of the ECM ligands by freezing &#x3B2;<sub>1</sub> at a high-affinity state (<xref rid="bib19" ref-type="bibr">Kuijpers et al., 1993</xref>). As shown in <xref rid="fig4" ref-type="fig">Fig. 4</xref>, affinity-related activation of &#x3B2;<sub>1</sub> integrins by 8A2 stimulation overcame the inhibitory effect of Sema4D on collagen-mediated cell migration, whereas a control IgG2a antibody did not. These results suggest that the inhibition of &#x3B2;<sub>1</sub> integrin activity is required for the inhibition of cell migration by Sema4D.</p>
+        <fig id="fig4" position="float">
+          <label>Figure 4.</label>
+          <caption>
+            <p>
+<bold>Affinity-related activation of &#x3B2;<sub>1</sub> integrins overcomes the inhibitory effect of Sema4D on collagen-mediated PC12 cell migration.</bold> (A and B) PC12 cells were pretreated with 5 &#x3BC;g/ml of &#x3B2;<sub>1</sub> integrin activating monoclonal antibody (8A2) or control IgG2a (Control Ab) and were subsequently subjected to the transwell assay in either the presence or absence of Sema4D. Migrated cells were visualized by the staining of crystal violet. (B) Relative cell migration was determined by the number of migrated cells normalized to the total number of cells. Results are the means &#xB1; SEM of three independent experiments. Bar, 1 mm.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f04"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Plexin-B1 inhibits ECM-dependent activation of R-Ras and &#x3B2;<sub>1</sub> integrins through its R-Ras GAP activity</title>
+        <p>We recently reported that Plexin-B1 encodes R-Ras GAP within its cytoplasmic tail and that Plexin-B1 associated with the Rho family GTPase Rnd1 functions as a specific GAP toward R-Ras (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>). We examined whether Sema4D/Plexin-B1&#x2013;Rnd1&#x2013;mediated R-Ras GAP activity suppresses adhesion-dependent R-Ras activation. COS-7 cells expressing R-Ras&#x2013;wild type (WT) were plated onto fibronectin-coated dishes or nonadherent control dishes and lysed, and the lysates were incubated with GST-RBD to pull down activated R-Ras. The same cell lysates were also used for the immunoprecipitation assay using HUTS-4 for measurement of the activity of &#x3B2;<sub>1</sub> integrins. In COS-7 cells, fibronectin stimulation activated both R-Ras and &#x3B2;<sub>1</sub> integrins (<xref rid="fig5" ref-type="fig">Fig. 5 A</xref>). As shown in <xref rid="fig5" ref-type="fig">Fig. 5 B</xref>, expression of Plexin-B1&#x2013;WT and Rnd1 inhibited the fibronectin-mediated R-Ras activation in the presence of Sema4D. However, this inhibitory effect was not observed in cells expressing Plexin-B1&#x2013;GGA, a mutant lacking the ability to associate with Rnd1, or Plexin-B1&#x2013;RA, a mutant lacking primary and secondary arginine residues required for the catalytic activity of GAP. These results suggest that Sema4D/Plexin-B1&#x2013;Rnd1&#x2013;mediated R-Ras GAP activity inhibits adhesion-dependent R-Ras activation. To examine the effect of Sema4D/Plexin-B1&#x2013;Rnd1&#x2013;mediated R-Ras GAP activity on &#x3B2;<sub>1</sub> integrin activity, we measured the activity of &#x3B2;<sub>1</sub> integrins in cells expressing Plexin-B1 and Rnd1 with or without Sema4D stimulation by the immunoprecipitation assay. As shown in <xref rid="fig5" ref-type="fig">Fig. 5 C</xref>, expression of Plexin-B1 and Rnd1 strongly inhibited the fibronectin-mediated &#x3B2;<sub>1</sub> integrin activation in the presence of Sema4D, whereas inhibition of &#x3B2;<sub>1</sub> integrin activation was not observed in cells expressing Plexin-B1&#x2013;GGA or Plexin-B1&#x2013;RA. The same results were also obtained by the ELISA using the HUTS-4 antibody performed under a detergent-free condition (<xref rid="fig5" ref-type="fig">Fig. 5 D</xref>). We also confirmed the results by flow cytometry analysis. COS-7 cells transiently cotransfected with GFP-Rnd1 and Plexin-B1 were treated with Sema4D, and GFP expression and HUTS-4 binding (phycoerythrin [PE] staining) were simultaneously analyzed by two-color flow cytometry. HUTS-4 binding (PE staining) was analyzed on a gated subset of cells positive for GFP expression to discriminate &#x3B2;<sub>1</sub> integrin activity of transfected cells from that of untransfected cells. As shown in <xref rid="fig5" ref-type="fig">Fig. 5 E</xref>, a Sema4D-dependent decrease in HUTS-4 binding was observed in Plexin-B1&#x2013;WT and Rnd1-expressing cells. However, cells coexpressing Rnd1 with Plexin-B1&#x2013;RA or Plexin-B1&#x2013;GGA, which lacks R-Ras GAP activity, did not show a Sema4D-dependent reduction in HUTS-4 binding. In addition, Sema4D/Plexin-B1&#x2013;Rnd1 also inhibited the fibronectin-mediated FAK tyrosine phosphorylation, whereas inhibition of FAK phosphorylation was not observed in cells expressing Plexin-B1&#x2013;GGA or Plexin-B1&#x2013;RA (<xref rid="fig5" ref-type="fig">Fig. 5 F</xref>). These results suggest that Sema4D/Plexin-B1&#x2013;Rnd1&#x2013;mediated R-Ras GAP activity inhibits adhesion-dependent activation of R-Ras and thereby inhibits functional activation of &#x3B2;<sub>1</sub> integrins.</p>
+        <fig id="fig5" position="float">
+          <label>Figure 5.</label>
+          <caption>
+            <p>
+<bold>Plexin-B1&#x2013;mediated R-Ras GAP activity inhibits ECM-dependent activation of R-Ras and &#x3B2;<sub>1</sub> integrins.</bold> (A) COS-7 cells transfected with HA-tagged wild-type R-Ras were detached with 1.5 mM EDTA, replated onto the dishes coated with or without 10 &#x3BC;g/ml fibronectin (FN), and incubated at 37&#xB0;C for 15 min. (top) The cell lysates were incubated with either the antibody against the active conformations of &#x3B2;<sub>1</sub> integrins HUTS-4 or GST-RBD to see the activity of &#x3B2;<sub>1</sub> integrins or R-Ras, respectively. (bottom) Relative activity of R-Ras or &#x3B2;<sub>1</sub> integrins was normalized to the amount of R-Ras or &#x3B2;<sub>1</sub> integrins in cell lysates analyzed by NIH Image software. (B, C, and F) COS-7 cells transfected with mutants of Myc-tagged Plexin-B1 and HA-tagged Rnd1 were detached with 1.5 mM EDTA. The cells were either kept in suspension (SUSP) or replated onto the dishes coated with 10 &#x3BC;g/ml fibronectin and incubated at 37&#xB0;C for 15 min in the presence or absence of Sema4D. Relative activity of R-Ras (B) and &#x3B2;<sub>1</sub> integrins (C) and tyrosine phosphorylation of FAK (F) were measured. (D, top) The ELISA using HUTS-4 antibody was performed to confirm the effect of Sema4D/Plexin-B1&#x2013;mediated R-Ras GAP activity on activity of &#x3B2;<sub>1</sub> integrins under the detergent-free condition. (bottom) Expression levels of each construct were verified by immunoblot analysis. Results are the means &#xB1; SEM of three independent experiments. (E) COS-7 cells transiently cotransfected with GFP-Rnd1 and Plexin-B1 were stimulated for 5 min with Sema4D and analyzed by two-color flow cytometry. HUTS-4 binding (PE staining) was analyzed on a gated subset of cells, positive for GFP expression to discriminate &#x3B2;<sub>1</sub> integrin activity of transfected cells from that of untransfected cells. Level of HUTS-4 binding in cells expressing GFP-Rnd1 and various Plexin-B1 expression constructs, with or without Sema4D stimulation, was analyzed. Error bars indicate SEM.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f05"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>R-Ras activity is required for the ECM-mediated activation of &#x3B2;<sub>1</sub> integrins</title>
+        <p>We next examined whether regulation of R-Ras activity plays key roles in the ECM-mediated activation of &#x3B2;<sub>1</sub> integrins. As shown in <xref rid="fig6" ref-type="fig">Fig. 6 A</xref>, in untransfected cells, activity of &#x3B2;<sub>1</sub> integrins was increased upon adhesion to fibronectin. This activation was completely blocked by the down-regulation of endogenous R-Ras activity by the expression of the myristoylated GAP domain of p98&#x2013;R-RasGAP (Myr&#x2013;R-RasGAP), which exhibits a specific GAP activity toward R-Ras (<xref rid="bib47" ref-type="bibr">Yamamoto et al., 1995</xref>). R-Ras is implicated in integrin regulation, and the constitutively active form of R-Ras has been shown to increase the affinity of &#x3B2;<sub>1</sub> integrins for fibronectin (<xref rid="bib48" ref-type="bibr">Zhang et al., 1996</xref>) and to stimulate cell migration (<xref rid="bib15" ref-type="bibr">Keely et al., 1999</xref>). Expression of R-Ras&#x2013;QL actually induced remarkable activation of &#x3B2;<sub>1</sub> integrins, and this was not further enhanced by fibronectin. We also tested whether R-Ras activity affects FAK tyrosine phosphorylation. As shown in <xref rid="fig6" ref-type="fig">Fig. 6 B</xref>, expression of Myr&#x2013;R-RasGAP completely blocked the fibronectin-induced FAK phosphorylation, whereas R-Ras&#x2013;QL markedly stimulated FAK phosphorylation independent of fibronectin, indicating that endogenous R-Ras activity is also required for ECM-mediated FAK phosphorylation. We further confirmed requirement of R-Ras in the ECM-mediated functional activation of &#x3B2;<sub>1</sub> integrins. We reduced expression of R-Ras in COS-7 cells by R-Ras&#x2013;specific siRNA expression vector and examined the effect on the activation of &#x3B2;<sub>1</sub> integrins and phosphorylation of FAK. As shown in <xref rid="fig6" ref-type="fig">Fig. 6</xref> (C and D), expression of R-Ras siRNA effectively reduced endogenous R-Ras protein, and reduction in R-Ras protein blocked both the fibronectin-dependent activation of &#x3B2;<sub>1</sub> integrins and phosphorylation of FAK. The ELISA using HUTS-4, under detergent-free conditions, also confirmed suppression of &#x3B2;<sub>1</sub> integrin activation by inactivation of R-Ras by expression of Myr&#x2013;R-RasGAP or knockdown of R-Ras by R-Ras RNA interference (<xref rid="fig6" ref-type="fig">Fig. 6, E and F</xref>). We also confirmed these results by two-color flow cytometry. COS-7 cells transiently transfected with Myr&#x2013; R-RasGAP or an R-Ras siRNA together with GFP were stained with HUTS-4, and HUTS-4 binding (PE staining) was analyzed on GFP-positive cells. As shown in <xref rid="fig6" ref-type="fig">Fig. 6 G</xref>, the level of HUTS-4 binding was reduced in cells expressing Myr&#x2013;R-RasGAP or R-Ras siRNA. These results demonstrate that activation of the endogenous R-Ras protein is essential for the ECM-mediated functional activation of &#x3B2;<sub>1</sub> integrins.</p>
+        <fig id="fig6" position="float">
+          <label>Figure 6.</label>
+          <caption>
+            <p>
+<bold>R-Ras activity is required for ECM-mediated activation of &#x3B2;<sub>1</sub> integrins.</bold> (A&#x2013;D) COS-7 cells expressing the indicated expression plasmids were detached with 1.5 mM EDTA in PBS and kept in suspension (SUSP) or replated onto the dishes coated with 20 &#x3BC;g/ml poly-<sc>d</sc>-lysine (PDL) or 10 &#x3BC;g/ml fibronectin (FN). After 15 min, activity of &#x3B2;<sub>1</sub> integrins (A and C) and tyrosine phosphorylated FAK (B and D) were measured. (E and F, top) The ELISA using HUTS-4 was performed under a detergent-free condition. (bottom) Expression levels of each construct or the levels of endogenous R-Ras protein in cells transfected with siRNAs were verified by immunoblot analysis. Results are the means &#xB1; SEM of three independent experiments. (G) COS-7 cells transiently transfected with Myr&#x2013;R-RasGAP or an R-Ras siRNA together with GFP were stained with HUTS-4, and HUTS-4 binding (PE staining) was analyzed on GFP-positive cells.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f06"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Plexin-B1 inhibits cell migration through R-Ras GAP activity</title>
+        <p>We next examined the effect of Sema4D/Plexin-B1 signaling on integrin-mediated cell migration. COS-7 cells expressing a control GFP alone exhibited a fibronectin concentration&#x2013;dependent promotion of cell migration, and ectopic expression of GFP&#x2013; R-Ras&#x2013;WT enhanced this fibronectin-dependent cell migration (<xref rid="fig7" ref-type="fig">Fig. 7, A and B</xref>). Coexpression of Plexin-B1&#x2013;WT and Rnd1 with R-Ras&#x2013;WT blocked the R-Ras&#x2013;induced promotion of cell migration toward fibronectin, in the presence of Sema4D at the lower well (<xref rid="fig7" ref-type="fig">Fig. 7 C</xref>). On the other hand, expression of Plexin-B1&#x2013;RA, a mutant of Plexin-B1 that lacks R-Ras GAP activity, did not exhibit the Sema4D-dependent inhibition of cell migration toward fibronectin (<xref rid="fig7" ref-type="fig">Fig. 7 D</xref>). Association of Rnd1 with Plexin-B1 is essential for the expression of R-Ras GAP activity of Plexin-B1 (<xref rid="fig5" ref-type="fig">Fig. 5 B</xref>), and inhibition of cell migration was not observed in the cells without Rnd1 or in the cells expressing Plexin-B1&#x2013;GGA, a mutant of Plexin-B1 unable to interact with Rnd1 (<xref rid="fig7" ref-type="fig">Fig. 7 E</xref>). The Plexin-B subfamily has been shown to activate RhoA via its COOH-terminal PDZ domain binding motif (<xref rid="bib32" ref-type="bibr">Perrot et al., 2002</xref>; <xref rid="bib40" ref-type="bibr">Swiercz et al., 2002</xref>; <xref rid="bib28" ref-type="bibr">Oinuma et al., 2003</xref>). However, Plexin-B1&#x2013;&#x394;C, a mutant of Plexin-B1 that lacks the PDZ domain binding motif but still has R-Ras GAP activity (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>), inhibited fibronectin-dependent cell migration in the presence of Sema4D (<xref rid="fig7" ref-type="fig">Fig. 7 E</xref>). Cell migration mediated by constitutively active R-Ras, R-Ras&#x2013;QL, was not suppressed by the Sema4D/Plexin-B1&#x2013;Rnd1 complex (<xref rid="fig7" ref-type="fig">Fig. 7 E</xref>). Expression levels of these constructs used in the assay were similar, as verified by immunoblot analysis (not depicted). Furthermore, R-Ras activity is essential for ECM-mediated cell migration, as both inactivation of R-Ras by expression of Myr&#x2013;R-RasGAP or knockdown of R-Ras by R-Ras RNA interference almost completely suppressed the fibronectin-dependent cell migration (<xref rid="fig7" ref-type="fig">Fig. 7 F</xref>).</p>
+        <fig id="fig7" position="float">
+          <label>Figure 7.</label>
+          <caption>
+            <p>
+<bold>Plexin-B1 inhibits ECM-mediated cell migration through R-Ras GAP activity.</bold> (A and B) COS-7 cells expressing GFP or GFP&#x2013;R-Ras&#x2013;WT were used in a cell migration assay, using transwell chambers coated on the lower side with varying concentrations of fibronectin (FN). Migrated cells were visualized by the fluorescence of GFP (A), and relative cell migration was determined (B). (C) COS-7 cells expressing GFP&#x2013;R-Ras&#x2013;WT together with Plexin-B1&#x2013;WT and Rnd1 were tested in the transwell assay in either the presence or absence of Sema4D. (D) COS-7 cells expressing the listed plasmids were tested in the transwell assay using the chambers coated with varying concentrations of fibronectin in either the presence (closed symbols) or absence (open symbols) of Sema4D. Migrated cells were visualized by the fluorescence of GFP. (E) Relative cell migration at the point of 20 &#x3BC;g/ml fibronectin with or without Sema4D was determined. Expression levels of the constructs were verified by immunoblot analysis (not depicted). (F) COS-7 cells transfected with the indicated plasmids were tested in a cell migration assay using the transwells coated on the lower sides with varying concentrations of fibronectin. Relative cell migration was determined by the number of the migrated cells normalized to the total number of the transfected cells. Results are the means &#xB1; SEM of three independent experiments. Bars, 1 mm.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f07"/>
+        </fig>
+        <p>We further confirmed that the R-Ras GAP activity exhibited by endogenous Plexin-B1 is required for Sema4D-mediated inhibition of ECM-mediated PC12 cell migration. We recently reported that the cytoplasmic region of Plexin-B1 by nature takes the intramolecularly tethered form and that disruption of the interaction between the NH<sub>2</sub>-terminal region (N-Cyt) and the COOH-terminal region (C-Cyt) within the cytoplasmic domain (<xref rid="fig8" ref-type="fig">Fig. 8 A</xref>) by Rnd1 binding to N-Cyt is essential for exhibiting the R-Ras GAP activity. C-Cyt associates with N-Cyt&#x2013;GGA, which has no ability to interact with Rnd1, and Rnd1 cannot disrupt this interaction (<xref rid="bib30" ref-type="bibr">Oinuma et al., 2004b</xref>). As shown in <xref rid="fig8" ref-type="fig">Fig. 8 B</xref>, overexpression of Plexin-B1&#x2013;N-Cyt&#x2013;GGA could effectively block the Sema4D/Plexin-B1&#x2013;Rnd1 complex&#x2013;mediated R-Ras GAP activity, suggesting that Plexin-B1&#x2013; N-Cyt&#x2013;GGA could be an effective tool to inhibit the R-Ras GAP activity of Plexin-B1 in a dominant-negative manner. Overexpression of Plexin-B1&#x2013;N-Cyt&#x2013;GGA in PC12 cells almost completely blocked the Sema4D-mediated inhibition of ECM-mediated cell migration (<xref rid="fig8" ref-type="fig">Fig. 8, C and D</xref>).</p>
+        <fig id="fig8" position="float">
+          <label>Figure 8.</label>
+          <caption>
+            <p>
+<bold>R-Ras GAP activity of endogenous Plexin-B1 is required for Sema4D-mediated inhibition of integrin-mediated PC12 cell migration.</bold> (A) Schematic representation of the Plexin-B1&#x2013;N-Cyt&#x2013;GGA construct used in the experiment. The Rnd1 binding region and the R-Ras GAP domains (<italic>C1</italic> and <italic>C2</italic>) are indicated. Letters indicate the specific amino acid residues within domains (A, Ala; F, Phe; G, Gly; L, Leu; P, Pro; R, Arg; V, Val), and numbers indicate amino acid positions within the sequence. (B) Relative activity of R-Ras was determined as described in the legend to <xref rid="fig5" ref-type="fig">Fig. 5 B</xref>. (C) PC12 cells transfected with GFP alone or GFP plus HA&#x2013;Plexin-B1&#x2013;N-Cyt&#x2013;GGA were tested in the transwell assay in either the presence or absence of Sema4D. (D) Relative cell migration was determined by the number of the migrated cells normalized to the total number of cells. Migrated cells were visualized by the fluorescence of GFP. Results are the means &#xB1; SEM of three independent experiments. Bar, 1 mm.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f08"/>
+        </fig>
+        <p>We also examined the role of endogenous R-Ras protein in PC12 cell migration. Transfection of the R-Ras siRNA effectively reduced the expression of endogenous R-Ras protein in PC12 cells, whereas the control siRNA did not work (Fig. S1 A, available at <ext-link ext-link-type="uri" xlink:href="http://www.jcb.org/cgi/content/full/jcb.200508204/DC1">http://www.jcb.org/cgi/content/full/jcb.200508204/DC1</ext-link>), and expression of R-Ras siRNA almost completely suppressed the collagen-dependent cell migration (Fig. S1, B and C), suggesting that R-Ras is a prime regulator for integrin-mediated cell migration in PC12 cells. These results demonstrate that activation of endogenous R-Ras protein is essential for the ECM-mediated cell migration and that regulation of R-Ras activity through Sema4D/Plexin-B1&#x2013;mediated R-Ras GAP activity plays a key role in ECM-mediated cell migration.</p>
+      </sec>
+      <sec>
+        <title>Sema4D/Plexin-B1&#x2013;Rnd1 inhibits PI3-K activity through its R-Ras GAP activity</title>
+        <p>PI3-K is the predominant effector of R-Ras (<xref rid="bib21" ref-type="bibr">Marte et al., 1997</xref>; <xref rid="bib39" ref-type="bibr">Suire et al., 2002</xref>), and R-Ras&#x2013;mediated cell migration is sensitive to pharmacological PI3-K inhibitors (<xref rid="bib15" ref-type="bibr">Keely et al., 1999</xref>; <xref rid="bib33" ref-type="bibr">Rinc&#xF3;n-Arano et al., 2003</xref>). Expression of R-Ras&#x2013;QL induces the ECM-independent functional activation of &#x3B2;<sub>1</sub> integrins and tyrosine phosphorylation of FAK (<xref rid="fig6" ref-type="fig">Fig. 6, A and B</xref>) and causes COS-7 cell migration in the absence of ECM ligands (<xref rid="fig9" ref-type="fig">Fig. 9 A</xref>). The D64A mutation of R-Ras or the pharmacological PI3-K inhibitor LY294002 abrogated the cell migration induced by R-Ras&#x2013;QL (<xref rid="fig9" ref-type="fig">Fig. 9, A and B</xref>). R-Ras&#x2013;QL&#x2013;64A, the effector loop mutant of R-Ras, impairs the ability of R-Ras to activate PI3-K (<xref rid="bib26" ref-type="bibr">Oertli et al., 2000</xref>), and R-Ras&#x2013;QL&#x2013;mediated phosphorylation of the PI3-K effector Akt (PKB) was abolished by the D64A mutation (<xref rid="fig9" ref-type="fig">Fig. 9 C</xref>). We further examined the involvement of PI3-K in R-Ras&#x2013;QL&#x2013;induced activation of &#x3B2;<sub>1</sub> integrins and subsequent FAK phosphorylation. As shown in <xref rid="fig9" ref-type="fig">Fig. 9 (D and E)</xref>, D64A mutation or LY294002 treatment markedly blocked both R-Ras&#x2013;QL&#x2013;induced activation of &#x3B2;<sub>1</sub> integrins and phosphorylation of the downstream effector FAK. It has been reported that prominent PI3-K&#x2013;dependent phosphorylation of Akt occurs in response to &#x3B2;<sub>1</sub> integrin&#x2013;mediated adhesion (<xref rid="bib44" ref-type="bibr">Velling et al., 2004</xref>). We examined the effect of Sema4D/Plexin-B1&#x2013;mediated R-Ras GAP activity on PI3-K activity by measuring the phosphorylation of Akt. As shown in <xref rid="fig9" ref-type="fig">Fig. 9 F</xref>, expression of Plexin-B1&#x2013;WT and Rnd1 inhibited the fibronectin-mediated Akt phosphorylation in the presence of Sema4D. However, this inhibition was not observed in cells expressing Plexin-B1&#x2013;GGA or Plexin-B1&#x2013;RA that had no ability to exhibit R-Ras GAP activity (<xref rid="fig5" ref-type="fig">Fig. 5 B</xref>). These results suggest that PI3-K activity is necessary for R-Ras&#x2013;mediated activation of &#x3B2;<sub>1</sub> integrins and that Sema4D/Plexin-B1&#x2013;Rnd1 inactivates PI3-K through down-regulation of R-Ras activity.</p>
+        <fig id="fig9" position="float">
+          <label>Figure 9.</label>
+          <caption>
+            <p>
+<bold>Sema4D/Plexin-B1&#x2013;Rnd1 inhibits PI3-K activity through inactivation of R-Ras.</bold> (A) COS-7 cells transfected with GFP&#x2013;R-Ras&#x2013;QL or its effector loop mutant, R-Ras&#x2013;QL&#x2013;64A, were tested in a cell migration assay using the noncoated bare transwells in either the presence or absence of 20 &#x3BC;M LY294002. Bar, 1 mm. (B) Relative cell migration was determined. Results are the means &#xB1; SEM of three independent experiments. (C) Phosphorylated and total Akt were analyzed by immunoblotting with phospho-Akt (Ser473) and total Akt antibodies. (D and E) The state of &#x3B2;<sub>1</sub> integrin activity (D) and FAK tyrosine phosphorylation (E) were analyzed. (F) COS-7 cells prepared as described in the legend to <xref rid="fig5" ref-type="fig">Fig. 5</xref> were directly lysed on dishes, and the lysates were analyzed by the immunoblot analysis with phospho-Akt (Ser473) and total Akt antibodies. Results are the means &#xB1; SEM of three independent experiments.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f09"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Down-regulation of PI3-K activity is responsible for Sema4D/Plexin-B1&#x2013;induced suppression of &#x3B2;<sub>1</sub> integrin activity</title>
+        <p>To clear out the role of PI3-K downstream of Sema4D/Plexin-B1, leading to suppression of &#x3B2;<sub>1</sub> integrin activity, we transfected p110&#x3B1;-CAAX, a constitutively active form of PI3-K (<xref rid="bib3" ref-type="bibr">Berrier et al., 2000</xref>), and tested the ability of Sema4D/Plexin-B1 to inhibit &#x3B2;<sub>1</sub> integrin activation. In COS-7 cells, overexpression of p110&#x3B1;-CAAX by itself did not induce &#x3B2;<sub>1</sub> integrin activation in the absence of fibronectin (<xref rid="fig10" ref-type="fig">Fig. 10 A</xref>; <xref rid="bib26" ref-type="bibr">Oertli et al., 2000</xref>). On the other hand, overexpression of the kinase-dead form of p110&#x3B1; blocked the fibronectin-dependent &#x3B2;<sub>1</sub> integrin activation. These results suggest that PI3-K activity is necessary but that PI3-K activity by itself is not sufficient for inducing &#x3B2;<sub>1</sub> integrin activation. We next examined whether the down-regulation of PI3-K activity downstream of Sema4D/Plexin-B1 is necessary for inhibition of &#x3B2;<sub>1</sub> integrin activity. As shown in <xref rid="fig10" ref-type="fig">Fig. 10 B</xref>, overexpression of p110&#x3B1;-CAAX blocked Sema4D/Plexin-B1&#x2013;dependent inactivation of &#x3B2;<sub>1</sub> integrins. We also examined the ability of Sema4D to inhibit cell migration in cells expressing p110&#x3B1;-CAAX. As shown in <xref rid="fig10" ref-type="fig">Fig. 10 (C and D)</xref>, overexpression of p110&#x3B1;-CAAX in PC12 cells almost completely blocked the Sema4D-mediated inhibition of cell migration. These results suggest that down-regulation of PI3-K activity, downstream of Sema4D/Plexin-B1, is responsible for suppression of &#x3B2;<sub>1</sub> integrin activity and inhibition of the ECM-mediated cell migration.</p>
+        <fig id="fig10" position="float">
+          <label>Figure 10.</label>
+          <caption>
+            <p>
+<bold>Down-regulation of PI3-K activity is responsible for Sema4D/Plexin-B1&#x2013;induced suppression of &#x3B2;<sub>1</sub> integrin activity.</bold> (A, left) Lysates of COS-7 cells expressing p110&#x3B1;-CAAX, a constitutively active form of PI3-K, or its kinase-dead (KD) form were immunoprecipitated with HUTS-4. (right) Relative &#x3B2;<sub>1</sub> integrin activity was analyzed. (B) Activity of &#x3B2;<sub>1</sub> integrins in COS-7 cells expressing the indicated expression plasmids with or without Sema4D stimulation were examined. (C and D) PC12 cells transfected with GFP alone (open symbols) or GFP plus p110&#x3B1;-CAAX (closed symbols) were tested in the transwell assay in either the presence or absence of Sema4D. Results are the means &#xB1; SEM of three independent experiments. Bar, 1 mm.</p>
+          </caption>
+          <graphic xlink:href="jcb1730601f10"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>Cell migration is a fundamental cellular process in many cell types, and semaphorins are known to act as a negative regulator for integrin-mediated cell migration. We show that the Sema4D receptor, Plexin-B1, down-regulates R-Ras activity and inhibits ECM-mediated integrin activation and cell migration through its R-Ras GAP activity.</p>
+      <p>R-Ras is implicated in integrin regulation, and a constitutively active form of R-Ras has been shown to increase the affinity of integrins for fibronectin (<xref rid="bib48" ref-type="bibr">Zhang et al., 1996</xref>) and to stimulate cell migration (<xref rid="bib15" ref-type="bibr">Keely et al., 1999</xref>). We have examined a role of R-Ras in ECM-mediated integrin activation and cell migration and showed that R-Ras is markedly activated by the ECM and that this activation is required for activation of &#x3B2;<sub>1</sub> integrins and subsequent cell migration, as inactivation of R-Ras activity by expression of the GAP domain of p98&#x2013;R-RasGAP or knockdown of R-Ras by R-Ras&#x2013;specific siRNA markedly reduces ECM-mediated integrin activation and cell migration. Our results also revealed that &#x3B2;<sub>1</sub> integrins are required for R-Ras activation upon ECM-mediated adhesion. This suggests a positive feedback during cell-substrate adhesion, implicating R-Ras activation and the consequent further strengthening of integrin-mediated functions. Therefore, R-Ras is a central regulator for ECM-mediated integrin activation and cell migration, and the regulation of R-Ras activity is critical for integrin-mediated cell migration.</p>
+      <p>Semaphorins are implicated in migration of a variety of cells. Stimulation of Plexin-B1 by Sema4D is reported to hamper integrin-based adhesion and cell migration in NIH-3T3 cells (<xref rid="bib1" ref-type="bibr">Barberis et al., 2004</xref>). We have reported that Plexin-B1 encodes an R-Ras GAP in the cytoplasmic tail and that stimulation of the Plexin-B1&#x2013;Rnd1 complex by Sema4D induces the R-Ras GAP activity and resultant repulsive response of neuronal growth cone (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>). We demonstrate here that Plexin-B1/Rnd1&#x2013;mediated R-Ras GAP activity is also involved in Sema4D-induced inhibition of integrin activation and cell migration. Furthermore, the COOH-terminal PDZ domain binding motif of Plexin-B1 is dispensable for suppression of integrin activity and cell migration by Sema4D. In addition to Sema4D, class 3 semaphorins have been shown to control adhesion and migration of endothelial cells by inhibiting integrin function (<xref rid="bib35" ref-type="bibr">Serini et al., 2003</xref>), and Sema3A signaling&#x2013;deficient mice have shown defective migration of neural crest cells (<xref rid="bib14" ref-type="bibr">Kawasaki et al., 2002</xref>). Furthermore, Plexin-C1, a receptor of semaphorin A39R, was recently reported to inhibit integrin-mediated adhesion and chemokine-induced migration (<xref rid="bib45" ref-type="bibr">Walzer et al., 2005</xref>). The R-Ras GAP&#x2013;homologous domains are well conserved among plexin families, including Plexin-A and -C1. In addition, we recently reported that the down-regulation of R-Ras activity is also required for the Sema3A/Plexin-A&#x2013;induced repulsive response in hippocampal neurons (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>). We speculate that the direct regulation of R-Ras activity by plexins is likely to be a mutual signaling pathway among plexin families and that this R-Ras GAP activity of plexin families may be a critical signaling system for semaphorin-regulated cell migration.</p>
+      <p>Semaphorins were initially identified as repulsive factors for axon guidance, and many neurons use members of the integrin family of cell surface receptors for responses to neurite growth promoting factors, and integrin activation regulates neurite outgrowth (<xref rid="bib10" ref-type="bibr">Hynes, 2002</xref>). Recently, expression of constitutively active R-Ras was shown to promote integrin-dependent neurite outgrowth of retinal neurons, suggesting that R-Ras activity plays an important role in integrin-dependent neurite outgrowth (<xref rid="bib11" ref-type="bibr">Ivins et al., 2000</xref>). Therefore, it is proposed that the down-regulation of R-Ras activity by Plexin-B1 via R-Ras GAP activity suppresses R-Ras&#x2013;mediated integrin activation and thereby induces growth cone collapse and inhibition of neurite outgrowth. With respect to signaling of other repulsive factors, the ephrin-B1 receptor EphB2, another family of the repulsive factor receptor, was also reported to suppress integrin-mediated functions by inactivating R-Ras (<xref rid="bib49" ref-type="bibr">Zou et al., 1999</xref>), suggesting that repulsive guidance cues inhibit integrin-mediated functions by inactivating R-Ras in general and that R-Ras acts as a common regulator of integrin activation and cell migration (<xref rid="bib34" ref-type="bibr">Serini and Bussolino, 2004</xref>).</p>
+      <p>We also examined the downstream signaling of Sema4D/Plexin-B1&#x2013;mediated R-Ras GAP activity leading to inactivation of &#x3B2;<sub>1</sub> integrins and found that down-regulation of PI3-K activity is responsible for Sema4D/Plexin-B1&#x2013;induced suppression of &#x3B2;<sub>1</sub> integrin activity and cell migration. PI3-K activity is known to be required for R-Ras&#x2013;mediated enhancement of cell migration (<xref rid="bib15" ref-type="bibr">Keely et al., 1999</xref>; <xref rid="bib33" ref-type="bibr">Rinc&#xF3;n-Arano et al., 2003</xref>). PI3-K has emerged as the predominant effector for R-Ras, and R-Ras is a more potent activator of PI3-K than other Ras family members (<xref rid="bib21" ref-type="bibr">Marte et al., 1997</xref>; <xref rid="bib39" ref-type="bibr">Suire et al., 2002</xref>). On the other hand, PI3-K activity has been shown to promote interaction between talin with the &#x3B2;<sub>1</sub> integrin cytoplasmic tail, leading to the clustering and activation of integrins (<xref rid="bib4" ref-type="bibr">Calderwood et al., 1999</xref>; <xref rid="bib22" ref-type="bibr">Martel et al., 2001</xref>; <xref rid="bib5" ref-type="bibr">Calderwood et al., 2002</xref>). Integrin activation by mechanical stretch is also mediated by PI3-K and is followed by an increase in integrin binding to the extracellular matrix proteins (<xref rid="bib13" ref-type="bibr">Katsumi et al., 2005</xref>). Therefore, elevated PI3-K activity by activated R-Ras may trigger a sequence of events leading to clustering and activation of integrins, although overexpression of p110&#x3B1;-CAAX by itself is not sufficient for inducing &#x3B2;<sub>1</sub> integrin activation (<xref rid="fig10" ref-type="fig">Fig. 10 A</xref>; <xref rid="bib26" ref-type="bibr">Oertli et al., 2000</xref>). We used the monoclonal antibody HUTS-4, which detects hybrid domain swing-out in &#x3B2;<sub>1</sub> integrins, a process most commonly associated with ligand binding affinity (<xref rid="bib23" ref-type="bibr">Mould et al., 2003</xref>), to measure activity of &#x3B2;<sub>1</sub> integrins and revealed that Sema4D/Plexin-B1&#x2013;mediated R-Ras GAP activity suppresses affinity of &#x3B2;<sub>1</sub> integrins through inactivation of PI3-K activity. Consistent with our results, a previous report demonstrated that an R-Ras&#x2013;mediated increase in affinity of the &#x3B2;<sub>1</sub> integrins is dependent on PI3-K activity by performing the ligand binding assay in mast cells (<xref rid="bib16" ref-type="bibr">Kinashi et al., 2000</xref>). On the other hand, <xref rid="bib26" ref-type="bibr">Oertli et al. (2000)</xref> have shown that PI3-K activity is not required for R-Ras&#x2013;mediated integrin activation in CHO cells by using a ligand-mimetic antibody, PAC-1. Therefore, we speculate that this discrepancy may be due to the differences in ways to measure integrin activity or that R-Ras may regulate integrin activity via both PI3-K&#x2013;dependent and &#x2013;independent pathways, depending on the cell type.</p>
+      <p>In conclusion, our results demonstrate that R-Ras activity is required for ECM-mediated integrin activation and cell migration and that the Sema4D/Plexin-B1&#x2013;Rnd1 complex regulates integrin activation and cell migration through the R-Ras GAP activity. However, a variety of molecules such as ErbB-2 and Met have been known to be involved in plexin signaling, inducing diverse physiological functions (<xref rid="bib7" ref-type="bibr">Giordano et al., 2002</xref>, <xref rid="bib41" ref-type="bibr">Swiercz et al., 2004</xref>). It was recently shown that Plexin-B1 enhances chemotaxis of endothelial cells through the activation of multiple intracellular tyrosine kinase cascades independent of the R-Ras GAP activity (<xref rid="bib2" ref-type="bibr">Basile et al., 2005</xref>). Regulation of R-Ras activity, tyrosine kinases, and other signaling mechanisms may participate in diverse actions of plexins. Further work will be required to delineate the precise mechanism of R-Ras&#x2013;mediated integrin activation and its regulation by plexins for cell migration during physiological and pathological processes, including neural cell migration, angiogenesis, and tumor metastasis.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec>
+        <title>DNA constructs and site-directed mutagenesis</title>
+        <p>Plexin-B1 cDNA was provided by L. Tamagnone (Torino University, Torino, Italy). HA-tagged Rnd1; HA- and GFP-tagged human R-Ras and R-Ras&#x2013;QL (Q87L); the GST-fused Ras binding domain of c-Raf-1 (amino acids 53&#x2013;130); the NH<sub>2</sub>-terminal HA-tagged myristoylated form of R-RasGAP; and Myc-tagged Plexin-B1, Plexin-B1&#x2013;GGA (L1849G, V1850G, and P1851A), Plexin-B1&#x2013;RA (R1677A, R1678A, and R1984A), Plexin-B1&#x2013;&#x394;C (lacking the last seven COOH-terminal amino acids), and Plexin-B1&#x2013; N-Cyt&#x2013;GGA (amino acids 1511&#x2013;1915) were described previously (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>,<xref rid="bib30" ref-type="bibr">b</xref>). The effector loop mutant of R-Ras, R-Ras&#x2013;DA (D64A), was generated by a PCR-mediated mutagenesis. NH<sub>2</sub>-terminal FLAG-tagged p110&#x3B1; was a gift from T. Katada (Tokyo University, Tokyo, Japan), and CAAX sequence was fused to the COOH terminus to create a constitutively active form as described previously (<xref rid="bib12" ref-type="bibr">Katoh et al., 2002</xref>). The specific siRNA for R-Ras was designed to target 19 nucleotides at nucleotides 359 and 377 (5&#x2032;-gcaagctcttcactcagat-3&#x2032;), whereas the control siRNA was designed at nucleotides 426 and 444 (5&#x2032;-caaggcagatctggagaca-3&#x2032;), and both were expressed by using a siRNA expression vector (Ambion) as described previously (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>).</p>
+      </sec>
+      <sec>
+        <title>Antibodies and reagents</title>
+        <p>The pharmacological PI3-K inhibitor LY294002 was purchased from Calbiochem. A soluble form of Sema4D fused to human IgG<sub>1</sub>-Fc was a gift from H. Kikutani (Osaka University, Osaka, Japan). We used the following antibodies: mouse monoclonal antibodies against Myc and phosphotyrosine; a rabbit polyclonal antibody against p125-FAK (Upstate Biotechnology); mouse monoclonal antibodies against &#x3B1;-tubulin (Sigma-Aldrich), &#x3B2;<sub>1</sub> integrins (BD Biosciences), and active &#x3B2;<sub>1</sub> integrins, HUTS-4 (Chemicon); a rabbit polyclonal antibody against R-Ras (Santa Cruz Biotechnology, Inc.); a rat monoclonal antibody against HA (Roche); and HRP-conjugated secondary antibodies (DakoCytomation). For functional studies in the transwell assay, we used the following antibodies: the affinity-related &#x3B2;<sub>1</sub> integrin&#x2013;activating monoclonal antibody 8A2 (IgG2a); the functional blocking monoclonal antibody against the integrin &#x3B1;<sub>1</sub> subunit, 3A3 (IgG1; Serotec); the functional blocking monoclonal antibody against the integrin &#x3B2;<sub>1</sub> subunit, P5D2 (IgG1; Chemicon); and a mouse monoclonal antibody against the extracellular ligand binding region (raised against amino acids 771&#x2013;1070 of human origin) of Plexin-B1 (IgG2b; Santa Cruz Biotechnology, Inc.). FITC- and PE-conjugated F(ab&#x2032;)<sub>2</sub>&#x2013;specific secondary antibodies for flow cytometry were purchased from Jackson ImmunoResearch Laboratories. The PhosphoPlus Akt Antibody kit (Cell Signaling) was used for the analysis of the phosphorylation state of Akt.</p>
+      </sec>
+      <sec>
+        <title>Immunoblotting</title>
+        <p>Proteins were separated by 12.5% SDS-PAGE and were electrophoretically transferred onto a polyvinylidene difluoride membrane (Millipore). The membrane was blocked with 3% low-fat milk in TBS and incubated with primary antibodies. The primary antibodies were detected with HRP-conjugated secondary antibodies and a chemiluminescence detection kit (Chemi-Lumi One; Nacalai Tesque). Images were captured using a LAS 1000 analyzer (Fuji) equipped with Image Gauge 4.0 software (Fuji).</p>
+      </sec>
+      <sec>
+        <title>Immunofluorescence microscopy</title>
+        <p>Cells on coverslips were fixed with 4% PFA in PBS for 15 min and washed with PBS five times. Cells were permeabilized with 0.2% Triton X-100 in PBS for 10 min and incubated with 10% FBS in PBS for 30 min to block nonspecific antibody binding. Cells were incubated with an anti&#x2013;R-Ras antibody (1:200 dilution) for 1 h and then incubated with an Alexa Fluor 594&#x2013;conjugated secondary antibody for 1 h. Cells were washed in PBS for 1 h and mounted in 90% glycerol containing 0.1% p-phenylenediamine dihydrochloride in PBS. Images were captured at RT using a microscope (Eclipse E800; Nikon) and a 40 &#xD7; 0.75 objective (Nikon) equipped with a digital camera (DC350F; Leica). The images were arranged and labeled using Photoshop software (Adobe).</p>
+      </sec>
+      <sec>
+        <title>Cell culture and transfection</title>
+        <p>COS-7 cells were cultured in DME containing 10% FBS, 4 mM glutamine, 100 U/ml penicillin, and 0.2 mg/ml streptomycin under humidified conditions in 95% air and 5% CO<sub>2</sub> at 37&#xB0;C. PC12 cells were maintained in RPMI 1640 with 10% horse serum (HS) and 5% FBS. Transient transfections were performed with Lipofectamine 2000 (Invitrogen) according to the manufacturer's instructions. A soluble form of Sema4D was expressed as a fusion protein with the Fc fragment of human IgG<sub>1</sub>. Stimulation with Sema4D was performed by incubation of the cells with Sema4D-Fc&#x2013;containing medium at 37&#xB0;C.</p>
+      </sec>
+      <sec>
+        <title>Cell migration assay</title>
+        <p>10<sup>4</sup> cells were detached with 1.5 mM EDTA in PBS, washed three times with serum-free medium, resuspended in DME containing 1% BSA, seeded on the upper side of 8-&#x3BC;m pore filters of Transwell chambers (Costar), which were coated on the lower side with varying concentrations of either fibronectin or collagen I (Sigma-Aldrich), and incubated for 7 h. Cells on the upper side of the filters were mechanically removed, and cells on the lower side were fixed with 4% PFA. The numbers of migrated cells through the filter were counted by the fluorescence of GFP or the staining with crystal violet (<italic>A</italic>). At the same time, the cells were seeded onto 24-well plastic culture plates to count the total number of transfected cells (<italic>B</italic>). Relative cell migration was then determined by the number of migrated cells normalized to the total number of transfected cells (<italic>A/B</italic>). Unless described, the value from the GFP-transfected cells in the absence of coating was defined as 1. For functional studies using activating or inhibitory monoclonal antibodies, cells were pretreated with 5 &#x3BC;g/ml of antibodies or corresponding negative IgG controls for 5 min before seeding onto the transwells. Images were captured at RT in PBS using a microscope (Eclipse TE300-FN; Nikon) and a Plan Fluor 10 &#xD7; 0.30 objective (Nikon) equipped with digital camera (DS-L1 and DS-5M; Nikon). The images were arranged and labeled using Photoshop 7.0 software.</p>
+      </sec>
+      <sec>
+        <title>Measurement of the activity of &#x3B2;<sub>1</sub> integrins by immunoprecipitation</title>
+        <p>Measurement of &#x3B2;<sub>1</sub> integrin activity by immunoprecipitation was performed as described previously (<xref rid="bib35" ref-type="bibr">Serini et al., 2003</xref>). 3 &#xD7; 10<sup>6</sup> COS-7 cells were maintained in DME containing 1% FBS after transfection. 16 h after transfection, cells were detached with 1.5 mM EDTA in PBS, washed three times with serum-free medium, and resuspended in 10 ml of 1% BSA in DME with or without Sema4D-Fc. The cell suspension was plated onto 10-cm plates coated with or without 10 &#x3BC;g/ml fibronectin and incubated at 37&#xB0;C for 15 min. The cells were lysed directly on dishes with ice-cold cell lysis buffer (50 mM Tris-HCl, pH 7.5, 150 mM NaCl, 1% Triton X-100, 10% glycerol, 1 mM sodium vanadate, 25 mM NaF, 10 &#x3BC;g/ml pepstatin, 1 mM PMSF, 10 &#x3BC;g/ml aprotinin, and 10 &#x3BC;g/ml leupeptin) containing 5 &#x3BC;g/ml HUTS-4, immunoprecipitated for 2 h, and subsequently incubated with protein G&#x2013;Sepharose beads (GE Healthcare) for 1 h at 4&#xB0;C. After the beads were washed twice with the ice-cold cell lysis buffer, the bound proteins were eluted in Laemmli sample buffer and analyzed by SDS-PAGE and immunoblotting with the monoclonal antibody against &#x3B2;<sub>1</sub> integrins. To measure the activity of &#x3B2;<sub>1</sub> integrins in PC12 cells, 10<sup>6</sup> cells were maintained in RPMI 1640 containing 1% HS for 12 h, detached with 1.5 mM EDTA in PBS, washed three times with serum-free medium, and resuspended in 10 ml of 1% BSA in RPMI 1640 with or without Sema4D-Fc. The cell suspension was plated onto 10-cm plates coated with or without 10 &#x3BC;g/ml collagen I and incubated at 37&#xB0;C for 3 h. The cells were lysed directly on dishes with ice-cold cell lysis buffer.</p>
+      </sec>
+      <sec>
+        <title>Measurement of the activity of &#x3B2;<sub>1</sub> integrins by ELISAs</title>
+        <p>Measurement of the activity of &#x3B2;<sub>1</sub> integrins by ELISAs under detergent-free condition was performed as described previously (<xref rid="bib37" ref-type="bibr">Shih et al., 1999</xref>). 10<sup>5</sup> cells transfected in 24-well plastic culture plates were detached with 1.5 mM EDTA in PBS, washed three times with serum-free medium, and resuspended in 1 ml DME containing 1% BSA, with or without Sema4D-Fc. One tenth of the resuspended cells (100 &#x3BC;l) were seeded onto the 96-well assay plates, which were coated with 10 &#x3BC;g/ml of either fibronectin or collagen I. Cell adhesion was allowed for 15 min at 37&#xB0;C. Then, the cells were delicately washed once with PBS and the adherent cells were fixed with 4% PFA. After the fixative, the cells were thoroughly rinsed with PBS containing 0.1% BSA. To avoid nonspecific binding, the cells were incubated with PBS containing 5% BSA for 3 h at RT. Cells were then incubated overnight at 4&#xB0;C with 2 &#x3BC;g/ml HUTS-4. After the incubation with primary antibody, the wells were rinsed and blocked with PBS containing 5% BSA for 3 h at RT before they were exposed to an HRP- conjugated secondary antibody. After the incubation, cells were rinsed again with PBS followed by distilled H<sub>2</sub>O. The peroxidase color reaction was developed in the dark using <italic>O</italic>-phenylenediamine according to the manufacturer's instructions (ELISA OPD kit; Nacalai Tesque), and the plate was read on a kinetic microtiter plate reader (GENios; Tecan) using the XFluor4 program (Tecan). The antibody concentration and incubation times were optimized to ensure testing in the linear range. Expression levels of the constructs used in the assay were also verified by immunoblot analysis.</p>
+      </sec>
+      <sec>
+        <title>Flow cytometry analysis</title>
+        <p>Analysis of cell surface expression of active &#x3B2;<sub>1</sub> integrins by flow cytometry was performed as described previously (<xref rid="bib46" ref-type="bibr">Wang et al., 2002</xref>). 10<sup>6</sup> PC12 cells were seeded onto 6-cm noncoated plates in RPMI 1640 containing 10% HS and 5% FBS. 18 h after seeding, cells were treated with medium containing Sema4D-Fc or Sema4D-Fc plus 1 mM Mn<sup>2+</sup> for 3 h at 37&#xB0;C. Cells were washed once with PBS and resuspended in blocking solution containing 5% dissociation buffer (Invitrogen) and 2% sheep serum in PBS. Cells were then incubated with 2.5 &#x3BC;g HUTS-4 or buffer alone for 1 h at 4&#xB0;C, washed with the blocking solution, and labeled with FITC-conjugated secondary antibody for 30 min at 4&#xB0;C. Cells were then washed and analyzed with an EPICS ELITE flow cytometer using the EXPO32 analysis program (Beckman Coulter). For the analysis of active &#x3B2;<sub>1</sub> integrins in transiently transfected COS-7 cells, 10<sup>6</sup> cells were transfected with a GFP expression vector together with various other expression vectors. Cells were kept for 18 h in DME containing 10% FBS after transfection, stimulated for 5 min at 37&#xB0;C with or without Sema4D-Fc, and were collected and incubated with HUTS-4 antibody or buffer alone as described previously in this section. Cells were labeled with a PE-conjugated secondary antibody, and expression of GFP and activity of &#x3B2;<sub>1</sub> integrins (PE staining) were simultaneously analyzed by two-color flow cytometry. Analysis of the intensity of PE staining in a GFP-positive population was performed as described previously (<xref rid="bib27" ref-type="bibr">Ohgushi et al., 2005</xref>). Approximately 10,000 cells were analyzed in each experiment, and the results shown are representative of two independent experiments.</p>
+      </sec>
+      <sec>
+        <title>Measurement of R-Ras activity</title>
+        <p>Measurement of R-Ras activity in cells was performed as described previously (<xref rid="bib29" ref-type="bibr">Oinuma et al., 2004a</xref>). 7 &#xD7; 10<sup>5</sup> COS-7 cells were maintained in DME containing 1% FBS after transfection. The cell suspension was prepared as described (see Measurement of the activity of &#x3B2;<sub>1</sub> integrins by immunoprecipitation) and plated onto plastic dishes coated with or without 10 &#x3BC;g/ml fibronectin and incubated at 37&#xB0;C for 15 min. The cells were lysed directly on dishes with ice-cold cell lysis buffer (25 mM Hepes-NaOH, pH 7.5, 150 mM NaCl, 1% NP-40, 0.25% sodium deoxycholate, 0.1% SDS, 10% glycerol, 10 mM MgCl<sub>2</sub>, 1 mM EDTA, 1 mM DTT, 10 &#x3BC;g/ml aprotinin, and 10 &#x3BC;g/ml leupeptin) containing 75 &#x3BC;g of GST-fused Ras binding domain of c-Raf-1 (GST-RBD). To examine the effect of collagen I and Sema4D stimulation on R-Ras activity in PC12 cells, 10<sup>6</sup> cells were maintained in RPMI 1640 containing 1% HS for 12 h, detached with 1.5 mM EDTA in PBS, washed three times with serum-free medium, and resuspended in 10 ml of 1% BSA in RPMI 1640 with or without Sema4D-Fc. For samples indicated, cells were treated with 5 &#x3BC;g/ml of monoclonal &#x3B2;<sub>1</sub> integrin blocking (P5D2) or activating (8A2) antibody before replating. Cells were either kept in suspension or plated onto 6-cm plates coated with (1 or 10 &#x3BC;g/ml) or without collagen I and incubated at 37&#xB0;C for 15 min. The cells were lysed directly on dishes with ice-cold cell lysis buffer, and the lysates were used in a pull-down assay using GST-RBD.</p>
+      </sec>
+      <sec>
+        <title>Detection of FAK tyrosine phosphorylation</title>
+        <p>Detection of tyrosine phosphorylation of FAK was performed as described elsewhere (<xref rid="bib38" ref-type="bibr">Sieg et al., 2000</xref>). The cells were lysed directly on dishes with ice-cold cell lysis buffer (50 mM Tris-HCl, pH 7.5, 150 mM NaCl, 1% Triton X-100, 0.25% sodium deoxycholate, 10% glycerol, 1 mM sodium vanadate, 25 mM NaF, 10 &#x3BC;g/ml pepstatin, 1 mM PMSF, 10 &#x3BC;g/ml aprotinin, and 10 &#x3BC;g/ml leupeptin) containing 4 &#x3BC;g/ml of the polyclonal antibody against FAK, immunoprecipitated for 2 h, and subsequently incubated with protein A&#x2013;Sepharose beads (GE Healthcare) for 1 h at 4&#xB0;C.</p>
+      </sec>
+      <sec>
+        <title>Detection of Akt serine phosphorylation</title>
+        <p>COS-7 cells were maintained in DME with 0.5% FBS after transfection for 36 h. We added 20 &#x3BC;M LY294002 directly to the culture medium after transfection and changed it at every 12 h to reduce the basal levels of PI3-K activity. Cells were directly lysed on dishes with 1&#xD7; Laemmli sample buffer and analyzed by SDS-PAGE and immunoblotting.</p>
+      </sec>
+      <sec>
+        <title>Online supplemental material</title>
+        <p>Fig. S1 shows reduction in endogenous R-Ras protein by RNA interference in PC12 cells and requirement of endogenous R-Ras protein in collagen-mediated PC12 cell migration. Online supplemental material is available at <ext-link ext-link-type="uri" xlink:href="http://www.jcb.org/cgi/content/full/jcb.200508204/DC1">http://www.jcb.org/cgi/content/full/jcb.200508204/DC1</ext-link>.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="PMC_1">
+        <caption>
+          <title>[Supplemental Material Index]</title>
+        </caption>
+        <media mimetype="text" mime-subtype="html" xlink:href="jcellbiol_jcb.200508204_index.html" xlink:type="simple" id="d35e1229" position="anchor"/>
+        <media xlink:role="associated-file" mimetype="text" mime-subtype="html" xlink:href="jcellbiol_jcb.200508204_1.html" xlink:type="simple" id="d35e1230" position="anchor"/>
+        <media xlink:role="associated-file" mimetype="image" mime-subtype="jpeg" xlink:href="jcellbiol_jcb.200508204_JCB200508204_FS1.jpg" xlink:type="simple" id="d35e1231" position="anchor"/>
+        <media xlink:role="associated-file" mimetype="image" mime-subtype="jpeg" xlink:href="jcellbiol_jcb.200508204_JCB200508204_FS1-01.jpg" xlink:type="simple" id="d35e1232" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank L. Tamagnone for Plexin-B1 cDNA, H. Kikutani for the soluble forms of Sema4D expression plasmids, and T. Katada for wild-type and kinase-dead forms of p110&#x3B1; expression plasmids. We also thank M. Ohgushi and K. Sakamaki (Laboratory of Molecular and Cellular Biology, Graduate School of Biostudies, Kyoto University) for experimental help with flow cytometry analysis.</p>
+      <p>This work was in part supported by Grants-in-aid for Scientific Research from the Ministry of Education, Science, Sports, and Culture of Japan (17079003, 16390021, 18060018, 18022018, and 18013028).</p>
+      <p>The authors declare that there are no conflicts of interest regarding this article.</p>
+    </ack>
+    <ref-list>
+      <ref id="bib1">
+        <mixed-citation publication-type="journal">Barberis, D., S. Artigiani, A. Casazza, S. Corso, C. Giordano, C.A. Love, E.Y. Jones, P.M. Comoglio, and L. Tamagnone. <year>2004</year>. Plexin signaling hampers integrin-based adhesion, leading to Rho-kinase independent cell rounding, and inhibiting lamellipodia extention and cell motility. <source>FASEB J.</source>
+<volume>18</volume>:<fpage>592</fpage>&#x2013;594.
+<pub-id pub-id-type="pmid">14734633</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib2">
+        <mixed-citation publication-type="journal">Basile, J.R., T. Afkhami, and J.S. Gutkind. <year>2005</year>. Semaphorin 4D/Plexin-B1 induces endothelial cell migration through the activation of PYK2, Src, and the phosphatidylinositol 3-kinase-Akt pathway. <source>Mol. Cell. Biol.</source>
+<volume>25</volume>:<fpage>6889</fpage>&#x2013;6898.
+<pub-id pub-id-type="pmid">16055703</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib3">
+        <mixed-citation publication-type="journal">Berrier, A.L., A.M. Mastrangelo, J. Downward, M. Ginsberg, and S.E. LaFlamme. <year>2000</year>. Activated R-Ras, Rac1, PI 3-kinase and PKC&#x25B; can each restore cell spreading inhibited by isolated integrin &#x3B2;<sub>1</sub> cytoplasmic domains. <source>J. Cell Biol.</source>
+<volume>151</volume>:<fpage>1549</fpage>&#x2013;1560.
+<pub-id pub-id-type="pmid">11134082</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib4">
+        <mixed-citation publication-type="journal">Calderwood, D.A., R. Zent, R. Grant, D.J. Rees, R.O. Hynes, and M.H. Ginsberg. <year>1999</year>. The talin head domain binds to integrin &#x3B2; subunit cytoplasmic tails and regulates integrin activation. <source>J. Biol. Chem.</source>
+<volume>274</volume>:<fpage>28071</fpage>&#x2013;28074.
+<pub-id pub-id-type="pmid">10497155</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib5">
+        <mixed-citation publication-type="journal">Calderwood, D.A., B. Yan, J.M. de Pereda, B.G. Alvarez, Y. Fujioka, R.C. Liddington, and M.H. Ginsberg. <year>2002</year>. The phosphotyrosine binding-like domain of talin activates integrins. <source>J. Biol. Chem.</source>
+<volume>277</volume>:<fpage>21749</fpage>&#x2013;21758.
+<pub-id pub-id-type="pmid">11932255</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib6">
+        <mixed-citation publication-type="journal">de Rooij, J., and J.L. Bos. <year>1997</year>. Minimal Ras-binding domain of Raf-1 can be used as an activation-specific probe for Ras. <source>Oncogene.</source>
+<volume>14</volume>:<fpage>623</fpage>&#x2013;625.
+<pub-id pub-id-type="pmid">9053862</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib7">
+        <mixed-citation publication-type="journal">Giordano, S., S. Corso, P. Conrotto, S. Artigiani, G. Gilestro, D. Barberis, L. Tamagnone, and P.M. Comoglio. <year>2002</year>. The semaphorin 4D receptor controls invasive growth by coupling with Met. <source>Nat. Cell Biol.</source>
+<volume>4</volume>:<fpage>720</fpage>&#x2013;724.
+<pub-id pub-id-type="pmid">12198496</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib8">
+        <mixed-citation publication-type="journal">Hildebrand, J.D., M.D. Schaller, and J.T. Parsons. <year>1993</year>. Identification of sequences required for the efficient localization of the focal adhesion kinase, pp125FAK, to cellular focal adhesions. <source>J. Cell Biol.</source>
+<volume>123</volume>:<fpage>993</fpage>&#x2013;1005.
+<pub-id pub-id-type="pmid">8227154</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib9">
+        <mixed-citation publication-type="journal">Hood, J.D., and D.A. Cheresh. <year>2002</year>. Role of integrins in cell invasion and migration. <source>Nat. Rev. Cancer.</source>
+<volume>2</volume>:<fpage>91</fpage>&#x2013;100.
+<pub-id pub-id-type="pmid">12635172</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib10">
+        <mixed-citation publication-type="journal">Hynes, R.O. <year>2002</year>. Integrins: bidirectional, allosteric signaling machines. <source>Cell.</source>
+<volume>110</volume>:<fpage>673</fpage>&#x2013;687.
+<pub-id pub-id-type="pmid">12297042</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib11">
+        <mixed-citation publication-type="journal">Ivins, J.K., P.D. Yurchenco, and A.D. Lander. <year>2000</year>. Regulation of neurite outgrowth by integrin activation. <source>J. Neurosci.</source>
+<volume>20</volume>:<fpage>6551</fpage>&#x2013;6560.
+<pub-id pub-id-type="pmid">10964960</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib12">
+        <mixed-citation publication-type="journal">Katoh, H., A. Harada, K. Mori, and M. Negishi. <year>2002</year>. Socius is a novel Rnd GTPase-interacting protein involved in disassembly of actin stress fibers. <source>Mol. Cell. Biol.</source>
+<volume>22</volume>:<fpage>2952</fpage>&#x2013;2964.
+<pub-id pub-id-type="pmid">11940653</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib13">
+        <mixed-citation publication-type="journal">Katsumi, A., T. Naoe, T. Matsushita, K. Kaibuchi, and M.A. Schwartz. <year>2005</year>. Integrin activation and matrix binding mediate cellular responses to mechanical stretch. <source>J. Biol. Chem.</source>
+<volume>280</volume>:<fpage>16546</fpage>&#x2013;16549.
+<pub-id pub-id-type="pmid">15760908</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib14">
+        <mixed-citation publication-type="journal">Kawasaki, T., Y. Bekku, F. Suto, T. Kitsukawa, M. Taniguchi, I. Nagatsu, T. Nagatsu, K. Itoh, T. Yagi, and H. Fujisawa. <year>2002</year>. Requirement of neuropilin 1-mediated Sema3A signals in patterning of the sympathetic nervous system. <source>Development.</source>
+<volume>129</volume>:<fpage>671</fpage>&#x2013;680.
+<pub-id pub-id-type="pmid">11830568</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib15">
+        <mixed-citation publication-type="journal">Keely, P.J., E.V. Rusyn, A.D. Cox, and L.V. Parise. <year>1999</year>. R-Ras signals through specific integrin &#x3B1; cytoplasmic domains to promote migration and invasion of breast epithelial cells. <source>J. Cell Biol.</source>
+<volume>145</volume>:<fpage>1077</fpage>&#x2013;1088.
+<pub-id pub-id-type="pmid">10352023</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib16">
+        <mixed-citation publication-type="journal">Kinashi, T., K. Katagiri, S. Watanabe, B. Vanhaesebroeck, J. Downward, and K. Takatsu. <year>2000</year>. Distinct mechanisms of &#x3B1;5&#x3B2;1 integrin activation by Ha-Ras and R-Ras. <source>J. Biol. Chem.</source>
+<volume>275</volume>:<fpage>22590</fpage>&#x2013;22596.
+<pub-id pub-id-type="pmid">10801791</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib17">
+        <mixed-citation publication-type="journal">Kinbara, K., L.E. Goldfinger, M. Hansen, F.L. Chou, and M.H. Ginsberg. <year>2003</year>. Ras GTPases: integrins' friends or foes? <source>Nat. Rev. Mol. Cell Biol.</source>
+<volume>4</volume>:<fpage>767</fpage>&#x2013;776.
+<pub-id pub-id-type="pmid">14570053</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib18">
+        <mixed-citation publication-type="journal">Kolodkin, A.L., D.J. Matthes, and C.S. Goodman. <year>1993</year>. The semaphorin genes encode a family of transmembrane and secreted growth cone guidance molecules. <source>Cell.</source>
+<volume>75</volume>:<fpage>1389</fpage>&#x2013;1399.
+<pub-id pub-id-type="pmid">8269517</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib19">
+        <mixed-citation publication-type="journal">Kuijpers, T.W., E.P. Mul, M. Blom, N.L. Kovach, F.C. Gaeta, V. Tollefson, M.J. Elices, and J.M. Harlan. <year>1993</year>. Freezing adhesion molecules in a state of high-avidity binding blocks eosinophil migration. <source>J. Exp. Med.</source>
+<volume>178</volume>:<fpage>279</fpage>&#x2013;284.
+<pub-id pub-id-type="pmid">7686213</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib20">
+        <mixed-citation publication-type="journal">Luque, A., M. G&#xF3;mez, W. Puzon, Y. Takada, F. S&#xE1;nchez-Madrid, and C. Cabanas. <year>1996</year>. Activated conformations of very late activation integrins detected by a group of antibodies (HUTS) specific for a novel regulatory region (355-425) of the common &#x3B2;1 chain. <source>J. Biol. Chem.</source>
+<volume>271</volume>:<fpage>11067</fpage>&#x2013;11075.
+<pub-id pub-id-type="pmid">8626649</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib21">
+        <mixed-citation publication-type="journal">Marte, B.M., P. Rodriguez-Viciana, S. Wennstrom, P.H. Warne, and J. Downward. <year>1997</year>. R-Ras can activate the phosphoinositide 3-kinase but not the MAP kinase arm of the Ras effector pathways. <source>Curr. Biol.</source>
+<volume>7</volume>:<fpage>63</fpage>&#x2013;70.
+<pub-id pub-id-type="pmid">8999998</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib22">
+        <mixed-citation publication-type="journal">Martel, V., C. Racaud-Sultan, S. Dupe, C. Marie, F. Paulhe, A. Galmiche, M.R. Block, and C. Albiges-Rizo. <year>2001</year>. Conformation, localization, and integrin binding of talin depend on its interaction with phosphoinositides. <source>J. Biol. Chem.</source>
+<volume>276</volume>:<fpage>21217</fpage>&#x2013;21227.
+<pub-id pub-id-type="pmid">11279249</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib23">
+        <mixed-citation publication-type="journal">Mould, A.P., S.J. Barton, J.A. Askari, P.A. McEwan, P.A. Buckley, S.E. Craig, and M.J. Humphries. <year>2003</year>. Conformational changes in the integrin &#x3B2;A domain provide a mechanism for signal transduction via hybrid domain movement. <source>J. Biol. Chem.</source>
+<volume>278</volume>:<fpage>17028</fpage>&#x2013;17035.
+<pub-id pub-id-type="pmid">12615914</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib24">
+        <mixed-citation publication-type="journal">Negishi, M., and H. Katoh. <year>2002</year>. Rho family GTPases as key regulators for neuronal network formation. <source>J. Biochem. (Tokyo).</source>
+<volume>132</volume>:<fpage>157</fpage>&#x2013;166.
+<pub-id pub-id-type="pmid">12153710</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib25">
+        <mixed-citation publication-type="journal">Nobes, C.D., I. Lauritzen, M.G. Mattei, S. Paris, A. Hall, and P. Chardin. <year>1998</year>. A new member of the Rho family, Rnd1, promotes disassembly of actin filament structures and loss of cell adhesion. <source>J. Cell Biol.</source>
+<volume>141</volume>:<fpage>187</fpage>&#x2013;197.
+<pub-id pub-id-type="pmid">9531558</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib26">
+        <mixed-citation publication-type="journal">Oertli, B., J. Han, B.M. Marte, T. Sethi, J. Downward, M. Ginsberg, and P.E. Hughes. <year>2000</year>. The effector loop and prenylation site of R-Ras are involved in the regulation of integrin function. <source>Oncogene.</source>
+<volume>19</volume>:<fpage>4961</fpage>&#x2013;4969.
+<pub-id pub-id-type="pmid">11042683</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib27">
+        <mixed-citation publication-type="journal">Ohgushi, M., S. Kuroki, H. Fukamachi, L.A. O'Reilly, K. Kuida, A. Strasser, and S. Yonehara. <year>2005</year>. Transforming growth factor &#x3B2;-dependent sequential activation of Smad, Bim, and Caspase-9 mediates physiological apoptosis in gastric epithelial cells. <source>Mol. Cell. Biol.</source>
+<volume>25</volume>:<fpage>10017</fpage>&#x2013;10028.
+<pub-id pub-id-type="pmid">16260615</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib28">
+        <mixed-citation publication-type="journal">Oinuma, I., H. Katoh, A. Harada, and M. Negishi. <year>2003</year>. Direct interaction of Rnd1 with Plexin-B1 regulates PDZ-RhoGEF-mediated Rho activation by Plexin-B1 and induces cell contraction in COS-7 cells. <source>J. Biol. Chem.</source>
+<volume>278</volume>:<fpage>25671</fpage>&#x2013;25677.
+<pub-id pub-id-type="pmid">12730235</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib29">
+        <mixed-citation publication-type="journal">Oinuma, I., Y. Ishikawa, H. Katoh, and M. Negishi. <year>2004</year>a. The semaphorin 4D receptor Plexin-B1 is a GTPase activating protein for R-Ras. <source>Science.</source>
+<volume>305</volume>:<fpage>862</fpage>&#x2013;865.
+<pub-id pub-id-type="pmid">15297673</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib30">
+        <mixed-citation publication-type="journal">Oinuma, I., H. Katoh, and M. Negishi. <year>2004</year>b. Molecular dissection of the semaphorin 4D receptor Plexin-B1-stimulated R-Ras GTPase-activating protein activity and neurite remodeling in hippocampal neurons. <source>J. Neurosci.</source>
+<volume>24</volume>:<fpage>11473</fpage>&#x2013;11480.
+<pub-id pub-id-type="pmid">15601954</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib31">
+        <mixed-citation publication-type="journal">Parsons, J.T., K.H. Martin, J.K. Slack, J.M. Taylor, and S.A. Weed. <year>2000</year>. Focal adhesion kinase: a regulator of focal adhesion dynamics and cell movement. <source>Oncogene.</source>
+<volume>19</volume>:<fpage>5606</fpage>&#x2013;5613.
+<pub-id pub-id-type="pmid">11114741</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib32">
+        <mixed-citation publication-type="journal">Perrot, V., J. Vazquez-Prado, and J.S. Gutkind. <year>2002</year>. Plexin B regulates Rho through the guanine nucleotide exchange factors leukemia-associated Rho GEF (LARG) and PDZ-RhoGEF. <source>J. Biol. Chem.</source>
+<volume>277</volume>:<fpage>43115</fpage>&#x2013;43120.
+<pub-id pub-id-type="pmid">12183458</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib33">
+        <mixed-citation publication-type="journal">Rinc&#xF3;n-Arano, H., R. Rosales, N. Mora, A. Rodriguez-Casta&#xF1;eda, and C. Rosales. <year>2003</year>. R-Ras promotes tumor growth of cervical epithelial cells. <source>Cancer.</source>
+<volume>97</volume>:<fpage>575</fpage>&#x2013;585.
+<pub-id pub-id-type="pmid">12548599</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib34">
+        <mixed-citation publication-type="journal">Serini, G., and F. Bussolino. <year>2004</year>. Common cues in vascular and axon guidance. <source>Physiology (Bethesda).</source>
+<volume>19</volume>:<fpage>348</fpage>&#x2013;354.
+<pub-id pub-id-type="pmid">15546852</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib35">
+        <mixed-citation publication-type="journal">Serini, G., D. Valdembri, S. Zanivan, G. Morterra, C. Burkhardt, F. Caccavari, L. Zammataro, L. Primo, L. Tamagnone, M. Logan, et al. <year>2003</year>. Class 3 semaphorins control vascular morphogenesis by inhibiting integrin function. <source>Nature.</source>
+<volume>424</volume>:<fpage>391</fpage>&#x2013;397.
+<pub-id pub-id-type="pmid">12879061</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib36">
+        <mixed-citation publication-type="journal">Sethi, T., M.H. Ginsberg, J. Downward, and P.E. Hughes. <year>1999</year>. The small GTP-binding protein R-Ras can influence integrin activation by antagonizing a Ras/Raf-initiated integrin suppression pathway. <source>Mol. Biol. Cell.</source>
+<volume>10</volume>:<fpage>1799</fpage>&#x2013;1809.
+<pub-id pub-id-type="pmid">10359597</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib37">
+        <mixed-citation publication-type="journal">Shih, P.T., M.J. Elices, Z.T. Fang, T.P. Ugarova, D. Strahl, M.C. Territo, J.S. Frank, L. Kovach, C. Cabanas, J.A. Berliner, and D.K. Vora. <year>1999</year>. Minimally modified low-density lipoprotein induces monocyte adhesion to endothelial connecting segment-1 by activating &#x3B2;<sub>1</sub> integrin. <source>J. Clin. Invest.</source>
+<volume>103</volume>:<fpage>613</fpage>&#x2013;625.
+<pub-id pub-id-type="pmid">10074478</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib38">
+        <mixed-citation publication-type="journal">Sieg, D.J., C.R. Hauck, D. Ilic, C.K. Klingbeil, E. Schaefer, C.H. Damsky, and D.D. Schlaepfer. <year>2000</year>. FAK integrates growth-factor and integrin signals to promote cell migration. <source>Nat. Cell Biol.</source>
+<volume>2</volume>:<fpage>249</fpage>&#x2013;256.
+<pub-id pub-id-type="pmid">10806474</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib39">
+        <mixed-citation publication-type="journal">Suire, S., P. Hawkins, and L. Stephens. <year>2002</year>. Activation of phosphoinositide 3-kinase gamma by Ras. <source>Curr. Biol.</source>
+<volume>12</volume>:<fpage>1068</fpage>&#x2013;1075.
+<pub-id pub-id-type="pmid">12121613</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib40">
+        <mixed-citation publication-type="journal">Swiercz, J.M., R. Kuner, J. Behrens, and S. Offermanns. <year>2002</year>. Plexin-B1 directly interacts with PDZ-RhoGEF/LARG to regulate RhoA and growth cone morphology. <source>Neuron.</source>
+<volume>35</volume>:<fpage>51</fpage>&#x2013;63.
+<pub-id pub-id-type="pmid">12123608</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib41">
+        <mixed-citation publication-type="journal">Swiercz, J.M., R. Kuner, and S. Offermanns. <year>2004</year>. Plexin-B1/RhoGEF-mediated RhoA activation involves the receptor tyrosine kinase ErbB-2. <source>J. Cell Biol.</source>
+<volume>165</volume>:<fpage>869</fpage>&#x2013;880.
+<pub-id pub-id-type="pmid">15210733</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib42">
+        <mixed-citation publication-type="journal">Tamagnone, L., and P.M. Comoglio. <year>2004</year>. To move or not to move? Semaphorin signalling in cell migration. <source>EMBO Rep.</source>
+<volume>5</volume>:<fpage>356</fpage>&#x2013;361.
+<pub-id pub-id-type="pmid">15060572</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib43">
+        <mixed-citation publication-type="journal">Tamagnone, L., S. Artigiani, H. Chen, Z. He, G.I. Ming, H. Song, A. Chedotal, M.L. Winberg, C.S. Goodman, M. Poo, et al. <year>1999</year>. Plexins are large family of receptors for transmembrane, secreted, and GPI-anchored semaphorins in vertebrates. <source>Cell.</source>
+<volume>99</volume>:<fpage>71</fpage>&#x2013;80.
+<pub-id pub-id-type="pmid">10520995</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib44">
+        <mixed-citation publication-type="journal">Velling, T., S. Nilson, A. Stefansson, and S. Johansson. <year>2004</year>. &#x3B2;<sub>1</sub>-integrins induce phosphorylation of Akt on serine 473 independently of focal adhesion kinase and Src family kinases. <source>EMBO Rep.</source>
+<volume>5</volume>:<fpage>901</fpage>&#x2013;905.
+<pub-id pub-id-type="pmid">15309026</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib45">
+        <mixed-citation publication-type="journal">Walzer, T., L. Galibert, M.R. Comeau, and T. De Smedt. <year>2005</year>. Plexin C1 engagement on mouse dendritic cells by viral semaphorin A39R induces actin cytoskeleton rearrangement and inhibits integrin-mediated adhesion and chemokine-induced migration. <source>J. Immunol.</source>
+<volume>174</volume>:<fpage>51</fpage>&#x2013;59.
+<pub-id pub-id-type="pmid">15611227</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib46">
+        <mixed-citation publication-type="journal">Wang, W.J., J.C. Kuo, C.C. Yao, and R.H. Chen. <year>2002</year>. DAP-kinase induces apoptosis by suppressing integrin activity and disrupting matrix survival signals. <source>J. Cell Biol.</source>
+<volume>159</volume>:<fpage>169</fpage>&#x2013;179.
+<pub-id pub-id-type="pmid">12370243</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib47">
+        <mixed-citation publication-type="journal">Yamamoto, T., T. Matsui, M. Nakafuku, A. Iwamatsu, and K. Kaibuchi. <year>1995</year>. A novel GTPase-activating protein for R-Ras. <source>J. Biol. Chem.</source>
+<volume>270</volume>:<fpage>30557</fpage>&#x2013;30561.
+<pub-id pub-id-type="pmid">8530488</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib48">
+        <mixed-citation publication-type="journal">Zhang, Z., K. Vuori, H. Wang, J.C. Reed, and E. Ruoslahti. <year>1996</year>. Integrin activation by R-Ras. <source>Cell.</source>
+<volume>85</volume>:<fpage>61</fpage>&#x2013;69.
+<pub-id pub-id-type="pmid">8620538</pub-id></mixed-citation>
+      </ref>
+      <ref id="bib49">
+        <mixed-citation publication-type="journal">Zou, J.X., B. Wang, M.S. Kalo, A.H. Zisch, E.B. Pasquale, and E. Ruoslahti. <year>1999</year>. An Eph receptor regulates integrin activity through R-Ras. <source>Proc. Natl. Acad. Sci. USA.</source>
+<volume>96</volume>:<fpage>13813</fpage>&#x2013;13818.
+<pub-id pub-id-type="pmid">10570155</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

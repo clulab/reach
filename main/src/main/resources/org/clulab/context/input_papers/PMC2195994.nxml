@@ -1,0 +1,879 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cell Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Cell Biol</journal-id>
+      <journal-title-group>
+        <journal-title>The Journal of Cell Biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0021-9525</issn>
+      <issn pub-type="epub">1540-8140</issn>
+      <publisher>
+        <publisher-name>The Rockefeller University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">11157984</article-id>
+      <article-id pub-id-type="pmc">2195994</article-id>
+      <article-id pub-id-type="publisher-id">0011075</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Cdc42hs Facilitates Cytoskeletal Reorganization and Neurite Outgrowth by Localizing the 58-Kd Insulin Receptor Substrate to Filamentous Actin</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Govind</surname>
+            <given-names>Sheila</given-names>
+          </name>
+          <xref ref-type="aff" rid="a">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kozma</surname>
+            <given-names>Robert</given-names>
+          </name>
+          <xref ref-type="aff" rid="a">a</xref>
+          <xref ref-type="aff" rid="b">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Monfries</surname>
+            <given-names>Clinton</given-names>
+          </name>
+          <xref ref-type="aff" rid="a">a</xref>
+          <xref ref-type="aff" rid="b">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lim</surname>
+            <given-names>Louis</given-names>
+          </name>
+          <xref ref-type="aff" rid="a">a</xref>
+          <xref ref-type="aff" rid="b">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ahmed</surname>
+            <given-names>Sohail</given-names>
+          </name>
+          <address>
+            <addr-line>Department of Neurochemistry, Institute of Neurology, 1 Wakefield St., London WC1N 1PJ, UK.</addr-line>
+            <fax>44-020-7278-7045</fax>
+            <phone>44-020-7278-1552</phone>
+          </address>
+          <email>s.ahmed@ion.ucl.ac.uk</email>
+          <xref ref-type="aff" rid="a">a</xref>
+          <xref ref-type="aff" rid="b">b</xref>
+        </contrib>
+        <aff id="a">
+<label>a</label>Department of Neurochemistry, Institute of Neurology, London WC1N 1PJ, United Kingdom</aff>
+        <aff id="b">
+<label>b</label>Glaxo-IMCB Group, Institute of Molecular and Cell Biology, Singapore 119076</aff>
+      </contrib-group>
+      <pub-date pub-type="ppub">
+        <day>5</day>
+        <month>2</month>
+        <year>2001</year>
+      </pub-date>
+      <volume>152</volume>
+      <issue>3</issue>
+      <fpage>579</fpage>
+      <lpage>594</lpage>
+      <history>
+        <date date-type="received">
+          <day>16</day>
+          <month>11</month>
+          <year>2000</year>
+        </date>
+        <date date-type="rev-request">
+          <day>18</day>
+          <month>12</month>
+          <year>2000</year>
+        </date>
+        <date date-type="accepted">
+          <day>21</day>
+          <month>12</month>
+          <year>2000</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2001 The Rockefeller University Press</copyright-statement>
+        <copyright-year>2001</copyright-year>
+        <copyright-holder>The Rockefeller University Press</copyright-holder>
+        <license license-type="openaccess">
+          <license-p>This article is distributed under the terms of an Attribution&#x2013;Noncommercial&#x2013;Share Alike&#x2013;No Mirror Sites license for the first six months after the publication date (see <ext-link ext-link-type="uri" xlink:href="http://www.rupress.org/terms">http://www.rupress.org/terms</ext-link>). After six months it is available under a Creative Commons License (Attribution&#x2013;Noncommercial&#x2013;Share Alike 4.0 Unported license, as described at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-sa/4.0/">http://creativecommons.org/licenses/by-nc-sa/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Cdc42Hs is involved in cytoskeletal reorganization and is required for neurite outgrowth in N1E-115 cells. To investigate the molecular mechanism by which Cdc42Hs regulates these processes, a search for novel Cdc42Hs protein partners was undertaken by yeast two-hybrid assay. Here, we identify the 58-kD substrate of the insulin receptor tyrosine kinase (IRS-58) as a Cdc42Hs target. IRS-58 is a brain-enriched protein comprising at least four protein&#x2013;protein interaction sites: a Cdc42Hs binding site, an Src homology (SH)3-binding site, an SH3 domain, and a tryptophan, tyrptophan (WW)-binding domain. Expression of IRS-58 in Swiss 3T3 cells leads to reorganization of the filamentous (F)-actin cytoskeleton, involving loss of stress fibers and formation of filopodia and clusters. In N1E-115 cells IRS-58 induces neurite outgrowth with high complexity. Expression of a deletion mutant of IRS-58, which lacks the SH3- and WW-binding domains, induced neurite extension without complexity in N1E-115 cells. In Swiss 3T3 cells and N1E-115 cells, IRS-58 colocalizes with F-actin in clusters and filopodia. An IRS-58<sup>1267N</sup> mutant unable to bind Cdc42Hs failed to localize with F-actin to induce neurite outgrowth or significant cytoskeletal reorganization. These results suggest that Cdc42Hs facilitates cytoskeletal reorganization and neurite outgrowth by localizing protein complexes via adaptor proteins such as IRS-58 to F-actin.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Cdc42Hs</kwd>
+        <kwd>F-actin</kwd>
+        <kwd>filopodia</kwd>
+        <kwd>neurite outgrowth</kwd>
+        <kwd>cytoskeleton</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Rho family GTPase's (e.g., Rac1, RhoA, and Cdc42Hs) are molecular switches that cycle between &#x201C;on&#x201D; (GTP-bound) and &#x201C;off&#x201D; (GDP-bound) states. Extracellular factors, such as PDGF, bradykinin, and lysophosphatidic acid, regulate the activity of GDP/GTP-exchange factors and GTPase activating proteins (GAPs) and thereby control the cycling of Rho family GTPases (<xref ref-type="bib" rid="LamarcheandHall1994">Lamarche and Hall 1994</xref>; <xref ref-type="bib" rid="CerioneandZheng1996">Cerione and Zheng 1996</xref>). Rho family GTPases coordinate signals from membrane receptors to pathways that control actin-based cell morphology and cell growth (for review see <xref ref-type="bib" rid="VanAelstandDSouza-Schorey1997">Van Aelst and D'Souza-Schorey 1997</xref>).</p>
+      <p>Cdc42Hs plays a role in cytokinesis (<xref ref-type="bib" rid="Dutartreetal1996">Dutartre et al. 1996</xref>; <xref ref-type="bib" rid="Drechseletal1997">Drechsel et al. 1997</xref>), cell transformation (<xref ref-type="bib" rid="Quietal1997">Qui et al. 1997</xref>), cell polarization (<xref ref-type="bib" rid="Stowersetal1995">Stowers et al. 1995</xref>), cell&#x2013;cell adhesion (<xref ref-type="bib" rid="Kurodaetal1997">Kuroda et al. 1997</xref>), HIV viral replication (<xref ref-type="bib" rid="Luetal1996">Lu et al. 1996</xref>), and can stimulate c-Jun NH<sub>2</sub>-terminal kinase activity (<xref ref-type="bib" rid="Bagrodiaetal1995">Bagrodia et al. 1995</xref>; <xref ref-type="bib" rid="Cosoetal1995">Coso et al. 1995</xref>; <xref ref-type="bib" rid="Hilletal1995">Hill et al. 1995</xref>; <xref ref-type="bib" rid="Mindenetal1995">Minden et al. 1995</xref>; <xref ref-type="bib" rid="Olsonetal1995">Olson et al. 1995</xref>). Cdc42Hs induces the formation of filopodia and retraction fibers with associated &#x201C;focal complexes&#x201D; (FCs) in response to growth factors such as bradykinin (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>; <xref ref-type="bib" rid="NobesandHall1995">Nobes and Hall 1995</xref>). Cdc42Hs can also induce the loss of stress fibers (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>) and, as a secondary event, the formation of membrane ruffles/lamellipodia via activation of Rac1. Cdc42Hs is essential and sufficient to drive neurite outgrowth in neuroblastoma N1E-115 cells (<xref ref-type="bib" rid="Kozmaetal1997">Kozma et al. 1997</xref>; <xref ref-type="bib" rid="Sarneretal2000">Sarner et al. 2000</xref>).</p>
+      <p>One approach to understanding the mechanism by which Cdc42Hs regulates cellular processes is to isolate and characterize proteins that interact with it. Cdc42Hs targets have been isolated by protein purification (e.g., activated Cdc42-associated kinase [ACK], p21-activated kinase [PAK], myotonic dystrophy kinase&#x2013;related Cdc42-binding kinase [MRCK], and Wiskott-Aldrich syndrome protein [WASP]; <xref ref-type="bib" rid="Manseretal1993">Manser et al. 1993</xref>, <xref ref-type="bib" rid="Manseretal1994">Manser et al. 1994</xref>; <xref ref-type="bib" rid="Symonsetal1996">Symons et al. 1996</xref>; <xref ref-type="bib" rid="Leungetal1998">Leung et al. 1998</xref>) and by yeast two-hybrid screening (<xref ref-type="bib" rid="Aspenstrometal1996">Aspenstrom et al. 1996</xref>; <xref ref-type="bib" rid="Aspenstrom1997">Aspenstrom 1997</xref>). Overexpression of PAK in Swiss 3T3 cells can induce membrane ruffling and filopodia formation (<xref ref-type="bib" rid="Sellsetal1997">Sells et al. 1997</xref>), and loss of focal adhesions (<xref ref-type="bib" rid="Manseretal1997">Manser et al. 1997</xref>). WASP/neural WASP (N-WASP) regulate actin polymerization through coupling with proteins such as WIP (<xref ref-type="bib" rid="Rameshetal1997">Ramesh et al. 1997</xref>) and the Arp2/3 complex (<xref ref-type="bib" rid="MacheskyandInsall1998">Machesky and Insall 1998</xref>). Interestingly, N-WASP, unlike WASP, has been reported to induce filopodia formation (<xref ref-type="bib" rid="Mikietal1998">Miki et al. 1998</xref>).</p>
+      <p>In this study we have used a yeast two-hybrid screen of a human brain library to identify novel Cdc42Hs targets. We describe in detail one of these clones, a 58-kD substrate of the insulin receptor tyrosine kinase (IRS58), initially identified by <xref ref-type="bib" rid="Yehetal1996">Yeh et al. 1996</xref>. IRS-58 is an adaptor protein with at least four protein&#x2013;protein interaction sites. Expression of IRS-58 in Swiss 3T3 cells leads to formation of peripheral actin microspikes and loss of stress fibers with an associated redistribution of FCs. In N1E-115 neuroblastoma cells, IRS-58 induced neurite outgrowth where the neurites were complex with multiple branching points and elaborate growth cones. An IRS-58 mutant deleted for the Src homology (SH)3- and tryptophan, tryptophan (WW)-binding domains induced neurite extension, but not complexity. In both Swiss 3T3 cells and N1E-115 cells, IRS-58 colocalized with F-actin. In contrast, an IRS-58<sup>I267N</sup> mutant unable to bind Cdc42Hs no longer colocalized with F-actin and failed to induce neurite outgrowth or significant cytoskeletal reorganization. These results suggest that Cdc42Hs facilitates cytoskeletal changes and neurite outgrowth by localizing the adaptor protein IRS-58 to F-actin.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and Methods</title>
+      <sec>
+        <title>Yeast Two-Hybrid Screen</title>
+        <p>The Matchmaker GAL4 system (CLONTECH Laboratories, Inc.) was used in two-hybrid screening. The Cdc42Hs double mutant (L61S189; see below) was subcloned from a pGEX vector into pAS2-1 (GAL4 binding domain [BD] vector). To establish the expression of the Gal4BD-Cdc42Hs fusion protein, whole yeast lysates from Y190 yeast were probed with anti-Gal4BD antibody on Western blots as described by CLONTECH Laboratories, Inc. The expected 40-kD Cdc42Hs-GAL4 fusion protein was detected. Library screens were carried out by transforming Y190 (pAS2-1&#x2013;Cdc42Hs<sup>L61S189</sup>) cells with 100 &#x3BC;g of cDNA human adult brain library in the pACT-2 vector (activation domain vector). Clones that grew in the absence of histidine and in the presence of 25 mM 3-AT were streaked out and assayed for LacZ (&#x3B2;-galactoside) activity using X-Gal (Life Technologies). Of 358 clones isolated, 7 were analyzed further. pACT-2 clone DNA was isolated using electroporation of miniprep yeast DNA into <italic>Escherichia coli</italic> HB101 cells and selecting for growth to leucine prototrophy. The seven clones tested positive (His<sup>+</sup>LacZ<sup>+</sup>) when retransformed into Y190 (pAS2-1&#x2013;Cdc42Hs<sup>L61S189</sup>), but not into Y190 (pAS2-1). 5&#x2032; and 3&#x2032; ends of clones were sequenced using ABI automated sequencing to establish their identity with either universal primers or primers upstream from the multiple cloning site of pACT-2.</p>
+      </sec>
+      <sec>
+        <title>DNA Cloning, Site-directed Mutagenesis, and Sequencing</title>
+        <p>Standard DNA manipulation techniques were used (<xref ref-type="bib" rid="Sambrooketal1989">Sambrook et al. 1989</xref>). For sequencing, a 2.1-kb Bgl2 fragment of IRS-58 was subcloned into the Bgl2 site of a bluescript (pBS.SK<sup>+</sup>) vector. ABI automated sequencing was carried out using commercial primers, as well as IRS-58&#x2013;based primers. For protein expression, the 2.1-kb Bgl2 fragment of IRS-58 was subcloned into the BamH1 site of a pGEX-2T derivative p265 (<xref ref-type="bib" rid="Ahmedetal1994">Ahmed et al. 1994</xref>, <xref ref-type="bib" rid="Ahmedetal1995">Ahmed et al. 1995</xref>). Deletions of IRS-58 were made using the restriction enzymes Sma1, Xho1, and Hind3 in IRS-58&#x2013; and PCR-based methods. For PCR amplification of cDNA, forward primers were synthesized with a clamp and BamH1 site (GACGTCGGATCC) and all reverse primers were synthesized with a clamp and EcoR1 (GACGTCGAATTC) site for cloning into BamH1-EcoR1 sites of p265. PCR was carried out with Taq (long plus) polymerase and 25 cycles. Mutations were introduced into IRS-58 (between nucleotides 798&#x2013;915) by using the following mutated primers for amplification of the fragment: mutant 1, 5&#x2032;-GTCAATTCCGACCCCATTCCG-3&#x2032;; mutant 2, 5&#x2032;-GTCATTCCCGACCCCATTCCG-3&#x2032;; mutant 3, 5&#x2032;-GTCAATTCCGACGCCATTCCG-3&#x2032;.</p>
+        <p>For expression in eukaryotic cells, the pXJ40 vector was used (<xref ref-type="bib" rid="Manseretal1997">Manser et al. 1997</xref>). The 2.1-kb Bgl2 fragment of IRS-58 was subcloned into the BamH1 site of pXJ40 to generate a cDNA encoding hemagglutinin (HA)-tagged protein. PCR-amplified inserts were generated and cloned as BamH1 blunt end fragments. Cdc42Hs and IRS-58 point mutants were made using the Transformer Site-Directed Mutagenesis kit (CLONTECH Laboratories, Inc.) as described previously (<xref ref-type="bib" rid="Bestetal1996">Best et al. 1996</xref>), or the Quick-Change mutagenesis kit (Stratagene). IRS-58 and mutant cDNAs were expressed in vitro or detected by HA antibody staining of cell extracts obtained from transfected cells. The molecular weight of proteins produced both in vitro and in cell extracts was as predicted from the cDNAs.</p>
+      </sec>
+      <sec>
+        <title>Protein Expression</title>
+        <p>IRS-58, &#x3B2;PAK fragment (300 bp, Nco1 fragment), and p190 GAP domain were expressed in <italic>E. coli</italic> using pGEX vectors as described previously (<xref ref-type="bib" rid="Ahmedetal1994">Ahmed et al. 1994</xref>; <xref ref-type="bib" rid="Bestetal1996">Best et al. 1996</xref>). Bacterial cultures were grown in L-broth (50 &#x3BC;g/ml ampicillin) from freshly transformed cells to an OD<sub>595</sub> of 0.5. At this point 0.5&#x2013;1 mM isopropylthiogalactoside (Sigma-Aldrich) was added and cells were grown for a further 1&#x2013;2 h and then harvested. Cells were pelleted (10&#x2013;15 min, 3,000 rpm), washed in PBS, and then pelleted and left overnight at &#x2212;20&#xB0;C. Pellets were thawed on ice in PBS/1% Triton X-100/1 mM PMSF and inhibitor cocktail and then sonicated five times for 20 s. The cell suspension was pelleted (15 min, 20,000 rpm) and the supernatant was incubated with glutathione-Sepharose beads for 1 h. Beads were pelleted and washed three times for 10 min each in 10 column volumes of PBS/1% Triton X-100. Glutathione <italic>S</italic>-transferase (GST) fusion protein was eluted from the beads by incubating with 10 ml of 5 mM glutathione in 50 mM Tris-HCl, pH 8.0, for 10 min at 4&#xB0;C. Protein was dialyzed against 2 liters of 50 mM Tris-HCl, 150 mM NaCl, 2.5 mM CaCl<sub>2</sub>, pH 7.5, for 1 h, followed by overnight and finally once more for 1 h.</p>
+        <p>Cdc42Hs, Rac1, and RhoA proteins were made essentially as described above, except that Tris-based buffers were used rather than PBS, and thrombin (5 U/liter culture; Sigma-Aldrich) was used to cleave GST from the p21 proteins.</p>
+        <p>Proteins were then concentrated to 1&#x2013;2 mg/ml by ultrafiltration using Centricon-10 tubes (Amicon) by spinning three to four times at 3,000 rpm for 10 min. Proteins were frozen in aliquots of 10&#x2013;50 &#x3BC;l and stored at &#x2212;20&#xB0;C. Protein concentrations were determined using the Bio-Rad Laboratories method and purity was assessed by Coomassie blue staining of SDS-PAGE.</p>
+      </sec>
+      <sec>
+        <title>Cdc42Hs, Rac1, and RhoA Binding Assay</title>
+        <p>p21 (Cdc42Hs, Rac1, and RhoA) probes were prepared by incubating proteins (&#x223C;5 &#x3BC;g) with 1 &#x3BC;l (10 &#x3BC;Ci) of [&#x3B3;-<sup>32</sup>P]GTP (6,000 Ci/mmol, 10 mCi/ml, 1.6 M; DuPont) in 50 &#x3BC;l of exchange buffer (50 mM NaCl, 25 mM MES, pH 6.5, 25 mM Tris-HCl, pH 7.5, 1.25 mM EDTA, 1.25 mg/ml BSA, 1.25 mM DTT) for 10 min at room temperature. Probes were then diluted into 4 ml of binding buffer (50 mM NaCl, 25 mM MES, pH 6.5, 25 mM Tris-HCl, pH 7.5, 1.25 mM MgCl<sub>2</sub>, 1.25 mg/ml BSA, 1.25 mM DTT, 0.5 mM GTP). To determine the nucleotide dependence of Cdc42Hs binding to IRS-58, wild-type Cdc42Hs was incubated with [&#x3B1;-<sup>32</sup>P]GTP and was either used immediately (GTP form), or after incubation at room temperature for 60 min (GDP form). The high intrinsic Cdc42Hs GTPase activity was used to generate [&#x3B1;<sup>32</sup>P-GDP]Cdc42H5.</p>
+        <p>IRS-58 (and PAK) GST fusion proteins were either dot blotted onto 1 cm<sup>2</sup> nitrocellulose and left to air-dry or separated on SDS-PAGE and transferred to nitrocellulose. Filters were then incubated in renaturation buffer (3% BSA, 0.1% Triton X-100, 0.5 mM MgCl<sub>2</sub>, 5 mM DTT) for 1 h or overnight, respectively, with shaking at 4&#xB0;C.</p>
+        <p>Filters were incubated with probes for 5 min at room temperature before being washed six times for 5 min in wash buffer (50 mM NaCl, 25 mM Mes, pH 6.0, 5 mM MgCl<sub>2</sub>, 0.25% Triton X-100) on ice. Filters were dried by placing on Whatman 3MM paper and then exposed to X-Omat film (Eastman Kodak Co.) for 5&#x2013;25 h. Quantification of binding was carried out by determining the amount of radioactivity by scintillation counting of each 1 cm<sup>2</sup> of nitrocellulose.</p>
+      </sec>
+      <sec>
+        <title>mRNA Expression by Northern Analysis</title>
+        <p>A multiple tissue Northern (MTN) blot was probed with IRS-58 DNA according to the manufacturer's protocol (CLONTECH Laboratories, Inc.). The MTN membrane was prehybridized with 5 ml of ExpressHyb solution at 68&#xB0;C for 30 min. A radioactive probe (encoding amino acid residues 1&#x2013;414 of IRS-58) was prepared using a random primed DNA labeling kit (Boehringer) and purified on a G-50 Sephadex column. The probe was then diluted into 5 ml of ExpressHyb solution. The MTN blot was then incubated with the probe solution for 1 h at 68&#xB0;C. After incubation the blot was washed several times in wash solution 1 (2&#xD7; SSC/0.05% SDS) for 40 min at room temperature and then at a higher stringency with wash solution 2 (0.1&#xD7; SSC/0.1% SDS) at 50&#xB0;C for 40 min. The blot was then exposed to X-Omat film (Eastman Kodak Co.) at &#x2212;70&#xB0;C for 48 h.</p>
+      </sec>
+      <sec>
+        <title>Cell Culture and Microinjection</title>
+        <p>Swiss 3T3 and N1E-115 cells were grown and maintained as described previously (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>, <xref ref-type="bib" rid="Kozmaetal1996">Kozma et al. 1996</xref>). Swiss 3T3 cells were grown on acid-washed glass coverslips. DNA was injected at 0.5 &#x3BC;g/ml into the nucleus using an Eppendorf microinjector and Axiovert microscope (ZEISS) and cells were left to express protein for between 30 min and 3 h. For phase&#x2013;contrast time-lapse analysis, cells were incubated on a heated stage at 37&#xB0;C with CO<sub>2</sub>.</p>
+        <p>For transient transfection, N1E-115 cells were plated out at &#x223C;10<sup>5</sup> cells per laminin (100 &#x3BC;g/ml) coated slide (6 &#xD7; 2 cm) and grown overnight at 37&#xB0;C in DME/5% FCS/1% antibiotic. Before transfection, cells were starved for 1 h in 1 ml of DME. Transfection mixes were made with 200 &#x3BC;l DME, 1&#x2013;1.5 &#x3BC;g DNA, and 6 &#x3BC;l lipofectamine and left at room temperature for 45 min for the formation of DNA liposomes. For cotransfections the amount of lipofectamine was doubled. The transfection mixes were added to the cells and incubated at 37&#xB0;C. After 4&#x2013;5 h medium was removed and replaced with 1 ml of DME/5% FCS/1% antibiotic. Cells were then left overnight at 37&#xB0;C.</p>
+      </sec>
+      <sec>
+        <title>Immunofluorescence Microscopy</title>
+        <p>Before fixing, N1E-115 cells were washed briefly with PBS to remove residual medium. Cells were then incubated with 3% paraformaldehyde/PBS for 20 min at room temperature followed by washing in PBS for 10 min. Residual paraformaldehyde was quenched in 100 mM glycine/PBS for 10 min. Cells were then permeabilized in PBS/0.2% Triton X-100 for 10 min and then washed again in PBS before incubating for a further 10 min in PBS/3% BSA. Cells were then incubated for 1 h with the primary antibody (anti-HA, 1:100 dilution in PBS/1% BSA). Cells were then washed in PBS (three times for 15 min) before incubation with secondary antibody (FITC, 1:50 in PBS/1% BSA) and TRITC-labeled phalloidin at 1:100. Finally, slides were washed in PBS (three times for 15 min). Coverslips were then mounted with Mowiol. Monoclonal antibodies were raised to cleaved GST IRS-58 (1&#x2013;364 amino acid) fusion protein and clones were selected using a maltose-binding IRS-58 (1&#x2013;391) fusion protein.</p>
+        <p>Cells were fixed and stained with appropriate antibodies as described previously (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>, <xref ref-type="bib" rid="Kozmaetal1997">Kozma et al. 1997</xref>). Stained cells were analyzed with either a fluorescence or confocal microscope (ZEISS).</p>
+      </sec>
+      <sec>
+        <title>Microscopy</title>
+        <p>Time-lapse microscopy was carried out on a heated stage (37&#xB0;C) in an atmosphere of humidified air and 5% CO<sub>2</sub>. Cells were video recorded using an Axiovert 135 microscope, Palmix TM-6CN video camera, and Sony-u-matic V0-5800 PS video recorder. Individual images were captured using Bio-Rad Laboratories COMOS software and manipulated with Adobe Photoshop<sup>&#xAE;</sup>. Confocal microscopy was carried out using an LSM ZEISS microscope.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Two-Hybrid Screen with Cdc42Hs</title>
+        <p>Using Cdc42Hs<sup>L61S189</sup> as bait, we isolated 358 His<sup>+</sup>LacZ<sup>+</sup> positives from a library screen of 10<sup>7</sup> clones. Seven clones were randomly picked, named CBP1&#x2013;7 for Cdc42Hs-binding proteins, and analyzed further. Purified DNA from each of the seven clones complemented the bait Cdc42Hs<sup>L61S189</sup> vector, but not the empty vector to give His<sup>+</sup>LacZ<sup>+</sup>. DNA sequencing revealed the identity of five of the clones. CBP2 was &#x3B2;PAK, CBP6 was &#x3B1;PAK, CBP3 was a variant isoform of ACK, and CBP1 and 5 were human isoforms of the already identified hamster 58-kD substrate of the insulin receptor (IRSp53/58) (<xref ref-type="bib" rid="Yehetal1996">Yeh et al. 1996</xref>). Recent work suggests that IRS-58 is a major component of central nervous system synapses (<xref ref-type="bib" rid="Abbotetal1999">Abbot et al. 1999</xref>) and, most interestingly, a binding partner for the dentatorubral-pallidolusian atrophy (DRPLA) protein, atrophin-1 (<xref ref-type="bib" rid="Okamura-Ohoetal1999">Okamura-Oho et al. 1999</xref>). CBP4 and 7 were novel sequences. Here we have analyzed IRS-58 further.</p>
+      </sec>
+      <sec>
+        <title>DNA and Protein Sequence of IRS-58</title>
+        <p>The IRS-58 clone was isolated as a 2.1-kb Bgl2 fragment from the pACT-GAL4AD plasmid. Sequence analysis showed that the IRS-58 cDNA was full length. IRS-58 possessed a 3&#x2032; noncoding region of 0.4 kb and a polyA tail (data not shown). Database comparison of the DNA sequence of IRS-58 with IRSp53/58 revealed that the former sequence has an additional exon of 78 bp that alters the amino acid sequence of the COOH-terminal end of the protein. The hamster IRS-53 sequence has two main areas of divergence with the human sequence. These are located at amino acid residues 220&#x2013;320 and at the extreme COOH-terminal end 460&#x2013;534. The sequence divergence between amino acid residues 510 and 534 is probably due to alternate splicing of the messages. Outside these areas of divergence the human and hamster are &gt;99% similar. Human IRS-58 appears to be the hamster 58-kD substrate of the insulin receptor. In addition, another three full-length human isoforms have been identified from independent yeast two-hybrid screens using the cytoplasmic domain of the brain-specific angiogenesis inhibitor 1 (BAI1; <xref ref-type="bib" rid="Odaetal1999">Oda et al. 1999</xref>) and atrophin-1. All of these clones appear to be products of alternate splicing as they exhibit sequence heterogeneity at the same COOH-terminal position, but otherwise exhibit 100% sequence identity. A partial human clone of p58 has been isolated in another two-hybrid screen using the cytoplasmic domain of the Fas ligand as bait (GenBank/EMBL/DDBJ accession number U70669). The significance of these protein&#x2013;protein interactions is unclear.</p>
+        <p>BLAST searches with IRS-58 show the presence of three putative domains, a polyproline-rich sequence (a potential SH3-binding site), a PPXY motif (a WW domain&#x2013;binding site), and an SH3 domain (amino acid residues 400&#x2013;460; <xref ref-type="fig" rid="F1">Fig. 1a</xref> and <xref ref-type="fig" rid="F1">Fig. b</xref>). The polyproline stretch (amino acid residues 267&#x2013;285) also aligned with channel proteins (data not shown). IRS-58 did not have clear homology with Cdc42Hs-binding sites of ACK, PAK, WASP, myotonic dystrophy kinase&#x2013;related Cdc42-binding kinase (MRCK), IQGAP, or CIP4, suggesting the presence of a novel binding site. Northern analysis, using a cDNA probe of IRS-58 encoding amino acid residues 1&#x2013;137 of IRS-58, was used to examine its expression pattern in human tissues. Two signals were detected at 2.4 and 3.5 kb (<xref ref-type="fig" rid="F1">Fig. 1</xref> C). The smaller message was ubiquitously expressed, but present at higher levels in placenta, liver, and kidney. The 3.5-kb message was brain enriched and possibly brain specific (<xref ref-type="fig" rid="F1">Fig. 1</xref> C).</p>
+      </sec>
+      <sec>
+        <title>Characteristics of Cdc42Hs Interaction with IRS-58</title>
+        <p>To determine the Rho family (Cdc42Hs, Rac1, and RhoA) binding specificity of IRS-58, purified GST fusion protein was dot-blotted onto nitrocellulose and probed with Cdc42HsQ61L, Rac1Q61L, and RhoAG14V labeled with [&#x3B3;-<sup>32</sup>P]GTP. PAK and p190 GAP domain were used as positive controls. This analysis showed that IRS-58 is a Cdc42Hs-specific binding protein, as it did not bind Rac1 or RhoA (<xref ref-type="fig" rid="F2">Fig. 2</xref> A). Cdc42Hs needs to be in a GTP-bound form to interact with IRS-58, as we could not detect binding to Cdc42Hs-GDP (<xref ref-type="fig" rid="F2">Fig. 2</xref> B). The binding strength (cpm/&#x3BC;g protein) of Cdc42Hs to IRS-58 and PAK is similar (data not shown). Unlike PAK and WASP, IRS-58 binds the Cdc42Hs C40 mutation, but does not bind A37 (<xref ref-type="fig" rid="F2">Fig. 2</xref> C). However, the C40 mutation did reduce the strength of interaction between Cdc42Hs and IRS-58.</p>
+      </sec>
+      <sec>
+        <title>Localization of the Cdc42Hs-binding Site of IRS-58</title>
+        <p>To localize the Cdc42Hs-binding site, COOH-terminal deletions were made using unique restriction sites present in the full-length pGEX&#x2013;IRS-58 construct. The proteins encoded by these constructs were used in binding experiments with Cdc42HsQ61L [&#x3B3;-<sup>32</sup>P]GTP as probe. Cdc42Hs binding was lost between deletions three and four, suggesting that amino acid residues 142&#x2013;358 were essential for this activity (<xref ref-type="fig" rid="F3">Fig. 3A</xref> and <xref ref-type="fig" rid="F3">Fig. e</xref>). Using PCR cloning a 40&#x2013;amino acid residue fragment was generated that could bind Cdc42Hs (amino acid residues 266&#x2013;305; <xref ref-type="fig" rid="F3">Fig. 3B</xref> and <xref ref-type="fig" rid="F3">Fig. C</xref>). However, Cdc42Hs binding to this fragment was significantly weaker than to amino acid residues 202&#x2013;305 (&#x223C;10&#x2013;20-fold). Cdc42Hs did not bind to amino acid residues 304&#x2013;534 showing that there were no COOH-terminal Cdc42Hs-binding sites. The sequence isoleucine, serine, andy amino acid residue, proline at the beginning of this 40&#x2013;amino acid residue fragment has similarity to the Cdc42/Rac interactive binding (CRIB) motif. (The CRIB motif [<xref ref-type="bib" rid="Burbeloetal1995">Burbelo et al. 1995</xref>], a sequence of 16 amino acid residues, a smaller version of a G protein&#x2013;binding domain first identified in the proteins PAK and ACK, has been suggested as a consensus for Cdc42Hs/Rac1 binding.) To determine whether the conserved I, P, and/or S were required for binding, mutations were made in these residues (N267, P268, and N267/A270). Binding assays showed that these amino acid residues were required, as Cdc42Hs binding was lost in these mutant proteins (<xref ref-type="fig" rid="F3">Fig. 3</xref> C). Introduction of the N267 mutation into a full-length IRS-58 construct also resulted in a loss of Cdc42 binding (<xref ref-type="fig" rid="F3">Fig. 3</xref> D). These experiments localize the Cdc42Hs-binding site to a position overlapping with the polyproline-rich sequence, which may be an SH3 domain&#x2013;binding site (<xref ref-type="fig" rid="F1">Fig. 1</xref>). A summary of these binding experiments is presented in <xref ref-type="fig" rid="F3">Fig. 3</xref> E.</p>
+      </sec>
+      <sec>
+        <title>Overexpression of IRS-58 in Swiss 3T3 Cells</title>
+        <p>Swiss 3T3 cells represent a model mammalian cell type which have been used to investigate the reorganization of both F-actin structures and the associated FCs. In Swiss 3T3 cells, factors such as bradykinin, lysophosphatidic acid, and PMA have been shown to induce the formation of peripheral actin microspikes, stress fibers, and membrane ruffles via Cdc42Hs (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>), RhoA (<xref ref-type="bib" rid="RidleyandHall1992">Ridley and Hall 1992</xref>), and Rac1 (<xref ref-type="bib" rid="Ridleyetal1992">Ridley et al. 1992</xref>), respectively. Each of these F-actin structures is associated with a morphologically unique FC (<xref ref-type="bib" rid="NobesandHall1995">Nobes and Hall 1995</xref>). To investigate whether IRS-58 affected F-actin, it was overexpressed as an HA-tagged protein by DNA microinjection of Swiss 3T3 cells. HA staining of microinjected cells was punctate and revealed that IRS-58 localized to peripheral extensions where process formation (membrane extension and retraction) was induced (<xref ref-type="fig" rid="F4">Fig. 4A</xref> and <xref ref-type="fig" rid="F4">Fig. B</xref>). The punctate HA staining of IRS-58 may suggest its localization to an organelle or a large protein aggregate (<xref ref-type="fig" rid="F4">Fig. 4</xref> A). Similar observations of IRS-58 localization to protein aggregates were made by <xref ref-type="bib" rid="Yehetal1998">Yeh et al. 1998</xref> and <xref ref-type="bib" rid="Okamura-Ohoetal1999">Okamura-Oho et al. 1999</xref>. Overexpression of IRS-58 caused a reorganization of the F-actin cytoskeleton. Stress fibers were completely disassembled under these conditions and the F-actin took on a punctate appearance (<xref ref-type="fig" rid="F4">Fig. 4C</xref> and <xref ref-type="fig" rid="F4">Fig. D</xref>). In some cells F-actin cluster formation could be seen (<xref ref-type="fig" rid="F4">Fig. 4E</xref> and <xref ref-type="fig" rid="F4">Fig. F</xref>). <xref ref-type="fig" rid="F4">Fig. 4</xref> shows the heterogeneity in morphology seen in expression of different levels of IRS-58 from low (A and B) to high (E and F).</p>
+        <p>To determine whether IRS-58 colocalized with F-actin, we used colocalization software (LSM v4; ZEISS) with images obtained through a confocal microscope (<xref ref-type="fig" rid="F5">Fig. 5</xref>). Swiss 3T3 cells with low levels of IRS-58 expression possessed filopodia, small F-actin clusters, and thin stress fibers (<xref ref-type="fig" rid="F5">Fig. 5</xref> A). In these types of cells IRS-58 expression was polarized within the cytoplasm and thin stress fibers were seen only where expression of IRS-58 was very low (<xref ref-type="fig" rid="F5">Fig. 5</xref> A). IRS-58 colocalizes with the filopodia (see insert, <xref ref-type="fig" rid="F5">Fig. 5</xref> A), punctate F-actin, and F-actin clusters (<xref ref-type="fig" rid="F5">Fig. 5</xref> A). IRS-58 was also localized in the cytoplasm as protein aggregates/complexes where there was no phalloidin staining (<xref ref-type="fig" rid="F5">Fig. 5</xref> B, see green in panels A and B). The organization of the F-actin clusters was examined further by obtaining a Z-series using a confocal microscope (<xref ref-type="fig" rid="F5">Fig. 5</xref> B, panels A&#x2013;H, bottom to top). Colocalization of IRS-58 with F-actin occurred in microvilli-like structures that formed a ring around the nucleus. F-actin was found over the nucleus, whereas IRS-58 was excluded from this region of the cell (<xref ref-type="fig" rid="F5">Fig. 5</xref> B, panels C and D). The colocalization of IRS-58 with F-actin is seen most clearly on the roof of the ring (<xref ref-type="fig" rid="F5">Fig. 5</xref> B, panels G and H), a point in the Z-series where the intense F-actin ring is absent. This confocal analysis suggests that IRS-58 may be involved in microvilli formation.</p>
+        <p>Next we investigated the effects of deletion of COOH-terminal regions of IRS-58 (IRS-58&#x394;510&#x2013;534 and IRS-58&#x394;143&#x2013;534) and a Cdc42Hs binding&#x2013;defective IRS-58<sup>I267N</sup>. Overexpression of the IRS-58&#x394;510&#x2013;534 protein that lacks the area of heterogeneity between the human isoforms gave a more pronounced reorganization of the F-actin cytoskeleton, with most cells possessing numerous well-defined F-actin clusters (<xref ref-type="fig" rid="F6">Fig. 6A</xref> and <xref ref-type="fig" rid="F6">Fig. B</xref>). Stress fibers were present in some cells transfected with this mutant (IRS-58&#x394;510&#x2013;534). The reorganization of the F-actin cytoskeleton caused by IRS-58 required amino acid residues 143&#x2013;534 (<xref ref-type="fig" rid="F6">Fig. 6C</xref> and <xref ref-type="fig" rid="F6">Fig. D</xref>) since expression of IRS-58&#x394;143&#x2013;534 did not cause loss of stress fibers or formation of actin clusters. Also, IRS-58&#x394;143&#x2013;534 mutant did not induce the formation of peripheral plasma membrane structures; however, cells appeared to be more contracted. It is possible that the contracted morphology seen in cells overexpressing IRS-58&#x394;143&#x2013;534 is caused by a thickening of stress fibers. Similar morphologies are seen when RhoA protein is microinjected into cells (<xref ref-type="bib" rid="Patersonetal1990">Paterson et al. 1990</xref>). Overexpression of the mutant IRS-58<sup>I267N</sup>, which is unable to bind Cdc42Hs, failed to induce filopodia formation or F-actin clusters in most Swiss 3T3 cells (data not shown). However, in some cells expressing higher levels of IRS-58<sup>I267N</sup> F-actin became disorganized and small F-actin clusters were seen (<xref ref-type="fig" rid="F7">Fig. 7</xref>). Strikingly, IRS-58 <sup>I267N</sup> did not colocalize with these F-actin clusters or other F-actin structures present within the cell (<xref ref-type="fig" rid="F7">Fig. 7</xref>; also see <xref ref-type="fig" rid="F9">Fig. 9</xref> B).</p>
+        <p>To examine whether the cell processes formed in IRS-58&#x2013;expressing cells were retraction fibers or filopodia, we carried out a phase&#x2013;contrast time-lapse analysis of microinjected cells. IRS-58 induces dramatic changes in cell morphology that include both filopodia formation and areas of retraction (data not shown). Unlike Cdc42Hs overexpression, which leads to Rac1 activation, we did not observe any membrane ruffling after the changes in F-actin structure described above.</p>
+      </sec>
+      <sec>
+        <title>Overexpression of IRS-58 in NIE-115 Cells</title>
+        <p>Since IRS-58 mRNAs are enriched in brain we next determined whether IRS-58 overexpression had morphological effects on N1E-115 neuroblastomas, a model for neuronal cells. Our previous work has established roles of Rho family GTPases in these neuroblastoma cells: Cdc42Hs and Rac1 are required for neurite outgrowth, whereas RhoA causes neurite collapse (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>, <xref ref-type="bib" rid="Kozmaetal1997">Kozma et al. 1997</xref>; <xref ref-type="bib" rid="Sarneretal2000">Sarner et al. 2000</xref>). N1E-115 cells were transfected with cDNA encoding IRS-58, left for 18&#x2013;24 h in the presence of serum, and then monitored by phase&#x2013;contrast time-lapse microscopy. IRS-58 induced neurite outgrowth in these cells. <xref ref-type="fig" rid="F8">Fig. 8</xref> A shows an example of a cell forming a neurite where the length of the neurite approximately doubles over the time course of the experiment. In the last panel of the time-lapse sequence three new neurites can be seen to be forming (<xref ref-type="fig" rid="F8">Fig. 8</xref> A). IRS-58&#x2013;induced neurites were morphologically hyperactive, as neurites induced by serum starvation showed little morphological change over a 5&#x2013;10-min time course (data not shown). IRS-58 induced filopodia formation in growth cones and along neurites. <xref ref-type="fig" rid="F8">Fig. 8</xref> B shows an example of a neurite with many filopodia along its length.</p>
+        <p>The neurites formed by IRS-58 were thick and highly branched with robust filopodia evident around growth cones and along the neurites (<xref ref-type="fig" rid="F9">Fig. 9</xref> A, panel C). In some cells, F-actin clusters were also evident in the cell body (data not shown). There was a loss of polarity in the neurites induced by IRS-58 (<xref ref-type="fig" rid="F8">Fig. 8</xref> A, panels 6 and 7). (Serum starvation of N1E-115 cells leads to neurite outgrowth where cells have an average of two neurites per cell and branched neurites are rarely present. Overexpression of either Cdc42Hs or IRS-58 in N1E-115 cells leads to an average of four neurites per cell and branched neurites are common. We define loss/lack of polarity as an increase in the number of neurites per cell from two to four coupled with the presence of branched neurites.)</p>
+        <p>Cdc42Hs and Rac1 activity was required for IRS-58&#x2013;driven neurite outgrowth, as dominant negative versions of these GTPases were inhibitory. IRS-58 cotransfection with Rac1T17N resulted in smaller cells with large spikes/filopodia (<xref ref-type="fig" rid="F9">Fig. 9</xref> A, panel F). Cells that were transfected with IRS-58 and Cdc42HsT17N were flattened and had large fan-shaped lamellae (<xref ref-type="fig" rid="F9">Fig. 9</xref> A, panel G). Similar phenotypes were observed when Rac1T17N/Cdc42HsT17N were transfected in the absence of IRS-58 (data not shown).</p>
+        <p>We also examined the effect of overexpression of three IRS-58 COOH-terminal deletions (IRS-58&#x394;510&#x2013;534, IRS-58&#x394;390&#x2013;534, and IRS-58&#x394;143&#x2013;534) on neurite outgrowth. As in Swiss 3T3 cells, IRS-58&#x394;510&#x2013;534 had a more dramatic effect on cell morphology than wild-type in N1E-115 cells (<xref ref-type="fig" rid="F9">Fig. 9</xref> A, panel D). Interestingly, IRS-58&#x394;390&#x2013;534, which lacks the SH3 domain and the WW-binding domain, induced neurite extension; however, neurite and growth cone complexity were lost (<xref ref-type="fig" rid="F9">Fig. 9</xref> A, panel E). IRS-58&#x394;143&#x2013;534 failed to induce morphological change, suggesting that the amino acids 143&#x2013;390 are essential for neurite extension (data not shown). A quantification of the effects of IRS-58 transfection on neuroblastoma cells is shown in <xref ref-type="fig" rid="F10">Fig. 10</xref>.</p>
+        <p>Finally, the effect of overexpression of the Cdc42Hs binding&#x2013;defective mutation, IRS-58<sup>I267N</sup>, on N1E-115 cells was compared with wild-type IRS-58 (<xref ref-type="fig" rid="F9">Fig. 9</xref> B). IRS-58 induced neurite outgrowth, as described above, and localized throughout the neurite and with F-actin in filopodia. In contrast, IRS-58<sup>I267N</sup> did not induce neurite outgrowth, although in some cases cells were seen to elongate (<xref ref-type="fig" rid="F9">Fig. 9</xref> B, panel A, cell on right). IRS-58<sup>I267N</sup> was distributed throughout the cytoplasm in small aggregates, but was never found at the cell periphery and did not colocalize with F-actin structures (<xref ref-type="fig" rid="F9">Fig. 9</xref> B). Using monoclonal antibodies specific to IRS-58, we have found endogenous protein to colocalize with F-actin in filopodia in neuroblastoma cells (<xref ref-type="fig" rid="F11">Fig. 11</xref>).</p>
+        <p>A summary of the IRS-58 and mutant phenotypes obtained by cell transfection in N1E-115 cells is presented in <xref ref-type="fig" rid="F12">Fig. 12</xref>.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <sec>
+        <title>Cdc42Hs Interaction with IRS-58</title>
+        <p>The Cdc42Hs-binding region of IRS-58 is related to the CRIB motif but also distinct from it. Close to the isoleucine, serine, any amino acid residue, and proline portion of the Cdc42Hs-interacting site of IRS-58 is a polyproline-rich sequence that may represent a protein&#x2013;protein interaction site. Interestingly, similar polyproline sequences are found adjacent to the Cdc42Hs binding sites of ACK, PAK, and WASP. Point mutations of Cdc42Hs in the &#x201C;effector site,&#x201D; C40 and A37, have been reported to exclude a role for CRIB motif proteins, such as PAK, in morphology pathways (<xref ref-type="bib" rid="Lamarcheetal1996">Lamarche et al. 1996</xref>). However, several studies have shown that PAK can induce morphological change in mammalian cells (<xref ref-type="bib" rid="Manseretal1997">Manser et al. 1997</xref>; <xref ref-type="bib" rid="Sellsetal1997">Sells et al. 1997</xref>; <xref ref-type="bib" rid="Obermeieretal1998">Obermeier et al. 1998</xref>), as do both WASP and N-WASP. In addition, N-WASP can induce filopodia formation in Swiss 3T3 cells. How can these data be reconciled? One possibility is that the reduction in protein&#x2013;protein interaction caused by the C40 mutation of Cdc42Hs in vitro is not sufficient to destroy interaction in vivo. Another possibility is that PAK (or N-WASP) does not need to interact directly with Cdc42Hs in morphological pathways but does so via a bridging protein/second messenger (<xref ref-type="bib" rid="Ahmedetal1998">Ahmed et al. 1998</xref>). Further, if protein complexes need to be formed to drive morphological change it is difficult to predict how the reduction in interaction between two components of the complex will affect the cellular process (<xref ref-type="bib" rid="Brayetal1998">Bray et al. 1998</xref>). The effect of Cdc42HsC40 and A37 mutations on Cdc42Hs interaction with IRS-58 was different from that of CRIB motif proteins. Cdc42HsC40 still interacted with IRS-58 whereas Cdc42HsA37 did not. These data support the idea that point mutations in amino acid positions 40 and 37 allow Cdc42Hs interactions with partners to be distinguished.</p>
+      </sec>
+      <sec>
+        <title>IRS-58 and Cytoskeletal Reorganization</title>
+        <p>To investigate whether IRS-58 was involved in the Cdc42Hs morphological pathways, it was overexpressed in Swiss 3T3 cells as an HA-tagged protein. Serum-starved Swiss 3T3 cells possess F-actin stress fibers and associated cytoplasmic FCs. IRS-58 overexpression caused a reorganization of the cytoskeleton with loss of stress fibers and formation of F-actin clusters. IRS-58&#x2013;induced filopodia formation was seen most clearly at low levels of expression where clusters were usually small, and thin stress fibers were sometimes present. These changes are reminiscent of the effects of Cdc42Hs overexpression (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>; <xref ref-type="bib" rid="NobesandHall1995">Nobes and Hall 1995</xref>) or bradykinin stimulation (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>). However, IRS-58 did not induce the formation of membrane ruffles, which is seen with Cdc42Hs overexpression in a variety of cell types. It is possible that IRS-58&#x2013;induced reorganization may obscure Rac1-mediated changes. Cdc42Hs, WASP, and n-chimaerin, but not Rac1 or RhoA, can induce these F-actin clusters in mammalian cells (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>; <xref ref-type="bib" rid="Symonsetal1996">Symons et al. 1996</xref>; data not shown). The physiological function of F-actin clusters is unclear, but they may represent an intermediate stage for reorganization of F-actin microfilaments. Confocal imaging of F-actin clusters revealed that they colocalized with IRS-58 in structures that were protruding from the surface of the cells, suggesting a role for IRS-58 in microvilli formation. The fact that bradykinin induces peripheral actin microspikes as well as F-actin cluster formation (<xref ref-type="bib" rid="Kozmaetal1995">Kozma et al. 1995</xref>) supports the idea that these latter structures have a physiological role.</p>
+      </sec>
+      <sec>
+        <title>IRS-58 and Neurite Outgrowth in N1E-115 Cells</title>
+        <p>Since IRS-58 mRNAs are highly expressed in brain, we also investigated the effects of its overexpression in N1E-115 neuroblastoma cells. Endogenous IRS-58 protein colocalized with F-actin in filopodia in neuroblastoma cells. Serum withdrawal or transient transfection of Cdc42Hs in these cells leads to maximal neurite outgrowth after 18&#x2013;24 h (<xref ref-type="bib" rid="VanLeeuwenetal1997">Van Leeuwen et al. 1997</xref>; <xref ref-type="bib" rid="Sarneretal2000">Sarner et al. 2000</xref>). IRS-58 was also able to induce neurite outgrowth in similar experiments. Phase&#x2013;contrast analysis of IRS-58&#x2013;overexpressing N1E-115 cells clearly shows that it induces the formation of robust filopodia. The morphology of N1E-115 cells overexpressing IRS-58 was different from that seen on serum withdrawal or Cdc42Hs overexpression. IRS-58 neurites were much thicker and highly branched, and filopodia were evident all along the neurite surface. Some cells had neurites with multiple branches, each associated with large and spiky growth cones. Thus, IRS-58&#x2013;induced neurites are complex and lack polarity (see above). The Cdc42Hs binding&#x2013;defective IRS-58<sup>I267N</sup> failed to induce neurite outgrowth, and this finding parallels studies in yeast cells where a Cdc42p binding&#x2013;defective Ste20 was unable to induce pseudohyphal growth (<xref ref-type="bib" rid="Peteretal1996">Peter et al. 1996</xref>).</p>
+        <p>IRS-58&#x2013;induced neurite outgrowth was inhibited by transfection of dominant negative T17N cDNAs, suggesting that Cdc42Hs and Rac1 activity are required for this phenotype. Interestingly, deletion of the SH3 domain and WW-binding domain of IRS-58 eliminated the neurite and growth cone complexity, but neurite extension in N1E-115 cells was still seen. Therefore, it is possible that proteins that bind either to the SH3 domain, such as atrophin-1 or BA1, and/or the WW-binding domain may be responsible for the morphological complexity observed.</p>
+      </sec>
+      <sec>
+        <title>Function of the Cdc42Hs&#x2013;IRS-58 Interaction</title>
+        <p>In both Swiss 3T3 cells and N1E-115 cells IRS-58<sup>I267N</sup>, the Cdc42Hs binding&#x2013;defective mutant, did not induce significant cytoskeletal reorganization or neurite outgrowth, or colocalize with F-actin. These results suggest that the function of the Cdc4Hs&#x2013;IRS-58 interaction is to localize an IRS-58 protein complex to F-actin and thereby facilitate morphological change and neurite outgrowth. Atrophin-1 and BAI1 bind to the SH3 domain of IRS-58 and may represent two of the proteins present in the complex. The insulin-related growth factors, IGF1 and IGF2, play important roles in neuronal development and survival. Ongoing studies with IRS-58, atrophin-1, BAI1, and other IRS-58 protein partners may help us to understand the mechanism by which Cdc42Hs facilitates cytoskeletal reorganization and neuritogenesis downstream of the insulin receptor.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Tom Leung for Cdc42Hs point mutants and Kate Marler for help with confocal microscopy.</p>
+      <p>This work was supported in part by the Glaxo-Singapore Research Fund. S. Govind was funded by a Medical Research Council collaborative award with Glaxo-Wellcome.</p>
+    </ack>
+    <fn-group>
+      <fn>
+        <p>
+<italic>Abbreviations used in this paper:</italic> ACK, activated Cdc42-associated kinase; BAI1, brain-specific angiogenesis inhibitor 1; BD, binding domain; CRIB, Cdc42/Rac interactive binding; FC, focal complex; GAP, GTPase activating protein; GST, glutathione <italic>S</italic>-transferase; HA, hemagglutinin; IRS, insulin receptor tyrosine kinase; MTN, multiple tissue Northern; N-WASP, neural WASP; PAK, p21-activated kinase; SH, Src homology; WASP, Wiskott-Aldrich syndrome protein; WW, tryptophan, tryptophan.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <ref id="Abbotetal1999">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Abbot</surname><given-names>M.-A.</given-names></name><name><surname>Wells</surname><given-names>D.G.</given-names></name><name><surname>Fallon</surname><given-names>J.R.</given-names></name></person-group>
+<article-title>The insulin receptor tyrosine kinase substrate p58/p53 and the insulin receptor are components of CNS synapses</article-title>
+<source>J. Neurosci.</source>
+<volume>19</volume>
+<year>1999</year>
+<fpage>7300</fpage>
+<lpage>7308</lpage>
+<pub-id pub-id-type="pmid">10460236</pub-id></element-citation>
+      </ref>
+      <ref id="Ahmedetal1994">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Lee</surname><given-names>J.</given-names></name><name><surname>Wen</surname><given-names>L.-P.</given-names></name><name><surname>Zhao</surname><given-names>Z.-S.</given-names></name><name><surname>Ho</surname><given-names>J.</given-names></name><name><surname>Best</surname><given-names>A.</given-names></name><name><surname>Monfries</surname><given-names>C.</given-names></name><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>Breakpoint cluster region gene product-related domain of n-chimaerin. Discrimination between Rac-binding and the GTPase-activating residues by mutational analysis</article-title>
+<source>J. Biol. Chem.</source>
+<volume>269</volume>
+<year>1994</year>
+<fpage>17642</fpage>
+<lpage>17648</lpage>
+<pub-id pub-id-type="pmid">8021274</pub-id></element-citation>
+      </ref>
+      <ref id="Ahmedetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Hall</surname><given-names>C.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>GAP activity of n-chimaerin and effect of lipids</article-title>
+<source>Methods Enzymol.</source>
+<volume>256</volume>
+<year>1995</year>
+<fpage>114</fpage>
+<lpage>125</lpage>
+<pub-id pub-id-type="pmid">7476424</pub-id></element-citation>
+      </ref>
+      <ref id="Ahmedetal1998">
+        <element-citation publication-type="book">
+<person-group person-group-type="author"><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>Cdc42 and Rac effectors; ACK, PAK, WASP, MRCK, n-chimaerin, POR1 and p67phox</article-title>
+<person-group person-group-type="editor"><name><surname>Maruta</surname><given-names>H.</given-names></name></person-group>
+<source>G-proteins and the Cytoskeleton</source>
+<year>1998</year>
+<fpage>239</fpage>
+<lpage>258</lpage>
+<publisher-name>R.G. Landes</publisher-name>
+<publisher-loc>Georgetown, TX</publisher-loc>
+</element-citation>
+      </ref>
+      <ref id="Aspenstrom1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aspenstrom</surname><given-names>P.</given-names></name></person-group>
+<article-title>A Cdc42 target protein with homology to the non-kinase domain of FER has a potential role in regulating the actin cytoskeleton</article-title>
+<source>Curr. Biol.</source>
+<volume>7</volume>
+<year>1997</year>
+<fpage>479</fpage>
+<lpage>487</lpage>
+<pub-id pub-id-type="pmid">9210375</pub-id></element-citation>
+      </ref>
+      <ref id="Aspenstrometal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aspenstrom</surname><given-names>P.</given-names></name><name><surname>Lindberg</surname><given-names>U.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>Two GTPases, Cdc42 and Rac, bind directly to a protein implicated in the immunodeficiency disorder Wiskott-Aldrich syndrome</article-title>
+<source>Curr. Biol.</source>
+<volume>6</volume>
+<year>1996</year>
+<fpage>70</fpage>
+<lpage>75</lpage>
+<pub-id pub-id-type="pmid">8805223</pub-id></element-citation>
+      </ref>
+      <ref id="Bagrodiaetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bagrodia</surname><given-names>S.</given-names></name><name><surname>Derijard</surname><given-names>B.</given-names></name><name><surname>Davis</surname><given-names>R.J.</given-names></name><name><surname>Cerione</surname><given-names>R.A.</given-names></name></person-group>
+<article-title>Cdc42 and PAK-mediated signaling leads to Jun kinase and p38 mitogen-activated protein kinase activation</article-title>
+<source>J. Biol. Chem.</source>
+<volume>270</volume>
+<year>1995</year>
+<fpage>27995</fpage>
+<lpage>27998</lpage>
+<pub-id pub-id-type="pmid">7499279</pub-id></element-citation>
+      </ref>
+      <ref id="Bestetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Best</surname><given-names>A.</given-names></name><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>The Ras related GTPase Rac1 binds tubulin</article-title>
+<source>J. Biol. Chem.</source>
+<volume>271</volume>
+<year>1996</year>
+<fpage>3756</fpage>
+<lpage>3762</lpage>
+<pub-id pub-id-type="pmid">8631991</pub-id></element-citation>
+      </ref>
+      <ref id="Brayetal1998">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bray</surname><given-names>D.</given-names></name><name><surname>Levin</surname><given-names>M.D.</given-names></name><name><surname>Morton-Firth</surname><given-names>C.J.</given-names></name></person-group>
+<article-title>Receptor clustering as a cellular mechanism to control sensitivity</article-title>
+<source>Nature.</source>
+<volume>393</volume>
+<year>1998</year>
+<fpage>85</fpage>
+<lpage>88</lpage>
+<pub-id pub-id-type="pmid">9590695</pub-id></element-citation>
+      </ref>
+      <ref id="Burbeloetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Burbelo</surname><given-names>P.D.</given-names></name><name><surname>Dreschel</surname><given-names>D.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>A conserved binding motif defines numerous candidate target protein for both Cdc42 and Rac GTPases</article-title>
+<source>J. Biol. Chem.</source>
+<volume>270</volume>
+<year>1995</year>
+<fpage>29071</fpage>
+<lpage>29074</lpage>
+<pub-id pub-id-type="pmid">7493928</pub-id></element-citation>
+      </ref>
+      <ref id="CerioneandZheng1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cerione</surname><given-names>R.A.</given-names></name><name><surname>Zheng</surname><given-names>Y.</given-names></name></person-group>
+<article-title>The Dbl family of oncogenes</article-title>
+<source>Curr. Opin. Cell Biol.</source>
+<volume>8</volume>
+<year>1996</year>
+<fpage>216</fpage>
+<lpage>222</lpage>
+<pub-id pub-id-type="pmid">8791419</pub-id></element-citation>
+      </ref>
+      <ref id="Cosoetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Coso</surname><given-names>O.A.</given-names></name><name><surname>Chiarello</surname><given-names>M.</given-names></name><name><surname>Yu</surname><given-names>J.C.</given-names></name><name><surname>Teramoto</surname><given-names>H.</given-names></name><name><surname>Crespo</surname><given-names>P.</given-names></name><name><surname>Xu</surname><given-names>N.</given-names></name><name><surname>Miki</surname><given-names>T.</given-names></name><name><surname>Gutkind</surname><given-names>J.S.</given-names></name></person-group>
+<article-title>The small GTP-binding proteins Rac and Cdc42 regulate the activity of the JNK/SAPK signaling pathway</article-title>
+<source>Cell.</source>
+<volume>81</volume>
+<year>1995</year>
+<fpage>1137</fpage>
+<lpage>1146</lpage>
+<pub-id pub-id-type="pmid">7600581</pub-id></element-citation>
+      </ref>
+      <ref id="Drechseletal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Drechsel</surname><given-names>D.N.</given-names></name><name><surname>Hyman</surname><given-names>A.A.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name><name><surname>Glotzer</surname><given-names>M.</given-names></name></person-group>
+<article-title>A requirement for Rho and Cdc42 during cytokinesis in <italic>Xenopus</italic> embryos</article-title>
+<source>Curr. Biol.</source>
+<volume>7</volume>
+<year>1997</year>
+<fpage>12</fpage>
+<lpage>23</lpage>
+<pub-id pub-id-type="pmid">8999996</pub-id></element-citation>
+      </ref>
+      <ref id="Dutartreetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Dutartre</surname><given-names>H.</given-names></name><name><surname>Davoust</surname><given-names>J.</given-names></name><name><surname>Gorvel</surname><given-names>J.-P.</given-names></name><name><surname>Charvrier</surname><given-names>P.</given-names></name></person-group>
+<article-title>Cytokinesis arrest and redistribution of actin-cytoskeleton regulatory components in cells expressing the Rho GTPase Cdc42Hs</article-title>
+<source>J. Cell Sci.</source>
+<volume>109</volume>
+<year>1996</year>
+<fpage>367</fpage>
+<lpage>377</lpage>
+<pub-id pub-id-type="pmid">8838660</pub-id></element-citation>
+      </ref>
+      <ref id="Hilletal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hill</surname><given-names>C.S.</given-names></name><name><surname>Wynne</surname><given-names>J.</given-names></name><name><surname>Treisman</surname><given-names>R.</given-names></name></person-group>
+<article-title>The Rho family GTPases RhoA, Rac1, and Cdc42Hs regulate transcriptional activation by SRF</article-title>
+<source>Cell.</source>
+<volume>81</volume>
+<year>1995</year>
+<fpage>1159</fpage>
+<lpage>1170</lpage>
+<pub-id pub-id-type="pmid">7600583</pub-id></element-citation>
+      </ref>
+      <ref id="Kozmaetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Best</surname><given-names>A.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>The Ras related protein Cdc42Hs and bradykinin promote the formation of peripheral actin microspikes and filopodia in Swiss 3T3 fibroblasts</article-title>
+<source>Mol. Cell. Biol</source>
+<volume>15</volume>
+<year>1995</year>
+<fpage>1942</fpage>
+<lpage>1952</lpage>
+<pub-id pub-id-type="pmid">7891688</pub-id></element-citation>
+      </ref>
+      <ref id="Kozmaetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Best</surname><given-names>A.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>The GTPase activating protein n-chimaerin cooperates with Rac1 and Cdc42Hs to induce the formation of lamellipodia and filopodia</article-title>
+<source>Mol. Cell. Biol.</source>
+<volume>16</volume>
+<year>1996</year>
+<fpage>5069</fpage>
+<lpage>5080</lpage>
+<pub-id pub-id-type="pmid">8756665</pub-id></element-citation>
+      </ref>
+      <ref id="Kozmaetal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Sarner</surname><given-names>S.</given-names></name><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>Rho family GTPases and neuronal growth cone remodellingrelationship between increased complexity induced by Cdc42Hs, Rac1 and acetylcholine and collapse induced by RhoA and lysophosphatidic acid</article-title>
+<source>Mol. Cell. Biol.</source>
+<volume>17</volume>
+<year>1997</year>
+<fpage>1201</fpage>
+<lpage>1211</lpage>
+<pub-id pub-id-type="pmid">9032247</pub-id></element-citation>
+      </ref>
+      <ref id="Kurodaetal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kuroda</surname><given-names>S.</given-names></name><name><surname>Fukata</surname><given-names>M.</given-names></name><name><surname>Fujii</surname><given-names>K.</given-names></name><name><surname>Nakamura</surname><given-names>T.</given-names></name><name><surname>Izawa</surname><given-names>I.</given-names></name><name><surname>Kaibuchi</surname><given-names>K.</given-names></name></person-group>
+<article-title>Regulation of cell-cell adhesion of MDCK cells by Cdc42 and Rac small GTPases</article-title>
+<source>Biochem. Biophys. Res. Commun.</source>
+<volume>240</volume>
+<year>1997</year>
+<fpage>430</fpage>
+<lpage>435</lpage>
+<pub-id pub-id-type="pmid">9388496</pub-id></element-citation>
+      </ref>
+      <ref id="LamarcheandHall1994">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lamarche</surname><given-names>N.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>GAPs for rho-related GTPases</article-title>
+<source>Trends Genet.</source>
+<volume>10</volume>
+<year>1994</year>
+<fpage>436</fpage>
+<lpage>440</lpage>
+<pub-id pub-id-type="pmid">7871593</pub-id></element-citation>
+      </ref>
+      <ref id="Lamarcheetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lamarche</surname><given-names>N.</given-names></name><name><surname>Tapon</surname><given-names>N.</given-names></name><name><surname>Stowers</surname><given-names>L.</given-names></name><name><surname>Burbelo</surname><given-names>P.D.</given-names></name><name><surname>Aspenstrom</surname><given-names>P.</given-names></name><name><surname>Bridges</surname><given-names>T.</given-names></name><name><surname>Chant</surname><given-names>J.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>Rac and Cdc42 induce actin polymerization and G1 cell cycle progression independently of p65PAK and the JNK/SAPK MAP kinase cascade</article-title>
+<source>Cell.</source>
+<volume>87</volume>
+<year>1996</year>
+<fpage>519</fpage>
+<lpage>529</lpage>
+<pub-id pub-id-type="pmid">8898204</pub-id></element-citation>
+      </ref>
+      <ref id="Leungetal1998">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Leung</surname><given-names>T.</given-names></name><name><surname>Chen</surname><given-names>X.-Q.</given-names></name><name><surname>Tan</surname><given-names>I.</given-names></name><name><surname>Manser</surname><given-names>E.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>Myotonic dystrophy kinase-related Cdc42-binding kinase acts as a Cdc42 effector in promoting cytoskeletal reorganization</article-title>
+<source>Mol. Cell. Biol.</source>
+<volume>18</volume>
+<year>1998</year>
+<fpage>130</fpage>
+<lpage>140</lpage>
+<pub-id pub-id-type="pmid">9418861</pub-id></element-citation>
+      </ref>
+      <ref id="Luetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lu</surname><given-names>X.</given-names></name><name><surname>Wu</surname><given-names>X.</given-names></name><name><surname>Plemenitas</surname><given-names>A.</given-names></name><name><surname>Yu</surname><given-names>H.</given-names></name><name><surname>Sawai</surname><given-names>E.T.</given-names></name><name><surname>Abo</surname><given-names>A.</given-names></name><name><surname>Peterlin</surname><given-names>B.M.</given-names></name></person-group>
+<article-title>Cdc42 and Rac1 are implicated in the activation of Nef-associated kinase and replication of HIV-1</article-title>
+<source>Curr. Biol.</source>
+<volume>6</volume>
+<year>1996</year>
+<fpage>1677</fpage>
+<lpage>1684</lpage>
+<pub-id pub-id-type="pmid">8994833</pub-id></element-citation>
+      </ref>
+      <ref id="MacheskyandInsall1998">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Machesky</surname><given-names>L.</given-names></name><name><surname>Insall</surname><given-names>R.H.</given-names></name></person-group>
+<article-title>Scar1 and the related Wiskot-Aldrich syndrome protein, WASP, regulate the actin cytoskeleton through the Arp2/3 complex</article-title>
+<source>Curr. Biol.</source>
+<volume>8</volume>
+<year>1998</year>
+<fpage>1347</fpage>
+<lpage>1356</lpage>
+<pub-id pub-id-type="pmid">9889097</pub-id></element-citation>
+      </ref>
+      <ref id="Manseretal1993">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Manser</surname><given-names>E.</given-names></name><name><surname>Leung</surname><given-names>T.</given-names></name><name><surname>Salihuddin</surname><given-names>H.</given-names></name><name><surname>Tan</surname><given-names>L.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>A non-receptor tyrosine kinase that inhibits the GTPase activity of p21cdc42</article-title>
+<source>Nature.</source>
+<volume>363</volume>
+<year>1993</year>
+<fpage>364</fpage>
+<lpage>367</lpage>
+<pub-id pub-id-type="pmid">8497321</pub-id></element-citation>
+      </ref>
+      <ref id="Manseretal1994">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Manser</surname><given-names>E.</given-names></name><name><surname>Leung</surname><given-names>T.</given-names></name><name><surname>Salihuddin</surname><given-names>H.</given-names></name><name><surname>Zhao</surname><given-names>Z.-S.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>A brain serine/threonine protein kinase activated by Cdc42 and Rac1</article-title>
+<source>Nature.</source>
+<volume>367</volume>
+<year>1994</year>
+<fpage>40</fpage>
+<lpage>46</lpage>
+<pub-id pub-id-type="pmid">8107774</pub-id></element-citation>
+      </ref>
+      <ref id="Manseretal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Manser</surname><given-names>E.</given-names></name><name><surname>Huang</surname><given-names>H.-Y.</given-names></name><name><surname>Loo</surname><given-names>T.-H.</given-names></name><name><surname>Chen</surname><given-names>X.-Q.</given-names></name><name><surname>Dong</surname><given-names>J.-M.</given-names></name><name><surname>Leung</surname><given-names>T.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>Overexpression of constitutively active alpha PAK reveals effects of the kinase on actin and focal complexes</article-title>
+<source>Mol. Cell. Biol.</source>
+<volume>17</volume>
+<year>1997</year>
+<fpage>1129</fpage>
+<lpage>1143</lpage>
+<pub-id pub-id-type="pmid">9032240</pub-id></element-citation>
+      </ref>
+      <ref id="Mikietal1998">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Miki</surname><given-names>H.</given-names></name><name><surname>Sasaki</surname><given-names>T.</given-names></name><name><surname>Takai</surname><given-names>Y.</given-names></name><name><surname>Takenawa</surname><given-names>T.</given-names></name></person-group>
+<article-title>Induction of filopodium formation by a WASP-related actin-depolymerizing protein N-WASP</article-title>
+<source>Nature</source>
+<volume>391</volume>
+<year>1998</year>
+<fpage>93</fpage>
+<lpage>96</lpage>
+<pub-id pub-id-type="pmid">9422512</pub-id></element-citation>
+      </ref>
+      <ref id="Mindenetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Minden</surname><given-names>A.</given-names></name><name><surname>Lin</surname><given-names>A.</given-names></name><name><surname>Claret</surname><given-names>F.X.</given-names></name><name><surname>Abo</surname><given-names>A.</given-names></name><name><surname>Karin</surname><given-names>M.</given-names></name></person-group>
+<article-title>Selective activation of the JNK signaling cascade and c-Jun transcriptional activity by the small GTPase Rac and Cdc42Hs</article-title>
+<source>Cell.</source>
+<volume>81</volume>
+<year>1995</year>
+<fpage>1147</fpage>
+<lpage>1157</lpage>
+<pub-id pub-id-type="pmid">7600582</pub-id></element-citation>
+      </ref>
+      <ref id="NobesandHall1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Nobes</surname><given-names>C.D.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>Rho, Rac, and Cdc42 GTPases regulate the assembly of multimolecular focal complexes associated with actin stress fibers, lamellipodia and filopodia</article-title>
+<source>Cell.</source>
+<volume>81</volume>
+<year>1995</year>
+<fpage>53</fpage>
+<lpage>62</lpage>
+<pub-id pub-id-type="pmid">7536630</pub-id></element-citation>
+      </ref>
+      <ref id="Obermeieretal1998">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Obermeier</surname><given-names>A.</given-names></name><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Manser</surname><given-names>E.</given-names></name><name><surname>Yen</surname><given-names>S.-C.</given-names></name><name><surname>Hall</surname><given-names>C.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>PAK promotes morphological changes by acting upstream of Rac</article-title>
+<source>EMBO (Eur. Mol. Biol. Organ.) J.</source>
+<volume>17</volume>
+<year>1998</year>
+<fpage>101</fpage>
+<lpage>112</lpage>
+</element-citation>
+      </ref>
+      <ref id="Odaetal1999">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Oda</surname><given-names>K.</given-names></name><name><surname>Shiratsuchi</surname><given-names>T.</given-names></name><name><surname>Nishimari</surname><given-names>H.</given-names></name><name><surname>Inazawa</surname><given-names>J.</given-names></name><name><surname>Yoshikawa</surname><given-names>H.</given-names></name><name><surname>Taketani</surname><given-names>Y.</given-names></name><name><surname>Nakamura</surname><given-names>Y.</given-names></name><name><surname>Tokino</surname><given-names>T.</given-names></name></person-group>
+<article-title>Identification of BAIAP2 (BAI associated protein 2), a novel human homologue of hamster IRSp53, whose SH3 domain interacts with the cytoplasmic domain of BAI1</article-title>
+<source>Cytogenet. Cell. Genet</source>
+<volume>84</volume>
+<year>1999</year>
+<fpage>75</fpage>
+<lpage>82</lpage>
+<pub-id pub-id-type="pmid">10343108</pub-id></element-citation>
+      </ref>
+      <ref id="Okamura-Ohoetal1999">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Okamura-Oho</surname><given-names>Y.</given-names></name><name><surname>Miyashita</surname><given-names>T.</given-names></name><name><surname>Ohmi</surname><given-names>K.</given-names></name><name><surname>Yamada</surname><given-names>M.</given-names></name></person-group>
+<article-title>Dentatorubral-pallidoluysian atrophy protein interacts through a proline-rich region near polyglutamine with the SH3 domain of an insulin receptor tyrosine kinase substrate</article-title>
+<source>Hum. Mol. Genet</source>
+<volume>8</volume>
+<year>1999</year>
+<fpage>947</fpage>
+<lpage>957</lpage>
+<pub-id pub-id-type="pmid">10332026</pub-id></element-citation>
+      </ref>
+      <ref id="Olsonetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Olson</surname><given-names>M.F.</given-names></name><name><surname>Ashworth</surname><given-names>A.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>An essential role for Rho, Rac and Cdc42 GTPases in cell cycle progression through G1</article-title>
+<source>Science</source>
+<volume>269</volume>
+<year>1995</year>
+<fpage>1270</fpage>
+<lpage>1272</lpage>
+<pub-id pub-id-type="pmid">7652575</pub-id></element-citation>
+      </ref>
+      <ref id="Patersonetal1990">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Paterson</surname><given-names>H.F.</given-names></name><name><surname>Self</surname><given-names>A.J.</given-names></name><name><surname>Garratt</surname><given-names>M.D.</given-names></name><name><surname>Just</surname><given-names>I.</given-names></name><name><surname>Aktories</surname><given-names>K.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>Microinjection of recombinant Rho induces rapid changes in morphology</article-title>
+<source>J. Cell Biol</source>
+<volume>111</volume>
+<year>1990</year>
+<fpage>1001</fpage>
+<lpage>1007</lpage>
+<pub-id pub-id-type="pmid">2118140</pub-id></element-citation>
+      </ref>
+      <ref id="Peteretal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Peter</surname><given-names>M.</given-names></name><name><surname>Neiman</surname><given-names>A.M.</given-names></name><name><surname>Park</surname><given-names>H.O.</given-names></name><name><surname>van Lohuizen</surname><given-names>M.</given-names></name><name><surname>Herskowitz</surname><given-names>I.</given-names></name></person-group>
+<article-title>Functional analysis of the interaction between the small GTP binding protein Cdc42 and the Ste20 protein kinase in yeast</article-title>
+<source>EMBO (Eur. Mol. Biol. Organ.) J</source>
+<volume>15</volume>
+<year>1996</year>
+<fpage>7046</fpage>
+<lpage>7059</lpage>
+</element-citation>
+      </ref>
+      <ref id="Quietal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Qui</surname><given-names>R.G.</given-names></name><name><surname>Abo</surname><given-names>A.</given-names></name><name><surname>McCormick</surname><given-names>F.</given-names></name><name><surname>Symons</surname><given-names>M.</given-names></name></person-group>
+<article-title>Cdc42 regulates anchorage-independent growth and is necessary for Ras transformation</article-title>
+<source>Mol. Cell. Biol.</source>
+<volume>17</volume>
+<year>1997</year>
+<fpage>3449</fpage>
+<lpage>3458</lpage>
+<pub-id pub-id-type="pmid">9154844</pub-id></element-citation>
+      </ref>
+      <ref id="Rameshetal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramesh</surname><given-names>N.</given-names></name><name><surname>Anton</surname><given-names>I.M.</given-names></name><name><surname>Hartwig</surname><given-names>J.H.</given-names></name><name><surname>Geha</surname><given-names>R.S.</given-names></name></person-group>
+<article-title>WIP, a protein associated with wiskott-aldrich syndrome protein, induces actin polymerization and redistribution in lymphoid cells</article-title>
+<source>Proc. Natl. Acad. Sci. USA</source>
+<volume>94</volume>
+<year>1997</year>
+<fpage>14671</fpage>
+<lpage>14676</lpage>
+<pub-id pub-id-type="pmid">9405671</pub-id></element-citation>
+      </ref>
+      <ref id="RidleyandHall1992">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ridley</surname><given-names>A.J.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>The small GTP-binding protein rho regulates the assembly of focal adhesions and actin stress fibers in response to growth factors</article-title>
+<source>Cell.</source>
+<volume>70</volume>
+<year>1992</year>
+<fpage>389</fpage>
+<lpage>399</lpage>
+<pub-id pub-id-type="pmid">1643657</pub-id></element-citation>
+      </ref>
+      <ref id="Ridleyetal1992">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ridley</surname><given-names>A.J.</given-names></name><name><surname>Paterson</surname><given-names>H.F.</given-names></name><name><surname>Johnston</surname><given-names>C.L.</given-names></name><name><surname>Diekmann</surname><given-names>D.</given-names></name><name><surname>Hall</surname><given-names>A.</given-names></name></person-group>
+<article-title>The small GTP-binding protein rac regulates growth factor induced membrane ruffling</article-title>
+<source>Cell.</source>
+<volume>70</volume>
+<year>1992</year>
+<fpage>401</fpage>
+<lpage>410</lpage>
+<pub-id pub-id-type="pmid">1643658</pub-id></element-citation>
+      </ref>
+      <ref id="Sarneretal2000">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sarner</surname><given-names>S.</given-names></name><name><surname>Kozma</surname><given-names>R.</given-names></name><name><surname>Ahmed</surname><given-names>S.</given-names></name><name><surname>Lim</surname><given-names>L.</given-names></name></person-group>
+<article-title>Phosphatidyl-inositol 3-kinase, Cdc42, Rac1 act downstream of Ras in integrin dependent neurite outgrowth in NIE 115 neuroblastoma cells</article-title>
+<source>Mol. Cell. Biol</source>
+<volume>20</volume>
+<year>2000</year>
+<fpage>158</fpage>
+<lpage>172</lpage>
+<pub-id pub-id-type="pmid">10594018</pub-id></element-citation>
+      </ref>
+      <ref id="Sambrooketal1989">
+        <element-citation publication-type="book">
+<person-group person-group-type="author"><name><surname>Sambrook</surname><given-names>J.E.F.</given-names></name><name><surname>Fritsch</surname></name><name><surname>Maniatis</surname><given-names>T.</given-names></name></person-group>
+<source>Molecular CloningA Laboratory Manual</source>
+<year>1989</year>
+<publisher-name>Cold Spring Harbor Laboratory Press</publisher-name>
+<publisher-loc>Cold Spring Harbor, NY</publisher-loc>
+</element-citation>
+      </ref>
+      <ref id="Sellsetal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sells</surname><given-names>M.A.</given-names></name><name><surname>Knaus</surname><given-names>U.G.</given-names></name><name><surname>Ambrose</surname><given-names>D.</given-names></name><name><surname>Bokoch</surname><given-names>G.M.</given-names></name><name><surname>Chernoff</surname><given-names>J.</given-names></name></person-group>
+<article-title>Human p21 activated kinase (PAK1) regulate actin organization in mammalian cells</article-title>
+<source>Curr. Biol.</source>
+<volume>7</volume>
+<year>1997</year>
+<fpage>202</fpage>
+<lpage>210</lpage>
+<pub-id pub-id-type="pmid">9395435</pub-id></element-citation>
+      </ref>
+      <ref id="Stowersetal1995">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stowers</surname><given-names>L.</given-names></name><name><surname>Yelon</surname><given-names>D.</given-names></name><name><surname>Berg</surname><given-names>L.J.</given-names></name><name><surname>Chant</surname><given-names>J.</given-names></name></person-group>
+<article-title>Regulation of the polarization of T cells towards antigen presenting cells by Ras-related GTPase Cdc42</article-title>
+<source>Proc. Natl. Acad. Sci. USA.</source>
+<volume>92</volume>
+<year>1995</year>
+<fpage>5027</fpage>
+<lpage>5031</lpage>
+<pub-id pub-id-type="pmid">7761442</pub-id></element-citation>
+      </ref>
+      <ref id="Symonsetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Symons</surname><given-names>M.</given-names></name><name><surname>Derry</surname><given-names>J.M.</given-names></name><name><surname>Karlar</surname><given-names>B.</given-names></name><name><surname>Jiang</surname><given-names>S.</given-names></name><name><surname>Lemahieu</surname><given-names>V.</given-names></name><name><surname>McCormick</surname><given-names>F.</given-names></name><name><surname>Francke</surname><given-names>U.</given-names></name><name><surname>Abo</surname><given-names>A.</given-names></name></person-group>
+<article-title>Wiskott-Aldrich syndrome protein, a novel effector for the GTPase CDC42Hs, is implicated in actin polymerization</article-title>
+<source>Cell.</source>
+<volume>84</volume>
+<year>1996</year>
+<fpage>723</fpage>
+<lpage>734</lpage>
+<pub-id pub-id-type="pmid">8625410</pub-id></element-citation>
+      </ref>
+      <ref id="VanAelstandDSouza-Schorey1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Van Aelst</surname><given-names>L.</given-names></name><name><surname>D'Souza-Schorey</surname><given-names>C.</given-names></name></person-group>
+<article-title>Rho GTPases and signaling networks</article-title>
+<source>Genes Dev.</source>
+<volume>11</volume>
+<year>1997</year>
+<fpage>2295</fpage>
+<lpage>2322</lpage>
+<pub-id pub-id-type="pmid">9308960</pub-id></element-citation>
+      </ref>
+      <ref id="VanLeeuwenetal1997">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Van Leeuwen</surname><given-names>F.N.</given-names></name><name><surname>Kain</surname><given-names>H.E.T.</given-names></name><name><surname>Van der Kammen</surname><given-names>R.A.</given-names></name><name><surname>Michiels</surname><given-names>F.</given-names></name><name><surname>Kranenburg</surname><given-names>O.W.</given-names></name><name><surname>Collard</surname><given-names>J.G.</given-names></name></person-group>
+<article-title>The guanine nucleotide exchange factor Tiam1 affects neuronal morphology; opposing roles for the small GTPases Rac and Rho</article-title>
+<source>J. Cell Biol</source>
+<volume>139</volume>
+<year>1997</year>
+<fpage>797</fpage>
+<lpage>807</lpage>
+<pub-id pub-id-type="pmid">9348295</pub-id></element-citation>
+      </ref>
+      <ref id="Yehetal1996">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yeh</surname><given-names>T.C.</given-names></name><name><surname>Ogawa</surname><given-names>W.</given-names></name><name><surname>Danielsen</surname><given-names>A.G.</given-names></name><name><surname>Roth</surname><given-names>R.A.</given-names></name></person-group>
+<article-title>Characterization and cloning of a 58/53 kDa substrate of the insulin receptor tyrosine kinase</article-title>
+<source>J. Biol. Chem.</source>
+<volume>271</volume>
+<year>1996</year>
+<fpage>2921</fpage>
+<lpage>2928</lpage>
+<pub-id pub-id-type="pmid">8621681</pub-id></element-citation>
+      </ref>
+      <ref id="Yehetal1998">
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yeh</surname><given-names>T.C.</given-names></name><name><surname>Li</surname><given-names>W.L.</given-names></name><name><surname>Keller</surname><given-names>G.A.</given-names></name><name><surname>Roth</surname><given-names>R.A.</given-names></name></person-group>
+<article-title>Disruption of a putative SH3 domain and the proline-rich motifs in the 53-kDa substrate of the insulin receptor kinase does not alter its subcellular localization or ability to serve as a substrate</article-title>
+<source>J. Cell. Biochem.</source>
+<volume>68</volume>
+<year>1998</year>
+<fpage>139</fpage>
+<lpage>150</lpage>
+<pub-id pub-id-type="pmid">9443070</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Primary structure and expression of IRS-58. (A) The Bgl2 fragment of IRS-58 isolated from the two-hybrid screen was cloned into the Bluescript vector and sequenced on both strands with an automated ABI sequencer. The derived protein sequence is shown with three putative protein&#x2013;protein interaction domains as reported previously (<xref ref-type="bib" rid="Yehetal1996">Yeh et al. 1996</xref>, <xref ref-type="bib" rid="Yehetal1998">Yeh et al. 1998</xref>). SH3-binding domain is in bold type and underlined; SH3 domain is underlined; and the WW-binding domain is in bold. (B) BLAST searches of three protein domains: an SH3-binding site, an SH3-binding domain, and a WW domain&#x2013;binding site. (C) A multiple tissue mRNA blot was probed with IRS-58 cDNA and processed, as described in Materials and Methods, and exposed to film for 48 h.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f1a"/>
+      <graphic xlink:href="JCB0011075.f1b"/>
+      <graphic xlink:href="JCB0011075.f1c"/>
+    </fig>
+    <fig id="F2" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Cdc42Hs, Rac1, and RhoA interaction with IRS-58. Cdc42HsL61, Rac1L61, and RhoAL63 were labeled with [&#x3B3;-<sup>32</sup>P]GTP by exchange in the presence of EDTA and used to probe IRS-58&#x2013;GST fusion protein (142&#x2013;363 amino acid residues) immobilized on nitrocellulose filter. (A) Lanes 1&#x2013;3, IRS-58, 30, 10, and 1 &#x3BC;g total protein; lane 4, GST 25 &#x3BC;g; lane 5, &#x3B2;PAK (37&#x2013;137 amino acid residues) 27.5 &#x3BC;g (for Cdc42Hs and Rac1) and p190 GAP domain 20 &#x3BC;g (for RhoA). (B) Cdc42Hs wild-type was labeled as described above and either used immediately or incubated for 60 min before use. Due to the high intrinsic GTPase activity of Cdc42Hs the &#x3B1;-labeled GTP probe becomes GDP. LANES 1 and 2, IRS-58&#x2013;GST fusion protein (202&#x2013;305 amino acid residues) 1 &#x3BC;g and 0.1 &#x3BC;g. (C) Lanes 1&#x2013;3, IRS-58 fusion protein (202&#x2013;305) 10, 1, and 0.1 &#x3BC;g, was probed with L61, L61C40, and L61A37; lane 4, GST 10 &#x3BC;g; lanes 5 and 6, purified PAK fraction from neutrophil cytosol extract 50 &#x3BC;g and 10 &#x3BC;g total protein.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f2"/>
+    </fig>
+    <fig id="F3" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Localization of the Cdc42Hs-binding site of IRS-58. Different portions of IRS-58 were expressed as GST fusion proteins and either dot-blotted or Western-transferred after SDS-PAGE onto nitrocellulose and then probed with Cdc42HsL61 as described in the legend to <xref ref-type="fig" rid="F2">Fig. 2</xref>. (A) Deletion mutants coming in from the 3&#x2032; end using restriction sites. Lane 1, amino acid residues 1&#x2013;534; lane 2, 1&#x2013;432; lane 3, 1&#x2013;358; lane 4, 1&#x2013;142; lane 5, 142&#x2013;358; lane 6, GST. Rows a&#x2013;c, &#x223C;30, 15, and 1 &#x3BC;g protein, respectively. (B&#x2013;D) Shown in parallel with the overlay blot and corresponding Coomassie-stained protein gel. (B) PCR was used to generate minimal binding fragments (amino acid residues 202&#x2013;305 and 266&#x2013;305). Lanes 1 and 1&#x2032;, GST 25 &#x3BC;g; lanes 2 and 2&#x2032;, IRS-58 (202&#x2013;305) 45 &#x3BC;g; lanes 3 and 3&#x2032;, IRS-58 (266&#x2013;305) 35 &#x3BC;g. (C) Point mutations were made into the minimal IRS-58 (267&#x2013;305) Cdc42Hs-binding fragment: NSDA, NSDP, and IPDP. Lanes 1 and 1&#x2032;, IRS-58 (267&#x2013;305) 60 &#x3BC;g; lanes 2 and 2&#x2032;, GST 2 &#x3BC;g; lanes 3 and 3&#x2032;, IRS-58<sup>I267N/P270A</sup> 55 &#x3BC;g; lanes 4 and 4&#x2032;, IRS-58<sup>I267N</sup> 45 &#x3BC;g; lanes 5 and 5&#x2032;, IRS-58 <sup>S268P</sup> 45 &#x3BC;g. (D) Lanes 1 and 1&#x2032;, GST 30 &#x3BC;g; lanes 2 and 2&#x2032;, IRS-58 (1&#x2013;534) 60 &#x3BC;g; lanes 3 and 3&#x2032;, IRS-58<sup>I267N</sup> (1&#x2013;534) 45 &#x3BC;g; lanes 4 and 4&#x2032;, IRS-58 (1&#x2013;266) 40 &#x3BC;g; lanes 5 and 5&#x2032;, IRS-58 (306&#x2013;534) 20 &#x3BC;g. (E) A summary of binding analysis, showing the fragments of IRS-58 examined and the domain positions. Point mutations are shown on a expanded scale of 40&#x2013;amino acid residues. The polyproline sequence is underlined. 1 indicates that Cdc42H5 binds much more weakly to the 40&#x2013;amino acid residue fragment than to the larger polypeptides.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f3ad"/>
+      <graphic xlink:href="JCB0011075.f3e"/>
+    </fig>
+    <fig id="F4" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Overexpression of IRS-58 in Swiss 3T3 cells. Serum-starved Swiss 3T3 cells were microinjected with cDNA encoding HA-tagged IRS-58 in a pXJ40 vector and left for 3 h before fixing and staining of cells. Anti-HA antibody was used to detect IRS-58&#x2013;expressing cells and cells were also stained for F-actin with rhodamine-conjugated phalloidin as described in Materials and Methods. (A, C, and E) IRS-58; (B, D, and F) F-actin. Arrows mark injected cells in A, C, and E and the corresponding F-actin staining in B, D, and F. The insert in A shows a magnified version of part of the image. Arrowheads in the insert highlight particulate structures/protein aggregates. Arrows in panels indicate transfected cells. Some transfected cells are not marked. Bar, 10 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f4"/>
+    </fig>
+    <fig id="F5" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>Analysis of IRS-58 F-actin cluster formation. Serum-starved Swiss 3T3 cells were microinjected with IRS-58 cDNA in pXJ40 as described in the legend to <xref ref-type="fig" rid="F3">Fig. 3</xref>. A single cell with low levels of IRS-58 expression is examined in more detail by confocal analysis. (A) F-actin (panel A); HA stain (panel B); and HA stain and IRS-58 (green), with F-actin (red) staining with colocalization shown in blue (panel C); colocalization signal only (panel D). Inserts in A&#x2013;D show a magnified region of the cell (position of magnification shown by dashed line box in panel C). Arrow in inserts show filopodia. Arrows in main figure show F-actin clusters. (B) Z-series with panel A bottom to panel H top. Green stain visualizing IRS-58; red stain, F-actin; and blue/purple stain, colocalization. Bars: (A) 10 &#x3BC;M; (B) 20 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f5a"/>
+      <graphic xlink:href="JCB0011075.f5b"/>
+    </fig>
+    <fig id="F6" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p>Effect of COOH-terminal deletions of IRS-58 on F-actin reorganization. Serum-starved Swiss 3T3 cells were microinjected with IRS-58 cDNA constructs encoding amino acid residues 1&#x2013;510 (A and B) or 1&#x2013;142 (C and D). HA stain and IRS-58 (A and C, respectively); F-actin stain (panels B and D). Arrows in panels indicate transfected cells. Some transfected cells are not marked. Bar, 15 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f6"/>
+    </fig>
+    <fig id="F7" position="float">
+      <label>Figure 7</label>
+      <caption>
+        <p>Overexpression of IRS-58<sup>I267N</sup> (1&#x2013;534) Cdc42Hs binding&#x2013;defective mutant in Swiss 3T3 cells. Serum-starved Swiss 3T3 cells were microinjected with IRS-58 <sup>I267N</sup> cDNA as described in the legend to <xref ref-type="fig" rid="F4">Fig. 4</xref>. Cells were double-stained for IRS-58 and F-actin. Compare with <xref ref-type="fig" rid="F5">Fig. 5</xref> A for IRS-58 effects on Swiss 3T3 cells. F-actin (A), IRS-58 (B), and IRS-58 (green) with F-actin (red) staining with colocalization in blue (C). Colocalization signal of IRS-58 with F-actin alone (D). Bar, 10 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f7"/>
+    </fig>
+    <fig id="F8" position="float">
+      <label>Figure 8</label>
+      <caption>
+        <p>Phase&#x2013;contrast time-lapse analysis of IRS-58&#x2013;expressing N1E-115 cells. IRS-58 cDNA in pXJ40 was used to transiently transfect N1E-115 neuroblastoma cells as described in Materials and Methods, and cells were then left for 18&#x2013;24 h in growth media. (A) Seven time points are shown at 1-min intervals. In panel 7 arrows show the formation of three new neurites. (B) Morphological activity along a neurite is shown. Arrows show the rapid appearance and disappearance of filopodia over a 7-min time course. Bars: (A) 10 &#x3BC;M; (B) 5 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f8"/>
+    </fig>
+    <fig id="F9" position="float">
+      <label>Figure 9</label>
+      <caption>
+        <p>Overexpression of IRS-58 in N1E-115 cells. IRS-58 cDNA in pXJ40 was used to transiently transfect N1E-115 neuroblastoma cells, as described in Materials and Methods, and cells were the left for 18&#x2013;24 h in growth media. (A) Cells shown in panels A and B are controls. Panel A, serum-starved cell; panel B, growing cell transfected with pXJ40 empty vector; panel C, IRS-58&#x2013;transfected cell. Cells shown in panels D and E are transfections of COOH-terminal deletions of IRS-58: IRS-58 (1&#x2013;510) and IRS-58 (1&#x2013;390). Cells shown in panels F and G are coexpressions of IRS-58 with dominant negative Rac1 (T17N) and dominant negative Cdc42Hs (T17N), respectively. Panel A, F-actin stain. Panels B&#x2013;G, HA-stain. (B) IRS-58<sup>I267N</sup> in N1E-115 cells (panels A, C, E, and G) and IRS-58 (panels, B, D, F, and H). Panels A and B are double-stained for HA (green) and F-actin (red). Panels C and D are stained for F-actin; panels E and F are HA stained. Panels G and H show colocalization of F-actin/IRS-58 without individual signals. Bars, 10 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f9a"/>
+      <graphic xlink:href="JCB0011075.f9b"/>
+    </fig>
+    <fig id="F10" position="float">
+      <label>Figure 10</label>
+      <caption>
+        <p>Quantification of the effects of IRS-58 on N1E-115 neuroblastoma cells. Cells transfected with cDNAs were left for 18&#x2013;24 h and then scored for (A) neurite outgrowth or (B) neurite complexity. (A) Lane 1, pXJ40; lane 2, no cDNA with 5% serum; lane 3, no cDNA serum-starved; lane 4, IRS-58; lane 5, IRS-58 (amino acids 1&#x2013;390); and lane 6, IRS-58<sup>I269N</sup>. Neurite outgrowth was scored by evaluating the percentage of cells with neurites longer than one cell body length. (B) Lane 1, serum starvation; lane 2, IRS-58; and lane 3, IRS-58 (amino acids 1&#x2013;390). In determining percentage complexity, neurites were examined for both filopodial number and lamellipodial area as follows: (a) 50 filopodia/neurite was arbitrarily set at a score of 100%; (b) the proportion of neurite length covered by lamellipodia was scored using 100% to represent coverage of the whole neurite length. Percentage complexity was then determined by adding values obtained from (a) and (b) and dividing by 2. In some instances (e.g., <xref ref-type="fig" rid="F9">Fig. 9</xref> A, panel C), where lamellipodia were absent, percentage complexity was based solely on (a) values. Numbers are averages &#xB1; SD; <italic>n</italic> = 21.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f10"/>
+    </fig>
+    <fig id="F11" position="float">
+      <label>Figure 11</label>
+      <caption>
+        <p>Endogenous IRS-58 colocalizes with F-actin in filopodia. (A) N1E-115 cells were transfected with IRS-58 cDNA or empty vector control, left for 18&#x2013;24 h, and then stained with anti&#x2013;IRS-58&#x2013;specific monoclonal antibodies and phalloidin. (B) Serum-starved cells were double-stained with anti&#x2013;IRS-58&#x2013;specific monoclonal and phalloidin. Staining procedures were as described in Materials and Methods. Inserts in B shows a magnified region of the cell (position of magnification shown by dashed line box). Bars, 20 &#x3BC;M.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f11"/>
+    </fig>
+    <fig id="F12" position="float">
+      <label>Figure 12</label>
+      <caption>
+        <p>IRS-58 phenotypes in N1E-115 cells produced by deletion and mutation. A schematic of IRS-58 is shown in which protein&#x2013;protein interactions are summarized. The insulin receptor (IR) phosphorylates the NH<sub>2</sub> terminus at three potential sites (<xref ref-type="bib" rid="Okamura-Ohoetal1999">Okamura-Oho et al. 1999</xref>). A polyproline sequence lies within the Cdc42Hs-binding site. IRS-58 possesses at least two other protein&#x2013;protein interaction sites, an SH3 domain, and a WW-binding domain. Atrophin-1 and BA1I have been shown to bind to the SH3 domain. IRS-58 induces neurite outgrowth with high complexity and hyperactivity which is increased in *IRS-58 (1&#x2013;510) mutant. IRS-58 (1&#x2013;390) induces neurite extension with little complexity, suggesting that the region between amino acid residues 391&#x2013;526 is responsible for the complexity. <sup>1</sup>IRS-58<sup>I267N</sup> and <sup>2</sup>IRS-58 (1&#x2013;142) do not induce neurite outgrowth. The <sup>1</sup>IRS-58<sup>I267N</sup> mutant induces cell elongation in some cells but no longer colocalizes with F-actin, suggesting that interaction with Cdc42Hs is required for F-actin association. Similar results were observed in Swiss 3T3 cells in <xref ref-type="fig" rid="F7">Fig. 7</xref>.</p>
+      </caption>
+      <graphic xlink:href="JCB0011075.f12"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

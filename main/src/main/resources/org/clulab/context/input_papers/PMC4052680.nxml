@@ -1,0 +1,2446 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Biochem J</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biochem. J</journal-id>
+      <journal-id journal-id-type="pmc">bic</journal-id>
+      <journal-id journal-id-type="publisher-id">BJ</journal-id>
+      <journal-title-group>
+        <journal-title>Biochemical Journal</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0264-6021</issn>
+      <issn pub-type="epub">1470-8728</issn>
+      <publisher>
+        <publisher-name>Portland Press Ltd.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24467442</article-id>
+      <article-id pub-id-type="pmc">4052680</article-id>
+      <article-id pub-id-type="publisher-id">BJ20131344</article-id>
+      <article-id pub-id-type="doi">10.1042/BJ20131344</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Phosphorylation by Akt within the ST loop of AMPK-&#x3B1;1 down-regulates its activation in tumour cells</article-title>
+        <alt-title alt-title-type="right-running-head">Ser<sup>487</sup> phosphorylation by Akt down-regulates AMPK</alt-title>
+        <alt-title alt-title-type="left-running-head">S. A. Hawley and others</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hawley</surname>
+            <given-names>Simon&#xA0;A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ross</surname>
+            <given-names>Fiona&#xA0;A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gowans</surname>
+            <given-names>Graeme&#xA0;J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tibarewal</surname>
+            <given-names>Priyanka</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">*</xref>
+          <xref ref-type="author-notes" rid="fn1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Leslie</surname>
+            <given-names>Nicholas&#xA0;R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">*</xref>
+          <xref ref-type="author-notes" rid="fn1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hardie</surname>
+            <given-names>D. Grahame</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">*</xref>
+          <xref ref-type="corresp" rid="COR1">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <aff id="A1">*Division of Cell Signalling &amp; Immunology, College of Life Sciences, University of Dundee, Dundee DD1 5EH, Scotland, U.K.</aff>
+      </contrib-group>
+      <author-notes>
+        <fn id="fn1" fn-type="present-address">
+          <p><sup>1</sup>Present address: Institute of Biological Chemistry, Biophysics and Bioengineering, School of Engineering and Physical Sciences, Heriot Watt University, Edinburgh EH14 4AS, Scotland, U.K.</p>
+        </fn>
+        <corresp id="COR1"><sup>2</sup>To whom correspondence should be addressed (email <email>d.g.hardie@dundee.as.uk</email>).</corresp>
+      </author-notes>
+      <pub-date pub-type="epreprint">
+        <day>27</day>
+        <month>1</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>28</day>
+        <month>3</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>15</day>
+        <month>4</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>459</volume>
+      <issue>Pt 2</issue>
+      <fpage>275</fpage>
+      <lpage>287</lpage>
+      <history>
+        <date date-type="received">
+          <day>9</day>
+          <month>10</month>
+          <year>2013</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>16</day>
+          <month>1</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>27</day>
+          <month>1</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2014 This is an Open Access article distributed under the terms of the Creative Commons Attribution Licence (CC-BY)(http://creativecommons.org/licenses/by/3.0/) which permits unrestricted use, distribution and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>The insulin/IGF-1 (insulin-like growth factor 1)-activated protein kinase Akt (also known as protein kinase B) phosphorylates Ser<sup>487</sup> in the &#x2018;ST loop&#x2019; (serine/threonine-rich loop) within the C-terminal domain of AMPK-&#x3B1;1 (AMP-activated protein kinase-&#x3B1;1), leading to inhibition of phosphorylation by upstream kinases at the activating site, Thr<sup>172</sup>. Surprisingly, the equivalent site on AMPK-&#x3B1;2, Ser<sup>491</sup>, is not an Akt target and is modified instead by autophosphorylation. Stimulation of HEK (human embryonic kidney)-293 cells with IGF-1 caused reduced subsequent Thr<sup>172</sup> phosphorylation and activation of AMPK-&#x3B1;1&#xA0;in response to the activator A769662 and the Ca<sup>2+</sup> ionophore A23187, effects we show to be dependent on Akt activation and Ser<sup>487</sup> phosphorylation. Consistent with this, in three PTEN (phosphatase and tensin homologue deleted on chromosome 10)-null tumour cell lines (in which the lipid phosphatase PTEN that normally restrains the Akt pathway is absent and Akt is thus hyperactivated), AMPK was resistant to activation by A769662. However, full AMPK activation could be restored by pharmacological inhibition of Akt, or by re-expression of active PTEN. We also show that inhibition of Thr<sup>172</sup> phosphorylation is due to interaction of the phosphorylated ST loop with basic side chains within the &#x3B1;C-helix of the kinase domain. Our findings reveal that a previously unrecognized effect of hyperactivation of Akt in tumour cells is to restrain activation of the LKB1 (liver kinase B1)&#x2013;AMPK pathway, which would otherwise inhibit cell growth and proliferation.</p>
+      </abstract>
+      <abstract abstract-type="short">
+        <p>Akt phosphorylates the &#x3B1;1 subunit of AMPK at Ser<sup>487</sup>, leading to reduced Thr<sup>172</sup> phosphorylation and activation by LKB1. We establish a molecular mechanism for this effect and show that it causes down-regulation of AMPK in several PTEN-null tumour cell lines.</p>
+      </abstract>
+      <kwd-group kwd-group-type="kwd">
+        <kwd>Akt</kwd>
+        <kwd>AMP-activated protein kinase (AMPK)</kwd>
+        <kwd>cancer</kwd>
+        <kwd>cross-talk</kwd>
+        <kwd>tumour suppressor</kwd>
+      </kwd-group>
+      <kwd-group kwd-group-type="abbr">
+        <kwd>ACC, acetyl-CoA carboxylase</kwd>
+        <kwd>AICAR, 5-amino-4-imidazolecarboxamide riboside</kwd>
+        <kwd>AMPK, AMP-activated protein kinase</kwd>
+        <kwd>BRSK, brain-specific kinase</kwd>
+        <kwd>CaMKK, calmodulin-dependent kinase kinase &#x3B2;</kwd>
+        <kwd>DMEM, Dulbecco&#x2019;s modified Eagle&#x2019;s medium</kwd>
+        <kwd>GSK3, glycogen synthase kinase 3</kwd>
+        <kwd>HEK, human embryonic kidney</kwd>
+        <kwd>IGF-1, insulin-like growth factor 1</kwd>
+        <kwd>LKB1, liver kinase B1</kwd>
+        <kwd>MEF, mouse embryonic fibroblast</kwd>
+        <kwd>MO25&#x3B1;, mouse protein-25&#x3B1;</kwd>
+        <kwd>mTORC1, mammalian (or mechanistic) target of rapamycin complex 1</kwd>
+        <kwd>NEAA, non-essential amino acid</kwd>
+        <kwd>PI3K, phosphoinositide 3-kinase</kwd>
+        <kwd>PKA, protein kinase A (cAMP-dependent protein kinase)</kwd>
+        <kwd>PTEN, phosphatase and tensin homologue deleted on chromosome 10</kwd>
+        <kwd>S6K1, S6 kinase 1</kwd>
+        <kwd>ST loop, serine/threonine-rich loop</kwd>
+        <kwd>STRAD&#x3B1;, Ste20-related adapter protein-&#x3B1;</kwd>
+        <kwd>WT, wild-type</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="7"/>
+        <ref-count count="48"/>
+        <page-count count="13"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>INTRODUCTION</title>
+      <p>AMPK (AMP-activated protein kinase) is a ubiquitously expressed sensor of cellular energy status [<xref rid="B1" ref-type="bibr">1</xref>], which exists in essentially all eukaryotic cells as heterotrimeric complexes comprising a catalytic &#x3B1; subunit and regulatory &#x3B2; and &#x3B3; subunits. The &#x3B1; subunits are phosphorylated by upstream kinases at conserved threonine residues within the activation loop (Thr<sup>172</sup> in rat &#x3B1;1/&#x3B1;2), causing &gt;100-fold activation [<xref rid="B2" ref-type="bibr">2</xref>]. Kinases that phosphorylate Thr<sup>172</sup> include the tumour suppressor LKB1 (liver kinase B1) [<xref rid="B3" ref-type="bibr">3</xref>&#x2013;<xref rid="B5" ref-type="bibr">5</xref>], and the Ca<sup>2+</sup>-dependent kinase CaMKK&#x3B2; (calmodulin-dependent kinase kinase &#x3B2;) [<xref rid="B6" ref-type="bibr">6</xref>&#x2013;<xref rid="B8" ref-type="bibr">8</xref>]. The &#x3B3; subunits contain up to three sites where ADP or AMP bind in competition with ATP [<xref rid="B9" ref-type="bibr">9</xref>&#x2013;<xref rid="B12" ref-type="bibr">12</xref>]. Binding of AMP or ADP causes conformational changes that enhance net phosphorylation at Thr<sup>172</sup> by inhibiting dephosphorylation, whereas binding of AMP, but not ADP, promotes phosphorylation by LKB1 and causes allosteric activation [<xref rid="B10" ref-type="bibr">10</xref>,<xref rid="B13" ref-type="bibr">13</xref>&#x2013;<xref rid="B15" ref-type="bibr">15</xref>]. The drug A769662 and the natural product salicylate mimic the ability of AMP to inhibit Thr<sup>172</sup> dephosphorylation and cause allosteric activation, but bind at a different site involving the &#x3B2; subunit [<xref rid="B16" ref-type="bibr">16</xref>&#x2013;<xref rid="B18" ref-type="bibr">18</xref>].</p>
+      <p>AMPK is thus activated by metabolic stresses that deplete ATP, and increase ADP and AMP. Such stresses include compounds inhibiting mitochondrial ATP synthesis, such as the anti-diabetic drugs metformin and phenformin, and the natural products galegine, resveratrol and berberine [<xref rid="B19" ref-type="bibr">19</xref>]. Once activated, AMPK switches on catabolic pathways that generate ATP while switching off anabolic pathways and other ATP-requiring processes such as progress through the cell cycle [<xref rid="B1" ref-type="bibr">1</xref>]. Thus AMPK has a cytostatic effect on proliferating cells, suggesting that it might exert some of the tumour suppressor effects of its upstream kinase, LKB1. This was supported by recent studies of a mouse B-cell lymphoma model, in which AMPK appeared to act as a negative regulator both of the rapid glycolysis (Warburg effect) and the high growth rate of the tumours [<xref rid="B20" ref-type="bibr">20</xref>].</p>
+      <p>If the LKB1&#x2013;AMPK pathway acts as a tumour suppressor, one might expect many tumour cells to have been selected for mechanisms that down-regulate it. Indeed, somatic loss-of-function mutations in the gene encoding LKB1 (<italic>STK11</italic>) occur in approximately 30% of non-small-cell lung cancers [<xref rid="B21" ref-type="bibr">21</xref>,<xref rid="B22" ref-type="bibr">22</xref>] and 20% of cervical cancers [<xref rid="B23" ref-type="bibr">23</xref>]. In the HeLa cell, derived from a cervical cancer that had undergone a large deletion in <italic>STK11</italic> [<xref rid="B23" ref-type="bibr">23</xref>], increases in AMP and ADP do not enhance Thr<sup>172</sup> phosphorylation [<xref rid="B4" ref-type="bibr">4</xref>] because the basal activity of CaMKK&#x3B2; is too low to support this unless intracellular Ca<sup>2+</sup> is also elevated [<xref rid="B24" ref-type="bibr">24</xref>]. Somatic mutations in genes encoding AMPK appear to be less frequent in tumours than those in <italic>STK11</italic>, perhaps due to redundancy between multiple AMPK isoforms. However, there may be epigenetic or non-genetic mechanisms by which AMPK is down-regulated in tumour cells. For example, AMPK-&#x3B1;2 expression appears to be frequently down-regulated in hepatocellular carcinoma [<xref rid="B25" ref-type="bibr">25</xref>].</p>
+      <p>The PI3K (phosphoinositide 3-kinase)&#x2013;Akt (protein kinase B) signalling pathway is frequently activated in tumour cells, often via loss of the tumour suppressor PTEN (phosphatase and tensin homologue deleted on chromosome 10), but also via activating mutations in subunits of PI3K or upstream receptors [<xref rid="B26" ref-type="bibr">26</xref>]. Interestingly, Akt phosphorylates the &#x3B1;1 subunit of rat AMPK at Ser<sup>485</sup> (equivalent to Ser<sup>487</sup> in human &#x3B1;1), and this was reported to reduce subsequent Thr<sup>172</sup> phosphorylation and activation by LKB1 [<xref rid="B27" ref-type="bibr">27</xref>]. Additionally, PKA (protein kinase A; also known as cAMP-dependent protein kinase) was reported to phosphorylate Ser<sup>485</sup> with similar effects [<xref rid="B28" ref-type="bibr">28</xref>]. High glucose and IGF-1 (insulin-like growth factor 1) also caused phosphorylation of AMPK-&#x3B1;1 at Ser<sup>487</sup> in porcine vascular smooth muscle cells, and this was associated with reduced Thr<sup>172</sup> phosphorylation in response to metformin [<xref rid="B29" ref-type="bibr">29</xref>]. This mechanism has also been invoked to account for down-regulation of AMPK in human hepatoma cells infected with hepatitis C virus [<xref rid="B30" ref-type="bibr">30</xref>]. However, these studies did not provide definitive proof that the Ser<sup>485</sup>/Ser<sup>487</sup> phosphorylation and the reduced Thr<sup>172</sup> phosphorylation observed in the intact cells were causally related.</p>
+      <p>Ser<sup>487</sup> is located in a loop (residues 472&#x2013;525&#xA0;in human &#x3B1;1) that is present in the sequences of &#x3B1; subunits from vertebrates and <italic>Caenorhabditis elegans</italic>, but is truncated or absent in insects (<italic>Drosophila melanogaster</italic>) and fungi (Saccharomyces <italic>cerevisiae</italic>) (Supplementary Figure S1 at <ext-link ext-link-type="uri" xlink:href="http://www.biochemj.org/bj/459/bj4590275add.htm">http://www.biochemj.org/bj/459/bj4590275add.htm</ext-link>). This loop was disordered in the crystal structure of a partial mammalian &#x3B1;&#x3B2;&#x3B3; complex expressed in bacteria [<xref rid="B11" ref-type="bibr">11</xref>]. We now refer to it as the &#x2018;ST loop&#x2019; because it is rich in serine and threonine residues, and it has recently been shown to be phosphorylated by GSK3 (glycogen synthase kinase 3) at Thr<sup>481</sup> and Ser<sup>477</sup> (human numbering), which appeared to promote Thr<sup>172</sup> dephosphorylation [<xref rid="B31" ref-type="bibr">31</xref>]. In the present study, we have examined whether phosphorylation of this loop causes down-regulation of AMPK in tumour cells in which the Akt pathway is hyperactivated. We also provide evidence that the ST loop binds to the kinase domain when phosphorylated at Ser<sup>487</sup> by interactions with the &#x3B1;C helix, thus physically blocking access to Thr<sup>172</sup>.</p>
+    </sec>
+    <sec>
+      <title>EXPERIMENTAL</title>
+      <sec>
+        <title>Materials and proteins</title>
+        <p>IGF-1, rapamycin, berberine, phenformin, quercetin and A23187 were from Sigma. MK2206 and A769662 were synthesized by the Division of Signal Transduction Therapy (DSTT) at the University of Dundee. Plasmids expressing the recombinant human &#x3B1;1&#x3B2;2&#x3B3;1 and &#x3B1;2&#x3B2;2&#x3B3;1 complexes were gifts from the DSTT and AstraZeneca respectively. Mutations were introduced using the QuikChange&#xAE; XL site-directed mutagenesis kit (Stratagene). Recombinant human Akt, LKB1 [LKB1&#x2014;STRAD&#x3B1; (Ste20-related adapter protein-&#x3B1;)&#x2013;MO25&#x3B1; (mouse protein-25&#x3B1;) complex] and BRSK2 (brain-specific kinase 2) were provided by the DSTT.</p>
+      </sec>
+      <sec>
+        <title>Antibodies</title>
+        <p>Affinity-purified antibodies against AMPK-&#x3B1; subunits [<xref rid="B32" ref-type="bibr">32</xref>] and BRSK2 [<xref rid="B33" ref-type="bibr">33</xref>], and phospho- and isoform-specific antibodies against Ser<sup>487</sup> on AMPK-&#x3B1;1 and Ser<sup>491</sup> on AMPK-&#x3B1;2 [<xref rid="B34" ref-type="bibr">34</xref>] were obtained as described previously. Anti-FLAG antibodies were from Sigma and anti-GSK3&#x3B2; antibodies were from Santa Cruz Biotechnology. Phospho-specific antibodies against Thr<sup>172</sup> on AMPK-&#x3B1;1/&#x3B1;2 (pT172), pan-specific antibodies against Ser<sup>487</sup>/Ser<sup>491</sup> on AMPK-&#x3B1;1/&#x3B1;2 (pS487/p491), Ser<sup>9</sup> on GSK3&#x3B2; (pS9), Thr<sup>308</sup> and Ser<sup>473</sup> on Akt (pT308, pS473), and Thr<sup>389</sup> on S6K1 (S6 kinase 1) (pT389) were from Cell Signaling Technology.</p>
+      </sec>
+      <sec>
+        <title>Expression and purification of AMPK in bacteria</title>
+        <p>Auto-induction medium was inoculated with overnight cultures of LB media containing the appropriate construct. Cultures were grown at 37&#xB0;C until the <italic>D</italic><sub>600</sub> reached &#x223C;0.5, where cultures were placed at 20&#xB0;C overnight. Bacteria were pelleted by centrifugation (7500&#xA0;<bold><italic>g</italic></bold>, 15&#xA0;min, 4&#xB0;C), lysed under liquid N<sub>2</sub> using a pestle and mortar, and resuspended in 50&#xA0;mM Tris/HCl, pH&#xA0;8.1, 500&#xA0;mM NaCl, 20&#xA0;mM imidazole and EDTA-free protease inhibitor cocktail (Roche). The lysate was purified via the His<sub>6</sub>-tag on the N-terminus of the &#x3B1; subunit using a HisTrap FF column (GE Healthcare Life Sciences). Fractions containing protein were pooled and dialysed into 50&#xA0;mM sodium/Hepes, pH&#xA0;8.0, and 200&#xA0;mM NaCl.</p>
+      </sec>
+      <sec>
+        <title>Sources of cells and cell culture conditions</title>
+        <p>HEK (human embryonic kidney)-293, DBTRG-05MG, U373-MG and G361 cells were from ECACC (European Collection of Cell Cultures)/HPA (Health Protection Agency) (Porton Down, U.K.) and MDA-MB-468 cells were from A.T.C.C.&#x2013;LGC Standards. HEK-293 cells stably expressing AMPK-&#x3B1;1/&#x3B1;2 were grown in DMEM (Dulbecco's modified Eagle's medium) containing 4.5&#xA0;g/l glucose, 10% (v/v) FBS, 100 IU/ml penicillin, 100&#xA0;&#x3BC;g/ml streptomycin and 200&#xA0;&#x3BC;g/ml hygromycin. U373-MG cells were grown in MEM (minimal essential medium) containing 10% (v/v) FBS and NEAA (non-essential amino acid) mixture. DBTRG-05 MG cells were grown in RPMI 1640 medium containing 10% (v/v) FBS and NEAA mixture. MDA-MB-468 cells were grown in DMEM containing 4.5&#xA0;g/l glucose and 10% (v/v) FBS. Lentiviral expression of PTEN or the C124S mutant was as described previously [<xref rid="B35" ref-type="bibr">35</xref>]. G361 cells were grown in McCoy's 5A medium containing 10% (v/v) FBS, 100 IU/ml penicillin and 100&#xA0;&#x3BC;g/ml streptomycin. All cells were switched to serum-free medium containing low (1&#xA0;g/l) glucose at 16&#xA0;h before treatment with IGF-1&#xA0;in the same medium, except that for G361 cells the normal glucose concentration (3&#xA0;g/l) was maintained.</p>
+      </sec>
+      <sec>
+        <title>AMPK assays in cell-free systems and cell lysates</title>
+        <p>AMPK activity was measured as described previously [<xref rid="B36" ref-type="bibr">36</xref>], but using the AMARA (AMARAASAAALARRR) peptide instead of SAMS (HMRSAMSGLHLVKRR) [<xref rid="B37" ref-type="bibr">37</xref>]. Lysates containing stably expressed recombinant FLAG-tagged &#x3B1; subunit were immunoprecipitated from HEK-293 cell lysates (70&#xA0;&#x3BC;g of protein) by incubation at 4&#xB0;C for 2&#xA0;h on a roller mixer with 7&#xA0;&#x3BC;l of EZview Red anti-FLAG M2 affinity gel (Sigma). After extensive washing, the immunoprecipitates were assayed for AMPK activity as described [<xref rid="B38" ref-type="bibr">38</xref>] using the AMARA peptide. Lysates from other cells (which did not express tagged recombinant AMPK) were immunoprecipitated and assayed for AMPK in the same way, except that anti-&#x3B1;1 or anti-&#x3B1;2 antibody bound to Protein G&#x2013;Sepharose (GE Healthcare) was used in place of anti-FLAG antibody.</p>
+      </sec>
+      <sec>
+        <title>Phosphorylation of GSK3&#x3B2; and AMPK by Akt in cell-free assays</title>
+        <p>GSK3&#x3B2; (0.5&#xA0;&#x3BC;g, D200A or D200A/S9A mutants), AMPK (&#x3B1;1&#x3B2;2&#x3B3;1 complex, D157A or D157A/S487A mutants, or &#x3B1;2&#x3B2;2&#x3B3;1 complex, D157A or D157A/S491A mutants), were incubated with the indicated amounts of Akt in a final volume of 20&#xA0;&#x3BC;l for 10&#xA0;min at 30&#xB0;C in the presence of 5&#xA0;mM MgCl<sub>2</sub> and 200&#xA0;&#x3BC;M [&#x3B3;-<sup>32</sup>P]ATP (500 c.p.m./pmol). Incubations were stopped and analysed by autoradiography of membranes after electrophoretic transfer to detect <sup>32</sup>P incorporation, followed by probing with the indicated antibodies.</p>
+      </sec>
+      <sec>
+        <title>Phosphorylation of AMPK by LKB1&#xA0;in cell-free assays</title>
+        <p>AMPK (0.5&#xA0;&#x3BC;g, with or without prior phosphorylation by Akt on Ser<sup>487</sup>) was incubated with the amount of LKB1 indicated in the Figure legends in a final volume of 20&#xA0;&#x3BC;l for 10&#xA0;min at 30&#xB0;C in the presence of 5&#xA0;mM MgCl<sub>2</sub> and 200&#xA0;&#x3BC;M ATP. AMPK activity was subsequently determined by transferring 5&#xA0;&#x3BC;l from this reaction mixture to an AMPK assay, as described below. The remaining 15&#xA0;&#x3BC;l was retained for analysis by Western blotting.</p>
+      </sec>
+      <sec>
+        <title>Generation of HEK-293 cells stably expressing &#x3B1;1, &#x3B1;2 or specified mutations</title>
+        <p>DNAs encoding full-length human &#x3B1;1 and &#x3B1;2 were amplified with primers designed to encode a 5&#x2032; KpnI site, and a 3&#x2032; FLAG-tag followed by an XhoI site. The resulting PCR products were cloned into the pcDNA5/FRT plasmid (Invitrogen). Stable cell lines were generated and cultured as described previously [<xref rid="B19" ref-type="bibr">19</xref>].</p>
+      </sec>
+      <sec>
+        <title>Incubation of HEK-293 cells with IGF-1 and various activators and inhibitors</title>
+        <p>HEK-293 cells, stably expressing AMPK [&#x3B1;1 WT (wild-type), &#x3B1;1-S487A or &#x3B1;2 WT as indicated] were grown to &#x2248;80% confluence and then serum-starved for 16&#xA0;h. Cells were then treated as described in the Figure legends. Pre-treatments with MK2206 (3&#xA0;&#x3BC;M) were for 30&#xA0;min. Pre-treatments with rapamycin (100&#xA0;nM) were for 45&#xA0;min. Incubations in the presence of 30&#xA0;ng/ml IGF-1 were for 20&#xA0;min. Treatments with A769662 (300&#xA0;&#x3BC;M) were for 40&#xA0;min (unless otherwise indicated) and those with berberine (300&#xA0;&#x3BC;M) for 60&#xA0;min.</p>
+      </sec>
+      <sec>
+        <title>Cloning, expression, purification and phosphorylation of the ST loop peptide</title>
+        <p>DNA encoding residues 466&#x2013;525 from human AMPK-&#x3B1;1 were amplified by PCR to include an N-terminal XhoI site and a C-terminal His<sub>6</sub>-tag followed by a KpnI site, allowing insertion into pGEXKG (GE Healthcare Life Sciences). Cultures were grown at 37&#xB0;C until the <italic>D</italic><sub>600</sub> reached &#x223C;0.6, when cultures were induced with 1&#xA0;mM IPTG and kept at 20&#xB0;C overnight. The bacteria were pelleted by centrifugation (7500&#xA0;<bold><italic>g</italic></bold>, 15&#xA0;min, 4&#xB0;C), lysed under liquid N<sub>2</sub> using a pestle and mortar, and resuspended in 50&#xA0;mM Tris/HCl, pH&#xA0;8.1, 500&#xA0;mM NaCl, 20&#xA0;mM imidazole and the EDTA-free protease inhibitor cocktail (Roche). The protein was purified using a HisTrap FF column (GE Healthcare Life Sciences). Fractions containing protein were pooled and incubated for 30&#xA0;min at 30&#xB0;C with 5&#xA0;mM MgCl<sub>2</sub> and 200&#xA0;&#x3BC;M ATP-&#x3B3;-phosphorothioate in the presence or absence of His<sub>6</sub>-tagged Akt. The mixture was then applied to a 1&#xA0;ml GST FF column (GE Healthcare Life Sciences). After washing, the column was loaded with thrombin protease (Sigma) in 50&#xA0;mM sodium/Hepes, pH&#xA0;8, and 200&#xA0;mM NaCl, capped, and left overnight at 4&#xB0;C. Flow-through fractions containing cleaved phosphorylated or non-phosphorylated peptide was collected.</p>
+      </sec>
+      <sec>
+        <title>Western blotting and other analytical procedures</title>
+        <p>For analysis of ACC (acetyl-CoA carboxylase) phosphorylation, SDS/PAGE was performed using precast Novex NuPAGE Tris-Acetate 3&#x2013;8% gradient polyacrylamide gels in the Tris-Acetate SDS buffer system. For analysis of all other proteins, SDS/PAGE was performed using precast Novex NuPAGE Bis-Tris 4&#x2013;12% gradient polyacrylamide gels in the Mops buffer system (Invitrogen). Proteins were transferred to nitrocellulose membranes (Bio-Rad Laboratories) using the Xcell blot module. Membranes were blocked in LI-COR Odyssey blocking buffer for 1&#xA0;h, and detection performed using the appropriate secondary antibody coupled with IR680 or IR800 dye. Membranes were scanned using the LI-COR Odyssey IR imager.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>Unless stated otherwise, statistical significance was tested using GraphPad Prism 5 by one-way ANOVA, with Bonferroni's multiple comparison tests of the selected datasets as shown in the Figures.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>RESULTS</title>
+      <sec>
+        <title>Akt phosphorylates Ser<sup>487</sup> on AMPK-&#x3B1;1, but not the equivalent site on AMPK-&#x3B1;2</title>
+        <p>Akt phosphorylates serine or threonine residues within the sequence motif RXRXXS/T&#x3A6;, where &#x3A6; is a bulky hydrophobic residue [<xref rid="B39" ref-type="bibr">39</xref>]. <xref ref-type="fig" rid="F1">Figure 1</xref>(A) shows an alignment of this consensus with sequences around some established Akt targets, the ST loop sequence containing Ser<sup>487</sup> in human &#x3B1;1, and the equivalent site on &#x3B1;2 (Ser<sup>491</sup>). Both of the latter have a serine residue at P-2, with Akt having a preference for the serine or threonine residue at this position [<xref rid="B39" ref-type="bibr">39</xref>]. However, both also have a proline residue rather than arginine at the P-5 position, and Ser<sup>491</sup> also has an alanine residue rather than a bulky hydrophobic residue at P+1. Neither is therefore a perfect fit to the Akt consensus; Scansite 2.0 [<xref rid="B40" ref-type="bibr">40</xref>] identifies Ser<sup>487</sup> as a potential Akt site only at medium stringency, and Ser<sup>491</sup> only at low stringency.</p>
+        <fig id="F1" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <title>Phosphorylation by Akt of inactive &#x3B1;1 at Ser<sup>487</sup>, but not &#x3B1;2 at Ser<sup>491</sup>, inhibits Thr<sup>172</sup> phosphorylation by LKB1</title>
+            <p>(<bold>A</bold>) Alignment of sequences around Ser<sup>487</sup> on &#x3B1;1 and Ser<sup>491</sup> on &#x3B1;2 with the consensus for Akt phosphorylation [<xref rid="B39" ref-type="bibr">39</xref>] and with sequences around established Akt target sites. The right-hand column shows the percentile score for the sequence as a potential Akt target computed using Scansite (<ext-link ext-link-type="uri" xlink:href="http://scansite.mit.edu/">http://scansite.mit.edu/</ext-link>). (<bold>B</bold>) Phosphorylation of GSK3&#x3B2; by the indicated amounts of Akt. Incubations were analysed by Western blotting with the indicated antibodies, or by autoradiography to detect <sup>32</sup>P radioactivity. (<bold>C</bold>) As with (<bold>B</bold>), but analysing phosphorylation of AMPK (&#x3B1;1&#x3B2;2&#x3B3;1 complex). (<bold>D</bold>) As with (<bold>B</bold>), but analysing phosphorylation of AMPK (&#x3B1;2&#x3B2;2&#x3B3;1 complex). (<bold>E</bold>) Rate of phosphorylation by LKB1 (signal using an anti-pT172 antibody expressed as a ratio of signal using an anti-AMPK-&#x3B1; antibody) obtained using the indicated mutants of the &#x3B1;1&#x3B2;2&#x3B3;1 complex. Results are means&#xB1;S.E.M. (<italic>n</italic>=2). (<bold>F</bold>) Rate of phosphorylation by LKB1 (signal obtained using an anti-pT172 antibody expressed as a ratio of signal using an anti-AMPK-&#x3B1; antibody) following pre-incubation with MgATP with or without Akt (30&#xA0;units/ml, 20&#xA0;min), for the inactive (D157A) &#x3B1;1&#x3B2;2&#x3B3;1 complex or an S487A/D157A double mutant. Results are means&#xB1;S.E.M. (<italic>n</italic>=4); **<italic>P</italic>&lt;0.01; ns, not significant.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i001"/>
+        </fig>
+        <p>To avoid complications caused by autophosphorylation, we initially used inactive mutants of human AMPK complexes (&#x3B1;1-D159A/&#x3B2;2/&#x3B3;1 and &#x3B1;2-D157A/&#x3B2;2/&#x3B3;1), with or without &#x3B1;1-S487A or &#x3B1;2-S491A mutations, as substrates for phosphorylation by human Akt. For comparison, we used an inactive (D200A) mutant of the known Akt substrate GSK3&#x3B2;, with or without mutation of the Akt site (Ser<sup>9</sup>). Interestingly, AMPK-&#x3B1;1 was a reasonable substrate for Akt although not as good as GSK3, whereas AMPK-&#x3B1;2 was a very poor substrate. Using either an anti-pS9 antibody or by <sup>32</sup>P-labelling, phosphorylation of GSK3&#x3B2; was saturated at 0.5&#xA0;unit/ml Akt, when the phosphorylation stoichiometry by <sup>32</sup>P-labelling was 1.03 mol/mol (<xref ref-type="fig" rid="F1">Figure 1</xref>B). The phosphorylation of AMPK-&#x3B1;1 within the &#x3B1;1&#x3B2;2&#x3B3;1 complex was only saturated at 5&#xA0;units/ml, when the stoichiometry was 0.96 mol/mol (<xref ref-type="fig" rid="F1">Figure 1</xref>C). For both GSK3&#x3B2; and AMPK-&#x3B1;1, the signals obtained using phospho-specific antibodies (pS9/pS487) or <sup>32</sup>P-labelling were abolished by mutation of the respective sites to alanine (S9A/S487A). By contrast, there was much less phosphorylation of Ser<sup>491</sup> within the &#x3B1;2&#x3B2;2&#x3B3;1 complex (<xref ref-type="fig" rid="F1">Figure 1</xref>D). By <sup>32</sup>P-labelling, the stoichiometry of &#x3B1;2 phosphorylation was only 0.18 mol/mol, even with Akt at 30- and 300-fold higher concentrations than those required to obtain stoichiometric phosphorylation of &#x3B1;1 and GSK3&#x3B2; respectively. Although we did detect some phosphorylation of Ser<sup>491</sup> using a phospho-specific antibody and this was abolished in a S491A mutant, <sup>32</sup>P-labelling was not affected by the S491A mutation, suggesting that the low level of &#x3B1;2 phosphorylation by Akt was mainly accounted for by modification at other site(s).</p>
+      </sec>
+      <sec>
+        <title>Ser<sup>487</sup> phosphorylation reduces Thr<sup>172</sup> phosphorylation: studies with inactive AMPK</title>
+        <p>We next tested the ability of the human LKB1&#x2013;STRAD&#x3B1;&#x2013;MO25&#x3B1; complex to phosphorylate Thr<sup>172</sup> in an inactive (&#x3B1;1-D157A) human &#x3B1;1&#x3B2;2&#x3B3;1 complex. Before phosphorylation by Akt, the rate of phosphorylation of Thr<sup>172</sup> by the LKB1 complex was unaffected by an S487A mutation, although an S487D mutation reduced the rate of Thr<sup>172</sup> phosphorylation by approximately 30% (<xref ref-type="fig" rid="F1">Figure 1</xref>E). When the inactive (D157A) mutant complex was first phosphorylated by Akt under conditions that yielded stoichiometric Ser<sup>487</sup> phosphorylation, subsequent phosphorylation of Thr<sup>172</sup> was reduced by approximately 40%, an effect abolished by an S487A mutation (<xref ref-type="fig" rid="F1">Figure 1</xref>F).</p>
+      </sec>
+      <sec>
+        <title>Phosphorylation of Ser<sup>491</sup> on AMPK-&#x3B1;2 is due to autophosphorylation</title>
+        <p>We next tested the effects of Akt on either WT, S487A or S491A mutants of active &#x3B1;1&#x3B2;2&#x3B3;1 and &#x3B1;2&#x3B2;2&#x3B3;1 complexes. <xref ref-type="fig" rid="F2">Figure 2</xref>(A) shows that with the &#x3B1;1&#x3B2;2&#x3B3;1 complex there was slight phosphorylation of Ser<sup>487</sup> even in the absence of Akt, although phosphorylation of this site increased markedly with increasing Akt. By contrast, Ser<sup>491</sup> in an &#x3B1;2&#x3B2;2&#x3B3;1 complex appeared to be fully phosphorylated in the absence of Akt, and addition of Akt had no further effect. These results suggested that Ser<sup>491</sup> was modified by autophosphorylation, whereas Ser<sup>487</sup> is phosphorylated by Akt, with a small degree of autophosphorylation. Consistent with this, there was substantial phosphorylation of Ser<sup>491</sup> in a human &#x3B1;2&#x3B2;2&#x3B3;1 complex, and slight phosphorylation of Ser<sup>487</sup> in a human &#x3B1;1&#x3B2;2&#x3B3;1 complex, when they were incubated with MgATP alone; these effects were completely abolished by D157A mutations that rendered the complexes inactive, although Ser<sup>487</sup> could still be phosphorylated by Akt in the inactive complex (<xref ref-type="fig" rid="F2">Figure 2</xref>B). Unlike the equivalent &#x3B1;1&#x3B2;2&#x3B3;1 complexes, where the S487D mutant was phosphorylated at a lower rate (<xref ref-type="fig" rid="F1">Figure 1</xref>E), the WT, S491A and S491D mutant &#x3B1;2&#x3B2;2&#x3B3;1 complexes were phosphorylated on Thr<sup>172</sup> at equal rates by LKB1 (<xref ref-type="fig" rid="F2">Figure 2</xref>C).</p>
+        <fig id="F2" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <title>Ser<sup>491</sup> (AMPK-&#x3B1;2), and to a lesser extent Ser<sup>487</sup> (AMPK-&#x3B1;1), are caused by autophosphorylation</title>
+            <p>(<bold>A</bold>) AMPK (&#x3B1;1&#x3B2;2&#x3B3;1 or &#x3B1;2&#x3B2;2&#x3B3;1 complex) was incubated with MgATP and the indicated concentrations of Akt for 20&#xA0;min at 30&#xB0;C, and aliquots (20&#xA0;&#x3BC;l) analysed by Western blotting using the indicated antibodies. (<bold>B</bold>) AMPK (&#x3B1;1&#x3B2;2&#x3B3;1 or &#x3B1;2&#x3B2;2&#x3B3;1, WT or inactive D157A mutant) was incubated with MgATP and increasing concentrations of LKB1 (0, 8.2, 28, 82, 280 and 820&#xA0;ng) or Akt (0, 0.15, 0.5, 1.5, 5 and 15&#xA0;units/ml) for 10&#xA0;min at 30&#xB0;C. (<bold>C</bold>) AMPK (&#x3B1;2&#x3B2;2&#x3B3;1 complex, WT, S491A or S491D mutant) was incubated with MgATP and the indicated amount of LKB1&#xA0;in a final volume of 20&#xA0;&#x3BC;l for 10&#xA0;min at 30&#xB0;C, and AMPK activity determined. (<bold>D</bold>) Phosphorylation of synthetic peptides by three different preparations of AMPK. AMPK (0.1&#xA0;unit, either &#x3B1;1&#x3B2;2&#x3B3;1, &#x3B1;2&#x3B2;2&#x3B3;1 complexes or purified from rat liver [<xref rid="B2" ref-type="bibr">2</xref>]) was incubated with 5 nmol of the SAMS, S485 or S491 peptides in the presence of 5&#xA0;mM MgCl<sub>2</sub> and 200&#xA0;&#x3BC;M [&#x3B3;-<sup>32</sup>P]ATP in a final volume of 25&#xA0;&#x3BC;l for 30&#xA0;min at 30&#xB0;C, before SDS/PAGE and autoradiography.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i002"/>
+        </fig>
+        <p>We also synthesized peptides corresponding to the sequences around Ser<sup>485</sup> on rat &#x3B1;1 (S485, TPQRSGSISNYRS) or Ser<sup>491</sup> on rat/human &#x3B1;2 (S491, TPQRSCSAAGLHR), and compared them as AMPK substrates with the classical SAMS peptide [<xref rid="B36" ref-type="bibr">36</xref>]. Although the SAMS peptide was by far the best substrate, the S491 peptide was also phosphorylated, whereas the S485 peptide was not phosphorylated at all. The results were identical with rat liver AMPK (a mixture of &#x3B1;1&#x3B2;1&#x3B3;1 and &#x3B1;2&#x3B2;1&#x3B3;1 complexes) or with recombinant human &#x3B1;1&#x3B2;2&#x3B3;1 and &#x3B1;2&#x3B2;2&#x3B3;1 complexes (<xref ref-type="fig" rid="F2">Figure 2</xref>D).</p>
+      </sec>
+      <sec>
+        <title>Ser<sup>487</sup> phosphorylation reduces Thr<sup>172</sup> phosphorylation: studies with active AMPK</title>
+        <p>We next incubated the active &#x3B1;1&#x3B2;2&#x3B3;1 complex with Akt under conditions where we obtained stoichiometric phosphorylation of Ser<sup>487</sup>, and subsequently treated with the LKB1 complex under conditions where we could measure the initial rate of Thr<sup>172</sup> phosphorylation and consequent activation. As with the inactive complex (<xref ref-type="fig" rid="F1">Figure 1</xref>F), prior Akt phosphorylation reduced the rate of subsequent Thr<sup>172</sup> phosphorylation (<xref ref-type="fig" rid="F3">Figure 3</xref>A), but using the active complex this could also be seen to be associated with a reduction in activation by LKB1 of approximately 40% (<xref ref-type="fig" rid="F3">Figure 3</xref>B); both effects were abolished by an S487A mutation within the ST loop. <xref ref-type="fig" rid="F3">Figure 3</xref>(C) shows that the inhibitory effect of prior Ser<sup>487</sup> phosphorylation on Thr<sup>172</sup> phosphorylation and AMPK activation was identical using either LKB1 or CaMKK&#x3B2;, showing that the effect is independent of the upstream kinase utilized.</p>
+        <fig id="F3" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <title>Prior phosphorylation of AMPK-&#x3B1;1 by Akt at Ser<sup>487</sup> reduces subsequent phosphorylation and activation of Thr<sup>172</sup> by LKB1 or CaMKK&#x3B2;</title>
+            <p>AMPK (&#x3B1;1&#x3B2;2&#x3B3;1 complex, WT or S487A mutant) was pre-incubated with MgATP and Akt for 30&#xA0;min, and then with LKB1 (50&#xA0;ng) or CaMKK&#x3B2; (23&#xA0;ng) for 10&#xA0;min at 30&#xB0;C in a final volume of 40&#xA0;&#x3BC;l. (<bold>A</bold>) Phosphorylation of AMPK by LKB1&#xA0;in the absence or presence of Akt. (<bold>B</bold>) Activation of AMPK by LKB1&#xA0;in the absence or presence of Akt. (<bold>C</bold>) Activation/phosphorylation by LKB1/CaMKK&#x3B2; in the absence or presence of Akt. Phosphorylation (<bold>A</bold> and <bold>C</bold>) was assessed in duplicate samples by Western blotting, and AMPK activity (<bold>B</bold> and <bold>C</bold>) by kinase assays. Results in (<bold>B</bold>) and (<bold>C</bold>) are means&#xB1;S.E.M. (<italic>n</italic>=4); ***<italic>P</italic>&lt;0.001; ns, not significant.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i003"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Phosphorylation of Ser<sup>487</sup> in intact cells reduces LKB1-dependent AMPK activation</title>
+        <p>To test the effects of Ser<sup>487</sup> phosphorylation in intact cells, we generated isogenic HEK-293 cells stably expressing FLAG-tagged WT AMPK-&#x3B1;1 or AMPK-&#x3B1;2, or a non-phosphorylatable (S487A) &#x3B1;1 mutant. We have shown previously that when AMPK-&#x3B2; [<xref rid="B16" ref-type="bibr">16</xref>] or AMPK-&#x3B3; [<xref rid="B19" ref-type="bibr">19</xref>] subunits are expressed using this system, they largely replace the endogenous subunit because they compete for the available &#x3B1;/&#x3B3; or &#x3B1;/&#x3B2; partners, with free subunits being unstable. This was also true in the present study because we showed that approximately 70% of the total AMPK activity could be immunoprecipitated using anti-FLAG antibody, with the remaining 30% (representing a small proportion with endogenous &#x3B1; subunits) being subsequently precipitated using anti-&#x3B1;1 or anti-&#x3B1;2 antibodies. The presence of a small amount of endogenous &#x3B1; subunits does not affect interpretation of the kinase assays shown in <xref ref-type="fig" rid="F4">Figure 4</xref>, which were conducted in anti-FLAG antibody immunoprecipitates, but a small proportion of AMPK-&#x3B1; subunits detected in the Western blots (e.g. the faint signal obtained using the anti-pS487 antibody in the cells expressing the S487A mutant) may be due to these endogenous subunits.</p>
+        <fig id="F4" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <title>Phosphorylation of Ser<sup>487</sup> on AMPK-&#x3B1;1 by Akt in HEK-293 cells inhibits subsequent phosphorylation of Thr<sup>172</sup> and AMPK activation, Ser<sup>491</sup> on AMPK-&#x3B1;2 is modified by autophosphorylation, and Ser<sup>487</sup> phosphorylation is rapamycin-insensitive</title>
+            <p>HEK-293 cells stably expressing WT AMPK (<bold>A</bold>) or an S487A mutant (<bold>B</bold>) were serum-starved overnight and then incubated with IGF-1&#xA0;in the presence or absence of MK2206 as described in the Experimental section. The cells were then treated with or without A769662 (300&#xA0;&#x3BC;M for 40&#xA0;min) and lysates prepared for immunoprecipitate kinase assay and Western blots. Blots are samples from separate dishes (<italic>n</italic>=2), whereas activity data are means&#xB1;S.E.M. (<italic>n</italic>=4); ***<italic>P</italic>&lt;0.001 compared with relevant control without A769662; &#x2020;&#x2020;&#x2020;<italic>P</italic>&lt;0.001; ns, not significant, for IGF-1-treated against relevant serum-starved control. (<bold>C</bold>) Cells expressing WT AMPK-&#x3B1;1 or AMPK-&#x3B1;2 were treated with IGF-1 (30&#xA0;ng/ml) or berberine (300&#xA0;&#x3BC;M) and lysates analysed by immunoprecipitate kinase assays and Western blotting (two separate dishes). Activity data are means&#xB1;S.E.M. (<italic>n</italic>=4); ***<italic>P</italic>&lt;0.001; ns, not significant, compared with control without IGF-1 or berberine. (<bold>D</bold>) Cells expressing WT AMPK-&#x3B1;1 or AMPK-&#x3B1;2 were treated with IGF-1&#xA0;in the absence or presence of rapamycin (100&#xA0;&#x3BC;M) and lysates analysed by immunoprecipitate kinase assays and Western blotting. Activity data are means&#xB1;S.E.M. (<italic>n</italic>=2); duplicate blots were from separate dishes.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i004"/>
+        </fig>
+        <p>The cells expressing AMPK-&#x3B1;1 were serum-starved, and some were then treated with IGF-1 to activate Akt. As expected, IGF-1 resulted in marked increases in phosphorylation of the activating sites on Akt (Thr<sup>308</sup> and Ser<sup>473</sup>), which were blocked by the Akt inhibitor MK2206 [<xref rid="B41" ref-type="bibr">41</xref>], as was the phosphorylation of Ser<sup>9</sup>/Ser<sup>21</sup> on GSK3-&#x3B1;/&#x3B2; (markers of Akt activation) and Ser<sup>487</sup> on AMPK-&#x3B1;1 (<xref ref-type="fig" rid="F4">Figure 4</xref>A). When cells expressing WT &#x3B1;1 were treated with A769662, the activation of AMPK, and Thr<sup>172</sup> phosphorylation, was markedly blunted if the cells had been exposed previously to IGF-1, an effect abolished by MK2206. The effect of IGF-1 to reduce AMPK activation and phosphorylation of Thr<sup>172</sup> correlated with increased Ser<sup>487</sup> phosphorylation, and was absent in cells expressing the S487A mutant (<xref ref-type="fig" rid="F4">Figure 4</xref>B).</p>
+      </sec>
+      <sec>
+        <title>Ser<sup>491</sup> on AMPK-&#x3B1;2 is not phosphorylated by Akt, but by autophosphorylation</title>
+        <p><xref ref-type="fig" rid="F4">Figure 4</xref>(C) shows results obtained when serum-starved cells expressing WT AMPK-&#x3B1;1 or AMPK-&#x3B1;2 were treated either with IGF-1 or with berberine, which activates AMPK by inhibiting mitochondrial ATP synthesis [<xref rid="B19" ref-type="bibr">19</xref>]. As expected, treatment of &#x3B1;1-expressing cells with IGF-1 caused increased phosphorylation of Ser<sup>487</sup>, but not Thr<sup>172</sup>, whereas treatment with berberine caused increased phosphorylation of Thr<sup>172</sup>, accompanied by AMPK activation, but not Ser<sup>487</sup>. This contrasted markedly with results in &#x3B1;2-expressing cells, where treatment with IGF-1 did not increase phosphorylation of Ser<sup>491</sup>, whereas treatment with berberine caused increased phosphorylation of both Ser<sup>491</sup> and Thr<sup>172</sup>, together with AMPK activation. The results for phosphorylation of Ser<sup>487</sup> and Ser<sup>491</sup> were very similar whether we used in-house phospho-specific antibodies that are isoform-specific, or a commercial antibody that recognizes the equivalent sites on both &#x3B1;1 and &#x3B1;2. These results are consistent with the results in <xref ref-type="fig" rid="F2">Figures 2</xref> and <xref ref-type="fig" rid="F3">3</xref>, showing that Ser<sup>491</sup> on &#x3B1;2 is modified by autophosphorylation, and not by Akt as for Ser<sup>487</sup> on &#x3B1;1. As expected, increased phosphorylation of the downstream&#xA0;AMPK target ACC correlated with Thr<sup>172</sup> phosphorylation and AMPK&#xA0;activation in both cell lines.</p>
+      </sec>
+      <sec>
+        <title>Ser<sup>487</sup> is phosphorylated by Akt and not by a kinase downstream of mTORC1 [mammalian (or mechanistic) target of rapamycin complex 1]</title>
+        <p>To confirm that Ser<sup>487</sup> was phosphorylated directly by Akt in the cells, and not by a downstream kinase such as p70 S6K1, we tested the effects of rapamycin, an inhibitor of mTORC1. Rapamycin did not block the IGF-1-stimulated phosphorylation of Ser<sup>487</sup> on &#x3B1;1 or Ser<sup>473</sup> on Akt although, as expected, it blocked phosphorylation of an established mTORC1 substrate, Thr<sup>389</sup> on the p70/p85 isoforms of S6K1 (<xref ref-type="fig" rid="F4">Figure 4</xref>D).</p>
+      </sec>
+      <sec>
+        <title>Phosphorylation of Ser<sup>487</sup> in intact cells reduces CaMKK&#x3B2;-dependent AMPK activation</title>
+        <p>To show that phosphorylation of Ser<sup>487</sup> on AMPK-&#x3B1;1 by Akt could also reduce subsequent activation by CaMKK&#x3B2;, we used the LKB1-null G361 melanoma cell line. The cells were serum-starved, and some were then treated with IGF-1 to activate Akt. As expected, IGF-1 resulted in marked increases in phosphorylation of Thr<sup>308</sup> and Ser<sup>473</sup> on Akt, Ser<sup>9</sup>/Ser<sup>21</sup> on GSK3&#x3B1;/&#x3B2; and Ser<sup>487</sup> on AMPK-&#x3B1;1, all of which were blocked or reduced by MK2206 (<xref ref-type="fig" rid="F5">Figure 5</xref>). When the cells were treated with the Ca<sup>2+</sup> ionophore A23187 to activate CaMKK&#x3B2;, the activation of AMPK and Thr<sup>172</sup> phosphorylation, was significantly blunted if the cells had been exposed previously to IGF-1, an effect completely abolished by MK2206 (<xref ref-type="fig" rid="F5">Figure 5</xref>).</p>
+        <fig id="F5" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <title>Phosphorylation of Ser<sup>487</sup> on AMPK-&#x3B1;1 by Akt in G361 cells inhibits subsequent phosphorylation of Thr<sup>172</sup> and AMPK activation by CaMKK&#x3B2;</title>
+            <p>G361 cells were serum-starved overnight and then incubated with IGF-1&#xA0;in the presence or absence of MK2206 as described in the Experimental section. Cells were then treated with or without A23817 (30&#xA0;nM for 30&#xA0;min) and lysates prepared for immunoprecipitate kinase assay and Western blots. Blots are samples from separate dishes, whereas activity data are means&#xB1;S.E.M. (<italic>n</italic>=4); ***<italic>P</italic>&lt;0.001 compared with the relevant control without A23187; &#x2020;&#x2020;&#x2020;<italic>P</italic>&lt;0.001; ns, not significant, for IGF-1-treated against relevant serum-starved control.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i005"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>AMPK activation is reduced in PTEN-null tumour cells in an Akt-dependent manner</title>
+        <p>To examine whether hyperactivation of Akt in tumour cells due to PTEN loss might also inhibit AMPK activation, we initially examined the PTEN-null glioblastoma cell line DBTRG-05MG. We first tested a range of AMPK activators to see whether any interfered with Akt activation. Surprisingly, phenformin and quercetin blocked phosphorylation of Akt at Ser<sup>473</sup>, although berberine, A769662 and A23187 did not (Supplementary Figure S2A at <ext-link ext-link-type="uri" xlink:href="http://www.biochemj.org/bj/459/bj4590275add.htm">http://www.biochemj.org/bj/459/bj4590275add.htm</ext-link>). As expected, all agents also increased the phosphorylation of ACC1 at Ser<sup>79</sup> and AMPK at Thr<sup>172</sup> in MEFs (mouse embryonic fibroblasts), although the effect of A769662 on Thr<sup>172</sup> phosphorylation was small, indicating that it was mainly acting through an allosteric mechanism (Supplementary Figure S2B). The inhibitory effects of phenformin and quercetin on Akt Ser<sup>473</sup> phosphorylation were observed in WT MEFs, but were &#x2018;off-target&#x2019; AMPK-independent effects, because they were also observed in double-knockout (&#x3B1;1<sup>&#x2212;/&#x2212;</sup> &#x3B1;2<sup>&#x2212;/&#x2212;</sup>) MEFs (Supplementary Figure S2B and S2C). To avoid this complication, in subsequent studies we focused on the effects of A769662, which activates AMPK by direct binding to the &#x3B2; subunit [<xref rid="B16" ref-type="bibr">16</xref>,<xref rid="B17" ref-type="bibr">17</xref>] and does not inhibit ATP synthesis [<xref rid="B19" ref-type="bibr">19</xref>] or Akt Ser<sup>473</sup> phosphorylation (Supplementary Figure S2).</p>
+        <p>AMPK in DBTRG-05MG cells was activated by A769662, but activation (<xref ref-type="fig" rid="F6">Figure 6</xref>A) and Thr<sup>172</sup> phosphorylation (<xref ref-type="fig" rid="F6">Figure 6</xref>B) were greatly enhanced when the selective Akt inhibitor MK2206 was added before A769662. Thus reduced activation of AMPK in these cells was Akt-dependent. As expected, inhibition of Akt by MK2206 was associated with greatly reduced phosphorylation of Ser<sup>487</sup>, and of the Akt site on GSK3&#x3B2;, Ser<sup>9</sup> (<xref ref-type="fig" rid="F6">Figure 6</xref>B). As reported previously [<xref rid="B41" ref-type="bibr">41</xref>], MK2206 also blocked the phosphorylation of Akt at the activating sites, Thr<sup>308</sup> and Ser<sup>473</sup>.</p>
+        <fig id="F6" position="float">
+          <label>Figure 6</label>
+          <caption>
+            <title>Prior IGF-1 treatment down-regulates AMPK activation by A769662&#xA0;in PTEN-null tumour cell lines</title>
+            <p>(<bold>A</bold>) Glioblastoma (DBTRG-05MG) cells were incubated for 20&#xA0;min with or without MK2206 (3&#xA0;&#x3BC;M), followed by 60&#xA0;min with or without A769662 (300&#xA0;&#x3BC;M). Lysates were then analysed for AMPK activity. Results are means&#xB1;S.E.M. (<italic>n</italic>=2); ***<italic>P</italic>&lt;0.001; **<italic>P</italic>&lt;0.01. (<bold>B</bold>) Analysis of the samples from (<bold>A</bold>) by Western blotting using the indicated antibodies (duplicate dishes). (<bold>C</bold>) WT PTEN or a phosphatase-inactive (C124S) mutant were expressed in DBTRG-05MG cells using lentiviral vectors, and the effects of A769662 tested as in (<bold>A</bold>). Results are means&#xB1;S.E.M. (<italic>n</italic>=2 for WT PTEN, <italic>n</italic>=4 for C124S PTEN); ***<italic>P</italic>&lt;0.001; **<italic>P</italic>&lt;0.01. (<bold>D</bold>) Analysis of the samples from (<bold>C</bold>) by Western blotting using the antibodies shown (duplicate dishes). (<bold>E</bold> and <bold>F</bold>) Glioblastoma (U373-MG) cells were incubated and analysed as in (<bold>A</bold> and <bold>B</bold>). (<bold>G</bold> and <bold>H</bold>) Breast cancer (MDA-MB-468) cells were incubated and analysed as in (<bold>A</bold> and <bold>B</bold>). For (<bold>E</bold>) and (<bold>G</bold>), results are means&#xB1;S.E.M. (<italic>n</italic>=2); ***<italic>P</italic>&lt;0.001; **<italic>P</italic>&lt;0.01; *<italic>P</italic>&lt;0.05.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i006"/>
+        </fig>
+        <p>We also examined the effect of re-expressing PTEN in DBTRG-05MG cells, using a lentiviral vector that gives levels of expression similar to normal cells. As a control, we expressed a C124S mutant that has no lipid phosphatase activity. Prior expression of WT PTEN enhanced the activation (<xref ref-type="fig" rid="F6">Figure 6</xref>C) and Thr<sup>172</sup> phosphorylation (<xref ref-type="fig" rid="F6">Figure 6</xref>D) of AMPK in response to A769662. When compared with the C124S mutant, expression of WT PTEN was associated with decreased phosphorylation of Ser<sup>487</sup> on AMPK-&#x3B1;1 and Ser<sup>9</sup> on GSK3&#x3B2;, and markedly decreased phosphorylation of Thr<sup>308</sup> and Ser<sup>473</sup> on Akt (<xref ref-type="fig" rid="F6">Figure 6</xref>D).</p>
+        <p>We also studied two other PTEN-null human cell lines, i.e. U373-MG (another glioblastoma line) and MDA-MB-468 (a breast cancer line). Similar to the DBTRG-05MG cells, there was a modest activation (<xref ref-type="fig" rid="F6">Figures 6</xref>E and <xref ref-type="fig" rid="F6">6</xref>G) and Thr<sup>172</sup> phosphorylation (<xref ref-type="fig" rid="F6">Figures 6</xref>F and <xref ref-type="fig" rid="F6">6</xref>H) of AMPK in response to A769662, but both were enhanced when Akt was inhibited using MK2206.</p>
+      </sec>
+      <sec>
+        <title>The phosphorylated ST loop interacts with the kinase domain, hindering access to Thr<sup>172</sup></title>
+        <p>We next addressed the mechanism by which Ser<sup>487</sup> phosphorylation inhibits subsequent Thr<sup>172</sup> phosphorylation. In the structure of a partial mammalian &#x3B1;1&#x3B2;2&#x3B3;1 complex, the ST loop from Ile<sup>470</sup> to Asp<sup>523</sup> (rat numbering) was disordered [<xref rid="B11" ref-type="bibr">11</xref>]; the complex had been expressed in bacteria, so the ST loop was likely to be unphosphorylated. In a subsequent structure [<xref rid="B10" ref-type="bibr">10</xref>], the ST loop was deleted as it was thought that it might hinder crystallization. However, the location of the residues at the ends of the loop (Glu<sup>469</sup> and Val<sup>524</sup>) in this structure show that they lie close to the kinase domain, being approximately 20 and 40 &#xC5; (1 &#xC5;=0.1&#xA0;nm) from Thr<sup>172</sup> respectively (<xref ref-type="fig" rid="F7">Figure 7</xref>A). We hypothesized that the ST loop might interact with the kinase domain when phosphorylated on Ser<sup>487</sup>. We also noticed three basic residues, Arg<sup>62</sup>, Lys<sup>69</sup> and Arg<sup>72</sup> (rat &#x3B1;1 numbering), which are located within the &#x2018;&#x3B1;C helix&#x2019; of the small lobe of the kinase domain. An extension of our hypothesis was that phosphate groups on the ST loop interact with these basic side chains, triggering a stable interaction between the ST loop and the kinase domain that physically blocks access of Thr<sup>172</sup> to upstream kinases.</p>
+        <fig id="F7" position="float">
+          <label>Figure 7</label>
+          <caption>
+            <title>Evidence that the phosphorylated ST loop inhibits LKB1 phosphorylation by direct interaction with the kinase domain</title>
+            <p>(<bold>A</bold>) Model for the structure of an AMPK heterotrimer (PDB code 2Y8L, space-filling model made using PyMOL; <ext-link ext-link-type="uri" xlink:href="http://pymol.org">http:://pymol.org</ext-link>) showing the location of the ends of the ST loop (Glu<sup>469</sup> and Val<sup>524</sup>), with Glu<sup>469</sup> particularly close to Thr<sup>172</sup>; the intervening residues of the ST loop were deleted from the construct used to produce this structure. (<bold>B</bold>) Inhibition of activation of the human &#x3B1;1&#x3B2;2&#x3B3;1 complex by LKB1 by peptide corresponding to the sequence from Arg<sup>466</sup> to Asp<sup>525</sup>, either with (P-peptide) or without (deP-peptide) prior phosphorylation by Akt. Results are means&#xB1;S.E.M. (<italic>n</italic>=4). (<bold>C</bold>) Inhibition of activation and phosphorylation by LKB1 of &#x3B1;1&#x3B2;2&#x3B3;1 complex (left-hand side) and BRSK2 (right-hand side) by P-peptide and deP-peptide as in (<bold>B</bold>). Results for kinase activity are expressed as a percentage of activities obtained without either peptide, and are means&#xB1;S.E.M. (<italic>n</italic>=2); ***<italic>P</italic>&lt;0.001 relative to controls without LKB1; &#x2020;&#x2020;&#x2020;<italic>P</italic>&lt;0.001 relative to control without P-peptide. Results of Western blots are from duplicate incubations. (<bold>D</bold>) Human AMPK (&#x3B1;1&#x3B2;2&#x3B3;1 complex, either WT, S487A or AAA mutant) was incubated with LKB1 following prior incubation with ATP with or without Akt. AMPK activation (top panel) and phosphorylation of Thr<sup>172</sup> and Ser<sup>487</sup> (bottom panel) was monitored.</p>
+          </caption>
+          <graphic xlink:href="bj2013-1344i007"/>
+        </fig>
+        <p>To test the first hypothesis, we made a construct expressing the peptide from Arg<sup>466</sup> to Asp<sup>525</sup> on human &#x3B1;1 as a GST fusion. The protein was expressed in and purified from bacteria, the GST domain removed, and the remaining peptide (Arg<sup>466</sup>&#x2013;Asp<sup>525</sup>) either thiophosphorylated using ATP&#x3B3;S (adenosine 5&#x2032;-[&#x3B3;-thio]triphosphate) and Akt (thiophosphate being resistant to protein phosphatases), or left unphosphorylated. Consistent with our hypothesis, the phosphopeptide caused a concentration-dependent inhibition of activation and Thr<sup>172</sup> phosphorylation of the bacterially expressed &#x3B1;1&#x3B2;2&#x3B3;1 complex by LKB1, although we were unable to generate the peptide at high enough concentrations to fully saturate inhibition. By contrast, the unphosphorylated peptide had no effect (<xref ref-type="fig" rid="F7">Figure 7</xref>B). To confirm that the inhibition of activation loop phosphorylation was specific to AMPK, we showed that neither the phospho- nor the dephospho-peptide inhibited activation and phosphorylation of the AMPK-related kinase BRSK2 by LKB1 (<xref ref-type="fig" rid="F7">Figure 7</xref>C).</p>
+        <p>To test the extended hypothesis, we made a triple mutation (R64A/K71A/R74A, human &#x3B1;1 numbering, &#x2018;AAA mutant&#x2019;), in the context of the recombinant human &#x3B1;1&#x3B2;2&#x3B3;1 complex used in <xref ref-type="fig" rid="F3">Figure 3</xref>, of the three basic residues in the kinase domain that we propose to interact with phosphate groups on the ST loop. Consistent with our hypothesis, prior phosphorylation of the WT complex by Akt reduced subsequent activation and Thr<sup>172</sup> phosphorylation by LKB1, but this effect was completely abolished by either an S487A mutant or an AAA mutant, even though the latter was still phosphorylated on Ser<sup>487</sup> by Akt (<xref ref-type="fig" rid="F7">Figure 7</xref>D).</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>DISCUSSION</title>
+      <p>It has been reported previously that prior phosphorylation of Ser<sup>485</sup> on rat AMPK-&#x3B1;1 by Akt, within a rat &#x3B1;1&#x3B2;1&#x3B3;1 complex, caused a 40% reduction in the rate of subsequent phosphorylation of Thr<sup>172</sup> and activation by LKB1&#xA0;in cell-free assays, an effect that was abolished by a non-phosphorylatable S485A substitution [<xref rid="B27" ref-type="bibr">27</xref>]. In the present study, we have followed up this observation and made several new findings. First, we demonstrated identical effects with the equivalent site (Ser<sup>487</sup>) on the human &#x3B1;1&#x3B2;2&#x3B3;1 complex (<xref ref-type="fig" rid="F1">Figures 1</xref>F and <xref ref-type="fig" rid="F4">4</xref>), showing that the effect is conserved in humans and is also independent of the &#x3B2; subunit isoform. Secondly, we show that the effect is not specific to the upstream kinase LKB1, but is also observed with CaMKK&#x3B2; (<xref ref-type="fig" rid="F3">Figure 3</xref>C). Thirdly, we report that Ser<sup>491</sup> (the site equivalent to Ser<sup>487</sup> in AMPK-&#x3B1;2) is an extremely poor substrate for Akt, and that the very low level of &#x3B1;2 phosphorylation obtained using Akt is not affected by an S491A mutation (<xref ref-type="fig" rid="F1">Figure 1</xref>D). It had been shown previously using a bacterially expressed &#x3B1;2&#x3B2;1&#x3B3;1 complex that Akt phosphorylated AMPK-&#x3B1;2, albeit more slowly than &#x3B1;1 [<xref rid="B27" ref-type="bibr">27</xref>] and, although the phosphorylation site(s) had not been identified, it has generally been assumed that this phosphorylation occurred at Ser<sup>491</sup>. That Ser<sup>491</sup> is modified instead by autophosphorylation is shown by the following findings: (i) substantial phosphorylation of Ser<sup>491</sup> occurred with the recombinant human &#x3B1;2&#x3B2;2&#x3B3;1 complex in the absence of exogenous kinases (<xref ref-type="fig" rid="F2">Figures 2</xref>A and <xref ref-type="fig" rid="F2">2</xref>B); (ii) Ser<sup>491</sup> phosphorylation did not occur with an inactive (D157A mutant) complex (<xref ref-type="fig" rid="F2">Figure 2</xref>B); (iii) various forms of AMPK, including the human &#x3B1;2&#x3B2;2&#x3B3;1 complex, phosphorylated a synthetic peptide corresponding to the sequence around Ser<sup>491</sup>, but not Ser<sup>485</sup> on rat &#x3B1;1 (<xref ref-type="fig" rid="F2">Figure 2</xref>D); and (iv) Ser<sup>491</sup> on AMPK-&#x3B1;2 became phosphorylated in response to the AMPK activator berberine in HEK-293 cells, whereas Ser<sup>487</sup> on AMPK-&#x3B1;1 did not (<xref ref-type="fig" rid="F4">Figure 4</xref>C). Although further work is required to test whether autophosphorylation of Ser<sup>491</sup> down-regulates Thr<sup>172</sup> phosphorylation, this is not supported by the results in <xref ref-type="fig" rid="F2">Figure 2</xref>(C), where the activation of the human &#x3B1;2&#x3B2;2&#x3B3;1 complex by LKB1 was not affected by a potentially phosphomimetic S491D mutation. Thus the ability of Akt-activating treatments such as insulin and IGF-1 to restrain activation of AMPK by ST loop phosphorylation is limited to complexes containing the &#x3B1;1 isoform.</p>
+      <p>Although Ser<sup>487</sup> in the human &#x3B1;1&#x3B2;2&#x3B3;1 complex also appeared to autophosphorylate to a limited extent in cell-free assays (<xref ref-type="fig" rid="F2">Figure 2</xref>A), increased Ser<sup>487</sup> phosphorylation did not occur when intact cells were incubated with the AMPK activator berberine (<xref ref-type="fig" rid="F4">Figure 4</xref>C), suggesting that autophosphorylation of Ser<sup>487</sup> is not significant in intact cells. Interestingly, the small degree of Ser<sup>487</sup> autophosphorylation in cell-free assays did not increase when the &#x3B1;1&#x3B2;2&#x3B3;1 complex was activated by phosphorylation at Thr<sup>172</sup> by LKB1 (<xref ref-type="fig" rid="F2">Figure 2</xref>B, top left), suggesting that Thr<sup>172</sup> phosphorylation (unlike its effects on phosphorylation of exogenous substrates) does not enhance Ser<sup>487</sup> autophosphorylation. Our results show that Ser<sup>487</sup> in human &#x3B1;1, unlike Ser<sup>491</sup> in &#x3B1;2, is a good substrate for Akt. Although only phosphorylated in cell-free assays at approximately 10% of the rate of Ser<sup>9</sup> on GSK3-&#x3B2; (a canonical Akt site), in the intact cells the net phosphorylation status would also be affected by the activity of protein phosphatases acting on Ser<sup>487</sup>. The results using MK2206&#xA0;in <xref ref-type="fig" rid="F4">Figures 4</xref> and <xref ref-type="fig" rid="F6">6</xref> clearly confirm that Ser<sup>487</sup> is phosphorylated in four distinct cell lines in an Akt-dependent manner.</p>
+      <p>In good agreement with previous results obtained with the rat &#x3B1;1&#x3B2;1&#x3B3;1 complex [<xref rid="B27" ref-type="bibr">27</xref>], prior phosphorylation of Ser<sup>487</sup> on the human &#x3B1;1&#x3B2;2&#x3B3;1 complex caused a 40% reduction in subsequent phosphorylation of Thr<sup>172</sup> both in active (<xref ref-type="fig" rid="F3">Figure 3</xref>A) and inactive (<xref ref-type="fig" rid="F1">Figure 1</xref>F) AMPK complexes, and a reduction in the activation of the active complex (<xref ref-type="fig" rid="F3">Figure 3</xref>B). Although a 40% effect might appear to be quite modest, the effect appears to be larger in intact cells (<xref ref-type="fig" rid="F4">Figures 4</xref> and <xref ref-type="fig" rid="F6">6</xref>), where the activities of phosphatases acting on Ser<sup>487</sup> would affect the outcome. Another explanation for the different size of the effect in cell-free assays and intact cells is that other sites in the ST loop may be phosphorylated in the intact cells, a possibility discussed further below.</p>
+      <p>By using HEK-293 cells expressing recombinant AMPK-&#x3B1;1, we showed not only that the effect of prior IGF-1 treatment to inhibit subsequent AMPK activation by A769662 was dependent on Akt, but also that it was dependent on phosphorylation of Ser<sup>487</sup>, since the effect was completely abolished in cells expressing a non-phosphorylatable S487A mutant (<xref ref-type="fig" rid="F4">Figure 4</xref>). It has been reported recently that Ser<sup>491</sup> on AMPK-&#x3B1;2 can be phosphorylated by S6K1 [<xref rid="B42" ref-type="bibr">42</xref>], so we considered the possibility that Ser<sup>487</sup> might have been phosphorylated by a kinase downstream of Akt and mTORC1, such as S6K1, rather than directly by Akt. However, the phosphorylation of Ser<sup>487</sup> was not affected by rapamycin (<xref ref-type="fig" rid="F4">Figure 4</xref>D), so was not catalysed by S6K1 or any other kinase downstream of mTORC1.</p>
+      <p>Using the LKB1-null G361 cell line treated with the Ca<sup>2+</sup> ionophore A23187, we also showed that phosphorylation of Thr<sup>172</sup>, and activation of AMPK, by CaMKK&#x3B2; was antagonized by prior phosphorylation of Ser<sup>487</sup>. This supports results obtained in cell-free assays (<xref ref-type="fig" rid="F3">Figure 3</xref>C), and shows that the effect in intact cells is independent of the upstream kinase utilized.</p>
+      <p>Surprisingly, we found that phosphorylation of Akt at the mTORC2 site, Ser<sup>473</sup>, was blocked by certain AMPK activators including phenformin and quercetin, although not by berberine, A769662 or A23817. Although the mechanism for this effect remains unclear, it is clearly an off-target AMPK-independent effect, because it was still observed in AMPK-knockout MEFs (Supplementary Figure S2).</p>
+      <p>To place our studies in the context of tumour cells, we also addressed whether AMPK activation was down-regulated in three PTEN-null tumour cell lines derived from human cancers. Interestingly, in two glioblastoma cell lines and a breast cancer cell line in which Akt was hyperactivated due to loss of PTEN, AMPK was rather resistant to activation and Thr<sup>172</sup> phosphorylation induced by the activator A769662. However, this effect was reversed by the addition of MK2206, a selective inhibitor of Akt activation that also reduced or abolished the phosphorylation of AMPK-&#x3B1;1 on Ser<sup>487</sup>, of GSK3&#x3B2; on Ser<sup>9</sup> and of Akt itself on Thr<sup>308</sup> and Ser<sup>473</sup>. These effects could also be reversed in DBTRG-05MG cells by re-expressing WT PTEN, but not a phosphatase-inactive (C124S) mutant. Our results suggest that a previously unrecognized effect of PTEN loss is to reduce the potential restraint on cell growth and proliferation provided by activation of AMPK. This mechanism would also be expected to operate in tumour cells in which Akt is hyperactivated due to activating mutations in subunits of PI3K, or mutation or overexpression of upstream receptors [<xref rid="B26" ref-type="bibr">26</xref>]. Previous evidence suggests that this mechanism also operates in human hepatoma (Huh-7) cells infected with the hepatitis C virus [<xref rid="B30" ref-type="bibr">30</xref>], where PI3K is activated due to association with a non-structural protein encoded by the viral RNA [<xref rid="B43" ref-type="bibr">43</xref>]. In that case, expression of viral proteins was reduced by treating the infected Huh-7 cells with AMPK activators such as AICAR (5-amino-4-imidazolecarboxamide riboside) or metformin [<xref rid="B30" ref-type="bibr">30</xref>].</p>
+      <p>Finally, our results suggest a molecular mechanism by which prior phosphorylation at Ser<sup>487</sup> inhibits subsequent phosphorylation of Thr<sup>172</sup>, and hence activation, by upstream kinases. In a partial &#x3B1;1&#x3B2;2&#x3B3;1 complex containing rat &#x3B1;1, which was expressed in bacteria and where Ser<sup>485</sup> was therefore most likely unphosphorylated, the ST loop from Glu<sup>469</sup> to Val<sup>524</sup> was not resolved, indicating that it was mobile within the crystal [<xref rid="B11" ref-type="bibr">11</xref>]. Our hypothesis is that the ST loop interacts with residues within the kinase domain when Ser<sup>487</sup> is phosphorylated, hindering the ability of upstream kinases to gain access to Thr<sup>172</sup>. This hypothesis is supported by the results in <xref ref-type="fig" rid="F7">Figure 7</xref>, showing that a peptide corresponding to the sequence from Arg<sup>466</sup> to Asp<sup>525</sup> on human &#x3B1;1 inhibits activation and Thr<sup>172</sup> phosphorylation of an &#x3B1;1&#x3B2;2&#x3B3;1 complex by LKB1, but only when phosphorylated on the residue corresponding to Ser<sup>487</sup>. This is an extremely specific effect, because the phosphopeptide had no effect on the activation or phosphorylation by LKB1 of BRSK2, which (with BRSK1) has the kinase domain most closely related to AMPK-&#x3B1;1 and AMPK-&#x3B1;2 within the human kinome.</p>
+      <p>The 54 residues of the ST loop in human AMPK-&#x3B1;1 contains 15 serine residues (including Ser<sup>487</sup>) and five threonine residues, most of which are conserved in &#x3B1;1 subunits from other vertebrates and in <italic>C. elegans</italic> (Supplementary Figure S1). It has been shown recently that GSK3&#x3B2; phosphorylates the ST loop at multiple sites, with site-directed mutagenesis suggesting that the initial phosphorylation was at Thr<sup>481</sup>, followed by Ser<sup>477</sup> and perhaps Thr<sup>473</sup> (human &#x3B1;1 residue numbering; in rats the equivalent residues are Thr<sup>479</sup>, Ser<sup>475</sup> and Thr<sup>471</sup>). Thr<sup>481</sup> phosphorylation was proposed to inhibit net Thr<sup>172</sup> phosphorylation by enhancing its sensitivity to dephosphorylation [<xref rid="B31" ref-type="bibr">31</xref>]. With most substrates, phosphorylation by GSK3 requires &#x2018;priming&#x2019; by another kinase, because the kinase usually phosphorylates a serine or threonine residue located four residues N-terminal to an existing phosphoamino acid [<xref rid="B44" ref-type="bibr">44</xref>]. In the case of AMPK it was proposed that phosphorylation of Ser<sup>487</sup> on rat AMPK-&#x3B1;1 might promote phosphorylation of Thr<sup>481</sup>, although not by conventional priming because the residue spacing is not appropriate, and because phosphorylation was not affected by a GSK3&#x3B2; mutation that reduces phosphorylation of primed substrates [<xref rid="B31" ref-type="bibr">31</xref>]. If the hypothesis by Suzuki et al. [<xref rid="B31" ref-type="bibr">31</xref>] is correct, phosphorylation of Ser<sup>487</sup> may lead to additional phosphorylation events within the ST loop. This might explain why we observed a larger effect on AMPK activation and Thr<sup>172</sup> phosphorylation by modulation of Akt in intact cells than in cell-free assays (compare <xref ref-type="fig" rid="F1">Figures 1</xref> and <xref ref-type="fig" rid="F3">3</xref> with <xref ref-type="fig" rid="F4">Figures 4</xref>&#x2013;<xref ref-type="fig" rid="F6">6</xref>). Although GSK3&#x3B2; was phosphorylated at Ser<sup>9</sup> in response to Akt treatment and this normally inhibits GSK3 activity [<xref rid="B45" ref-type="bibr">45</xref>], this inhibition does not occur with &#x2018;unprimed&#x2019; substrates [<xref rid="B46" ref-type="bibr">46</xref>] as proposed for Thr<sup>481</sup> [<xref rid="B31" ref-type="bibr">31</xref>]. Thus it is possible that phosphorylation of Ser<sup>487</sup> in our intact cell experiments promoted additional phosphorylation events, such as phosphorylation of Thr<sup>481</sup> and Ser<sup>477</sup> by GSK3.</p>
+      <p>As an extension of this hypothesis, we propose that the side chains of three basic residues located in the &#x3B1;C helix of the small lobe of the kinase domain (Arg<sup>64</sup>, Lys<sup>71</sup> and Arg<sup>74</sup> in human &#x3B1;1) interact with multiple phosphate groups attached to the ST loop, thus anchoring the ST loop to the kinase domain and blocking access of Thr<sup>172</sup> to upstream kinases. Interestingly, although at least one of these (Arg<sup>64</sup> or Lys<sup>71</sup>) is conserved in all 12 AMPK-related kinases, none are conserved in the archetypal serine/threonine kinase domain of PKA. Consistent with our hypothesis, a human &#x3B1;1&#x3B2;2&#x3B3;1 complex containing an &#x2018;AAA&#x2019; mutation (R64A/K71A/K74A) was completely resistant to the ability of previous Akt phosphorylation to reduce the rate of Thr<sup>172</sup> phosphorylation by LKB1 (<xref ref-type="fig" rid="F7">Figure 7</xref>D). Also consistent with this model was our finding that prior Akt phosphorylation reduced activation by both upstream kinases (LKB1 and CaMKK&#x3B2;) to very similar extents (<xref ref-type="fig" rid="F3">Figure 3</xref>C). Final confirmation of this model will require structural analysis of AMPK complexes where the ST loop is present in a phosphorylated form, rather than being unphosphorylated or deleted as in existing structures [<xref rid="B10" ref-type="bibr">10</xref>,<xref rid="B11" ref-type="bibr">11</xref>].</p>
+      <p>Since AMPK activators such as AICAR or metformin can overcome the inhibitory effects of Ser<sup>487</sup> phosphorylation on replication of the hepatitis C virus [<xref rid="B30" ref-type="bibr">30</xref>], our present results raise the exciting prospect that AMPK activators such as metformin, which are already used to treat Type&#xA0;2 diabetes, might also be efficacious in treatment of tumours in which the Akt pathway is hyperactivated. It is already known from retrospective studies that treatment of diabetics with metformin is associated with a lower incidence of cancer compared with other medications [<xref rid="B47" ref-type="bibr">47</xref>,<xref rid="B48" ref-type="bibr">48</xref>], although it is not yet certain that this effect is mediated by AMPK. Our results suggest that clinical trials to test the efficacy of metformin for cancer treatment might be targeted at specific classes of tumour, such as those in which Akt is hyper-activated.</p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Online data</title>
+      <supplementary-material id="SD1" content-type="local-data" position="float" xlink:type="simple">
+        <caption>
+          <title>Supplementary data</title>
+        </caption>
+        <media mimetype="application" mime-subtype="pdf" xlink:href="bj4590275add.pdf" position="float" xlink:type="simple"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>ACKNOWLEDGEMENT</title>
+      <p>We thank the cloning and protein production teams (led by James Hastie) in the Division of Signal Transduction Therapy, University of Dundee, for plasmids expressing GSK3 and for recombinant Akt.</p>
+    </ack>
+    <sec>
+      <title>AUTHOR CONTRIBUTION</title>
+      <p>Simon Hawley, Fiona Ross, Graeme Gowans and Priyanka Tibarewal designed and carried out experiments, or generated novel cell lines used in the present study; Nicholas Leslie and D. Grahame Hardie supervised the experiments and provided advice. All authors contributed in writing the paper.</p>
+    </sec>
+    <sec>
+      <title>FUNDING</title>
+      <p>This work was supported by the <funding-source id="gs1">Wellcome Trust via a Senior Investigator Award</funding-source> [grant number <award-id rid="gs1">097726</award-id> (to D.G.H., S.A.H. and F.A.R.)] and the pharmaceutical companies (AstraZeneca, Boehringer-Ingelheim, GlaxoSmithKline, Merck KGaA, Janssen Pharmaceutica and Pfizer) funding the Division of Signal Transduction Therapy at the University of Dundee. A studentship from AstraZeneca (to G.J.G.) and a Programme Grant from the <funding-source id="gs2">Medical Research Council</funding-source> [grant number <award-id rid="gs2">G0801865</award-id> to (P.T. and N.R.L.)] were also received.</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>F. A.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>AMPK: a nutrient and energy sensor that maintains energy homeostasis</article-title>
+          <source>Nat. Rev. Mol. Cell Biol.</source>
+          <year>2012</year>
+          <volume>13</volume>
+          <fpage>251</fpage>
+          <lpage>262</lpage>
+          <pub-id pub-id-type="pmid">22436748</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Davison</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Woods</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Davies</surname>
+              <given-names>S. P.</given-names>
+            </name>
+            <name>
+              <surname>Beri</surname>
+              <given-names>R. K.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Characterization of the AMP-activated protein kinase kinase from rat liver, and identification of threonine-172 as the major site at which it phosphorylates and activates AMP-activated protein kinase</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>1996</year>
+          <volume>271</volume>
+          <fpage>27879</fpage>
+          <lpage>27887</lpage>
+          <pub-id pub-id-type="pmid">8910387</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woods</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Johnstone</surname>
+              <given-names>S. R.</given-names>
+            </name>
+            <name>
+              <surname>Dickerson</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Leiper</surname>
+              <given-names>F. C.</given-names>
+            </name>
+            <name>
+              <surname>Fryer</surname>
+              <given-names>L. G.</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Schlattner</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Wallimann</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Carlson</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <article-title>LKB1 is the upstream kinase in the AMP-activated protein kinase cascade</article-title>
+          <source>Curr. Biol.</source>
+          <year>2003</year>
+          <volume>13</volume>
+          <fpage>2004</fpage>
+          <lpage>2008</lpage>
+          <pub-id pub-id-type="pmid">14614828</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Boudeau</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Reid</surname>
+              <given-names>J. L.</given-names>
+            </name>
+            <name>
+              <surname>Mustard</surname>
+              <given-names>K. J.</given-names>
+            </name>
+            <name>
+              <surname>Udd</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Makela</surname>
+              <given-names>T. P.</given-names>
+            </name>
+            <name>
+              <surname>Alessi</surname>
+              <given-names>D. R.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Complexes between the LKB1 tumor suppressor, STRAD&#x3B1;/&#x3B2; and MO25&#x3B1;/&#x3B2; are upstream kinases in the AMP-activated protein kinase cascade</article-title>
+          <source>J. Biol.</source>
+          <year>2003</year>
+          <volume>2</volume>
+          <fpage>28</fpage>
+          <pub-id pub-id-type="pmid">14511394</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaw</surname>
+              <given-names>R. J.</given-names>
+            </name>
+            <name>
+              <surname>Kosmatka</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Bardeesy</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Hurley</surname>
+              <given-names>R. L.</given-names>
+            </name>
+            <name>
+              <surname>Witters</surname>
+              <given-names>L. A.</given-names>
+            </name>
+            <name>
+              <surname>DePinho</surname>
+              <given-names>R. A.</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>L. C.</given-names>
+            </name>
+          </person-group>
+          <article-title>The tumor suppressor LKB1 kinase directly activates AMP-activated kinase and regulates apoptosis in response to energy stress</article-title>
+          <source>Proc. Natl. Acad. Sci. U.S.A.</source>
+          <year>2004</year>
+          <volume>101</volume>
+          <fpage>3329</fpage>
+          <lpage>3335</lpage>
+          <pub-id pub-id-type="pmid">14985505</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woods</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Dickerson</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Heath</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>S. P.</given-names>
+            </name>
+            <name>
+              <surname>Momcilovic</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Johnstone</surname>
+              <given-names>S. R.</given-names>
+            </name>
+            <name>
+              <surname>Carlson</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Ca<sup>2+</sup>/calmodulin-dependent protein kinase kinase-&#x3B2; acts upstream of AMP-activated protein kinase in mammalian cells</article-title>
+          <source>Cell Metab.</source>
+          <year>2005</year>
+          <volume>2</volume>
+          <fpage>21</fpage>
+          <lpage>33</lpage>
+          <pub-id pub-id-type="pmid">16054096</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Pan</surname>
+              <given-names>D. A.</given-names>
+            </name>
+            <name>
+              <surname>Mustard</surname>
+              <given-names>K. J.</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Bain</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Edelman</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Frenguelli</surname>
+              <given-names>B. G.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Calmodulin-dependent protein kinase kinase-beta is an alternative upstream kinase for AMP-activated protein kinase</article-title>
+          <source>Cell Metab.</source>
+          <year>2005</year>
+          <volume>2</volume>
+          <fpage>9</fpage>
+          <lpage>19</lpage>
+          <pub-id pub-id-type="pmid">16054095</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hurley</surname>
+              <given-names>R. L.</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Franzone</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Kemp</surname>
+              <given-names>B. E.</given-names>
+            </name>
+            <name>
+              <surname>Means</surname>
+              <given-names>A. R.</given-names>
+            </name>
+            <name>
+              <surname>Witters</surname>
+              <given-names>L. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>The Ca<sup>2+</sup>/calmodulin-dependent protein kinase kinases are AMP-activated protein kinase kinases</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2005</year>
+          <volume>280</volume>
+          <fpage>29060</fpage>
+          <lpage>29066</lpage>
+          <pub-id pub-id-type="pmid">15980064</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scott</surname>
+              <given-names>J. W.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Anis</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Stewart</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Scullion</surname>
+              <given-names>G. A.</given-names>
+            </name>
+            <name>
+              <surname>Norman</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>CBS domains form energy-sensing modules whose binding of adenosine ligands is disrupted by disease mutations</article-title>
+          <source>J. Clin. Invest.</source>
+          <year>2004</year>
+          <volume>113</volume>
+          <fpage>274</fpage>
+          <lpage>284</lpage>
+          <pub-id pub-id-type="pmid">14722619</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xiao</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Sanders</surname>
+              <given-names>M. J.</given-names>
+            </name>
+            <name>
+              <surname>Underwood</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Heath</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Mayer</surname>
+              <given-names>F. V.</given-names>
+            </name>
+            <name>
+              <surname>Carmena</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Jing</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>P. A.</given-names>
+            </name>
+            <name>
+              <surname>Eccleston</surname>
+              <given-names>J. F.</given-names>
+            </name>
+            <name>
+              <surname>Haire</surname>
+              <given-names>L. F.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Structure of mammalian AMPK and its regulation by ADP</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>472</volume>
+          <fpage>230</fpage>
+          <lpage>233</lpage>
+          <pub-id pub-id-type="pmid">21399626</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xiao</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Heath</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Saiu</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Leiper</surname>
+              <given-names>F. C.</given-names>
+            </name>
+            <name>
+              <surname>Leone</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Jing</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>P. A.</given-names>
+            </name>
+            <name>
+              <surname>Haire</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Eccleston</surname>
+              <given-names>J. F.</given-names>
+            </name>
+            <name>
+              <surname>Davis</surname>
+              <given-names>C. T.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Structural basis for AMP binding to mammalian AMP-activated protein kinase</article-title>
+          <source>Nature</source>
+          <year>2007</year>
+          <volume>449</volume>
+          <fpage>496</fpage>
+          <lpage>500</lpage>
+          <pub-id pub-id-type="pmid">17851531</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y. Y.</given-names>
+            </name>
+            <name>
+              <surname>Yan</surname>
+              <given-names>S. F.</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Schlattner</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z. X.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J. W.</given-names>
+            </name>
+          </person-group>
+          <article-title>AMP-activated protein kinase undergoes nucleotide-dependent conformational changes</article-title>
+          <source>Nat. Struct. Mol. Biol.</source>
+          <year>2012</year>
+          <volume>19</volume>
+          <fpage>716</fpage>
+          <lpage>718</lpage>
+          <pub-id pub-id-type="pmid">22659875</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davies</surname>
+              <given-names>S. P.</given-names>
+            </name>
+            <name>
+              <surname>Helps</surname>
+              <given-names>N. R.</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>P. T. W.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>5&#x2032;-AMP inhibits dephosphorylation, as well as promoting phosphorylation, of the AMP-activated protein kinase. Studies using bacterially expressed human protein phosphatase-2Ca and native bovine protein phosphatase-2A<sub>C</sub></article-title>
+          <source>FEBS Lett.</source>
+          <year>1995</year>
+          <volume>377</volume>
+          <fpage>421</fpage>
+          <lpage>425</lpage>
+          <pub-id pub-id-type="pmid">8549768</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Selbert</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Goldstein</surname>
+              <given-names>E. G.</given-names>
+            </name>
+            <name>
+              <surname>Edelman</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>5&#x2032;-AMP activates the AMP-activated protein kinase cascade, and Ca<sup>2+</sup>/calmodulin the calmodulin-dependent protein kinase I cascade, via three independent mechanisms</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>1995</year>
+          <volume>270</volume>
+          <fpage>27186</fpage>
+          <lpage>27191</lpage>
+          <pub-id pub-id-type="pmid">7592975</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gowans</surname>
+              <given-names>G. J.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>F. A.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>AMP is a true physiological regulator of AMP-activated protein kinase, both by allosteric activation and by enhancing net phosphorylation</article-title>
+          <source>Cell Metab.</source>
+          <year>2013</year>
+          <volume>18</volume>
+          <fpage>556</fpage>
+          <lpage>566</lpage>
+          <pub-id pub-id-type="pmid">24093679</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Fullerton</surname>
+              <given-names>M. D.</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>F. A.</given-names>
+            </name>
+            <name>
+              <surname>Schertzer</surname>
+              <given-names>J. D.</given-names>
+            </name>
+            <name>
+              <surname>Chevtzoff</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>K. J.</given-names>
+            </name>
+            <name>
+              <surname>Peggie</surname>
+              <given-names>M. W.</given-names>
+            </name>
+            <name>
+              <surname>Zibrova</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Mustard</surname>
+              <given-names>K. J.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The ancient drug salicylate directly activates AMP-activated protein kinase</article-title>
+          <source>Science</source>
+          <year>2012</year>
+          <volume>336</volume>
+          <fpage>918</fpage>
+          <lpage>922</lpage>
+          <pub-id pub-id-type="pmid">22517326</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sanders</surname>
+              <given-names>M. J.</given-names>
+            </name>
+            <name>
+              <surname>Ali</surname>
+              <given-names>Z. S.</given-names>
+            </name>
+            <name>
+              <surname>Hegarty</surname>
+              <given-names>B. D.</given-names>
+            </name>
+            <name>
+              <surname>Heath</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Snowden</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Defining the mechanism of activation of AMP-activated protein kinase by the small molecule A-769662, a member of the thienopyridone family</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2007</year>
+          <volume>282</volume>
+          <fpage>32539</fpage>
+          <lpage>32548</lpage>
+          <pub-id pub-id-type="pmid">17728241</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goransson</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>McBride</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>F. A.</given-names>
+            </name>
+            <name>
+              <surname>Shpiro</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Foretz</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Viollet</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Sakamoto</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanism of action of A-769662, a valuable tool for activation of AMP-activated protein kinase</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2007</year>
+          <volume>282</volume>
+          <fpage>32549</fpage>
+          <lpage>32560</lpage>
+          <pub-id pub-id-type="pmid">17855357</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>F. A.</given-names>
+            </name>
+            <name>
+              <surname>Chevtzoff</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Evans</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Fogarty</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Towler</surname>
+              <given-names>M. C.</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>L. J.</given-names>
+            </name>
+            <name>
+              <surname>Ogunbayo</surname>
+              <given-names>O. A.</given-names>
+            </name>
+            <name>
+              <surname>Evans</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Use of cells expressing gamma subunit variants to identify diverse mechanisms of AMPK activation</article-title>
+          <source>Cell Metab.</source>
+          <year>2010</year>
+          <volume>11</volume>
+          <fpage>554</fpage>
+          <lpage>565</lpage>
+          <pub-id pub-id-type="pmid">20519126</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Faubert</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Boily</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Izreig</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Griss</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Samborska</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Dupuy</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Chambers</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Fuerth</surname>
+              <given-names>B. J.</given-names>
+            </name>
+            <name>
+              <surname>Viollet</surname>
+              <given-names>B.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>AMPK is a negative regulator of the Warburg effect and suppresses tumor growth <italic>in&#xA0;vivo</italic></article-title>
+          <source>Cell Metab.</source>
+          <year>2012</year>
+          <volume>17</volume>
+          <fpage>113</fpage>
+          <lpage>124</lpage>
+          <pub-id pub-id-type="pmid">23274086</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sanchez-Cespedes</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Parrella</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Esteller</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Nomoto</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Trink</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Engles</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Westra</surname>
+              <given-names>W. H.</given-names>
+            </name>
+            <name>
+              <surname>Herman</surname>
+              <given-names>J. G.</given-names>
+            </name>
+            <name>
+              <surname>Sidransky</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inactivation of LKB1/STK11 is a common event in adenocarcinomas of the lung</article-title>
+          <source>Cancer Res.</source>
+          <year>2002</year>
+          <volume>62</volume>
+          <fpage>3659</fpage>
+          <lpage>3662</lpage>
+          <pub-id pub-id-type="pmid">12097271</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ji</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Ramsey</surname>
+              <given-names>M. R.</given-names>
+            </name>
+            <name>
+              <surname>Hayes</surname>
+              <given-names>D. N.</given-names>
+            </name>
+            <name>
+              <surname>Fan</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>McNamara</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kozlowski</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Torrice</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>M. C.</given-names>
+            </name>
+            <name>
+              <surname>Shimamura</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Perera</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>LKB1 modulates lung cancer differentiation and metastasis</article-title>
+          <source>Nature</source>
+          <year>2007</year>
+          <volume>448</volume>
+          <fpage>807</fpage>
+          <lpage>810</lpage>
+          <pub-id pub-id-type="pmid">17676035</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wingo</surname>
+              <given-names>S. N.</given-names>
+            </name>
+            <name>
+              <surname>Gallardo</surname>
+              <given-names>T. D.</given-names>
+            </name>
+            <name>
+              <surname>Akbay</surname>
+              <given-names>E. A.</given-names>
+            </name>
+            <name>
+              <surname>Liang</surname>
+              <given-names>M. C.</given-names>
+            </name>
+            <name>
+              <surname>Contreras</surname>
+              <given-names>C. M.</given-names>
+            </name>
+            <name>
+              <surname>Boren</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Shimamura</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>D. S.</given-names>
+            </name>
+            <name>
+              <surname>Sharpless</surname>
+              <given-names>N. E.</given-names>
+            </name>
+            <name>
+              <surname>Bardeesy</surname>
+              <given-names>N.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Somatic LKB1 mutations promote cervical cancer progression</article-title>
+          <source>PLoS ONE</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>e5137</fpage>
+          <pub-id pub-id-type="pmid">19340305</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fogarty</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Saner</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Mustard</surname>
+              <given-names>K. J.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Calmodulin-dependent protein kinase kinase-beta activates AMPK without forming a stable complex&#x2013;synergistic effects of Ca<sup>2+</sup> and AMP</article-title>
+          <source>Biochem. J.</source>
+          <year>2010</year>
+          <volume>426</volume>
+          <fpage>109</fpage>
+          <lpage>118</lpage>
+          <pub-id pub-id-type="pmid">19958286</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>C. W.</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>L. L.</given-names>
+            </name>
+            <name>
+              <surname>Tse</surname>
+              <given-names>E. Y.</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>H. F.</given-names>
+            </name>
+            <name>
+              <surname>Leong</surname>
+              <given-names>V. Y.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Ng</surname>
+              <given-names>I. O.</given-names>
+            </name>
+            <name>
+              <surname>Ching</surname>
+              <given-names>Y. P.</given-names>
+            </name>
+          </person-group>
+          <article-title>AMPK promotes p53 acetylation via phosphorylation and inactivation of SIRT1&#xA0;in liver cancer cells</article-title>
+          <source>Cancer Res.</source>
+          <year>2012</year>
+          <volume>72</volume>
+          <fpage>4394</fpage>
+          <lpage>4404</lpage>
+          <pub-id pub-id-type="pmid">22728651</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yuan</surname>
+              <given-names>T. L.</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>L. C.</given-names>
+            </name>
+          </person-group>
+          <article-title>PI3K pathway alterations in cancer: variations on a theme</article-title>
+          <source>Oncogene</source>
+          <year>2008</year>
+          <volume>27</volume>
+          <fpage>5497</fpage>
+          <lpage>5510</lpage>
+          <pub-id pub-id-type="pmid">18794884</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Horman</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Vertommen</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Heath</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Mouton</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Woods</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Schlattner</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Wallimann</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Hue</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Rider</surname>
+              <given-names>M. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Insulin antagonizes ischemia-induced Thr<sup>172</sup> phosphorylation of AMP-activated protein kinase &#x3B1;-subunits in heart via hierarchical phosphorylation of Ser<sup>485/491</sup></article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2006</year>
+          <volume>281</volume>
+          <fpage>5335</fpage>
+          <lpage>5340</lpage>
+          <pub-id pub-id-type="pmid">16340011</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hurley</surname>
+              <given-names>R. L.</given-names>
+            </name>
+            <name>
+              <surname>Barre</surname>
+              <given-names>L. K.</given-names>
+            </name>
+            <name>
+              <surname>Wood</surname>
+              <given-names>S. D.</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Kemp</surname>
+              <given-names>B. E.</given-names>
+            </name>
+            <name>
+              <surname>Means</surname>
+              <given-names>A. R.</given-names>
+            </name>
+            <name>
+              <surname>Witters</surname>
+              <given-names>L. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of AMP-activated protein kinase by multisite phosphorylation in response to agents that elevate cellular cAMP</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2006</year>
+          <volume>281</volume>
+          <fpage>36662</fpage>
+          <lpage>36672</lpage>
+          <pub-id pub-id-type="pmid">17023420</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ning</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Xi</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Clemmons</surname>
+              <given-names>D. R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Suppression of AMPK activation via S485 phosphorylation by IGF-I during hyperglycemia is mediated by AKT activation in vascular smooth muscle cells</article-title>
+          <source>Endocrinology</source>
+          <year>2011</year>
+          <volume>152</volume>
+          <fpage>3143</fpage>
+          <lpage>3154</lpage>
+          <pub-id pub-id-type="pmid">21673100</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mankouri</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Tedbury</surname>
+              <given-names>P. R.</given-names>
+            </name>
+            <name>
+              <surname>Gretton</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Hughes</surname>
+              <given-names>M. E.</given-names>
+            </name>
+            <name>
+              <surname>Griffin</surname>
+              <given-names>S. D.</given-names>
+            </name>
+            <name>
+              <surname>Dallas</surname>
+              <given-names>M. L.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Peers</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Enhanced hepatitis C virus genome replication and lipid accumulation mediated by inhibition of AMP-activated protein kinase</article-title>
+          <source>Proc. Natl. Acad. Sci. U.S.A.</source>
+          <year>2010</year>
+          <volume>107</volume>
+          <fpage>11549</fpage>
+          <lpage>11554</lpage>
+          <pub-id pub-id-type="pmid">20534540</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Bridges</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Nakada</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Skiniotis</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Morrison</surname>
+              <given-names>S. J.</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>J. D.</given-names>
+            </name>
+            <name>
+              <surname>Saltiel</surname>
+              <given-names>A. R.</given-names>
+            </name>
+            <name>
+              <surname>Inoki</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of AMPK catabolic action by GSK3</article-title>
+          <source>Mol. Cell</source>
+          <year>2013</year>
+          <volume>50</volume>
+          <fpage>407</fpage>
+          <lpage>419</lpage>
+          <pub-id pub-id-type="pmid">23623684</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woods</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Salt</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Scott</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <article-title>The a1 and a2 isoforms of the AMP-activated protein kinase have similar activities in rat liver but exhibit differences in substrate specificity <italic>in&#xA0;vitro</italic></article-title>
+          <source>FEBS Lett.</source>
+          <year>1996</year>
+          <volume>397</volume>
+          <fpage>347</fpage>
+          <lpage>351</lpage>
+          <pub-id pub-id-type="pmid">8955377</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lizcano</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>G&#xF6;ransson</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Toth</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Deak</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Morrice</surname>
+              <given-names>N. A.</given-names>
+            </name>
+            <name>
+              <surname>Boudeau</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Udd</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>M&#xE4;kel&#xE4;</surname>
+              <given-names>T. P.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Alessi</surname>
+              <given-names>D. R.</given-names>
+            </name>
+          </person-group>
+          <article-title>LKB1 is a master kinase that activates 13 protein kinases of the AMPK subfamily, including the MARK/PAR-1 kinases</article-title>
+          <source>EMBO J.</source>
+          <year>2004</year>
+          <volume>23</volume>
+          <fpage>833</fpage>
+          <lpage>843</lpage>
+          <pub-id pub-id-type="pmid">14976552</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woods</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Vertommen</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Turk</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Bayliss</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Schlattner</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Wallimann</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Rider</surname>
+              <given-names>M. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of phosphorylation sites in AMP-activated protein kinase (AMPK) for upstream AMPK kinases and study of their roles by site-directed mutagenesis</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <fpage>28434</fpage>
+          <lpage>28442</lpage>
+          <pub-id pub-id-type="pmid">12764152</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davidson</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Maccario</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Perera</surname>
+              <given-names>N. M.</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Spinelli</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Tibarewal</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Glancy</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Gray</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Weijer</surname>
+              <given-names>C. J.</given-names>
+            </name>
+            <name>
+              <surname>Downes</surname>
+              <given-names>C. P.</given-names>
+            </name>
+            <name>
+              <surname>Leslie</surname>
+              <given-names>N. R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Suppression of cellular proliferation and invasion by the concerted lipid and protein phosphatase activities of PTEN</article-title>
+          <source>Oncogene</source>
+          <year>2010</year>
+          <volume>29</volume>
+          <fpage>687</fpage>
+          <lpage>697</lpage>
+          <pub-id pub-id-type="pmid">19915616</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davies</surname>
+              <given-names>S. P.</given-names>
+            </name>
+            <name>
+              <surname>Carling</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Tissue distribution of the AMP-activated protein kinase, and lack of activation by cyclic AMP-dependent protein kinase, studied using a specific and sensitive peptide assay</article-title>
+          <source>Eur. J. Biochem.</source>
+          <year>1989</year>
+          <volume>186</volume>
+          <fpage>123</fpage>
+          <lpage>128</lpage>
+          <pub-id pub-id-type="pmid">2574667</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dale</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Wilson</surname>
+              <given-names>W. A.</given-names>
+            </name>
+            <name>
+              <surname>Edelman</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Hardie</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Similar substrate recognition motifs for mammalian AMP-activated protein kinase, higher plant HMG-CoA reductase kinase-A, yeast SNF1, and mammalian calmodulin-dependent protein kinase I</article-title>
+          <source>FEBS Lett.</source>
+          <year>1995</year>
+          <volume>361</volume>
+          <fpage>191</fpage>
+          <lpage>195</lpage>
+          <pub-id pub-id-type="pmid">7698321</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Towler</surname>
+              <given-names>M. C.</given-names>
+            </name>
+            <name>
+              <surname>Fogarty</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Hawley</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Pan</surname>
+              <given-names>D. A.</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Morrice</surname>
+              <given-names>N. A.</given-names>
+            </name>
+            <name>
+              <surname>McCarthy</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Galardo</surname>
+              <given-names>M. N.</given-names>
+            </name>
+            <name>
+              <surname>Meroni</surname>
+              <given-names>S. B.</given-names>
+            </name>
+            <name>
+              <surname>Cigorraga</surname>
+              <given-names>S. B.</given-names>
+            </name>
+            <name>
+              <surname>Ashworth</surname>
+              <given-names>A.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A novel short splice variant of the tumour suppressor LKB1 is required for spermiogenesis</article-title>
+          <source>Biochem. J.</source>
+          <year>2008</year>
+          <volume>416</volume>
+          <fpage>1</fpage>
+          <lpage>14</lpage>
+          <pub-id pub-id-type="pmid">18774945</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Obata</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Yaffe</surname>
+              <given-names>M. B.</given-names>
+            </name>
+            <name>
+              <surname>Leparc</surname>
+              <given-names>G. G.</given-names>
+            </name>
+            <name>
+              <surname>Piro</surname>
+              <given-names>E. T.</given-names>
+            </name>
+            <name>
+              <surname>Maegawa</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kashiwagi</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Kikkawa</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>L. C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Peptide and protein library screening defines optimal substrate motifs for Akt/PKB</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>36108</fpage>
+          <lpage>36115</lpage>
+          <pub-id pub-id-type="pmid">10945990</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Obenauer</surname>
+              <given-names>J. C.</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>L. C.</given-names>
+            </name>
+            <name>
+              <surname>Yaffe</surname>
+              <given-names>M. B.</given-names>
+            </name>
+          </person-group>
+          <article-title>Scansite 2.0: proteome-wide prediction of cell signaling interactions using short sequence motifs</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2003</year>
+          <volume>31</volume>
+          <fpage>3635</fpage>
+          <lpage>3641</lpage>
+          <pub-id pub-id-type="pmid">12824383</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hirai</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Sootome</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Nakatsuru</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Miyama</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Taguchi</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Tsujioka</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Ueno</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Hatch</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Majumder</surname>
+              <given-names>P. K.</given-names>
+            </name>
+            <name>
+              <surname>Pan</surname>
+              <given-names>B. S.</given-names>
+            </name>
+            <name>
+              <surname>Kotani</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>MK-2206, an allosteric Akt inhibitor, enhances antitumor efficacy by standard chemotherapeutic agents or molecular targeted drugs <italic>in&#xA0;vitro</italic> and <italic>in&#xA0;vivo</italic></article-title>
+          <source>Mol. Cancer Ther.</source>
+          <year>2010</year>
+          <volume>9</volume>
+          <fpage>1956</fpage>
+          <lpage>1967</lpage>
+          <pub-id pub-id-type="pmid">20571069</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dagon</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Hur</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Wellenstein</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>L. C.</given-names>
+            </name>
+            <name>
+              <surname>Kahn</surname>
+              <given-names>B. B.</given-names>
+            </name>
+          </person-group>
+          <article-title>p70S6 kinase phosphorylates AMPK on serine 491 to mediate leptin's effect on food intake</article-title>
+          <source>Cell Metab.</source>
+          <year>2012</year>
+          <volume>16</volume>
+          <fpage>104</fpage>
+          <lpage>112</lpage>
+          <pub-id pub-id-type="pmid">22727014</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Street</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Macdonald</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Crowder</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>The hepatitis C virus NS5A protein activates a phosphoinositide 3-kinase-dependent survival signaling cascade</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>12232</fpage>
+          <lpage>12241</lpage>
+          <pub-id pub-id-type="pmid">14709551</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roach</surname>
+              <given-names>P. J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Multisite and hierarchal protein phosphorylation</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>1991</year>
+          <volume>266</volume>
+          <fpage>14139</fpage>
+          <lpage>14142</lpage>
+          <pub-id pub-id-type="pmid">1650349</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cross</surname>
+              <given-names>D. A.</given-names>
+            </name>
+            <name>
+              <surname>Alessi</surname>
+              <given-names>D. R.</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Andjelkovich</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Hemmings</surname>
+              <given-names>B. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of glycogen synthase kinase-3 by insulin mediated by protein kinase B</article-title>
+          <source>Nature</source>
+          <year>1995</year>
+          <volume>378</volume>
+          <fpage>785</fpage>
+          <lpage>789</lpage>
+          <pub-id pub-id-type="pmid">8524413</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B46">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frame</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Biondi</surname>
+              <given-names>R. M.</given-names>
+            </name>
+          </person-group>
+          <article-title>A common phosphate binding site explains the unique substrate specificity of GSK3 and its inactivation by phosphorylation</article-title>
+          <source>Mol. Cell</source>
+          <year>2001</year>
+          <volume>7</volume>
+          <fpage>1321</fpage>
+          <lpage>1327</lpage>
+          <pub-id pub-id-type="pmid">11430833</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B47">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Evans</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Donnelly</surname>
+              <given-names>L. A.</given-names>
+            </name>
+            <name>
+              <surname>Emslie-Smith</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Alessi</surname>
+              <given-names>D. R.</given-names>
+            </name>
+            <name>
+              <surname>Morris</surname>
+              <given-names>A. D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Metformin and reduced risk of cancer in diabetic patients</article-title>
+          <source>Br. Med. J.</source>
+          <year>2005</year>
+          <volume>330</volume>
+          <fpage>1304</fpage>
+          <lpage>1305</lpage>
+          <pub-id pub-id-type="pmid">15849206</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B48">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Decensi</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Puntoni</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Goodwin</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Cazzaniga</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Gennari</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Bonanni</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Gandini</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Metformin and cancer risk in diabetic patients: a systematic review and meta-analysis</article-title>
+          <source>Cancer Prev. Res. (Phila)</source>
+          <year>2010</year>
+          <volume>3</volume>
+          <fpage>1451</fpage>
+          <lpage>1461</lpage>
+          <pub-id pub-id-type="pmid">20947488</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
