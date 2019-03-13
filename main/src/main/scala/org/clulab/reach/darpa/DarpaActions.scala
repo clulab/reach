@@ -171,7 +171,7 @@ class DarpaActions extends Actions with LazyLogging {
       pairs.flatten
     case _  => Nil
   }
-  l
+
   private val polarityEngine = PolarityEngine.engineFromConfig
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {

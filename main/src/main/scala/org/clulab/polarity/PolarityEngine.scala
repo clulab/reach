@@ -83,9 +83,9 @@ trait PolarityEngine extends LazyLogging{
 
 object PolarityEngine extends LazyLogging {
 
-  private val defaultEngine = LinguisticPolarityEngine
+  private val defaultEngine:PolarityEngine = LinguisticPolarityEngine
 
-  def apply(engineName:String): PolarityEngine = {
+  def apply(engineName:String): PolarityEngine = engineName match {
     case "Linguistic" =>
       LinguisticPolarityEngine
     case _ =>
