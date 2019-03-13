@@ -22,7 +22,7 @@ class SVMContextEngine extends ContextEngine {
     case true => configPath
     case false => defaultPath
   }
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val trainedSVMInstance = svmWrapper.loadFrom(modelPath)
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
