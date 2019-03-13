@@ -4,7 +4,7 @@ import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.correctDataPrep.Utils
 import org.ml4ai.data.utils.correctDataPrep.AggregatedRowNew
 import org.ml4ai.data.utils.oldDataPrep.InputRow
-
+import com.typesafe.config.ConfigFactory
 class SVMContextEngine extends ContextEngine {
 
   type Pair = (BioEventMention, BioTextBoundMention)
@@ -15,7 +15,9 @@ class SVMContextEngine extends ContextEngine {
 
 
   val svmWrapper = new LinearSVMWrapper(null)
-  val trainedSVMInstance = svmWrapper.loadFrom("/Users/shraddha/datascience/ScalaContext/src/main/resources/svmTrainedModel.dat")
+  val config = ConfigFactory.load()
+  val modelPath = config.getString("contextEngine.params.svmPath")
+  val trainedSVMInstance = svmWrapper.loadFrom(modelPath)
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
