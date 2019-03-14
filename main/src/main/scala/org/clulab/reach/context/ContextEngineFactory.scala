@@ -11,7 +11,7 @@ object ContextEngineFactory {
       val Policy2 = Value("Policy2")
       val Policy3 = Value("Policy3")
       val Policy4 = Value("Policy4")
-      val SVMPolicy = Value("SVM")
+      val SVMPolicy = Value("SVMPolicy")
     }
     import Engine._
 
