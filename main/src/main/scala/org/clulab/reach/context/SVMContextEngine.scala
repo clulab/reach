@@ -120,7 +120,7 @@ class SVMContextEngine extends ContextEngine {
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
-  { val file="/Users/shraddha/datascience/ScalaContext/src/main/resources/allFeaturesFile.txt"
+  { val file="./src/main/resources/org/clulab/context/allFeaturesFile.txt"
     val PMCID = datum._1.document.id match {
       case Some(c) => c
       case None => "Unknown"
