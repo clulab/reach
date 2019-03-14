@@ -5,7 +5,8 @@ import org.ml4ai.data.utils.correctDataPrep.Utils
 import org.ml4ai.data.utils.correctDataPrep.AggregatedRowNew
 import org.ml4ai.data.utils.oldDataPrep.InputRow
 import com.typesafe.config.ConfigFactory
-class SVMContextEngine extends ContextEngine {
+import com.typesafe.scalalogging.LazyLogging
+class SVMContextEngine extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
@@ -24,6 +25,7 @@ class SVMContextEngine extends ContextEngine {
   }
   val trainedSVMInstance = svmWrapper.loadFrom(modelPath)
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
+    logger.info("assigning respective mentions in SVMContextEngine")
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
       case None => mentions
@@ -101,6 +103,7 @@ class SVMContextEngine extends ContextEngine {
 
   // Pre-filter the context mentions
   override def infer(mentions: Seq[BioMention]): Unit = {
+    logger.info("inferring ctx-evt mention in SVMContextEngine")
     paperMentions = Some(mentions collect {
       case tb:BioTextBoundMention if isContextMention(tb) => tb
     })
