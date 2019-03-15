@@ -39,5 +39,5 @@ trait PolarityClassifier {
     * Saves the model parameter's to a file
     * @param modelPath file path to save the model to.
     */
-  def load(modelPath:String)
+  def save(modelPath:String)
 }
