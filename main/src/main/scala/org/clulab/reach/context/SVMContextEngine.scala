@@ -18,7 +18,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
-  val defaultPath = "./src/main/resources/org/clulab/context/svmTrainedModel.dat"
+  val defaultPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
+  //val defaultPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
   val modelPath = config.hasPath(configPath) match {
     case true => configPath
     case false => defaultPath
