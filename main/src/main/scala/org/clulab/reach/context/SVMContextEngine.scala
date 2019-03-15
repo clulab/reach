@@ -124,7 +124,15 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
-  { val file="./src/main/resources/org/clulab/context/allFeaturesFile.txt"
+  { val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
+    val defaultAllFeaturesPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
+    //val defaultPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
+
+    val file=config.hasPath(configAllFeaturesPath) match {
+      case true => configAllFeaturesPath
+      case false => defaultAllFeaturesPath
+    }
+    // val file
     val PMCID = datum._1.document.id match {
       case Some(c) => c
       case None => "Unknown"
