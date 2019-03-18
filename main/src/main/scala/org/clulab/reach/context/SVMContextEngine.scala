@@ -129,9 +129,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val evntId = extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
     val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
-    var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist = 0.0
+    var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist, ctxSentencePastTense, ctxSentenceFirstPerson = 0.0
+    // new features added: ctxSentenceFirstPerson_min,ctxSentenceFirstPerson_avg,ctxSentenceFirstPerson_max
+    // "ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max"
     val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
-      "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max","evtSentenceFirstPerson_avg", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
+      "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max", "evtSentenceFirstPerson_avg","ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max","ctxSentenceFirstPerson_min","ctxSentenceFirstPerson_avg","ctxSentenceFirstPerson_max", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     closestContext = if(bestFeatureSet.contains("closesCtxOfClass")) 1.0 else 0.0
     context_freq = if(bestFeatureSet.contains("context_frequency")) 1.0 else 0.0
@@ -141,6 +143,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     evtSentPresent = if(bestFeatureSet.contains("evtSentencePresentTense")) 1.0 else 0.0
     sentDist = if(bestFeatureSet.contains("sentenceDistance")) 1.0 else 0.0
     depDist = if(bestFeatureSet.contains("dependencyDistance")) 1.0 else 0.0
+    ctxSentencePastTense = if(bestFeatureSet.contains("ctxSentencePastTense")) 1.0 else 0.0
+    ctxSentenceFirstPerson = if(bestFeatureSet.contains("ctxSentenceFirstPerson")) 1.0 else 0.0
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
     dependencyFeatures foreach {
@@ -162,6 +166,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       evtSentFirst,
       evtSentPast,
       evtSentPresent,
+      ctxSentenceFirstPerson,
+      ctxSentencePastTense,
       sentDist,
       depDist,
       ctxDepFeatures.toSet,
