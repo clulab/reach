@@ -18,8 +18,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
-  val defaultPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
-  //val defaultPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
+//  val defaultPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
+  val defaultPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
   val modelPath = config.hasPath(configPath) match {
     case true => configPath
     case false => defaultPath
@@ -125,8 +125,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
   { val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-    val defaultAllFeaturesPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
-    //val defaultAllFeaturesPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
+  //  val defaultAllFeaturesPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
+    val defaultAllFeaturesPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
 
     val file=config.hasPath(configAllFeaturesPath) match {
       case true => configAllFeaturesPath
