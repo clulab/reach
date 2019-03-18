@@ -143,7 +143,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxId = ContextEngine.getContextKey(datum._2)
     val (allFeatures, bestFeatureSet) = Utils.featureConstructor(file)
     var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist = 0.0
-    val hardCodedFeatures = Seq("closesCtxOfClass", "context_frequency",
+    val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass", "context_frequency",
       "evtNegationInTail", "evtSentenceFirstPerson", "evtSentencePastTense", "evtSentencePresentTense", "sentenceDistance", "dependencyDistance")
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     closestContext = if(bestFeatureSet.contains("closesCtxOfClass")) 1.0 else 0.0
@@ -157,8 +157,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
     dependencyFeatures foreach {
-      case evt:String if evt.startsWith("evtDepTail") && bestFeatureSet.contains(evt) => evtDepFeatures += evt
-      case ctx:String if ctx.startsWith("ctxDepTail") && bestFeatureSet.contains(ctx)=> ctxDepFeatures += ctx
+      case evt:String if evt.startsWith("evtDepTail") => {
+        if(bestFeatureSet.contains(evt)) evtDepFeatures += evt
+      }
+      case ctx:String if ctx.startsWith("ctxDepTail")=> {
+        if(bestFeatureSet.contains(ctx)) ctxDepFeatures += ctx
+      }
     }
     InputRow(sentencePos,
       PMCID,
