@@ -236,7 +236,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val evtSentencePresentTenseended = Utils.extendFeatureName("evtSentencePresentTense")
       featureSetNames ++= List(evtSentencePresentTenseended._1, evtSentencePresentTenseended._2, evtSentencePresentTenseended._3)
       featureSetValues ++= List(evtSentencePresentTenseStats._1,evtSentencePresentTenseStats._2, evtSentencePresentTenseStats._3)
+      //ctxSentenceFirstPerson,
+      //      ctxSentencePastTense,
+      val ctxSentenceFirstPersonSet = collection.mutable.ListBuffer[Double]()
+      ctxSentenceFirstPersonSet += i.ctxSentenceFirstPerson
+      val ctxSentenceFirstPersonStats = Utils.createStats(ctxSentenceFirstPersonSet)
+      val ctxSentenceFirstPersonended = Utils.extendFeatureName("ctxSentenceFirstPerson")
+      featureSetNames ++= List(ctxSentenceFirstPersonended._1, ctxSentenceFirstPersonended._2, ctxSentenceFirstPersonended._3)
+      featureSetValues ++= List(ctxSentenceFirstPersonStats._1,ctxSentenceFirstPersonStats._2, ctxSentenceFirstPersonStats._3)
 
+      val ctxSentencePastTenseSet = collection.mutable.ListBuffer[Double]()
+      ctxSentencePastTenseSet += i.ctxSentencePastTense
+      val ctxSentencePastTenseStats = Utils.createStats(ctxSentencePastTenseSet)
+      val ctxSentencePastTenseended = Utils.extendFeatureName("ctxSentencePastTense")
+      featureSetNames ++= List(ctxSentencePastTenseended._1, ctxSentencePastTenseended._2, ctxSentencePastTenseended._3)
+      featureSetValues ++= List(ctxSentencePastTenseStats._1,ctxSentencePastTenseStats._2, ctxSentencePastTenseStats._3)
 
       val sentenceDistanceSet = collection.mutable.ListBuffer[Double]()
       sentenceDistanceSet += i.sentenceDistance
