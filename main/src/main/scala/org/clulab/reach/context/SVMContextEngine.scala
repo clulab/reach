@@ -18,13 +18,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
-  val defaultPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
-  //val defaultPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/svmTrainedModel.dat"
-  val modelPath = config.hasPath(configPath) match {
-    case true => configPath
-    case false => defaultPath
-  }
-  val trainedSVMInstance = svmWrapper.loadFrom(modelPath)
+  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     logger.info("assigning respective mentions in SVMContextEngine")
     paperMentions match {
@@ -125,13 +119,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
   { val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-    val defaultAllFeaturesPath = "/Users/shraddha/datascience/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
-    //val defaultAllFeaturesPath = "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/allFeaturesFile.txt"
-
-    val file=config.hasPath(configAllFeaturesPath) match {
-      case true => configAllFeaturesPath
-      case false => defaultAllFeaturesPath
-    }
     // val file
     val PMCID = datum._1.document.id match {
       case Some(c) => c
@@ -141,10 +128,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val sentencePos = datum._1.sentence
     val evntId = extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
-    val (allFeatures, bestFeatureSet) = Utils.featureConstructor(file)
+    val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
     var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist = 0.0
-    val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass", "context_frequency",
-      "evtNegationInTail", "evtSentenceFirstPerson", "evtSentencePastTense", "evtSentencePresentTense", "sentenceDistance", "dependencyDistance")
+    val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
+      "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max","evtSentenceFirstPerson_avg", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     closestContext = if(bestFeatureSet.contains("closesCtxOfClass")) 1.0 else 0.0
     context_freq = if(bestFeatureSet.contains("context_frequency")) 1.0 else 0.0
