@@ -91,6 +91,15 @@ class ReachSystem(
     contextEngine.update(events)
     val eventsWithContext = contextEngine.assign(events)
 
+    // TODO: Count the distribution of events with and without context dictionaries and the distribution of context types
+    val ev = events.head
+    ev.context match {
+      case Some(c) => // Count + 1 for context
+      case None => // Count +1 for no context
+    }
+
+    logger.info("There are n with context and m without context out of o")
+
     logger.debug(s"${eventsWithContext.size} events after contextEngine.assign: ${display.summarizeMentions(eventsWithContext, doc)}")
     val grounded = grounder(eventsWithContext)
     logger.debug(s"${grounded.size} events after grounder: ${display.summarizeMentions(grounded, doc)}")
