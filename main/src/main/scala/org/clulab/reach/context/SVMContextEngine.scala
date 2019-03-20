@@ -60,7 +60,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             _.map {
               case (ctxId, aggregatedFeature) =>
                 logger.info(s"Current ctxid: $ctxId")
-                logger.info(s"first aggregated feature name:${aggregatedFeature.featureGroupNames(0)}  and value: ${aggregatedFeature.featureGroups(0)}")
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
                 val prediction = {
@@ -106,8 +105,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   override def infer(mentions: Seq[BioMention]): Unit = {
     logger.info("inferring ctx-evt mention in SVMContextEngine")
     val contextMentions = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
-    val entries = contextMentions groupBy (m => m.sentence)
     paperMentions = Some(contextMentions)
+
+    // code from rule based engine
+    val entries = contextMentions groupBy (m => m.sentence)
     orderedContextMentions = immutable.TreeMap(entries.toArray:_*)
     val contextCounts:Map[(String, String), Int] = contextMentions map ContextEngine.getContextKey groupBy identity mapValues (_.size)
     val defaultContexts:Map[String, String] = contextCounts.toSeq.groupBy(_._1._1)
