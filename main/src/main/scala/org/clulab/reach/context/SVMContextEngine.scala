@@ -6,6 +6,8 @@ import org.ml4ai.data.utils.correctDataPrep.AggregatedRowNew
 import org.ml4ai.data.utils.oldDataPrep.InputRow
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+
+import scala.collection.immutable
 class SVMContextEngine extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
@@ -13,7 +15,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   type ContextID = (String, String)
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
-
+  var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
+  var defaultContexts:Option[Map[String, String]] = None
 
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
@@ -56,7 +59,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
             _.map {
               case (ctxId, aggregatedFeature) =>
-                logger.info(s"current aggregated feature: $aggregatedFeature")
+                logger.info(s"Current ctxid: $ctxId")
+                logger.info(s"first aggregated feature name:${aggregatedFeature.featureGroupNames(0)}  and value: ${aggregatedFeature.featureGroups(0)}")
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
                 val prediction = {
@@ -101,8 +105,17 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // Pre-filter the context mentions
   override def infer(mentions: Seq[BioMention]): Unit = {
     logger.info("inferring ctx-evt mention in SVMContextEngine")
-    val tempo = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
-    paperMentions = Some(tempo)
+    val contextMentions = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
+    val entries = contextMentions groupBy (m => m.sentence)
+    paperMentions = Some(contextMentions)
+    orderedContextMentions = immutable.TreeMap(entries.toArray:_*)
+    val contextCounts:Map[(String, String), Int] = contextMentions map ContextEngine.getContextKey groupBy identity mapValues (_.size)
+    val defaultContexts:Map[String, String] = contextCounts.toSeq.groupBy(_._1._1)
+      // Sort them in decreasing order by frequency
+      .mapValues(_.map(t => (t._1._2, t._2)))
+      // And pick the id with of the type with highest frequency
+      .mapValues(l => l.maxBy(_._2)._1)
+    this.defaultContexts = Some(defaultContexts)
   }
 
   override def update(mentions: Seq[BioMention]): Unit = ()
