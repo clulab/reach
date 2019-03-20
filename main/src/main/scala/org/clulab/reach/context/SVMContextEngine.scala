@@ -99,15 +99,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // Pre-filter the context mentions
   override def infer(mentions: Seq[BioMention]): Unit = {
     logger.info("inferring ctx-evt mention in SVMContextEngine")
-    paperMentions = Some(mentions collect {
-      case tb:BioTextBoundMention if isContextMention(tb) => tb
-    })
+    val tempo = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
+    paperMentions = Some(tempo)
   }
 
   override def update(mentions: Seq[BioMention]): Unit = ()
 
 
-  private def isContextMention(mention: BioTextBoundMention):Boolean =  ContextEngine.isContextMention(mention)
 
   // the following code examines the best performing set from the ml4ai package.
   // the basic logic is that if a feature exists, it should have value 1 else 0.
