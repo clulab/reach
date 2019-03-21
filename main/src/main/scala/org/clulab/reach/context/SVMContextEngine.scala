@@ -13,7 +13,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
   type ContextID = (String, String)
-
+  val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
+  val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
+  val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   var defaultContexts:Option[Map[String, String]] = None
@@ -51,6 +53,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           }
 
 
+
+
+        val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
           aggregatedFeatures mapValues {
@@ -59,6 +64,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
             _.map {
               case (ctxId, aggregatedFeature) =>
+                inputAggFeat += aggregatedFeature
                 logger.info(s"Current ctxid: $ctxId")
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
@@ -73,6 +79,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 (ctxId, prediction)
             }
           }
+
+
+
+
+        Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
+
+
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
@@ -132,7 +145,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
-  { val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
+  {
     // val file
     val PMCID = datum._1.document.id match {
       case Some(c) => c
@@ -142,7 +155,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val sentencePos = datum._1.sentence
     val evntId = extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
-    val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
+
     var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist, ctxSentencePastTense, ctxSentenceFirstPerson = 0.0
     // new features added: ctxSentenceFirstPerson_min,ctxSentenceFirstPerson_avg,ctxSentenceFirstPerson_max
     // "ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max"
@@ -308,6 +321,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     //(idMakerPair, newAggRow)
     newAggRow
   }
+
+
 
 
 }
