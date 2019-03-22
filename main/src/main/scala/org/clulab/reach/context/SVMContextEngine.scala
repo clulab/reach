@@ -13,9 +13,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   type Pair = (BioEventMention, BioTextBoundMention)
   type EventID = String
   type ContextID = (String, String)
-  val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-  val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
-  val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
+
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   var defaultContexts:Option[Map[String, String]] = None
@@ -24,6 +22,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     logger.info("assigning respective mentions in SVMContextEngine")
     paperMentions match {
@@ -55,7 +54,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
 
-        val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
+
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
           aggregatedFeatures mapValues {
@@ -83,7 +82,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
 
-        Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
 
 
 
@@ -145,7 +143,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
-  {
+  {val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
+    val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
+    val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
     // val file
     val PMCID = datum._1.document.id match {
       case Some(c) => c
@@ -199,6 +199,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       depDist,
       ctxDepFeatures.toSet,
       evtDepFeatures.toSet)
+    Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/featFreq_ContextEngine.txt")
+
   }
 
   private def extractEvtId(evt:BioEventMention):EventID = {
