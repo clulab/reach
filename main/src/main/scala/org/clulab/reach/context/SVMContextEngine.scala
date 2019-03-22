@@ -51,8 +51,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
-
-
+        for((k,v) <- aggregatedFeatures) {
+          if(v.size == 0) logger.info(k + " has 0 size value")
+          else logger.info(k + " has non-0 size value")
+        }
 
 
         // Run the classifier for each pair and store the predictions
@@ -63,6 +65,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
             _.map {
               case (ctxId, aggregatedFeature) =>
+                logger.info((aggregatedFeature == null).toString)
                 inputAggFeat += aggregatedFeature
                 logger.info(s"Current ctxid: $ctxId")
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
@@ -182,7 +185,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         if(bestFeatureSet.contains(ctx)) ctxDepFeatures += ctx
       }
     }
-    logger.info("will now write frequency map to file")
     Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
     InputRow(sentencePos,
       PMCID,
