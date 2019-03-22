@@ -79,7 +79,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           }
 
         val freqMap = Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
-        logger.info(freqMap + " : info from freq map")
+        for((feat,freq) <- freqMap) {
+          logger.info(s"The frequency of ${feat} is ${freq}")
+        }
 
 
 
