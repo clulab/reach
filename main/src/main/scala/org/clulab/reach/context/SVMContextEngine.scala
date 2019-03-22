@@ -182,6 +182,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         if(bestFeatureSet.contains(ctx)) ctxDepFeatures += ctx
       }
     }
+    Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
     InputRow(sentencePos,
       PMCID,
       label,
@@ -199,7 +200,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       depDist,
       ctxDepFeatures.toSet,
       evtDepFeatures.toSet)
-    Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, "/home/sthumsi/reach/main/src/main/resources/org/clulab/context/featFreq_ContextEngine.txt")
+
 
   }
 
