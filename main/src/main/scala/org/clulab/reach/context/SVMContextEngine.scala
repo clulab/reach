@@ -21,6 +21,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
+  val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
+  val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
+  val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
@@ -79,6 +82,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 (ctxId, prediction)
             }
           }
+        Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
 
 
 
@@ -144,9 +148,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
   private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
-  {val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-    val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
-    val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
+  {
+
     // val file
     val PMCID = datum._1.document.id match {
       case Some(c) => c
@@ -183,7 +186,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         if(bestFeatureSet.contains(ctx)) ctxDepFeatures += ctx
       }
     }
-    Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
+
     InputRow(sentencePos,
       PMCID,
       label,
