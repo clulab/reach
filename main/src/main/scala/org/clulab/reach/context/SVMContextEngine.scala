@@ -182,6 +182,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         if(bestFeatureSet.contains(ctx)) ctxDepFeatures += ctx
       }
     }
+    logger.info("will now write frequency map to file")
     Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
     InputRow(sentencePos,
       PMCID,
