@@ -26,7 +26,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
-  val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
+  val (allFeatures, bestFeatureDict) = Utils.featureConstructor(configAllFeaturesPath)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
 
 
@@ -101,7 +101,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             }
           }
 
-        val freqMap = Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
+        val freqMap = Utils.featFreqMap(inputAggFeat,  bestFeatureDict("All_features"))
         logger.info(s"Size of frequency map: ${freqMap.size}")
         for((feat,freq) <- freqMap) {
           logger.info(s"The frequency of ${feat} is ${freq}")
@@ -189,25 +189,26 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     // "ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max"
     val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
       "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max", "evtSentenceFirstPerson_avg","ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max","ctxSentenceFirstPerson_min","ctxSentenceFirstPerson_avg","ctxSentenceFirstPerson_max", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
+    val featSeq = bestFeatureDict("All_features")
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
-    closestContext = if(bestFeatureSet.contains("closesCtxOfClass")) 1.0 else 0.0
-    context_freq = if(bestFeatureSet.contains("context_frequency")) 1.0 else 0.0
-    evtNegTail = if(bestFeatureSet.contains("evtNegationInTail")) 1.0 else 0.0
-    evtSentFirst = if(bestFeatureSet.contains("evtSentenceFirstPerson")) 1.0 else 0.0
-    evtSentPast = if(bestFeatureSet.contains("evtSentencePastTense")) 1.0 else 0.0
-    evtSentPresent = if(bestFeatureSet.contains("evtSentencePresentTense")) 1.0 else 0.0
-    sentDist = if(bestFeatureSet.contains("sentenceDistance")) 1.0 else 0.0
-    depDist = if(bestFeatureSet.contains("dependencyDistance")) 1.0 else 0.0
-    ctxSentencePastTense = if(bestFeatureSet.contains("ctxSentencePastTense")) 1.0 else 0.0
-    ctxSentenceFirstPerson = if(bestFeatureSet.contains("ctxSentenceFirstPerson")) 1.0 else 0.0
+    closestContext = if(featSeq.contains("closesCtxOfClass")) 1.0 else 0.0
+    context_freq = if(featSeq.contains("context_frequency")) 1.0 else 0.0
+    evtNegTail = if(featSeq.contains("evtNegationInTail")) 1.0 else 0.0
+    evtSentFirst = if(featSeq.contains("evtSentenceFirstPerson")) 1.0 else 0.0
+    evtSentPast = if(featSeq.contains("evtSentencePastTense")) 1.0 else 0.0
+    evtSentPresent = if(featSeq.contains("evtSentencePresentTense")) 1.0 else 0.0
+    sentDist = if(featSeq.contains("sentenceDistance")) 1.0 else 0.0
+    depDist = if(featSeq.contains("dependencyDistance")) 1.0 else 0.0
+    ctxSentencePastTense = if(featSeq.contains("ctxSentencePastTense")) 1.0 else 0.0
+    ctxSentenceFirstPerson = if(featSeq.contains("ctxSentenceFirstPerson")) 1.0 else 0.0
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
     dependencyFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") => {
-        if(bestFeatureSet.contains(evt)) evtDepFeatures += evt
+        if(featSeq.contains(evt)) evtDepFeatures += evt
       }
       case ctx:String if ctx.startsWith("ctxDepTail")=> {
-        if(bestFeatureSet.contains(ctx)) ctxDepFeatures += ctx
+        if(featSeq.contains(ctx)) ctxDepFeatures += ctx
       }
     }
 
