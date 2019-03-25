@@ -1,13 +1,14 @@
 package org.clulab.reach.context
+import java.util.zip.GZIPInputStream
+
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.correctDataPrep.Utils
-import org.ml4ai.data.utils.correctDataPrep.AggregatedRowNew
+import org.ml4ai.data.utils.correctDataPrep.{AggregatedRowNew, FoldMaker, Utils}
 import org.ml4ai.data.utils.oldDataPrep.InputRow
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-
 import scala.collection.immutable
+import scala.io.Source
 class SVMContextEngine extends ContextEngine with LazyLogging {
 
   type Pair = (BioEventMention, BioTextBoundMention)
@@ -21,12 +22,35 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val svmWrapper = new LinearSVMWrapper(null)
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
+  val untrainedConfigPath = config.getString("contextEngine.params.untrainedSVMPath")
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
+  val foldsPath = config.getString("contextEngine.params.folds")
+  val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
   val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+
+
+  logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
   val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
+
+    // load untrained svm model here and call cross validation function
+    // val score = performCrossVal(untrainedSVMInstance, rows, folds)
+    // logger.info(score + " score should be the same as that in ml4ai library)
+    val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
+    val foldsForSVMContextEngine = Source.fromFile("./src/main/resources/cv_folds_val_4.csv")
+    val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
+    val trainValCombined = Utils.combineTrainVal(foldsFromCSV)
+
+    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream("/home/sthumsi/enter/reach/main/src/main/resources/org/clulab/context/grouped_features.csv.gz")))
+    val filteredRows = rows.filter(_.PMCID != "b'PMC4204162'")
+
+    val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(untrainedSVMInstance, trainValCombined, filteredRows)
+    val svmResult = Utils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
+    logger.info(svmResult+" : results obtained by performing cross validation on old data in the reach pipeline")
+
+
     logger.info("assigning respective mentions in SVMContextEngine")
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
@@ -79,6 +103,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           }
 
         val freqMap = Utils.writeFrequenciesToFile(inputAggFeat,  bestFeatureSet, configFeaturesFrequencyPath)
+        logger.info(s"Size of frequency map: ${freqMap.size}")
         for((feat,freq) <- freqMap) {
           logger.info(s"The frequency of ${feat} is ${freq}")
         }
@@ -328,6 +353,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     //(idMakerPair, newAggRow)
     newAggRow
   }
+
 
 
 
