@@ -101,20 +101,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 (ctxId, prediction)
             }
           }
-
-        val freqMap = Utils.featFreqMap(inputAggFeat,  bestFeatureDict("All_features"))
-        logger.info(s"Size of frequency map: ${freqMap.size}")
-        for((feat,freq) <- freqMap) {
-          logger.info(s"The frequency of ${feat} is ${freq}")
-        }
-
-
-
-
-
-
-
-
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
           mention match {
