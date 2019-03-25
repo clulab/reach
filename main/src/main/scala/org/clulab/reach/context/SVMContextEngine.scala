@@ -185,6 +185,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
       "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max", "evtSentenceFirstPerson_avg","ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max","ctxSentenceFirstPerson_min","ctxSentenceFirstPerson_avg","ctxSentenceFirstPerson_max", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
 
+    logger.info(s"${featSeq.size} is the size of all feat set")
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     closestContext = if(featSeq.contains("closesCtxOfClass")) 1.0 else 0.0
     context_freq = if(featSeq.contains("context_frequency")) 1.0 else 0.0
@@ -343,7 +344,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     }
     val newAggRow = AggregatedRowNew(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
-    inputAggFeat += newAggRow
     //check with Enrique to see how Pairs in a given Seq[(Pair, InputRow)] can be consolidated to a single Pair in the aggregated row
     // will take the first pair for now
     //(idMakerPair, newAggRow)
