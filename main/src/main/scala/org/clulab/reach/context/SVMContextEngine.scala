@@ -77,18 +77,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
-        for((_,v) <- aggregatedFeatures) {
-          val seqAggRow = v.map(_._2)
-          inputAggFeat ++= seqAggRow
-        }
 
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
-          aggregatedFeatures mapValues {
+          aggregatedFeatures mapValues {a =>
             // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
             // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
-            _.map {
+            a.map {
               case (ctxId, aggregatedFeature) =>
 
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
@@ -253,6 +249,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     //  case None => "Unknown"}
     //val evntId = extractEvtId(idMakerPair._1)
     //val ctxId = ContextEngine.getContextKey(idMakerPair._2)._2
+
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
@@ -352,7 +349,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     }
     val newAggRow = AggregatedRowNew(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
-
+    inputAggFeat += newAggRow
     //check with Enrique to see how Pairs in a given Seq[(Pair, InputRow)] can be consolidated to a single Pair in the aggregated row
     // will take the first pair for now
     //(idMakerPair, newAggRow)
