@@ -1,13 +1,22 @@
 package org.clulab.polarity.ml.data
 
+import java.io.PrintWriter
+import java.util.{Calendar, Date}
+
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.polarity.{NegativePolarity, Polarity, PositivePolarity}
 import org.clulab.reach.{PaperReader, ReachSystem}
-import org.clulab.reach.mentions.{BioEventMention, BioMention}
+import org.clulab.reach.mentions.{BioEventMention, BioMention, CorefEventMention}
 
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
+import org.clulab.reach.mentions.serialization.json._
+import org.clulab.reach.mentions.{MentionOps => MOps}
+import org.json4s.JsonAST.JValue
+import org.json4s.JsonDSL._
+import org.json4s._
+import org.json4s.jackson.JsonMethods._
 
 /**
   * Takes as input a TSV file with a polarity distant supervision dataset and digests it into REACH mentions
@@ -16,36 +25,20 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
 
   val extractorEngine = PaperReader.reachSystem
 
-  // TODO: Make this safer
-  val filePaths = args filter (_.toLowerCase.endsWith(".tsv"))
-
-  val digestedData = filePaths flatMap {
-    p =>
-      val isOpposing =
-        if(p.toLowerCase contains "concurring")
-          false
-        else
-          true
-
-      digestTsv(p, isOpposing)
-  }
-
-  // TODO: Parametrize this
-  val outputPath = ""
-
-  saveOutput(digestedData, outputPath)
-
   /** Processes a TSV file */
   def digestTsv(path:String, opposingStatements:Boolean = true):Seq[(BioEventMention, Polarity)] = {
 
+    logger.info(s"Processing $path.")
+
     // Processes a line of the TSV file
     def processLine(l:String):Try[(BioEventMention, Polarity)] = Try{
+      logger.info(s"Annotating: $l")
       // Tokenize the line
       val tokens = l.trim.split("\t")
 
       // Extract the arguments
-      val sub = tokens(1).toLowerCase
-      val obj = tokens(2).toLowerCase
+      val sub = tokens(1).toLowerCase.replace("-", " ")
+      val obj = tokens(2).toLowerCase.replace("-", " ")
 
       // Compute "silver" polarity
       val statement = tokens(0)
@@ -56,27 +49,27 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
           else
             PositivePolarity
         else
-          if(opposingStatements)
-            PositivePolarity
-          else
-            NegativePolarity
+        if(opposingStatements)
+          PositivePolarity
+        else
+          NegativePolarity
 
       // Annotate the sentence
       val sentence = tokens.last
       val extractions = extractorEngine.extractFrom(sentence, "", "")
 
       def matchesCriteria(m:BioMention) = m match {
-        case evt:BioEventMention if evt matches "ComplexEvent" =>
+        case evt:CorefEventMention if evt matches "ComplexEvent" =>
 
-          val theme = evt.themeArgs() match {
+          val theme = evt.controlledArgs() match {
             case Some(args) =>
-              args.map(_.text).mkString(" ")
+              args.map(_.text).mkString(" ").toLowerCase
             case None => ""
           }
 
           val cause = evt.controllerArgs() match {
             case Some(args) =>
-              args.map(_.text).mkString(" ")
+              args.map(_.text).mkString(" ").toLowerCase
             case None => ""
           }
 
@@ -103,7 +96,8 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
     try{
       val src = Source.fromFile(path)
       try{
-        val lines = src.getLines().take(3)
+        val lines = src.getLines().take(100).toList//.filter(_ contains "We hypothesized that mtHK2 might prevent the OMM permeabilization and cytochrome c release mediated by proapoptotic Bcl2 family members.")
+        logger.info(s"About to annotate ${lines.size} statements.")
         data ++= (lines map processLine collect { case Success(l) => l })
       }
       catch {
@@ -122,5 +116,68 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
     data.toSeq
   }
 
-  def saveOutput(digestedData: Array[(BioEventMention, Polarity)], outputPath: String) = ???
+  def saveOutput(digestedData: Seq[(BioEventMention, Polarity)], outputPath: String): Unit = {
+    val (evts, labels) = digestedData.unzip
+
+    val jsonEvts = evts.jsonAST
+
+
+    val json =
+      ("annotationDate" -> Calendar.getInstance.getTime.toString) ~
+      ("events" -> jsonEvts) ~
+        ("labels" -> (labels map {
+          case PositivePolarity => "PositivePolarity"
+          case NegativePolarity => "NegativePolarity"
+          case x => throw new UnsupportedOperationException(s"Unsupported polarity type $x")})
+        )
+
+    val contents = compact(render(json))
+
+    val pw = new PrintWriter(outputPath)
+    pw.print(contents)
+    pw.close()
+  }
+
+  // TODO: Make this safer
+  val filePaths = args filter (_.toLowerCase.endsWith(".tsv"))
+
+  val digestedData = filePaths flatMap {
+    p =>
+      val isOpposing =
+      if(p.toLowerCase contains "concurring")
+      false
+    else
+      true
+
+      digestTsv(p, isOpposing)
+  }
+
+  logger.info(s"Extracted ${digestedData.length} annotations")
+
+  // TODO: Parametrize this
+  val outputPath = "out.json"
+
+  saveOutput(digestedData, outputPath)
+
+  def loadAnnotations(path:String): Seq[(BioEventMention, Polarity)] = {
+    val src = Source.fromFile(path)
+    val txt = src.mkString
+    src.close()
+
+    val ast = parse(txt)
+
+
+    val x =
+      for{
+        JObject(child) <- ast
+        JField("events", evts) <- child
+        //JField("labels", JArray(labels)) <- child
+      } yield evts//(evts, labels map { case JString(l) => l})
+
+    println(x)
+    val mentions = JSONSerializer.toBioMentions(x)
+
+    mentions map (m => (m.asInstanceOf[BioEventMention], PositivePolarity))
+    //Seq()
+  }
 }
