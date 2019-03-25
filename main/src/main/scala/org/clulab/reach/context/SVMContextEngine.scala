@@ -38,8 +38,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     // val score = performCrossVal(untrainedSVMInstance, rows, folds)
     // logger.info(score + " score should be the same as that in ml4ai library)
     val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
-    val foldsForSVMContextEngine = Source.fromFile(config.getString("config.params.folds"))
-    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream(config.getString("config.params.groupedFeatures"))))
+    val foldsForSVMContextEngine = Source.fromFile(config.getString("contextEngine.params.folds"))
+    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream(config.getString("contextEngine.params.groupedFeatures"))))
 
     val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
     val trainValCombined = Utils.combineTrainVal(foldsFromCSV)
