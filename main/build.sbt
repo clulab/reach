@@ -1,5 +1,11 @@
-name := "reach-main"
 
+lazy val root = (project in file(".")).
+settings(
+  inThisBuild(List(
+    scalaVersion := "2.11.11"
+  )),
+    name := "reach-main"
+)
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
