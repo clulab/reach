@@ -77,6 +77,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
+        for((_,v) <- aggregatedFeatures) {
+          val seqAggRow = v.map(_._2)
+          inputAggFeat ++= seqAggRow
+        }
+
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
           aggregatedFeatures mapValues {
@@ -85,7 +90,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
             _.map {
               case (ctxId, aggregatedFeature) =>
-                inputAggFeat += aggregatedFeature
+
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
 
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
