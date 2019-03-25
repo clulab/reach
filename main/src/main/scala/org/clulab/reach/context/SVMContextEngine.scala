@@ -40,7 +40,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
     val foldsForSVMContextEngine = Source.fromFile(config.getString("contextEngine.params.folds"))
     val groupedPath = config.getString("contextEngine.params.groupedFeatures")
-    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream(groupedPath)))
+    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream("/home/sthumsi/enter/reach/main/src/main/resources/org/clulab/context/grouped_features.csv.gz")))
 
     val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
     val trainValCombined = Utils.combineTrainVal(foldsFromCSV)
