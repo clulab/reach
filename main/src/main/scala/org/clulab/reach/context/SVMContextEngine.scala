@@ -27,6 +27,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
   val (allFeatures, bestFeatureDict) = Utils.featureConstructor(configAllFeaturesPath)
+  val featSeq = bestFeatureDict("All_features")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
 
 
@@ -76,6 +77,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
+
+
+        for((_,v) <- aggregatedFeatures) {
+          val row = v.map(_._2)
+          inputAggFeat ++= row
+        }
+        Utils.featFreqMap(inputAggFeat, featSeq)
 
 
         // Run the classifier for each pair and store the predictions
@@ -176,7 +184,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     // "ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max"
     val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
       "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max", "evtSentenceFirstPerson_avg","ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max","ctxSentenceFirstPerson_min","ctxSentenceFirstPerson_avg","ctxSentenceFirstPerson_max", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
-    val featSeq = bestFeatureDict("All_features")
+
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     closestContext = if(featSeq.contains("closesCtxOfClass")) 1.0 else 0.0
     context_freq = if(featSeq.contains("context_frequency")) 1.0 else 0.0
