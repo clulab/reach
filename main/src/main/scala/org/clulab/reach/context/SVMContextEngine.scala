@@ -25,7 +25,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val untrainedConfigPath = config.getString("contextEngine.params.untrainedSVMPath")
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-  val foldsPath = config.getString("contextEngine.params.folds")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
   val (allFeatures, bestFeatureSet) = Utils.featureConstructor(configAllFeaturesPath)
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
@@ -39,13 +38,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     // val score = performCrossVal(untrainedSVMInstance, rows, folds)
     // logger.info(score + " score should be the same as that in ml4ai library)
     val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
-    val foldsForSVMContextEngine = Source.fromFile("./src/main/resources/cv_folds_val_4.csv")
+    val foldsForSVMContextEngine = Source.fromFile(config.getString("config.params.folds"))
+    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream(config.getString("config.params.groupedFeatures"))))
+
     val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
     val trainValCombined = Utils.combineTrainVal(foldsFromCSV)
-
-    val (_,rows) = AggregatedRowNew.fromStream(new GZIPInputStream(getClass.getResourceAsStream("/home/sthumsi/enter/reach/main/src/main/resources/org/clulab/context/grouped_features.csv.gz")))
     val filteredRows = rows.filter(_.PMCID != "b'PMC4204162'")
-
     val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(untrainedSVMInstance, trainValCombined, filteredRows)
     val svmResult = Utils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
     logger.info(svmResult+" : results obtained by performing cross validation on old data in the reach pipeline")
