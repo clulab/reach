@@ -5,26 +5,21 @@ import org.clulab.reach.mentions.BioEventMention
 
 class DeepLearningPolarityClassifier extends PolarityClassifier{
 
-  private var isFitted = false
+  private var _isFitted = false
   /**
     * Trains the classifier. This method is meant to have side effects by fitting the parameters
     *
     * @param events Training data
     * @param labels Training labels
     */
-  override def fit(events: Seq[BioEventMention], labels: Seq[Polarity]): Unit = {
-    //...
-    isFitted = true
-
-    Seq()
-  }
+  override def fit(events: Seq[BioEventMention], labels: Seq[Polarity]): Unit = ???
 
   /**
     * Returns whether fit has been called before. Mostly for control
     *
     * @return True if the parameters of the model have been fit previously
     */
-  override def isFitted: Boolean = isFitted
+  override def isFitted: Boolean = _isFitted
 
   /**
     * Gets the predicted polarity for the provided argument
@@ -41,7 +36,7 @@ class DeepLearningPolarityClassifier extends PolarityClassifier{
     */
   override def save(modelPath: String): Unit = ???
 
-  def runInstace(evt:BioEventMention) = {
+  def runInstace(evt:BioEventMention): Unit = {
     val lemmas = evt.lemmas.get
     val trigger = evt.trigger.lemmas.get
     val rulePolarity = evt.label match {
@@ -51,7 +46,6 @@ class DeepLearningPolarityClassifier extends PolarityClassifier{
     }
 
     var rulePolarity2 = ""
-    if
   }
 }
 
