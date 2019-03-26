@@ -33,23 +33,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
   val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
+  val allFeaturesSet = collection.mutable.ListBuffer[String]()
+  val fileToWriteFeatFreq = config.getString("contextEngine.params.featFrequency")
+  val fileToWriteFeatVals = config.getString("contextEngine.params.featValues")
+  val fileToWriteAllFeats = config.getString("contextEngine.params.allFeatsWrite")
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
-
-    // load untrained svm model here and call cross validation function
-    // val score = performCrossVal(untrainedSVMInstance, rows, folds)
-    // logger.info(score + " score should be the same as that in ml4ai library)
-    val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
-    val foldsForSVMContextEngine = Source.fromFile(config.getString("contextEngine.params.folds"))
-    val groupedPath = Some(Source.fromFile(config.getString("contextEngine.params.groupedFeatures")))
-    val (_,rows) = AggregatedRowNew.fromStream(null, groupedPath)
-
-    val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
-    val trainValCombined = Utils.combineTrainVal(foldsFromCSV)
-    val filteredRows = rows.filter(_.PMCID != "b'PMC4204162'")
-    val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(untrainedSVMInstance, trainValCombined, filteredRows)
-    val svmResult = Utils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
-    logger.info(svmResult+" : results obtained by performing cross validation on old data in the reach pipeline")
-
 
     logger.info("assigning respective mentions in SVMContextEngine")
     paperMentions match {
@@ -83,7 +71,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           val row = v.map(_._2)
           inputAggFeat ++= row
         }
-        Utils.featFreqMap(inputAggFeat, featSeq)
+        inputAggFeat.map(x => {
+          allFeaturesSet ++= x.featureGroupNames
+        })
+        val featFreqMap = Utils.featFreqMap(inputAggFeat, featSeq)
+        Utils.writeFeatFreqToFile(featFreqMap, fileToWriteFeatFreq)
+        Utils.writeFeatValsToFile(inputAggFeat, fileToWriteFeatVals)
+        Utils.writeAllFeaturesToFile(allFeaturesSet.toSet.toSeq, fileToWriteAllFeats)
 
 
         // Run the classifier for each pair and store the predictions
