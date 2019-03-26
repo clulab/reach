@@ -96,7 +96,7 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
     try{
       val src = Source.fromFile(path)
       try{
-        val lines = src.getLines().take(100).toList//.filter(_ contains "We hypothesized that mtHK2 might prevent the OMM permeabilization and cytochrome c release mediated by proapoptotic Bcl2 family members.")
+        val lines = src.getLines().toList
         logger.info(s"About to annotate ${lines.size} statements.")
         data ++= (lines map processLine collect { case Success(l) => l })
       }
@@ -167,17 +167,28 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
     val ast = parse(txt)
 
 
-    val x =
+    val evts =
       for{
         JObject(child) <- ast
-        JField("events", evts) <- child
-        //JField("labels", JArray(labels)) <- child
-      } yield evts//(evts, labels map { case JString(l) => l})
+        JField("events", e) <- child
+      } yield e
 
-    println(x)
-    val mentions = JSONSerializer.toBioMentions(x)
+    val labels =
+      for{
+        JArray(labels) <- ast \\ "polarityLabels"
+        JString(label) <- labels
+      } yield {
+        label match {
+          case "PositivePolarity" => PositivePolarity
+          case "NegativePolarity" => NegativePolarity
+          case s => throw new UnsupportedOperationException(s"Unrecognized polarity label $s")
+        }
+      }
 
-    mentions map (m => (m.asInstanceOf[BioEventMention], PositivePolarity))
-    //Seq()
+    val mentions = JSONSerializer.toBioMentions(evts.head) collect { case evt:BioEventMention => evt }
+
+    println(labels)
+
+    mentions zip labels
   }
 }
