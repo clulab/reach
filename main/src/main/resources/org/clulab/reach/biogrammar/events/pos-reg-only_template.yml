@@ -2,6 +2,10 @@
 # The rules below apply ONLY to regulations (not activations)
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 # This applies only to non-nested regs
 - name: Positive_${ ruleType }_in_response_to
   priority: ${ priority }
@@ -10,8 +14,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = in response to
-    controlled:SimpleEvent = <nmod_in dobj?
-    controller:${ controllerType }? = <nmod_in? (nmod_to nmod_with? | nmod_with) ([lemma="treatment"] compound)?
+    controlled:SimpleEvent = </${preps_general}/ /${objects}/?
+    controller:${ controllerType }? = </${preps_general}/? (/${preps_general}/ /${preps_general}/?) ([lemma="treatment"] /${noun_modifiers}/)?
 
 # This applies only to non-nested regs
 - name: Positive_${ ruleType }_following_Controller_activation
@@ -45,5 +49,5 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:BioEntity = /compound|nmod_of|nmod_by/
-    controlled:SimpleEvent = <nmod_following
+    controller:BioEntity = /${noun_modifiers}|${genitive_case_marker}|${passive_agents}/
+    controlled:SimpleEvent = </${preps_general}/

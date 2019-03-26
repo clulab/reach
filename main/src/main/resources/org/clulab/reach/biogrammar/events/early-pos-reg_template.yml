@@ -2,6 +2,9 @@
 # A very specific class of activations: "Y-induced Z"
 # These must be recognized first, so the nested event in "X activates Y-induced Z" works
 #
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
 
 - name: Positive_early_${ ruleType }
   priority: ${ priority }

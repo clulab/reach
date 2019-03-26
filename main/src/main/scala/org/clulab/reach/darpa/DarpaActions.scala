@@ -2,10 +2,12 @@ package org.clulab.reach.darpa
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
+import org.clulab.polarity.{LinguisticPolarityEngine, PolarityEngine}
 import org.clulab.reach._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
 import org.clulab.utils.DependencyUtils
+
 import scala.annotation.tailrec
 
 
@@ -170,6 +172,8 @@ class DarpaActions extends Actions with LazyLogging {
     case _  => Nil
   }
 
+  private val polarityEngine = PolarityEngine.engineFromConfig
+
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions
     // bioprocesses can't be controllers of regulations
@@ -180,7 +184,8 @@ class DarpaActions extends Actions with LazyLogging {
     // if !hasSynPathOverlap(mention) // do not enable this: there are legitimate cases
 
     // switch label if needed based on negations
-    regulation = removeDummy(switchLabel(mention.toBioMention))
+    //regulation = removeDummy(switchLabel(mention.toBioMention))
+    regulation = mention.toBioMention match { case evt:BioEventMention => polarityEngine.assignPolarity(evt); case m => m}
 
     // If the Mention has both a controller and controlled, their grounding should be distinct
     if hasDistinctControllerControlled(regulation)
@@ -202,7 +207,7 @@ class DarpaActions extends Actions with LazyLogging {
     // NOTE this needs to be done on mentions coming directly from Odin
     if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
-    activation = removeDummy(switchLabel(mention.toBioMention))
+    activation = mention.toBioMention match { case evt:BioEventMention => polarityEngine.assignPolarity(evt); case m => m}
     // retrieve regulations that overlap this mention's controlled (Controller may be nested)
     controlleds = activation.arguments("controlled")
     regs = controlleds.flatMap(c => state.mentionsFor(activation.sentence, c.tokenInterval, "Regulation"))
@@ -360,16 +365,6 @@ object DarpaActions extends LazyLogging {
   // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
-  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "(?i)(^(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)|-KD$)".r
-
-  val MODIFIER_LABELS = "amod".r
-
-  val NOUN_LABELS = "compound".r
-
-  val OF_LABELS = "nmod_of".r
-
-  val PARTICLE_LABELS = "compound:prt".r
 
   // patterns for "reverse" modifications
   val deAcetylatPat     = "(?i)de-?acetylat".r
@@ -423,142 +418,6 @@ object DarpaActions extends LazyLogging {
     }
     if (eventsWithSimpleController.nonEmpty) eventsWithSimpleController else mentions
   }
-
-  /** Gets a mention. If it is an EventMention with a polarized label
-    * and it is negated an odd number of times, returns a new mention
-    * with the label flipped. Or else it returns the mention unmodified */
-  def switchLabel(mention: Mention): BioMention = mention.toBioMention match {
-    // We can only attempt to flip the polarity of ComplexEvents with a trigger
-    case ce: BioEventMention if ce matches "ComplexEvent" =>
-
-      val trigger = ce.trigger
-      //val arguments = ce.arguments
-      val arguments = for{
-        k <- ce.arguments.keys
-        v <- ce.arguments(k)
-      } yield (k, v)
-
-      // get token indices to exclude in the negation search
-      // do not exclude args as they may involve regulations
-      val excluded = trigger.tokenInterval.toSet /*| (arguments flatMap (_._2.tokenInterval)).toSet*/
-
-      // tokens with an incoming  prepc_by dependency
-      val deps = mention.sentenceObj.dependencies.get
-      val prepc_byed = (mention.tokenInterval filter (tok => deps.getIncomingEdges(tok).map(_._2).contains("advcl_by"))).toSet
-      // count total number of negatives between trigger and each argument
-      val numNegatives = arguments.flatMap{
-        case (relation, arg) =>
-          countSemanticNegatives(trigger, arg, if(relation == "controller") excluded else excluded ++ prepc_byed)
-      }.toSeq.distinct.length
-      logger.debug(s"Total negatives: $numNegatives")
-      // does the label need to be flipped?
-      numNegatives % 2 != 0 match {
-        // odd number of negatives
-        case true =>
-          val newLabels = flipLabel(ce.label) +: ce.labels.tail
-          // trigger labels should match event labels
-          val newTrigger = ce.trigger.copy(labels = newLabels)
-          // return new mention with flipped label
-          new BioEventMention(ce.copy(labels = newLabels, trigger = newTrigger), ce.isDirect)
-        // return mention unmodified
-        case false => ce
-      }
-    case m => m
-  }
-
-  /** Gets a trigger, an argument and a set of tokens to be ignored.
-    * Returns the number of semantic negatives found in the shortest possible path
-    * between the trigger and the argument.
-    */
-  def countSemanticNegatives(trigger: Mention, arg: Mention, excluded: Set[Int]): Seq[Int] = {
-    // it is possible for the trigger and the arg to be in different sentences because of coreference
-    if (trigger.sentence != arg.sentence) return Nil
-    val deps = trigger.sentenceObj.dependencies.get
-    // find shortestPath between the trigger head token and the argument head token
-    val shortestPath: Option[Seq[Int]] = for {
-      triggerHead <- DependencyUtils.findHeadStrict(trigger.tokenInterval, trigger.sentenceObj)
-      argHead <- DependencyUtils.findHeadStrict(arg.tokenInterval, arg.sentenceObj)
-    } yield deps.shortestPath(triggerHead, argHead, ignoreDirection = true)
-
-    //println("Trigger: " + trigger.start + " -> " + trigger.end + " " + trigger.label)
-    //println("Argument: " + arg.start + " -> " + arg.end + " " + arg.label)
-    //println(s"Shortest path: ${shortestPath.get.mkString(", ")} in sentence ${trigger.sentenceObj.words.mkString(", ")}")
-
-    shortestPath match {
-      case None => Nil
-      case Some(path) =>
-        val shortestPathWithAdjMods = addAdjectivalModifiers(path, deps)
-        val nnMods = nounModifiers(arg.tokenInterval, deps)
-        val ofMods = ofModifiers(arg.tokenInterval, deps)
-        val prpMods = particleModifiers(path, deps)
-        // get all tokens considered negatives
-        val negatives = for {
-          tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods ++ prpMods).distinct // a single token can't negate twice
-          if !excluded.contains(tok)
-          lemma = trigger.sentenceObj.lemmas.get(tok)
-          if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
-        } yield {
-          logger.debug(s"Negative lexical unit: $lemma")
-          tok
-        }
-        // return number of negatives
-        negatives
-    }
-  }
-
-  /**
-    * Adds adjectival modifiers to all elements in the given path
-    * This is necessary so we can properly inspect the semantic negatives,
-    *   which are often not in the path, but modify tokens in it,
-    *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
-    */
-  def addAdjectivalModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
-    t <- tokens
-    token <- t +: getModifiers(t, deps)
-  } yield token
-
-  def getModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
-    (tok, dep) <- deps.getOutgoingEdges(token)
-    if MODIFIER_LABELS.findFirstIn(dep).isDefined
-  } yield tok
-
-  def nounModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
-    t <- tokens
-    token <- t +: getNounModifiers(t, deps)
-  } yield token
-
-  def getNounModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
-    (tok, dep) <- deps.getIncomingEdges(token) ++ deps.getOutgoingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
-    if NOUN_LABELS.findFirstIn(dep).isDefined
-  } yield tok
-
-  def particleModifiers(tokens:Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
-    t <- tokens
-    token <- t +: getParticleModifiers(t, deps)
-  } yield token
-
-  def getParticleModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
-    (tok, dep) <- deps.getOutgoingEdges(token)
-    if PARTICLE_LABELS.findFirstIn(dep).isDefined
-  } yield tok
-
-  def ofModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
-    t <- tokens
-    token <- t +: getOfModifiers(t, deps)
-  } yield token
-
-  def getOfModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
-    (tok, dep) <- deps.getIncomingEdges(token) // NB: *Incoming* edges, for e.g. "knockdown of Stat3"
-    if OF_LABELS.findFirstIn(dep).isDefined
-  } yield tok
-
-  /** gets a polarized label and returns it flipped */
-  def flipLabel(label: String): String =
-    if (label startsWith "Positive_")
-      "Negative_" + label.substring(9)
-    else if (label startsWith "Negative_")
-      "Positive_" + label.substring(9)
-    else sys.error("ERROR: Must have a polarized label here!")
 
 
   /** Test whether the given mention has a controller argument. */

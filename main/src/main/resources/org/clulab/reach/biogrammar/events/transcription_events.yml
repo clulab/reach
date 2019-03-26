@@ -1,13 +1,18 @@
 #Transcription events require arguments of type BioChemicalEntity
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+
 - name: expression_1
   priority: ${ priority }
   example: "PTEN protein expression was detectable by Western blot in all cell lines."
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^N/]
-    theme:BioChemicalEntity = compound{1,2}
-    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
+    theme:BioChemicalEntity = /${noun_modifiers}/{1,2}
+    cause:BioChemicalEntity? = /${passive_agents}/
 
 
 - name: expression_2
@@ -16,8 +21,8 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity =  </acl|advcl/ /conj_/*
-    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
+    theme:BioChemicalEntity =  </${adjective_clause}|${adverbial_clause}/ /${conjunctions}/*
+    cause:BioChemicalEntity? = /${passive_agents}/
 
 
 - name: expression_3
@@ -26,8 +31,8 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity = nsubjpass /conj_/*
-    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
+    theme:BioChemicalEntity = ${passive_voice_subject} /${conjunctions}/*
+    cause:BioChemicalEntity? = /${passive_agents}/
 
 
 - name: transcription_0
@@ -36,8 +41,8 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
-    theme:BioChemicalEntity = <dobj nsubj nmod_of? /conj_/*
-    cause:BioChemicalEntity? = compound{1,2}
+    theme:BioChemicalEntity = </${objects}/ ${agents} /${genitive_case_marker}/? /${conjunctions}/*
+    cause:BioChemicalEntity? = /${noun_modifiers}/{1,2}
 
 
 - name: transcription_1
@@ -45,9 +50,9 @@
   example: "When looking at oxaliplatin, it can be concluded that when B-Raf is wild type (regardless of K-Ras mutation), increased levels of p73 protein correlate enhanced TAp73 transcription, in the presence of cetuximab (cetuximab or cetuximab plus oxaliplatin)."
   label: Transcription
   pattern: |
-    trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = nmod_of? compound{1,2} /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    trigger = [lemma=/transcription|expression/ & !outgoing=/${noun_modifiers}/]
+    theme:BioChemicalEntity = /${genitive_case_marker}/? /${noun_modifiers}/{1,2} /${conjunctions}/*
+    cause:BioChemicalEntity? = ${passive_agents}
 
 
 - name: transcription_1b
@@ -55,9 +60,9 @@
   example: "expression of NRF2 by Kras"
   label: Transcription
   pattern: |
-    trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = nmod_of compound{,2} /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    trigger = [lemma=/transcription|expression/ & !outgoing=/${noun_modifiers}/]
+    theme:BioChemicalEntity = /${genitive_case_marker}/ /${noun_modifiers}/{,2} /${conjunctions}/*
+    cause:BioChemicalEntity? = ${passive_agents}
 
 
 - name: transcription_2
@@ -66,8 +71,8 @@
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = <dep /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    theme:BioChemicalEntity = </${dep}/ /${conjunctions}/*
+    cause:BioChemicalEntity? = ${passive_agents}
 
 
 - name: transcription_3
@@ -76,5 +81,5 @@
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = nmod_of /conj_/*
-    cause:BioChemicalEntity? = nmod_by
+    theme:BioChemicalEntity = /${genitive_case_marker}/ /${conjunctions}/*
+    cause:BioChemicalEntity? = ${passive_agents}

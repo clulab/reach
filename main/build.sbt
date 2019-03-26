@@ -3,7 +3,7 @@ scalaVersion := "2.11.11"
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
-  val procVer = "7.4.3"
+  val procVer = "7.5.1"
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",

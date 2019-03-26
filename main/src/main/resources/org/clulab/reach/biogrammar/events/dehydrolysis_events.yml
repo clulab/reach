@@ -4,6 +4,10 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 - name: dehydrolysis_1
   label: Dehydrolysis
   priority: ${ priority }
@@ -11,9 +15,9 @@
   example: "We compared the rate of GTP dehydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (<compound? compound) | (nmod_of compound?) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = <nmod_of? <dobj? (nmod_for | nmod_on) [!word=/^GAPs?$/]
-    cause:MacroMolecule = nmod_by
+    theme:BioChemicalEntity = (</${noun_modifiers}/? ${noun_modifiers}) | (${genitive_case_marker} /${noun_modifiers}/?) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = </${genitive_case_marker}/? </${objects}/? ${preps_general} [!word=/^GAPs?$/]
+    cause:MacroMolecule = /${passive_agents}/
 
 - name: dehydrolysis_2
   label: Dehydrolysis
@@ -22,8 +26,8 @@
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated dehydrolysis"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = <nmod_to | nmod_for [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = </${preps_general}/ | /${preps_general}/ [!word=/^GAPs?$/]
 
 - name: dehydrolysis_2wrong
   label: Dehydrolysis
@@ -32,9 +36,9 @@
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated dehydrolysis"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (<nsubj dep ccomp dobj nmod_of) | (<nmod_of <dobj (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = <nsubj dep ccomp nmod_to
+    theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = (</${agents}/ ${dep} /${complements}/ ${objects} ${genitive_case_marker}) | (</${genitive_case_marker}/ </${objects}/ ${preps_general}) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = </${agents}/ ${dep} /${complements}/ ${preps_general}
 
 - name: dehydrolysis_3
   label: Dehydrolysis
@@ -43,8 +47,8 @@
   example: "No increase in the rate of GTP dehydrolysis was observed for mUbRas"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|nmod_in/ [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (${noun_modifiers} | </${dep}/) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (< /${any_preposition}/){,2} </${passive_voice_subject}/ /${preps_general}/ [!word=/^GAPs?$/]
 
 - name: dehydrolysis_4
   label: Dehydrolysis
@@ -53,8 +57,8 @@
   example: "RasPDZ2UL retains intrinsic GTP dehydrolysis activity"
   pattern: |
     trigger = [word=/(?i)de-?hydrolysis/]
-    theme:BioChemicalEntity = (<compound)? compound [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (<compound)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (</${noun_modifiers}/)? ${noun_modifiers} [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (</${noun_modifiers}/)? </${objects}/ [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] ${agents} [!word=/^GAPs?$/]
 
 - name: dehydrolysis_token_1
   label: Dehydrolysis
@@ -83,8 +87,8 @@
   example: "RasGAP dehydrolyzes GTP to GDP"
   pattern: |
     trigger = [word=/(?i)^de-?hydrolyz/ & tag=/^VB[^N]?/]
-    theme:BioChemicalEntity = dobj [!word=/^GAPs?$/]
-    cause:MacroMolecule? = (nsubj | (<xcomp? <"acl:relcl" <appos?))
+    theme:BioChemicalEntity = ${objects} [!word=/^GAPs?$/]
+    cause:MacroMolecule? = (${agents} | (</${complements}/? </${relative_clause}/ </${conjunctions}/?))
 
 - name: dehydrolysis_pass1
   label: Dehydrolysis
@@ -93,8 +97,8 @@
   example: "Ras-GDP is dehydrolyzed by 26S proteasome without ubiquitination"
   pattern: |
     trigger = [word=/(?i)^de-?hydrolyz/ & tag=VBN]
-    theme:BioChemicalEntity = ( </acl|advcl/ | nsubjpass | <"acl:relcl" ) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = nmod_agent
+    theme:BioChemicalEntity = ( </${adverbial_clause}|${adjective_clause}/ | ${passive_voice_subject} | </${relative_clause}/ ) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = ${passive_agents}
 
 - name: dehydrolysis_subjnom1
   label: Dehydrolysis
@@ -103,5 +107,5 @@
   example: "MEK dehydrolysis of Ras-GDP increased."
   pattern: |
     trigger = [word=/(?i)^de-?hydrolysis/]
-    theme:BioChemicalEntity = nmod_of [!word=/^GAPs?$/]
-    cause:MacroMolecule? = compound
+    theme:BioChemicalEntity = ${genitive_case_marker} [!word=/^GAPs?$/]
+    cause:MacroMolecule? = ${noun_modifiers}

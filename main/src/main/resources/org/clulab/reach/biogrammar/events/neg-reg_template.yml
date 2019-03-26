@@ -3,6 +3,10 @@
 # Template for negative regulation|activation
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
 - name: Negative_${ ruleType }_syntax_1_verb
   priority: ${ priority }
   example: "X inhibits Y"
@@ -10,8 +14,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (advcl_by|acl)? (dobj | xcomp | ccomp) /conj|dep|dobj|compound|amod|nmod_of|nmod_in$/{,2} (>> [word=by]){,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nmod_agent | nsubjpass | <acl| <advcl) /appos|compound|amod|conj_|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = (${adverbial_clause}|${adjective_clause})? (${objects} | ${complements}) /${conjunctions}|${dep}|${objects}|${noun_modifiers}|${genitive_case_marker}|${preps_general}/{,2} (>> [word=by]){,2}
+    controller:${ controllerType } = </${complements}/? (${agents} | ${nominal_passive_agents} | ${passive_voice_subject} | </${adverbial_clause}|${adjective_clause}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_general}/{,2}
 # Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
@@ -20,17 +24,17 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (>nsubjpass|<acl|<advcl) /conj_|compound|amod/{,2}
-    controller:${ controllerType } = (nmod_agent|nmod_by) /conj_|compound|amod|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = (>/${passive_voice_subject}/|</${adverbial_clause}|${adjective_clause}/) /${conjunctions}|${noun_modifiers}/{,2}
+    controller:${ controllerType } = (${passive_agents}) /${conjunctions}|${noun_modifiers}|${genitive_case_marker}|${preps_general}/{,2}
 - name: Negative_${ ruleType }_syntax_3_verb
   priority: ${ priority }
   example: ""
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ( (/nmod_[^b]|conj_|compound|amod/{1,2}) | (< /nmod_|conj_|compound|amod/{1,2}) )
-    controller:${ controllerType } = <compound|amod{,2} | (nmod_by) /compound|amod|conj_|nmod_of|nmod_in$/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & !outgoing=${passive_voice_subject} & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = ( (/${noun_modifier_[^b]}|${conjunctions}|${noun_modifiers}/{1,2}) | (< /${any_preposition}|${conjunctions}|${noun_modifiers}/{1,2}) )
+    controller:${ controllerType } = </${noun_modifiers}/{,2} | (/${passive_agents}/) /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_general}/{,2}
 - name: Negative_${ ruleType }_syntax_4_verb
   priority: ${ priority }
   example: ""
@@ -38,8 +42,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (nsubjpass /conj_|compound|amod/{,2})
-    controller:${ controllerType } = (/nmod_/ /conj_|compound|amod/{,2})? /nmod_/{,2} /nmod_by|nmod_agent/ /conj_|compound|amod/{,2}
+    controlled:${ controlledType } = (${passive_voice_subject} /${conjunctions}|${noun_modifiers}/{,2})
+    controller:${ controllerType } = (/${any_preposition}/ /${conjunctions}|${noun_modifiers}/{,2})? /${any_preposition}/{,2} /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2}
 - name: Negative_${ ruleType }_syntax_5_verb
   priority: ${ priority }
   example: ""
@@ -47,8 +51,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = dobj /compound|amod|conj_/{,2}
-    controller:${ controllerType } = (< /xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
+    controlled:${ controlledType } = ${objects} /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = (< /${complements}|${standalone_appositive}/ | </${relative_clause}/){1,2} /${noun_modifiers}|${conjunctions}/{,2}
 - name: Negative_${ ruleType }_syntax_6_verb
   priority: ${ priority }
   example: ""
@@ -56,8 +60,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
-    controlled:${ controlledType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
-    controller:${ controllerType } = /nmod_by|nmod_agent/ /appos|compound|amod|conj_|nmod_of|nmod_in$/{,2}
+    controlled:${ controlledType } = (</${complements}|${standalone_appositive}/ | </${relative_clause}/){1,2} /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = /${passive_agents}/ /${noun_modifiers}|${conjunctions}|${genitive_case_marker}|${preps_general}/{,2}
 - name: Negative_${ ruleType }_syntax_7_verb
   priority: ${ priority }
   example: "Cells were additionally inhibited with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
@@ -65,8 +69,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
-    controlled:${ controlledType } = nmod_with (acl|advcl) nmod_for
-    controller:${ controllerType } = nmod_with
+    controlled:${ controlledType } = ${preps_general} (${adverbial_clause}|${adjective_clause}) ${preps_general}
+    controller:${ controllerType } = ${preps_general}
 
 - name: Negative_${ ruleType }_syntax_1_noun
   priority: ${ priority }
@@ -75,8 +79,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
-    controlled:${ controlledType } = /nmod_of|nmod_in$/ /compound|amod|conj_/{,2}
-    controller:${ controllerType } = /nmod_of/? nmod_by (<dobj|nmod_by|nmod_agent|compound|amod|nmod_of|nmod_in$){1,2} /compound|amod|conj_/{,2} # the nmod_of may appear due to bad syntax
+    controlled:${ controlledType } = /${genitive_case_marker}|${preps_general}/ /${noun_modifiers}|${conjunctions}/{,2}
+    controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ (</${objects}/|${passive_agents}|${noun_modifiers}|${genitive_case_marker}|${preps_general}){1,2} /${noun_modifiers}|${conjunctions}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
 
 - name: Negative_${ ruleType }_syntax_2_noun
   priority: ${ priority }
@@ -85,8 +89,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /nmod_of|nmod_in$/? /conj_|compound|amod/{1,2}
-    controller:${ controllerType } = /nmod_of/? /nmod_by|nmod_agent/ /conj|compound|amod/{,2} # the nmod_of may appear due to bad syntax
+    controlled:${ controlledType } = /${genitive_case_marker}|${preps_general}/? /${conjunctions}|${noun_modifiers}/{1,2}
+    controller:${ controllerType } = /${genitive_case_marker}/? /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2} # the ${genitive_case_marker} may appear due to bad syntax
 
 - name: Negative_${ ruleType }_syntax_3_noun
   priority: ${ priority }
@@ -94,9 +98,9 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=nmod_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /nmod_of/ /conj_|compound|amod/{,2}
-    controller:${ controllerType } = /compound|amod/{1,2} | conj_or nmod_by compound?
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=/${passive_agents}/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /${genitive_case_marker}/ /${conjunctions}|${noun_modifiers}/{,2}
+    controller:${ controllerType } = /${noun_modifiers}/{1,2} | ${conjunctions} /${passive_agents}/ /${noun_modifiers}/?
 
 - name: Negative_${ ruleType }_syntax_5_noun
   priority: ${ priority }
@@ -105,8 +109,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = < /compound|amod/ > /nmod_/ /conj_|compound|amod/{,2}
-    controller:${ controllerType } = < /compound|amod/ /conj_|compound|amod/{,2}
+    controlled:${ controlledType } = < /${noun_modifiers}/ > /${any_preposition}/ /${conjunctions}|${noun_modifiers}/{,2}
+    controller:${ controllerType } = < /${noun_modifiers}/ /${conjunctions}|${noun_modifiers}/{,2}
 
 - name: Negative_${ ruleType }_syntax_6_noun
   priority: ${ priority }
@@ -115,8 +119,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = <nmod_via (nmod_agent|nmod_by) /compound|amod|conj_/{,2}
-    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|conj_/{,2}){1,2}
+    controller:${ controllerType } = </${preps_general}/ (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = (/${genitive_case_marker}|${preps_general}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
 
 - name: Negative_${ ruleType }_syntax_7_noun
   priority: ${ priority }
@@ -125,8 +129,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = <dep /compound|amod|conj_/{,2}
-    controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|conj_/{,2}){1,2}
+    controller:${ controllerType } = </${dep}/ /${noun_modifiers}|${conjunctions}/{,2}
+    controlled:${ controlledType } = (/${genitive_case_marker}|${preps_general}/ /${noun_modifiers}|${conjunctions}/{,2}){1,2}
 # Captures common Hearst patterns: hypernym such as hyponym
 - name: Negative_${ ruleType }_syntax_noun_Hearst
   priority: ${ priority }
@@ -135,8 +139,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /conj_|compound|amod/{,2}
-    controller:${ controllerType } = /nmod_such_as|nmod_including|nmod_like/ (compound|appos)?
+    controlled:${ controlledType } = /${conjunctions}|${noun_modifiers}/{,2}
+    controller:${ controllerType } = /${preps_example}/ (${noun_modifiers}|${conjunctions})?
 - name: Negative_${ ruleType }_token_1_noun
   priority: ${ priority }
   example: "mTOR inhibitor Rapamycin"
@@ -161,8 +165,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
-    controller:${ controllerType } = nsubj
-    controlled:${ controlledType } = /nmod_of|nmod_in$/
+    controller:${ controllerType } = ${agents}
+    controlled:${ controlledType } = /${genitive_case_marker}|${preps_general}/
 - name: Negative_${ ruleType }_possessive_noun
   priority: ${ priority }
   example: "ASPP1 is common, as is its inhibition by ASPP2."
@@ -170,8 +174,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ triggers }/ & tag=/^N/]
-    controller:${ controllerType } = /nmod_by|nmod_agent/
-    controlled:${ controlledType } = /"nmod:poss"/
+    controller:${ controllerType } = /${passive_agents}/
+    controlled:${ controlledType } = /${noun_modifiers}/
 # a rule written to catch an example from MITRE
 # currently unclear how common this pattern may be...
 - name: Negative_${ ruleType }_token_experimental_results_1
