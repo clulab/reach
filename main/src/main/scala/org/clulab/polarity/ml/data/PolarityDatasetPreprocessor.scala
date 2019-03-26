@@ -113,7 +113,7 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
         logger.error(e.getMessage)
     }
 
-    data.toSeq
+    data
   }
 
   def saveOutput(digestedData: Seq[(BioEventMention, Polarity)], outputPath: String): Unit = {
@@ -138,24 +138,32 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
     pw.close()
   }
 
-  // TODO: Make this safer
-  val filePaths = args filter (_.toLowerCase.endsWith(".tsv"))
+  def parseArguments(args:Array[String]):(Seq[String], String) = {
+
+    if(args.length < 2)
+      throw new UnsupportedOperationException("Not enough arguments")
+    else {
+      val outputPath = args.last
+      val inputPaths = args.dropRight(1) filter (_.toLowerCase.endsWith(".tsv"))
+
+      (inputPaths, outputPath)
+    }
+  }
+
+  val (filePaths, outputPath) = parseArguments(args)
 
   val digestedData = filePaths flatMap {
     p =>
       val isOpposing =
       if(p.toLowerCase contains "concurring")
-      false
-    else
-      true
+        false
+      else
+        true
 
       digestTsv(p, isOpposing)
   }
 
   logger.info(s"Extracted ${digestedData.length} annotations")
-
-  // TODO: Parametrize this
-  val outputPath = "out.json"
 
   saveOutput(digestedData, outputPath)
 
@@ -167,13 +175,13 @@ object PolarityDatasetPreprocessor extends App with LazyLogging{
     val ast = parse(txt)
 
 
-    val evts =
+    val evts:Seq[JValue] =
       for{
         JObject(child) <- ast
         JField("events", e) <- child
       } yield e
 
-    val labels =
+    val labels:Seq[Polarity] =
       for{
         JArray(labels) <- ast \\ "polarityLabels"
         JString(label) <- labels
