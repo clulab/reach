@@ -173,9 +173,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val evntId = extractEvtId(datum._1)
     val ctxId = ContextEngine.getContextKey(datum._2)
 
-    var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist, ctxSentencePastTense, ctxSentenceFirstPerson, ctxSentencePresentTense = 0.0
-    // new features added: ctxSentenceFirstPerson_min,ctxSentenceFirstPerson_avg,ctxSentenceFirstPerson_max
-    // "ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max"
+    var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist, ctxSentencePastTense, ctxSentenceFirstPerson, ctxSentencePresentTense, ctxNegationIntTail = 0.0
+    // new features added: ctxNegationIntTail
     val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
       "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "evtSentenceFirstPerson_min","evtSentenceFirstPerson_max", "evtSentenceFirstPerson_avg","ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max","ctxSentencePresentTense_min","ctxSentencePresentTense_max","ctxSentencePresentTense_avg","ctxSentenceFirstPerson_min","ctxSentenceFirstPerson_avg","ctxSentenceFirstPerson_max", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
 
@@ -192,6 +191,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     ctxSentencePastTense = if(featSeq.contains("ctxSentencePastTense")) 1.0 else 0.0
     ctxSentenceFirstPerson = if(featSeq.contains("ctxSentenceFirstPerson")) 1.0 else 0.0
     ctxSentencePresentTense = if(featSeq.contains("ctxSentencePresentTense")) 1.0 else 0.0
+    ctxNegationIntTail = if(featSeq.contains("ctxNegationIntTail")) 1.0 else 0.0
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
     dependencyFeatures foreach {
@@ -217,6 +217,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       ctxSentenceFirstPerson,
       ctxSentencePastTense,
       ctxSentencePresentTense,
+      ctxNegationIntTail,
       depDist,
       sentDist,
       ctxDepFeatures.toSet,
@@ -311,6 +312,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val ctxSentencePresentTenseended = Utils.extendFeatureName("ctxSentencePresentTense")
       featureSetNames ++= List(ctxSentencePresentTenseended._1, ctxSentencePresentTenseended._2, ctxSentencePresentTenseended._3)
       featureSetValues ++= List(ctxSentencePresentTenseStats._1,ctxSentencePresentTenseStats._2, ctxSentencePresentTenseStats._3)
+
+      // ctxNegationIntTail
+      val ctxNegationIntTailSet = collection.mutable.ListBuffer[Double]()
+      ctxNegationIntTailSet += i.ctxNegationIntTail
+      val ctxNegationIntTailStats = Utils.createStats(ctxNegationIntTailSet)
+      val ctxNegationIntTailended = Utils.extendFeatureName("ctxNegationIntTail")
+      featureSetNames ++= List(ctxNegationIntTailended._1, ctxNegationIntTailended._2, ctxNegationIntTailended._3)
+      featureSetValues ++= List(ctxNegationIntTailStats._1,ctxNegationIntTailStats._2, ctxNegationIntTailStats._3)
 
       val sentenceDistanceSet = collection.mutable.ListBuffer[Double]()
       sentenceDistanceSet += i.sentenceDistance
