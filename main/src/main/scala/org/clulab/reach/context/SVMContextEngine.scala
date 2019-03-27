@@ -34,7 +34,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
   val inputAggFeat = collection.mutable.ListBuffer[AggregatedRowNew]()
   val allFeaturesSet = collection.mutable.ListBuffer[String]()
-  val fileToWriteFeatFreq = config.getString("contextEngine.params.featFrequency")
+  val fileToWriteFeatFreq = config.getString("contextEngine.params.bestFeatureFrequency")
   val fileToWriteFeatVals = config.getString("contextEngine.params.featValues")
   val fileToWriteAllFeats = config.getString("contextEngine.params.allFeatsWrite")
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
