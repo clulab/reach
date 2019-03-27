@@ -77,7 +77,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         val featFreqMap = Utils.featFreqMap(inputAggFeat, featSeq)
         Utils.writeFeatFreqToFile(featFreqMap, fileToWriteFeatFreq)
         Utils.writeFeatValsToFile(inputAggFeat, fileToWriteFeatVals)
-        Utils.writeAllFeaturesToFile(allFeaturesSet.toSet.toSeq, fileToWriteAllFeats)
+        //Utils.writeAllFeaturesToFile(allFeaturesSet.toSet.toSeq, fileToWriteAllFeats)
 
 
         // Run the classifier for each pair and store the predictions
