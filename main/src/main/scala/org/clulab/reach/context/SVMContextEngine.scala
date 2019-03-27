@@ -302,6 +302,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       featureSetNames ++= List(ctxSentencePastTenseended._1, ctxSentencePastTenseended._2, ctxSentencePastTenseended._3)
       featureSetValues ++= List(ctxSentencePastTenseStats._1,ctxSentencePastTenseStats._2, ctxSentencePastTenseStats._3)
 
+      //ctxSentencePresentTense
+      val ctxSentencePresentTenseSet = collection.mutable.ListBuffer[Double]()
+      ctxSentencePresentTenseSet += i.ctxSentencePresentTense
+      val ctxSentencePresentTenseStats = Utils.createStats(ctxSentencePresentTenseSet)
+      val ctxSentencePresentTenseended = Utils.extendFeatureName("ctxSentencePresentTense")
+      featureSetNames ++= List(ctxSentencePresentTenseended._1, ctxSentencePresentTenseended._2, ctxSentencePresentTenseended._3)
+      featureSetValues ++= List(ctxSentencePresentTenseStats._1,ctxSentencePresentTenseStats._2, ctxSentencePresentTenseStats._3)
+
       val sentenceDistanceSet = collection.mutable.ListBuffer[Double]()
       sentenceDistanceSet += i.sentenceDistance
       val sentenceDistanceStats = Utils.createStats(sentenceDistanceSet)
