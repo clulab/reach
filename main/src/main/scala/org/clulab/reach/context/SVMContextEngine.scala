@@ -67,6 +67,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           }
 
 
+        // TODO Shraddha: Will need to remove this once your analysis is done
         for((_,v) <- aggregatedFeatures) {
           val row = v.map(_._2)
           inputAggFeat ++= row
@@ -75,9 +76,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           allFeaturesSet ++= x.featureGroupNames
         })
         val featFreqMap = Utils.featFreqMap(inputAggFeat, featSeq)
+
+
         Utils.writeFeatFreqToFile(featFreqMap, fileToWriteFeatFreq)
         Utils.writeFeatValsToFile(inputAggFeat, fileToWriteFeatVals)
         //Utils.writeAllFeaturesToFile(allFeaturesSet.toSet.toSeq, fileToWriteAllFeats)
+        ///////////////////////////////////////////////////////////////////////////////
 
 
         // Run the classifier for each pair and store the predictions
@@ -175,6 +179,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     var closestContext, context_freq, evtNegTail, evtSentFirst, evtSentPast, evtSentPresent, sentDist, depDist, ctxSentencePastTense, ctxSentenceFirstPerson, ctxSentencePresentTense, ctxNegationIntTail = 0.0
     // new features added: ctxNegationIntTail
+    // TODO Shraddha: Put this as a list in the config file
     val hardCodedFeatures = Seq("PMCID", "label", "EvtID", "CtxID", "closesCtxOfClass_min", "closesCtxOfClass_max", "closesCtxOfClass_avg", "context_frequency_min","context_frequency_max", "context_frequency_avg",
       "evtNegationInTail_min","evtNegationInTail_max","evtNegationInTail_avg", "ctxNegationIntTail_min","ctxNegationIntTail_max", "ctxNegationIntTail_avg","evtSentenceFirstPerson_min","evtSentenceFirstPerson_max", "evtSentenceFirstPerson_avg","ctxSentencePastTense_min","ctxSentencePastTense_avg","ctxSentencePastTense_max","ctxSentencePresentTense_min","ctxSentencePresentTense_max","ctxSentencePresentTense_avg","ctxSentenceFirstPerson_min","ctxSentenceFirstPerson_avg","ctxSentenceFirstPerson_max", "evtSentencePastTense_min","evtSentencePastTense_max","evtSentencePastTense_avg", "evtSentencePresentTense_min","evtSentencePresentTense_max","evtSentencePresentTense_avg", "sentenceDistance_min","sentenceDistance_max","sentenceDistance_avg", "dependencyDistance_min", "dependencyDistance_max", "dependencyDistance_avg")
 
@@ -246,6 +251,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
 
+    // TODO Shraddha: This operation is a good candidate to refactorization to do code deduplication
     instances.map(i => {
       val closesCtxOfClassSet = collection.mutable.ListBuffer[Double]()
       closesCtxOfClassSet+=i.closesCtxOfClass
