@@ -92,7 +92,6 @@ class ReachSystem(
     val eventsWithContext = contextEngine.assign(events)
     var contextCount = 0
     var nonContextCount = 0
-    // TODO: Count the distribution of events with and without context dictionaries and the distribution of context types
     events.map(e => {
       e.context match {
         case Some(c) => contextCount += 1
