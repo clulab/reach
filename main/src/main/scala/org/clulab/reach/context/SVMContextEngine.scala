@@ -26,8 +26,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
-  val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
-  val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
+  val hardCodedInputRowFeaturesPath = config.getString("contextEngine.params.hardCodedInputRowFeatures")
+  val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedInputRowFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("All_features")
@@ -217,7 +217,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val zipped = hardCodedNames zip hardCodedVals
     val grouped = zipped.groupBy(_._1)
     for((k,v) <- grouped) {
-      logger.info(k + v)
+      logger.info(k + " : " + v)
     }
 
     val inputRows = instances
