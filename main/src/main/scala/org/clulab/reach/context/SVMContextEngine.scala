@@ -212,9 +212,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     })
     val zipped = hardCodedNames zip hardCodedVals
     val grouped = zipped.groupBy(_._1)
-    for((k,v) <- grouped) {
-      logger.info(k + " : " + v)
-    }
+    logger.info(s"number of keys in group: ${grouped.size}")
 
     val inputRows = instances
     for(in <- inputRows) {
