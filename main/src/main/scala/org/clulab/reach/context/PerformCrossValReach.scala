@@ -1,5 +1,5 @@
 package org.clulab.reach.context
-import org.ml4ai.data.utils.correctDataPrep.{AggregatedRowNew, FoldMaker, Utils}
+import org.ml4ai.data.utils.{AggregatedRow, FoldMaker, CodeUtils}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
@@ -10,13 +10,13 @@ object PerformCrossValReach extends App with LazyLogging {
   val untrainedConfigPath = config.getString("contextEngine.params.untrainedSVMPath")
   val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
   val foldsForSVMContextEngine = Source.fromFile(config.getString("contextEngine.params.folds"))
-  val groupedPath = Some(Source.fromFile(config.getString("contextEngine.params.groupedFeatures")))
-  val (_,rows) = AggregatedRowNew.fromStream(null, groupedPath)
+  val groupedPath = config.getString("contextEngine.params.groupedFeatures")
+  val (_,rows) = AggregatedRow.fromFile(groupedPath)
 
   val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
-  val trainValCombined = Utils.combineTrainVal(foldsFromCSV)
+  val trainValCombined = CodeUtils.combineTrainVal(foldsFromCSV)
   val filteredRows = rows.filter(_.PMCID != "b'PMC4204162'")
   val (truthTestSVM, predTestSVM) = FoldMaker.svmControllerLinearSVM(untrainedSVMInstance, trainValCombined, filteredRows)
-  val svmResult = Utils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
+  val svmResult = CodeUtils.scoreMaker("Linear SVM", truthTestSVM, predTestSVM)
   logger.info(svmResult+" : results obtained by performing cross validation on old data in the reach pipeline")
 }
