@@ -225,6 +225,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         for((nameTup, valueTup) <- input) {
           val nameList = List(nameTup._1, nameTup._2, nameTup._3)
           val valueList = List(valueTup._1, valueTup._2, valueTup._3)
+          logger.info(s"(${nameTup._1} , ${nameTup._2}, ${nameTup._3})")
           featureSetNames ++= nameList
           featureSetValues ++= valueList
         }
