@@ -210,8 +210,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val featureSetValues = collection.mutable.ListBuffer[Double]()
     val hardCodedNames = collection.mutable.ListBuffer[String]()
     val hardCodedValues = collection.mutable.ListBuffer[Double]()
-    // hardCodedFeatures
-    // TODO Shraddha: This operation is a good candidate to refactorization to do code deduplication
     instances.map(i => {
       numericFeaturesInputRow.map(h => {
         hardCodedNames += h
@@ -224,7 +222,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     hardCodedNames.map(m => {
       val list = collection.mutable.ListBuffer[Double]()
       val index = hardCodedNames.indexOf(m)
+      logger.info(s"Index of current hardcoded feature: ${index}")
       val values = hardCodedValues.filter(hardCodedValues.indexOf(_) == index)
+      logger.info(s"size of filtered list is: ${values.size}")
       list ++= values
       val stats = CodeUtils.createStats(list)
       val extendedNames = CodeUtils.extendFeatureName(m)
