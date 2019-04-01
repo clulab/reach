@@ -26,8 +26,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
-  val hardCodedInputRowFeaturesPath = config.getString("contextEngine.params.hardCodedInputRowFeatures")
-  val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedInputRowFeaturesPath)
+  val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
+  val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("All_features")
@@ -35,11 +35,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
-  val inputAggFeat = collection.mutable.ListBuffer[AggregatedRow]()
-  val allFeaturesSet = collection.mutable.ListBuffer[String]()
-  val fileToWriteFeatFreq = config.getString("contextEngine.params.bestFeatureFrequency")
-  val fileToWriteFeatVals = config.getString("contextEngine.params.featValues")
-  val fileToWriteAllFeats = config.getString("contextEngine.params.allFeatsWrite")
+
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
 
     logger.info("assigning respective mentions in SVMContextEngine")
