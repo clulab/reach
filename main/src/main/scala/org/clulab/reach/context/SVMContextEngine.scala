@@ -209,28 +209,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
     val hardCodedNames = collection.mutable.ListBuffer[String]()
-    val hardCodedValues = collection.mutable.ListBuffer[Double]()
+    val hardCodedVals = collection.mutable.ListBuffer[Double]()
     instances.map(i => {
-      numericFeaturesInputRow.map(h => {
-        hardCodedNames += h
-        val hIndex = i.specificFeatureNames.indexOf(h)
-        val currentVal = i.specificFeatureValues(hIndex)
-        hardCodedValues += currentVal
-      })
+      hardCodedNames ++= i.specificFeatureNames
+      hardCodedVals ++= i.specificFeatureValues
     })
-
-    hardCodedNames.map(m => {
-      val list = collection.mutable.ListBuffer[Double]()
-      val index = hardCodedNames.indexOf(m)
-      logger.info(s"Index of current hardcoded feature: ${index}")
-      val values = hardCodedValues.filter(hardCodedValues.indexOf(_) == index)
-      logger.info(s"size of filtered list is: ${values.size}")
-      list ++= values
-      val stats = CodeUtils.createStats(list)
-      val extendedNames = CodeUtils.extendFeatureName(m)
-      featureSetNames ++= List(extendedNames._1, extendedNames._2, extendedNames._3)
-      featureSetValues ++= List(stats._1, stats._2, stats._3)
-    })
+    val zipped = hardCodedNames zip hardCodedVals
+    val grouped = zipped.groupBy(_._1)
+    logger.info(s"Size of group set: ${grouped.size}")
 
     val inputRows = instances
     for(in <- inputRows) {
