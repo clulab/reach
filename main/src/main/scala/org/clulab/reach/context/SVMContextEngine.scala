@@ -159,24 +159,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxId = ContextEngine.getContextKey(datum._2)
 
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
-    val hardCodedFeatureValues = collection.mutable.ListBuffer[Double]()
     val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     numericFeaturesInputRow.map(h => {
-      hardCodedFeatureNames += h
-      val featVal = {
-        if(featSeq.contains(h)) 1.0
-        else 0.0
-      }
-      hardCodedFeatureValues += featVal
+      val lim = h.length-4
+      val subString = h.slice(0,lim)
+      if(featSeq.contains(h))
+        hardCodedFeatureNames += subString
     })
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
     dependencyFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") => {
-        if(featSeq.contains(evt)) evtDepFeatures += evt
+        if(featSeq.contains(evt)) evtDepFeatures += evt.slice(0,evt.length-4)
       }
       case ctx:String if ctx.startsWith("ctxDepTail")=> {
-        if(featSeq.contains(ctx)) ctxDepFeatures += ctx
+        if(featSeq.contains(ctx)) ctxDepFeatures += ctx.slice(0,ctx.length-4)
       }
     }
 
@@ -186,7 +183,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       evntId,
       ctxId._2,
       hardCodedFeatureNames.toArray,
-      hardCodedFeatureValues.toArray,
       ctxDepFeatures.toSet,
       evtDepFeatures.toSet)
 
@@ -204,22 +200,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
-    val hardCodedNames = collection.mutable.ListBuffer[String]()
-    val hardCodedVals = collection.mutable.ListBuffer[Double]()
-    instances.map(i => {
-      hardCodedNames ++= i.specificFeatureNames
-      hardCodedVals ++= i.specificFeatureValues
-    })
-    val zipped = hardCodedNames zip hardCodedVals
-    val grouped = zipped.groupBy(_._1)
-    logger.info(s"number of keys in group: ${grouped.size}")
-
     val inputRows = instances
     for(in <- inputRows) {
       val ctxMappings = CodeUtils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
       val evtMappings = CodeUtils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
+      val specificMappings = CodeUtils.aggregateInputRowFeats(in.specificFeatureNames)
       val finalCtxPairings = CodeUtils.finalFeatValuePairing(ctxMappings)
       val finalEvtPairings = CodeUtils.finalFeatValuePairing(evtMappings)
+      val finalSpecificPairings = CodeUtils.finalFeatValuePairing(specificMappings)
 
       def addToFeaturesArray(input: Seq[((String,String,String), (Double,Double,Double))]):Unit = {
         for((nameTup, valueTup) <- input) {
@@ -230,6 +218,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           featureSetValues ++= valueList
         }
       }
+      addToFeaturesArray(finalSpecificPairings)
       addToFeaturesArray(finalCtxPairings)
       addToFeaturesArray(finalEvtPairings)
 
