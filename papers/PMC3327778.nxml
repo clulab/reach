@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">7500844</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">3382</journal-id>
+      <journal-id journal-id-type="nlm-ta">Mol Cell Endocrinol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Mol. Cell. Endocrinol.</journal-id>
+      <journal-title-group>
+        <journal-title>Molecular and Cellular Endocrinology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0303-7207</issn>
+      <issn pub-type="epub">1872-8057</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22197887</article-id>
+      <article-id pub-id-type="pmc">3327778</article-id>
+      <article-id pub-id-type="doi">10.1016/j.mce.2011.12.005</article-id>
+      <article-id pub-id-type="manuscript">NIHMS351350</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Consequences of RAS and MAPK activation in the ovary: the good, the bad and the ugly</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fan</surname>
+            <given-names>Heng-Yu</given-names>
+          </name>
+          <xref rid="FN2" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Zhilin</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mullany</surname>
+            <given-names>Lisa K.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Richards</surname>
+            <given-names>JoAnne S.</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">Department of Molecular and Cellular Biology, Baylor College of Medicine, Houston, TX 77030</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">Correspondence to: Dr. JoAnne S. Richards, Department of Molecular and Cellular Biology, Baylor College of Medicine, One Baylor Plaza, Houston, TX 77030, Tel: 713-798-6259; Fax: 713-790-1275; <email>joanner@bcm.edu</email></corresp>
+        <fn id="FN2" fn-type="present-address">
+          <label>*</label>
+          <p>Current address: Life Science Institute, Zhejiang University, 388 Yu Hang Tang Road, Hangzhou, China 310058</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>23</day>
+        <month>1</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>16</day>
+        <month>12</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>5</day>
+        <month>6</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>05</day>
+        <month>6</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>356</volume>
+      <issue>1-2</issue>
+      <fpage>74</fpage>
+      <lpage>79</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2011 Elsevier Ireland Ltd. All rights reserved.</copyright-statement>
+        <copyright-year>2011</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P2">This review summarizes studies providing evidence 1) that endogenous RAS activation regulates important physiological events during ovulation and luteinization 2) that expression of the mutant, active KRAS<sup>G12D</sup> in granulosa cells <italic>in vivo</italic> causes abnormal follicle growth arrest leading to premature ovarian failure and 3) that KRAS<sup>G12D</sup> expression in ovarian surface epithelial (OSE) cells renders them susceptible to the pathological outcome of transformation and tumor formation. These diverse effects of RAS highlight how critical its activation is linked to cell- and stage-specific events in the ovary that control normal processes and that can also lead to altered granulosa cell and OSE cell fates.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>RAS</kwd>
+        <kwd>MAPK3/1</kwd>
+        <kwd>MAPK14</kwd>
+        <kwd>PI3K</kwd>
+        <kwd>C/EBP</kwd>
+        <kwd>granulosa cells</kwd>
+        <kwd>ovulation</kwd>
+        <kwd>ovarian cancer</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Child Health &amp; Human Development : NICHD</funding-source>
+          <award-id>R01 HD016229-30 || HD</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Child Health &amp; Human Development : NICHD</funding-source>
+          <award-id>R01 HD016229-29 || HD</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Child Health &amp; Human Development : NICHD</funding-source>
+          <award-id>R01 HD016229-28S1 || HD</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

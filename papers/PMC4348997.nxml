@@ -1,0 +1,995 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Neural Regen Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Neural Regen Res</journal-id>
+      <journal-id journal-id-type="publisher-id">NRR</journal-id>
+      <journal-title-group>
+        <journal-title>Neural Regeneration Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1673-5374</issn>
+      <issn pub-type="epub">1876-7958</issn>
+      <publisher>
+        <publisher-name>Medknow Publications &amp; Media Pvt Ltd</publisher-name>
+        <publisher-loc>India</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25745437</article-id>
+      <article-id pub-id-type="pmc">4348997</article-id>
+      <article-id pub-id-type="publisher-id">NRR-7-511</article-id>
+      <article-id pub-id-type="doi">10.3969/j.issn.1673-5374.2012.07.006</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research and Report Article: Stem Cells and Neuroregeneration</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Directional induction of dopaminergic neurons from neural stem cells using substantia nigra homogenates and basic fibroblast growth factor<xref ref-type="author-notes" rid="fn1">&#x2606;</xref></article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Jintao</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <xref ref-type="author-notes" rid="fn1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yan</surname>
+            <given-names>Qi</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">2</xref>
+          <xref ref-type="corresp" rid="cor1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ma</surname>
+            <given-names>Yiliu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Feng</surname>
+            <given-names>Zhongtang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Tinghua</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+        <label>1</label>
+        <italic>Institute of Neuroscience, Kunming Medical College, Kunming 650031, Yunnan Province, China</italic>
+      </aff>
+      <aff id="aff2">
+        <label>2</label>
+        <italic>Department of Minimally Invasive Neurosurgery, First Hospital of Kunming Medical College, Kunming 650032, Yunnan Province, China</italic>
+      </aff>
+      <author-notes>
+        <fn id="fn1">
+          <label>&#x2606;</label>
+          <p>Jintao Li, M.D., Associate professor, Institute of Neuroscience, Kunming Medical College, Kunming 650031, Yunnan Province, China</p>
+        </fn>
+        <corresp id="cor1">
+Corresponding author: Qi Yan, Associate chief physician, Department of Minimally Invasive Neurosurgery, First Hospital of Kunming Medical College, Kunming 650032, Yunnan Province, China <email xlink:href="kmyanqi@126.com">kmyanqi@126.com</email> (N20110914002/WLM)
+</corresp>
+        <fn fn-type="con">
+          <p><bold>Author contributions:</bold> Jintao Li had full access to the study concept and design, was responsible for the data analysis, statistical analysis and funding, and drafted the manuscript. Yiliu Ma and Zhongtang Feng were responsible for the theoretical and experimental instructions. Yiliu Ma and Tinghua Wang supervised the manuscript. Qi Yan performed the animal experiments.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>05</day>
+        <month>3</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>7</issue>
+      <fpage>511</fpage>
+      <lpage>516</lpage>
+      <history>
+        <date date-type="received">
+          <day>24</day>
+          <month>9</month>
+          <year>2011</year>
+        </date>
+        <date date-type="accepted">
+          <day>06</day>
+          <month>1</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; Neural Regeneration Research</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc-sa/3.0">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>To date, complex components of available reagents have been used for directional induction of neural stem cells into dopaminergic neurons, resulting in a poor ability to repeat experiments. This study sought to investigate whether a homogenate of the substantia nigra of adult rats and/or basic fibroblast growth factor could directionally induce neural stem cells derived from the subventricular zone of embryonic rats to differentiate into dopaminergic neurons. Tyrosine hydroxylase-positive cells were observed exclusively after induction with the homogenate supernatant of the substantia nigra from adult rats and basic fibroblast growth factor for 48 hours <italic>in vitro</italic>. However, in the groups treated with homogenate supernatant or basic fibroblast growth factor alone, tyrosine hydroxylase expression was not observed. Moreover, the content of dopamine in the culture medium of subventricular zone neurons was significantly increased at 48 hours after induction with the homogenate supernatant of the substantia nigra from adult rats and basic fibroblast growth factor. Experimental findings indicate that the homogenate supernatant of the substantia nigra from adult rats and basic fibroblast growth factor could directionally induce neural stem cells derived from the subventricular zone of embryonic rats to differentiate into dopaminergic neurons in the substantia nigra with the ability to secrete dopamine.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>directional induction <italic>in vitro</italic></kwd>
+        <kwd>homogenate of substantia nigra</kwd>
+        <kwd>basic fibroblast growth factor</kwd>
+        <kwd>subventricular zone</kwd>
+        <kwd>neural stem cells</kwd>
+        <kwd>dopaminergic neurons</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <boxed-text position="float">
+      <p>Abbreviations:</p>
+      <p>NSC, neural stem cells; SVZ, subventricular zone; PD, Parkinson's disease; HSN, homogenate of substantia nigra; bFGF, basic fibroblast growth factor</p>
+    </boxed-text>
+    <sec sec-type="intro" id="sec1-1">
+      <title>INTRODUCTION</title>
+      <p>Currently, neural stem cells (NSCs), with their capacity for self-renewal and multipotency, are a promising cell resource commonly employed in therapies for neurodegenerative diseases. It is well known that if NSCs are induced to directionally differentiate into neurons with specific functions prior to transplantation <italic>in vitro</italic>, they will play a critical role in the improvement of neurodegenerative diseases, such as Parkinson&#x2019;s disease (PD)[<xref rid="ref1" ref-type="bibr">1</xref>]. An increasing number of studies[<xref rid="ref2" ref-type="bibr">2</xref><xref rid="ref3" ref-type="bibr">3</xref><xref rid="ref4" ref-type="bibr">4</xref><xref rid="ref5" ref-type="bibr">5</xref><xref rid="ref6" ref-type="bibr">6</xref>] have demonstrated that ectogenic environmental factors, such as some growth factors, cytokines and hormones, could influence and modulate the differentiation of NSC populations. Among these factors, basic fibroblast growth factor (bFGF) and epidermal growth factor have been well documented to promote the differentiation of NSCs into neurons and glial cells[<xref rid="ref7" ref-type="bibr">7</xref><xref rid="ref8" ref-type="bibr">8</xref><xref rid="ref9" ref-type="bibr">9</xref><xref rid="ref10" ref-type="bibr">10</xref>] and these are commonly used in experimental research of NSC induction. Therefore, we sought an effective therapeutic strategy for PD based on NSC directional induction. To our knowledge, there have been few reports of directional induction differentiation of NSCs into dopaminergic neurons <italic>in vitro</italic>[<xref rid="ref11" ref-type="bibr">11</xref>]. A previous study[<xref rid="ref12" ref-type="bibr">12</xref>] demonstrated that neurons derived from the subventricular zone (SVZ) in embryonic rats were mostly nestin-positive NSCs, thus attracting our interest in the plasticity and directional induction of NSCs. However, few studies have investigated NSC therapy for PD prior to directional induction into dopaminergic neurons <italic>in vitro</italic>.</p>
+      <p>In the present study, we attempted to investigate whether the NSCs derived from SVZ neurons in embryonic rats can differentiate into substantia nigral dopaminergic neurons following induction with a homogenate of substantia nigra (HSN) and/or bFGF.</p>
+      <p>The application of NSC transplantation for the treatment of neurodegenerative diseases is a current hotspot of neuroscience research. However, increasing evidence[<xref rid="ref13" ref-type="bibr">13</xref>] suggests that NSCs that are directionally induced toward specific neurons prior to transplantation possess greater efficacy. Many studies to date[<xref rid="ref2" ref-type="bibr">2</xref><xref rid="ref3" ref-type="bibr">3</xref><xref rid="ref4" ref-type="bibr">4</xref><xref rid="ref5" ref-type="bibr">5</xref><xref rid="ref6" ref-type="bibr">6</xref><xref rid="ref7" ref-type="bibr">7</xref><xref rid="ref8" ref-type="bibr">8</xref><xref rid="ref9" ref-type="bibr">9</xref><xref rid="ref10" ref-type="bibr">10</xref>] have demonstrated that the proliferation and differentiation of plastic NSCs are modulated by various extrinsic factors, such as growth factors, cytokines and hormones, but many of these are only involved in the induced differentiation of NSCs into neurons and glial cells.</p>
+      <p>Loss of dopaminergic neurons in the substantial nigra is a predominant manifestation of PD. Therefore, it is important to deal with the issue of how to direct NSCs to differentiate into dopaminergic neurons. In recent similar studies[<xref rid="ref14" ref-type="bibr">14</xref><xref rid="ref15" ref-type="bibr">15</xref>], retinoic acid has been commonly employed alone or in combination with other factors for stem cell induction into specific functional neurons, including dopaminergic neurons. However, the complexity of the inducing reagent has led to a poor ability to repeat the findings of experiments, and has delayed the development and application of cellular induction techniques required for central nervous system disease therapy. bFGF is commonly used to induce stem cells, including NSCs into neurons and glial cells[<xref rid="ref15" ref-type="bibr">15</xref><xref rid="ref16" ref-type="bibr">16</xref><xref rid="ref17" ref-type="bibr">17</xref>]. However, whether bFGF can direct NSCs to differentiate into dopaminergic neurons, and whether the microenvironment of HSN can facilitate this induction process, still remains unclear.</p>
+      <p>To resolve the above issues, in the present study, we used HSN derived from adult rat and/or bFGF to induce NSCs derived from the SVZ of embryonic rats to differentiate into dopaminergic neurons.</p>
+      <p>Immunocytochemistry and fluorospectrophotometry were used to observe tyrosine hydroxylase (TH) expression in differentiated cells and their secretion of dopamine.</p>
+    </sec>
+    <sec sec-type="results" id="sec1-2">
+      <title>RESULTS</title>
+      <sec id="sec2-1">
+        <title>Immunocytochemical identification of the SVZ neurons of embryonic rats before induction</title>
+        <p>Immunocytochemistry for nestin showed that, primary cultured SVZ neurons from embryonic rats exhibited immunopositivity as brown cells, and were distributed in a lamellar fashion. Nuclear staining was much stronger than cytoplasmic staining (<xref ref-type="fig" rid="F1">Figure 1A</xref>). After counterstaining with hematoxylin, brown nestin-positive cells and blue nestin-negative cells were visible under the same visual field (<xref ref-type="fig" rid="F1">Figure 1B</xref>). These findings suggested that the SVZ neurons derived from the embryonic rats were NSCs.</p>
+        <fig id="F1" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>Nestin-positive cells derived from subventricular zone neurons obtained from rat embryos after primary culture for 48 hours (immunocytochemistry, light microscopy, &#xD7; 400).</p>
+            <p>(A) Brown patchy neurons in the rat embryonic subventricular zone labeled using an anti-nestin antibody (&#x25B2;).</p>
+            <p>(B) Brown nestin-positive neurons in the rat embryonic subventricular zone (&#x25B2;) among the blue immunonegative cells (&#x394;) following immunocytochemistry and hematoxylin staining.</p>
+          </caption>
+          <graphic xlink:href="NRR-7-511-g001"/>
+        </fig>
+      </sec>
+      <sec id="sec2-2">
+        <title>Immunohistochemical identification of dopaminergic neurons before induction</title>
+        <p>The neurons derived from the dorsolateral midbrains of adult rats showed brown immunopositivity for TH with a lamellar distribution by immunocytochemistry (<xref ref-type="fig" rid="F2">Figure 2A</xref>). When counterstained with hematoxylin, brown TH-positive cells were seen to be distributed among blue negative cells in the same visual field (<xref ref-type="fig" rid="F2">Figure 2B</xref>). The detection of TH confirmed these cells to be dopaminergic neurons.</p>
+        <fig id="F2" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p>Tyrosine hydroxylase-positive cells derived from the substantia nigra of adult rats after primary culture for 48 hours (immunocytochemistry, light microscopy, &#xD7; 400).</p>
+            <p>(A) Brown patchy tyrosine hydroxylase-positive neurons (&#x25B2;).</p>
+            <p>(B) Brown tyrosine hydroxylase-positive neurons (&#x25B2;) among negative cells (&#x394;) following immunocytochemistry and hematoxylin staining.</p>
+          </caption>
+          <graphic xlink:href="NRR-7-511-g002"/>
+        </fig>
+      </sec>
+      <sec id="sec2-3">
+        <title>Directional induction of SVZ neurons</title>
+        <p>Immunocytochemistry showed that lamellar brown TH-immunopositive cells were exclusively observed in the HSN + bFGF group. When counterstained with hematoxylin, brown TH-positive cells distributed among blue negative cells were found in the same visual field (<xref ref-type="fig" rid="F3">Figure 3A</xref>). The immunoreactivity was mainly located in the cytoplasm of positive cells, while their nuclei were stained blue (Figures <xref ref-type="fig" rid="F3">3B</xref>, <xref ref-type="fig" rid="F3">C</xref>). However, no brown TH-immunopositive cells were observed in tissue induced with HSN or bFGF induced alone, or receiving no treatment.</p>
+        <fig id="F3" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p>Neural stem cells differentiated into dopaminergic neurons (immunocytochemistry, light microscopy, &#xD7; 400).</p>
+            <p>(A) Brown tyrosine hydroxylase-positive neurons (&#x25B2;) primary cultured and induced by homogenate of substantia nigra + basic fibroblast growth factor for 48 hours from neural stem cells detected by immunocytochemistry.</p>
+            <p>(B, C) In tyrosine hydroxylase-positive neurons (&#x25B2;), the cytoplasm was positively stained and the nuclei were negative (B: &#x394;; C: &#x25B2;); anti-tyrosine hydroxylase immunocytochemistry followed by hematoxylin staining.</p>
+          </caption>
+          <graphic xlink:href="NRR-7-511-g003"/>
+        </fig>
+      </sec>
+      <sec id="sec2-4">
+        <title>Dopamine content assay in the culture medium</title>
+        <p>Fluorospectrophotometry was used to assay dopamine content. The fluorescence intensity in the culture medium of each experimental group (10 culture wells) and the change in dopamine content in each group at 0, 24 and 48 hours after directional induction with HSN + bFGF are shown in <xref ref-type="fig" rid="F4">Figure 4</xref>. The mean dopamine contents (ng/mL) in the culture medium of SVZ neurons in embryonic rats at 0, 24 and 48 hours after directional induction were 101.33 &#xB1; 88.43, 71.77 &#xB1; 17.46, and 228.30 &#xB1; 50.10, respectively. Statistical analysis showed that the dopamine content after induction for 48 hours was significantly increased (<italic>P</italic> &lt; 0.01).</p>
+        <fig id="F4" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p>Change in dopamine content in the culture medium of subventricular zone neurons in embryonic rats at 0, 24 and 48 hours after directional induction.</p>
+          </caption>
+          <graphic xlink:href="NRR-7-511-g004"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion" id="sec1-3">
+      <title>DISCUSSION</title>
+      <p>Increasing evidence[<xref rid="ref2" ref-type="bibr">2</xref><xref rid="ref3" ref-type="bibr">3</xref>] suggests that bFGF has the potential to induce different NSC populations derived from different tissues of rats to proliferate, self-renew and differentiate into neurons, astrocytes and oligodendrocytes <italic>in vitro</italic>. Palmer <italic>et al</italic> [<xref rid="ref18" ref-type="bibr">18</xref>] found that some NSCs that ought to have developed into glial cells when exposed to fibroblast growth factor-2 could in fact be induced to differentiate into neurons. Shah <italic>et al</italic>[<xref rid="ref19" ref-type="bibr">19</xref>] found that transforming growth factor-&#x3B2; could improve the differentiation of neural crest stem cells into smooth muscle cells <italic>in vivo</italic>. Shetty <italic>et al</italic> [<xref rid="ref3" ref-type="bibr">3</xref>] demonstrated that brain-derived nerve growth factor promoted the differentiation of NSCs in the hippocampus, cerebral cortex, cerebellum, midbrain and corpus striatum derived from fetal mice into different types of neurons. Different growth factors can induce NSCs under certain conditions, either solely or combined with other ectogenic factors to direct differentiation into specific functional neurons in the central nervous system. For instance, Bjornson <italic>et al</italic> [<xref rid="ref20" ref-type="bibr">20</xref>] engrafted labeled NSCs into myelosuppressive mice irradiated by X-ray and found that they produced a series of hemocytes, such as bone marrow cells, lymphocytes and pristine hematopoietic cells in the host hemopoietic system. These findings suggested that NSCs have much more extensive plasticity for differentiation than was previously thought. In the present study, based on the features of bFGF, we selected bFGF, a growth factor that can induce NSCs <italic>in vitro</italic>, as one of the inducing reagents. However, only in the HSN + bFGF group did the NSCs derived from the SVZ of embryonic cells successfully differentiate into dopaminergic neurons, indicating that a component of the HSN may provide NSCs in the SVZ with a favorable microenvironment <italic>in vitro</italic>, allowing them to differentiate into dopaminergic neurons. The inductive methods in this study represent a new attempt to direct NSCs in the SVZ, cells possessing multipotent capacity and distinct plasticity, to differentiate. Importantly, HSN and bFGF identically contributed to the process of directional induction.</p>
+      <p>Notably, our results using qualitative (immunocytochemistry) and quantitative (fluorospectrophotometry) methods showed that the induced dopaminergic neurons were successfully derived from SVZ neurons of embryonic rats. We also found that the dopamine content at 48 hours after induction reached a relatively high level, suggesting that, after induction, the SVZ neurons not only directionally differentiate into substantia nigral neurons, but also have the ability to secrete dopamine. Dopamine secretion peaked between 24 hours and 48 hours after induction. The timing for induction of SVZ neurons at the primary stage (primary cultured for 3&#x2013;5 days) was selected to precede the time when the NSCs would differentiate into other types of cells. Furthermore, immunocytochemistry of NSCs in SVZ showed most of them to be nestin immunopositive after primary culture for 3&#x2013;5 days. Because nestin is a marker of undifferentiated NSCs[<xref rid="ref20" ref-type="bibr">20</xref>], we determined that, when primary cultured for 3&#x2013;5 days, most of the NSCs in the SVZ, which were 50&#x2013;60% confluent, had not yet differentiated. On the other hand, when primary cultured for 3&#x2013;5 days, NSCs were in their exponential proliferation stage, which is the optimal timing for all kinds of study on cells. Thus, we concluded that 3-5 days after primary culture was the optimal timing for directional induction of these SVZ neurons. To our knowledge, there have been few reports of directional induction of NSCs to differentiate into dopaminergic neurons <italic>in vitro</italic>.</p>
+      <p>In summary, in this study, we found that HSN + bFGF can effectively and directionally induce NSCs to differentiate into dopaminergic neurons with the ability to secrete dopamine. The present study will shed new light on future therapies for PD involving NSC transplantation after directional induction <italic>in vitro</italic>. In future, given the successful directionally differentiation of NSCs into dopaminergic neurons, extensive studies of NSC transplantation after directional induction are required so that new and promising strategies for clinical PD treatment using NSC transplantation can be realized.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="sec1-4">
+      <title>MATERIALS AND METHODS</title>
+      <sec id="sec2-5">
+        <title>Design</title>
+        <p>A neurobiology and cellular experiment.</p>
+      </sec>
+      <sec id="sec2-6">
+        <title>Time and setting</title>
+        <p>The experiment was performed at the Institute of Oncology in the First Affiliated Hospital of Kunming Medical College, China, from July 1999 to March 2001.</p>
+      </sec>
+      <sec id="sec2-7">
+        <title>Materials</title>
+        <p>A total of 20 Sprague-Dawley rats, at gestational days 12&#x2013;16, weighing 370&#x2013;480 g, were used in NSC extraction and identification experiments. A total of 30 Sprague-Dawley rats, aged 10 weeks, weighing 220&#x2013;300 g, irrespective of gender, were used to prepare HSN. All rats were provided by the Experimental Animals Center of Kunming Medical College, China (certificate No. SCXK (Dian) 2005-0007). The treatment and care of animals was in accordance with the <italic>Administrative Regulations on Medical Institution</italic>, formulated by the State Council of China[<xref rid="ref21" ref-type="bibr">21</xref>].</p>
+      </sec>
+      <sec id="sec2-8">
+        <title>Methods</title>
+        <sec id="sec3-1">
+          <title>Culture of SVZ neurons of embryonic rats in vitro</title>
+          <p>Sprague-Dawley rats at 12&#x2013;16 days gestation were anesthetized intraperitoneally with thiopental sodium (40 mg/kg). The peritoneum was opened and fetal rats were taken out. With the help of an anatomical microscope (Nikon, Tokyo, Japan), brain tissues were isolated from the cranial cavities of embryonic rats. After removal of the forebrain, midbrain and brain stem, the SVZ tissues, ventral to the cerebral cortex, were harvested[<xref rid="ref22" ref-type="bibr">22</xref>]. SVZ tissues were put in D-Hank&#x2019;s solution and poached for 10&#x2013;15 minutes, followed by repeated trituration and digestion using 0.02% ethylenediamine tetraacetic acid and 0.25% trypsin (1:1) for 30 minutes. Following filtration through a 40 &#x3BC;m sterile filter membrane, bovine fetal serum was added to stop digestion. Filtrates were centrifuged at 1 000 r/min for 5 minutes and serum culture medium was added. Then, a single cell suspension was formed after blowing repeatedly with a Pasteur pipette. Last, the single cellular suspension was seeded onto 6-well culture plates (on which cover glasses had previously been placed) and a 75-cm<sup>2</sup> culture flask at a density of 5&#x2013;6 &#xD7;106 cells/mL. Cells were incubated in the presence of 5% CO<sub>2</sub>, under saturated humidity at 37&#xB0;C and incubated for 24 hours. After that, the serum culture medium was replaced with a serum-free medium. Continuous culture lasted for 3-7 days. Every 2 days, 5 mL of fresh serum-free culture medium was added to the culture system[<xref rid="ref23" ref-type="bibr">23</xref>].</p>
+        </sec>
+        <sec id="sec3-2">
+          <title>NSC identification from SVZ neurons by immunocytochemistry</title>
+          <p>The cover glasses in the 6-well culture plates were removed and fixed with 4% paraformaldehyde and 0.1 M phosphate buffer (pH 7.4) for 4&#x2013;6 hours. Then, immunocytochemistry using a nestin antibody (Becton Dickinson, Franklin Lakes, NJ, USA) and the SP method[<xref rid="ref24" ref-type="bibr">24</xref>] were performed to identify the SVZ neurons in embryonic rats as NSCs.</p>
+        </sec>
+        <sec id="sec3-3">
+          <title>Harvest, identification and homogenization of substantia nigral tissues</title>
+          <p>Adult Sprague-Dawley rats were anaesthetized with thiopental sodium (40 mg/kg) intraperitoneally. The cranial cavity was opened and the brain tissues in the dorsolateral midbrain[<xref rid="ref25" ref-type="bibr">25</xref>] were harvested. The brain tissues were poached in D-Hank&#x2019;s solution for 10&#x2013;15 minutes, and then sheared, digested, filtrated thoroughly and cultured. In brief, Dulbecco&#x2019;s modified Eagle&#x2019;s medium (Gibco, Carlsbad, CA, USA) + 10% fetal bovine serum was used as a culture medium. The single cell suspension was seeded into 6-well culture plates with cover glasses in each well at a density of 6 &#xD7; 10<sup>6</sup> cells/mL. After culture for 48 hours, the cover glasses were removed and immunocytochemistry using a TH antibody (1:8 000; Sigma, St. Louis, MO, USA) and the SP method[<xref rid="ref24" ref-type="bibr">24</xref>] was performed to confirm the neurons derived from the dorsolateral midbrain as dopaminergic neurons.</p>
+          <p>Dorsolateral midbrain tissues derived from adult rats were poached in D-Hank&#x2019;s solution for 10&#x2013;15 minutes, and completely homogenized in Dulbecco&#x2019;s modified Eagle&#x2019;s medium using an electrokinetic homogenate apparatus (Jiang Xing Instrument Co., Ltd., Hangzhou City, Zhejiang Province, China). Thereafter, the homogenate solution was centrifuged at 2 000 r/min for 10 minutes. The obtained supernatants were ready to use in the NSC-induction process.</p>
+        </sec>
+        <sec id="sec3-4">
+          <title>Induced differentiation of NSCs</title>
+          <p>Meanwhile, 10 &#x3BC;g bFGF (Gibco) was dissolved in 5 mL of distilled water. A microporous membrane was used to filter and sterilize the bFGF solution, which was placed in Eppendorf tubes and served as another kind of inducing solution for subsequent experiments.</p>
+          <p>Cover glasses containing SVZ neurons (primary cultured for 3&#x2013;5 days) in 6-well culture plates were divided into four groups randomly: an HSN group, in which supernatant of HSN was used to induce SVZ neurons; a bFGF group, in which bFGF was used to induce SVZ neurons; an HSN + bFGF group, in which HSN + bFGF were used simultaneously; and a blank control group, with no treatment. Each cover glass commonly achieved 50&#x2013;60% confluent neuronal growth. In each group, two cover glasses were randomly selected to undergo induction. The volume of HSN added to each well was 1 mL. The concentration of bFGF induction solution was 20 ng/mL[<xref rid="ref26" ref-type="bibr">26</xref>], and 0.5 mL of bFGF was added to each well. Culture plates were placed in an incubator containing 5% CO<sub>2</sub> at 37&#xB0;C for 48 hours, for induction.</p>
+        </sec>
+        <sec id="sec3-5">
+          <title>Immunocytochemistry for SVZ neurons after induction</title>
+          <p>Cover glasses were removed from culture plates 48 hours after induction, and fixed with 4% paraformaldehyde and 0.1 M phosphate buffer (pH 7.4). Then, immunocytochemistry[<xref rid="ref27" ref-type="bibr">27</xref>] with a monoclonal goat-anti-rat TH antibody (1:8 000; Sigma) was performed to examine whether the induced SVZ neurons differentiated into dopaminergic neurons. Diaminobenzidine was used for coloration. A light microscope (Olympus, Tokyo, Japan) was used to observe immunostaining.</p>
+        </sec>
+        <sec id="sec3-6">
+          <title>Measurement of dopamine content in culture medium of SVZ neurons after induction</title>
+          <p>Because TH-immunopositive cells were only observed in the HSN + bFGF group in the induction experiment, we only used HSN + bFGF as the inducer in this experiment. Briefly, a total of 10 culture wells in which 50&#x2013;60% confluent SVZ neurons grew on the cover glass, were selected for induction. One milliliter of HSN and 0.5 mL of bFGF (20 ng/mL) were added to each well for induction. At time points of 0, 24, 48 hours after induction, 0.5 mL of culture medium was taken from selected holes under sterile conditions and placed in Eppendorf tubes. Fluorospectrophotometry (Toshiba, Tokyo, Japan)[<xref rid="ref28" ref-type="bibr">28</xref>] was used to assay the dopamine content in the culture medium of each well. Culture and induction conditions were the same as those described for SVZ neurons.</p>
+        </sec>
+        <sec id="sec3-7">
+          <title>Statistical analysis</title>
+          <p>Data were analyzed by paired <italic>t</italic>-tests using SPSS 11.5 software (SPSS, Chicago, IL, USA). Data are expressed as mean &#xB1; SD. A level of <italic>P</italic> &lt; 0.05 was considered to represent statistical significance.</p>
+        </sec>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding:</bold> This study was sponsored by the General Program of Yunnan Provincial Application Basic Research, No. 2008ZC109M.</p>
+      </fn>
+      <fn fn-type="conflict">
+        <p><bold>Conflicts of interest:</bold> None declared.</p>
+      </fn>
+      <fn fn-type="other">
+        <p><bold>Ethical approval:</bold> The experimental protocols were approved by the Animal Ethics Committee of Kunming Medical College in China.</p>
+      </fn>
+      <fn fn-type="edited-by">
+        <p>(Edited by Li LY, He Z, Jiang YG/Yang Y/Song LP)</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="ref1">
+        <label>[1]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Fang</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>An improved method for directional differentiation and efficient production of neurons from embryonic stem cells <italic>in vitro</italic></article-title>
+          <source>J Huazhong Univ Sci Technolog Med Sci</source>
+          <year>2005</year>
+          <volume>25</volume>
+          <issue>1</issue>
+          <fpage>13</fpage>
+          <lpage>16</lpage>
+          <pub-id pub-id-type="pmid">15934296</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref2">
+        <label>[2]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schinstine</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Iacovitti</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>5-Azacytidine and BDNF enhance the maturation of neurons derived from EGF-generated neural stem cells</article-title>
+          <source>Exp Neurol</source>
+          <year>1997</year>
+          <volume>144</volume>
+          <issue>2</issue>
+          <fpage>315</fpage>
+          <lpage>325</lpage>
+          <pub-id pub-id-type="pmid">9168832</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref3">
+        <label>[3]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shetty</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Turner</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title><italic>In vitro</italic> survival and differentiation of neurons derived from epidermal growth factor-responsive postnatal hippocampal stem cells: inducing effects of brain-derived neurotrophic factor</article-title>
+          <source>J Neurobiol</source>
+          <year>1998</year>
+          <volume>35</volume>
+          <issue>4</issue>
+          <fpage>395</fpage>
+          <lpage>425</lpage>
+          <pub-id pub-id-type="pmid">9624622</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref4">
+        <label>[4]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lachyankar</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Condon</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Quesenberry</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Embryonic precursor cells that express Trk receptors: induction of different cell fates by NGF, BDNF, NT-3, and CNTF</article-title>
+          <source>Exp Neurol</source>
+          <year>1997</year>
+          <volume>144</volume>
+          <issue>2</issue>
+          <fpage>350</fpage>
+          <lpage>360</lpage>
+          <pub-id pub-id-type="pmid">9168835</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref5">
+        <label>[5]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hearn</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Murphy</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Newgreen</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF and ET-3 differentially modulate the numbers of avian enteric neural crest cells and enteric neurons <italic>in vitro</italic></article-title>
+          <source>Dev Biol</source>
+          <year>1998</year>
+          <volume>197</volume>
+          <issue>1</issue>
+          <fpage>93</fpage>
+          <lpage>105</lpage>
+          <pub-id pub-id-type="pmid">9578621</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref6">
+        <label>[6]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Taupin</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Pitard</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Dechanet</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Leukemia inhibitory factor: part of a large ingathering family</article-title>
+          <source>Int Rev Immunol</source>
+          <year>1998</year>
+          <volume>16</volume>
+          <issue>3-4</issue>
+          <fpage>397</fpage>
+          <lpage>426</lpage>
+          <pub-id pub-id-type="pmid">9505197</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref7">
+        <label>[7]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakafuku</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Establishment and characterization of a multipotential neural cell line that can conditionally generate neurons, astrocytes, and oligodendrocytes <italic>in vitro</italic></article-title>
+          <source>J Neurosci Res</source>
+          <year>1995</year>
+          <volume>41</volume>
+          <issue>2</issue>
+          <fpage>153</fpage>
+          <lpage>168</lpage>
+          <pub-id pub-id-type="pmid">7650751</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref8">
+        <label>[8]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Dunne</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hewson</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multipotent CNS stem cells are present in the adult mammalian spinal cord and ventricular neuroaxis</article-title>
+          <source>J Neurosci</source>
+          <year>1996</year>
+          <volume>16</volume>
+          <issue>23</issue>
+          <fpage>7599</fpage>
+          <lpage>7609</lpage>
+          <pub-id pub-id-type="pmid">8922416</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref9">
+        <label>[9]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tropepe</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Sibilia</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ciruna</surname>
+              <given-names>BG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Distinct neural stem cells proliferate in response to EGF and FGF in the developing mouse telencephalon</article-title>
+          <source>Dev Biol</source>
+          <year>1999</year>
+          <volume>208</volume>
+          <issue>1</issue>
+          <fpage>166</fpage>
+          <lpage>188</lpage>
+          <pub-id pub-id-type="pmid">10075850</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref10">
+        <label>[10]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Santa-Olalla</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Covarrubias</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Basic fibroblast growth factor promotes epidermal growth factor responsiveness and survival of mesencephalic neural precursor cells</article-title>
+          <source>J Neurobiol</source>
+          <year>1999</year>
+          <volume>40</volume>
+          <issue>1</issue>
+          <fpage>14</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="pmid">10398068</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref11">
+        <label>[11]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stacpoole</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>Bilican</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Webber</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Efficient derivation of NPCs, spinal motor neurons and midbrain dopaminergic neurons from hESCs at 3% oxygen</article-title>
+          <source>Nat Protoc</source>
+          <year>2011</year>
+          <volume>6</volume>
+          <issue>8</issue>
+          <fpage>1229</fpage>
+          <lpage>1240</lpage>
+          <pub-id pub-id-type="pmid">21799491</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref12">
+        <label>[12]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bernier</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Vinet</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Cossette</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Characterization of the subventricular zone of the adult human brain: evidence for the involvement of Bcl-2</article-title>
+          <source>Neurosci Res</source>
+          <year>2000</year>
+          <volume>37</volume>
+          <issue>1</issue>
+          <fpage>67</fpage>
+          <lpage>78</lpage>
+          <pub-id pub-id-type="pmid">10802345</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref13">
+        <label>[13]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>MM</given-names>
+            </name>
+          </person-group>
+          <article-title><italic>In vitro</italic> induction and differentiation of newborn guinea pig hippocampus neural stem cells into cells resembling inner hair cells, using artificial perilymph</article-title>
+          <source>J Laryngol Otol</source>
+          <year>2011</year>
+          <volume>125</volume>
+          <issue>8</issue>
+          <fpage>771</fpage>
+          <lpage>775</lpage>
+          <pub-id pub-id-type="pmid">21729444</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref14">
+        <label>[14]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Liao</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>CY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Directed differentiation into neural lineages and therapeutic potential of porcine embryonic stem cells in rat Parkinson's disease model</article-title>
+          <source>Cell Reprogram</source>
+          <year>2010</year>
+          <volume>12</volume>
+          <issue>4</issue>
+          <fpage>447</fpage>
+          <lpage>461</lpage>
+          <pub-id pub-id-type="pmid">20698783</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref15">
+        <label>[15]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>PP</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>LH</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>WR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A two-step protocol for induction of rat adipose tissue-derived stem cells into neuron-like cells</article-title>
+          <source>Nan Fang Yi Ke Da Xue Xue Bao</source>
+          <year>2011</year>
+          <volume>31</volume>
+          <issue>3</issue>
+          <fpage>512</fpage>
+          <lpage>517</lpage>
+          <pub-id pub-id-type="pmid">21421495</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref16">
+        <label>[16]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>L&#xF3;pez-Toledano</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Redondo</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lobo</surname>
+              <given-names>MV</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Tyrosine hydroxylase induction by basic fibroblast growth factor and cyclic AMP analogs in striatal neural stem cells: role of ERK1/ERK2 mitogen-activated protein kinase and protein kinase C</article-title>
+          <source>J Histochem Cytochem</source>
+          <year>2004</year>
+          <volume>52</volume>
+          <issue>9</issue>
+          <fpage>1177</fpage>
+          <lpage>1189</lpage>
+          <pub-id pub-id-type="pmid">15314085</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref17">
+        <label>[17]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boudreau</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Andrews</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Srebrow</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induction of the angiogenic phenotype by Hox D3</article-title>
+          <source>J Cell Biol</source>
+          <year>1997</year>
+          <volume>139</volume>
+          <issue>1</issue>
+          <fpage>257</fpage>
+          <lpage>264</lpage>
+          <pub-id pub-id-type="pmid">9314544</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref18">
+        <label>[18]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Palmer</surname>
+              <given-names>TD</given-names>
+            </name>
+            <name>
+              <surname>Markakis</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Willhoite</surname>
+              <given-names>AR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Fibroblast growth factor-2 activates a latent neurogenic program in neural stem cells from diverse regions of the adult CNS</article-title>
+          <source>J Neurosci</source>
+          <year>1999</year>
+          <volume>19</volume>
+          <issue>19</issue>
+          <fpage>8487</fpage>
+          <lpage>8497</lpage>
+          <pub-id pub-id-type="pmid">10493749</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref19">
+        <label>[19]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shah</surname>
+              <given-names>NM</given-names>
+            </name>
+            <name>
+              <surname>Groves</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Alternative neural crest cell fates are instructively promoted by TGFbeta superfamily members</article-title>
+          <source>Cell</source>
+          <year>1996</year>
+          <volume>85</volume>
+          <issue>3</issue>
+          <fpage>331</fpage>
+          <lpage>343</lpage>
+          <pub-id pub-id-type="pmid">8616889</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref20">
+        <label>[20]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bjornson</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Rietze</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Turning brain into blood: a hematopoietic fate adopted by adult neural stem cells <italic>in vivo</italic></article-title>
+          <source>Science</source>
+          <year>1999</year>
+          <volume>283</volume>
+          <issue>5401</issue>
+          <fpage>534</fpage>
+          <lpage>537</lpage>
+          <pub-id pub-id-type="pmid">9915700</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref21">
+        <label>[21]</label>
+        <element-citation publication-type="journal">
+          <article-title>State Council of the People's Republic of China. Administrative Regulations on Medical Institution. 1994-09-01</article-title>
+        </element-citation>
+      </ref>
+      <ref id="ref22">
+        <label>[22]</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Paxions</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Watson</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>The Rat Brain in Stereotaxic Coordinates</article-title>
+          <year>2005</year>
+          <publisher-loc>Beijing</publisher-loc>
+          <publisher-name>People's Medical Publishing House</publisher-name>
+        </element-citation>
+      </ref>
+      <ref id="ref23">
+        <label>[23]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liang</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation and identification of neural precursor cells from human embryonic cortical tissue</article-title>
+          <source>Zhonghua Yi Xue Za Zhi</source>
+          <year>2001</year>
+          <volume>81</volume>
+          <issue>21</issue>
+          <fpage>1324</fpage>
+          <lpage>1326</lpage>
+          <pub-id pub-id-type="pmid">16200728</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref24">
+        <label>[24]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sugaya</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Brannen</surname>
+              <given-names>CL</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell strategies for neuroreplacement therapy in Alzheimer's disease</article-title>
+          <source>Med Hypotheses</source>
+          <year>2001</year>
+          <volume>57</volume>
+          <issue>6</issue>
+          <fpage>697</fpage>
+          <lpage>700</lpage>
+          <pub-id pub-id-type="pmid">11918428</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref25">
+        <label>[25]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tang</surname>
+              <given-names>FM</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expression of hnRNP K in lung adenocarcinoma cells</article-title>
+          <source>Sichuan Da Xue Xue Bao Yi Xue Ban</source>
+          <year>2008</year>
+          <volume>39</volume>
+          <issue>5</issue>
+          <fpage>823</fpage>
+          <lpage>826</lpage>
+          <pub-id pub-id-type="pmid">19024324</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref26">
+        <label>[26]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garcia</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Tagliaferro</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Ferri</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Study of tyrosine hydroxylase immunoreactive neurons in neonate rats lactationally exposed to 2, 4-dichlorophenoxyacetic acid</article-title>
+          <source>Neurotoxicology</source>
+          <year>2004</year>
+          <volume>25</volume>
+          <issue>6</issue>
+          <fpage>951</fpage>
+          <lpage>957</lpage>
+          <pub-id pub-id-type="pmid">15474613</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref27">
+        <label>[27]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Toda</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mizoguchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neurons generated from adult rat hippocampal stem cells form functional glutamatergic and GABAergic synapses <italic>in vitro</italic></article-title>
+          <source>Exp Neurol</source>
+          <year>2000</year>
+          <volume>165</volume>
+          <issue>1</issue>
+          <fpage>66</fpage>
+          <lpage>76</lpage>
+          <pub-id pub-id-type="pmid">10964486</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="ref28">
+        <label>[28]</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>YL</given-names>
+            </name>
+            <name>
+              <surname>Xing</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>ZZ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of heat stress on DA mediated PI signal transduction system in rat striatum</article-title>
+          <source>Space Med Med Eng (Beijing)</source>
+          <year>2001</year>
+          <volume>14</volume>
+          <issue>2</issue>
+          <fpage>116</fpage>
+          <lpage>119</lpage>
+          <pub-id pub-id-type="pmid">11808564</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

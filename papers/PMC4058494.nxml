@@ -1,0 +1,3337 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Mediators Inflamm</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Mediators Inflamm</journal-id>
+      <journal-id journal-id-type="publisher-id">MI</journal-id>
+      <journal-title-group>
+        <journal-title>Mediators of Inflammation</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0962-9351</issn>
+      <issn pub-type="epub">1466-1861</issn>
+      <publisher>
+        <publisher-name>Hindawi Publishing Corporation</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24991085</article-id>
+      <article-id pub-id-type="pmc">4058494</article-id>
+      <article-id pub-id-type="doi">10.1155/2014/192790</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Synthetic Phage for Tissue Regeneration</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0001-8875-9289</contrib-id>
+          <name>
+            <surname>Yoo</surname>
+            <given-names>So Young</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Merzlyak</surname>
+            <given-names>Anna</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Seung-Wuk</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><sup>1</sup>Convergence Stem Cell Research Center, Medical Research Institute, Pusan National University School of Medicine, Yangsan 626-870, Republic of Korea</aff>
+      <aff id="I2"><sup>2</sup>Department of Bioengineering, University of California, Berkeley, and Physical Bioscience Division, Lawrence Berkeley National Laboratory, Berkeley, CA 94720, USA</aff>
+      <author-notes>
+        <corresp id="cor1">*So Young Yoo: <email>yoosy2@gmail.com</email></corresp>
+        <fn fn-type="other">
+          <p>Academic Editor: Ryu-Ichiro Hata</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>27</day>
+        <month>5</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>2014</volume>
+      <elocation-id>192790</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>27</day>
+          <month>12</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>18</day>
+          <month>3</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 So Young Yoo et al.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license xlink:href="https://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Controlling structural organization and signaling motif display is of great importance to design the functional tissue regenerating materials. Synthetic phage, genetically engineered M13 bacteriophage has been recently introduced as novel tissue regeneration materials to display a high density of cell-signaling peptides on their major coat proteins for tissue regeneration purposes. Structural advantages of their long-rod shape and monodispersity can be taken together to construct nanofibrous scaffolds which support cell proliferation and differentiation as well as direct orientation of their growth in two or three dimensions. This review demonstrated how functional synthetic phage is designed and subsequently utilized for tissue regeneration that offers potential cell therapy.</p>
+      </abstract>
+      <funding-group>
+        <award-group>
+          <funding-source>Ministry of Science, ICT and Future Planning</funding-source>
+          <award-id>2013R1A1A3008484</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>1. Synthetic Phage</title>
+      <p>
+The meaning of synthetic, as defined in a dictionary, is &#x201C;combination, composition, putting together, opposite of analysis; building up of separate elements especially of conception or propositions or facts, into a connected whole.&#x201D; Combined with biology, it became synthetic biology meaning engineering complex living systems through novel assemblies of biological molecules. Synthetic biology has been paved after recombinant DNA technology in the 1970s. So originally synthetic means recombinant or engineered, in biology. Although useful engineering system based on T4, T7, <italic>&#x3BB;</italic>, or other viruses has been introduced, the technology is mostly fully developed in the filamentous phages (<xref ref-type="fig" rid="fig1">Figure 1</xref>). Phages are viruses that infect bacterial cells, and many commercial vectors for recombinant DNA studies are from phages. Synthetic phage utilizes their genetic information of coat proteins. Phage display is a practical example of how we can make synthetic viruses for different purposes. Using standard recombinant DNA technology, interested foreign peptides (or proteins) expression can be realized by incorporation of corresponding coding sequences onto each replicable viral coat DNA (<xref ref-type="fig" rid="fig2">Figure 2</xref>). Useful peptides identified or engineered by synthetic phages were summarized in <xref ref-type="table" rid="tab1">Table 1</xref>.</p>
+      <sec id="sec1.1">
+        <title>1.1. Genetic Engineering of Phage: pIII Minor Coat or pVIII Major Coat Protein Engineering</title>
+        <p>pIII minor coat protein engineering (Type 3) is relatively well known for insertion of foreign peptides. Foreign peptides displayed on all five pIII subunits are constrained to lie very close to each other, but their attachment to the virion surface is probably quite flexible. For these reasons, it is likely that such displayed peptides can form multivalent interactions with immobilized selectors or cellular receptors. Phage display has been developed for use as information mining tools [<xref rid="B1" ref-type="bibr">1</xref>&#x2013;<xref rid="B3" ref-type="bibr">3</xref>], in which the diversity of the amino acid libraries presented by the phage gives the binding information between the peptide and its target [<xref rid="B4" ref-type="bibr">4</xref>&#x2013;<xref rid="B6" ref-type="bibr">6</xref>]. Recently, the synthetic phage displaying Fab in pIII region was utilized as in phage display and expanded its capacity of expressing peptide sizes and their selectivity and sensitivity [<xref rid="B7" ref-type="bibr">7</xref>]. Taken together, phage display was used to identify the peptides mimicking many functional peptides including chemokines or chemokine receptors, which was then utilized for studying or targeting the role of chemokines and receptors [<xref rid="B8" ref-type="bibr">8</xref>&#x2013;<xref rid="B11" ref-type="bibr">11</xref>] (Also see <xref ref-type="table" rid="tab1">Table 1</xref>).</p>
+        <p>Lee group [<xref rid="B12" ref-type="bibr">12</xref>&#x2013;<xref rid="B15" ref-type="bibr">14</xref>, <xref rid="B16" ref-type="bibr">16</xref>, <xref rid="B13" ref-type="bibr">27</xref>] mostly utilized pVIII engineering for tissue engineering purposes but also did pIII engineering for making multifunctional synthetic phages on sensing or capturing purposes (<xref ref-type="table" rid="tab1">Table 1</xref>). Foreign peptides display on pVIII was introduced soon after pIII display was introduced. The &#x201C;landscape&#x201D; peptide presentation on the major coat protein of the filamentous phage has been utilized to template inorganic crystals for energy and memory storage devices [<xref rid="B17" ref-type="bibr">28</xref>&#x2013;<xref rid="B21" ref-type="bibr">32</xref>] and make stimulus responsive materials [<xref rid="B22" ref-type="bibr">33</xref>]. The phage has also been exploited for medical applications, such as targeted drug [<xref rid="B23" ref-type="bibr">34</xref>&#x2013;<xref rid="B24b" ref-type="bibr">36</xref>], gene [<xref rid="B25" ref-type="bibr">37</xref>], imaging agent [<xref rid="B26" ref-type="bibr">38</xref>] delivery, and a tissue engineering scaffold material [<xref rid="B12" ref-type="bibr">12</xref>]. Merzlyak et al. presented a cell signaling RGD motif on pVIII proteins for a tissue engineering scaffold application [<xref rid="B12" ref-type="bibr">12</xref>, <xref rid="B13" ref-type="bibr">27</xref>]. The approach which is used to display a foreign peptide on every copy of pVIII protein demonstrated how other functionally designed groups can be presented on the phage filament with quantitative analyses on the characteristics of the inserts and their constrained sequences expressed on a phage particle.</p>
+      </sec>
+      <sec id="sec1.2">
+        <title>1.2. Genetic Engineering of Phage: pVI, pVII, or pIX Minor Coat Protein Engineering</title>
+        <p>Other minor coat proteins, pVI, pVII, or pIX, have been used in phagemid format, which will have mosaic display of inserted foreign peptides [<xref rid="B27" ref-type="bibr">39</xref>, <xref rid="B28" ref-type="bibr">40</xref>]. Fusion proteins were expressed on pVII and pIV from the phagemid as procoats with<italic> omp</italic>A and<italic> pel</italic>B leaders. Since these proteins are likely to interact with one another in the phage capsid, the method may be useful to engineer antibodies or intergrins which are dimeric proteins. This technology was later extended to construct a large, human single-chain Fv (scFv) antibody library on pIX [<xref rid="B29" ref-type="bibr">41</xref>].</p>
+      </sec>
+      <sec id="sec1.3">
+        <title>1.3. Genetic Engineering of Phage: NN Type Engineering</title>
+        <p>A mosaic display using type 88 or 33 systems overcomes two potential disadvantages of pVIII major coat modification (Type 8) and pIII minor coat modification [<xref rid="B30" ref-type="bibr">42</xref>, <xref rid="B31" ref-type="bibr">43</xref>]. The type 88 vectors contain synthetic recombinant gene pVIII beside wild pVIII genes. To minimize recombination between the recombinant and wild type pVIII genes, the sequence of the recombinant pVIII gene is designed to be very different from the wild type pVIII gene, while encoding the same amino acid sequences. Similarly, type 33 system has two pIII genes of one full length and one truncated (amino acids 198&#x2013;408). The former expresses a functional pIII, while the second gene produces a fusion protein.</p>
+      </sec>
+    </sec>
+    <sec id="sec2">
+      <title>2. Synthetic Phage for Tissue Regeneration</title>
+      <p>Tissue engineering scaffolding materials are ultimately designed to imitate the extracellular matrix (ECM), a fibrous protein network that houses the cells<italic> in vivo</italic>. This network provides cells with physical support and guidance through a specific topographical and chemical presentation of various adhesive sites and growth factors. Therefore, in order to control cellular behaviors such as adhesion, proliferation, and differentiation within the man-made scaffolds, their surface functionalization with bioactive molecules is highly desirable [<xref rid="B32" ref-type="bibr">44</xref>&#x2013;<xref rid="B34" ref-type="bibr">46</xref>]. Furthermore the control over density of such bioactive groups [<xref rid="B35" ref-type="bibr">47</xref>&#x2013;<xref rid="B37" ref-type="bibr">49</xref>] and their geometric patterning [<xref rid="B35" ref-type="bibr">47</xref>, <xref rid="B38" ref-type="bibr">50</xref>, <xref rid="B39" ref-type="bibr">51</xref>] has been shown important in biomaterials' ability to modulate such behaviors. Majority of current fabrication methods rely on chemical processing to functionalize biomaterials. With this method the final density of bioactive groups presented on the surface is ultimately dictated by the bulk solution concentration [<xref rid="B33" ref-type="bibr">45</xref>, <xref rid="B34" ref-type="bibr">46</xref>, <xref rid="B40" ref-type="bibr">52</xref>]. The local binding properties of the material surface, such as charge or availability of reactive groups or receptors, dictate the final spacing of the bioactive groups. Most techniques that allow for a very precise micro- and nanoscale chemical patterning of a substrate are lithography based (i.e., dip-pen lithography) and are hard to replicate in large scale or in three-dimensional scaffold materials [<xref rid="B32" ref-type="bibr">44</xref>, <xref rid="B38" ref-type="bibr">50</xref>]. Recently developed nanofabrication techniques, such as peptide self-assembly, electrospinning, and polymer phase-separation, come closer to mimicking the natural ECM topographically; however, the controlled presentation of single or multiple functional groups is still lacking [<xref rid="B32" ref-type="bibr">44</xref>, <xref rid="B36" ref-type="bibr">48</xref>, <xref rid="B37" ref-type="bibr">49</xref>].</p>
+      <p>Viruses are some of the best characterized structurally organized large molecules. Their nanoscale size and inherent monodispersity of their shape and surface chemistry are better than what can be achieved with most synthetic nanoparticles to date [<xref rid="B41" ref-type="bibr">53</xref>]. Both genetic and chemical pathways have been used to modify either single or multiple virus capsid proteins with functional groups [<xref rid="B17" ref-type="bibr">28</xref>, <xref rid="B25" ref-type="bibr">37</xref>, <xref rid="B35" ref-type="bibr">47</xref>, <xref rid="B41" ref-type="bibr">53</xref>&#x2013;<xref rid="B43" ref-type="bibr">55</xref>]. Moreover novel binding ligands can be found through evolutionary phage display screening methods [<xref rid="B2" ref-type="bibr">2</xref>, <xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B5" ref-type="bibr">5</xref>]. Such functionalized virus particles have been demonstrated to selectively bind both inorganic and organic particles. Additionally the templation of virus particles has been utilized for electronic and magnetic materials [<xref rid="B17" ref-type="bibr">28</xref>, <xref rid="B44" ref-type="bibr">56</xref>, <xref rid="B45" ref-type="bibr">57</xref>], as well as a variety of medical applications [<xref rid="B23" ref-type="bibr">34</xref>&#x2013;<xref rid="B24b" ref-type="bibr">36</xref>, <xref rid="B26" ref-type="bibr">38</xref>]. M13 bacteriophage is a filamentous bacterial virus. It has a defined long-rod shape at 880&#x2009;nm long and 6.7&#x2009;nm in diameter, with precisely positioned major and minor capsid proteins. These coat proteins can be genetically engineered to express short peptide groups [<xref rid="B17" ref-type="bibr">28</xref>, <xref rid="B44" ref-type="bibr">56</xref>, <xref rid="B46" ref-type="bibr">58</xref>]. M13 has been previously genetically engineered phage to display cell-adhesive peptides such as RGD and IKVAV on every copy of its pVIII protein [<xref rid="B12" ref-type="bibr">12</xref>]. Furthermore such modified filamentous phage for construction of aligned two- and three-dimensional materials that are able to support and control the polarization of cells such as fibroblasts and neural progenitor cells was demonstrated [<xref rid="B12" ref-type="bibr">12</xref>]. Chimeric displays of binding groups on M13 phage have been demonstrated previously for drug delivery [<xref rid="B25" ref-type="bibr">37</xref>, <xref rid="B47" ref-type="bibr">59</xref>], ELISA [<xref rid="B48" ref-type="bibr">60</xref>], and electronic [<xref rid="B44" ref-type="bibr">56</xref>] applications. Additional engineering of the M13 phage to express biotin-like HPQ motifs on their capsid proteins will allow for a functional expansion of potential scaffold interactions with the cells, as it will be able to present a variety of immobilized avidin conjugated growth factors and cytokines. Unique biochemical and structural features of genetically engineered phage can be also used in the context of tissue engineering in order to control cellular growth or differentiation (Figure&#x2009;&#x2009;3, [<xref rid="B15" ref-type="bibr">14</xref>]).</p>
+      <sec id="sec2.1">
+        <title>2.1. Chemical Cue Control by Synthetic Virus</title>
+        <p>Merzlyak et al., for example, have explored the use of genetically modified M13 phage as a novel building block for neural cell engineering materials to make functional biomaterials for tissue regeneration by chemical cue control [<xref rid="B12" ref-type="bibr">12</xref>]. This was accomplished by engineering the phage to display specific cell signaling motifs and then assembling the viral particles into a macroscopic scaffolding material. Many peptide expression systems have previously been demonstrated on the various capsid proteins of the phage through creation of peptide libraries [<xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B30" ref-type="bibr">42</xref>]. However, as a biological particle for peptide display, phages possess the inherent limitation of having to be successfully expressed and assembled within the<italic> E. coli</italic> bacteria host, which restricts the type and number of peptides that can be displayed [<xref rid="B49" ref-type="bibr">61</xref>&#x2013;<xref rid="B52" ref-type="bibr">64</xref>]. They developed a novel cloning approach for display of an integrin-binding RGD motif on every copy of the pVIII major coat protein [<xref rid="B12" ref-type="bibr">12</xref>]. The researchers constructed the phage using a partial library, in which an engineered octamer insert for pVIII included a constrained RGD group that was surrounded by flanking degenerate residues. This allowed for expression of inserts that retained the desired function of the RGD motif and yet were biologically compatible with<italic> E. coli</italic> during the intricate phage replication process. After construction of engineered phage that stably displayed either RGD- or IKVAV-peptide groups on every copy of the pVIII protein, they constructed aligned two- and three-dimensional scaffolding materials containing phage and tested their applicability for tissue engineering. Biocompatibility of the synthetic phage materials was tested by growing NIH-3T3 fibroblast and neural progenitor cells on phage films and in phage containing media [<xref rid="B12" ref-type="bibr">12</xref>, <xref rid="B53" ref-type="bibr">65</xref>]. Both cell types showed normal morphology and proliferation when in direct contact with phage materials. Neural progenitor cells either retained their progenitor state or differentiated towards the neural cell phenotype depending on media conditions. It was then demonstrated that three-dimensional phage materials could support proliferation and differentiation of neural progenitor cells. Both RGD- and IKVAV-phage matrices facilitated colony formation of neural progenitor cells, which sustained a viability of over 85% during the seven-day observation period. In comparison to RGE and wild type phage controls, RGD and IKVAV phage resulted in enhanced binding and spreading of neural progenitor cells with high specificity. Finally, by simple extrusion or spinning of phage solution, the researchers constructed aligned three-dimensional phage fiber matrices with embedded neural progenitor cells. The resulting phage fibers encouraged neural cell differentiation and directed cell growth parallel to the long axis of the fibers [<xref rid="B12" ref-type="bibr">12</xref>]. Chung et al. showed mechanical shearing of phage solution on a glass substrate which resulted in two-dimensional directionally oriented films. These oriented films were shown to direct the alignment and morphology of fibroblasts, osteoblasts, and neural cells [<xref rid="B53" ref-type="bibr">65</xref>].</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>2.2. Physical Cue Control by Synthetic Virus</title>
+        <p>Studies on chemical cue and physical cue provided by synthetic phages were performed with the RGD- and DGEA-peptides engineering phage films and fibers. Yoo et al. demonstrated the early osteogenic differentiation of mouse preosteoblasts by using collagen-derived DGEA-peptide on nanofibrous phage tissue matrices [<xref rid="B16" ref-type="bibr">16</xref>]. They constructed major coat engineered with DGEA, DGDA-, or EGEA-peptides. By genetic engineering of phages, they could construct nanofiber-like shaped phages having 2700 copies of the target peptides from the inserted genes with 2 and 2.7&#x2009;nm spacing laterally and axially, respectively. By constructing the phage-based tissue matrix systems, they could investigate the specific effect of biochemical cues, which can be tuned precisely at a single amino acid level with little change in other physical and chemical properties. They characterized the chemical cue or physical cue effects of DGEA- and of RGD-peptides on the synthetic M13 phage backbone by applying MC3T3 preosteoblast cells on fabricated phage 2D film and 3D fibers. They could observe pronounced outgrowth of the preosteoblast on DGEA-phage matrices. The cells are spread very well throughout the samples on the DGEA-phage matrices. Cells on DGDA, EGEA, or RGE-phages, which are different in one single amino acid from DGEA- or RGD-phages, showed that the responses are DGEA peptide-specific, in which synthetic phage-based chemical cues can be controlled by genetic engineering. Competition assay with corresponding peptide with the engineered phage confirmed that the peptide specific chemical cues were controlled by synthetic phage. The DGEA-peptide specific outgrown morphology of preosteoblasts forms on the 2D cultures phage matrices, which were also observed in 3D cultures. In addition, the DGEA-specific morphological responses of preosteoblast cells are linked with early osteogenic differentiation by DGEA-peptides.</p>
+        <p>Virus structure can give more effective and efficient physical cues. The self-assembly capabilities of phage with patterning techniques can enhance the phages' specific biochemical and physical cues. Yoo et al. developed a facile patterning method of patterning genetically engineered M13 bacteriophage by employing microcontact printing methods to provide human fibroblast cells with specific biochemical and physical cues [<xref rid="B14" ref-type="bibr">13</xref>]. They demonstrated that nanofibrous structures, along with the biochemical signals presented by the phage microstructures, are critical to guide cellular growth and morphologies. The enhanced cellular morphological responses to RGD-phage topology rather than to RGD-peptide itself show that phage nanofibrous structure contributes in controlling physical cues. Especially rod-like viruses such as M13 and TMV can control their physical cues and mechanical cues even only by their concentration. Lin et al. reported the formation of diverse patterns which resulted from drying a solution of rod-like TMV particles in a glass capillary tube [<xref rid="B54" ref-type="bibr">66</xref>]. The concentration of TMV, the salt concentration in aqueous solution, and the surface properties of the capillary tube interior were used as three key factors to govern such combined self-assembly behavior. The formation of hierarchical structures which can be again used for guiding directional cellular growth was determined by the preferred orientation of TMV at the air-liquid interface as well as the pinning-depinning process. By controlling the key factors, they could generate the surface roughness together with patterned structure, which was then used for rat aortic smooth muscle cell (SMC) culture for the direct orientation of cells. They could finally generate either stress-induced SMC alignment or 2D patterns by utilizing the TMV patterns.</p>
+      </sec>
+      <sec id="sec2.3">
+        <title>2.3. Multifunctional Phage Materials</title>
+        <p>The physiological cellular environments present a variety of cell signaling motives simultaneously including adhesive sites, growth factor, and other cytokine molecules to influence the cellular behavior [<xref rid="B34" ref-type="bibr">46</xref>, <xref rid="B55" ref-type="bibr">67</xref>&#x2013;<xref rid="B57" ref-type="bibr">69</xref>]. Similarly engineering materials incorporating several signaling motives simultaneously have shown this synergy to be more effective than single motives alone [<xref rid="B34" ref-type="bibr">46</xref>, <xref rid="B36" ref-type="bibr">48</xref>, <xref rid="B56" ref-type="bibr">68</xref>, <xref rid="B58" ref-type="bibr">70</xref>]. For example, a study by Dr. Jeffrey Hubbell's group demonstrated that the incorporation of several functional peptide groups derived from the laminin into a fibrin matrix at the same time resulted in a synergistic effect on cell differentiation. The cell neurites were extended further in the peptide combination matrix then predicted by just an additive effect from each peptide's contribution [<xref rid="B36" ref-type="bibr">48</xref>]. Immobilization of growth factor molecules to the matrix surface, instead of their untethered encapsulation within it, can decrease the uncontrolled release of these molecules, as well as their internalization and metabolization by the cells, and therefore provide the cells with a more directed and sustained signal, further influencing their behavior [<xref rid="B34" ref-type="bibr">46</xref>]. Multiple chemical cue controls can be provided by using M13 synthetic phage system. Yoo et al. developed a facile growth factor immobilization system by utilizing multiple functionalized M13 synthetic phage based matrices [<xref rid="B15" ref-type="bibr">14</xref>]. The immobilized growth factor by M13 synthetic phage, together with phage's nanostructure itself, can give simplified cellular environment which actually consists of signaling motifs, growth factors, and topological structure effects. Synthetic phage based system shows its advantage for providing multifunctional chemical cues. Multiple signalling and therapeutic peptide motifs can be simultaneously displayed on the pIII, pVIII, and pIX protein coats of M13 phages through genetic modification [<xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B30" ref-type="bibr">42</xref>]. They constructed His-Pro-Gln (HPQ) peptide either on pVIII or on pIII phage coat proteins. The HPQ motif allows binding to streptavidin-conjugated molecules, so that streptavidin-conjugated growth factor can be immobilized without any size limitation decorating on M13 phage coat protein. This facile growth factor immobilization approach by synthetic phage may be useful for studying biochemical cues in cell biology and also creating tissue engineering materials. Through the HPQ sites, they were able to immobilize streptavidin-conjugated FGFb and NGF onto phage matrices. They also modified RGD peptide, which is well known to promote cell adhesion and well distribution of cells, on major coat proteins. They demonstrated that the growth factors immobilized on the multifunctionalized M13 phage matrices with HPQ- and RGD-peptides were functional and could direct cell growth towards desired cellular morphologies by RGD peptide and towards cellular fate, FGFb for proliferation and NGF for differentiation (<xref ref-type="fig" rid="fig3">Figure 3</xref>).</p>
+        <p>With the phage particle modular with an HPQ motif, a variety of factors can be immobilized on the phage matrix, correspondingly influencing different cell behaviors or even different cell types. For example, EGF factor can be immobilized on the phage to induce differentiation of the progenitor cells to the neuronal phenotype [<xref rid="B34" ref-type="bibr">46</xref>]. Similarly a bone morphogenic protein (BMP) and insulin growth factor (IGF) can be immobilized to assist in the differentiation of osteoblast cells [<xref rid="B58" ref-type="bibr">70</xref>]. Furthermore vascular endothelial growth factor (VEGF) can be immobilized on the matrix to enhance endothelial cell adhesion for vascular tissue engineering [<xref rid="B59" ref-type="bibr">71</xref>]. Several excellent recent reviews describe the function of many biologically relevant short peptide groups, growth factors, and cytokines [<xref rid="B34" ref-type="bibr">46</xref>, <xref rid="B56" ref-type="bibr">68</xref>, <xref rid="B58" ref-type="bibr">70</xref>, <xref rid="B59" ref-type="bibr">71</xref>]. Additionally as vascular cells are aligned in their native environment the alignment capabilities of the phage matrices could be further beneficial for their defined directional growth. If needed even further functionalization of the phage can be accomplished by various chemical conjugation schemes, which have recently been employed in modifying other virus particles [<xref rid="B41" ref-type="bibr">53</xref>, <xref rid="B43" ref-type="bibr">55</xref>]. After the design and engineering of the individual phage macromolecules, their various ratios can be mixed into a homogenous solution at different concentrations to further explore how molecular concentration gradients can influence cellular behavior<italic> in vitro</italic> models [<xref rid="B60" ref-type="bibr">72</xref>]. After such systematic analysis the design parameters that work best can be incorporated into a final mix solution to be tested on the<italic> in vivo</italic> systems.</p>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>3. Immune Study and Therapeutic Applications of Phage Materials</title>
+      <p>As the phage material we discussed is ultimately designed for<italic> in vivo</italic> applications, synthetic phage based future works will explore both<italic> in vitro</italic> and<italic> in vivo</italic> immunogenic responses to the phage matrices. We hypothesize that the phage matrix as a foreign protein mass will be recognized as a &#x201C;non-self&#x201D; material, via the complement system [<xref rid="B61" ref-type="bibr">73</xref>]. In the immune privileged environment of the central nervous system, microglia, specialized immune cells of the brain, will likely mediate the immune response [<xref rid="B26" ref-type="bibr">38</xref>, <xref rid="B62" ref-type="bibr">74</xref>]. Previous studies have seen no inflammation related damage at the phage targeted tissue site [<xref rid="B26" ref-type="bibr">38</xref>]. However, if the greater concentration of the phage activate the microglia, their recruitment to the site of injury may actually facilitate nerve tissue regeneration by clearance of cellular and ECM debris of the glial scar and expression of the growth factors and the native extra cellular proteins, such as laminin [<xref rid="B63" ref-type="bibr">75</xref>]. To explore a similar mechanism of action there is currently a phase II clinical trial study to test the efficacy of injecting macrophage cells to the site of spinal injury on stimulating regeneration [<xref rid="B38" ref-type="bibr">50</xref>].<italic> In vitro</italic> immunogenic studies will be conducted to assess the potential of phage materials to induce an immunogenic inflammation reaction. Similar to a study conducted by Ainslie et al. testing the inflammation reaction of nPTFE material [<xref rid="B64" ref-type="bibr">76</xref>], a panel measuring the level of immuno stimulating or inhibiting cytokines can be performed on the supernatant from the macrophage cells grown on the phage substrates. Tissue culture polystyrene can serve as a negative control, and macrophages stimulated by lipopolysaccharides as a positive control. The levels of cytokines present can be assessed for their immunostimulating and immunoinhibiting activity. If very high levels of immunostimulating molecules such as IL-1 or TNF-<italic>&#x3B1;</italic> are noted, phage may be modified to express compliment inhibiting peptides [<xref rid="B65" ref-type="bibr">77</xref>, <xref rid="B66" ref-type="bibr">78</xref>]. Furthermore, as was done in a study by Silva et al.,<italic> in vivo</italic> studies can be performed by injecting phage solution into spinal cord area of rat animal subjects [<xref rid="B37" ref-type="bibr">49</xref>]. Following the injection the behavior of the animals can be evaluated for changes. After the sacrifice of animal subjects injection site can be evaluated with histological studies to evaluate for tissue inflammation and fibrosis. A previous study that targeted engineered phage solution to a <italic>&#x3B2;</italic>-amyloid plaques in the brain did not see any adverse tissue reactions with histological analysis [<xref rid="B26" ref-type="bibr">38</xref>].</p>
+      <sec id="sec3.1">
+        <title>3.1. Mechanical and Degradation Properties of Phage Matrices</title>
+        <p>Control of mechanical and degradation properties of the biomaterials is important for tissue engineering applications. In an optimal engineering scenario the material that is intended to replace or repair a tissue will remain at the site of injury until it is remodeled by the cells and replaced by the naturally produced ECM [<xref rid="B56" ref-type="bibr">68</xref>, <xref rid="B67" ref-type="bibr">79</xref>]. Previous work with hydrogels has demonstrated that both the concentration of the polymer macromolecule units and the degree of their crosslinking can be used to tune the mechanical properties and the rate of degradation of these materials [<xref rid="B56" ref-type="bibr">68</xref>, <xref rid="B67" ref-type="bibr">79</xref>]. Lee group encapsulated the phage materials in an agarose gel to keep them stable in the media solution over the course of experiment [<xref rid="B12" ref-type="bibr">12</xref>, <xref rid="B16" ref-type="bibr">16</xref>]. A future project that can further improve upon the phage scaffolds is to increase their stability in aqueous media environments. Preliminary work conducted in our lab on crosslinking chemically biotinylated phage with streptavidin shows a much improved stability of the phage fibers, which remain in solution for over a week without degradation [<xref rid="B68" ref-type="bibr">80</xref>].</p>
+      </sec>
+      <sec id="sec3.2">
+        <title>3.2. Gene Delivery System</title>
+        <p>Drug delivery and tissue engineering materials are often very closely related in both function and architecture. In fact there is one perspective in the scientific community that tissue engineering scaffolds are just a delivery system of cells into the body [<xref rid="B33" ref-type="bibr">45</xref>]. Additionally the lines between the two areas get blurred when controlled growth factor or cytokine release is incorporated into the matrix to influence either the contained or the surrounding cells [<xref rid="B33" ref-type="bibr">45</xref>, <xref rid="B34" ref-type="bibr">46</xref>, <xref rid="B58" ref-type="bibr">70</xref>, <xref rid="B67" ref-type="bibr">79</xref>]. By the streptavidin crosslinking methods described above small therapeutic drug molecules may be incorporated into the matrix. Furthermore the link to the phage can be engineered to be dependent on enzymatic cleavage [<xref rid="B56" ref-type="bibr">68</xref>, <xref rid="B69" ref-type="bibr">81</xref>] so that the delivered molecules are released only when they are sequestered by the cell activity. Therapeutic genetic material can be incorporated into the phage DNA and carried within the phage capsule for specific delivery to the cells via receptor uptake [<xref rid="B25" ref-type="bibr">37</xref>]. As the M13 phages are nonlytic, they will be continuously produced by the bacteria without causing bacterial wall rupture or the resulting debris. By designing the peptide expression on the phage capsid they can be more locally targeted to cell receptors (i.e., via RGD or other ligands). Phage display technology has allowed for identification of novel homing peptides that target unknown cell surface proteins. The targeting peptides can be incorporated into bacteriophage coat proteins through the genetic engineering techniques described previously [<xref rid="B25" ref-type="bibr">37</xref>]. These include peptides (RGD, glioma-binding peptide) [<xref rid="B70" ref-type="bibr">82</xref>, <xref rid="B71" ref-type="bibr">83</xref>], HER2 receptor targeting antibody [<xref rid="B72" ref-type="bibr">84</xref>], growth factors (EGF, FGF2) [<xref rid="B73" ref-type="bibr">85</xref>&#x2013;<xref rid="B75" ref-type="bibr">87</xref>], and the penton base of adenovirus [<xref rid="B76" ref-type="bibr">88</xref>]. Similar to drug delivery, nucleic acid materials are now being incorporated in the scaffolding materials for delivery to the cells. Furthermore it has been shown that DNA materials that are tethered to the matrix, rather than just encapsulated are more effectively transferred to the cell [<xref rid="B77" ref-type="bibr">89</xref>]. Phage particles engineered as described above to contain the genetic load for cell delivery as well as specific cell targeting peptides can be cross-linked with streptavidin units to produce stable tissue engineering scaffolds. As these scaffolds get taken up and degraded by cell endocytosis [<xref rid="B78" ref-type="bibr">90</xref>], the phage could release their gene cargo and further induce cell behavior.</p>
+      </sec>
+      <sec id="sec3.3">
+        <title>3.3. Diagnosis and Therapeutic Application</title>
+        <p>Thanks to phage display technology, we could find various useful peptide information which can be developed further for imaging and diagnosis of certain diseases, such as cancer [<xref rid="B79" ref-type="bibr">91</xref>]. For the therapeutic application, antibody phage display has been developed and being tested for clinical approval [<xref rid="B80" ref-type="bibr">92</xref>]. Another application study of utilizing M13 synthetic phage properties by adopting different useful virus parts was also introduced. Hajitou et al. constructed hybrid phage with two genes from phage and nucleus integrating gene from AAV, called inverted terminal repeats. Additionally, these phages were engineered integrin binding peptide on minor coat proteins. Therefore, the RGD peptide induced internalization of the phage through integrin mediated endocytosis process and the inverted terminal repeats (ITR) led to improved transgene expression, which is linked to functioning of delivered gene, in the cytoplasm. The resulting AAV/phage system provided superior tumor transduction over phage alone. Topical delivery by applying these therapeutic synthetic phage materials onto localized disease areas with specific integrating functions might reduce the risk of the side effects and enhance the efficiency of the drug delivery.</p>
+      </sec>
+    </sec>
+    <sec id="sec4">
+      <title>4. Summary and Future Perspectives</title>
+      <p>In this paper, we have majorly explored the use of M13 bacteriophage (phage) as a novel building block together with providing specific functions for tissue engineering materials. Prior to using it as a biomimetic tissue engineering scaffold material, the phage was decorated with cell signaling motifs. An incredible diversity of peptide expression has previously been demonstrated on the various capsid proteins of the phage through creation of peptide libraries [<xref rid="B1" ref-type="bibr">1</xref>&#x2013;<xref rid="B3" ref-type="bibr">3</xref>]. A novel cloning approach to display an integrin binding RGD motif on every copy of pVIII was introduced to decorate the phage, the major coat protein of M13 phage. Merzlyak et al. did this by using a partial library method, where an engineered octamer is inserted for the pVIII including a constrained RGD group surrounded by a degenerate residue library. This allowed the expression of full inserts that retained the desired RGD motif yet were favorably compatible with all the protein interactions inherent in phage replication process within<italic> E. coli</italic>. Furthermore they systematically analyzed the allowed amino acid sequence space for pVIII inserts by making constrained libraries with chemically variable residues (positive, negative, and hydrophobic) [<xref rid="B12" ref-type="bibr">12</xref>]. This approach can be useful for engineering phage particles with a very dense uniform display of short signal peptide motifs that may be beneficial for tissue engineering materials [<xref rid="B12" ref-type="bibr">12</xref>, <xref rid="B36" ref-type="bibr">48</xref>, <xref rid="B37" ref-type="bibr">49</xref>, <xref rid="B81" ref-type="bibr">93</xref>]. After demonstrating the phage as an able filament particle to form aligned scaffolds that are both conducive and instructive to cell growth, further phage design improvements by making it multifunctional can be made. The phage was engineered to incorporate an adhesive peptide motive RGD on pVIII and a constrained biotin-like HPQ motif on pIII protein [<xref rid="B15" ref-type="bibr">14</xref>, <xref rid="B25" ref-type="bibr">37</xref>, <xref rid="B82" ref-type="bibr">94</xref>]. There are limits in the ability of the phage to display a multivalency of protein molecules based on the size and sequence of the insert [<xref rid="B3" ref-type="bibr">3</xref>], and it cannot be altered via genetic means to present functional carbohydrate molecules. By exploiting the binding affinity of biotin-streptavidin bond, with an engineered biotin-like HPQ group we imparted a modular functionality to the phage building block [<xref rid="B15" ref-type="bibr">14</xref>]. Any growth factor, cytokine, or an otherwise therapeutic molecule conjugated to an avidin will be able to bind to our engineered HPQ phage and further functionalize the matrix [<xref rid="B15" ref-type="bibr">14</xref>, <xref rid="B83" ref-type="bibr">95</xref>].</p>
+      <p>In summary, we have introduced the utilization of genetically engineered M13 bacteriophage (synthetic phage) as a functional building block for tissue engineering matrices that can guide adhesion, polarization, and alignment behavior of cells. We have also presented a number of avenues that can be used to expand this area of research further to immune/chemokine study and use phage for highly functional and useful biomaterials to the potential application area of diagnosis and therapy.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgment</title>
+      <p>This research was supported by Basic Science Research Program through the National Research Foundation of Korea (NRF) funded by the Ministry of Science, ICT and Future Planning (2013R1A1A3008484).</p>
+    </ack>
+    <sec sec-type="conflict">
+      <title>Conflict of Interests</title>
+      <p>The authors declared that there is no conflict of interests.</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>VA</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>GP</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Quinn</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>A library of organic landscapes on filamentous phage</article-title>
+          <source>
+            <italic>Protein Engineering</italic>
+          </source>
+          <year>1996</year>
+          <volume>9</volume>
+          <issue>9</issue>
+          <fpage>797</fpage>
+          <lpage>801</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0029793463</pub-id>
+          <pub-id pub-id-type="pmid">8888146</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>VA</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>GP</given-names>
+            </name>
+            <name>
+              <surname>Mazooji</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Quinn</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>
+<italic>&#x3B1;</italic>-helically constrained phage display library</article-title>
+          <source>
+            <italic>Protein Engineering</italic>
+          </source>
+          <year>2002</year>
+          <volume>15</volume>
+          <issue>11</issue>
+          <fpage>943</fpage>
+          <lpage>950</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036878156</pub-id>
+          <pub-id pub-id-type="pmid">12538914</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smith</surname>
+              <given-names>GP</given-names>
+            </name>
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>VA</given-names>
+            </name>
+          </person-group>
+          <article-title>Phage display</article-title>
+          <source>
+            <italic>Chemical Reviews</italic>
+          </source>
+          <year>1997</year>
+          <volume>97</volume>
+          <issue>2</issue>
+          <fpage>391</fpage>
+          <lpage>410</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0346982051</pub-id>
+          <pub-id pub-id-type="pmid">11848876</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smith</surname>
+              <given-names>GP</given-names>
+            </name>
+          </person-group>
+          <article-title>Filamentous phage assembly: morphogenetically defective mutants that do not kill the host</article-title>
+          <source>
+            <italic>Virology</italic>
+          </source>
+          <year>1988</year>
+          <volume>167</volume>
+          <issue>1</issue>
+          <fpage>156</fpage>
+          <lpage>165</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0024110755</pub-id>
+          <pub-id pub-id-type="pmid">3188394</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuzmicheva</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Jayanna</surname>
+              <given-names>PK</given-names>
+            </name>
+            <name>
+              <surname>Sorokulova</surname>
+              <given-names>IB</given-names>
+            </name>
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>VA</given-names>
+            </name>
+          </person-group>
+          <article-title>Diversity and censoring of landscape phage libraries</article-title>
+          <source>
+            <italic>Protein Engineering, Design and Selection</italic>
+          </source>
+          <year>2009</year>
+          <volume>22</volume>
+          <issue>1</issue>
+          <fpage>9</fpage>
+          <lpage>18</lpage>
+          <pub-id pub-id-type="other">2-s2.0-58149085100</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodi</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Soares</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Makowski</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Quantitative assessment of peptide sequence diversity in M13 combinatorial peptide phage display libraries</article-title>
+          <source>
+            <italic>Journal of Molecular Biology</italic>
+          </source>
+          <year>2002</year>
+          <volume>322</volume>
+          <issue>5</issue>
+          <fpage>1039</fpage>
+          <lpage>1052</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036409329</pub-id>
+          <pub-id pub-id-type="pmid">12367527</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scalley-Kim</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Hess</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Kelly</surname>
+              <given-names>RL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A novel highly potent therapeutic antibody neutralizes multiple human chemokines and mimics viral immune modulation</article-title>
+          <source>
+            <italic>PLoS ONE</italic>
+          </source>
+          <year>2012</year>
+          <volume>7</volume>
+          <issue>8</issue>
+          <pub-id pub-id-type="other">2-s2.0-84865101784</pub-id>
+          <pub-id pub-id-type="publisher-id">e43332</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Even-Desrumeaux</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nevoltris</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Lavaut</surname>
+              <given-names>MN</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Masked selection: a straightforward and flexible approach for the selection of binders against specific epitopes and differentially expressed proteins by phage display</article-title>
+          <source>
+            <italic>Molecular &amp; Cellular Proteomics</italic>
+          </source>
+          <volume>13</volume>
+          <issue>2</issue>
+          <fpage>653</fpage>
+          <lpage>665</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zheng</surname>
+              <given-names>H-M</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J-R</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>X-L</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>B-Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Mimic peptides bonding specifically with the first and second extracellular loops of the CC chemokine receptor 5 derived from a phage display peptide library are potent inhibitors of experimental autoimmune encephalomyelitis</article-title>
+          <source>
+            <italic>Inflammation Research</italic>
+          </source>
+          <year>2011</year>
+          <volume>60</volume>
+          <issue>8</issue>
+          <fpage>759</fpage>
+          <lpage>767</lpage>
+          <pub-id pub-id-type="other">2-s2.0-80051799051</pub-id>
+          <pub-id pub-id-type="pmid">21533529</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Blanchetot</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Verzijl</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Muji&#x107;-Deli&#x107;</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neutralizing nanobodies targeting diverse chemokines effectively inhibit chemokine function</article-title>
+          <source>
+            <italic>The Journal of Biological Chemistry</italic>
+          </source>
+          <year>2013</year>
+          <volume>288</volume>
+          <issue>35</issue>
+          <fpage>25173</fpage>
+          <lpage>25182</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84883355779</pub-id>
+          <pub-id pub-id-type="pmid">23836909</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yanofsky</surname>
+              <given-names>SD</given-names>
+            </name>
+            <name>
+              <surname>Baldwin</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Butler</surname>
+              <given-names>JH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>High affinity type I interleukin 1 receptor antagonists discovered by screening recombinant peptide libraries</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>1996</year>
+          <volume>93</volume>
+          <issue>14</issue>
+          <fpage>7381</fpage>
+          <lpage>7386</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0011958990</pub-id>
+          <pub-id pub-id-type="pmid">8693002</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Merzlyak</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Indrakanti</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Genetically engineered nanofiber-like viruses for tissue regenerating materials</article-title>
+          <source>
+            <italic>Nano Letters</italic>
+          </source>
+          <year>2009</year>
+          <volume>9</volume>
+          <issue>2</issue>
+          <fpage>846</fpage>
+          <lpage>852</lpage>
+          <pub-id pub-id-type="other">2-s2.0-63649106967</pub-id>
+          <pub-id pub-id-type="pmid">19140698</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Chung</surname>
+              <given-names>W-J</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>TH</given-names>
+            </name>
+            <name>
+              <surname>Le</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Facile patterning of genetically engineered M13 bacteriophage for directional growth of human fibroblast cells</article-title>
+          <source>
+            <italic>Soft Matter</italic>
+          </source>
+          <year>2011</year>
+          <volume>7</volume>
+          <issue>2</issue>
+          <fpage>363</fpage>
+          <lpage>368</lpage>
+          <pub-id pub-id-type="other">2-s2.0-78651351699</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Merzlyak</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Facile growth factor immobilization platform based on engineered phage matrices</article-title>
+          <source>
+            <italic>Soft Matter</italic>
+          </source>
+          <year>2011</year>
+          <volume>7</volume>
+          <issue>5</issue>
+          <fpage>1660</fpage>
+          <lpage>1666</lpage>
+          <pub-id pub-id-type="other">2-s2.0-79951908378</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B84">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bhattarai</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+            <name>
+              <surname>Dean</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Engineered phage-based therapeutic materials inhibit <italic>Chlamydia trachomatis</italic> intracellular infection</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>2012</year>
+          <volume>33</volume>
+          <issue>20</issue>
+          <fpage>5166</fpage>
+          <lpage>5174</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84860365812</pub-id>
+          <pub-id pub-id-type="pmid">22494890</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>PP</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Early osteogenic differentiation of mouse preosteoblasts induced by collagen-derived DGEA-peptide on nanofibrous phage tissue matrices</article-title>
+          <source>
+            <italic>Biomacromolecules</italic>
+          </source>
+          <year>2011</year>
+          <volume>12</volume>
+          <issue>4</issue>
+          <fpage>987</fpage>
+          <lpage>996</lpage>
+          <pub-id pub-id-type="other">2-s2.0-79953882460</pub-id>
+          <pub-id pub-id-type="pmid">21344869</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B85">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Oh</surname>
+              <given-names>J-W</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Phage-chips for novel optically readable tissue engineering assays</article-title>
+          <source>
+            <italic>Langmuir</italic>
+          </source>
+          <year>2012</year>
+          <volume>28</volume>
+          <issue>4</issue>
+          <fpage>2166</fpage>
+          <lpage>2172</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84863011269</pub-id>
+          <pub-id pub-id-type="pmid">22149649</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B86">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yayon</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Aviezer</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Safran</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Isolation of peptides that inhibit binding of basic fibroblast growth factor to its receptor from a random phage-epitope library</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>1993</year>
+          <volume>90</volume>
+          <issue>22</issue>
+          <fpage>10643</fpage>
+          <lpage>10647</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0027525265</pub-id>
+          <pub-id pub-id-type="pmid">7504274</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B87">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fairbrother</surname>
+              <given-names>WJ</given-names>
+            </name>
+            <name>
+              <surname>Christinger</surname>
+              <given-names>HW</given-names>
+            </name>
+            <name>
+              <surname>Cochran</surname>
+              <given-names>AG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Novel peptides selected to bind vascular endothelial growth factor target the receptor-binding site</article-title>
+          <source>
+            <italic>Biochemistry</italic>
+          </source>
+          <year>1998</year>
+          <volume>37</volume>
+          <issue>51</issue>
+          <fpage>17754</fpage>
+          <lpage>17764</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0032559040</pub-id>
+          <pub-id pub-id-type="pmid">9922141</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B88">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wrighton</surname>
+              <given-names>NC</given-names>
+            </name>
+            <name>
+              <surname>Farrell</surname>
+              <given-names>FX</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Small peptides as potent mimetics of the protein hormone erythropoietin</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>1996</year>
+          <volume>273</volume>
+          <issue>5274</issue>
+          <fpage>458</fpage>
+          <lpage>463</lpage>
+          <pub-id pub-id-type="other">2-s2.0-9444236174</pub-id>
+          <pub-id pub-id-type="pmid">8662529</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B89">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>F-Y</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>T-Y</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>J-X</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>G-A</given-names>
+            </name>
+            <name>
+              <surname>Gu</surname>
+              <given-names>Q-L</given-names>
+            </name>
+            <name>
+              <surname>Xiao</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Selection of CC chemokine receptor 5-binding peptide from a phage display peptide library</article-title>
+          <source>
+            <italic>Bioscience, Biotechnology and Biochemistry</italic>
+          </source>
+          <year>2006</year>
+          <volume>70</volume>
+          <issue>9</issue>
+          <fpage>2035</fpage>
+          <lpage>2041</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33748990872</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B90">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Russell</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Compaan</surname>
+              <given-names>DM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activation of the proapoptotic death receptor DR5 by oligomeric peptide and antibody agonists</article-title>
+          <source>
+            <italic>Journal of Molecular Biology</italic>
+          </source>
+          <year>2006</year>
+          <volume>361</volume>
+          <issue>3</issue>
+          <fpage>522</fpage>
+          <lpage>536</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33746694185</pub-id>
+          <pub-id pub-id-type="pmid">16859704</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B91">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pande</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Szewczyk</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Grover</surname>
+              <given-names>AK</given-names>
+            </name>
+          </person-group>
+          <article-title>Phage display: concept, innovations, applications and future</article-title>
+          <source>
+            <italic>Biotechnology Advances</italic>
+          </source>
+          <year>2010</year>
+          <volume>28</volume>
+          <issue>6</issue>
+          <fpage>849</fpage>
+          <lpage>858</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77957017501</pub-id>
+          <pub-id pub-id-type="pmid">20659548</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B92">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pande</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mallhi</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Grover</surname>
+              <given-names>AK</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel plasma membrane Ca2+-pump inhibitor: caloxin 1A1</article-title>
+          <source>
+            <italic>European Journal of Pharmacology</italic>
+          </source>
+          <year>2005</year>
+          <volume>508</volume>
+          <issue>1&#x2013;3</issue>
+          <fpage>1</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="other">2-s2.0-12844270746</pub-id>
+          <pub-id pub-id-type="pmid">15680248</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B93">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pande</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mallhi</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Sawh</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Szewczyk</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Simpson</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Grover</surname>
+              <given-names>AK</given-names>
+            </name>
+          </person-group>
+          <article-title>Aortic smooth muscle and endothelial plasma membrane Ca2+ pump isoforms are inhibited differently by the extracellular inhibitor caloxin 1b1</article-title>
+          <source>
+            <italic>American Journal of Physiology: Cell Physiology</italic>
+          </source>
+          <year>2006</year>
+          <volume>290</volume>
+          <issue>5</issue>
+          <fpage>C1341</fpage>
+          <lpage>C1349</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33646429233</pub-id>
+          <pub-id pub-id-type="pmid">16452157</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B94">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gordon</surname>
+              <given-names>NC</given-names>
+            </name>
+            <name>
+              <surname>Lien</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multiple novel classes of APRIL-specific receptor-blocking peptides isolated by phage display</article-title>
+          <source>
+            <italic>Journal of Molecular Biology</italic>
+          </source>
+          <year>2010</year>
+          <volume>396</volume>
+          <issue>1</issue>
+          <fpage>166</fpage>
+          <lpage>177</lpage>
+          <pub-id pub-id-type="other">2-s2.0-74649085089</pub-id>
+          <pub-id pub-id-type="pmid">19945466</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Merzlyak</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Engineering phage materials with desired peptide display: Rational design sustained through natural selection</article-title>
+          <source>
+            <italic>Bioconjugate Chemistry</italic>
+          </source>
+          <year>2009</year>
+          <volume>20</volume>
+          <issue>12</issue>
+          <fpage>2300</fpage>
+          <lpage>2310</lpage>
+          <pub-id pub-id-type="other">2-s2.0-72449139617</pub-id>
+          <pub-id pub-id-type="pmid">19842621</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Flynn</surname>
+              <given-names>CE</given-names>
+            </name>
+            <name>
+              <surname>Belcher</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Ordering of quantum dots, using genetically engineered viruses</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>2002</year>
+          <volume>296</volume>
+          <issue>5569</issue>
+          <fpage>892</fpage>
+          <lpage>895</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0037012921</pub-id>
+          <pub-id pub-id-type="pmid">11988570</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+            <name>
+              <surname>Wood</surname>
+              <given-names>BM</given-names>
+            </name>
+            <name>
+              <surname>Belcher</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Chiral smectic C structures of virus-based films</article-title>
+          <source>
+            <italic>Langmuir</italic>
+          </source>
+          <year>2003</year>
+          <volume>19</volume>
+          <issue>5</issue>
+          <fpage>1592</fpage>
+          <lpage>1598</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0037418474</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Merzlyak</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Phage as templates for hybrid materials and mediators for nanomaterial synthesis</article-title>
+          <source>
+            <italic>Current Opinion in Chemical Biology</italic>
+          </source>
+          <year>2006</year>
+          <volume>10</volume>
+          <issue>3</issue>
+          <fpage>246</fpage>
+          <lpage>252</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33744779881</pub-id>
+          <pub-id pub-id-type="pmid">16678469</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Naik</surname>
+              <given-names>RR</given-names>
+            </name>
+            <name>
+              <surname>Stringer</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Agarwal</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Jones</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Stone</surname>
+              <given-names>MO</given-names>
+            </name>
+          </person-group>
+          <article-title>Biomimetic synthesis and patterning of silver nanoparticles</article-title>
+          <source>
+            <italic>Nature Materials</italic>
+          </source>
+          <year>2002</year>
+          <volume>1</volume>
+          <issue>3</issue>
+          <fpage>169</fpage>
+          <lpage>172</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036879208</pub-id>
+          <pub-id pub-id-type="pmid">12618805</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nam</surname>
+              <given-names>KT</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>D-W</given-names>
+            </name>
+            <name>
+              <surname>Yoo</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Virus-enabled synthesis and assembly of nanowires for lithium ion battery electrodes</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>2006</year>
+          <volume>312</volume>
+          <issue>5775</issue>
+          <fpage>885</fpage>
+          <lpage>888</lpage>
+          <pub-id pub-id-type="other">2-s2.0-53349173200</pub-id>
+          <pub-id pub-id-type="pmid">16601154</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bermudez</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hathorne</surname>
+              <given-names>AP</given-names>
+            </name>
+          </person-group>
+          <article-title>Incorporating stimulus-responsive character into filamentous virus assemblies</article-title>
+          <source>
+            <italic>Faraday Discussions</italic>
+          </source>
+          <year>2008</year>
+          <volume>139</volume>
+          <fpage>327</fpage>
+          <lpage>335, discussion 399&#x2013;417, 419&#x2013;20</lpage>
+          <pub-id pub-id-type="other">2-s2.0-50849093238</pub-id>
+          <pub-id pub-id-type="pmid">19049004</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dickerson</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Janda</surname>
+              <given-names>KD</given-names>
+            </name>
+          </person-group>
+          <article-title>Recent advances for the treatment of cocaine abuse: Central nervous system immunopharmacotherapy</article-title>
+          <source>
+            <italic>AAPS Journal</italic>
+          </source>
+          <year>2005</year>
+          <volume>7</volume>
+          <issue>3</issue>
+          <fpage>E579</fpage>
+          <lpage>E586</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33644806661</pub-id>
+          <pub-id pub-id-type="pmid">16353936</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24a">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krag</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Shukla</surname>
+              <given-names>GS</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>G-P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Selection of tumor-binding ligands in cancer patients with phage display libraries</article-title>
+          <source>
+            <italic>Cancer Research</italic>
+          </source>
+          <year>2006</year>
+          <volume>66</volume>
+          <issue>17</issue>
+          <fpage>7274</fpage>
+          <lpage>7233</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B24b">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krag</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Shukla</surname>
+              <given-names>GS</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>G-P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Selection of ligands in cancer patients with phage display</article-title>
+          <source>
+            <italic>Cancer Research</italic>
+          </source>
+          <year>2006</year>
+          <volume>66</volume>
+          <issue>17</issue>
+          <fpage>p. 8925</fpage>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hajitou</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Trepel</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lilley</surname>
+              <given-names>CE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A hybrid vector for ligand-directed tumor targeting and molecular imaging</article-title>
+          <source>
+            <italic>Cell</italic>
+          </source>
+          <year>2006</year>
+          <volume>125</volume>
+          <issue>2</issue>
+          <fpage>385</fpage>
+          <lpage>398</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33646034578</pub-id>
+          <pub-id pub-id-type="pmid">16630824</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frenkel</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Solomon</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Filamentous phage as vector-mediated antibody delivery to the brain</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>2002</year>
+          <volume>99</volume>
+          <issue>8</issue>
+          <fpage>5675</fpage>
+          <lpage>5679</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0037117459</pub-id>
+          <pub-id pub-id-type="pmid">11960022</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jespers</surname>
+              <given-names>LS</given-names>
+            </name>
+            <name>
+              <surname>Messens</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>De Keyser</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Surface expression and ligand-based selection of cdnas fused to filamentous phage gene VI</article-title>
+          <source>
+            <italic>Nature Biotechnology</italic>
+          </source>
+          <year>1995</year>
+          <volume>13</volume>
+          <issue>4</issue>
+          <fpage>378</fpage>
+          <lpage>382</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0028942281</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gao</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lo</surname>
+              <given-names>C-HL</given-names>
+            </name>
+            <name>
+              <surname>Wirsching</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lerner</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Janda</surname>
+              <given-names>KD</given-names>
+            </name>
+          </person-group>
+          <article-title>Making artificial antibodies: a format for phage display of combinatorial heterodimeric arrays</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>1999</year>
+          <volume>96</volume>
+          <issue>11</issue>
+          <fpage>6025</fpage>
+          <lpage>6030</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0033022120</pub-id>
+          <pub-id pub-id-type="pmid">10339535</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gao</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kaufmann</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Wirsching</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lerner</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Janda</surname>
+              <given-names>KD</given-names>
+            </name>
+          </person-group>
+          <article-title>A method for the generation of combinatorial antibody libraries using pIX phage display</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>2002</year>
+          <volume>99</volume>
+          <issue>20</issue>
+          <fpage>12612</fpage>
+          <lpage>12616</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036792077</pub-id>
+          <pub-id pub-id-type="pmid">12239343</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>42</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Vectors and modes of display</article-title>
+          <source>
+            <italic>Phage Display in Biotechnology and Drug Discovery</italic>
+          </source>
+          <year>2005</year>
+          <publisher-loc>New York, NY, USA</publisher-loc>
+          <publisher-name>CRC Press</publisher-name>
+          <fpage>63</fpage>
+          <lpage>110</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Choi</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Jin</surname>
+              <given-names>HE</given-names>
+            </name>
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>SW</given-names>
+            </name>
+          </person-group>
+          <article-title>Cyclic RGD peptide incorporation on phage major coat proteins for improved internalization by HeLa Cells</article-title>
+          <source>
+            <italic>Bioconjugate Chemistry</italic>
+          </source>
+          <year>2013</year>
+          <volume>25</volume>
+          <issue>2</issue>
+          <fpage>216</fpage>
+          <lpage>223</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Engel</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Michiardi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Navarro</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lacroix</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Planell</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Nanotechnology in regenerative medicine: the materials side</article-title>
+          <source>
+            <italic>Trends in Biotechnology</italic>
+          </source>
+          <year>2008</year>
+          <volume>26</volume>
+          <issue>1</issue>
+          <fpage>39</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="other">2-s2.0-37349069277</pub-id>
+          <pub-id pub-id-type="pmid">18036685</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goldberg</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Langer</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Jia</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Nanostructured materials for applications in drug delivery and tissue engineering</article-title>
+          <source>
+            <italic>Journal of Biomaterials Science</italic>
+          </source>
+          <year>2007</year>
+          <volume>18</volume>
+          <issue>3</issue>
+          <fpage>241</fpage>
+          <lpage>268</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33947150969</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ito</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Covalently immobilized biosignal molecule materials for tissue engineering</article-title>
+          <source>
+            <italic>Soft Matter</italic>
+          </source>
+          <year>2007</year>
+          <volume>4</volume>
+          <issue>1</issue>
+          <fpage>46</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="other">2-s2.0-37149053488</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gr&#xE4;ter</surname>
+              <given-names>SV</given-names>
+            </name>
+            <name>
+              <surname>Corbellini</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Impact of order and disorder in RGD nanopatterns on cell adhesion</article-title>
+          <source>
+            <italic>Nano Letters</italic>
+          </source>
+          <year>2009</year>
+          <volume>9</volume>
+          <issue>3</issue>
+          <fpage>1111</fpage>
+          <lpage>1116</lpage>
+          <pub-id pub-id-type="other">2-s2.0-65249103547</pub-id>
+          <pub-id pub-id-type="pmid">19206508</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schense</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Bloch</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Aebischer</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Hubbell</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Enzymatic incorporation of bioactive peptides into fibrin matrices enhances neurite extension</article-title>
+          <source>
+            <italic>Nature Biotechnology</italic>
+          </source>
+          <year>2000</year>
+          <volume>18</volume>
+          <issue>4</issue>
+          <fpage>415</fpage>
+          <lpage>419</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0034049521</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>49</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Silva</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Czeisler</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Niece</surname>
+              <given-names>KL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Selective differentiation of neural progenitor cells by high-epitope density nanofibers</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>2004</year>
+          <volume>303</volume>
+          <issue>5662</issue>
+          <fpage>1352</fpage>
+          <lpage>1355</lpage>
+          <pub-id pub-id-type="other">2-s2.0-1442281238</pub-id>
+          <pub-id pub-id-type="pmid">14739465</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>50</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arnold</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schwieder</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bl&#xFC;mmel</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cell interactions with hierarchically structured nano-patterned adhesive surfaces</article-title>
+          <source>
+            <italic>Soft Matter</italic>
+          </source>
+          <year>2009</year>
+          <volume>5</volume>
+          <issue>1</issue>
+          <fpage>72</fpage>
+          <lpage>77</lpage>
+          <pub-id pub-id-type="other">2-s2.0-57849128926</pub-id>
+          <pub-id pub-id-type="pmid">21686049</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>51</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gomez</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Schmidt</surname>
+              <given-names>CE</given-names>
+            </name>
+          </person-group>
+          <article-title>Polarization of hippocampal neurons with competitive surface stimuli: contact guidance cues are preferred over chemical ligands</article-title>
+          <source>
+            <italic>Journal of the Royal Society Interface</italic>
+          </source>
+          <year>2007</year>
+          <volume>4</volume>
+          <issue>13</issue>
+          <fpage>223</fpage>
+          <lpage>233</lpage>
+          <pub-id pub-id-type="other">2-s2.0-34047137919</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <label>52</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goddard</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Hotchkiss</surname>
+              <given-names>JH</given-names>
+            </name>
+          </person-group>
+          <article-title>Polymer surface modification for the attachment of bioactive compounds</article-title>
+          <source>
+            <italic>Progress in Polymer Science</italic>
+          </source>
+          <year>2007</year>
+          <volume>32</volume>
+          <issue>7</issue>
+          <fpage>698</fpage>
+          <lpage>725</lpage>
+          <pub-id pub-id-type="other">2-s2.0-34250862636</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B41">
+        <label>53</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Strable</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Finn</surname>
+              <given-names>MG</given-names>
+            </name>
+          </person-group>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Manchester</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Steinmetz</surname>
+              <given-names>NF</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemical modification of viruses and virus-like particles</article-title>
+          <source>
+            <italic>Viruses and Nanotechnology</italic>
+          </source>
+          <year>2009</year>
+          <publisher-loc>Berlin, Germany</publisher-loc>
+          <publisher-name>Springer</publisher-name>
+          <fpage>1</fpage>
+          <lpage>21</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B42">
+        <label>54</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gupta</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Kuzelka</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Singh</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lewis</surname>
+              <given-names>WG</given-names>
+            </name>
+            <name>
+              <surname>Manchester</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Finn</surname>
+              <given-names>MG</given-names>
+            </name>
+          </person-group>
+          <article-title>Accelerated bioorthogonal conjugation: a practical method for the ligation of diverse functional molecules to a polyvalent virus scaffold</article-title>
+          <source>
+            <italic>Bioconjugate Chemistry</italic>
+          </source>
+          <year>2005</year>
+          <volume>16</volume>
+          <issue>6</issue>
+          <fpage>1572</fpage>
+          <lpage>1579</lpage>
+          <pub-id pub-id-type="other">2-s2.0-27944488746</pub-id>
+          <pub-id pub-id-type="pmid">16287257</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B43">
+        <label>55</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kovacs</surname>
+              <given-names>EW</given-names>
+            </name>
+            <name>
+              <surname>Hooker</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Romanini</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Holder</surname>
+              <given-names>PG</given-names>
+            </name>
+            <name>
+              <surname>Berry</surname>
+              <given-names>KE</given-names>
+            </name>
+            <name>
+              <surname>Francis</surname>
+              <given-names>MB</given-names>
+            </name>
+          </person-group>
+          <article-title>Dual-surface-modified bacteriophage MS2 as an ideal scaffold for a viral capsid-based drug delivery system</article-title>
+          <source>
+            <italic>Bioconjugate Chemistry</italic>
+          </source>
+          <year>2007</year>
+          <volume>18</volume>
+          <issue>4</issue>
+          <fpage>1140</fpage>
+          <lpage>1147</lpage>
+          <pub-id pub-id-type="other">2-s2.0-34547171078</pub-id>
+          <pub-id pub-id-type="pmid">17602681</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B44">
+        <label>56</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Chiang</surname>
+              <given-names>C-Y</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>SK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Programmable assembly of nanoarchitectures using genetically engineered viruses</article-title>
+          <source>
+            <italic>Nano Letters</italic>
+          </source>
+          <year>2005</year>
+          <volume>5</volume>
+          <issue>7</issue>
+          <fpage>1429</fpage>
+          <lpage>1434</lpage>
+          <pub-id pub-id-type="other">2-s2.0-23144466183</pub-id>
+          <pub-id pub-id-type="pmid">16178252</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B45">
+        <label>57</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-K</given-names>
+            </name>
+            <name>
+              <surname>Yun</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Belcher</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Cobalt ion mediated self-assembly of genetically engineered bacteriophage for biomimetic Co - Pt hybrid material</article-title>
+          <source>
+            <italic>Biomacromolecules</italic>
+          </source>
+          <year>2006</year>
+          <volume>7</volume>
+          <issue>1</issue>
+          <fpage>14</fpage>
+          <lpage>17</lpage>
+          <pub-id pub-id-type="other">2-s2.0-31544483013</pub-id>
+          <pub-id pub-id-type="pmid">16398491</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B46">
+        <label>58</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mao</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Solis</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Reiss</surname>
+              <given-names>BD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Virus-based toolkit for the directed synthesis of magnetic and semiconducting nanowires</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>2004</year>
+          <volume>303</volume>
+          <issue>5655</issue>
+          <fpage>213</fpage>
+          <lpage>217</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0346095498</pub-id>
+          <pub-id pub-id-type="pmid">14716009</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B47">
+        <label>59</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zurita</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Ardelt</surname>
+              <given-names>PU</given-names>
+            </name>
+            <name>
+              <surname>Giordano</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Arap</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Pasqualini</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Design and validation of a bifunctional ligand display system for receptor targeting</article-title>
+          <source>
+            <italic>Chemistry and Biology</italic>
+          </source>
+          <year>2004</year>
+          <volume>11</volume>
+          <issue>8</issue>
+          <fpage>1081</fpage>
+          <lpage>1091</lpage>
+          <pub-id pub-id-type="other">2-s2.0-4344616983</pub-id>
+          <pub-id pub-id-type="pmid">15324809</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B48">
+        <label>60</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Light</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lerner</surname>
+              <given-names>RA</given-names>
+            </name>
+          </person-group>
+          <article-title>PhoPhabs: antibody-phage-alkaline phosphatase conjugates for one step ELISA&#x2019;s without immunization</article-title>
+          <source>
+            <italic>Bioorganic and Medicinal Chemistry Letters</italic>
+          </source>
+          <year>1992</year>
+          <volume>2</volume>
+          <issue>9</issue>
+          <fpage>1073</fpage>
+          <lpage>1078</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0026438773</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B49">
+        <label>61</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodi</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Mandova</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Makowski</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Sidhu</surname>
+              <given-names>SS</given-names>
+            </name>
+          </person-group>
+          <article-title>Filamentous bacteriophage structure and biology</article-title>
+          <source>
+            <italic>Phage Display in Biotechnology and Drug Discovery</italic>
+          </source>
+          <year>2005</year>
+          <publisher-loc>Boca Raton, Fla, USA</publisher-loc>
+          <publisher-name>CRC Press/Taylor &amp; Francis Group</publisher-name>
+          <fpage>p. 748</fpage>
+        </element-citation>
+      </ref>
+      <ref id="B50">
+        <label>62</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Iannolo</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Minenkova</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Petruzzelli</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Cesareni</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Modifying filamentous phage capsid: limits in the size of the major capsid protein</article-title>
+          <source>
+            <italic>Journal of Molecular Biology</italic>
+          </source>
+          <year>1995</year>
+          <volume>248</volume>
+          <issue>4</issue>
+          <fpage>835</fpage>
+          <lpage>844</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0029026163</pub-id>
+          <pub-id pub-id-type="pmid">7752244</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B51">
+        <label>63</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuzmicheva</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Jayanna</surname>
+              <given-names>PK</given-names>
+            </name>
+            <name>
+              <surname>Sorokulova</surname>
+              <given-names>IB</given-names>
+            </name>
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>VA</given-names>
+            </name>
+          </person-group>
+          <article-title>Diversity and censoring of landscape phage libraries</article-title>
+          <source>
+            <italic>Protein Engineering, Design and Selection</italic>
+          </source>
+          <year>2009</year>
+          <volume>22</volume>
+          <issue>1</issue>
+          <fpage>9</fpage>
+          <lpage>18</lpage>
+          <pub-id pub-id-type="other">2-s2.0-58149085100</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B52">
+        <label>64</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Makowski</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Structural constraints on the display of foreign peptides on filamentous bacteriophages</article-title>
+          <source>
+            <italic>Gene</italic>
+          </source>
+          <year>1993</year>
+          <volume>128</volume>
+          <issue>1</issue>
+          <fpage>5</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0027287463</pub-id>
+          <pub-id pub-id-type="pmid">8508959</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B53">
+        <label>65</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chung</surname>
+              <given-names>W-J</given-names>
+            </name>
+            <name>
+              <surname>Merzlyak</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Genetically engineered liquid-crystalline viral films for directing neural cell growth</article-title>
+          <source>
+            <italic>Langmuir</italic>
+          </source>
+          <year>2010</year>
+          <volume>26</volume>
+          <issue>12</issue>
+          <fpage>9885</fpage>
+          <lpage>9890</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77956085422</pub-id>
+          <pub-id pub-id-type="pmid">20443557</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B54">
+        <label>66</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lin</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Balizan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Niu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Q</given-names>
+            </name>
+          </person-group>
+          <article-title>Self-assembly of rodlike bio-nanoparticles in capillary tubes</article-title>
+          <source>
+            <italic>Angewandte Chemie&#x2014;International Edition</italic>
+          </source>
+          <year>2010</year>
+          <volume>49</volume>
+          <issue>5</issue>
+          <fpage>868</fpage>
+          <lpage>872</lpage>
+          <pub-id pub-id-type="other">2-s2.0-75749157727</pub-id>
+          <pub-id pub-id-type="pmid">20013831</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B55">
+        <label>67</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Grimpe</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Silver</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>The extracellular matrix in axon regeneration</article-title>
+          <source>
+            <italic>Progress in Brain Research</italic>
+          </source>
+          <year>2002</year>
+          <volume>137</volume>
+          <fpage>333</fpage>
+          <lpage>349</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036456652</pub-id>
+          <pub-id pub-id-type="pmid">12440376</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B56">
+        <label>68</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pollock</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Healy</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Santin</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Biomimetic and bio-responsive materials in regenerative medicine intelligent materials for healing living tissues</article-title>
+          <source>
+            <italic>Strategies in Regenerative Medicine</italic>
+          </source>
+          <year>2009</year>
+          <publisher-loc>New York, NY, USA</publisher-loc>
+          <publisher-name>Springer</publisher-name>
+          <fpage>97</fpage>
+          <lpage>154</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B57">
+        <label>69</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Streulli</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Akhtar</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Signal co-operation between integrins and other receptor systems</article-title>
+          <source>
+            <italic>Biochemical Journal</italic>
+          </source>
+          <year>2009</year>
+          <volume>418</volume>
+          <issue>3</issue>
+          <fpage>491</fpage>
+          <lpage>506</lpage>
+          <pub-id pub-id-type="other">2-s2.0-62149091091</pub-id>
+          <pub-id pub-id-type="pmid">19228122</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B58">
+        <label>70</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boontheekul</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Mooney</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Protein-based signaling systems in tissue engineering</article-title>
+          <source>
+            <italic>Current Opinion in Biotechnology</italic>
+          </source>
+          <year>2003</year>
+          <volume>14</volume>
+          <issue>5</issue>
+          <fpage>559</fpage>
+          <lpage>565</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0142122289</pub-id>
+          <pub-id pub-id-type="pmid">14580589</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B59">
+        <label>71</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Mel</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Jell</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Stevens</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Seifalian</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Biofunctionalization of biomaterials for accelerated in situ endothelialization: a review</article-title>
+          <source>
+            <italic>Biomacromolecules</italic>
+          </source>
+          <year>2008</year>
+          <volume>9</volume>
+          <issue>11</issue>
+          <fpage>2969</fpage>
+          <lpage>2979</lpage>
+          <pub-id pub-id-type="other">2-s2.0-55449122078</pub-id>
+          <pub-id pub-id-type="pmid">18831592</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B60">
+        <label>72</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Griffith</surname>
+              <given-names>LG</given-names>
+            </name>
+            <name>
+              <surname>Swartz</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <article-title>Capturing complex 3D tissue physiology in vitro</article-title>
+          <source>
+            <italic>Nature Reviews Molecular Cell Biology</italic>
+          </source>
+          <year>2006</year>
+          <volume>7</volume>
+          <issue>3</issue>
+          <fpage>211</fpage>
+          <lpage>224</lpage>
+          <pub-id pub-id-type="pmid">16496023</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B61">
+        <label>73</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Elward</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Gasque</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>&#x201C;Eat me&#x201D; and &#x201C;don&#x2019;t eat me&#x201D; signals govern the innate immune response and tissue repair in the CNS: emphasis on the critical role of the complement system</article-title>
+          <source>
+            <italic>Molecular Immunology</italic>
+          </source>
+          <year>2003</year>
+          <volume>40</volume>
+          <issue>2-4</issue>
+          <fpage>85</fpage>
+          <lpage>94</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0042565844</pub-id>
+          <pub-id pub-id-type="pmid">12914815</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B62">
+        <label>74</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kreutzberg</surname>
+              <given-names>GW</given-names>
+            </name>
+          </person-group>
+          <article-title>Microglia: a sensor for pathological events in the CNS</article-title>
+          <source>
+            <italic>Trends in Neurosciences</italic>
+          </source>
+          <year>1996</year>
+          <volume>19</volume>
+          <issue>8</issue>
+          <fpage>312</fpage>
+          <lpage>318</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0030222037</pub-id>
+          <pub-id pub-id-type="pmid">8843599</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B63">
+        <label>75</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Streit</surname>
+              <given-names>WJ</given-names>
+            </name>
+          </person-group>
+          <source>
+            <italic>Microglia in the Regenerating and Degenerating Central Nervous System</italic>
+          </source>
+          <year>2002</year>
+          <publisher-loc>New York, NY, USA</publisher-loc>
+          <publisher-name>Springer</publisher-name>
+        </element-citation>
+      </ref>
+      <ref id="B64">
+        <label>76</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ainslie</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Bachelder</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Borkar</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cell adhesion on nanofibrous polytetrafluoroethylene (nPTFE)</article-title>
+          <source>
+            <italic>Langmuir</italic>
+          </source>
+          <year>2007</year>
+          <volume>23</volume>
+          <issue>2</issue>
+          <fpage>747</fpage>
+          <lpage>754</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33846864431</pub-id>
+          <pub-id pub-id-type="pmid">17209629</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B65">
+        <label>77</label>
+        <element-citation publication-type="other">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Johnson</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Maves</surname>
+              <given-names>SA</given-names>
+            </name>
+          </person-group>
+          <article-title>Peptides that inhibit complement activation</article-title>
+          <comment><italic>USPTO</italic>, C. Baxter Healthcare, Ed., Innate Biotech, USA, 2004</comment>
+        </element-citation>
+      </ref>
+      <ref id="B66">
+        <label>78</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kapil</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kundu</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Khare</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Shukla</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Synthetic peptide as inhibitors of human complement activation</article-title>
+          <source>
+            <italic>Protein and Peptide Letters</italic>
+          </source>
+          <year>1997</year>
+          <volume>4</volume>
+          <issue>6</issue>
+          <fpage>405</fpage>
+          <lpage>408</lpage>
+          <pub-id pub-id-type="other">2-s2.0-3142535229</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B67">
+        <label>79</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Drury</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Mooney</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Hydrogels for tissue engineering: scaffold design variables and applications</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>2003</year>
+          <volume>24</volume>
+          <issue>24</issue>
+          <fpage>4337</fpage>
+          <lpage>4351</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0042061223</pub-id>
+          <pub-id pub-id-type="pmid">12922147</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B68">
+        <label>80</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chung</surname>
+              <given-names>W-J</given-names>
+            </name>
+            <name>
+              <surname>Merzlyak</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Fabrication of engineered M13 bacteriophages into liquid crystalline films and fibers for directional growth and encapsulation of fibroblasts</article-title>
+          <source>
+            <italic>Soft Matter</italic>
+          </source>
+          <year>2010</year>
+          <volume>6</volume>
+          <issue>18</issue>
+          <fpage>4454</fpage>
+          <lpage>4459</lpage>
+          <pub-id pub-id-type="other">2-s2.0-78651366478</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B69">
+        <label>81</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bar</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Yacoby</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Benhar</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Killing cancer cells by targeted drug-carrying phage nanomedicines</article-title>
+          <source>
+            <italic>BMC Biotechnology</italic>
+          </source>
+          <year>2008</year>
+          <volume>8, article 37</volume>
+          <pub-id pub-id-type="other">2-s2.0-42449132988</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B70">
+        <label>82</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hart</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Knight</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Harbottle</surname>
+              <given-names>RP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cell binding and internalization by filamentous phage displaying a cyclic Arg-Gly-Asp-containing peptide</article-title>
+          <source>
+            <italic>The Journal of Biological Chemistry</italic>
+          </source>
+          <year>1994</year>
+          <volume>269</volume>
+          <issue>17</issue>
+          <fpage>12468</fpage>
+          <lpage>12474</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0028357160</pub-id>
+          <pub-id pub-id-type="pmid">8175653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B71">
+        <label>83</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mount</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Samoylova</surname>
+              <given-names>TI</given-names>
+            </name>
+            <name>
+              <surname>Morrison</surname>
+              <given-names>NE</given-names>
+            </name>
+            <name>
+              <surname>Cox</surname>
+              <given-names>NR</given-names>
+            </name>
+            <name>
+              <surname>Baker</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Petrenko</surname>
+              <given-names>VA</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell targeted phagemid rescued by preselected landscape phage</article-title>
+          <source>
+            <italic>Gene</italic>
+          </source>
+          <year>2004</year>
+          <volume>341</volume>
+          <issue>1-2</issue>
+          <fpage>59</fpage>
+          <lpage>65</lpage>
+          <pub-id pub-id-type="other">2-s2.0-5044235914</pub-id>
+          <pub-id pub-id-type="pmid">15474288</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B72">
+        <label>84</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Poul</surname>
+              <given-names>M-A</given-names>
+            </name>
+            <name>
+              <surname>Marks</surname>
+              <given-names>JD</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeted gene delivery to mammalian cells by filamentous bacteriophage</article-title>
+          <source>
+            <italic>Journal of Molecular Biology</italic>
+          </source>
+          <year>1999</year>
+          <volume>288</volume>
+          <issue>2</issue>
+          <fpage>203</fpage>
+          <lpage>211</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0033617248</pub-id>
+          <pub-id pub-id-type="pmid">10329137</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B73">
+        <label>85</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burg</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Jensen-Pergakes</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Gonzalez</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Ravey</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Baird</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Larocca</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Enhanced phagemid particle gene transfer in camptothecin-treated carcinoma cells</article-title>
+          <source>
+            <italic>Cancer Research</italic>
+          </source>
+          <year>2002</year>
+          <volume>62</volume>
+          <issue>4</issue>
+          <fpage>977</fpage>
+          <lpage>981</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036171447</pub-id>
+          <pub-id pub-id-type="pmid">11861367</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B74">
+        <label>86</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Larocca</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Witte</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Pierce</surname>
+              <given-names>GF</given-names>
+            </name>
+            <name>
+              <surname>Baird</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeting bacteriophage to mammalian cell surface receptors for gene delivery</article-title>
+          <source>
+            <italic>Human Gene Therapy</italic>
+          </source>
+          <year>1998</year>
+          <volume>9</volume>
+          <issue>16</issue>
+          <fpage>2393</fpage>
+          <lpage>2399</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0032211231</pub-id>
+          <pub-id pub-id-type="pmid">9829538</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B75">
+        <label>87</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Seow</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wood</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Biological gene delivery vehicles: beyond viral vectors</article-title>
+          <source>
+            <italic>Molecular Therapy</italic>
+          </source>
+          <year>2009</year>
+          <volume>17</volume>
+          <issue>5</issue>
+          <fpage>767</fpage>
+          <lpage>777</lpage>
+          <pub-id pub-id-type="other">2-s2.0-67349204836</pub-id>
+          <pub-id pub-id-type="pmid">19277019</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B76">
+        <label>88</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Piersanti</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cherubini</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Martina</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mammalian cell transduction and internalization properties of <italic>&#x3BB;</italic> phages displaying the full-length adenoviral penton base or its central domain</article-title>
+          <source>
+            <italic>Journal of Molecular Medicine</italic>
+          </source>
+          <year>2004</year>
+          <volume>82</volume>
+          <issue>7</issue>
+          <fpage>467</fpage>
+          <lpage>476</lpage>
+          <pub-id pub-id-type="other">2-s2.0-3843055759</pub-id>
+          <pub-id pub-id-type="pmid">15150649</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B77">
+        <label>89</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Segura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shea</surname>
+              <given-names>LD</given-names>
+            </name>
+          </person-group>
+          <article-title>Surface-tethered DNA complexes for enhanced gene delivery</article-title>
+          <source>
+            <italic>Bioconjugate Chemistry</italic>
+          </source>
+          <year>2002</year>
+          <volume>13</volume>
+          <issue>3</issue>
+          <fpage>621</fpage>
+          <lpage>629</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036000157</pub-id>
+          <pub-id pub-id-type="pmid">12009954</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B78">
+        <label>90</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ivanenkov</surname>
+              <given-names>VV</given-names>
+            </name>
+            <name>
+              <surname>Felici</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Menon</surname>
+              <given-names>AG</given-names>
+            </name>
+          </person-group>
+          <article-title>Uptake and intracellular fate of phage display vectors in mammalian cells</article-title>
+          <source>
+            <italic>Biochimica et Biophysica Acta&#x2014;Molecular Cell Research</italic>
+          </source>
+          <year>1999</year>
+          <volume>1448</volume>
+          <issue>3</issue>
+          <fpage>450</fpage>
+          <lpage>462</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0032933145</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B79">
+        <label>91</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Deutscher</surname>
+              <given-names>SL</given-names>
+            </name>
+          </person-group>
+          <article-title>Phage display in molecular imaging and diagnosis of cancer</article-title>
+          <source>
+            <italic>Chemical Reviews</italic>
+          </source>
+          <year>2010</year>
+          <volume>110</volume>
+          <issue>5</issue>
+          <fpage>3196</fpage>
+          <lpage>3211</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77952474083</pub-id>
+          <pub-id pub-id-type="pmid">20170129</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B80">
+        <label>92</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thie</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Meyer</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Schirrmann</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hust</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>D&#xFC;bel</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Phage display derived therapeutic antibodies</article-title>
+          <source>
+            <italic>Current Pharmaceutical Biotechnology</italic>
+          </source>
+          <year>2008</year>
+          <volume>9</volume>
+          <issue>6</issue>
+          <fpage>439</fpage>
+          <lpage>446</lpage>
+          <pub-id pub-id-type="other">2-s2.0-60849117841</pub-id>
+          <pub-id pub-id-type="pmid">19075684</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B81">
+        <label>93</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Saha</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Irwin</surname>
+              <given-names>EF</given-names>
+            </name>
+            <name>
+              <surname>Kozhukh</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Schaffer</surname>
+              <given-names>DV</given-names>
+            </name>
+            <name>
+              <surname>Healy</surname>
+              <given-names>KE</given-names>
+            </name>
+          </person-group>
+          <article-title>Biomimetic interfacial interpenetrating polymer networks control neural stem cell behavior</article-title>
+          <source>
+            <italic>Journal of Biomedical Materials Research - Part A</italic>
+          </source>
+          <year>2007</year>
+          <volume>81</volume>
+          <issue>1</issue>
+          <fpage>240</fpage>
+          <lpage>249</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33947213314</pub-id>
+          <pub-id pub-id-type="pmid">17236216</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B82">
+        <label>94</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Giebel</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>Cass</surname>
+              <given-names>RT</given-names>
+            </name>
+            <name>
+              <surname>Milligan</surname>
+              <given-names>DL</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Arze</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>CR</given-names>
+            </name>
+          </person-group>
+          <article-title>Screening of cyclic peptide phage libraries identifies ligands that bind streptavidin with high affinities</article-title>
+          <source>
+            <italic>Biochemistry</italic>
+          </source>
+          <year>1995</year>
+          <volume>34</volume>
+          <issue>47</issue>
+          <fpage>15430</fpage>
+          <lpage>15435</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0028808005</pub-id>
+          <pub-id pub-id-type="pmid">7492543</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B83">
+        <label>95</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Kwon</surname>
+              <given-names>SM</given-names>
+            </name>
+          </person-group>
+          <article-title>Angiogenesis and its therapeutic opportunities</article-title>
+          <source>
+            <italic>Mediators of Inflammation</italic>
+          </source>
+          <year>2013</year>
+          <volume>2013</volume>
+          <fpage>11 pages</fpage>
+          <pub-id pub-id-type="other">2-s2.0-84883195088</pub-id>
+          <pub-id pub-id-type="publisher-id">127170</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="fig1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Schematic diagram of various distinct structures of various phages. (a) Long rod structure of M13 bacteriophage with genomic schematic diagrams to show each protein expressed on the M13 phage surfaces. (b) Structure of Tobacco mosaic virus, a rod-like structured plant virus, made of single strand RNA <italic>&#x2460;</italic> and capsid <italic>&#x2462;</italic> composed of coat <italic>&#x2461;</italic> proteins. (c) Sphere structure of MS2 bacteriophage.</p>
+      </caption>
+      <graphic xlink:href="MI2014-192790.001"/>
+    </fig>
+    <fig id="fig2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Multifunctional synthetic phage construction. (a) Type 3 phage engineering, (b) Type 8 phage engineering, (c) Type 3 + 3 phage engineering, (d) Type 8 + 8 phage engineering.</p>
+      </caption>
+      <graphic xlink:href="MI2014-192790.002"/>
+    </fig>
+    <fig id="fig3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Phage based tissue engineering materials. (a)-(b) ECM-like nanofibrous structured phage network (SEM image) can be made by drop cast film. (c) Neural progenitor cells cultured on top of synthetic phages responded to the growth factor immobilized by HPQ-phages via streptavidin. Physical and chemical cues provided by synthetic phages could control cellular behaviors [<xref rid="B15" ref-type="bibr">14</xref>].</p>
+      </caption>
+      <graphic xlink:href="MI2014-192790.003"/>
+    </fig>
+    <table-wrap id="tab1" orientation="portrait" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Selected reports of peptides identified or constructed by synthetic phages.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">Peptide sequence</th>
+            <th align="center" rowspan="1" colspan="1">Engineering type</th>
+            <th align="center" rowspan="1" colspan="1">Targeted protein</th>
+            <th align="center" rowspan="1" colspan="1">Biological activity</th>
+            <th align="center" rowspan="1" colspan="1">Potential applications</th>
+            <th align="center" rowspan="1" colspan="1">References</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">RGD</td>
+            <td align="center" rowspan="1" colspan="1">3 and 8</td>
+            <td align="center" rowspan="1" colspan="1">Integrin <italic>&#x3B1;</italic>
+<sub><italic>V</italic></sub>
+<italic>&#x3B2;</italic>
+<sub>1</sub>
+</td>
+            <td align="center" rowspan="1" colspan="1">Cellular adhesion, fibronectin like</td>
+            <td align="center" rowspan="1" colspan="1">Tissue engineering, regeneration, receptor-mediated endocytosis</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B12" ref-type="bibr">12</xref>&#x2013;<xref rid="B84" ref-type="bibr">15</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">IKVAV</td>
+            <td align="center" rowspan="1" colspan="1">8</td>
+            <td align="center" rowspan="1" colspan="1">Integrin <italic>&#x3B1;</italic>
+<sub>6</sub>
+<italic>&#x3B2;</italic>
+<sub>4</sub>
+</td>
+            <td align="center" rowspan="1" colspan="1">Cellular adhesion, laminin like</td>
+            <td align="center" rowspan="1" colspan="1">Tissue engineering, neural cell differentiation</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B12" ref-type="bibr">12</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">DGEA</td>
+            <td align="center" rowspan="1" colspan="1">8</td>
+            <td align="center" rowspan="1" colspan="1">Integrin <italic>&#x3B1;</italic>
+<sub>2</sub>
+<italic>&#x3B2;</italic>
+<sub>1</sub>
+</td>
+            <td align="center" rowspan="1" colspan="1">Cellular adhesion, collagen type I like</td>
+            <td align="center" rowspan="1" colspan="1">Tissue engineering, osteogenic differentiation</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B16" ref-type="bibr">16</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">HPQ</td>
+            <td align="center" rowspan="1" colspan="1">3 and 8</td>
+            <td align="center" rowspan="1" colspan="1">Streptavidin</td>
+            <td align="center" rowspan="1" colspan="1">Streptavidin binding, biotin like</td>
+            <td align="center" rowspan="1" colspan="1">Tissue engineering, conjugating growth factors</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B15" ref-type="bibr">14</xref>, <xref rid="B85" ref-type="bibr">17</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">RLIVGDPSSFQEKDADTL</td>
+            <td align="center" rowspan="1" colspan="1">3</td>
+            <td align="center" rowspan="1" colspan="1">Chlamydia</td>
+            <td align="center" rowspan="1" colspan="1">Ameliorating chlamydia infection</td>
+            <td align="center" rowspan="1" colspan="1">Prevention and treatment of <italic>Chlamydia trachomatis</italic>, microbicides</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B84" ref-type="bibr">15</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">YWQPYALPL</td>
+            <td align="center" rowspan="1" colspan="1">3 and 8</td>
+            <td align="center" rowspan="1" colspan="1">IL-1R type I</td>
+            <td align="center" rowspan="1" colspan="1">Antagonists</td>
+            <td align="center" rowspan="1" colspan="1">Anti-inflammatory effects</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B11" ref-type="bibr">11</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">KRTGQYKL</td>
+            <td align="center" rowspan="1" colspan="1">3</td>
+            <td align="center" rowspan="1" colspan="1">FGFR</td>
+            <td align="center" rowspan="1" colspan="1">Antagonists</td>
+            <td align="center" rowspan="1" colspan="1">Cancer therapy; inhibition of angiogenesis and tumor progression</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B86" ref-type="bibr">18</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">GERW<bold>C</bold>FDGPRAWV<bold>C</bold>GWEI,<break/>GGNE<bold>C</bold>DIARMWEWE<bold>C</bold>FERL,<break/>RGWVEI<bold>C</bold>AADDYGR<bold>C</bold>LTEAQ</td>
+            <td align="center" rowspan="1" colspan="1">8 + 8 and <break/>3 + 3</td>
+            <td align="center" rowspan="1" colspan="1">VEGFR</td>
+            <td align="center" rowspan="1" colspan="1">Indirect antagonists</td>
+            <td align="center" rowspan="1" colspan="1">Cancer therapy; inhibition of angiogenesis and cellular proliferation</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B87" ref-type="bibr">19</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">GG<bold>C</bold>ADGPTLREWISF<bold>C</bold>GG</td>
+            <td align="center" rowspan="1" colspan="1">8 + 8</td>
+            <td align="center" rowspan="1" colspan="1">TpoR</td>
+            <td align="center" rowspan="1" colspan="1">Agonist</td>
+            <td align="center" rowspan="1" colspan="1">Treatment of idiopathic</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B88" ref-type="bibr">20</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">AFDWTFVPSLIL</td>
+            <td align="center" rowspan="1" colspan="1">3</td>
+            <td align="center" rowspan="1" colspan="1">CCR5</td>
+            <td align="center" rowspan="1" colspan="1">Antagonist</td>
+            <td align="center" rowspan="1" colspan="1">Anti-inflammatory effects, prevention of HIV-1 entry to CD4+ cells; treatment of multiple sclerosis, rheumatoid arthritis, HCV and HIV infections, prevention of renal allograft rejection</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B89" ref-type="bibr">21</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">QEVCMTS<bold>C</bold>DKLMK<bold>C</bold>NWMAAM</td>
+            <td align="center" rowspan="1" colspan="1">8 + 8 and <break/>3 + 3</td>
+            <td align="center" rowspan="1" colspan="1">DR5</td>
+            <td align="center" rowspan="1" colspan="1">Agonist</td>
+            <td align="center" rowspan="1" colspan="1">Cancer therapy; triggering of apoptosis in tumor cells</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B90" ref-type="bibr">22</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">TAWSEVLDLLRR</td>
+            <td align="center" rowspan="1" colspan="1">3</td>
+            <td align="center" rowspan="1" colspan="1">PMCA4</td>
+            <td align="center" rowspan="1" colspan="1">Allosteric<break/>inhibitor</td>
+            <td align="center" rowspan="1" colspan="1">Study of physiological PMCA4 function, study of arterial hypertension mechanisms and retinopathies, development of new class of contraceptives</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B91" ref-type="bibr">23</xref>&#x2013;<xref rid="B93" ref-type="bibr">25</xref>]</td>
+          </tr>
+          <tr>
+            <td align="left" colspan="6" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">SS<bold>C</bold>ESPEVDYLE<bold>C</bold>LY,<break/>LQ<bold>C</bold>RYDQLIEEWR<bold>C</bold>EY</td>
+            <td align="center" rowspan="1" colspan="1">8 + 8</td>
+            <td align="center" rowspan="1" colspan="1">B-cell maturation antigen</td>
+            <td align="center" rowspan="1" colspan="1">Indirect antagonists</td>
+            <td align="center" rowspan="1" colspan="1">Cancer therapy; inhibition of APRIL (a proliferation-inducing<break/>ligand)-stimulated proliferation</td>
+            <td align="center" rowspan="1" colspan="1">[<xref rid="B94" ref-type="bibr">26</xref>]</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

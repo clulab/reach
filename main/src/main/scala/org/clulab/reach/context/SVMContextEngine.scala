@@ -7,7 +7,7 @@ import _root_.org.ml4ai.data.utils._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 
-
+// This script currently tests papers in the activation version of polarity mismatch.
 import scala.collection.immutable
 class SVMContextEngine extends ContextEngine with LazyLogging {
 

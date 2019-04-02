@@ -1,0 +1,750 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23251608</article-id>
+      <article-id pub-id-type="pmc">3520915</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-12-22317</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0051706</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Developmental Biology</subject>
+            <subj-group>
+              <subject>Stem Cells</subject>
+              <subj-group>
+                <subject>Neural Stem Cells</subject>
+                <subject>Stem Cell Niche</subject>
+                <subject>Stem Cell Lines</subject>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Cell Differentiation</subject>
+              <subject>Cell Fate Determination</subject>
+              <subject>Evolutionary Developmental Biology</subject>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Model Organisms</subject>
+            <subj-group>
+              <subject>Animal Models</subject>
+              <subj-group>
+                <subject>Rat</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Neuroscience</subject>
+            <subj-group>
+              <subject>Neurobiology of Disease and Regeneration</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Pediatrics</subject>
+            <subj-group>
+              <subject>Neonatology</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Neurotrophin-Induced Migration and Neuronal Differentiation of Multipotent Astrocytic Stem Cells <italic>In Vitro</italic>
+</article-title>
+        <alt-title alt-title-type="running-head">Neurotrophin Induced Migration - Differentiation</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Douglas-Escobar</surname>
+            <given-names>Martha</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rossignol</surname>
+            <given-names>Candace</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Steindler</surname>
+            <given-names>Dennis</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zheng</surname>
+            <given-names>Tong</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Weiss</surname>
+            <given-names>Michael D.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Department of Pediatrics, University of Florida, Gainesville, Florida, United States of America</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Department of Neuroscience, University of Florida, Gainesville, Florida, United States of America</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>McKnight Brain Institute, University of Florida, Gainesville, Florida, United States of America</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Engler</surname>
+            <given-names>Adam J.</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>University of California, San Diego, United States of America</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>marthave@ufl.edu</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: MDE CR MDW TZ DS. Performed the experiments: MDE CR MDW TZ.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>. Analyzed the data: MDE CR MDW TZ. Contributed reagents/materials/analysis tools: MDE MDW TZ DS. Wrote the paper: MDE CR MDW</p>
+        </fn>
+        <fn fn-type="con">
+          <p>. Author contributions included given stem cells (Multipotent Astrocytic stem cells) for the experiments: TZ DS.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>12</day>
+        <month>12</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>12</issue>
+      <elocation-id>e51706</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>7</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>5</day>
+          <month>11</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Douglas-Escobar et al</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <copyright-holder>Douglas-Escobar et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Hypoxic ischemic encephalopathy (HIE) affects 2&#x2013;3 per 1000 full-term neonates. Up to 75% of newborns with severe HIE die or have severe neurological handicaps. Stem cell therapy offers the potential to replace HIE-damaged cells and enhances the autoregeneration process. Our laboratory implanted Multipotent Astrocytic Stem Cells (MASCs) into a neonatal rat model of hypoxia-ischemia (HI) and demonstrated that MASCs move to areas of injury in the cortex and hippocampus. However, only a small proportion of the implanted MASCs differentiated into neurons. MASCs injected into control pups did not move into the cortex or differentiate into neurons. We do not know the mechanism by which the MASCs moved from the site of injection to the injured cortex. We found neurotrophins present after the hypoxic-ischemic milieu and hypothesized that neurotrophins could enhance the migration and differentiation of MASCs. Using a Boyden chamber device, we demonstrated that neurotrophins potentiate the <italic>in vitro</italic> migration of stem cells. NGF, GDNF, BDNF and NT-3 increased stem cell migration when compared to a chemokinesis control. Also, MASCs had increased differentiation toward neuronal phenotypes when these neurotrophins were added to MASC culture tissue. Due to this finding, we believed neurotrophins could guide migration and differentiation of stem cell transplants after brain injury.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work was supported by grants AHA 0825454E grant and AAP Klaus Research Award (MDE). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="8"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Hypoxic ischemic encephalopathy (HIE) is the brain manifestation of systemic asphyxia <xref rid="pone.0051706-Beilharz1" ref-type="bibr">[1]</xref>. HIE is a leading cause of neonatal mortality worldwide <xref rid="pone.0051706-Lawn1" ref-type="bibr">[2]</xref>, <xref rid="pone.0051706-Shankaran1" ref-type="bibr">[3]</xref> and affects 2&#x2013;3 per 1000 newborns in the United States <xref rid="pone.0051706-Pierrat1" ref-type="bibr">[4]</xref>. Supportive management of newborns with HIE includes maintenance of cerebral perfusion and adequate energy levels <xref rid="pone.0051706-Shankaran2" ref-type="bibr">[5]</xref>, <xref rid="pone.0051706-Wolfberg1" ref-type="bibr">[6]</xref>. With supportive care, 75% of newborns with severe asphyxia die or have permanent devastating neurological handicaps <xref rid="pone.0051706-Low1" ref-type="bibr">[7]</xref>, <xref rid="pone.0051706-Thornberg1" ref-type="bibr">[8]</xref>. Novel therapies to reduce brain cell apoptosis and necrosis have had very limited success <xref rid="pone.0051706-Wolfberg1" ref-type="bibr">[6]</xref>, <xref rid="pone.0051706-Levene1" ref-type="bibr">[9]</xref>&#x2013;<xref rid="pone.0051706-Bakshi1" ref-type="bibr">[12]</xref>. Only hypothermia <xref rid="pone.0051706-Shankaran2" ref-type="bibr">[5]</xref>, <xref rid="pone.0051706-Eicher1" ref-type="bibr">[13]</xref>&#x2013;<xref rid="pone.0051706-Jacobs1" ref-type="bibr">[15]</xref> and erythropoietin therapy have improved the morbidity and mortality rates of newborns with moderate to severe HIE <xref rid="pone.0051706-Zhu1" ref-type="bibr">[16]</xref>. Due to the poor outcomes associated with moderate and severe HIE and the substantial progress in stem cell biology, researchers have explored pioneer regenerative therapies. Regenerative therapies replenish lost cells by either endogenous neural progenitor cell (NPC) activation or by stem cell transplantation.</p>
+      <p>NPCs are tissue-specific undifferentiated cells that are able to self-renew and give rise to multi-lineage brain cells such as neurons, astrocytes, and oligodendrocytes <xref rid="pone.0051706-Daadi1" ref-type="bibr">[17]</xref>. In neonates, the subventricular zone (SVZ) contains multipotent NPCs that have the potential to replace damaged brain cells. Specifically, cells on the medial aspect of the SVZ tolerate the hypoxic-ischemic insult and help in the autoregeneration process <xref rid="pone.0051706-Romanko1" ref-type="bibr">[18]</xref>. Nevertheless, severe hypoxia-ischemia (HI) leads to a less-cellular SVZ <xref rid="pone.0051706-Levison1" ref-type="bibr">[19]</xref>, <xref rid="pone.0051706-Ness1" ref-type="bibr">[20]</xref>, suggesting that an exogenous source of stem cells may be necessary in severe HI.</p>
+      <p>Since endogenous repair is not always sufficient in severe HI, our laboratory used a regenerative approach to demonstrate that donor-derived multipotent astrocytic stem cells (MASCs) implanted into the cortex of a neonatal rat HI model moved to the area of injury and differentiated into neurons and mature glia <xref rid="pone.0051706-Zheng1" ref-type="bibr">[21]</xref>. Injected stem cells were located within the large ischemic areas of the injured hemisphere. Only a small subpopulation of MASCs in the injured cortex differentiated into neurons. No one knows the factors that promote the movement of the MASCs from the injection site towards the ischemic area and induce differentiation.</p>
+      <p>Neurotrophins are important cues for the migration and differentiation of neural stem cells <xref rid="pone.0051706-Bibel1" ref-type="bibr">[22]</xref>, <xref rid="pone.0051706-Teng1" ref-type="bibr">[23]</xref>. Neurotrophins are a family of growth factors that act through tyrosine kinase receptors and regulate the development and maintenance of brain cells by affecting neuronal survival, synaptogenesis, and brain plasticity <xref rid="pone.0051706-Sizonenko1" ref-type="bibr">[24]</xref>. The first neurotrophin discovered was neuronal growth factor (NGF). Further work identified other members of the family such as Glial Derived Neurotrophic Factor (GDNF), Brain Derived Neurotrophic Factor (BDNF), and Neurotrophin-3 (NT-3). Degenerative brain disease pathophysiology is related to abnormally low neurotrophin concentrations, and clinical improvements of such diseases correlate with increased neurotrophin concentrations <xref rid="pone.0051706-Suzuki1" ref-type="bibr">[25]</xref>
+<xref rid="pone.0051706-Beilharz1" ref-type="bibr">[1]</xref>, <xref rid="pone.0051706-Dawbarn1" ref-type="bibr">[26]</xref>. In the neonatal period, neurotrophins and their receptors are essential for brain development. After brain insults, neurotrophins increase in number, suggesting that they have an endogenous protective mechanism that limits neuronal cell death <xref rid="pone.0051706-Binder1" ref-type="bibr">[27]</xref>. Therefore, neurotrophins could mediate the migration of transplanted MASCs and once at the site of injury, enhance neuronal differentiation.</p>
+      <p>We hypothesized that neurotrophins present after the hypoxic-ischemic injury affect the migration and differentiation of MASCs. The primary goal of our study was to carry out <italic>in vitro</italic> experiments that explored whether various neurotrophins (GDNF, BDNF, NGF and NT-3) affected the migration and differentiation of MASCs. Our secondary goal was to determine the most effective trophic factor and the concentration needed to increase MASC migration and differentiation.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Preparation of MASCs for Culture</title>
+        <p>Protocols were in accordance with the International Guiding Principles for Animal Research and were approved by the University of Florida Institutional Animal Care and Use Committee. MASCs used for migration were derived from green fluorescent protein (GFP) transgenic mice (STOCK Tg GFPU 5Nagy/J, Stock # 03115, The Jackson Laboratory, Bar Harbor, ME). Newborn mice (P4&#x2013;P5) were deeply anesthetized and decapitated. Subependymal zone tissue was obtained by brain micro-dissection. Tissue chunks were minced, incubated in 0.25% trypsin/EDTA (Atlanta Biologicals, Lawrenceville, GA) and dissociated into a single cell suspension. Single cells were pelleted and washed several times in medium before being plated in culture flasks with Dulbecco&#x2019;s Modified Eagle Medium/F-12 (D-MEM/F12, 1:1, Gibco&#xAE;, Grand Island, NY) and supplemented with 5% fetal bovine serum (FBS), epidermal growth factor (EGF, 20 ng/mL), and bovine fibroblast growth factor (bFGF, 10 ng/mL). The medium was changed every three days until the cells were confluent. MASC cultures (<xref ref-type="supplementary-material" rid="pone.0051706.s001">Figure S1A</xref>. MASC in culture) were generated as previously described <xref rid="pone.0051706-Laywell1" ref-type="bibr">[28]</xref>. These cultures yielded monolayers with the following expression rates: 95&#x2013;100% astrocyte markers, 0% neuronal markers, and a small percentage of non-neurogenic microglia <xref rid="pone.0051706-Zheng1" ref-type="bibr">[21]</xref>. After two passages, confluent monolayers were collected via trypsinization and counted with a hemocytometer.</p>
+      </sec>
+      <sec id="s2b">
+        <title>Migration Assays</title>
+        <p>Although several methods are available to evaluate cell migration, the most widely accepted method is the Boyden chamber assay. Therefore, we chose to utilize this assay in our migration experiments. Migration was evaluated using a Boyden chamber CHEMICON&#xAE; QCM&#x2122; 24-well Cell Migration Assay kit (ECM508, Millipore, Billerica, MA). This system consists of an upper chamber, a lower chamber, a polycarbonate membrane with 8 &#xB5;m pores, and a thin layer of extracellular matrix separating the two chambers. The upper chamber was loaded with 50 &#xB5;L MASCs (50&#xD7;10<sup>4</sup> MASCs). The lower chamber was loaded with the following concentrations of neurotrophins: recombinant human BDNF (Cat. #248-BD-025, R&amp;D Systems, Inc&#xAE;, Minneapolis, MN) at 10, 50, and 100 ng/mL, GDNF recombinant rat GDNF (Cat. # 512-GF-010, R&amp;D Systems, Inc&#xAE;) at 10, 50, and 100 ng/mL, recombinant mouse beta-NGF (Cat. #1156-NG-100, R&amp;D Systems, Inc&#xAE;) at 200, 300, and 400 ng/mL and recombinant human NT-3 (Cat. #267-N3-005, R&amp;D Systems, Inc&#xAE;) at 50, 100, and 150 ng/mL (<xref ref-type="supplementary-material" rid="pone.0051706.s002">Figure S2</xref>. Boyden Chamber). We chose the doses of neurotrophins after a pilot experiment in which the concentrations of the listed growth factors were analyzed 24 and 72 hours after HI injury (data not shown). The first two concentrations of each factor matched the average range of the concentrations found at 24 and 72 hours. The third concentration was twice as high as the highest average physiologic concentration.</p>
+        <p>After an incubation time of 24 and 72 hours at 37&#xB0;C in humidified air with 5% CO<sub>2</sub>, the membrane was removed and the upper surface of the filter was scraped with a rubber scraper. The cells that migrated through the pores and adhered to the underside of the membrane were stained with cresyl violet (0.09%) and counted as per the manufacturer&#x2019;s protocol (<xref ref-type="supplementary-material" rid="pone.0051706.s001">Figure S1B</xref>. MASC migration). The experiments were run in triplicate.</p>
+        <p>Each migration assay plate had positive and negative controls. <italic>In vitro</italic> studies of mesenchymal stem cell migration have demonstrated that medium supplemented with FBS stimulates the movement of the mesenchymal cells. Therefore, FBS served as a positive control on each plate to ensure that the cells seeded on the plate possessed the ability to migrate under the culture conditions. We used media supplemented with 10% FBS as a positive control and serum-free media as a true negative control. To distinguish between directed migration towards a chemoattractant and generalized random movement of stem cells (chemokinesis), we added a second, more stringent, control for chemokinesis. Stem cells were exposed to the same concentration of neurotrophin in the lower and upper chambers. Therefore, cell movement towards the bottom chamber was the result of chemokinesis, not migratory movement cued by differential concentrations of the neurotrophin.</p>
+        <p>ImageJ (NIH, Bethesda, MD) was used to count cells. Five random fields in each of three replicas of specific neurotrophin concentration were observed, resulting in 15 observations per condition. Migrated cells were defined as the number of cells per field and were compared with the controls.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Differentiation Experiments</title>
+        <p>MASCs were grown as described above. After passage three, they were seeded at a density of 2&#xD7;10<sup>4</sup> MASCs per 1 mL on glass coverslips placed at the bottom of each well in a 24-well plate. To allow differentiation, coverslips were pre-coated with both Polyornithine (10 &#xB5;g/mL, Sigma, St. Louis, MO) and Laminin (5 &#xB5;g/mL, Sigma). MASCs were fed by renewing the medium (D-MEM/F12 without FGF and EGF) three times per week to allow differentiation. Each plate contained a negative control consisting of MASCs not exposed to any added differentiation factors. Extracellular matrix proteins such as Laminin and Polyornithine could play a role in the differentiation of stem cells to particular phenotypes; therefore, we used Laminin and Polyornithine coated glass coverslips on our negative controls to control for this possible effect. The factors and concentrations tested were BDNF (10, 50 and 100 ng/mL), GDNF (10, 50, and 100 ng/mL), NFG (200, 300, and 400 ng/mL) and NT-3 (50, 100, and 150 ng/mL). We assessed cell viability with a Trypan blue assay at 24 hours to determine whether higher concentrations of neurotrophins were toxic to the cells.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Immunocytochemistry</title>
+        <p>After five days of differentiation, the immunocytochemistry was performed. We analyzed at five days because this time frame matched the relative time frame of our <italic>in vivo</italic> transplant experiments. A sample of cells from each condition was reserved for Trypan blue assay. This assay explored possible toxic effects of neurotrophins. The cells were fixed with cold 4% paraformaldehyde for 15 minutes, permeabilized, and blocked for 30 minutes at room temperature in PBS supplemented with 0.01 triton X-100, 10% FBS and 5% goat serum on the coverslips in the wells. After the blocking, the cells were incubated overnight with a primary antibody. Next, the cells were washed with PBS three times and incubated in the dark at room temperature for 30 minutes with appropriate secondary antibodies conjugated to various fluoresceins. The cells were coverslipped with Vectashield-mounting medium containing DAPI (Vector Laboratories, Inc, Burlingame, CA) and examined under a fluorescence microscope. The cells, which were &#x3B2;-3-tubulin positive, were counted in 15 high-power fields randomly chosen from each of the groups. The primary antibody was mouse anti-&#x3B2;-tubulin III (1: 500, Promega Corporation, Madison, WI) and was used to detect immature neurons. The secondary antibody was Cy3 (1:300, The Jackson Laboratory, Bar Harbor, ME).</p>
+        <p>Photographs of immunostained cells were taken utilizing a high-resolution CCD camera (Nikon, Tokyo, Japan) attached to a Leica microscope. ImageJ (NIH) was used to count GFAP and &#x3B2;-3 tubulin positive cells in 15 observations per condition (3 replicas per each concentration of specific neurotrophin and 5 random fields per replica).</p>
+      </sec>
+      <sec id="s2e">
+        <title>Statistical Analysis</title>
+        <p>Data analysis was performed using PRISM&#xAE; (GraphPad Software, San Diego, CA). All means are presented as +/&#x2212; the standard error of the mean (SEM). Differences in quantitative variables (cells migrated or differentiated) between groups and control were tested with one-way ANOVA with <italic>post hoc</italic> Bonferroni method to correct for multiple comparisons. For all differentiation experiments, the person counting cells was blinded to the group&#x2019;s identities. The level of significance was set at P&lt;0.05.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>Migration Assay Results</title>
+        <p>The mean number of migrated cells showed a dose response to GDNF concentration at days one and three (<xref ref-type="supplementary-material" rid="pone.0051706.s003">Table S1</xref>). On day one, the mean number of migrated cells was significantly greater than the negative control at GDNF concentrations of 10 ng/mL, 50 ng/mL, and 100 ng/mL, p&lt;0.05 (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1A</xref>) but less than the positive control. Similar results occurred on day three (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1B</xref>) and the mean number of migrated cells with GDNF at 50 and 100 ng/mL was 1.7 times higher than the positive control. Day 3 had up to a 3-fold increase in migration when compared to day 1. Overall, GDNF produced a 14- to 92-fold increase in migration over chemokinesis.</p>
+        <fig id="pone-0051706-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0051706.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Migrated MASC (Mean and SEM) under different conditions (y axis).</title>
+            <p>Panel A and B: GDNF at 10, 50 and 100 ng/mL concentrations during 1 and 3 days, respectively. Panel C and D: BDNF at 10, 50 and 100 ng/mL concentrations during 1 and 3 days. Panel E and F: NT-3 at 50, 100 and 150 ng/mL during 1 and 3 days, respectively. Panel F and G: NGF at 200, 300 and 400 ng/mL during 1 and 3 days, respectively. Each panel includes negative control (no neurotrophins added), chemokinesis (random movement control) and positive control (10% FBS). Statistically significant differences between chemokinesis and specific concentrations of neurotrophin were noted with an asterisk (p&lt;0.05). The bars over the groups show statistically significant differences between different neurotrophins&#x2019; concentrations.</p>
+          </caption>
+          <graphic xlink:href="pone.0051706.g001"/>
+        </fig>
+        <p>MASCs had a response to BDNF exposure similar to GDNF exposure. On day one, the mean number of migrated cells was significantly greater than the chemokinesis controls at BDNF concentrations of 10, 50, and 100 ng/mL, p&lt;0.05 (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1C</xref>). Migration of cells induced by BDNF at 100 ng/mL (one-day exposure) was 1.8 times higher than the positive control. BDNF induced a 56- to 97-fold increase in migration over chemokinesis at 24 h. After three days of BDNF exposure migrated cells were 1.6 times higher than the positive control (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1D</xref>).</p>
+        <p>After one day of NT-3 exposure, the cell migration response was not different from the negative control (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1</xref> E). However, after three days of exposure to NT-3, the mean number of migrated cells was significantly greater than the control, p&lt;0.05 (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1F</xref>). Exposure to NT-3 for 3 days induced a 24- to 84-fold increase in migration when compared to controls exposed to chemokinesis. We observed a greater migration in response to NT-3 at 100 ng/mL than at 50 ng/mL but a decrease at 150 ng/mL. After 3 days exposure to NT-3 at 100 ng/mL, migrated cells were 2 times higher than the positive control (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1F</xref>).</p>
+        <p>After one day of NGF exposure, the mean number of exposed migration cells was significantly greater than the cells exposed to chemokinesis, p&lt;0.05 (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1G</xref>) but only 10% of the positive control. Migration increased up to 3-fold from day 1 to day 3. NGF produced a modest response compared to the other neurotrophins tested. Exposure to NGF for 3 days caused a 1.9- to 12.4-fold increase in cell migration over chemokinesis, p&lt;0.05 (<xref ref-type="fig" rid="pone-0051706-g001">Figure 1H</xref>) but only 1/4 of the migration obtained with the positive control.</p>
+      </sec>
+      <sec id="s3b">
+        <title>Differentiation Experiment Results</title>
+        <p>Trypan blue assays at 24 and 72 hours demonstrated that 97&#x2013;98% of cells under all conditions survived. GDNF, BDNF, NT-3, and NGF increased cell differentiation into a neuronal phenotype when compared with negative controls, but only NGF showed an incremental dose response (<xref ref-type="supplementary-material" rid="pone.0051706.s004">Table S2</xref>). Cells had a flat response to GDNF doses of 10, 50 and 100 ng/mL. However, significantly more cells were &#x3B2;-3 tubulin positive than the negative control, p&lt;0.01 (<xref ref-type="fig" rid="pone-0051706-g002">Figure 2A</xref>). Overall BDNF increased differentiation of cells at doses of 10, 50 and 100 ng/mL when compared with the negative control, p&lt;0.01 (<xref ref-type="fig" rid="pone-0051706-g002">Figure 2B</xref>). NT-3 exposure also produced an increased percentage of &#x3B2;-3 tubulin positive cells at doses of 50, 100 and 150 ng/mL when compared with negative controls, p&lt;0.01 (<xref ref-type="fig" rid="pone-0051706-g002">Figure 2C</xref>). Cells subjected to NGF showed an escalating dose-response of &#x3B2;-3 tubulin positive cells at doses of 200, 300 and 400 ng/mL that was significantly different than the negative control, p&lt;0.01 (<xref ref-type="fig" rid="pone-0051706-g002">Figure 2D</xref>).</p>
+        <fig id="pone-0051706-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0051706.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Percentage &#x3B2;-3 tubulin positive cells (Mean and SEM) under different neurotrophins conditions.</title>
+            <p>Panel A: GDNF at 10, 50 and 100 ng/mL concentrations. Panel B: BDNF at 10, 50 and 100 ng/mL concentrations. Panel C: NT-3 at 50, 100 and 150 ng/mL. Panel D: NGF at 200, 300 and 400 ng/mL. The asterisks (**) represent statistically significant differences between the negative control and specific neurotrophin (p&lt;0.01). The only significant difference between different concentrations of neurotrophins existed between NGF 200 and 400 ng/mL.</p>
+          </caption>
+          <graphic xlink:href="pone.0051706.g002"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>The first critical step in stem cell engagement during regeneration is migration toward injured areas of the brain. Thus, migration plays a central role in brain repair. Our previous work demonstrated that MASCs moved towards the region of injury following HI by an unknown homing mechanism. Migration of neuronal progenitor cells towards injured tissue is a multistep process mediated by a series of sequential cellular interactions in which the generation of chemotaxic gradients plays a key role <xref rid="pone.0051706-Belmadani1" ref-type="bibr">[29]</xref>. The signals that induce migration may be generated locally as components of the extracellular matrix or released as soluble substances such as chemokines and growth factors. Although several methods are available to evaluate cell migration, the most widely accepted method is the Boyden Chamber assay. Therefore, we elected to utilize this assay in our migration experiments. Using this system, we demonstrated that neurotrophins present in the post-injury milieu (unpublished data) increase the migration of MASCs <italic>in vitro</italic>. We examined migration at two time points. Our rationale for this approach is that most transplanted cells migrate at a rate of 100 &#xB5;m/hour. Therefore, most of the stem cells reach the injured lesion in 24&#x2013;72 hours. More important, a stem cell transplant three days after HI likely provides the most cell engraftment, survival, and differentiation <xref rid="pone.0051706-Rosenblum1" ref-type="bibr">[30]</xref>. Therefore, we chose an initial time point of 24 hours and a later time point of 72 hours to quantify migration. Our results demonstrate that GDNF and BDNF at physiologic concentrations produce the greatest movement of cells at 24 hours. Since both GDNF and BDNF are present at physiologic concentrations after injury, both factors may help mediate the movement of the MASCs toward the site of injury <italic>in vivo</italic>. Our migration data at 24 hours reveals that the number of cells is enhanced 2-fold and 3-fold by doubling the physiologic levels of GDNF and BDNF, respectively. These neurotrophins could supplement the endogenous milieu to enhance the movement of the transplanted MASCs to the site of injury.</p>
+      <p>Adult stroke also shows factor-mediated movement. For example, GDNF increased migration and differentiation in animal stroke models <xref rid="pone.0051706-Chen1" ref-type="bibr">[31]</xref>, <xref rid="pone.0051706-CohenCory1" ref-type="bibr">[32]</xref>. Furthermore, adult NPCs that were genetically modified to secrete more GDNF and then transplanted after ischemic insult had increased migration and neuronal phenotype differentiation when compared with controls (na&#xEF;ve NPCs) in <italic>in vivo</italic> studies <xref rid="pone.0051706-Kameda1" ref-type="bibr">[33]</xref>. Moreover, these grafted neural stem cells modified by the GDNF gene had higher survival rates and differentiation after stroke, less apoptosis, and greater expression of BDNF and NT-3 <xref rid="pone.0051706-Chen1" ref-type="bibr">[31]</xref>.</p>
+      <p>In the second portion of our migration experiments, we examined the possibility of increased migration over time. We selected a period of 3 days because at the migration rate of 100 &#xB5;m/hour most of our transplanted MASCs in our previous <italic>in vivo</italic> study should have reached the area of injury. Prolonged exposure to GDNF at physiologic and supra-physiologic concentrations increased migration after injury. Interestingly, prolonged exposure to BDNF did not result in an increase in migration. However, exposure to NGF at a physiologic concentration for 3 days increased migration. These data demonstrate that an additional 48-hour exposure to factors can enhance migration. Multiple doses over several days might increase the movement of the transplanted cells from the transplant site to the injured tissue.</p>
+      <p>Neurons are particularly sensitive to hypoxic-ischemic injury. Following injury, one of the goals of neuroregeneration is to restore neuronal and astrocyte populations. MASCs are good candidates to restore the injured brain since they are derived from the SEZ and are programmed to migrate to various brain regions. In our previous work, we demonstrated that this migration occurs after injury and some cells differentiate into neurons. We need a basic understanding of the factors that may mediate the differentiation process in order to understand the factors that produce neuronal differentiation. With this knowledge, we may be able to enhance neuronal differentiation.</p>
+      <p>We began to explore this mechanism in our experiments by examining candidate neurotrophins at concentrations found in the post-injury milieu. Our results demonstrate that GDNF and BDNF at physiologic concentrations present post hypoxia-ischemia have the greatest impact in increasing neuronal differentiation. However, we did not find a further increase in neurons at concentrations above the physiologic level. Prior <italic>in vitro</italic> experiments demonstrated that GDNF is a potent chemoattractant and chemo-kinetic factor for neural precursor cells <xref rid="pone.0051706-Cornejo1" ref-type="bibr">[34]</xref>. The present study showed that GDNF is a potent stimulus for the migration and differentiation of MASCs. Other <italic>in vitro</italic> studies demonstrated this finding <xref rid="pone.0051706-Pozas1" ref-type="bibr">[35]</xref> and showed that adding GDNF (50 ng/mL) to cultured NPCs (derived from the medial ganglionic eminence) for 48 hours increased cell differentiation towards GABA-positive cells and enhanced the cells&#x2019; neuronal morphology and motility. GDNF may interact with or affect the expression of other neurotrophins, adding exponentially increased neuroprotective effects.</p>
+      <p>Similar evidence exists for BDNF as GDNF. BDNF is an important factor during brain development <xref rid="pone.0051706-CohenCory1" ref-type="bibr">[32]</xref> and provides a directional cue that promotes the migration of cerebellar granular cells <xref rid="pone.0051706-Borghesani1" ref-type="bibr">[36]</xref>. We found evidence that BDNF concentrations are increased after neonatal HI (unpublished data) as well as in the post-stroke milieu <xref rid="pone.0051706-Bejot1" ref-type="bibr">[37]</xref>. Researchers have postulated that BDNF increases the migration of stem cells <xref rid="pone.0051706-Glaser1" ref-type="bibr">[38]</xref>, <xref rid="pone.0051706-Athanasios1" ref-type="bibr">[39]</xref>. Our data support the notion that BDNF potentiates stem cell migration even after a short exposure time (24 hours) when added to <italic>in vitro</italic> models. Most recently, Zhang et al. <xref rid="pone.0051706-Zhang1" ref-type="bibr">[40]</xref> published that BDNF (10 ng/mL) added to the culture media induced differentiation of umbilical cord mesenchymal stem cells towards a neuronal phenotype. Our results agree with the aforementioned and show that low doses of BDNF increase MASCs to differentiate toward a neuronal fate. Other studies have demonstrated that protoplasmic astrocytes in co-culture with NPCs that over-express BDNF induce NPC neuronal fate <xref rid="pone.0051706-Liu1" ref-type="bibr">[41]</xref>. In this co-culture model, the media supernatant had a high content of BDNF, and the addition of anti-BDNF antibody to the medium reduced the number of neurons that differentiated from NPCs. In mouse SVZ explant cultures, a low dose of BDNF increased migration of NPCs, while high doses of BDNF increased differentiation <xref rid="pone.0051706-Ponte1" ref-type="bibr">[42]</xref>, <xref rid="pone.0051706-Petridis1" ref-type="bibr">[43]</xref>. In contrast, in our experiments BDNF stimulated migration in a dose-dependent manner while differentiation increased independent of the dose.</p>
+      <p>In addition to BDNF, NGF and NT-3 also increased the number of cells that differentiated into neurons. NGF is important in promoting axonal regeneration after transplantation of NPCs in models of spinal injury <xref rid="pone.0051706-Kamei1" ref-type="bibr">[44]</xref>. When low doses of NGF are added to the culture medium of human embryonic stem cells, the percentage of cells that differentiate toward a neuronal phenotype doubles <xref rid="pone.0051706-Fraichard1" ref-type="bibr">[45]</xref>. In our experiments, NGF increased migration and differentiation toward a neuronal phenotype of MASC. In contrast with our results, <italic>in vitro</italic> experiments have demonstrated that NGF improves Schwann precursor cell motility but does not affect migration <xref rid="pone.0051706-Cornejo1" ref-type="bibr">[34]</xref>. One possible explanation is that different progenitor cells do not respond to neurotrophin in the same way. Based on this information from the literature and our current data, we found that MASCs exposed to NGF have a modest increase in migration and a dose-related increase in differentiation toward neuronal phenotype. NGF is the only tested neurotrophin that may increase the percentages of neuronal phenotypes when administered in supraphysiologic concentrations. As a predifferentiation strategy, cells exposed to the neurotrophin prior to transplant may increase the neuronal phenotypes pre-transplant.</p>
+      <p>NT-3 displays neuroprotective properties and when combined with NSCs transplanted in an HI rodent model improves neuronal differentiation and survival <xref rid="pone.0051706-Park1" ref-type="bibr">[46]</xref>. In our <italic>in vitro</italic> experiments, we found that even low doses of NT-3 increased migration in a non-linear curve response with an optimal dose of 100 ng/mL of NT-3. NT-3 also enhanced differentiation but did not show a dose response. Because the soluble form of NT-3 is bioactive for only a short time, other researchers have attempted to bind NT-3 to carriers <xref rid="pone.0051706-Li1" ref-type="bibr">[47]</xref>. When NT-3 is loaded with chitosan carriers, NPCs show enhanced differentiation toward neuronal phenotypes and increased survival <xref rid="pone.0051706-Yang1" ref-type="bibr">[48]</xref>. Therefore, NT-3 (in its soluble or carrier-loaded form) increases differentiation of NPCs toward a neuronal phenotype. Our results are in agreement with other reports that have shown an increase in NPC migration when exposed to normally-expressed NT-3 or over-expressed NT-3 by lentivirus <xref rid="pone.0051706-Blits1" ref-type="bibr">[49]</xref>, <xref rid="pone.0051706-Castellanos1" ref-type="bibr">[50]</xref>.</p>
+      <p>Following HIE, a complicated cascade of pathophysiologic processes are unleashed including excitotoxicity, oxidative stress, inflammation, and cell death via necrosis and apoptosis. These processes can lead to long-term neurologic deficits <xref rid="pone.0051706-Ferriero1" ref-type="bibr">[51]</xref>. The post-injury time course can be divided into a latent (0&#x2013;6 hours), secondary (6&#x2013;72 hours) and tertiary phase (&gt;72 hours) <xref rid="pone.0051706-Bennet1" ref-type="bibr">[52]</xref>. During the tertiary phase, neurons and glial cells are lost due to chronic loss of trophic factors, loss of synaptic input from neighboring cells, and loss of or failure of recruitment of new progenitor neural stem cells and glial progenitor cells <xref rid="pone.0051706-Barrett1" ref-type="bibr">[53]</xref>, <xref rid="pone.0051706-Stone1" ref-type="bibr">[54]</xref>.</p>
+      <p>At present, the goal of regenerative medicine involves providing tropic factors and NPCs to prevent the disruption of the endogenous neuronal networks <xref rid="pone.0051706-Llado1" ref-type="bibr">[55]</xref>. The survival of transplanted NSCs was limited in these experiments for several potential reasons <xref rid="pone.0051706-Daadi2" ref-type="bibr">[56]</xref>&#x2013;<xref rid="pone.0051706-Sato1" ref-type="bibr">[58]</xref>. One of the reasons is that the environment may not be ideal for survival <xref rid="pone.0051706-Bennet1" ref-type="bibr">[52]</xref>. To date, studies have not enhanced the environment by combining the transplanted cells with survival factors. Several groups have attempted to transplant cells that secrete survival factors to improve endogenous tissue survival <xref rid="pone.0051706-Park1" ref-type="bibr">[46]</xref>. Our data suggest a combination of neurotrophins and MASCs may help the endogenous tissue and increase the movement of MASCs toward the site of injury. GDNF plays a crucial role in neuroprotection <xref rid="pone.0051706-Bakshi1" ref-type="bibr">[12]</xref>, <xref rid="pone.0051706-Pineda1" ref-type="bibr">[59]</xref> and is a chemoattractant factor for neuronal precursors in the rostral migratory stream <xref rid="pone.0051706-Paratcha1" ref-type="bibr">[60]</xref>, <xref rid="pone.0051706-Shi1" ref-type="bibr">[61]</xref>. GDNF may interact or affect the expression of other neurotrophins, adding exponential neuroprotective effects.</p>
+      <p>We omitted a few considerations in our research, which we will address in future studies. We simplified our approach to evaluate migration and differentiation of NPCs <italic>in vitro</italic>, but we understand that <italic>in vivo</italic> models are more complex and frequently involve inflammatory responses. Various mechanisms could be responsible for the preferential movement of stem cells towards the area of brain injury <xref rid="pone.0051706-Park1" ref-type="bibr">[46]</xref>, <xref rid="pone.0051706-Park2" ref-type="bibr">[62]</xref>. However, inflammation is common to many modes of brain injury <xref rid="pone.0051706-Imitola1" ref-type="bibr">[63]</xref>, <xref rid="pone.0051706-Robin1" ref-type="bibr">[64]</xref>. The addition of inflammatory mediators (such as interleukins) to the design may change the neurotrophins&#x2019; efficacy as homing factors and should be explored in the future. Another important consideration is the potential interaction between different neurotrophins. For example, <italic>in vitro</italic> experiments demonstrated that GDNF-induced branching of cultured ciliary neurons could be inhibited by BDNF <xref rid="pone.0051706-Bejot1" ref-type="bibr">[37]</xref>. Therefore, before researchers use neurotrophins together, they should test for potential interactions.</p>
+      <p>Most of the NPC migration assays reported in the literature only expose the NPCs to chemoattractants for 24 hours. However, because our laboratory is currently doing stem cells transplants 1 to 3 days after HI, we exposed the NPCs to chemoattractants for 1 and 3 days to examine their response to neurotrophins.</p>
+      <p>In the future neurotrophin receptor blockers should be used to further corroborate neurotrophin-induced migration and differentiation. We speculate that by incorporating the homing factors into the transplant paradigm, we may improve the migration and differentiation of NPC. Homing factors may also improve the localization of NPCs and thus improve NPCs incorporation into the local host circuitry.</p>
+      <p>We also recognize that the post-injury milieu is a very complicated environment with many other factors present, which may partially or synergistically affect the migration and neuronal differentiation of transplanted MASCs. Preconditioning cells with trophic factors before transplantation is a very attractive concept that could improve migration, differentiation, and survival. When deciding the timing of exposure of the cells to the neurotrophins, we noted that most reports on preconditioning of stem cells are done for 24 hours, but our laboratory is currently performing stem cell transplants up to 3 days after HI. Thus, we chose to expose the stem cells to neurotrophins for 1 and 3 full days. Our results show that neurotrophins at a small concentration exert effects very rapidly and can modify NPC fate and directional movement.</p>
+      <p>We speculate that in the future researchers will incorporate into their protocols controlled exposure to neurotrophins before cell transplant to enhance the cells&#x2019; migration profile and to direct their fate. Our next set of experiments should also explore whether neurotrophins could improve the integration of transplanted cells into the local host circuitry.</p>
+      <sec id="s4a">
+        <title>Conclusion</title>
+        <p>Increasing migration and differentiation of stem cells transplanted in stroke and HI models of brain injury are a critical juncture for translational clinical applications. We found that the addition of GDNF, NGF, EGF, and NT-3 to <italic>in vitro</italic> cultures of MASCs increased migration and differentiation toward neuronal phenotypes. Our results indicate that MASCs exposed to one day of GDNF at 100 ng/mL and BDNF at 100 ng/mL have the greatest <italic>in vitro</italic> migration. In addition, MASCs exposed to three days of NT-3 at 100 ng/mL and NGF at 400 ng/mL have the most migration. Our results indicate that MASCs exposed to GDNF at10 ng/mL, BDNF at 10 ng/mL, NT-2 at 50 ng/mL and NGF at 400 ng/mL have the most differentiation toward neuronal phenotypes. We describe how even brief exposure (such as 24 hours) to neurotrophins can change the phenotype of NPCs. More studies are needed to determine whether the same response is obtained with other NPCs transplanted after brain injury.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0051706.s001">
+        <label>Figure S1</label>
+        <caption>
+          <p>
+<bold>MAS culture and migration.</bold> Panel S1A Microphotography of MASCs in culture. MASCs are derived from the SVZ of GFP transgenic newborn mice (post-natal day 2 &#x2013; 4). Panel S1B. Microphotography of membrane with micro pores and migrated cell (from the migration experiments). Bar&#x200A;=&#x200A;200 &#xB5;m.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0051706.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0051706.s002">
+        <label>Figure S2</label>
+        <caption>
+          <p>
+<bold>Boyden chamber.</bold> The Boyden upper chambers were loaded with 50&#xD7;10<sup>4</sup> stem cells and the lower chambers were loaded with different concentrations of neurotrophins. A polycarbonate membrane with pores and a thin layer of extracellular matrix were between the two chambers. Migrated cells were counted after 24 and 72 hours of migration.</p>
+          <p>(TIFF)</p>
+        </caption>
+        <media xlink:href="pone.0051706.s002.tiff">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0051706.s003">
+        <label>Table S1</label>
+        <caption>
+          <p>
+<bold>MASCs migration response to different neurotrophins.</bold> Concentrations are presented in ng/mL and results are presented as mean number of migrated cells and its 95% confidence intervals.</p>
+          <p>(DOC)</p>
+        </caption>
+        <media xlink:href="pone.0051706.s003.doc">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0051706.s004">
+        <label>Table S2</label>
+        <caption>
+          <p>
+<bold>Percentage &#x3B2;-3 tubulin positive cells after exposure to different neurotrophins.</bold> Concentrations of neurotrophins are presented in ng/mL and results are presented as mean number of migrated cells and its 99% confidence intervals.</p>
+          <p>(DOC)</p>
+        </caption>
+        <media xlink:href="pone.0051706.s004.doc">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0051706-Beilharz1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Beilharz</surname><given-names>EJ</given-names></name>, <name><surname>Klempt</surname><given-names>ND</given-names></name>, <name><surname>Klempt</surname><given-names>M</given-names></name>, <name><surname>Sirimanne</surname><given-names>E</given-names></name>, <name><surname>Dragunow</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>1993</year>) <article-title>Differential expression of insulin-like growth factor binding proteins (IGFBP) 4 and 5 mRNA in the rat brain after transient hypoxic-ischemic injury</article-title>. <source>Brain Res Mol Brain Res</source>
+<volume>18</volume>: <fpage>209</fpage>&#x2013;<lpage>215</lpage>.<pub-id pub-id-type="pmid">7684482</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Lawn1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lawn</surname><given-names>J</given-names></name>, <name><surname>Shibuya</surname><given-names>K</given-names></name>, <name><surname>Stein</surname><given-names>C</given-names></name> (<year>2005</year>) <article-title>No cry at birth: global estimates of intrapartum stillbirths and intrapartum-related neonatal deaths</article-title>. <source>Bull World Health Organ</source>
+<volume>83</volume>: <fpage>409</fpage>&#x2013;<lpage>417</lpage>.<pub-id pub-id-type="pmid">15976891</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Shankaran1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shankaran</surname><given-names>S</given-names></name> (<year>2002</year>) <article-title>The postnatal management of the asphyxiated term infant</article-title>. <source>Clin Perinatol</source>
+<volume>29</volume>: <fpage>675</fpage>&#x2013;<lpage>692</lpage>.<pub-id pub-id-type="pmid">12516741</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Pierrat1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pierrat</surname><given-names>V</given-names></name>, <name><surname>Haouari</surname><given-names>N</given-names></name>, <name><surname>Liska</surname><given-names>A</given-names></name>, <name><surname>Thomas</surname><given-names>D</given-names></name>, <name><surname>Subtil</surname><given-names>D</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Prevalence, causes, and outcome at 2 years of age of newborn encephalopathy: population based study</article-title>. <source>Arch Dis Child Fetal Neonatal Ed</source>
+<volume>90</volume>: <fpage>F257</fpage>&#x2013;<lpage>261</lpage>.<pub-id pub-id-type="pmid">15846019</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Shankaran2">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shankaran</surname><given-names>S</given-names></name>, <name><surname>Laptook</surname><given-names>AR</given-names></name>, <name><surname>Ehrenkranz</surname><given-names>RA</given-names></name>, <name><surname>Tyson</surname><given-names>JE</given-names></name>, <name><surname>McDonald</surname><given-names>SA</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Whole-body hypothermia for neonates with hypoxic-ischemic encephalopathy</article-title>. <source>N Engl J Med</source>
+<volume>353</volume>: <fpage>1574</fpage>&#x2013;<lpage>1584</lpage>.<pub-id pub-id-type="pmid">16221780</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Wolfberg1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wolfberg</surname><given-names>AJ</given-names></name>, <name><surname>Dammann</surname><given-names>O</given-names></name>, <name><surname>Gressens</surname><given-names>P</given-names></name> (<year>2007</year>) <article-title>Anti-inflammatory and immunomodulatory strategies to protect the perinatal brain</article-title>. <source>Semin Fetal Neonatal Med</source>
+<volume>12</volume>: <fpage>296</fpage>&#x2013;<lpage>302</lpage>.<pub-id pub-id-type="pmid">17418653</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Low1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Low</surname><given-names>JA</given-names></name>, <name><surname>Ludwin</surname><given-names>SK</given-names></name>, <name><surname>Fisher</surname><given-names>S</given-names></name> (<year>1996</year>) <article-title>Severe fetal asphyxia associated with neuropathology</article-title>. <source>Am J Obstet Gynecol</source>
+<volume>175</volume>: <fpage>1383</fpage>&#x2013;<lpage>1385</lpage>.<pub-id pub-id-type="pmid">8942523</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Thornberg1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Thornberg</surname><given-names>E</given-names></name>, <name><surname>Thiringer</surname><given-names>K</given-names></name>, <name><surname>Odeback</surname><given-names>A</given-names></name>, <name><surname>Milsom</surname><given-names>I</given-names></name> (<year>1995</year>) <article-title>Birth asphyxia: incidence, clinical course and outcome in a Swedish population</article-title>. <source>Acta Paediatr</source>
+<volume>84</volume>: <fpage>927</fpage>&#x2013;<lpage>932</lpage>.<pub-id pub-id-type="pmid">7488819</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Levene1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Levene</surname><given-names>MI</given-names></name>, <name><surname>Gibson</surname><given-names>NA</given-names></name>, <name><surname>Fenton</surname><given-names>AC</given-names></name>, <name><surname>Papathoma</surname><given-names>E</given-names></name>, <name><surname>Barnett</surname><given-names>D</given-names></name> (<year>1990</year>) <article-title>The use of a calcium-channel blocker, nicardipine, for severely asphyxiated newborn infants</article-title>. <source>Dev Med Child Neurol</source>
+<volume>32</volume>: <fpage>567</fpage>&#x2013;<lpage>574</lpage>.<pub-id pub-id-type="pmid">2391009</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Crowther1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Crowther</surname><given-names>CA</given-names></name>, <name><surname>Hiller</surname><given-names>JE</given-names></name>, <name><surname>Doyle</surname><given-names>LW</given-names></name>, <name><surname>Haslam</surname><given-names>RR</given-names></name> (<year>2003</year>) <article-title>Effect of magnesium sulfate given for neuroprotection before preterm birth: a randomized controlled trial</article-title>. <source>JAMA</source>
+<volume>290</volume>: <fpage>2669</fpage>&#x2013;<lpage>2676</lpage>.<pub-id pub-id-type="pmid">14645308</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Mittendorf1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mittendorf</surname><given-names>R</given-names></name>, <name><surname>Dammann</surname><given-names>O</given-names></name>, <name><surname>Lee</surname><given-names>KS</given-names></name> (<year>2006</year>) <article-title>Brain lesions in newborns exposed to high-dose magnesium sulfate during preterm labor</article-title>. <source>J Perinatol</source>
+<volume>26</volume>: <fpage>57</fpage>&#x2013;<lpage>63</lpage>.<pub-id pub-id-type="pmid">16319938</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Bakshi1">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bakshi</surname><given-names>A</given-names></name>, <name><surname>Shimizu</surname><given-names>S</given-names></name>, <name><surname>Keck</surname><given-names>CA</given-names></name>, <name><surname>Cho</surname><given-names>S</given-names></name>, <name><surname>LeBold</surname><given-names>DG</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Neural progenitor cells engineered to secrete GDNF show enhanced survival, neuronal differentiation and improve cognitive function following traumatic brain injury</article-title>. <source>Eur J Neurosci</source>
+<volume>23</volume>: <fpage>2119</fpage>&#x2013;<lpage>2134</lpage>.<pub-id pub-id-type="pmid">16630059</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Eicher1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Eicher</surname><given-names>DJ</given-names></name>, <name><surname>Wagner</surname><given-names>CL</given-names></name>, <name><surname>Katikaneni</surname><given-names>LP</given-names></name>, <name><surname>Hulsey</surname><given-names>TC</given-names></name>, <name><surname>Bass</surname><given-names>WT</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Moderate hypothermia in neonatal encephalopathy: safety outcomes</article-title>. <source>Pediatr Neurol</source>
+<volume>32</volume>: <fpage>18</fpage>&#x2013;<lpage>24</lpage>.<pub-id pub-id-type="pmid">15607599</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Gluckman1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Gluckman</surname><given-names>PD</given-names></name>, <name><surname>Wyatt</surname><given-names>JS</given-names></name>, <name><surname>Azzopardi</surname><given-names>D</given-names></name>, <name><surname>Ballard</surname><given-names>R</given-names></name>, <name><surname>Edwards</surname><given-names>AD</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Selective head cooling with mild systemic hypothermia after neonatal encephalopathy: multicentre randomised trial</article-title>. <source>Lancet</source>
+<volume>365</volume>: <fpage>663</fpage>&#x2013;<lpage>670</lpage>.<pub-id pub-id-type="pmid">15721471</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Jacobs1">
+        <label>15</label>
+        <mixed-citation publication-type="other">Jacobs S, Hunt R, Tarnow-Mordi W, Inder T, Davis P (2007) Cooling for newborns with hypoxic ischaemic encephalopathy. Cochrane Database Syst Rev: CD003311.</mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Zhu1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhu</surname><given-names>C</given-names></name>, <name><surname>Kang</surname><given-names>W</given-names></name>, <name><surname>Xu</surname><given-names>F</given-names></name>, <name><surname>Cheng</surname><given-names>X</given-names></name>, <name><surname>Zhang</surname><given-names>Z</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Erythropoietin improved neurologic outcomes in newborns with hypoxic-ischemic encephalopathy</article-title>. <source>Pediatrics</source>
+<volume>124</volume>: <fpage>e218</fpage>&#x2013;<lpage>226</lpage>.<pub-id pub-id-type="pmid">19651565</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Daadi1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Daadi</surname><given-names>MM</given-names></name> (<year>2008</year>) <article-title>In vitro assays for neural stem cell differentiation: induction of dopaminergic phenotype</article-title>. <source>Methods Mol Biol</source>
+<volume>438</volume>: <fpage>205</fpage>&#x2013;<lpage>212</lpage>.<pub-id pub-id-type="pmid">18369760</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Romanko1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Romanko</surname><given-names>MJ</given-names></name>, <name><surname>Rothstein</surname><given-names>RP</given-names></name>, <name><surname>Levison</surname><given-names>SW</given-names></name> (<year>2004</year>) <article-title>Neural stem cells in the subventricular zone are resilient to hypoxia/ischemia whereas progenitors are vulnerable</article-title>. <source>J Cereb Blood Flow Metab</source>
+<volume>24</volume>: <fpage>814</fpage>&#x2013;<lpage>825</lpage>.<pub-id pub-id-type="pmid">15241190</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Levison1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Levison</surname><given-names>SW</given-names></name>, <name><surname>Rothstein</surname><given-names>RP</given-names></name>, <name><surname>Romanko</surname><given-names>MJ</given-names></name>, <name><surname>Snyder</surname><given-names>MJ</given-names></name>, <name><surname>Meyers</surname><given-names>RL</given-names></name>, <etal>et al</etal> (<year>2001</year>) <article-title>Hypoxia/ischemia depletes the rat perinatal subventricular zone of oligodendrocyte progenitors and neural stem cells</article-title>. <source>Dev Neurosci</source>
+<volume>23</volume>: <fpage>234</fpage>&#x2013;<lpage>247</lpage>.<pub-id pub-id-type="pmid">11598326</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Ness1">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ness</surname><given-names>JK</given-names></name>, <name><surname>Romanko</surname><given-names>MJ</given-names></name>, <name><surname>Rothstein</surname><given-names>RP</given-names></name>, <name><surname>Wood</surname><given-names>TL</given-names></name>, <name><surname>Levison</surname><given-names>SW</given-names></name> (<year>2001</year>) <article-title>Perinatal hypoxia-ischemia induces apoptotic and excitotoxic death of periventricular white matter oligodendrocyte progenitors</article-title>. <source>Dev Neurosci</source>
+<volume>23</volume>: <fpage>203</fpage>&#x2013;<lpage>208</lpage>.<pub-id pub-id-type="pmid">11598321</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Zheng1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zheng</surname><given-names>T</given-names></name>, <name><surname>Rossignol</surname><given-names>C</given-names></name>, <name><surname>Leibovici</surname><given-names>A</given-names></name>, <name><surname>Anderson</surname><given-names>KJ</given-names></name>, <name><surname>Steindler</surname><given-names>DA</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Transplantation of multipotent astrocytic stem cells into a rat model of neonatal hypoxic-ischemic encephalopathy</article-title>. <source>Brain Res</source>
+<volume>1112</volume>: <fpage>99</fpage>&#x2013;<lpage>105</lpage>.<pub-id pub-id-type="pmid">16919606</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Bibel1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bibel</surname><given-names>M</given-names></name>, <name><surname>Barde</surname><given-names>YA</given-names></name> (<year>2000</year>) <article-title>Neurotrophins: key regulators of cell fate and cell shape in the vertebrate nervous system</article-title>. <source>Genes Dev</source>
+<volume>14</volume>: <fpage>2919</fpage>&#x2013;<lpage>2937</lpage>.<pub-id pub-id-type="pmid">11114882</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Teng1">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Teng</surname><given-names>YD</given-names></name>, <name><surname>Yu</surname><given-names>D</given-names></name>, <name><surname>Ropper</surname><given-names>AE</given-names></name>, <name><surname>Li</surname><given-names>J</given-names></name>, <name><surname>Kabatas</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Functional multipotency of stem cells: a conceptual review of neurotrophic factor-based evidence and its role in translational research</article-title>. <source>Curr Neuropharmacol</source>
+<volume>9</volume>: <fpage>574</fpage>&#x2013;<lpage>585</lpage>.<pub-id pub-id-type="pmid">22654717</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Sizonenko1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sizonenko</surname><given-names>SV</given-names></name>, <name><surname>Bednarek</surname><given-names>N</given-names></name>, <name><surname>Gressens</surname><given-names>P</given-names></name> (<year>2007</year>) <article-title>Growth factors and plasticity</article-title>. <source>Semin Fetal Neonatal Med</source>
+<volume>12</volume>: <fpage>241</fpage>&#x2013;<lpage>249</lpage>.<pub-id pub-id-type="pmid">17336172</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Suzuki1">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Suzuki</surname><given-names>M</given-names></name>, <name><surname>McHugh</surname><given-names>J</given-names></name>, <name><surname>Tork</surname><given-names>C</given-names></name>, <name><surname>Shelley</surname><given-names>B</given-names></name>, <name><surname>Klein</surname><given-names>SM</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>GDNF secreting human neural progenitor cells protect dying motor neurons, but not their projection to muscle, in a rat model of familial ALS</article-title>. <source>PLoS One</source>
+<volume>2</volume>: <fpage>e689</fpage>.<pub-id pub-id-type="pmid">17668067</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Dawbarn1">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dawbarn</surname><given-names>D</given-names></name>, <name><surname>Allen</surname><given-names>SJ</given-names></name> (<year>2003</year>) <article-title>Neurotrophins and neurodegeneration</article-title>. <source>Neuropathol Appl Neurobiol</source>
+<volume>29</volume>: <fpage>211</fpage>&#x2013;<lpage>230</lpage>.<pub-id pub-id-type="pmid">12787319</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Binder1">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Binder</surname><given-names>DK</given-names></name>, <name><surname>Scharfman</surname><given-names>HE</given-names></name> (<year>2004</year>) <article-title>Brain-derived neurotrophic factor</article-title>. <source>Growth Factors</source>
+<volume>22</volume>: <fpage>123</fpage>&#x2013;<lpage>131</lpage>.<pub-id pub-id-type="pmid">15518235</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Laywell1">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Laywell</surname><given-names>ED</given-names></name>, <name><surname>Rakic</surname><given-names>P</given-names></name>, <name><surname>Kukekov</surname><given-names>VG</given-names></name>, <name><surname>Holland</surname><given-names>EC</given-names></name>, <name><surname>Steindler</surname><given-names>DA</given-names></name> (<year>2000</year>) <article-title>Identification of a multipotent astrocytic stem cell in the immature and adult mouse brain</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>97</volume>: <fpage>13883</fpage>&#x2013;<lpage>13888</lpage>.<pub-id pub-id-type="pmid">11095732</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Belmadani1">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Belmadani</surname><given-names>A</given-names></name>, <name><surname>Tran</surname><given-names>PB</given-names></name>, <name><surname>Ren</surname><given-names>D</given-names></name>, <name><surname>Miller</surname><given-names>RJ</given-names></name> (<year>2006</year>) <article-title>Chemokines regulate the migration of neural progenitors to sites of neuroinflammation</article-title>. <source>J Neurosci</source>
+<volume>26</volume>: <fpage>3182</fpage>&#x2013;<lpage>3191</lpage>.<pub-id pub-id-type="pmid">16554469</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Rosenblum1">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rosenblum</surname><given-names>S</given-names></name>, <name><surname>Wang</surname><given-names>N</given-names></name>, <name><surname>Smith</surname><given-names>TN</given-names></name>, <name><surname>Pendharkar</surname><given-names>AV</given-names></name>, <name><surname>Chua</surname><given-names>JY</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Timing of intra-arterial neural stem cell transplantation after hypoxia-ischemia influences cell engraftment, survival, and differentiation</article-title>. <source>Stroke</source>
+<volume>43</volume>: <fpage>1624</fpage>&#x2013;<lpage>1631</lpage>.<pub-id pub-id-type="pmid">22535265</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Chen1">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>B</given-names></name>, <name><surname>Gao</surname><given-names>XQ</given-names></name>, <name><surname>Yang</surname><given-names>CX</given-names></name>, <name><surname>Tan</surname><given-names>SK</given-names></name>, <name><surname>Sun</surname><given-names>ZL</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Neuroprotective effect of grafting GDNF gene-modified neural stem cells on cerebral ischemia in rats</article-title>. <source>Brain Res</source>
+<volume>1284</volume>: <fpage>1</fpage>&#x2013;<lpage>11</lpage>.<pub-id pub-id-type="pmid">19520066</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-CohenCory1">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cohen-Cory</surname><given-names>S</given-names></name>, <name><surname>Kidane</surname><given-names>AH</given-names></name>, <name><surname>Shirkey</surname><given-names>NJ</given-names></name>, <name><surname>Marshak</surname><given-names>S</given-names></name> (<year>2010</year>) <article-title>Brain-derived neurotrophic factor and the development of structural neuronal connectivity</article-title>. <source>Dev Neurobiol</source>
+<volume>70</volume>: <fpage>271</fpage>&#x2013;<lpage>288</lpage>.<pub-id pub-id-type="pmid">20186709</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Kameda1">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kameda</surname><given-names>M</given-names></name>, <name><surname>Shingo</surname><given-names>T</given-names></name>, <name><surname>Takahashi</surname><given-names>K</given-names></name>, <name><surname>Muraoka</surname><given-names>K</given-names></name>, <name><surname>Kurozumi</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Adult neural stem and progenitor cells modified to secrete GDNF can protect, migrate and integrate after intracerebral transplantation in rats with transient forebrain ischemia</article-title>. <source>Eur J Neurosci</source>
+<volume>26</volume>: <fpage>1462</fpage>&#x2013;<lpage>1478</lpage>.<pub-id pub-id-type="pmid">17880388</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Cornejo1">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cornejo</surname><given-names>M</given-names></name>, <name><surname>Nambi</surname><given-names>D</given-names></name>, <name><surname>Walheim</surname><given-names>C</given-names></name>, <name><surname>Somerville</surname><given-names>M</given-names></name>, <name><surname>Walker</surname><given-names>J</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Effect of NRG1, GDNF, EGF and NGF in the migration of a Schwann cell precursor line</article-title>. <source>Neurochem Res</source>
+<volume>35</volume>: <fpage>1643</fpage>&#x2013;<lpage>1651</lpage>.<pub-id pub-id-type="pmid">20623378</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Pozas1">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pozas</surname><given-names>E</given-names></name>, <name><surname>Ibanez</surname><given-names>CF</given-names></name> (<year>2005</year>) <article-title>GDNF and GFRalpha1 promote differentiation and tangential migration of cortical GABAergic neurons</article-title>. <source>Neuron</source>
+<volume>45</volume>: <fpage>701</fpage>&#x2013;<lpage>713</lpage>.<pub-id pub-id-type="pmid">15748846</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Borghesani1">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Borghesani</surname><given-names>PR</given-names></name>, <name><surname>Peyrin</surname><given-names>JM</given-names></name>, <name><surname>Klein</surname><given-names>R</given-names></name>, <name><surname>Rubin</surname><given-names>J</given-names></name>, <name><surname>Carter</surname><given-names>AR</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>BDNF stimulates migration of cerebellar granule cells</article-title>. <source>Development</source>
+<volume>129</volume>: <fpage>1435</fpage>&#x2013;<lpage>1442</lpage>.<pub-id pub-id-type="pmid">11880352</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Bejot1">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bejot</surname><given-names>Y</given-names></name>, <name><surname>Mossiat</surname><given-names>C</given-names></name>, <name><surname>Giroud</surname><given-names>M</given-names></name>, <name><surname>Prigent-Tessier</surname><given-names>A</given-names></name>, <name><surname>Marie</surname><given-names>C</given-names></name> (<year>2011</year>) <article-title>Circulating and brain BDNF levels in stroke rats. Relevance to clinical studies</article-title>. <source>PLoS One</source>
+<volume>6</volume>: <fpage>e29405</fpage>.<pub-id pub-id-type="pmid">22195050</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Glaser1">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Glaser</surname><given-names>T</given-names></name>, <name><surname>Brose</surname><given-names>C</given-names></name>, <name><surname>Franceschini</surname><given-names>I</given-names></name>, <name><surname>Hamann</surname><given-names>K</given-names></name>, <name><surname>Smorodchenko</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Neural cell adhesion molecule polysialylation enhances the sensitivity of embryonic stem cell-derived neural precursors to migration guidance cues</article-title>. <source>Stem Cells</source>
+<volume>25</volume>: <fpage>3016</fpage>&#x2013;<lpage>3025</lpage>.<pub-id pub-id-type="pmid">17823239</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Athanasios1">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Athanasios</surname><given-names>F</given-names></name>, <name><surname>Afrodite</surname><given-names>N</given-names></name>, <name><surname>Effstratios</surname><given-names>P</given-names></name>, <name><surname>Demetrios</surname><given-names>K</given-names></name> (<year>2012</year>) <article-title>Co-expression of bone morphogenetic protein 6 with estrogen receptor a in endometriosis</article-title>. <source>Arch Gynecol Obstet</source>
+<volume>285</volume>: <fpage>1001</fpage>&#x2013;<lpage>1007</lpage>.<pub-id pub-id-type="pmid">21932087</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Zhang1">
+        <label>40</label>
+        <mixed-citation publication-type="other">Zhang L, Tan X, Dong C, Zou L, Zhao H, <etal>et al</etal>.. (2012) In vitro differentiation of human umbilical cord mesenchymal stem cells (hUCMSCs), derived from Wharton&#x2019;s jelly, into choline acetyltransferase (ChAT)-positive cells. Int J Dev Neurosci.</mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Liu1">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Liu</surname><given-names>Y</given-names></name>, <name><surname>Wang</surname><given-names>L</given-names></name>, <name><surname>Long</surname><given-names>Z</given-names></name>, <name><surname>Zeng</surname><given-names>L</given-names></name>, <name><surname>Wu</surname><given-names>Y</given-names></name> (<year>2012</year>) <article-title>Protoplasmic astrocytes enhance the ability of neural stem cells to differentiate into neurons in vitro</article-title>. <source>PLoS One</source>
+<volume>7</volume>: <fpage>e38243</fpage>.<pub-id pub-id-type="pmid">22693605</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Ponte1">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ponte</surname><given-names>AL</given-names></name>, <name><surname>Marais</surname><given-names>E</given-names></name>, <name><surname>Gallay</surname><given-names>N</given-names></name>, <name><surname>Langonne</surname><given-names>A</given-names></name>, <name><surname>Delorme</surname><given-names>B</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>The in vitro migration capacity of human bone marrow mesenchymal stem cells: comparison of chemokine and growth factor chemotactic activities</article-title>. <source>Stem Cells</source>
+<volume>25</volume>: <fpage>1737</fpage>&#x2013;<lpage>1745</lpage>.<pub-id pub-id-type="pmid">17395768</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Petridis1">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Petridis</surname><given-names>AK</given-names></name>, <name><surname>El Maarouf</surname><given-names>A</given-names></name> (<year>2011</year>) <article-title>Brain-derived neurotrophic factor levels influence the balance of migration and differentiation of subventricular zone cells, but not guidance to the olfactory bulb</article-title>. <source>J Clin Neurosci</source>
+<volume>18</volume>: <fpage>265</fpage>&#x2013;<lpage>270</lpage>.<pub-id pub-id-type="pmid">21177109</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Kamei1">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kamei</surname><given-names>N</given-names></name>, <name><surname>Tanaka</surname><given-names>N</given-names></name>, <name><surname>Oishi</surname><given-names>Y</given-names></name>, <name><surname>Hamasaki</surname><given-names>T</given-names></name>, <name><surname>Nakanishi</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>BDNF, NT-3, and NGF released from transplanted neural progenitor cells promote corticospinal axon growth in organotypic cocultures</article-title>. <source>Spine (Phila Pa 1976)</source>
+<volume>32</volume>: <fpage>1272</fpage>&#x2013;<lpage>1278</lpage>.<pub-id pub-id-type="pmid">17515814</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Fraichard1">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fraichard</surname><given-names>A</given-names></name>, <name><surname>Chassande</surname><given-names>O</given-names></name>, <name><surname>Bilbaut</surname><given-names>G</given-names></name>, <name><surname>Dehay</surname><given-names>C</given-names></name>, <name><surname>Savatier</surname><given-names>P</given-names></name>, <etal>et al</etal> (<year>1995</year>) <article-title>In vitro differentiation of embryonic stem cells into glial cells and functional neurons</article-title>. <source>J Cell Sci 108 (Pt</source>
+<volume>10)</volume>: <fpage>3181</fpage>&#x2013;<lpage>3188</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Park1">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Park</surname><given-names>KI</given-names></name>, <name><surname>Himes</surname><given-names>BT</given-names></name>, <name><surname>Stieg</surname><given-names>PE</given-names></name>, <name><surname>Tessler</surname><given-names>A</given-names></name>, <name><surname>Fischer</surname><given-names>I</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Neural stem cells may be uniquely suited for combined gene therapy and cell replacement: Evidence from engraftment of Neurotrophin-3-expressing stem cells in hypoxic-ischemic brain injury</article-title>. <source>Exp Neurol</source>
+<volume>199</volume>: <fpage>179</fpage>&#x2013;<lpage>190</lpage>.<pub-id pub-id-type="pmid">16714016</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Li1">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Li</surname><given-names>X</given-names></name>, <name><surname>Yang</surname><given-names>Z</given-names></name>, <name><surname>Zhang</surname><given-names>A</given-names></name> (<year>2009</year>) <article-title>The effect of neurotrophin-3/chitosan carriers on the proliferation and differentiation of neural stem cells</article-title>. <source>Biomaterials</source>
+<volume>30</volume>: <fpage>4978</fpage>&#x2013;<lpage>4985</lpage>.<pub-id pub-id-type="pmid">19539985</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Yang1">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yang</surname><given-names>Z</given-names></name>, <name><surname>Duan</surname><given-names>H</given-names></name>, <name><surname>Mo</surname><given-names>L</given-names></name>, <name><surname>Qiao</surname><given-names>H</given-names></name>, <name><surname>Li</surname><given-names>X</given-names></name> (<year>2010</year>) <article-title>The effect of the dosage of NT-3/chitosan carriers on the proliferation and differentiation of neural stem cells</article-title>. <source>Biomaterials</source>
+<volume>31</volume>: <fpage>4846</fpage>&#x2013;<lpage>4854</lpage>.<pub-id pub-id-type="pmid">20346501</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Blits1">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Blits</surname><given-names>B</given-names></name>, <name><surname>Kitay</surname><given-names>BM</given-names></name>, <name><surname>Farahvar</surname><given-names>A</given-names></name>, <name><surname>Caperton</surname><given-names>CV</given-names></name>, <name><surname>Dietrich</surname><given-names>WD</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Lentiviral vector-mediated transduction of neural progenitor cells before implantation into injured spinal cord and brain to detect their migration, deliver neurotrophic factors and repair tissue</article-title>. <source>Restor Neurol Neurosci</source>
+<volume>23</volume>: <fpage>313</fpage>&#x2013;<lpage>324</lpage>.<pub-id pub-id-type="pmid">16477093</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Castellanos1">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Castellanos</surname><given-names>DA</given-names></name>, <name><surname>Tsoulfas</surname><given-names>P</given-names></name>, <name><surname>Frydel</surname><given-names>BR</given-names></name>, <name><surname>Gajavelli</surname><given-names>S</given-names></name>, <name><surname>Bes</surname><given-names>JC</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>TrkC overexpression enhances survival and migration of neural stem cell transplants in the rat spinal cord</article-title>. <source>Cell Transplant</source>
+<volume>11</volume>: <fpage>297</fpage>&#x2013;<lpage>307</lpage>.<pub-id pub-id-type="pmid">12075995</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Ferriero1">
+        <label>51</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ferriero</surname><given-names>DM</given-names></name> (<year>2004</year>) <article-title>Neonatal brain injury</article-title>. <source>N Engl J Med</source>
+<volume>351</volume>: <fpage>1985</fpage>&#x2013;<lpage>1995</lpage>.<pub-id pub-id-type="pmid">15525724</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Bennet1">
+        <label>52</label>
+        <mixed-citation publication-type="other">Bennet L, Tan S, Van den Heuij L, Derrick M, Groenendaal F, et al. Cell Therapy for Neonatal Hypoxia-Ischemia and Cerebral Palsy. Annals of Neurology: Pre-print.</mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Barrett1">
+        <label>53</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Barrett</surname><given-names>RD</given-names></name>, <name><surname>Bennet</surname><given-names>L</given-names></name>, <name><surname>Davidson</surname><given-names>J</given-names></name>, <name><surname>Dean</surname><given-names>JM</given-names></name>, <name><surname>George</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Destruction and reconstruction: hypoxia and the developing brain</article-title>. <source>Birth Defects Res C Embryo Today</source>
+<volume>81</volume>: <fpage>163</fpage>&#x2013;<lpage>176</lpage>.<pub-id pub-id-type="pmid">17963273</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Stone1">
+        <label>54</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Stone</surname><given-names>BS</given-names></name>, <name><surname>Zhang</surname><given-names>J</given-names></name>, <name><surname>Mack</surname><given-names>DW</given-names></name>, <name><surname>Mori</surname><given-names>S</given-names></name>, <name><surname>Martin</surname><given-names>LJ</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Delayed neural network degeneration after neonatal hypoxia-ischemia</article-title>. <source>Ann Neurol</source>
+<volume>64</volume>: <fpage>535</fpage>&#x2013;<lpage>546</lpage>.<pub-id pub-id-type="pmid">19067347</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Llado1">
+        <label>55</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Llado</surname><given-names>J</given-names></name>, <name><surname>Haenggeli</surname><given-names>C</given-names></name>, <name><surname>Maragakis</surname><given-names>NJ</given-names></name>, <name><surname>Snyder</surname><given-names>EY</given-names></name>, <name><surname>Rothstein</surname><given-names>JD</given-names></name> (<year>2004</year>) <article-title>Neural stem cells protect against glutamate-induced excitotoxicity and promote survival of injured motor neurons through the secretion of neurotrophic factors</article-title>. <source>Mol Cell Neurosci</source>
+<volume>27</volume>: <fpage>322</fpage>&#x2013;<lpage>331</lpage>.<pub-id pub-id-type="pmid">15519246</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Daadi2">
+        <label>56</label>
+        <mixed-citation publication-type="journal">
+<article-title>Daadi MM, Davis AS, Arac A, Li Z, Maag AL, et al. Human neural stem cell grafts modify microglial response and enhance axonal sprouting in neonatal hypoxic-ischemic brain injury</article-title>. <source>Stroke</source>
+<volume>41</volume>: <fpage>516</fpage>&#x2013;<lpage>523</lpage>.<pub-id pub-id-type="pmid">20075340</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Ma1">
+        <label>57</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ma</surname><given-names>J</given-names></name>, <name><surname>Wang</surname><given-names>Y</given-names></name>, <name><surname>Yang</surname><given-names>J</given-names></name>, <name><surname>Yang</surname><given-names>M</given-names></name>, <name><surname>Chang</surname><given-names>KA</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Treatment of hypoxic-ischemic encephalopathy in mouse by transplantation of embryonic stem cell-derived cells</article-title>. <source>Neurochem Int</source>
+<volume>51</volume>: <fpage>57</fpage>&#x2013;<lpage>65</lpage>.<pub-id pub-id-type="pmid">17531351</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Sato1">
+        <label>58</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sato</surname><given-names>Y</given-names></name>, <name><surname>Nakanishi</surname><given-names>K</given-names></name>, <name><surname>Hayakawa</surname><given-names>M</given-names></name>, <name><surname>Kakizawa</surname><given-names>H</given-names></name>, <name><surname>Saito</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Reduction of brain injury in neonatal hypoxic-ischemic rats by intracerebroventricular injection of neural stem/progenitor cells together with chondroitinase ABC</article-title>. <source>Reprod Sci</source>
+<volume>15</volume>: <fpage>613</fpage>&#x2013;<lpage>620</lpage>.<pub-id pub-id-type="pmid">18579850</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Pineda1">
+        <label>59</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pineda</surname><given-names>JR</given-names></name>, <name><surname>Rubio</surname><given-names>N</given-names></name>, <name><surname>Akerud</surname><given-names>P</given-names></name>, <name><surname>Urban</surname><given-names>N</given-names></name>, <name><surname>Badimon</surname><given-names>L</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Neuroprotection by GDNF-secreting stem cells in a Huntington&#x2019;s disease model: optical neuroimage tracking of brain-grafted cells</article-title>. <source>Gene Ther</source>
+<volume>14</volume>: <fpage>118</fpage>&#x2013;<lpage>128</lpage>.<pub-id pub-id-type="pmid">16943855</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Paratcha1">
+        <label>60</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Paratcha</surname><given-names>G</given-names></name>, <name><surname>Ibanez</surname><given-names>CF</given-names></name>, <name><surname>Ledda</surname><given-names>F</given-names></name> (<year>2006</year>) <article-title>GDNF is a chemoattractant factor for neuronal precursor cells in the rostral migratory stream</article-title>. <source>Mol Cell Neurosci</source>
+<volume>31</volume>: <fpage>505</fpage>&#x2013;<lpage>514</lpage>.<pub-id pub-id-type="pmid">16380265</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Shi1">
+        <label>61</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shi</surname><given-names>H</given-names></name>, <name><surname>Patschan</surname><given-names>D</given-names></name>, <name><surname>Dietz</surname><given-names>GP</given-names></name>, <name><surname>Bahr</surname><given-names>M</given-names></name>, <name><surname>Plotkin</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Glial cell line-derived neurotrophic growth factor increases motility and survival of cultured mesenchymal stem cells and ameliorates acute kidney injury</article-title>. <source>Am J Physiol Renal Physiol</source>
+<volume>294</volume>: <fpage>F229</fpage>&#x2013;<lpage>235</lpage>.<pub-id pub-id-type="pmid">18003856</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Park2">
+        <label>62</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Park</surname><given-names>KI</given-names></name>, <name><surname>Ourednik</surname><given-names>J</given-names></name>, <name><surname>Ourednik</surname><given-names>V</given-names></name>, <name><surname>Taylor</surname><given-names>RM</given-names></name>, <name><surname>Aboody</surname><given-names>KS</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>Global gene and cell replacement strategies via stem cells</article-title>. <source>Gene Ther</source>
+<volume>9</volume>: <fpage>613</fpage>&#x2013;<lpage>624</lpage>.<pub-id pub-id-type="pmid">12032707</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Imitola1">
+        <label>63</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Imitola</surname><given-names>J</given-names></name>, <name><surname>Raddassi</surname><given-names>K</given-names></name>, <name><surname>Park</surname><given-names>KI</given-names></name>, <name><surname>Mueller</surname><given-names>FJ</given-names></name>, <name><surname>Nieto</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>Directed migration of neural stem cells to sites of CNS injury by the stromal cell-derived factor 1alpha/CXC chemokine receptor 4 pathway</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>101</volume>: <fpage>18117</fpage>&#x2013;<lpage>18122</lpage>.<pub-id pub-id-type="pmid">15608062</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0051706-Robin1">
+        <label>64</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Robin</surname><given-names>AM</given-names></name>, <name><surname>Zhang</surname><given-names>ZG</given-names></name>, <name><surname>Wang</surname><given-names>L</given-names></name>, <name><surname>Zhang</surname><given-names>RL</given-names></name>, <name><surname>Katakowski</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Stromal cell-derived factor 1alpha mediates neural progenitor cell motility after focal cerebral ischemia</article-title>. <source>J Cereb Blood Flow Metab</source>
+<volume>26</volume>: <fpage>125</fpage>&#x2013;<lpage>134</lpage>.<pub-id pub-id-type="pmid">15959456</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

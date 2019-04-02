@@ -1,0 +1,492 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22927910</article-id>
+      <article-id pub-id-type="pmc">3424221</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-12-08756</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0041613</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Anatomy and Physiology</subject>
+            <subj-group>
+              <subject>Endocrine System</subject>
+              <subj-group>
+                <subject>Endocrine Physiology</subject>
+                <subj-group>
+                  <subject>Epidermal Growth Factor</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Molecular Cell Biology</subject>
+            <subj-group>
+              <subject>Signal Transduction</subject>
+              <subj-group>
+                <subject>Signaling in Selected Disciplines</subject>
+                <subj-group>
+                  <subject>Oncogenic Signaling</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Cell Growth</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Anatomy and Physiology</subject>
+            <subj-group>
+              <subject>Endocrine System</subject>
+              <subj-group>
+                <subject>Endocrine Physiology</subject>
+                <subj-group>
+                  <subject>Epidermal Growth Factor</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Endocrinology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Epidermal Growth Factor</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>A Switch Role of Src in the Biphasic EGF Signaling of ER-Negative Breast Cancer Cells</article-title>
+        <alt-title alt-title-type="running-head">Src in Biphasic EGF Signaling</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>XinTian</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Meng</surname>
+            <given-names>Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+          <xref ref-type="author-notes" rid="fn1">
+<sup>&#xA4;</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Zhao-Yi</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<addr-line>Department of Medical Microbiology and Immunology, Creighton University Medical School, Omaha, Nebraska, United States of America</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Migliaccio</surname>
+            <given-names>Antimo</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>II Universit&#xE0; di Napoli, Italy</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>zywang@creighton.edu</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: XTZ ZYW. Performed the experiments: XTZ JM. Analyzed the data: XTZ JM ZYW. Wrote the paper: XTZ ZYW.</p>
+        </fn>
+        <fn id="fn1" fn-type="current-aff">
+          <label>
+            <sup>&#xA4;</sup>
+          </label>
+          <p>Current address: School of Food and Bioengineering, Zhengzhou University of Light Industry, Zhengzhou, P.R. China</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>21</day>
+        <month>8</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>8</issue>
+      <elocation-id>e41613</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>23</day>
+          <month>3</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>22</day>
+          <month>6</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Zhang et al</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <copyright-holder>Zhang et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>It is well established that epidermal growth factor (EGF) is a potent mitogen in cells expressing EGF receptor (EGFR). However, a body of evidence indicated that the effects of mitogenic EGF signaling exhibit a non-monotonic, or biphasic dose response curve; EGF at low concentrations elicits a mitogenic signaling pathway to stimulate cell proliferation while at high concentrations, EGF inhibits cell growth. However, the molecular mechanism underlying this paradoxical effect of EGF on cell proliferation remains largely unknown. Here, we investigated the molecular mechanisms underlying the biphasic EGF signaling in ER-negative breast cancer MDA-MB-231 and MDA-MB-436 cells, both of which express endogenous EGFR. We found that EGF at low concentrations induced the phosphorylation of the Src-Y416 residue, an event to activate Src, while at high concentrations allowed Src-Y527 phosphorylation that inactivates Src. EGF at 10 ng/ml also induced phosphorylation of the MAPK/ERK and activated cyclin D1 promoter activity through the Src/EGFR/STAT5 pathways but not at a higher concentration (500 ng/ml). Our results thus demonstrated that Src functions as a switch of EGF signaling depending on concentrations of EGF.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work was supported by National Institutes of Health grant DK070016 and Nebraska Tobacco Settlement Biomedical Research Program Awards (LB-595). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="8"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>EGF is one of the most potent mitogens, which transmit signals for cell growth, survival and motility by binding to and activating the EGF receptor (EGFR) <xref rid="pone.0041613-Rheinwald1" ref-type="bibr">[1]</xref>&#x2013;<xref rid="pone.0041613-Yarden1" ref-type="bibr">[3]</xref>. Amplification and mutation of the EGFR locus are frequently found in human epithelial malignancies <xref rid="pone.0041613-Ozanne1" ref-type="bibr">4</xref>&#x2013;<xref rid="pone.0041613-Stanton1" ref-type="bibr">6</xref>. In breast cancer models, however, EGFR overexpression alone usually does not constitute efficient transformation and tumorigenesis while co-expression with the non-receptor kinase c-Src dramatically increases tumorigenesis <xref rid="pone.0041613-Maa1" ref-type="bibr">7</xref>&#x2013;<xref rid="pone.0041613-Biscardi1" ref-type="bibr">9</xref>. It has been reported that co-expression of EGFR and c-Src in breast cancer cell lines results in their association and c-Src-mediated phosphorylation of the EGFR at tyrosine 845 (Tyr845) within its catalytic domain, which contributes to enhanced cell proliferation and tumor formation <italic>in vivo</italic>
+<xref rid="pone.0041613-Maa1" ref-type="bibr">[7]</xref>&#x2013;<xref rid="pone.0041613-Biscardi1" ref-type="bibr">[9]</xref>. EGFR-Tyr845 phosphorylation recruits the signal transducer and activator of transcription 3/5 (STAT3/5) that transmits the EGF signals to the cell nuclear and induces expression of the growth promoting genes such as c-Myc and cyclin D1 <xref rid="pone.0041613-Silva1" ref-type="bibr">[10]</xref>.</p>
+      <p>Like other growth stimulatory factors, the effects of mitogenic EGF signaling exhibit a non-monotonic, or biphasic dose response curve (inverted U-shaped); EGF at low concentrations, elicits a mitogenic signaling pathway to stimulate cell proliferation while at high concentrations, EGF inhibits cell growth and even induces cell apoptosis <xref rid="pone.0041613-Gill1" ref-type="bibr">[11]</xref>. However, the molecular basis for this paradoxical effect of EGF on cell proliferation remains largely unknown. In some EGFR over-expressing cell lines such as vulva carcinoma A431 cells, EGF at pM range stimulates cell proliferation while EGF at nM range induces growth inhibition, terminal differentiation and apoptosis <xref rid="pone.0041613-Knoger1" ref-type="bibr">[12]</xref>&#x2013;<xref rid="pone.0041613-Kawamoto1" ref-type="bibr">[14]</xref>. Previously, it was shown that EGF-induced growth arrest and apoptosis is associated with the activation of STAT1, which in turn activates p21/WAF1 and Caspase 1 <xref rid="pone.0041613-Chin1" ref-type="bibr">[15]</xref>&#x2013;<xref rid="pone.0041613-Sato1" ref-type="bibr">[19]</xref>. In addition, the tyrosine kinase Etk/Bmx, a downstream signaling molecule of EGF pathway is involved in the EGF-induced activation of STAT1 and apoptosis <xref rid="pone.0041613-Chen1" ref-type="bibr">[20]</xref>.</p>
+      <p>In the current study, we investigated the molecular mechanisms underlying the biphasic or non-monotonic EGF signaling in ER-negative breast cancer cells that express endogenous EGFR and revealed the involvement of the Src/EGFR/STAT5 signaling pathway in the biphasic EGF signaling.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Chemicals and Antibodies</title>
+        <p>EGF was purchased from Sigma Chemical Co. (St. Louis, MO). The Src inhibitor dasatinib was obtained from LC Laboratories (Woburn, MA). The Src inhibitor PP2, the EGFR inhibitor AG1478 and the PI3K inhibitor LY294002 were from Tocris Bioscience (Ellisville, MO). Phospho-EGFR and -Src antibodies, EGFR and Src antibodies, anti-phospho-p44/42 ERK (Thr202/Tyr204) (197G2) mouse monoclonal antibody (mAb) and anti-p44/42 ERK (137F5) rabbit mAb were purchased from Cell Signaling Technology (Boston, MA). Antibody of cyclin D1 was purchased from Santa Cruz Biotechnology (Santa Cruz, CA).</p>
+      </sec>
+      <sec id="s2b">
+        <title>Cell Culture, Treatment and Growth Assay</title>
+        <p>MDA-MB-231 and MDA-MB-436 cells were obtained from American Type Culture Collection (ATCC, Manassas, VA). Cells were maintained at 37&#xB0;C in a 10% CO<sub>2</sub> atmosphere in DMEM and 10% fetal calf serum in a humidified incubator. For ERK activation assays, cells were treated with vehicle PBS or indicated concentrations of EGF. To test the effects of different inhibitors, all inhibitors were added 10 min. before EGF addition.</p>
+        <p>To examine cell growth in the presence or absence of different concentrations of EGF, cells maintained in serum-free medium overnight were treated with different concentrations of EGF or PBS vehicle as a control. The cells were seeded at 1&#xD7;10<sup>4</sup> cells per dish in 60 mm dishes and the cell numbers were determined using the ADAM automatic cell counter (Digital Bio., Korea) after seven days. Five dishes were used for each treatment and experiments were repeated more than three times.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Plasmids, DNA Transfection and Luciferase Assay</title>
+        <p>The expression vectors for a dominant-negative mutant of Src (pCMV5/SrcK295) and a constitutively active mutant of Src (pCMV5/SrcY527F) were obtained from Dr. Yun Qiu at the Department of Pharmacology and Experimental Therapeutics, University of Maryland School of Medicine. Dr. Linda Schuler at Department of Comparative Biosciences, University of Wisconsin-Madison, kindly provided the luciferase reporter plasmids of the cyclin D1 promoter carrying GAS1 and 2 mutations. Two naturally occurring dominant-negative STAT5 mutants, Stat5a&#x394;713 and Stat5a&#x394;740 were provided by Dr. Hiroko Yamashita at Department of Surgery II, Nagoya City University. The wild-type luciferase reporter plasmid of the cyclin D1 promoter, cyclin D1 pl-963 was obtained from Dr. Chris Albanese at Departments of Oncology and Pathology, Georgetown University Medical Center. LHRR, a consensus STAT5 reporter construct containing a six-repeat sequence of the lactogenic hormone response element (LHRE) was kindly provided by Dr. Sarah Parson at Department of Microbiology, University of Virginia Health System. Cells were all co-transfected with a cytomegalovirus-driven <italic>Renilla</italic> luciferase plasmid, pRL-CMV (Promega, Madison, WI) to establish transfection efficiency. Twenty-four hours after transfection, cells were treated withorwhiout the indicated inhibitors for twenty-four hours. Forty-eight hours after transfection, cell extracts were prepared and luciferase activities were determined and normalized using the Dual-Luciferase Assay System (Promega, Madison, WI) and a TD 20/20 Luminometer (Turner BioSystems, Inc., Sunnyvale, CA) as instructed by the manufacturer.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Western Blot Analysis</title>
+        <p>For Western blot analysis, cells washed with ice-cold PBS were lysed with the lysis buffer (50 mM Tris-HCl pH 8.0, 150 mM NaCl, 0.25 mM EDTA pH 8.0, 0.1% SDS, 1% Triton X-100, 50 mM NaF) supplemented with the protease and phosphatase inhibitors (Sigma, St. Louis, MO). The protein amounts were measured using the DC protein assay kit (BIO-RAD Laboratories, Hercules, CA). The same amounts of the cell lysates were boiled for 5 minutes in loading buffer and separated on a SDS-PAGE gel. After electrophoresis, the proteins were transferred to a PVDF membrane. The membranes were probed with various primary antibodies, HRP-conjugated secondary antibodies, and visualized with enhanced chemiluminescence (ECL) detection reagents (GE Healthcare Bio-Sciences Corp., Piscataway, NJ).</p>
+      </sec>
+      <sec id="s2e">
+        <title>Immunoprecipitation and Immunoblot Analysis</title>
+        <p>For imunoprecipitation assays, cells were washed twice with ice-cold PBS and lysed with the lysis buffer (150 mM NaCl, 20 mM TrisHCl, pH 7.4, 0.1% NP-40) supplemented with the protease and phosphatase inhibitors (Sigma). Cell lysates were then incubated with the indicated antibodies, or pre-immune serum and immunoprecipitated with protein A/G plus agarose. The precipitates were then washed extensively, separated on SDS-PAGE and analyzed with Western blot analysis.</p>
+      </sec>
+      <sec id="s2f">
+        <title>Statistical Analysis</title>
+        <p>Data were summarized as the mean &#xB1; standard error (SE) using the GraphPad InStat software program (GraphPad Software, La Jolla, CA, USA). Tukey-Kramer Multiple Comparisons Test was also used, and the significance was accepted for <italic>P</italic>&lt;0.05.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>ER-negative breast cancer cells exhibit biphasic EGF signaling</title>
+        <p>To probe the underlying mechanisms of the biphasic EGF signaling, we decided to first determine the growth rate of two ER-negative breast cancer cell lines MDA-MB-231 and MDA-MB-436 in response to different concentrations of EGF. As shown in <xref ref-type="fig" rid="pone-0041613-g001">Figure 1A</xref>, the ER-negative breast cancer cells treated with 10 ng/ml EGF exhibited an increased growth rate compared with cells treated with PBS. The dose-response curves of EGF exhibited a biphasic pattern; increasing concentrations that initially stimulated cell growth but failed to do so at higher concentrations (<xref ref-type="fig" rid="pone-0041613-g001">Figure 1A</xref>). Our data thus indicated that EGF-induced cell growth exhibited a non-monotonic or biphasic dose-response curve in these ER-negative breast cancer cells.</p>
+        <fig id="pone-0041613-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0041613.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>ER-negative Breast Cancer Cells Exhibit Biphasic EGF Signaling.</title>
+            <p>(A). The effects of EGF on the proliferation rate of MDA-MB-231 and MDA-MB-436 cells. Serum starved cells were treated with indicated concentrations of EGF or PBS as a control. The cell numbers were determined using an automatic cell counter after seven days. Five dishes were used for each concentration and experiments were repeated more than three times. The mean cell number &#xB1; SE are shown. (B). The dose-dependent pattern of EGF-stimulated phosphorylation of the MAPK/ERK1/2 in MDA-MB-231 and MDA-MB-436 cells. Starved cells were treated with indicated doses of EGF for 15 min. Western blot analysis was performed to assess induction of ERK1/2 phosphorylation. The experiment was repeated more than three times. The representative results are shown. (C). The dose dependent induction cyclin D1 by EGF in MDA-MB-231 and MDA-MB-436 cells. The experiment was repeated more than three times. The representative results are shown.</p>
+          </caption>
+          <graphic xlink:href="pone.0041613.g001"/>
+        </fig>
+      </sec>
+      <sec id="s3b">
+        <title>EGF induces biphasic activation of the MAPK/ERK and cyclin D1 expression in ER-negative breast cancer cells</title>
+        <p>We then examined EGF-induced phosphorylation of the MAPK/ERK1/2 in these two cell lines. We treated cells with EGF at different concentrations for 15 min. Western blot analysis with a phospho-specific ERK1/2 antibody was performed to assess the phosphorylation levels of the ERK1/2. As shown in <xref ref-type="fig" rid="pone-0041613-g001">Figure 1B</xref>, we found that EGF was able to induce the activation of the MAPK/ERK at 10 ng/ml while failed to activate the MAPK/ERK at 500 ng/ml in both ER-negative breast cancer cell lines, consistent with the biphasic growth pattern of the dose-response curves of these cells to EGF. Additionally, we found a biphasic induction pattern of cyclin D1 expression in the cells treated with different concentrations of EGF (<xref ref-type="fig" rid="pone-0041613-g001">Figure 1C</xref>).</p>
+      </sec>
+      <sec id="s3c">
+        <title>The Src/EGFR/STAT5 are involved in biphasic EGF signaling</title>
+        <p>It is well established that EGF treatment activates Src, which then phosphorylates EGFR-Tyr-845 <xref rid="pone.0041613-Biscardi2" ref-type="bibr">[21]</xref>, <xref rid="pone.0041613-Biscadi1" ref-type="bibr">[22]</xref>. We then examined the phosphorylation status of Src-Tyr-416 and EGFR-Tyr-845 in these cells treated with different concentrations of EGF. <xref ref-type="fig" rid="pone-0041613-g002">Figure 2</xref> shows that in MDA-MB-231 and MDA-MB-436 cells, 10 ng/ml EGF elicited phosphorylation of Src-Tyr-416 and EGFR-Tyr-845 while failed to do so with increased concentrations. Intriguingly, phosphorylation of Src-Tyr-527, an event associated with inactivation of Src activity, was not observed in the cells treated with 10 ng/ml EGF but was obvious in cells treated with 500 ng/ml EGF (<xref ref-type="fig" rid="pone-0041613-g002">Figure 2</xref>). These results suggested that EGF at low concentrations induces phosphorylation of Src-Y-416 and activated Src whereas at high concentrations of EGF, Src-Y-527 is phosphorylated that inactivates Src activity.</p>
+        <fig id="pone-0041613-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0041613.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Different concentrations of EGF induce Src phosphorylation at distinct residues.</title>
+            <p>Western blot analysis of the effects of different concentrations of EGF on the phosphorylation levels of EGFR-Y845, Src-Y416 and Src-Y527 in MDA-MB-231 and MDA-MB-436 cells.</p>
+          </caption>
+          <graphic xlink:href="pone.0041613.g002"/>
+        </fig>
+        <p>It was reported that signal transducer and activator of transcription 5 (STAT5), c-Src and EGFR are involved in EGF-stimulated cell proliferation <xref rid="pone.0041613-Silva1" ref-type="bibr">[10]</xref>. To examine whether STAT5 is involved in the observed biphasic EGF signaling, we transfected MDA-MB-231 and MDA-MB-436 cells with a consensus STAT5 reporter construct, containing a six-repeat sequence of the lactogenic hormone response element (LHRE) <xref rid="pone.0041613-Goffin1" ref-type="bibr">[23]</xref> and treated with EGF at 10 ng/ml and 500 ng/ml We found that 10 ng/ml EGF potently activates the promoter activity of the reporter plasmid while 500 ng/ml EGF failed to do so (<xref ref-type="fig" rid="pone-0041613-g003">Figure 3A</xref>), suggesting that EGF at low concentrations was able to activate STAT5 protein-mediated transcription. To confirm the involvement of STAT5, we also included two naturally occurring dominant-negative mutants of STAT5 (Stat5a&#x394;713 and Stat5a&#x394;740) described before <xref rid="pone.0041613-Yamashita1" ref-type="bibr">[24]</xref> in the transient transfection assays, and found that both dominant-negative mutants of STAT5 potently attenuated 10 ng/ml EGF-induced promoter activity, indicating that STAT5 is involved in the biphasic EGF signaling of these ER-negative breast cancer cells (<xref ref-type="fig" rid="pone-0041613-g003">Figure 3B</xref>).</p>
+        <fig id="pone-0041613-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0041613.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>EGF induces biphasic STAT5 activities in ER-negative breast cancer cells.</title>
+            <p>(A). ER-negative breast cancer cells were transfected with the luciferase reported plasmid LHRR-Luc that containing six copies of STAT5-binding sites. Transfected cells were treated with PBS, 10 ng/ml or 500 ng/ml of EGF. The luciferase activities were assayed and normalized using a cytomegalovirus-driven <italic>Renilla</italic> luciferase plasmid. Columns: means of the relative luciferase activity from four independent experiments. Luciferase activity in transfected cells treated with vehicle is arbitrarily set as 1.0; bars, SE. *, <italic>P</italic>&lt;0.05, for cells treated with PBS vehicle vs 10 ng/ml of EGF. (B). Cells were transfected with the LHRR-Luc reporter together with an empty expression vector (vector) and the expression vectors of two dominant-negative STAT5a mutants carrying truncations at their C-terminal (STAT5a&#x394;713 and STAT5a&#x394;740) before treated with PBS vehicle (V), 10 ng/ml or 500 ng/ml &#xB5;M of EGF. Columns: means of the relative luciferase activity from three independent experiments. Luciferase activity of cells co-transfected with an empty expression vector and treated with vehicle is arbitrarily set as 1.0; bars, SE. *, <italic>P</italic>&lt;0.05, for cells treated with PBS vehicle vs 10 ng/ml of EGF.</p>
+          </caption>
+          <graphic xlink:href="pone.0041613.g003"/>
+        </fig>
+      </sec>
+      <sec id="s3d">
+        <title>Src is involved in biphasic cyclin D1 expression in response to different concentrations of EGF</title>
+        <p>In the experiments described above, we observed that the cells treated with different concentrations of EGF also exhibited biphasic patterns of cyclin D1 induction. We then decided to determine whether the Src signaling pathway is involved in the biphasic cyclin D1 induction by EGF. We first tested if the Src inhibitors PP2 and Dasatinib were able to inhibit cyclin D1 induction by 10 ng/ml EGF. Cells were treated with EGF and together with PP2, Dasatinib, the EGFR inhibitor AG1478 and the PI3K inhibitor LY294002, and Western blot analysis was performed to examine cyclin D1 expression. <xref ref-type="fig" rid="pone-0041613-g004">Figure 4A</xref> shows that EGF-induced cyclin D1 expression was strongly blocked by both Src inhibitors, weakly with AG1478 while Ly294002 was without effect, suggesting that Src is involved in EGF induction of cyclin D1 expression (<xref ref-type="fig" rid="pone-0041613-g004">Figure 4A</xref>).</p>
+        <fig id="pone-0041613-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0041613.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Src is involved in EGF induction of cyclin D1.</title>
+            <p>(A). Western blot analysis of cyclin D1 expression in MDA-MB-231 and -436 cells. Cells were treated with vehicle (PBS) and EGF alone or together with the Src inhibitors PP2 and Dasatinib, the EGFR inhibitor AG1478 and PI3K inhibitor LY294002. Cell lysates were analyzed with anti-cyclin D1 antibody and anti-actin antibody was used to ensure equal loading. The experiment was repeated three times, and the representative results are shown. (B). Src inhibitors inhibit EGF induction of cyclin D1 promoter activity. ER-negative breast cancer cells were transfected with the luciferase reported plasmid cyclin D1 pl-963 that containing a luciferase gene driven by the cyclin D1 promoter. Transfected cells were treated with vehicle (PBS), 10 ng/ml or 500 ng/ml of EGF and 10 ng/ml EGF plus different inhibitors. The luciferase activities were assayed and normalized using a cytomegalovirus-driven Renilla luciferase plasmid. Columns: means of the relative luciferase activity in cells treated with vehicle that is arbitrarily set as 1.0 from four independent experiments; bars, SE. *, <italic>P</italic>&lt;0.05, for cells treated with vehicle (PBS) vs 10 ng/ml of EGF. (C). The involvement of Src in EGF induction of cyclin D1 promoter activity. Cells were transfected with the luciferase reported plasmid cyclin D1 pl-963 together with an empty expression vector or Src mutants, a dominant-negative mutant (SrcK295R) and a constitutively active mutant (SrcY527F). Transfected cells were treated with vehicle (PBS), 10 ng/ml or 500 ng/ml of EGF. The luciferase activities were assayed and normalized using a cytomegalovirus-driven <italic>Renilla</italic> luciferase plasmid. Columns: means of the relative luciferase activity from four independent experiments. Luciferase activity in transfected cells treated with vehicle is arbitrarily set as 1.0; bars, SE. *, <italic>P</italic>&lt;0.05, for cells treated with vehicle (PBS) vs 10 ng/ml of EGF.</p>
+          </caption>
+          <graphic xlink:href="pone.0041613.g004"/>
+        </fig>
+        <p>To examine whether induction of the cyclin D1 promoter activity by EGF also exhibited a biphasic pattern, we first transfected both cell lines with a human cyclin D1 promoter-luciferase construct and then treated transfected cells with 10 ng/ml or 500 ng/ml EGF. We found that 10 ng/ml EGF was able to induce cyclin D1 promoter activity whereas 500 ng/ml EGF failed to induce cyclin D1 promoter activity (<xref ref-type="fig" rid="pone-0041613-g004">Figure 4B</xref>), indicating that the biphasic effects of EGF on induction of cyclin D1 expression is through regulation of its promoter activity. We also found both Src inhibitors potently inhibited 10 ng/ml of EGF-induced promoter activity and the EGFR inhibitor AG1478 had less effect, suggesting Src is involved in EGF-induced cyclin D1 promoter activity.</p>
+        <p>To further confirm the involvement of Src in EGF-regulated cyclin D1 expression, these ER-negative breast cancer cells were co-transfected with the cyclin D1 promoter reporter plasmid and pCMV5/SrcK295M, a dominant-negative mutant of Src or pCMV5/SrcY527F, a constitutively active mutant of Src, respectively. We found that co-transfection of the dominant-negative mutant of Src abrogated the cyclin D1 promoter activity induced by 10 ng/ml EGF while had no effects in cells treated with 500 ng/ml EGF (<xref ref-type="fig" rid="pone-0041613-g004">Figure 4C</xref>). On the contrary, the constitutively active mutant of Src restored the cyclin D1 promoter activity suppressed by 500 ng/ml of EGF (<xref ref-type="fig" rid="pone-0041613-g004">Figure 4C</xref>). These results indicated Src plays an integral role in biphasic response of cyclin D1 expression to different concentrations of EGF.</p>
+      </sec>
+      <sec id="s3e">
+        <title>STAT5 is involved in EGF-induced cyclin D1 promoter activity</title>
+        <p>Previously, it was reported that the STAT proteins are involved in regulation of the cyclin D1 promoter activity through their interaction with the two consensus gamma-interferon-activation sites (GAS) sites located in the cyclin D1 promoter <xref rid="pone.0041613-Brockman1" ref-type="bibr">[25]</xref>. We decided to examine whether STAT5 is involved in cyclin D1 promoter activity induced by 10 ng/ml EGF in these ER-negative breast cancer cells. Two dominant-negative mutants of STAT5a were co-transfected with the cyclin D1 promoter reporter plasmid, and transfected cells were treated with 10 ng/ml EGF. We found that inclusion of both STAT5a mutants strongly suppressed the cyclin D1 promoter activity induced by 10 ng/ml EGF (<xref ref-type="fig" rid="pone-0041613-g005">Figure 5A</xref>), suggesting that low concentrations of EGF induced the cyclin D1 promoter activity through the Src/EGFR/STAT5 pathway in these ER-negative breast cancer cells.</p>
+        <fig id="pone-0041613-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0041613.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>STAT5 is involved in EGF induction of cyclin D1 promoter activity.</title>
+            <p>(A). The involvement of STAT5 in EGF induction of cyclin D1 promoter activity. Cells were transfected with the luciferase reported plasmid cyclin D1 pl-963 together with an empty expression vector or two dominant-negative STAT5a mutants, STAT5a&#x394;713 and STAT5a&#x394;740. Transfected cells were treated with vehicle (PBS), 10 ng/ml or 500 ng/ml of EGF. Columns: means of the relative luciferase activity from four independent experiments. Luciferase activity in transfected cells transfected with an empty expression vector and treated with vehicle is arbitrarily set as 1.0; bars, SE. *, <italic>P</italic>&lt;0.05, for cells treated with vehicle (PBS) vs 10 ng/ml of EGF. (B). The GAS1 site is involved in induction of the cyclin D1 promoter activity by EGF. Cells were transiently transfected with either the wild-type cyclin D1 promoter or the same promoter construct containing mutated GAS1 (GAS1mut) or GAS2 (GAS2mut) sequence, respectively. Transfected cells were treated with PBS vehicle or 10 ng/ml of EGF, and the luciferase activity was presented relative to the wild-type cyclin D1 promoter-transfected cells treated with PBS that is arbitrarily set as 1.0. *, <italic>P</italic>&lt;0.05, for cells treated with vehicle (PBS) vs 10 ng/ml of EGF.</p>
+          </caption>
+          <graphic xlink:href="pone.0041613.g005"/>
+        </fig>
+        <p>The human cyclin D1 promoter harbors binding sites for a number of transcription factors. There are two gamma-interferon-activation sites (GAS) located at &#x2212;457 and &#x2212;224 (relative to the transcription initiation site) of the cyclin D1 promoter region that can be recognized by STAT5 protein <xref rid="pone.0041613-Brockman1" ref-type="bibr">[25]</xref>. To assess the involvement of the two GAS sequences in EGF-induced cyclin D1 promoter activity, we transfected these ER-negative breast cancer cells with two mutants of the cyclin D1 promoter/luciferase constructs, GAS1mut and GAS2mut that mutated the two GAS sequences located at &#x2212;457 and &#x2212;224, respectively to prevent STAT protein binding (25). The promoters containing GAS1 mutation failed to respond to 10 ng/ml EGF while GAS2 mutation had no significant effect (<xref ref-type="fig" rid="pone-0041613-g005">Figure 5B</xref>), indicating that the GAS1 site is involved in EGF-induced cyclin D1 promoter activity.</p>
+      </sec>
+      <sec id="s3f">
+        <title>Different concentrations of EGF affect the association of EGFR and Src differently</title>
+        <p>To elucidate the molecular mechanism by which different concentrations of EGF influence Src phosphorylation, we examined the effects of different concentrations of EGF on the association of EGFR with Src and Shc. Both cell lines were treated with 10 or 500 ng/ml of EGF for different time periods. Cell lysates were immunoprecipitated with pre-immune or anti-EGFR, and blotted by anti-EGFR, anti-Src or anti-Shc antibodies. <xref ref-type="fig" rid="pone-0041613-g006">Figure 6</xref> shows that at l0 ng/ml, EGF strongly induced association of EGFR with Shc and Src, which was significantly decreased when treated with 500 ng/ml of EGF (<xref ref-type="fig" rid="pone-0041613-g006">Figure 6</xref>). Pre-immune antibody failed to immunoprecipitate any of these proteins (data not shown). Our results thus demonstrated that EGF at different concentrations regulates the association of EGFR with Shc and Src differently.</p>
+        <fig id="pone-0041613-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0041613.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Different concentrations of EGF affect the association of EGFR and Src differently.</title>
+            <p>Co-immunoprecipitation and Western blot analysis of EGFR and Src in MDA-MB-231 cells. Cells were treated with different concentrations of EGF for different time periods were lysed and the cell lysates were immunoprecipitated with pre-immune and indicated antibodies. The immunoprecipitates were blotted by indicated antibodies.</p>
+          </caption>
+          <graphic xlink:href="pone.0041613.g006"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>It is well recognized that EGF is one of the most potent growth factors that transmits signals for cell growth, survival and sometimes motility by engaging the EGFR <xref rid="pone.0041613-Rheinwald1" ref-type="bibr">[1]</xref>&#x2013;<xref rid="pone.0041613-Yarden1" ref-type="bibr">[3]</xref>. However, in squamous carcinoma A431 cells, which express high levels of endogenous EGFR, EGF at pM range stimulates cell growth, while at nM range inhibits proliferation, arrests cell cycle, alters cdk2 activity by induction of p21, and even induces cell apoptosis <xref rid="pone.0041613-Kawamoto1" ref-type="bibr">[14]</xref>&#x2013;<xref rid="pone.0041613-Sato1" ref-type="bibr">[19]</xref>. Here, we found that EGFR at higher concentrations failed to stimulate cell proliferation in ER-negative breast cancer cells. We also observed that at high concentrations, EGF failed to activate the MAPK/ERK pathway and to induce the growth-promoting gene cyclin D1. Thus, activation of the MAPK/ERK signaling and cyclin D1 expression mediated by EGF signaling also exhibited a biphasic pattern, which provided a molecular explanation to the observed biphasic EGF signaling.</p>
+      <p>Unlike the EGFR-over-expressing cells such as A431 cells, we did not observe strong cell apoptosis under the highest concentrations of EGF, 500 ng/ml, we used. We also used higher concentrations of EGF to observe growth inhibition in these ER-negative breast cancer cells compared to the concentrations used in A431 cells <xref rid="pone.0041613-Kawamoto1" ref-type="bibr">[14]</xref>&#x2013;<xref rid="pone.0041613-Sato1" ref-type="bibr">[19]</xref>. We speculate that the difference of the levels of EGFR expression between these cell lines may provide an explanation to this discrepancy; higher levels of receptor expression may require lower concentrations of EGF to confer growth inhibition, i.e. the concentration dependent growth curve may shift to the left.</p>
+      <p>To probe the underlying mechanisms of the biphasic estrogen signaling, we found that at 10 ng/ml, EGF induced phosphorylation of Src at Tyr-416. Intriguingly, phosphorylation of Src-Tyr-527 was observed in cells treated with EGF at 500 ng/ml. The Src protein has three major domains, SH2 (for Src homology 2), SH3, and the kinase catalytic domain. Both SH2 and SH3 domains play a role in protein-protein interactions, while the kinase catalytic domain contains the kinase active site. Src can be switched from an inactive to an active state through control of its phosphorylation state. Src-Tyr-416 can be auto-phosphorylated, which activates Src by displacing the P-Tyr-416 from the binding pocket, allowing the substrate to gain access. However, phosphorylation of Tyr-527 inactivates Src through the interaction of P-Tyr-527 with the SH2 domain, which effectively folds Src up into a closed, inactive state. Our results thus demonstrated, for the first time, that phosphorylation state of Src-Y-416 and-Y-527 acts as a switch to turn on and off the EGF signaling depending on concentrations of EGF.</p>
+      <p>At present, not much is known about how different concentrations of EGF induce phosphorylation of either Tyr-416 or Tyr-527. Previously, it has been reported that EGF stimulation leads to interaction of EGFR and Src as well as Src-Tyr-416 auto-phosphorylation <xref rid="pone.0041613-Sato2" ref-type="bibr">[26]</xref>. The Src-Tyr-527 is a critical site for regulation of Src activity, which can be phosphorylated and dephosphorylated by various proteins <xref rid="pone.0041613-Roskoski1" ref-type="bibr">[27]</xref>, such as CSK kinase (phosphorylates), or SHP-1 phosphorylase (dephosphorylates). Thus, the phosphorylation state of Src-Tyr-527 is dynamically and strictly regulated by phosphorylation and dephosphorylation. We found that at 10 ng/ml, EGF triggered a strong interaction between EGFR and Shc/Src while at 500 ng/ml, EGF failed to induce a strong interaction between EGFR and Shc/Src. At present, it can only be speculated that different concentrations of EGFR may trigger different conformations of EGFR, which will then alter the interaction between EGFR and Shc/Src and activate either kinase or phosphatase to regulate phosphorylation of Src-Tyr-527.</p>
+      <p>We also showed that at 10 ng/ml, EGF induced Src-mediated phosphorylation of the EGFR-Tyr-845 residue and STAT5-mediated activation of the cyclin D1 promoter activity while at 500 ng/ml, EGF failed to do so, which provided a molecular explanation for the loss of the growth promoting activity observed in cells treated with high concentrations of EGF. Previously, it was reported that in EGF treated A431 cells, EGF-induced Src activation and Src-dependent phosphorylation of EGFR-Tyr-845 recruits STAT proteins as downstream effectors of phosphorylated EGFR-Tyr-845 <xref rid="pone.0041613-Sato1" ref-type="bibr">[19]</xref>, . Consistent with these findings, our observations demonstrated that the EGFR/Src/STAT5 pathway is involved in the biphasic EGF signaling in ER-negative breast cancer cells.</p>
+      <p>In summary, we have shown that ER-negative breast cancer cells exhibited biphasic EGF signaling and Src acts as a switch to turn on/off the mitogenic EGF signaling depending on concentrations of EGF. In our experiments, we also observed that EGF at higher concentrations strongly induced the levels of p21<sup>waf1</sup> expression (data not shown), suggesting that the induction of p21<sup>waf1</sup> is also involved in growth inhibition observed in ER-negative breast cancer cells treated with high concentrations of EGF. Thus, further study will be directed to dissect the molecular mechanisms underlying the induction of p21<sup>waf1</sup> expression by different concentrations of EGF and its physiological consequences in these ER-negative breast cancer cells.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Drs. Yun Qiu, Linda Schuler, Hiroko Yamashita, Sarah Parson and Chris Albanese for providing the constructs containing Src mutants, cyclin D1 promoter GAS1 and 2 mutants, STAT5 mutants, LHRR and the wild-type cyclin D1 promoter.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0041613-Rheinwald1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rheinwald</surname><given-names>JG</given-names></name>, <name><surname>Green</surname><given-names>M</given-names></name> (<year>1977</year>) <article-title>Epidermal growth factor and the multiplication of cultured human epidermal keratinocytes</article-title>. <source>Nature</source>
+<volume>265</volume>: <fpage>421</fpage>&#x2013;<lpage>424</lpage>.<pub-id pub-id-type="pmid">299924</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Carpenter1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Carpenter</surname><given-names>G</given-names></name>, <name><surname>Cohen</surname><given-names>S</given-names></name> (<year>1979</year>) <article-title>Epidermal Growth Factor</article-title>. <source>Ann Rev Biochem</source>
+<volume>48</volume>: <fpage>193</fpage>&#x2013;<lpage>216</lpage>.<pub-id pub-id-type="pmid">382984</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Yarden1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yarden</surname><given-names>Y</given-names></name>, <name><surname>Sliwkowsji</surname><given-names>MX</given-names></name> (<year>2001</year>) <article-title>Untangling the ErbB signalling network</article-title>. <source>Nat Rev Mol Cell Biol</source>
+<volume>2</volume>: <fpage>127</fpage>&#x2013;<lpage>137</lpage>.<pub-id pub-id-type="pmid">11252954</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Ozanne1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ozanne</surname><given-names>B</given-names></name>, <name><surname>Richards</surname><given-names>CS</given-names></name>, <name><surname>Hendler</surname><given-names>F</given-names></name>, <name><surname>Burns</surname><given-names>D</given-names></name>, <name><surname>Gusterson</surname><given-names>B</given-names></name> (<year>1986</year>) <article-title>Over-expression of the EGF receptor is a hallmark of squamous cell carcinomas</article-title>. <source>J Pathol</source>
+<volume>149</volume>: <fpage>9</fpage>&#x2013;<lpage>14</lpage>.<pub-id pub-id-type="pmid">2425067</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Kearsley1">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kearsley</surname><given-names>JH</given-names></name>, <name><surname>Furlong</surname><given-names>KL</given-names></name>, <name><surname>Cooke</surname><given-names>RA</given-names></name>, <name><surname>Waters</surname><given-names>MJ</given-names></name> (<year>1990</year>) <article-title>An immunohistochemical assessment of cellular proliferation markers in head and neck squamous cell cancers</article-title>. <source>Br J Cancer</source>
+<volume>61</volume>: <fpage>821</fpage>&#x2013;<lpage>827</lpage>.<pub-id pub-id-type="pmid">2372483</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Stanton1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Stanton</surname><given-names>P</given-names></name>, <name><surname>Richards</surname><given-names>S</given-names></name>, <name><surname>Reeves</surname><given-names>J</given-names></name>, <name><surname>Nikolic</surname><given-names>M</given-names></name>, <name><surname>Edington</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>1994</year>) <article-title>Epidermal growth factor receptor expression by human squamous cell carcinomas of the head and neck, cell lines and xenografts</article-title>. <source>Br J Cancer</source>
+<volume>70</volume>: <fpage>427</fpage>&#x2013;<lpage>433</lpage>.<pub-id pub-id-type="pmid">8080726</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Maa1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Maa</surname><given-names>MC</given-names></name>, <name><surname>Leu</surname><given-names>TH</given-names></name>, <name><surname>McCarley</surname><given-names>DJ</given-names></name>, <name><surname>Schatzman</surname><given-names>RC</given-names></name>, <name><surname>Parsons</surname><given-names>SJ</given-names></name> (<year>1995</year>) <article-title>Potentiation of epidermal growth factor receptor-mediated oncogenesis by c-Src: implications for the etiology of multiple human cancers</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>92</volume>: <fpage>6981</fpage>&#x2013;<lpage>6985</lpage>.<pub-id pub-id-type="pmid">7542783</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Tice1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tice</surname><given-names>DA</given-names></name>, <name><surname>Biscardi</surname><given-names>JS</given-names></name>, <name><surname>Nickles</surname><given-names>AL</given-names></name>, <name><surname>Parsons</surname><given-names>SJ</given-names></name> (<year>1999</year>) <article-title>Mechanism of biological synergy between cellular Src and epidermal growth factor receptor</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>96</volume>: <fpage>1415</fpage>&#x2013;<lpage>1420</lpage>.<pub-id pub-id-type="pmid">9990038</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Biscardi1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Biscardi</surname><given-names>JS</given-names></name>, <name><surname>Belsches</surname><given-names>AP</given-names></name>, <name><surname>Parsons</surname><given-names>SJ</given-names></name> (<year>1998</year>) <article-title>Characterization of human epidermal growth factor receptor and c-Src interactions in human breast tumor cells</article-title>. <source>Mol Carcinog</source>
+<volume>21</volume>: <fpage>261</fpage>&#x2013;<lpage>272</lpage>.<pub-id pub-id-type="pmid">9585256</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Silva1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Silva</surname><given-names>CM</given-names></name> (<year>2004</year>) <article-title>Role of STATs as downstream signal transducers in Src family kinase-mediated tumorigenesis</article-title>. <source>Oncogene</source>
+<volume>23</volume>: <fpage>8017</fpage>&#x2013;<lpage>8023</lpage>.<pub-id pub-id-type="pmid">15489919</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Gill1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Gill</surname><given-names>GN</given-names></name>, <name><surname>Lazar</surname><given-names>CS</given-names></name> (<year>1981</year>) <article-title>Increased phosphotyrosine content and inhibition of proliferation in EGF-treated A431 cells</article-title>. <source>Nature</source>
+<volume>293</volume>: <fpage>305</fpage>&#x2013;<lpage>307</lpage>.<pub-id pub-id-type="pmid">6268987</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Knoger1">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Knoger</surname><given-names>R</given-names></name>, <name><surname>Chan</surname><given-names>TCK</given-names></name> (<year>1993</year>) <article-title>Epidermal growth factor induces terminal differentiation in human epidermoid carcinoma cells</article-title>. <source>J Cell Phys</source>
+<volume>156</volume>: <fpage>515</fpage>&#x2013;<lpage>521</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Cao1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cao</surname><given-names>L</given-names></name>, <name><surname>Yao</surname><given-names>YQ</given-names></name>, <name><surname>Kiani</surname><given-names>C</given-names></name>, <name><surname>Spaner</surname><given-names>D</given-names></name>, <name><surname>Lin</surname><given-names>ZS</given-names></name>, <etal>et al</etal> (<year>2000</year>) <article-title>Epidermal growth factor induces cell cycle arrest and apoptosis of squamous carcinoma cells through reduction of cell adhesion</article-title>. <source>J Cell Biochem</source>
+<volume>77</volume>: <fpage>569</fpage>&#x2013;<lpage>583</lpage>.<pub-id pub-id-type="pmid">10771513</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Kawamoto1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kawamoto</surname><given-names>T</given-names></name>, <name><surname>Mendelsohn</surname><given-names>J</given-names></name>, <name><surname>Le</surname><given-names>A</given-names></name>, <name><surname>Sato</surname><given-names>GH</given-names></name>, <name><surname>Lazar</surname><given-names>CS</given-names></name>, <etal>et al</etal> (<year>1984</year>) <article-title>Relation of epidermal growth factor receptor concentration to growth of human epidermoid carcinoma A431 cells</article-title>. <source>J Biol Chem</source>
+<volume>259</volume>: <fpage>7761</fpage>&#x2013;<lpage>7766</lpage>.<pub-id pub-id-type="pmid">6330080</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Chin1">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chin</surname><given-names>YE</given-names></name>, <name><surname>Kitagawa</surname><given-names>M</given-names></name>, <name><surname>Su</surname><given-names>WC</given-names></name>, <name><surname>You</surname><given-names>ZH</given-names></name>, <name><surname>Iwamoto</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>1996</year>) <article-title>Cell growth arrest and induction of cyclin-dependent kinase inhibitor p21 WAF1/CIP1 mediated by STAT1</article-title>. <source>Sciences</source>
+<volume>272</volume>: <fpage>719</fpage>&#x2013;<lpage>722</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Jakus1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jakus</surname><given-names>J</given-names></name>, <name><surname>Yeudall</surname><given-names>WA</given-names></name> (<year>1996</year>) <article-title>Growth inhibitory concentrations of EGF induce p21 (WAF1/Cip1) and alter cell cycle control in squamous carcinoma cells</article-title>. <source>Oncogene</source>
+<volume>12</volume>: <fpage>2369</fpage>&#x2013;<lpage>2375</lpage>.<pub-id pub-id-type="pmid">8649777</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Buday1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Buday</surname><given-names>L</given-names></name>, <name><surname>Downward</surname><given-names>J</given-names></name> (<year>1993</year>) <article-title>Epidermal growth factor regulates p21ras through the formation of a complex of receptor, Grb2 adapter protein, and Sos nucleotide exchange factor</article-title>. <source>Cell</source>
+<volume>73</volume>: <fpage>611</fpage>&#x2013;<lpage>620</lpage>.<pub-id pub-id-type="pmid">8490966</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Fan1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fan</surname><given-names>Z</given-names></name>, <name><surname>Lu</surname><given-names>Y</given-names></name>, <name><surname>Wu</surname><given-names>X</given-names></name>, <name><surname>DeBlasio</surname><given-names>A</given-names></name>, <name><surname>Koff</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>1996</year>) <article-title>Prolonged induction of p21Cip1/WAF1/CDK2/PCNA complex by epidermal growth factor receptor activation mediates ligand-induced A431 cell growth inhibition</article-title>. <source>J Cell Biol</source>
+<volume>131</volume>: <fpage>235</fpage>&#x2013;<lpage>242</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Sato1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sato</surname><given-names>K</given-names></name>, <name><surname>Nagao</surname><given-names>T</given-names></name>, <name><surname>Iwasaki</surname><given-names>T</given-names></name>, <name><surname>Nishihira</surname><given-names>Y</given-names></name>, <name><surname>Fukami</surname><given-names>Y</given-names></name> (<year>2003</year>) <article-title>Src-dependent phosphorylation of the EGF receptor Tyr-845 mediates Stat-p21waf1 pathway in A431 cells</article-title>. <source>Genes to Cells</source>
+<volume>8</volume>: <fpage>995</fpage>&#x2013;<lpage>1003</lpage>.<pub-id pub-id-type="pmid">14750954</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Chen1">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>KY</given-names></name>, <name><surname>Huang</surname><given-names>LM</given-names></name>, <name><surname>Kung</surname><given-names>HJ</given-names></name>, <name><surname>Ann</surname><given-names>DK</given-names></name>, <name><surname>Shih</surname><given-names>HM</given-names></name> (<year>2004</year>) <article-title>The role of tyrosine kinase Etk/Bmx in EGF-induced apoptosis of MDA-MB-468 breast cancer cells</article-title>. <source>Oncogene</source>
+<volume>24</volume>: <fpage>1854</fpage>&#x2013;<lpage>1862</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Biscardi2">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Biscardi</surname><given-names>JS</given-names></name>, <name><surname>Tice</surname><given-names>DA</given-names></name>, <name><surname>Parsons</surname><given-names>SJ</given-names></name> (<year>1999</year>) <article-title>c-Src, receptor tyrosine kinases, and human cancer</article-title>. <source>Adv Cancer Res</source>
+<volume>76</volume>: <fpage>61</fpage>&#x2013;<lpage>119</lpage>.<pub-id pub-id-type="pmid">10218099</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Biscadi1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Biscadi</surname><given-names>JS</given-names></name>, <name><surname>Maa</surname><given-names>MC</given-names></name>, <name><surname>Tice</surname><given-names>DA</given-names></name>, <name><surname>Cox</surname><given-names>ME</given-names></name>, <name><surname>Leu</surname><given-names>TH</given-names></name>, <etal>et al</etal> (<year>1999</year>) <article-title>c-Src-mediated phosphorylation of the epidermal growth factor receptor on Tyr845 and Tyr1101 is associated with modulation of receptor function</article-title>. <source>J Biol Chem</source>
+<volume>274</volume>: <fpage>8335</fpage>&#x2013;<lpage>8343</lpage>.<pub-id pub-id-type="pmid">10075741</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Goffin1">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Goffin</surname><given-names>B</given-names></name>, <name><surname>Kinet</surname><given-names>S</given-names></name>, <name><surname>Ferrag</surname><given-names>F</given-names></name>, <name><surname>Binart</surname><given-names>N</given-names></name>, <name><surname>Martial</surname><given-names>JA</given-names></name>, <etal>et al</etal> (<year>1996</year>) <article-title>Antagonistic properties of human prolactin analogs that show paradoxical agonistic activity in the Nb2 bioassay</article-title>. <source>J Bio Chem</source>
+<volume>271</volume>: <fpage>16573</fpage>&#x2013;<lpage>16579</lpage>.<pub-id pub-id-type="pmid">8663214</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Yamashita1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yamashita</surname><given-names>H</given-names></name>, <name><surname>Iwase</surname><given-names>H</given-names></name>, <name><surname>Toyama</surname><given-names>T</given-names></name>, <name><surname>Fujii</surname><given-names>Y</given-names></name> (<year>2003</year>) <article-title>Naturally occurring dominant-negative Stat5 suppresses transcriptional activity of estrogen receptors and induces apoptosis in T47D breast cancer cells</article-title>. <source>Oncogene</source>
+<volume>22</volume>: <fpage>1638</fpage>&#x2013;<lpage>1652</lpage>.<pub-id pub-id-type="pmid">12642867</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Brockman1">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Brockman</surname><given-names>JL</given-names></name>, <name><surname>Schroeder</surname><given-names>MD</given-names></name>, <name><surname>Schuler</surname><given-names>LA</given-names></name> (<year>2002</year>) <article-title>PRL activates the cyclin D1 promoter via the Jak2/Stat pathway</article-title>. <source>Mol Endocrinol</source>
+<volume>16</volume>: <fpage>774</fpage>&#x2013;<lpage>784</lpage>.<pub-id pub-id-type="pmid">11923474</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Sato2">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sato</surname><given-names>K</given-names></name>, <name><surname>Nagao</surname><given-names>T</given-names></name>, <name><surname>Kakumoto</surname><given-names>M</given-names></name> (<year>2002</year>) <article-title>Adaptor protein Shc is an isoform-specific direct activator of the tyrosine kinase c-Src</article-title>. <source>J Bio Chem</source>
+<volume>277</volume>: <fpage>29568</fpage>&#x2013;<lpage>29576</lpage>.<pub-id pub-id-type="pmid">12048194</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0041613-Roskoski1">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Roskoski</surname><given-names>R</given-names></name> (<year>2005</year>) <article-title>Src kinase regulation by phosphorylation and dephosphorylation</article-title>. <source>Biochem Biophys Res Commun</source>
+<volume>331</volume>: <fpage>1</fpage>&#x2013;<lpage>14</lpage>.<pub-id pub-id-type="pmid">15845350</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

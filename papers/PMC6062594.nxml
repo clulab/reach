@@ -1,0 +1,1248 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Front Microbiol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Front Microbiol</journal-id>
+      <journal-id journal-id-type="publisher-id">Front. Microbiol.</journal-id>
+      <journal-title-group>
+        <journal-title>Frontiers in Microbiology</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1664-302X</issn>
+      <publisher>
+        <publisher-name>Frontiers Media S.A.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">30079060</article-id>
+      <article-id pub-id-type="pmc">6062594</article-id>
+      <article-id pub-id-type="doi">10.3389/fmicb.2018.01652</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Microbiology</subject>
+          <subj-group>
+            <subject>Original Research</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Effects of Intravenous Infusion With Sodium Butyrate on Colonic Microbiota, Intestinal Development- and Mucosal Immune-Related Gene Expression in Normal Growing Pigs</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Xue</given-names>
+          </name>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/537601/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xu</surname>
+            <given-names>Jumei</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Su</surname>
+            <given-names>Yong</given-names>
+          </name>
+          <xref ref-type="corresp" rid="c001">
+            <sup>*</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/238317/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhu</surname>
+            <given-names>Weiyun</given-names>
+          </name>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/265399/overview"/>
+        </contrib>
+      </contrib-group>
+      <aff><institution>Jiangsu Key Laboratory of Gastrointestinal Nutrition and Animal Health, College of Animal Science and Technology, Nanjing Agricultural University</institution>, <addr-line>Nanjing</addr-line>, <country>China</country></aff>
+      <author-notes>
+        <fn fn-type="edited-by">
+          <p>Edited by: Zhongtang Yu, The Ohio State University, United States</p>
+        </fn>
+        <fn fn-type="edited-by">
+          <p>Reviewed by: Jie Yin, Institute of Subtropical Agriculture (CAS), China; He Meng, Shanghai Jiao Tong University, China</p>
+        </fn>
+        <corresp id="c001">*Correspondence: Yong Su, <email>yong.su@njau.edu.cn</email></corresp>
+        <fn fn-type="other" id="fn002">
+          <p>This article was submitted to Microbial Symbioses, a section of the journal Frontiers in Microbiology</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>20</day>
+        <month>7</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2018</year>
+      </pub-date>
+      <volume>9</volume>
+      <elocation-id>1652</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>13</day>
+          <month>3</month>
+          <year>2018</year>
+        </date>
+        <date date-type="accepted">
+          <day>02</day>
+          <month>7</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2018 Chen, Xu, Su and Zhu.</copyright-statement>
+        <copyright-year>2018</copyright-year>
+        <copyright-holder>Chen, Xu, Su and Zhu</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>This study aimed to investigate effects of intravenous infusion with sodium butyrate (SB) on colonic microbiota, intestinal mucosal immune and intestinal development in normal growing pigs. Twelve crossbred barrows (Duroc &#xD7; Landrace &#xD7; Large White) fitted with a medical polyethylene cannula via internal jugular vein were daily infused with 10 ml SB (200 mmol/l) or the same volume of physiological saline for 7 days. Results showed that SB infusion had no effects on the short-chain fatty acids concentrations and the number of total bacteria, but significantly increased the microbial richness estimators (ACE and Chao1), and the abundance of genera related to Clostridiales order in the colonic digesta (<italic>P</italic> &lt; 0.05). SB infusion significantly up-regulated the mRNA expression of monocarboxylate transporter 1 (<italic>MCT1</italic>) in the colon, while no change was found in the ileum. Only the relative mRNA of pro-inflammatory cytokine <italic>IL-6</italic> gene was decreased significantly in the ileum by SB infusion. On the contrary, in the colon, SB infusion significantly decreased the gene expression of histone deacetylase 1 (<italic>HDAC1</italic>) and pro-inflammatory cytokines <italic>IL-6, IL-18, IL-12p40</italic>, and <italic>TNF-&#x3B1;</italic> (<italic>P</italic> &lt; 0.05), but significantly increased the secretory immunoglobulin A (sIgA) concentration, the gene expression of anti-inflammatory cytokine <italic>IL-10</italic>, and the expression of intestinal development-related gene zonula occludens-1 (<italic>ZO-1</italic>), occludin, and epidermal growth factor (<italic>EGF</italic>) (<italic>P</italic> &lt; 0.05). The results suggest that systemic SB can modify colonic microbial composition, regulate the inflammatory cytokine- and intestinal development-related gene expression in pigs under the normal physiological condition. This study may provide an alternative strategy for improving the intestinal health of normal piglets.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>colonic microbiota</kwd>
+        <kwd>growing pigs</kwd>
+        <kwd>gut development</kwd>
+        <kwd>intravenous butyrate</kwd>
+        <kwd>mucosal immune</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="8"/>
+        <table-count count="4"/>
+        <equation-count count="0"/>
+        <ref-count count="69"/>
+        <page-count count="12"/>
+        <word-count count="0"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Microbes in the intestine degrade a variety of plant polysaccharides and other dietary substances (<xref rid="B31" ref-type="bibr">Ley et al., 2008</xref>). This not only enhances host digestive efficiency, but also provides energy source for the microbes (<xref rid="B16" ref-type="bibr">Duncan et al., 2007</xref>). Researchers regard the gut microbiota as a forgotten organ in the host due to its capacity to communicate with one another and the host by different ways and thus affect the host metabolic, nutritional, physiological, and immunological processes (<xref rid="B46" ref-type="bibr">Round and Mazmanian, 2009</xref>; <xref rid="B9" ref-type="bibr">Cerf-Bensussan and Gaboriau-Routhiau, 2010</xref>). Therefore, maintaining the balance of the microbial ecosystem is the key to keep host health (<xref rid="B6" ref-type="bibr">Biagi et al., 2012</xref>).</p>
+      <p>Butyrate, a short-chain fatty acid (SCFA), is mainly produced by microbial fermentation of diet fiber in the large intestine of monogastric animals (<xref rid="B58" ref-type="bibr">Von Engelhardt et al., 1989</xref>). Butyrate has shown to be related with several beneficial effects on gut health because it can be quickly absorbed by the epithelial cells of the terminal ileum and large intestine, especially in the colon, and thus provides energy for the epithelial cells to stimulate the epithelial cells proliferation, differentiation, and maturation, and reduce cell apoptosis (<xref rid="B11" ref-type="bibr">Cummings and Macfarlane, 1997</xref>). Previous study showed that sodium butyrate (SB) supplementation in the diet had benefit effect on villous-crypt architecture and thus improved gut barrier function and the host digestive efficiency (<xref rid="B19" ref-type="bibr">Galfi and Bokori, 1990</xref>; <xref rid="B59" ref-type="bibr">Wang et al., 2012</xref>). The anti-bacteria and anti-inflammatory properties was another reason why SB was used extensively by the livestock industry (<xref rid="B10" ref-type="bibr">Chang et al., 2014</xref>). It has been demonstrated that oral administration of SB for neonatal pigs significantly improves the diversity of microbiota in the stomach and colon, and decreases the gene expression of pro-inflammatory cytokines in the ileum (<xref rid="B65" ref-type="bibr">Xu et al., 2016</xref>). At the extraintestinal level, parenteral butyrate or SCFAs were reported to be beneficial to the gastrointestinal structure (<xref rid="B29" ref-type="bibr">Koruda et al., 1990</xref>; <xref rid="B45" ref-type="bibr">Rolandelli et al., 1997</xref>; <xref rid="B53" ref-type="bibr">Tappenden et al., 1998</xref>; <xref rid="B4" ref-type="bibr">Bartholome et al., 2004</xref>), function (<xref rid="B55" ref-type="bibr">Tappenden et al., 1997</xref>; <xref rid="B54" ref-type="bibr">Tappenden and Mcburney, 1998</xref>; <xref rid="B14" ref-type="bibr">Drozdowski et al., 2002</xref>), and mucosal immunity (<xref rid="B37" ref-type="bibr">Milo et al., 2002</xref>; <xref rid="B38" ref-type="bibr">Murakoshi et al., 2011</xref>) in mouse, rat, or pig models. However, little information is available on the impact of parenteral butyrate on gut microbiota and their subsequent role in host gut health.</p>
+      <p>While the beneficial roles of SB combined with parenteral nutrition in gut health were observed in most studies with animal models of intestine injury (<xref rid="B55" ref-type="bibr">Tappenden et al., 1997</xref>; <xref rid="B37" ref-type="bibr">Milo et al., 2002</xref>; <xref rid="B4" ref-type="bibr">Bartholome et al., 2004</xref>; <xref rid="B38" ref-type="bibr">Murakoshi et al., 2011</xref>), it is not clear whether the intravenous infusion with SB can play the similar roles in normal animals. In this study, we hypothesize that additional intravenous butyrate can affect the gut function and mucosal immunity, then indirectly modify the microbial community, and eventually impact the gut health of the normal piglets. Therefore, the aim of this study was to investigate the effects of additional intravenous infusion with SB on gut microbiota, mucosal immune and intestinal development in growing pigs in a short-term experiment, which may be a reference in the future study on developing alternative strategies for improving the intestinal health of normal piglets.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s1">
+      <title>Materials and Methods</title>
+      <sec>
+        <title>Ethics Statement</title>
+        <p>The experiment was approved and conducted under the supervision of the Animal Care and Use Committee of Nanjing Agricultural University (Nanjing, Jiangsu province, China). All pigs were raised and maintained on a local commercial farm under the care of the Animal Care and Use Guidelines of Nanjing Agricultural University.</p>
+      </sec>
+      <sec>
+        <title>Animals, Housing, and Experimental Design</title>
+        <p>Twelve crossbred growing barrows (Duroc &#xD7; Landrace &#xD7; Large White; initial body weight = 19.53 &#xB1; 1.35 kg) from the research pig farm (Nanjing Agricultural University) were used in the present study. Pigs were surgically fitted with a medical polyethylene cannula (inside diameter 2 mm and outside diameter 3 mm) via internal jugular vein after anesthesia to allow for the infusion of SB. One week prior to surgery, pigs were moved into 1.0 &#xD7; 1.2 m individual pens for adaptation to the new environment, where they were housed for the duration of the experiment. During the 1-week recovery period after surgery, pigs consumed a commercial grower diet (Supplementary Table <xref ref-type="supplementary-material" rid="SM1">1</xref>) (metabolizable energy = 3.19 Mcal/kg; crude protein = 16.8%, as-fed basis). Feed amounts were gradually increased after surgery until reaching pre-surgery levels. Following recovery, pigs (body weight = 23.70 &#xB1; 1.29 kg) were randomly allocated into the SB and control (CO) groups. Each group consisted of six replicates (pens), with one pig per pen. Pigs in the SB group were infused with 10 ml SB (200 mmol/l, PH 7.4, dissolved in sterile water) via internal jugular vein at 9:00 am each day, while the CO group was treated with the same volume of physiological saline (0.9% NaCl, pH 7.4). The dosage was chosen according to previous studies in pig including butyrate through parenteral nutrition (<xref rid="B4" ref-type="bibr">Bartholome et al., 2004</xref>) or through oral administration (<xref rid="B65" ref-type="bibr">Xu et al., 2016</xref>). The intravenous treatment lasted for 7 days. Pigs had unlimited access to feed and water throughout the experiment.</p>
+      </sec>
+      <sec>
+        <title>Sampling</title>
+        <p>On day 8, all the pigs were euthanized with a jugular vein injection of 4% sodium pentobarbital solution (40 mg/kg body weight). Pigs were weighed before euthanasia to determine average daily weight gain. The digesta in the distal ileum and proximal colon were collected, immediately snapped frozen in liquid nitrogen, and stored at -28&#xB0;C. Analysis of microbial composition and SCFAs were performed on samples in the colon, and secretory immunoglobulin A (sIgA) concentration was determined on samples both in the ileum and colon. To determine the expression of inflammatory cytokine-, tight junction protein-, and intestine development-related genes in the ileum and colon, the luminal fluid was drained, distal segments of distal ileum and proximal colon (3&#x2013;4 cm) were excised and washed with sterile phosphate buffer solution (PBS, pH 7.0), then the tissues were immediately snapped frozen in liquid nitrogen, and stored at -80&#xB0;C.</p>
+      </sec>
+      <sec>
+        <title>Short-Chain Fatty Acid Concentration Analysis</title>
+        <p>The SCFA concentrations in the proximal colon were determined by using a capillary column gas chromatograph (GC-14B, Shimadzu, Japan; Capillary Column: 30 m &#xD7; 0.32 mm &#xD7; 0.25 &#x3BC;m film thickness) according to the description in a previous study (<xref rid="B69" ref-type="bibr">Zhou et al., 2016</xref>).</p>
+      </sec>
+      <sec>
+        <title>Illumina MiSeq Sequencing 16S rDNA Gene in the Colon and Bioinformatics Analysis</title>
+        <p>The bacterial DNA was isolated from proximal colonic digesta using a commercially available stool DNA extraction kit according to the manufacturer&#x2019;s instructions (QIAamp DNA Stool Mini Kit, Qiagen, Hilden, Germany). The concentration of extracted DNA was determined by using a NanoDrop 1000 spectrophotometer (Thermo Fisher Scientific Inc., Wilmington, DE, United States). The V4&#x2013;V5 region of the bacterial 16S rRNA gene was amplified by polymerase chain reaction (PCR) using bacterial universal primers 515F (5&#x2032;-GTGCCAGCMGCCGCGG-3&#x2032;) and 907R (5&#x2032;-CCGTCAATTCMTTTRAGTTT-3&#x2032;) according to the description of previous study (<xref rid="B63" ref-type="bibr">Xiong et al., 2012</xref>). Purified amplicons were pooled in equimolar and paired-end sequenced (2 &#xD7; 250) on an Illumina MiSeq platform according to the standard protocols at the Majorbio Bio-Pharm Technology (Shanghai, China).</p>
+        <p>Raw fastq files were demultiplexed and quality-filtered using QIIME (version 1.17) with the following criteria: the 250 bp reads were truncated at any site receiving an average quality score &lt;20 over a 10 bp sliding window, discarding the truncated reads that were shorter than 50 bp; exact barcode matching, two nucleotide mismatch in primer matching, reads containing ambiguous characters were removed; and only sequences that overlap longer than 10 bp were assembled according to their overlap sequence. Operational taxonomic units (OTUs) were clustered with 97% similarity cutoff using UPARSE (version 7.1)<sup><xref ref-type="fn" rid="fn01">1</xref></sup>, and chimeric sequences were identified and removed using UCHIME. To assess bacterial diversity among samples in a comparable manner, a randomly selected, 31887-sequence (the lowest number of sequences in the 12 samples) subset from each sample was compared for the phylogenetic affiliation by RDP Classifier<sup><xref ref-type="fn" rid="fn02">2</xref></sup> against the Silva (SSU115) 16S rRNA database using a confidence threshold of 70% (<xref rid="B2" ref-type="bibr">Amato et al., 2013</xref>). We also calculated the sequencing depth index (coverage percentage) using Good&#x2019;s method (<xref rid="B20" ref-type="bibr">Good, 1953</xref>), the abundance-based coverage estimator (ACE), the bias-corrected Chao1 richness estimator, the Pielou evenness index (E), and the Shannon and Simpson diversity indices using the MOTHUR program<sup><xref ref-type="fn" rid="fn03">3</xref></sup> (<xref rid="B47" ref-type="bibr">Schloss et al., 2009</xref>). The raw sequencing reads were submitted to Sequencing Read Archive (SRA) database under the accession id: SRP151524. The Bray&#x2013;Curtis similarity clustering analysis of the abundance of OTUs was used to perform a principal coordinates analysis (PCoA) (<xref rid="B8" ref-type="bibr">Bray and Curtis, 1957</xref>). The relative abundance at the phylum and genus levels was compared between the two groups, the top 30 most abundant genera were defined as predominant genera, and sorted for the comparison.</p>
+      </sec>
+      <sec>
+        <title>Quantification of Total Bacteria by Real-Time PCR</title>
+        <p>Total bacteria primer set Bact1369 (5&#x2032;-CGGTGAATACGTTCYCGG-3&#x2032;) and Prok1492 (5&#x2032;-GGWTACCTTGTTACGACTT-3&#x2032;) was used for the quantification of total bacteria in the colon of pigs (<xref rid="B52" ref-type="bibr">Suzuki et al., 2000</xref>). Real-time PCR was performed on an Applied Biosystems 7300 real-time PCR system (Applied Biosystems, United States) using SYBR Green as the fluorescent dye as described by <xref rid="B51" ref-type="bibr">Sun et al. (2015)</xref>. The PCR amplification was performed with an initial denaturation step of 95&#xB0;C for 3 min, followed by 40 cycles of 95&#xB0;C for 15 s, 56&#xB0;C for 30 s and 72&#xB0;C for 30 s. Standard curves were generated with 10-fold serial dilutions of 16S rRNA genes amplified from a <italic>Lactobacillus</italic> strain. The number of total bacterial 16S rRNA gene copy was plotted against the CT value, and expressed as Log<sub>10</sub> 16S rRNA gene copies per gram of fresh sample.</p>
+      </sec>
+      <sec>
+        <title>Analysis of sIgA Concentration</title>
+        <p>The digesta (0.5 g) in the distal ileum and proximal colon were mixed with 4.5 ml physiological saline (0.9% NaCl, pH 7.4) through tissue homogenate. Then, sIgA concentration was determined by ELISA kit (Jiancheng Biochemical Reagent Company, Nanjing, China).</p>
+      </sec>
+      <sec>
+        <title>RNA Extraction, cDNA Synthesis, and Real-Time RT-PCR</title>
+        <p>Total RNA was extracted from distal segments of distal ileum and proximal colon using TRIzol reagent (Invitrogen, China), and quantified using a NanoDrop 1000 spectrophotometer (Thermo Fisher Scientific Inc., Wilmington, DE, United States). The absorption ratio (260:280 nm) of all the samples was between 1.8 and 2.0. One microgram RNA was reverse-transcribed with standard reagents (Biocolors, China). The primers for SCFA uptake [monocarboxylate transporter 1 (<italic>MCT1</italic>)] (<xref rid="B22" ref-type="bibr">Haenen et al., 2013</xref>), pro-inflammatory cytokines (<italic>IL-6, IL-8, IL-1&#x3B2;, IL-12p40, IL-18, TNF-&#x3B1;</italic>, and <italic>IFN-&#x3B3;</italic>) (<xref rid="B42" ref-type="bibr">Pi&#xE9; et al., 2004</xref>; <xref rid="B18" ref-type="bibr">Feng et al., 2014</xref>; <xref rid="B56" ref-type="bibr">Tudela et al., 2015</xref>), anti-inflammatory cytokine (<italic>IL-10</italic> and <italic>TGF-&#x3B2;</italic>) (<xref rid="B43" ref-type="bibr">Pieper et al., 2012</xref>; <xref rid="B18" ref-type="bibr">Feng et al., 2014</xref>), gene expression regulator [histone deacetylase 1 (<italic>HDAC1</italic>)] (<xref rid="B30" ref-type="bibr">Lee et al., 2011</xref>), tight junction protein genes [zonula occludens-1 (<italic>ZO-1</italic>) and occludin] (<xref rid="B18" ref-type="bibr">Feng et al., 2014</xref>), intestine development-related genes [insulin-like growth factor-1 (<italic>IGF-1</italic>), preproglucagon, <italic>IGF-1R</italic>, and epidermal growth factor (<italic>EGF</italic>) (<xref rid="B61" ref-type="bibr">Xiang, 2011</xref>; <xref rid="B24" ref-type="bibr">Han et al., 2012</xref>) and housekeeping genes (&#x3B2;-actin and <italic>GAPDH</italic>) (<xref rid="B32" ref-type="bibr">Li et al., 2016</xref>; <xref rid="B67" ref-type="bibr">Zhang et al., 2017</xref>) used in this study are presented in Supplementary Table <xref ref-type="supplementary-material" rid="SM2">2</xref>. The target genes and housekeeping genes were measured by quantitative real-time PCR with SYBR Green (Roche, Switzerland) and fluorescence was detected on an ABI 7300 sequence detector. The reaction system included 10 &#x3BC;l SYBR, 2 &#x3BC;l DNA (100 ng/&#x3BC;l), 0.4 &#x3BC;l Rox dye, 0.4 &#x3BC;l forward and reserve primers (10 mmol/&#x3BC;l), and 6.8 &#x3BC;l double distilled water. Samples were incubated in the ABI 7300 sequence detector for an initial denaturation at 95&#xB0;C for 10 min, followed by 35 PCR cycles of 95&#xB0;C for 15 s, 60&#xB0;C for 1 min, and 72&#xB0;C for 1 min. Of the three candidate housekeeping genes, &#x3B2;-actin was finally used for the accurate normalization by NormFinder software as described by <xref rid="B3" ref-type="bibr">Andersen et al. (2004)</xref>. The fold change was calculated using the 2<sup>-&#x394;&#x394;Ct</sup> method, presented as the fold-expression change in SB group relative to CO group after normalization to the endogenous control, &#x3B2;-actin. Amplification of specific transcripts was confirmed by melting curve profiles at the end of each PCR.</p>
+      </sec>
+      <sec>
+        <title>Statistical Analysis</title>
+        <p>Power calculations before the start of the study had identified a required sample size of six piglets per treatment group in order to enable detection of an effect size of 2.32 SD for microbial and gene expression data with 95% power and a type I error of 5% by using G<sup>&#x2217;</sup>Power Data Analysis (<xref rid="B17" ref-type="bibr">Faul et al., 2007</xref>). Data were analyzed by SPSS 17.0 as a completely randomized design, considering the SB treatment as the main effect. The microbial data were analyzed by using the non-parametric Mann&#x2013;Whitney <italic>U</italic>-test for independent samples. The data of average daily weight gain, SCFAs and sIgA concentrations, inflammatory cytokine-, tight junction-, and intestine development-related genes were evaluated by Student&#x2019;s <italic>t</italic>-test. Data were presented as group mean &#xB1; SE, significant differences were declared when <italic>P</italic> &lt; 0.05 and a trend when <italic>P</italic> &lt; 0.10. The correlations between the colonic microbial composition (relative abundance of genus higher than 0.1%) and inflammatory cytokines-, tight junction protein-, and intestine development-related gene expression which were significantly affected by SB treatment were assessed by Pearson&#x2019;s correlation test using GraphPad Prism version 5.00 (GraphPad Software, San Diego, CA, United States).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Average Daily Weight Gain of Pigs and SCFA Concentrations</title>
+        <p>No difference was found in the average daily weight gain of pigs between the SB and CO groups (0.82 &#xB1; 0.08 kg vs 0.81 &#xB1; 0.06 kg). Intravenous infusion with SB did not affect the SCFA concentrations in the colon of pigs (<bold>Table <xref rid="T1" ref-type="table">1</xref></bold>).</p>
+        <table-wrap id="T1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p>Short-chain fatty acid (SCFA) concentrations (&#x3BC;mol/g) in the colon of pigs in the sodium butyrate (SB) and control (CO) groups.</p>
+          </caption>
+          <table frame="hsides" rules="groups" cellspacing="5" cellpadding="5">
+            <thead>
+              <tr>
+                <th valign="top" align="left" rowspan="1" colspan="1">Items</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">CO</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">SB</th>
+                <th valign="top" align="center" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Total SCFA</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">69.63 &#xB1; 4.14</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">62.77 &#xB1; 4.68</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.305</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Acetate</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">41.25 &#xB1; 2.22</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">37.34 &#xB1; 2.11</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.238</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Propionate</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">17.88 &#xB1; 1.84</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">16.00 &#xB1; 2.76</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.586</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Butyrate</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">7.20 &#xB1; 0.80</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">6.02 &#xB1; 0.56</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.259</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Isovalerate</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.23 &#xB1; 0.09</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.37 &#xB1; 0.11</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.317</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Valerate</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.19 &#xB1; 0.07</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.00 &#xB1; 0.13</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.233</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Isobutyrate</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.88 &#xB1; 0.20</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.04 &#xB1; 0.11</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.501</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <attrib>
+              <italic>Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6.</italic>
+            </attrib>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Microbial Composition</title>
+        <p>Across all 12 samples, 446,252 quality sequences were classified as being bacteria with a read length higher than 250 bp. The average length of the quality sequences was 417 bp. The rarefaction curves (mean curves for the six samples/group) generated by MOTHUR plotting the number of OTUs by the number of reads tended to approach the saturation plateau (<bold>Figure <xref ref-type="fig" rid="F1">1A</xref></bold>). The statistical estimates of species richness and diversity indices for 31887-sequence subsets from each sample at a genetic distance of 3% are presented in <bold>Table <xref rid="T2" ref-type="table">2</xref></bold>. SB infusion significantly increased the richness estimators (ACE and Chao1) in the digesta samples (<italic>P</italic> &lt; 0.05), but had no effect on the coverage percentage, evenness index (E), and diversity indices (Shannon and Simpson) (<italic>P</italic> &gt; 0.10). PCoA of colonic bacterial communities showed that samples in the CO group gathered together although the microbial clusters of the two groups were not completely separated (<bold>Figure <xref ref-type="fig" rid="F1">1B</xref></bold>).</p>
+        <fig id="F1" position="float">
+          <label>FIGURE 1</label>
+          <caption>
+            <p>Effects of intravenous infusion with sodium butyrate (SB) on colonic microbiota of pigs. <bold>(A)</bold> Rarefaction curves (mean curves for the six samples/group) plotting the number of phylotypes found in the 16S rDNA gene libraries by the number of sequences from microbiota in the colonic digesta of pigs in the SB and control (CO) groups. <bold>(B)</bold> Principal coordinate analysis (PCoA) of colonic bacterial communities in the SB and CO groups. <bold>(C)</bold> The number of 16S rDNA gene copies of total bacteria in the colon of pigs in the SB and CO groups. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g001"/>
+        </fig>
+        <table-wrap id="T2" position="float">
+          <label>Table 2</label>
+          <caption>
+            <p>Richness estimators, diversity and evenness indices of the 16S rRNA gene libraries from microbiota in the colon of pigs in the sodium butyrate (SB) and control (CO) groups.</p>
+          </caption>
+          <table frame="hsides" rules="groups" cellspacing="5" cellpadding="5">
+            <thead>
+              <tr>
+                <th valign="top" align="left" colspan="2" rowspan="1">Items</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">CO</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">SB</th>
+                <th valign="top" align="center" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Richness estimators</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Chao1</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">170.33 &#xB1; 9.91</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">208.05 &#xB1; 4.76</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.015</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1"/>
+                <td valign="top" align="left" rowspan="1" colspan="1">Ace</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">151.63 &#xB1; 12.73</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">179.28 &#xB1; 5.97</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.015</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Diversity index</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Shannon</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">3.92 &#xB1; 0.10</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">4.09 &#xB1; 0.04</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.240</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1"/>
+                <td valign="top" align="left" rowspan="1" colspan="1">Simpson</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.03 &#xB1; 0.01</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.03 &#xB1; 0.00</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.589</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Evenness index</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Pielou E</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.71 &#xB1; 0.03</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.71 &#xB1; 0.04</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.881</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" colspan="2" rowspan="1">Coverage (%)</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">99.87 &#xB1; 0.03</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">99.87 &#xB1; 0.01</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.672</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <attrib>
+              <italic>Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6.</italic>
+            </attrib>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>At the phylum level, Firmicutes and Bacteroidetes were the most predominant phyla in the colon (<bold>Table <xref rid="T3" ref-type="table">3</xref></bold>). Infusion with SB tended to decrease the relative abundance of Bacteroidetes (<italic>P</italic> = 0.065) and to increase the proportion of Firmicutes (<italic>P</italic> = 0.093) and Spirochaetae (<italic>P</italic> = 0.093). Genus-level analysis of the top 30 most abundant genera revealed that unclassified Clostridiales, unclassified Ruminococcaceae, <italic>Clostridium sensu stricto</italic>, and <italic>Anaerotruncus</italic> in the colon were significantly increased in relative abundance by the SB infusion, whereas the abundance of <italic>Alloprevotella, Subdoligranulum</italic>, and <italic>Blautia</italic> was decreased (<italic>P</italic> &lt; 0.05) (<bold>Table <xref rid="T4" ref-type="table">4</xref></bold>).</p>
+        <table-wrap id="T3" position="float">
+          <label>Table 3</label>
+          <caption>
+            <p>Relative abundance of microbial phylum (percentage) in the colon of pigs in the sodium butyrate (SB) and control (CO) groups.</p>
+          </caption>
+          <table frame="hsides" rules="groups" cellspacing="5" cellpadding="5">
+            <thead>
+              <tr>
+                <th valign="top" align="left" rowspan="1" colspan="1">Items</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">CO</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">SB</th>
+                <th valign="top" align="center" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Bacteroidetes</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">50.97 &#xB1; 3.29</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">40.29 &#xB1; 3.49</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.065</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Firmicutes</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">47.84 &#xB1; 3.27</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">57.34 &#xB1; 2.6</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.093</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Tenericutes</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.49 &#xB1; 0.33</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.54 &#xB1; 0.07</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.132</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Proteobacteria</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.38 &#xB1; 0.13</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.30 &#xB1; 1.00</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.818</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Actinobacteria</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.14 &#xB1; 0.02</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.22 &#xB1; 0.07</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.310</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.09 &#xB1; 0.06</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.20 &#xB1; 0.08</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.485</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Cyanobacteria</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.07 &#xB1; 0.03</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.07 &#xB1; 0.03</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.818</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Spirochaetae</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.00 &#xB1; 0.00</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.03 &#xB1; 0.02</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.093</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <attrib>
+              <italic>Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6.</italic>
+            </attrib>
+          </table-wrap-foot>
+        </table-wrap>
+        <table-wrap id="T4" position="float">
+          <label>Table 4</label>
+          <caption>
+            <p>Relative abundance (percentage) for the top 30 most abundant genera in the colon of pigs in the sodium butyrate (SB) and control (CO) groups.</p>
+          </caption>
+          <table frame="hsides" rules="groups" cellspacing="5" cellpadding="5">
+            <thead>
+              <tr>
+                <th valign="top" align="left" rowspan="1" colspan="1">Bacterial taxa</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">CO</th>
+                <th valign="top" align="center" rowspan="1" colspan="1">SB</th>
+                <th valign="top" align="center" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Prevotellaceae</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">12.87 &#xB1; 0.82</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">11.49 &#xB1; 1.84</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.000</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Prevotella</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">10.94 &#xB1; 2.88</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">8.13 &#xB1; 1.61</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.589</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Lactobacillus</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">10.35 &#xB1; 3.48</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">4.34 &#xB1; 2.04</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.310</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Alloprevotella</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">9.71 &#xB1; 0.92</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">4.2 &#xB1; 0.66</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.002</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Bacteroidales</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">9.35 &#xB1; 0.65</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">8.82 &#xB1; 1.15</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.589</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Clostridiales</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">6.96 &#xB1; 0.78</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">9.85 &#xB1; 1.34</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.041</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Ruminococcaceae</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">5.76 &#xB1; 0.88</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">9.24 &#xB1; 1.09</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.041</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Bacteroides</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">5.00 &#xB1; 1.23</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.35 &#xB1; 0.26</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.065</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Clostridium sensu stricto</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">3.33 &#xB1; 0.94</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">6.20 &#xB1; 0.82</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.041</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Lachnospiraceae</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.82 &#xB1; 0.82</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">5.35 &#xB1; 0.90</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.093</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Streptococcus</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.79 &#xB1; 0.76</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">6.89 &#xB1; 2.32</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.240</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Coprococcus</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.40 &#xB1; 0.41</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.81 &#xB1; 0.61</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.180</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Terrisporobacter</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.32 &#xB1; 0.74</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.63 &#xB1; 0.27</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.485</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Rikenellaceae</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.00 &#xB1; 0.64</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">3.01 &#xB1; 0.51</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.180</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Phascolarctobacterium</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.33 &#xB1; 0.13</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.88 &#xB1; 0.20</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.093</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Subdoligranulum</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.33 &#xB1; 0.30</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.67 &#xB1; 0.27</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.026</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">[Eubacterium] coprostanoligenes group</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.23 &#xB1; 0.44</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.41 &#xB1; 0.28</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.818</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Parabacteroides</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.00 &#xB1; 0.24</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.93 &#xB1; 0.43</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.093</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Blautia</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.00 &#xB1; 0.12</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.58 &#xB1; 0.10</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.041</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Faecalibacterium</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.98 &#xB1; 0.13</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.78 &#xB1; 0.17</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.589</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Ruminiclostridium</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.95 &#xB1; 0.14</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.22 &#xB1; 0.23</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.485</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Lachnoclostridium</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.62 &#xB1; 0.15</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.49 &#xB1; 0.06</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.394</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Mollicutes</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.45 &#xB1; 0.32</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.47 &#xB1; 0.08</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.132</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Ruminococcus</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.43 &#xB1; 0.14</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.69 &#xB1; 0.15</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.240</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Oscillospira</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.41 &#xB1; 0.11</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.48 &#xB1; 0.10</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.485</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Anaerotruncus</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.29 &#xB1; 0.04</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.65 &#xB1; 0.12</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.015</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Oscillibacter</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.28 &#xB1; 0.05</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.49 &#xB1; 0.08</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.132</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Anaerovibrio</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.28 &#xB1; 0.15</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.41 &#xB1; 0.30</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.818</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Unclassified Erysipelotrichales</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.18 &#xB1; 0.06</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.35 &#xB1; 0.06</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.132</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <italic>Leeia</italic>
+                </td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.01 &#xB1; 0.01</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.99 &#xB1; 0.99</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">0.937</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <attrib>
+              <italic>Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6.</italic>
+            </attrib>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>Because MiSeq sequencing analysis can only reflect the relative abundance of bacteria, quantitative real-time PCR was used to determine the number of 16S rRNA gene copies of bacteria in the colon of pigs. As shown in <bold>Figure <xref ref-type="fig" rid="F1">1C</xref></bold>, SB infusion had no effect on the total numbers of bacteria in the colon of pigs (<italic>P</italic> &gt; 0.10).</p>
+      </sec>
+      <sec>
+        <title>sIgA Concentrations</title>
+        <p>As shown in <bold>Figure <xref ref-type="fig" rid="F2">2</xref></bold>, SB infusion significantly increased the sIgA concentration in the colonic digesta (<italic>P</italic> &lt; 0.05), and tended to increase sIgA concentration in the ileum (<italic>P</italic> = 0.089).</p>
+        <fig id="F2" position="float">
+          <label>FIGURE 2</label>
+          <caption>
+            <p>The concentration of secretory immunoglobulin A (sIgA) in the ileal and colonic digesta of pigs in the sodium butyrate (SB) and control (CO) groups. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6. <sup>&#x2217;&#x2217;</sup><italic>P</italic> &lt; 0.01, (<sup>&#x2217;</sup>)0.05 &#x2264;<italic>P</italic> &lt; 0.1.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g002"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Gene Expression of <italic>MCT1</italic> and <italic>HDAC1</italic></title>
+        <p>Sodium butyrate treatment significantly up-regulated the gene expression of <italic>MCT1</italic> and down-regulated the expression of <italic>HDAC1</italic> in the colon (<italic>P</italic> &lt; 0.05), while no changes of genes <italic>MCT1</italic> and <italic>HDAC1</italic> were found in the ileum between the two groups (<bold>Figures <xref ref-type="fig" rid="F3">3</xref>, <xref ref-type="fig" rid="F4">4</xref></bold>).</p>
+        <fig id="F3" position="float">
+          <label>FIGURE 3</label>
+          <caption>
+            <p>The relative gene expression of <italic>MCT1</italic> in the ileum and colon of pigs in the sodium butyrate (SB) and control (CO) groups. The values were calculated as the fold-expression change in SB group relative to CO group after normalization to the endogenous control, &#x3B2;-actin with formula 2<sup>-&#x394;&#x394;Ct</sup>. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6. <sup>&#x2217;</sup><italic>P</italic> &lt; 0.05.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g003"/>
+        </fig>
+        <fig id="F4" position="float">
+          <label>FIGURE 4</label>
+          <caption>
+            <p>The relative gene expression of <italic>HDAC1</italic> in the ileum and colon of pigs in the sodium butyrate (SB) and control (CO) groups. The values were calculated as the fold-expression change in SB group relative to CO group after normalization to the endogenous control, &#x3B2;-actin with formula 2<sup>-&#x394;&#x394;Ct</sup>. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6. <sup>&#x2217;</sup><italic>P</italic> &lt; 0.05.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g004"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Gene Expression of Inflammatory Cytokines</title>
+        <p>In the ileum, SB infusion significantly down-regulated the gene expression of pro-inflammatory <italic>IL-6</italic> (<italic>P</italic> &lt; 0.05), and tended to decrease the gene expression of pro-inflammatory <italic>IL-12p40</italic> (<italic>P</italic> = 0.068), while had no effect on the gene expression of the other cytokines targeted in this study (<bold>Figures <xref ref-type="fig" rid="F5">5A,C</xref></bold>). In the colon, SB treatment decreased the gene expression of pro-inflammatory <italic>IL-6, IL-18, TNF-&#x3B1;</italic>, and <italic>IL-12p40</italic> (<italic>P</italic> &lt; 0.05), and tended to decrease the gene expression of pro-inflammatory <italic>IFN-&#x3B3;</italic> (<italic>P</italic> = 0.059), while increased the gene expression of anti-inflammatory <italic>IL-10</italic> (<italic>P</italic> &lt; 0.05). No difference in the gene expression of pro-inflammatory <italic>IL-8</italic> and <italic>IL-1&#x3B2;</italic> and anti-inflammatory <italic>TGF-&#x3B2;</italic> was observed between the two groups (<bold>Figures <xref ref-type="fig" rid="F5">5B,D</xref></bold>).</p>
+        <fig id="F5" position="float">
+          <label>FIGURE 5</label>
+          <caption>
+            <p>The relative gene expression of anti-inflammatory cytokines in the ileum <bold>(A)</bold> and colon <bold>(B)</bold>, and pro-inflammatory cytokines in the ileum <bold>(C)</bold> and colon <bold>(D)</bold> of pigs in the sodium butyrate (SB) and control (CO) groups. The values were calculated as the fold-expression change in SB group relative to CO group after normalization to the endogenous control, &#x3B2;-actin with formula 2<sup>-&#x394;&#x394;Ct</sup>. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6. <sup>&#x2217;</sup><italic>P</italic> &lt; 0.05, (<sup>&#x2217;</sup>)0.05 &#x2264;<italic>P</italic> &lt; 0.1.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g005"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Expression of Tight Junction Protein- and Intestine Development-Related Genes</title>
+        <p>In the ileum, SB infusion tended to increase the gene expression of occludin (<italic>P</italic> = 0.094), while had no effect on the expression of the other tight junction protein and intestine development targeted genes in this study (<bold>Figures <xref ref-type="fig" rid="F6">6A</xref>, <xref ref-type="fig" rid="F7">7A</xref></bold>). In the colon, the gene expression of <italic>ZO-1</italic> and occludin in the SB group was higher than that in the CO group. SB infusion up-regulated the expression of intestine development-related gene <italic>EGF</italic> (<italic>P</italic> &lt; 0.05) and tended to increase the gene expression of <italic>IGF-1</italic> (<italic>P</italic> = 0.081), whereas had no effects on the expression of genes <italic>IGF-1R</italic> and preproglucagon (<italic>P</italic> &gt; 0.10) (<bold>Figures <xref ref-type="fig" rid="F6">6B</xref>, <xref ref-type="fig" rid="F7">7B</xref></bold>).</p>
+        <fig id="F6" position="float">
+          <label>FIGURE 6</label>
+          <caption>
+            <p>The relative gene expression of tight junction protein in the ileum <bold>(A)</bold> and colon <bold>(B)</bold> of pigs in the sodium butyrate (SB) and control (CO) groups. The values were calculated as the fold-expression change in SB group relative to CO group after normalization to the endogenous control, &#x3B2;-actin with formula 2<sup>-&#x394;&#x394;Ct</sup>. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6. <sup>&#x2217;</sup><italic>P</italic> &lt; 0.05, (<sup>&#x2217;</sup>)0.05 &#x2264;<italic>P</italic> &lt; 0.1.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g006"/>
+        </fig>
+        <fig id="F7" position="float">
+          <label>FIGURE 7</label>
+          <caption>
+            <p>The relative gene expression of intestine development-relative gene in the ileum <bold>(A)</bold> and colon <bold>(B)</bold> of pigs in the sodium butyrate (SB) and control (CO) groups. The values were calculated as the fold-expression change in SB group relative to CO group after normalization to the endogenous control, &#x3B2;-actin with formula 2<sup>-&#x394;&#x394;Ct</sup>. Values are expressed as mean &#xB1; SE, <italic>n</italic> = 6. <sup>&#x2217;</sup><italic>P</italic> &lt; 0.05, (<sup>&#x2217;</sup>)0.05 &#x2264;<italic>P</italic> &lt; 0.1.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g007"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Correlation Between Colonic Microbial Composition and Inflammatory Cytokines-, Tight Junction Protein-, and Intestine Development-Related Gene Expression</title>
+        <p>Pearson&#x2019;s correlation analysis showed that the gene expression of <italic>IL-6</italic> was positively associated with the abundance of <italic>Alloprevotella</italic>, but negatively related to the proportion of <italic>Clostridium sensu stricto</italic> in the colon (<bold>Figure <xref ref-type="fig" rid="F8">8</xref></bold>). The gene expression of <italic>IL-18</italic> was positively correlated with the abundance of <italic>Bacteroides.</italic> The <italic>IL-10</italic> expression level was positively associated with the abundance of <italic>Parasutterella</italic>, but negatively related to the relative abundance of <italic>Alloprevotella.</italic> The <italic>TNF-&#x3B1;</italic> expression level was positively related to the abundance of <italic>Bacteroides</italic> and <italic>Phascolarctobacterium.</italic> The gene expression of <italic>HDAC1</italic> was positively correlated with the abundance of genera <italic>Alloprevotella</italic> and <italic>Blautia.</italic> The gene expression of occludin was positively correlated with the abundance of unclassified Clostridiales. The <italic>EGF</italic> expression level was negatively correlated with the abundance of <italic>Alloprevotella</italic> and <italic>Blautia</italic> in the colon.</p>
+        <fig id="F8" position="float">
+          <label>FIGURE 8</label>
+          <caption>
+            <p>Correlation analysis between colonic microbial composition (relative abundance of genus higher than 0.1%) and inflammatory cytokines-, tight junction protein-, and intestine development-related gene expression which were significantly affected by sodium butyrate infusion in the colon of pigs, <italic>n</italic> = 6. The color represents a significant correlation (<italic>P</italic> &lt; 0.05), and the intensity of the colors represents the degree of association. Red represents significant positive correlation, blue represents significantly negative correlation.</p>
+          </caption>
+          <graphic xlink:href="fmicb-09-01652-g008"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>Butyrate, a SCFA, is mainly produced by microbial fermentation of diet fiber in the large intestine of monogastric animals. Butyrate is an important energy source for intestinal enterocytes and can be quickly absorbed by the epithelial cells. In the present study, we investigated the effects of intravenous infusion with SB on colonic microbiota, intestinal mucosal immunity, and intestinal development in normal growing pigs. We found that intravenous infusion with SB impacted the colonic bacterial community, and played beneficial roles in regulating the colonic mucosal immune response and the intestinal development.</p>
+      <p>Several studies showed that SB supplementation in the diet systematically resulted in a positive consequence of improved gut villous-crypt architecture on the host digestive efficiency and body weight in pig model (<xref rid="B19" ref-type="bibr">Galfi and Bokori, 1990</xref>; <xref rid="B60" ref-type="bibr">Wen et al., 2012</xref>; <xref rid="B27" ref-type="bibr">Huang et al., 2015</xref>). Moreover, this beneficial role in gut villous-crypt architecture was also observed in pig (<xref rid="B4" ref-type="bibr">Bartholome et al., 2004</xref>) and murine (<xref rid="B38" ref-type="bibr">Murakoshi et al., 2011</xref>) models with parenteral SB, however, the body weight was not affected. Similarly, the present study showed that no difference was found between the two groups in the pigs&#x2019; body weight, which might be due to the short-term treatment of SB.</p>
+      <p>Our previous study showed that oral intervention with SB increased the richness and diversity of colonic microbiota in newborn piglets (<xref rid="B65" ref-type="bibr">Xu et al., 2016</xref>). <xref rid="B27" ref-type="bibr">Huang et al. (2015)</xref> also found that dietary SB increased the microbial diversity and the abundance of Clostridiaceae, Ruminococcaceae, and Lachnospiraceae in the colon of weaned piglets. Similarly, in the present study, intravenous infusion with SB modified the colonic bacterial community significantly increased the bacterial richness. In addition, we also found that the abundance of unclassified Clostridiales, unclassified Ruminococcaceae, <italic>Clostridium sensu stricto</italic>, and <italic>Anaerotruncus</italic> that were belonging to Clostridiales order increased by SB infusion. The triggers for changes in bacterial community compositions are currently unknown, but parenteral SB may be indirectly involved via changes in the gut physiology of animals in response to SB infusion. In the present study, intravenous infusion with SB affected the gut barrier function through regulating the immune response, thus may indirectly modify the gut bacterial community. Similarly, this indirectly regulating role was also found in a previous study suggesting systemic LPS could alter ruminal environment and ruminal microbiota composition in dairy cattle (<xref rid="B28" ref-type="bibr">Jing et al., 2014</xref>). In the current study, parenteral SB treatment had no effects on the SCFA concentrations in the colon, which was in agreement with the fact that there was no difference in the number of total bacteria between the two groups. However, PCoA of colonic bacterial communities showed that the microbial clusters of the SB and CO groups were separated to some extent. The possible reason for the similar metabolic activity of the microbial community between the two groups may be that different microbial composition can lead to similar functions due to functional redundancy.</p>
+      <p>Sodium butyrate infusion deeply affected the colonic mucosal immune response with low impact on the ileum, which suggests that the butyrate in the circulation system may be more absorbed and utilized by the enterocytes in the colon than in the ileum. SCFAs can diffuse across the epithelial cell membrane, but SCFA absorption by the enterocytes is also mediated by the MCT1 (<xref rid="B23" ref-type="bibr">Halestrap and Meredith, 2004</xref>). Thus, <italic>MCT1</italic>, as the key transport element to transport butyrate in intestinal epithelial cells (<xref rid="B7" ref-type="bibr">Borthakur et al., 2008</xref>), was targeted to detect the mRNA expression. Indeed, the present study showed that SB infusion increased the gene expression of monocarboxylate transporters <italic>MCT1</italic> in the colon, whereas no change was found in the ileum. Emerging evidences suggest that gene expression of <italic>MCT1</italic> is increased by SCFA especially the butyrate both in the rumen of ruminants and the colon in the human (<xref rid="B7" ref-type="bibr">Borthakur et al., 2008</xref>; <xref rid="B39" ref-type="bibr">Naeem et al., 2012</xref>). Although SCFAs can diffuse across the epithelial cell membrane, these findings, to some extent, indicate that the absorption of butyrate in the circulation system may be increased by the enterocytes in the colon, and further impact the intestinal mucosal function.</p>
+      <p><italic>In vitro</italic> cell culture experiments showed that butyrate plays a role in modulating immune systems via the inhibition of HDACs and down-regulation of the pro-inflammatory mediators such as <italic>IL-6, IL-8, TNF-&#x3B1;</italic>, and <italic>IL-12p40</italic> (<xref rid="B10" ref-type="bibr">Chang et al., 2014</xref>; <xref rid="B68" ref-type="bibr">Zhang et al., 2016</xref>). Infusion SCFAs to the distal ileum of growing pigs after oral antibiotics markly decreased the contents of IL-8 and TNF-&#x3B1; in the ileum and the relative mRNA abundance of pro-inflammatory cytokine <italic>IL-8</italic> in both ileum and colon (<xref rid="B13" ref-type="bibr">Diao et al., 2017</xref>). The present study showed that parenteral butyrate significantly down-regulated the gene expression of <italic>HDAC1</italic>, inhibited the gene expression of pro-inflammatory cytokines <italic>IL-6, IL-18, TNF-&#x3B1;</italic>, and <italic>IL-12p40</italic> in the colon, which is consistent with the previous studies through gut intervention with SB (<xref rid="B62" ref-type="bibr">Xiong et al., 2016</xref>). Differ to the study through oral intervention with SB, in our study, only <italic>IL-6</italic> gene expression was decreased by SB infusion in the ileum. The possible reason may be the limited butyrate absorption by ileal enterocytes from parenteral circulation system. In addition, the short-term treatment in this study might weaken its effect.</p>
+      <p>In this study, SB infusion significantly increased the sIgA concentration in the colon, and only a trend to increase was observed in ileum. It is known that sIgA plays an important role in protecting intestine against enteropathogens adherence and penetration in the intestinal mucosal both in human and animal models (<xref rid="B35" ref-type="bibr">McGhee et al., 1992</xref>; <xref rid="B41" ref-type="bibr">Phalipon et al., 2002</xref>). A previous study also reported that butyric acid&#x2013;supplemented parenteral nutrition significantly increased intestinal IgA level with the decrease of IFN-&#x3B3; level in mice (<xref rid="B38" ref-type="bibr">Murakoshi et al., 2011</xref>). The inhibition of HDAC reportedly restrained the production of IFN-&#x3B3; (<xref rid="B49" ref-type="bibr">Sealy and Chalkley, 1978</xref>), which is consistent with our results showing a decrease of i gene expression and a trend in decrease of the gene expression of <italic>IFN-&#x3B3;</italic> in the colon with SB infusion. In addition, as a Th2 IgA-stimulating cytokines, <italic>IL-10</italic> was also up-regulated in the colon by parenteral butyrate in the present study. IL-10 is secreted by regulatory T-lymphocytes, monocytes, and macrophages, and mainly inhibits the production of pro-inflammatory cytokines such as TNF-&#x3B1; and IFN-&#x3B3; (<xref rid="B21" ref-type="bibr">Gracie et al., 1999</xref>). Nevertheless, detection of lymphocyte proliferation was not attempted in this study and the regulating role of parenteral SB on the function of lymphocyte requires further investigation. Although the mRNA expression of inflammatory cytokines in the gut was down-regulated by SB infusion, all piglets kept health during the whole experimental period. To fully understand the regulating mechanism of parenteral SB on gut mucosal immunity, <italic>in vivo</italic> pathogenic challenge model is needed in further studies.</p>
+      <p>It is reported that Clostridia, as the main butyrate producer, is beneficial to the immunological development and the maintenance of gut homeostasis (<xref rid="B57" ref-type="bibr">Umesaki et al., 1999</xref>; <xref rid="B33" ref-type="bibr">Lopetuso et al., 2013</xref>). Previous study reported that the effect of oral butyrate on HDACs and inflammatory factors ultimately renders the intestinal immune system hypersensitive to the beneficial butyrate-producing bacteria (<xref rid="B10" ref-type="bibr">Chang et al., 2014</xref>), which is in agreement with our finding in the variation of microbial composition in the colon of SB group. In addition, Pearson&#x2019;s correlation analysis in this study also showed that the gene expression of <italic>IL-6</italic> was negatively related to the proportion of <italic>Clostridium sensu stricto</italic> in the colon. While the anti-inflammatory role of gut microbes such as <italic>Faecalibacterium prausnitzii, Lactobacillus</italic> spp. received more and more attention by researchers (<xref rid="B50" ref-type="bibr">Sokol et al., 2008</xref>; <xref rid="B5" ref-type="bibr">B&#xE4;uerl et al., 2013</xref>), our study found the correlations between some other genera and gene expression of inflammatory cytokines, however, considering the different roles in immunity activation of different species or strains in the same genus, further studies are needed to confirm the direct interaction between them at the species or strain level.</p>
+      <p>It is clear that the intestinal barrier has essential position in the innate immune system by preventing the harmful bacteria and noxious substances (<xref rid="B25" ref-type="bibr">Hasnain et al., 2011</xref>). The intestinal barrier consists of intact epithelial monolayer with the intercellular junctions that maintain structural integrity and normal functions of the intestinal epithelium (<xref rid="B34" ref-type="bibr">Matter et al., 2005</xref>). The tight junction, which is considered to be essential for the maintenance of normal intestinal structure, consists of transmembrane proteins (occludin and claudins) and ZO-1 proteins. In this study, the addition of SB in the jugular vein significantly up-regulated the gene expression of <italic>ZO-1</italic> and occludin in the colon, whereas only a trend for increase of gene expression of occludin was observed in the ileum, which might because the butyrate could be more absorbed by the enterocytes of the colon due to the increase of <italic>MCT1</italic> mRNA expression in the colon. These results were consistent with the previous findings showing that butyrate could enhance the barrier function of the colonic mucosa, maintain the integrity of intestine mucosa (<xref rid="B44" ref-type="bibr">Roediger, 1980</xref>; <xref rid="B12" ref-type="bibr">De Preter et al., 2011</xref>), and up-regulate the expression of tight junction proteins by enhancing the interaction between occludin-1 transcription factor SP1 and the promoter region (<xref rid="B59" ref-type="bibr">Wang et al., 2012</xref>). In addition, our correlation analysis showed that gene expression of occludin was positively correlated with the abundance of unclassified Clostridiales (including many butyrate producers), which is in agreement with the beneficial role of butyrate on the tight junction to some extent. The results above indicate that intravenous infusion with SB is beneficial for the intestinal integrity based on the detection of gene expression. However, further studies are needed to reveal the molecular mechanism of parenteral butyrate in promoting intestinal mucosa barrier on the protein level.</p>
+      <p>Researchers had also found that the growth factors such as GLP-2, IGF-1, and EGF are essential to the development of animal intestine. GLP-2 can not only promote the growth and re-repair of intestinal cells (<xref rid="B66" ref-type="bibr">Yazbeck et al., 2009</xref>), but also enhance intestinal absorption function via improving the intestinal morphology like stimulating crypt proliferation and villus growth (<xref rid="B15" ref-type="bibr">Drucker et al., 1996</xref>; <xref rid="B40" ref-type="bibr">Petersen et al., 2002</xref>). IGF-1 is another important regulator of the development of gut intestine and own similar effect on small intestine to GLP-2 and benefit to the small intestine integrity and absorption function (<xref rid="B26" ref-type="bibr">Houle et al., 1997</xref>; <xref rid="B1" ref-type="bibr">Alexander and Carey, 1999</xref>). IGF-1 is considered to play these functions mainly by binding with IGF-1R (<xref rid="B48" ref-type="bibr">Schober et al., 1990</xref>). EGF can promote DNA synthesis in intestinal mucosal cells and induce intestinal cell proliferation and differentiation (<xref rid="B64" ref-type="bibr">Xu et al., 1998</xref>). In the current study, a significant increase of <italic>EGF</italic> gene expression and a trend to increase of <italic>IGF-1</italic> gene expression were observed in the colon by the intravenous infusion with SB, while the gene expression levels of preproglucagon and <italic>IGF-1R</italic> in both segments were not affected. It was reported that parenteral SCFAs may influence small intestinal mucosal proliferation by stimulating secretion of proglucagon-derived peptides (GLP-2), and the relative gene expression of intestinal preproglucagon is strongly correlated with cellular proliferation during intestinal adaptation (<xref rid="B55" ref-type="bibr">Tappenden et al., 1997</xref>, <xref rid="B53" ref-type="bibr">1998</xref>; <xref rid="B54" ref-type="bibr">Tappenden and Mcburney, 1998</xref>; <xref rid="B4" ref-type="bibr">Bartholome et al., 2004</xref>). It is not clear that why parenteral SB affect the <italic>EGF</italic> gene expression, however, a previous study showed that the EGF synthesis was remarkably increased in the proximal colon of the pigs fed with resistant starch due to the increase of microbial butyrate formation (<xref rid="B36" ref-type="bibr">Mentschel and Claus, 2003</xref>). Previous studies showed that the relative high abundance of bacteria such as <italic>Bacillus</italic> spp. in the intestine could up-regulated the gene expression of <italic>GLP-2</italic> and <italic>IGF-1</italic> in the small intestine of piglets (<xref rid="B61" ref-type="bibr">Xiang, 2011</xref>), however, in this study, the abundance of <italic>Bacillus</italic> was not affected by the SB infusion. In addition, our study found that the <italic>EGF</italic> expression level was negatively correlated with the abundance of <italic>Alloprevotella</italic> and <italic>Blautia</italic>. Nevertheless, further studies are needed to investigate the roles of these gut bacteria in regulating the host intestinal development.</p>
+      <p>In the present study, we chose a dosage of 2 mmol per day for SB infusion in a model of growing pigs (around 23.70 kg). In a model of neonatal piglets (around 1.77 kg) with 80% jejunoileal resection, 9 mmol/l butyrate infusion with total parenteral nutrition could improve the morphology and function of intestinal adaptation (<xref rid="B4" ref-type="bibr">Bartholome et al., 2004</xref>). Similarly, a previous study through oral supplement in a neonatal piglet model (<xref rid="B65" ref-type="bibr">Xu et al., 2016</xref>) found the dosage of 2 mmol SB per day was beneficial to the gut function and mucosal immunity. However, in our study, more significant effects on the colon were found as compared with the ileum, further study is needed to evaluate the optimal dosage of SB for enhancing the gut function and mucosal immunity at the whole intestinal level. In addition, long-term impact of parenteral SB requires further investigation.</p>
+    </sec>
+    <sec>
+      <title>Conclusion</title>
+      <p>In conclusion, this study showed that intravenous infusion with SB increased the microbial richness and the relative abundance of genera related to Clostridiales order in the colonic digesta of pigs. Parenteral butyrate treatment up-regulated the mRNA expression of <italic>IL-10, ZO-1</italic>, Occludin, and <italic>EGF</italic>, and down-regulated the mRNA expression of <italic>IL-6, IL-18, TNF-&#x3B1;, IL-12p40</italic>, and <italic>HDAC1</italic> in colon. The results suggest that additional intravenous infusion with SB can modify colon microbial community, and to some extent, play a beneficial role in the gut health of pigs, which provides an alternative strategy for improving the intestinal health of pigs under the normal physiological condition.</p>
+    </sec>
+    <sec>
+      <title>Author Contributions</title>
+      <p>YS and WZ conceived and designed the experiments. XC, JX, and YS performed the experiments and analyzed the data. XC and YS wrote the paper.</p>
+    </sec>
+    <sec>
+      <title>Conflict of Interest Statement</title>
+      <p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding.</bold> This research was received funding from the National Key R&amp;D Program of China (2017YFD0500505), the National Natural Science Foundation of China (31572414), and the Fundamental Research Funds for the Central Universities (KYCYL201502-2).</p>
+      </fn>
+    </fn-group>
+    <fn-group>
+      <fn id="fn01">
+        <label>1</label>
+        <p>
+          <ext-link ext-link-type="uri" xlink:href="http://drive5.com/uparse/">http://drive5.com/uparse/</ext-link>
+        </p>
+      </fn>
+      <fn id="fn02">
+        <label>2</label>
+        <p>
+          <ext-link ext-link-type="uri" xlink:href="http://rdp.cme.msu.edu/">http://rdp.cme.msu.edu/</ext-link>
+        </p>
+      </fn>
+      <fn id="fn03">
+        <label>3</label>
+        <p>
+          <ext-link ext-link-type="uri" xlink:href="http://www.mothur.org">http://www.mothur.org</ext-link>
+        </p>
+      </fn>
+    </fn-group>
+    <sec sec-type="supplementary material">
+      <title>Supplementary Material</title>
+      <p>The Supplementary Material for this article can be found online at: <ext-link ext-link-type="uri" xlink:href="https://www.frontiersin.org/articles/10.3389/fmicb.2018.01652/full#supplementary-material">https://www.frontiersin.org/articles/10.3389/fmicb.2018.01652/full#supplementary-material</ext-link></p>
+      <supplementary-material content-type="local-data" id="SM1">
+        <media xlink:href="Table_1.DOCX">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SM2">
+        <media xlink:href="Table_2.DOCX">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Alexander</surname><given-names>A. N.</given-names></name><name><surname>Carey</surname><given-names>H. V.</given-names></name></person-group> (<year>1999</year>). <article-title>Oral IGF-I enhances nutrient and electrolyte absorption in neonatal piglet intestine.</article-title>
+<source><italic>Am. J. Physiol. Gastr. L.</italic></source>
+<volume>277</volume>
+<fpage>G619</fpage>&#x2013;<lpage>G625</lpage>. <pub-id pub-id-type="doi">10.1152/ajpgi.1999.277.3.G619</pub-id>
+<pub-id pub-id-type="pmid">10484387</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Amato</surname><given-names>K. R.</given-names></name><name><surname>Yeoman</surname><given-names>C. J.</given-names></name><name><surname>Kent</surname><given-names>A.</given-names></name><name><surname>Righini</surname><given-names>N.</given-names></name><name><surname>Carbonero</surname><given-names>F.</given-names></name><name><surname>Estrada</surname><given-names>A.</given-names></name><etal/></person-group> (<year>2013</year>). <article-title>Habitat degradation impacts black howler monkey (<italic>Alouatta pigra</italic>) gastrointestinal microbiomes.</article-title>
+<source><italic>ISME J.</italic></source>
+<volume>7</volume>
+<fpage>1344</fpage>&#x2013;<lpage>1353</lpage>. <pub-id pub-id-type="doi">10.1038/ismej.2013.16</pub-id>
+<pub-id pub-id-type="pmid">23486247</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Andersen</surname><given-names>C. L.</given-names></name><name><surname>Jensen</surname><given-names>J. L.</given-names></name><name><surname>&#xD8;rntoft</surname><given-names>T. F.</given-names></name></person-group> (<year>2004</year>). <article-title>Normalization of real-time quantitative reverse transcription-PCR data: a model-based variance estimation approach to identify genes suited for normalization, applied to bladder and colon cancer data sets.</article-title>
+<source><italic>Cancer Res.</italic></source>
+<volume>64</volume>
+<fpage>5245</fpage>&#x2013;<lpage>5250</lpage>. <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-04-0496</pub-id>
+<pub-id pub-id-type="pmid">15289330</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bartholome</surname><given-names>A. L.</given-names></name><name><surname>Albin</surname><given-names>D. M.</given-names></name><name><surname>Baker</surname><given-names>D. H.</given-names></name><name><surname>Holst</surname><given-names>J. J.</given-names></name><name><surname>Tappenden</surname><given-names>K. A.</given-names></name></person-group> (<year>2004</year>). <article-title>Supplementation of total parenteral nutrition with butyrate acutely increases structural aspects of intestinal adaptation after an 80% jejunoileal resection in neonatal piglets.</article-title>
+<source><italic>JPEN J. Parenter. Enteral Nutr.</italic></source>
+<volume>28</volume>
+<fpage>210</fpage>&#x2013;<lpage>222</lpage>. <pub-id pub-id-type="doi">10.1177/0148607104028004210</pub-id>
+<pub-id pub-id-type="pmid">15291402</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>B&#xE4;uerl</surname><given-names>C.</given-names></name><name><surname>Llopis</surname><given-names>M.</given-names></name><name><surname>Antol&#xED;n</surname><given-names>M.</given-names></name><name><surname>Monedero</surname><given-names>V.</given-names></name><name><surname>Mata</surname><given-names>M.</given-names></name><name><surname>Z&#xFA;&#xF1;iga</surname><given-names>M.</given-names></name><etal/></person-group> (<year>2013</year>). <article-title><italic>Lactobacillus paracasei</italic> and <italic>Lactobacillus plantarum</italic> strains downregulate proinflammatory genes in an ex vivo system of cultured human colonic mucosa.</article-title>
+<source><italic>Genes Nutr.</italic></source>
+<volume>8</volume>
+<fpage>165</fpage>&#x2013;<lpage>180</lpage>. <pub-id pub-id-type="doi">10.1007/s12263-012-0301-y</pub-id>
+<pub-id pub-id-type="pmid">22669626</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biagi</surname><given-names>E.</given-names></name><name><surname>Candela</surname><given-names>M.</given-names></name><name><surname>Fairweather-Tait</surname><given-names>S.</given-names></name><name><surname>Franceschi</surname><given-names>C.</given-names></name><name><surname>Brigidi</surname><given-names>P.</given-names></name></person-group> (<year>2012</year>). <article-title>Ageing of the human metaorganism: the microbial counterpart.</article-title>
+<source><italic>Age</italic></source>
+<volume>34</volume>
+<fpage>247</fpage>&#x2013;<lpage>267</lpage>. <pub-id pub-id-type="doi">10.1007/s11357-011-9217-5</pub-id>
+<pub-id pub-id-type="pmid">21347607</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Borthakur</surname><given-names>A.</given-names></name><name><surname>Saksena</surname><given-names>S.</given-names></name><name><surname>Gill</surname><given-names>R. K.</given-names></name><name><surname>Alrefai</surname><given-names>W. A.</given-names></name><name><surname>Ramaswamy</surname><given-names>K.</given-names></name><name><surname>Dudeja</surname><given-names>P. K.</given-names></name></person-group> (<year>2008</year>). <article-title>Regulation of monocarboxylate transporter 1 (MCT1) promoter by butyrate in human intestinal epithelial cells: involvement of NF-&#x3BA;B pathway.</article-title>
+<source><italic>J. Cell. Biochem.</italic></source>
+<volume>103</volume>
+<fpage>1452</fpage>&#x2013;<lpage>1463</lpage>. <pub-id pub-id-type="doi">10.1002/jcb.21532</pub-id>
+<pub-id pub-id-type="pmid">17786924</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bray</surname><given-names>J. R.</given-names></name><name><surname>Curtis</surname><given-names>J. T.</given-names></name></person-group> (<year>1957</year>). <article-title>An ordination of the upland forest communities of southern Wisconsin.</article-title>
+<source><italic>Ecol. Monogr.</italic></source>
+<volume>27</volume>
+<fpage>325</fpage>&#x2013;<lpage>349</lpage>. <pub-id pub-id-type="doi">10.2307/1942268</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cerf-Bensussan</surname><given-names>N.</given-names></name><name><surname>Gaboriau-Routhiau</surname><given-names>V.</given-names></name></person-group> (<year>2010</year>). <article-title>The immune system and the gut microbiota: friends or foes?</article-title>
+<source><italic>Nat. Rev. Immunol.</italic></source>
+<volume>10</volume>:<issue>735</issue>. <pub-id pub-id-type="doi">10.1038/nri2850</pub-id>
+<pub-id pub-id-type="pmid">20865020</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chang</surname><given-names>P. V.</given-names></name><name><surname>Hao</surname><given-names>L.</given-names></name><name><surname>Offermanns</surname><given-names>S.</given-names></name><name><surname>Medzhitov</surname><given-names>R.</given-names></name></person-group> (<year>2014</year>). <article-title>The microbial metabolite butyrate regulates intestinal macrophage function via histone deacetylase inhibition.</article-title>
+<source><italic>Proc. Natl. Acad. Sci. U.S.A.</italic></source>
+<volume>111</volume>
+<fpage>2247</fpage>&#x2013;<lpage>2252</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.1322269111</pub-id>
+<pub-id pub-id-type="pmid">24390544</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cummings</surname><given-names>J.</given-names></name><name><surname>Macfarlane</surname><given-names>G.</given-names></name></person-group> (<year>1997</year>). <article-title>Role of intestinal bacteria in nutrient metabolism.</article-title>
+<source><italic>Clin. Nutr.</italic></source>
+<volume>16</volume>
+<fpage>3</fpage>&#x2013;<lpage>11</lpage>. <pub-id pub-id-type="doi">10.1016/S0261-5614(97)80252-X</pub-id><pub-id pub-id-type="pmid">16844615</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>De Preter</surname><given-names>V.</given-names></name><name><surname>Geboes</surname><given-names>K.</given-names></name><name><surname>Bulteel</surname><given-names>V.</given-names></name><name><surname>Vandermeulen</surname><given-names>G.</given-names></name><name><surname>Suenaert</surname><given-names>P.</given-names></name><name><surname>Rutgeerts</surname><given-names>P.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>Kinetics of butyrate metabolism in the normal colon and in ulcerative colitis: the effects of substrate concentration and carnitine on the &#x3B2;-oxidation pathway.</article-title>
+<source><italic>Aliment. Pharm. Ther.</italic></source>
+<volume>34</volume>
+<fpage>526</fpage>&#x2013;<lpage>532</lpage>. <pub-id pub-id-type="doi">10.1111/j.1365-2036.2011.04757.x</pub-id>
+<pub-id pub-id-type="pmid">21707682</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Diao</surname><given-names>H.</given-names></name><name><surname>Jiao</surname><given-names>A.</given-names></name><name><surname>Yu</surname><given-names>B.</given-names></name><name><surname>He</surname><given-names>J.</given-names></name><name><surname>Yu</surname><given-names>J.</given-names></name><name><surname>Zheng</surname><given-names>P.</given-names></name><etal/></person-group> (<year>2017</year>). <article-title>Stimulation of intestinal growth with distal ileal infusion of short-chain fatty acid: a reevaluation in a pig model.</article-title>
+<source><italic>RSC Adv.</italic></source>
+<volume>7</volume>
+<fpage>30792</fpage>&#x2013;<lpage>30806</lpage>. <pub-id pub-id-type="doi">10.1039/C7RA03730A</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Drozdowski</surname><given-names>L. A.</given-names></name><name><surname>Dixon</surname><given-names>W. T.</given-names></name><name><surname>McBurney</surname><given-names>M. I.</given-names></name><name><surname>Thomson</surname><given-names>A. B.</given-names></name></person-group> (<year>2002</year>). <article-title>Short-chain fatty acids and total parenteral nutrition affect intestinal gene expression.</article-title>
+<source><italic>J. Parenter. Enteral Nutr.</italic></source>
+<volume>26</volume>
+<fpage>145</fpage>&#x2013;<lpage>150</lpage>. <pub-id pub-id-type="doi">10.1177/0148607102026003145</pub-id>
+<pub-id pub-id-type="pmid">12005453</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Drucker</surname><given-names>D. J.</given-names></name><name><surname>Erlich</surname><given-names>P.</given-names></name><name><surname>Asa</surname><given-names>S. L.</given-names></name><name><surname>Brubaker</surname><given-names>P. L.</given-names></name></person-group> (<year>1996</year>). <article-title>Induction of intestinal epithelial proliferation by glucagon-like peptide 2.</article-title>
+<source><italic>Proc. Natl. Acad. Sci. U.S.A.</italic></source>
+<volume>93</volume>
+<fpage>7911</fpage>&#x2013;<lpage>7916</lpage>.<pub-id pub-id-type="pmid">8755576</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Duncan</surname><given-names>S. H.</given-names></name><name><surname>Louis</surname><given-names>P.</given-names></name><name><surname>Flint</surname><given-names>H. J.</given-names></name></person-group> (<year>2007</year>). <article-title>Cultivable bacterial diversity from the human colon.</article-title>
+<source><italic>Lett. Appl. Microbiol.</italic></source>
+<volume>44</volume>
+<fpage>343</fpage>&#x2013;<lpage>350</lpage>. <pub-id pub-id-type="doi">10.1111/j.1472-765X.2007.02129.x</pub-id>
+<pub-id pub-id-type="pmid">17397470</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Faul</surname><given-names>F.</given-names></name><name><surname>Erdfelder</surname><given-names>E.</given-names></name><name><surname>Lang</surname><given-names>A. G.</given-names></name><name><surname>Buchner</surname><given-names>A.</given-names></name></person-group> (<year>2007</year>). <article-title>G<sup>&#x2217;</sup> Power 3: A flexible statistical power analysis program for the social, behavioral, and biomedical sciences.</article-title>
+<source><italic>Behav. Res. Methods</italic></source>
+<volume>39</volume>
+<fpage>175</fpage>&#x2013;<lpage>191</lpage>. <pub-id pub-id-type="doi">10.3758/BF03193146</pub-id><pub-id pub-id-type="pmid">17695343</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Feng</surname><given-names>Z.</given-names></name><name><surname>Li</surname><given-names>T.</given-names></name><name><surname>Wu</surname><given-names>C.</given-names></name><name><surname>Tao</surname><given-names>L.</given-names></name><name><surname>Blachier</surname><given-names>F.</given-names></name><name><surname>Yin</surname><given-names>Y.</given-names></name></person-group> (<year>2014</year>). <article-title>Monosodium l-glutamate and dietary fat exert opposite effects on the proximal and distal intestinal health in growing pigs.</article-title>
+<source><italic>Appl. Physiol. Nutr. Metab.</italic></source>
+<volume>40</volume>
+<fpage>353</fpage>&#x2013;<lpage>363</lpage>. <pub-id pub-id-type="doi">10.1139/apnm-2014-0434</pub-id>
+<pub-id pub-id-type="pmid">25781200</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Galfi</surname><given-names>P.</given-names></name><name><surname>Bokori</surname><given-names>J.</given-names></name></person-group> (<year>1990</year>). <article-title>Feeding trial in pigs with a diet containing sodium n-butyrate.</article-title>
+<source><italic>Acta Vet. Hung.</italic></source>
+<volume>38</volume>
+<fpage>3</fpage>&#x2013;<lpage>17</lpage>. <pub-id pub-id-type="pmid">2100936</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Good</surname><given-names>I. J.</given-names></name></person-group> (<year>1953</year>). <article-title>The population frequencies of species and the estimation of population parameters.</article-title>
+<source><italic>Biometrika</italic></source>
+<volume>40</volume>
+<fpage>237</fpage>&#x2013;<lpage>264</lpage>. <pub-id pub-id-type="doi">10.1093/biomet/40.3-4.237</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gracie</surname><given-names>J. A.</given-names></name><name><surname>Forsey</surname><given-names>R. J.</given-names></name><name><surname>Chan</surname><given-names>W. L.</given-names></name><name><surname>Gilmour</surname><given-names>A.</given-names></name><name><surname>Leung</surname><given-names>B. P.</given-names></name><name><surname>Greer</surname><given-names>M. R.</given-names></name><etal/></person-group> (<year>1999</year>). <article-title>A proinflammatory role for IL-18 in rheumatoid arthritis.</article-title>
+<source><italic>J. Clin. Invest.</italic></source>
+<volume>104</volume>
+<fpage>1393</fpage>&#x2013;<lpage>1401</lpage>. <pub-id pub-id-type="doi">10.1172/JCI7317</pub-id>
+<pub-id pub-id-type="pmid">10562301</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Haenen</surname><given-names>D.</given-names></name><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Souza da Silva</surname><given-names>C.</given-names></name><name><surname>Bosch</surname><given-names>G.</given-names></name><name><surname>van der Meer</surname><given-names>I. M.</given-names></name><name><surname>van Arkel</surname><given-names>J.</given-names></name><etal/></person-group> (<year>2013</year>). <article-title>A diet high in resistant starch modulates microbiota composition, SCFA concentrations, and gene expression in pig intestine.</article-title>
+<source><italic>J. Nutr.</italic></source>
+<volume>143</volume>
+<fpage>274</fpage>&#x2013;<lpage>283</lpage>. <pub-id pub-id-type="doi">10.3945/jn.112.169672</pub-id>
+<pub-id pub-id-type="pmid">23325922</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Halestrap</surname><given-names>A. P.</given-names></name><name><surname>Meredith</surname><given-names>D.</given-names></name></person-group> (<year>2004</year>). <article-title>The SLC16 gene family&#x2014;from monocarboxylate transporters (MCTs) to aromatic amino acid transporters and beyond.</article-title>
+<source><italic>Pfl&#xFC;gers Arch.</italic></source>
+<volume>447</volume>
+<fpage>619</fpage>&#x2013;<lpage>628</lpage>. <pub-id pub-id-type="doi">10.1007/s00424-003-1067-2</pub-id>
+<pub-id pub-id-type="pmid">12739169</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Han</surname><given-names>G. Q.</given-names></name><name><surname>Xiang</surname><given-names>Z. T.</given-names></name><name><surname>Yu</surname><given-names>B.</given-names></name><name><surname>Chen</surname><given-names>D. W.</given-names></name><name><surname>Qi</surname><given-names>H. W.</given-names></name><name><surname>Mao</surname><given-names>X. B.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Effects of different starch sources on Bacillus spp. in intestinal tract and expression of intestinal development related genes of weanling piglets.</article-title>
+<source><italic>Mol. Biol. Rep.</italic></source>
+<volume>39</volume>
+<fpage>1869</fpage>&#x2013;<lpage>1876</lpage>. <pub-id pub-id-type="doi">10.1007/s11033-011-0932-x</pub-id>
+<pub-id pub-id-type="pmid">21660473</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hasnain</surname><given-names>S.</given-names></name><name><surname>Thornton</surname><given-names>D.</given-names></name><name><surname>Grencis</surname><given-names>R.</given-names></name></person-group> (<year>2011</year>). <article-title>Changes in the mucosal barrier during acute and chronic <italic>Trichuris muris</italic> infection.</article-title>
+<source><italic>Parasite Immunol.</italic></source>
+<volume>33</volume>
+<fpage>45</fpage>&#x2013;<lpage>55</lpage>. <pub-id pub-id-type="doi">10.1111/j.1365-3024.2010.01258.x</pub-id>
+<pub-id pub-id-type="pmid">21155842</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Houle</surname><given-names>V. M.</given-names></name><name><surname>Schroeder</surname><given-names>E. A.</given-names></name><name><surname>Odle</surname><given-names>J.</given-names></name><name><surname>Donovan</surname><given-names>S. M.</given-names></name></person-group> (<year>1997</year>). <article-title>Small intestinal disaccharidase activity and ileal villus height are increased in piglets consuming formula containing recombinant human insulin-like growth factor-1.</article-title>
+<source><italic>Pediatr. Res.</italic></source>
+<volume>42</volume>
+<fpage>78</fpage>&#x2013;<lpage>86</lpage>. <pub-id pub-id-type="doi">10.1203/00006450-199707000-00013</pub-id>
+<pub-id pub-id-type="pmid">9212041</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Huang</surname><given-names>C.</given-names></name><name><surname>Song</surname><given-names>P.</given-names></name><name><surname>Fan</surname><given-names>P.</given-names></name><name><surname>Hou</surname><given-names>C.</given-names></name><name><surname>Thacker</surname><given-names>P.</given-names></name><name><surname>Ma</surname><given-names>X.</given-names></name></person-group> (<year>2015</year>). <article-title>Dietary sodium butyrate decreases postweaning diarrhea by modulating intestinal permeability and changing the bacterial communities in weaned piglets.</article-title>
+<source><italic>J. Nutr.</italic></source>
+<volume>145</volume>
+<fpage>2774</fpage>&#x2013;<lpage>2780</lpage>. <pub-id pub-id-type="doi">10.3945/jn.115.217406</pub-id>
+<pub-id pub-id-type="pmid">26491121</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jing</surname><given-names>L.</given-names></name><name><surname>Zhang</surname><given-names>R.</given-names></name><name><surname>Liu</surname><given-names>Y.</given-names></name><name><surname>Zhu</surname><given-names>W.</given-names></name><name><surname>Mao</surname><given-names>S.</given-names></name></person-group> (<year>2014</year>). <article-title>Intravenous lipopolysaccharide challenge alters ruminal bacterial microbiota and disrupts ruminal metabolism in dairy cattle.</article-title>
+<source><italic>Br. J. Nutr.</italic></source>
+<volume>112</volume>
+<fpage>170</fpage>&#x2013;<lpage>182</lpage>. <pub-id pub-id-type="doi">10.1017/S000711451400066X</pub-id>
+<pub-id pub-id-type="pmid">24774964</pub-id></mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Koruda</surname><given-names>M. J.</given-names></name><name><surname>Rolandelli</surname><given-names>R. H.</given-names></name><name><surname>Bliss</surname><given-names>D. Z.</given-names></name><name><surname>Hastings</surname><given-names>J.</given-names></name><name><surname>Rombeau</surname><given-names>J. L.</given-names></name><name><surname>Settle</surname><given-names>R. G.</given-names></name></person-group> (<year>1990</year>). <article-title>Parenteral nutrition supplemented with short-chain fatty acids: effect on the small-bowel mucosa in normal rats.</article-title>
+<source><italic>Am. J. Clin. Nutr.</italic></source>
+<volume>51</volume>
+<fpage>685</fpage>&#x2013;<lpage>689</lpage>. <pub-id pub-id-type="doi">10.1093/ajcn/51.4.685</pub-id>
+<pub-id pub-id-type="pmid">1690948</pub-id></mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>M. J.</given-names></name><name><surname>Kim</surname><given-names>S. W.</given-names></name><name><surname>Lee</surname><given-names>H. G.</given-names></name><name><surname>Im</surname><given-names>G. S.</given-names></name><name><surname>Yang</surname><given-names>B. C.</given-names></name><name><surname>Kim</surname><given-names>N. H.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>Trichostatin A promotes the development of bovine somatic cell nuclear transfer embryos.</article-title>
+<source><italic>J. Reprod. Dev.</italic></source>
+<volume>57</volume>
+<fpage>34</fpage>&#x2013;<lpage>42</lpage>. <pub-id pub-id-type="doi">10.1262/jrd.10-012A</pub-id>
+<pub-id pub-id-type="pmid">20834196</pub-id></mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ley</surname><given-names>R. E.</given-names></name><name><surname>Lozupone</surname><given-names>C. A.</given-names></name><name><surname>Hamady</surname><given-names>M.</given-names></name><name><surname>Knight</surname><given-names>R.</given-names></name><name><surname>Gordon</surname><given-names>J. I.</given-names></name></person-group> (<year>2008</year>). <article-title>Worlds within worlds: evolution of the vertebrate gut microbiota.</article-title>
+<source><italic>Nat. Rev. Microbiol.</italic></source>
+<volume>6</volume>
+<fpage>776</fpage>&#x2013;<lpage>788</lpage>. <pub-id pub-id-type="doi">10.1038/nrmicro1978</pub-id>
+<pub-id pub-id-type="pmid">18794915</pub-id></mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Li</surname><given-names>X.</given-names></name><name><surname>Huang</surname><given-names>K.</given-names></name><name><surname>Chen</surname><given-names>F.</given-names></name><name><surname>Li</surname><given-names>W.</given-names></name><name><surname>Sun</surname><given-names>S.</given-names></name><name><surname>Shi</surname><given-names>X. E.</given-names></name><etal/></person-group> (<year>2016</year>). <article-title>Verification of suitable and reliable reference genes for quantitative real-time PCR during adipogenic differentiation in porcine intramuscular stromal-vascular cells.</article-title>
+<source><italic>Animal</italic></source>
+<volume>10</volume>
+<fpage>947</fpage>&#x2013;<lpage>952</lpage>. <pub-id pub-id-type="doi">10.1017/S1751731115002748</pub-id>
+<pub-id pub-id-type="pmid">26781521</pub-id></mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lopetuso</surname><given-names>L. R.</given-names></name><name><surname>Scaldaferri</surname><given-names>F.</given-names></name><name><surname>Petito</surname><given-names>V.</given-names></name><name><surname>Gasbarrini</surname><given-names>A.</given-names></name></person-group> (<year>2013</year>). <article-title>Commensal Clostridia: leading players in the maintenance of gut homeostasis.</article-title>
+<source><italic>Gut Pathog.</italic></source>
+<volume>5</volume>:<issue>23</issue>. <pub-id pub-id-type="doi">10.1186/1757-4749-5-23</pub-id>
+<pub-id pub-id-type="pmid">23941657</pub-id></mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Matter</surname><given-names>K.</given-names></name><name><surname>Aijaz</surname><given-names>S.</given-names></name><name><surname>Tsapara</surname><given-names>A.</given-names></name><name><surname>Balda</surname><given-names>M. S.</given-names></name></person-group> (<year>2005</year>). <article-title>Mammalian tight junctions in the regulation of epithelial differentiation and proliferation.</article-title>
+<source><italic>Curr. Opin. Cell Biol.</italic></source>
+<volume>17</volume>
+<fpage>453</fpage>&#x2013;<lpage>458</lpage>. <pub-id pub-id-type="doi">10.1016/j.ceb.2005.08.003</pub-id>
+<pub-id pub-id-type="pmid">16098725</pub-id></mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>McGhee</surname><given-names>J. R.</given-names></name><name><surname>Mestecky</surname><given-names>J.</given-names></name><name><surname>Dertzbaugh</surname><given-names>M. T.</given-names></name><name><surname>Eldridge</surname><given-names>J. H.</given-names></name><name><surname>Hirasawa</surname><given-names>M.</given-names></name><name><surname>Kiyono</surname><given-names>H.</given-names></name></person-group> (<year>1992</year>). <article-title>The mucosal immune system: from fundamental concepts to vaccine development.</article-title>
+<source><italic>Vaccine</italic></source>
+<volume>10</volume>
+<fpage>75</fpage>&#x2013;<lpage>88</lpage>. <pub-id pub-id-type="doi">10.1016/0264-410X(92)90021-B</pub-id><pub-id pub-id-type="pmid">1539467</pub-id></mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mentschel</surname><given-names>J.</given-names></name><name><surname>Claus</surname><given-names>R.</given-names></name></person-group> (<year>2003</year>). <article-title>Increased butyrate formation in the pig colon by feeding raw potato starch leads to a reduction of colonocyte apoptosis and a shift to the stem cell compartment.</article-title>
+<source><italic>Metabolism</italic></source>
+<volume>52</volume>
+<fpage>1400</fpage>&#x2013;<lpage>1405</lpage>. <pub-id pub-id-type="doi">10.1016/S0026-0495(03)00318-4</pub-id>
+<pub-id pub-id-type="pmid">14624397</pub-id></mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Milo</surname><given-names>L. A.</given-names></name><name><surname>Reardon</surname><given-names>K. A.</given-names></name><name><surname>Tappenden</surname><given-names>K. A.</given-names></name></person-group> (<year>2002</year>). <article-title>Effects of short-chain fatty acid-supplemented total parenteral nutrition on intestinal pro-inflammatory cytokine abundance.</article-title>
+<source><italic>Digest. Dis. Sci.</italic></source>
+<volume>47</volume>
+<fpage>2049</fpage>&#x2013;<lpage>2055</lpage>. <pub-id pub-id-type="doi">10.1023/A:1019676929875</pub-id>
+<pub-id pub-id-type="pmid">12353854</pub-id></mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Murakoshi</surname><given-names>S.</given-names></name><name><surname>Fukatsu</surname><given-names>K.</given-names></name><name><surname>Omata</surname><given-names>J.</given-names></name><name><surname>Moriya</surname><given-names>T.</given-names></name><name><surname>Noguchi</surname><given-names>M.</given-names></name><name><surname>Saitoh</surname><given-names>D.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>Effects of adding butyric acid to PN on gut-associated lymphoid tissue and mucosal immunoglobulin A levels.</article-title>
+<source><italic>JPEN J. Parenter. Enteral Nutr.</italic></source>
+<volume>35</volume>
+<fpage>465</fpage>&#x2013;<lpage>472</lpage>. <pub-id pub-id-type="doi">10.1177/0148607110387610</pub-id>
+<pub-id pub-id-type="pmid">21467244</pub-id></mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Naeem</surname><given-names>A.</given-names></name><name><surname>Drackley</surname><given-names>J.</given-names></name><name><surname>Stamey</surname><given-names>J.</given-names></name><name><surname>Loor</surname><given-names>J.</given-names></name></person-group> (<year>2012</year>). <article-title>Role of metabolic and cellular proliferation genes in ruminal development in response to enhanced plane of nutrition in neonatal Holstein calves.</article-title>
+<source><italic>J. Dairy Sci.</italic></source>
+<volume>95</volume>
+<fpage>1807</fpage>&#x2013;<lpage>1820</lpage>. <pub-id pub-id-type="doi">10.3168/jds.2011-4709</pub-id>
+<pub-id pub-id-type="pmid">22459829</pub-id></mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Petersen</surname><given-names>Y. M.</given-names></name><name><surname>Elnif</surname><given-names>J.</given-names></name><name><surname>Schmidt</surname><given-names>M.</given-names></name><name><surname>Sangild</surname><given-names>P. T.</given-names></name></person-group> (<year>2002</year>). <article-title>Glucagon-like peptide 2 enhances maltase-glucoamylase and sucrase-isomaltase gene expression and activity in parenterally fed premature neonatal piglets.</article-title>
+<source><italic>Pediatr. Res.</italic></source>
+<volume>52</volume>
+<fpage>498</fpage>&#x2013;<lpage>503</lpage>. <pub-id pub-id-type="doi">10.1203/00006450-200210000-00007</pub-id>
+<pub-id pub-id-type="pmid">12357042</pub-id></mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Phalipon</surname><given-names>A.</given-names></name><name><surname>Cardona</surname><given-names>A.</given-names></name><name><surname>Kraehenbuhl</surname><given-names>J. P.</given-names></name><name><surname>Edelman</surname><given-names>L.</given-names></name><name><surname>Sansonetti</surname><given-names>P. J.</given-names></name><name><surname>Corth&#xE9;sy</surname><given-names>B.</given-names></name></person-group> (<year>2002</year>). <article-title>Secretory component: a new role in secretory IgA-mediated immune exclusion in vivo.</article-title>
+<source><italic>Immunity</italic></source>
+<volume>17</volume>
+<fpage>107</fpage>&#x2013;<lpage>115</lpage>. <pub-id pub-id-type="doi">10.1016/S1074-7613(02)00341-2</pub-id>
+<pub-id pub-id-type="pmid">12150896</pub-id></mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pi&#xE9;</surname><given-names>S.</given-names></name><name><surname>Lall&#xE8;s</surname><given-names>J.</given-names></name><name><surname>Blazy</surname><given-names>F.</given-names></name><name><surname>Laffitte</surname><given-names>J.</given-names></name><name><surname>S&#xE8;ve</surname><given-names>B.</given-names></name><name><surname>Oswald</surname><given-names>I.</given-names></name></person-group> (<year>2004</year>). <article-title>Weaning is associated with an upregulation of expression of inflammatory cytokines in the intestine of piglets.</article-title>
+<source><italic>J. Nutr.</italic></source>
+<volume>134</volume>
+<fpage>641</fpage>&#x2013;<lpage>647</lpage>. <pub-id pub-id-type="doi">10.1093/jn/134.3.641</pub-id>
+<pub-id pub-id-type="pmid">14988461</pub-id></mixed-citation>
+      </ref>
+      <ref id="B43">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pieper</surname><given-names>R.</given-names></name><name><surname>Kr&#xF6;ger</surname><given-names>S.</given-names></name><name><surname>Richter</surname><given-names>J. F.</given-names></name><name><surname>Wang</surname><given-names>J.</given-names></name><name><surname>Martin</surname><given-names>L.</given-names></name><name><surname>Bindelle</surname><given-names>J.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Fermentable fiber ameliorates fermentable protein-induced changes in microbial ecology, but not the mucosal response, in the colon of piglets&#x2013;3.</article-title>
+<source><italic>J. Nutr.</italic></source>
+<volume>142</volume>
+<fpage>661</fpage>&#x2013;<lpage>667</lpage>. <pub-id pub-id-type="doi">10.3945/jn.111.156190</pub-id>
+<pub-id pub-id-type="pmid">22357743</pub-id></mixed-citation>
+      </ref>
+      <ref id="B44">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Roediger</surname><given-names>W.</given-names></name></person-group> (<year>1980</year>). <article-title>Role of anaerobic bacteria in the metabolic welfare of the colonic mucosa in man.</article-title>
+<source><italic>Gut</italic></source>
+<volume>21</volume>
+<fpage>793</fpage>&#x2013;<lpage>798</lpage>. <pub-id pub-id-type="doi">10.1136/gut.21.9.793</pub-id>
+<pub-id pub-id-type="pmid">7429343</pub-id></mixed-citation>
+      </ref>
+      <ref id="B45">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rolandelli</surname><given-names>R. H.</given-names></name><name><surname>Buckmire</surname><given-names>M. A.</given-names></name><name><surname>Bernstein</surname><given-names>K. A.</given-names></name></person-group> (<year>1997</year>). <article-title>Intravenous butyrate and healing of colonic anastomoses in the rat.</article-title>
+<source><italic>Dis. Colon Rectum</italic></source>
+<volume>40</volume>
+<fpage>67</fpage>&#x2013;<lpage>70</lpage>. <pub-id pub-id-type="doi">10.1007/BF02055684</pub-id>
+<pub-id pub-id-type="pmid">9102264</pub-id></mixed-citation>
+      </ref>
+      <ref id="B46">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Round</surname><given-names>J. L.</given-names></name><name><surname>Mazmanian</surname><given-names>S. K.</given-names></name></person-group> (<year>2009</year>). <article-title>The gut microbiota shapes intestinal immune responses during health and disease.</article-title>
+<source><italic>Nat. Rev. Immunol.</italic></source>
+<volume>9</volume>:<issue>313</issue>. <pub-id pub-id-type="doi">10.1038/nri2515</pub-id>
+<pub-id pub-id-type="pmid">19343057</pub-id></mixed-citation>
+      </ref>
+      <ref id="B47">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schloss</surname><given-names>P. D.</given-names></name><name><surname>Westcott</surname><given-names>S. L.</given-names></name><name><surname>Ryabin</surname><given-names>T.</given-names></name><name><surname>Hall</surname><given-names>J. R.</given-names></name><name><surname>Hartmann</surname><given-names>M.</given-names></name><name><surname>Hollister</surname><given-names>E. B.</given-names></name><etal/></person-group> (<year>2009</year>). <article-title>Introducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities.</article-title>
+<source><italic>Appl. Environ. Microb.</italic></source>
+<volume>75</volume>
+<fpage>7537</fpage>&#x2013;<lpage>7541</lpage>. <pub-id pub-id-type="doi">10.1128/AEM.01541-09</pub-id>
+<pub-id pub-id-type="pmid">19801464</pub-id></mixed-citation>
+      </ref>
+      <ref id="B48">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schober</surname><given-names>D. A.</given-names></name><name><surname>Simmen</surname><given-names>F. A.</given-names></name><name><surname>Hadsell</surname><given-names>D. L.</given-names></name><name><surname>Baumrucker</surname><given-names>C. R.</given-names></name></person-group> (<year>1990</year>). <article-title>Perinatal expression of type I IGF receptors in porcine small intestine.</article-title>
+<source><italic>Endocrinology</italic></source>
+<volume>126</volume>
+<fpage>1125</fpage>&#x2013;<lpage>1132</lpage>. <pub-id pub-id-type="doi">10.1210/endo-126-2-1125</pub-id>
+<pub-id pub-id-type="pmid">2153520</pub-id></mixed-citation>
+      </ref>
+      <ref id="B49">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sealy</surname><given-names>L.</given-names></name><name><surname>Chalkley</surname><given-names>R.</given-names></name></person-group> (<year>1978</year>). <article-title>The effect of sodium butyrate on histone modification.</article-title>
+<source><italic>Cell</italic></source>
+<volume>14</volume>
+<fpage>115</fpage>&#x2013;<lpage>121</lpage>. <pub-id pub-id-type="doi">10.1016/0092-8674(78)90306-9</pub-id><pub-id pub-id-type="pmid">667928</pub-id></mixed-citation>
+      </ref>
+      <ref id="B50">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sokol</surname><given-names>H.</given-names></name><name><surname>Pigneur</surname><given-names>B.</given-names></name><name><surname>Watterlot</surname><given-names>L.</given-names></name><name><surname>Lakhdari</surname><given-names>O.</given-names></name><name><surname>Berm&#xFA;dez-Humar&#xE1;n</surname><given-names>L. G.</given-names></name><name><surname>Gratadoux</surname><given-names>J. J.</given-names></name><etal/></person-group> (<year>2008</year>). <article-title><italic>Faecalibacterium prausnitzii</italic> is an anti-inflammatory commensal bacterium identified by gut microbiota analysis of Crohn disease patients.</article-title>
+<source><italic>Proc. Natl. Acad. Sci. U.S.A.</italic></source>
+<volume>105</volume>
+<fpage>16731</fpage>&#x2013;<lpage>16736</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.0804812105</pub-id>
+<pub-id pub-id-type="pmid">18936492</pub-id></mixed-citation>
+      </ref>
+      <ref id="B51">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Zhou</surname><given-names>L.</given-names></name><name><surname>Fang</surname><given-names>L.</given-names></name><name><surname>Su</surname><given-names>Y.</given-names></name><name><surname>Zhu</surname><given-names>W.</given-names></name></person-group> (<year>2015</year>). <article-title>Responses in colonic microbial community and gene expression of pigs to a long-term high resistant starch diet.</article-title>
+<source><italic>Front. Microbiol.</italic></source>
+<volume>6</volume>:<issue>877</issue>. <pub-id pub-id-type="doi">10.3389/fmicb.2015.00877</pub-id>
+<pub-id pub-id-type="pmid">26379652</pub-id></mixed-citation>
+      </ref>
+      <ref id="B52">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Suzuki</surname><given-names>M. T.</given-names></name><name><surname>Taylor</surname><given-names>L. T.</given-names></name><name><surname>DeLong</surname><given-names>E. F.</given-names></name></person-group> (<year>2000</year>). <article-title>Quantitative analysis of small-subunit rRNA genes in mixed microbial populations via 5&#x2032;-nuclease assays.</article-title>
+<source><italic>Appl. Environ. Microb.</italic></source>
+<volume>66</volume>
+<fpage>4605</fpage>&#x2013;<lpage>4614</lpage>. <pub-id pub-id-type="doi">10.1128/AEM.66.11.4605-4614.2000</pub-id></mixed-citation>
+      </ref>
+      <ref id="B53">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tappenden</surname><given-names>K. A.</given-names></name><name><surname>Drozdowski</surname><given-names>L. A.</given-names></name><name><surname>Thomson</surname><given-names>A.</given-names></name><name><surname>McBurney</surname><given-names>M. I.</given-names></name></person-group> (<year>1998</year>). <article-title>Short-chain fatty acid-supplemented total parenteral nutrition alters intestinal structure, glucose transporter 2 (GLUT2) mRNA and protein, and proglucagon mRNA abundance in normal rats.</article-title>
+<source><italic>Am. J. Clin. Nutr.</italic></source>
+<volume>68</volume>
+<fpage>118</fpage>&#x2013;<lpage>125</lpage>. <pub-id pub-id-type="doi">10.1093/ajcn/68.1.118</pub-id>
+<pub-id pub-id-type="pmid">9665105</pub-id></mixed-citation>
+      </ref>
+      <ref id="B54">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tappenden</surname><given-names>K. A.</given-names></name><name><surname>Mcburney</surname><given-names>M. I.</given-names></name></person-group> (<year>1998</year>). <article-title>Systemic short-chain fatty acids rapidly alter gastrointestinal structure, function, and expression of early response genes.</article-title>
+<source><italic>Digest. Dis. Sci.</italic></source>
+<volume>43</volume>
+<fpage>1526</fpage>&#x2013;<lpage>1536</lpage>. <pub-id pub-id-type="doi">10.1023/A:1018819032620</pub-id>
+<pub-id pub-id-type="pmid">9690391</pub-id></mixed-citation>
+      </ref>
+      <ref id="B55">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tappenden</surname><given-names>K. A.</given-names></name><name><surname>Thomson</surname><given-names>A.</given-names></name><name><surname>Wild</surname><given-names>G. E.</given-names></name><name><surname>McBurney</surname><given-names>M. I.</given-names></name></person-group> (<year>1997</year>). <article-title>Short-chain fatty acid-supplemented total parenteral nutrition enhances functional adaptation to intestinal resection in rats.</article-title>
+<source><italic>Gastroenterology</italic></source>
+<volume>112</volume>
+<fpage>792</fpage>&#x2013;<lpage>802</lpage>. <pub-id pub-id-type="doi">10.1053/gast.1997.v112.pm9041241</pub-id>
+<pub-id pub-id-type="pmid">9041241</pub-id></mixed-citation>
+      </ref>
+      <ref id="B56">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tudela</surname><given-names>C. V.</given-names></name><name><surname>Boudry</surname><given-names>C.</given-names></name><name><surname>Stumpff</surname><given-names>F.</given-names></name><name><surname>Aschenbach</surname><given-names>J. R.</given-names></name><name><surname>Vahjen</surname><given-names>W.</given-names></name><name><surname>Zentek</surname><given-names>J.</given-names></name><etal/></person-group> (<year>2015</year>). <article-title>Down-regulation of monocarboxylate transporter 1 (MCT1) gene expression in the colon of piglets is linked to bacterial protein fermentation and pro-inflammatory cytokine-mediated signalling.</article-title>
+<source><italic>Br. J. Nutr.</italic></source>
+<volume>113</volume>
+<fpage>610</fpage>&#x2013;<lpage>617</lpage>. <pub-id pub-id-type="doi">10.1017/S0007114514004231</pub-id>
+<pub-id pub-id-type="pmid">25656974</pub-id></mixed-citation>
+      </ref>
+      <ref id="B57">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Umesaki</surname><given-names>Y.</given-names></name><name><surname>Setoyama</surname><given-names>H.</given-names></name><name><surname>Matsumoto</surname><given-names>S.</given-names></name><name><surname>Imaoka</surname><given-names>A.</given-names></name><name><surname>Itoh</surname><given-names>K.</given-names></name></person-group> (<year>1999</year>). <article-title>Differential roles of segmented filamentous bacteria and clostridia in development of the intestinal immune system.</article-title>
+<source><italic>Infect. Immun.</italic></source>
+<volume>67</volume>
+<fpage>3504</fpage>&#x2013;<lpage>3511</lpage>. <pub-id pub-id-type="pmid">10377132</pub-id></mixed-citation>
+      </ref>
+      <ref id="B58">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Von Engelhardt</surname><given-names>W.</given-names></name><name><surname>R&#xF6;nnau</surname><given-names>K.</given-names></name><name><surname>Rechkemmer</surname><given-names>G.</given-names></name><name><surname>Sakata</surname><given-names>T.</given-names></name></person-group> (<year>1989</year>). <article-title>Absorption of short-chain fatty acids and their role in the hindgut of monogastric animals.</article-title>
+<source><italic>Anim. Feed Sci. Tech.</italic></source>
+<volume>23</volume>
+<fpage>43</fpage>&#x2013;<lpage>53</lpage>. <pub-id pub-id-type="doi">10.1016/0377-8401(89)90088-6</pub-id></mixed-citation>
+      </ref>
+      <ref id="B59">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wang</surname><given-names>H. B.</given-names></name><name><surname>Wang</surname><given-names>P. Y.</given-names></name><name><surname>Wang</surname><given-names>X.</given-names></name><name><surname>Wan</surname><given-names>Y. L.</given-names></name><name><surname>Liu</surname><given-names>Y. C.</given-names></name></person-group> (<year>2012</year>). <article-title>Butyrate enhances intestinal epithelial barrier function via up-regulation of tight junction protein Claudin-1 transcription.</article-title>
+<source><italic>Digest. Dis. Sci.</italic></source>
+<volume>57</volume>
+<fpage>3126</fpage>&#x2013;<lpage>3135</lpage>. <pub-id pub-id-type="doi">10.1007/s10620-012-2259-4</pub-id>
+<pub-id pub-id-type="pmid">22684624</pub-id></mixed-citation>
+      </ref>
+      <ref id="B60">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wen</surname><given-names>Z. S.</given-names></name><name><surname>Lu</surname><given-names>J. J.</given-names></name><name><surname>Zou</surname><given-names>X. T.</given-names></name></person-group> (<year>2012</year>). <article-title>Effects of sodium butyrate on the intestinal morphology and DNA-binding activity of intestinal nuclear factor-&#x3BA;b in weanling pigs.</article-title>
+<source><italic>J. Anim. Vet. Adv.</italic></source>
+<volume>11</volume>
+<fpage>814</fpage>&#x2013;<lpage>821</lpage>. <pub-id pub-id-type="doi">10.3923/javaa.2012.814.821</pub-id>
+<pub-id pub-id-type="pmid">12640526</pub-id></mixed-citation>
+      </ref>
+      <ref id="B61">
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Xiang</surname><given-names>Z. T.</given-names></name></person-group> (<year>2011</year>). <source><italic>Effects of Different Dietary Starches on Intestinal Functions and Health and the Underlying Mechanism in Weaned Piglets.</italic></source>
+<publisher-name>Ph.D. thesis, Sichuan Agricultural University</publisher-name>
+<publisher-loc>Ya&#x2019;an</publisher-loc>.</mixed-citation>
+      </ref>
+      <ref id="B62">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Xiong</surname><given-names>H.</given-names></name><name><surname>Guo</surname><given-names>B.</given-names></name><name><surname>Gan</surname><given-names>Z.</given-names></name><name><surname>Song</surname><given-names>D.</given-names></name><name><surname>Lu</surname><given-names>Z.</given-names></name><name><surname>Yi</surname><given-names>H.</given-names></name><etal/></person-group> (<year>2016</year>). <article-title>Butyrate upregulates endogenous host defense peptides to enhance disease resistance in piglets via histone deacetylase inhibition.</article-title>
+<source><italic>Sci. Rep.</italic></source>
+<volume>6</volume>
+<fpage>1</fpage>&#x2013;<lpage>12</lpage>. <pub-id pub-id-type="doi">10.1038/srep27070</pub-id>
+<pub-id pub-id-type="pmid">28442746</pub-id></mixed-citation>
+      </ref>
+      <ref id="B63">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Xiong</surname><given-names>J.</given-names></name><name><surname>Liu</surname><given-names>Y.</given-names></name><name><surname>Lin</surname><given-names>X.</given-names></name><name><surname>Zhang</surname><given-names>H.</given-names></name><name><surname>Zeng</surname><given-names>J.</given-names></name><name><surname>Hou</surname><given-names>J.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Geographic distance and pH drive bacterial distribution in alkaline lake sediments across Tibetan Plateau.</article-title>
+<source><italic>Environ. Microbiol.</italic></source>
+<volume>14</volume>
+<fpage>2457</fpage>&#x2013;<lpage>2466</lpage>. <pub-id pub-id-type="doi">10.1111/j.1462-2920.2012.02799.x</pub-id>
+<pub-id pub-id-type="pmid">22676420</pub-id></mixed-citation>
+      </ref>
+      <ref id="B64">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Xu</surname><given-names>B.</given-names></name><name><surname>Wiehle</surname><given-names>S.</given-names></name><name><surname>Roth</surname><given-names>J.</given-names></name><name><surname>Cristiano</surname><given-names>R.</given-names></name></person-group> (<year>1998</year>). <article-title>The contribution of poly-L-lysine, epidermal growth factor and streptavidin to EGF/PLL/DNA polyplex formation.</article-title>
+<source><italic>Gene Ther.</italic></source>
+<volume>5</volume>
+<fpage>1235</fpage>&#x2013;<lpage>1243</lpage>. <pub-id pub-id-type="doi">10.1038/sj.gt.3300719</pub-id>
+<pub-id pub-id-type="pmid">9930325</pub-id></mixed-citation>
+      </ref>
+      <ref id="B65">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Xu</surname><given-names>J.</given-names></name><name><surname>Chen</surname><given-names>X.</given-names></name><name><surname>Yu</surname><given-names>S.</given-names></name><name><surname>Su</surname><given-names>Y.</given-names></name><name><surname>Zhu</surname><given-names>W.</given-names></name></person-group> (<year>2016</year>). <article-title>Effects of early intervention with sodium butyrate on gut microbiota and the expression of inflammatory cytokines in neonatal piglets.</article-title>
+<source><italic>PLoS One</italic></source>
+<volume>11</volume>:<issue>e0162461</issue>. <pub-id pub-id-type="doi">10.1371/journal.pone.0162461</pub-id>
+<pub-id pub-id-type="pmid">27611998</pub-id></mixed-citation>
+      </ref>
+      <ref id="B66">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yazbeck</surname><given-names>R.</given-names></name><name><surname>Howarth</surname><given-names>G. S.</given-names></name><name><surname>Abbott</surname><given-names>C. A.</given-names></name></person-group> (<year>2009</year>). <article-title>Growth factor based therapies and intestinal disease: is glucagon-like peptide-2 the new way forward?</article-title>
+<source><italic>Cytokine Growth F. R.</italic></source>
+<volume>20</volume>
+<fpage>175</fpage>&#x2013;<lpage>184</lpage>. <pub-id pub-id-type="doi">10.1016/j.cytogfr.2009.02.008</pub-id>
+<pub-id pub-id-type="pmid">19324585</pub-id></mixed-citation>
+      </ref>
+      <ref id="B67">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>C.</given-names></name><name><surname>Yu</surname><given-names>M.</given-names></name><name><surname>Yang</surname><given-names>Y.</given-names></name><name><surname>Mu</surname><given-names>C.</given-names></name><name><surname>Su</surname><given-names>Y.</given-names></name><name><surname>Zhu</surname><given-names>W.</given-names></name></person-group> (<year>2017</year>). <article-title>Differential effect of early antibiotic intervention on bacterial fermentation patterns and mucosal gene expression in the colon of pigs under diets with different protein levels.</article-title>
+<source><italic>Appl. Microbiol. Biot.</italic></source>
+<volume>101</volume>
+<fpage>2493</fpage>&#x2013;<lpage>2505</lpage>. <pub-id pub-id-type="doi">10.1007/s00253-016-7985-7</pub-id>
+<pub-id pub-id-type="pmid">27913852</pub-id></mixed-citation>
+      </ref>
+      <ref id="B68">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>H.</given-names></name><name><surname>Du</surname><given-names>M.</given-names></name><name><surname>Yang</surname><given-names>Q.</given-names></name><name><surname>Zhu</surname><given-names>M. J.</given-names></name></person-group> (<year>2016</year>). <article-title>Butyrate suppresses murine mast cell proliferation and cytokine production through inhibiting histone deacetylase.</article-title>
+<source><italic>J. Nutr. Biochem.</italic></source>
+<volume>27</volume>
+<fpage>299</fpage>&#x2013;<lpage>306</lpage>. <pub-id pub-id-type="doi">10.1016/j.jnutbio.2015.09.020</pub-id>
+<pub-id pub-id-type="pmid">26601598</pub-id></mixed-citation>
+      </ref>
+      <ref id="B69">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhou</surname><given-names>L.</given-names></name><name><surname>Fang</surname><given-names>L.</given-names></name><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Su</surname><given-names>Y.</given-names></name><name><surname>Zhu</surname><given-names>W.</given-names></name></person-group> (<year>2016</year>). <article-title>Effects of the dietary protein level on the microbial composition and metabolomic profile in the hindgut of the pig.</article-title>
+<source><italic>Anaerobe</italic></source>
+<volume>38</volume>
+<fpage>61</fpage>&#x2013;<lpage>69</lpage>. <pub-id pub-id-type="doi">10.1016/j.anaerobe.2015.12.009</pub-id>
+<pub-id pub-id-type="pmid">26723572</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

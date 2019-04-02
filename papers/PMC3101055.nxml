@@ -1,0 +1,2555 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Yonsei Med J</journal-id>
+      <journal-id journal-id-type="publisher-id">YMJ</journal-id>
+      <journal-title-group>
+        <journal-title>Yonsei Medical Journal</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0513-5796</issn>
+      <issn pub-type="epub">1976-2437</issn>
+      <publisher>
+        <publisher-name>Yonsei University College of Medicine</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21488182</article-id>
+      <article-id pub-id-type="pmc">3101055</article-id>
+      <article-id pub-id-type="doi">10.3349/ymj.2011.52.3.401</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Article</subject>
+          <subj-group>
+            <subject>Neuroscience</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Neuron-Like Differentiation of Bone Marrow-Derived Mesenchymal Stem Cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bae</surname>
+            <given-names>Keum Seok</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Park</surname>
+            <given-names>Joon Beom</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Hyun Soo</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Dae Sung</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Park</surname>
+            <given-names>Dong Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Kang</surname>
+            <given-names>Seong Joon</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Surgery, Yonsei University Wonju College of Medicine, Wonju, Korea.</aff>
+      <aff id="A2"><label>2</label>Department of Hemato-Oncology, Yonsei University Wonju College of Medicine, Wonju, Korea.</aff>
+      <aff id="A3"><label>3</label>Department of Otorhinolaryngology, Yonsei University Wonju College of Medicine, Wonju, Korea.</aff>
+      <aff id="A4"><label>4</label>FCB-Pharmicell Co., Ltd. Seongnam, Korea.</aff>
+      <author-notes>
+        <corresp>
+Corresponding author: Dr. Seong Joon Kang, Department Surgery, Yonsei University Wonju College of Medicine, 162 Ilsan-dong, Wonju 220-701, Korea. Tel: 82-33-741-1306, Fax: 82-33-742-1815, <email>mdkang@yonsei.ac.kr</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>01</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>06</day>
+        <month>4</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>52</volume>
+      <issue>3</issue>
+      <fpage>401</fpage>
+      <lpage>412</lpage>
+      <history>
+        <date date-type="received">
+          <day>17</day>
+          <month>4</month>
+          <year>2010</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>25</day>
+          <month>7</month>
+          <year>2010</year>
+        </date>
+        <date date-type="accepted">
+          <day>26</day>
+          <month>7</month>
+          <year>2010</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; Copyright: Yonsei University College of Medicine 2011</copyright-statement>
+        <copyright-year>2011</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/3.0">
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/3.0">http://creativecommons.org/licenses/by-nc/3.0</ext-link>) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Purpose</title>
+          <p>Mesenchymal stem cells (MSCs) are multipotent and give rise to distinctly differentiated cells from all three germ layers. Neuronal differentiation of MSC has great potential for cellular therapy. We examined whether the cluster of mechanically made, not neurosphere, could be differentiated into neuron-like cells by growth factors, such as epidermal growth factor (EGF), hepatocyte growth factor (HGF), and vascular endothelial growth factor (VEGF).</p>
+        </sec>
+        <sec>
+          <title>Materials and Methods</title>
+          <p>BMSCs grown confluent were mechanically separated with cell scrapers and masses of separated cells were cultured to form cluster BMSCs. As described here cluster of BMSCs were differentiated into neuron-like cells by EGF, HGF, and VEGF. Differentiated cells were analyzed by means of phase-contrast inverted microscopy, reverse transcriptase-polymerase chain reaction (RT-PCR), immunofluorescence, and immunocytochemistry to identify the expression of neural specific markers.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>For the group with growth factors, the shapes of neuron-like cells was observable a week later, and two weeks later, most cells were similar in shape to neuron-like cells. Particularly, in the group with chemical addition, various shapes of filament structures were seen among the cells. These culture conditions induced MSCs to exhibit a neural cell phenotype, expressing several neuro-glial specific markers.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>bone marrow-derived mesenchymal stem cells (BMSCs) could be easily induced to form clusters using mechanical scraping, not neurospheres, which in turn could differentiate further into neuron-like cells and might open an attractive possibility for clinical cell therapy for neurodegenerative diseases. In the future, we consider that neuron-like cells differentiated from clusters of BMSCs are needed to be compared and analyzed on a physiological and molecular biological level with preexisting neuronal cells, and studies on the possibility of their transplantation and differentiation capability in animal models are further required.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>Neuron-like cells</kwd>
+        <kwd>mesenchymal stem cell</kwd>
+        <kwd>epidermal growth factor</kwd>
+        <kwd>vascular endothelial growth factor</kwd>
+        <kwd>hepatocyte growth factor</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>INTRODUCTION</title>
+      <p>Since the late 19th century, several scientists have suggested the existence of non-hematopoietic stem cells besides the most common stem cells of hematopoietic origin. In 1968, Friedenstein et al proved that these cells can be formed into bone, and in 1985 Owen<xref ref-type="bibr" rid="B1">1</xref> reported that cells with self renewal and multi-differentiation capacity may be present in bone marrow on the basis of these cells' similarity to hematopoietic cells. These have been named as bone marrow derived mesenchymal stem cells (MSCs), or marrow stromal stem cells, and there are many researches who focus their aims on these cells.</p>
+      <p>MSCs are harvested from fat, cord blood, and embryos as well as from bone marrow. They have the potential to differentiate into marrow stromal cells, fat cells, osteoblastic cells, chondrocytes, tendinocytes, and myocytes, which are normally derived from mesenchymal stem cells.<xref ref-type="bibr" rid="B2">2</xref>-<xref ref-type="bibr" rid="B13">13</xref> They are also capable of differentiating into endodermal origin hepatocytes and ectodermal origin neurons. Therefore, these differentiation potentials of MSCsare used for research into possible clinical utilization in regenerative cell therapy.</p>
+      <p>Generally, the number of MSCs in the bone marrow is small. There are about 2 to 5 cells present in every 1&#xD7;10<sup>6</sup> mononuclear cells. Normally, the human body is thought to have about 1&#xD7;10<sup>6</sup> MSCs. However, they are relatively easily separated and grown in culture, and they have a great proliferation capability of a billion-fold increase in number <italic>ex vivo</italic> without losing their stem cell characteristics. Notably, Kuznetsov, et al.<xref ref-type="bibr" rid="B14">14</xref> identified several growth factors that are related to MSCs. They reported that MSCs under the presence of serum, platelet derived growth factor (PDGF), basic fibroblast growth factor (bFGF), transforming growth factor &#x3B2; (TGF-&#x3B2;), and epidermal growth factor (EGF) can form <italic>in vitro</italic> colonies.<xref ref-type="bibr" rid="B15">15</xref></p>
+      <p>The Ancient Chinese once said that the "brain is the sea of bone marrow." These ancient beliefs are now being proven one by one in recent times.<xref ref-type="bibr" rid="B16">16</xref> Eglitis and Mezey<xref ref-type="bibr" rid="B17">17</xref> reported bone marrow derived cells discovered in the all brain parts from the cortex to the brain stem. Particularly, in the case of human MSCs, they migrate and survive similarly to mice astrocytes when grafted in mice striatum, and they are discovered to lose their marrow mesenchymal cell markers.<xref ref-type="bibr" rid="B18">18</xref> When marrow-derived mesenchymal cells are transplanted into the lateral ventricles of a mouse, Kopen, et al.<xref ref-type="bibr" rid="B19">19</xref> discovered that the cells migrated to parts of forebrain and cerebellum, and some cells differentiated into atrocities and neurons containing neurofilaments. Along with this work, Brazelton, et al. determined that injected MSCs differentiated into neurons in the central nervous system when injected into a blood vessel in a bone marrow transplantation model.<xref ref-type="bibr" rid="B7">7</xref> Mezey, et al.<xref ref-type="bibr" rid="B8">8</xref> also discovered that when bone marrow cells are injected into mouse peritoneum, these cells migrate to the brain and differentiate into neurons.</p>
+      <p>Recent studies also report that these marrow-derived mesenchymal cells have a capacity to differentiate into neurons in <italic>ex vivo</italic> surroundings. Sanchez-Ramos, et al.<xref ref-type="bibr" rid="B20">20</xref> used retinoic acid and brain-derived neurotrophic factors to differentiate BMSCs into neural cells, including neurons and astrocytes. Woodbury, et al.<xref ref-type="bibr" rid="B21">21</xref> determined that using antioxidants such as &#x3B2;-mercaptoethanol (BME), dimethyl sulfoxide (DMSO), and butylated hydroxyanisole (BHA), they differentiated marrow-derived mesenchymal cells into neurons. The result was that within a few hours, most MSCs (80%) transformed into neuron-like shapes and expressed neuron-specific markers.</p>
+      <p>In the studies mentioned above concerning the potential of BMSC differentiation into neuron-like cells, the results from these studies suggest that these MSCs can be applied to the treatment of various brain and nerve diseases. Therefore, the goal of this study is to determine an effective method of differentiating BMSCs into neuron-like cells. We used EGF, vascular endothelial growth factor (VEGF), and hepatocyte growth factor (HGF), and observed the conditions of differentiation.</p>
+      <p>EGF and VEGF are known to function as growth factors that stimulate proliferation of brain tissue-derived neural mesenchymal cells in culture.<xref ref-type="bibr" rid="B22">22</xref>-<xref ref-type="bibr" rid="B26">26</xref> HGF is a heterodimer that consists of a chain containing four kringles and a serine protease-like b chain and is also called as scatter factor. It binds to c-Met, the tyrosine kinase receptor,<xref ref-type="bibr" rid="B27">27</xref> and it is a growth factor that has pleiotrophic roles.<xref ref-type="bibr" rid="B28">28</xref> Above all, within the neural tissue, tyrosine kinase receptor and its ligands are expressed, and they play an important role in survival, differentiation and regeneration of neurons.</p>
+      <p>The ability of these cells to neurogenically differentiate has deep potential that is applicable to the field of cell therapy. Nerve tissue has a limited ability to repair itself after injury.<xref ref-type="bibr" rid="B29">29</xref>-<xref ref-type="bibr" rid="B32">32</xref> Generally, groups of cells suggested for neurogenic cell therapy are embryonic stem cells and neuron stem cells acquired in embryo or adult brain tissue.<xref ref-type="bibr" rid="B33">33</xref>-<xref ref-type="bibr" rid="B36">36</xref> However, the use of these cells has limited application in clinical circumstances due to ethical and legal issues.</p>
+      <p>BMSCs and their ability to differentiate into neuron-like cells play an important role in the treatment of degenerative nerve diseases such as Parkinson's disease, Huntington's disease, and Amyotrophic Lateral sclerosis.<xref ref-type="bibr" rid="B37">37</xref>-<xref ref-type="bibr" rid="B39">39</xref> It is being recognized that bone marrow that functions as storage for hematopoietic stem cells and MSCs can replace embryonic stem cells in protection and cell therapy of dying nerves.<xref ref-type="bibr" rid="B40">40</xref>-<xref ref-type="bibr" rid="B43">43</xref> In fact, acquiring autologous stem cells, inducing less pain in patients, proliferating stem cells in vitro, differentiating, and transplanting cells back into the same patient is a new concept, and has interesting possibility as a new treatment method.</p>
+      <p>In this study, we used growth factors usually found in the human body to induce differentiation to neuron-like cells. We expect that this revolutionizing autologous cell therapy will be promising for the treatment of neurodegenerative diseases.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>MATERIALS AND METHODS</title>
+      <sec>
+        <title>Bone marrow collection and mesenchymal stem cell culture</title>
+        <p>Patients with no notable pathologic history were chosen for this study. Human bone marrow of three healthy donors aged 21 to 40 years was obtained from Institute of cell therapy center before 2005, after they gave informed consent according to the approved procedure. About 10 mL of marrow were collected from the pelvis of each patient and stored in a heparin containing test tube. 30 mL of phosphate buffered saline (PBS) was added to marrow sample. Then, the mixture was slowly streamed down on Ficoll-Plaque TM plus solution. The mixture was centrifuged using density gradient centrifugation for 20 minutes in 2,000 rpm. Next, the top layer and monocyte layer present in the interface of Ficoll-Plaque TM plus were retrieved and mixed again with 20 mL of PBS. Again, the blend was centrifuged in 1,800 rpm for 5 minutes, and this time only the monocyte was retrieved.</p>
+        <p>The separated monocytes were placed in Dulbecco's Modified Eagle's Medium (DMEM, 10% FBS, 1&#xD7;penicillin-streptomycin). Then, appropriate amounts of monocytes (2&#xD7;10<sup>5</sup>) were inoculated into a culture dish (T-75), and cultured in an incubator.</p>
+        <p>After seven to ten days, since only MSCs in monocytes proliferated on the floor of the culture dish, the medium was replaced. Later, when MSCs proliferated over 80% of the culture dish, it was transferred to other culture dish (T-175) for subculture. The medium was replaced once every three to four days to subculture 5 times.</p>
+      </sec>
+      <sec>
+        <title>Fluorescence Activated Cell Sorting (FACS) analysis</title>
+        <p>BMSCs were reacted with antibodies [CD105-FITC (SEROTEC), CD73-PE (BD), CD45-FITC (BD), CD34-FITC (BD), CD14-FITC (BD), and control (IgG1-FITC and IgG1-PE, BD)] for 45 min at room temperature. They were then washed three times with PBS and precipitated. The cells were dripped into columns and fixed with flow buffer (0.1% sodium azide, 1% paraformaldehyde, 0.5% bovine serum albumin). Finally, the cells were analyzed under Epics XL (Beckman Coulter, Brea, CA, USA).</p>
+      </sec>
+      <sec>
+        <title>Differentiation capability test</title>
+        <sec>
+          <title>Osteogenic differentiation of BMSCs</title>
+          <p>BMSCs (second passage) in the early phase of culture were suspended to DMEM. They were divided into 24 well plates (5&#xD7;10<sup>4</sup> cells/well) and cultured for 24 hours. Then, the medium was replaced with osteoblast differentiation medium [High-glucose DMEM, 10% fetal bovine serum, 0.1 &#xB5;M dexamethasone (Sigma, St. Louis, MO, USA), 10 mM &#x3B2;-glycerol phosphate, 50 &#xB5;M L-ascorbic acid] and cultured for three weeks. The medium was replaced twice a week.</p>
+        </sec>
+        <sec>
+          <title>Chondrogenic differentiation of BMSCs</title>
+          <p>BMSCs were suspended in chondrogenic medium (6.25 &#xB5;g/mL insulin, 6.25 &#xB5;g/mL transferrin, 6.25 &#xB5;g/mL selenous acid, 5.35 &#xB5;g/mL linoleic acid, 1.25 &#xB5;g/mL bovine serum albumin), 1 mM Pyruvate, 37.5 &#xB5;g/mL Ascorbic acid, 10-7 M dexamethasone (Sigma)]. It was then centrifuged for 10 minutes in 450 xg. The precipitated cells were cultured in chondrogenic medium for three weeks as micromass. The medium was replaced for twice a week, and later stained to identify differentiation.</p>
+        </sec>
+        <sec>
+          <title>Adipogenic differentiation of BMSCs</title>
+          <p>BMSCs were suspended in DMEM, and divided into six well plates. These were cultured for 48 hours. The cultured cells were grown for three additional days under 100% density. Adipogenic induction medium [high glucose DMEM, 10% fetal bovine serum, 1 &#xB5;M dexamethasone (Sigma), 10 ug/mL insulin (Sigma), 100 &#xB5;M indomethacin (Sigma), and 0.5 mM methyl-isobutylzanthine (Sigma)] was used for a 72-hour culture and to induce differentiation. The medium was removed and replaced with adipogenic maintenance medium [high glucose DMEM, 10% fetal bovine serum, 10 ug/mL insulin (Sigma)] to culture for 24 hours. The replacement of the media was repeated for three times. Then, finally, the sample was cultured for one additional week with adipogenic maintenance medium.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Confirmation of differentiation capability</title>
+        <sec>
+          <title>Alkaline phosphatase staining of osteoblasts</title>
+          <p>Alkaline phosphatase staining method was used to confirm the differentiation of BMSCs into osteoblasts. Cells that had been cultured in a 24-well plate for three weeks were removed from the media and washed twice with PBS. Ice-cold methanol (99.9%) was added and fixed in room temperature for two minutes. Then, it was washed with tertiary distilled water. BCIP/NBP (Sigma) liquid substrate was added and reacted with the sample for 10 minutes at an ambient temperature. Again, the mixture was washed twice with tertiary distilled water. The stain results were later analyzed under an optical microscope.</p>
+        </sec>
+        <sec>
+          <title>Safranin O staining of chondrocytes</title>
+          <p>The cultured cells were suspended in ice-cold acetone for 1-2 minutes after washing PBS. Mayer's hematoxylin solution was used to stain for 10 minutes and washed with a bluing solution, and then with distilled water. 0.1% safranin O solution was added and allowed to react for five minutes. Every two minutes, the sample was added to the following solutions in order: 95% ethyl alcohol, absolute ethyl alcohol, and xylene. The sample was mounted on a slide and their differentiation was studied under a microscope.</p>
+        </sec>
+        <sec>
+          <title>Oil red-O staining of adipocytes</title>
+          <p>Lipid staining using oil red O was used to confirm the differentiation of adipocytes from BMSCs. Cells that were cultured for 4 weeks in a six-well plate were mixed with 4% paraformaldehyde (in PBS) and fixed for 4 to 12 hours. The sample was then washed with 60% isopropanol (in PBS). It was stained with a 60% oil red-O solution (in PBS) for 45 minutes and washed with distilled water. The sample was tested under an optical microscope.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Neuron-like cell differentiation</title>
+        <p>The study was divided into two groups. One group was treated with only growth factors, and the other was processed with chemicals. First, BMSCs were cultured to occupy the entire culture medium and separated with a cell scraper. Masses of separated MSCs were then cultured to form 1-2 cluster/cm<sup>2</sup>. After 24 hours, when the BMSCs attached and started growing in the medium, growth factors and chemicals were added as appropriate to each group of cells. Initially, for the group with growth factors only, the DMEM medium was added with EGF, 10 ng/mL, (Gibco BRL, Rockville, MD, USA), HGF, 20 ng/mL, (R&amp;D Systems, Minneapolis, MN, USA), VEGF, 20 ng/mL, (R&amp;D Systems), and was cultured with replacement of the medium at 3 day intervals for 14 days. The group with chemicals was cultured with the DMEM medium for seven days, and on the eighth day, a chemical compound (BHA 200 &#xB5;M, KCl 5 mM, Valproic acid 2 &#xB5;M, Forskolin 10 &#xB5;M, Hydrocortisone 1 &#xB5;M, Insulin 5 &#xB5;M) was added to the medium for an additional five days of culture.</p>
+      </sec>
+      <sec>
+        <title>Immunostaining</title>
+        <sec>
+          <title>Immunochemical staining</title>
+          <p>The differentiated cells were suspended on a cm<sup>2</sup> cover slide at a 1&#xD7;10<sup>4</sup> cells/cm<sup>2</sup> concentration. After fixation, the slide was washed with PBS for 5 minutes and fixed with 4% paraformaldehyde with PBS for 15 minutes. It was then washed twice with PBS for 5 minutes. Later, the sample was processed with PBS containing 1% BSA and 0.2% Triton X-100 for 5 minutes. Primary antibody was mixed and allowed to react for 16 hours. Anti-human neuron-specific enolase (NSE); Chemicon Inc., Billerica, MA, USA), anti-human NeuN (Chemicon Inc.), anti-human &#x3B2;-tubulin III (Sigma Co., St. Louis, MO, USA), anti-human glial fibrillary acidic protein (GFAP); Sigma Co.), and anti-human microtubule-associated protein-2 (MAP-2) were used for primary antibodies. After the reaction with the primary antibody, PBS with 0.5% BSA was used to wash twice for 15 minutes. The sample was cultured again with secondary antibody for 30 minutes. PBS with 0.5% BSA was used to wash twice for 5 minutes. Afterward, the Avidin-biotin reaction (Vectastain Elite ABC kit; Vector Laboratory Inc., Burlingame, CA, USA) was processed for 30 minutes. It was washed twice for 5 minutes with PBS. 3,3'-diaminobenzidine tetrahydrochloride dehydrate (DAB, Sigma Co.) was mixed as a staining substrate and left to react for five minutes. Processing with PBS for five minutes stopped the reaction and it was further washed with PBS two more times. The sample was dried and then washed with distilled water for five minutes. Finally, it was washed and dehydrated with distilled water, 70%, 80%, 95%, and 100% ethanol (in that order), and suspended.</p>
+        </sec>
+        <sec>
+          <title>Immunofluorescence staining</title>
+          <p>For immunofluorescent staining, the cells were transferred to a culture slide (four-chamber, BD Falcon, Franklin Lakes, NJ, USA) and cultured for 1-2 days. Using 4% paraformaldehyde in PBS, cells were fixed for 4-8 hours and washed three times with PBS. The sample was then added to blocking solution (5% BSA in PBS) and left to react for 1 hour. Primary antibody was allowed to react for one hour at 4&#x2103;. After washing with PBS three times, mounting solution was added and covered with a cover glass. The cells were observed under a fluorescent microscope. To test for expression of antigens of neurons, immunofluorescent staining was performed using Neuronal Nuclei (NeuN, 1 : 100, Chemicon Inc.), GFAP (1 : 1,000, Chemicon Inc.), MAP-2 (1 : 500, Chemicon Inc.), Neuron Specific Enolase (NSE, 1 : 100, Chemicon Inc.), TH2 (1 : 1,000, Chemicon Inc.), Gal C (1 : 500, Chemicon Inc.) as monoclonal antibodies.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>RT-PCR</title>
+        <sec>
+          <title>Total RNA separation</title>
+          <p>Each cell from 175 mm culture dish was washed twice with PBS. Then, 1 mL of AccuZol (Bioneer Inc., Alameda, CA, USA) was added and cells were harvested into 1.5 mL centrifuge tube using a cell scraper. After adding 200 &#xB5;L of chloroform and shaking vigorously for 15 seconds, the mixture was left in ice for five minutes. The mixture was next centrifuged for 15 minutes at 12,000 rpm at 4&#x2103;. After the supernatant was transferred to a 1.5 mL tube, an equal amount of isopropyl alcohol was added, and the mixture was left at -20&#x2103; for 10 minutes. At 4&#x2103; the mixture was centrifuged again for 15 minutes at 12,000 rpm. The supernatant was removed and was washed with 1 mL of 80% ethanol. The solution was centrifuged once again for 10 minutes in 12,000 rpm at 4&#x2103;, and the supernatant was removed. The ribonucleic acid (RNA) pellet was dried at room temperature for 10 to 20 minutes. It was dissolved into DEPC-water and left for 10 minutes at &#x2103;.</p>
+        </sec>
+        <sec>
+          <title>cDNA synthesis</title>
+          <p>The total RNA that had been separated was treated with DNase. RNA 1 ug was added to Cyclescript RT preMix (dT20, Bioneer Inc.) and cycle in <xref ref-type="table" rid="T1">Table 1</xref> was repeated for 15 times to synthesize cDNA.</p>
+        </sec>
+        <sec>
+          <title>PCR</title>
+          <p>Using each synthesized cDNA as a mold, PCR was performed with the primers mentioned in <xref ref-type="table" rid="T2">Table 2</xref>. A total of 30 cycles were repeated.</p>
+        </sec>
+        <sec>
+          <title>Electrophoresis</title>
+          <p>Electrophoresis was performed on the DNA fragments synthesized by PCR using 1.5% agarose gel on 1X TAE buffer under 50 V. It was stained with ethidium bromide and observed under a U.V. illuminator.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Western blotting</title>
+        <p>Using a cell scraper, the cells in the medium were separated after being washed twice with PBS. After being collected into a 1.5 mL tube, radioimmunoprecipitation assay(RIPA) buffer [1% triton X-100, 1% sodium deoxycholate, 50 mM NaCl2, 50 mM tris-HCl, 1 mM sodium vanadate, 2 mM phenylmethanesulfonylfluoride (PMSF)] was added to obtain lysate. The protein sample was quantified with a protein assay solution, and was next added to 4&#xD7; sampling buffer. The sample was boiled for five minutes. After electrophoresis, transfer buffer (25 mM Tris base, 0.2 M glycine, 20% methanol) was used to transfer for one hour under 30V using Immobilon membrane (Millipore). The sample was then treated with blocking buffer (5% skim milk, 1X TBS, 0.1% TWEEN 20, polyoxyethylene (20) sorbitan monolaurate) for one hour. At 4&#x2103;, antibody [GFAP, NSE, galactocerebroside (Gal C), and NeuN] was allowed to react for 12 hours. Then, washing buffer [1X TBS, 0.1% TWEEN 20, polyoxyethylene (20) sorbitan monolaurate)] was used three times for five minutes each. Horseradish peroxidase bound secondary antibody was added to the reaction for one hour. It was washed three times with washing buffer. The result was verified with enhanced chemiluminescence (ECL) system (Habersham Bioscience).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>RESULTS</title>
+      <sec>
+        <title>Marrow collection and MSCs culture</title>
+        <p>After seven days of culturing marrow derived eukaryocytes in the medium, cell clusters were confirmed under a microscope. The attached cells were forming typical mesenchymal stem cell shapes (form of neuroglial cells in a pyramid shape with many processes). The primary subculture was completed 15 days later (<xref ref-type="fig" rid="F1">Fig. 1</xref>).</p>
+      </sec>
+      <sec>
+        <title>FACS analysis</title>
+        <p>FACS analysis was performed to confirm bone marrow-derived MSCs. Cells from the fourth subculture were collected and tested for SH2 and SH4 expressions, which are markers specific to mesenchymal stem cells. The test results were 99.8% positive in cell culture. The test was negative for antibodies (CD45, CD34, CD14), which are specific markers to hematopoietic stem cells, in the negative control group. Thus, it was confirmed that the sample of cells that had been grown consisted purely of mesenchymal stem cells, with no hematopoietic cells (<xref ref-type="fig" rid="F2">Fig. 2</xref>).</p>
+      </sec>
+      <sec>
+        <title>Differentiation capability test</title>
+        <sec>
+          <title>Alkaline phosphatase and silver nitrate staining of osteoblasts</title>
+          <p>When replaced with and cultured under high-glucose DMEM [10% fetal bovine serum, 0.1 &#xB5;M dexamethasone (Sigma), 10 mM &#x3B2;-glycerol phosphate, 50 &#xB5;M L-ascorbic acid] for three weeks, the stain for alkaline phosphatase and silver nitrate was positive. This confirmed the possibility of mesenchymal stem cells' differentiation to osteoblasts (<xref ref-type="fig" rid="F3">Fig. 3</xref>).</p>
+        </sec>
+        <sec>
+          <title>Safranin O staininig of chondrogenic cells</title>
+          <p>After forming BMSCs into a micromass shape using a centrifuge, the cells were cultured in chondrogenic medium for three weeks. As a result of Safranin O stain, differentiation into chondrocytes was observed (<xref ref-type="fig" rid="F4">Fig. 4</xref>).</p>
+        </sec>
+        <sec>
+          <title>Oil red-O staining of adipocytes</title>
+          <p>After culturing with adipogenic induction medium, the result of Oil red-O staining showed and confirmed adipocyte differentiation (red fat vacuoles stained with Oil red-O in cells) (<xref ref-type="fig" rid="F5">Fig. 5</xref>).</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Differentiation into neuron-like cells</title>
+        <p>When cultured with the addition of growth factors or chemicals, each group showed that, as differentiation progressed, the cells' processes became thinner and longer, similar to neurocytes, and morphologic changes were observed, such as the area of cytoplasm around the nucleus growing smaller. For the group with growth factor, the shape of neuron-like cells was observable a week later, and two weeks later, most of the cells were similar in shape to neurocytes. Particularly, in the group with chemical additions, filament structures of various shapes were seen among the cells (<xref ref-type="fig" rid="F6">Fig. 6</xref>).</p>
+        <p>Next, to compare and to observe the effects of growth factors used in differentiation into neuron-like cells, EGF alone or a combination of EGF and HGF was given, to be followed up with for two weeks. When the grown and proliferated cells were immunohistochemically tested for neurocyte markers such as NSE, NeuN, and GFAP, the number of positive cells for each stain was very small in the group that was treated with EGF alone. However, when treated with both EGF and HGF, cells that showed positive stains for each staining method were clearly observed. Based on the results mentioned above, the medium treated with both EGF and HGF was much higher in positive immunohistochemical stain ratio than the medium processed with EGF only when investigated regarding the immunohistochemical staining ratio that was positively stained in each condition (<xref ref-type="table" rid="T3">Table 3</xref>).</p>
+      </sec>
+      <sec>
+        <title>Immunostaining</title>
+        <sec>
+          <title>Immunochemical staining</title>
+          <p>For the group treated with growth factors for two weeks, immunohistochemical staining of each neurocyte-specific marker (NSE, NeuN, and GFAP) was performed. It was confirmed that all the markers were positively stained. Namely, it was verified that inducing MSCs differentiation into neuron-like cells by growth factors caused the cells to differentiate mostly to neurocytes and glial cells (<xref ref-type="fig" rid="F7">Fig. 7</xref>).</p>
+        </sec>
+        <sec>
+          <title>Immunofluorescence staining</title>
+          <p>In the case of immunofluorescent staining in glial fibrillary acidic protein (GFAP), the group treated with growth factors for two weeks showed positive results. In the case of NeuN, the group with growth factors also resulted in positive reactions and even the staining of the control group showed weakly fluorescent results. In the case of Microtubule-associated protein 2 (MAP2), the group with growth factors was a strong positive. Gal C that is a marker of oligodendrocyte was a strong posititve only in the group with growth factors. Through these results, we discovered that MSCs are capable of differentiating into neurocytes and glial cells; in addition, we could also confirm the differentiation of part of MSCs population into oligodendrocytes (<xref ref-type="fig" rid="F8">Fig. 8</xref>).</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>RT-PCR</title>
+        <p>Although all the groups showed expression of the gene in the case of GFAP, the group with growth factor only showed increased expression of the gene. For NSE, the control group was expressed minutely. NSE was much more highly expressed in the group with growth factor only. The group treated with chemicals also showed higher expression than the control group, but less than the group treated with growth factor. It was discovered that MAP2, NF-M, and GAP43 were only expressed in the group with chemical mediators. Based on these results, according to particular differentiation conditions, specific markers of some neuron-like cells show differences in expression level (<xref ref-type="fig" rid="F9">Fig. 9</xref>).</p>
+      </sec>
+      <sec>
+        <title>Western blotting</title>
+        <p>With the exception of the control group, all the groups induced differentiation showed expression of the protein GFAP. The group with growth factor showed markedly higher expression of protein than the group with chemicals. For NSE, the entire group showed expression of the protein, and the expression was particularly higher in the group with growth factor. In the Gal C test, the control group results were weakly positive for Gal C expression, and higher than the expression found in the group with chemicals. NeuN was expressed in high quantity in both groups with growth factor and with chemicals. Based on these results, according to particular differentiation conditions, specific markers of some neuron-like cells show a difference in the level of expression (<xref ref-type="fig" rid="F10">Fig. 10</xref>).</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>DISCUSSION</title>
+      <p>Through the results of neuron-like cell differentiation from BMSCs using growth factors such as EGF, VEGF, and HGF, we can presume the following three possibilities.</p>
+      <p>First, there exists a neurocyte subpopulation that can be differentiated into neurocytes in BMSCs that are proliferated and cultured <italic>ex vivo</italic>. Second, BMSCs can be trans-differentiated using a method such as mesenchymal epithelial transformation (MET). Finally, as we already know from the results of the RT-PCR and western blotting, under particular conditions of differentiation, it is possible to for cells to differentiate into neuron-like cells, each with different characteristics.</p>
+      <p>Bossolasco, et al.<xref ref-type="bibr" rid="B44">44</xref> postulated that, since nestin and beta tubulin III, together with O4 and GFAP showed a positive reaction, MSCs already have a subpopulation that has a capability to differentiate into neuron-like cells. In addition, Jiang, et al.<xref ref-type="bibr" rid="B45">45</xref> reported that selectively proliferated cells can be differentiated into multipotent precursor cells with the characteristic shapes of neurocytes, astrocytes, and oligodendrocytes. Chamberlain, et al.<xref ref-type="bibr" rid="B46">46</xref> also proved the possible trans-differentiation of mesenchymal stem cells.</p>
+      <p>When BMSCs proliferate and differentiate, as we discovered in the immunohistochemical stain positive ratio of the two groups, one treated with EGF only and the other with both EGF and HGF, it is our understanding that EGF stimulates cell proliferation and HGF stimulates differentiation into neuron-like cells. EGF along with bFGF is used as a factor to grow and proliferate neural stem cells or neural precursor cells derived from mouse or human brain tissue. Because previous reports already discovered that BMSCs express receptors for EGF,<xref ref-type="bibr" rid="B47">47</xref> EGF in this study is also thought to be associated with the proliferation and differentiation of BMSCs into neuron-like cells.<xref ref-type="bibr" rid="B22">22</xref>-<xref ref-type="bibr" rid="B26">26</xref> HGF has a pleiotropic function and plays an important role in the organogenesis of various epithelial cells<xref ref-type="bibr" rid="B30">30</xref> including renal, pulmonary, gastric, bowel mucosa, corneal, and skin epithelium and tissue regeneration.<xref ref-type="bibr" rid="B48">48</xref>-<xref ref-type="bibr" rid="B50">50</xref> It also plays an important role in growth and differentiation of stromal cells such as osteoblastocytes and myocytes.<xref ref-type="bibr" rid="B51">51</xref>-<xref ref-type="bibr" rid="B53">53</xref> HGF is a rare neurotrophic factor that is expressed all over the brain tissue.<xref ref-type="bibr" rid="B54">54</xref>-<xref ref-type="bibr" rid="B57">57</xref> HGF improves the survivability of neurons in the hippocampus and midbrain, and induces the growth of neurite in neocortical explants.<xref ref-type="bibr" rid="B54">54</xref>,<xref ref-type="bibr" rid="B57">57</xref> In the peripheral nervous system, HGF functions as a survival factor of motor neurons. Particularly, in the development process, it functions as a axonal chemoattractant to spinal motor neuron,<xref ref-type="bibr" rid="B58">58</xref> and is also associated with the growth and survival of sensory and parasympathetic neurons.<xref ref-type="bibr" rid="B59">59</xref></p>
+      <p>Currently, surgical and medical treatments for central nervous system diseases, including degenerative, traumatic, and ischemic damage, are very limited, and it is difficult to expect recovery from nervous system damage. To regenerate the damaged nervous tissues, a method called neuron transplantation is a raised possibility. A study that transplanted fetal dopaminergic neurons to an adult who was suffering from Parkinson's disease showed positive results.<xref ref-type="bibr" rid="B34">34</xref> However, its use is controversial because there are still many ethical problems with the application of fetal or embryo stem cells to patient treatment. Also, techniques for obtaining a sufficient quantity of adult neuronal stem cells to (NSCs) are still limited.<xref ref-type="bibr" rid="B29">29</xref>,<xref ref-type="bibr" rid="B32">32</xref> Therefore, this cannot be considered a proper method for application in clinical circumstances.<xref ref-type="bibr" rid="B60">60</xref></p>
+      <p>However, MSCs have excellent proliferation capabilities that can overcome the adult neuronal stem cells' limitation of quantity. It has also been confirmed that MSCs are capable of differentiating into cells that have similar characteristics to neurogenic cells, and it is possible for these cells to be used in the recovery of damaged neurons.</p>
+      <p>Using BMSCs' ability to differentiate into neurons in animal cerebral infarct models, symptoms has resulted in recovery and decreased neurological deficit when injected with MSCs.<xref ref-type="bibr" rid="B8">8</xref>,<xref ref-type="bibr" rid="B61">61</xref>-<xref ref-type="bibr" rid="B63">63</xref> It has also been discovered that when BMSCs are injected into blood vessels, rather than directly into damaged brain tissue, the cells have shown an ability to pass through the blood-brain barrier and to migrate to the damaged part of the brain.<xref ref-type="bibr" rid="B2">2</xref>,<xref ref-type="bibr" rid="B20">20</xref>,<xref ref-type="bibr" rid="B21">21</xref>,<xref ref-type="bibr" rid="B61">61</xref>,<xref ref-type="bibr" rid="B64">64</xref> In a clinical study, Bang, et al.<xref ref-type="bibr" rid="B65">65</xref> proliferated and introduced autologous MSCs intravenously to patients with cerebral infarction. They reported that injecting these stem cells had the effect of improving neurological symptoms, such as reducing the size of the infarct and decreasing the atrophy of the ventricle.<xref ref-type="bibr" rid="B66">66</xref></p>
+      <p>In this study, BMSCs' ability to proliferate and differentiate into neuron-like cells by has indicated a possibility for application to cell therapy for a wide range of diseases such as neurodegenerative disease and cerebral infarct. Previously known methods of inducing neuron-like cell differentiation using several chemicals have limits because the toxicity of these chemicals makes them too risky to be applied in humans. However, the EGF, VEGF, and HGF used in this study are secreted in human body, and can be safely manipulated to induce differentiation. Furthermore, the use of differentiated neuron-like cells in clinical therapeutic methods may have fewer limitations. These cells also have autologous marrow origin, and are thus free from severe complications; for example, immune rejection reaction. Because large quantities of neuron-like cells can be acquired from a small amount of bone marrow, these cells' application in clinical therapy will be very useful.</p>
+      <p>In the future, it will be necessary to compare and analyze the characteristics of neuron-like cells originating from MSCs with other neurons in molecular biological and physiological aspects. Further studies are required to uncover the possibilities of transplanting them into humans and differentiating the cells within animal.</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p>The authors have no financial conflicts of interest.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Owen</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Peck</surname>
+              <given-names>WA</given-names>
+            </name>
+          </person-group>
+          <article-title>Lineage of osteogenic cells and their relationship to the stromal system</article-title>
+          <source>Bone and mineral research</source>
+          <year>1985</year>
+          <publisher-loc>Amsterdam</publisher-loc>
+          <publisher-name>Elsevier</publisher-name>
+          <fpage>1</fpage>
+          <lpage>25</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pittenger</surname>
+              <given-names>MF</given-names>
+            </name>
+            <name>
+              <surname>Mackay</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Beck</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Jaiswal</surname>
+              <given-names>RK</given-names>
+            </name>
+            <name>
+              <surname>Douglas</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Mosca</surname>
+              <given-names>JD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multilineage potential of adult human mesenchymal stem cells</article-title>
+          <source>Science</source>
+          <year>1999</year>
+          <volume>284</volume>
+          <fpage>143</fpage>
+          <lpage>147</lpage>
+          <pub-id pub-id-type="pmid">10102814</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tremain</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Korkko</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ibberson</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kopen</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>DiGirolamo</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Phinney</surname>
+              <given-names>DG</given-names>
+            </name>
+          </person-group>
+          <article-title>MicroSAGE analysis of 2,353 expressed genes in a single cell-derived colony of undifferentiated human mesenchymal stem cells reveals mRNAs of multiple cell lineages</article-title>
+          <source>Stem Cells</source>
+          <year>2001</year>
+          <volume>19</volume>
+          <fpage>408</fpage>
+          <lpage>418</lpage>
+          <pub-id pub-id-type="pmid">11553849</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Le Blanc</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Pittenger</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells: progress toward promise</article-title>
+          <source>Cytotherapy</source>
+          <year>2005</year>
+          <volume>7</volume>
+          <fpage>36</fpage>
+          <lpage>45</lpage>
+          <pub-id pub-id-type="pmid">16040382</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>RH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Suh</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Characterization and expression analysis of mesenchymal stem cells from human bone marrow and adipose tissue</article-title>
+          <source>Cell Physiol Biochem</source>
+          <year>2004</year>
+          <volume>14</volume>
+          <fpage>311</fpage>
+          <lpage>324</lpage>
+          <pub-id pub-id-type="pmid">15319535</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Bunnell</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Painter</surname>
+              <given-names>RG</given-names>
+            </name>
+            <name>
+              <surname>Quiniones</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Tom</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lanson</surname>
+              <given-names>NA</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Adult stem cells from bone marrow stroma differentiate into airway epithelial cells: potential therapy for cystic fibrosis</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2005</year>
+          <volume>102</volume>
+          <fpage>186</fpage>
+          <lpage>191</lpage>
+          <pub-id pub-id-type="pmid">15615854</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brazelton</surname>
+              <given-names>TR</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>FM</given-names>
+            </name>
+            <name>
+              <surname>Keshet</surname>
+              <given-names>GI</given-names>
+            </name>
+            <name>
+              <surname>Blau</surname>
+              <given-names>HM</given-names>
+            </name>
+          </person-group>
+          <article-title>From marrow to brain: expression of neuronal phenotypes in adult mice</article-title>
+          <source>Science</source>
+          <year>2000</year>
+          <volume>290</volume>
+          <fpage>1775</fpage>
+          <lpage>1779</lpage>
+          <pub-id pub-id-type="pmid">11099418</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mezey</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Chandross</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Harta</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Maki</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>McKercher</surname>
+              <given-names>SR</given-names>
+            </name>
+          </person-group>
+          <article-title>Turning blood into brain: cells bearing neuronal antigens generated in vivo from bone marrow</article-title>
+          <source>Science</source>
+          <year>2000</year>
+          <volume>290</volume>
+          <fpage>1779</fpage>
+          <lpage>1782</lpage>
+          <pub-id pub-id-type="pmid">11099419</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zuk</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mizuno</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Futrell</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Katz</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multilineage cells from human adipose tissue: implications for cell-based therapies</article-title>
+          <source>Tissue Eng</source>
+          <year>2001</year>
+          <volume>7</volume>
+          <fpage>211</fpage>
+          <lpage>228</lpage>
+          <pub-id pub-id-type="pmid">11304456</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Katz</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Tholpady</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tholpady</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Shang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ogle</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell surface and transcriptional characterization of human adipose-derived adherent stromal (hADAS) cells</article-title>
+          <source>Stem Cells</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <fpage>412</fpage>
+          <lpage>423</lpage>
+          <pub-id pub-id-type="pmid">15749936</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Panepucci</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Siufi</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Silva</surname>
+              <given-names>WA</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <name>
+              <surname>Proto-Siquiera</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Neder</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Orellana</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Comparison of gene expression of umbilical cord vein and bone marrow-derived mesenchymal stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>1263</fpage>
+          <lpage>1278</lpage>
+          <pub-id pub-id-type="pmid">15579645</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>In 't Anker</surname>
+              <given-names>PS</given-names>
+            </name>
+            <name>
+              <surname>Scherjon</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Kleijburg-van der Keur</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>de Groot-Swings</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Claas</surname>
+              <given-names>FH</given-names>
+            </name>
+            <name>
+              <surname>Fibbe</surname>
+              <given-names>WE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Isolation of mesenchymal stem cells of fetal or maternal origin from human placenta</article-title>
+          <source>Stem Cells</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>1338</fpage>
+          <lpage>1345</lpage>
+          <pub-id pub-id-type="pmid">15579651</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Campagnoli</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Roberts</surname>
+              <given-names>IA</given-names>
+            </name>
+            <name>
+              <surname>Kumar</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Bennett</surname>
+              <given-names>PR</given-names>
+            </name>
+            <name>
+              <surname>Bellantuono</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Fisk</surname>
+              <given-names>NM</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of mesenchymal stem/progenitor cells in human first-trimester fetal blood, liver, and bone marrow</article-title>
+          <source>Blood</source>
+          <year>2001</year>
+          <volume>98</volume>
+          <fpage>2396</fpage>
+          <lpage>2402</lpage>
+          <pub-id pub-id-type="pmid">11588036</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuznetsov</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Friedenstein</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Robey</surname>
+              <given-names>PG</given-names>
+            </name>
+          </person-group>
+          <article-title>Factors required for bone marrow stromal fibroblast colony formation in vitro</article-title>
+          <source>Br J Haematol</source>
+          <year>1997</year>
+          <volume>97</volume>
+          <fpage>561</fpage>
+          <lpage>570</lpage>
+          <pub-id pub-id-type="pmid">9207401</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van den Bos</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mosca</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Winkles</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kerrigan</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Burgess</surname>
+              <given-names>WH</given-names>
+            </name>
+            <name>
+              <surname>Marshak</surname>
+              <given-names>DR</given-names>
+            </name>
+          </person-group>
+          <article-title>Human mesenchymal stem cells respond to fibroblast growth factors</article-title>
+          <source>Hum Cell</source>
+          <year>1997</year>
+          <volume>10</volume>
+          <fpage>45</fpage>
+          <lpage>50</lpage>
+          <pub-id pub-id-type="pmid">9234064</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morse</surname>
+              <given-names>WR</given-names>
+            </name>
+          </person-group>
+          <source>Chinese Medicine</source>
+          <year>1938</year>
+          <publisher-loc>New York</publisher-loc>
+          <publisher-name>Hoeber</publisher-name>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eglitis</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Mezey</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Hematopoietic cells differentiate into both microglia and macroglia in the brains of adult mice</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1997</year>
+          <volume>94</volume>
+          <fpage>4080</fpage>
+          <lpage>4085</lpage>
+          <pub-id pub-id-type="pmid">9108108</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Azizi</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Stokes</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Augelli</surname>
+              <given-names>BJ</given-names>
+            </name>
+            <name>
+              <surname>DiGirolamo</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Engraftment and migration of human bone marrow stromal cells implanted in the brains of albino rats--similarities to astrocyte grafts</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1998</year>
+          <volume>95</volume>
+          <fpage>3908</fpage>
+          <lpage>3913</lpage>
+          <pub-id pub-id-type="pmid">9520466</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kopen</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Phinney</surname>
+              <given-names>DG</given-names>
+            </name>
+          </person-group>
+          <article-title>Marrow stromal cells migrate throughout forebrain and cerebellum, and they differentiate into astrocytes after injection into neonatal mouse brains</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1999</year>
+          <volume>96</volume>
+          <fpage>10711</fpage>
+          <lpage>10716</lpage>
+          <pub-id pub-id-type="pmid">10485891</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sanchez-Ramos</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cardozo-Pelaez</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Hazzi</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Stedeford</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Willing</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Adult bone marrow stromal cells differentiate into neural cells in vitro</article-title>
+          <source>Exp Neurol</source>
+          <year>2000</year>
+          <volume>164</volume>
+          <fpage>247</fpage>
+          <lpage>256</lpage>
+          <pub-id pub-id-type="pmid">10915564</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woodbury</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Black</surname>
+              <given-names>IB</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult rat and human bone marrow stromal cells differentiate into neurons</article-title>
+          <source>J Neurosci Res</source>
+          <year>2000</year>
+          <volume>61</volume>
+          <fpage>364</fpage>
+          <lpage>370</lpage>
+          <pub-id pub-id-type="pmid">10931522</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Tetzlaff</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>A multipotent EGF-responsive striatal embryonic progenitor cell produces neurons and astrocytes</article-title>
+          <source>J Neurosci</source>
+          <year>1992</year>
+          <volume>12</volume>
+          <fpage>4565</fpage>
+          <lpage>4574</lpage>
+          <pub-id pub-id-type="pmid">1432110</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of neurons and astrocytes from isolated cells of the adult mammalian central nervous system</article-title>
+          <source>Science</source>
+          <year>1992</year>
+          <volume>255</volume>
+          <fpage>1707</fpage>
+          <lpage>1710</lpage>
+          <pub-id pub-id-type="pmid">1553558</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Clonal and population analyses demonstrate that an EGF-responsive mammalian embryonic CNS precursor is a stem cell</article-title>
+          <source>Dev Biol</source>
+          <year>1996</year>
+          <volume>175</volume>
+          <fpage>1</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="pmid">8608856</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Richards</surname>
+              <given-names>LJ</given-names>
+            </name>
+            <name>
+              <surname>Kilpatrick</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Bartlett</surname>
+              <given-names>PF</given-names>
+            </name>
+          </person-group>
+          <article-title>De novo generation of neuronal cells from the adult mouse brain</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1992</year>
+          <volume>89</volume>
+          <fpage>8591</fpage>
+          <lpage>8595</lpage>
+          <pub-id pub-id-type="pmid">1528866</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carpenter</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>Cui</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>ZY</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Sherman</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Seiger</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>In vitro expansion of a multipotent population of human neural progenitor cells</article-title>
+          <source>Exp Neurol</source>
+          <year>1999</year>
+          <volume>158</volume>
+          <fpage>265</fpage>
+          <lpage>278</lpage>
+          <pub-id pub-id-type="pmid">10415135</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nishizawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hagiya</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Seki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shimonishi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sugimura</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Molecular cloning and expression of human hepatocyte growth factor</article-title>
+          <source>Nature</source>
+          <year>1989</year>
+          <volume>342</volume>
+          <fpage>440</fpage>
+          <lpage>443</lpage>
+          <pub-id pub-id-type="pmid">2531289</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Hepatocyte growth factor (HGF) as a tissue organizer for organogenesis and regeneration</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>1997</year>
+          <volume>239</volume>
+          <fpage>639</fpage>
+          <lpage>644</lpage>
+          <pub-id pub-id-type="pmid">9367820</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gage</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <article-title>Mammalian neural stem cells</article-title>
+          <source>Science</source>
+          <year>2000</year>
+          <volume>287</volume>
+          <fpage>1433</fpage>
+          <lpage>1438</lpage>
+          <pub-id pub-id-type="pmid">10688783</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bj&#xF6;rklund</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lindvall</surname>
+              <given-names>O</given-names>
+            </name>
+          </person-group>
+          <article-title>Self-repair in the brain</article-title>
+          <source>Nature</source>
+          <year>2000</year>
+          <volume>405</volume>
+          <fpage>892</fpage>
+          <lpage>893</lpage>
+          <fpage>895</fpage>
+          <pub-id pub-id-type="pmid">10879515</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rakic</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult neurogenesis in mammals: an identity crisis</article-title>
+          <source>J Neurosci</source>
+          <year>2002</year>
+          <volume>22</volume>
+          <fpage>614</fpage>
+          <lpage>618</lpage>
+          <pub-id pub-id-type="pmid">11826088</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Temple</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cells in the adult mammalian central nervous system</article-title>
+          <source>Curr Opin Neurobiol</source>
+          <year>1999</year>
+          <volume>9</volume>
+          <fpage>135</fpage>
+          <lpage>141</lpage>
+          <pub-id pub-id-type="pmid">10072370</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bain</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Kitchens</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Yao</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Huettner</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Gottlieb</surname>
+              <given-names>DI</given-names>
+            </name>
+          </person-group>
+          <article-title>Embryonic stem cells express neuronal properties in vitro</article-title>
+          <source>Dev Biol</source>
+          <year>1995</year>
+          <volume>168</volume>
+          <fpage>342</fpage>
+          <lpage>357</lpage>
+          <pub-id pub-id-type="pmid">7729574</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Freed</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Greene</surname>
+              <given-names>PE</given-names>
+            </name>
+            <name>
+              <surname>Breeze</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Tsai</surname>
+              <given-names>WY</given-names>
+            </name>
+            <name>
+              <surname>DuMouchel</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Kao</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transplantation of embryonic dopamine neurons for severe Parkinson's disease</article-title>
+          <source>N Engl J Med</source>
+          <year>2001</year>
+          <volume>344</volume>
+          <fpage>710</fpage>
+          <lpage>719</lpage>
+          <pub-id pub-id-type="pmid">11236774</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lindvall</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Brundin</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Widner</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Rehncrona</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Gustavii</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Frackowiak</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Grafts of fetal dopamine neurons survive and improve motor function in Parkinson's disease</article-title>
+          <source>Science</source>
+          <year>1990</year>
+          <volume>247</volume>
+          <fpage>574</fpage>
+          <lpage>577</lpage>
+          <pub-id pub-id-type="pmid">2105529</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McKay</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cells in the central nervous system</article-title>
+          <source>Science</source>
+          <year>1997</year>
+          <volume>276</volume>
+          <fpage>66</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="pmid">9082987</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>H&#xFC;ttmann</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>D&#xFC;hrsen</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>Bone marrow-derived stem cells and "plasticity"</article-title>
+          <source>Ann Hematol</source>
+          <year>2003</year>
+          <volume>82</volume>
+          <fpage>599</fpage>
+          <lpage>604</lpage>
+          <pub-id pub-id-type="pmid">12898189</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Isacson</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Bjorklund</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>Schumacher</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Toward full restoration of synaptic and terminal function of the dopaminergic system in Parkinson's disease by stem cells</article-title>
+          <source>Ann Neurol</source>
+          <year>2003</year>
+          <volume>53</volume>
+          <issue>Suppl 3</issue>
+          <fpage>S135</fpage>
+          <lpage>S146</lpage>
+          <pub-id pub-id-type="pmid">12666105</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Silani</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Cova</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Corbo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ciammola</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Polli</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem-cell therapy for amyotrophic lateral sclerosis</article-title>
+          <source>Lancet</source>
+          <year>2004</year>
+          <volume>364</volume>
+          <fpage>200</fpage>
+          <lpage>202</lpage>
+          <pub-id pub-id-type="pmid">15246734</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Clement</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>MD</given-names>
+            </name>
+            <name>
+              <surname>Roberts</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Garcia</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Boill&#xE9;e</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Rule</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Wild-type nonneuronal cells extend survival of SOD1 mutant motor neurons in ALS mice</article-title>
+          <source>Science</source>
+          <year>2003</year>
+          <volume>302</volume>
+          <fpage>113</fpage>
+          <lpage>117</lpage>
+          <pub-id pub-id-type="pmid">14526083</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holden</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Vogel</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cells. Plasticity: time for a reappraisal?</article-title>
+          <source>Science</source>
+          <year>2002</year>
+          <volume>296</volume>
+          <fpage>2126</fpage>
+          <lpage>2129</lpage>
+          <pub-id pub-id-type="pmid">12077383</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mejia-Arangur&#xE9;</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Fajardo-Guti&#xE9;rrez</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Flores-Aguilar</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Martinez-Garc&#xED;a</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Salamanca-G&#xF3;mez</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Palma-Padilla</surname>
+              <given-names>V</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Environmental factors contributing to the development of childhood leukemia in children with Downs syndrome</article-title>
+          <source>Leukemia</source>
+          <year>2003</year>
+          <volume>17</volume>
+          <fpage>1905</fpage>
+          <lpage>1907</lpage>
+          <pub-id pub-id-type="pmid">12970794</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+            <name>
+              <surname>Langston</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cells for Parkinson disease and ALS: replacement or protection?</article-title>
+          <source>Nat Med</source>
+          <year>2004</year>
+          <volume>10</volume>
+          <fpage>224</fpage>
+          <lpage>225</lpage>
+          <pub-id pub-id-type="pmid">14991036</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bossolasco</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Cova</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Calzarossa</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Rimoldi</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Borsotti</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Deliliers</surname>
+              <given-names>GL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neuro-glial differentiation of human bone marrow stem cells in vitro</article-title>
+          <source>Exp Neurol</source>
+          <year>2005</year>
+          <volume>193</volume>
+          <fpage>312</fpage>
+          <lpage>325</lpage>
+          <pub-id pub-id-type="pmid">15869934</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jiang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Jahagirdar</surname>
+              <given-names>BN</given-names>
+            </name>
+            <name>
+              <surname>Reinhardt</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Keene</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Ortiz-Gonzalez</surname>
+              <given-names>XR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pluripotency of mesenchymal stem cells derived from adult marrow</article-title>
+          <source>Nature</source>
+          <year>2002</year>
+          <volume>418</volume>
+          <fpage>41</fpage>
+          <lpage>49</lpage>
+          <pub-id pub-id-type="pmid">12077603</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B46">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chamberlain</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Schwarze</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>PR</given-names>
+            </name>
+            <name>
+              <surname>Hirata</surname>
+              <given-names>RK</given-names>
+            </name>
+            <name>
+              <surname>Hankenson</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Pace</surname>
+              <given-names>JM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gene targeting in stem cells from individuals with osteogenesis imperfecta</article-title>
+          <source>Science</source>
+          <year>2004</year>
+          <volume>303</volume>
+          <fpage>1198</fpage>
+          <lpage>1201</lpage>
+          <pub-id pub-id-type="pmid">14976317</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B47">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Deans</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Moseley</surname>
+              <given-names>AB</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells: biology and potential clinical uses</article-title>
+          <source>Exp Hematol</source>
+          <year>2000</year>
+          <volume>28</volume>
+          <fpage>875</fpage>
+          <lpage>884</lpage>
+          <pub-id pub-id-type="pmid">10989188</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B48">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Noji</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tashiro</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Koyama</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Nohno</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ohyama</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Taniguchi</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expression of hepatocyte growth factor gene in endothelial and Kupffer cells of damaged rat livers, as revealed by in situ hybridization</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>1990</year>
+          <volume>173</volume>
+          <fpage>42</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="pmid">2147853</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B49">
+        <label>49</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Defrances</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Wolf</surname>
+              <given-names>HK</given-names>
+            </name>
+            <name>
+              <surname>Michalopoulos</surname>
+              <given-names>GK</given-names>
+            </name>
+            <name>
+              <surname>Zarnegar</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>The presence of hepatocyte growth factor in the developing rat</article-title>
+          <source>Development</source>
+          <year>1992</year>
+          <volume>116</volume>
+          <fpage>387</fpage>
+          <lpage>395</lpage>
+          <pub-id pub-id-type="pmid">1286614</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B50">
+        <label>50</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sonnenberg</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Meyer</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Weidner</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Scatter factor/hepatocyte growth factor and its receptor, the c-met tyrosine kinase, can mediate a signal exchange between mesenchyme and epithelia during mouse development</article-title>
+          <source>J Cell Biol</source>
+          <year>1993</year>
+          <volume>123</volume>
+          <fpage>223</fpage>
+          <lpage>235</lpage>
+          <pub-id pub-id-type="pmid">8408200</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B51">
+        <label>51</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sato</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hakeda</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Yamaguchi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Mano</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tezuka</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hepatocyte growth factor is involved in formation of osteoclast-like cells mediated by clonal stromal cells (MC3T3-G2/PA6)</article-title>
+          <source>J Cell Physiol</source>
+          <year>1995</year>
+          <volume>164</volume>
+          <fpage>197</fpage>
+          <lpage>204</lpage>
+          <pub-id pub-id-type="pmid">7790391</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B52">
+        <label>52</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Grano</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Galimi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Zambonin</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Colucci</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cottone</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Zallone</surname>
+              <given-names>AZ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hepatocyte growth factor is a coupling factor for osteoclasts and osteoblasts in vitro</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1996</year>
+          <volume>93</volume>
+          <fpage>7644</fpage>
+          <lpage>7648</lpage>
+          <pub-id pub-id-type="pmid">8755529</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B53">
+        <label>53</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Allen</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Sheehan</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>RG</given-names>
+            </name>
+            <name>
+              <surname>Kendall</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Rice</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <article-title>Hepatocyte growth factor activates quiescent skeletal muscle satellite cells in vitro</article-title>
+          <source>J Cell Physiol</source>
+          <year>1995</year>
+          <volume>165</volume>
+          <fpage>307</fpage>
+          <lpage>312</lpage>
+          <pub-id pub-id-type="pmid">7593208</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B54">
+        <label>54</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jung</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Castren</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Odenthal</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Vande Woude</surname>
+              <given-names>GF</given-names>
+            </name>
+            <name>
+              <surname>Ishii</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Dienes</surname>
+              <given-names>HP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expression and functional interaction of hepatocyte growth factor-scatter factor and its receptor c-met in mammalian brain</article-title>
+          <source>J Cell Biol</source>
+          <year>1994</year>
+          <volume>126</volume>
+          <fpage>485</fpage>
+          <lpage>494</lpage>
+          <pub-id pub-id-type="pmid">8034747</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B55">
+        <label>55</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Honda</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kagoshima</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wanaka</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tohyama</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Localization and functional coupling of HGF and c-Met/HGF receptor in rat brain: implication as neurotrophic factor</article-title>
+          <source>Brain Res Mol Brain Res</source>
+          <year>1995</year>
+          <volume>32</volume>
+          <fpage>197</fpage>
+          <lpage>210</lpage>
+          <pub-id pub-id-type="pmid">7500831</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B56">
+        <label>56</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamagata</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Muroya</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Mukasa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Igarashi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Momoi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tsukahara</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hepatocyte growth factor specifically expressed in microglia activated Ras in the neurons, similar to the action of neurotrophic factors</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>1995</year>
+          <volume>210</volume>
+          <fpage>231</fpage>
+          <lpage>237</lpage>
+          <pub-id pub-id-type="pmid">7537964</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B57">
+        <label>57</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hamanoue</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Takemoto</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nakajima</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kohsaka</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotrophic effect of hepatocyte growth factor on central nervous system neurons in vitro</article-title>
+          <source>J Neurosci Res</source>
+          <year>1996</year>
+          <volume>43</volume>
+          <fpage>554</fpage>
+          <lpage>564</lpage>
+          <pub-id pub-id-type="pmid">8833090</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B58">
+        <label>58</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ebens</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Brose</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Leonardo</surname>
+              <given-names>ED</given-names>
+            </name>
+            <name>
+              <surname>Hanson</surname>
+              <given-names>MG</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <name>
+              <surname>Bladt</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hepatocyte growth factor/scatter factor is an axonal chemoattractant and a neurotrophic factor for spinal motor neurons</article-title>
+          <source>Neuron</source>
+          <year>1996</year>
+          <volume>17</volume>
+          <fpage>1157</fpage>
+          <lpage>1172</lpage>
+          <pub-id pub-id-type="pmid">8982163</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B59">
+        <label>59</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davey</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Hilton</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Davies</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Cooperation between HGF and CNTF in promoting the survival and growth of sensory and parasympathetic neurons</article-title>
+          <source>Mol Cell Neurosci</source>
+          <year>2000</year>
+          <volume>15</volume>
+          <fpage>79</fpage>
+          <lpage>87</lpage>
+          <pub-id pub-id-type="pmid">10662507</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B60">
+        <label>60</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aboody</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rainov</surname>
+              <given-names>NG</given-names>
+            </name>
+            <name>
+              <surname>Bower</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neural stem cells display extensive tropism for pathology in adult brain: evidence from intracranial gliomas</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2000</year>
+          <volume>97</volume>
+          <fpage>12846</fpage>
+          <lpage>12851</lpage>
+          <pub-id pub-id-type="pmid">11070094</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B61">
+        <label>61</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>LR</given-names>
+            </name>
+            <name>
+              <surname>Duan</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Reyes</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Keene</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Verfaillie</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>WC</given-names>
+            </name>
+          </person-group>
+          <article-title>Human bone marrow stem cells exhibit neural phenotypes and ameliorate neurological deficits after grafting into the ischemic brain of rats</article-title>
+          <source>Exp Neurol</source>
+          <year>2002</year>
+          <volume>174</volume>
+          <fpage>11</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="pmid">11869029</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B62">
+        <label>62</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Katakowski</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Intravenous bone marrow stromal cell therapy reduces apoptosis and promotes endogenous cell proliferation after stroke in female rat</article-title>
+          <source>J Neurosci Res</source>
+          <year>2003</year>
+          <volume>73</volume>
+          <fpage>778</fpage>
+          <lpage>786</lpage>
+          <pub-id pub-id-type="pmid">12949903</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B63">
+        <label>63</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Chopp</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Therapeutic benefit of intracerebral transplantation of bone marrow stromal cells after cerebral ischemia in rats</article-title>
+          <source>J Neurol Sci</source>
+          <year>2001</year>
+          <volume>189</volume>
+          <fpage>49</fpage>
+          <lpage>57</lpage>
+          <pub-id pub-id-type="pmid">11535233</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B64">
+        <label>64</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>XG</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gautam</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>YX</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human marrow stromal cell therapy for stroke in rat: neurotrophins and functional recovery</article-title>
+          <source>Neurology</source>
+          <year>2002</year>
+          <volume>59</volume>
+          <fpage>514</fpage>
+          <lpage>523</lpage>
+          <pub-id pub-id-type="pmid">12196642</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B65">
+        <label>65</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bang</surname>
+              <given-names>OY</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Autologous mesenchymal stem cell transplantation in stroke patients</article-title>
+          <source>Ann Neurol</source>
+          <year>2005</year>
+          <volume>57</volume>
+          <fpage>874</fpage>
+          <lpage>882</lpage>
+          <pub-id pub-id-type="pmid">15929052</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B66">
+        <label>66</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nagai</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>WK</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Jeong</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>SH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multilineage potential of stable human mesenchymal stem cell line derived from fetal marrow</article-title>
+          <source>PLoS One</source>
+          <year>2007</year>
+          <volume>2</volume>
+          <fpage>e1272</fpage>
+          <pub-id pub-id-type="pmid">18060066</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" position="float">
+      <label>Fig. 1</label>
+      <caption>
+        <p>Mesenchymal stem cell culture (&#xD7;100). (A) After 7 days of culturing. (B) After 14 days of culturing. (C) Subculture (4 times). (D) Cluster of BMSCs.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g001"/>
+    </fig>
+    <fig id="F2" position="float">
+      <label>Fig. 2</label>
+      <caption>
+        <p>Fluorescence Activated Cell Sorting (FACS) analysis.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g002"/>
+    </fig>
+    <fig id="F3" position="float">
+      <label>Fig. 3</label>
+      <caption>
+        <p>Possibility of mesenchymal stem cells' differentiation to osteoblasts (&#xD7;100). (A) Alkaline phosphatese staining. (B) Silver nitrate staining.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g003"/>
+    </fig>
+    <fig id="F4" position="float">
+      <label>Fig. 4</label>
+      <caption>
+        <p>Cultured cells in chondrogenic medium for 3 weeks (&#xD7;100). TGF, tumor growth factor.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g004"/>
+    </fig>
+    <fig id="F5" position="float">
+      <label>Fig. 5</label>
+      <caption>
+        <p>Oil red-O staining of adipocytes. MSC, mesenchymal stem cell.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g005"/>
+    </fig>
+    <fig id="F6" position="float">
+      <label>Fig. 6</label>
+      <caption>
+        <p>Differentiation into bone marrow-derived neuron-like cells (&#xD7;200). (A) Mesenchymal stem cells. (B) Growth factor group (1 week). (C) Growth factor group (2 weeks). (D) Chemical group (2 weeks).</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g006"/>
+    </fig>
+    <fig id="F7" position="float">
+      <label>Fig. 7</label>
+      <caption>
+        <p>Immunochemical staining (&#xD7;200). (A) NSE, neuron specific enolase. (B) NeuN, neuronal nuclei. (C) GFAP, glial fibrillary acidic protein.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g007"/>
+    </fig>
+    <fig id="F8" position="float">
+      <label>Fig. 8</label>
+      <caption>
+        <p>Immunofluorescence staining (&#xD7;200). (A and B) GFAP, glial fibrillary acidic protein. (C and D) NeuN, neuronal nuclei. (E and F) MAP2, microtubule-associated protein 2. (G and H) Gal C, galactocerebroside.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g008"/>
+    </fig>
+    <fig id="F9" position="float">
+      <label>Fig. 9</label>
+      <caption>
+        <p>Reverse transcriptase-Polymerase Chain Reaction. GFAP, glial fibrillary acidic protein; NSE, Neuron Specific Enolase; MAP2, Microtubule-associated protein 2; NF-M, Neurofilament-Middle; GAP 43, Growth Associated Protein 43.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g009"/>
+    </fig>
+    <fig id="F10" position="float">
+      <label>Fig. 10</label>
+      <caption>
+        <p>Western blotting. GFAP, glial fibrillary acidic protein; NSE, neuron specific enolase; NeuN, neuronal nuclei; Gal C, galactocerebroside.</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-g010"/>
+    </fig>
+    <table-wrap id="T1" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>cDNA Synthesis</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-i001"/>
+    </table-wrap>
+    <table-wrap id="T2" position="float">
+      <label>Table 2</label>
+      <caption>
+        <p>Prime Sequence for PCR</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-i002"/>
+      <table-wrap-foot>
+        <fn>
+          <p>PCR, polymerase chain reaction; GFAP, glial fibrillary acidic protein; NSE, neuron specific enolase; MAP2, microtubule-associated protein 2; NF-M, neurofilament-middle; GAP 43, growth associated protein 43.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap id="T3" position="float">
+      <label>Table 3</label>
+      <caption>
+        <p>Immunohistochemically Tested for Neurocyte Markers</p>
+      </caption>
+      <graphic xlink:href="ymj-52-401-i003"/>
+      <table-wrap-foot>
+        <fn>
+          <p>GFAP, glial fibrillary acidic protein; NSE, neuron specific enolase; NeuN, neuronal nuclei; EGF, epidermal growth factor; HGF, hepatocyte growth factor.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

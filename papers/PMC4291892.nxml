@@ -1,0 +1,293 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Front Med (Lausanne)</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Front Med (Lausanne)</journal-id>
+      <journal-id journal-id-type="publisher-id">Front. Med.</journal-id>
+      <journal-title-group>
+        <journal-title>Frontiers in Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2296-858X</issn>
+      <publisher>
+        <publisher-name>Frontiers Media S.A.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25593921</article-id>
+      <article-id pub-id-type="pmc">4291892</article-id>
+      <article-id pub-id-type="doi">10.3389/fmed.2014.00048</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Perspectives in Medicine</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Placental Amniotic Epithelial Cells and Their Therapeutic Potential in Liver Diseases</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tahan</surname>
+            <given-names>Asli Ceren</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://frontiersin.org/people/u/196800"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tahan</surname>
+            <given-names>Veysel</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+          <uri xlink:type="simple" xlink:href="http://frontiersin.org/people/u/132620"/>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1"><sup>1</sup><institution>University of Iowa College of Science</institution>, <addr-line>Iowa City, IA</addr-line>, <country>USA</country></aff>
+      <aff id="aff2"><sup>2</sup><institution>Department of Gastroenterology, University of Iowa</institution>, <addr-line>Iowa City, IA</addr-line>, <country>USA</country></aff>
+      <author-notes>
+        <fn fn-type="edited-by">
+          <p>Edited by: Kenichi Ikejima, Juntendo University Graduate School of Medicine, Japan</p>
+        </fn>
+        <fn fn-type="edited-by">
+          <p>Reviewed by: Shunhei Yamashina, Juntendo University Graduate School of Medicine, Japan; Taro Takami, Yamaguchi University Graduate School of Medicine, Japan</p>
+        </fn>
+        <corresp content-type="corresp" id="cor1">*Correspondence:&#x2009;Veysel Tahan, University of Iowa College of Science, Iowa City, IA, USA e-mail: <email>veyseltahan@gmail.com</email></corresp>
+        <fn fn-type="other" id="fn001">
+          <p>This article was submitted to Gastroenterology, a section of the journal Frontiers in Medicine.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>08</day>
+        <month>12</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2014</year>
+      </pub-date>
+      <volume>1</volume>
+      <elocation-id>48</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>19</day>
+          <month>8</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>13</day>
+          <month>11</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Tahan and Tahan.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) or licensor are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>As a unique source of stem cells, there is a growing interest in amniotic epithelial (AE) cells. Placenta is readily available; in fact, it is often discarded following delivery. As such, it is without the ethical concerns of embryonic stem cells. Further advantages to AE include that AE cells do not demonstrate tumorigenicity upon transplantation, and are gifted with immunomodulatory and anti-inflammatory properties. Thus, AE cells have exceptional features for use as cell-based therapies for liver disease.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>placental amniotic epithelial cells</kwd>
+        <kwd>therapy</kwd>
+        <kwd>liver diseases</kwd>
+        <kwd>stem cells</kwd>
+        <kwd>placenta</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="1"/>
+        <table-count count="0"/>
+        <equation-count count="0"/>
+        <ref-count count="23"/>
+        <page-count count="4"/>
+        <word-count count="2764"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="introduction" id="S1">
+      <title>Introduction</title>
+      <p>Amniotic epithelial (AE) cell studies in therapy in liver disease in several ways: (A) AE cell therapy is an alternative or bridge to solid organ transplantation as shown in both animal models and clinical cases. (B) Transplanted cells can provide functional liver support while the recipient&#x2019;s liver regenerates in acute liver failure patients and may provide a certain time as a bridge until orthotopic liver transplantation (OLT). (C) They have valuable effect in substituting a missing enzyme function in metabolic diseases with an aim of avoiding OLT. (D) Hepatocytes, embryonic stem cells, mesenchymal stromal cells, placental AE cells, and induced pluripotent stem cells are the most capable cell types that can be used in liver diseases. Thus, placental AE cell studies and its therapy show promise in liver diseases (<xref rid="B1" ref-type="bibr">1</xref>&#x2013;<xref rid="B3" ref-type="bibr">3</xref>). We aimed to review current placental AE cell studies and its therapy in liver diseases.</p>
+    </sec>
+    <sec id="S2">
+      <title>How and Why Can AE Cells be Used?</title>
+      <p>Amniotic epithelial cells can be isolated from a full term placenta following live birth. This readily available tissue is normally discarded. Although any placenta is considered a useful source of AE cells, AE cell isolations are typically obtained from cesarean section deliveries due to sterility concerns. Perhaps at some future date placental stem cells could be isolated from all term births and cryopreserved in a cell bank for future use (<xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B4" ref-type="bibr">4</xref>). It is hard to imagine religious or political opposition for such a benign source of stem cells. A human placenta contains three different layers: amnion, chorion, and decidua (Figure <xref ref-type="fig" rid="F1">1</xref>A). The amniotic layer is composed of cuboidal and columnar cells and a deeper mesodermal layer composed of an upper compact acellular layer and a lower fibroblast-containing layer. The amnion layer is derived from pluripotent epiblast that gives rise to all three germ layers of embryo. Amnion is derived at a time when the epiblast remains pluripotent, and AE cells hold some of these characteristics. AE cells can be isolated from a full term placenta. Placenta is a readily available tissue and is generally discharged after delivery. It provides a valuable source of pluripotent stem cells that cells are plentiful and free from most ethical and religious concerns. Therefore, in practice, placental stem cells can be isolated from all term births and cryopreserved in a cell bank for future use (<xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B4" ref-type="bibr">4</xref>).</p>
+      <fig id="F1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p><bold>(A)</bold> Human placenta layers: amnion, chorion, and decidua. Amniotic layer is composed of a single-celled epithelial layer and a deeper mesodermal layer. Chorionic layer is composed of a mesodermal layer and a trophoblast layer. <bold>(B)</bold> Isolation of amnion membrane from placenta. The maternal side of placenta is placed face down and a shallow X-shaped incision is made through the center of the placenta. The thin, nearly transparent amnion membrane is then peeled starting at the center of the cut and progressing outward. <bold>(C)</bold> Morphology of amniotic epithelial cells in culture (&#xD7;40).</p>
+        </caption>
+        <graphic xlink:href="fmed-01-00048-g001"/>
+      </fig>
+    </sec>
+    <sec id="S3">
+      <title>Stem Cell Characteristics of AE Cells</title>
+      <p>Amniotic epithelial cells have stem cell molecular markers as OCT-4, Nanog, SOX-2, and Rex-1. AE cells have some advantage over embryonic stem cells; AE cells do not need feeder cell layers to preserve OCT-4 and Nanog expression in their cultures (<xref rid="B4" ref-type="bibr">4</xref>, <xref rid="B5" ref-type="bibr">5</xref>). Since AE cells do not have telomerase reverse transcriptase, they show a stable karyotype and do not develop any tumors. Other stem cells have a common risk of teratoma development, when transplanted (<xref rid="B2" ref-type="bibr">2</xref>, <xref rid="B5" ref-type="bibr">5</xref>). AE cells are derived from neonatal tissue and therefore have lesser DNA damage (<xref rid="B6" ref-type="bibr">6</xref>). Amnion does not express HLA class II antigens; therefore, AE cells can bypass the immune system. AE cells can inhibit inflammation and proliferation of T- and B-cells <italic>in vitro</italic> by their secretions (<xref rid="B7" ref-type="bibr">7</xref>). AE cell transplantation in some volunteers did not cause any immunological reactions. With their non-tumorogenic characteristics (<xref rid="B8" ref-type="bibr">8</xref>&#x2013;<xref rid="B10" ref-type="bibr">10</xref>), AE cells have beneficial effects similar to embryonic stem cells but without their dangerous side effects.</p>
+    </sec>
+    <sec id="S4">
+      <title>AE Cell Isolation and Differentiation Methods</title>
+      <p>Amnion membrane can be peeled away from the chorion (Figure <xref ref-type="fig" rid="F1">1</xref>B). It is the source of AE cells and amniotic mesenchymal (AM) fibroblasts. We recommend our study group&#x2019;s isolation protocol (<xref rid="B11" ref-type="bibr">11</xref>). Briefly, amnion membrane is washed at least three times to eliminate blood cells. Then trypsin can be applied to release AE cells from AM fibroblasts and connective tissue. Then cell suspension can be centrifuged to pellet AE cells and resuspended in standard. Cell viability is calculated by trypan blue stain on hemocytometer. Our group&#x2019;s proposed method can be used to isolate 80&#x2013;300 million cells from one term placenta (<xref rid="B11" ref-type="bibr">11</xref>), which is a plentiful supply, indeed. Epidermal growth factor (EGF) is used in AE cell cultures to promote their growth and differentiation <italic>in vitro</italic> (Figure <xref ref-type="fig" rid="F1">1</xref>C) (<xref rid="B4" ref-type="bibr">4</xref>). Our study group also showed an efficient method to differentiate AE cells to hepatocyte-like cells (<xref rid="B2" ref-type="bibr">2</xref>), which expressed many hepatic marker genes. Since these hepatocyte-like cells express CYP3A4 and CYP3A7, we can hypothesize that AE cells are likely to differentiate along a pathway equivalent to human fetal liver. Furthermore, the changing ratio of CYP3A4 to CYP3A7 in their growing period suggests that cells are developing mature hepatocytes (<xref rid="B12" ref-type="bibr">12</xref>). Human AE cell transplantation to mice liver also exhibited human hepatic genes expressions such as albumin, cytochromes, and alpha-1 antitrypsin (<xref rid="B2" ref-type="bibr">2</xref>, <xref rid="B5" ref-type="bibr">5</xref>).</p>
+    </sec>
+    <sec id="S5">
+      <title>Why are AE Cells Preferred Over Other Sources of Stem Cells?</title>
+      <p>Because, AE cells have stem cell characteristics with low immunogenicity, and anti-inflammatory possessions, they show exciting potential in the regenerative medicine (Figure S1 in Supplementary Material). AE cells exhibit hepatic gene expression and functions close to mature hepatocytes level following their transplantation into the liver of severely combined immunodeficiency (SCID) mice, which prove their differentiation into hepatocyte-like cells once engrafted in the parenchyma (<xref rid="B5" ref-type="bibr">5</xref>, <xref rid="B11" ref-type="bibr">11</xref>). Recent studies have shown that AE cells can engraft into the livers of immunocompromised mouse of liver and improve any damage by reducing hepatic fibrosis, inflammation, and apoptosis (<xref rid="B2" ref-type="bibr">2</xref>, <xref rid="B13" ref-type="bibr">13</xref>). AE cell transplantation successfully corrected lysosomal storage diseases in clinics without any adverse effects (<xref rid="B9" ref-type="bibr">9</xref>, <xref rid="B10" ref-type="bibr">10</xref>, <xref rid="B14" ref-type="bibr">14</xref>). AE cell transplantation can rescue a mouse model of intermediate maple syrup urine disease (iMSUD) (<xref rid="B1" ref-type="bibr">1</xref>), which is a congenital disorder characterized by deficiency of the branched-chain keto-acid dehydrogenase (BCKDH) enzyme complex and elevated branched-chain amino acids (BCAA) (<xref rid="B15" ref-type="bibr">15</xref>). In our group&#x2019;s another study, iMSUD model, mice were given multiple injections of AE cells directly into liver parenchyma. Normally, untreated iMSUD mice can grow sickly and all die prior to 27&#x2009;days of age. IMSUD-treated mice could display improved BCKDH enzyme activity, reduced BCAA, and other relevant metabolites, they could gain weight as healthy wild type littermates, and more than 70% of AE transplanted iMSUD animals survived (<xref rid="B1" ref-type="bibr">1</xref>). Manuelpillai et al. transplanted human AE cells to mice via tail vein on carbon tetrachloride (CCL4) model. The AE treatment improved ALT levels, hepatic stellate cell activation, and hepatic fibrosis (<xref rid="B13" ref-type="bibr">13</xref>). Zhang et al. used intrasplenic route to transplant AE cells in CCL4-treated mouse. They also showed improvement on markers of ALT, apoptosis, and fibrosis (<xref rid="B16" ref-type="bibr">16</xref>). Hodge et al. recently have showed that human AE treatment suppresses markers of activation, proliferation, and fibrosis in human hepatic stellate cells in co-cultures. AE therapy also induces apoptosis of hepatic stellate cells (<xref rid="B17" ref-type="bibr">17</xref>). Niemann&#x2013;Pick disease is a hereditary disorder of sphingomyelinase deficiency that leads to excessive intracellular lipid accumulation and causes severe liver damage and neuronal degeneration. Hong et al. used human AE cells as a source of enzyme replacement in a mouse model of Niemann&#x2013;Pick disease. They transplanted half a million AE cells every other week from 5&#x2009;weeks of age. The treatment dramatically prolonged the survival of the treatment group, and resulted in improvement of tissue damage (<xref rid="B18" ref-type="bibr">18</xref>). Bembi et al. reported five type B Niemann&#x2013;Pick patients, in which AE cells supplied exogenous sphingomyelinase, following the transplantation. AE transplantation normalized patients&#x2019; urinal sphingomyelin and phospholipid levels (<xref rid="B19" ref-type="bibr">19</xref>).</p>
+    </sec>
+    <sec id="S6">
+      <title>Benefits of AE Cells</title>
+      <p>Amniotic epithelial cells are relatively easy to isolate and do not require a complicated laboratory set up (<xref rid="B4" ref-type="bibr">4</xref>). Approximately 100 million cells per placenta can be isolated, and AE cells can grow fast. Their smaller size, compared to hepatocytes brings technical advantage for their injection and engraftment. AE cells can be cryopreserved long term. AE cells can have beneficial effects of targeted cells and can transform clinically relevant cells. They also secrete anti-inflammatory factors and are non-immunogenic. Most likely, current umbilical cord blood stem cell guidelines would be appropriate to use as a model for banking processes for AE cells (<xref rid="B20" ref-type="bibr">20</xref>). We do not know whether hepatic differentiation prior to transplantation is necessary for an effective method of treatment. Since their safety has been clearly established, AE cells with their potential effects continue to be a therapeutic hope in liver diseases (Table S1 in Supplementary Material).</p>
+    </sec>
+    <sec id="S7">
+      <title>Why are AE Cells Preferred Over Other Sources of Stem Cells?</title>
+      <p>Currently, we need alternative cell sources to hepatocytes. Hepatocytes are very vulnerable cells and cannot survive mostly no more than couple of weeks on the cultures. They are difficult to isolate and their cryopreservation is not successful to keep their viability high. Their larger size, compared to stem cells can cause technical disadvantage for their injection and infusion. AE cells do not have the disadvantages of hepatocytes. AE cells do not have any side effects of other types of stem cells either. They are immunogenic and are not tumorogenic in both undifferentiated and differentiated stages. All other stem cell types have tumorigenicity risks associated with their use <italic>in vivo</italic>. They do not cause acute rejection. AE stem cells for cell transplantation are currently in preclinical or early clinical stages. They are obviously the harmless alternate to hepatocytes for therapies of liver diseases. AE type stem therapy is a new hope substitute for hepatocytes in liver diseases.</p>
+    </sec>
+    <sec id="S8">
+      <title>In Conclusion</title>
+      <p>In conclusion, current studies&#x2019; results suggest that AE cells isolated from discarded placenta may be an abundant, non-controversial, and safe source of stem cells for regenerative medicine. AE cell transplantation can be an alternative therapy to OLT in the near future to avoid the increasing amount of patient deaths due to insufficient numbers of available livers and/or long organ wait times. Cell transplantation has shown a great deal of promise, and the progress made over the past several decades of preclinical and clinical studies provides a growing amount of rationale for its use to treat a variety of liver disorders. Currently, studies with appropriate Neimann&#x2013;Pick disease (<xref rid="B18" ref-type="bibr">18</xref>), acute liver failure (<xref rid="B21" ref-type="bibr">21</xref>) and liver fibrosis (<xref rid="B22" ref-type="bibr">22</xref>, <xref rid="B23" ref-type="bibr">23</xref>) models, and their correction by the transplantation of human AE stem cells are motivating the movement of banking of AE cells so that they can be used in the clinic for transplantation to treat liver diseases.</p>
+    </sec>
+    <sec id="S9">
+      <title>Conflict of Interest Statement</title>
+      <p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="S10">
+      <title>Supplementary Material</title>
+      <p>The Supplementary Material for this article can be found online at <uri xlink:type="simple" xlink:href="http://www.frontiersin.org/Journal/10.3389/fmed.2014.00048/abstract">http://www.frontiersin.org/Journal/10.3389/fmed.2014.00048/abstract</uri></p>
+      <supplementary-material content-type="local-data" id="SM1">
+        <media xlink:href="Table_1.PDF">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SM2">
+        <media xlink:href="Image_1.JPEG">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <label>1</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Skvorak</surname><given-names>KJ</given-names></name><name><surname>Dorko</surname><given-names>K</given-names></name><name><surname>Marongiu</surname><given-names>F</given-names></name><name><surname>Tahan</surname><given-names>V</given-names></name><name><surname>Hansel</surname><given-names>MC</given-names></name><name><surname>Gramignoli</surname><given-names>R</given-names></name><etal/></person-group>
+<article-title>Placental stem cell correction of murine intermediate maple syrup urine disease</article-title>. <source>Hepatology</source> (<year>2013</year>) <volume>57</volume>:<fpage>1017</fpage>&#x2013;<lpage>23</lpage>.<pub-id pub-id-type="doi">10.1002/hep.26150</pub-id><pub-id pub-id-type="pmid">23175463</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Marongiu</surname><given-names>F</given-names></name><name><surname>Gramignoli</surname><given-names>R</given-names></name><name><surname>Dorko</surname><given-names>K</given-names></name><name><surname>Miki</surname><given-names>T</given-names></name><name><surname>Ranade</surname><given-names>AR</given-names></name><name><surname>Paola Serra</surname><given-names>M</given-names></name><etal/></person-group>
+<article-title>Hepatic differentiation of amniotic epithelial cells</article-title>. <source>Hepatology</source> (<year>2011</year>) <volume>53</volume>:<fpage>1719</fpage>&#x2013;<lpage>29</lpage><pub-id pub-id-type="doi">10.1002/hep.24255</pub-id><pub-id pub-id-type="pmid">21374689</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Strom</surname><given-names>SC</given-names></name><name><surname>Skvorak</surname><given-names>K</given-names></name><name><surname>Gramignoli</surname><given-names>R</given-names></name><name><surname>Marongiu</surname><given-names>F</given-names></name><name><surname>Miki</surname><given-names>T</given-names></name></person-group>. <article-title>Translation of amnion stem cells to the clinic</article-title>. <source>Stem Cells Dev</source> (<year>2013</year>) <volume>22</volume>(<issue>Suppl 1</issue>):<fpage>96</fpage>&#x2013;<lpage>102</lpage>.<pub-id pub-id-type="doi">10.1089/scd.2013.0391</pub-id><pub-id pub-id-type="pmid">24304085</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miki</surname><given-names>T</given-names></name><name><surname>Lehmann</surname><given-names>T</given-names></name><name><surname>Cai</surname><given-names>H</given-names></name><name><surname>Stoltz</surname><given-names>D</given-names></name><name><surname>Strom</surname><given-names>SC</given-names></name></person-group>
+<article-title>Stem cell characteristics of amnion epithelial cells</article-title>. <source>Stem Cells</source> (<year>2005</year>) <volume>23</volume>:<fpage>1549</fpage>&#x2013;<lpage>59</lpage><pub-id pub-id-type="doi">10.1634/stemcells.2004-0357</pub-id><pub-id pub-id-type="pmid">16081662</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miki</surname><given-names>T</given-names></name><name><surname>Grubbs</surname><given-names>B</given-names></name></person-group>. <article-title>Therapeutic potential of placenta-derived stem cells for liver diseases: current status and perspectives</article-title>. <source>J Obstet Gynaecol Res</source> (<year>2014</year>) <volume>40</volume>:<fpage>360</fpage>&#x2013;<lpage>8</lpage>.<pub-id pub-id-type="doi">10.1111/jog.12213</pub-id><pub-id pub-id-type="pmid">24245961</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miki</surname><given-names>T</given-names></name></person-group>. <article-title>Amnion-derived stem cells: in quest of clinical applications</article-title>. <source>Stem Cell Res Ther</source> (<year>2011</year>) <volume>2</volume>:<fpage>25</fpage>.<pub-id pub-id-type="doi">10.1186/scrt66</pub-id><pub-id pub-id-type="pmid">21596003</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Li</surname><given-names>H</given-names></name><name><surname>Niederkorn</surname><given-names>JY</given-names></name><name><surname>Neelam</surname><given-names>S</given-names></name><name><surname>Mayhew</surname><given-names>E</given-names></name><name><surname>Word</surname><given-names>RA</given-names></name><name><surname>McCulley</surname><given-names>JP</given-names></name><etal/></person-group>
+<article-title>Immunosuppressive factors secreted by human amniotic epithelial cells</article-title>. <source>Invest Ophthalmol Vis Sci</source> (<year>2005</year>) <volume>46</volume>:<fpage>900</fpage>&#x2013;<lpage>7</lpage>.<pub-id pub-id-type="doi">10.1167/iovs.04-0495</pub-id><pub-id pub-id-type="pmid">15728546</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Akle</surname><given-names>CA</given-names></name><name><surname>Adinolfi</surname><given-names>M</given-names></name><name><surname>Welsh</surname><given-names>KI</given-names></name><name><surname>Leibowitz</surname><given-names>S</given-names></name><name><surname>McColl</surname><given-names>I</given-names></name></person-group>. <article-title>Immunogenicity of human amniotic epithelial cells after transplantation into volunteers</article-title>. <source>Lancet</source> (<year>1981</year>) <volume>2</volume>:<fpage>1003</fpage>&#x2013;<lpage>5</lpage>.<pub-id pub-id-type="doi">10.1016/S0140-6736(81)91212-5</pub-id><pub-id pub-id-type="pmid">6118474</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yeager</surname><given-names>AM</given-names></name><name><surname>Singer</surname><given-names>HS</given-names></name><name><surname>Buck</surname><given-names>JR</given-names></name><name><surname>Matalon</surname><given-names>R</given-names></name><name><surname>Brennan</surname><given-names>S</given-names></name><name><surname>O&#x2019;Toole</surname><given-names>SO</given-names></name><etal/></person-group>
+<article-title>A therapeutic trial of amniotic epithelial cell implantation in patients with lysosomal storage diseases</article-title>. <source>Am J Med Genet</source> (<year>1985</year>) <volume>22</volume>:<fpage>347</fpage>&#x2013;<lpage>55</lpage>.<pub-id pub-id-type="doi">10.1002/ajmg.1320220219</pub-id><pub-id pub-id-type="pmid">3931477</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sakuragawa</surname><given-names>N</given-names></name><name><surname>Yoshikawa</surname><given-names>H</given-names></name><name><surname>Sasaki</surname><given-names>M</given-names></name></person-group>. <article-title>Amniotic tissue transplantation: clinical and biochemical evaluations for some lysosomal storage diseases</article-title>. <source>Brain Dev</source> (<year>1992</year>) <volume>14</volume>:<fpage>7</fpage>&#x2013;<lpage>11</lpage>.<pub-id pub-id-type="doi">10.1016/S0387-7604(12)80272-5</pub-id><pub-id pub-id-type="pmid">1590532</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miki</surname><given-names>T</given-names></name><name><surname>Marongiu</surname><given-names>F</given-names></name><name><surname>Dorko</surname><given-names>K</given-names></name><name><surname>Ellis</surname><given-names>EC</given-names></name><name><surname>Strom</surname><given-names>SC</given-names></name></person-group>
+<article-title>Isolation of amniotic epithelial stem cells</article-title>. <source>Curr Protoc Stem Cell Biol</source> (<year>2010</year>) Chapter 1:Unit 1E.3.<pub-id pub-id-type="doi">10.1002/9780470151808.sc01e03s12</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Miki</surname><given-names>T</given-names></name><name><surname>Marongiu</surname><given-names>F</given-names></name><name><surname>Ellis</surname><given-names>EC</given-names></name><name><surname>Dorko</surname><given-names>K</given-names></name><name><surname>Mitamura</surname><given-names>K</given-names></name><name><surname>Ranade</surname><given-names>A</given-names></name><etal/></person-group>
+<article-title>Production of hepatocyte-like cells from human amnion</article-title>. <source>Methods Mol Biol</source> (<year>2009</year>) <volume>481</volume>:<fpage>155</fpage>&#x2013;<lpage>68</lpage>.<pub-id pub-id-type="doi">10.1007/978-1-59745-201-4_13</pub-id><pub-id pub-id-type="pmid">19096803</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Manuelpillai</surname><given-names>U</given-names></name><name><surname>Tchongue</surname><given-names>J</given-names></name><name><surname>Lourensz</surname><given-names>D</given-names></name><name><surname>Vaghjiani</surname><given-names>V</given-names></name><name><surname>Samuel</surname><given-names>CS</given-names></name><name><surname>Liu</surname><given-names>A</given-names></name><etal/></person-group>
+<article-title>Transplantation of human amnion epithelial cells reduces hepatic fibrosis in immunocompetent CCl<sub>4</sub>-treated mice</article-title>. <source>Cell Transplant</source> (<year>2010</year>) <volume>19</volume>:<fpage>1157</fpage>&#x2013;<lpage>68</lpage>.<pub-id pub-id-type="doi">10.3727/096368910X504496</pub-id><pub-id pub-id-type="pmid">20447339</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Scaggiante</surname><given-names>B</given-names></name><name><surname>Pineschi</surname><given-names>A</given-names></name><name><surname>Sustersich</surname><given-names>M</given-names></name><name><surname>Andolina</surname><given-names>M</given-names></name><name><surname>Agosti</surname><given-names>E</given-names></name><name><surname>Romeo</surname><given-names>D</given-names></name></person-group>. <article-title>Successful therapy of Niemann-Pick disease by implantation of human amniotic membrane</article-title>. <source>Transplantation</source> (<year>1987</year>) <volume>44</volume>:<fpage>59</fpage>&#x2013;<lpage>61</lpage>.<pub-id pub-id-type="doi">10.1097/00007890-198707000-00014</pub-id><pub-id pub-id-type="pmid">3037739</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Homanics</surname><given-names>GE</given-names></name><name><surname>Skvorak</surname><given-names>K</given-names></name><name><surname>Ferguson</surname><given-names>C</given-names></name><name><surname>Watkins</surname><given-names>S</given-names></name><name><surname>Paul</surname><given-names>HS</given-names></name></person-group>. <article-title>Production and characterization of murine models of classic and intermediate maple syrup urine disease</article-title>. <source>BMC Med Genet</source> (<year>2006</year>) <volume>7</volume>:<fpage>33</fpage>.<pub-id pub-id-type="doi">10.1186/1471-2350-7-33</pub-id><pub-id pub-id-type="pmid">16579849</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>S</given-names></name><name><surname>Chen</surname><given-names>S</given-names></name><name><surname>Li</surname><given-names>W</given-names></name><name><surname>Guo</surname><given-names>X</given-names></name><name><surname>Zhao</surname><given-names>P</given-names></name><name><surname>Xu</surname><given-names>J</given-names></name><etal/></person-group>
+<article-title>Rescue of ATP7B function in hepatocyte-like cells from Wilson&#x2019;s disease induced pluripotent stem cells using gene therapy or the chaperone drug curcumin</article-title>. <source>Hum Mol Genet</source> (<year>2011</year>) <volume>20</volume>:<fpage>3176</fpage>&#x2013;<lpage>87</lpage>.<pub-id pub-id-type="doi">10.1093/hmg/ddr223</pub-id><pub-id pub-id-type="pmid">21593220</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hodge</surname><given-names>A</given-names></name><name><surname>Lourensz</surname><given-names>D</given-names></name><name><surname>Vaghjiani</surname><given-names>V</given-names></name><name><surname>Nguyen</surname><given-names>H</given-names></name><name><surname>Tchongue</surname><given-names>J</given-names></name><name><surname>Wang</surname><given-names>B</given-names></name><etal/></person-group>
+<article-title>Soluble factors derived from human amniotic epithelial cells suppress collagen production in human hepatic stellate cells</article-title>. <source>Cytotherapy</source> (<year>2014</year>) <volume>16</volume>:<fpage>1132</fpage>&#x2013;<lpage>44</lpage>.<pub-id pub-id-type="doi">10.1016/j.jcyt.2014.01.005</pub-id><pub-id pub-id-type="pmid">24642017</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hong</surname><given-names>SB</given-names></name><name><surname>Seo</surname><given-names>MS</given-names></name><name><surname>Park</surname><given-names>SB</given-names></name><name><surname>Seo</surname><given-names>YJ</given-names></name><name><surname>Kim</surname><given-names>JS</given-names></name><name><surname>Kang</surname><given-names>KS</given-names></name></person-group>. <article-title>Therapeutic effects of human amniotic epithelial stem cells in Niemann-Pick type C1 mice</article-title>. <source>Cytotherapy</source> (<year>2012</year>) <volume>14</volume>:<fpage>630</fpage>&#x2013;<lpage>8</lpage>.<pub-id pub-id-type="doi">10.3109/14653249.2012.663485</pub-id><pub-id pub-id-type="pmid">22404083</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bembi</surname><given-names>B</given-names></name><name><surname>Comelli</surname><given-names>M</given-names></name><name><surname>Scaggiante</surname><given-names>B</given-names></name><name><surname>Pineschi</surname><given-names>A</given-names></name><name><surname>Rapelli</surname><given-names>S</given-names></name><name><surname>Gornati</surname><given-names>R</given-names></name><etal/></person-group>
+<article-title>Treatment of sphingomyelinase deficiency by repeated implantations of amniotic epithelial cells</article-title>. <source>Am J Med Genet</source> (<year>1992</year>) <volume>44</volume>:<fpage>527</fpage>&#x2013;<lpage>33</lpage>.<pub-id pub-id-type="doi">10.1002/ajmg.1320440430</pub-id><pub-id pub-id-type="pmid">1442900</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Serrano-Delgado</surname><given-names>VM</given-names></name><name><surname>Novello-Garza</surname><given-names>B</given-names></name><name><surname>Valdez-Martinez</surname><given-names>E</given-names></name></person-group>. <article-title>Ethical issues relating the banking of umbilical cord blood in Mexico</article-title>. <source>BMC Med Ethics</source> (<year>2009</year>) <volume>10</volume>:<fpage>12</fpage>.<pub-id pub-id-type="doi">10.1186/1472-6939-10-12</pub-id><pub-id pub-id-type="pmid">19678958</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zagoura</surname><given-names>DS</given-names></name><name><surname>Roubelakis</surname><given-names>MG</given-names></name><name><surname>Bitsika</surname><given-names>V</given-names></name><name><surname>Trohatou</surname><given-names>O</given-names></name><name><surname>Pappa</surname><given-names>KI</given-names></name><name><surname>Kapelouzou</surname><given-names>A</given-names></name><etal/></person-group>
+<article-title>Therapeutic potential of a distinct population of human amniotic fluid mesenchymal stem cells and their secreted molecules in mice with acute hepatic failure</article-title>. <source>Gut</source> (<year>2012</year>) <volume>61</volume>:<fpage>894</fpage>&#x2013;<lpage>906</lpage>.<pub-id pub-id-type="doi">10.1136/gutjnl-2011-300908</pub-id><pub-id pub-id-type="pmid">21997562</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sant&#x2019;Anna</surname><given-names>LB</given-names></name><name><surname>Cargnoni</surname><given-names>A</given-names></name><name><surname>Ressel</surname><given-names>L</given-names></name><name><surname>Vanosi</surname><given-names>G</given-names></name><name><surname>Parolini</surname><given-names>O</given-names></name></person-group>. <article-title>Amniotic membrane application reduces liver fibrosis in a bile duct ligation rat model</article-title>. <source>Cell Transplant</source> (<year>2011</year>) <volume>20</volume>:<fpage>441</fpage>&#x2013;<lpage>53</lpage>.<pub-id pub-id-type="doi">10.3727/096368910X522252</pub-id><pub-id pub-id-type="pmid">20719087</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ricci</surname><given-names>E</given-names></name><name><surname>Vanosi</surname><given-names>G</given-names></name><name><surname>Lindenmair</surname><given-names>A</given-names></name><name><surname>Hennerbichler</surname><given-names>S</given-names></name><name><surname>Peterbauer-Scherb</surname><given-names>A</given-names></name><name><surname>Wolbank</surname><given-names>S</given-names></name><etal/></person-group>
+<article-title>Anti-fibrotic effects of fresh and cryopreserved human amniotic membrane in a rat liver fibrosis model</article-title>. <source>Cell Tissue Bank</source> (<year>2013</year>) <volume>14</volume>:<fpage>475</fpage>&#x2013;<lpage>88</lpage>.<pub-id pub-id-type="doi">10.1007/s10561-012-9337-x</pub-id><pub-id pub-id-type="pmid">22926336</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

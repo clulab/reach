@@ -1,0 +1,168 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">100890575</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">21417</journal-id>
+      <journal-id journal-id-type="nlm-ta">Nat Cell Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Nat. Cell Biol.</journal-id>
+      <journal-title-group>
+        <journal-title>Nature cell biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1465-7392</issn>
+      <issn pub-type="epub">1476-4679</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26005835</article-id>
+      <article-id pub-id-type="pmc">4652934</article-id>
+      <article-id pub-id-type="doi">10.1038/ncb3175</article-id>
+      <article-id pub-id-type="manuscript">NIHMS736798</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>RasGRP1 opposes proliferative EGFR&#x2013;SOS1&#x2013;Ras signals and restricts intestinal epithelial cell growth</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Depeille</surname>
+            <given-names>Philippe</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref rid="FN1" ref-type="author-notes">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Henricks</surname>
+            <given-names>Linda M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref rid="FN2" ref-type="author-notes">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>van de Ven</surname>
+            <given-names>Robert A. H.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref rid="FN2" ref-type="author-notes">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lemmens</surname>
+            <given-names>Ed</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref rid="FN2" ref-type="author-notes">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Chih-Yang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Matli</surname>
+            <given-names>Mary</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Werb</surname>
+            <given-names>Zena</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Haigis</surname>
+            <given-names>Kevin M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Donner</surname>
+            <given-names>David</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Warren</surname>
+            <given-names>Robert</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Roose</surname>
+            <given-names>Jeroen P.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref rid="FN1" ref-type="author-notes">6</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Anatomy, University of California, San Francisco, San Francisco, California 94143, USA</aff>
+      <aff id="A2"><label>2</label>Institute of Basic Medical Sciences, College of Medicine, National Cheng Kung University, Tainan 70101, Taiwan</aff>
+      <aff id="A3"><label>3</label>Department of Surgery, University of California, San Francisco, San Francisco, California 94143, USA</aff>
+      <aff id="A4"><label>4</label>Molecular Pathology Unit, Massachusetts General Hospital, Charlestown, Massachusetts 02129, USA</aff>
+      <author-notes>
+        <corresp id="FN1"><label>6</label>Correspondence should be addressed to P.D. or J.P.R. (<email>philippe.depeille@ucsf.edu</email> or <email>jeroen.roose@ucsf.edu</email>)</corresp>
+        <fn id="FN2" fn-type="present-address">
+          <label>5</label>
+          <p>Present addresses: Department of Molecular Pathology, the Netherlands Cancer Institute, 1066CX Amsterdam, The Netherlands (L.M.H.); Department of Pathology, Utrecht University, 3582 BW Utrecht, The Netherlands (R.A.H.v.d.V.); Aduro BioTech, Berkeley, California 94710, USA (E.L.).</p>
+        </fn>
+        <fn id="FN4" fn-type="conflict">
+          <p>
+            <bold>COMPETING FINANCIAL INTERESTS</bold>
+          </p>
+          <p>P.D., R.W., and J.P.R. at UCSF filed a provisional patent (81906-937600-220200US) based on this work.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>13</day>
+        <month>11</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>25</day>
+        <month>5</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>6</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>19</day>
+        <month>11</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>17</volume>
+      <issue>6</issue>
+      <fpage>804</fpage>
+      <lpage>815</lpage>
+      <!--elocation-id from pubmed: 10.1038/ncb3175-->
+      <permissions>
+        <license license-type="permissions-link">
+          <license-p>Reprints and permissions information is available online at <ext-link ext-link-type="uri" xlink:href="www.nature.com/reprints">www.nature.com/reprints</ext-link></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p id="P1">The character of EGFR signals can influence cell fate but mechanistic insights into intestinal EGFR-Ras signalling are limited. Here we show that two distinct Ras nucleotide exchange factors, RasGRP1 and SOS1, lie downstream of EGFR but act in functional opposition. RasGRP1 is expressed in intestinal crypts where it restricts epithelial growth. High RasGRP1 expression in colorectal cancer (CRC) patient samples correlates with a better clinical outcome. Biochemically, we find that RasGRP1 creates a negative feedback loop that limits proliferative EGFR&#x2013;SOS1&#x2013;Ras signals in CRC cells. Genetic <italic>Rasgrp1</italic> depletion from mice with either an activating mutation in <italic>KRas</italic> or with aberrant Wnt signalling due to a mutation in <italic>Apc</italic> resulted in both cases in exacerbated Ras&#x2013;ERK signalling and cell proliferation. The unexpected opposing cell biological effects of EGFR&#x2013;RasGRP1 and EGFR&#x2013;SOS1 signals in the same cell shed light on the intricacy of EGFR-Ras signalling in normal epithelium and carcinoma.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

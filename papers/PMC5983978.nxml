@@ -1,0 +1,1078 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Mol Med Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Mol Med Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Molecular Medicine Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1791-2997</issn>
+      <issn pub-type="epub">1791-3004</issn>
+      <publisher>
+        <publisher-name>D.A. Spandidos</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29693180</article-id>
+      <article-id pub-id-type="pmc">5983978</article-id>
+      <article-id pub-id-type="doi">10.3892/mmr.2018.8917</article-id>
+      <article-id pub-id-type="publisher-id">mmr-17-06-8047</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Hair growth is promoted by BeauTop via expression of EGF and FGF-7</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Chien-Ying</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-mmr-17-06-8047">1</xref>
+          <xref ref-type="aff" rid="af2-mmr-17-06-8047">2</xref>
+          <xref ref-type="aff" rid="af3-mmr-17-06-8047">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Chi-Yu</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-mmr-17-06-8047">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lin</surname>
+            <given-names>Ching-Che</given-names>
+          </name>
+          <xref ref-type="aff" rid="af5-mmr-17-06-8047">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yu</surname>
+            <given-names>Min-Chien</given-names>
+          </name>
+          <xref ref-type="aff" rid="af3-mmr-17-06-8047">3</xref>
+          <xref ref-type="aff" rid="af6-mmr-17-06-8047">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sheu</surname>
+            <given-names>Shuenn-Jyi</given-names>
+          </name>
+          <xref ref-type="aff" rid="af5-mmr-17-06-8047">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kuan</surname>
+            <given-names>Yu-Hsiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-mmr-17-06-8047">1</xref>
+          <xref ref-type="aff" rid="af2-mmr-17-06-8047">2</xref>
+          <xref rid="c1-mmr-17-06-8047" ref-type="corresp"/>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-mmr-17-06-8047"><label>1</label>Department of Pharmacology, Chung Shan Medical University, Taichung 40201, Taiwan, R.O.C.</aff>
+      <aff id="af2-mmr-17-06-8047"><label>2</label>Department of Pharmacy, Chung Shan Medical University Hospital, Taichung 40201, Taiwan, R.O.C.</aff>
+      <aff id="af3-mmr-17-06-8047"><label>3</label>Department of Integrated Chinese and Western Medicine, Chung Shan Medical University Hospital, Taichung 40201, Taiwan, R.O.C.</aff>
+      <aff id="af4-mmr-17-06-8047"><label>4</label>Division of Animal Medicine, Animal Technology Laboratories, Agricultural Technology Research Institute, Miaoli 35053, Taiwan, R.O.C.</aff>
+      <aff id="af5-mmr-17-06-8047"><label>5</label>Brion Research Institute of Taiwan, New Taipei 23143, Taiwan, R.O.C.</aff>
+      <aff id="af6-mmr-17-06-8047"><label>6</label>Department of Medicine, Chung Shan Medical University, Taichung 40201, Taiwan, R.O.C.</aff>
+      <author-notes>
+        <corresp id="c1-mmr-17-06-8047"><italic>Correspondence to</italic>: Dr Yu-Hsiang Kuan, Department of Pharmacology, Chung Shan Medical University, 110 Jianguo North Road, Section 1, Taichung 40201, Taiwan, R.O.C., E-mail: <email>kuanyh@csmu.edu.tw</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>6</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>23</day>
+        <month>4</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>23</day>
+        <month>4</month>
+        <year>2018</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on the <pub-date pub-type="epub"/>. -->
+      <volume>17</volume>
+      <issue>6</issue>
+      <fpage>8047</fpage>
+      <lpage>8052</lpage>
+      <history>
+        <date date-type="received">
+          <day>08</day>
+          <month>10</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>13</day>
+          <month>10</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; Lee et al.</copyright-statement>
+        <copyright-year>2018</copyright-year>
+        <license license-type="open-access">
+          <license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs License</ext-link>, which permits use and distribution in any medium, provided the original work is properly cited, the use is non-commercial and no modifications or adaptations are made.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Minoxidil and finasteride have been approved to treat hair loss by the Food and Drug Administration. However, the further elucidation of treatments for hair loss, including those using Chinese herbal medicine, remains important clinically. BeauTop (BT) is a health food supplement which contains <italic>Ginseng radix, Astragali radix, Radix Angelicae sinensis, Ligustri fructus, Rehmannia glutinosa</italic> and <italic>Eclipta prostrata</italic> (Linn). Susbsequent to oral administration of BT at 0.6 g/kg/day to wax/rosin-induced alopecia in C57BL/6 mice, BT significantly induced hair growth at day 8 compared with control treatment (P&lt;0.05). The expression levels of epidermal growth factor (EGF), and fibroblast growth factor (FGF)-7 were increased compared with control animals on day 8. In contrast, levels of FGF-5 of the BT group were reduced compared with the control on day 12. There were no effects on the expression of insulin-like growth factor 1. The results demonstrated that the mechanism of BT improving alopecia is potentially associated with modulation of EGF and FGF-7 levels. Taken together, it is suggested that BT may have a potential effect of the promotion of hair growth.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>hair growth</kwd>
+        <kwd>BeauTop</kwd>
+        <kwd>EGF</kwd>
+        <kwd>FGF-7</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>Hair is a key component of an individual's appearance, and in addition to protection, hair serves a role in social communication (<xref rid="b1-mmr-17-06-8047" ref-type="bibr">1</xref>). Considering the psychological effects, hair loss has been associated with a reduction in self-esteem. There are three phases in the hair growth cycle including the anagen, catagen and telogen phases, and the hair growth cycle is regulated by several growth factors, including epithelial growth factor (EGF), insulin-like growth factor (IGF)-1, fibroblast growth factor (FGF)-5 and &#x2212;7 (<xref rid="b2-mmr-17-06-8047" ref-type="bibr">2</xref>&#x2013;<xref rid="b4-mmr-17-06-8047" ref-type="bibr">4</xref>). Dysregulation of growth factors results in hair loss.</p>
+      <p>At present, only two drugs, minoxidil and finasteride, are licenced for the treatment of hair loss by the United States Food and Drug Administration. There are several disadvantages to the use of finasteride, including orthostatic hypotension, chills, cold sweats and confusion. Side effects associated with minoxidil include a burning or itching sensation of the skin around the treated area, and hair feeling dry, straw-like and dull subsequent to termination of the treatment (<xref rid="b5-mmr-17-06-8047" ref-type="bibr">5</xref>). Therefore, it is important to seek alternative strategies for the treatment of hair loss, with high efficacy and fewer side effects. The use of traditional Chinese herbal medicines has been regarded safe for use in and complementary medicine in various diseases. BeauTop (BT) is mixture of a variety of Chinese herbs including <italic>Ginseng radix, Astragali radix, Radix Angelicae sinensis, Ligustri fructus, Rehmannia glutinosa</italic> and <italic>Eclipta prostrata</italic> (Linn). A previous study demonstrated that there was non-toxicity using BT in a Wistar rat model (<xref rid="b6-mmr-17-06-8047" ref-type="bibr">6</xref>). The aim of the current study was to evaluate the promotion of hair growth by BT in C57BL/6 mice and the mechanism involved, for consideration of BT as a potential therapeutic medication for alopecia.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec>
+        <title/>
+        <sec>
+          <title>Animals</title>
+          <p>Female 8-week-old C57BL/6 mice weighing 15&#x2013;20 g were purchased from the National Laboratory Animal Center (Taiwan, China). Mice were fed the standard laboratory diet and water <italic>ad libitum</italic> and housed under the 12 h light/dark cycle and 21&#xB1;1&#xB0;C in the Animal Technology Institute (Taiwan, China). Susbequent to euthanasia, specimens of full-thickness skin and subcutaneous tissue were harvested and stored at &#x2212;80&#xB0;C. This study was approved by the ethics committee of Agricultural Technology Research Institute (protocol no. 97011) (Miaoli, Taiwan).</p>
+        </sec>
+        <sec>
+          <title>Preparation of BT</title>
+          <p>BT is composed of <italic>Ginseng radix, Astragali radix, Radix Angelicae sinensis, Ligustri fructus, Rehmannia glutinosa</italic> and <italic>Eclipta prostrata</italic> (Linn) at a ratio of 7:9:7:10:7:10. All components were purchased from a Chinese herbal shop (Sun Ten Pharmaceutical Co. Ltd., Taiwan, China). BT at 100 mg was prepared as a mixture of the above components and was extracted with 1 l of distilled water at 100&#xB0;C. The aqueous extracts were powdered by heating in a rotary vacuum evaporator. BT powder was then dissolved in distilled water.</p>
+        </sec>
+        <sec>
+          <title>Murine model and grouping of wax/rosin-induced alopecia</title>
+          <p>The procedures for induction of alopecia by wax/rosin in mice were performed as described previously (<xref rid="b7-mmr-17-06-8047" ref-type="bibr">7</xref>). A total of 36 mice were divided into the control and BT groups (18 mice/group). Mice were anesthetized with Avertin<sup>&#xAE;</sup> (2,2,2-tribromoethanol; Sigma-Aldrich; Merck Millipore, Darmstadt, Germany) by intraperitoneal injection at a dose of 250 mg/kg. The wax/rosin mixture was applied to the dorsal skin of mice and each depilatory area was fixed in 4 cm<sup>2</sup> area. The procedure induced hair follicles to enter into telogen phase, as evidenced by the homogeneously pink skin color on the depilatory area. When the wax/rosin mixture removed all hair shafts, this immediately causes homogeneous anagen development over the depilated area. A solution of BT was orally administrated at a dose of 0.6 g/kg, while the control group was treated with distilled water of the same volume. Each group was treated once daily for 12 consecutive days. Mice were sacrificed by being placed in a CO<sub>2</sub> gas chamber.</p>
+        </sec>
+        <sec>
+          <title>Photo documentation</title>
+          <p>Photographs were documented on days 4, 8 and 12 to provide a record of changes in hair growth. Images were captured with a Canon PowerShot A470 camera on a Medalight Slim Light Panel. Photographs were analyzed by gray scale analysis and light absorption within specified regions was quantified using Image-Pro Plus software version 7.0 (Media Cybernetics, Inc., Rockville, MD, USA), with greater absorption corresponding to increased hair growth.</p>
+        </sec>
+        <sec>
+          <title>Expression of growth factors via immunohistology</title>
+          <p>Mice were sacrificed at days 4, 8 and 12, 6 mice at each time point. The specimens of full-thickness skin and subcutaneous tissue from the dorsal region were obtained. The specimens were fixed in 4% paraformaldehyde at 4&#xB0;C overnight and processed for paraffin sectioning. The longitudinal slices were processed for routine immunohistological analysis then were preincubated with ready-to-use blocking solution (Immunotech, Hamburg, Germany), followed by an incubation with anti-EGF (Novus Biologicals LLC, Littleton, CO, USA), anti-IGF-1, anti-FGF-5 and anti-FGF-7 antibodies (Abbiotec LLC San Diego, CA, USA). Development was performed using a diaminobenzidine tetrahydrochloride kit (Vector Laboratories, Inc., Burlingame, CA, USA). An Olympus microscope equipped with an AxioCam ICc 3 imaging system was used to randomly screen the field. Image-Pro Plus software was used to calculate the percentage color area.</p>
+        </sec>
+        <sec>
+          <title>Statistical analysis</title>
+          <p>Data are presented as the mean &#xB1; standard deviation unless otherwise stated. Comparison between groups was performed using independent t-test analysis for comparison of treatment and control groups (SPSS software, version 12.0; SPSS, Inc., Chicago, IL, USA).</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title/>
+        <sec>
+          <title>Effect of BT on hair growth in mice model</title>
+          <p>The results of the hair follicle counting demonstrated that the BT group was significantly higher than control group on day 8 (P&lt;0.05; <xref rid="f1-mmr-17-06-8047" ref-type="fig">Fig. 1</xref>). These results indicated that BT possessed superior hair growth properties compared with the control.</p>
+        </sec>
+        <sec>
+          <title>Effect of BT on EGF expression</title>
+          <p>The expression levels of EGF in the BT treatment group on day 8 were higher compared with the control (<xref rid="f2-mmr-17-06-8047" ref-type="fig">Fig. 2A</xref>). According to the experimental data, it was suggested that BT induced EGF production at the depilation area of the hair follicle around day 8 (P&lt;0.05; <xref rid="f2-mmr-17-06-8047" ref-type="fig">Fig. 2B and C</xref>). However, BT did not influence on EGF expression on day 12 (<xref rid="f2-mmr-17-06-8047" ref-type="fig">Fig. 2B</xref>).</p>
+        </sec>
+        <sec>
+          <title>Effect of BT on IGF-1 expression</title>
+          <p>Up to day 12, BT did not result in a significant change to the IGF-1 expression levels, as presented in <xref rid="f3-mmr-17-06-8047" ref-type="fig">Fig. 3</xref>.</p>
+        </sec>
+        <sec>
+          <title>Effect of BT on FGF-5 expression</title>
+          <p>The expression levels of FGF-5 in the BT treatment group on day 8 were observed to exhibit a lower area percentage compared with the control (<xref rid="f4-mmr-17-06-8047" ref-type="fig">Fig. 4A</xref>). According to the experimental data, it was suggested that BT reduced the FGF-5 production at the depilation area of the hair follicle around day 12 (P&lt;0.05; <xref rid="f4-mmr-17-06-8047" ref-type="fig">Fig. 4B and C</xref>). However, BT did not influence on FGF-5 expression on day 8 (<xref rid="f4-mmr-17-06-8047" ref-type="fig">Fig. 4B</xref>).</p>
+        </sec>
+        <sec>
+          <title>Effect of BT on FGF-7 expression</title>
+          <p>The expression levels of FGF-7 in the BT treatment group on day 8 presented with a higher area percentage compared with the control (<xref rid="f5-mmr-17-06-8047" ref-type="fig">Fig. 5A</xref>). According to the experimental data, it was presumed that BT induced the FGF-7 production at the depilation area of hair follicle around day 8 (P&lt;0.05; <xref rid="f5-mmr-17-06-8047" ref-type="fig">Fig. 5B and C</xref>). However, BT did not influence FGF-7 expression at day 12 (<xref rid="f5-mmr-17-06-8047" ref-type="fig">Fig. 5B</xref>).</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Hair follicle counts demonstrated that the BT group was significantly higher than control on day 8. From histopathological results, EGF and FGF-7 of the BT group on day 8 presented with a higher area percentage than control, respectively. These data suggested that BT may induce the EGF and FGF-7 production at the depilation area of hair follicles around day 8, and additionally may reduce the FGF-5 production on day 12.</p>
+      <p>The primary ingredients of BT include <italic>Ginseng radix, Astragali radix, Radix Angelicae sinensis, Ligustri fructus, Rehmannia glutinosa</italic> and <italic>Eclipta prostrata</italic> (Linn). Angiogenesis serves an important role in a wide range of physiological processes and numerous diseases are associated with dysregulation of angiogenesis. Ginsenoside-Re is one of the major active components of saponin in <italic>Panax ginseng</italic>. Angiogenesis in the ECMs was significantly enhanced by loading with basic FGF or ginsenoside-Re (<xref rid="b8-mmr-17-06-8047" ref-type="bibr">8</xref>). Promotion of basal cell proliferation and angiogenesis by the <italic>Astragali radix</italic> extracts was marked in the early stages of wound healing, resulting in a significant reduction in the duration of the wound-healing process (<xref rid="b9-mmr-17-06-8047" ref-type="bibr">9</xref>). <italic>Astragali radix</italic> contains quercetin, which has been demonstrated to posess anti-inflammatory properties. As an anti-inflammatory, quercetin has been observed to inhibit the activation of NF-&#x3BA;B, a transcription factor that stimulates the production of proinflammatory cytokines including tumor necrosis factor (TNF)-&#x3B1; and interleukin (IL)-1, IL-2 and IL-6 (<xref rid="b10-mmr-17-06-8047" ref-type="bibr">10</xref>). The natural compound quercetin has been previously suggested to possess potential effects for alopecia areata (AA) (<xref rid="b11-mmr-17-06-8047" ref-type="bibr">11</xref>). During the catagen stage in mice, hair follicles are also destroyed by an inflammatory-cell infiltrate, in an apparent physiological process of programmed organ deletion (<xref rid="b12-mmr-17-06-8047" ref-type="bibr">12</xref>). From the above information, it was hypothesized that BT may have potential for treatment of AA and androgenetic alopecia (AGA) though the immunomodulatory effect protecting hair follicles from immune attacks. BT was additionally suggested to act through anti-inflammatory properties to protect hair follicles from inflammation, which may be beneficial in AGA, however further studies are required in order to evaluate this. The effects of <italic>Rehmannia glutinosa</italic> oligosaccharide (RGO), a traditional Chinese medicine, have been investigated on the proliferation, H<sub>2</sub>O<sub>2</sub>-induced apoptosis and secretion of vascular endothelial growth factor (VEGF) and hepatocyte growth factor (HGF) of human adipose-derived mesenchymal stem cells (ADMSCs) <italic>in vitro</italic>. One study demonstrated that RGO may increase the viability and proliferative capacity and alleviate H<sub>2</sub>O<sub>2</sub>-induced apoptosis of human ADMSCs via the paracrine release of VEGF and HGF. These results indicate that RGO application will enhance stem cell viability and improve their effects in cell therapy (<xref rid="b13-mmr-17-06-8047" ref-type="bibr">13</xref>). Butanol extracted from <italic>Eclipta prostrata</italic> (Linn) has been demonstrated to produce an anti-oxidative effect in cesarean-derived rats, and saponin is a primary ingredient in butanol extract, which has been observed to result in <italic>in-vitro</italic> anti-oxidative effects (<xref rid="b14-mmr-17-06-8047" ref-type="bibr">14</xref>). Further study is required to determine whether these effects are associated with the effect of BT on improving AGA.</p>
+      <p>Normal expression of both EGF and its receptor (EGFR) in the outer root sheath has been identified to be downregulated with the completion of follicular growth, and continuous expression of EGF in hair follicles of transgenic mice arrested follicular development at the final stage of morphogenesis (<xref rid="b15-mmr-17-06-8047" ref-type="bibr">15</xref>). Binding of EGF or of transforming growth factor &#x3B1; or other associated factors activates the receptor and induces cell proliferation and differentiation (<xref rid="b16-mmr-17-06-8047" ref-type="bibr">16</xref>). The TNF-&#x3B1;-induced activation of the extracellular signal-related kinase/guanine nucleotide exchange factor H1/ras homolog family member A pathway in tubular cells is mediated through Src- and TNF-&#x3B1; convertase enzyme-dependent EGFR activation. This mechanism may couple inflammatory and proliferative stimuli and, thus, may serve a key role in the regulation of wound healing and fibrogenesis (<xref rid="b17-mmr-17-06-8047" ref-type="bibr">17</xref>). From the results of the current study, BT induced the EGF production significantly at the depilation area of hair follicles around day 8, however did not cause a significant change on day 12. It was demonstrated that the BT has the potential effect to improve hair growth through upregulating the expression of EGF. In the cycle of normal hair follicles, the expression in EGF will stop increasing to avoid the overgrowth of hair; and it was observed that the expression of EGF did not significantly increase with BT on day 12.</p>
+      <p>The IGF-1 receptor (IGF-1R) is the only IGF receptor to have IGF-mediated signaling functions. In circulation, this growth factor mediates endocrine action of growth hormones on somatic growth and is bound to specific binding proteins. The latter control IGF transport, efflux from vascular compartments and association with cell surface receptors. In tissues, IGF-1 is produced by mesenchymal type cells and acts in a IGF-1 paracrine and autocrine fashion by binding to the IGF-1R. This binding activates the receptor tyrosine kinase that triggers the downstream responses and finally stimulates cell division (<xref rid="b18-mmr-17-06-8047" ref-type="bibr">18</xref>). The androgen metabolite dihydrotestosterone (DHT) inhibits hair growth by negatively modulating growth-regulatory effects of dermal papillae. DHT may reduce IGF-1 production in dermal papillae by inhibiting sensory neuron stimulation through interaction with the androgen receptor, thereby inhibiting hair growth in mice (<xref rid="b3-mmr-17-06-8047" ref-type="bibr">3</xref>). According to the experimental data, BT did not induce IGF-1 production significantly on day 8 or 12. It is suggested that BT may improve hair growth through mechanisms other than IGF-1.</p>
+      <p>The growth and development of hair follicles is influenced by a number of different growth factors and cytokines, particularly members of the FGF family (<xref rid="b19-mmr-17-06-8047" ref-type="bibr">19</xref>). FGF-5 is a secreted signaling protein and inhibits hair elongation, which is suggested to be via regulating a step in the progression (<xref rid="b20-mmr-17-06-8047" ref-type="bibr">20</xref>). FGF signal transduction involves ligand binding to a high-affinity receptor-tyrosine kinase. FGF-5 RNA was detected in the outer root sheath surrounding the transient portion of the follicle and also in a small population of cells at the base of the follicle in a previous study (<xref rid="b21-mmr-17-06-8047" ref-type="bibr">21</xref>). It has been reported that the gene for murine FGF-5 is expressed in the rat hair follicle and that this expression may be associated with catagen induction (<xref rid="b20-mmr-17-06-8047" ref-type="bibr">20</xref>). Mutational analysis has demonstrated that FGF signaling mediated by FGF-5 serves a key role in regulating the transition from anagen to catagen (<xref rid="b21-mmr-17-06-8047" ref-type="bibr">21</xref>), and FGF-5 has been demonstrated to be a particularly potent inhibitory factor (<xref rid="b22-mmr-17-06-8047" ref-type="bibr">22</xref>). Other FGF family members that are expressed during the hair growth cycle are FGF-1, FGF-2 and FGF-7 (<xref rid="b21-mmr-17-06-8047" ref-type="bibr">21</xref>). Keratinocyte growth factor, also known as FGF-7, is synthesized by skin fibroblasts (<xref rid="b21-mmr-17-06-8047" ref-type="bibr">21</xref>). The 18.9 kD member of the FGF family has been demonstrated to selectively induce keratinocyte proliferation and differentiation in tissue culture (<xref rid="b23-mmr-17-06-8047" ref-type="bibr">23</xref>). From the results of the current study, it is suggested that BT induced the FGF-7 production at the depilation area of hair follicles around day 8. FGF-5 is potent inhibitor, and it was identified that BT reduced the FGF-5 production on day 12. This indicated that BT additionally has potential to improve hair growth through upregulating the expression of FGF-7 on day 8 and downregulating expression of FGF-5 on day 12. In the cycle of normal hair follicles, the expression of FGF-7 will stop increasing to avoid the overgrowth of hair, and it was observed that the expression of FGF-7 did not significantly increase in the BT group on day 12.</p>
+      <p>These studies in mice indicated a significant increase in the number of follicles per unit area in the BT group compared with the controls on day 8. Thus, BT has the potential to improve hair growth through upregulating the expression of EGF and FGF-7 and through downregulating the expression of FGF-5. However, no clinical trial investigating the use of BT and its effects of inhibiting human alopecia or promoting hair growth has been conducted, thus a trial should be undertaken in order to verify the effects of BT in humans.</p>
+      <p>These results have demonstrated that the mechanism of action of BT in improving AGA is potentially associated with EGF, FGF-5 and FGF-7. Taken together, these results suggest that BT has the potential effect of promoting hair growth.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The authors will like to thank the non-profit organization Brion Research Institute of Taiwan (Taiwan, China) and Chung Shan Medical University (protocol no. CSMU-G104N0002) for its sponsorship, which has contributed to the completion of the present study.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-mmr-17-06-8047">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lourith</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kanlayavattanakul</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Hair loss and herbs for treatment</article-title>
+          <source>J Cosmet Dermatol</source>
+          <volume>2</volume>
+          <fpage>210</fpage>
+          <lpage>222</lpage>
+          <year>2013</year>
+          <pub-id pub-id-type="doi">10.1111/jocd.12051</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-mmr-17-06-8047">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alexandrescu</surname>
+              <given-names>DT</given-names>
+            </name>
+            <name>
+              <surname>Kauffman</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Dasanu</surname>
+              <given-names>CA</given-names>
+            </name>
+          </person-group>
+          <article-title>The cutaneous epidermal growth factor network: Can it be translated clinically to stimulate hair growth?</article-title>
+          <source>Dermatol Online J</source>
+          <volume>15</volume>
+          <fpage>1</fpage>
+          <year>2009</year>
+        </element-citation>
+      </ref>
+      <ref id="b3-mmr-17-06-8047">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Harada</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Okajima</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Dihydrotestosterone inhibits hair growth in mice by inhibiting insulin-like growth factor-I production in dermal papillae</article-title>
+          <source>Growth Horm IGF Res</source>
+          <volume>21</volume>
+          <fpage>260</fpage>
+          <lpage>267</lpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.1016/j.ghir.2011.07.003</pub-id>
+          <pub-id pub-id-type="pmid">21839661</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-mmr-17-06-8047">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yun</surname>
+              <given-names>YR</given-names>
+            </name>
+            <name>
+              <surname>Won</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Jeon</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Jo</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Jang</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>US</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HW</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast growth factors: Biology, function and application for tissue regeneration</article-title>
+          <source>J Tissue Eng</source>
+          <volume>2010</volume>
+          <fpage>218142</fpage>
+          <year>2010</year>
+          <pub-id pub-id-type="doi">10.4061/2010/218142</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3042641</pub-id>-->
+          <pub-id pub-id-type="pmid">21350642</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-mmr-17-06-8047">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rossi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Cantisani</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Melis</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Iorio</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Scali</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Calvieri</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Minoxidil use in dermatology, side effects and recent patents</article-title>
+          <source>Recent Pat Inflamm Allergy Drug Discov</source>
+          <volume>6</volume>
+          <fpage>130</fpage>
+          <lpage>136</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.2174/187221312800166859</pub-id>
+          <pub-id pub-id-type="pmid">22409453</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-mmr-17-06-8047">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Sheu</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Chiang</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Kuan</surname>
+              <given-names>YH</given-names>
+            </name>
+          </person-group>
+          <article-title>Hair growth effect of traditional Chinese medicine BeauTop on androgenetic alopecia patients: A randomized double-blind placebo-controlled clinical trial</article-title>
+          <source>Exp Ther Med</source>
+          <comment>(In press)</comment>
+        </element-citation>
+      </ref>
+      <ref id="b7-mmr-17-06-8047">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Katikaneni</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Ponnapakkam</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Seymour</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Sakon</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gensure</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Parathyroid hormone linked to a collagen binding domain promotes hair growth in a mouse model of chemotherapy-induced alopecia in a dose-dependent manner</article-title>
+          <source>Anticancer Drugs</source>
+          <volume>25</volume>
+          <fpage>819</fpage>
+          <lpage>825</lpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1097/CAD.0000000000000110</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4520809</pub-id>-->
+          <pub-id pub-id-type="pmid">24710191</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-mmr-17-06-8047">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>YC</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>CT</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Liang</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>Sung</surname>
+              <given-names>HW</given-names>
+            </name>
+          </person-group>
+          <article-title>A natural compound (ginsenoside Re) isolated from <italic>Panax ginseng</italic> as a novel angiogenic agent for tissue regeneration</article-title>
+          <source>Pharm Res</source>
+          <volume>22</volume>
+          <fpage>636</fpage>
+          <lpage>646</lpage>
+          <year>2005</year>
+          <pub-id pub-id-type="doi">10.1007/s11095-005-2500-3</pub-id>
+          <pub-id pub-id-type="pmid">15846472</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-mmr-17-06-8047">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Han</surname>
+              <given-names>DO</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Hahm</surname>
+              <given-names>DH</given-names>
+            </name>
+          </person-group>
+          <article-title>Wound-healing activity of <italic>Astragali Radix</italic> in rats</article-title>
+          <source>Methods Find Exp Clin Pharmacol</source>
+          <volume>31</volume>
+          <fpage>95</fpage>
+          <lpage>100</lpage>
+          <year>2009</year>
+          <pub-id pub-id-type="doi">10.1358/mf.2009.31.2.1353846</pub-id>
+          <pub-id pub-id-type="pmid">19455264</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-mmr-17-06-8047">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bhaskar</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Shalini</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Helen</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Quercetin regulates oxidized LDL induced inflammatory changes in human PBMCs by modulating the TLR-NF-&#x3BA;B signaling pathway</article-title>
+          <source>Immunobiology</source>
+          <volume>216</volume>
+          <fpage>367</fpage>
+          <lpage>373</lpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.1016/j.imbio.2010.07.011</pub-id>
+          <pub-id pub-id-type="pmid">20828867</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-mmr-17-06-8047">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wilasrusmee</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Kittur</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Siddiqui</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bruch</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Wilasrusmee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kittur</surname>
+              <given-names>DS</given-names>
+            </name>
+          </person-group>
+          <article-title>In vitro immunomodulatory effects of ten commonly used herbs on murine lymphocytes</article-title>
+          <source>J Altern Complement Med</source>
+          <volume>8</volume>
+          <fpage>467</fpage>
+          <lpage>475</lpage>
+          <year>2002</year>
+          <pub-id pub-id-type="doi">10.1089/107555302760253667</pub-id>
+          <pub-id pub-id-type="pmid">12230907</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-mmr-17-06-8047">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eichm&#xFC;ller</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>van der Veen</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Moll</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Hermes</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Hofmann</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>M&#xFC;ller-R&#xF6;ver</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Paus</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Clusters of perifollicular macrophages in normal murine skin: Physiological degeneration of selected hair follicles by programmed organ deletion</article-title>
+          <source>J Histochem Cytochem</source>
+          <volume>46</volume>
+          <fpage>361</fpage>
+          <lpage>370</lpage>
+          <year>1998</year>
+          <pub-id pub-id-type="doi">10.1177/002215549804600310</pub-id>
+          <pub-id pub-id-type="pmid">9487118</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-mmr-17-06-8047">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Qin</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of rehmannia glutinosa oligosaccharide on human adipose-derived mesenchymal stem cells in vitro</article-title>
+          <source>Life Sci</source>
+          <volume>91</volume>
+          <fpage>1323</fpage>
+          <lpage>1327</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.1016/j.lfs.2012.10.015</pub-id>
+          <pub-id pub-id-type="pmid">23123441</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-mmr-17-06-8047">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>DI</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Lillehoj</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Rhie</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>GS</given-names>
+            </name>
+          </person-group>
+          <article-title>The butanol fraction of <italic>Eclipta prostrata</italic> (Linn) increases the formation of brain acetylcholine and decreases oxidative stress in the brain and serum of cesarean-derived rats</article-title>
+          <source>Nutr Res</source>
+          <volume>30</volume>
+          <fpage>579</fpage>
+          <lpage>584</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="doi">10.1016/j.nutres.2010.08.001</pub-id>
+          <pub-id pub-id-type="pmid">20851313</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-mmr-17-06-8047">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mak</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>SY</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor as a biologic switch in hair growth cycle</article-title>
+          <source>J Biol Chem</source>
+          <volume>278</volume>
+          <fpage>26120</fpage>
+          <lpage>26126</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1074/jbc.M212082200</pub-id>
+          <pub-id pub-id-type="pmid">12714603</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-mmr-17-06-8047">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miettinen</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Berger</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Meneses</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Phung</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Pedersen</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Werb</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Derynck</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Epithelial immaturity and multiorgan failure in mice lacking epidermal growth factor receptor</article-title>
+          <source>Nature</source>
+          <volume>376</volume>
+          <fpage>337</fpage>
+          <lpage>341</lpage>
+          <year>1995</year>
+          <pub-id pub-id-type="doi">10.1038/376337a0</pub-id>
+          <pub-id pub-id-type="pmid">7630400</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-mmr-17-06-8047">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kakiashvili</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Dan</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Vandermeer</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Waheed</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Pham</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sz&#xE1;szi</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>The epidermal growth factor receptor mediates tumor necrosis factor-alpha-induced activation of the ERK/GEF-H1/RhoA pathway in tubular epithelium</article-title>
+          <source>J Biol Chem</source>
+          <volume>286</volume>
+          <fpage>9268</fpage>
+          <lpage>9279</lpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.1074/jbc.M110.179903</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3059019</pub-id>-->
+          <pub-id pub-id-type="pmid">21212278</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-mmr-17-06-8047">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Su</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Hickford</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Bickerstaffe</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Palmer</surname>
+              <given-names>BR</given-names>
+            </name>
+          </person-group>
+          <article-title>Insulin-like growth factor 1 and hair growth</article-title>
+          <source>Dermatol Online J</source>
+          <volume>5</volume>
+          <fpage>1</fpage>
+          <year>1999</year>
+          <pub-id pub-id-type="pmid">10673454</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-mmr-17-06-8047">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Danilenko</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Ring</surname>
+              <given-names>BD</given-names>
+            </name>
+            <name>
+              <surname>Yanagihara</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Benson</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Wiemann</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Starnes</surname>
+              <given-names>CO</given-names>
+            </name>
+            <name>
+              <surname>Pierce</surname>
+              <given-names>GF</given-names>
+            </name>
+          </person-group>
+          <article-title>Keratinocyte growth factor is an important endogenous mediator of hair follicle growth, development and differentiation. Normalization of the nu/nu follicular differentiation defect and amelioration of chemotherapy-induced alopecia</article-title>
+          <source>Am J Pathol</source>
+          <volume>147</volume>
+          <fpage>145</fpage>
+          <lpage>154</lpage>
+          <year>1995</year>
+          <!--<pub-id pub-id-type="pmcid">1869891</pub-id>-->
+          <pub-id pub-id-type="pmid">7604876</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-mmr-17-06-8047">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>H&#xE9;bert</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Rosenquist</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>G&#xF6;tz</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>GR</given-names>
+            </name>
+          </person-group>
+          <article-title>FGF5 as a regulator of the hair growth cycle: Evidence from targeted and spontaneous mutations</article-title>
+          <source>Cell</source>
+          <volume>78</volume>
+          <fpage>1017</fpage>
+          <lpage>1025</lpage>
+          <year>1994</year>
+          <pub-id pub-id-type="doi">10.1016/0092-8674(94)90276-3</pub-id>
+          <pub-id pub-id-type="pmid">7923352</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-mmr-17-06-8047">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rosenquist</surname>
+              <given-names>TA</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>GR</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast growth factor signalling in the hair growth cycle: Expression of the fibroblast growth factor receptor and ligand genes in the murine hair follicle</article-title>
+          <source>Dev Dyn</source>
+          <volume>205</volume>
+          <fpage>379</fpage>
+          <lpage>386</lpage>
+          <year>1996</year>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1097-0177(199604)205:4&lt;379::AID-AJA2&gt;3.0.CO;2-F</pub-id>
+          <pub-id pub-id-type="pmid">8901049</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-mmr-17-06-8047">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Harmon</surname>
+              <given-names>CS</given-names>
+            </name>
+            <name>
+              <surname>Nevins</surname>
+              <given-names>TD</given-names>
+            </name>
+          </person-group>
+          <article-title>IL-1 alpha inhibits human hair follicle growth and hair fiber production in whole-organ cultures</article-title>
+          <source>Lymphokine Cytokine Res</source>
+          <volume>12</volume>
+          <fpage>197</fpage>
+          <lpage>203;</lpage>
+          <year>1993</year>
+          <pub-id pub-id-type="pmid">8218592</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-mmr-17-06-8047">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pierce</surname>
+              <given-names>GF</given-names>
+            </name>
+            <name>
+              <surname>Yanagihara</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Klopchin</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Danilenko</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Hsu</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kenney</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Morris</surname>
+              <given-names>CF</given-names>
+            </name>
+          </person-group>
+          <article-title>Stimulation of all epithelial elements during skin regeneration by keratinocyte growth factor</article-title>
+          <source>J Exp Med</source>
+          <volume>179</volume>
+          <fpage>831</fpage>
+          <lpage>840</lpage>
+          <year>1994</year>
+          <pub-id pub-id-type="doi">10.1084/jem.179.3.831</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2191416</pub-id>-->
+          <pub-id pub-id-type="pmid">7509362</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-mmr-17-06-8047" orientation="portrait" position="float">
+      <label>Figure 1.</label>
+      <caption>
+        <p>Hair follicle counting results. BT, BeauTop.</p>
+      </caption>
+      <graphic xlink:href="MMR-17-06-8047-g00"/>
+    </fig>
+    <fig id="f2-mmr-17-06-8047" orientation="portrait" position="float">
+      <label>Figure 2.</label>
+      <caption>
+        <p>(A) Immunohistochemistical stains of epidermal growth factor. (B) The level of EGF on days 8 and 12. (C) Differences in the endpoints between days 12 and 8. BT, BeauTop.</p>
+      </caption>
+      <graphic xlink:href="MMR-17-06-8047-g01"/>
+    </fig>
+    <fig id="f3-mmr-17-06-8047" orientation="portrait" position="float">
+      <label>Figure 3.</label>
+      <caption>
+        <p>(A) Immunohistochemistical stains of IGF-1. (B) The level of IGF-1 on days 8 and 12. (C) Differences in endpoints between days 12 and 8. IGF-1, insulin-like growth factor 1; BT, BeauTop.</p>
+      </caption>
+      <graphic xlink:href="MMR-17-06-8047-g02"/>
+    </fig>
+    <fig id="f4-mmr-17-06-8047" orientation="portrait" position="float">
+      <label>Figure 4.</label>
+      <caption>
+        <p>(A) Immunohistochemistical stains of FGF-5. (B) The level of FGF-5 on days 8 and 12. (C) Difference in endpoints between days 12 and 8. FGF, fibroblast growth factor; BT, BeauTop.</p>
+      </caption>
+      <graphic xlink:href="MMR-17-06-8047-g03"/>
+    </fig>
+    <fig id="f5-mmr-17-06-8047" orientation="portrait" position="float">
+      <label>Figure 5.</label>
+      <caption>
+        <p>(A) Immunohistochemistical stains of FGF-7. (B) The levels of FGF-7 on days 8 and 12. (C) Differences in endpoints between days 12 and 8. FGF, fibroblast growth factor; BT, BeauTop.</p>
+      </caption>
+      <graphic xlink:href="MMR-17-06-8047-g04"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

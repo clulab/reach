@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">2984705R</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2786</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cancer Res</journal-id>
+      <journal-title>Cancer research</journal-title>
+      <issn pub-type="ppub">0008-5472</issn>
+      <issn pub-type="epub">1538-7445</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19401448</article-id>
+      <article-id pub-id-type="pmc">2688701</article-id>
+      <article-id pub-id-type="doi">10.1158/0008-5472.CAN-08-4934</article-id>
+      <article-id pub-id-type="manuscript">NIHMS112443</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Heregulin regulates Prolactinoma Gene Expression</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vlotides</surname>
+            <given-names>George</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cooper</surname>
+            <given-names>Odelia</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Yen-Hao</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ren</surname>
+            <given-names>Song-Guang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Greenman</surname>
+            <given-names>Yona</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Melmed</surname>
+            <given-names>Shlomo</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Medicine, Cedars-Sinai Medical Center, University of California School of Medicine, Los Angeles, California 90048, USA</aff>
+      <aff id="A2"><label>2</label>Institute of Endocrinology, Metabolism and Hypertension, Tel Aviv-Sourasky Medical Center, Tel Aviv, Israel</aff>
+      <author-notes>
+        <corresp id="CR1"><underline>Correspondence:</underline> Shlomo Melmed, Academic Affairs, Room 2015, Cedars-Sinai Medical Center, 8700 Beverly Blvd., Los Angeles, CA 90048, Tel: (310) 423 4691, Fax: (310) 423 0119, E-mail: <email>melmed@csmc.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>4</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>28</day>
+        <month>4</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>15</day>
+        <month>5</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>15</day>
+        <month>5</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>69</volume>
+      <issue>10</issue>
+      <fpage>4209</fpage>
+      <lpage>4216</lpage>
+      <abstract>
+        <p id="P1">To investigate the role of p185<sup>her2/neu</sup> / ErbB3 signaling in pituitary tumor function we examined these receptors in human prolactinomas. Immunofluorescent p185<sup>her2/neu</sup> was detected in almost all (7/8), and ErbB3 expression in a subset (4/8) of tumors (7 adenomas and one carcinoma). Quantitative PCR also showed abundant ErbB3 mRNA in tumor specimens derived from a rarely encountered prolactin-cell carcinoma. Activation of p185<sup>c-neu</sup> / ErbB3 signaling with heregulin, the ErbB3 ligand, in rat lactosomatotroph (GH4C1) tumor cells specifically induced prolactin (PRL) mRNA expression ~ 5-fold and PRL secretion ~ 4-fold, while growth hormone (GH) expression was unchanged. Heregulin (6 nM) induced tyrosine phosphorylation and ErbB3 and p185<sup>c-neu</sup> heterodimerization, with subsequent activation of intracellular ERK and Akt. The Akt signal was specific to ErbB3 activation by heregulin, and was not observed in response to EGF activation of EGFR. Gefitinib, the tyrosine kinase inhibitor, suppressed heregulin-mediated p185<sup>c-neu</sup> / ErbB3 signaling to PRL. Heregulin induction of PRL was also abrogated by transfecting cells with siRNA directed against ErbB3. Pharmacological inhibition of heregulin-induced PI3K / Akt (with LY294002) and ERK (with U0126) signaling, as well as siRNA-mediated MAPK1 downregulation showed ERK signaling as the primary transducer of heregulin signaling to PRL. These results demonstrate ErbB3 expression in human prolactinomas and a novel ErbB3-mediated mechanism for PRL regulation in experimental lactotroph tumors. Targeted inhibition of upregulated p185<sup>c-neu</sup> / ErbB3 activity could be useful for the treatment of aggressive prolactinomas resistant to conventional therapy.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Pituitary tumor</kwd>
+        <kwd>Prolactinoma</kwd>
+        <kwd>GH4C1 cells</kwd>
+        <kwd>PRL</kwd>
+        <kwd>heregulin</kwd>
+        <kwd>p185<sup>c-neu</sup></kwd>
+        <kwd>ErbB3</kwd>
+      </kwd-group>
+      <contract-num rid="CA1">R01 CA075979-09</contract-num>
+      <contract-sponsor id="CA1">National Cancer Institute : NCI</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

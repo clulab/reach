@@ -1,0 +1,1103 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="brief-report">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Stem Cell Reports</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cell Reports</journal-id>
+      <journal-title-group>
+        <journal-title>Stem Cell Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2213-6711</issn>
+      <publisher>
+        <publisher-name>Elsevier</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26972684</article-id>
+      <article-id pub-id-type="pmc">4834041</article-id>
+      <article-id pub-id-type="publisher-id">S2213-6711(16)00058-8</article-id>
+      <article-id pub-id-type="doi">10.1016/j.stemcr.2016.02.007</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Report</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>P2Y4 Nucleotide Receptor in Neuronal Precursors Induces Glutamatergic Subtype Markers in Their Descendant Neurons</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Uda</surname>
+            <given-names>Youichi</given-names>
+          </name>
+          <xref rid="aff1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xu</surname>
+            <given-names>Shuai</given-names>
+          </name>
+          <xref rid="aff1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Matsumura</surname>
+            <given-names>Takafumi</given-names>
+          </name>
+          <xref rid="aff1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takei</surname>
+            <given-names>Yoshinori</given-names>
+          </name>
+          <email>ytakei@pharm.kyoto-u.ac.jp</email>
+          <xref rid="aff2" ref-type="aff">2</xref>
+          <xref rid="cor1" ref-type="corresp">&#x2217;</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1"><label>1</label>Department of Genomic Drug Discovery Science, Graduate School of Pharmaceutical Science, Kyoto University, 46-29 Shimo-adachi-cho, Yoshida, Sakyo-ku, Kyoto 606-8501, Japan</aff>
+      <aff id="aff2"><label>2</label>Department of Nanobio Drug Discovery Science, Graduate School of Pharmaceutical Science, Kyoto University, 46-29 Shimo-adachi-cho, Yoshida, Sakyo-ku, Kyoto 606-8501, Japan</aff>
+      <author-notes>
+        <corresp id="cor1"><label>&#x2217;</label>Corresponding author <email>ytakei@pharm.kyoto-u.ac.jp</email></corresp>
+      </author-notes>
+      <pub-date pub-type="pmc-release">
+        <day>10</day>
+        <month>3</month>
+        <year>2016</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on <pub-date
+						pub-type="epub">.-->
+      <pub-date pub-type="collection">
+        <day>12</day>
+        <month>4</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>10</day>
+        <month>3</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>6</volume>
+      <issue>4</issue>
+      <fpage>474</fpage>
+      <lpage>482</lpage>
+      <history>
+        <date date-type="received">
+          <day>23</day>
+          <month>7</month>
+          <year>2015</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>11</day>
+          <month>2</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>11</day>
+          <month>2</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2016 The Authors</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <license license-type="CC BY-NC-ND" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+          <license-p>This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <title>Summary</title>
+        <p>Neural stem cells (NSCs) produce all neuronal subtypes involved in the nervous system. The mechanism regulating their subtype selection is not fully understood. We found that the expression of the nucleotide receptor P2Y4 was transiently augmented in the course of neuronal differentiation of mouse embryonic stem cells (ESCs), which was after loss of pluripotency but prior to terminal differentiation of neurons. The activation of P2Y4 in the differentiating ESCs resulted in an increased proportion of neurons expressing vesicular glutamate transporter (vGluT), a marker of glutamatergic subtype. A subpopulation of type 2 NSCs of the adult mouse hippocampus expressed P2Y4. Its activation induced the expression of glutamatergic subtype markers, vGluT and TBR1, in their descendant neurons. Reciprocally, inhibition of the P2Y4 signaling abolished the effects of nucleotides on those expressions. Our results provide evidence that differentiating NSCs pass through a stage in which nucleotides can affect subtype marker expression of their descendant neurons.</p>
+      </abstract>
+      <abstract abstract-type="graphical">
+        <title>Graphical Abstract</title>
+        <fig id="undfig1" position="anchor">
+          <graphic xlink:href="fx1"/>
+        </fig>
+      </abstract>
+      <abstract abstract-type="author-highlights">
+        <title>Highlights</title>
+        <p>
+          <list list-type="simple">
+            <list-item id="u0010">
+              <label>&#x2022;</label>
+              <p>Nucleotides can induce expression of glutamatergic neuronal markers</p>
+            </list-item>
+            <list-item id="u0015">
+              <label>&#x2022;</label>
+              <p>The induction is mediated by the nucleotide receptor P2Y4</p>
+            </list-item>
+            <list-item id="u0020">
+              <label>&#x2022;</label>
+              <p>P2Y4 expression is augmented transiently in neuronal differentiation</p>
+            </list-item>
+          </list>
+        </p>
+      </abstract>
+      <abstract abstract-type="teaser">
+        <p>Takei and colleagues demonstrate that expression of P2Y4 nucleotide receptor is transiently augmented in cells differentiating into neurons, and that its activation induces glutamatergic subtype markers in their descendant neurons. The results provide evidence that differentiating NSCs pass through a stage in which nucleotides can affect subtype marker expression of their descendant neurons.</p>
+      </abstract>
+    </article-meta>
+    <notes>
+      <p id="misc0010">Published: March 10, 2016</p>
+    </notes>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>Introduction</title>
+      <p>The brain contains many different subtypes of neurons, such as dopaminergic, GABAergic, cholinergic, and glutamatergic neurons. All neurons are differentiated from neural stem cells (NSCs). The mechanism by which NSCs produce such variety of neuronal subtypes is not fully understood.</p>
+      <p>Glutamatergic neurons are the most abundant subtype in the mammalian brain (<xref rid="bib6" ref-type="bibr">Fonnum, 1984</xref>). Production of this neuronal subtype can be observed not only in the development of the forebrain but also throughout life in the hippocampus of the adult brain (<xref rid="bib7" ref-type="bibr">Gage, 2000</xref>). In the development, glutamatergic neurons are produced from neuroepithelial cells at the dorsal side of the anterior neural tube, but GABAergic neurons are produced at the ventral side (<xref rid="bib3" ref-type="bibr">Danesin et&#xA0;al., 2009</xref>). For this patterning along the dorsoventral axis, Sonic hedgehog (SHH) and WNT are the determinant factors for ventral and dorsal characters of cells, respectively. The canonical WNT signaling through &#x3B2;-catenin induces expression of a transcription factor, PAX6 (<xref rid="bib8" ref-type="bibr">Gan et&#xA0;al., 2014</xref>), activating the cascade of transcription factors including TBR1 and TBR2 for glutamatergic neuronal differentiation (<xref rid="bib1" ref-type="bibr">Backman et&#xA0;al., 2005</xref>, <xref rid="bib10" ref-type="bibr">Hevner et&#xA0;al., 2006</xref>, <xref rid="bib13" ref-type="bibr">Machon et&#xA0;al., 2007</xref>).</p>
+      <p>In the adult hippocampus, stem cells located at the subgranular zone (SGZ) can produce neurons throughout life (<xref rid="bib15" ref-type="bibr">Ming and Song, 2005</xref>). Radial glial cell-type NSCs expressing glial fibrillary acidic protein (GFAP) are called type 1 in the SGZ (<xref rid="bib11" ref-type="bibr">Kempermann et&#xA0;al., 2004</xref>). Type 1 NSCs develop into post-mitotic neurons through three consecutive stages of progenitor cells, namely types 2a, 2b, and 3. The majority of newborn neurons in the SGZ matures into glutamatergic granule neurons in the hippocampus. The signaling pathways triggering glutamatergic subtype selection in the adult hippocampus are not fully understood.</p>
+      <p>Many studies have provided evidence that signaling initiated from extracellular nucleotides plays important roles in the regulation of neurogenesis not only during embryonic development of the brain but also in the adult brain (<xref rid="bib17" ref-type="bibr">Neary and Zimmermann, 2009</xref>, <xref rid="bib24" ref-type="bibr">Zimmermann, 2011</xref>). Extracellular nucleotides can activate ionotropic receptors (P2X1-7) and G-protein-coupled receptors (P2Y1, 2, 4, 6, 8, 11&#x2013;14) (<xref rid="bib5" ref-type="bibr">Erb et&#xA0;al., 2006</xref>). While all P2X receptors are activated by ATP, the agonist specificity of P2Y receptors is dependent upon their subtype (<xref rid="bib22" ref-type="bibr">von Kugelgen, 2006</xref>). For instance, P2Y1 is activated by both ATP and ADP but not uridine triphosphate (UTP), whereas P2Y2 is activated by both ATP and UTP but not ADP. In&#xA0;vitro experiments indicated that ATP and/or UTP can stimulate proliferation and survival of NSCs (<xref rid="bib16" ref-type="bibr">Mishra et&#xA0;al., 2006</xref>, <xref rid="bib12" ref-type="bibr">Lin et&#xA0;al., 2007</xref>, <xref rid="bib14" ref-type="bibr">Milosevic et&#xA0;al., 2006</xref>). In&#xA0;vivo, ATP secreted from astrocytes regulates proliferation of NSCs in the adult hippocampus (<xref rid="bib2" ref-type="bibr">Cao et&#xA0;al., 2013</xref>). These reports indicate that extracellular nucleotides can control proliferation of NSCs. However, the effects of extracellular nucleotides on selection of neuronal subtypes have not been elucidated. In the present study, we found that extracellular nucleotides can induce glutamatergic subtype neuronal markers through the activation of P2Y4 nucleotide receptor.</p>
+    </sec>
+    <sec id="sec2">
+      <title>Results</title>
+      <sec id="sec2.1">
+        <title>ATP Induces Expression of Vesicular Glutamate Transporter</title>
+        <p>The differentiation of mouse embryonic stem cells (ESCs) was induced by depletion of fibroblast growth factor 2 (FGF2) and epidermal growth factor (EGF), either with or without ATP addition. Neurons expressing a glutamatergic subtype marker vesicular glutamate transporter (vGluT) were observed abundantly in the neurons differentiated in the presence of added ATP (<xref rid="fig1" ref-type="fig">Figures 1</xref>A and <xref rid="mmc1" ref-type="supplementary-material">S1</xref>). Without ATP addition, the majority of differentiated neuronal cells expressed vesicular &#x3B3;-aminobutyric acid (GABA) transporter (vGAT), a marker of GABAergic neurons. Neither expression of a dopaminergic subtype marker tyrosine hydroxylase nor of a cholinergic subtype marker vesicular acetylcholine transporter was detectable under these conditions. The addition of ATP had no detectable effects on the expression of a neuronal marker tubulin-&#x3B2;III (<xref rid="fig1" ref-type="fig">Figures 1</xref>B and 1C). Compared with the cells differentiated in the absence of ATP addition, expression of vGAT and vGluT in cells differentiated in the presence of ATP addition was 2-fold lower and higher, respectively (<xref rid="fig1" ref-type="fig">Figure&#xA0;1</xref>D). Thus, ATP induces expression of a glutamatergic subtype marker vGluT.</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>Nucleotide Specificity of vGluT Induction</title>
+        <p>To examine which receptor mediates the ATP-induced vGluT expression, we added nucleotides separately to the medium of differentiating ESCs. ATP can activate P2Xs and P2Ys; however, UTP can activate only P2Y2 and P2Y4 (<xref rid="bib22" ref-type="bibr">von Kugelgen, 2006</xref>). The added triphosphate form of nucleotides can be digested into di- or monophosphate form in the culture medium, and uridine diphosphate (UDP) is a specific agonist of P2Y6 (<xref rid="bib22" ref-type="bibr">von Kugelgen, 2006</xref>). Both ATP and UTP, but not UDP, induced expression of vGluT in neurons differentiated from mouse ESCs (<xref rid="fig2" ref-type="fig">Figures 2</xref>A and 2B). This suggests that P2Y2 and/or P2Y4 are involved in the induction of vGluT expression (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S2</xref>).</p>
+        <p><xref rid="fig2" ref-type="fig">Figure&#xA0;2</xref>C shows expression of P2Y2 and P2Y4 in the differentiation of ESCs. While P2Y2 expression was not changed during the differentiation, P2Y4 expression was transiently increased (<xref rid="fig2" ref-type="fig">Figures 2</xref>C and 2D). P2Y4 expression peaked on day 4 of differentiation, and the expression level on day 8 of differentiation was similar to that on day 0. Expression of a pluripotent marker, Oct4, was suddenly decreased after the induction of differentiation, and was almost absent by day 4 of differentiation (<xref rid="fig2" ref-type="fig">Figure&#xA0;2</xref>E). Expression of an immature neuron marker, tubulin-&#x3B2;III, was obvious from day 6 of differentiation. These results suggest that expression of P2Y4 is increased transiently during differentiation, and that its peak occurs after loss of pluripotency but before the terminal differentiation of neurons.</p>
+        <p>To examine when extracellular nucleotides can induce vGluT expression, we added ATP to the medium of differentiating mouse ESCs from day 0, 3, 5, or 7 of differentiation. Treatment with ATP from day 0, day 3, and day 5 increased expression of vGluT in the descendant neurons (<xref rid="fig2" ref-type="fig">Figures 2</xref>F and 2G). Induction of vGluT expression was almost absent when the cells were treated with ATP from day 7 of differentiation. Treatment with ATP from days 3 to 7 of differentiation was sufficient to induce vGluT expression in the descendant neurons. When ATP was not added, ESCs differentiated into neurons expressing vGAT (<xref rid="fig2" ref-type="fig">Figure&#xA0;2</xref>F, control). These results indicate that the window of nucleotide-mediated vGluT expression is from day 3 to day 7 of the neuronal differentiation of ESCs, which is coincident with the increased P2Y4 expression.</p>
+      </sec>
+      <sec id="sec2.3">
+        <title>Expression of P2Y4 in Hippocampus NSCs</title>
+        <p>To examine P2Y4 expression in NSCs further, we used NSCs prepared from the postnatal mouse hippocampus. NSCs in the hippocampus are classified into four types, types 1, 2a, 2b, and 3, by their profiles of protein expression. One of five NSC clones derived from the hippocampus (clone d) showed higher expression of P2Y4 than the others (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>A). Cells expressing GFAP, a marker of type 1 NSCs, were abundant in the clone c NSCs but not in the clone d NSCs (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>B). SRY-related HMG-box gene 2 (SOX2) is a stem cell marker expressed mainly in types 1 and 2 NSCs (<xref rid="bib21" ref-type="bibr">von Bohlen und Halbach, 2011</xref>). Expression of SOX2 was detected in almost all cells derived from the adult mouse hippocampus (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>B). Cells in the clones a, b, and e also show expression of GFAP and SOX2 similar to that of the clone c. These results suggest that NSCs derived from the hippocampus are types 1 and 2, and that the difference in P2Y4 expression among those NSC clones could be due to cell types of NSCs.</p>
+        <p>Less than approximately 10% of GFAP-positive cells expressed P2Y4 in clone d NSCs (<xref rid="fig3" ref-type="fig">Figures 3</xref>C and 3D). Nestin is expressed in types 1 and 2 NSCs (<xref rid="bib11" ref-type="bibr">Kempermann et&#xA0;al., 2004</xref>, <xref rid="bib21" ref-type="bibr">von Bohlen und Halbach, 2011</xref>). Approximately 60% of nestin-positive cells expressed P2Y4. P2Y4 was frequently co-expressed with doublecortin, a marker of type 2b NSCs (<xref rid="bib11" ref-type="bibr">Kempermann et&#xA0;al., 2004</xref>, <xref rid="bib21" ref-type="bibr">von Bohlen und Halbach, 2011</xref>).</p>
+        <p><xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>E shows the expression of P2Y4 in the sections prepared from adult mouse hippocampus. P2Y4-Positive cells were observed sparsely in the SGZ of the adult mouse hippocampus. Expression of either nestin or doublecortin, but not GFAP, was frequently observed in the P2Y4-positive cells (<xref rid="fig3" ref-type="fig">Figures 3</xref>E and 3F). These results suggest that P2Y4 is expressed in type 2 NSCs of the adult hippocampus.</p>
+      </sec>
+      <sec id="sec2.4">
+        <title>Signaling from P2Y4 Induces Expression of Glutamatergic Neuronal Markers</title>
+        <p>Although NSCs in the hippocampus produce glutamatergic neurons in&#xA0;vivo, neurons differentiated from the NSCs in&#xA0;vitro were mainly vGAT positive (<xref rid="fig4" ref-type="fig">Figure&#xA0;4</xref>A, control). The addition of UTP, a P2Y4 agonist, promoted production&#xA0;of neurons expressing vGluT (<xref rid="fig4" ref-type="fig">Figure&#xA0;4</xref>A, UTP). The glutamatergic neuron-specific transcription factor TBR1 exhibited nuclear location when differentiation was induced in the presence of added UTP (<xref rid="fig4" ref-type="fig">Figures 4</xref>B and 4C). These results suggest that production of glutamatergic neurons is not intrinsic to hippocampus NSCs, but appears to be dependent upon the microenvironment around the differentiating NSCs in the hippocampus. Moreover, these results indicate that UTP can promote expression of glutamatergic neuronal markers in newborn neurons differentiated from NSCs derived from the hippocampus.</p>
+        <p>To assess the effects of P2Y4 depletion on the expression of glutamatergic subtype markers, we transfected small interfering RNAs (siRNAs) into the clone d cells. Transfection of siRNAs against P2Y4 and Gq-&#x3B1; decreased the expression levels of those target proteins, respectively (<xref rid="fig4" ref-type="fig">Figures 4</xref>D and 4E), and the siRNAs inhibited UTP-dependent induction of glutamatergic neurons (<xref rid="fig4" ref-type="fig">Figures 4</xref>F and 4G). These results indicate that the P2Y4-Gq signaling axis has a crucial role in nucleotide-dependent induction of the glutamatergic neuronal markers.</p>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>Discussion</title>
+      <p>The neuronal network in the brain is constructed of many different subtypes of neurons; however, the mechanism by which NSCs produce a variety of neuronal subtypes is not fully understood. In this study, we show that UTP treatment of differentiating NSCs derived from the postnatal mouse hippocampus induced expression of glutamatergic neuron markers, vGluT and TBR1, in their descendant neurons. Nucleotide-induced vGluT expression was also observed in the neuronal differentiation of mouse ESCs. Uracil nucleotides, both UTP and UDP, have been reported to promote dopaminergic differentiation of NSCs derived from the human fetal midbrain (<xref rid="bib14" ref-type="bibr">Milosevic et&#xA0;al., 2006</xref>). <xref rid="bib4" ref-type="bibr">Delic and Zimmermann (2010)</xref> showed that 2ClATP, but not uracil nucleotides, promotes dopaminergic differentiation of NSCs derived from the ventral mesencephalon of embryonic day 10.5 (E10.5) and E13.5 mice. Nucleotide receptors corresponding to this induction of dopaminergic neurons have not been identified. Taking these reports and the present study together, the effects of extracellular nucleotides appear to be variable and are perhaps dependent upon region and developmental stage of tissues used for NSC preparation.</p>
+      <p>The present study indicated that induction of glutamatergic markers by nucleotides involved the P2Y4-Gq signaling axis. Expression of the P2Y4 nucleotide receptor was transiently augmented in the course of neuronal differentiation of ESCs, which is coincident with the window of nucleotide-induced vGluT expression. P2Y4 expression was observed in type 2 NSCs of the adult mouse hippocampus, mainly in type 2b. In&#xA0;vitro experiments indicated that activation of the P2Y4 expressed in the type 2 NSCs was sufficient for induction of glutamatergic markers in their descendant neurons. Since the decision regarding neuronal cell fate is thought to occur in the early stage of type 2 NSCs (<xref rid="bib11" ref-type="bibr">Kempermann et&#xA0;al., 2004</xref>), the differentiation stage sensitive to the nucleotide-induced glutamatergic subtype selection appears to follow the decision of the neuronal lineage, but precedes terminal differentiation of neurons. Thus far, some in&#xA0;vitro methods for induction of glutamatergic neuron subtype have been reported (<xref rid="bib18" ref-type="bibr">Reyes et&#xA0;al., 2008</xref>, <xref rid="bib9" ref-type="bibr">Gaspard et&#xA0;al., 2008</xref>, <xref rid="bib19" ref-type="bibr">Shi et&#xA0;al., 2012</xref>); however, it remains uncertain which stage of differentiating NSCs is sensitive to these induction methods. The present study indicated a differentiation stage in which expression of neuronal subtype markers can be affected by extracellular nucleotides.</p>
+      <p>In summary, this study demonstrated that differentiating NSCs transiently expressed a nucleotide receptor P2Y4. P2Y4 was co-expressed with type 2 NSC markers, doublecortin and nestin, in the SGZ of adult mouse hippocampus. Activation of P2Y4 in NSCs resulted in expression of glutamatergic neuronal markers in descendant neurons. Taken together, these results suggest that NSCs differentiating into neurons pass through a stage in which nucleotides can affect the expression of subtype markers of descendant neurons.</p>
+    </sec>
+    <sec id="sec4">
+      <title>Experimental Procedures</title>
+      <sec id="sec4.1">
+        <title>Antibodies</title>
+        <p>Anti-mouse P2Y4 (ab180718), anti-nestin (ab134017), anti-doublecortin (ab135349), and anti-TBR1 (ab31904) antibodies were purchased from Abcam. Anti-tubulin &#x3B2; III antibody (T5076) was purchased from Sigma. Anti-vGAT antibody (131003) was purchased from Synaptic Systems. Anti-P2Y2 antibody (PA1-4517) was purchased from Thermo. Anti-OCT4 antibody (611203) was purchased from BD Bioscience. Anti-mouse vGluT (MAB5502), anti-GFAP (AB5541), anti-SOX2 (AB5603), anti-Gq-&#x3B1; (06-709) antibodies were purchased from Millipore.</p>
+      </sec>
+      <sec id="sec4.2">
+        <title>Mouse ESC Culture and Differentiation Induction</title>
+        <p>The mouse ESC line CGR8 was maintained in ESGRO Complete Plus medium (Millipore) on gelatin-coated dishes. For induction of differentiation, the cells were seeded at a density of 1&#xA0;&#xD7; 10<sup>4</sup> cells/cm<sup>2</sup> in RHB-A medium (Takara) on gelatin-coated ibidi micro-dishes (<xref rid="bib23" ref-type="bibr">Ying et&#xA0;al., 2003</xref>). Half of the medium was changed every day. For treatment with nucleotides, RHB-A medium containing 20&#xA0;&#x3BC;M of the indicated nucleotide was used.</p>
+      </sec>
+      <sec id="sec4.3">
+        <title>Mouse Adult NSC Preparation, Culture, and Differentiation</title>
+        <p>All animals were handled and cared for in accordance with the Guide of Care and Use of Laboratory Animals approved by the Ethic Committee of Experimental Animals of Kyoto University. Mouse NSCs were prepared from the hippocampus of the postnatal day 5 Balb/c mouse. For preparation of single-cell suspensions from tissues, Nerve-Cells Dispersion Solution (Sumitomo Bakelite) was used. For isolation of NSCs, neurospheres were prepared using the NeuroCult NCFC Assay Kit (Stem Cell Technology). Neurospheres with a diameter of 1&#x2013;2&#xA0;mm were isolated after 3&#xA0;weeks of incubation and dispersed with Accutase (Millipore) to prepare a single-cell suspension. This neurosphere formation process was repeated twice. For monolayer culture of NSCs, single-cell suspension was seeded on dishes coated with polyornithine and laminin in N2B27 medium containing 0.1&#xA0;&#x3BC;g/ml heparin, 20&#xA0;ng/ml FGF2, and 20&#xA0;ng/ml EGF.</p>
+        <p>For neuronal differentiation, cells were seeded on ibidi micro-dishes (35&#xA0;mm) coated with polyornithine and laminin in N2B27 media containing 0.1&#xA0;&#x3BC;g/ml heparin, 20&#xA0;ng/ml FGF2, and 20&#xA0;ng/ml EGF. After incubation for 2&#xA0;days, the medium was changed to N2B27 medium lacking heparin and the growth factors. Half of the medium was changed every day. For treatment with nucleotide, N2B27 medium containing 20&#xA0;&#x3BC;M of the indicated nucleotide was used.</p>
+      </sec>
+      <sec id="sec4.4">
+        <title>Immunofluorescence of Cells</title>
+        <p>Cells were fixed with 2% paraformaldehyde and immunofluorescence was performed as described previously (<xref rid="bib20" ref-type="bibr">Takei, 2009</xref>) with the indicated antibodies. For quantification of vGluT-positive and vGAT-positive cells, differentiated cells were harvested using Accutase and seeded on poly-D-lysine-coated ibidi micro-dishes (35&#xA0;mm) at a density of 1&#xA0;&#xD7; 10<sup>6</sup> cells/dish. After attachment of cells, cells were fixed and incubated with anti-vGAT and anti-vGluT antibodies. Cells positive for vGAT or vGluT were counted manually. More than 200 cells were examined per sample and experiments were repeated three times. For quantification of neurons differentiated from NSCs derived from mouse hippocampus, differentiated cells were used directly for immunofluorescence and cells were manually counted, since their density was sufficiently low. More than 200 cells were examined per sample and experiments were repeated three times.</p>
+      </sec>
+      <sec id="sec4.5">
+        <title>Preparation of Brain Slices from Adult Mice and Immunofluorescence</title>
+        <p>All animals were handled and cared for in accordance with the Guide for the Care and Use of Laboratory Animals approved by the Ethics Committee of Experimental Animals of Kyoto University. Male C57BL/6 mice, 7&#xA0;weeks old, under deep anesthesia with isoflurane were transcardially perfused with PBS followed by 4% paraformaldehyde (PFA) in PBS. Brains were removed and kept overnight in 4% PFA in PBS at 4&#xB0;C, cryoprotected in 20% sucrose in PBS, and embedded in Optimal Cutting Temperature compound (Leica). Tissue cryosections (10&#xA0;&#x3BC;m thickness) were then permeabilized with 0.05% Tween 20 in PBS, blocked with Blocking One Hist (Nakarai, Japan) for 30&#xA0;min, and incubated overnight at 4&#xB0;C with indicated antibodies. In <xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>F, 25&#x2013;30 P2Y4-positive cells were examined for each animal, and cells co-expressing indicated proteins were quantified.</p>
+      </sec>
+      <sec id="sec4.6">
+        <title>Preparation of Cell Extracts and Western Blotting</title>
+        <p>Cells were harvested and washed once with PBS. Cell pellets were resuspended in a 4-fold volume of 20&#xA0;mM Tris-HCl (pH 8.0), 150&#xA0;mM NaCl, 0.5% Triton X-100, and protease inhibitor mix (Roche), and incubated for 15&#xA0;min on ice. After centrifugation at 12,000&#xA0;&#xD7; <italic>g</italic> for 15&#xA0;min at 4&#xB0;C, supernatants were analyzed by SDS-PAGE and transferred to polyvinylidene fluoride membranes.</p>
+      </sec>
+      <sec id="sec4.7">
+        <title>Transfection of siRNA</title>
+        <p>NeuroMag (OZ Bioscience) was used to introduce siRNAs into NSCs according to the manufacturer&#x2019;s recommendations.</p>
+      </sec>
+      <sec id="sec4.8">
+        <title>RT-PCR</title>
+        <p>Total RNA was prepared from cultured NSCs using Isogen reagent and Direct-Zol (Zymogen), and used for cDNA synthesis with Superscript II (Invitrogen). cDNA prepared from 250&#xA0;ng of RNA was used as the template for PCR. The sequence of the forward primer for mouse P2Y4 was AGACGGGCCTGATGTGTATC and the reverse was AGGTTCACATGCCCTGTACC.</p>
+      </sec>
+    </sec>
+    <sec id="sec5">
+      <title>Author Contributions</title>
+      <p>Y.T. conceived the project; Y.T. and Y.U. designed the experiments and wrote the manuscript; Y.U., S.X., T.M., and Y.T. performed the experiments and analyzed the data; and all authors discussed the results and commented on the manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="bib1">
+        <element-citation publication-type="journal" id="sref1">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Backman</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Machon</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Mygland</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>van den Bout</surname>
+              <given-names>C.J.</given-names>
+            </name>
+            <name>
+              <surname>Zhong</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Taketo</surname>
+              <given-names>M.M.</given-names>
+            </name>
+            <name>
+              <surname>Krauss</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of canonical Wnt signaling on dorso-ventral specification of the mouse telencephalon</article-title>
+          <source>Dev. Biol.</source>
+          <volume>279</volume>
+          <year>2005</year>
+          <fpage>155</fpage>
+          <lpage>168</lpage>
+          <pub-id pub-id-type="pmid">15708565</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib2">
+        <element-citation publication-type="journal" id="sref2">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cao</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>L.P.</given-names>
+            </name>
+            <name>
+              <surname>Qin</surname>
+              <given-names>X.H.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>S.J.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Q.</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>H.H.</given-names>
+            </name>
+            <name>
+              <surname>Fang</surname>
+              <given-names>Y.Y.</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>Y.B.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>X.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>Astrocytic adenosine 5&#x2032;-triphosphate release regulates the proliferation of neural stem cells in the adult hippocampus</article-title>
+          <source>Stem Cells</source>
+          <volume>31</volume>
+          <year>2013</year>
+          <fpage>1633</fpage>
+          <lpage>1643</lpage>
+          <pub-id pub-id-type="pmid">23630193</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib3">
+        <element-citation publication-type="journal" id="sref3">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Danesin</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Peres</surname>
+              <given-names>J.N.</given-names>
+            </name>
+            <name>
+              <surname>Johansson</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Snowden</surname>
+              <given-names>V.</given-names>
+            </name>
+          </person-group>
+          <article-title>Integration of telencephalic Wnt and hedgehog signaling center activities by Foxg1</article-title>
+          <source>Dev. Cell</source>
+          <volume>16</volume>
+          <year>2009</year>
+          <fpage>576</fpage>
+          <lpage>587</lpage>
+          <pub-id pub-id-type="pmid">19386266</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib4">
+        <element-citation publication-type="journal" id="sref4">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Delic</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Zimmermann</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Nucleotides affect neurogenesis and dopaminergic differentiation of mouse fetal midbrain-derived neural precursor cells</article-title>
+          <source>Purinergic Signal.</source>
+          <volume>6</volume>
+          <year>2010</year>
+          <fpage>417</fpage>
+          <lpage>428</lpage>
+          <pub-id pub-id-type="pmid">21437012</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib5">
+        <element-citation publication-type="journal" id="sref5">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Erb</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Liao</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Seye</surname>
+              <given-names>C.I.</given-names>
+            </name>
+            <name>
+              <surname>Weisman</surname>
+              <given-names>G.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>P2 receptors: intracellular signaling</article-title>
+          <source>Pflugers Arch.</source>
+          <volume>452</volume>
+          <year>2006</year>
+          <fpage>552</fpage>
+          <lpage>562</lpage>
+          <pub-id pub-id-type="pmid">16586093</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib6">
+        <element-citation publication-type="journal" id="sref6">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fonnum</surname>
+              <given-names>F.</given-names>
+            </name>
+          </person-group>
+          <article-title>Glutamate: a neurotransmitter in mammalian brain</article-title>
+          <source>J.&#xA0;Neurochem.</source>
+          <volume>42</volume>
+          <year>1984</year>
+          <fpage>1</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="pmid">6139418</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib7">
+        <element-citation publication-type="journal" id="sref7">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gage</surname>
+              <given-names>F.H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Mammalian neural stem cells</article-title>
+          <source>Science</source>
+          <volume>287</volume>
+          <year>2000</year>
+          <fpage>1433</fpage>
+          <lpage>1438</lpage>
+          <pub-id pub-id-type="pmid">10688783</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib8">
+        <element-citation publication-type="journal" id="sref8">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gan</surname>
+              <given-names>Q.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Yamagami</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Stokes</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>B.C.</given-names>
+            </name>
+            <name>
+              <surname>Pleasure</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>H.W.</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>C.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Pax6 mediates ss-catenin signaling for self-renewal and neurogenesis by neocortical radial glial stem cells</article-title>
+          <source>Stem Cells</source>
+          <volume>32</volume>
+          <year>2014</year>
+          <fpage>45</fpage>
+          <lpage>58</lpage>
+          <pub-id pub-id-type="pmid">24115331</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib9">
+        <element-citation publication-type="journal" id="sref9">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gaspard</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Bouschet</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Hourez</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Dimidschstein</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Naeije</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>van den Ameele</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Espuny-Camacho</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Herpoel</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Passante</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Schiffmann</surname>
+              <given-names>S.N.</given-names>
+            </name>
+          </person-group>
+          <article-title>An intrinsic mechanism of corticogenesis from embryonic stem cells</article-title>
+          <source>Nature</source>
+          <volume>455</volume>
+          <year>2008</year>
+          <fpage>351</fpage>
+          <lpage>357</lpage>
+          <pub-id pub-id-type="pmid">18716623</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib10">
+        <element-citation publication-type="journal" id="sref10">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hevner</surname>
+              <given-names>R.F.</given-names>
+            </name>
+            <name>
+              <surname>Hodge</surname>
+              <given-names>R.D.</given-names>
+            </name>
+            <name>
+              <surname>Daza</surname>
+              <given-names>R.A.</given-names>
+            </name>
+            <name>
+              <surname>Englund</surname>
+              <given-names>C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Transcription factors in glutamatergic neurogenesis: conserved programs in neocortex, cerebellum, and adult hippocampus</article-title>
+          <source>Neurosci. Res.</source>
+          <volume>55</volume>
+          <year>2006</year>
+          <fpage>223</fpage>
+          <lpage>233</lpage>
+          <pub-id pub-id-type="pmid">16621079</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib11">
+        <element-citation publication-type="journal" id="sref11">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kempermann</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Jessberger</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Steiner</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Kronenberg</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Milestones of neuronal development in the adult hippocampus</article-title>
+          <source>Trends Neurosci.</source>
+          <volume>27</volume>
+          <year>2004</year>
+          <fpage>447</fpage>
+          <lpage>452</lpage>
+          <pub-id pub-id-type="pmid">15271491</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib12">
+        <element-citation publication-type="journal" id="sref12">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lin</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Takano</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Arcuino</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Darzynkiewicz</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Nunes</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Goldman</surname>
+              <given-names>S.A.</given-names>
+            </name>
+            <name>
+              <surname>Nedergaard</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Purinergic signaling regulates neural progenitor cell expansion and neurogenesis</article-title>
+          <source>Dev. Biol.</source>
+          <volume>302</volume>
+          <year>2007</year>
+          <fpage>356</fpage>
+          <lpage>366</lpage>
+          <pub-id pub-id-type="pmid">17188262</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib13">
+        <element-citation publication-type="journal" id="sref13">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Machon</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Backman</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Machonova</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Kozmik</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Vacik</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Andersen</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Krauss</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>A dynamic gradient of Wnt signaling controls initiation of neurogenesis in the mammalian cortex and cellular specification in the hippocampus</article-title>
+          <source>Dev. Biol.</source>
+          <volume>311</volume>
+          <year>2007</year>
+          <fpage>223</fpage>
+          <lpage>237</lpage>
+          <pub-id pub-id-type="pmid">17916349</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib14">
+        <element-citation publication-type="journal" id="sref14">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Milosevic</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Brandt</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Roemuss</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Arnold</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Wegner</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>S.C.</given-names>
+            </name>
+            <name>
+              <surname>Storch</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Zimmermann</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Uracil nucleotides stimulate human neural precursor cell proliferation and dopaminergic differentiation: involvement of MEK/ERK signalling</article-title>
+          <source>J.&#xA0;Neurochem.</source>
+          <volume>99</volume>
+          <year>2006</year>
+          <fpage>913</fpage>
+          <lpage>923</lpage>
+          <pub-id pub-id-type="pmid">17076658</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib15">
+        <element-citation publication-type="journal" id="sref15">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ming</surname>
+              <given-names>G.L.</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult neurogenesis in the mammalian central nervous system</article-title>
+          <source>Annu. Rev. Neurosci.</source>
+          <volume>28</volume>
+          <year>2005</year>
+          <fpage>223</fpage>
+          <lpage>250</lpage>
+          <pub-id pub-id-type="pmid">16022595</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib16">
+        <element-citation publication-type="journal" id="sref16">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mishra</surname>
+              <given-names>S.K.</given-names>
+            </name>
+            <name>
+              <surname>Braun</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Shukla</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Fullgrabe</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Schomerus</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Korf</surname>
+              <given-names>H.W.</given-names>
+            </name>
+            <name>
+              <surname>Gachet</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Ikehara</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Sevigny</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Robson</surname>
+              <given-names>S.C.</given-names>
+            </name>
+            <name>
+              <surname>Zimmermann</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Extracellular nucleotide signaling in adult neural stem cells: synergism with growth factor-mediated cellular proliferation</article-title>
+          <source>Development</source>
+          <volume>133</volume>
+          <year>2006</year>
+          <fpage>675</fpage>
+          <lpage>684</lpage>
+          <pub-id pub-id-type="pmid">16436623</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib17">
+        <element-citation publication-type="journal" id="sref17">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Neary</surname>
+              <given-names>J.T.</given-names>
+            </name>
+            <name>
+              <surname>Zimmermann</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Trophic functions of nucleotides in the central nervous system</article-title>
+          <source>Trends Neurosci.</source>
+          <volume>32</volume>
+          <year>2009</year>
+          <fpage>189</fpage>
+          <lpage>198</lpage>
+          <pub-id pub-id-type="pmid">19282037</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib18">
+        <element-citation publication-type="journal" id="sref18">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reyes</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>O&#x2019;Shea</surname>
+              <given-names>K.S.</given-names>
+            </name>
+            <name>
+              <surname>Wys</surname>
+              <given-names>N.L.</given-names>
+            </name>
+            <name>
+              <surname>Velkey</surname>
+              <given-names>J.M.</given-names>
+            </name>
+            <name>
+              <surname>Prieskorn</surname>
+              <given-names>D.M.</given-names>
+            </name>
+            <name>
+              <surname>Wesolowski</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>J.M.</given-names>
+            </name>
+            <name>
+              <surname>Altschuler</surname>
+              <given-names>R.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Glutamatergic neuronal differentiation of mouse embryonic stem cells after transient expression of neurogenin 1 and treatment with BDNF and GDNF: in&#xA0;vitro and in&#xA0;vivo studies</article-title>
+          <source>J.&#xA0;Neurosci.</source>
+          <volume>28</volume>
+          <year>2008</year>
+          <fpage>12622</fpage>
+          <lpage>12631</lpage>
+          <pub-id pub-id-type="pmid">19036956</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib19">
+        <element-citation publication-type="journal" id="sref19">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shi</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Kirwan</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Robinson</surname>
+              <given-names>H.P.</given-names>
+            </name>
+            <name>
+              <surname>Livesey</surname>
+              <given-names>F.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Human cerebral cortex development from pluripotent stem cells to functional excitatory synapses</article-title>
+          <source>Nat. Neurosci.</source>
+          <volume>15</volume>
+          <year>2012</year>
+          <fpage>477</fpage>
+          <lpage>486</lpage>
+          <comment>S1</comment>
+          <pub-id pub-id-type="pmid">22306606</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib20">
+        <element-citation publication-type="journal" id="sref20">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takei</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Phosphorylation of Nogo receptors suppresses Nogo signaling, allowing neurite regeneration</article-title>
+          <source>Sci. Signal</source>
+          <volume>2</volume>
+          <year>2009</year>
+          <fpage>ra14</fpage>
+          <pub-id pub-id-type="pmid">19336839</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib21">
+        <element-citation publication-type="journal" id="sref21">
+          <person-group person-group-type="author">
+            <name>
+              <surname>von Bohlen und Halbach</surname>
+              <given-names>O.</given-names>
+            </name>
+          </person-group>
+          <article-title>Immunohistological markers for proliferative events, gliogenesis, and neurogenesis within the adult hippocampus</article-title>
+          <source>Cell Tissue Res.</source>
+          <volume>345</volume>
+          <year>2011</year>
+          <fpage>1</fpage>
+          <lpage>19</lpage>
+          <pub-id pub-id-type="pmid">21647561</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib22">
+        <element-citation publication-type="journal" id="sref22">
+          <person-group person-group-type="author">
+            <name>
+              <surname>von Kugelgen</surname>
+              <given-names>I.</given-names>
+            </name>
+          </person-group>
+          <article-title>Pharmacological profiles of cloned mammalian P2Y-receptor subtypes</article-title>
+          <source>Pharmacol. Ther.</source>
+          <volume>110</volume>
+          <year>2006</year>
+          <fpage>415</fpage>
+          <lpage>432</lpage>
+          <pub-id pub-id-type="pmid">16257449</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib23">
+        <element-citation publication-type="journal" id="sref23">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ying</surname>
+              <given-names>Q.L.</given-names>
+            </name>
+            <name>
+              <surname>Stavridis</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Griffiths</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Conversion of embryonic stem cells into neuroectodermal precursors in adherent monoculture</article-title>
+          <source>Nat. Biotechnol.</source>
+          <volume>21</volume>
+          <year>2003</year>
+          <fpage>183</fpage>
+          <lpage>186</lpage>
+          <pub-id pub-id-type="pmid">12524553</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib24">
+        <element-citation publication-type="journal" id="sref24">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zimmermann</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Purinergic signaling in neural development</article-title>
+          <source>Semin. Cell Dev. Biol.</source>
+          <volume>22</volume>
+          <year>2011</year>
+          <fpage>194</fpage>
+          <lpage>204</lpage>
+          <pub-id pub-id-type="pmid">21320621</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+    <sec id="app2" sec-type="supplementary-material">
+      <title>Supplemental Information</title>
+      <p>
+        <supplementary-material content-type="local-data" id="mmc1">
+          <caption>
+            <title>Document S1. Supplemental Experimental Procedures and Figures S1 and S2</title>
+          </caption>
+          <media xlink:href="mmc1.pdf"/>
+        </supplementary-material>
+        <supplementary-material content-type="local-data" id="mmc2">
+          <caption>
+            <title>Document S2. Article plus Supplemental Information</title>
+          </caption>
+          <media xlink:href="mmc2.pdf"/>
+        </supplementary-material>
+      </p>
+    </sec>
+    <ack id="ack0010">
+      <title>Acknowledgments</title>
+      <p>This work was supported by the <funding-source id="gs1">Grant-In Aid for Scientific Research</funding-source> (C) (JSPS KAKENHI number 23500392) from the <funding-source id="gs2">Japan Society for the Promotion of Science</funding-source>, and by the <funding-source id="gs3">Seamless Technology Transfer Program</funding-source> through Target-Driven R&amp;D (AS232Z00373F) of the <funding-source id="gs4">Japan Science and Technology Agency</funding-source>. This work was also partially supported by the <funding-source id="gs5">Shimizu Foundation for Immunology and Neuroscience</funding-source>.</p>
+    </ack>
+    <fn-group>
+      <fn id="d32e114">
+        <p id="ccnp0005">This is an open access article under the CC BY-NC-ND license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0/" id="ccintref0005">http://creativecommons.org/licenses/by-nc-nd/4.0/</ext-link>).</p>
+      </fn>
+      <fn id="app1" fn-type="supplementary-material">
+        <p>Supplemental Information includes Supplemental Experimental Procedures and two figures and can be found with this article online at <ext-link ext-link-type="doi" xlink:href="10.1016/j.stemcr.2016.02.007" id="intref0010">http://dx.doi.org/10.1016/j.stemcr.2016.02.007</ext-link>.</p>
+      </fn>
+    </fn-group>
+  </back>
+  <floats-group>
+    <fig id="fig1">
+      <label>Figure&#xA0;1</label>
+      <caption>
+        <p>Effects of ATP Treatment on the Differentiation of Mouse ESCs</p>
+        <p>(A and B) On day 14 of differentiation, cells were fixed and expression of the indicated proteins was examined. Scale bar indicates 25&#xA0;&#x3BC;m.</p>
+        <p>(C) Cell extracts were prepared from cells on day 14 of differentiation. Twenty micrograms of protein was analyzed and expression of the indicated proteins was examined.</p>
+        <p>(D) The intensities of signals in (C) were assessed with ImageJ version 1.45n. The graph shows the mean of three independent experiments and the error bars indicate SE. The intensities of bands in control cells were set at 1. <sup>&#x2217;</sup>p&#xA0;&lt; 0.05 (Student&#x2019;s t test).</p>
+        <p>See also <xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S1</xref>.</p>
+      </caption>
+      <graphic xlink:href="gr1"/>
+    </fig>
+    <fig id="fig2">
+      <label>Figure&#xA0;2</label>
+      <caption>
+        <p>Window of Nucleotide-Induced vGluT Expression</p>
+        <p>(A) Differentiation of mouse ESCs was induced for 14&#xA0;days on gelatin in the presence of 20&#xA0;&#x3BC;M of the indicated nucleotides. Scale bar indicates 25&#xA0;&#x3BC;m.</p>
+        <p>(B) Cells positive for vGAT or vGluT in (A) were quantified as described in <xref rid="sec4" ref-type="sec">Experimental Procedures</xref>. The graph shows the mean of six independent experiments and the error bars indicate SE. <sup>&#x2217;</sup>p&#xA0;&lt; 0.05 relative to control (Student&#x2019;s t test).</p>
+        <p>(C and E) Extracts were prepared from cells on the indicated differentiation days, and samples (20&#xA0;&#x3BC;g of proteins) were analyzed by SDS-PAGE.</p>
+        <p>(D) Intensities of signals in (C) were assessed with ImageJ version 1.45n. The graph shows the mean of three independent experiments and the error bars indicate SE.</p>
+        <p>(F) ATP was added to the medium of differentiating mouse ESCs at a final concentration of 20&#xA0;&#x3BC;M for the indicated days.</p>
+        <p>(G) Cells positive for vGAT or vGluT in (F) were quantified as described in <xref rid="sec4" ref-type="sec">Experimental Procedures</xref>. The graph shows the mean of three independent experiments and the error bars indicate SE. <sup>&#x2217;</sup>p&#xA0;&lt; 0.05 relative to control (Student&#x2019;s t test).</p>
+        <p>See also <xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S2</xref>.</p>
+      </caption>
+      <graphic xlink:href="gr2"/>
+    </fig>
+    <fig id="fig3">
+      <label>Figure&#xA0;3</label>
+      <caption>
+        <p>Expression of the P2Y4 Nucleotide Receptor in the NSCs of the Hippocampus</p>
+        <p>(A) Total RNA was prepared from cultured NSCs derived from the hippocampus and was used for reverse transcription. As a negative control, samples without reverse transcriptase (RT) were also prepared. PCR was performed with the resulting cDNAs.</p>
+        <p>(B) Monolayer-cultured NSC clones c and d were fixed with 4% PFA and used for immunofluorescence to examine the expression of the indicated proteins. Scale bar indicates 25&#xA0;&#x3BC;m.</p>
+        <p>(C) Monolayer-cultured clone d NSCs were fixed and used for immunofluorescence to examine expression of the indicated proteins. Scale bar indicates 10&#xA0;&#x3BC;m.</p>
+        <p>(D) Cells co-expressing P2Y4 with the indicated proteins were counted. The graph shows the mean of three independent experiments and the error bars indicate SE.</p>
+        <p>(E) Coronal sections were prepared from frozen mouse brains and used for immunofluorescence with indicated antibodies. Arrowheads indicate P2Y4-positive cells. Scale bar indicates 7.5&#xA0;&#x3BC;m.</p>
+        <p>(F) Cells co-expressing P2Y4 and indicated proteins in (E) were quantified. The graph shows the mean of results from three mice and the error bars indicate SE.</p>
+      </caption>
+      <graphic xlink:href="gr3"/>
+    </fig>
+    <fig id="fig4">
+      <label>Figure&#xA0;4</label>
+      <caption>
+        <p>Nucleotide-Induced Glutamatergic Neuronal Markers in Neurons Differentiated from Hippocampus NSCs</p>
+        <p>(A and B) Differentiation of clone d NSCs was induced in the presence of 20&#xA0;&#x3BC;M UTP for 7&#xA0;days. After fixation, cells were used for immunofluorescence. Scale bar indicates 25&#xA0;&#x3BC;m. The insets show higher-magnification images.</p>
+        <p>(C) Cells expressing the indicated protein in (A) and (B) were counted. The graph shows the mean of three independent experiments and the bars indicate SE. <sup>&#x2217;</sup>p&#xA0;&lt; 0.05 (Student&#x2019;s t test).</p>
+        <p>(D and E) Monolayer-cultured clone d NSCs were transfected with the indicated siRNAs. Three days after transfection, cells were harvested and cell extracts were prepared. Twenty micrograms of protein was analyzed. Staining with anti-actin antibody is shown as an internal standard.</p>
+        <p>(F) Differentiation of monolayer-cultured clone d NSCs was induced with or without added UTP, after transfection of the indicated siRNAs. Cells were fixed on day 7 of differentiation, and used for immunofluorescence.</p>
+        <p>(G) Cells expressing vGAT or vGluT in (F) were quantified. The graph shows the mean of three independent experiments and the bars indicate SE. <sup>&#x2217;</sup>p&#xA0;&lt; 0.05 relative to control (Student&#x2019;s t test).</p>
+      </caption>
+      <graphic xlink:href="gr4"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

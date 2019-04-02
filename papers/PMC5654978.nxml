@@ -1,0 +1,2103 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group UK</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29066783</article-id>
+      <article-id pub-id-type="pmc">5654978</article-id>
+      <article-id pub-id-type="publisher-id">14246</article-id>
+      <article-id pub-id-type="doi">10.1038/s41598-017-14246-7</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Canine dorsal root ganglia satellite glial cells represent an exceptional cell population with astrocytic and oligodendrocytic properties</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Tongtako</surname>
+            <given-names>W.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Lehmbecker</surname>
+            <given-names>A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Y.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hahn</surname>
+            <given-names>K.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes" equal-contrib="yes">
+          <name>
+            <surname>Baumg&#xE4;rtner</surname>
+            <given-names>W.</given-names>
+          </name>
+          <address>
+            <email>Wolfgang.Baumgaertner@tiho-hannover.de</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-7973-7405</contrib-id>
+          <name>
+            <surname>Gerhauser</surname>
+            <given-names>I.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 0126 6191</institution-id><institution-id institution-id-type="GRID">grid.412970.9</institution-id><institution>Department of Pathology, University of Veterinary Medicine Hannover, </institution></institution-wrap>B&#xFC;nteweg 17, D-30559 Hannover, Germany </aff>
+        <aff id="Aff2"><label>2</label>Center of Systems Neuroscience Hannover, Hannover, Germany </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>24</day>
+        <month>10</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>24</day>
+        <month>10</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2017</year>
+      </pub-date>
+      <volume>7</volume>
+      <elocation-id>13915</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>17</day>
+          <month>8</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>6</day>
+          <month>10</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s) 2017</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article&#x2019;s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p id="Par1">Dogs can be used as a translational animal model to close the gap between basic discoveries in rodents and clinical trials in humans. The present study compared the species-specific properties of satellite glial cells (SGCs) of canine and murine dorsal root ganglia (DRG) <italic>in situ</italic> and <italic>in vitro</italic> using light microscopy, electron microscopy, and immunostainings. The <italic>in situ</italic> expression of CNPase, GFAP, and glutamine synthetase (GS) has also been investigated in simian SGCs. <italic>In situ</italic>, most canine SGCs (&gt;80%) expressed the neural progenitor cell markers nestin and Sox2. CNPase and GFAP were found in most canine and simian but not murine SGCs. GS was detected in 94% of simian and 71% of murine SGCs, whereas only 44% of canine SGCs expressed GS. <italic>In vitro</italic>, most canine (&gt;84%) and murine (&gt;96%) SGCs expressed CNPase, whereas GFAP expression was differentially affected by culture conditions and varied between 10% and 40%. However, GFAP expression was induced by bone morphogenetic protein 4 in SGCs of both species. Interestingly, canine SGCs also stimulated neurite formation of DRG neurons. These findings indicate that SGCs represent an exceptional, intermediate glial cell population with phenotypical characteristics of oligodendrocytes and astrocytes and might possess intrinsic regenerative capabilities <italic>in vivo</italic>.</p>
+      </abstract>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2017</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1" sec-type="introduction">
+      <title>Introduction</title>
+      <p id="Par2">Since the discovery of glial cells over a century ago, substantial progress has been made in understanding the origin, development, and function of the different types of glial cells in the central nervous system (CNS) and peripheral nervous system (PNS)<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. Similar to neurons, astrocytes and oligodendrocytes are of neuroectodermal origin<sup><xref ref-type="bibr" rid="CR2">2</xref></sup>, whereas peripheral Schwann cells, olfactory ensheathing cells (OECs), and satellite glial cells (SGCs) arise from the neural crest<sup><xref ref-type="bibr" rid="CR3">3</xref>,<xref ref-type="bibr" rid="CR4">4</xref></sup>. Microglial cells are derived from mesenchymal precursors of the yolk sac, which invade the nervous system in the fetal period<sup><xref ref-type="bibr" rid="CR5">5</xref>,<xref ref-type="bibr" rid="CR6">6</xref></sup>. In addition, the CNS contains Schwann cell-like glia (Synonyms: Aldynoglia, Schwann cell-like brain glia, central nervous system Schwann cells) that emerge in response to axonal damage in demyelinating diseases<sup><xref ref-type="bibr" rid="CR7">7</xref>&#x2013;<xref ref-type="bibr" rid="CR9">9</xref></sup>. Initially regarded as non-excitable cells scaffolding and feeding neurons, glial cells have turned out to actively participate in brain function modulating neuronal communication by multiple mechanisms such as the production of glial neurotransmitters<sup><xref ref-type="bibr" rid="CR10">10</xref></sup>. In addition, glial cells play an important role in the pathogenesis of various diseases and disorders of the human CNS including Alzheimer disease, multiple sclerosis, stroke, epilepsy, and spinal cord injury, which cause severe and often progressive disabilities in millions of patients worldwide<sup><xref ref-type="bibr" rid="CR11">11</xref>&#x2013;<xref ref-type="bibr" rid="CR14">14</xref></sup>. Similarly, glial cells are involved in the immune pathogenesis of several idiopathic, infectious, and traumatic canine CNS diseases<sup><xref ref-type="bibr" rid="CR15">15</xref>,<xref ref-type="bibr" rid="CR16">16</xref></sup>.</p>
+      <p id="Par3">The increasing knowledge of glial cell capacities in CNS homeostasis and disease prompted the idea of using peripheral glial cells including Schwann cells and OECs in transplantation-based therapies for spinal cord trauma<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR17">17</xref></sup>. However, therapeutic success compared to promising preclinical data based on studies in rodent models remains limited<sup><xref ref-type="bibr" rid="CR18">18</xref>&#x2013;<xref ref-type="bibr" rid="CR21">21</xref></sup>. The reasons for this frequent observation are generally unknown and might be related to morphological and physiological differences between the rodent and human CNS limiting data extrapolation. In contrast, structure and organization of the canine and human CNS is similar to a large extent and recent studies demonstrated that species-specific properties of human glia are closer related to dogs than rodents<sup><xref ref-type="bibr" rid="CR21">21</xref>&#x2013;<xref ref-type="bibr" rid="CR23">23</xref></sup>. In addition, some human CNS diseases including spontaneous spinal cord injury and multiple sclerosis have spontaneously occurring counterparts in dogs with comparable pathogenic mechanisms, lesion appearance, and clinical signs<sup><xref ref-type="bibr" rid="CR16">16</xref>,<xref ref-type="bibr" rid="CR24">24</xref>&#x2013;<xref ref-type="bibr" rid="CR26">26</xref></sup>. Consequently, the dog represents a valuable translational large animal model to study the pathogenesis of certain human inflammatory and degenerative CNS diseases and bridge the gap to rodent models<sup><xref ref-type="bibr" rid="CR16">16</xref>,<xref ref-type="bibr" rid="CR21">21</xref>,<xref ref-type="bibr" rid="CR25">25</xref>,<xref ref-type="bibr" rid="CR27">27</xref>,<xref ref-type="bibr" rid="CR28">28</xref></sup>.</p>
+      <p id="Par4">The dorsal roots of the spinal cord contain sensory ganglia, which are composed of afferent neurons, ensheathing SGCs, and connective tissue cells<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. These dorsal root ganglia (DRG) neurons and SGCs form a unique structural unit<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>, representing the basis for their intense bidirectional communication<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. Similar to astrocytes in the CNS, SGCs control the microenvironment of DRG neurons and functionally substitute the lacking blood-brain barrier in sensory ganglia<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. Moreover, they can form perikaryal myelin sheaths and even possess phagocytic activity, which are typical functions of oligodendrocytes and microglia, respectively<sup><xref ref-type="bibr" rid="CR32">32</xref>&#x2013;<xref ref-type="bibr" rid="CR34">34</xref></sup>. The aims of the present study were to characterize canine SGCs <italic>in situ</italic> and <italic>in vitro</italic>, and to compare these results to murine, and as far as available to simian SGCs and to investigate the potential role that SGCs might play in regenerative medicine as possible cell transplantation candidates.</p>
+    </sec>
+    <sec id="Sec2" sec-type="results">
+      <title>Results</title>
+      <sec id="Sec3">
+        <title><italic>In situ</italic> characterization of SGCs</title>
+        <sec id="Sec4">
+          <title>Dogs</title>
+          <p id="Par5">Neurons were completely ensheathed by a rim of SGCs (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1</xref>). At the ultrastructural level, the interdigitating cytoplasmic membranes of neurons and SGCs were arranged in close juxtaposition and linked by multiple desmosomes (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref>). This structural unit was surrounded by connective tissue composed of fibroblasts, blood vessels, and an extracellular matrix with abundant collagen fibers, which also contained large axons enwrapped by thick myelin sheaths. The electron-lucent cytoplasm of small and large neurons contained normal cellular organelles (nucleus, Golgi apparatus, smooth endoplasmic reticulum (ER), rough ER arranged in multiple Nissl bodies, mitochondria) and different numbers/densities of electron-dense granules (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref>).<fig id="Fig1"><label>Figure 1</label><caption><p>Dorsal root ganglion of a Beagle dog. Multiple large (&gt;40&#x2009;&#x3BC;m; asterisks) and small neurons (&lt;40&#x2009;&#x3BC;m, arrows) surrounded by a satellite glial cell sheath (insert). Note few fibroblasts and capillaries (arrowheads) in the interstitial stroma. Hematoxylin and eosin staining. Bar, 40&#x2009;&#x3BC;m.</p></caption><graphic xlink:href="41598_2017_14246_Fig1_HTML" id="d29e409"/></fig>
+<fig id="Fig2"><label>Figure 2</label><caption><p>Dorsal root ganglion of an adult Beagle dog. Transmission electron microscopy. (<bold>a)</bold> Large neuron with adjacent SGC and fibroblast within connective tissue. Note the closely-spaced cytoplasmic membranes of neuron and SGC (arrowheads). Bar, 2&#x2009;&#x3BC;m. (<bold>b)</bold> Two large neurons with SGC sheaths demarcated by connective tissue. Note the closely-spaced interdigitating cytoplasmic membranes (arrowheads) linked by desmosomes (arrow). Bar, 1&#x2009;&#x3BC;m. eg, electron-dense granule; em, extracellular matrix; fb, fibroblast; ga, golgi apparatus; mi, mitochondrium; nb, Nissl body; ne, neuron; rer, rough endoplasmic reticulum; sgc, satellite glial cell.</p></caption><graphic xlink:href="41598_2017_14246_Fig2_HTML" id="d29e425"/></fig>
+</p>
+          <p id="Par6">SGCs were mostly immunopositive for vimentin (median 85%; range: 84&#x2013;88%; see Supplementary Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2a</xref>), GFAP (78%; 73&#x2013;89%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3a</xref>), CNPase (93%; 86&#x2013;97%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3d</xref>), and Sox2 (83%; 80&#x2013;91%; see Supplementary Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2d</xref>). 44% (25&#x2013;52%) and 11% (3&#x2013;38%) of the SGCs expressed glutamine synthetase (GS; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3g</xref>) and S-100 protein (see Supplementary Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2c</xref>), respectively. A high percentage of SGCs expressed interferon stimulated gene 15 (ISG15; 76%; 73&#x2013;79%) and signal transducer and activator of transcription 1 (STAT1; 72%; 70&#x2013;74%) in the nucleus as well as 2&#x2032;-5&#x2032; oligoadenylate synthetase 1 (OAS1; 83%; 81&#x2013;96%), protein kinase R (PKR; 77%; 72&#x2013;80%), and STAT2 (10%; 10&#x2013;11%) in the cytoplasm. In addition, the antiviral Mx protein was found in the cytoplasm of canine SGCs (28%; 21&#x2013;31%). Few cells within the DRG reacted positive with antibodies directed against periaxin (5%; 4&#x2013;8%), p75<sup>NTR</sup> (1%; 0&#x2013;3%), ionized calcium-binding adapter molecule 1 (Iba-1; 5%; 3&#x2013;7%), and CD3 (3%; 0&#x2013;4%). Major histocompatibility complex (MHC) class II proteins were also found in a small number of canine SGCs (18%; 17&#x2013;21%). No immunoreaction was detected for human natural killer-1 (HNK-1; CD57) and the B cell markers CD79&#x3B1; and paired box 5 (Pax5) in SGCs. Immunofluorescence revealed a co-expression of CNPase and GFAP (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4a</xref>) and also of CNPase and Nestin (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4b</xref>) in the majority of canine SGCs.<fig id="Fig3"><label>Figure 3</label><caption><p>Dorsal root ganglion of a Beagle dog (<bold>a</bold>,<bold>d</bold>,<bold>g</bold>), a C57BL/6 mouse (<bold>b</bold>,<bold>e</bold>,<bold>h</bold>), and a gray langur (<italic>Semnopithecus sp</italic>.) (<bold>c</bold>,<bold>f</bold>,<bold>i</bold>). (<bold>a</bold>&#x2013;<bold>c</bold>) Glial fibrillary acidic protein (GFAP), 2&#x2032;,3&#x2032;-cyclic-nucleotide 3&#x2032;-phosphodiesterase (CNPase) (<bold>d</bold>&#x2013;<bold>f</bold>), and (<bold>g</bold>&#x2013;<bold>i</bold>) glutamine synthetase (GS). Most satellite glial cells (SGCs) are immunopositive for GFAP and CNPase in dogs and monkeys, whereas most murine SGCs lack expression of these markers (arrowheads). Note single CNPase<sup>+</sup> SGC (arrow, <bold>e</bold>). In contrast, GS represents a good marker for murine and simian SGCs but not for canine SGCs. There are SGCs positive (arrow) and negative for GS (arrowhead) in dogs. Immunohistochemistry using the avidin-biotin-peroxidase complex method, the chromogen 3,3&#x2032;-diamino-benzidine, and Mayer&#x2019;s hematoxylin as counterstain. Bars, 40&#x2009;&#x3BC;m.</p></caption><graphic xlink:href="41598_2017_14246_Fig3_HTML" id="d29e522"/></fig>
+<fig id="Fig4"><label>Figure 4</label><caption><p>Dorsal root ganglion of a Beagle dog. (<bold>a)</bold> 2&#x2032;,3&#x2032;-cyclic-nucleotide 3&#x2032;-phosphodiesterase (CNPase; red) and glial fibrillary acidic protein (GFAP; green) double-staining. Most satellite glial cells (SGCs) have a strong perinuclear CNPase and cytoplasmic GFAP expression (insert). Note CNPase<sup>+</sup> nerve fibers surrounded by GFAP<sup>+</sup> cells (arrowheads). <bold>(b)</bold> CNPase (red) and Nestin (green) double-staining. Most SGCs show a strong co-expression of these markers indicated by yellow staining (insert). Immunofluorescence double-labelling of the dorsal root ganglion of a beagle dog <italic>in situ</italic> with bisbenzimide as nuclear counterstain. Bar, 40&#x2009;&#x3BC;m.</p></caption><graphic xlink:href="41598_2017_14246_Fig4_HTML" id="d29e547"/></fig>
+</p>
+        </sec>
+        <sec id="Sec5">
+          <title>Mice and monkeys</title>
+          <p id="Par7">Similar to dogs, murine and simian SGCs were forming a glial cell sheath surrounding neurons (see Supplementary Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S3</xref>). A high number of murine SGCs expressed GS <italic>in situ</italic> (71%; 70&#x2013;72%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3h</xref>), whereas these cells show a low expression of CNPase (5%; 4&#x2013;6%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3e</xref>) and no expression of GFAP (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3b</xref>). In contrast, the majority of simian SGCs express GS (94%; 90&#x2013;98%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3i</xref>), CNPase (92%; 85&#x2013;94%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3f</xref>), and GFAP (80%; 78&#x2013;84%; Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3c</xref>). In addition, vimentin can be found in most simian SGCs (88%; 87&#x2013;92%; see Supplementary Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2</xref>) and few murine SGCs express Iba-1 (7%; 6&#x2013;9%).</p>
+        </sec>
+        <sec id="Sec6">
+          <title><italic>In vitro</italic> characterization of canine and murine SGCs</title>
+          <p id="Par8">DRG cell cultures contained SGCs, remnants of myelin sheath components and no neurons. Scanning electron microscopy revealed that SGCs of both dogs and mice exhibit morphologically four subtypes including spindeloid, multipolar, flattened fibroblastoid, and small round cells. These subtypes were found in equal numbers in canine cell cultures, whereas murine cell cultures were dominated by equal numbers of spindeloid, multipolar, and fibroblastoid cells. In addition, fibroblastoid cells were considerably larger in murine compared to canine cultures (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). Transmission immune-electron microscopy of canine SGCs revealed that the intermediate filament GFAP is predominantly expressed by spindeloid cells (see Supplementary Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S4</xref>). Immunofluorescence confirmed GFAP expression in a large proportion of canine and murine SGCs and vimentin expression in nearly all canine SGCs (&gt;99%). CNPase was expressed by the vast majority of canine (&gt;84%) and murine (&gt;96%) SGCs. In contrast, beta III tubulin<sup>+</sup>, Iba1<sup>+</sup>, and p75<sup>NTR+</sup> cells were not detected in canine and murine SGC cultures.<fig id="Fig5"><label>Figure 5</label><caption><p>Morphologies of canine (<bold>A</bold>) and murine (<bold>B</bold>) satellite glial cells (SGCs) <italic>in vitro</italic>. Note elongated spindle cells (black arrow), small round cells (white arrow), multipolar cells (black arrowhead), and flattened fibroblastic cells (white arrowhead). Note the large size of fibroblastic cells and low number of round cells in murine compared to canine cultures. Scanning electron microscopy. Bars, 50 &#xB5;m.</p></caption><graphic xlink:href="41598_2017_14246_Fig5_HTML" id="d29e622"/></fig>
+</p>
+          <p id="Par9">The influence of growth factors and forskolin on canine and murine SGCs with respect to proliferation, degeneration, and differentiation was assessed by evaluation of the number of BrdU<sup>+</sup>, caspase-3<sup>+</sup>, and GFAP<sup>+</sup> cells, respectively. Canine and murine SGCs showed an increased proliferation rate in the presence of FGF-2 and HRG-1&#x3B2; (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6</xref>). Proliferation of canine in contrast to murine SGCs was also stimulated by EGF supplementation. The number of caspase-3<sup>+</sup> SGCs was significantly reduced by FGF-2, EGF, HRG-1&#x3B2;, and forskolin supplementation in both species (Fig.&#xA0;<xref rid="Fig7" ref-type="fig">7</xref>). FGF-2 had the strongest and CNTF no impact on the number of apoptotic cells. FGF-2 increased or reduced the percentage of GFAP<sup>+</sup> canine and murine SGCs, respectively (Fig.&#xA0;<xref rid="Fig8" ref-type="fig">8</xref>). The percentage of GFAP<sup>+</sup> SGCs was also increased by HRG-1&#x3B2; supplementation in dogs (Fig.&#xA0;<xref rid="Fig8" ref-type="fig">8a</xref>) and CNTF supplementation in mice (Fig.&#xA0;<xref rid="Fig8" ref-type="fig">8b</xref>).<fig id="Fig6"><label>Figure 6</label><caption><p>BrdU assay of canine (<bold>a</bold>,<bold>c</bold>,<bold>e</bold>) and murine (<bold>b</bold>,<bold>d</bold>,<bold>f</bold>) satellite glial cells (SGCs) supplemented with fibroblast growth factor 2 (FGF), epidermal growth factor, (EGF), ciliary neurotrophic factor (CNTF), heregulin 1&#x3B2; (HRG), and forskolin (Fors). (<bold>a</bold>,<bold>b</bold>) Graphs show the percentage of BrdU<sup>+</sup> SGCs with and without supplementation. (<bold>c</bold>&#x2013;<bold>f</bold>) Immunofluorescence BrdU labelling (green) of SGCs with bisbenzimide as nuclear counterstain. (<bold>c</bold>,<bold>d</bold>) control medium. (<bold>e</bold>,<bold>f</bold>) FGF supplementation. **<italic>P</italic>&#x2009;&lt;&#x2009;0.01. ***<italic>P</italic>&#x2009;&lt;&#x2009;0.001. Bars, 60&#x2009;&#x3BC;m. Shown are means with standard errors of the mean (SEM).</p></caption><graphic xlink:href="41598_2017_14246_Fig6_HTML" id="d29e722"/></fig>
+<fig id="Fig7"><label>Figure 7</label><caption><p>Apoptosis assay of canine (<bold>a</bold>,<bold>c</bold>,<bold>e</bold>) and murine (<bold>b</bold>,<bold>d</bold>,<bold>f</bold>) satellite glial cells (SGCs) supplemented with fibroblast growth factor 2 (FGF), epidermal growth factor, (EGF), ciliary neurotrophic factor (CNTF), heregulin 1&#x3B2; (HRG), and forskolin (Fors). (<bold>a</bold>,<bold>b</bold>) Graphs show the percentage of caspase-3<sup>+</sup> SGCs with and without supplementation. (<bold>c</bold>&#x2013;<bold>f</bold>) Immunofluorescence caspase-3 labelling (green) of SGCs with bisbenzimide as nuclear counterstain. (<bold>c</bold>,<bold>d</bold>) control medium. (<bold>e</bold>,<bold>f</bold>) FGF supplementation. *<italic>P</italic>&#x2009;&lt;&#x2009;0.05. **<italic>P</italic>&#x2009;&lt;&#x2009;0.01. ***<italic>P</italic>&#x2009;&lt;&#x2009;0.001. Bars, 60 &#x3BC;m. Shown are means with standard errors of the mean (SEM).</p></caption><graphic xlink:href="41598_2017_14246_Fig7_HTML" id="d29e789"/></fig>
+<fig id="Fig8"><label>Figure 8</label><caption><p>GFAP expression of canine (<bold>a</bold>,<bold>c</bold>,<bold>e</bold>) and murine (<bold>b</bold>,<bold>d</bold>,<bold>f</bold>) satellite glial cells (SGCs) supplemented with fibroblast growth factor 2 (FGF), epidermal growth factor, (EGF), ciliary neurotrophic factor (CNTF), heregulin 1&#x3B2; (HRG), and forskolin (Fors). (<bold>a</bold>,<bold>b</bold>) Graphs show the percentage of glial fibrillary acidic protein (GFAP)<sup>+</sup> SGCs with and without supplementation. (<bold>c</bold>&#x2013;<bold>f</bold>) Immunofluorescence double-labelling of SGCs for 2&#x2032;,3&#x2032;-cyclic-nucleotide 3&#x2032;-phosphodiesterase (CNPase; red) and GFAP (green) with bisbenzimide as nuclear counterstain. (<bold>c</bold>,<bold>d</bold>) control medium. (<bold>e</bold>,<bold>f</bold>) FGF supplementation. *<italic>P</italic>&#x2009;&lt;&#x2009;0.05. ***<italic>P</italic>&#x2009;&lt;&#x2009;0.001. Bars, 60&#x2009;&#x3BC;m. Shown are means with standard errors of the mean (SEM).</p></caption><graphic xlink:href="41598_2017_14246_Fig8_HTML" id="d29e852"/></fig>
+</p>
+          <p id="Par10">To further characterize the influence of external stimuli on SGC differentiation, canine and murine SGCs were incubated with a variety of differentiation media as well as BMP4 and noggin. An astrocytic differentiation medium (DMEM with FCS) increased the percentage GFAP<sup>+</sup> cells in both species, whereas only canine SGCs showed a significantly reduced percentage of GFAP<sup>+</sup> cells in an oligodendrocytic differentiation medium (B104-conditioned DMEM with RA) compared to the control medium (Fig.&#xA0;<xref rid="Fig9" ref-type="fig">9a,b</xref>). BMP4 increased the percentage of GFAP<sup>+</sup> cells in both species, whereas no effect was found after noggin supplementation (Fig.&#xA0;<xref rid="Fig9" ref-type="fig">9c,d</xref>). CNPase expression was not affected by the investigated culture conditions including growth factor supplementation.<fig id="Fig9"><label>Figure 9</label><caption><p>GFAP expression of canine (<bold>a</bold>,<bold>c</bold>) and murine (<bold>b</bold>,<bold>d</bold>) satellite glial cells (SGCs) using different growth media (control, B104 with 5 &#xB5;M retinoic acid, DMEM with 20% fetal calf serum; <bold>a</bold>,<bold>b</bold>) or supplemented with bone morphogenetic protein 4 (BMP4) and noggin (<bold>c</bold>,<bold>d</bold>). Graphs show the percentage of glial fibrillary acidic protein (GFAP)<sup>+</sup> SGCs. **<italic>P</italic>&#x2009;&lt;&#x2009;0.01. ***<italic>P</italic>&#x2009;&lt;&#x2009;0.001. Shown are means with standard errors of the mean (SEM).</p></caption><graphic xlink:href="41598_2017_14246_Fig9_HTML" id="d29e914"/></fig>
+</p>
+          <p id="Par11">Interestingly, formation of neuronal processes was found in a significantly higher percentage of canine DRG neurons co-cultured for 24 hours with a SGC-enriched cell fraction compared to conventionally cultured canine neurons (<italic>P</italic>&#x2009;=&#x2009;0.0002; Fig.&#xA0;<xref rid="Fig10" ref-type="fig">10</xref>). Furthermore, arborization of neuronal processes was enhanced by co-culturing (<italic>P</italic>&#x2009;=&#x2009;0.0003; Fig.&#xA0;<xref rid="Fig10" ref-type="fig">10</xref>).<fig id="Fig10"><label>Figure 10</label><caption><p>Canine dorsal root ganglion neurons cultured with (<bold>a</bold>) or without (<bold>b</bold>) a satellite glial cell (SGC)-enriched cell fraction at 24 hours post seeding. Immunofluorescence for neuronal class III &#x3B2;-tubulin (green) with bisbenzimide as nuclear counterstain. Note neurite outgrowth under co-culture conditions only. Note the neurite outgrowth in the direction of non-neuronal cells. Bars, 40&#x2009;&#x3BC;m. (<bold>c</bold>) Percentage of neurons with neurites and number of&#xA0;neurites per neuron in cell culture with or without SGCs. Shown are median values with maximum and minimum.</p></caption><graphic xlink:href="41598_2017_14246_Fig10_HTML" id="d29e947"/></fig>
+</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec id="Sec7" sec-type="discussion">
+      <title>Discussion</title>
+      <p id="Par12">The present study provides the first detailed <italic>in situ</italic> and <italic>in vitro</italic> characterization of canine DRG SGCs. <italic>In situ</italic>, canine SGCs and DRG&#x2019;s provide a functional unit characterized by intimate intercellular contacts. Though GS has been described as the best marker for SGCs in rats and mice<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>, this is not the case for canine cells. Most canine SGCs were characterized by a strong co-expression of CNPase and GFAP, which represent classical markers of oligodendrocytes and astrocytes, respectively<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>. Interestingly, SGCs of monkeys expressed GS, like murine SGCs, as well as CNPase and GFAP similar to canine SGCs. Canine and simian SGCs also express the intermediate filament vimentin, which is normally found in mesenchymal cells including myelinating and non-myelinating Schwann cells<sup><xref ref-type="bibr" rid="CR36">36</xref></sup> as well as microglia<sup><xref ref-type="bibr" rid="CR5">5</xref></sup>. A co-expression of GFAP and vimentin seems to be characteristic for less differentiated immature astrocytes in dogs<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. Similarly, these two markers are expressed by astrocyte precursor cells and immature astrocytes in developing rat retinae<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>. A strong expression of vimentin has also been described in rat SGCs<sup><xref ref-type="bibr" rid="CR39">39</xref>&#x2013;<xref ref-type="bibr" rid="CR41">41</xref></sup>. Various studies demonstrated a low expression of CNPase and GFAP in 1- to 2-month-old Sprague Dawley rats, which is up-regulated after nerve damage<sup><xref ref-type="bibr" rid="CR42">42</xref>&#x2013;<xref ref-type="bibr" rid="CR44">44</xref></sup>. In contrast, a strong GFAP expression was observed in normal SGCs in a recent study using 3- to 4-month-old Wistar rats<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>. Similarly, a further study found a strong GFAP expression in SGCs of male 8-week-old C57BL/6J mice<sup><xref ref-type="bibr" rid="CR45">45</xref></sup>, whereas no GFAP expression was present in SGCs of 4-month-old C57BL/6NCrl mice<sup><xref ref-type="bibr" rid="CR46">46</xref></sup>. These differences might be caused by the differences in strain and age of the investigated animals or by technical reasons. SGCs of guinea pigs are reported to lack any expression of GFAP<sup><xref ref-type="bibr" rid="CR46">46</xref></sup>. Rat SGCs are also usually positive for S-100 and p75<sup>NTR</sup>, whereas only 11% and 1% of canine SGCs expressed these markers in the present study, respectively<sup><xref ref-type="bibr" rid="CR47">47</xref>,<xref ref-type="bibr" rid="CR48">48</xref></sup>. S-100 expression of rat SGCs is dependent on size and possibly on the function of the ensheathed neurons<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>.</p>
+      <p id="Par13">The present study also demonstrated Iba-1<sup>+</sup> and CD3<sup>+</sup> cells in a low percentage of canine SGCs, which might represent immune cells (macrophages and T cells, respectively) in close vicinity to DRG neurons. On the other hand the majority of SGCs in human trigeminal ganglia (&gt;80%) express typical markers of antigen presenting cells including CD40, CD80, CD86, and MHC class II highlighting immune functions of SGCs<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. MHC class II proteins were also found in 18% of canine SGCs. In addition, these cells showed high expression levels of classical interferon stimulated genes including ISG15, PKR, and OAS1, which act as major antiviral effector proteins<sup><xref ref-type="bibr" rid="CR49">49</xref>,<xref ref-type="bibr" rid="CR50">50</xref></sup>. Consequently, SGCs seem to be involved in the innate and adaptive immune reactions in order to protect the ensheathed neurons against invading pathogens especially viruses.</p>
+      <p id="Par14">A highly interesting feature of canine SGCs was their expression of the intermediate filament nestin and the transcription factor Sox2. Nestin is used as a marker of neural stem/progenitor cells and can be found in various CNS cells during the embryonic period of ontogenesis<sup><xref ref-type="bibr" rid="CR51">51</xref></sup>. In adult animals, nestin-immunopositive cells have been found in so-called germinative zones of the brain such as the subventricular zone of the lateral ventricles and the dentate gyrus of the hippocampus as well as under pathological conditions<sup><xref ref-type="bibr" rid="CR51">51</xref></sup>. Sox2 is expressed in neurogenic regions of the CNS and maintains the neural stem cell state by controlling proliferation and differentiation<sup><xref ref-type="bibr" rid="CR52">52</xref>,<xref ref-type="bibr" rid="CR53">53</xref></sup>. In the developing PNS, Sox2 regulates the migration, proliferation, and differentiation of neural crest stem cells, which give rise to Schwann cells, DRG neurons, and SGCs<sup><xref ref-type="bibr" rid="CR54">54</xref>,<xref ref-type="bibr" rid="CR55">55</xref></sup>. In the adult PNS, Sox2 seems to play a cell-type specific role, which is mediated by different down-stream targets of this transcription factor<sup><xref ref-type="bibr" rid="CR56">56</xref></sup>. A nuclear Sox2 expression was also described in non-myelinating Schwann cells as well as neural progenitor cells and normal or reactive astrocytes of adult rats<sup><xref ref-type="bibr" rid="CR57">57</xref></sup>. Interestingly, previous studies demonstrated that adult rat SGCs strongly express Sox2 and have the potential to generate neurospheres<sup><xref ref-type="bibr" rid="CR58">58</xref></sup>. Moreover, SGCs isolated from embryonic and neonatal rat DRGs have the capacity to transform into astrocytes, oligodendrocytes, and Schwann cells<sup><xref ref-type="bibr" rid="CR59">59</xref></sup>. All these findings underline the chimeric character and high plasticity of SGCs unifying properties of central and peripheral glia cell populations. The plasticity of canine SGCs was confirmed <italic>in vitro</italic>, where isolated cells developed a variety of morphologic features. Nearly all canine SGCs showed strong CNPase expression, whereas predominantly spindeloid cells expressed GFAP. No Iba-1<sup>+</sup> or p75<sup>NTR+</sup> cells were detected in the present canine and murine DRG cell cultures demonstrating the absence of macrophages and Schwann cells, respectively<sup><xref ref-type="bibr" rid="CR8">8</xref>,<xref ref-type="bibr" rid="CR23">23</xref></sup>. Nevertheless, the cultures might contain fibroblasts, which form an integral part of the DRG connective tissue and are also found in canine mixed brain cell cultures<sup><xref ref-type="bibr" rid="CR60">60</xref></sup>.</p>
+      <p id="Par15">The morphologic features of murine SGC cultures generally resembled their canine counterpart but the former differed by larger size of fibroblastoid cells and lower number of round cells. These differences stimulated additional <italic>in vitro</italic> experiments to characterize and compare phenotypical features canine and murine SGCs. The percentage of GFAP<sup>+</sup> canine and murine SGCs was strongly influenced by the respective culture conditions, whereas high CNPase expression was unaffected. An astrocytic differentiation medium stimulated GFAP expression in SGCs of both species as expected. Nevertheless, an oligodendrocytic differentiation medium decreased the percentage of GFAP<sup>+</sup> canine but not murine SGCs. GFAP expression was also induced by CNTF in murine and HRG-1&#x3B2; in canine SGCs. Moreover, GFAP expression was reduced by FGF-2 in murine but induced in canine SGCs. These results demonstrate species-specific differences in the reaction pattern of SGCs to external stimuli such as growth factors. The proliferation of canine and murine SGCs was induced by FGF-2 and HRG-1&#x3B2;, which both activate mitogen-activated protein kinase (MAPK) signaling pathways and induce the proliferation of canine and rodent Schwann cells and OECs<sup><xref ref-type="bibr" rid="CR23">23</xref>,<xref ref-type="bibr" rid="CR61">61</xref></sup>. Interestingly, canine SGCs also reacted to supplementation with EGF, which stimulates proliferation, survival, migration and differentiation into the oligodendrocyte lineage<sup><xref ref-type="bibr" rid="CR62">62</xref></sup>. However, GFAP expression was induced in SGCs of both species by BMP4, which is a member of the transforming growth factor (TGF)-&#x3B2; family and known for his ability to drive the differentiation of neural stem cells towards an astrocytic fate<sup><xref ref-type="bibr" rid="CR63">63</xref></sup>. Consequently, BMP4 cellular signaling pathways seem to be similar in canine and murine SGCs and influence astrocytic differentiation of these cells.</p>
+      <p id="Par16">Finally, the present study demonstrated that SGCs of adult dogs support neurite outgrowth of DRG neurons <italic>in vit</italic>ro, whereas a previous study reported dendritic outgrowth from neonatal or juvenile rat nodose ganglion neurons only in the absence of SGCs<sup><xref ref-type="bibr" rid="CR64">64</xref></sup>. This growth promoting effect observed in dogs could be a species-specific property of canine SGCs mediated by the production and release of NGF and/or other neurotrophins. Consequently, canine SGCs might represent a promising candidate for cell transplantation studies of degenerative CNS diseases. However, the age of the investigated animals might also cause differences in the effects of SGCs on neurons. Furthermore, SGCs may mask or inhibit neuronal growth factor receptors <italic>in vivo</italic>, a condition lost in dissociated DRG cultures<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. Interestingly, an axotomy associated sympatho-sensory sprouting is observed in sensory ganglia, which is discussed in the pathogenesis of sympathetically maintained chronic pain<sup><xref ref-type="bibr" rid="CR65">65</xref></sup>. If the underlying neurotrophic signals originate from neurons and/or SGCs is a current focus in pain research.</p>
+      <p id="Par17">In conclusion, the current study revealed the presence of a CNPase, GFAP, vimentin, nestin, and Sox2 co-expressing glial cell population in DRGs of adult dogs. This canine SGC population warrants further investigation, especially with regard to the differentiation potential and neurotrophic properties of these cells and the existence of an analogous cell population in monkeys and humans<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. The easy accessibility and the phenotypic characteristics highlight this glial population as a promising candidate for novel therapeutic concepts, such as cell transplantation techniques.</p>
+    </sec>
+    <sec id="Sec8" sec-type="materials|methods">
+      <title>Methods</title>
+      <sec id="Sec9">
+        <title>Animals</title>
+        <p id="Par18">Antigen-specific immunoreaction of primary canine satellite glial cells was evaluated in DRGs of five healthy adult Beagle dogs (from each dog one DRG of the 3<sup>rd</sup> cervical nerve, Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref> dogs no. 1&#x2013;5). Electron microscopy was performed in a DRG of the 3<sup>rd</sup> cervical nerve of one healthy adult Beagle dog (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref> dog no. 6). DRGs of cervical, thoracic, and lumbar spinal cord segments from four healthy adult Beagle dogs (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref> dogs no. 7&#x2013;10) were collected at postmortem examination for primary DRG cell culture. Furthermore, electron microscopy&#xA0;was performed (Table <xref rid="Tab1" ref-type="table">1</xref> dog no. 10). In addition, primary cells of four other healthy adult Beagle dogs were used for DRG co-culture experiments (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref> dogs no. 11&#x2013;14). All previously performed studies in dogs were unrelated to the present project. The samples were taken post mortally.<table-wrap id="Tab1"><label>Table 1</label><caption><p>Details of the dogs investigated in the different experiments.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Dog No.</th><th>Breed</th><th>Age</th><th>Sex</th><th>Experiment</th></tr></thead><tbody><tr><td>1</td><td>Beagle</td><td>1 year</td><td>male</td><td>
+<italic>In situ</italic>
+</td></tr><tr><td>2</td><td>Beagle</td><td>1 year</td><td>female</td><td>
+<italic>In situ</italic>
+</td></tr><tr><td>3</td><td>Beagle</td><td>1 year</td><td>female</td><td>
+<italic>In situ</italic>
+</td></tr><tr><td>4</td><td>Beagle</td><td>1 year</td><td>female</td><td>
+<italic>In situ</italic>
+</td></tr><tr><td>5</td><td>Beagle</td><td>1 year</td><td>male</td><td>
+<italic>In situ</italic>
+</td></tr><tr><td>6</td><td>Beagle</td><td>1 year</td><td>male</td><td>
+<italic>In situ</italic>
+</td></tr><tr><td>7</td><td>Beagle</td><td>6 months</td><td>male</td><td>
+<italic>In vitro</italic>
+</td></tr><tr><td>8</td><td>Beagle</td><td>6 months</td><td>female</td><td>
+<italic>In vitro</italic>
+</td></tr><tr><td>9</td><td>Beagle</td><td>23 months</td><td>male</td><td>
+<italic>In vitro</italic>
+</td></tr><tr><td>10</td><td>Beagle</td><td>22 months</td><td>female</td><td>
+<italic>In vitro</italic>
+</td></tr><tr><td>11</td><td>Beagle</td><td>8&#x2013;9 months</td><td>male</td><td>Co-culture</td></tr><tr><td>12</td><td>Beagle</td><td>8&#x2013;9 months</td><td>female</td><td>Co-culture</td></tr><tr><td>13</td><td>Beagle</td><td>8&#x2013;9 months</td><td>male</td><td>Co-culture</td></tr><tr><td>14</td><td>Beagle</td><td>8&#x2013;9 months</td><td>male</td><td>Co-culture</td></tr></tbody></table></table-wrap>
+</p>
+        <p id="Par19">The experiments were in compliance with the law of animal welfare of Lower-Saxony and North Rhine-Westphalia, Germany and approved by Lower Saxony State Office for Consumer Protection and Food Safety, permission numbers: 33.9-42502-05-12A241; 33.9-42502-05-14A443; and Ministry for Climate Protection, Environment, Agriculture, Conservation and Consumer Protection of the State of North Rhine-Westphalia, permission number: A0164/91. The animals did not suffer from diseases affecting the nervous system as determined by clinical examination.</p>
+        <p id="Par20">For the murine studies nine male 4-month-old C57BL/6NCrl mice (AnLab s.r.o, Prague, Czech Republic) were euthanized according to the law of animal welfare of Lower Saxony (permission number: 42500/1H). Dorsal root ganglia were collected for paraffin-embedding (5 mice) and isolation of primary murine satellite cell (4 mice).</p>
+        <p id="Par21">Furthermore, archived DRGs of three adult non-human primates (1 <italic>Cebus capucinus</italic>, 1 <italic>Macaca nemestrina</italic>, 1 <italic>Semnopithecus entellus)</italic> from the archive of routine necropsy cases of the department of pathology, which died due to spontaneous unrelated diseases, were immunohistologically investigated. Samples for histology and immunohistochemistry were fixed in 4% formaldehyde, routinely embedded in paraffin<sup><xref ref-type="bibr" rid="CR66">66</xref></sup>. 3&#x2013;5 &#xB5;m sections were routinely stained with hematoxylin and eosin or mounted on SuperFrost<sup>&#xAE;</sup> glass slides for immunohistochemistry. No cells were obtained from non-human primates. All animal procedures were performed in accordance with the German regulations and legal requirements.</p>
+      </sec>
+      <sec id="Sec10">
+        <title>Immunohistochemistry</title>
+        <p id="Par22">Immunohistochemistry was performed as described<sup><xref ref-type="bibr" rid="CR67">67</xref>,<xref ref-type="bibr" rid="CR68">68</xref></sup>. Briefly, formalin-fixed, paraffin-embedded tissue sections were treated with 0.5% H<sub>2</sub>O<sub>2</sub> to block endogenous peroxidase, depending on the antibody heated in sodium citrate buffer, and incubated with 20% goat serum to block non-specific binding sites. Subsequently, sections were incubated with the respective primary antibody (Ab, Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>) overnight at 4&#x2009;&#xB0;C. Negative control sections were incubated with rabbit serum (R4505; Sigma-Aldrich, Taufkirchen, Germany) or mouse IgG1 isotype control (CBL600; Millipore, Schwalbach, Germany). Biotinylated goat-anti-rabbit IgG (BA-1000) or goat-anti-mouse IgG (BA-9200) diluted 1:200 (Vector Laboratories, Burlingame, CA, USA) were used as secondary antibodies (Abs). After visualization of the antigen-antibody reaction using the avidin-biotin-peroxidase complex (ABC) method (Vector Laboratories) and the chromogen 3,3&#x2032;-diamino-benzidine (DAB) sections were slightly counterstained with Mayer&#x2019;s hematoxylin.<table-wrap id="Tab2"><label>Table 2</label><caption><p>Summary of primary antibodies used for the phenotyping of satellite glial cells.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Antibody</th><th>Primary antibody</th><th>Species investigated</th><th>Pretreatment (IHC) and dilution (IHC/IFC)</th></tr></thead><tbody><tr><td>&#x3B2;III tubulin</td><td>Covance Inc., MRB-435P, rAb</td><td>dog</td><td>&#x2212;/1:1000</td></tr><tr><td>Cleaved caspase-3</td><td>Cell Signaling, 9661, pAb</td><td>dog, mouse</td><td>&#x2212;/1:500</td></tr><tr><td>CNPase</td><td>Millipore, MAB326, mAb</td><td>dog, mouse, NHP</td><td>Citrate buffer/microwave 1:100/1:500</td></tr><tr><td>GFAP</td><td>Dako, Z0334, pAb</td><td>dog, mouse, NHP</td><td>No pretreatment 1:2000/1:400</td></tr><tr><td>Glutamine synthetase</td><td>Santa Cruz, sc-9067, pAb</td><td>dog, mouse, NHP</td><td>Citrate buffer/microwave 1:100/-</td></tr><tr><td>Vimentin</td><td>Dako, M0725, mAb</td><td>dog, NHP</td><td>No pretreatment 1:100/-</td></tr><tr><td>Nestin</td><td>Acris, 1484-1500, pAb</td><td>dog, mouse</td><td>Citrate buffer/microwave 1:500/-</td></tr><tr><td>Sox2</td><td>Cell Signaling, 3579, rAb</td><td>dog</td><td>Citrate buffer/microwave 1:50/-</td></tr><tr><td>HNK-1</td><td>Sigma-Aldrich, C6680, mAb</td><td>dog</td><td>No pretreatment 1:500/-</td></tr><tr><td>p75<sup>NTR</sup>
+</td><td>ATCC, Clone HB8737, mAb</td><td>dog</td><td>No pretreatment 1:5/-</td></tr><tr><td>Periaxin</td><td>Sigma-Aldrich, HPA001868, pAb</td><td>dog</td><td>Citrate buffer/microwave 1:5000/-</td></tr><tr><td>S-100</td><td>Sigma-Aldrich, S2644, pAb</td><td>dog</td><td>No pretreatment 1:800/-</td></tr><tr><td>CD3</td><td>Dako, A0452, pAb</td><td>dog</td><td>Citrate buffer/microwave 1:2000/-</td></tr><tr><td>CD79&#x3B1;</td><td>Dako, M7051, mAb</td><td>dog</td><td>Citrate buffer/microwave 1:60/-</td></tr><tr><td>Iba-1</td><td>Wako Chemicals, 019-19741, pAb</td><td>dog</td><td>Citrate buffer/microwave 1:100/-</td></tr><tr><td>MHC II</td><td>Dako; TAL1B5,mAb</td><td>dog</td><td>Citrate buffer/microwave 1:100/-</td></tr><tr><td>Pax5</td><td>BD Biosciences, 610865, mAb</td><td>dog</td><td>Citrate buffer/microwave 1:200/-</td></tr><tr><td>ISG15</td><td>Santa Cruz, sc-50366, pAb</td><td>dog</td><td>Citrate buffer/microwave 1:600/-</td></tr><tr><td>Mx</td><td>Georg Kochs, M143, mAb</td><td>dog</td><td>Citrate buffer/microwave 1:1000/-</td></tr><tr><td>OAS1</td><td>Santa Cruz, sc-98424, pAb</td><td>dog</td><td>Citrate buffer/microwave 1:600/-</td></tr><tr><td>PKR</td><td>Abcam, ab32036, rAb</td><td>dog</td><td>Citrate buffer/microwave 1:600/-</td></tr><tr><td>Stat1 (p84/p91)</td><td>Santa Cruz, sc-346, pAb</td><td>dog</td><td>No pretreatment 1:400/-</td></tr><tr><td>Stat2</td><td>Santa Cruz, sc1668, mAb</td><td>dog</td><td>Citrate buffer/microwave 1:100/-</td></tr></tbody></table><table-wrap-foot><p>CNPase, 2&#x2032;,3&#x2032;-cyclic-nucleotide 3&#x2032;-phosphodiesterase; GFAP, glial fibrillary acidic protein; HNK-1, human natural killer-1; ISG15, interferon stimulated gene 15; MHC, major histocompatibility complex; OAS1, 2&#x2032;-5&#x2032; oligoadenylate synthetase 1; PKR, protein kinase R; Stat, signal transducer and activator of transcription; IFC, immunofluorescence; IHC, immunohistochemistry; NHP, non-human primate; mAb, mouse monoclonal antibody; pAb, rabbit polyclonal antibody; p75<sup>NTR</sup>, low affinity neurotrophin receptor; rAb, rabbit monoclonal antibody</p></table-wrap-foot></table-wrap>
+<table-wrap id="Tab3"><label>Table 3</label><caption><p>Comparative analysis of the <italic>in situ</italic> expression of CNPase, GFAP, and glutamine synthetase in canine, murine, and simian satellite glial cells. Shown are the median percentages of positive cells with range.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Marker</th><th>Canine SGCs</th><th>Murine SGCs</th><th>Simian SGCs</th></tr></thead><tbody><tr><td>CNPase</td><td>
+<bold>93%</bold> (86&#x2013;97%)</td><td>
+<bold>5%</bold> (4&#x2013;6%)</td><td>
+<bold>92%</bold> (85&#x2013;94%)</td></tr><tr><td>GFAP</td><td>
+<bold>78%</bold> (73&#x2013;89%)</td><td>
+<bold>0%</bold> (0&#x2013;0%)</td><td>
+<bold>80%</bold> (78&#x2013;84%)</td></tr><tr><td>Glutamine Synthetase</td><td>
+<bold>44%</bold> (25&#x2013;52%)</td><td>
+<bold>71%</bold> (70&#x2013;72%)</td><td>
+<bold>94%</bold> (90&#x2013;98%)</td></tr></tbody></table><table-wrap-foot><p>CNPase&#x2009;=&#x2009;2&#x2032;,3&#x2032;-cyclic-nucleotide 3&#x2032;-phosphodiesterase; GFAP&#x2009;=&#x2009;glial fibrillary acidic protein; SGCs&#x2009;=&#x2009;satellite glial cells.</p></table-wrap-foot></table-wrap>
+</p>
+        <p id="Par23">The percentage of immunopositive SGCs was determined by counting the number of immunopositive and immunonegative SGCs adjacent to at least 10 randomly selected neurons in each investigated canine, murine, and simian DRG.</p>
+        <p id="Par24">For immunofluorescence on paraffin-embedded DRGs pretreatment and blocking procedure were performed as previously described<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. The slides were incubated for 1 hour at room temperature with the respective primary antibodies (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>). After one washing step the slides were incubated with the secondary antibodies, respectively (Goat-anti-mouse Cy3, 1:200; Goat-anti-rabbit Cy2, 1:200; Jackson Immunoresearch, Dianova, Hamburg, Germany). Nuclei were counterstained with 0.01% bisbenzimide Hoechst 33258 (Sigma-Aldrich) for 10 min at room temperature.</p>
+      </sec>
+      <sec id="Sec11">
+        <title>Isolation of canine and murine satellite glial cells</title>
+        <p id="Par25">For the isolation of SGCs 30&#x2013;40 DRGs from each dog or 20&#x2013;30 DRGs from each mouse were collected and stored in cold phosphate buffered saline (PBS), the fibrous capsule and blood vessels were removed and ganglia were dissected into small pieces. Afterwards the ganglia were incubated for enzymatic dissociation for 30 min at 37&#x2009;&#xB0;C with IV-S hyaluronidase (H3884), type IV collagenase (C5138) and type XI collagenase (C7657; Sigma-Aldrich) in a 0.2% solution (each enzyme) in 1x Hank&#x2019;s balanced salt solution (HBSS; Gibco<sup>&#xAE;</sup>, Invitrogen, Darmstadt, Germany). After 30 min, type I trypsin (T8003) was added (0.2% solution) followed by 30 min incubation at 37&#x2009;&#xB0;C. Subsequently, the tissue was mechanically dissociated by adding DNase I (0.2%; Sigma-Aldrich) using successively narrowed flame-polished Pasteur pipettes, pelleted by centrifugation (5 min, 300&#x2009;&#xD7;&#x2009;g, 4&#x2009;&#xB0;C), and re-suspended in Dulbecco&#x2019;s modified eagle medium (DMEM; Gibco<sup>&#xAE;</sup>, Invitrogen) with 10% fetal calf serum (FCS; Biochrom AG, Berlin, Germany) and 1% penicillin-streptomycin (PS; PAA Laboratories GmbH, Pasching, Austria). Cells were seeded at a density of 10.000 cells/well in 96 &#xBD; titer plates (Nunclon, Thermofisher, Schwerte, Germany) coated with poly-L-lysine (PLL, 0.1 mg/ml, Sigma-Aldrich).</p>
+        <p id="Par26">To investigate the functional aspect of the SGCs with respect to neurite outgrowth, canine DRG neurons were isolated<sup><xref ref-type="bibr" rid="CR66">66</xref></sup> and co-cultured with an SGC-enriched fraction (Suppl. Fig.&#xA0;<xref rid="MOESM1" ref-type="media">1</xref>). Neurons were stained with beta III-tubulin and the number of processes formed was counted<sup><xref ref-type="bibr" rid="CR69">69</xref></sup>.</p>
+      </sec>
+      <sec id="Sec12">
+        <title>Transmission and scanning electron microscopy</title>
+        <p id="Par27">For transmission electron microscopy, complete DRGs or isolated cells were fixed for 24 h in 2.5% glutaraldehyde solution, rinsed with 0.1% sodium cacodylate buffer (pH 7.2), postfixed in 1% osmium tetroxide, and embedded in EPON 812 (Serva, Heidelberg, Germany) as described<sup><xref ref-type="bibr" rid="CR25">25</xref>,<xref ref-type="bibr" rid="CR70">70</xref></sup>.</p>
+        <p id="Par28">For transmission immune-electron microscopy of SGCs, cells were initially fixed with 4% paraformaldehyde with 0.25% glutaraldehyde in 1% sodium cacodylate buffer, treated with 0.05 M glycine and 0.25% Triton X-100, blocked with 5% goat serum, incubated with an polyclonal rabbit antibody directed against GFAP (Z0334; Dako, Hamburg, Germany) at 4&#x2009;&#xB0;C overnight and sequentially incubated with a gold particles-labeled goat anti-rabbit secondary antibody for 1 hour at room temperature. Subsequent fixation and embedding were performed as described<sup><xref ref-type="bibr" rid="CR25">25</xref>,<xref ref-type="bibr" rid="CR70">70</xref></sup>. Sections and SGCs were stained with lead citrate and uranyl acetate and investigated using an EM 10c (Carl Zeiss Jena GmbH, Oberkochen, Germany).</p>
+        <p id="Par29">For scanning electron microscopy, isolated SGCs were cultured on glass slides coated with PLL. The cells were fixed in 4% paraformaldehyde with 0.25% glutaraldehyde in 1% sodium cacodylate buffer. Afterwards the samples were dehydrated in a series of graded ethanol, dried and coated in a sputter-coater (SCD 040; Oerlikon Balzers, Balzers, Liechtenstein) with gold. For visualization a digital scanning microscope (DSM 940, Carl Zeiss Jena GmbH) was used.</p>
+      </sec>
+      <sec id="Sec13">
+        <title>Immunocytochemistry</title>
+        <p id="Par30">Cells were fixed in 4% paraformaldehyde and permeability was achieved by incubation in PBS plus 0.25% Triton X-100. Afterwards cells were incubated with the respective primary antibody (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>) for 2 hours at room temperature. Followed after a short washing step by the incubation with the secondary antibody. Cy3-labeled goat-anti mouse (1:200; Jackson Immunoresearch) was used for monoclonal mouse antibodies and Cy2-labeled goat-anti rabbit (1:200; Jackson Immunoresearch) was used for polyclonal rabbit antibodies, respectively. Nuclei were counterstained with 0.01% bisbenzimide Hoechst 33258 (Sigma-Aldrich) for 5 min at room temperature.</p>
+      </sec>
+      <sec id="Sec14">
+        <title>Cell proliferation assays</title>
+        <p id="Par31">The proliferation rate of SGCs (passage 2) supplemented with fibroblast growth factor 2 (FGF-2, 40 ng/ml; recombinant human, Peprotech, Hamburg, Germany), epidermal growth factor (EGF, 40 ng/ml; R&amp;D Systems, Wiesbaden-Nordenstadt, Germany), ciliary neurotrophic factor (CNTF; 40 ng/ml; Peprotec), heregulin 1&#x3B2; (HRG-1&#x3B2;, 40 ng/ml; R&amp;D Systems), and the cAMP-elevator forskolin (4 &#xB5;M; F6886; Sigma-Aldrich) was evaluated. SGCs were seeded at a density of 2.500 cells/well in a 96 1/2&#x2009;well titer plate coated with PLL. Cultures were maintained under standard condition for 60 h with the respective growth factor and BrdU (100&#x2009;&#x3BC;M; 5-Bromo-2&#x2032;-deoxy-uridine labelling and detection kit III, Sigma-Aldrich) was applied for 12 h prior to fixation. Subsequently, cells were fixed and immunostained according to the manufacturer&#x2019;s protocol. Proliferating cells were stained with Cy2-coupled goat anti-rabbit antibodies (1:100; Jackson Immunoresearch,) and nuclei were counterstained with 0.01% bisbenzimide Hoechst 33258 (Sigma-Aldrich) for 5 min at room temperature. Triplicate experiments were performed and four high-power field photos from an inverted fluorescence microscope (Olympus IX-70, Hamburg, Germany) per well were manually counted with Image J (National Institutes of Health, Bethesda, MD, USA). The percentage of BrdU positive cells was compared to the total number of cells counted. Additionally, the number of GFAP and CNPase positive cells was evaluated.</p>
+      </sec>
+      <sec id="Sec15">
+        <title>Differentiation assay</title>
+        <p id="Par32">SGCs (2,500 cells/well, passage 2) were seeded on PLL coated &#xBD; wells in a 96 well plate and cultured in DMEM containing 10% FCS (control), B104-conditioned DMEM containing 5&#x2009;&#x3BC;M all-trans retinoic acid (RA; oligodendrocytic differentiation medium), or DMEM containing 20% FCS (astrocytic differentiation medium), respectively for three days<sup><xref ref-type="bibr" rid="CR71">71</xref></sup>.</p>
+        <p id="Par33">Furthermore, the effect of bone morphogenetic protein 4 (BMP4) and its inhibitor noggin was investigated. Analogue to the previously described experiment SGCs (passage 2) were cultivated and supplemented with BMP4 (10 ng/ml, R&amp;D Systems,) or the BMP4 inhibitor noggin (250 ng/ml; R&amp;D Systems). The experiments were performed in triplicates and number of GFAP positive cells was evaluated.</p>
+      </sec>
+      <sec id="Sec16">
+        <title>Statistical analysis</title>
+        <p id="Par34">Statistical analysis was performed using GraphPad software (Prism 5; GraphPad Software, Inc., La Jolla, CA, USA). Data were analyzed for multiple comparisons by a one-way ANOVA followed by Bonferroni&#x2019;s multiple comparisons test. Results of the co-culture experiment were analyzed by Student&#x2019;s t tests for paired samples. <italic>P</italic> values&#x2009;&lt;&#x2009;0.05 were considered statistically significant.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Electronic supplementary material</title>
+      <sec id="Sec17">
+        <p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2017_14246_MOESM1_ESM.pdf"><caption><p>Supplementary Information</p></caption></media></supplementary-material>
+</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn>
+        <p>W. Tongtako, A. Lehmbecker, W. Baumg&#xE4;rtner and I. Gerhauser contributed equally to this work.</p>
+      </fn>
+      <fn>
+        <p>
+          <bold>Electronic supplementary material</bold>
+        </p>
+        <p>
+<bold>Supplementary information</bold> accompanies this paper at 10.1038/s41598-017-14246-7.</p>
+      </fn>
+      <fn>
+        <p>
+<bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The authors are grateful to Bettina Buck, Petra Gr&#xFC;nig, Danuta Waschke, Caroline Sch&#xFC;tz, Kerstin Sch&#xF6;ne, Kerstin Rohn, and Claudia Herrmann for excellent technical assistance. The study was supported by grants from the German Research Foundation (DFG; BA 815/12-1; BA 815/10-2). Witchaya Tongtako is supported by Royal Thai Government Scholarship from the Office of the Civil Service Commission, Thailand (file No. 1152/2555). Kerstin Hahn received a grant from &#x201C;Stiftung der Deutschen Wirtschaft&#x201D;. Yimin Wang was supported by a grant from the China Scholarship Council (file No. 2010617011).</p>
+    </ack>
+    <notes notes-type="author-contribution">
+      <title>Author Contributions</title>
+      <p>W.T. was involved in study arrangement, some <italic>in situ</italic> (immunohistochemistry) and most <italic>in vitro</italic> experiments in dogs, all <italic>in situ</italic> and <italic>in vitro</italic> experiments in mice, and all <italic>in situ</italic> experiments in monkeys. A.L. was involved in the design and coordination of the study and in all <italic>in situ</italic> and <italic>in vitro</italic> experiments in dogs, mice, and monkeys. She also helped to draft and edit the manuscript. Y.W. was involved in some <italic>in situ</italic> and <italic>in vitro</italic> experiments in dogs. K.H. was involved in design and coordination of the study and in some <italic>in situ</italic> and <italic>in vitro</italic> experiments in dogs. W.B. was involved in design and coordination of the study and edited the manuscript. I.G. was involved in design and coordination of the study and drafted and edited the manuscript. All authors read and approved the final manuscript.</p>
+    </notes>
+    <notes notes-type="COI-statement">
+      <sec id="FPar1">
+        <title>Competing Interests</title>
+        <p id="Par35">The authors declare that they have no competing interests.</p>
+      </sec>
+    </notes>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Webster</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Astrom</surname>
+              <given-names>KE</given-names>
+            </name>
+          </person-group>
+          <article-title>Gliogenesis: historical perspectives, 1839&#x2013;1985</article-title>
+          <source>Advances in anatomy, embryology, and cell biology</source>
+          <year>2009</year>
+          <volume>202</volume>
+          <fpage>1</fpage>
+          <lpage>109</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-3-540-87534-5_1</pub-id>
+          <pub-id pub-id-type="pmid">19230601</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rowitch</surname>
+              <given-names>DH</given-names>
+            </name>
+            <name>
+              <surname>Kriegstein</surname>
+              <given-names>AR</given-names>
+            </name>
+          </person-group>
+          <article-title>Developmental genetics of vertebrate glial-cell specification</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+          <volume>468</volume>
+          <fpage>214</fpage>
+          <lpage>222</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature09611</pub-id>
+          <pub-id pub-id-type="pmid">21068830</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De Vries</surname>
+              <given-names>GH</given-names>
+            </name>
+            <name>
+              <surname>Boullerne</surname>
+              <given-names>AI</given-names>
+            </name>
+          </person-group>
+          <article-title>Glial cell lines: an overview</article-title>
+          <source>Neurochemical research</source>
+          <year>2010</year>
+          <volume>35</volume>
+          <fpage>1978</fpage>
+          <lpage>2000</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11064-010-0318-9</pub-id>
+          <pub-id pub-id-type="pmid">21127972</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ulrich</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transcriptional profiling predicts overwhelming homology of Schwann cells, olfactory ensheathing cells, and Schwann cell-like glia</article-title>
+          <source>Glia</source>
+          <year>2014</year>
+          <volume>62</volume>
+          <fpage>1559</fpage>
+          <lpage>1581</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22700</pub-id>
+          <pub-id pub-id-type="pmid">24889922</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gomez Perdiguero</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Schulz</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Geissmann</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Development and homeostasis of &#x201C;resident&#x201D; myeloid cells: the case of the microglia</article-title>
+          <source>Glia</source>
+          <year>2013</year>
+          <volume>61</volume>
+          <fpage>112</fpage>
+          <lpage>120</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22393</pub-id>
+          <pub-id pub-id-type="pmid">22847963</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Prinz</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tay</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Wolf</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Microglia: unique and common features with other tissue macrophages</article-title>
+          <source>Acta neuropathologica</source>
+          <year>2014</year>
+          <volume>128</volume>
+          <fpage>319</fpage>
+          <lpage>331</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00401-014-1267-1</pub-id>
+          <pub-id pub-id-type="pmid">24652058</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gudino-Cabrera</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Nieto-Sampedro</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Schwann-like macroglia in adult rat brain</article-title>
+          <source>Glia</source>
+          <year>2000</year>
+          <volume>30</volume>
+          <fpage>49</fpage>
+          <lpage>63</lpage>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1098-1136(200003)30:1&lt;49::AID-GLIA6&gt;3.0.CO;2-M</pub-id>
+          <pub-id pub-id-type="pmid">10696144</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Imbschweiler</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Increased p75 neurotrophin receptor expression in the canine distemper virus model of multiple sclerosis identifies aldynoglial Schwann cells that emerge in response to axonal damage</article-title>
+          <source>Glia</source>
+          <year>2012</year>
+          <volume>60</volume>
+          <fpage>358</fpage>
+          <lpage>371</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22270</pub-id>
+          <pub-id pub-id-type="pmid">22072443</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zawadzka</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>CNS-resident glial progenitor/stem cells produce Schwann cells as well as oligodendrocytes during repair of CNS demyelination</article-title>
+          <source>Cell stem cell</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <fpage>578</fpage>
+          <lpage>590</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2010.04.002</pub-id>
+          <pub-id pub-id-type="pmid">20569695</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tasker</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Oliet</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Bains</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Stern</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Glial regulation of neuronal function: from synapse to systems physiology</article-title>
+          <source>Journal of neuroendocrinology</source>
+          <year>2012</year>
+          <volume>24</volume>
+          <fpage>566</fpage>
+          <lpage>576</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2826.2011.02259.x</pub-id>
+          <pub-id pub-id-type="pmid">22128866</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alonso</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hernan</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <article-title>Temporal trends in the incidence of multiple sclerosis: a systematic review</article-title>
+          <source>Neurology</source>
+          <year>2008</year>
+          <volume>71</volume>
+          <fpage>129</fpage>
+          <lpage>135</lpage>
+          <pub-id pub-id-type="doi">10.1212/01.wnl.0000316802.35974.34</pub-id>
+          <pub-id pub-id-type="pmid">18606967</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>BB</given-names>
+            </name>
+            <name>
+              <surname>Cripps</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Fitzharris</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wing</surname>
+              <given-names>PC</given-names>
+            </name>
+          </person-group>
+          <article-title>The global map for traumatic spinal cord injury epidemiology: update 2011, global incidence rate</article-title>
+          <source>Spinal cord</source>
+          <year>2014</year>
+          <volume>52</volume>
+          <fpage>110</fpage>
+          <lpage>116</lpage>
+          <pub-id pub-id-type="doi">10.1038/sc.2012.158</pub-id>
+          <pub-id pub-id-type="pmid">23439068</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mukherjee</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Patil</surname>
+              <given-names>CG</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidemiology and the global burden of stroke</article-title>
+          <source>World neurosurgery</source>
+          <year>2011</year>
+          <volume>76</volume>
+          <fpage>S85</fpage>
+          <lpage>90</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.wneu.2011.07.023</pub-id>
+          <pub-id pub-id-type="pmid">22182277</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reitz</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Brayne</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mayeux</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidemiology of Alzheimer disease</article-title>
+          <source>Nature reviews. Neurology</source>
+          <year>2011</year>
+          <volume>7</volume>
+          <fpage>137</fpage>
+          <lpage>152</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrneurol.2011.2</pub-id>
+          <pub-id pub-id-type="pmid">21304480</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kegler</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Contribution of Schwann Cells to Remyelination in a Naturally Occurring Canine Model of CNS Neuroinflammation</article-title>
+          <source>PLoS One</source>
+          <year>2015</year>
+          <volume>10</volume>
+          <fpage>e0133916</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0133916</pub-id>
+          <pub-id pub-id-type="pmid">26196511</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spitzbarth</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Beineke</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of pro- and anti-inflammatory cytokines in the pathogenesis of spontaneous canine CNS diseases</article-title>
+          <source>Veterinary immunology and immunopathology</source>
+          <year>2012</year>
+          <volume>147</volume>
+          <fpage>6</fpage>
+          <lpage>24</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.vetimm.2012.04.005</pub-id>
+          <pub-id pub-id-type="pmid">22542984</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Skinner</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>Pachnicke</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lakatos</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Franklin</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Jeffery</surname>
+              <given-names>ND</given-names>
+            </name>
+          </person-group>
+          <article-title>Nasal and frontal sinus mucosa of the adult dog contain numerous olfactory sensory neurons and ensheathing glia</article-title>
+          <source>Res Vet Sci</source>
+          <year>2005</year>
+          <volume>78</volume>
+          <fpage>9</fpage>
+          <lpage>15</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.rvsc.2004.05.010</pub-id>
+          <pub-id pub-id-type="pmid">15500833</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kieseier</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Wiendl</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hartung</surname>
+              <given-names>HP</given-names>
+            </name>
+            <name>
+              <surname>Stuve</surname>
+              <given-names>O</given-names>
+            </name>
+          </person-group>
+          <article-title>The future of multiple sclerosis therapy</article-title>
+          <source>Pharmacological research</source>
+          <year>2009</year>
+          <volume>60</volume>
+          <fpage>207</fpage>
+          <lpage>211</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.phrs.2009.03.016</pub-id>
+          <pub-id pub-id-type="pmid">19717009</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>L&#xF6;scher</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Critical review of current animal models of seizures and epilepsy used in the discovery and development of new antiepileptic drugs</article-title>
+          <source>Seizure</source>
+          <year>2011</year>
+          <volume>20</volume>
+          <fpage>359</fpage>
+          <lpage>368</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.seizure.2011.01.003</pub-id>
+          <pub-id pub-id-type="pmid">21292505</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raddatz</surname>
+              <given-names>BB</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transcriptomic meta-analysis of multiple sclerosis and its experimental models</article-title>
+          <source>PLoS One</source>
+          <year>2014</year>
+          <volume>9</volume>
+          <fpage>e86643</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0086643</pub-id>
+          <pub-id pub-id-type="pmid">24475162</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wewetzer</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Radtke</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Kocsis</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Species-specific control of cellular proliferation and the impact of large animal models for the use of olfactory ensheathing cells and Schwann cells in spinal cord repair</article-title>
+          <source>Experimental neurology</source>
+          <year>2011</year>
+          <volume>229</volume>
+          <fpage>80</fpage>
+          <lpage>87</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.expneurol.2010.08.029</pub-id>
+          <pub-id pub-id-type="pmid">20816827</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Omar</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Defining the morphological phenotype: 2&#x2032;,3&#x2032;-cyclic nucleotide 3&#x2032;-phosphodiesterase (CNPase) is a novel marker for <italic>in situ</italic> detection of canine but not rat olfactory ensheathing cells</article-title>
+          <source>Cell and tissue research</source>
+          <year>2011</year>
+          <volume>344</volume>
+          <fpage>391</fpage>
+          <lpage>405</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00441-011-1168-8</pub-id>
+          <pub-id pub-id-type="pmid">21519895</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Techangamsuwan</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Similar behaviour and primate-like properties of adult canine Schwann cells and olfactory ensheathing cells in long-term culture</article-title>
+          <source>Brain Res</source>
+          <year>2008</year>
+          <volume>1240</volume>
+          <fpage>31</fpage>
+          <lpage>38</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2008.08.092</pub-id>
+          <pub-id pub-id-type="pmid">18817757</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beineke</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Puff</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Seehusen</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Pathogenesis and immunopathology of systemic and nervous canine distemper</article-title>
+          <source>Veterinary immunology and immunopathology</source>
+          <year>2009</year>
+          <volume>127</volume>
+          <fpage>1</fpage>
+          <lpage>18</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.vetimm.2008.09.023</pub-id>
+          <pub-id pub-id-type="pmid">19019458</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bock</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Spatio-temporal development of axonopathy in canine intervertebral disc disease as a translational large animal model for nonexperimental spinal cord injury</article-title>
+          <source>Brain Pathol</source>
+          <year>2013</year>
+          <volume>23</volume>
+          <fpage>82</fpage>
+          <lpage>99</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1750-3639.2012.00617.x</pub-id>
+          <pub-id pub-id-type="pmid">22805224</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spitzbarth</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Prominent microglial activation in the early proinflammatory immune response in naturally occurring canine spinal cord injury</article-title>
+          <source>J Neuropathol Exp Neurol</source>
+          <year>2011</year>
+          <volume>70</volume>
+          <fpage>703</fpage>
+          <lpage>714</lpage>
+          <pub-id pub-id-type="doi">10.1097/NEN.0b013e3182270f8e</pub-id>
+          <pub-id pub-id-type="pmid">21760535</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jeffery</surname>
+              <given-names>ND</given-names>
+            </name>
+            <name>
+              <surname>Hamilton</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Granger</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Designing clinical trials in canine spinal cord injury as a model to translate successful laboratory interventions into clinical practice</article-title>
+          <source>Vet Rec</source>
+          <year>2011</year>
+          <volume>168</volume>
+          <fpage>102</fpage>
+          <lpage>107</lpage>
+          <pub-id pub-id-type="doi">10.1136/vr.d475</pub-id>
+          <pub-id pub-id-type="pmid">21493470</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Potschka</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fischer</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>von R&#xFC;den</surname>
+              <given-names>EL</given-names>
+            </name>
+            <name>
+              <surname>Hulsmeyer</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Baumgartner</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Canine epilepsy as a translational model?</article-title>
+          <source>Epilepsia</source>
+          <year>2013</year>
+          <volume>54</volume>
+          <fpage>571</fpage>
+          <lpage>579</lpage>
+          <pub-id pub-id-type="doi">10.1111/epi.12138</pub-id>
+          <pub-id pub-id-type="pmid">23506100</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hanani</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Satellite glial cells in sensory ganglia: from form to function</article-title>
+          <source>Brain research. Brain research reviews</source>
+          <year>2005</year>
+          <volume>48</volume>
+          <fpage>457</fpage>
+          <lpage>476</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainresrev.2004.09.001</pub-id>
+          <pub-id pub-id-type="pmid">15914252</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pannese</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>The structure of the perineuronal sheath of satellite glial cells (SGCs) in sensory ganglia</article-title>
+          <source>Neuron glia biology</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <fpage>3</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="doi">10.1017/S1740925X10000037</pub-id>
+          <pub-id pub-id-type="pmid">20604977</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thippeswamy</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Morris</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Nerve growth factor inhibits the expression of nitric oxide synthase in neurones in dissociated cultures of rat dorsal root ganglia</article-title>
+          <source>Neuroscience letters</source>
+          <year>1997</year>
+          <volume>230</volume>
+          <fpage>9</fpage>
+          <lpage>12</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0304-3940(97)00459-X</pub-id>
+          <pub-id pub-id-type="pmid">9259451</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pannese</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>The satellite cells of the sensory ganglia</article-title>
+          <source>Advances in anatomy, embryology, and cell biology</source>
+          <year>1981</year>
+          <volume>65</volume>
+          <fpage>1</fpage>
+          <lpage>111</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-3-642-67750-2_1</pub-id>
+          <pub-id pub-id-type="pmid">7013430</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van Velzen</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neuron-interacting satellite glial cells in human trigeminal ganglia have an APC phenotype</article-title>
+          <source>J Immunol</source>
+          <year>2009</year>
+          <volume>183</volume>
+          <fpage>2456</fpage>
+          <lpage>2461</lpage>
+          <pub-id pub-id-type="doi">10.4049/jimmunol.0900890</pub-id>
+          <pub-id pub-id-type="pmid">19635905</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wu</surname>
+              <given-names>HH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Glial precursors clear sensory neuron corpses during development via Jedi-1, an engulfment receptor</article-title>
+          <source>Nature neuroscience</source>
+          <year>2009</year>
+          <volume>12</volume>
+          <fpage>1534</fpage>
+          <lpage>1541</lpage>
+          <pub-id pub-id-type="doi">10.1038/nn.2446</pub-id>
+          <pub-id pub-id-type="pmid">19915564</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lyck</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Dalmau</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Chemnitz</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Finsen</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Schroder</surname>
+              <given-names>HD</given-names>
+            </name>
+          </person-group>
+          <article-title>Immunohistochemical markers for quantitative studies of neurons and glia in human neocortex</article-title>
+          <source>The journal of histochemistry and cytochemistry: official journal of the Histochemistry Society</source>
+          <year>2008</year>
+          <volume>56</volume>
+          <fpage>201</fpage>
+          <lpage>221</lpage>
+          <pub-id pub-id-type="doi">10.1369/jhc.7A7187.2007</pub-id>
+          <pub-id pub-id-type="pmid">17998570</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jessen</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Morgan</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Stewart</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Mirsky</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Three markers of adult non-myelin-forming Schwann cells, 217c(Ran-1), A5E3 and GFAP: development and regulation by neuron-Schwann cell interactions</article-title>
+          <source>Development</source>
+          <year>1990</year>
+          <volume>109</volume>
+          <fpage>91</fpage>
+          <lpage>103</lpage>
+          <pub-id pub-id-type="pmid">2209471</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Seehusen</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Orlando</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Wewetzer</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Vimentin-positive astrocytes in canine distemper: a target for canine distemper virus especially in chronic demyelinating lesions?</article-title>
+          <source>Acta neuropathologica</source>
+          <year>2007</year>
+          <volume>114</volume>
+          <fpage>597</fpage>
+          <lpage>608</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00401-007-0307-5</pub-id>
+          <pub-id pub-id-type="pmid">17965866</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chan-Ling</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Chu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Baxter</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Weible Ii, M. &amp; Hughes, S. <italic>In vivo</italic> characterization of astrocyte precursor cells (APCs) and astrocytes in developing rat retinae: differentiation, proliferation, and apoptosis</article-title>
+          <source>Glia</source>
+          <year>2009</year>
+          <volume>57</volume>
+          <fpage>39</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.20733</pub-id>
+          <pub-id pub-id-type="pmid">18661555</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nascimento</surname>
+              <given-names>RS</given-names>
+            </name>
+            <name>
+              <surname>Santiago</surname>
+              <given-names>MF</given-names>
+            </name>
+            <name>
+              <surname>Marques</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Allodi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Martinez</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Diversity among satellite glial cells in dorsal root ganglia of the rat</article-title>
+          <source>Brazilian journal of medical and biological research&#x2009;=&#x2009;Revista brasileira de pesquisas medicas e biologicas</source>
+          <year>2008</year>
+          <volume>41</volume>
+          <fpage>1011</fpage>
+          <lpage>1017</lpage>
+          <pub-id pub-id-type="pmid">19030716</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raginov</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Chelyshev</surname>
+              <given-names>YA</given-names>
+            </name>
+            <name>
+              <surname>Shagidullin</surname>
+              <given-names>TF</given-names>
+            </name>
+          </person-group>
+          <article-title>Interaction of sensory neurons and satellite cells during stimulation of nerve regeneration</article-title>
+          <source>Neuroscience and behavioral physiology</source>
+          <year>2004</year>
+          <volume>34</volume>
+          <fpage>79</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="doi">10.1023/B:NEAB.0000003250.44648.5c</pub-id>
+          <pub-id pub-id-type="pmid">15109086</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vega</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Rodriguez</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Medina</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>del Valle-Soto</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Hernandez</surname>
+              <given-names>LC</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of cytoskeletal proteins in glial cells of dorsal root ganglia</article-title>
+          <source>Cellular and molecular biology</source>
+          <year>1989</year>
+          <volume>35</volume>
+          <fpage>635</fpage>
+          <lpage>641</lpage>
+          <pub-id pub-id-type="pmid">2627702</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>FY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activation of satellite glial cells in lumbar dorsal root ganglia contributes to neuropathic pain after spinal nerve ligation</article-title>
+          <source>Brain Res</source>
+          <year>2012</year>
+          <volume>1427</volume>
+          <fpage>65</fpage>
+          <lpage>77</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2011.10.016</pub-id>
+          <pub-id pub-id-type="pmid">22050959</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Toma</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>McPhail</surname>
+              <given-names>LT</given-names>
+            </name>
+            <name>
+              <surname>Ramer</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Differential RIP antigen (CNPase) expression in peripheral ensheathing glia</article-title>
+          <source>Brain Res</source>
+          <year>2007</year>
+          <volume>1137</volume>
+          <fpage>1</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2006.12.053</pub-id>
+          <pub-id pub-id-type="pmid">17229407</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Altered functional properties of satellite glial cells in compressed spinal ganglia</article-title>
+          <source>Glia</source>
+          <year>2009</year>
+          <volume>57</volume>
+          <fpage>1588</fpage>
+          <lpage>1599</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.20872</pub-id>
+          <pub-id pub-id-type="pmid">19330845</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kalous</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nangle</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Anastasia</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hempstead</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Keast</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotrophic actions initiated by proNGF in adult sensory neurons may require peri-somatic glia to drive local cleavage to NGF</article-title>
+          <source>J Neurochem</source>
+          <year>2012</year>
+          <volume>122</volume>
+          <fpage>523</fpage>
+          <lpage>536</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1471-4159.2012.07799.x</pub-id>
+          <pub-id pub-id-type="pmid">22621370</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>McLachlan</surname>
+              <given-names>EM</given-names>
+            </name>
+          </person-group>
+          <article-title>Distinct sprouting responses of sympathetic and peptidergic sensory axons proximal to a sciatic nerve transection in guinea pigs and rats</article-title>
+          <source>Neuroscience letters</source>
+          <year>2000</year>
+          <volume>295</volume>
+          <fpage>59</fpage>
+          <lpage>63</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0304-3940(00)01583-4</pub-id>
+          <pub-id pub-id-type="pmid">11078936</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pannese</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Procacci</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Ultrastructural localization of NGF receptors in satellite cells of the rat spinal ganglia</article-title>
+          <source>Journal of neurocytology</source>
+          <year>2002</year>
+          <volume>31</volume>
+          <fpage>755</fpage>
+          <lpage>763</lpage>
+          <pub-id pub-id-type="doi">10.1023/A:1025708132119</pub-id>
+          <pub-id pub-id-type="pmid">14501212</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vega</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>del Valle-Soto</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Calzada</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Mendez</surname>
+              <given-names>JC</given-names>
+            </name>
+          </person-group>
+          <article-title>Immunohistochemical localization of S-100 protein subunits (alpha and beta) in dorsal root ganglia of the rat</article-title>
+          <source>Cellular and molecular biology</source>
+          <year>1991</year>
+          <volume>37</volume>
+          <fpage>173</fpage>
+          <lpage>181</lpage>
+          <pub-id pub-id-type="pmid">1878926</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boo</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>JS</given-names>
+            </name>
+          </person-group>
+          <article-title>Intrinsic cellular defenses against virus infection by antiviral type I interferon</article-title>
+          <source>Yonsei medical journal</source>
+          <year>2010</year>
+          <volume>51</volume>
+          <fpage>9</fpage>
+          <lpage>17</lpage>
+          <pub-id pub-id-type="doi">10.3349/ymj.2010.51.1.9</pub-id>
+          <pub-id pub-id-type="pmid">20046508</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sadler</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>BR</given-names>
+            </name>
+          </person-group>
+          <article-title>Interferon-inducible antiviral effectors</article-title>
+          <source>Nature reviews. Immunology</source>
+          <year>2008</year>
+          <volume>8</volume>
+          <fpage>559</fpage>
+          <lpage>568</lpage>
+          <pub-id pub-id-type="doi">10.1038/nri2314</pub-id>
+          <pub-id pub-id-type="pmid">18575461</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gilyarov</surname>
+              <given-names>AV</given-names>
+            </name>
+          </person-group>
+          <article-title>Nestin in central nervous system cells</article-title>
+          <source>Neuroscience and behavioral physiology</source>
+          <year>2008</year>
+          <volume>38</volume>
+          <fpage>165</fpage>
+          <lpage>169</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11055-008-0025-z</pub-id>
+          <pub-id pub-id-type="pmid">18197384</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bani-Yaghoub</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Role of Sox2 in the development of the mouse neocortex</article-title>
+          <source>Developmental biology</source>
+          <year>2006</year>
+          <volume>295</volume>
+          <fpage>52</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2006.03.007</pub-id>
+          <pub-id pub-id-type="pmid">16631155</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Favaro</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hippocampal development and neural stem cell maintenance require Sox2-dependent regulation of Shh</article-title>
+          <source>Nature neuroscience</source>
+          <year>2009</year>
+          <volume>12</volume>
+          <fpage>1248</fpage>
+          <lpage>1256</lpage>
+          <pub-id pub-id-type="doi">10.1038/nn.2397</pub-id>
+          <pub-id pub-id-type="pmid">19734891</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cimadamore</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human ESC-derived neural crest model reveals a key role for SOX2 in sensory neurogenesis</article-title>
+          <source>Cell stem cell</source>
+          <year>2011</year>
+          <volume>8</volume>
+          <fpage>538</fpage>
+          <lpage>551</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2011.03.011</pub-id>
+          <pub-id pub-id-type="pmid">21549328</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wakamatsu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Endo</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Osumi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Weston</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Multiple roles of Sox2, an HMG-box transcription factor in avian neural crest development</article-title>
+          <source>Developmental dynamics: an official publication of the American Association of Anatomists</source>
+          <year>2004</year>
+          <volume>229</volume>
+          <fpage>74</fpage>
+          <lpage>86</lpage>
+          <pub-id pub-id-type="doi">10.1002/dvdy.10498</pub-id>
+          <pub-id pub-id-type="pmid">14699579</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Koike</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Sox2 in the adult rat sensory nervous system</article-title>
+          <source>Histochemistry and cell biology</source>
+          <year>2014</year>
+          <volume>141</volume>
+          <fpage>301</fpage>
+          <lpage>309</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00418-013-1158-x</pub-id>
+          <pub-id pub-id-type="pmid">24170317</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Komitova</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Eriksson</surname>
+              <given-names>PS</given-names>
+            </name>
+          </person-group>
+          <article-title>Sox-2 is expressed by neural progenitors and astroglia in the adult rat brain</article-title>
+          <source>Neuroscience letters</source>
+          <year>2004</year>
+          <volume>369</volume>
+          <fpage>24</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.neulet.2004.07.035</pub-id>
+          <pub-id pub-id-type="pmid">15380301</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Say</surname>
+              <given-names>EH</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>XF</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation and characterization of neural crest progenitors from adult dorsal root ganglia</article-title>
+          <source>Stem cells</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>2053</fpage>
+          <lpage>2065</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2007-0080</pub-id>
+          <pub-id pub-id-type="pmid">17525237</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Svenningsen</surname>
+              <given-names>&#xC5;F</given-names>
+            </name>
+            <name>
+              <surname>Colman</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Pedraza</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Satellite cells of dorsal root ganglia are multipotential glial precursors</article-title>
+          <source>Neuron glia biology</source>
+          <year>2004</year>
+          <volume>1</volume>
+          <fpage>85</fpage>
+          <lpage>93</lpage>
+          <pub-id pub-id-type="doi">10.1017/S1740925X04000110</pub-id>
+          <pub-id pub-id-type="pmid">18634609</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Orlando</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Imbschweiler</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Gerhauser</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Wewetzer</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title><italic>In vitro</italic> characterization and preferential infection by canine distemper virus of glial precursors with Schwann cell characteristics from adult canine brain</article-title>
+          <source>Neuropathol Appl Neurobiol</source>
+          <year>2008</year>
+          <volume>34</volume>
+          <fpage>621</fpage>
+          <lpage>637</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2990.2008.00958.x</pub-id>
+          <pub-id pub-id-type="pmid">19076697</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krudewig</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Deschl</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Wewetzer</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Purification and <italic>in vitro</italic> characterization of adult canine olfactory ensheathing cells</article-title>
+          <source>Cell and tissue research</source>
+          <year>2006</year>
+          <volume>326</volume>
+          <fpage>687</fpage>
+          <lpage>696</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00441-006-0238-9</pub-id>
+          <pub-id pub-id-type="pmid">16788833</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Galvez-Contreras</surname>
+              <given-names>AY</given-names>
+            </name>
+            <name>
+              <surname>Quinones-Hinojosa</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gonzalez-Perez</surname>
+              <given-names>O</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of EGFR and ErbB family related proteins in the oligodendrocyte specification in germinal niches of the adult mammalian brain</article-title>
+          <source>Frontiers in cellular neuroscience</source>
+          <year>2013</year>
+          <volume>7</volume>
+          <fpage>258</fpage>
+          <pub-id pub-id-type="doi">10.3389/fncel.2013.00258</pub-id>
+          <pub-id pub-id-type="pmid">24381541</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Best</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Mania-Farnell</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>James</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Tomita</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Therapeutic Potential for Bone Morphogenetic Protein 4 in Human Malignant Glioma</article-title>
+          <source>Neoplasia</source>
+          <year>2017</year>
+          <volume>19</volume>
+          <fpage>261</fpage>
+          <lpage>270</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.neo.2017.01.006</pub-id>
+          <pub-id pub-id-type="pmid">28278424</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De Koninck</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Carbonetto</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cooper</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>NGF induces neonatal rat sensory neurons to extend dendrites in culture after removal of satellite cells</article-title>
+          <source>The Journal of neuroscience: the official journal of the Society for Neuroscience</source>
+          <year>1993</year>
+          <volume>13</volume>
+          <fpage>577</fpage>
+          <lpage>585</lpage>
+          <pub-id pub-id-type="pmid">8426228</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xie</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Strong</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Highly localized interactions between sensory neurons and sprouting sympathetic fibers observed in a transgenic tyrosine hydroxylase reporter mouse</article-title>
+          <source>Molecular pain</source>
+          <year>2011</year>
+          <volume>7</volume>
+          <fpage>53</fpage>
+          <pub-id pub-id-type="doi">10.1186/1744-8069-7-53</pub-id>
+          <pub-id pub-id-type="pmid">21794129</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gerhauser</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Hahn</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Wewetzer</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Culturing adult canine sensory neurons to optimise neural repair</article-title>
+          <source>Vet Rec</source>
+          <year>2012</year>
+          <volume>170</volume>
+          <fpage>102</fpage>
+          <pub-id pub-id-type="doi">10.1136/vr.100255</pub-id>
+          <pub-id pub-id-type="pmid">22068333</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gerhauser</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Theiler&#x2019;s murine encephalomyelitis virus induced phenotype switch of microglia <italic>in vitro</italic></article-title>
+          <source>J Neuroimmunol</source>
+          <year>2012</year>
+          <volume>252</volume>
+          <fpage>49</fpage>
+          <lpage>55</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jneuroim.2012.07.018</pub-id>
+          <pub-id pub-id-type="pmid">22967352</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Herder</surname>
+              <given-names>V</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interleukin-10 expression during the acute phase is a putative prerequisite for delayed viral elimination in a murine model for multiple sclerosis</article-title>
+          <source>J Neuroimmunol</source>
+          <year>2012</year>
+          <volume>249</volume>
+          <fpage>27</fpage>
+          <lpage>39</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jneuroim.2012.04.010</pub-id>
+          <pub-id pub-id-type="pmid">22591945</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ziege</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Wewetzer</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Toward defining the regenerative potential of olfactory mucosa: establishment of Schwann cell-free adult canine olfactory ensheathing cell preparations suitable for transplantation</article-title>
+          <source>Cell transplantation</source>
+          <year>2013</year>
+          <volume>22</volume>
+          <fpage>355</fpage>
+          <lpage>367</lpage>
+          <pub-id pub-id-type="doi">10.3727/096368912X656108</pub-id>
+          <pub-id pub-id-type="pmid">23006619</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR70">
+        <label>70.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ulrich</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Seeliger</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Kreutzer</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Germann</surname>
+              <given-names>PG</given-names>
+            </name>
+            <name>
+              <surname>Baumg&#xE4;rtner</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Limited remyelination in Theiler&#x2019;s murine encephalomyelitis due to insufficient oligodendroglial differentiation of nerve/glial antigen 2 (NG2)-positive putative oligodendroglial progenitor cells</article-title>
+          <source>Neuropathol Appl Neurobiol</source>
+          <year>2008</year>
+          <volume>34</volume>
+          <fpage>603</fpage>
+          <lpage>620</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2990.2008.00956.x</pub-id>
+          <pub-id pub-id-type="pmid">18466224</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR71">
+        <label>71.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sun</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>STAT3 represents a molecular switch possibly inducing astroglial instead of oligodendroglial differentiation of oligodendroglial progenitor cells in Theiler&#x2019;s murine encephalomyelitis</article-title>
+          <source>Neuropathol Appl Neurobiol</source>
+          <year>2015</year>
+          <volume>41</volume>
+          <fpage>347</fpage>
+          <lpage>370</lpage>
+          <pub-id pub-id-type="doi">10.1111/nan.12133</pub-id>
+          <pub-id pub-id-type="pmid">24606160</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

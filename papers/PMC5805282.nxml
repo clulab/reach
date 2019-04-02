@@ -1,0 +1,942 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, CA USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29420611</article-id>
+      <article-id pub-id-type="pmc">5805282</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0192458</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-17-34899</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cellular Types</subject>
+              <subj-group>
+                <subject>Animal Cells</subject>
+                <subj-group>
+                  <subject>Epithelial Cells</subject>
+                  <subj-group>
+                    <subject>Granulosa Cells</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Biological Tissue</subject>
+              <subj-group>
+                <subject>Epithelium</subject>
+                <subj-group>
+                  <subject>Epithelial Cells</subject>
+                  <subj-group>
+                    <subject>Granulosa Cells</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Biological Tissue</subject>
+              <subj-group>
+                <subject>Epithelium</subject>
+                <subj-group>
+                  <subject>Epithelial Cells</subject>
+                  <subj-group>
+                    <subject>Granulosa Cells</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cellular Types</subject>
+              <subj-group>
+                <subject>Animal Cells</subject>
+                <subj-group>
+                  <subject>Lutein Cells</subject>
+                  <subj-group>
+                    <subject>Granulosa Cells</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Endocrinology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Menstrual Cycle</subject>
+                <subj-group>
+                  <subject>Ovulation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Menstrual Cycle</subject>
+                <subj-group>
+                  <subject>Ovulation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Menstrual Cycle</subject>
+                <subj-group>
+                  <subject>Ovulation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Reproductive Physiology</subject>
+              <subj-group>
+                <subject>Menstrual Cycle</subject>
+                <subj-group>
+                  <subject>Ovulation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Reproductive Physiology</subject>
+              <subj-group>
+                <subject>Menstrual Cycle</subject>
+                <subj-group>
+                  <subject>Ovulation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Reproductive System</subject>
+              <subj-group>
+                <subject>Ovaries</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Reproductive System</subject>
+              <subj-group>
+                <subject>Ovaries</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cellular Types</subject>
+              <subj-group>
+                <subject>Animal Cells</subject>
+                <subj-group>
+                  <subject>Germ Cells</subject>
+                  <subj-group>
+                    <subject>OVA</subject>
+                    <subj-group>
+                      <subject>Oocytes</subject>
+                    </subj-group>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Hormones</subject>
+              <subj-group>
+                <subject>Lipid Hormones</subject>
+                <subj-group>
+                  <subject>Progesterone</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Proteins</subject>
+              <subj-group>
+                <subject>Post-Translational Modification</subject>
+                <subj-group>
+                  <subject>Phosphorylation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cell Adhesion</subject>
+              <subj-group>
+                <subject>Integrins</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cellular Structures and Organelles</subject>
+              <subj-group>
+                <subject>Extracellular Matrix</subject>
+                <subj-group>
+                  <subject>Integrins</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Genetics</subject>
+            <subj-group>
+              <subject>Gene Expression</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Inductions of granulosa cell luteinization and cumulus expansion are dependent on the fibronectin-integrin pathway during ovulation process in mice</article-title>
+        <alt-title alt-title-type="running-head">Fibronectin-integrin pathway during ovulation process</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kitasaka</surname>
+            <given-names>Hiroya</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Conceptualization</role>
+          <role content-type="http://credit.casrai.org/">Data curation</role>
+          <role content-type="http://credit.casrai.org/">Formal analysis</role>
+          <role content-type="http://credit.casrai.org/">Investigation</role>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; original draft</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff002">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kawai</surname>
+            <given-names>Tomoko</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Data curation</role>
+          <role content-type="http://credit.casrai.org/">Formal analysis</role>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; original draft</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hoque</surname>
+            <given-names>S. A. Masudul</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; review &amp; editing</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff003">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Umehara</surname>
+            <given-names>Takashi</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Methodology</role>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; review &amp; editing</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fujita</surname>
+            <given-names>Youko</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Methodology</role>
+          <xref ref-type="aff" rid="aff004">
+            <sup>4</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-6500-2088</contrib-id>
+          <name>
+            <surname>Shimada</surname>
+            <given-names>Masayuki</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Supervision</role>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; review &amp; editing</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="corresp" rid="cor001">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff001"><label>1</label>
+<addr-line>Laboratory of Reproductive Endocrinology, Graduate School of Biosphere Science, Hiroshima University, Higashi-Hiroshima, Hiroshima, Japan</addr-line></aff>
+      <aff id="aff002"><label>2</label>
+<addr-line>Asada Ladies Clinic, Nagoya, Japan</addr-line></aff>
+      <aff id="aff003"><label>3</label>
+<addr-line>Bangabandhu Sheikh Mujibur Rahman Agricultural University, Gazipur-1706, Bangladesh</addr-line></aff>
+      <aff id="aff004"><label>4</label>
+<addr-line>Women&#x2019;s Clinic Oizumi-Gakuenn, Higashi-Oizumi, Tokyo, Japan</addr-line></aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Lobaccaro</surname>
+            <given-names>Jean-Marc A.</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+        <addr-line>Universite Clermont Auvergne, FRANCE</addr-line>
+      </aff>
+      <author-notes>
+        <fn fn-type="COI-statement" id="coi001">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <corresp id="cor001">* E-mail: <email>mashimad@hiroshima-u.ac.jp</email></corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>8</day>
+        <month>2</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2018</year>
+      </pub-date>
+      <volume>13</volume>
+      <issue>2</issue>
+      <elocation-id>e0192458</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>9</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>23</day>
+          <month>1</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2018 Kitasaka et al</copyright-statement>
+        <copyright-year>2018</copyright-year>
+        <copyright-holder>Kitasaka et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:href="pone.0192458.pdf"/>
+      <abstract>
+        <p>It has been known that EGF-like factor secreted from LH-stimulated granuloma cells acts on granulosa cells and cumulus cells to induce ovulation process. Granulosa cells are changed the morphology with differentiating cell functions to produce progesterone. Cumulus cells are detached to make a space between the cells to accumulate hyaluronan rich matrix. LH also changes extracellular matrix (ECM) components including fibronectin in the follicular walls and granulosa cell layers. EGF like factor and fibronectin synergistically play important roles in numerous cell functions, especially cancer cell migration, estimating that fibronectin would impact on granulosa cells and cumulus cells. To clear this hypothesis, the localizations of fibronectin and its receptor integrin were observed by immunofluorescence technique. The functions were monitored by the detection of downstream signaling pathway, focal adhesion kinase (FAK). The pharmacological approach in both <italic>in vivo</italic> and <italic>in vitro</italic> were used for analyzing the physiological roles of FAK during ovulation process. The immunofluorescence staining revealed that fibronectin and integrin were observed in granulosa cells, cumulus cells and the space between cumulus cells and oocyte at 4 and 8 h after hCG injection. Concomitantly with the changes of fibronectin-integrin localization, FAK was phosphorylated in periovulatory follicles. The injection of FAK inhibitor suppressed not only ovulation but also luteinization of granulosa cells and cumulus expansion. In cultured-granulosa cells, fibronectin-integrin synergistically activated FAK with amphiregulin (AREG). Such cooperative stimulations induced a morphological change in granulosa cells, which resulted in the maximum level of progesterone production via the induction of <italic>Hsd3b</italic>. When cumulus-oocyte complexes (COCs) were cultured with AREG in the presence of serum, the maximum level of cumulus expansion was observed. The AREG-induced cumulus expansion was also suppressed by FAK inhibitor. Thus, it is concluded that fibronectin and AREG synergistically activate FAK not only in granulosa cells and cumulus cells to induce successful ovulation process.</p>
+      </abstract>
+      <funding-group>
+        <award-group id="award001">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100001691</institution-id>
+              <institution>Japan Society for the Promotion of Science</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>JP24688028</award-id>
+          <principal-award-recipient>
+            <contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-6500-2088</contrib-id>
+            <name>
+              <surname>Shimada</surname>
+              <given-names>Masayuki</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group id="award002">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100001691</institution-id>
+              <institution>Japan Society for the Promotion of Science</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>JP 16H05017</award-id>
+          <principal-award-recipient>
+            <contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-6500-2088</contrib-id>
+            <name>
+              <surname>Shimada</surname>
+              <given-names>Masayuki</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group id="award003">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/100009619</institution-id>
+              <institution>Japan Agency for Medical Research and Development</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>16gk0110015h0001</award-id>
+          <principal-award-recipient>
+            <contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-6500-2088</contrib-id>
+            <name>
+              <surname>Shimada</surname>
+              <given-names>Masayuki</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <funding-statement>This work was supported in part by JSPS KAKENHI Grant Number JP24688028 and JP 16H05017 (to M.S.) and the Japan Agency for Medical Research and Development (AMED) 16gk0110015h0001 (to M.S.).</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="6"/>
+        <table-count count="0"/>
+        <page-count count="19"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>All relevant data are within the paper and its Supporting Information files.</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>All relevant data are within the paper and its Supporting Information files.</p>
+    </notes>
+  </front>
+  <body>
+    <sec sec-type="intro" id="sec001">
+      <title>Introduction</title>
+      <p>Luteinizing hormone (LH) is transiently secreted from pituitary glands and acts on its receptor expressed on granulosa cells to induce ovulation process [<xref rid="pone.0192458.ref001" ref-type="bibr">1</xref>]. In LH-stimulated granulosa cells, epidermal growth factor (EGF)-like factor is expressed and secreted to act on its receptor, EGFR, in both granulosa cells and cumulus cells [<xref rid="pone.0192458.ref002" ref-type="bibr">2</xref>][<xref rid="pone.0192458.ref003" ref-type="bibr">3</xref>]. The downstream pathway of EGFR in follicular somatic cells is mitogen-activated protein kinase (MAPK1/3), also called ERK1/2, because in <italic>Mapk1</italic><sup><italic>-/-</italic></sup><italic>;Mapk3</italic><sup><italic>flox;flox</italic></sup><italic>;Cyp19Cre</italic> mice that MAPK1/3 are deleted in granulosa cells and cumulus cells, ovulation is completely suppressed [<xref rid="pone.0192458.ref004" ref-type="bibr">4</xref>]. In the mutant mouse, almost all genes reported to be expressed in granulosa cells and cumulus cells during ovulation process are not expressed after human chorionic gonadotropin (hCG) injection [<xref rid="pone.0192458.ref004" ref-type="bibr">4</xref>], indicating that the function of EGFR changes the gene expression pattern from the follicular development stage to ovulation process.</p>
+      <p>Activation of EGFR is also involved in cell migration and morphological changes of the cell shape [<xref rid="pone.0192458.ref005" ref-type="bibr">5</xref>]. The EGF-like factor-EGFR pathway increases the enzymatic activity of calpain 2 via both Ca<sup>2+</sup> induction and ERK1/2 activation in cumulus cells during ovulation process [<xref rid="pone.0192458.ref006" ref-type="bibr">6</xref>]. Calpain-degraded focal adhesion components, such as paxicillin and tallin, induce cytoskeleton remodeling in cumulus cells, and this induction is essential for the detachment of cumulus cells and cell migration during ovulation process of the mouse cumulus-oocyte complex (COC) [<xref rid="pone.0192458.ref006" ref-type="bibr">6</xref>]. Modification of the cytoskeleton is also observed in granulosa cells during ovulation process [<xref rid="pone.0192458.ref007" ref-type="bibr">7</xref>][<xref rid="pone.0192458.ref008" ref-type="bibr">8</xref>]. When the mutant type of cofilin, one of the focal adhesion mediators, was overexpressed in cultured granulosa cells, not only actin remodeling but also progesterone production was not induced in the cells [<xref rid="pone.0192458.ref009" ref-type="bibr">9</xref>]. Cofilin is known to be regulated by an EGFR-dependent pathway in fibroblasts [<xref rid="pone.0192458.ref010" ref-type="bibr">10</xref>], indicating that the EGF-like factor-EGFR pathway induces differentiation of granulosa cells and cumulus cells during ovulation process via both changes in gene expression patterns and morphological changes of the cells. However, the latter mechanisms that change the shape of both granulosa cells and cumulus cells have been unclear.</p>
+      <p>Focal adhesion components bind to integrins, which are transmembrane proteins, and recognize changes in extracellular environments to maintain or change the cell shape [<xref rid="pone.0192458.ref011" ref-type="bibr">11</xref>][<xref rid="pone.0192458.ref012" ref-type="bibr">12</xref>]. The major binding partner of integrins is fibronectin, a component of the extracellular matrix (ECM) of organs including ovarian follicles [<xref rid="pone.0192458.ref013" ref-type="bibr">13</xref>]. During follicular development and ovulation, ECM components change kinetically in the follicular walls and granulosa cell layers. In preantral and early antral follicles, the follicular walls consist of laminin, collagen and perlecan [<xref rid="pone.0192458.ref014" ref-type="bibr">14</xref>]. After the LH surge, granulosa cells express fibronectin and laminin that accumulate within the granulosa cell layers [<xref rid="pone.0192458.ref015" ref-type="bibr">15</xref>]. These changes in ECM components affect granulosa cell functions at least <italic>in vitro</italic>. Huet et al. [<xref rid="pone.0192458.ref016" ref-type="bibr">16</xref>] reported that, when granulosa cells were cultured on a collagen-coated surface, follicle-stimulating hormone (FSH) enhanced estrogen production compared with granulosa cells without collagen. Conversely, coating with fibronectin or laminin induces progesterone production, suggesting that ECM components support EGF-like factor-EGFR-induced luteinization of granulosa cells. Focal adhesion kinase (FAK) is an assembly point of both signaling pathways, where integrins mediate the phosphorylation of Tyr397 of FAK and the EGFR pathway induces phosphorylation of Tyr925 of FAK in a Src-dependent manner [<xref rid="pone.0192458.ref017" ref-type="bibr">17</xref>][<xref rid="pone.0192458.ref018" ref-type="bibr">18</xref>]. The both phosphorylation sites of FAK leads to the maximum enzymatic activity of FAK to induce the differentiation and migration of cells [<xref rid="pone.0192458.ref019" ref-type="bibr">19</xref>]. Therefore, we hypothesized that EGFR and integrin signaling pathways, which change the shapes of granulosa cells and cumulus cells, would be essential for the differentiation of both cell types. However, there is limited information about the relationship between the functions of integrins and the EGFR pathway in cumulus cells and granulosa cells during ovulation. Moreover, little is known about the direct or indirect effects of ECM components in periovulatory follicles on oocyte maturation.</p>
+      <p>To test the above hypothesis, we focused on fibronectin in granulosa cells, cumulus cells and oocyte during ovulation process. We investigated the kinetic changes of fibronectin and integrin in periovulatory follicles and their roles in activation of the FAK pathway. Using primary <italic>in vitro</italic> culture of granulosa cells, we also examined whether fibronectin and/or EGF are required for the phosphorylation of FAK. Finally, using a pharmacological approach, the roles of FAK and the binding of fibronectin to integrins in granulosa cells and cumulus cells during ovulation were analyzed <italic>in vivo</italic> and <italic>in vitro</italic>.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="sec002">
+      <title>Materials and methods</title>
+      <sec id="sec003" sec-type="materials|methods">
+        <title>Materials</title>
+        <p>Equine chorionic gonadotropin (eCG) and hCG were purchased from Asuka Seiyaku (Tokyo, Japan). Dulbecco&#x2019;s modified Eagle&#x2019;s medium (DMEM)-F12 medium and penicillin-streptomycin from Invitrogen (Carlsbad, CA, USA); oligonucleotide poly-(dT) from Invitrogen, AMV reverse transcriptase from Promega (Madison, WI, USA). Routine chemicals and reagents were obtained from Nacalai Chemical Co (Osaka, Japan) or Sigma (St. Louis, MO, USA).</p>
+      </sec>
+      <sec id="sec004">
+        <title>Animals</title>
+        <p>Immature female C57BL/6 mice (3 weeks old) were obtained from Charles River Japan (Yokohama, Japan). At 23 days of age, female mice were injected intraperitoneally (i.p.) with 4 IU eCG to stimulate follicular growth, followed by 5 IU hCG after 48 h to stimulate ovulation and luteinization. Animals were housed under a 12 h light/12 h dark cycle in the Experiment Animal Center at Hiroshima University and provided with food and water ad libitum. Mice were euthanized using CO<sub>2</sub> administration method. The animals were treated in accordance with the NIH Guide for the Care and Use of Laboratory Animals. The experimental design was approved by the Animal Care and Use Committee at Hiroshima University (ID number C-13-18).</p>
+      </sec>
+      <sec id="sec005">
+        <title>Treatment of mice with FAK inhibitor Y15</title>
+        <p>Immature female mice were injected i.p. with 4 IU eCG. After 48 h, the mice were injected i.p. with 5 IU hCG and/or 30 mg/kg Y15 (Tocris Bioscience, Bristol, UK) [<xref rid="pone.0192458.ref020" ref-type="bibr">20</xref>]. The treatment significantly suppressed the phosphorylation of FAK (Tyr925) in ovaries at 4 h after hCG injection when the maximum level of phosphorylation was induced by hCG (<xref ref-type="supplementary-material" rid="pone.0192458.s001">S1 Fig</xref>). At 4, 8, 10, and 16 h after hCG injection, their ovaries were collected. Ovaries collected from three mice in each treatment group at each time point (0, 8, 10 or 16 h after hCG injection) were stained with hematoxylin-eosin (Sakura-Finet Japan, Osaka, Japan). RNA was purified from granulosa cells isolated from periovulatory follicles of ovaries of one mouse and then used for real-time PCR. Three mice in each treatment group at each time point (0, 4 or 8 h after hCG injection) were used for RNA analyses. At 16 h after hCG injection, we collected the ovulated COCs from oviducts of five mice in each treatment group and counted the number of ovulated oocytes.</p>
+      </sec>
+      <sec id="sec006">
+        <title>Real-time PCR</title>
+        <p>Total RNA was obtained from mouse ovaries using the RNAeasy Mini Kit (Qiagen Sciences, Germantown, MD, USA) according to the manufacturer&#x2019;s instructions, and real-time PCR analyses were performed as described previously [<xref rid="pone.0192458.ref021" ref-type="bibr">21</xref>]. Briefly, total RNA was reverse transcribed using 500 ng poly-dT (Invitrogen) and 0.25 U avian myeloblastosis virus-reverse transcriptase (Promega Corp., Madison, WI, USA) at 42&#xB0;C for 75 min and then 95&#xB0;C for 5 min. cDNA and primers were added to a 15 &#x3BC;l total reaction volume of Power SYBR Green PCR Master Mix (Applied Biosystems, Foster City, CA, USA). PCRs were then performed using the StepOne real-time PCR system (Applied Biosystems). Conditions were set to the following parameters: 10 min at 95&#xB0;C followed by 45 cycles of 15 sec at 95&#xB0;C and 1 min at 60&#xB0;C. Specific primers pairs were selected and analyzed as indicated in <xref ref-type="supplementary-material" rid="pone.0192458.s005">S1 Table</xref>.</p>
+      </sec>
+      <sec id="sec007">
+        <title>Western blot analyses</title>
+        <p>Protein samples from ovaries and granulosa cells were prepared by homogenization in cell lysis buffer (cOmplete&#x2122; Lysis-M EDTA-free, Roche) and then diluted in the same volume of Sample Buffer Solution with 2-ME (2x) for SDS-PAGE (Nacalai Chemical Co). Extracts (30 &#x3BC;g protein) or precipitates were resolved by SDS polyacrylamide gel (7.5%) electrophoresis and transferred to polyvinylidene fluoride membranes (GE Healthcare Life Sciences, PA, USA). The membranes were blocked in Tris-buffered saline and Tween 20 (TBST, 10 mM Tris, pH 7.5, 150 mM NaCl, and 0.05% Tween 20) containing 5% (w/v) nonfat carnation instant milk (Nestle Co., Solon, OH, USA) or 5% (w/v) bovine serum albumin (BSA, Nacalai Chemical Co). Blots were incubated with a primary antibody (<xref ref-type="supplementary-material" rid="pone.0192458.s006">S2 Table</xref>) overnight at 4&#xB0;C. After washing in TBST, enhanced chemiluminescence (ECL) detection was performed using an ECL system (GE Bioscience) according the manufacturer&#x2019;s specifications, followed by appropriate exposure of the blots to Fuji X-ray film (Fujifilm, Tokyo, Japan).</p>
+      </sec>
+      <sec id="sec008">
+        <title>Immunofluorescence staining</title>
+        <p>Whole ovaries collected from immature mice treated with or without eCG were fixed in 4% (w/v) paraformaldehyde (Nacalai Chemical Co) for 24 h at 4&#xB0;C. Subsequently, these tissues were washed with PBS and embedded in paraffin after dehydration. Paraffin-embedded tissue sections (5 &#x3BC;m thick) were deparaffinized and treated with 30% (v/v) H<sub>2</sub>O<sub>2</sub> in methanol to block endogenous peroxidases. After washing with PBS, the sections were boiled for 20 min in 10% citric acid (pH 6.0) for antigen activation. Then, the sections were washed with PBS and blocked using 5% (w/v) BSA in PBS or MOM Immunodetection Kit (Vector Laboratories Inc, CA, USA). The sections were incubated with primary antibodies (<xref ref-type="supplementary-material" rid="pone.0192458.s006">S2 Table</xref>) in 1% (v/v) blocking solution overnight at 4&#xB0;C. After washing with 0.3% (v/v) Triton X-100 in PBS, the staining was visualized with Cy3-conjugated goat anti-rabbit IgG (1:200) (Sigma) and FITC-conjugated goat anti-rabbit IgG (1:200) with counterstaining by 4,6-diamidino-2-phenylindole (DAPI, Vector Laboratories Inc).</p>
+        <p>Cultured granulosa cells and oocytes were fixed in 4% (w/v) paraformaldehyde for 30 min at room temperature. Subsequently, these cells were washed with PBS and treated with PBS containing 0.3% (v/v) Triton X-100 (Sigma). Then, these cells were washed with PBS and incubated with rhodamine-phalloidin (1:200) (Invitrogen) and DAPI. Oocytes were also treated with &#x3B1;/&#x3B2; Tubulin and visualized with FITC-conjugated goat anti-rabbit IgG (1:200). Digital images were captured using a BZ-9000 microscope (Keyence Co., Osaka, Japan).</p>
+      </sec>
+      <sec id="sec009">
+        <title>Hematoxylin-eosin staining</title>
+        <p>Ovaries were fixed and then embedded in paraffin. After paraffin-embedded tissue sections (5 &#x3BC;m thick) were deparaffinized and washed with PBS, the sections were stained with hematoxylin-eosin to visualize the nuclei and cytoplasm, respectively. Tissues were observed under a light microscope.</p>
+      </sec>
+      <sec id="sec010">
+        <title><italic>In vitro</italic> culture of granulosa cells</title>
+        <p>Granulosa cells were harvested by needle puncture from immature mice treated with eCG at 23 days of age. Briefly, 1&#xD7;10<sup>6</sup> cells were cultured in a 24-well fibronectin-coated plate (human fibronectin cell ware, BioCoat, MA, USA) or uncoated 24-well culture plate (142485, Nunc) in serum-free medium (DMEM:F12 medium containing penicillin-streptomycin) with a lipid mixture (L-2088, Sigma) and 3 &#x3BC;g/ml fibronectin (F-1141, Sigma) with or without 100 ng/ml amphiregulin (AREG, R&amp;D Systems, Minneapolis, MN, USA) and either 100 nM FAK inhibitor (Y15) that suppressed the phosphorylation of FAK at Tyr925 (<xref ref-type="supplementary-material" rid="pone.0192458.s001">S1 Fig</xref>) or 10 &#x3BC;M EGFR inhibitor (AG1478, BIOMOL). Because the culture medium did not contain serum or follicular fluid, and because progesterone was produced from cholesterol that was mainly taken to granulosa cells but was slightly <italic>de-novo</italic> synthesized in granulosa cells, lipid mixture containing cholesterol was added as a source of steroidogenesis. Because follicular fluids contain fibronectin, fibronectin was also added to serum-free medium.</p>
+        <p>After 24 h, granulosa cells were collected for western blot or real-time PCR analyses, and the culture supernatant was collected for measurement of progesterone. For immunofluorescence staining, granulosa cells were cultured on glass plate. Because it has been known that serum contains fibronecin, granulosa cells were cultured in fetal bovine serum (FBS, cat#10438&#x2013;018, Gibco)-coated or uncoated glass bottom dishes in serum-free medium (DMEM:F12 containing penicillin-streptomycin) with 100 ng/ml AREG and 3 &#x3BC;g/ml fibronectin for 12 h.</p>
+      </sec>
+      <sec id="sec011">
+        <title>Isolation and <italic>in vitro</italic> maturation of COCs</title>
+        <p>Ovaries of immature mice primed with eCG for 48 h contain multiple preovulatory follicles. COCs were isolated from these follicles by needle puncture and collected by a pipette. Non-expanded COCs were selected, and groups of 50 COCs were cultured in a 50 &#x3BC;l drop of defined medium containing 1% (v/v) of FBS (Sigma) with 100 ng/ml AREG and/or either 100 nM FAK inhibitor (Y15) or 100 &#x3BC;M cyclo RGD peptide (Sigma) in a 35-mm dish in the presence of 4 mM hypoxanthine (Sigma). FBS was added to this culture medium because FBS-containing inter &#x3B1; trypsin inhibitor has been known to be essential for cumulus expansion. The dose of RGD peptide has been reported to suppress the binding of fibronectin to integrins [<xref rid="pone.0192458.ref022" ref-type="bibr">22</xref>]. The area of each expanded COC was measured using the BZ-9000 microscope.</p>
+      </sec>
+      <sec id="sec012">
+        <title>Quantitative determination of progesterone levels</title>
+        <p>The progesterone levels in serum and conditioned medium of granulosa cells were determined using a rodent progesterone ELISA test kit (Endocrine Technologies, Inc., San Francisco, USA) according to the manufacturer&#x2019;s instructions. Medium samples (50 &#x3BC;l each) were analyzed using a microplate reader to determine the amount of converted substrate at 450 nm.</p>
+      </sec>
+      <sec id="sec013">
+        <title>Measurements of the surface area of an expanded COC, the size of cultured granulosa cells, and the number of stress fibers in cultured granulosa cells</title>
+        <p>To determine the area of each expanded COC in ovarian sections, the sections were stained with hematoxylin-eosin. The surface area of each COC was assessed in sections containing an oocyte with a nucleus. An area measurement system associated with the BZ-9000 microscope was used for measurements of the surface area of expanded COCs. Fifteen COCs were analyzed in each ovary. The ovaries were collected from three mice in each treatment group at each time point.</p>
+        <p>To determine the surface area and number of stress fibers in the cultured granulosa cells, they were stained for F-actin. For quantitative analysis of the area or the number of stress fibers in each granulosa cell, Z-stacks were captured at seven steps over a Z-axis distance of 0.3 &#x3BC;m using the BZ-9000 microscope. Stacks were reconstructed and analyzed by the Keyence application for the BZ-9000, which allowed us to determine the fluorescent area and count the number of stress fibers in each cell. Fifteen cells per culture were analyzed.</p>
+      </sec>
+      <sec id="sec014">
+        <title>Statistics</title>
+        <p>Statistical analyses of data from three or four replicates for comparison were carried out by Student's t-test, one-way analysis of variance (ANOVA) or two-way ANOVA followed by Student's t-test (Statview, Abacus Concepts, Inc., Berkeley, CA).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="sec015">
+      <title>Results</title>
+      <p>Their localization of fibronectin and integrin &#x3B1;5 was analyzed by immunofluorescence staining. Positive signals for integrin &#x3B1;5 were detected in granulosa and cumulus cells in preovulatory and periovulatory follicles (<xref ref-type="fig" rid="pone.0192458.g001">Fig 1</xref>). Strong signals of integrin &#x3B1;5 were observed in the inner layers of cumulus cells at 8 h after hCG injection (<xref ref-type="fig" rid="pone.0192458.g001">Fig 1</xref>). Fibronectin was observed on granulosa and cumulus cells of preovulatory follicles. The signals were also detected after hCG injection and the positive signals for fibronectin were also observed in the corpus luteum (<xref ref-type="fig" rid="pone.0192458.g001">Fig 1</xref>).</p>
+      <fig id="pone.0192458.g001" orientation="portrait" position="float">
+        <object-id pub-id-type="doi">10.1371/journal.pone.0192458.g001</object-id>
+        <label>Fig 1</label>
+        <caption>
+          <title>Expression of fibronectin and integrins in the mouse ovary during ovulation.</title>
+          <p>Localization of fibronectin and integrin &#x3B1;5 in the mouse ovary was detected by immunofluorescence staining (n = 3 mice in each time point). Proteins were visualized with Cy3 (fibronectin) and FITC (integrin &#x3B1;5). The nucleus was counterstained with DAPI. Scale bar is 100 &#x3BC;m.</p>
+        </caption>
+        <graphic xlink:href="pone.0192458.g001"/>
+      </fig>
+      <sec id="sec016">
+        <title>Kinetic changes of the phosphorylation status of FAK in the mouse ovary during ovulation</title>
+        <p>The total amount of FAK was not dramatically changed in the ovary during ovulation (<xref ref-type="fig" rid="pone.0192458.g002">Fig 2A</xref>). The single positive signal of the anti-phospho-Tyr397 FAK antibody was detected at 125 kDa (<xref ref-type="fig" rid="pone.0192458.g002">Fig 2A</xref>). The intensity was significantly increased at 4 h after hCG injection. Two bands were detected by the anti-phospho-Tyr925 FAK antibody at 125 and 150 kDa (<xref ref-type="fig" rid="pone.0192458.g002">Fig 2A</xref>). The 125 kDa band was positive and the 150 kDa was non-specific because total FAK and Tyr397-phosphorylated FAK were detected at 125 kDa. The intensity of the 125 kDa band of the anti-Tyr925 FAK antibody was also significantly increased at 4 h after hCG injection. At 12 h after hCG injection, both phosphorylated FAK signals had decreased to the basal level before hCG injection (<xref ref-type="fig" rid="pone.0192458.g002">Fig 2A</xref>).</p>
+        <fig id="pone.0192458.g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0192458.g002</object-id>
+          <label>Fig 2</label>
+          <caption>
+            <title>Expression of phosphorylation of FAK in the mouse ovary during ovulation.</title>
+            <p>(A): Levels of FAK (total FAK), phosphorylated forms of FAK (Tyr397 and Tyr925), and &#x3B2;-actin in whole ovary samples were detected by western blot analyses. The ovary was collected from mice treated with hCG. Three mice were used for ovarian sampling at each time point. &#x3B2;-actin was used as a loading control. The intensity of the bands was analyzed and values are mean +/- SEM of 3 replicates. *; Significant differences were observed by hCG injection as compared with those before hCG injection (0h) (P&lt;0.05). (B): Phosphorylation status of FAK in granulosa cells cultured for 4 h with or without AREG on uncoated or fibronectin-coated plates. C (control): granulosa cells cultured without AREG; AREG: granulosa cells treated with 100 ng/ml AREG; AG: granulosa cells treated with both AREG and 10 &#x3BC;M AG1478 (AG, a selective EGFR tyrosine kinase inhibitor); Free: granulosa cells cultured on uncoated wells; Fibronectin: granulosa cells cultured on fibronectin-coated wells. &#x3B2;-actin was used as a loading control. The intensity of the bands was analyzed and values are mean +/- SEM of 3 replicates. *; Significant differences were observed by the addition of AG1478 (AG) (P&lt;0.05). **; The treatment with AREG significantly increased the intensity of pFAK (Tyr925) in granulosa cells cultured on the fibronectin-coated wells (P&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0192458.g002"/>
+        </fig>
+        <p>To clarify the relationship between fibronectin and phosphorylation of FAK in granulosa cells, the cells were cultured on a fibronectin-coated plate. Phosphorylation of Tyr397 was not induced by fibronectin-coated plate and by additional AREG to non-coded plate (<xref ref-type="fig" rid="pone.0192458.g002">Fig 2B</xref>). The phosphorylation of Tyr925 was not induced by either fibronectin or AREG alone as similar to Tyr397. However, both sites were phosphorylated by AREG when granulosa cells were cultured on the fibronectin-coated pate (<xref ref-type="fig" rid="pone.0192458.g002">Fig 2B</xref>).</p>
+      </sec>
+      <sec id="sec017">
+        <title>Effects of the FAK inhibitor on ovulation including cumulus expansion of COCs, luteinization of granulosa cells, and release of oocytes to the oviduct</title>
+        <p>To clarify the roles of FAK activated by both fibronectin and EGF-like factor in granulosa cells during ovulation, FAK inhibitor Y15 was co-injected with hCG, and then we examined its effects on ovulation, cumulus expansion of COCs, and both the morphology and function of granulosa cells.</p>
+        <p>At 8 h after hCG injection, cumulus cells had detached from the outer layers (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3A</xref>) and the area of COCs was increased significantly in the control ovary (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3B</xref>). However, in mice injected with both hCG and Y15, the cumulus layers were tightly surrounding oocytes and the area of COCs was significantly smaller than in the control (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3A and 3B</xref>). At high magnification, both cumulus cells and granulosa cells had changed to an elliptical shape in control mice (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3A</xref>). However, treatment with Y15 did not induce the morphological change of cumulus cells and granulosa cells, and the cells remained in a spherical shape (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3A</xref>). At 16 h after hCG injection, ovulation occurred and the corpus luteum was formed in the ovary (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3A</xref>). There were more than 50 ovulated oocytes in control mice (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3C</xref>). However, oocytes with cumulus cell layers were still observed in most antral follicles when mice were treated with hCG and Y15 (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3A</xref>). The number of ovulated oocytes was significantly lower in the hCG and Y15 co-treatment group compared with the control (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3C</xref>). The expression of genes involved in luteinization (<italic>Star</italic>, <italic>Cyp11a1</italic>, and <italic>Hsd3b1</italic>) of granulosa cells and cumulus expansion (<italic>Has2</italic>) of cumulus cells was induced by hCG injection (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3D</xref>). However, co-injection with Y15 significantly inhibited their inductions (<xref ref-type="fig" rid="pone.0192458.g003">Fig 3D</xref>).</p>
+        <fig id="pone.0192458.g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0192458.g003</object-id>
+          <label>Fig 3</label>
+          <caption>
+            <title>Effects of FAK inhibitor Y15 during ovulation <italic>in vivo</italic>.</title>
+            <p>(A): Ovarian morphology of mice treated with hCG for 8 or 16 h was observed by hematoxylin-eosin staining (n = 3 ovaries in each group at each time point). Y15: eCG-primed mice co-injected with hCG and Y15 (30 mg/kg). Scale bar is 100 &#x3BC;m. (B): Effect of Y15 on cumulus expansion (surface area of COCs in periovulatory follicles of the ovary). Ovaries were collected at 0, 8, and 10 h after hCG injection with or without Y15 (30 mg/kg). The ovarian tissue was stained with hematoxylin-eosin, and individual areas of COCs were measured in periovulatory follicles in sections containing an oocyte with a nucleus. C (control): eCG-primed mice injected with hCG; Y15: eCG-primed mice co-injected with hCG and Y15 (30 mg/kg). *; Treatment with Y15 significantly decreased the mean surface area of COCs compared with the control at each time point (p&lt;0.05). Values are the mean &#xB1; SEM of five COCs each in three sections. (C): The number of ovulated oocytes when mice were co-administered with hCG and Y15. Ovulated oocytes were collected from oviducts and counted at 16 h after hCG injection. Values are the mean &#xB1; SEM of five mice. *; Significant differences were observed compared with the control (p&lt;0.05). C (control): Immature female mice treated with eCG followed by hCG stimulation; Y15: mice co-injected with hCG and Y15 (30 mg/kg) at 48 h after eCG injection. (D): Expression of genes involved in progesterone production and hyaluronic acid synthesis in the ovary of mice treated with hCG and Y15 (30 mg/kg). Three mice were used for sampling granulosa cells in each treatment group at each time point. The mRNA levels of <italic>Star</italic>, <italic>Cyp11a1</italic>, <italic>Hsd3b1</italic>, <italic>Ptgs2</italic> and <italic>Has2</italic> were analyzed by real-time PCR and normalized to that of <italic>L19</italic>. Values are the mean &#xB1; SEM of three replicates. *; Y15 treatment significantly suppressed the expression of each gene compared with the control at each time point (p&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0192458.g003"/>
+        </fig>
+      </sec>
+      <sec id="sec018">
+        <title>Fibronectin and EGF-like factor synergistically induce both the morphological change and the progesterone production of granulosa cells</title>
+        <p>When granulosa cells were cultured on uncoated wells, the morphology of granulosa cells was circular and the cell membrane was lined with actin polymers (<xref ref-type="fig" rid="pone.0192458.g004">Fig 4A</xref>). The addition of AREG did not change the shape of granulosa cells, and did not increase the size of granulosa cells (<xref ref-type="fig" rid="pone.0192458.g004">Fig 4A and 4B</xref>). Stretching of granulosa cells was observed when they were cultured on the serum-coated glass plate (<xref ref-type="fig" rid="pone.0192458.g004">Fig 4A and 4B</xref>). The cell membrane was lined with actin polymers and spots of actin polymers were also observed in the cytoplasm of granulosa cells cultured on the serum-coated plate (<xref ref-type="fig" rid="pone.0192458.g004">Fig 4A</xref>). A larger increase in the surface area of granulosa cells was induced by addition of AREG when granulosa cells were cultured on the serum-coated plate (<xref ref-type="fig" rid="pone.0192458.g004">Fig 4B</xref>). In granulosa cells treated with AREG on serum-coated plate, actin stress fibers in the cytoplasm had formed, and the number of fibers was significantly higher than in granulosa cells cultured on the serum-coated plate but without AREG treatment (<xref ref-type="fig" rid="pone.0192458.g004">Fig 4C</xref>).</p>
+        <fig id="pone.0192458.g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0192458.g004</object-id>
+          <label>Fig 4</label>
+          <caption>
+            <title>Synergistic effects of fibronectin/serum coating and AREG stimulation on the morphology of granulosa cells <italic>in vitro</italic>.</title>
+            <p>(A): Granulosa cells were collected from the ovary of mice treated with eCG for 48 h and cultured in uncoated wells (upper panel, Free) or serum-coated wells (lower panel, serum) with (right panel, AREG) or without (left panel, control) AREG. After 24 h, the cultured granulosa cells were stained for F-actin and counterstained with DAPI. Scale bar is 10 &#x3BC;m. (B): Surface area of granulosa cells cultured for 24 h with or without AREG on uncoated or serum-coated wells. The surface area of each granulosa cell was measured by an area measurement system associated with the BZ-9000 microscope. Values are the mean &#xB1; SEM of fifteen granulosa cells in each treatment group of three independent experiments (45 granulosa cells in total were measured in each treatment group). Data were statistically analyzed by two-way ANOVA. Because the significant difference was observed for each factor, the comparison analysis was performed by the Student&#x2019;s t-test. *; AREG significantly increased the area of granulosa cells cultured on serum-coated wells (p&lt;0.05). Free: granulosa cells cultured on uncoated wells; serum: granulosa cells cultured on serum-coated wells; C (control): granulosa cells treated without AREG; AREG: granulosa cells treated with AREG. (C): The number of actin stress fiber in each granulosa cell cultured on serum-coated well or free well with or without AREG. Values are the mean &#xB1; SEM of fifteen granulosa cells. *; Significant differences were observed compared with the control (p&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0192458.g004"/>
+        </fig>
+        <p>The addition of AREG significantly increased the level of progesterone in the culture supernatant with induction of <italic>Cyp11a1</italic> expression in granulosa cells cultured on both uncoated and fibronectin-coated plates. The fibronectin-coated plate induced significantly higher progesterone production in AREG-stimulated granulosa cells (<xref ref-type="fig" rid="pone.0192458.g005">Fig 5A</xref>). The expression of <italic>Hsd3b1</italic> was only induced by AREG when granulosa cells were cultured on fibronectin-coated plate (<xref ref-type="fig" rid="pone.0192458.g005">Fig 5B</xref>). Treatment with Y15 did not significantly affect the level of progesterone when granulosa cells were cultured without the fibronectin-coating. However, the high level of progesterone secreted from granulosa cells treated with AREG on fibronectin-coated wells was significantly decreased by the additional Y15 with reductions in <italic>Cyp11a1</italic> and <italic>Hsd3b1</italic> expression (<xref ref-type="fig" rid="pone.0192458.g005">Fig 5C and 5D</xref>).</p>
+        <fig id="pone.0192458.g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0192458.g005</object-id>
+          <label>Fig 5</label>
+          <caption>
+            <title>Roles of AREG and fibronectin in progesterone production of granulosa cells.</title>
+            <p>(A): Progesterone concentrations in culture supernatants of granulosa cells treated for 24 h with or without AREG on uncoated or fibronectin-coated wells. Values are the mean &#xB1; SEM of three replicates. Data were statistically analyzed by two-way ANOVA. Because the significant difference was observed for each factor, the comparison analysis was performed by the Student&#x2019;s t-test. *; AREG significantly increased the area of granulosa cells cultured on fibronectin-coated wells or free wells (p&lt;0.05). Free: granulosa cells cultured on uncoated wells; Fibronectin: granulosa cells cultured on fibronectin-coated wells; C (control): granulosa cells treated without AREG; AREG: granulosa cells treated with AREG. (B): Expression of genes involved in progesterone production (<italic>Star</italic>, <italic>Cyp11a1</italic>, and <italic>Hsd3b1</italic>) in granulosa cells treated for 24 h with or without AREG on uncoated or fibronectin-coated wells. Values are the mean &#xB1; SEM of three replicates. Data were statistically analyzed by two-way ANOVA. Because the significant difference was observed for each factor, the comparison analysis was performed by the Student&#x2019;s t-test. *; AREG significantly increased the area of granulosa cells cultured on fibronectin-coated wells or free wells (p&lt;0.05). **AREG significantly increased the area of granulosa cells cultured on fibronectin-coated wells (p&lt;0.05). Free: granulosa cells cultured on uncoated wells; Fibronectin: granulosa cells cultured on fibronectin-coated wells; C (control): granulosa cells treated without AREG; AREG: granulosa cells treated with AREG. (C): Additional effects of Y15 on AREG-induced progesterone production in granulosa cells cultured on fibronectin-coated wells or free-wells. Values are the mean &#xB1; SEM of three replicates. *; Y15 treatment significantly decreased the progesterone level when granulosa cells were cultured on fibronectin-coated wells (p&lt;0.05). (D): The treatment with Y15 inhibited AREG-induced expression of genes involved in progesterone production (<italic>Star</italic>, <italic>Cyp11a1</italic>, and <italic>Hsd3b1</italic>) in granulosa cells. Values are the mean &#xB1; SEM of three replicates. *; Y15 treatment significantly inhibited the gene expression levels compared with each control (p&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0192458.g005"/>
+        </fig>
+      </sec>
+      <sec id="sec019">
+        <title>Binding of fibronectin to integrins and FAK activity induce cumulus expansion and oocyte maturation of COCs</title>
+        <p>Cumulus expansion was induced <italic>in vitro</italic> by treatment with AREG, and the induction was suppressed by either Y15 or RGD peptide (<xref ref-type="fig" rid="pone.0192458.g006">Fig 6A and 6B</xref>). Progression to the metaphase II stage was significantly inhibited by treatment with either Y15 or RGD peptide when COCs were cultured in FBS-containing medium (<xref ref-type="fig" rid="pone.0192458.g006">Fig 6C</xref>). In cumulus cells of COCs treated with Y15 or RGD peptide, AREG-induced expression of genes related to cumulus expansion (<italic>Has2</italic>, <italic>Tnfaip6</italic>, and <italic>Ptx3</italic>) was also induced to the same levels in COCs without any inhibitors (<xref ref-type="fig" rid="pone.0192458.g006">Fig 6D</xref>).</p>
+        <fig id="pone.0192458.g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0192458.g006</object-id>
+          <label>Fig 6</label>
+          <caption>
+            <title>Effects of FAK inhibitor Y15 and RGD peptide on cumulus expansion <italic>in vitro</italic>.</title>
+            <p>(A,B): The surface area of expanded COCs was measured using the BZ-9000 microscope. COCs were isolated from ovaries of mice primed with eCG for 48 h. Non-expanded COCs were selected, and 50 COCs were cultured in a 50 &#x3BC;l drop of defined medium containing 1% FBS and 100 ng/ml AREG. Some COCs were treated with AREG and 100 nM Y15 or 100 &#x3BC;M RGD peptide (RGD; arginine-glycine-aspartate, tripeptide). After 16 h, the area of each expanded COC was measured using the BZ-9000 microscope. Scale bar is 100 &#x3BC;m. The left panel shows an image of an expanded COC in each treatment group after culture. Values are the mean &#xB1; SEM of fifteen COCs each in three replicates. *; Y15 or RGD peptide significantly suppressed cumulus expansion compared with the control (p&lt;0.05). (C): The rate of metaphase II stage oocytes when COCs were cultured with Y15 or RGD peptide. *; Y15 or RGD peptide significantly decreased the rate of metaphase II (M2) oocytes compared with the control (p&lt;0.05). (D): Expression of genes involved in cumulus expansion (<italic>Has2</italic>, <italic>Tnfaip6</italic>, and <italic>Ptx3</italic>). Each value is presented as the gene expression level. Values are the mean &#xB1; SEM of three replicates.</p>
+          </caption>
+          <graphic xlink:href="pone.0192458.g006"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="conclusions" id="sec020">
+      <title>Discussion</title>
+      <p>FAK is one of key regulators of cellular functions due to remodeling of the cytoskeleton; however, there is little information in ovary during ovulation process. The present study revealed that in ovary, FAK was expressed and was transiently phosphorylated during ovulation process. The phosphorylation of FAK was dependent on EGFR ligand AREG and fibronectin in cultured granulosa cells. The physiological roles of FAK in periovulatory follicles were examined using a pharmacological approach by co-injecting FAK inhibitor Y15 into super ovulation-induced mice. Y15 directly binds to Tyr397 of FAK to reduce its kinase activity, which markedly suppresses the migration of cancer cells [<xref rid="pone.0192458.ref023" ref-type="bibr">23</xref>]. During ovulation process, detachment and migration of cumulus cells are induced to create space between cumulus cells for accumulation of the hyaluronan-rich matrix [<xref rid="pone.0192458.ref006" ref-type="bibr">6</xref>]. The hCG-induced expansion of cumulus cell layers was suppressed by treatment with Y15 concomitantly with the reductions of <italic>Has2</italic> and <italic>Ptgs2</italic> expression. <italic>In vitro</italic> culture also revealed that both Y15 and RGD peptide directly but slightly suppressed cumulus expansion without any expression of genes involved in hyaluronan synthesis or its accumulation. The differences would be explained by AREG- and PGE2-positive feedback loop to induce the expansion of cumulus cell layer during ovulation process [<xref rid="pone.0192458.ref003" ref-type="bibr">3</xref>]. FAK was required for the production of PGE2 and AREG in granulosa cells. In cumulus cells, the PGE2 and AREG induced <italic>Has2</italic> expression and FAK was involved in the migration of cumulus cells but not the production of hyaluronic acid during ovulation process. In some knockout (KO) mouse models with defects in cumulus expansion, such as <italic>Ptgs2</italic>KO, <italic>Ptx3</italic>KO and <italic>Tnfaip6</italic>KO mice, the number of ovulated oocytes is also significantly but not completely decreased [<xref rid="pone.0192458.ref024" ref-type="bibr">24</xref>][<xref rid="pone.0192458.ref025" ref-type="bibr">25</xref>][<xref rid="pone.0192458.ref026" ref-type="bibr">26</xref>][<xref rid="pone.0192458.ref027" ref-type="bibr">27</xref>]. In the present study, treatment with Y15 significantly decreased the number of ovulated oocytes, and several antral follicles but less numbers of corpus luteum were observed in the treated ovary. These data indicate that FAK in both granulosa cells and cumulus cells indirectly or directly induces the migration of cumulus cells, which is required for successful ovulation process.</p>
+      <p>In glomerular podocytes, Y15 also affects the cell shape [<xref rid="pone.0192458.ref028" ref-type="bibr">28</xref>], indicating that FAK is involved in cellular functions due to remodeling of the cytoskeleton because the change in cell shape is driven by actin depolymerization or polymerization [<xref rid="pone.0192458.ref029" ref-type="bibr">29</xref>]. Formation of the corpus luteum, including changes of the granulosa cell shape, was also suppressed by injection of Y15 with hCG. The circular shape of granulosa cells in preovulatory follicles was stretched with stress fiber formation. Stress fibers consist of actin and myosin, and actin polymerization is induced in a Rho GTPase family-dependent manner [<xref rid="pone.0192458.ref030" ref-type="bibr">30</xref>][<xref rid="pone.0192458.ref031" ref-type="bibr">31</xref>][<xref rid="pone.0192458.ref032" ref-type="bibr">32</xref>]. FAK is also involved in the formation of stress fibers, because FAK activity increases in Rho-stimulated cells [<xref rid="pone.0192458.ref033" ref-type="bibr">33</xref>][<xref rid="pone.0192458.ref034" ref-type="bibr">34</xref>][<xref rid="pone.0192458.ref035" ref-type="bibr">35</xref>]. In this study, treatments with both AREG and fibronectin, but not either alone induced the phosphorylation of Tyr925 in FAK in granulosa cells with the formation of stress fibers. The inductions were correlated with the expression of genes involved in granulosa cell luteinization. In epithelial cells, mechanical tension during wound closure also induces stress fiber assemblies, which then differentiate into myoepithelial cells [<xref rid="pone.0192458.ref036" ref-type="bibr">36</xref>]. Mesenchymal stem cells (MSCs) induced to undergo chondrogenic differentiation have more pronounced actin stress fibers compared with undifferentiated MSCs [<xref rid="pone.0192458.ref037" ref-type="bibr">37</xref>]. Moreover, actin stress fiber formation in response to TGF-&#x3B2; is also important for myofibroblast differentiation [<xref rid="pone.0192458.ref038" ref-type="bibr">38</xref>]. Thus, AREG and fibronectin synergistically progress the luteinization of granulosa cells via FAK-induced stress fiber formation.</p>
+      <p>Interestingly, the addition of Y15 or RGD peptide to oocyte maturation medium decreased the rate of the MII stage when COCs were cultured with AREG in the presence of FBS. In the <italic>in vitro</italic> maturation (IVM) of oocytes, serum-free chemically defined medium results in a much lower maturation rate compared with serum-containing medium [<xref rid="pone.0192458.ref039" ref-type="bibr">39</xref>]. Removal of cumulus cells before IVM also dramatically decreases the rate of maturation in human, porcine, cattle and mouse oocytes [<xref rid="pone.0192458.ref040" ref-type="bibr">40</xref>][<xref rid="pone.0192458.ref041" ref-type="bibr">41</xref>][<xref rid="pone.0192458.ref042" ref-type="bibr">42</xref>]. Because serum contains fibronectin and cumulus cells supply fibronectin, the low maturation rate of denuded oocytes or in chemically defined medium may be induced by the lack of fibronectin during oocyte maturation process. In the fields of human infertility care and regenerative medicine, chemical defined medium is highly recommended to reduce the risk of infection [<xref rid="pone.0192458.ref043" ref-type="bibr">43</xref>]. Moreover, removal of cumulus cells is required to check the maturation of oocytes recovered from hormone-stimulated patients before injection of sperm (ICSI). Thus, it is possibility that the addition of fibronectin is to improve the IVM technique of human oocytes.</p>
+      <p>In conclusion, during ovulation, the structure of follicles changes dramatically with the alteration of microenvironments in periovulatory follicles. The presence of fibronectin in granulosa cell layers and the space between cumulus cells create the basis for their differentiation. EGF-like factor acts on granulosa cells and cumulus cells enclosed by fibronectin to drive the dynamic changes of the cytoskeleton with the differentiation of each cell type, cumulus expansion of cumulus cells, and luteinization of granulosa cells. Thus, it is concluded that both EGF-like factor and fibronectin synergistically act on granulosa and cumulus cells to induce successful ovulation process.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="sec021">
+      <title>Supporting information</title>
+      <supplementary-material content-type="local-data" id="pone.0192458.s001">
+        <label>S1 Fig</label>
+        <caption>
+          <title>The effect of FAK inhibitor Y15 in granulosa cells during ovulation process.</title>
+          <p>(A): FAK inhibitor Y15 was injected into three immature mice with hCG and the ovary was collected at 4 h after hCG injection. The effects of Y15 on the phosphorylation status of pFAK (Tyr397) and pFAK (Tyr925) were detected by western blotting.</p>
+          <p>(B): FAK inhibitor Y15 (100 nM) was added in cultured granulosa cells for 4 h with AREG on serum-coated wells. The effects of Y15 on the phosphorylation status of pFAK (Tyr397) and pFAK (Tyr925) were detected by western blotting. &#x3B2;-actin was used as a loading control. The intensity of the bands was analyzed using a Gel-Pro Analyzer. Values are mean +/- SEM of 3 replicates.</p>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0192458.s001.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0192458.s002">
+        <label>S2 Fig</label>
+        <caption>
+          <title>The protein expression of fibronectin and integrin in the mouse ovary during ovulation.</title>
+          <p>Expression of fibronectin, integrin &#x3B2;1, and &#x3B2;-actin in whole ovary samples was detected by western blot analyses. The ovary was collected from mice treated with hCG for 0, 4, 8, or 16 h at 48 h after eCG injection. &#x3B2;-actin was used as a loading control. The intensity of the bands was analyzed using a Gel-Pro Analyzer. Values are mean +/- SEM of 3 replicates.</p>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0192458.s002.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0192458.s003">
+        <label>S3 Fig</label>
+        <caption>
+          <title>The negative control sections for immunofluorescence staining in <xref ref-type="fig" rid="pone.0192458.g001">Fig 1</xref>.</title>
+          <p>The ovarian section was treated with only Cy3- or FITC-labeled secondary antibody. The nucleus was counterstained with DAPI. Scale bar is 100 &#x3BC;m.</p>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0192458.s003.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0192458.s004">
+        <label>S4 Fig</label>
+        <caption>
+          <title>Immunofluorescence staining of mature oocyte treated with Y15.</title>
+          <p>COCs were isolated from preovulatory follicles at 48 h after eCG injection. Non-expanded COCs were selected and were cultured in the medium containing 1% (v/v) of FBS with 100 ng/ml AREG and/or 100 nM FAK inhibitor (Y15) in the presence of 4 mM of hypoxanthine for 16 h. Red signal is F-actin, green signal is &#x3B1;/&#x3B2; Tubulin and blue signal is DAPI.</p>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0192458.s004.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0192458.s005">
+        <label>S1 Table</label>
+        <caption>
+          <title>Primer list.</title>
+          <p>(DOCX)</p>
+        </caption>
+        <media xlink:href="pone.0192458.s005.docx">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0192458.s006">
+        <label>S2 Table</label>
+        <caption>
+          <title>Antibody list.</title>
+          <p>(DOCX)</p>
+        </caption>
+        <media xlink:href="pone.0192458.s006.docx">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0192458.ref001">
+        <label>1</label>
+        <mixed-citation publication-type="journal"><name><surname>Richards</surname><given-names>JS</given-names></name>. <article-title>Hormonal Control of Gene Expression in the Ovary</article-title>. <source>Endocr Rev</source>. <year>1994</year>;<volume>15</volume>: <fpage>725</fpage>&#x2013;<lpage>751</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/edrv-15-6-725">10.1210/edrv-15-6-725</ext-link></comment>
+<pub-id pub-id-type="pmid">7705279</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref002">
+        <label>2</label>
+        <mixed-citation publication-type="journal"><name><surname>Park</surname><given-names>JY</given-names></name>, <name><surname>Su</surname><given-names>YQ</given-names></name>, <name><surname>Ariga</surname><given-names>M</given-names></name>, <name><surname>Law</surname><given-names>E</given-names></name>, <name><surname>Jin</surname><given-names>SLC</given-names></name>, <name><surname>Conti</surname><given-names>M</given-names></name>. <article-title>EGF-like growth factors as mediators of LH action in the ovulatory follicle</article-title>. <source>Science</source>. <year>2004</year>;<volume>303</volume>: <fpage>682</fpage>&#x2013;<lpage>684</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1126/science.1092463">10.1126/science.1092463</ext-link></comment>
+<pub-id pub-id-type="pmid">14726596</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref003">
+        <label>3</label>
+        <mixed-citation publication-type="journal"><name><surname>Shimada</surname><given-names>M</given-names></name>, <name><surname>Hernandez-Gonzalez</surname><given-names>I</given-names></name>, <name><surname>Gonzalez-Robayna</surname><given-names>I</given-names></name>, <name><surname>Richards</surname><given-names>JS</given-names></name>. <article-title>Paracrine and autocrine regulation of epidermal growth factor-like factors in cumulus oocyte complexes and granulosa cells: key roles for prostaglandin synthase 2 and progesterone receptor</article-title>. <source>Mol Endocrinol</source>. <year>2006</year>;<volume>20</volume>: <fpage>1352</fpage>&#x2013;<lpage>1365</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/me.2005-0504">10.1210/me.2005-0504</ext-link></comment>
+<pub-id pub-id-type="pmid">16543407</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref004">
+        <label>4</label>
+        <mixed-citation publication-type="journal"><name><surname>Fan</surname><given-names>HY</given-names></name>, <name><surname>Liu</surname><given-names>Z</given-names></name>, <name><surname>Shimada</surname><given-names>M</given-names></name>, <name><surname>Sterneck</surname><given-names>E</given-names></name>, <name><surname>Johnson</surname><given-names>PF</given-names></name>, <name><surname>Hedrick</surname><given-names>SM</given-names></name>, <etal>et al</etal>
+<article-title>MAPK3/1 (ERK1/2) in ovarian granulosa cells are essential for female fertility</article-title>. <source>Science</source>. <year>2009</year>;<volume>324</volume>: <fpage>938</fpage>&#x2013;<lpage>941</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1126/science.1171396">10.1126/science.1171396</ext-link></comment>
+<pub-id pub-id-type="pmid">19443782</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref005">
+        <label>5</label>
+        <mixed-citation publication-type="journal"><name><surname>Threadgill</surname><given-names>DW</given-names></name>, <name><surname>Dlugosz</surname><given-names>AA</given-names></name>, <name><surname>Hansen</surname><given-names>LA</given-names></name>, <name><surname>Tennenbaum</surname><given-names>T</given-names></name>, <name><surname>Lichti</surname><given-names>U</given-names></name>, <name><surname>Yee</surname><given-names>D</given-names></name>, <etal>et al</etal>
+<article-title>Targeted disruption of mouse EGF receptor: effect of genetic background on mutant phenotype</article-title>. <source>Science</source>. <year>1995</year>;<volume>269</volume>: <fpage>230</fpage>&#x2013;<lpage>234</lpage>. <pub-id pub-id-type="pmid">7618084</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref006">
+        <label>6</label>
+        <mixed-citation publication-type="journal"><name><surname>Kawashima</surname><given-names>I</given-names></name>, <name><surname>Liu</surname><given-names>Z</given-names></name>, <name><surname>Mullany</surname><given-names>LK</given-names></name>, <name><surname>Mihara</surname><given-names>T</given-names></name>, <name><surname>Richards</surname><given-names>JS</given-names></name>, <name><surname>Shimada</surname><given-names>M</given-names></name>. <article-title>EGF-like factors induce expansion of the cumulus cell-oocyte complexes by activating calpain- mediated cell movement</article-title>. <source>Endocrinology</source>. <year>2012</year>;<volume>153</volume>: <fpage>3949</fpage>&#x2013;<lpage>3959</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/en.2012-1059">10.1210/en.2012-1059</ext-link></comment>
+<pub-id pub-id-type="pmid">22673225</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref007">
+        <label>7</label>
+        <mixed-citation publication-type="journal"><name><surname>Aharoni</surname><given-names>D</given-names></name>, <name><surname>Dantes</surname><given-names>A</given-names></name>, <name><surname>Amsterdam</surname><given-names>A</given-names></name>. <article-title>Cross-talk between adenylate cyclase activation and tyrosine phosphorylation leads to modulation of the actin cytoskeleton and to acute progesterone secretion in ovarian granulosa cells</article-title>. <source>Endocrinology</source>. <year>1993</year>;<volume>133</volume>: <fpage>1426</fpage>&#x2013;<lpage>1436</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/endo.133.3.7689957">10.1210/endo.133.3.7689957</ext-link></comment>
+<pub-id pub-id-type="pmid">7689957</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref008">
+        <label>8</label>
+        <mixed-citation publication-type="journal"><name><surname>Herman</surname><given-names>B</given-names></name>, <name><surname>Langevin</surname><given-names>MA</given-names></name>, <name><surname>Albertini</surname><given-names>DF</given-names></name>. <article-title>The effects of taxol on the organization of the cytoskeleton in cultured ovarian granulosa cells</article-title>. <source>Eur J Cell Biol</source>. <year>1983</year>;<volume>31</volume>: <fpage>34</fpage>&#x2013;<lpage>45</lpage>. <pub-id pub-id-type="pmid">6137363</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref009">
+        <label>9</label>
+        <mixed-citation publication-type="journal"><name><surname>Karlsson</surname><given-names>AB</given-names></name>, <name><surname>Maizels</surname><given-names>ET</given-names></name>, <name><surname>Flynn</surname><given-names>MP</given-names></name>, <name><surname>Jones</surname><given-names>JC</given-names></name>, <name><surname>Shelden</surname><given-names>EA</given-names></name>, <name><surname>Bamburg</surname><given-names>JR</given-names></name>, <etal>et al</etal>
+<article-title>Luteinizing Hormone Receptor-Stimulated Progesterone Production by Preovulatory Granulosa Cells Requires Protein Kinase A-Dependent Activation/Dephosphorylation of the Actin Dynamizing Protein Cofilin</article-title>. <source>Mol Endocrinol</source>. <year>2010</year>;<volume>24</volume>: <fpage>1765</fpage>&#x2013;<lpage>1781</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/me.2009-0487">10.1210/me.2009-0487</ext-link></comment>
+<pub-id pub-id-type="pmid">20610540</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref010">
+        <label>10</label>
+        <mixed-citation publication-type="journal"><name><surname>Dawe</surname><given-names>HR</given-names></name>, <name><surname>Minamide</surname><given-names>LS</given-names></name>, <name><surname>Bamburg</surname><given-names>JR</given-names></name>, <name><surname>Cramer</surname><given-names>LP</given-names></name>. <article-title>ADF/cofilin controls cell p polarity during fibroblast migration</article-title>. <source>Curr Biol</source>. <year>2003</year>;<volume>13</volume>: <fpage>252</fpage>&#x2013;<lpage>257</lpage>. <pub-id pub-id-type="pmid">12573223</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref011">
+        <label>11</label>
+        <mixed-citation publication-type="journal"><name><surname>Clark</surname><given-names>EA</given-names></name>, <name><surname>Brugge</surname><given-names>JS</given-names></name>. <article-title>Integrins and signal transduction pathways: the road taken</article-title>. <source>Science</source>. <year>1995</year>;<volume>268</volume>: <fpage>233</fpage>&#x2013;<lpage>239</lpage>. <pub-id pub-id-type="pmid">7716514</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref012">
+        <label>12</label>
+        <mixed-citation publication-type="journal"><name><surname>Giancotti</surname><given-names>FG</given-names></name>, <name><surname>Ruoslahti</surname><given-names>E</given-names></name>. <article-title>Integrin signaling</article-title>. <source>Science</source>. <year>1999</year>;<volume>285</volume>: <fpage>1028</fpage>&#x2013;<lpage>1032</lpage>. <pub-id pub-id-type="pmid">10446041</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref013">
+        <label>13</label>
+        <mixed-citation publication-type="journal"><name><surname>Wu</surname><given-names>C</given-names></name>, <name><surname>Keivenst</surname><given-names>VM</given-names></name>, <name><surname>O&#x2019;Toole</surname><given-names>TE</given-names></name>, <name><surname>McDonald</surname><given-names>JA</given-names></name>, <name><surname>Ginsberg</surname><given-names>MH</given-names></name>. <article-title>Integrin activation and cytoskeletal interaction are essential for the assembly of a fibronectin matrix</article-title>. <source>Cell</source>. <year>1995</year>;<volume>83</volume>: <fpage>715</fpage>&#x2013;<lpage>724</lpage>. <pub-id pub-id-type="pmid">8521488</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref014">
+        <label>14</label>
+        <mixed-citation publication-type="journal"><name><surname>Irving-Rodgers</surname><given-names>HF</given-names></name>, <name><surname>Hummitzsch</surname><given-names>K</given-names></name>, <name><surname>Murdiyarso</surname><given-names>LS</given-names></name>, <name><surname>Bonner</surname><given-names>WM</given-names></name>, <name><surname>Sado</surname><given-names>Y</given-names></name>, <name><surname>Ninomiya</surname><given-names>Y</given-names></name>, <etal>et al</etal>
+<article-title>Dynamics of extracellular matrix in ovarian follicles and corpora lutea of mice</article-title>. <source>Cell Tissue Res</source>. <year>2010</year>;<volume>339</volume>: <fpage>613</fpage>&#x2013;<lpage>624</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00441-009-0905-8">10.1007/s00441-009-0905-8</ext-link></comment>
+<pub-id pub-id-type="pmid">20033213</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref015">
+        <label>15</label>
+        <mixed-citation publication-type="journal"><name><surname>Asem</surname><given-names>EK</given-names></name>, <name><surname>Carnegie</surname><given-names>JA</given-names></name>, <name><surname>Tsang</surname><given-names>BK</given-names></name>. <article-title>Fibronectin production by chicken granulosa cells in vitro: effect of follicular development</article-title>. <source>Acta Endocrinol (Copenh)</source>. <year>1992</year>;<volume>127</volume>: <fpage>466</fpage>&#x2013;<lpage>470</lpage>.<pub-id pub-id-type="pmid">1281952</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref016">
+        <label>16</label>
+        <mixed-citation publication-type="journal"><name><surname>Huet</surname><given-names>C</given-names></name>, <name><surname>Pisselet</surname><given-names>C</given-names></name>, <name><surname>Mandon-P&#xE9;pin</surname><given-names>B</given-names></name>, <name><surname>Monget</surname><given-names>P</given-names></name>, <name><surname>Monniaux</surname><given-names>D</given-names></name>. <article-title>Extracellular matrix regulates ovine granulosa cell survival, proliferation and steroidogenesis: relationships between cell shape and function</article-title>. <source>J Endocrinol</source>. <year>2001</year>;<volume>169</volume>: <fpage>347</fpage>&#x2013;<lpage>360</lpage>. <pub-id pub-id-type="pmid">11312151</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref017">
+        <label>17</label>
+        <mixed-citation publication-type="journal"><name><surname>Mitra</surname><given-names>SK</given-names></name>, <name><surname>Hanson</surname><given-names>DA</given-names></name>, <name><surname>Schlaepfer</surname><given-names>DD</given-names></name>. <article-title>Focal adhesion kinase: in command and control of cell motility</article-title>. <source>Nat Rev Mol Cell Biol</source>. <year>2005</year>;<volume>6</volume>: <fpage>56</fpage>&#x2013;<lpage>68</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nrm1549">10.1038/nrm1549</ext-link></comment>
+<pub-id pub-id-type="pmid">15688067</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref018">
+        <label>18</label>
+        <mixed-citation publication-type="journal"><name><surname>Parsons</surname><given-names>JT</given-names></name>, <article-title>Focal adhesion kinase: the first ten years</article-title>. <source>J Cell Sci</source>. <year>2003</year>;<volume>116</volume>: <fpage>1409</fpage>&#x2013;<lpage>1416</lpage>. <pub-id pub-id-type="pmid">12640026</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref019">
+        <label>19</label>
+        <mixed-citation publication-type="journal"><name><surname>Chen</surname><given-names>HC</given-names></name>, <name><surname>Appeddu</surname><given-names>PA</given-names></name>, <name><surname>Isoda</surname><given-names>H</given-names></name>, <name><surname>Guan</surname><given-names>JL</given-names></name>. <article-title>Phosphorylation of tyrosine 397 in focal adhesion kinase is required for binding phosphatidylinositol 3-kinase</article-title>. <source>J Biol Chem</source>. <year>1996</year>;<volume>271</volume>: <fpage>26329</fpage>&#x2013;<lpage>26334</lpage>. <pub-id pub-id-type="pmid">8824286</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref020">
+        <label>20</label>
+        <mixed-citation publication-type="journal"><name><surname>Hochwald</surname><given-names>SN</given-names></name>, <name><surname>Nyberg</surname><given-names>C</given-names></name>, <name><surname>Zheng</surname><given-names>M</given-names></name>, <name><surname>Zheng</surname><given-names>D</given-names></name>, <name><surname>Wood</surname><given-names>C</given-names></name>, <name><surname>Massoll</surname><given-names>NA</given-names></name>, <etal>et al</etal>
+<article-title>A novel small molecule inhibitor of FAK decreases growth of human pancreatic cancer</article-title>. <source>Cell Cycle</source>. <year>2009</year>;<volume>8</volume>: <fpage>2435</fpage>&#x2013;<lpage>2443</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4161/cc.8.15.9145">10.4161/cc.8.15.9145</ext-link></comment>
+<pub-id pub-id-type="pmid">19571674</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref021">
+        <label>21</label>
+        <mixed-citation publication-type="journal"><name><surname>Shimada</surname><given-names>M</given-names></name>, <name><surname>Yanai</surname><given-names>Y</given-names></name>, <name><surname>Okazaki</surname><given-names>T</given-names></name>, <name><surname>Yamashita</surname><given-names>Y</given-names></name>, <name><surname>Sriraman</surname><given-names>V</given-names></name>, <name><surname>Wilson</surname><given-names>MC</given-names></name>, <etal>et al</etal>
+<article-title>Synaptosomal-Associated Protein 25 Gene Expression Is Hormonally Regulated during Ovulation and Is Involved in Cytokine/Chemokine Exocytosis from Granulosa Cells</article-title>. <source>Mol Endocrinol</source>. <year>2007</year>;<volume>21</volume>: <fpage>2487</fpage>&#x2013;<lpage>2502</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/me.2007-0042">10.1210/me.2007-0042</ext-link></comment>
+<pub-id pub-id-type="pmid">17595323</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref022">
+        <label>22</label>
+        <mixed-citation publication-type="journal"><name><surname>Verrier</surname><given-names>S</given-names></name>, <name><surname>Pallu</surname><given-names>S</given-names></name>, <name><surname>Bareille</surname><given-names>R</given-names></name>, <name><surname>Jonczyk</surname><given-names>A</given-names></name>, <name><surname>Meyer</surname><given-names>J</given-names></name>, <name><surname>Dard</surname><given-names>M</given-names></name>, <etal>et al</etal>
+<article-title>Function of linear and cyclic RGD-containing peptides in osteoprogenitor cells adhesion process</article-title>. <source>Biomaterials</source>. <year>2002</year>;<volume>23</volume>: <fpage>585</fpage>&#x2013;<lpage>596</lpage>. <pub-id pub-id-type="pmid">11761179</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref023">
+        <label>23</label>
+        <mixed-citation publication-type="journal"><name><surname>Hochwald</surname><given-names>SN</given-names></name>, <name><surname>Nyberg</surname><given-names>C</given-names></name>, <name><surname>Zheng</surname><given-names>M</given-names></name>, <name><surname>Zheng</surname><given-names>D</given-names></name>, <name><surname>Wood</surname><given-names>C</given-names></name>, <name><surname>Massoll</surname><given-names>NA</given-names></name>, <etal>et al</etal>
+<article-title>A novel small molecule inhibitor of FAK decreases growth of human pancreatic cancer</article-title>. <source>Cell Cycle</source>. <year>2009</year>;<volume>8</volume>: <fpage>2435</fpage>&#x2013;<lpage>2443</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4161/cc.8.15.9145">10.4161/cc.8.15.9145</ext-link></comment>
+<pub-id pub-id-type="pmid">19571674</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref024">
+        <label>24</label>
+        <mixed-citation publication-type="journal"><name><surname>Dinchuk</surname><given-names>JE</given-names></name>, <name><surname>Car</surname><given-names>BD</given-names></name>, <name><surname>Focht</surname><given-names>RJ</given-names></name>, <name><surname>Johnston</surname><given-names>JJ</given-names></name>, <name><surname>Jaffee</surname><given-names>BD</given-names></name>, <name><surname>Covington</surname><given-names>MB</given-names></name>, <etal>et al</etal>
+<article-title>Renal abnormalities and an altered inflammatory response in mice lacking cyclooxygenase II</article-title>. <source>Nature</source>. <year>1995</year>;<volume>378</volume>: <fpage>406</fpage>&#x2013;<lpage>409</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/378406a0">10.1038/378406a0</ext-link></comment>
+<pub-id pub-id-type="pmid">7477380</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref025">
+        <label>25</label>
+        <mixed-citation publication-type="journal"><name><surname>Lim</surname><given-names>H</given-names></name>, <name><surname>Paria</surname><given-names>BC</given-names></name>, <name><surname>Das</surname><given-names>SK</given-names></name>, <name><surname>Dinchuk</surname><given-names>JE</given-names></name>, <name><surname>Langenbach</surname><given-names>R</given-names></name>, <name><surname>Trzaskos</surname><given-names>JM</given-names></name>, <etal>et al</etal>
+<article-title>Multiple female reproductive failures in cyclooxygenase 2-deficient mice</article-title>. <source>Cell</source>. <year>1997</year>;<volume>91</volume>: <fpage>197</fpage>&#x2013;<lpage>208</lpage>. <pub-id pub-id-type="pmid">9346237</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref026">
+        <label>26</label>
+        <mixed-citation publication-type="journal"><name><surname>F&#xFC;l&#xF6;p</surname><given-names>C</given-names></name>, <name><surname>Sz&#xE1;nt&#xF3;</surname><given-names>S</given-names></name>, <name><surname>Mukhopadhyay</surname><given-names>D</given-names></name>, <name><surname>B&#xE1;rdos</surname><given-names>T</given-names></name>, <name><surname>Kamath</surname><given-names>RV</given-names></name>, <name><surname>Rugg</surname><given-names>MS</given-names></name>, <etal>et al</etal>
+<article-title>Impaired cumulus mucification and female sterility in tumor necrosis factor-induced protein-6 deficient mice</article-title>. <source>Development</source>. <year>2003</year>;<volume>130</volume>: <fpage>2253</fpage>&#x2013;<lpage>2261</lpage>. <pub-id pub-id-type="pmid">12668637</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref027">
+        <label>27</label>
+        <mixed-citation publication-type="journal"><name><surname>Salustri</surname><given-names>A</given-names></name>, <name><surname>Garlanda</surname><given-names>C</given-names></name>, <name><surname>Hirsch</surname><given-names>E</given-names></name>, <name><surname>De Acetis</surname><given-names>M</given-names></name>, <name><surname>Maccagno</surname><given-names>A</given-names></name>, <name><surname>Bottazzi</surname><given-names>B</given-names></name>, <etal>et al</etal>
+<article-title>PTX3 plays a key role in the organization of the cumulus oophorus extracellular matrix and in in vivo fertilization</article-title>. <source>Development</source>. <year>2004</year>;<volume>131</volume>: <fpage>1577</fpage>&#x2013;<lpage>1586</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1242/dev.01056">10.1242/dev.01056</ext-link></comment>
+<pub-id pub-id-type="pmid">14998931</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref028">
+        <label>28</label>
+        <mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>Y</given-names></name>, <name><surname>Rao</surname><given-names>J</given-names></name>, <name><surname>Zha</surname><given-names>XL</given-names></name>, <name><surname>Xu</surname><given-names>H</given-names></name>. <article-title>Angiopoietin-like 3 induces podocyte F-actin rearrangement through integrin &#x3B1;(V)&#x3B2;&#x2083;/FAK/PI3K pathway-mediated Rac1 activation</article-title>. <source>Biomed Res Int</source>. <year>2013</year>;<volume>2013</volume>: <fpage>135608</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1155/2013/135608">10.1155/2013/135608</ext-link></comment>
+<pub-id pub-id-type="pmid">24294595</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref029">
+        <label>29</label>
+        <mixed-citation publication-type="journal"><name><surname>Beggs</surname><given-names>HE</given-names></name>, <name><surname>Schahin-Reed</surname><given-names>D</given-names></name>, <name><surname>Zang</surname><given-names>K</given-names></name>, <name><surname>Goebbels</surname><given-names>S</given-names></name>, <name><surname>Nave</surname><given-names>KA</given-names></name>, <name><surname>Gorski</surname><given-names>J</given-names></name>, <etal>et al</etal>
+<article-title>FAK Deficiency in Cells Contributing to the Basal Lamina Results in Cortical Abnormalities Resembling Congenital Muscular Dystrophies</article-title>. <source>Neuron</source>. <year>2003</year>;<volume>40</volume>: <fpage>501</fpage>&#x2013;<lpage>514</lpage>. <pub-id pub-id-type="pmid">14642275</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref030">
+        <label>30</label>
+        <mixed-citation publication-type="journal"><name><surname>Hall</surname><given-names>A</given-names></name>. <article-title>Rho GTPases and the actin cytoskeleton</article-title>. <source>Science</source>. <year>1998</year>;<volume>279</volume>: <fpage>509</fpage>&#x2013;<lpage>514</lpage>. <pub-id pub-id-type="pmid">9438836</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref031">
+        <label>31</label>
+        <mixed-citation publication-type="journal"><name><surname>Nobes</surname><given-names>CD</given-names></name>, <name><surname>Hall</surname><given-names>A</given-names></name>. <article-title>Rho, rac, and cdc42 GTPases regulate the assembly of multimolecular focal complexes associated with actin stress fibers, lamellipodia, and filopodia</article-title>. <source>Cell</source>. <year>1995</year>;<volume>81</volume>: <fpage>53</fpage>&#x2013;<lpage>62</lpage>. <pub-id pub-id-type="pmid">7536630</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref032">
+        <label>32</label>
+        <mixed-citation publication-type="journal"><name><surname>Ridley</surname><given-names>AJ</given-names></name>, <name><surname>Hall</surname><given-names>A</given-names></name>. <article-title>The small GTP-binding protein rho regulates the assembly of focal adhesions and actin stress fibers in response to growth factors</article-title>. <source>Cell</source>. <year>1992</year>;<volume>70</volume>: <fpage>389</fpage>&#x2013;<lpage>399</lpage>. <pub-id pub-id-type="pmid">1643657</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref033">
+        <label>33</label>
+        <mixed-citation publication-type="journal"><name><surname>Ridley</surname><given-names>A</given-names></name>, <name><surname>Hall</surname><given-names>A</given-names></name>. <article-title>Signal transduction pathways regulating Rho-mediated stress fibre formation: requirement for a tyrosine kinase</article-title>. <source>EMBO J</source>. <year>1994</year>;<volume>13</volume>: <fpage>2600</fpage>&#x2013;<lpage>2610</lpage>. <pub-id pub-id-type="pmid">7516876</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref034">
+        <label>34</label>
+        <mixed-citation publication-type="journal"><name><surname>Schober</surname><given-names>M</given-names></name>, <name><surname>Ellenberg</surname><given-names>J</given-names></name>. <article-title>Self-Organization of MTOCs Replaces Centrosome Function during Acentrosomal Spindle Assembly in Live Mouse Oocytes</article-title>. <source>Cell</source>. <year>2007</year>;<volume>130</volume>: <fpage>484</fpage>&#x2013;<lpage>498</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cell.2007.06.025">10.1016/j.cell.2007.06.025</ext-link></comment>
+<pub-id pub-id-type="pmid">17693257</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref035">
+        <label>35</label>
+        <mixed-citation publication-type="journal"><name><surname>Parsons</surname><given-names>JT</given-names></name>, <name><surname>Horwitz</surname><given-names>AR</given-names></name>, <name><surname>Schwartz</surname><given-names>MA</given-names></name>. <article-title>Cell adhesion: integrating cytoskeletal dynamics and cellular tension</article-title>. <source>Nat Rev Mol Cell Biol</source>. <year>2010</year>;<volume>11</volume>: <fpage>633</fpage>&#x2013;<lpage>643</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nrm2957">10.1038/nrm2957</ext-link></comment>
+<pub-id pub-id-type="pmid">20729930</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref036">
+        <label>36</label>
+        <mixed-citation publication-type="journal"><name><surname>Pellegrin</surname><given-names>S</given-names></name>, <name><surname>Mellor</surname><given-names>H</given-names></name>. <article-title>Actin stress fibers</article-title>. <source>J Cell Sci</source>. <year>2007</year>;<volume>120</volume>: <fpage>3491</fpage>&#x2013;<lpage>3499</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1242/jcs.018473">10.1242/jcs.018473</ext-link></comment>
+<pub-id pub-id-type="pmid">17928305</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref037">
+        <label>37</label>
+        <mixed-citation publication-type="journal"><name><surname>Sliogeryte</surname><given-names>K</given-names></name>, <name><surname>Thorpe</surname><given-names>SD</given-names></name>, <name><surname>Lee</surname><given-names>DA</given-names></name>, <name><surname>Botto</surname><given-names>L</given-names></name>, <name><surname>Knight</surname><given-names>MM</given-names></name>. <article-title>Stem cell differentiation increases membrane-actin adhesion regulating cell blebability, migration and mechanics</article-title>. <source>Sci Rep</source>. <year>2014</year>;<volume>4</volume>: <fpage>7307</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/srep07307">10.1038/srep07307</ext-link></comment>
+<pub-id pub-id-type="pmid">25471686</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref038">
+        <label>38</label>
+        <mixed-citation publication-type="journal"><name><surname>Sandbo</surname><given-names>N</given-names></name>, <name><surname>Lau</surname><given-names>A</given-names></name>, <name><surname>Kach</surname><given-names>J</given-names></name>, <name><surname>Ngam</surname><given-names>C</given-names></name>, <name><surname>Yau</surname><given-names>D</given-names></name>, <name><surname>Dulin</surname><given-names>NO</given-names></name>. <article-title>Delayed stress fiber formation mediates pulmonary myofibroblast differentiation in response to TGF-&#x3B2;</article-title>. <source>Am J Physiol Lung Cell Mol Physiol</source>. <year>2011</year>;<volume>301</volume>: <fpage>656</fpage>&#x2013;<lpage>666</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref039">
+        <label>39</label>
+        <mixed-citation publication-type="journal"><name><surname>Pinyopummintr</surname><given-names>T</given-names></name>, <name><surname>Bavister</surname><given-names>BD</given-names></name>. <article-title>In vitro-matured/in vitro-fertilized bovine oocytes can develop into morulae/blastocysts in chemically defined, protein-free culture media</article-title>. <source>Biol Reprod</source>. <year>1991</year>;<volume>45</volume>: <fpage>736</fpage>&#x2013;<lpage>742</lpage>. <pub-id pub-id-type="pmid">1756211</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref040">
+        <label>40</label>
+        <mixed-citation publication-type="journal"><name><surname>Miyano</surname><given-names>T</given-names></name>, <name><surname>Ebihara</surname><given-names>M</given-names></name>, <name><surname>Goto</surname><given-names>Y</given-names></name>, <name><surname>Hirao</surname><given-names>Y</given-names></name>, <name><surname>Nagai</surname><given-names>T</given-names></name>, <name><surname>Kato</surname><given-names>S</given-names></name>. <article-title>Inhibitory action of hypoxanthine on meiotic resumption of denuded pig follicular oocytes in vitro</article-title>. <source>J Exp Zool</source>. <year>1995</year>;<volume>273</volume>: <fpage>70</fpage>&#x2013;<lpage>75</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/jez.1402730109">10.1002/jez.1402730109</ext-link></comment>
+<pub-id pub-id-type="pmid">7561726</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref041">
+        <label>41</label>
+        <mixed-citation publication-type="journal"><name><surname>Fatehi</surname><given-names>AN</given-names></name>, <name><surname>Zeinstra</surname><given-names>EC</given-names></name>, <name><surname>Kooij</surname><given-names>RV</given-names></name>, <name><surname>Colenbrander</surname><given-names>B</given-names></name>, <name><surname>Bevers</surname><given-names>MM</given-names></name>. <article-title>Effect of cumulus cell removal of in vitro matured bovine oocytes prior to in vitro fertilization on subsequent cleavage rate</article-title>. <source>Theriogenology</source>. <year>2002</year>;<volume>57</volume>: <fpage>1347</fpage>&#x2013;<lpage>1355</lpage>. <pub-id pub-id-type="pmid">12013454</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref042">
+        <label>42</label>
+        <mixed-citation publication-type="journal"><name><surname>Downs</surname><given-names>SM</given-names></name>, <name><surname>Gilles</surname><given-names>R</given-names></name>, <name><surname>Vanderhoef</surname><given-names>C</given-names></name>, <name><surname>Humpherson</surname><given-names>PG</given-names></name>, <name><surname>Leese</surname><given-names>HJ</given-names></name>. <article-title>Differential response of cumulus cell-enclosed and denuded mouse oocytes in a meiotic induction model system</article-title>. <source>Mol Reprod Dev</source>. <year>2006</year>;<volume>73</volume>: <fpage>379</fpage>&#x2013;<lpage>389</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/mrd.20416">10.1002/mrd.20416</ext-link></comment>
+<pub-id pub-id-type="pmid">16362973</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0192458.ref043">
+        <label>43</label>
+        <mixed-citation publication-type="journal"><name><surname>Lange</surname><given-names>C</given-names></name>, <name><surname>Cakiroglu</surname><given-names>F</given-names></name>, <name><surname>Spiess</surname><given-names>AN</given-names></name>, <name><surname>Cappallo-Obermann</surname><given-names>H</given-names></name>, <name><surname>Dierlamm</surname><given-names>J</given-names></name>, <name><surname>Zander</surname><given-names>AR</given-names></name>. <article-title>Accelerated and safe expansion of human mesenchymal stromal cells in animal serum-free medium for transplantation and regenerative medicine</article-title>. <source>J Cell Physiol</source>. <year>2007</year>;<volume>213</volume>: <fpage>18</fpage>&#x2013;<lpage>26</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/jcp.21081">10.1002/jcp.21081</ext-link></comment>
+<pub-id pub-id-type="pmid">17458897</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

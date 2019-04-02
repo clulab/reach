@@ -1,0 +1,827 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Oncol Lett</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Oncol Lett</journal-id>
+      <journal-id journal-id-type="publisher-id">OL</journal-id>
+      <journal-title-group>
+        <journal-title>Oncology Letters</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1792-1074</issn>
+      <issn pub-type="epub">1792-1082</issn>
+      <publisher>
+        <publisher-name>D.A. Spandidos</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24765152</article-id>
+      <article-id pub-id-type="pmc">3997698</article-id>
+      <article-id pub-id-type="doi">10.3892/ol.2014.1946</article-id>
+      <article-id pub-id-type="publisher-id">ol-07-05-1439</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Effects of epidermal growth factor on the invasive activity and cytoskeleton of oral squamous cell carcinoma cell lines</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>OHNISHI</surname>
+            <given-names>YUICHI</given-names>
+          </name>
+          <xref ref-type="corresp" rid="c1-ol-07-05-1439"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>WATANABE</surname>
+            <given-names>MASAHIRO</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>YASUI</surname>
+            <given-names>HIROKI</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>KAKUDO</surname>
+            <given-names>KENJI</given-names>
+          </name>
+        </contrib>
+        <aff id="af1-ol-07-05-1439">Second Department of Oral and Maxillofacial Surgery, Osaka Dental University, Chuo-ku, Osaka 540-0008, Japan</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1-ol-07-05-1439">Correspondence to: Dr Yuichi Ohnishi, Second Department of Oral and Maxillofacial Surgery, Osaka Dental University, 1-5-17 Otemae, Chuo-ku, Osaka 540-0008, Japan, E-mail: <email>ohnishi@cc.osaka-dent.ac.jp</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>5</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>07</day>
+        <month>3</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>07</day>
+        <month>3</month>
+        <year>2014</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on the
+							<pub-date pub-type="epub"/>. -->
+      <volume>7</volume>
+      <issue>5</issue>
+      <fpage>1439</fpage>
+      <lpage>1442</lpage>
+      <history>
+        <date date-type="received">
+          <day>21</day>
+          <month>6</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>03</day>
+          <month>1</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014, Spandidos Publications</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/3.0">
+          <license-p>This is an open-access article licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License. The article may be redistributed, reproduced, and reused for non-commercial purposes, provided the original source is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Epidermal growth factor (EGF) is present at high concentrations in human saliva and modulates the growth and differentiation of various cancer cells. To elucidate the molecular mechanisms by which EGF affects oral cancer proliferation and invasion, the current study analyzed the Matrigel invasion activity of cultured oral cancer cell lines. Cell proliferation under the influence of EGF was subjected to Matrigel invasion assays, and cell proliferation in the absence of EGF was used as control. Northern blot analyses quantified the invasiveness and tumorigenicity. Chloramphenicol acetyltransferase assay determined the EGF stimulation of matrix metalloproteinase (MMP) 1 expression. EGF increased the number of cells penetrating the Matrigel membrane. Northern blot analysis revealed that MMP1 and cytokeratin 19 expression correlate with EGF. In addition, the morphology of HSC-3 and SAS cells changed following the addition of EGF to the culture medium. A transient transfection assay revealed that EGF increases the promoter activities of MMP1 in HSC-3 cells. These observations suggested that EGF increases the invasive activity of oral cancer cells, partly by increasing MMP1, and morphological changes may be induced by altering the composition of cytoskeletal proteins.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>epidermal growth factor</kwd>
+        <kwd>matrix metalloproteinases</kwd>
+        <kwd>matrix metalloproteinase 1</kwd>
+        <kwd>squamous cell carcinoma</kwd>
+        <kwd>cytokeratin 19</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>In 1962, Cohen identified epidermal growth factor (EGF) while studying nerve growth factor in submaxillary glands of male Swiss-Webster mice (<xref rid="b1-ol-07-05-1439" ref-type="bibr">1</xref>). EGF is known to be produced in human salivary glands. It modulates the proliferation and differentiation of various cancer cells, as well as normal epithelial cells. EGF has been shown to enhance bladder cancer cell growth (<xref rid="b2-ol-07-05-1439" ref-type="bibr">2</xref>&#x2013;<xref rid="b4-ol-07-05-1439" ref-type="bibr">4</xref>). Furthermore, it is known that EGF stimulates matrix metalloproteinases (MMPs), which have been previously reported to be associated with metastases in various tumors (<xref rid="b5-ol-07-05-1439" ref-type="bibr">5</xref>&#x2013;<xref rid="b7-ol-07-05-1439" ref-type="bibr">7</xref>). Advances in molecular biology have revealed that MMPs are particularly important in cancer progression (<xref rid="b8-ol-07-05-1439" ref-type="bibr">8</xref>), and the expression levels of MMPs correlate with cancer invasion and metastasis (<xref rid="b9-ol-07-05-1439" ref-type="bibr">9</xref>). We previously reported that EGF increases the promoter activities of the MMP9 gene in HSC-3 cells (<xref rid="b10-ol-07-05-1439" ref-type="bibr">10</xref>). These results suggested that EGF increases the invasive activity of oral cancer cells partly by increasing MMP9 (<xref rid="b10-ol-07-05-1439" ref-type="bibr">10</xref>).</p>
+      <p>Cytokeratin (CK) 19 is a particularly intriguing member of the CK intermediate filament superfamily (<xref rid="b11-ol-07-05-1439" ref-type="bibr">11</xref>). Unlike other type I acidic CKs, CK19 does not generally form heterodimers with any of the type II basic proteins (<xref rid="b12-ol-07-05-1439" ref-type="bibr">12</xref>). CK19 is expressed in the non-keratinizing stratified squamous epithelium exemplified by the oral cavity (<xref rid="b13-ol-07-05-1439" ref-type="bibr">13</xref>) and tends to reflect the state of differentiation of the tumor (<xref rid="b14-ol-07-05-1439" ref-type="bibr">14</xref>). For example, the expression of CK19 is more intense in poorly differentiated lesions than in other lesions. In a previous study, keratin 19 downregulation in oral squamous cell carcinoma cell lines increased their invasive potential (<xref rid="b15-ol-07-05-1439" ref-type="bibr">15</xref>).</p>
+      <p>The present study analyzed the effects of EGF on the invasive activity of a cultured oral cancer cell line and assessed the transcription of MMP1. In addition, the expression of CK19 with and without EGF was examined.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec>
+        <title>Cell culture</title>
+        <p>The human oral squamous cell carcinoma (SCC) cell lines, HSC-3, SAS and Ca9-22, were obtained from the RIKEN BioResource Center (Ibaraki, Japan). HSC-3, SAS and Ca9-22 cells were cultured in Dulbecco&#x2019;s modified Eagle&#x2019;s medium (DMEM; Nissui, Tokyo, Japan) containing 10% fetal bovine serum (FBS) and 5 &#x3BC;g/ml ampicillin at 37&#xB0;C in humidified 5% CO<sub>2</sub> in air. Human recombinant EGF (Upstate Biotechnology, Lake Placid, New York, USA) was added to the medium at concentrations of 0, 10 and 100 ng/ml, and the medium was changed every day. Following EGF addition, cell lines were cultured for six days.</p>
+      </sec>
+      <sec>
+        <title>Observation of cell morphology</title>
+        <p>HSC-3 or SAS cells (15&#xD7;10<sup>4</sup>) were seeded in 1 ml DMEM containing 1% FBS and EGF (0, 10 or 100 ng/ml) in a 35-mm dish for six days, during which the medium was changed every day.</p>
+      </sec>
+      <sec>
+        <title>Matrigel invasion assay</title>
+        <p>The assays were performed according to the manufacturer&#x2019;s instructions. In conclusion, HSC-3 and SAS cells (2&#xD7;10<sup>4</sup>/well) were seeded in a six-well Bio Coat Matrigel<sup>&#xAE;</sup> Invasion Chamber (Beckton-Dickinson, Bedford, MA, USA) in Eagle&#x2019;s minimal essential medium containing 10% (v/v) heat-inactivated fetal calf serum, with 0, 10 and 100 ng/ml EGF. Following 48 h of incubation, the non-invading cells were removed from the upper surface of the membrane by scrubbing and the membrane was stained using a Diff-Quick stain kit (Sysmex, Kobe, Japan). Subsequently, invading cells on the lower surface were counted using a microscope (BX50, Olympus Corporation, Tokyo, Japan). Data are presented as the average of experiments performed in triplicate.</p>
+      </sec>
+      <sec>
+        <title>RNA isolation and northern blot analysis</title>
+        <p>HSC-3 and SAS cells (30&#xD7;10<sup>4</sup>) were seeded on a 100-mm gelatin-coated dish. Following 48 h of incubation, EGF was added to the medium at a concentration of 10 ng/ml and the medium was changed every other day. Total cellular RNA was prepared following six days of culture using the Isogen<sup>&#xAE;</sup> RNA isolation kit (Nippon Gene, Tokyo, Japan). For northern blot analysis, 15 &#x3BC;g of total RNA was electrophoresed on formaldehyde-agarose gel in 3-(N-morpholino)propanesulfonic acid buffer and transferred to nitrocellulose filters (Nitroplus-2000, Micron Separations Inc., Westborough, MA, USA) in 20X SSC (1.5 M NaCl and 0.15 M sodium citrate). The filters were prehybridized in 50% formamide, 4X SSC, 5X Denhardt&#x2019;s solution [0.1% Ficoll (GE Healthcare Japan Corporation, Tokyo, Japan), 0.1% polyvinylpyrrolidone (Sigma-Aldrich Japan K.K., Tokyo, Japan) and 0.1% bovine serum albumin (Takara Bio Inc., Shiga, Japan)], 0.2% sodium dodecyl sulfate (SDS; Wako Pure Chemical Industries, Ltd., Osaka, Japan) and denatured sonicated salmon sperm DNA (120 &#x3BC;g/ml; BioDynamics Laboratory Inc., Tokyo, Japan), at 42&#xB0;C for 2 h and hybridized with radiolabeled DNA probes (CK19, EGFR and GAPDH) under the same conditions for 24 h. Following hybridization, the filters were washed at 55&#xB0;C with 0.1X SSC containing 0.1% SDS.</p>
+      </sec>
+      <sec>
+        <title>DNA probes</title>
+        <p>A human CK19 cDNA clone in pUC18 (<italic>Eco</italic>RI cloning site; 1.5<italic>-</italic>kb insert) and a human EGF receptor (EGFR) cDNA clone in pBR322 (<italic>Cla</italic>I cloning site; 2.4-kb insert; pE7) were used as probes and a human glyceraldehyde 3-phosphate dehydrogenase cDNA clone in pUC18 (<italic>Eco</italic>RI cloning site; 1.2-kb insert) was used as a control probe.</p>
+      </sec>
+      <sec>
+        <title>Western blot analysis</title>
+        <p>Lysates obtained from 2.0 &#x3BC;g/ml CRN197-treated HSC-3 cells incubated for 24 h were resuspended in 0.2 ml radioimmunoprecipitation assay buffer (Wako Pure Chemical Industries, Ltd.) (0.1% Nonidet-P40, 1 mM CaCl<sub>2</sub>, 1 mM MgCl<sub>2</sub>, 0.1% sodium azide, 1 mM phenylmethylsulfonyl fluoride, 0.03 mg/ml aprotinin and 1 mM NaVO<sub>4</sub>). Proteins were separated on 7 and 14% SDS polyacrylamide gels (Nacalai Tesque, Inc., Kyoto, Japan), transferred overnight at 20 V and incubated for 2 h at room temperature with mouse monoclonal antibody, followed by incubation with secondary horseradish peroxidase-conjugated antibodies (Anti-Mouse IgG, whole Ab from Sheep; GE Healthcare UK Ltd., Amersham, UK) at a dilution of 1:1,000. Primary mouse monoclonal antibodies included anti-MMP1 (Calciobiochem, Darmstadt, Germany). Immunoreactivity was detected using enhanced chemiluminescence. Densitometric analysis was performed with ChemiDoc using Quantity One software (Bio-Rad, Tokyo, Japan).</p>
+      </sec>
+      <sec>
+        <title>Chloramphenicol acetyl transferase (CAT) assay</title>
+        <p>In summary, MMP1-CAT was constructed by ligating a 563-bp fragment (&#x2212;518 to +45 of MMP1 genomic DNA) to the bacterial CAT assay performed in HSC-3 cells using a transient transfection system (Lipofectamine&#x2122;; Invitrogen Life Technologies, Carlsbad, CA, USA). Cells (1.5&#xD7;10<sup>6</sup>) were seeded in a 100-mm dish and 10 &#x3BC;g of DNA was co-transfected with 5 &#x3BC;g of pCH110 plasmid as an internal control using the calcium phosphate co-precipitation method. The culture medium was changed 16 h following transfection to 10% DMEM with or without 10 ng/ml EGF. A cell lysate was prepared 48 h following transfection and the reaction was performed. Data are presented as the average of experiments performed in triplicate.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>The Mann-Whitney U test was used to assess the statistical significance of differences between samples. P&lt;0.05 was considered to indicate a statistically significant difference.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>Expression of CK19 and EGFR mRNA in HSC-3 and SAS</title>
+        <p>EGF stimulates the proliferation of target cells through interaction with its surface receptor. Previous studies have shown that EGFR mRNA is expressed in a large number of oral SCC cell lines. In total, 10- and 5.6-kb EGFR mRNA was detected in the present study from HSC-3, SAS and Ca9-22 cells. This result confirmed the observations of previous studies for HSC-3 cells, but this is the first report of EGFR mRNA detection in SAS cell lines. Similar levels of expression of EGFR mRNA were detected in HSC-3 and SAS cells (<xref rid="f1-ol-07-05-1439" ref-type="fig">Fig. 1</xref>).</p>
+      </sec>
+      <sec>
+        <title>Morphological change in HSC-3 and SAS in medium containing EGF</title>
+        <p>EGF produces various changes in cells. Therefore, morphological change in HSC-3 and SAS was observed under EGF stimulation. HSC-3 and SAS exhibited typical proliferation in the absence of EGF. By contrast, HSC-3 and SAS exhibited morphological change in the presence of EGF. It was shown that their form changed to circular; in addition, cells showed detachment, with the loss of cell adhesion. <xref rid="f2-ol-07-05-1439" ref-type="fig">Fig. 2</xref> shows the morphology of HSC-3 and SAS on day six. As bladder cell carcinoma cell lines piled up into discrete colonies due to EGF, differences were identified among the oral SCC cell lines. This suggested the possibility of variable cell morphological changes among the cell lines under EGF stimulation. These observations suggested that EGF affects the degree of cell-cell adhesion of tumor cells.</p>
+      </sec>
+      <sec>
+        <title>Invasiveness and tumorigenicity</title>
+        <p>To determine whether EGF increases the invasive activity of oral cancer, the invasiveness of EGF-stimulated HSC-3 cells was investigated using Matrigel invasion chambers that included extracellular matrix components. The number of HSC-3 cells penetrating the Matrigel membrane was approximately three-fold higher in EGF-stimulated (10 mg/ml) cells than in unstimulated cells. No significant difference was identified in the penetration of HSC-3 cells with the various concentrations of EGF used (10 and 100 mg/ml) (<xref rid="f3-ol-07-05-1439" ref-type="fig">Fig. 3</xref>).</p>
+      </sec>
+      <sec>
+        <title>Northern blot analysis</title>
+        <p>Northern blot analysis was used to analyze the influence of EGF on the expression of MMP1. EGF increased the expression of MMP1. Furthermore, the expression of CK19 was analyzed to investigate the correlation between cell conformation and CK expression. The expression of CK19 mRNA was evidently reduced by EGF, even at the lowest concentration of 10 ng/ml (<xref rid="f4-ol-07-05-1439" ref-type="fig">Fig. 4</xref>).</p>
+      </sec>
+      <sec>
+        <title>MMP1 expression in western blot analysis</title>
+        <p>To confirm an increase in MMP1 protein levels, western blot analysis was performed using an anti-MMP1 monoclonal antibody. EGF increased the expression of MMP1 in an EGF concentration-dependent manner (<xref rid="f5-ol-07-05-1439" ref-type="fig">Fig. 5</xref>).</p>
+      </sec>
+      <sec>
+        <title>EGF stimulates MMP1 expression</title>
+        <p>As EGF increased the invasiveness of the HSC-3 oral cancer cell line, it was assessed whether it is also likely to modulate the expression of MMP1. CAT reporter genes driven by MMP1 promoters were transiently transfected into HSC-3 cells. MMP1-CAT activities were increased 3.7-fold following EGF stimulation compared with the controls (<xref rid="f6-ol-07-05-1439" ref-type="fig">Fig. 6</xref>).</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>MMPs are considered to be important in cancer invasion and metastasis (<xref rid="b8-ol-07-05-1439" ref-type="bibr">8</xref>,<xref rid="b16-ol-07-05-1439" ref-type="bibr">16</xref>,<xref rid="b17-ol-07-05-1439" ref-type="bibr">17</xref>). MMPs degrade various types of collagen, namely, stromal type 1 collagen and type 4 collagen of the basement membrane, and proteoglycans. The expression of matrix-degrading proteinases is elevated in a variety of invasive carcinomas (<xref rid="b18-ol-07-05-1439" ref-type="bibr">18</xref>,<xref rid="b19-ol-07-05-1439" ref-type="bibr">19</xref>). However, the activating mechanisms of these invasion-associated genes remain poorly understood. Certain previous studies have shown that EGF stimulates the expression of MMP1 and MMP9 in several cancers (<xref rid="b16-ol-07-05-1439" ref-type="bibr">16</xref>&#x2013;<xref rid="b18-ol-07-05-1439" ref-type="bibr">18</xref>). In the present study, EGF stimulated HSC-3 and SAS cells to invade Matrigel membranes. Additionally, EGF stimulated HSC-3 and SAS cells to produce MMP1 mRNA. Notably, it has been previously reported that SCC exhibits overexpression of EGFRs (<xref rid="b18-ol-07-05-1439" ref-type="bibr">18</xref>,<xref rid="b19-ol-07-05-1439" ref-type="bibr">19</xref>). These previous studies suggest that EGF and EGFRs are likely regulatory factors for the production of MMP1. In addition, the present study found by CAT assay that EGF stimulates the MMP1 promoter. These observations suggested that the stimulation of MMP1 expression by EGF is likely to be one of the mechanisms that increases the invasive activity of HSC-3 and SAS cells.</p>
+      <p>CK8, CK18 and CK19 are CKs that are part of the cell skeleton and arrange the cell conformation similar to actins. CKs are also involved in maintaining desmosomal junctions through connections with certain cadherins, including desmogleins and desmocollins. Thus, CKs are essential for cell-cell adhesion similar to E-cadherin. In addition, CK8 and CK18 have been previously reported to be expressed at high levels in various cancers (<xref rid="b20-ol-07-05-1439" ref-type="bibr">20</xref>). Certain previous studies have reported the reduced expression of CK19 in poorly differentiated skin and breast cancer (<xref rid="b21-ol-07-05-1439" ref-type="bibr">21</xref>). The observations of the current study showed that EGF reduced the expression of CK19 mRNA in oral cancer cell lines. Reduction of CK19 may be an additional pathway through which EGF increases the invasive activity of oral cancer cell lines.</p>
+      <p>The standard care for oral cancer is a combination of surgery, radiation and chemotherapy. Commonly, carboplatin, cisplatin and paclitaxel are used for chemotherapy. However, in specific patients, these drugs have no effect due to the development of drug resistance. In oral cancer, overexpression of EGFR has been associated with chemoresistance and poor prognosis. Targeting EGF, as an abundant EGFR ligand, may be favorable for the treatment of chemoresistant oral cancer. It has also been noted that EGF inactivates CK19. Therefore, EGF may be a better target for the therapy of oral cancer than EGFR.</p>
+      <p>In conclusion, the current study identified two pathways of EGF effects on oral carcinoma cell lines. Firstly, that the expression of MMP1 results in degradation of the extracellular matrix. Secondly, that changes in cytoskeletal proteins, such as CK19, may allow changes in morphology that promote movement into vessels and lymphatics. The results of the present study suggested that EGF may promote the invasive activity of oral cancer cells by activating these two pathways.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-ol-07-05-1439">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation of a mouse submaxillary gland protein accelerating incisor eruption and eyelid opening in the new-born animal</article-title>
+          <source>J Biol Chem</source>
+          <volume>237</volume>
+          <fpage>1555</fpage>
+          <lpage>1562</lpage>
+          <year>1962</year>
+          <pub-id pub-id-type="pmid">13880319</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-ol-07-05-1439">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kawamata</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Azuma</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kameyama</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nan</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Oyasu</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of epidermal growth factor/transforming growth factor alpha and transforming growth factor beta 1 on growth in vitro of rat urinary bladder carcinoma cells</article-title>
+          <source>Cell Growth Differ</source>
+          <volume>3</volume>
+          <fpage>819</fpage>
+          <lpage>825</lpage>
+          <year>1992</year>
+          <pub-id pub-id-type="pmid">1467309</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-ol-07-05-1439">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuranami</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tamaguchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fuchigami</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effect of urine on clonal growth of human bladder cancer cell lines</article-title>
+          <source>Cancer Res</source>
+          <volume>51</volume>
+          <fpage>4631</fpage>
+          <lpage>4635</lpage>
+          <year>1991</year>
+          <pub-id pub-id-type="pmid">1873808</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-ol-07-05-1439">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ishikawa</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Maeda</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sugiyama</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGF stimulates anchorage-independent growth of a human bladder carcinoma cell line (KU1) with an amplified and over-expressed EGF receptor gene</article-title>
+          <source>Int J Cancer</source>
+          <volume>44</volume>
+          <fpage>1000</fpage>
+          <lpage>1004</lpage>
+          <year>1989</year>
+          <pub-id pub-id-type="pmid">2606569</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-ol-07-05-1439">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Narayanan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Hibbs</surname>
+              <given-names>MS</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Altered epidermal growth factor signal transduction in activated Ha-ras transformed human keratinocytes</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <volume>193</volume>
+          <fpage>167</fpage>
+          <lpage>174</lpage>
+          <year>1993</year>
+          <pub-id pub-id-type="pmid">8503904</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-ol-07-05-1439">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shima</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Sasaguri</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kusukawa</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Production of matrix metalloproteinase 9 (92 kDa gelatinase) by human oesophageal squamous cell carcinoma in response to epidermal growth factor</article-title>
+          <source>Br J Cancer</source>
+          <volume>67</volume>
+          <fpage>721</fpage>
+          <lpage>727</lpage>
+          <year>1993</year>
+          <pub-id pub-id-type="pmid">8471429</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-ol-07-05-1439">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ueda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fujii</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Yoshizawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Abe</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Ueki</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of sex steroids and growth factors on migration and invasion of endometrial adenocarcinoma SNG-M cells in vitro</article-title>
+          <source>Jpn J Cancer Res</source>
+          <volume>87</volume>
+          <fpage>524</fpage>
+          <lpage>533</lpage>
+          <year>1996</year>
+          <pub-id pub-id-type="pmid">8641991</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-ol-07-05-1439">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liotta</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Stetler-Stevenson</surname>
+              <given-names>WG</given-names>
+            </name>
+            <name>
+              <surname>Steeg</surname>
+              <given-names>PS</given-names>
+            </name>
+          </person-group>
+          <article-title>Cancer invasion and metastasis: positive and negative regulatory elements</article-title>
+          <source>Cancer Invest</source>
+          <volume>9</volume>
+          <fpage>543</fpage>
+          <lpage>551</lpage>
+          <year>1991</year>
+          <pub-id pub-id-type="pmid">1933487</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-ol-07-05-1439">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Grigioni</surname>
+              <given-names>WF</given-names>
+            </name>
+            <name>
+              <surname>D&#x2019;Errico</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Fortunato</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Prognosis of gastric carcinoma revealed by interactions between tumor cells and basement membrane</article-title>
+          <source>Mod Pathol</source>
+          <volume>7</volume>
+          <fpage>220</fpage>
+          <lpage>225</lpage>
+          <year>1994</year>
+          <pub-id pub-id-type="pmid">8008747</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-ol-07-05-1439">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ohnishi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Lieger</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Attygalla</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Iizuka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kakudo</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of epidermal growth factor on the invasion activity of the oral cancer cell lines HSC3 and SAS</article-title>
+          <source>Oral Oncol</source>
+          <volume>44</volume>
+          <fpage>1155</fpage>
+          <lpage>1159</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18485796</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-ol-07-05-1439">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Crowe</surname>
+              <given-names>DL</given-names>
+            </name>
+            <name>
+              <surname>Rheinwald</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Chambon</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Gudas</surname>
+              <given-names>LJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Abnormal expression of retinoic acid receptors and keratin 19 by human oral and epidermoid squamous cell carcinoma lines</article-title>
+          <source>Cancer Res</source>
+          <volume>51</volume>
+          <fpage>3972</fpage>
+          <lpage>3981</lpage>
+          <year>1991</year>
+          <pub-id pub-id-type="pmid">1713123</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-ol-07-05-1439">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gudas</surname>
+              <given-names>LJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of keratin 19 gene expression by a 3&#x2032; enhancer containing an AP1 site</article-title>
+          <source>J Biol Chem</source>
+          <volume>269</volume>
+          <fpage>183</fpage>
+          <lpage>191</lpage>
+          <year>1994</year>
+          <pub-id pub-id-type="pmid">7506253</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-ol-07-05-1439">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lindberg</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Rheinwald</surname>
+              <given-names>JG</given-names>
+            </name>
+          </person-group>
+          <article-title>Suprabasal 40kd keratin (K19) expression as an immunohistochemical marker of premalignancy in oral epithelium</article-title>
+          <source>Am J Pathol</source>
+          <volume>134</volume>
+          <fpage>89</fpage>
+          <lpage>98</lpage>
+          <year>1989</year>
+          <pub-id pub-id-type="pmid">2464285</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-ol-07-05-1439">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shinohara</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hiraki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ikebe</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Immunohistochemical study of desmosomes in oral squamous cell carcinoma : correlation with cytokeratin and E-cadherin staining, and with tumour behavior</article-title>
+          <source>J Pathol</source>
+          <volume>184</volume>
+          <fpage>369</fpage>
+          <lpage>391</lpage>
+          <year>1998</year>
+          <pub-id pub-id-type="pmid">9664902</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-ol-07-05-1439">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Crowe</surname>
+              <given-names>DL</given-names>
+            </name>
+            <name>
+              <surname>Milo</surname>
+              <given-names>GE</given-names>
+            </name>
+            <name>
+              <surname>Shuler</surname>
+              <given-names>CF</given-names>
+            </name>
+          </person-group>
+          <article-title>Keratin 19 Downregulation by oral squamous cell carcinoma lines increases invasive potential</article-title>
+          <source>J Dent Res</source>
+          <volume>78</volume>
+          <fpage>1256</fpage>
+          <lpage>1263</lpage>
+          <year>1999</year>
+          <pub-id pub-id-type="pmid">10371250</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-ol-07-05-1439">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakajima</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Welch</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Belloni</surname>
+              <given-names>PN</given-names>
+            </name>
+            <name>
+              <surname>Nicolson</surname>
+              <given-names>GL</given-names>
+            </name>
+          </person-group>
+          <article-title>Degradation of basement membrane type IV collagen and lung subendothelial matrix by rat mammary adenocarcinoma cell clones of differing metastatic potentials</article-title>
+          <source>Cancer Res</source>
+          <volume>47</volume>
+          <fpage>4869</fpage>
+          <lpage>4876</lpage>
+          <year>1987</year>
+          <pub-id pub-id-type="pmid">3621180</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-ol-07-05-1439">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Juarez</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Clayman</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Nakajima</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Role and regulation of expression of 92-kDa type-IV collagenase (MMP-9) in 2 invasive squamous-cell-carcinoma cell lines of the oral cavity</article-title>
+          <source>Int J Cancer</source>
+          <volume>55</volume>
+          <fpage>10</fpage>
+          <lpage>18</lpage>
+          <year>1993</year>
+          <pub-id pub-id-type="pmid">7688350</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-ol-07-05-1439">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kamata</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chida</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Rikimaru</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Growth-inhibitory effects of epidermal growth factor and overexpression of its receptor on human squamous cell carcinoma in culture</article-title>
+          <source>Cancer Res</source>
+          <volume>46</volume>
+          <fpage>1648</fpage>
+          <lpage>1653</lpage>
+          <year>1986</year>
+          <pub-id pub-id-type="pmid">3004701</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-ol-07-05-1439">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ozawa</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ueda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ando</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Abe</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>High incidence of EGF receptor hyperproduction in esophageal squamous cell carcinoma</article-title>
+          <source>Int J Cancer</source>
+          <volume>39</volume>
+          <fpage>333</fpage>
+          <lpage>337</lpage>
+          <year>1987</year>
+          <pub-id pub-id-type="pmid">3493224</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-ol-07-05-1439">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hendrix</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Seftor</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Chu</surname>
+              <given-names>YW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Coexpression of vimentin and keratins by human melanoma tumor cells: correlation with invasive and metastatic potential</article-title>
+          <source>J Natl Cancer Inst</source>
+          <volume>84</volume>
+          <fpage>165</fpage>
+          <lpage>174</lpage>
+          <year>1992</year>
+          <pub-id pub-id-type="pmid">1371813</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-ol-07-05-1439">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ogden</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Chisholm</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Adi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lane</surname>
+              <given-names>EB</given-names>
+            </name>
+          </person-group>
+          <article-title>Cytokeratin expression in oral cancer and its relationship to tumor differentiation</article-title>
+          <source>J Ora Pathol Med</source>
+          <volume>22</volume>
+          <fpage>82</fpage>
+          <lpage>86</lpage>
+          <year>1993</year>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-ol-07-05-1439" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Northern blot analysis of CK19 and EGFR mRNA in oral squamous cell carcinoma cell lines. In total, 10- and 5.6-kb EGFR mRNA and 1.5-kb CK19 mRNA were detected in HSC-3, SAS and Ca9-22 cells. CK19, cytokeratin 19; EGFR, epidermal growth factor receptor.</p>
+      </caption>
+      <graphic xlink:href="OL-07-05-1439-g00"/>
+    </fig>
+    <fig id="f2-ol-07-05-1439" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Morphological changes in HSC-3 and SAS cells. Cells were cultured in medium containing 0, 10 and 100 ng/ml EGF for six days. Images were captured using light microscopy at a magnification of &#xD7;40. EGF, epidermal growth factor.</p>
+      </caption>
+      <graphic xlink:href="OL-07-05-1439-g01"/>
+    </fig>
+    <fig id="f3-ol-07-05-1439" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>EGF-enhanced invasive activity of oral cancer cells. The number of HSC-3 cells penetrating the Matrigel membrane was approximately three-fold higher in EGF-stimulated (10 ng/ml) cells than in unstimulated HSC-3 cells. The numbers of HSC-3 cells stimulated with 10 and 100 ng/ml EGF were almost the same. Data are presented as the mean &#xB1; standard errors of triplicate eperiments. EGF, epidermal growth factor.</p>
+      </caption>
+      <graphic xlink:href="OL-07-05-1439-g02"/>
+    </fig>
+    <fig id="f4-ol-07-05-1439" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Expression of MMP1 and CK19 mRNA in northern blot analysis. EGF increased the expression of MMP1. By contrast, the expression of CK19 mRNA was evidently reduced by EGF, even at the lowest concentration of 10 ng/ml. GAPDH mRNA was used as an internal marker of applied RNA amounts. EGF, epidermal growth factor; MMP1, matrix metalloproteinase 1; CK19, cytokeratin 19; GAPDH, glyceraldehyde 3-phosphate dehydrogenase.</p>
+      </caption>
+      <graphic xlink:href="OL-07-05-1439-g03"/>
+    </fig>
+    <fig id="f5-ol-07-05-1439" orientation="portrait" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>MMP1 expression in western blot analysis. To confirm an increase in MMP1 protein levels, western blot analysis was performed using an anti-MMP1 monoclonal antibody. EGF increased the expression of MMP1 protein in an EGF concentration-dependent manner. EGF, epidermal growth factor; MMP1, matrix metalloproteinase 1.</p>
+      </caption>
+      <graphic xlink:href="OL-07-05-1439-g04"/>
+    </fig>
+    <fig id="f6-ol-07-05-1439" orientation="portrait" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p>Effect of EGF on MMP1 promoter activity. Reporter plasmids containing the MMP1 promoter (MMP1-CAT) were co-transfected with CH110 as an internal control into HSC-3 cells. Cells were placed in 10% Dulbecco&#x2019;s modified Eagle&#x2019;s medium with 10 ng/ml EGF 16 h following transfection. CAT activity, measured 48 h following transfection, was corrected for variations in the internal control and is presented as the relative activity. MMP1-CAT activity was increased 3.7-fold by EGF stimulation compared with that in controls. Data are presented as the mean &#xB1; standard errors of triplicate experiments. EGF, epidermal growth factor; MMP1, matrix metalloproteinase 1; CAT, chloramphenicol acetyltransferase.</p>
+      </caption>
+      <graphic xlink:href="OL-07-05-1439-g05"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

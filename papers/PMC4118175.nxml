@@ -1,0 +1,2063 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cell Mol Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Cell. Mol. Med</journal-id>
+      <journal-id journal-id-type="publisher-id">jcmm</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of Cellular and Molecular Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1582-1838</issn>
+      <issn pub-type="epub">1582-4934</issn>
+      <publisher>
+        <publisher-name>Blackwell Publishing Ltd</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23844832</article-id>
+      <article-id pub-id-type="pmc">4118175</article-id>
+      <article-id pub-id-type="doi">10.1111/jcmm.12097</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Cross-talk between EGF and BMP9 signalling pathways regulates the osteogenic differentiation of mesenchymal stem cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Xing</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Qin</surname>
+            <given-names>Jiaqiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Luo</surname>
+            <given-names>Qing</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bi</surname>
+            <given-names>Yang</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhu</surname>
+            <given-names>Gaohui</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jiang</surname>
+            <given-names>Wei</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Stephanie H</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Mi</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Su</surname>
+            <given-names>Yuxi</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nan</surname>
+            <given-names>Guoxin</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cui</surname>
+            <given-names>Jing</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Wenwen</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Ruidong</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Xiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au4">d</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kong</surname>
+            <given-names>Yuhan</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Jiye</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Jinhua</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rogers</surname>
+            <given-names>Mary Rose</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Hongyu</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shui</surname>
+            <given-names>Wei</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhao</surname>
+            <given-names>Chen</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Ning</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liang</surname>
+            <given-names>Xi</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Ningning</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>He</surname>
+            <given-names>Yunfeng</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Luu</surname>
+            <given-names>Hue H</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Haydon</surname>
+            <given-names>Rex C</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shi</surname>
+            <given-names>Lewis L</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Tingyu</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>He</surname>
+            <given-names>Tong-Chuan</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="aff" rid="au3">c</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Ming</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">a</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <aff id="au1">
+          <label>a</label>
+          <institution>Stem Cell Biology and Therapy Laboratory of the Key Laboratory for Pediatrics designated by Chinese Ministry of Education and Chongqing Bureau of Education Department of Orthopaedic Surgery, The Children's Hospital of Chongqing Medical University</institution>
+          <addr-line>Chongqing, China</addr-line>
+        </aff>
+        <aff id="au2">
+          <label>b</label>
+          <institution>Molecular Oncology Laboratory Department of Orthopaedic Surgery, The University of Chicago Medical Center</institution>
+          <addr-line>Chicago, IL, USA</addr-line>
+        </aff>
+        <aff id="au3">
+          <label>c</label>
+          <institution>Ministry of Education Key Laboratory of Diagnostic Medicine Department of Laboratory Medicine and the Affiliated Hospitals of Chongqing Medical University</institution>
+          <addr-line>Chongqing, China</addr-line>
+        </aff>
+        <aff id="au4">
+          <label>d</label>
+          <institution>Department of Orthopaedic Surgery the Affiliated Tangdu Hospital, Fourth Military Medical University</institution>
+          <addr-line>Xi'an, China</addr-line>
+        </aff>
+        <aff id="au5">
+          <label>e</label>
+          <institution>School of Laboratory Medicine and the Affiliated Southwest Hospital, Third Military Medical University</institution>
+          <addr-line>Chongqing, China</addr-line>
+        </aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1">Address for correspondence: Tong-Chuan HE, M.D., Ph.D., Stem Cell Biology and Therapy Laboratory, Key Laboratory for Pediatrics designated by Chinese Ministry of Education, and Chongqing Bureau of Education, The Children's Hospital, Chongqing Medical University, Chongqing, 400014, China. Ming LI, M.D., Department of Orthopaedic Surgery, The Affiliated Children's Hospital, Chongqing Medical University, Chongqing 400014, China. Tel/Fax: (86) 139-8376 6628 E-mails: <email>tche@uchicago.edu</email>; <email>lm3180@163.com</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>9</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>11</day>
+        <month>7</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>17</volume>
+      <issue>9</issue>
+      <fpage>1160</fpage>
+      <lpage>1172</lpage>
+      <history>
+        <date date-type="received">
+          <day>04</day>
+          <month>10</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>20</day>
+          <month>5</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 The Authors. Journal of Cellular and Molecular Medicine published by John Wiley &amp; Sons Ltd and Foundation for Cellular and Molecular Medicine</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.5/">
+          <license-p>Re-use of this article is permitted in accordance with the Creative Commons Deed, Attribution 2.5, which does not permit commercial exploitation.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Mesenchymal stem cells (MSCs) are multipotent progenitors, which give rise to several lineages, including bone, cartilage and fat. Epidermal growth factor (EGF) stimulates cell growth, proliferation and differentiation. EGF acts by binding with high affinity to epidermal growth factor receptor (EGFR) on the cell surface and stimulating the intrinsic protein tyrosine kinase activity of its receptor, which initiates a signal transduction cascade causing a variety of biochemical changes within the cell and regulating cell proliferation and differentiation. We have identified BMP9 as one of the most osteogenic BMPs in MSCs. In this study, we investigate if EGF signalling cross-talks with BMP9 and regulates BMP9-induced osteogenic differentiation. We find that EGF potentiates BMP9-induced early and late osteogenic markers of MSCs <italic>in vitro</italic>, which can be effectively blunted by EGFR inhibitors Gefitinib and Erlotinib or receptor tyrosine kinase inhibitors AG-1478 and AG-494 in a dose- and time-dependent manner. Furthermore, EGF significantly augments BMP9-induced bone formation in the cultured mouse foetal limb explants. <italic>In vivo</italic> stem cell implantation experiment reveals that exogenous expression of EGF in MSCs can effectively potentiate BMP9-induced ectopic bone formation, yielding larger and more mature bone masses. Interestingly, we find that, while EGF can induce BMP9 expression in MSCs, EGFR expression is directly up-regulated by BMP9 through Smad1/5/8 signalling pathway. Thus, the cross-talk between EGF and BMP9 signalling pathways in MSCs may underline their important roles in regulating osteogenic differentiation. Harnessing the synergy between BMP9 and EGF should be beneficial for enhancing osteogenesis in regenerative medicine.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>BMP9 signalling</kwd>
+        <kwd>osteoblastic differentiation</kwd>
+        <kwd>EGF signalling</kwd>
+        <kwd>mesenchymal stem cells</kwd>
+        <kwd>osteogenic differentiation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Mesenchymal stem cells (MSCs) are multipotent progenitors and differentiate into osteogenic, chondrogenic, adipogenic and other lineages [<xref rid="b1" ref-type="bibr">1</xref>&#x2013;<xref rid="b5" ref-type="bibr">5</xref>]. Although MSCs have been isolated from numerous tissues, one of the major sources in adults is the bone marrow stromal cells. Osteogenesis is a sequential cascade that recapitulates most of the cellular events occurring during embryonic skeletal development [<xref rid="b6" ref-type="bibr">6</xref>]. Bone is one of a few organs that retain the potential for regeneration and is the only tissue that can undergo continual remodelling throughout life. Bone morphogenetic proteins (BMPs) play an important role in development [<xref rid="b4" ref-type="bibr">4</xref>, <xref rid="b7" ref-type="bibr">7</xref>, <xref rid="b8" ref-type="bibr">8</xref>], stem cell proliferation and osteogenic differentiation [<xref rid="b9" ref-type="bibr">9</xref>, <xref rid="b10" ref-type="bibr">10</xref>]. Bone morphogenetic proteins belong to the TGF&#x3B2; [transforming growth factor (TGF)] superfamily and consist of at least 14 members in humans [<xref rid="b4" ref-type="bibr">4</xref>, <xref rid="b7" ref-type="bibr">7</xref>, <xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b11" ref-type="bibr">11</xref>, <xref rid="b12" ref-type="bibr">12</xref>]. We previously analysed the osteogenic potential of the 14 types of BMPs and found that BMP9 is one of the most potent BMPs in inducing osteogenic differentiation of MSCs both <italic>in vitro</italic> and <italic>in vivo</italic> by regulating several important downstream targets during BMP9-induced osteoblast differentiation of MSCs [<xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b13" ref-type="bibr">13</xref>&#x2013;<xref rid="b21" ref-type="bibr">21</xref>].</p>
+      <p>BMP9 (also known as growth differentiation factor 2, or GDF-2), originally identified in the developing mouse liver [<xref rid="b22" ref-type="bibr">22</xref>], may also play a role in regulating cholinergic phenotype [<xref rid="b23" ref-type="bibr">23</xref>], hepatic glucose and lipid metabolism [<xref rid="b24" ref-type="bibr">24</xref>], adipogenesis [<xref rid="b25" ref-type="bibr">25</xref>] and angiogenesis [<xref rid="b26" ref-type="bibr">26</xref>, <xref rid="b27" ref-type="bibr">27</xref>]. Bone morphogenetic proteins initiate their signalling activity by binding to the heterodimeric complex of BMP type I and type II receptors [<xref rid="b12" ref-type="bibr">12</xref>]. We have recently demonstrated that BMP type I receptors ALK1 and ALK2 are essential for BMP9-induced osteogenic signalling in MSCs [<xref rid="b28" ref-type="bibr">28</xref>]. The activated receptor kinases phosphorylate Smads 1, 5 and/or 8, which in turn, regulate downstream targets in concert with co-activators during BMP9-induced osteoblast differentiation of MSCs [<xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b13" ref-type="bibr">13</xref>&#x2013;<xref rid="b20" ref-type="bibr">20</xref>]. BMP9 is one of the least studied BMPs and its functional role in skeletal development remains to be fully understood.</p>
+      <p>It has been reported that epidermal growth factor (EGF) signalling may play an important role in endochondral bone formation and bone remodelling [<xref rid="b29" ref-type="bibr">29</xref>&#x2013;<xref rid="b31" ref-type="bibr">31</xref>]. Epidermal growth factor is a key molecule in the regulation of cell growth and differentiation [<xref rid="b30" ref-type="bibr">30</xref>]. Earlier studies indicated that EGF administration at physiological doses induces distinct effects on endosteal and periosteal bone formation in a dose- and time-dependent manner [<xref rid="b32" ref-type="bibr">32</xref>, <xref rid="b33" ref-type="bibr">33</xref>], although it was also reported that EGF exhibited biphasic effects on bone nodule formation in isolated rat calvaria cells <italic>in vitro</italic> [<xref rid="b34" ref-type="bibr">34</xref>]. Epidermal growth factor receptor (EGFR or ERBB1) is a transmembrane glycoprotein with intrinsic tyrosine kinase activity and activated by a family of seven peptide growth factors including EGF [<xref rid="b31" ref-type="bibr">31</xref>]. It is conceivable that the osteoinductive activity of BMP9 may be further regulated by cross-talking with other growth factors, such as EGF.</p>
+      <p>In this study, we investigate if EGF signalling cross-talks with BMP9 and regulates BMP9-induced osteogenic differentiation of MSCs. We show that EGF potentiates BMP9-induced early and late osteogenic markers of MSCs <italic>in vitro</italic>, which can be effectively blunted by EGFR inhibitors Gefitinib and Erlotinib or protein tyrosine kinase inhibitors AG-1478 and AG-494 in a dose-dependent manner. Furthermore, EGF significantly augments BMP9-induced endochondral bone formation in the cultured mouse foetal limb explants, which can be blocked by EGFR inhibitors. <italic>In vivo</italic> stem implantation experiments reveal that exogenous expression of EGF in MSCs effectively potentiates BMP9-induced ectopic bone formation, yielding larger and more mature trabecular bone masses. Mechanistically, EGF is shown to induce BMP9 expression in MSCs, whereas EGFR expression is directly up-regulated by BMP9 through Smad1/5/8 signalling pathway. Thus, the regulatory circuitry of EGF and BMP9 signalling pathways in MSCs may underline their important roles in regulating osteogenic differentiation. Harnessing the synergy between BMP9 and EGF may be beneficial for enhancing osteogenesis in regenerative medicine.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec>
+        <title>Cell culture and chemicals</title>
+        <p>HEK293, C2C12 and C3H10T1/2 cells were from ATCC (Manassas, VA, USA). The reversibly immortalized mouse embryonic fibroblasts (iMEFs) were previously established [<xref rid="b35" ref-type="bibr">35</xref>]. Cell lines were maintained in the conditions as described [<xref rid="b13" ref-type="bibr">13</xref>, <xref rid="b15" ref-type="bibr">15</xref>, <xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b36" ref-type="bibr">36</xref>]. Recombinant human EGF (rhEGF) was purchased from Sigma-Aldrich (St. Louis, MO, USA). Epidermal growth factor receptor/tyrosine kinase inhibitors, including Gefitinib (aka, Iressa or ZD1839), Erlotinib (aka, Tarceva, CP358, OSI-774, or NSC718781), AG494 and AG1478 were purchased from Cayman Chemical (Ann Arbor, MI, USA) and EMD Chemicals (Gibbstown, NJ, USA). Unless indicated otherwise, all chemicals were purchased from Sigma-Aldrich (St. Louis, MO, USA) or Fisher Scientific (Pittsburgh, PA, USA).</p>
+      </sec>
+      <sec>
+        <title>Recombinant adenoviruses expressing BMP9, EGF, RFP and GFP</title>
+        <p>Recombinant adenoviruses were generated using AdEasy technology as described [<xref rid="b13" ref-type="bibr">13</xref>, <xref rid="b14" ref-type="bibr">14</xref>, <xref rid="b25" ref-type="bibr">25</xref>, <xref rid="b37" ref-type="bibr">37</xref>, <xref rid="b38" ref-type="bibr">38</xref>]. The coding regions of human BMP9 and EGF were PCR amplified and cloned into an adenoviral shuttle vector and subsequently used to generate recombinant adenoviruses in HEK293 cells. The resulting adenoviruses were designated as AdBMP9 and AdEGF. AdBMP9 also expresses GFP, whereas AdEGF expresses RFP as a marker for monitoring infection efficiency. Analogous adenovirus expressing only monomeric RFP (AdRFP) or GFP (AdGFP) was used as controls [<xref rid="b18" ref-type="bibr">18</xref>, <xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b37" ref-type="bibr">37</xref>&#x2013;<xref rid="b45" ref-type="bibr">45</xref>].</p>
+      </sec>
+      <sec>
+        <title>RNA isolation and semi-quantitative RT-PCR</title>
+        <p>Total RNA was isolated using TRIzol RNA Isolation Reagents (Invitrogen, Grand Island, NY, USA) and used to generate cDNA templates by RT reaction with hexamer and M-MuLV Reverse Transcriptase (New England Biolabs, Ipswich, MA, USA). The cDNA products were diluted 5- to 10-fold and used as PCR templates. Semi-quantitative RT-PCR was carried out as described [<xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b21" ref-type="bibr">21</xref>, <xref rid="b25" ref-type="bibr">25</xref>, <xref rid="b41" ref-type="bibr">41</xref>, <xref rid="b43" ref-type="bibr">43</xref>, <xref rid="b46" ref-type="bibr">46</xref>&#x2013;<xref rid="b48" ref-type="bibr">48</xref>]. PCR primers (<xref ref-type="supplementary-material" rid="SD1">Table S1</xref>) were designed using the Primer3 program to amplify the genes of interest (&#x223C;150&#x2013;180 bp). A touchdown cycling program was as follows: 94&#xB0;C for 2 min. for one cycle; 92&#xB0;C for 20 sec., 68&#xB0;C for 30 sec. and 72&#xB0;C for 12 cycles decreasing 1&#xB0;C per cycle; and then at 92&#xB0;C for 20 sec., 57&#xB0;C for 30 sec. and 72&#xB0;C for 20 sec. for 23&#x2013;28 cycles, depending on the abundance of a given gene. PCR products were resolved on 1.5% agarose gels. All samples were normalized by the expression level of GAPDH.</p>
+      </sec>
+      <sec>
+        <title>Alkaline phosphatase (ALP) assay</title>
+        <p>Alkaline phosphatase activity was quantitatively assessed using a modified Great Escape SEAP Chemiluminescence assay (BD Clontech, Mountain View, CA, USA) and/or histochemical staining assay (using a mixture of 0.1 mg/ml napthol AS-MX phosphate and 0.6 mg/ml Fast Blue BB salt) as described [<xref rid="b13" ref-type="bibr">13</xref>, <xref rid="b14" ref-type="bibr">14</xref>, <xref rid="b16" ref-type="bibr">16</xref>&#x2013;<xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b25" ref-type="bibr">25</xref>, <xref rid="b36" ref-type="bibr">36</xref>, <xref rid="b41" ref-type="bibr">41</xref>, <xref rid="b42" ref-type="bibr">42</xref>, <xref rid="b45" ref-type="bibr">45</xref>]. For the chemiluminescence assays, each assay condition was performed in triplicate and the results were repeated in at least three independent experiments. Alkaline phosphatase activity was normalized by total cellular protein concentrations among the samples (using the BCA protein assay).</p>
+      </sec>
+      <sec>
+        <title>Alizarin Red S staining</title>
+        <p>C3H10T1/2 and iMEF cells were seeded in 12- or 24-well cell culture plates and infected with AdBMP9, AdEGF, AdGFP or AdBMP9+AdEGF. Infected cells were cultured in the presence of ascorbic acid (50 &#x3BC;g/ml) and &#x3B2;-glycerophosphate (10 mM). At 14 days after infection, mineralized matrix nodules were stained for calcium precipitation by means of Alizarin Red S staining, as described previously [<xref rid="b13" ref-type="bibr">13</xref>, <xref rid="b14" ref-type="bibr">14</xref>, <xref rid="b16" ref-type="bibr">16</xref>&#x2013;<xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b25" ref-type="bibr">25</xref>, <xref rid="b36" ref-type="bibr">36</xref>, <xref rid="b41" ref-type="bibr">41</xref>]. Cells were fixed with 0.05% (v/v) glutaraldehyde at room temperature for 10 min. After being washed with distilled water, fixed cells were incubated with 0.4% Alizarin Red S (Sigma-Aldrich) for 5 min., followed by extensive washing with distilled water. The staining of calcium mineral deposits was recorded under bright field microscopy.</p>
+      </sec>
+      <sec>
+        <title>Foetal limb explant culture</title>
+        <p>The forelimbs (<italic>i.e</italic>. humerus containing elbow joint) of mouse embryos (E18.5) were dissected under sterile conditions and incubated in DMEM (Invitrogen) containing 0.5% bovine serum albumin, 50 &#x3BC;g/ml ascorbic acid, 1 mM &#x3B2;-glycerophosphate and 100 &#x3BC;g/ml penicillin&#x2013;streptomycin solution at 37&#xB0;C in humidified air with 5% CO<sub>2</sub> for up to 14 days as described [<xref rid="b21" ref-type="bibr">21</xref>, <xref rid="b42" ref-type="bibr">42</xref>, <xref rid="b45" ref-type="bibr">45</xref>]. Limb explants were directly infected with AdGFP or AdBMP9 24 hrs after dissection in the presence of EGF and/or Gefitinib. The medium was changed every 2&#x2013;3 days. Cultured tissues were observed in different time-points under microscope to confirm the survival of cells and the expression of fluorescence markers. New bone formation was visualized by adding calcein (100 mM) to the medium.</p>
+      </sec>
+      <sec>
+        <title>Immunohistochemical staining</title>
+        <p>Cultured cells were treated, fixed with 10% formalin and washed with PBS. The fixed cells were permeabilized with 1% NP-40 and blocked with 10% goat serum, followed by incubation with an anti-osteocalcin (OCN), or osteopontin (OPN) antibody (Santa Cruz Biotechnology, Santa Cruz, CA, USA) for 1 hr. After being washed, cells were incubated with biotin-labelled secondary antibody for 30 min., followed by incubating cells with streptavidin&#x2013;HRP conjugate for 20 min. at room temperature. The presence of the expected protein was visualized by 3,3&#x2032;-Diaminobenzidine (DAB) staining and examined under a microscope. Stains with control IgG were used as negative controls.</p>
+      </sec>
+      <sec>
+        <title>Stem cell implantation and &#x3BC;CT analysis</title>
+        <p>Subconfluent iMEFs were infected with AdBMP9/AdRFP or AdBMP9/AdEGF. At 16 hrs after infection, cells were harvested, and resuspended in PBS for subcutaneous injection (5 &#xD7; 10<sup>6</sup>/injection) into the flanks of athymic nude (nu/nu) mice (five animals per group, 4&#x2013;6 week old, female, Harlan Sprague Dawley, Indianapolis, IN, USA). At 4 weeks after implantation, animals were killed. The retrieved specimens were fixed and imaged using the &#x3BC;CT component of a GE Triumph (GE Healthcare, Piscataway, NJ, USA) trimodality preclinical imaging system. All image data analysis was performed with Amira 5.3 (Visage Imaging Inc., San Diego, CA, USA), and 3D volumetric data and bone mean density heat maps were obtained as previously described [<xref rid="b21" ref-type="bibr">21</xref>, <xref rid="b28" ref-type="bibr">28</xref>, <xref rid="b35" ref-type="bibr">35</xref>, <xref rid="b42" ref-type="bibr">42</xref>, <xref rid="b45" ref-type="bibr">45</xref>].</p>
+      </sec>
+      <sec>
+        <title>Haematoxylin and eosin, trichrome and alcian blue staining</title>
+        <p>The retrieved tissues were fixed, decalcified in Cal-Ex II Fixative/Decalcifier (Fisher Scientific) overnight and embedded in paraffin. Serial sections of the embedded specimens were stained with haematoxylin and eosin. Masson Trichrome and Alcian Blue stains were performed as previously described [<xref rid="b14" ref-type="bibr">14</xref>, <xref rid="b17" ref-type="bibr">17</xref>&#x2013;<xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b25" ref-type="bibr">25</xref>, <xref rid="b28" ref-type="bibr">28</xref>, <xref rid="b36" ref-type="bibr">36</xref>, <xref rid="b41" ref-type="bibr">41</xref>, <xref rid="b42" ref-type="bibr">42</xref>, <xref rid="b45" ref-type="bibr">45</xref>].</p>
+      </sec>
+      <sec>
+        <title>ChIP analysis</title>
+        <p>Subconfluent iMEFs were infected with AdGFP or AdBMP9. At 30 hrs after infection, cells were cross-linked and subjected to ChIP analysis as previously described [<xref rid="b18" ref-type="bibr">18</xref>, <xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b41" ref-type="bibr">41</xref>]. Smad1/5/8 antibody (Santa Cruz Biotechnology) or control IgG was used to pull down the protein-DNA complexes. The presence of <italic>Egfr</italic> promoter sequence was detected by PCR amplification using two pairs of primers corresponding to mouse <italic>Egfr</italic> promoter region.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>All quantitative experiments were performed in triplicate and/or repeated three times. Data were expressed as mean &#xB1; SD. Statistical significances between vehicle treatments versus drug treatments were determined by one-way <sc>anova</sc> and the Student's <italic>t-</italic>test. A value of <italic>P</italic> &lt; 0.05 was considered statistically significant.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>EGF enhances BMP9-induced osteogenic differentiation of MSCs</title>
+        <p>We previously identified that BMP9 is one of the most osteogenic BMPs in MSCs [<xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b13" ref-type="bibr">13</xref>, <xref rid="b14" ref-type="bibr">14</xref>, <xref rid="b19" ref-type="bibr">19</xref>, <xref rid="b20" ref-type="bibr">20</xref>]. Although we have identified several early targets that are important mediators of BMP9-induced osteogenic signalling [<xref rid="b15" ref-type="bibr">15</xref>&#x2013;<xref rid="b18" ref-type="bibr">18</xref>, <xref rid="b20" ref-type="bibr">20</xref>, <xref rid="b21" ref-type="bibr">21</xref>], much remain to be learnt about how BMP9 cross-talks with other signalling pathways. Here, we investigated the possible cross-talk between BMP9 and EGF signalling pathways. Using a well-characterized MSC iMEFs, we found that rhEGF enhanced BMP9-induced early osteogenic marker ALP activity in a dose-dependent fashion, although rhEGF alone did not induce any detectable ALP activity (<xref ref-type="fig" rid="fig01">Fig. 1</xref>A). To further confirm these results, we constructed a recombinant adenovirus that expresses human EGF and demonstrated that this vector was able to transduce MSCs, such as iMEFs and C3H10T1/2 with high efficiency (<xref ref-type="fig" rid="fig01">Fig. 1</xref>B). Co-expression of BMP9 and EGF in MSCs led to a significant increase in ALP activity qualitatively (<xref ref-type="fig" rid="fig01">Fig. 1</xref>C) and quantitatively (<xref ref-type="fig" rid="fig01">Fig. 1</xref>D). Furthermore, exogenous expression of EGF was shown to enhance BMP9-induced expression of the late osteogenic markers osteocalcin (OCN) (<xref ref-type="fig" rid="fig02">Fig. 2</xref>A) and OPN (<xref ref-type="fig" rid="fig02">Fig. 2</xref>B). BMP9-induced matrix mineralization was significantly enhanced by co-expression of EGF in MSCs (<xref ref-type="fig" rid="fig02">Fig. 2</xref>C). These <italic>in vitro</italic> results strongly suggest that EGF signalling may synergize with BMP9-induced osteogenic signalling, although EGF signalling alone is seemingly insufficient to initiate osteogenic differentiation of MSCs.</p>
+        <fig id="fig01" position="float">
+          <label>Fig. 1</label>
+          <caption>
+            <p>Epidermal growth factor (EGF) synergizes with BMP9 in inducing early osteogenic marker alkaline phosphatase (ALP) activity in mesenchymal stem cells (MSCs). (<bold>A</bold>) EGF augments BMP9-induced ALP activity in a dose-dependent fashion. Subconfluent iMEFs were infected with AdBMP9 or AdGFP in the presence of varied concentrations of EGF (0&#x2013;2.0 ng/ml). At days 5 and 7, cells were lysed and subjected to ALP assays. Each assay conditions were carried out in triplicate. &#x2018;*&#x2019; indicates <italic>P</italic> &lt; 0.05 when compared with the BMP9 alone group. (<bold>B</bold>) AdEGF can effectively infect MSCs and express the transgene. Subconfluent C3H10T1/2 and iMEF cells were infected with AdEGF virus for 36 hrs; and the transduction efficacy were recorded under a fluorescence microscope (RFP). AdEGF-mediated human EGF expression was analysed by semi-quantitative RT-PCR using PCR primers located within the coding region of human EGF. (<bold>C</bold> and <bold>D</bold>) Exogenous expression of EGF enhances BMP9-induced ALP activity in MSCs. Subconfluent iMEFs were infected with equal titre of AdBMP9, AdEGF, AdGFP or AdBMP9/AdEGF. Cells were fixed for ALP histochemical staining assays (<bold>C</bold>) at day 7, or collected and subjected to ALP quantitative bioluminescence assays (<bold>D</bold>) at day 5 or day 7. Each assay conditions were carried out in triplicate. &#x2018;*&#x2019; indicates <italic>P</italic> &lt; 0.05 when compared with the BMP9 alone group. See Methods for details.</p>
+          </caption>
+          <graphic xlink:href="jcmm0017-1160-f1"/>
+        </fig>
+        <fig id="fig02" position="float">
+          <label>Fig. 2</label>
+          <caption>
+            <p>Epidermal growth factor (EGF) enhances BMP9-induced late osteogenic markers and mineralization in mesenchymal stem cells. (<bold>A</bold> and <bold>B</bold>) EGF promotes BMP9-induced late osteogenic markers. Subconfluent iMEFs were infected with adenovirus(es) expressing the indicated transgenes. At 14 days after infection, cells were fixed and subjected to immunohistochemical staining with a primary antibody against osteocalcin (OCN) (<bold>A</bold>) or osteopontin (OPN) (<bold>B</bold>). (<bold>C</bold>) EGF augments BMP9-induced matrix mineralization. Subconfluent iMEFs were infected with adenovirus(es) expressing the indicated transgenes and cultured in mineralization medium for 14 days. Cells were fixed and subjected to Alizarin Red S staining. Each assay condition was repeated in at least three independent experiments. Representative results are shown. See Methods for details.</p>
+          </caption>
+          <graphic xlink:href="jcmm0017-1160-f2"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>BMP9-induced osteogenic differentiation can be effectively blocked by EGFR inhibitors</title>
+        <p>Epidermal growth factor initiates downstream events by activating its tyrosine kinase receptor EGFR (aka HER1). We sought to determine if commonly EGFR inhibitors would exert any effect on BMP9-induced osteogenic differentiation of MSCs. We tested four EGFR inhibitors, AG494, AG1478, Erlotinib and Gefitinib, and found all of them inhibited BMP9-induced ALP activity in a dose-dependent manner (<xref ref-type="fig" rid="fig03">Fig. 3</xref>A). Among the four tested inhibitors, Erlotinib and Gefitinib are clinically used as anticancer drugs, which were shown to be slightly more effective than AG494 and AG1478 in terms of inhibiting BMP9-induced ALP activity (<xref ref-type="fig" rid="fig03">Fig. 3</xref>A and B). Thus, these <italic>in vitro</italic> findings suggest that EGFR signalling may play an important role in BMP9-regulated osteogenic differentiation, although these inhibitors may also target other tyrosine kinase.</p>
+        <fig id="fig03" position="float">
+          <label>Fig. 3</label>
+          <caption>
+            <p>Epidermal growth factor receptor (EGFR) tyrosine kinase inhibitors can blunt BMP9-induced osteogenic differentiation of mesenchymal stem cells (MSCs). (<bold>A</bold>) EGFR tyrosine kinase inhibitors effectively block BMP9-induced alkaline phosphatase (ALP) activity in MSCs in a dose-dependent fashion. Subconfluent iMEF cells were infected with AdBMP9 or AdGFP and treated with varied concentrations of AG494 (a), AG1478 (b), Erlotinib (c) and Gefitinib (d). ALP activity was quantitatively determined at days 5 and 7 respectively. (<bold>B</bold>) Similar experiments were set up as in (<bold>A</bold>). All inhibitors were used at 6 &#x3BC;M. ALP activity was qualitatively assessed at day 7 using histochemical staining. Each assay condition was carried out in triplicate. Representative results are shown.</p>
+          </caption>
+          <graphic xlink:href="jcmm0017-1160-f3"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>BMP9-regulated osteogenesis of mouse foetal limbs is promoted by EGF, but inhibited by EGFR inhibitors</title>
+        <p>We sought to analyse the effect of EGF and BMP9 on developing bone using previously described <italic>ex vivo</italic> foetal limb culture assay [<xref rid="b21" ref-type="bibr">21</xref>, <xref rid="b42" ref-type="bibr">42</xref>]. We isolated mouse humerus containing elbow joint (with some soft tissues attached) from E18.5 embryos, which could be effectively transduced by adenoviral vectors (<xref ref-type="fig" rid="fig04">Fig. 4</xref>A<italic>, panel a</italic>). The isolated limbs were infected with AdBMP9 or AdGFP with or without EGF or Gefitinib. New bone formation was visualized by the incorporation of fluorescent dye calcein (<xref ref-type="supplementary-material" rid="SD1">Figure S1</xref>A). We found that the BMP9 group and BMP9+EGF group exhibited the highest fluorescence intensity, indicating active new bone formation (<xref ref-type="fig" rid="fig04">Fig. 4</xref>A<italic>, panels b&#x2013;g</italic>). The BMP9+EGF group exhibited the largest fluorescence-positive area and was higher than that of BMP9 alone group (<italic>P</italic> &lt; 0.05), while Gefitinib significantly inhibited BMP9-promoted bone formation (<italic>P</italic> &lt; 0.01; <xref ref-type="fig" rid="fig04">Fig. 4</xref>B). Consistent with the <italic>in vitro</italic> results, EGF stimulation alone did not significantly promote osteogenesis, whereas Gefitinib might slightly inhibit osteogenesis, but the effect was not statistically significant (<xref ref-type="fig" rid="fig04">Fig. 4</xref>B). These results were further confirmed by histological analysis. The height and different chondrocyte zones at humerus growth plate did not exhibit any significant differences in EGF or Gefitinib treatment group compared with that of GFP control (<xref ref-type="fig" rid="fig04">Fig. 4</xref>C<italic>, panels a versus b &amp; c</italic>). However, BMP9 or BMP9+EGF treatment led to a significant expansion of the humerus growth plate and endochondral bone formation (<xref ref-type="fig" rid="fig04">Fig. 4</xref>C<italic>, panels d &amp; e</italic>). Notably, a combination of BMP9 and EGF led to a marked increase in cell numbers at the proliferating zone (<xref ref-type="fig" rid="fig04">Fig. 4</xref>C<italic>, panel e</italic>, <xref ref-type="supplementary-material" rid="SD1">Figure S1</xref>B). Conversely, the BMP9-induced growth plate expansion was blunted by EGFR inhibitor Gefitinib (<xref ref-type="fig" rid="fig04">Fig. 4</xref>C<italic>, panels d versus f</italic>). These <italic>in vitro</italic> results suggest that EGF may potentiate BMP9-induced endochondral ossification by increasing proliferative chondrocytes at the growth plate.</p>
+        <fig id="fig04" position="float">
+          <label>Fig. 4</label>
+          <caption>
+            <p>EGF and BMP9 act synergistically in promoting osteogenesis in mouse foetal limb explant culture. (<bold>A</bold>) Mouse humerus containing elbow joint was isolated from E18.5 embryos and cultured in BSA medium. The cultured explants (<italic>n</italic> = 8 per assay condition) were infected with AdBMP9 or AdRFP in the presence of rhEGF (2 ng/ml) or Gefitinib (6 &#x3BC;M), and cultured for up to 14 days, with medium changed every 2&#x2013;3 days. At day 12, calcein was added to the culture (see Methods). The tissues were harvested on day 14 and examined under a stereo fluorescence microscope (b-g). (<bold>B</bold>) The fluorescence-positive area (in cm<sup>2</sup>) for each sample was measured and analysed using NIH ImageJ. (<bold>C</bold>) Haematoxylin and eosin staining. The harvested tissues were fixed, paraffin-embedded and subjected to haematoxylin and eosin staining. Representative images are shown. RZ, resting zine; PZ, proliferating zone; HZ, hypertrophic zone.</p>
+          </caption>
+          <graphic xlink:href="jcmm0017-1160-f4"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>EGF enhances BMP9-induced ectopic bone formation and matrix maturation in stem cell implantation assay</title>
+        <p>We further carried out stem cell implantation assays to determine the EGF effect on BMP9-induced bone formation <italic>in vivo</italic>. Subconfluent iMEFs were effectively co-infected with BMP9, RFP and/or EGF for 16 hrs (<xref ref-type="fig" rid="fig05">Fig. 5</xref>A). The infected cells were harvested to inject into athymic mice subcutaneously. Bony masses were found in BMP9+RFP and BMP9+EGF (<xref ref-type="fig" rid="fig05">Fig. 5</xref>B<italic>, panel a</italic>)-transduced cell groups at 4 weeks. No masses were formed in the cells transduced with RFP or EGF alone. The gross masses retrieved from BMP9+EGF group were larger than that from the BMP9 only group, which was confirmed by &#x3BC;CT scanning (<xref ref-type="fig" rid="fig05">Fig. 5</xref>B<italic>, panels a &amp; b</italic>). The 3D isosurface analysis of the &#x3BC;CT scanning data revealed that the total bone volume in BMP9+EGF group was larger than that of BMP9 only group (<xref ref-type="fig" rid="fig05">Fig. 5</xref>B<italic>, panel c</italic>). Furthermore, a combination treatment of BMP9 and EGF promoted the mineralization of bone masses as demonstrated by &#x3BC;CT analysis of relative bone mean density in Hounsfield unit (<xref ref-type="fig" rid="fig05">Fig. 5</xref>B<italic>, panel c</italic>). Histological analysis of the retrieved ectopic bone masses indicated that MSCs treated with both BMP9 and EGF led to higher numbers of trabeculae and more mature bone matrix than that of the BMP9 alone group (<xref ref-type="fig" rid="fig05">Fig. 5</xref>C<italic>, panel a</italic>). These results were further confirmed by Masson's Trichrome staining of the retrieved bone masses, as more mature osteoid matrices were found in the specimens treated with both BMP9 and EGF (<xref ref-type="fig" rid="fig05">Fig. 5</xref>C<italic>, panel b</italic>). Conversely, alcian blue staining indicated that iMEFs co-infected with AdBMP9 and AdEGF exhibited slightly less cartilage matrix staining than those infected with AdBMP9 only (<xref ref-type="fig" rid="fig05">Fig. 5</xref>C<italic>, panel c</italic>). Thus, these <italic>in vivo</italic> results demonstrate that EGF can accelerate BMP9-induced osteoid matrix mineralization.</p>
+        <fig id="fig05" position="float">
+          <label>Fig. 5</label>
+          <caption>
+            <p>Epidermal growth factor (EGF) accelerates BMP9-induced bone formation and matrix maturation in stem cell implantation assays. Subconfluent iMEF cells were co-infected with AdBMP9, AdRFP and/or AdEGF for 16 hrs (<bold>A</bold>) and harvested to inject into athymic mice subcutaneously. Bony masses were found in BMP9 + RFP and BMP9 + EGF transduced cell groups at 4 weeks (<bold>B</bold>, panel a). No masses of any kind were formed in the cells transduced with AdRFP or AdEGF alone. The retrieved masses were fixed in formalin and subjected to micro-CT scanning. The scanning data were analysed with Amira 5.3 software to obtain 3D reconstruction and isosurface images (<bold>B</bold>, panel b), isosurface volume rendering (bone mass) and relative bone mean density (in Hounsfield unit, HU) (<bold>B</bold>, panel c). Red indicates higher HU, whereas green indicates the lower HU. (C) Histological analysis. The retrieved ectopic bone masses were fixed, decalcified and subjected to haematoxylin and eosin staining (a), trichrome staining (b) and alcian blue staining (c). BM, bone matrix; CM, chondroid matrix. Representative images are shown.</p>
+          </caption>
+          <graphic xlink:href="jcmm0017-1160-f5"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>BMP9 cross-talks with EGF signalling pathway in regulating osteogenic differentiation of MSCs</title>
+        <p>Our <italic>in vitro</italic> and <italic>in vivo</italic> results show that EGF can significantly enhance BMP9-induced osteogenic differentiation of MSCs, suggesting that EGF may function in parallel and/or upstream of BMP9 signalling. The fact that EGFR inhibitors can block BMP9-induced osteogenic activity indicates that BMP9 could act upstream of EGFR function. We sought to determine the mechanistic aspects of BMP9 and EGF signalling in MSCs. Under unstimulated conditions, the pre-osteoblast progenitors (such as C3H10T1/2, iMEFs and C2C12 cells) expressed very low or undetectable levels of EGF and EGFR (<xref ref-type="fig" rid="fig06">Fig. 6</xref>A). When MSC cells (<italic>e.g</italic>. C3H10T1/2 and iMEFs) were stimulated with EGF, we found that BMP9 expression was apparently up-regulated (<xref ref-type="fig" rid="fig06">Fig. 6</xref>B), suggesting that EGF may act at least in part upstream of BMP9 signalling in MSCs. Consistent with this possibility, EGF was shown to enhance BMP9-induced phosphorylation of Smad1/5/8 (<xref ref-type="supplementary-material" rid="SD1">Figure S2</xref>). Furthermore, BMP9 stimulation in MSCs led to a significant increase in EGFR expression both at mRNA level (<xref ref-type="fig" rid="fig06">Fig. 6</xref>C<italic>, panel a</italic>) and protein level (<xref ref-type="fig" rid="fig06">Fig. 6</xref>C<italic>, panel b</italic>), while we did not observed any detectable changes in EGF expression (data not shown).</p>
+        <fig id="fig06" position="float">
+          <label>Fig. 6</label>
+          <caption>
+            <p>Cross-talk between epidermal growth factor (EGF) and BMP9 signalling pathways in mesenchymal stem cells (MSCs). (<bold>A</bold>) Endogenous expression of EGF and epidermal growth factor receptor (EGFR) in pre-osteoblast progenitor cells. Subconfluent C3H10T1/2, iMEFs and C2C12 cells were cultured under 1% FBS condition for 24 hrs. Total RNA was collected and subjected to RT-PCR analysis using primers specific for mouse EGF and EGFR. GAPDH was used as an internal normalization standard. (<bold>B</bold>) EGF stimulates BMP9 expression in MSCs. Subconfluent C3H10T1/2 and iMEF cells were infected with AdEGF or AdRFP for 30 hrs. Total RNA was collected for RT-PCR analysis using primers specific for mouse BMP9. GAPDH was used as an internal normalization standard. (<bold>C</bold>) BMP9 up-regulates EGFR expression in MSCs. Subconfluent iMEFs were infected with AdBMP9 or AdGFP. Total RNA was isolated at the indicated time-points and subjected to RT-PCR analysis using primers specific for mouse EGFR, whereas GAPDH was used as an internal normalization standard (a). For Western blotting analysis, the total cell lysate was subjected to SDS-PAGE and probed with a primary antibody against EGFR, whereas &#x3B2;-actin was used as a loading control (b). (<bold>D</bold>) BMP9 regulates EGFR expression through Smad signalling in MSCs. (<italic>a</italic>) Schematic depiction of mouse <italic>Egfr</italic> promoter region. The approximate locations of the two pairs of primers, PP-1 and PP-2, were indicated. &#x2018;+1&#x2019; denotes the start position of exon 1 of mouse EGFR. (<italic>b</italic>) ChIP analysis. Subconfluent iMEF cells were infected with AdGFP or AdBMP9 for 30 hrs. Cells were cross-linked. Genomic DNA was sonicated, following immunoprecipitation with Smad1/5/8 antibody or IgG. The retrieved genomic DNA was subjected to PCR using the two pairs of primers PP-1 and PP-2. The arrows indicate the locations of the expected products. Control assays that demonstrated that a similar amount of input materials was used for immunoprecipitation experiments. ChIP analysis was performed in three independent experiments, and the representative results are shown. (<italic>c</italic>) A mode of action. Upon BMP9 stimulation of MSCs, several important downstream targets including EGFR are up-regulated. EGF signalling synergizes with other BMP9 targets and leads to efficient osteogenesis. Intriguingly, EGF itself may up-regulate BMP9 expression <italic>via</italic> a yet-to-be-determined mechanism. EGFR inhibitors can significantly block BMP9-induced osteogenic signalling. Ids, inhibitors of DNA-binding factors; CTGF, connective tissue growth factor; GH, growth hormone; OCs, osteocytes.</p>
+          </caption>
+          <graphic xlink:href="jcmm0017-1160-f6"/>
+        </fig>
+        <p>These results suggest that EGFR may be directly regulated by BMP9 signalling. We sought to determine if BMP9 regulates EGFR expression through Smad pathway using the chromatin immunoprecipitation (ChIP) assay. We analysed the possible presence of BMP R-Smad binding site(s) in the 3.0 kb <italic>Egfr</italic> promoter region using two pairs of PCR primers (<xref ref-type="fig" rid="fig06">Fig. 6</xref>D, <italic>panel a</italic>). For ChIP analysis, iMEFs were infected with AdGFP or AdBMP9 and cross-linked. Genomic DNA&#x2013;protein complexes were sonicated and immunoprecipitated with anti-Smad1/5/8 antibody. The retrieved genomic DNA was subjected to PCR amplification using the two pairs of primers, PP1 and PP2. Although the genomic DNA input was comparable among the samples, primer pairs PP1 and PP2 were shown to amplify the expected fragments in BMP9-stimulated cells, but not in GFP control cells or in the samples precipitated by the control IgG (<xref ref-type="fig" rid="fig06">Fig. 6</xref>D, <italic>panel b</italic>). Thus, these results strongly suggest that EGF may be a direct downstream target of BMP9 signalling in MSCs.</p>
+        <p>Taken together, our results suggest a following mode of action about the cross-talk between BMP9 and EGF signalling pathways. Upon BMP9 stimulation of MSCs, several important downstream targets including EGFR are up-regulated. Epidermal growth factor signalling synergizes with other BMP9 targets and leads to efficient osteogenesis. BMP9-induced osteogenic signalling can be blocked by EGFR inhibitors. Intriguingly, EGF itself may up-regulate the expression of BMP9 through a yet-to-be-determined mechanism (<xref ref-type="fig" rid="fig06">Fig. 6</xref>D<italic>, panel c</italic>).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>We previously identified BMP9 as one of the most osteogenic BMPs both <italic>in vitro</italic> and <italic>in vivo</italic> [<xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b13" ref-type="bibr">13</xref>&#x2013;<xref rid="b20" ref-type="bibr">20</xref>]. As one of the least studied BMPs, BMP9 may exert its signalling activity by regulating a distinct set of downstream mediators in MSCs. We have recently identified several downstream targets in MSCs upon BMP9 stimulation [<xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b15" ref-type="bibr">15</xref>&#x2013;<xref rid="b18" ref-type="bibr">18</xref>, <xref rid="b20" ref-type="bibr">20</xref>]. As for any major signalling molecules, BMP9 may fulfil its biological functions by cross-talking with other pathways. In this study, we show that EGF potentiates BMP9-induced early and late osteogenic markers of MSCs, which can be effectively inhibited by EGFR inhibitors Gefitinib and Erlotinib or protein tyrosine kinase inhibitors AG-1478 and AG-494. Epidermal growth factor significantly augments BMP9-induced endochondral bone formation in the cultured mouse foetal limb explants, which can be blocked by EGFR inhibitors. <italic>In vivo</italic> stem cell implantation experiments reveal that exogenous expression of EGF in MSCs effectively potentiates BMP9-induced ectopic bone formation, yielding larger and more mature trabecular bone masses. Mechanistically, EGF is shown to induce BMP9 expression in MSCs, whereas EGFR expression is directly up-regulated by BMP9 through Smad1/5/8 signalling pathway. Thus, the regulatory circuitry of EGF and BMP9 signalling pathways in MSCs may underline their important roles in regulating osteogenic differentiation.</p>
+      <p>Our results indicate that EGF itself exhibits negligible capability to induce osteogenic differentiation of MSCs. In fact, it was reported that the activation of EGF signalling may promote the proliferation and expansion of the pre-osteoblast progenitor cells at the expense of lineage-specific differentiation [<xref rid="b30" ref-type="bibr">30</xref>, <xref rid="b49" ref-type="bibr">49</xref>, <xref rid="b50" ref-type="bibr">50</xref>]. However, it was also shown that EGF stimulation enhances osteogenic differentiation of human MSCs in the presence of chemical cues [<xref rid="b51" ref-type="bibr">51</xref>]. Although no satisfactory explanation is offered about the conflicting results, one possibility is that the EGF effect on MSC cells may be dependent on the proliferation <italic>versus</italic> differentiation status of the pre-osteoblast progenitor cells. Another possible explanation is that the biological outcome of the EGF-stimulated MSCs may be significantly affected by the potency/efficacy of the differentiation cue. We have demonstrated that osteogenic BMPs (including BMP9)&#x2013;induced osteogenesis is a well-coordinated process of the proliferative expansion and terminal differentiation of pre-osteoblast progenitor cells [<xref rid="b4" ref-type="bibr">4</xref>, <xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b16" ref-type="bibr">16</xref>, <xref rid="b20" ref-type="bibr">20</xref>, <xref rid="b52" ref-type="bibr">52</xref>]. Our previous studies have demonstrated that BMP9 is one of the most osteogenic factors [<xref rid="b4" ref-type="bibr">4</xref>, <xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b13" ref-type="bibr">13</xref>, <xref rid="b14" ref-type="bibr">14</xref>, <xref rid="b20" ref-type="bibr">20</xref>]. Thus, our current studies indicate that the EGF-stimulated expansion of progenitor cells can be efficiently driven to osteogenic lineage and terminal differentiation by BMP9. Consistent with our findings is an earlier study, which showed that overexpression of <italic>Egf</italic> in transgenic mice using the &#x3B2;-actin promoter results in growth retardation and over-proliferation of osteoblasts [<xref rid="b53" ref-type="bibr">53</xref>].</p>
+      <p>It has been reported that EGFR signalling plays an important role in growth plate development, endochondral bone formation and longitudinal bone growth [<xref rid="b29" ref-type="bibr">29</xref>, <xref rid="b31" ref-type="bibr">31</xref>, <xref rid="b54" ref-type="bibr">54</xref>]. The EGFR family of receptor tyrosine kinases includes EGFR/ErbB1, HER2/ErbB2, HER3/ErbB3 and HER4/ErbB [<xref rid="b31" ref-type="bibr">31</xref>, <xref rid="b55" ref-type="bibr">55</xref>]. Epidermal growth factor receptor binds several ligands including EGF, TGF-&#x3B1;, &#x3B2;-cellulin, epiregulin and amphiregulin. Upon ligand binding, EGFR dimerizes and undergoes auto- or transphosphorylation on tyrosine residues in the intracellular domain, leading to the activation of several important intracellular signalling pathways, such as Ras-Raf-MAP-kinase and PI-3 Kinase-Akt. ErbB2 is the preferred partner for EGFR, and the signals mediated by EGFR/ErbB2 account for most of EGFR's biological activities [<xref rid="b31" ref-type="bibr">31</xref>, <xref rid="b55" ref-type="bibr">55</xref>]. <italic>Egfr</italic>-deficient mice exhibit impaired endochondral ossification, probably secondary to a defect in hypertrophic chondrocyte maturation and osteoblastic cell proliferation, and delayed primary endochondral ossification because of defective osteoclast recruitment [<xref rid="b54" ref-type="bibr">54</xref>, <xref rid="b56" ref-type="bibr">56</xref>]. More recently, it was shown that <italic>in vivo</italic> administration of Gefitinib or mice with cartilage-specific <italic>Egfr</italic> inactivation leads to defective endochondral ossification and hypertrophic cartilage enlargement as a result of suppressed osteoclastogenesis [<xref rid="b57" ref-type="bibr">57</xref>], although it is not clear if these effects resulted from the blockade of TGF&#x3B1; signalling. Nonetheless, it has been shown that the Egfr dominant&#x2013;negative mutant mice exhibited a remarkable decrease in tibial trabecular bone mass with abnormalities in trabecular number and thickness, whereas mice with a constitutively active Egfr allele displayed increases in trabecular and cortical bone content [<xref rid="b58" ref-type="bibr">58</xref>]. Thus, our findings are supported by these prior studies on EGFR functions in bone and skeletal development.</p>
+      <p>Finally, it is noteworthy that aberrant activations of EGFR signalling are frequently observed in many types of advanced stage cancers and bone metastases [<xref rid="b59" ref-type="bibr">59</xref>, <xref rid="b60" ref-type="bibr">60</xref>]. Various EGFR tyrosine kinase inhibitors, such as Gefitinib and Erlotinib, have shown promising results in clinical and/or preclinical anticancer studies [<xref rid="b59" ref-type="bibr">59</xref>&#x2013;<xref rid="b61" ref-type="bibr">61</xref>]. Further investigations may be required to determine if the use of the EGFR inhibitors could affect the bone density in cancer patients, leading to pathological fractures. Furthermore, it is also important to investigate if the use of these inhibitors to treat bone metastases could worsen osteolytic lesions.</p>
+      <p>In summary, we have demonstrated that EGF potentiates BMP9-induced early and late osteogenic markers of MSCs, which can be effectively blunted by EGFR inhibitors. EGF also augments BMP9-induced endochondral bone formation in the cultured mouse foetal limb explants. Exogenous expression of EGF in MSCs effectively potentiates BMP9-induced ectopic bone formation. Mechanistically, EGF is shown to induce BMP9 expression in MSCs, whereas EGFR expression is directly up-regulated by BMP9 through Smad1/5/8 signalling pathway. Thus, the cross-talk between EGF and BMP9 pathways in MSCs may play an important role in regulating osteogenic differentiation. Harnessing the synergy between BMP9 and EGF should be beneficial for enhancing osteogenesis in regenerative medicine.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Dr. Chad Hanley of the Department of Radiology at The University of Chicago for his assistance and advice on &#x3BC;CT scanning and imaging analysis. This study was supported in part by research grants from the Orthopaedic Research and Education Foundation (RCH and HHL), the National Institutes of Health (RCH, TCH and HHL), and the Natural Science Foundation of China (#81100309 to YB, #81001197 to YS, #30973062 and 81172545 to QL, and #81272172 to GN).</p>
+    </ack>
+    <sec>
+      <title>Conflicts of interest</title>
+      <p>All authors state that they have no conflicts of interest.</p>
+    </sec>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Prockop</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Marrow stromal cells as stem cells for nonhematopoietic tissues</article-title>
+          <source>Science</source>
+          <year>1997</year>
+          <volume>276</volume>
+          <fpage>71</fpage>
+          <lpage>4</lpage>
+          <pub-id pub-id-type="pmid">9082988</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pittenger</surname>
+              <given-names>MF</given-names>
+            </name>
+            <name>
+              <surname>Mackay</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Beck</surname>
+              <given-names>SC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multilineage potential of adult human mesenchymal stem cells</article-title>
+          <source>Science</source>
+          <year>1999</year>
+          <volume>284</volume>
+          <fpage>143</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">10102814</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aubin</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Advances in the osteoblast lineage</article-title>
+          <source>Biochem Cell Biol</source>
+          <year>1998</year>
+          <volume>76</volume>
+          <fpage>899</fpage>
+          <lpage>910</lpage>
+          <pub-id pub-id-type="pmid">10392704</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Deng</surname>
+              <given-names>ZL</given-names>
+            </name>
+            <name>
+              <surname>Sharff</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Regulation of osteogenic differentiation during skeletal development</article-title>
+          <source>Front Biosci</source>
+          <year>2008</year>
+          <volume>13</volume>
+          <fpage>2001</fpage>
+          <lpage>21</lpage>
+          <pub-id pub-id-type="pmid">17981687</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rastegar</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Shenaq</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mesenchymal stem cells: molecular characteristics and clinical applications</article-title>
+          <source>World J Stem Cells</source>
+          <year>2010</year>
+          <volume>2</volume>
+          <fpage>67</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="pmid">21607123</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olsen</surname>
+              <given-names>BR</given-names>
+            </name>
+            <name>
+              <surname>Reginato</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Bone development</article-title>
+          <source>Annu Rev Cell Dev Biol</source>
+          <year>2000</year>
+          <volume>16</volume>
+          <fpage>191</fpage>
+          <lpage>220</lpage>
+          <pub-id pub-id-type="pmid">11031235</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Attisano</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wrana</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <article-title>Signal transduction by the TGF-beta superfamily</article-title>
+          <source>Science</source>
+          <year>2002</year>
+          <volume>296</volume>
+          <fpage>1646</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">12040180</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luu</surname>
+              <given-names>HH</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>WX</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Distinct roles of bone morphogenetic proteins in osteogenic differentiation of mesenchymal stem cells</article-title>
+          <source>J Orthop Res</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>665</fpage>
+          <lpage>77</lpage>
+          <pub-id pub-id-type="pmid">17290432</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Varga</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Wrana</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <article-title>The disparate role of BMP in stem cell biology</article-title>
+          <source>Oncogene</source>
+          <year>2005</year>
+          <volume>24</volume>
+          <fpage>5713</fpage>
+          <lpage>21</lpage>
+          <pub-id pub-id-type="pmid">16123804</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>BMP signaling and stem cell regulation</article-title>
+          <source>Dev Biol</source>
+          <year>2005</year>
+          <volume>284</volume>
+          <fpage>1</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="pmid">15963490</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hogan</surname>
+              <given-names>BL</given-names>
+            </name>
+          </person-group>
+          <article-title>Bone morphogenetic proteins: multifunctional regulators of vertebrate development</article-title>
+          <source>Genes Dev</source>
+          <year>1996</year>
+          <volume>10</volume>
+          <fpage>1580</fpage>
+          <lpage>94</lpage>
+          <pub-id pub-id-type="pmid">8682290</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Massague</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanisms of TGF-beta signaling from cell membrane to the nucleus</article-title>
+          <source>Cell</source>
+          <year>2003</year>
+          <volume>113</volume>
+          <fpage>685</fpage>
+          <lpage>700</lpage>
+          <pub-id pub-id-type="pmid">12809600</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cheng</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Phillips</surname>
+              <given-names>FM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Osteogenic activity of the fourteen types of human bone morphogenetic proteins (BMPs)</article-title>
+          <source>J Bone Joint Surg Am</source>
+          <year>2003</year>
+          <volume>85-A</volume>
+          <fpage>1544</fpage>
+          <lpage>52</lpage>
+          <pub-id pub-id-type="pmid">12925636</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Characterization of the distinct orthotopic bone-forming activity of 14 BMPs using recombinant adenovirus-mediated gene delivery</article-title>
+          <source>Gene Ther</source>
+          <year>2004</year>
+          <volume>11</volume>
+          <fpage>1312</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="pmid">15269709</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Peng</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transcriptional characterization of bone morphogenetic proteins (BMPs)-mediated osteogenic signaling</article-title>
+          <source>J Cell Biochem</source>
+          <year>2003</year>
+          <volume>90</volume>
+          <fpage>1149</fpage>
+          <lpage>65</lpage>
+          <pub-id pub-id-type="pmid">14635189</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Peng</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>Q</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibitor of DNA binding/differentiation helix-loop-helix proteins mediate bone morphogenetic protein-induced osteoblast differentiation of mesenchymal stem cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>32941</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">15161906</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Si</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Connective tissue growth factor (CTGF) is regulated by Wnt and bone morphogenetic proteins signaling in osteoblast differentiation of mesenchymal stem cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>55958</fpage>
+          <lpage>68</lpage>
+          <pub-id pub-id-type="pmid">15496414</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sharff</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>WX</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hey1 basic helix-loop-helix protein plays an important role in mediating BMP9-induced osteogenic differentiation of mesenchymal progenitor cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2009</year>
+          <volume>284</volume>
+          <fpage>649</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="pmid">18986983</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tang</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>WX</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BMP9-induced osteogenic differentiation of mesenchymal progenitors requires functional canonical Wnt/beta-catenin signaling</article-title>
+          <source>J Cell Mol Med</source>
+          <year>2009</year>
+          <volume>13</volume>
+          <fpage>2448</fpage>
+          <lpage>64</lpage>
+          <pub-id pub-id-type="pmid">19175684</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luther</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Wagner</surname>
+              <given-names>ER</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BMP-9 induced osteogenic differentiation of mesenchymal stem cells: molecular mechanism and therapeutic potential</article-title>
+          <source>Curr Gene Ther</source>
+          <year>2011</year>
+          <volume>11</volume>
+          <fpage>229</fpage>
+          <lpage>40</lpage>
+          <pub-id pub-id-type="pmid">21453282</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Growth hormone synergizes with BMP9 in osteogenic differentiation by activating the JAK/STAT/IGF1 pathway in murine multilineage cells</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2012</year>
+          <volume>27</volume>
+          <fpage>1566</fpage>
+          <lpage>75</lpage>
+          <pub-id pub-id-type="pmid">22467218</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Song</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Celeste</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>FM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone morphogenetic protein-9 binds to liver cells and stimulates proliferation</article-title>
+          <source>Endocrinology</source>
+          <year>1995</year>
+          <volume>136</volume>
+          <fpage>4293</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">7664647</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lopez-Coviella</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Berse</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Krauss</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induction and maintenance of the neuronal cholinergic phenotype in the central nervous system by BMP-9</article-title>
+          <source>Science</source>
+          <year>2000</year>
+          <volume>289</volume>
+          <fpage>313</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">10894782</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Grzegorzewski</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Barash</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>An integrated functional genomics screening program reveals a role for BMP-9 in glucose homeostasis</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2003</year>
+          <volume>21</volume>
+          <fpage>294</fpage>
+          <lpage>301</lpage>
+          <pub-id pub-id-type="pmid">12598908</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>WX</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>Q</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A comprehensive analysis of the dual roles of BMPs in regulating adipogenic and osteogenic differentiation of mesenchymal progenitor cells</article-title>
+          <source>Stem Cells Dev</source>
+          <year>2009</year>
+          <volume>18</volume>
+          <fpage>545</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="pmid">18616389</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>David</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Mallet</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Keramidas</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone morphogenetic protein-9 is a circulating vascular quiescence factor</article-title>
+          <source>Circ Res</source>
+          <year>2008</year>
+          <volume>102</volume>
+          <fpage>914</fpage>
+          <lpage>22</lpage>
+          <pub-id pub-id-type="pmid">18309101</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Peacock</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>George</surname>
+              <given-names>SC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BMP9 induces EphrinB2 expression in endothelial cells through an Alk1-BMPRII/ActRII-ID1/ID3-dependent pathway: implications for hereditary hemorrhagic telangiectasia type II</article-title>
+          <source>Angiogenesis</source>
+          <year>2012</year>
+          <volume>15</volume>
+          <fpage>497</fpage>
+          <lpage>509</lpage>
+          <pub-id pub-id-type="pmid">22622516</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>TGFbeta/BMP type I receptors ALK1 and ALK2 are essential for BMP9-induced osteogenic signaling in mesenchymal stem cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2010</year>
+          <volume>285</volume>
+          <fpage>29588</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="pmid">20628059</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fisher</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Clinton</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Maihle</surname>
+              <given-names>NJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Requirement for ErbB2/ErbB signaling in developing cartilage and bone</article-title>
+          <source>Dev Growth Differ</source>
+          <year>2007</year>
+          <volume>49</volume>
+          <fpage>503</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="pmid">17555517</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krampera</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pasini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rigo</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HB-EGF/HER-1 signaling in bone marrow mesenchymal stem cells: inducing cell expansion and reversibly preventing multilineage differentiation</article-title>
+          <source>Blood</source>
+          <year>2005</year>
+          <volume>106</volume>
+          <fpage>59</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="pmid">15755902</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schneider</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Sibilia</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Erben</surname>
+              <given-names>RG</given-names>
+            </name>
+          </person-group>
+          <article-title>The EGFR network in bone biology and pathology</article-title>
+          <source>Trends Endocrinol Metab</source>
+          <year>2009</year>
+          <volume>20</volume>
+          <fpage>517</fpage>
+          <lpage>24</lpage>
+          <pub-id pub-id-type="pmid">19819718</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Canalis</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Raisz</surname>
+              <given-names>LG</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of epidermal growth factor on bone formation <italic>in vitro</italic></article-title>
+          <source>Endocrinology</source>
+          <year>1979</year>
+          <volume>104</volume>
+          <fpage>862</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">312196</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Marie</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Hott</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Perheentupa</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of epidermal growth factor on bone formation and resorption <italic>in vivo</italic></article-title>
+          <source>Am J Physiol</source>
+          <year>1990</year>
+          <volume>258</volume>
+          <fpage>E275</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="pmid">2305876</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Antosz</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Bellows</surname>
+              <given-names>CG</given-names>
+            </name>
+            <name>
+              <surname>Aubin</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Biphasic effects of epidermal growth factor on bone nodule formation by isolated rat calvaria cells <italic>in vitro</italic></article-title>
+          <source>J Bone Miner Res</source>
+          <year>1987</year>
+          <volume>2</volume>
+          <fpage>385</fpage>
+          <lpage>93</lpage>
+          <pub-id pub-id-type="pmid">3502681</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Bi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Conditionally immortalized mouse embryonic fibroblasts retain proliferative activity without compromising multipotent differentiation potential</article-title>
+          <source>PLoS ONE</source>
+          <year>2012</year>
+          <volume>7</volume>
+          <fpage>e32428</fpage>
+          <pub-id pub-id-type="pmid">22384246</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>WX</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Osteogenic BMPs promote tumor growth of human osteosarcomas that harbor differentiation defects</article-title>
+          <source>Lab Invest</source>
+          <year>2008</year>
+          <volume>88</volume>
+          <fpage>1264</fpage>
+          <lpage>77</lpage>
+          <pub-id pub-id-type="pmid">18838962</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>da Costa</surname>
+              <given-names>LT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A simplified system for generating recombinant adenoviruses</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>1998</year>
+          <volume>95</volume>
+          <fpage>2509</fpage>
+          <lpage>14</lpage>
+          <pub-id pub-id-type="pmid">9482916</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Deng</surname>
+              <given-names>ZL</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A protocol for rapid generation of recombinant adenoviruses using the AdEasy system</article-title>
+          <source>Nat Protoc</source>
+          <year>2007</year>
+          <volume>2</volume>
+          <fpage>1236</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="pmid">17546019</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>TA</given-names>
+            </name>
+            <name>
+              <surname>Vogelstein</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>PPARdelta is an APC-regulated target of nonsteroidal anti-inflammatory drugs</article-title>
+          <source>Cell</source>
+          <year>1999</year>
+          <volume>99</volume>
+          <fpage>335</fpage>
+          <lpage>45</lpage>
+          <pub-id pub-id-type="pmid">10555149</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Sparks</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Rago</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Identification of c-MYC as a target of the APC pathway [see comments]</article-title>
+          <source>Science</source>
+          <year>1998</year>
+          <volume>281</volume>
+          <fpage>1509</fpage>
+          <lpage>12</lpage>
+          <pub-id pub-id-type="pmid">9727977</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Si</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Luu</surname>
+              <given-names>HH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>CCN1/Cyr61 is regulated by the canonical Wnt signal and plays an important role in Wnt3A-induced osteoblast differentiation of mesenchymal stem cells</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2006</year>
+          <volume>26</volume>
+          <fpage>2955</fpage>
+          <lpage>64</lpage>
+          <pub-id pub-id-type="pmid">16581771</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Insulin-like growth factor 2 (IGF-2) potentiates BMP-9-induced osteogenic differentiation and bone formation</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2010</year>
+          <volume>25</volume>
+          <fpage>2447</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="pmid">20499340</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zuo</surname>
+              <given-names>GW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Synergistic antitumor effect of the activated PPARgamma and retinoid receptors on human osteosarcoma</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2010</year>
+          <volume>16</volume>
+          <fpage>2235</fpage>
+          <lpage>45</lpage>
+          <pub-id pub-id-type="pmid">20371684</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>BQ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Tetrandrine inhibits Wnt/beta-catenin signaling and suppresses tumor growth of human colorectal cancer</article-title>
+          <source>Mol Pharmacol</source>
+          <year>2011</year>
+          <volume>79</volume>
+          <fpage>211</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">20978119</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Deng</surname>
+              <given-names>ZL</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Retinoic acids potentiate BMP9-induced osteogenic differentiation of mesenchymal progenitor cells</article-title>
+          <source>PLoS ONE</source>
+          <year>2010</year>
+          <volume>5</volume>
+          <fpage>e11917</fpage>
+          <pub-id pub-id-type="pmid">20689834</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b46">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rastegar</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Shenaq</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Lysophosphatidic acid acyltransferase beta (LPAATbeta) promotes the tumor growth of human osteosarcoma</article-title>
+          <source>PLoS ONE</source>
+          <year>2010</year>
+          <volume>5</volume>
+          <fpage>e14182</fpage>
+          <pub-id pub-id-type="pmid">21152068</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b47">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Wnt antagonist SFRP3 inhibits the differentiation of mouse hepatic progenitor cells</article-title>
+          <source>J Cell Biochem</source>
+          <year>2009</year>
+          <volume>108</volume>
+          <fpage>295</fpage>
+          <lpage>303</lpage>
+          <pub-id pub-id-type="pmid">19562671</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b48">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Su</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wagner</surname>
+              <given-names>ER</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>Q</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Insulin-like growth factor binding protein 5 suppresses tumor growth and metastasis of human osteosarcoma</article-title>
+          <source>Oncogene</source>
+          <year>2011</year>
+          <volume>30</volume>
+          <fpage>3907</fpage>
+          <lpage>17</lpage>
+          <pub-id pub-id-type="pmid">21460855</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b49">
+        <label>49</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tamama</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fan</surname>
+              <given-names>VH</given-names>
+            </name>
+            <name>
+              <surname>Griffith</surname>
+              <given-names>LG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal growth factor as a candidate for <italic>ex vivo</italic> expansion of bone marrow-derived mesenchymal stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <fpage>686</fpage>
+          <lpage>95</lpage>
+          <pub-id pub-id-type="pmid">16150920</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b50">
+        <label>50</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tamama</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kawasaki</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Wells</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor (EGF) treatment on multipotential stromal cells (MSCs). Possible enhancement of therapeutic potential of MSC</article-title>
+          <source>J Biomed Biotechnol</source>
+          <year>2010</year>
+          <volume>2010</volume>
+          <fpage>795385</fpage>
+          <pub-id pub-id-type="pmid">20182548</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b51">
+        <label>51</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kratchmarova</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Blagoev</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Haack-Sorensen</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mechanism of divergent growth factor effects in mesenchymal stem cell differentiation</article-title>
+          <source>Science</source>
+          <year>2005</year>
+          <volume>308</volume>
+          <fpage>1472</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">15933201</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b52">
+        <label>52</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tang</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>WX</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Osteosarcoma development and stem cell differentiation</article-title>
+          <source>Clin Orthop Relat Res</source>
+          <year>2008</year>
+          <volume>466</volume>
+          <fpage>2114</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="pmid">18563507</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b53">
+        <label>53</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chan</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>RW</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of epidermal growth factor in transgenic mice causes growth retardation</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>38693</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">11001946</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b54">
+        <label>54</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Chin</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal growth factor receptor-deficient mice have delayed primary endochondral ossification because of defective osteoclast recruitment</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>53848</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="pmid">15456762</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b55">
+        <label>55</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Citri</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yarden</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF-ERBB signalling: towards the systems level</article-title>
+          <source>Nat Rev Mol Cell Biol</source>
+          <year>2006</year>
+          <volume>7</volume>
+          <fpage>505</fpage>
+          <lpage>16</lpage>
+          <pub-id pub-id-type="pmid">16829981</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b56">
+        <label>56</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sibilia</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wagner</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Hoebertz</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mice humanised for the EGF receptor display hypomorphic phenotypes in skin, bone and heart</article-title>
+          <source>Development</source>
+          <year>2003</year>
+          <volume>130</volume>
+          <fpage>4515</fpage>
+          <lpage>25</lpage>
+          <pub-id pub-id-type="pmid">12925580</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b57">
+        <label>57</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Siclari</surname>
+              <given-names>VA</given-names>
+            </name>
+            <name>
+              <surname>Lan</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The critical role of the epidermal growth factor receptor in endochondral ossification</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2011</year>
+          <volume>26</volume>
+          <fpage>2622</fpage>
+          <lpage>33</lpage>
+          <pub-id pub-id-type="pmid">21887704</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b58">
+        <label>58</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Tamasi</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal growth factor receptor plays an anabolic role in bone metabolism <italic>in vivo</italic></article-title>
+          <source>J Bone Miner Res</source>
+          <year>2011</year>
+          <volume>26</volume>
+          <fpage>1022</fpage>
+          <lpage>34</lpage>
+          <pub-id pub-id-type="pmid">21542005</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b59">
+        <label>59</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ciardiello</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Tortora</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>EGFR antagonists in cancer treatment</article-title>
+          <source>N Engl J Med</source>
+          <year>2008</year>
+          <volume>358</volume>
+          <fpage>1160</fpage>
+          <lpage>74</lpage>
+          <pub-id pub-id-type="pmid">18337605</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b60">
+        <label>60</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yarden</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Pines</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>The ERBB network: at last, cancer therapy meets systems biology</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2012</year>
+          <volume>12</volume>
+          <fpage>553</fpage>
+          <lpage>63</lpage>
+          <pub-id pub-id-type="pmid">22785351</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b61">
+        <label>61</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ono</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kuwano</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular mechanisms of epidermal growth factor receptor (EGFR) activation and response to gefitinib and other EGFR-targeting drugs</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2006</year>
+          <volume>12</volume>
+          <fpage>7242</fpage>
+          <lpage>51</lpage>
+          <pub-id pub-id-type="pmid">17189395</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+    <sec sec-type="supplementary-material">
+      <title>Supporting information</title>
+      <p>Additional Supporting Information may be found in the online version of this article:</p>
+      <p><bold>Figure S1</bold>. (<bold>A</bold>) Different fluorescence signals detected in adenovirus-transduced soft tissues (a) <italic>versus</italic> calcein-stained new bone formation (b). (<bold>B</bold>) Immunohistochemical staining analysis indicates that the humerus growth plate from BMP9+EGF-treated limb explants exhibited higher PCNA-positive cells than that of the BMP9-treated alone (63% <italic>versus</italic> 32%).</p>
+      <p><bold>Figure S2</bold>. EGF enhances BMP9-induced phosphorylation of Smad1/5/8. Subconfluent iMEFs were infected with GFP, BMP9, EGF and BMP9+EGF adenoviruses. At 24 hrs after infection, cells were fixed and immunostained with a p-Smad1/5/8 antibody (Santa Cruz Biotechnology). Positively stained cells were indicated by arrows. Representative results are shown.</p>
+      <p><bold>Table S1.</bold> Oligonucleotides used for cloning, RT-PCR and ChIP.</p>
+      <supplementary-material content-type="local-data" id="SD1">
+        <media mime-subtype="tif" xlink:href="jcmm0017-1160-SD1.tif" xlink:type="simple" id="d35e3363" position="anchor"/>
+        <media mime-subtype="tif" xlink:href="jcmm0017-1160-SD2.tif" xlink:type="simple" id="d35e3364" position="anchor"/>
+        <media mime-subtype="xls" xlink:href="jcmm0017-1160-SD3.xls" xlink:type="simple" id="d35e3365" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </back>
+</article>
+</pmc-articleset>

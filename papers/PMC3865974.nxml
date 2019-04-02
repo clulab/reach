@@ -1,0 +1,1869 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Onco Targets Ther</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Onco Targets Ther</journal-id>
+      <journal-id journal-id-type="publisher-id">OncoTargets and Therapy</journal-id>
+      <journal-title-group>
+        <journal-title>OncoTargets and therapy</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1178-6930</issn>
+      <publisher>
+        <publisher-name>Dove Medical Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24363559</article-id>
+      <article-id pub-id-type="pmc">3865974</article-id>
+      <article-id pub-id-type="doi">10.2147/OTT.S53625</article-id>
+      <article-id pub-id-type="publisher-id">ott-6-1805</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Research</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>A functional polymorphism in the epidermal growth factor gene predicts hepatocellular carcinoma risk in Japanese hepatitis C patients</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Suenaga</surname>
+            <given-names>Masaya</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yamada</surname>
+            <given-names>Suguru</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+          <xref ref-type="corresp" rid="c1-ott-6-1805"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fujii</surname>
+            <given-names>Tsutomu</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fuchs</surname>
+            <given-names>Bryan C</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ott-6-1805">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Okumura</surname>
+            <given-names>Norio</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kanda</surname>
+            <given-names>Mitsuro</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kobayashi</surname>
+            <given-names>Daisuke</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tanaka</surname>
+            <given-names>Chie</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nakayama</surname>
+            <given-names>Goro</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sugimoto</surname>
+            <given-names>Hiroyuki</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Koike</surname>
+            <given-names>Masahiko</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nomoto</surname>
+            <given-names>Shuji</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fujiwara</surname>
+            <given-names>Michitaka</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takeda</surname>
+            <given-names>Shin</given-names>
+          </name>
+          <xref ref-type="aff" rid="af3-ott-6-1805">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hayashi</surname>
+            <given-names>Kazuhiko</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-ott-6-1805">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tanabe</surname>
+            <given-names>Kenneth K</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ott-6-1805">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Goto</surname>
+            <given-names>Hidemi</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-ott-6-1805">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kodera</surname>
+            <given-names>Yasuhiro</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-6-1805">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-ott-6-1805"><label>1</label>Department of Gastroenterological Surgery (Surgery II), Nagoya University Graduate School of Medicine, Nagoya, Japan</aff>
+      <aff id="af2-ott-6-1805"><label>2</label>Division of Surgical Oncology, Massachusetts General Hospital Cancer Center and Harvard Medical School, Boston, MA, USA</aff>
+      <aff id="af3-ott-6-1805"><label>3</label>Division of Surgery, Nagoya Medical Center, Nagoya, Japan</aff>
+      <aff id="af4-ott-6-1805"><label>4</label>Department of Gastroenterology, Nagoya University Graduate School of Medicine, Nagoya, Japan</aff>
+      <author-notes>
+        <corresp id="c1-ott-6-1805">Correspondence: Suguru Yamada, Department of Gastroenterological Surgery (Surgery II), Nagoya University, Graduate School of Medicine, 65 Tsurumai-cho, Showa-ku, Nagoya 466-8550, Japan, Tel +81 52 744 2249, Fax +81 52 744 2255, Email <email>suguru@med.nagoya-u.ac.jp</email></corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>13</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>6</volume>
+      <fpage>1805</fpage>
+      <lpage>1812</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 Suenaga et al. This work is published by Dove Medical Press Limited, and licensed under Creative Commons Attribution &#x2013; Non Commercial (unported, v3.0) License</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <license>
+          <license-p>The full terms of the License are available at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/3.0/">http://creativecommons.org/licenses/by-nc/3.0/</ext-link>. Non-commercial uses of the work are permitted without any further permission from Dove Medical Press Limited, provided the work is properly attributed.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>A single nucleotide polymorphism (SNP) in the epidermal growth factor (EGF) gene (rs4444903) has been associated with increased risk of cancer, including hepatocellular carcinoma (HCC). The aim of this study was to examine the relationship between the EGF SNP genotype and the development and prognosis of HCC, in a Japanese population.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>Restriction fragment-length polymorphism was used to determine the presence of the EGF SNP genotype in 498 patients, including 208 patients with HCC. The level of EGF messenger ribonucleic acid (mRNA) expression in cancerous tissues was measured by quantitative reverse transcription polymerase chain reaction. The correlation between the EGF SNP genotype and prognosis was statistically analyzed in the patients with HCC.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>The proportion of the A/A, A/G, and G/G genotypes were 5.3%, 42.8%, and 51.9%, respectively, in the patients with HCC, whereas in those without HCC, they were 8.6%, 35.9%, and 55.5%, respectively, revealing that the odds ratio (OR) of developing HCC was higher in patients with a G allele (OR =1.94, <italic>P</italic>=0.080 for A/G patients and OR =1.52, <italic>P</italic>=0.261 for G/G patients, as compared with A/A patients). In particular, when the analysis was limited to the 363 patients with hepatitis C, the OR for developing HCC was 3.54 (<italic>P</italic>=0.014) for A/G patients and was 2.85 (<italic>P</italic>=0.042) for G/G patients, as compared with A/A patients. Tumoral EGF mRNA expression in G/G patients was significantly higher than that in A/A patients (<italic>P</italic>=0.033). No statistically significant differences were observed between the EGF SNP genotype and diseasefree or overall survival.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>The EGF SNP genotype might be associated with a risk for the development of HCC in Japanese patients but not with prognosis. Of note, the association is significantly stronger in patients with hepatitis C, which is the main risk factor for HCC in Japan.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <title>Keywords</title>
+        <kwd>epidermal growth factor</kwd>
+        <kwd>functional polymorphism</kwd>
+        <kwd>hepatocellular carcinoma</kwd>
+        <kwd>hepatitis C</kwd>
+        <kwd>hepatocarcinogenesis</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Hepatocellular carcinoma (HCC) is the fifth most common cancer in men and the seventh in women and the third most common cause of death from cancer worldwide.<xref ref-type="bibr" rid="b1-ott-6-1805">1</xref> The regions of high incidence for this disease are generally Eastern and South Eastern Asia and Middle and Western Africa. Because most patients who develop HCC are affected with viral hepatitis and require follow up for decades, it is necessary to analyze new molecular markers that can be used to identify high-risk populations that may be suitable for more intensive screening or prevention strategies.<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref></p>
+      <p>Currently, molecular alterations in tumors are being scrutinized at a genome-wide scale, covering different dimensions, such as gene expression, epigenetic changes, chromosomal aberrations, and more recently, next generation sequencing.<xref ref-type="bibr" rid="b3-ott-6-1805">3</xref> As for HCC, there have been many reports regarding molecular markers associated with the development of HCC.<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref>,<xref ref-type="bibr" rid="b4-ott-6-1805">4</xref>&#x2013;<xref ref-type="bibr" rid="b6-ott-6-1805">6</xref> These molecular markers could be useful in the clinic; however, racial differences have been reported, and these need to be examined more thoroughly.<xref ref-type="bibr" rid="b5-ott-6-1805">5</xref>&#x2013;<xref ref-type="bibr" rid="b7-ott-6-1805">7</xref></p>
+      <p>Epidermal growth factor (EGF) was isolated in 1962 and has been shown to stimulate the proliferation and differentiation of epidermal and epithelial tissues, via binding to the EGF receptor (EGFR).<xref ref-type="bibr" rid="b8-ott-6-1805">8</xref>&#x2013;<xref ref-type="bibr" rid="b10-ott-6-1805">10</xref> EGF is well known to be associated with various malignant tumors, such as melanoma and esophageal carcinoma, via autocrine or paracrine pathways.<xref ref-type="bibr" rid="b11-ott-6-1805">11</xref>,<xref ref-type="bibr" rid="b12-ott-6-1805">12</xref> Shahbazi et al<xref ref-type="bibr" rid="b13-ott-6-1805">13</xref> identified a single nucleotide polymorphism (SNP) involving A to G transition at position 61 in the 5&#x2032; untranslated region of the EGF gene (rs4444903) and demonstrated that the G/G genotype was associated with an increased risk of developing malignant melanoma compared with the A/A genotype.</p>
+      <p>Recently, Tanabe et al<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref> showed that the G/G genotype was correlated with an increased risk of developing HCC in both a mixed North American population and a Caucasian French population and that serum and liver tissue EGF levels were higher in A/G and G/G patients as compared with A/A patients. Furthermore, Abu Dayyeh et al<xref ref-type="bibr" rid="b7-ott-6-1805">7</xref> expanded this study with a larger cohort and demonstrated the differences in the distribution of polymorphisms by race and by the incidence of HCC. However, conflicting results have been reported from the People&#x2019;s Republic of China, with two studies showing an association between the G allele and HCC risk,<xref ref-type="bibr" rid="b14-ott-6-1805">14</xref>,<xref ref-type="bibr" rid="b15-ott-6-1805">15</xref> while another report found no association between the EGF polymorphism and HCC risk.<xref ref-type="bibr" rid="b16-ott-6-1805">16</xref></p>
+      <p>Thus far, there has been no report examining the EGF genotype and its association with HCC in a Japanese population. Even though the allelic distribution is expected to be similar between Chinese and Japanese patients, hepatitis C virus (HCV) is the major risk factor for HCC in Japan, whereas hepatitis B virus (HBV) is the major risk factor in the People&#x2019;s Republic of China and other Eastern countries. The aim of this study was to investigate the relationship between the EGF SNP and risk of HCC. In addition, to our knowledge, this is the first report to analyze the EGF SNP as a prognostic factor for HCC patients.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec sec-type="methods">
+        <title>Study population and specimens</title>
+        <p>A total of 498 patients with liver disease were single ethnic Japanese and retrospectively enrolled in this study at Nagoya University Hospital during the period from 1994 to 2010, with exclusion of autoimmune liver disease, hereditary liver diseases, including Wilson&#x2019;s disease, drug-related hepatitis, and obstructive jaundice. Of these, 208 patients were diagnosed histologically as having HCC and underwent liver resection, and the other 290 patients were followed up for either hepatitis or liver cirrhosis. Patient&#x2019;s clinicopathological parameters were collected retrospectively from our database. Postoperative disease-free and overall survival in the 208 patients who underwent liver resection were calculated, and the median follow-up duration was 40.9 months (range 0.4&#x2013;209.0 months).</p>
+        <p>In the 208 patients who underwent liver resection, the collected samples from the resected specimen were stored immediately in liquid nitrogen at &#x2212;80&#xB0;C until analysis. Genomic deoxyribonucleic acid (DNA) was obtained by digestion with proteinase K, recombinant, PCR grade (F Hoffman-La Roche Ltd, Basel, Switzerland) followed by phenol/chloroform (Ultra-Pure&#x2122; Phenol, Life Technologies Corp, Carlsbad, CA, USA/Wako Pure Chemical Industries Ltd, Osaka, Japan) extraction. Total ribonucleic acid (RNA) was isolated from each of the frozen samples with the RNeasy&#xAE; Mini Kit (Qiagen, Venlo, the Netherlands), according to the manufacturer&#x2019;s protocol. For the 290 patients without liver resections, genomic DNA was extracted from 150 &#x3BC;L of whole blood, using a commercial kit (QIAamp DNA Blood Mini Kit; Qiagen).</p>
+        <p>As required by the Institutional Review Board of Nagoya University, which provided ethical approval, written and informed consent was obtained from all patients.</p>
+      </sec>
+      <sec>
+        <title>EGF genotyping</title>
+        <p>The EGF SNP rs4444903 was analyzed by using restriction fragment-length polymorphism (RFLP), as described previously.<xref ref-type="bibr" rid="b13-ott-6-1805">13</xref> In brief, genomic DNA was subjected to polymerase chain reaction (PCR) amplification using the GeneAmp&#xAE; PCR System 9700 (Life Technologies Corp, Carlsbad, CA, USA). It was performed under the following conditions: initial denaturation at 95&#xB0;C for 5 minutes, followed by 35 cycles at 95&#xB0;C for 30 seconds, at 51&#xB0;C for 30 seconds, and 72&#xB0;C for 1 minute, with a final extension step of 7 minutes at 72&#xB0;C, to amplify nucleotide positions &#x2212;78 to +164 of the EGF gene. The following primers were used, forward: 5&#x2032;-TGTCACTAAAGGAAAGGAGGT-3&#x2032; and reverse: 5&#x2032;-TTCACAGAGTTTAACAGCCC-3&#x2032; (STAR Oligo, Rikaken Co., Ltd, Nagoya, Japan). Then, 20 &#x3BC;L of PCR product was digested overnight with 5 units of AluI (F Hoffmann-La Roche Ltd) at 37&#xB0;C, separated by electrophoresis in a 3% agarose gel (Agarose for DNA/RNA, NIPPON Genetics Co., Ltd, Tokyo, Japan), and visualized by staining with ethidium bromide (Boehringer, Mannheim, IN, USA). AluI digestion of the 242 base pair (bp) PCR product containing the 61*G allele produced 15, 34, and 193 bp fragments, while digestion of the 61*A allele produced 15, 34, 91, and 102 bp fragments. The experiment was repeated twice for each sample to ensure accuracy.</p>
+      </sec>
+      <sec>
+        <title>Determining EGF mRNA expression</title>
+        <p>The EGF messenger RNA (mRNA) in the HCC tissues was measured by quantitative reverse transcription-PCR. Total RNA from each sample was used to synthesize complementary DNA by single-strand reverse transcription (M-MLV Reverse Transcriptase; Life Technologies Corp). The level of EGF mRNA was expressed as the ratio of EGF mRNA PCR product to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) in each sample for standardization. The primer sequences used were EGF forward: 5&#x2032;-CTTGTCATGCTGCTCCTCCT-3&#x2032; and reverse: 5&#x2032;-GAGGGCATATGAAAGCTTCG-3&#x2032;. The expression of GAPDH was quantified using the primer, forward: 5&#x2032;-AACGGCTCCGGCATGTGCAA-3&#x2032; and reverse: 5&#x2032;-GGCTCCTGTGCAGAGAAAGC-3&#x2032;. Real-time detection of the emission intensity of SYBR&#xAE; Green I (SYBR&#xAE; Premix Ex Taq&#x2122; II, Takara Bio Inc, Otsu, Japan) was performed with an ABI Prism&#xAE; 7000 Sequence Detection System (Life Technologies Corp). All PCR reactions were performed under the following conditions: initial denaturation at 95&#xB0;C for 30 minutes, followed by 40 cycles at 95&#xB0;C for 15 seconds and 60&#xB0;C for 40 seconds. The experiments were performed in triplicate to ensure accuracy.</p>
+      </sec>
+      <sec sec-type="methods">
+        <title>Statistical analysis</title>
+        <p>The chi-square test was used to determine whether the observed genotype frequencies were consistent with Hardy&#x2013;Weinberg equilibrium. The statistical differences between groups were evaluated using the chi-square test for qualitative variables and unpaired <italic>t</italic>-test or analysis of variance (ANOVA) for quantitative variables. Comparisons of groups with regard to the odds of HCC were made using a logistic regression model, and age and sex were included as covariates, in addition to genotype, in adjusted analysis. The overall survival and disease-free survival rates were calculated using the Kaplan&#x2013;Meier method, and the difference was analyzed using the logrank test. Independent prognostic factors were analyzed with the Cox proportional hazards regression model, in a stepwise manner. The statistical analysis was performed using JMP&#xAE; 9 software (SAS Institute Inc, Cary, NC, USA). The presence of a statistically significant difference was denoted by <italic>P</italic>&lt;0.05.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec sec-type="subjects">
+        <title>EGF genotyping of patients</title>
+        <p>RFLP was used to determine the EGF SNP genotype in 208 patients with HCC and 290 patients with either hepatitis or liver cirrhosis (<xref ref-type="fig" rid="f1-ott-6-1805">Figure 1A</xref> and <xref ref-type="fig" rid="f1-ott-6-1805">B</xref>). The ratios of A/A, A/G, and G/G genotypes were 5.3%, 42.8%, and 51.9%, respectively, in the 208 patients with HCC, whereas in the 290 patients without HCC, the ratios were 8.6%, 35.9%, and 55.5%, respectively. The frequencies of the EGF polymorphism in this study population were consistent with Hardy&#x2013;Weinberg equilibrium (<italic>P</italic>=0.864).</p>
+      </sec>
+      <sec sec-type="intro">
+        <title>Patient characteristics</title>
+        <p>Our Japanese population consisted of 208 patients with HCC and 290 patients without HCC, and their characteristics are shown in <xref ref-type="table" rid="t1-ott-6-1805">Table 1</xref>. There was a significant difference in the distribution of age (<italic>P</italic>&lt;0.001) and sex (<italic>P</italic>&lt;0.001) between the HCC group and those patients without HCC. There was also a significantly higher incidence rate of HCC in the HBV patients than in the HCV patients (<italic>P</italic>&lt;0.001).</p>
+        <p>The patient characteristics were also stratified by EGF genotype and are shown in <xref ref-type="table" rid="t2-ott-6-1805">Table 2</xref>. There were no significant differences in age and sex with respect to the EGF SNP. A total of 391 patients had HCV, and 64 patients had HBV, and there were no significant differences between these etiologies and EGF genotype (<italic>P</italic>=0.127).</p>
+      </sec>
+      <sec>
+        <title>EGF mRNA expression level</title>
+        <p>The presence of the G allele has been reported to increase the expression of EGF and may be one mechanism by which the EGF SNP increases the risk of HCC.<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref> To examine the correlation between EGF genotype and its expression, the level of EGF mRNA in cancerous tissues were measured by real-time PCR. The relative ratios of A/G (<italic>P</italic>=0.069) and G/G (<italic>P</italic>=0.033) patients were significantly higher than that of A/A patients (<xref ref-type="fig" rid="f2-ott-6-1805">Figure 2</xref>).</p>
+      </sec>
+      <sec>
+        <title>Relative risk of developing HCC, based on EGF genotype</title>
+        <p>In order to explore the association between EGF genotype and the susceptibility of HCC development, the odds ratio (OR) for the risk of HCC was statistically analyzed, using the A/A genotype as a reference (<xref ref-type="table" rid="t3-ott-6-1805">Table 3</xref>). The proportions of A/A, A/G, and G/G genotypes were 5.3%, 42.8%, and 51.9%, respectively, in patients with HCC, whereas in patients without HCC, the ratios were 8.6%, 35.9%, and 55.5%, respectively, which revealed that the OR of developing HCC was 1.93 (95% confidence interval [CI]: 0.92&#x2013;4.27, <italic>P</italic>=0.081) in the A/G patients and was 1.51 (95% CI: 0.73&#x2013;3.30, <italic>P</italic>=0.268) in the G/G patients, compared with A/A patients. Importantly, after adjusting for age and sex, the ORs for the A/G and G/G genotypes were 2.57 (<italic>P</italic>=0.030) and 1.90 (<italic>P</italic>=0.133), respectively.</p>
+        <p>Next, we restricted the analysis to patients with HCV, which is the most common risk factor for HCC in Japan (<xref ref-type="table" rid="t4-ott-6-1805">Table 4</xref>). This analysis demonstrated a significant association between the EGF genotype and risk of HCC. The OR was 3.54 (<italic>P</italic>=0.014) in the A/G patients and 2.85 (<italic>P</italic>=0.042) in the G/G patients in the crude analysis, and was 7.58 (<italic>P</italic>&lt;0.001) in the A/G patients and 4.61 (<italic>P</italic>=0.008) in the G/G patients in the adjusted analysis.</p>
+        <p>We also analyzed the risk limited to HBV, which is the second most frequent cause of HCC in Japan and accounts for about 15% of cases. The proportions of A/A, A/G, and G/G genotypes were 11.4%, 40.9%, and 47.7%, respectively, in patients with both HBV and HCC, while the proportions were 3.1%, 43.1%, and 53.9%, respectively, in patients with both HCV and HCC. Even though the A allele tended to occur more frequently in HBV patients with HCC, there was no significant difference compared with that proportion in patients with both HCV and HCC (<italic>P</italic>=0.136). In addition, the EGF genotype was not a significant risk factor for HCC in HBV patients (data not shown).</p>
+      </sec>
+      <sec sec-type="methods">
+        <title>Univariate and multivariate analysis of clinicopathological factors for overall survival</title>
+        <p>In the univariate analysis of various clinicopathological parameters for overall survival, tumor size (&#x2265;3 cm) (<italic>P</italic>=0.009), vascular invasion (<italic>P</italic>&lt;0.001), pathological stage III or IV (<italic>P</italic>=0.048), and alpha-fetoprotein (AFP) level (&#x2265;20 ng/mL) (<italic>P</italic>=0.015) were all significant risk factors for poor overall survival (<xref ref-type="table" rid="t5-ott-6-1805">Table 5</xref>). In the multivariate analysis, tumor size, vascular invasion, and AFP level were all independent risk factors for poor survival. No statistically significant differences were observed between the EGF SNP genotype or EGF mRNA expression and overall survival, and the disease-free and overall survival stratified by EGF SNP, in the resected HCC patients, are shown in <xref ref-type="fig" rid="f3-ott-6-1805">Figure 3</xref>.</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Hepatocarcinogenesis is thought to be deeply associated with chronic HBV or HCV infection, and in fact, a certain proportion of chronically infected HBV and HCV individuals will develop HCC. Thus, multiple genetic and epigenetic factors may affect HCC development in this background.<xref ref-type="bibr" rid="b17-ott-6-1805">17</xref> Among these genetic alterations, the dysregulation of EGF/EGFR signaling pathway is thought to be one of the most important factors in early hepatocarcinogenesis.<xref ref-type="bibr" rid="b18-ott-6-1805">18</xref>,<xref ref-type="bibr" rid="b19-ott-6-1805">19</xref></p>
+      <p>Previously, it has been reported in several studies that the distribution of the EGF polymorphism varies by race.<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref>,<xref ref-type="bibr" rid="b7-ott-6-1805">7</xref>,<xref ref-type="bibr" rid="b14-ott-6-1805">14</xref>,<xref ref-type="bibr" rid="b16-ott-6-1805">16</xref>,<xref ref-type="bibr" rid="b20-ott-6-1805">20</xref> In our Japanese population, the allelic frequencies of the G allele and A allele were 0.73 and 0.27, respectively, which is very similar to what has been reported for Chinese and African Americans. This distribution is strikingly different from Caucasians though, for whom the allelic frequencies of the G and A alleles are roughly 0.40 and 0.60, respectively. It is interesting to speculate that these differences in distribution might explain the high incidence of HCC in East Asia and Africa, but this requires further study.</p>
+      <p>A meta-analysis of five studies examining the EGF genotype and HCC risk concluded that the G allele was a risk factor for HCC, independently of ethnicity and etiology.<xref ref-type="bibr" rid="b21-ott-6-1805">21</xref> This is in contrast to three previous studies examining the association between the EGF genotype and risk of HCC in Chinese patients with HBV.<xref ref-type="bibr" rid="b14-ott-6-1805">14</xref>&#x2013;<xref ref-type="bibr" rid="b16-ott-6-1805">16</xref> However, a more recent meta-analysis examined six studies including these Chinese studies and revealed a significant association between the G allele and HCC risk, and concluded that the original discrepancy was probably due to the fact that these were single case-control studies with small sample sizes.<xref ref-type="bibr" rid="b22-ott-6-1805">22</xref> In addition, when the researchers analyzed all eight published studies on the EGF polymorphism and HCC risk, they found that the 61G allele was a risk factor for HCC, while the 61A allele was protective. Not surprisingly, the A/A genotype occurs in less than 10% of Asians and African Americans but is present in roughly 30% of Caucasians.</p>
+      <p>It is difficult to explain why the risk of developing HCC is higher in patients with the A/G genotype rather than with the G/G genotype. One would expect that risk of HCC would increase with the number of copies of the G allele; however, it has been observed occasionally, in other studies, that the OR was higher for A/G patients.<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref>,<xref ref-type="bibr" rid="b14-ott-6-1805">14</xref>,<xref ref-type="bibr" rid="b20-ott-6-1805">20</xref> We suspect that this might be due to relatively small sample sizes. Regardless, the A/G and G/G patients had a higher risk of developing HCC than the patients with the A/A genotype, in our Japanese population. In addition, the ORs that we report here are higher than those observed in studies examining other polymorphisms,<xref ref-type="bibr" rid="b23-ott-6-1805">23</xref>&#x2013;<xref ref-type="bibr" rid="b25-ott-6-1805">25</xref> and this observation might suggest that the EGF SNP strongly contributes to the development of HCC. Also, given that Japan is an insular country and therefore a genetically isolated area,<xref ref-type="bibr" rid="b26-ott-6-1805">26</xref> the high risk identified by the EGF SNP in this Japanese population might suggest for more disease specificity. Thus, our observations overall strengthen the previous assertion that the EGF SNP is associated with the development of HCC.</p>
+      <p>Of note, when the analysis was limited to patients with HCV and adjusted for age and sex, the risk of developing HCC increased dramatically in the A/G and G/G patients. This finding is of particular importance as HCV is the main risk factor for HCC in Japan. In addition, several recent mechanistic studies support this finding. First, EGFR was recently shown to be a host factor for HCV cellular entry when it was found that EGFR signaling leads to assembly of the host tetraspanin receptor complex.<xref ref-type="bibr" rid="b27-ott-6-1805">27</xref>,<xref ref-type="bibr" rid="b28-ott-6-1805">28</xref> The ligands that activate EGFR, especially EGF, therefore increase HCV cellular entry,<xref ref-type="bibr" rid="b27-ott-6-1805">27</xref> and the EGF SNP is known to increase liver EGF levels.<xref ref-type="bibr" rid="b2-ott-6-1805">2</xref></p>
+      <p>The association between the EGF genotype and prognosis so far has not been described in HCC patients and remains controversial in other malignancies, such as glioma and esophageal carcinoma.<xref ref-type="bibr" rid="b29-ott-6-1805">29</xref>&#x2013;<xref ref-type="bibr" rid="b31-ott-6-1805">31</xref> In this study, no statistical association was found between the EGF genotype and both disease-free and overall survival, in HCC patients. This result could be explained by the fact that the prognosis of HCC, as opposed to other malignancies, is subject to various individual conditions, such as cirrhosis, leading to multicentric carcinogenesis and residual liver function.<xref ref-type="bibr" rid="b32-ott-6-1805">32</xref> Interestingly, EGF is part of a gene expression signature associated with poor overall survival in HCC patients who have had a resection and in cirrhosis patients.<xref ref-type="bibr" rid="b33-ott-6-1805">33</xref>,<xref ref-type="bibr" rid="b34-ott-6-1805">34</xref> This signature was derived from the surrounding nontumoral liver tissue and might help explain why the increased tumoral EGF expression seen in our A/G and G/G patients was not associated with survival. It might be that EGF expression alone is not powerful enough to predict prognosis, or it could be that EGF expression in the surrounding, nontumoral tissue will have greater prognostic value. Consistent with this, Falleti et al<xref ref-type="bibr" rid="b35-ott-6-1805">35</xref> reported that the EGF genotype associates with advanced fibrosis at a young age in HCV patients. They hypothesized that the EGF polymorphism is responsible for a more rapid disease progression early in the course of HCV infection, which would be consistent with its role in cellular entry.</p>
+      <p>In conclusion, the allelic frequencies of the EGF polymorphism in Japanese patients were similar to those reported previously for other high-risk HCC groups, including Chinese and African Americans. The A/G and G/G genotypes were associated with an increased risk of HCC, especially in HCV patients, in whom increased EGF levels might lead to a more rapid disease progression. We suggest that more intensive follow up of HCV patients with the G allele might lead to earlier diagnosis and better outcomes for HCC.</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn>
+        <p>
+          <bold>Disclosure</bold>
+        </p>
+        <p>The authors report no conflicts of interest in this work.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-ott-6-1805">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ferlay</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>HR</given-names>
+            </name>
+            <name>
+              <surname>Bray</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Forman</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Mathers</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Parkin</surname>
+              <given-names>DM</given-names>
+            </name>
+          </person-group>
+          <article-title>Estimates of worldwide burden of cancer in 2008: GLOBOCAN 2008</article-title>
+          <source>Int J Cancer</source>
+          <year>2010</year>
+          <volume>127</volume>
+          <issue>12</issue>
+          <fpage>2893</fpage>
+          <lpage>2917</lpage>
+          <pub-id pub-id-type="pmid">21351269</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-ott-6-1805">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tanabe</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Lemoine</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Finkelstein</surname>
+              <given-names>DM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal growth factor gene functional polymorphism and the risk of hepatocellular carcinoma in patients with cirrhosis</article-title>
+          <source>JAMA</source>
+          <year>2008</year>
+          <volume>299</volume>
+          <issue>1</issue>
+          <fpage>53</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="pmid">18167406</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-ott-6-1805">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoshida</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Moeini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Alsinet</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Kojima</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Villanueva</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Gene signatures in the management of hepatocellular carcinoma</article-title>
+          <source>Semin Oncol</source>
+          <year>2012</year>
+          <volume>39</volume>
+          <issue>4</issue>
+          <fpage>473</fpage>
+          <lpage>485</lpage>
+          <pub-id pub-id-type="pmid">22846864</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-ott-6-1805">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inactivating mutations of the chromatin remodeling gene ARID2 in hepatocellular carcinoma</article-title>
+          <source>Nat Genet</source>
+          <year>2011</year>
+          <volume>43</volume>
+          <issue>9</issue>
+          <fpage>828</fpage>
+          <lpage>829</lpage>
+          <pub-id pub-id-type="pmid">21822264</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-ott-6-1805">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Hoshida</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interleukin-1beta gene polymorphisms associated with hepatocellular carcinoma in hepatitis C virus infection</article-title>
+          <source>Hepatology</source>
+          <year>2003</year>
+          <volume>37</volume>
+          <issue>1</issue>
+          <fpage>65</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="pmid">12500190</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-ott-6-1805">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jin</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Xiong</surname>
+              <given-names>WJ</given-names>
+            </name>
+            <name>
+              <surname>Jing</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Feng</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Qu</surname>
+              <given-names>LS</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>XZ</given-names>
+            </name>
+          </person-group>
+          <article-title>Evaluation of the association studies of single nucleotide polymorphisms and hepatocellular carcinoma: a systematic review</article-title>
+          <source>J Cancer Res Clin Oncol</source>
+          <year>2011</year>
+          <volume>137</volume>
+          <issue>7</issue>
+          <fpage>1095</fpage>
+          <lpage>1104</lpage>
+          <pub-id pub-id-type="pmid">21240526</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-ott-6-1805">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abu Dayyeh</surname>
+              <given-names>BK</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fuchs</surname>
+              <given-names>BC</given-names>
+            </name>
+            <etal/>
+            <collab>HALT-C Trial Group</collab>
+          </person-group>
+          <article-title>A functional polymorphism in the epidermal growth factor gene is associated with risk for hepatocellular carcinoma</article-title>
+          <source>Gastroenterology</source>
+          <year>2011</year>
+          <volume>141</volume>
+          <issue>1</issue>
+          <fpage>141</fpage>
+          <lpage>149</lpage>
+          <pub-id pub-id-type="pmid">21440548</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-ott-6-1805">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation of a mouse submaxillary gland protein accelerating incisor eruption and eyelid opening in the new-born animal</article-title>
+          <source>J Biol Chem</source>
+          <year>1962</year>
+          <volume>237</volume>
+          <fpage>1555</fpage>
+          <lpage>1562</lpage>
+          <pub-id pub-id-type="pmid">13880319</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-ott-6-1805">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carpenter</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor</article-title>
+          <source>Annu Rev Biochem</source>
+          <year>1979</year>
+          <volume>48</volume>
+          <fpage>193</fpage>
+          <lpage>216</lpage>
+          <pub-id pub-id-type="pmid">382984</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-ott-6-1805">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fisher</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Lakshmanan</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Metabolism and effects of epidermal growth factor and related growth factors in mammals</article-title>
+          <source>Endocr Rev</source>
+          <year>1990</year>
+          <volume>11</volume>
+          <issue>3</issue>
+          <fpage>418</fpage>
+          <lpage>442</lpage>
+          <pub-id pub-id-type="pmid">2226349</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-ott-6-1805">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoscheck</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>LE</given-names>
+              <suffix>Jr</suffix>
+            </name>
+          </person-group>
+          <article-title>Role of epidermal growth factor in carcinogenesis</article-title>
+          <source>Cancer Res</source>
+          <year>1986</year>
+          <volume>46</volume>
+          <issue>3</issue>
+          <fpage>1030</fpage>
+          <lpage>1037</lpage>
+          <pub-id pub-id-type="pmid">3002608</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-ott-6-1805">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kyo</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Tsuda</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGF and TGF-alpha, the ligands of hyperproduced EGFR in human esophageal carcinoma cells, act as autocrine growth factors</article-title>
+          <source>Int J Cancer</source>
+          <year>1990</year>
+          <volume>45</volume>
+          <issue>1</issue>
+          <fpage>131</fpage>
+          <lpage>135</lpage>
+          <pub-id pub-id-type="pmid">2298497</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-ott-6-1805">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shahbazi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pravica</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Nasreen</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Association between functional polymorphism in EGF gene and malignant melanoma</article-title>
+          <source>Lancet</source>
+          <year>2002</year>
+          <volume>359</volume>
+          <issue>9304</issue>
+          <fpage>397</fpage>
+          <lpage>401</lpage>
+          <pub-id pub-id-type="pmid">11844511</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-ott-6-1805">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Xie</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Association between epidermal growth factor 61A/G polymorphism and hepatocellular carcinoma susceptibility in Chinese patients</article-title>
+          <source>Liver Int</source>
+          <year>2010</year>
+          <volume>30</volume>
+          <issue>1</issue>
+          <fpage>112</fpage>
+          <lpage>118</lpage>
+          <pub-id pub-id-type="pmid">19840254</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-ott-6-1805">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor +61 G/A polymorphism and the risk of hepatocellular carcinoma in a Chinese population</article-title>
+          <source>Genet Test Mol Biomarkers</source>
+          <year>2011</year>
+          <volume>15</volume>
+          <issue>4</issue>
+          <fpage>251</fpage>
+          <lpage>255</lpage>
+          <pub-id pub-id-type="pmid">21186997</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-ott-6-1805">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Qi</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>YM</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>XJ</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>CF</given-names>
+            </name>
+          </person-group>
+          <article-title>No association of EGF 5&#x2032;UTR variant A61G and hepatocellular carcinoma in Chinese patients with chronic hepatitis B virus infection</article-title>
+          <source>Pathology</source>
+          <year>2009</year>
+          <volume>41</volume>
+          <issue>6</issue>
+          <fpage>555</fpage>
+          <lpage>560</lpage>
+          <pub-id pub-id-type="pmid">19900104</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-ott-6-1805">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Llovet</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Bruix</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular targeted therapies in hepatocellular carcinoma</article-title>
+          <source>Hepatology</source>
+          <year>2008</year>
+          <volume>48</volume>
+          <issue>4</issue>
+          <fpage>1312</fpage>
+          <lpage>1327</lpage>
+          <pub-id pub-id-type="pmid">18821591</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-ott-6-1805">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morimitsu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hsia</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Kojiro</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tabor</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Nodules of lessdifferentiated tumor within or adjacent to hepatocellular carcinoma: relative expression of transforming growth factor-alpha and its receptor in the different areas of tumor</article-title>
+          <source>Hum Pathol</source>
+          <year>1995</year>
+          <volume>26</volume>
+          <issue>10</issue>
+          <fpage>1126</fpage>
+          <lpage>1132</lpage>
+          <pub-id pub-id-type="pmid">7557946</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-ott-6-1805">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>K&#xF6;m&#xFC;ves</surname>
+              <given-names>LG</given-names>
+            </name>
+            <name>
+              <surname>Feren</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Jones</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Fodor</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of epidermal growth factor and its receptor in cirrhotic liver disease</article-title>
+          <source>J Histochem Cytochem</source>
+          <year>2000</year>
+          <volume>48</volume>
+          <issue>6</issue>
+          <fpage>821</fpage>
+          <lpage>830</lpage>
+          <pub-id pub-id-type="pmid">10820155</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-ott-6-1805">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abbas</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Shaker</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Abd El Aziz</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ramadan</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Esmat</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor gene polymorphism 61 A/G in patients with chronic liver disease for early detection of hepatocellular carcinoma: a pilot study</article-title>
+          <source>Eur J Gastroenterol Hepatol</source>
+          <year>2012</year>
+          <volume>24</volume>
+          <issue>4</issue>
+          <fpage>458</fpage>
+          <lpage>463</lpage>
+          <pub-id pub-id-type="pmid">22293333</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-ott-6-1805">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Shi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Nie</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fan</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor 61A/G polymorphism is associated with risk of hepatocellular carcinoma: a meta-analysis</article-title>
+          <source>Genet Test Mol Biomarkers</source>
+          <year>2012</year>
+          <volume>16</volume>
+          <issue>9</issue>
+          <fpage>1086</fpage>
+          <lpage>1091</lpage>
+          <pub-id pub-id-type="pmid">22852842</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-ott-6-1805">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhong</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>You</surname>
+              <given-names>XM</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>WF</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal growth factor gene polymorphism and risk of hepatocellular carcinoma: a meta-analysis</article-title>
+          <source>PLoS One</source>
+          <year>2012</year>
+          <volume>7</volume>
+          <issue>3</issue>
+          <fpage>e32159</fpage>
+          <pub-id pub-id-type="pmid">22403631</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-ott-6-1805">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miki</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Ochi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hayes</surname>
+              <given-names>CN</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Variation in the DEPDC5 locus is associated with progression to hepatocellular carcinoma in chronic hepatitis C virus carriers</article-title>
+          <source>Nat Genet</source>
+          <year>2011</year>
+          <volume>43</volume>
+          <issue>8</issue>
+          <fpage>797</fpage>
+          <lpage>800</lpage>
+          <pub-id pub-id-type="pmid">21725309</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24-ott-6-1805">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kumar</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Urabe</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genome-wide association study identifies a susceptibility locus for HCV-induced hepatocellular carcinoma</article-title>
+          <source>Nat Genet</source>
+          <year>2011</year>
+          <volume>43</volume>
+          <issue>5</issue>
+          <fpage>455</fpage>
+          <lpage>458</lpage>
+          <pub-id pub-id-type="pmid">21499248</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25-ott-6-1805">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Tian</surname>
+              <given-names>YP</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>FH</given-names>
+            </name>
+            <name>
+              <surname>Qin</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Ni</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>hTERT rs2736098 genetic variants and susceptibility of hepatocellular carcinoma in the Chinese population: a case-control study</article-title>
+          <source>Hepatobiliary Pancreat Dis Int</source>
+          <year>2013</year>
+          <volume>12</volume>
+          <issue>1</issue>
+          <fpage>74</fpage>
+          <lpage>79</lpage>
+          <pub-id pub-id-type="pmid">23392802</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26-ott-6-1805">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Katoh</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Mano</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ikuta</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genetic isolates in East Asia: a study of linkage disequilibrium in the X chromosome</article-title>
+          <source>Am J Hum Genet</source>
+          <year>2002</year>
+          <volume>71</volume>
+          <issue>2</issue>
+          <fpage>395</fpage>
+          <lpage>400</lpage>
+          <pub-id pub-id-type="pmid">12082643</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27-ott-6-1805">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lupberger</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zeisel</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Xiao</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGFR and EphA2 are host factors for hepatitis C virus entry and possible targets for antiviral therapy</article-title>
+          <source>Nat Med</source>
+          <year>2011</year>
+          <volume>17</volume>
+          <issue>5</issue>
+          <fpage>589</fpage>
+          <lpage>595</lpage>
+          <pub-id pub-id-type="pmid">21516087</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28-ott-6-1805">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zona</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Lupberger</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Sidahmed-Adrar</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HRas signal transduction promotes hepatitis C virus cell entry by triggering assembly of the host tetraspanin receptor complex</article-title>
+          <source>Cell Host Microbe</source>
+          <year>2013</year>
+          <volume>13</volume>
+          <issue>3</issue>
+          <fpage>302</fpage>
+          <lpage>313</lpage>
+          <pub-id pub-id-type="pmid">23498955</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29-ott-6-1805">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Costa</surname>
+              <given-names>BM</given-names>
+            </name>
+            <name>
+              <surname>Ferreira</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Costa</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Association between functional EGF+61 polymorphism and glioma risk</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2007</year>
+          <volume>13</volume>
+          <issue>9</issue>
+          <fpage>2621</fpage>
+          <lpage>2626</lpage>
+          <pub-id pub-id-type="pmid">17473192</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30-ott-6-1805">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pinto</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Yoshioka</surname>
+              <given-names>FK</given-names>
+            </name>
+            <name>
+              <surname>Clara</surname>
+              <given-names>CA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Association study of an epidermal growth factor gene functional polymorphism with the risk and prognosis of gliomas in Brazil</article-title>
+          <source>Int J Biol Markers</source>
+          <year>2009</year>
+          <volume>24</volume>
+          <issue>4</issue>
+          <fpage>277</fpage>
+          <lpage>281</lpage>
+          <pub-id pub-id-type="pmid">20108217</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31-ott-6-1805">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lanuti</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Goodwin</surname>
+              <given-names>JM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A functional epidermal growth factor (EGF) polymorphism, EGF serum levels, and esophageal adenocarcinoma risk and outcome</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2008</year>
+          <volume>14</volume>
+          <issue>10</issue>
+          <fpage>3216</fpage>
+          <lpage>3222</lpage>
+          <pub-id pub-id-type="pmid">18483390</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32-ott-6-1805">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ishiyama</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ohdan</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Prevention of recurrence after curative treatment for hepatocellular carcinoma</article-title>
+          <source>Surg Today</source>
+          <comment>Epub</comment>
+          <year>2012</year>
+          <month>12</month>
+          <day>28</day>
+        </element-citation>
+      </ref>
+      <ref id="b33-ott-6-1805">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoshida</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Villanueva</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gene expression in fixed tissues and outcome in hepatocellular carcinoma</article-title>
+          <source>N Engl J Med</source>
+          <year>2008</year>
+          <volume>359</volume>
+          <issue>19</issue>
+          <fpage>1995</fpage>
+          <lpage>2004</lpage>
+          <pub-id pub-id-type="pmid">18923165</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34-ott-6-1805">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoshida</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Villanueva</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Sangiovanni</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Prognostic gene expression signature for patients with hepatitis C-related early-stage cirrhosis</article-title>
+          <source>Gastroenterology</source>
+          <year>2013</year>
+          <volume>144</volume>
+          <issue>5</issue>
+          <fpage>1024</fpage>
+          <lpage>1030</lpage>
+          <pub-id pub-id-type="pmid">23333348</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35-ott-6-1805">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Falleti</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Cmet</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Fabris</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Association between the epidermal growth factor rs4444903 G/G genotype and advanced fibrosis at a young age in chronic hepatitis C</article-title>
+          <source>Cytokine</source>
+          <year>2012</year>
+          <volume>57</volume>
+          <issue>1</issue>
+          <fpage>68</fpage>
+          <lpage>73</lpage>
+          <pub-id pub-id-type="pmid">22122913</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-ott-6-1805" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>EGF SNP was analyzed by using restriction fragment-length polymorphism, and the representative results are shown: (<bold>A</bold>) HCC patients and (<bold>B</bold>) not HCC patients with liver disease other than HCC, including hepatitis or cirrhosis patients.</p>
+        <p><bold>Abbreviations:</bold> bp, base pair; EGF, epidermal growth factor; HCC, hepatocellular carcinoma; SNP, single nucleotide polymorphism.</p>
+      </caption>
+      <graphic xlink:href="ott-6-1805Fig1"/>
+    </fig>
+    <fig id="f2-ott-6-1805" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>EGF mRNA expression level based on the genotypes in HCC patients.</p>
+        <p><bold>Abbreviations:</bold> EGF, epidermal growth factor; HCC, hepatocellular carcinoma; mRNA, messenger ribonucleic acid.</p>
+      </caption>
+      <graphic xlink:href="ott-6-1805Fig2"/>
+    </fig>
+    <fig id="f3-ott-6-1805" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>(<bold>A</bold>) DFS based on EGF SNP in HCC patients and (<bold>B</bold>) OS based on EGF SNP in HCC patients.</p>
+        <p><bold>Abbreviations:</bold> DFS, disease-free survival; EGF, epidermal growth factor; HCC, hepatocellular carcinoma; NS, not significant; OS, overall survival; SNP, single nucleotide polymorphism.</p>
+      </caption>
+      <graphic xlink:href="ott-6-1805Fig3"/>
+    </fig>
+    <table-wrap id="t1-ott-6-1805" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Patient characteristics with or without HCC</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" valign="top" rowspan="1" colspan="1"/>
+            <th align="left" valign="top" rowspan="1" colspan="1">HCC (n=208)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1">Not HCC (n=290)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Age (years), mean &#xB1; SD</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">63.1&#xB1;9.9</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">52.7&#xB1;13.2</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">&lt;0.001</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Sex (male/female)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">176/32</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">169/121</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">&lt;0.001</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Child&#x2212;Pugh score (A/B/C)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">193/15/0</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">265/18/7</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.674<xref ref-type="table-fn" rid="tfn3-ott-6-1805">b</xref></td>
+          </tr>
+          <tr>
+            <td colspan="4" align="left" valign="top" rowspan="1">Etiology, n (%)</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;HBV</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">44 (68.8%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">20 (31.3%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">&lt;0.001<xref ref-type="table-fn" rid="tfn4-ott-6-1805">c</xref></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;HCV</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">130 (33.3%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">261 (66.8%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;Alcohol</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0 (0.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">3 (100.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;Multiple factors<xref ref-type="table-fn" rid="tfn2-ott-6-1805">a</xref></td>
+            <td align="left" valign="top" rowspan="1" colspan="1">3 (60.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2 (40.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;Non-B, non-C</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">31 (88.6%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">4 (11.4%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn1-ott-6-1805">
+          <p><bold>Notes:</bold> Statistical differences between the HCC and not HCC groups were evaluated using the &#x3C7;<sup>2</sup> test for qualitative variables, and unpaired <italic>t</italic>-test for quantitative variables.</p>
+        </fn>
+        <fn id="tfn2-ott-6-1805">
+          <label>a</label>
+          <p>Multiple factors in HBV, HCV, and alcohol</p>
+        </fn>
+        <fn id="tfn3-ott-6-1805">
+          <label>b</label>
+          <p>comparison between Child&#x2212; Pugh score A and B or C</p>
+        </fn>
+        <fn id="tfn4-ott-6-1805">
+          <label>c</label>
+          <p>comparison between HBV and HCV.</p>
+        </fn>
+        <fn id="tfn5-ott-6-1805">
+          <p><bold>Abbreviations:</bold> HCC, hepatocellular carcinoma; HBV, hepatitis B virus; HCV, hepatitis C virus; SD, standard deviation.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap id="t2-ott-6-1805" position="float">
+      <label>Table 2</label>
+      <caption>
+        <p>Patient characteristics, stratified by EGF genotype</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" valign="top" rowspan="1" colspan="1"/>
+            <th align="left" valign="top" rowspan="1" colspan="1">A/A (n=36)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1">A/G (n=193)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1">G/G (n=269)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Age (years), mean &#xB1; SD</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">56.4&#xB1;14.1</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">56.2&#xB1;13.2</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">57.7&#xB1;12.6</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.487</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Sex (male/female)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">26/10</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">143/50</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">176/93</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">00.125</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Child&#x2212;Pugh score (A/B/C)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">33/1/2</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">176/13/4</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">249/19/1</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.865<xref ref-type="table-fn" rid="tfn8-ott-6-1805">b</xref></td>
+          </tr>
+          <tr>
+            <td colspan="4" align="left" valign="top" rowspan="1">Etiology, n (%)</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;HBV</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">8 (22.2%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">28 (14.5%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">28 (10.4%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.127<xref ref-type="table-fn" rid="tfn9-ott-6-1805">c</xref></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;HCV</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">26 (72.2%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">148 (76.7%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">217 (80.7%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;Alcohol</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0 (0.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0 (0.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">3 (1.1%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;Multiple factors<xref ref-type="table-fn" rid="tfn7-ott-6-1805">a</xref></td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0 (0.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0 (0.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">5 (1.9%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;Non-B, non-C</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2 (5.6%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">17 (8.8%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">16 (6.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn6-ott-6-1805">
+          <p><bold>Notes:</bold> The statistical differences between each group were evaluated using the &#x3C7;<sup>2</sup> test for qualitative variables, and ANOVA for quantitative variables.</p>
+        </fn>
+        <fn id="tfn7-ott-6-1805">
+          <label>a</label>
+          <p>Multiple factors in HBV, HCV, and alcohol</p>
+        </fn>
+        <fn id="tfn8-ott-6-1805">
+          <label>b</label>
+          <p>comparison between the Child&#x2212;Pugh score A and B or C</p>
+        </fn>
+        <fn id="tfn9-ott-6-1805">
+          <label>c</label>
+          <p>comparison between HBV and HCV.</p>
+        </fn>
+        <fn id="tfn10-ott-6-1805">
+          <p><bold>Abbreviations:</bold> ANOVA, analysis of variance; EGF, epidermal growth factor; HBV, hepatitis B virus; HCV, hepatitis C virus; SD, standard deviation.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap id="t3-ott-6-1805" position="float">
+      <label>Table 3</label>
+      <caption>
+        <p>Analysis of EGF genotype in a Japanese population</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" valign="top" rowspan="2" colspan="1"/>
+            <th align="left" valign="top" rowspan="2" colspan="1">HCC (n=208) n (%)</th>
+            <th align="left" valign="top" rowspan="2" colspan="1">Not HCC (n=290) n (%)</th>
+            <th colspan="2" align="left" valign="top" rowspan="1">Crude analysis
+<hr/></th>
+            <th colspan="2" align="left" valign="top" rowspan="1">Adjusted analysis<xref ref-type="table-fn" rid="tfn13-ott-6-1805">b</xref>
+<hr/></th>
+          </tr>
+          <tr>
+            <th align="left" valign="top" rowspan="1" colspan="1">OR (95% CI)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value<xref ref-type="table-fn" rid="tfn12-ott-6-1805">a</xref></th>
+            <th align="left" valign="top" rowspan="1" colspan="1">OR (95% CI)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value<xref ref-type="table-fn" rid="tfn12-ott-6-1805">a</xref></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="7" align="left" valign="top" rowspan="1">Genotype</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;A/A</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">11 (5.3%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">25 (8.6%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1 [Reference]</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">1 [Reference]</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;A/G</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">89 (42.8%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">104 (35.9%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.94 (0.93&#x2212;4.32)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.080</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2.68 (1.10&#x2212;6.32)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.024</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;G/G</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">108 (51.9%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">161 (55.5%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.52 (0.74&#x2212;3.35)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.261</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.93 (0.84&#x2212;4.65)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.122</td>
+          </tr>
+          <tr>
+            <td colspan="7" align="left" valign="top" rowspan="1">Allele</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;A</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">111 (26.7%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">154 (26.6%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1 [Reference]</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;G</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">305 (73.3%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">426 (73.4%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.99 (0.75&#x2212;1.32)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.963</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn11-ott-6-1805">
+          <p><bold>Notes:</bold> Comparisons of the groups with regard to the odds of HCC were made using a logistic regression model, and age and sex were included as covariates, in addition to genotype, in adjusted analysis.</p>
+        </fn>
+        <fn id="tfn12-ott-6-1805">
+          <label>a</label>
+          <p>Logistic regression model</p>
+        </fn>
+        <fn id="tfn13-ott-6-1805">
+          <label>b</label>
+          <p>age and sex were included as covariates in adjusted analysis.</p>
+        </fn>
+        <fn id="tfn14-ott-6-1805">
+          <p><bold>Abbreviations:</bold> CI, confidence interval; EGF, epidermal growth factor; HCC, hepatocellular carcinoma; OR, odds ratio.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap id="t4-ott-6-1805" position="float">
+      <label>Table 4</label>
+      <caption>
+        <p>Analysis of EGF genotype in Japanese patients with HCV</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" valign="top" rowspan="2" colspan="1"/>
+            <th align="left" valign="top" rowspan="2" colspan="1">HCC with HCV (n=130) n (%)</th>
+            <th align="left" valign="top" rowspan="2" colspan="1">HCV (n=233) n (%)</th>
+            <th colspan="2" align="left" valign="top" rowspan="1">Crude analysis
+<hr/></th>
+            <th colspan="2" align="left" valign="top" rowspan="1">Adjusted analysis<xref ref-type="table-fn" rid="tfn17-ott-6-1805">b</xref>
+<hr/></th>
+          </tr>
+          <tr>
+            <th align="left" valign="top" rowspan="1" colspan="1">OR (95% CI)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value<xref ref-type="table-fn" rid="tfn16-ott-6-1805">a</xref></th>
+            <th align="left" valign="top" rowspan="1" colspan="1">OR (95% CI)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value<xref ref-type="table-fn" rid="tfn16-ott-6-1805">a</xref></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="7" align="left" valign="top" rowspan="1">Genotype</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;A/A</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">4 (3.1%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">21 (9.0%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1 [Reference]</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">1 [Reference]</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;A/G</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">56 (43.1%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">83 (35.6%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">3.54 (1.27&#x2013;12.63)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.014</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">7.58 (2.30&#x2013;30.43)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">&lt;0.001</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;G/G</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">70 (53.9%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">129 (55.3%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2.85 (1.03&#x2013;10.0)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.042</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">4.61 (1.46&#x2013;17.87)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.008</td>
+          </tr>
+          <tr>
+            <td colspan="7" align="left" valign="top" rowspan="1">Allele</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;A</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">64 (26.6%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">125 (26.8%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1 [Reference]</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">&#x2003;G</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">196 (75.4%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">341 (73.2%)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.12 (0.79&#x2013;1.59)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.516</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn15-ott-6-1805">
+          <p><bold>Notes:</bold> The analysis was limited to the 363 patients with HCV. Comparisons of the groups with regard to the odds of HCC were made using a logistic regression model, and age and sex were included as covariates, in addition to genotype, in adjusted analysis.</p>
+        </fn>
+        <fn id="tfn16-ott-6-1805">
+          <label>a</label>
+          <p>Logistic regression model</p>
+        </fn>
+        <fn id="tfn17-ott-6-1805">
+          <label>b</label>
+          <p>age and sex were included as covariates in adjusted analysis.</p>
+        </fn>
+        <fn id="tfn18-ott-6-1805">
+          <p><bold>Abbreviations:</bold> CI, confidence interval; EGF, epidermal growth factor; HCV, hepatitis C virus; HCC, hepatocellular carcinoma; OR, odds ratio.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap id="t5-ott-6-1805" position="float">
+      <label>Table 5</label>
+      <caption>
+        <p>Univariate and multivariate analysis of clinicopathological factors for overall survival</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" valign="top" rowspan="2" colspan="1">Variables</th>
+            <th colspan="2" align="left" valign="top" rowspan="1">Univariate analysis
+<hr/></th>
+            <th colspan="2" align="left" valign="top" rowspan="1">Multivariate analysis
+<hr/></th>
+          </tr>
+          <tr>
+            <th align="left" valign="top" rowspan="1" colspan="1">OR (95% CI)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+            <th align="left" valign="top" rowspan="1" colspan="1">OR (95% CI)</th>
+            <th align="left" valign="top" rowspan="1" colspan="1"><italic>P</italic>-value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Sex (male vs female)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.23 (0.62&#x2013;2.80)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.567</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Age (&#x2265;65 vs &lt;65)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.30 (0.80&#x2013;2.14)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.287</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Virus (HCV vs HBV)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.28 (0.70&#x2013;2.54)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.432</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Histological differentiation (well vs others)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.72 (0.37&#x2013;1.31)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.298</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Tumor size (&#x2265;3 cm vs &lt;3 cm)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2.12 (1.20&#x2013;4.01)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.009</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.92 (1.03&#x2013;3.80)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">00.040</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Tumor multiplicity (multiple vs solitary)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.68 (0.98&#x2013;2.79)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.060</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Pattern of fibrous growth (infiltrative vs expansive)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.89 (0.98&#x2013;3.38)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.057</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Formation of fibrous capsule (present vs absent)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.81 (0.18&#x2013;1.40)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.431</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Capsular infiltration (present vs absent)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.81 (0.50&#x2013;1.34)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.410</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Septal formation (present vs absent)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.72 (0.54&#x2013;1.56)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.716</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Vascular invasion (present vs absent)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2.61 (1.53&#x2013;4.35)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">&lt;0.001</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">2.48 (1.17&#x2013;5.36)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">00.018</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Pathological stage<xref ref-type="table-fn" rid="tfn20-ott-6-1805">a</xref> (I or II vs III or IV)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.60 (0.37&#x2013;0.99)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.048</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.73 (0.34&#x2013;1.49)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">00.401</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">AFP level (&#x2265;20 ng/mL vs &lt;20 ng/mL)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.86 (1.13&#x2013;3.15)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.015</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.81 (1.08&#x2013;3.10)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">00.024</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">EGF genotype (A/G vs A/A)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.52 (0.54&#x2013;6.35)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.468</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">EGF genotype (G/G vs A/A)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">1.32 (0.47&#x2013;5.52)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.633</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">EGF mRNA expression (&#x2265;median vs &lt;median)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.83 (0.50&#x2013;1.37)</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">0.469</td>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1"/>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn19-ott-6-1805">
+          <p><bold>Notes:</bold> Independent prognostic factors were analyzed with the Cox proportional hazards regression model.</p>
+        </fn>
+        <fn id="tfn20-ott-6-1805">
+          <label>a</label>
+          <p>According to TNM staging by the Liver Cancer Study Group of Japan.</p>
+        </fn>
+        <fn id="tfn21-ott-6-1805">
+          <p><bold>Abbreviations:</bold> AFP, alpha-fetoprotein; CI, confidence interval; EGF, epidermal growth factor; HBV, hepatitis B virus; HCV, hepatitis C virus; OR, odds ratio; mRNA, messenger ribonucleic acid; TNM, tumor, node, metastasis.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

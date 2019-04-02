@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0370712</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">3660</journal-id>
+      <journal-id journal-id-type="nlm-ta">Exp Neurol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Exp. Neurol.</journal-id>
+      <journal-title-group>
+        <journal-title>Experimental neurology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0014-4886</issn>
+      <issn pub-type="epub">1090-2430</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25819104</article-id>
+      <article-id pub-id-type="pmc">4581889</article-id>
+      <article-id pub-id-type="doi">10.1016/j.expneurol.2015.03.017</article-id>
+      <article-id pub-id-type="manuscript">NIHMS675125</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Demyelination as a Rational Therapeutic Target for Ischemic or Traumatic Brain Injury</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shi</surname>
+            <given-names>Hong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Xiaoming</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A3">c</xref>
+          <xref ref-type="aff" rid="A5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Leak</surname>
+            <given-names>Rehana K.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">d</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shi</surname>
+            <given-names>Yejie</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A3">c</xref>
+          <xref ref-type="aff" rid="A5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>An</surname>
+            <given-names>Chengrui</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Suenaga</surname>
+            <given-names>Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A3">c</xref>
+          <xref ref-type="aff" rid="A5">e</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gao</surname>
+            <given-names>Yanqin</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A3">c</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>The State Key Laboratory of Medical Neurobiology, the Institutes of Brain Science and the Collaborative Innovation Center for Brain Science, Fudan University, Shanghai 200032, China</aff>
+      <aff id="A2"><label>b</label>Department of Anesthesiology of Shanghai Pulmonary Hospital, Tongji University, Shanghai 200433, China</aff>
+      <aff id="A3"><label>c</label>Center of Cerebrovascular Disease Research, University of Pittsburgh School of Medicine, Pittsburgh, PA 15213, USA</aff>
+      <aff id="A4"><label>d</label>Division of Pharmaceutical Sciences, Duquesne University, Pittsburgh, PA 15282, USA</aff>
+      <aff id="A5"><label>e</label>Geriatric Research, Education and Clinical Center, Veterans Affairs Pittsburgh Health Care System Pittsburgh, PA 15261, USA</aff>
+      <author-notes>
+        <corresp id="FN1"><label>*</label>Corresponding author: Dr. Yanqin Gao, State Key Laboratory of Medical Neurobiology, Fudan University, Shanghai 200032, China, Tel: +86 (21) 54237395, <email>yqgao@shmu.edu.cn</email> or Dr. Jun Chen, Center of Cerebrovascular Disease Research, University of Pittsburgh School of Medicine, 3500 Terrace Street, Pittsburgh, PA 15213, USA, Tel: +1 (412) 648-1263, <email>chenj2@upmc.edu</email></corresp>
+        <fn id="FN2" fn-type="conflict">
+          <p>
+            <bold>Conflict of interest</bold>
+          </p>
+          <p>None.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>9</day>
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>24</day>
+        <month>3</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>10</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>10</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>272</volume>
+      <fpage>17</fpage>
+      <lpage>25</lpage>
+      <!--elocation-id from pubmed: 10.1016/j.expneurol.2015.03.017-->
+      <abstract>
+        <p id="P2">Previous research on stroke and traumatic brain injury (TBI) heavily emphasized pathological alterations in neuronal cells within gray matter. However, recent studies have highlighted the equal importance of white matter integrity in long-term recovery from these conditions. Demyelination is a major component of white matter injury and is characterized by loss of the myelin sheath and oligodendrocyte cell death. Demyelination contributes significantly to long-term sensorimotor and cognitive deficits because the adult brain only has limited capacity for oligodendrocyte regeneration and axonal remyelination. In the current review, we will provide an overview of the major causes of demyelination and oligodendrocyte cell death following acute brain injuries, and discuss the crosstalk between myelin, axons, microglia, and astrocytes during the process of demyelination. Recent discoveries of molecules that regulate the processes of remyelination may provide novel therapeutic targets to restore white matter integrity and improve long-term neurological recovery in stroke or TBI patients.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>demyelination</kwd>
+        <kwd>oligodendrocyte</kwd>
+        <kwd>remyelination</kwd>
+        <kwd>cerebral ischemia</kwd>
+        <kwd>traumatic brain injury</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

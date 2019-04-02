@@ -1,0 +1,121 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">2985088R</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4967</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Mol Biol</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of molecular biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0022-2836</issn>
+      <issn pub-type="epub">1089-8638</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21414324</article-id>
+      <article-id pub-id-type="pmc">3081905</article-id>
+      <article-id pub-id-type="doi">10.1016/j.jmb.2011.03.017</article-id>
+      <article-id pub-id-type="manuscript">NIHMS282017</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Cell Invasion of highly metastatic MTLn3 cancer cells is dependent on Phospholipase D2 (PLD2) and Janus Kinase 3 (JAK3)</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Henkels</surname>
+            <given-names>Karen M.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Farkaly</surname>
+            <given-names>Terry</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mahankali</surname>
+            <given-names>Madhu</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Segall</surname>
+            <given-names>Jeffrey E.</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gomez-Cambronero</surname>
+            <given-names>Julian</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+          <xref rid="FN1" ref-type="author-notes">c</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label> Dept. Biochemistry &amp; Molecular Biology, Wright State University School Medicine, Dayton, OH 45435</aff>
+      <aff id="A2"><label>b</label> Department of Anatomy and Structural Biology, Albert Einstein College of Medicine, Bronx, New York 10801, USA</aff>
+      <author-notes>
+        <corresp id="FN1">
+<label>c</label>Corresponding Author: Julian Gomez-Cambronero, Ph.D., Department of Biochemistry and Molecular Biology, Wright State University School of Medicine, 3640 Colonel Glenn Highway, Dayton, OH 45435. Phone: (973) 775-4767; Fax: (937) 775-3730; <email>julian.cambronero@wright.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>3</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>22</day>
+        <month>3</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>20</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>20</day>
+        <month>5</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>408</volume>
+      <issue>5</issue>
+      <fpage>850</fpage>
+      <lpage>862</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2011 Elsevier Ltd. All rights reserved.</copyright-statement>
+        <copyright-year>2011</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P2">MTLn3 cells are highly invasive breast adenoacarcinoma cells. The relative level of EGF-stimulated invasion of this cell line is greater than 2 other breast cancer cell lines, MDA-MB-231 and MCF-7, and one non-small cell lung cancer, H1299. We have determined that the mechanism of cancer cell invasion involves the presence of an enzymatically active phospholipase D (PLD), with the PLD2 isoform more relevant than PLD1. Silencing PLD2 abrogated invasion whereas ectopic expression of PLD2 augmented cell invasion in all four cell lines with an efficacy (MTLn3&#x2265;MDA-MB-231&gt;H1299&#x2265;MCF-7) that correlated well with their abilities to invade matrigel <italic>in vitro</italic>. We also report that PLD2 is under control of Janus Kinase-3 (JAK3) with the kinase phosphorylating PLD2 at the Y415 residue, thus enabling its activation. Y415 is located downstream a PH domain and upstream the catalycic HKD-1 domain of PLD2. JAK3 knockdown abrogated lipase activity and EGF-stimulated cell invasion directly. For the purposes of activating PLD2 for cell invasion, JAK3 operates via an alternative pathway that is independent of STAT, at least in the MTLn3 cells. We also consistently found that JAK3 and PLD2 pathways are utilized at maximum efficiency (phosphorylation and activity) in highly invasive MTLn3 cells <italic>vs.</italic> a relatively low utilization in the less-invasive MCF-7 cell line. In summary, a high level of cell invasiveness of cancer cells can be explained for the first time by a combined high JAK3/PLD2 phosphorylation and activity, involving PLD2&#x2019;s Y415 residue, which might constitute a novel target to inhibit cancer cell invasion.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Phospholipase</kwd>
+        <kwd>JAK3</kwd>
+        <kwd>MTLn3 cells</kwd>
+        <kwd>MCF-7 cells</kwd>
+        <kwd>cell invasion</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Heart, Lung, and Blood Institute  : NHLBI</funding-source>
+          <award-id>R01 HL056653-12 || HL</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

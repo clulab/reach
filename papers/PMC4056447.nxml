@@ -1,0 +1,202 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101234237</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">32207</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Biomed Mater Res A</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J Biomed Mater Res A</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of biomedical materials research. Part A</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1549-3296</issn>
+      <issn pub-type="epub">1552-4965</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23625886</article-id>
+      <article-id pub-id-type="pmc">4056447</article-id>
+      <article-id pub-id-type="doi">10.1002/jbm.a.34764</article-id>
+      <article-id pub-id-type="manuscript">NIHMS473576</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Decellularized liver scaffolds effectively support the proliferation and differentiation of mouse fetal hepatic progenitors</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Xiaojun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cui</surname>
+            <given-names>Jing</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Bing-Qiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Hongyu</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bi</surname>
+            <given-names>Yang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kang</surname>
+            <given-names>Quan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Ning</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bie</surname>
+            <given-names>Ping</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Zhanyu</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Huaizhi</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Xiangde</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Haydon</surname>
+            <given-names>Rex C</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Luu</surname>
+            <given-names>Hue H</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tang</surname>
+            <given-names>Ni</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dong</surname>
+            <given-names>Jiahong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="corresp" rid="CR1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>He</surname>
+            <given-names>Tong-Chuan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+          <xref ref-type="corresp" rid="CR1">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Institute of Hepatobiliary Surgery, Southwest Hospital, Third Military Medical University, Chongqing 400038, China</aff>
+      <aff id="A2"><label>2</label>Molecular Oncology Laboratory, Department of Surgery, The University of Chicago Medical Center, 5841 South Maryland Avenue, MC 3079, Chicago, IL 60637, USA</aff>
+      <aff id="A3"><label>3</label>Key Laboratory of Diagnostic Medicine designated by the Chinese Ministry of Education, and the Affiliated Hospitals of Chongqing Medical University, Chongqing 400016, China</aff>
+      <aff id="A4"><label>4</label>The Hospital &amp; Institute of Hepatobiliary Surgery, Chinese PLA General Hospital, Chinese PLA Postgraduate Medical School, Beijing 100853, China</aff>
+      <author-notes>
+        <corresp id="CR1"><label>*</label>Corresponding authors T.-C. He, MD, PhD Molecular Oncology Laboratory The University of Chicago Medical Center 5841 South Maryland Avenue, MC 3079 Chicago, IL 60637, USA Tel. (773) 702-7169 Fax: (773) 834-4598 <email>tche@uchicago.edu</email> Jiahong Dong, MD Institute of Hepatobiliary Surgery of Southwest Hospital Third Military Medical University, and The Hospital &amp; Institute of Hepatobiliary Surgery Chinese PLA General Hospital Beijing 100853, China Tel: 86 13911064301 Fax: 86 23 65462170 <email>dongjh301@163.com</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>5</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>04</day>
+        <month>6</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>4</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>102</volume>
+      <issue>4</issue>
+      <fpage>1017</fpage>
+      <lpage>1025</lpage>
+      <!--elocation-id from pubmed: 10.1002/jbm.a.34764-->
+      <abstract>
+        <p id="P1">Decellularized whole organs represent ideal scaffolds for engineering new organs and/or cell transplantation. Here, we investigate whether decellularized liver scaffolds provide cell-friendly biocompatible three-dimensional environment to support the proliferation and differentiation of hepatic progenitor cells. Mouse liver tissues are efficiently decellularized through portal vein perfusion. Using the reversibly immortalized mouse fetal hepatic progenitor cells (iHPCs), we are able to effectively recellularize the decellularized liver scaffolds. The perfused iHPCs survive and proliferate in the three-dimensional scaffolds <italic>in vitro</italic> for 2 weeks. When the recellularized scaffolds are implanted into the kidney capsule of athymic nude mice, cell survival and proliferation of the implanted scaffolds are readily detected by whole body imaging for 10 days. Furthermore, EGF is shown to significantly promote the proliferation and differentiation of the implanted iHPCs. Histologic and immunochemical analyses indicate that iHPCs are able to proliferate and differentiate to mature hepatocytes upon EGF stimulation in the scaffolds. The recellularization of the biomaterial scaffolds is accompanied with vascularization. Taken together, these results indicate that decullarized liver scaffolds effectively support the proliferation and differentiation of iHPCs, suggesting that decellularized liver matrix may be used as ideal biocompatible scaffolds for hepatocyte transplantation.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Cell Transplantation</kwd>
+        <kwd>Liver Progenitor Cells</kwd>
+        <kwd>Immortalized Progenitors</kwd>
+        <kwd>Decellularized Scaffolds</kwd>
+        <kwd>Tissue Engineering</kwd>
+        <kwd>Regenerative Medicine</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

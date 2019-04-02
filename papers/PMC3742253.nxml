@@ -1,0 +1,2970 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+      <journal-id journal-id-type="publisher-id">ijms</journal-id>
+      <journal-title-group>
+        <journal-title>International Journal of Molecular Sciences</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1422-0067</issn>
+      <publisher>
+        <publisher-name>Molecular Diversity Preservation International (MDPI)</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23852020</article-id>
+      <article-id pub-id-type="pmc">3742253</article-id>
+      <article-id pub-id-type="doi">10.3390/ijms140714439</article-id>
+      <article-id pub-id-type="publisher-id">ijms-14-14439</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Upregulation of Phosphorylated HSP27, PRDX2, GRP75, GRP78 and GRP94 in Acquired Middle Ear Cholesteatoma Growth</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ho</surname>
+            <given-names>Kuen Yao</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijms-14-14439">1</xref>
+          <xref ref-type="aff" rid="af2-ijms-14-14439">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yeh</surname>
+            <given-names>Tai Sheng</given-names>
+          </name>
+          <xref ref-type="aff" rid="af3-ijms-14-14439">3</xref>
+          <xref rid="fn1-ijms-14-14439" ref-type="author-notes">&#x2020;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Han Hsiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-ijms-14-14439">4</xref>
+          <xref rid="fn1-ijms-14-14439" ref-type="author-notes">&#x2020;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hung</surname>
+            <given-names>Kuo Feng</given-names>
+          </name>
+          <xref ref-type="aff" rid="af5-ijms-14-14439">5</xref>
+          <xref rid="fn1-ijms-14-14439" ref-type="author-notes">&#x2020;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chai</surname>
+            <given-names>Chee Yin</given-names>
+          </name>
+          <xref ref-type="aff" rid="af6-ijms-14-14439">6</xref>
+          <xref ref-type="aff" rid="af7-ijms-14-14439">7</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Wan Tzu</given-names>
+          </name>
+          <xref ref-type="aff" rid="af6-ijms-14-14439">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tsai</surname>
+            <given-names>Shih Meng</given-names>
+          </name>
+          <xref ref-type="aff" rid="af8-ijms-14-14439">8</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chang</surname>
+            <given-names>Ning Chia</given-names>
+          </name>
+          <xref ref-type="aff" rid="af9-ijms-14-14439">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chien</surname>
+            <given-names>Chen Yu</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijms-14-14439">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Hsun Mo</given-names>
+          </name>
+          <xref ref-type="aff" rid="af10-ijms-14-14439">10</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Yu Jen</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-ijms-14-14439">4</xref>
+          <xref rid="c1-ijms-14-14439" ref-type="corresp">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-ijms-14-14439"><label>1</label>Department of Otorhinolaryngology, Kaohsiung Medical University Hospital, Kaohsiung 80756, Taiwan; E-Mails: <email>kuyaho@kmu.edu.tw</email> (K.Y.H.); <email>chenyu@cc.kmu.edu.tw</email> (C.Y.C.)</aff>
+      <aff id="af2-ijms-14-14439"><label>2</label>Department of Otorhinolaryngology, School of Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung 80756, Taiwan</aff>
+      <aff id="af3-ijms-14-14439"><label>3</label>Department of Food Science and Nutrition, Meiho University, Pingtung 91202, Taiwan; E-Mail: <email>x00010091@meiho.edu.tw</email></aff>
+      <aff id="af4-ijms-14-14439"><label>4</label>Department of Beauty Science, Meiho University, Pingtung 91202, Taiwan; E-Mail: <email>hhuang.adsl@msa.hinet.net</email></aff>
+      <aff id="af5-ijms-14-14439"><label>5</label>Graduate Institute of Applied Health and Biotechnology, Meiho University, Pingtung 91202, Taiwan; E-Mail: <email>q87634@yahoo.com.tw</email></aff>
+      <aff id="af6-ijms-14-14439"><label>6</label>Department of Pathology, Kaohsiung Medical University Hospital, Kaohsiung 80756, Taiwan; E-Mails: <email>cychai@cc.kmu.edu.tw</email> (C.Y.C.); <email>wanzi@cc.kmu.edu.tw</email> (W.T.C.)</aff>
+      <aff id="af7-ijms-14-14439"><label>7</label>Department of Pathology, School of Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung 80756, Taiwan</aff>
+      <aff id="af8-ijms-14-14439"><label>8</label>Department of Public Health, School of Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung 80756, Taiwan; E-Mail: <email>tsaism@kmu.edu.tw</email></aff>
+      <aff id="af9-ijms-14-14439"><label>9</label>Department of Preventive Medicine, Kaohsiung Medical University Hospital, Kaohsiung 80756, Taiwan; E-Mail: <email>aka@mail.kmuh.org.tw</email></aff>
+      <aff id="af10-ijms-14-14439"><label>10</label>Department of Otorhinolaryngology, Kaohsiung Municipal Ta-Tung Hospital, Kaohsiung Medical University, Kaohsiung 80756, Taiwan; E-Mail: <email>hmwang@cc.kmu.edu.tw</email></aff>
+      <author-notes>
+        <fn id="fn1-ijms-14-14439">
+          <label>&#x2020;</label>
+          <p>The authors contributed equally to this work.</p>
+        </fn>
+        <corresp id="c1-ijms-14-14439"><label>*</label>Author to whom correspondence should be addressed; E-Mail: <email>wyr924@ms24.hinet.net</email> or <email>x00002180@meiho.edu.tw</email>; Tel.: +886-8-7799-821 (ext. 8600); Fax: +886-8-7797-821.</corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <month>7</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>11</day>
+        <month>7</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>14</volume>
+      <issue>7</issue>
+      <fpage>14439</fpage>
+      <lpage>14459</lpage>
+      <history>
+        <date date-type="received">
+          <day>07</day>
+          <month>5</month>
+          <year>2013</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>26</day>
+          <month>6</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>01</day>
+          <month>7</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 by the authors; licensee MDPI, Basel, Switzerland</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/3.0">
+          <license-p><!--CREATIVE COMMONS-->This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Cholesteatoma is a destructive and expanding growth of keratinizing squamous epithelium in the middle ear or petrous apex. The molecular and cellular processes of the pathogenesis of acquired middle ear cholesteatoma have not been fully understood. In this study, comparative proteomic analysis was conducted to investigate the roles of specific proteins in the pathways regarding keratinocyte proliferation in cholesteatoma. The differential proteins were detected by comparing the two-dimension electrophoresis (2-DE) maps of the epithelial tissues of 12 attic cholesteatomas with those of retroauricular skins. There were 14 upregulated proteins in the epithelial tissues of cholesteatoma in comparison with retroauricular skin. The modulation of five crucial proteins, HSP27, PRDX2, GRP75, GRP78 and GRP94, was further determined by RT-PCR, Western blot and immunohistochemistry. Phosphorylation of HSP27 at Ser-82 was identified by mass spectroscopy. The results of this study suggested that phosphorylated HSP27 is the end expression of two potential signal-transduction pathways, and together with PRDX2, they are very likely involved in the proliferation of keratinocytes in cholesteatoma. Upregulations of GRP75, GRP78 and GRP94 in keratinocytes may be able to counter endoplasmic reticulum stress, to inhibit cell apoptosis, to prevent protein unfolding and to promote cholesteatoma growth.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>cholesteatoma</kwd>
+        <kwd>HSP27</kwd>
+        <kwd>PRDX2</kwd>
+        <kwd>GRP75</kwd>
+        <kwd>GRP78</kwd>
+        <kwd>GRP94</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>1. Introduction</title>
+      <p>Cholesteatoma is a destructive and expanding growth of keratinizing squamous epithelium in the middle ear cavity [<xref rid="b1-ijms-14-14439" ref-type="bibr">1</xref>&#x2013;<xref rid="b5-ijms-14-14439" ref-type="bibr">5</xref>]. A perforation of the eardrum caused by chronic infection or direct trauma could lead to cholesteatoma. The skin over the outer surface of the eardrum could grow through the perforation and into the middle ear. Small remnants of skin of the eardrum (retraction pocket) are trapped into the middle ear in most patients [<xref rid="b6-ijms-14-14439" ref-type="bibr">6</xref>]. Local infection leads to a disturbance of self-cleaning mechanisms. Cell debris and keratinocytes then accumulate inside the retraction pocket. Imbalance and vicious circles of epithelial proliferation, keratinocyte differentiation and maturation, prolonged apoptosis and disturbance of self-cleaning may occur. The inflammatory stimulus can induce an epithelial proliferation along with expression of lytic enzymes and cytokines [<xref rid="b1-ijms-14-14439" ref-type="bibr">1</xref>&#x2013;<xref rid="b3-ijms-14-14439" ref-type="bibr">3</xref>]. Bacteria inside the retraction pocket produce some antigens, which are able to activate different cytokines and lytic enzymes [<xref rid="b4-ijms-14-14439" ref-type="bibr">4</xref>,<xref rid="b5-ijms-14-14439" ref-type="bibr">5</xref>]. Cholesteatoma keratinocytes undergo a change in behavior <italic>in vivo</italic> that is preserved after the cells are removed from the inflammatory environment of the middle ear [<xref rid="b7-ijms-14-14439" ref-type="bibr">7</xref>]. Cholesteatoma could cause destruction of three ossicles located in the middle ear. It may result in hearing deterioration, deafness, physical imbalance and vertigo. Cholesteatoma has been recognized for decades as a destructive lesion of the skull base, which may erode and destroy important structure within the temporal bone. Its potentials for causing central nervous system complications, bone destruction and potential recurrence are key elements of the pathophysiology of cholesteatomas [<xref rid="b8-ijms-14-14439" ref-type="bibr">8</xref>,<xref rid="b9-ijms-14-14439" ref-type="bibr">9</xref>]. These features make it a potentially dangerous disease and difficult to treat. The etiopathogenesis of middle ear cholesteatoma is still controversial. It is possible that pathogenesis includes (1) the origin of keratinizing squamous epithelium; (2) a factor involved in the invasive and hyperproliferative behavior and (3) a first signal to start cholesteatoma development. As a result, it is a destructive process in the middle ear, resulting in erosion of surrounding bony structures.</p>
+      <p>The processes may involve some key proteins and pathways. It has been suggested that cholesteatoma is associated with activation of osteoclasts and a variety of mechanisms involving cellular functions. Identification of key proteins in the processes could provide important information for the treatment of the disease. The molecular and cellular processes of the pathogenesis of cholesteatoma have not been fully understood. Both autocrine and paracrine stimulations were shown to play important roles in the pathogenesis of cholesteatoma [<xref rid="b10-ijms-14-14439" ref-type="bibr">10</xref>,<xref rid="b11-ijms-14-14439" ref-type="bibr">11</xref>]. Growth factors, such as transforming growth factor &#x3B1; (TGF-&#x3B1;) and interleukin 1 (IL-1), were found to be responsible for hyperproliferation of keratinocytes in cholesteatoma [<xref rid="b12-ijms-14-14439" ref-type="bibr">12</xref>,<xref rid="b13-ijms-14-14439" ref-type="bibr">13</xref>]. Keratinocyte growth factor (KGF) has been shown to play a role in epithelial growth and differentiation in cholesteatoma [<xref rid="b14-ijms-14-14439" ref-type="bibr">14</xref>]. Up-modulation of the KGF/KGF receptor (KGFR) has also been found in cholesteatoma, and its signaling could be also involved [<xref rid="b14-ijms-14-14439" ref-type="bibr">14</xref>,<xref rid="b15-ijms-14-14439" ref-type="bibr">15</xref>]. Investigation by Huisman <italic>et al.</italic> indicated that the keratinocytes in cholesteatoma may be protected against apoptosis [<xref rid="b16-ijms-14-14439" ref-type="bibr">16</xref>].</p>
+      <p>Proteomic analysis is a useful tool for observing overall expression of protein mixtures, including body fluids, cells and tissues. It has been used in our laboratory for investigation of protein-protein interactions, development of informational database and identification of biomarkers in oral cancer and melanoma cells [<xref rid="b17-ijms-14-14439" ref-type="bibr">17</xref>,<xref rid="b18-ijms-14-14439" ref-type="bibr">18</xref>]. Proteomic study using 2-DE gel and MALDI-TOF mass spectrometry for the identification of potential biomarkers for cholesteatoma has been previously conducted. Proliferating cell nuclear antigen (PCNA) and osteoclast stimulating factor-1 (OSF-1) were reported to be potential biomarkers for the disease. PCNA could be correlated with cellular proliferation, and OSF-1 is possibly associated with bone destruction [<xref rid="b19-ijms-14-14439" ref-type="bibr">19</xref>,<xref rid="b20-ijms-14-14439" ref-type="bibr">20</xref>].</p>
+      <p>Previous studies have shown that the phosphorylation of heat shock protein 27 (HSP27) occurs at Ser-15, Ser-72 or Ser-82 in neoplastic tissues or cells [<xref rid="b21-ijms-14-14439" ref-type="bibr">21</xref>,<xref rid="b22-ijms-14-14439" ref-type="bibr">22</xref>]. Using 2-DE, LC-MS/MS analysis, immunohistochemistry, RT-PCR and Western blot, we, for the first time, found phosphorylation of HSP27 coupled with other regulations of cell proliferation-associated proteins in cholesteatoma. Based on proteomic findings in the current study, some potential signaling elements relevant with keratinocyte proliferation were also investigated and represented. Data from comparative examination of the proteome combined with immunological analysis in this study uncovered helpful clues for understanding the potential mechanisms of cholesteatoma growth and progression.</p>
+    </sec>
+    <sec>
+      <title>2. Results</title>
+      <sec>
+        <title>2.1. 2-DE Analysis and Identification of Differential Proteins</title>
+        <p>The 2-DE analysis of the samples of cholesteatoma tissues and retroauricular skin for each patient was performed for twelve patients. The proteomic data are shown in <xref rid="f1-ijms-14-14439" ref-type="fig">Figure 1</xref>. 2-DE analysis was run with a load of 50 &#x3BC;g protein on IPG 4&#x2013;7, and the protein pattern was visualized by silver staining. Protein spots were detected by using PDQuest 2D image analysis software. LC-MS/MS analysis and MASCOT search identified fourteen upregulated protein spots with greater than a two-fold increase in density for cholesteatoma samples. A list of the identified proteins with their MASCOT scores, MS/MS matched peptide numbers, theoretical Molecular weight (Mw), isoelectric point (<italic>p</italic>I) and coverage are shown in <xref rid="t1-ijms-14-14439" ref-type="table">Table 1</xref>. The five protein spots (No. 1&#x2013;5) with a molecular weight of 27 kDa were identified as different species of heat shock protein 27 (HSP27). The protein spots (No. 6&#x2013;8) below HSP27 were identified as peroxiredoxin-2 (PRDX2). All 2-DE maps of twelve patients are shown in Supplementary <xref rid="f1-ijms-14-14439" ref-type="fig">Figure 1</xref>.</p>
+      </sec>
+      <sec>
+        <title>2.2. Phosphorylation of HSP27</title>
+        <p>Five species of HSP27 have been identified on the 2-DE maps. The data suggest that the protein forms with identical molecular weight and different pI are likely caused by post-translational modification. Expression of HSP27, PRDX2, GRP78 and GRP94 in the tissues of cholesteatoma and retroauricular skin assessed by RT-PCR and Western blotting analysis is coherent with the 2-DE results. The 2D Western blot images are shown in <xref rid="f2-ijms-14-14439" ref-type="fig">Figure 2</xref>, and the results reinforce the suggestion that post-translational modifications caused the generation of HSP27 species with identical molecular weight and different pI. The enrichment of phosphorylation peptide by a Titansphere Phos-TiO2 kit after in-gel digestion was performed. The phosphorylation modifications of HSP27 (spot 1 and spot 3) at Ser-82 (QLpSSGVSEIR), as shown in <xref rid="f3-ijms-14-14439" ref-type="fig">Figure 3</xref>, were identified by QTRAP<sup>&#xAE;</sup> 5500Q System LC-MS/MS analysis (AB SCIEX, Framingham, USA). The signals of y<sub>7</sub> and y<sub>8</sub> (y<sub>8</sub>&#x2212;98) ions on the MS/MS spectrum verify that the phosphorylation occurs at Ser-3 of this peptide (Ser-82 of HSP27).</p>
+        <p>The Western blotting analysis of phosphorylated HSP27 at Ser-82 was conducted, and the results indicate that the Ser-82 phosphorylation of HSP27 is enhanced in cholesteatoma in comparison with that in retroauricular skin (<xref rid="f3-ijms-14-14439" ref-type="fig">Figure 3</xref>).</p>
+      </sec>
+      <sec>
+        <title>2.3. Validation of HSP27, PRDX2, GRP75, GRP78 and GRP94 by Western Blotting Analysis and RT-PCR</title>
+        <p>Changes of HSP27, PRDX2, GRP75, GRP78 and GRP94 in the tissues of cholesteatoma and the retroauricular skin of six patients were further validated by Western blotting analysis. The side-by-side comparison of HSP27, PRDX2, GRP75, GRP78 and GRP94 for each individual patient shows that these proteins are increased in cholesteatoma compared with those in retroauricular skin. The data of RT-PCR of HSP27, PRDX2, GRP75 and GRP78 also present evidence in accordance with those exhibited by Western blot (<xref rid="f4-ijms-14-14439" ref-type="fig">Figure 4</xref>).</p>
+      </sec>
+      <sec>
+        <title>2.4. Verification of Ras, Raf, ERK1/2, MEK1/2, p38MAPK and MAPKAPK2 by Western Blotting Analysis</title>
+        <p>Since HSP27 could be phosphorylated in response to Vascular endothelial growth factor (VEGF) via the p38 MAPK/MAPKAPK2 pathway and triggered by the association of Epidermal growth factor (EGF) and EGF receptors (EGFR) via the Ras/Raf/ERK1/2 MAPK pathway during the progression of cholesteatoma [<xref rid="b23-ijms-14-14439" ref-type="bibr">23</xref>], the regulation of these signaling molecules was examined. Thus, Ras, Raf, ERK1/2, MEK1/2, p38MAPK and MAPKAPK2 in the tissues of cholesteatoma and the retroauricular skin of six patients was analyzed by Western blot. The side-by-side comparison of Ras, Raf, ERK1/2, MEK1/2, p38MAPK and MAPKAPK2 for each individual patient showed that these proteins are increased in cholesteatoma in comparison with those in retroauricular skin (<xref rid="f5-ijms-14-14439" ref-type="fig">Figure 5</xref>).</p>
+      </sec>
+      <sec>
+        <title>2.5. Immunoreactivity of HSP27</title>
+        <p>The immunoreactive staining of the tissues showed that HSP27 is localized in layers of cholesteatoma epithelium and retroauricular skin and confined to the cytoplasm of keratinocytes in the epithelium. The epithelium cells displayed various degrees of intensity between specimens. The staining scores between six and 12 (with a mean of 9.7) were obtained in the cholesteatomas tissues. The staining scores from two to six (with a mean of 4.0) were obtained in retroauricular skin tissues (<xref rid="t2-ijms-14-14439" ref-type="table">Table 2</xref>). The immunoreactivity of HSP27 was significantly stronger in cholesteatomas than that in retroauricular skins (<italic>p</italic> &lt; 0.05, <xref rid="f6-ijms-14-14439" ref-type="fig">Figure 6</xref>).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>3. Discussion</title>
+      <p>In this study, the expression of HSP27, PRDX2, GRP75, GRP78 and GRP94 was found upregulated in acquired attic cholesteatoma by comparing 2-DE maps of cholesteatoma tissues with those of the retroauricular skin of the patients. These data were confirmed by Western blotting analysis. It is noteworthy that for the first time, we showed the critical upregulations of these proteomic factors and connected HSP27 phosphorylation and proteomic changes with the potential signal transduction pathways in cholesteatoma growth and progression.</p>
+      <p>Hsp70s are a family of frequently expressed heat shock proteins. Proteins with a similar structure exist in most living organisms. The Hsp70s play important roles in protein folding and help protect cells from stress [<xref rid="b24-ijms-14-14439" ref-type="bibr">24</xref>,<xref rid="b25-ijms-14-14439" ref-type="bibr">25</xref>]. There are three major species of Hsp70s, including HCS70 (constitutive form of heat shock protein 70), GRP75 (glucose-regulated protein 75) and GRP78 (glucose-regulated protein 78). The results of Western blotting analysis indicated that GRP75 and GRP78 in the cholesteatoma tissues are increased over retroauricular skin. It has been shown that the high density of Hsp70s may be associated with the inflammatory and immune responses in the middle ear cavity, and therefore, an essential role of HSP70 in the clinical development of cholesteatoma was suggested [<xref rid="b26-ijms-14-14439" ref-type="bibr">26</xref>]. They may be also correlated with hyperproliferation and active differentiation of basal keratinocytes. Increased differentiation of keratinocytes could drive the programmed cell death with an increasing rate, which could lead to the accumulation of keratin debris [<xref rid="b26-ijms-14-14439" ref-type="bibr">26</xref>]. Therefore, in the current study, elevated GRP75, GRP78 and GRP94 could be associated with chronic inflammation and granulation of attic cholesteatoma samples.</p>
+      <p>GRP78 is a chaperone protein and plays a central regulatory role in activating endoplasmic reticulum (ER) stress sensors. It regulates cellular processes, including protein assembly, as well as protein folding, and targets misfolded proteins for degradation and controls the activation of ER stress sensors [<xref rid="b27-ijms-14-14439" ref-type="bibr">27</xref>]. The elevated expression of GRP78 could help release unfolded protein response (UPR) and maintain the balance of Ca<sup>2+</sup> in ER, mitochondria and cytosol. Previous studies indicated that the induction of GRP78 maintains cellular homeostasis and prevents cells from apoptosis [<xref rid="b28-ijms-14-14439" ref-type="bibr">28</xref>]. Suppression of GRP78 has been shown to promote apoptosis, inhibit tumor growth and enhance the cytotoxicity of chronically hypoxic cells [<xref rid="b29-ijms-14-14439" ref-type="bibr">29</xref>&#x2013;<xref rid="b31-ijms-14-14439" ref-type="bibr">31</xref>]. Induction of GRP78 represents an important pro-survival component of ER stress, due to its anti-apoptotic properties.</p>
+      <p>GRP75 exists primarily in the mitochondria and also can be found in the cytoplasm, ER and cytoplasmic vesicles. It participates in various physiological functions, such as stress response, cell differentiation, cell proliferation, intracellular trafficking, mitochondria import, tumorigenesis and centrosome duplication [<xref rid="b32-ijms-14-14439" ref-type="bibr">32</xref>,<xref rid="b33-ijms-14-14439" ref-type="bibr">33</xref>]. This protein is essential in the mitochondrial import complex, which is important for translocating mitochondrial-targeted proteins [<xref rid="b34-ijms-14-14439" ref-type="bibr">34</xref>]. It exerts tumorigenic effects through different binding partners, such as p53, intrerleukin-1 receptor type, fibroblast growth factor-1 and GRP94 [<xref rid="b35-ijms-14-14439" ref-type="bibr">35</xref>,<xref rid="b36-ijms-14-14439" ref-type="bibr">36</xref>]. The proliferative and tumorigenic properties of GRP75 contribute to its intracellular trafficking function and the modulation of the Ras-Raf-MAPK pathway [<xref rid="b37-ijms-14-14439" ref-type="bibr">37</xref>,<xref rid="b38-ijms-14-14439" ref-type="bibr">38</xref>]. Overexpression of GRP75 has been shown to lead to extended life span in nematode and normal human cells [<xref rid="b39-ijms-14-14439" ref-type="bibr">39</xref>]. Decreased expression of GRP75 in immortalized cells causes growth arrest [<xref rid="b40-ijms-14-14439" ref-type="bibr">40</xref>]. On the other hand, GRP94 is a member of the heat shock protein 90 family and a chaperon of the ER. It is responsible for the folding and maturation of nonglycosylated proteins. Increased expression of GRP 94 in malignant tumors has been shown to have a protective effect for tumor cells [<xref rid="b28-ijms-14-14439" ref-type="bibr">28</xref>,<xref rid="b41-ijms-14-14439" ref-type="bibr">41</xref>&#x2013;<xref rid="b44-ijms-14-14439" ref-type="bibr">44</xref>].</p>
+      <p>The results in the current study indicated that the expression of GRP75, GRP78 and GRP94 in the tissues of cholesteatoma is higher than that in retroauricular skin. The elevation in ER and mitochondrial stress may cause cell damage. Therefore, the upregulation of GRP75, GRP78 and GRP94 should be reasonably against the increased ER, mitochondrial stress, as well as apoptosis in attic cholesteatoma.</p>
+      <p>HSP27 is a chaperone protein of the small heat shock protein (sHsps) group. The functions of Hsps are chaperone activity, regulation of cell development, thermotolerance, inhibition of apoptosis and cell differentiation. They also participate in the signal transduction associated with apoptosis. The interaction of HSP27 with the outer mitochondrial membranes and the interference with the activation of the cytochrome c/Apaf-1/dATP complex causes the inhibition of procaspase-9. It was reported that phosphorylated HSP27 inhibits Daxx apoptotic protein and, thus, prevents the association of Daxx with Fas and Ask1 [<xref rid="b45-ijms-14-14439" ref-type="bibr">45</xref>]. Abnormal HSP27 expression was associated with various cancers, and its tumorigenic potential has been reported in experimental models [<xref rid="b46-ijms-14-14439" ref-type="bibr">46</xref>,<xref rid="b47-ijms-14-14439" ref-type="bibr">47</xref>]. The dysregulation of HSP27 has been suspected as a cause for invasion and metastasis [<xref rid="b48-ijms-14-14439" ref-type="bibr">48</xref>]; HSP27 is recognized to play the role of molecular chaperone. It is capable of modulating cell migration, cell survival, anti-proliferation, cell differentiation and vascular function through phosphorylation. HSP27 could be phosphorylated by different types of protein kinases, protein phosphatases or stimuli [<xref rid="b49-ijms-14-14439" ref-type="bibr">49</xref>]. The study of Kind&#xE5;s-M&#xFC;gge, using reverse transcriptase differential display polymerase chain reaction, suggested that HSP27 is a biomarker for differentiation in normal human keratinocytes [<xref rid="b49-ijms-14-14439" ref-type="bibr">49</xref>]. The layers of epidermis consist of keratinocytes at different stages of differentiation. The highly coordinated multistep process of keratinocyte differentiation is regulated by growth factors, autocrine, paracrine, intercellular signaling mechanisms and external stimuli. Epidermal growth factor (EGF) and other growth factors could promote keratinocyte growth, differentiation and migration [<xref rid="b50-ijms-14-14439" ref-type="bibr">50</xref>,<xref rid="b51-ijms-14-14439" ref-type="bibr">51</xref>]. Previous studies have shown the expression of EGF and increased expression of EGF receptors (EGFR) in cholesteatoma [<xref rid="b10-ijms-14-14439" ref-type="bibr">10</xref>]. Angiogenic growth factors (VEGF) have been reported in cholesteatoma by Sudhoff and Niwa [<xref rid="b52-ijms-14-14439" ref-type="bibr">52</xref>,<xref rid="b53-ijms-14-14439" ref-type="bibr">53</xref>]. The connective tissue of the perimatrix in cholesteatoma requires angioneogenesis for its growth. The wound healing process also needs angioneogenesis in response to cholesteatoma-induced tissue injury.</p>
+      <p>In this study, five protein species of HSP27 were found in cholesteatoma. This is similar to the proteomic findings in heart diseases shown by Jungblut <italic>et al</italic>. and Schl&#xFC;ter <italic>et al.</italic> (2009), implicating the possible biological roles of numerous HSP27 forms [<xref rid="b54-ijms-14-14439" ref-type="bibr">54</xref>,<xref rid="b55-ijms-14-14439" ref-type="bibr">55</xref>]. Our study for the first time discovered phosphorylation of HSP27 at Ser-82 in cholesteatoma tissues. The phosphorylation of HSP27 at Ser-82 could be induced by many different factors. It has been reported that PKC/PKD is the major pathway mediating phosphorylation of HSP27 at Ser-82 in response to VEGF [<xref rid="b54-ijms-14-14439" ref-type="bibr">54</xref>]. It has been shown that the elevated expression of phosphorylation of p38 is in connection with involucrin, which is an end product of cell differentiation [<xref rid="b14-ijms-14-14439" ref-type="bibr">14</xref>]. Niwa <italic>et al</italic>. reported that the phosphorylation of HSP27 could be induced by TNF-&#x3B1; or H<sub>2</sub>O<sub>2</sub> via the p38 MAPK pathway [<xref rid="b52-ijms-14-14439" ref-type="bibr">52</xref>]. It is therefore proposed that HSP27 is very likely phosphorylated in response to VEGF via the p38 MAPK/MAPKAPK2 pathway during the progression of cholesteatoma. This is partially verified by our immunoblotting data (<xref rid="f6-ijms-14-14439" ref-type="fig">Figure 6</xref>). The phosphorylated HSP27 may result in cell migration and angiogenesis. Ras protein, which plays an important role in the growth factor signal-transduction pathway, has been found in cholesteatoma specimens [<xref rid="b56-ijms-14-14439" ref-type="bibr">56</xref>]. The accumulation of keratin debris in cholesteatoma associated with cell proliferation and differentiation of keratinocytes could be regulated by various growth factors. Investigation of UVB effects on human keratinocytes showed that EGFR and p38 MAP kinase mediate HSP27 phosphorylation [<xref rid="b57-ijms-14-14439" ref-type="bibr">57</xref>]. The Ras/Raf/ERK1/2 MAPK signaling pathway actively involved in cholesteatoma epithelium has been reported [<xref rid="b23-ijms-14-14439" ref-type="bibr">23</xref>]. It has been indicated that ERK1 and ERK2 are upregulated proteins involved in the MAPK pathway in cholesteatoma [<xref rid="b14-ijms-14-14439" ref-type="bibr">14</xref>]. Moreover, HSP27 has been found to play a role in keratinocyte terminal differentiation [<xref rid="b58-ijms-14-14439" ref-type="bibr">58</xref>]. We thus proposed that the phosphorylation of HSP27 is very likely triggered by the involvement of EGF/EGFR, the Ras/Raf/ERK1/2 pathway, as well as the MAPK pathway. In this study, we verified the changes of these crucial signaling factors by Western blot in cholesteatoma. These data in our study suggest that HSP27 together with the Ras/Raf/ERK1/2 and MAPK pathways may be relevant in stimulating keratinocyte proliferation and differentiation in cholesteatoma.</p>
+      <p>The other pathway that may induce keratinocyte proliferation and differentiation can be concluded from previous studies and the current work as the involvement of IFN-&#x3B3; induction, PLC-&#x3B3;, diacylglycerol (DAG), protein kinase C (PKC), PKD1/PKD2 and PRDX2 [<xref rid="b59-ijms-14-14439" ref-type="bibr">59</xref>,<xref rid="b60-ijms-14-14439" ref-type="bibr">60</xref>]. IFN-&#x3B3; has been shown to be a potent factor to induce the expression of EGFR, as well as cell differentiation in normal neonatal skin explants or epidermal keratinocytes [<xref rid="b61-ijms-14-14439" ref-type="bibr">61</xref>,<xref rid="b62-ijms-14-14439" ref-type="bibr">62</xref>]. The PKC pathway and reactive oxygen stress regulate epidermal differentiation in keratinocytes [<xref rid="b63-ijms-14-14439" ref-type="bibr">63</xref>]. PLC can activate PKC, which is important in cellular growth, differentiation and transformation; PLC-&#x3B3;1 was overexpressed in cholesteatoma [<xref rid="b64-ijms-14-14439" ref-type="bibr">64</xref>]. EGF is able to activate PLC, which is capable of activating PKC downstream through DAG. The overall processes may start with an increased EGFR expression, followed by the transductions of PLC-&#x3B3;, DAG, PKC and PKD1/PKD2, as well as regulation of PRDX2. In the current study, increased expression of Peroxiredoxin2 (PRDX2) was shown by proteomic analysis and Western blot in cholesteatoma. It is worth noting that upregulation of PRDX2 has also been found in psoriasis, a hyperproliferative skin disease characterized by abnormal keratinocyte proliferation [<xref rid="b65-ijms-14-14439" ref-type="bibr">65</xref>]. These similar findings suggest that PRDX2 may be an essential protein in the diseases or lesions correlated with keratinocyte hyperproliferation in the epidermis.</p>
+    </sec>
+    <sec>
+      <title>4. Materials and Methods</title>
+      <sec>
+        <title>4.1. Materials</title>
+        <p>The Two-D Quant Kit and IPG buffer were obtained from GE Healthcare (Buckinghamshire, UK). SuperScript III and Taq DNA polymerase were from Invitrogen (Carlsbad, CA, USA). Rabbit anti-human HSP27, GRP75, GRP78, GRP94 and PRDX2 antibodies were purchased from ProteinTech Group (Chicago, IL, USA). Rabbit anti-human phosphorylation HSP27 (Ser-82), ras, raf, ERK1/2, MEK1/2, p38MAPK and MAPKAPK2 antibodies were purchased from Cell Signaling Technology (Danvers, MA, USA). Rabbit anti-human &#x3B2;-actin antibodies were obtained from Sigma (St. Louis, Mo, USA). Goat anti-rabbit and horseradish peroxidase conjugated IgG was from Millipore (Bellerica, MA, USA). PVDF (polyvinylidene difluoride) membranes and chemiluminescent horseradish peroxidase (HRP) substrate were from Pierce (Rockford, IL, USA).</p>
+      </sec>
+      <sec>
+        <title>4.2. Sample Preparation</title>
+        <p>Twelve patients (three males and nine females) participated in this study at the Affiliated Hospital at Kaohsiung Medical University. They were aged between 13 to 68 years, with a mean age of 40.5 years. The acquired middle ear cholesteatoma (acquired attic cholesteatoma) with slight granulation tissue specimens were resected during surgical operations. The tissues used in proteomic analysis were the epithelium of cholesteatoma after removal of granulation tissues. The retroauricular skin samples of the patients were also obtained as the controls. The protocols for using human specimens in this study were approved by the Institutional Review Board (IRB) of the hospital (approval number. KMUH-IRB-980046). Each sample (1 mm &#xD7; 1 mm &#xD7; 1 mm in size) was homogenized and sonicated with sample buffer (50 mM Tris-HCl; pH 8.0, EDTA); then, the sample was centrifuged at 12,000 rpm for 10 min. The supernatant was collected, and the proteins were precipitated out overnight at &#x2212;20 &#xB0;C by triple the volume of 10% trichloroacetic acid (TCA)/acetone solution containing 20 mM Dithiothreitol (DTT) After centrifugation at 8,000 rpm for 30 min at 4 &#xB0;C, the supernatant was discarded. The pellet was rinsed three times in cold acetone containing 20 mM DTT and air-dried, then resuspended in a rehydration buffer (6 M urea, 2 M thiourea, 0.5% 3-[(3-cholamidopropyl)dimethylammonio]-1-propanesulfonate (CHAPS), 5% IPG buffer, 20 mM DTT and 0.002% bromophenol blue) at 4 &#xB0;C overnight. The protein contents were determined using a 2-D Quant Kit (GE Healthcare).</p>
+      </sec>
+      <sec>
+        <title>4.3. Two-Dimensional Gel Electrophoresis</title>
+        <p>The first dimension electrophoresis (isoelectric focusing) was performed on a GE Healthcare Ettan IPGphor 3 with the protocol described previously [<xref rid="b66-ijms-14-14439" ref-type="bibr">66</xref>]. Proteins (50 &#x3BC;g) extracted from whole tissue were loaded on 11 cm Immobilized pH gradient (IPG) strips for Isoelectric focusing (IEF) and then were separated on SDS-PAGE (12.5%).</p>
+      </sec>
+      <sec>
+        <title>4.4. Protein Spot Identification by LC-MS/MS</title>
+        <sec>
+          <title>4.4.1. In-Gel Digestion</title>
+          <p>Spots of interest were excised into a piece of 1 mm &#xD7; 1 mm, then placed in a microcentrifuge tube. Briefly, 25 mM ammonium bicarbonate (pH 8.5) was added to the tube, which was shaken at 37 &#xB0;C for 1 h. The gel piece was then dehydrated in acetonitrile and dried by SpeedVac to remove the remaining acetonitrile. Zero-point-one micrograms of trypsin in 10 &#x3BC;L 25 mM ammonium bicarbonate (pH 8.5) was added to the gel piece. Protein digestion was run overnight at 37 &#xB0;C. Fifty microliters of 5% trifluoroacetic acid (TFA) in 50% acetonitrile was added to quench the trypsin digestion. Peptides were extracted with 25 mM ammonium bicarbonate, 50% acetonitrile and 0.1% trifluoroacetic acid. The peptide solution was concentrated for the following LC-MS/MS analysis.</p>
+        </sec>
+        <sec>
+          <title>4.4.2. LC-MS/MS Analysis and MASCOT Database Searching</title>
+          <p>After desalting with a ZIPTip<sup>&#xAE;</sup><sub>C18</sub> (Millipore, Bellerica, MA, USA), the resulting peptide mixture was separated using a NanoLC 1200 System (Agilent) utilizing a Zobax column (2.1 mm &#xD7; 150 mm) packed with 3 &#x3BC;m C18 particles (Agilent, Santa Clara, CA, USA) with a linear gradient from 5% to 60% acetonitrile containing 0.1% formic acid over 60 min. The separated peptides were analyzed online on a QTrap 5500 mass spectrometer (AB SCIEX, Framingham, USA) equipped with a nano ESI source. The scan range was from <italic>m</italic>/<italic>z</italic> 100 to 1,000 for MS and MS/MS. The raw data were processed into a text file format of WIFF with Analyst 1.5.1, and the resulting text file was searched using the MASCOT search engine v2.2 (Matrix Science, Boston, USA) with the following search parameters: (1) the protein database was set to be Swiss-Prot; (2) the taxonomy was set as <italic>Homo sapiens</italic> (human); (3) one trypsin missed cleavage was allowed; (4) the mass tolerance was set at 1.5 Da for the precursor and 0.8 Da for the product ions; (5) carbamidomethyl (C) was chosen for fixed modification; (6) oxidation (M), phospho- (ST) and phosphor- (Y) were chosen for variable modifications; and (7) proteins with scores above the significance threshold (<italic>p</italic> &lt; 0.05) were shown as significant hits. The hit with the highest score that contained at least two peptides with scores beyond the identity threshold was regarded as the identified protein from each gel spot. All MS/MS spectra of the identified peptides were further verified by manual interpretation.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>4.5. Western Blotting Analysis</title>
+        <p>After 1-DE and 2-DE PAGE analysis of the samples collected from the patients, the proteins on gel were transferred to a PVDF membrane (Millipore, MA, USA), for 1.5 h at 400 mA using a Transphor TE 62 (Hoeffer, Holliston, MA). The membranes were then incubated with HSP27, phosphorylation HSP27, GRP75, GRP78, GRP94 and &#x3B2;-actin antibodies at 4 &#xB0;C for 2 h or overnight. The membranes were washed three times in PBST (10 mM NaH<sub>2</sub>PO<sub>4</sub>, 130 mM NaCl, 0.05% Tween 20), then probed with the second antibodies (goat anti-rabbit and horseradish peroxidase conjugate (1:5,000) in blocking solution) for 1 h. After washing with PBST three times, the enzyme activity on the blot was visualized through chemiluminescence by adding ECL Western Blotting Reagents (Pierce Rockford, IL, USA).</p>
+      </sec>
+      <sec>
+        <title>4.6. RNA Isolation and RT-PCR</title>
+        <p>Total RNA was isolated from both cholesteatoma and normal retroauricular skin samples using TRIzol reagent RNA Extraction Kits (Qiagen, Hilden, Germany). The RNA concentrations were measured using a GeneQuant 1300 spectrophotometer (GE Healthcare, Buckinghamshire, UK). Reverse transcription was carried out in the reaction containing RNA samples, dNTP, random primers, 5&#xD7; first strand buffer, DTT (0.1 M) and SuperScript III (Invitrogen, Carlsbad, CA, USA) on a PCR machine (Bio-Rad, Hercules, CA, USA). The sequences of primers used in the PCR reactions are as below:</p>
+        <list list-type="simple">
+          <list-item>
+            <label>(1)</label>
+            <p>&#x3B2;-actin follows:</p>
+            <list list-type="simple">
+              <list-item>
+                <p>5&#x2032;-3&#x2032;AGAGATGGCCACGGCTGCTT (forward);</p>
+              </list-item>
+              <list-item>
+                <p>5&#x2032;-3&#x2032;ATTTGCGGTGGACGATGGAG (reverse).</p>
+              </list-item>
+            </list>
+          </list-item>
+          <list-item>
+            <label>(2)</label>
+            <p>Heat shock protein 27 (HSP27) follows:</p>
+            <list list-type="simple">
+              <list-item>
+                <p>5&#x2032;-3&#x2032; ACGAGCATGGCTACATCTCC (forward);</p>
+              </list-item>
+              <list-item>
+                <p>5&#x2032;-3&#x2032; CTTTACTTGGCGGCAGTCTC (reverse).</p>
+              </list-item>
+            </list>
+          </list-item>
+          <list-item>
+            <label>(3)</label>
+            <p>Thioredoxin peroxidase 2 (PRDX2) follows:</p>
+            <list list-type="simple">
+              <list-item>
+                <p>5&#x2032;-3&#x2032;GTGTCCTTCGCCAGATCACT (forward);</p>
+              </list-item>
+              <list-item>
+                <p>5&#x2032;-3&#x2032; ACGTTGGGCTTAATCGTGTC (reverse).</p>
+              </list-item>
+            </list>
+          </list-item>
+          <list-item>
+            <label>(4)</label>
+            <p>Glucose-regulated protein 78 (GRP78) follows:</p>
+            <list list-type="simple">
+              <list-item>
+                <p>5&#x2032;-3&#x2032; TCCTATGTCGCCTTCACT (forward);</p>
+              </list-item>
+              <list-item>
+                <p>5&#x2032;-3&#x2032; ACAGACGGGTCATTCCAC (reverse).</p>
+              </list-item>
+            </list>
+          </list-item>
+          <list-item>
+            <label>(5)</label>
+            <p>Glucose-regulated protein 94 (GRP94) follows:</p>
+            <list list-type="simple">
+              <list-item>
+                <p>5&#x2032;-3&#x2032; GGGAGGTCACCTTCAAGTCG (forward);</p>
+              </list-item>
+              <list-item>
+                <p>5&#x2032;-3&#x2032; GGGTGTAGACGTGGAGCTC (reverse).</p>
+              </list-item>
+            </list>
+          </list-item>
+        </list>
+        <p>For PCR, the reaction tubes containing 10&#xD7; buffer, MgCl<sub>2</sub>, dNTPs, Taq DNA polymerase (Invitrogen, Grand Island, NY, USA) and each of the forward and reverse primers were preheated at 95 &#xB0;C for 3 min. The three stages of 30 cycles of PCR were accomplished as follows: denaturation at 95 &#xB0;C for 30 s, annealing at 55 &#xB0;C for 30 s, elongation at 72 &#xB0;C for 30 s and extension was completed at 72 &#xB0;C for 10 min. The PCR products were electrophoresed on 1.5% agarose gel.</p>
+      </sec>
+      <sec>
+        <title>4.7. Immunohistochemical Staining of Hsp27</title>
+        <p>The samples from the 12 patients were then assessed by immunohistochemistry. A cholesteatomas specimen and a retroauricular skin specimen of each patient were resected during surgical operations. Immunohistochemistry was performed on 4 &#x3BC;m thick paraffin sections. Paraffin sections of all samples were de-paraffinized, rehydrated and autoclave-treated at 121 &#xB0;C for 10 min in DAKO Target Retrieval Solution, pH 6.0 (DAKO, Glostrup, Denmark), to induce antigen retrieval. Endogenous peroxidase in the section was blocked by incubation in 3% hydrogen peroxide for 5 min. The sections were incubated with HSP27 primary antibodies (1:60; Leica Novocastra, Newcastle upon Tyne, UK) at room temperature for 1 h. Then, the DAKO REAL EnVision Detection kit (DAKO) was applied for 30 min. Finally, sections were incubated in 3&#x2032;3-diaminobenzidine for 5 min, followed by Mayer&#x2019;s hematoxylin counterstaining and mounting. Negative controls were obtained by replacing the primary antibody with non-immune serum.</p>
+        <p>The percentage of immunoreactive staining for HSP27 in all 24 samples was evaluated by two independent observers. They were assigned a score number according to the following rules: a score of 0 for 0% epithelium cells positive, a score of 1 for 1%&#x2013;24% epithelium cells positive, a score of 2 for 25%&#x2013;49% epithelium cells positive, a score of 3 for 50%&#x2013;74% epithelium cells positive and score of 4 for 75%&#x2013;100% epithelium cells positive. The intensity of cellular staining was also assigned a score number: a score of 0 for zero intensity, a score of 1 for weak intensity, a score of 2 for moderate intensity and a score of 3 for strong intensity. A staining score was obtained by multiplying the percentage score with the intensity score, with a maximum score of 12. Statistical evaluations were performed using the paired <italic>t</italic>-test. A difference considered statistically significance is <italic>p</italic> &lt; 0.05.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>5. Conclusions</title>
+      <p>Taken together, in the current study, HSP27 and PRDX2 were enhanced, and phosphorylation of HSP27 at Ser-82 was identified in acquired attic cholesteatoma tissue. Furthermore, phosphorylation of HSP27 at Ser-82 can be mediated through the PKC/PKD pathway in response to VEGF or via the p38 MAPK pathway in cholesteatoma. The phosphorylated HSP27 could be associated with the activation of cell migration, angiogenesis and proliferation in epithelial cells, resulting in subsequent growth of cholesteatoma. Our data implicate that the phosphorylation of HSP27 is probably induced by the pathway, including EGF/EGFR, Ras/Raf/MEK1/2/ERK1/2, as well as p38 MAPK. Upregulation of PRDX2 could be relevant with keratinocyte hyperproliferation in the epidermis, and PRDX2 elevation is possibly mediated via EGFR, PLC-&#x3B3;, DAG, PKC and PKD1/PKD2 in the other pathway. In addition, upregulation of GRP75, GRP78 and GRP94 may not only be associated with chronic inflammation of attic cholesteatoma, but also counter ER and mitochondria stresses, reduce cell apoptosis, prevent protein unfolding and could also favor keratinocyte proliferation in attic cholesteatoma. These results shed light on the potential mechanisms of signal transduction in acquired middle ear cholesteatoma and are helpful for understanding the pathogenesis of cholesteatoma.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>This study was supported in part by a grant from the National Science Council NSC-100-2314-B-037-009 Research Fund, Taiwan, and projects of Kaohsiung Medical University Hospital KMUH-95-5D07 and KMUH-100-0R35 Research Fund, Kaohsiung County, Taiwan.</p>
+    </ack>
+    <notes>
+      <title>Conflict of Interest</title>
+      <p>The authors declare no conflict of interest.</p>
+    </notes>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-ijms-14-14439">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuczkowski</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Sakowicz-Burkiewicz</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>I&#x17C;ycka-&#x152;wieszewska</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Mikaszewski</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Pawe&#x142;czyk</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of tumor necrosis factor-&#x3B1;, interleukin-1&#x3B1;, interleukin-6 and interleukin-10 in chronic otitis media with bone osteolysis</article-title>
+          <source>ORL J. Otorhinolaryngol. Relat. Spec</source>
+          <year>2011</year>
+          <volume>73</volume>
+          <fpage>93</fpage>
+          <lpage>99</lpage>
+          <pub-id pub-id-type="pmid">21311206</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-ijms-14-14439">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Haruyam</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Furukawa</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Kusunoki</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Onoda</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Ikeda</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of IL-17 and its role in bone destruction in human middle ear cholesteatoma</article-title>
+          <source>ORL J. Otorhinolaryngol. Relat. Spec</source>
+          <year>2010</year>
+          <volume>72</volume>
+          <fpage>325</fpage>
+          <lpage>331</lpage>
+          <pub-id pub-id-type="pmid">20847582</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-ijms-14-14439">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuczkowski</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Sakowicz-Burkiewicz</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>I&#x17C;ycka-&#x152;wieszewska</surname>
+              <given-names>E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of the receptor activator for nuclear factor-&#x3BA;B ligand and osteoprotegerin in chronic otitis media</article-title>
+          <source>Am. J. Otolaryngol</source>
+          <year>2010</year>
+          <volume>31</volume>
+          <fpage>404</fpage>
+          <lpage>409</lpage>
+          <pub-id pub-id-type="pmid">20015790</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-ijms-14-14439">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Juhn</surname>
+              <given-names>S.K.</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>M.K.</given-names>
+            </name>
+            <name>
+              <surname>Hoffman</surname>
+              <given-names>M.D.</given-names>
+            </name>
+            <name>
+              <surname>Drew</surname>
+              <given-names>B.R.</given-names>
+            </name>
+            <name>
+              <surname>Preciado</surname>
+              <given-names>D.A.</given-names>
+            </name>
+            <name>
+              <surname>Sausen</surname>
+              <given-names>N.J.</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>T.T.</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>B.H.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>S.Y.</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>J.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The role of inflammatory mediators in the pathogenesis of otitis media and sequelae</article-title>
+          <source>Clin. Exp. Otorhinolaryngol</source>
+          <year>2008</year>
+          <volume>1</volume>
+          <fpage>117</fpage>
+          <lpage>138</lpage>
+          <pub-id pub-id-type="pmid">19434244</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-ijms-14-14439">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nason</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>J.Y.</given-names>
+            </name>
+            <name>
+              <surname>Chole</surname>
+              <given-names>R.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Lipopolysaccharide-induced osteoclastogenesis from mononuclear precursors: A mechanism for osteolysis in chronic otitis</article-title>
+          <source>J. Assoc. Res. Otolaryngol</source>
+          <year>2009</year>
+          <volume>10</volume>
+          <fpage>151</fpage>
+          <lpage>160</lpage>
+          <pub-id pub-id-type="pmid">19145462</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-ijms-14-14439">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hilton</surname>
+              <given-names>C.W.</given-names>
+            </name>
+            <name>
+              <surname>Ondrey</surname>
+              <given-names>F.G.</given-names>
+            </name>
+            <name>
+              <surname>Wuertz</surname>
+              <given-names>B.R.</given-names>
+            </name>
+            <name>
+              <surname>Levine</surname>
+              <given-names>S.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Interleukin-8 production in response to tumor necrosis factor-alpha by cholesteatoma keratinocytes in cell culture</article-title>
+          <source>Laryngoscope</source>
+          <year>2011</year>
+          <volume>121</volume>
+          <fpage>372</fpage>
+          <lpage>374</lpage>
+          <pub-id pub-id-type="pmid">21271591</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-ijms-14-14439">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Helgaland</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Engelen</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Olsnes</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Aarstad</surname>
+              <given-names>H.J.</given-names>
+            </name>
+            <name>
+              <surname>Vassbotn</surname>
+              <given-names>F.S.</given-names>
+            </name>
+          </person-group>
+          <article-title><italic>In vitro</italic> cholesteatoma growth and secretion of cytokines</article-title>
+          <source>Acta Otolaryngol</source>
+          <year>2010</year>
+          <volume>130</volume>
+          <fpage>815</fpage>
+          <lpage>819</lpage>
+          <pub-id pub-id-type="pmid">20085440</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-ijms-14-14439">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Greenberg</surname>
+              <given-names>J.S.</given-names>
+            </name>
+            <name>
+              <surname>Manolidis</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>High incidence of complications encountered in chronic otitis media surgery in a U.S. metropolitan public hospital</article-title>
+          <source>Otolaryngol. Head Neck Surg</source>
+          <year>2001</year>
+          <volume>125</volume>
+          <fpage>623</fpage>
+          <lpage>627</lpage>
+          <pub-id pub-id-type="pmid">11743464</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-ijms-14-14439">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bagger-Sjoback</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Phelps</surname>
+              <given-names>P.D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Cholesteatoma with extension to the cochlea</article-title>
+          <source>Am. J. Otol</source>
+          <year>1985</year>
+          <volume>6</volume>
+          <fpage>338</fpage>
+          <lpage>343</lpage>
+          <pub-id pub-id-type="pmid">4025534</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-ijms-14-14439">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chi</surname>
+              <given-names>H.P.</given-names>
+            </name>
+            <name>
+              <surname>Ho</surname>
+              <given-names>K.Y.</given-names>
+            </name>
+            <name>
+              <surname>Chai</surname>
+              <given-names>C.Y.</given-names>
+            </name>
+            <name>
+              <surname>Ta</surname>
+              <given-names>C.F.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L.F.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>K.W.</given-names>
+            </name>
+            <name>
+              <surname>Kuo</surname>
+              <given-names>W.R.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>S.C.</given-names>
+            </name>
+            <name>
+              <surname>Tsai</surname>
+              <given-names>S.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor expression in middle ear cholesteatoma</article-title>
+          <source>Kaohsiung J. Med. Sci</source>
+          <year>2004</year>
+          <volume>20</volume>
+          <fpage>6</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="pmid">15481560</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-ijms-14-14439">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raynov</surname>
+              <given-names>A.M.</given-names>
+            </name>
+            <name>
+              <surname>Choung</surname>
+              <given-names>Y.H.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>H.Y.</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>S.J.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Establishment and characterization of an <italic>in vitro</italic> model for cholesteatoma</article-title>
+          <source>Clin. Exp. Otorhinolaryngol</source>
+          <year>2008</year>
+          <volume>1</volume>
+          <fpage>86</fpage>
+          <lpage>91</lpage>
+          <pub-id pub-id-type="pmid">19434278</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-ijms-14-14439">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Marenda</surname>
+              <given-names>S.A.</given-names>
+            </name>
+            <name>
+              <surname>Aufdemorte</surname>
+              <given-names>T.B.</given-names>
+            </name>
+          </person-group>
+          <article-title>Localization of cytokines in cholesteatoma tissue</article-title>
+          <source>Otolaryngol. Head Neck Surg</source>
+          <year>1995</year>
+          <volume>112</volume>
+          <fpage>359</fpage>
+          <lpage>368</lpage>
+          <pub-id pub-id-type="pmid">7532849</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-ijms-14-14439">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoshikawa</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Kojima</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Wada</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Tsukidate</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Okada</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Saito</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Moriyama</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of specific gene expression profiles in fibroblasts derived from middle ear cholesteatoma</article-title>
+          <source>Arch. Otolaryngol. Head Neck Surg</source>
+          <year>2006</year>
+          <volume>132</volume>
+          <fpage>734</fpage>
+          <lpage>742</lpage>
+          <pub-id pub-id-type="pmid">16847181</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-ijms-14-14439">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raffa</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Leone</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Scrofani</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Monini</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Torrisi</surname>
+              <given-names>M.R.</given-names>
+            </name>
+            <name>
+              <surname>Barbara</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Cholesteatoma-associated fibroblasts modulate epithelial growth and differentiation through KGF/FGF7 secretion</article-title>
+          <source>Histochem. Cell. Biol</source>
+          <year>2012</year>
+          <volume>138</volume>
+          <fpage>251</fpage>
+          <lpage>269</lpage>
+          <pub-id pub-id-type="pmid">22481617</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-ijms-14-14439">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamamoto-Fukuda</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Aoki</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Hishikawa</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Koji</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Possible involvement of keratinocyte growth factor and its receptor in enhanced epithelial-cell proliferation and acquired recurrence of middle-ear cholesteatoma</article-title>
+          <source>Lab. Invest</source>
+          <year>2003</year>
+          <volume>83</volume>
+          <fpage>123</fpage>
+          <lpage>136</lpage>
+          <pub-id pub-id-type="pmid">12533693</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-ijms-14-14439">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huisman</surname>
+              <given-names>M.A.</given-names>
+            </name>
+            <name>
+              <surname>De Heer</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Grote</surname>
+              <given-names>J.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Survival signaling and terminal differentiation in cholesteatoma epithelium</article-title>
+          <source>Acta OtoLaryngol</source>
+          <year>2007</year>
+          <volume>127</volume>
+          <fpage>424</fpage>
+          <lpage>429</lpage>
+          <pub-id pub-id-type="pmid">17453465</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-ijms-14-14439">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>C.I.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>C.C.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J.C.</given-names>
+            </name>
+            <name>
+              <surname>Su</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>H.H.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J.Y.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>Y.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteomic analysis of anti-tumor effects of 11-dehydrosinulariolide on CAL-27 cells</article-title>
+          <source>Mar. Drugs</source>
+          <year>2011</year>
+          <volume>9</volume>
+          <fpage>1254</fpage>
+          <lpage>1272</lpage>
+          <pub-id pub-id-type="pmid">21822415</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-ijms-14-14439">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Su</surname>
+              <given-names>T.R.</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>J.J.</given-names>
+            </name>
+            <name>
+              <surname>Chiu</surname>
+              <given-names>C.C.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J.Y.F.</given-names>
+            </name>
+            <name>
+              <surname>Su</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>Z.J.</given-names>
+            </name>
+            <name>
+              <surname>Hwang</surname>
+              <given-names>W.I.</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>H.H.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>Y.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteomic investigation of anti-tumor activities exerted by sinularin against A2058 melanoma cells</article-title>
+          <source>Electrophoresis</source>
+          <year>2012</year>
+          <volume>33</volume>
+          <fpage>1139</fpage>
+          <lpage>1152</lpage>
+          <pub-id pub-id-type="pmid">22539317</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-ijms-14-14439">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>J.L.</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>H.H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteomic analysis of cholesteatoma</article-title>
+          <source>Acta OtoLaryngol</source>
+          <year>2004</year>
+          <volume>124</volume>
+          <fpage>783</fpage>
+          <lpage>788</lpage>
+          <pub-id pub-id-type="pmid">15370560</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-ijms-14-14439">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shieh</surname>
+              <given-names>T.J.</given-names>
+            </name>
+            <name>
+              <surname>Ho</surname>
+              <given-names>K.Y.</given-names>
+            </name>
+            <name>
+              <surname>Kuo</surname>
+              <given-names>W.R.</given-names>
+            </name>
+            <name>
+              <surname>Chai</surname>
+              <given-names>C.Y.</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>C.S.</given-names>
+            </name>
+            <name>
+              <surname>Juan</surname>
+              <given-names>K.H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Evaluation of proliferative activity in middle ear cholesteatoma using proliferating cell nuclear antigen</article-title>
+          <source>Kaohsiung J. Med. Sci</source>
+          <year>1999</year>
+          <volume>15</volume>
+          <fpage>468</fpage>
+          <lpage>474</lpage>
+          <pub-id pub-id-type="pmid">10518363</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-ijms-14-14439">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yasuda</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kumada</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Ishisaki</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Noda</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Matsushima-Nishiwaki</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Yoshimi</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Toyoda</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kaneoka</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Attenuated phosphorylation of heat shock protein 27 correlates with tumor progression in patients with hepatocellular carcinoma</article-title>
+          <source>Biochem. Biophys. Res. Commun</source>
+          <year>2005</year>
+          <volume>337</volume>
+          <fpage>337</fpage>
+          <lpage>342</lpage>
+          <pub-id pub-id-type="pmid">16199221</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-ijms-14-14439">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yuan</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Rozengurt</surname>
+              <given-names>E.</given-names>
+            </name>
+          </person-group>
+          <article-title>PKD, PKD2, and p38 MAPK mediate Hsp27 serine-82 phosphorylation induced by neurotensin in pancreatic cancer PANC-1 cells</article-title>
+          <source>J. Cell. Biochem</source>
+          <year>2008</year>
+          <volume>103</volume>
+          <fpage>648</fpage>
+          <lpage>662</lpage>
+          <pub-id pub-id-type="pmid">17570131</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-ijms-14-14439">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huisman</surname>
+              <given-names>M.A.</given-names>
+            </name>
+            <name>
+              <surname>De Heer</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Grote</surname>
+              <given-names>J.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Sustained extracellular signal-regulated kinase1/2 mitogen-activated protein kinase signalling is related to increased p21 expression in cholesteatoma epithelium</article-title>
+          <source>Acta Otolaryngol</source>
+          <year>2005</year>
+          <volume>125</volume>
+          <fpage>134</fpage>
+          <lpage>140</lpage>
+          <pub-id pub-id-type="pmid">15880942</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24-ijms-14-14439">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tavaria</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Gabriele</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Kola</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>R.L.</given-names>
+            </name>
+          </person-group>
+          <article-title>A hitchhiker&#x2019;s guide to the human Hsp70 family</article-title>
+          <source>Cell. Stress Chaperones</source>
+          <year>1996</year>
+          <volume>1</volume>
+          <fpage>23</fpage>
+          <lpage>28</lpage>
+          <pub-id pub-id-type="pmid">9222585</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25-ijms-14-14439">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morano</surname>
+              <given-names>K.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>New tricks for an old dog: The evolving world of Hsp70</article-title>
+          <source>Ann. N. Y. Acad. Sci</source>
+          <year>2007</year>
+          <volume>1113</volume>
+          <fpage>1</fpage>
+          <lpage>14</lpage>
+          <pub-id pub-id-type="pmid">17513460</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26-ijms-14-14439">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shinoda</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>C.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Heat shock proteins in middle ear cholesteatoma</article-title>
+          <source>Otolaryngol. Head Neck Surg</source>
+          <year>1996</year>
+          <volume>114</volume>
+          <fpage>77</fpage>
+          <lpage>83</lpage>
+          <pub-id pub-id-type="pmid">8570255</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27-ijms-14-14439">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>A.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>The ER chaperone and signaling regulator GRP78/BiP as a monitor of endoplasmic reticulum stress</article-title>
+          <source>Methods</source>
+          <year>2005</year>
+          <volume>35</volume>
+          <fpage>373</fpage>
+          <lpage>381</lpage>
+          <pub-id pub-id-type="pmid">15804610</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28-ijms-14-14439">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>A.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>The glucose-regulated proteins: Stress induction and clinical applications</article-title>
+          <source>Trends Biochem. Sci</source>
+          <year>2001</year>
+          <volume>26</volume>
+          <fpage>504</fpage>
+          <lpage>510</lpage>
+          <pub-id pub-id-type="pmid">11504627</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29-ijms-14-14439">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hughes</surname>
+              <given-names>C.S.</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>J.W.</given-names>
+            </name>
+            <name>
+              <surname>Subjeck</surname>
+              <given-names>J.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Resistance to etoposide induced by three glucose-regulated stresses in Chinese hamster ovary cells</article-title>
+          <source>Cancer Res</source>
+          <year>1989</year>
+          <volume>49</volume>
+          <fpage>4452</fpage>
+          <lpage>4454</lpage>
+          <pub-id pub-id-type="pmid">2501025</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30-ijms-14-14439">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jamora</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Dennert</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>A.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of tumor progression by suppression of stress protein GRP78/BiP induction in fibrosarcoma B/C10ME</article-title>
+          <source>Proc. Natl. Acad. Sci. USA</source>
+          <year>1996</year>
+          <volume>93</volume>
+          <fpage>7690</fpage>
+          <lpage>7694</lpage>
+          <pub-id pub-id-type="pmid">8755537</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31-ijms-14-14439">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Song</surname>
+              <given-names>M.S.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>Y.K.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Induction of Glucose-regulated Protein 78 by Chronic Hypoxia in Human Gastric Tumor Cells through a Protein Kinase C-&#x25B;/ERK/AP-1 Signaling Cascade</article-title>
+          <source>Cancer Res</source>
+          <year>2001</year>
+          <volume>61</volume>
+          <fpage>8322</fpage>
+          <lpage>8330</lpage>
+          <pub-id pub-id-type="pmid">11719466</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32-ijms-14-14439">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Voisine</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Craig</surname>
+              <given-names>E.A.</given-names>
+            </name>
+            <name>
+              <surname>Zufall</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>von Ahsen</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Pfanner</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Voos</surname>
+              <given-names>W.</given-names>
+            </name>
+          </person-group>
+          <article-title>The protein import motor of mitochondria: Unfolding and trapping of preproteins are distinct and separable functions of matrix Hsp70</article-title>
+          <source>Cell</source>
+          <year>1999</year>
+          <volume>97</volume>
+          <fpage>565</fpage>
+          <lpage>574</lpage>
+          <pub-id pub-id-type="pmid">10367886</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b33-ijms-14-14439">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Izumi</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kanai</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Kabuyama</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Ahn</surname>
+              <given-names>N.G.</given-names>
+            </name>
+            <name>
+              <surname>Fukasawa</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Mortalin controls centrosome duplication via modulating centrosomal localization of p53</article-title>
+          <source>Oncogene</source>
+          <year>2006</year>
+          <volume>25</volume>
+          <fpage>5377</fpage>
+          <lpage>5390</lpage>
+          <pub-id pub-id-type="pmid">16619038</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34-ijms-14-14439">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lim</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Guiard</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Pfanner</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Voos</surname>
+              <given-names>W.</given-names>
+            </name>
+          </person-group>
+          <article-title>The mitochondrial Hsp70-dependent import system actively unfolds preproteins and shortens the lag phase of translocation</article-title>
+          <source>EMBO J</source>
+          <year>2001</year>
+          <volume>20</volume>
+          <fpage>941</fpage>
+          <lpage>950</lpage>
+          <pub-id pub-id-type="pmid">11230118</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35-ijms-14-14439">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sacht</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Brigelius-Flohe</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Kiess</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Sztajer</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Flohe</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>ATP-sensitive association of mortalin with the IL-1 receptor type I</article-title>
+          <source>Biofactors</source>
+          <year>1999</year>
+          <volume>9</volume>
+          <fpage>49</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="pmid">10221157</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b36-ijms-14-14439">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takano</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Wadhwa</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Mitsui</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Kaul</surname>
+              <given-names>S.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification and characterization of molecular interactions between glucose-regulated proteins (GRPs) mortalin/GRP75/peptide-binding protein 74 (PBP74) and GRP94</article-title>
+          <source>Biochem. J</source>
+          <year>2001</year>
+          <volume>357</volume>
+          <fpage>393</fpage>
+          <lpage>398</lpage>
+          <pub-id pub-id-type="pmid">11439088</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b37-ijms-14-14439">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wadhwa</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Yaguchi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Hasan</surname>
+              <given-names>M.K.</given-names>
+            </name>
+            <name>
+              <surname>Taira</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kaul</surname>
+              <given-names>S.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Mortalin-MPD (mevalonate pyrophosphate decarboxylase) interactions and their role in control of cellular proliferation</article-title>
+          <source>Biochem. Biophys. Res. Commun</source>
+          <year>2003</year>
+          <volume>302</volume>
+          <fpage>735</fpage>
+          <lpage>742</lpage>
+          <pub-id pub-id-type="pmid">12646231</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b38-ijms-14-14439">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mizukoshi</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Misono</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Loupatov</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Munekata</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kaul</surname>
+              <given-names>S.C.</given-names>
+            </name>
+            <name>
+              <surname>Wadhwa</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Imamura</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell-cycle dependent tyrosine phosphorylation on mortalin regulates its interaction with fibroblast growth factor-1</article-title>
+          <source>Biochem. Biophys. Res. Commun</source>
+          <year>2001</year>
+          <volume>280</volume>
+          <fpage>1203</fpage>
+          <lpage>1209</lpage>
+          <pub-id pub-id-type="pmid">11162655</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b39-ijms-14-14439">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yaguchi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Aida</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Kaul</surname>
+              <given-names>S.C.</given-names>
+            </name>
+            <name>
+              <surname>Wadhwa</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of mortalin in cellular senescence from the perspective of its mitochondrial import, chaperone, and oxidative stress management functions</article-title>
+          <source>Ann. N. Y. Acad. Sci</source>
+          <year>2007</year>
+          <volume>1100</volume>
+          <fpage>306</fpage>
+          <lpage>311</lpage>
+          <pub-id pub-id-type="pmid">17460192</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b40-ijms-14-14439">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wadhwa</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Takano</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Taira</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kaul</surname>
+              <given-names>S.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Reduction in mortalin level by its antisense expression causes senescence-like growth arrest in human immortalized cells</article-title>
+          <source>J. Gene Med</source>
+          <year>2004</year>
+          <volume>6</volume>
+          <fpage>439</fpage>
+          <lpage>444</lpage>
+          <pub-id pub-id-type="pmid">15079818</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b41-ijms-14-14439">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Langer</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Feith</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Siewert</surname>
+              <given-names>J.R.</given-names>
+            </name>
+            <name>
+              <surname>Wester</surname>
+              <given-names>H.J.</given-names>
+            </name>
+            <name>
+              <surname>Hoefler</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression and clinical significance of glucose regulated proteins GRP78 (BiP) and GRP94 (GP96) in human adenocarcinomas of the esophagus</article-title>
+          <source>BMC Cancer</source>
+          <year>2008</year>
+          <volume>8</volume>
+          <pub-id pub-id-type="doi">10.1186/1471-2407-8-70</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b42-ijms-14-14439">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zheng</surname>
+              <given-names>H.C.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>X.H.</given-names>
+            </name>
+            <name>
+              <surname>Hara</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Masuda</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>Y.F.</given-names>
+            </name>
+            <name>
+              <surname>Takano</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Overexpression of GRP78 and GRP94 are markers for aggressive behavior and poor prognosis in gastric carcinomas</article-title>
+          <source>Hum. Pathol</source>
+          <year>2008</year>
+          <volume>39</volume>
+          <fpage>1042</fpage>
+          <lpage>1049</lpage>
+          <pub-id pub-id-type="pmid">18482745</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b43-ijms-14-14439">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fu</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>A.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Glucose regulated proteins in cancer progression, drug resistance and immunotherapy</article-title>
+          <source>Cancer Biol. Ther</source>
+          <year>2006</year>
+          <volume>5</volume>
+          <fpage>741</fpage>
+          <lpage>744</lpage>
+          <pub-id pub-id-type="pmid">16861902</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b44-ijms-14-14439">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kubota</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>D.H.</given-names>
+            </name>
+            <name>
+              <surname>Tsuchiya</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>C.S.</given-names>
+            </name>
+            <name>
+              <surname>Everett</surname>
+              <given-names>E.T.</given-names>
+            </name>
+            <name>
+              <surname>Martinez-Mier</surname>
+              <given-names>E.A.</given-names>
+            </name>
+            <name>
+              <surname>Snead</surname>
+              <given-names>M.L.</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Urano</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Bartlett</surname>
+              <given-names>J.D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Fluoride induces endoplasmic reticulum stress in ameloblasts responsible for dental enamel formation</article-title>
+          <source>J. Biol. Chem</source>
+          <year>2005</year>
+          <volume>280</volume>
+          <fpage>23194</fpage>
+          <lpage>23202</lpage>
+          <pub-id pub-id-type="pmid">15849362</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b45-ijms-14-14439">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garrido</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Brunet</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Didelot</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Zermati</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Schmitt</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kroemer</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Heat shock proteins 27 and 70: Anti-apoptotic proteins with tumorigenic properties</article-title>
+          <source>Cell. Cycle</source>
+          <year>2006</year>
+          <volume>5</volume>
+          <fpage>2592</fpage>
+          <lpage>2601</lpage>
+          <pub-id pub-id-type="pmid">17106261</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b46-ijms-14-14439">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bruey</surname>
+              <given-names>J.M.</given-names>
+            </name>
+            <name>
+              <surname>Paul</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Fromentin</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Hilpert</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Arrigo</surname>
+              <given-names>A.P.</given-names>
+            </name>
+            <name>
+              <surname>Solary</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Garrido</surname>
+              <given-names>C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Differential regulation of HSP27 oligomerization in tumor cells grown <italic>in vitro</italic> and <italic>in vivo</italic></article-title>
+          <source>Oncogene</source>
+          <year>2000</year>
+          <volume>19</volume>
+          <fpage>4855</fpage>
+          <lpage>4863</lpage>
+          <pub-id pub-id-type="pmid">11039903</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b47-ijms-14-14439">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Sheng</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Ye</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Peng</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Shi</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Crowe</surname>
+              <given-names>D.L.</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>X.</given-names>
+            </name>
+          </person-group>
+          <article-title>Dysregulation of heat shock protein 27 expression in oral tongue squamous cell carcinoma</article-title>
+          <source>BMC Cancer</source>
+          <year>2009</year>
+          <volume>9</volume>
+          <pub-id pub-id-type="doi">10.1186/1471-2407-9-167</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b48-ijms-14-14439">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Bergan</surname>
+              <given-names>R.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>MAPKAPK2 and HSP27 are downstream effectors of p38 MAP kinase-mediated matrix metalloproteinase type 2 activation and cell invasion in human prostate cancer</article-title>
+          <source>Oncogene</source>
+          <year>2006</year>
+          <volume>25</volume>
+          <fpage>2987</fpage>
+          <lpage>2998</lpage>
+          <pub-id pub-id-type="pmid">16407830</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b49-ijms-14-14439">
+        <label>49</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kostenko</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Moens</surname>
+              <given-names>U.</given-names>
+            </name>
+          </person-group>
+          <article-title>Heat shock protein 27 phosphorylation: Kinases, phosphatases, functions and pathology</article-title>
+          <source>Cell. Mol. Life Sci</source>
+          <year>2009</year>
+          <volume>66</volume>
+          <fpage>3289</fpage>
+          <lpage>3307</lpage>
+          <pub-id pub-id-type="pmid">19593530</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b50-ijms-14-14439">
+        <label>50</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gibbs</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Silva Pinto</surname>
+              <given-names>A.N.</given-names>
+            </name>
+            <name>
+              <surname>Murli</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Huber</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Hohl</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Ponec</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor and keratinocyte growth factor differentially regulate epidermal migration, growth, and differentiation</article-title>
+          <source>Wound Repair Regen</source>
+          <year>2000</year>
+          <volume>8</volume>
+          <fpage>192</fpage>
+          <lpage>203</lpage>
+          <pub-id pub-id-type="pmid">10886810</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b51-ijms-14-14439">
+        <label>51</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shirakata</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of epidermal keratinocytes by growth factors</article-title>
+          <source>J. Dermatol. Sci</source>
+          <year>2010</year>
+          <volume>59</volume>
+          <fpage>73</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="pmid">20570492</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b52-ijms-14-14439">
+        <label>52</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Niwa</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Hotta</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Hara</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Hirade</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Ito</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kozawa</surname>
+              <given-names>O.</given-names>
+            </name>
+          </person-group>
+          <article-title>TNF-&#x3B1; decreases hsp 27 in human blood mononuclear cells: Involvement of protein kinase c</article-title>
+          <source>Life Sci</source>
+          <year>2006</year>
+          <volume>80</volume>
+          <fpage>181</fpage>
+          <lpage>186</lpage>
+          <pub-id pub-id-type="pmid">17069861</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b53-ijms-14-14439">
+        <label>53</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sudhoff</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Dazert</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Gonzales</surname>
+              <given-names>A.M.</given-names>
+            </name>
+            <name>
+              <surname>Borkowski</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>S.Y.</given-names>
+            </name>
+            <name>
+              <surname>Baird</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Hildmann</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Ryan</surname>
+              <given-names>A.F.</given-names>
+            </name>
+          </person-group>
+          <article-title>Angiogenesis and angiogenic growth factors in middle ear cholesteatoma</article-title>
+          <source>Otol. Neurotol</source>
+          <year>2000</year>
+          <volume>21</volume>
+          <fpage>793</fpage>
+          <lpage>798</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b54-ijms-14-14439">
+        <label>54</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Evans</surname>
+              <given-names>I.M.</given-names>
+            </name>
+            <name>
+              <surname>Britton</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Zachary</surname>
+              <given-names>I.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Vascular endothelial growth factor induces heat shock protein (HSP) 27 serine 82 phosphorylation and endothelial tubulogenesis via protein kinase D and independent of p38 kinase</article-title>
+          <source>Cell Signal</source>
+          <year>2008</year>
+          <volume>20</volume>
+          <fpage>1375</fpage>
+          <lpage>1384</lpage>
+          <pub-id pub-id-type="pmid">18440775</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b55-ijms-14-14439">
+        <label>55</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schluter</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Apweiler</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Holzhutter</surname>
+              <given-names>H.G.</given-names>
+            </name>
+            <name>
+              <surname>Jungblut</surname>
+              <given-names>P.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Finding one&#x2019;s way in proteomics: A protein species nomenclature</article-title>
+          <source>Chem. Cent. J.</source>
+          <year>2009</year>
+          <volume>3</volume>
+          <pub-id pub-id-type="doi">10.1186/1752-153X-3-11</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b56-ijms-14-14439">
+        <label>56</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>C.C.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>C.T.</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>T.S.</given-names>
+            </name>
+            <name>
+              <surname>Shinoda</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Mediation of signal transduction in keratinocytes of human middle ear cholesteatoma by ras protein</article-title>
+          <source>Eur. Arch. Otorhinolaryngol</source>
+          <year>1996</year>
+          <volume>253</volume>
+          <fpage>385</fpage>
+          <lpage>389</lpage>
+          <pub-id pub-id-type="pmid">8891480</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b57-ijms-14-14439">
+        <label>57</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wong</surname>
+              <given-names>J.W.</given-names>
+            </name>
+            <name>
+              <surname>Shi</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Farboud</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>McClaren</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Shibamoto</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Cross</surname>
+              <given-names>C.E.</given-names>
+            </name>
+            <name>
+              <surname>Isseroff</surname>
+              <given-names>R.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Ultraviolet B-mediated phosphorylation of the small heat shock protein HSP27 in human keratinocytes</article-title>
+          <source>J. Investig. Dermatol</source>
+          <year>2000</year>
+          <volume>115</volume>
+          <fpage>427</fpage>
+          <lpage>434</lpage>
+          <pub-id pub-id-type="pmid">10951279</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b58-ijms-14-14439">
+        <label>58</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Robitaille</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Simard-Bisson</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Larouche</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Tanguay</surname>
+              <given-names>R.M.</given-names>
+            </name>
+            <name>
+              <surname>Blouin</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Germain</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>The small heat-shock protein Hsp27 undergoes ERK-dependent phosphorylation and redistribution to the cytoskeleton in response to dual leucine zipper-bearing kinase expression</article-title>
+          <source>J. Invest. Dermatol</source>
+          <year>2010</year>
+          <volume>130</volume>
+          <fpage>74</fpage>
+          <lpage>85</lpage>
+          <pub-id pub-id-type="pmid">19675578</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b59-ijms-14-14439">
+        <label>59</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mitev</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Miteva</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>Signal transduction in keratinocytes</article-title>
+          <source>Exp. Dermatol</source>
+          <year>1999</year>
+          <volume>8</volume>
+          <fpage>96</fpage>
+          <lpage>108</lpage>
+          <pub-id pub-id-type="pmid">10232399</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b60-ijms-14-14439">
+        <label>60</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rozengurt</surname>
+              <given-names>E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Protein kinase D signaling: Multiple biological functions in health and disease</article-title>
+          <source>Physiology (Bethesda)</source>
+          <year>2011</year>
+          <volume>26</volume>
+          <fpage>23</fpage>
+          <lpage>33</lpage>
+          <pub-id pub-id-type="pmid">21357900</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b61-ijms-14-14439">
+        <label>61</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Valyi-Nagy</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Jensen</surname>
+              <given-names>P.J.</given-names>
+            </name>
+            <name>
+              <surname>Albelda</surname>
+              <given-names>S.M.</given-names>
+            </name>
+            <name>
+              <surname>Rodeck</surname>
+              <given-names>U.</given-names>
+            </name>
+          </person-group>
+          <article-title>Cytokine-induced expression of transforming growth factor-alpha and the epidermal growth factor receptor in neonatal skin explants</article-title>
+          <source>J. Invest. Dermatol</source>
+          <year>1992</year>
+          <volume>99</volume>
+          <fpage>350</fpage>
+          <lpage>356</lpage>
+          <pub-id pub-id-type="pmid">1512472</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b62-ijms-14-14439">
+        <label>62</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Saunders</surname>
+              <given-names>N.A.</given-names>
+            </name>
+            <name>
+              <surname>Jetten</surname>
+              <given-names>A.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Control of growth regulatory and differentiation-specific genes in human epidermal keratinocytes by interferon gamma. Antagonism by retinoic acid and transforming growth factor beta 1</article-title>
+          <source>J. Biol. Chem</source>
+          <year>1994</year>
+          <volume>269</volume>
+          <fpage>2016</fpage>
+          <lpage>2022</lpage>
+          <pub-id pub-id-type="pmid">7904998</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b63-ijms-14-14439">
+        <label>63</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yun</surname>
+              <given-names>S.J.</given-names>
+            </name>
+            <name>
+              <surname>Seo</surname>
+              <given-names>J.J.</given-names>
+            </name>
+            <name>
+              <surname>Chae</surname>
+              <given-names>J.Y.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Peroxiredoxin I and II are up-regulated during differentiation of epidermal keratinocytes</article-title>
+          <source>Arch. Dermatol. Res</source>
+          <year>2005</year>
+          <volume>296</volume>
+          <fpage>555</fpage>
+          <lpage>559</lpage>
+          <pub-id pub-id-type="pmid">15864612</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b64-ijms-14-14439">
+        <label>64</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Myers</surname>
+              <given-names>E.N.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Chun</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Hwang</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Signal transduction pathway in human middle ear cholesteatoma</article-title>
+          <source>Otolaryngol. Head Neck Surg</source>
+          <year>1999</year>
+          <volume>120</volume>
+          <fpage>899</fpage>
+          <lpage>904</lpage>
+          <pub-id pub-id-type="pmid">10352447</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b65-ijms-14-14439">
+        <label>65</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ryu</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>S.G.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>B.C.</given-names>
+            </name>
+            <name>
+              <surname>Choe</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>K.S.</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>J.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteomic analysis of psoriatic skin tissue for identification of differentially expressed proteins: Up-regulation of GSTP1, SFN and PRDX2 in psoriatic skin</article-title>
+          <source>Int. J. Mol. Med</source>
+          <year>2011</year>
+          <volume>28</volume>
+          <fpage>785</fpage>
+          <lpage>792</lpage>
+          <pub-id pub-id-type="pmid">21805023</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b66-ijms-14-14439">
+        <label>66</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wu</surname>
+              <given-names>Y.J.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>H.M.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>T.T.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J.S.</given-names>
+            </name>
+            <name>
+              <surname>Chu</surname>
+              <given-names>R.M.</given-names>
+            </name>
+            <name>
+              <surname>Juang</surname>
+              <given-names>R.H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Preparation of monoclonal antibody bank against whole water-soluble proteins from rapid-growing bamboo shoots</article-title>
+          <source>Proteomics</source>
+          <year>2006</year>
+          <volume>6</volume>
+          <fpage>5898</fpage>
+          <lpage>5902</lpage>
+          <pub-id pub-id-type="pmid">17051642</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-ijms-14-14439" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>2-DE maps of (<bold>A</bold>) cholesteatoma tissues (pI 4&#x2013;7) and (<bold>B</bold>) retroauricular skin (pI 4&#x2013;7). A total of 23 differential proteins were identified by LC-MS/MS analysis (<xref rid="t2-ijms-14-14439" ref-type="table">Table 2</xref>).</p>
+      </caption>
+      <graphic xlink:href="ijms-14-14439f1"/>
+    </fig>
+    <fig id="f2-ijms-14-14439" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>2D side-by-side comparison of the 2-DE Western blot images of HSP27, PRDX2, GRP78 and GRP75 in cholesteatoma tissues and retroauricular skin run with pI 4&#x2013;7 and pI 3&#x2013;10, respectively. Images <bold>A</bold>, <bold>B</bold>, <bold>C</bold> and <bold>D</bold> are for HSP27. Images <bold>E</bold>, <bold>F</bold>, <bold>G</bold> and <bold>H</bold> are for PRDX2. Images <bold>I</bold>, <bold>J</bold>, <bold>K</bold> and <bold>L</bold> are for GRP78. Images <bold>M</bold>, <bold>N</bold>, <bold>O</bold> and <bold>P</bold> are for GRP75.</p>
+      </caption>
+      <graphic xlink:href="ijms-14-14439f2"/>
+    </fig>
+    <fig id="f3-ijms-14-14439" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>MS/MS profile and immunoblot data of phosphorylated HSP27. (<bold>A</bold>) MS/MS spectrum of phosphorylated HSP27 indicated the phosphorylation site at QLpSSGVSEIR; (<bold>B</bold>) Verification of phosphorylation-HSP27 (Ser-82) by Western blotting analysis. Cholesteatoma is presented by C, and retroauricular skin is presented by S. &#x3B2;-actin was used for normalization.</p>
+      </caption>
+      <graphic xlink:href="ijms-14-14439f3"/>
+    </fig>
+    <fig id="f4-ijms-14-14439" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Validation of HSP27, GRP75, GRP78, GRP94 and PRDX2 by Western blotting analysis and RT-PCR. The tissues of cholesteatoma and retroauricular skin were collected from six individual patients. Cholesteatoma is presented by C, and retroauricular skin is presented by S. &#x3B2;-actin was used for normalization.</p>
+      </caption>
+      <graphic xlink:href="ijms-14-14439f4"/>
+    </fig>
+    <fig id="f5-ijms-14-14439" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>Validation of Ras, Raf, ERK1/2, MEK1/2, p38MAPK and MAPKAPK2 by Western blotting analysis. The tissues of cholesteatoma and retroauricular skin were from six individual patients. Cholesteatoma is presented by C, and retroauricular skin is presented by S. &#x3B2;-actin was used for normalization.</p>
+      </caption>
+      <graphic xlink:href="ijms-14-14439f5"/>
+    </fig>
+    <fig id="f6-ijms-14-14439" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p>Immunoreactive staining of HSP27 for patient 5. (<bold>A</bold>,<bold>C</bold>) A strong and homogenous positive brownish staining in all layers of cholesteatoma epithelium (arrows). (<bold>B</bold>,<bold>D</bold>) Heterogeneous positive brownish staining in retroauricular skin (arrows) (<bold>C</bold>), (<bold>D</bold>). Immunoreactivity was confined to the cytoplasm of keratinocytes (arrows). The negative control was represented as (<bold>E</bold>). Magnification: (<bold>A</bold> and <bold>B</bold>) &#xD7;100; (<bold>A</bold> inset, <bold>C</bold>) &#xD7;200; (<bold>B</bold> inset, <bold>D</bold>) &#xD7;200; (<bold>E</bold>) &#xD7;200.</p>
+      </caption>
+      <graphic xlink:href="ijms-14-14439f6"/>
+    </fig>
+    <table-wrap id="t1-ijms-14-14439" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Summary of differential proteins identified by LC-MS/MS analysis.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="center" valign="top" rowspan="1" colspan="1">Spot No.</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Protein name</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Accession No.</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Calculate Mw/<italic>p</italic>I</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Peptide matched</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Sequence covered %</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">MASCO T score</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Biological process</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">1</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat-shock protein 27</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P04792</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">22.7/5.98</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">41</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">61</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">547</td>
+            <td align="left" valign="top" rowspan="5" colspan="1">negative regulation of apoptotic process<break/>positive regulation of angiogenesis<break/>positive regulation of endothelial cell chemotaxis y<break/>positive regulation of interleukin-1 beta production<break/>positive regulation of tumor<break/>necrosis factor biosynthetic process regulation of I-kappaB<break/>kinase/NF-kappaB cascade regulation of translational initiation response to unfolded protein</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">2</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat-shock protein 27</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P04792</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">22.7/5.98</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">10</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">30</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">190</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">3</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat-shock protein 27</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P04792</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">22.7/5.98</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">25</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">140</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">4</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat-shock protein 27</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P04792</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">22.7/5.98</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">36</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">48</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">385</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">5</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat-shock protein 27</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P04792</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">22.7/5.98</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">10</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">37</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">150</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Peroxiredoxin-2</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P32119</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">21.8/5.66</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">19</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">43</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">174</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">hydrogen peroxide catabolic process</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">7</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Peroxiredoxin-2</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P32119</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">21.8/5.66</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">40</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">44</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">641</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">negative regulation of apoptotic process</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">8</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Peroxiredoxin-2</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P32119</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">21.8/5.66</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">26</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">42</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">336</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">removal of superoxide radicals</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">75 kDa glucose-regulated protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P38646</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">73.6/5.87</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">13</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">15</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">157</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">negative regulation of apoptotic process<break/>protein export from nucleus<break/>protein folding<break/>protein targeting to mitochondrion</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">10</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat shock cognate 71 kDa protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P11142</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">70.8/5.37</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">39</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">34</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">339</td>
+            <td align="left" valign="top" rowspan="2" colspan="1">mRNA metabolic process<break/>negative regulation of transcription<break/>protein folding<break/>regulation of cell cycle<break/>response to unfolded protein</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">11</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Heat shock cognate 71 kDa protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P11142</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">70.8/5.37</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">59</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">46</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">624</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">78 kDa glucose-regulated protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P11021</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">72.2/5.07</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">15</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">16</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">123</td>
+            <td align="left" valign="top" rowspan="2" colspan="1">ER overload response<break/>ER-associated protein catabolic process<break/>negative regulation of apoptotic process<break/>positive regulation of protein<break/>ubiquitination<break/>regulation of protein folding in endoplasmic reticulum</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">13</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">78 kDa glucose-regulated protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P11021</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">72.2/5.07</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">55</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">42</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">719</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">14</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">94 kDa glucose-regulated protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P14625</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">92.4/4.76</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">75</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">37</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">799</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">ER-associated protein catabolic process<break/>actin rod assembly<break/>activation of signaling protein<break/>activity involved in unfolded<break/>protein response<break/>negative regulation of apoptotic process<break/>protein folding</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">15</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Uncharacterize d protein C7orf24</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">O75223</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">20.9/5.07</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">13</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">26</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">158</td>
+            <td align="center" valign="middle" rowspan="2" colspan="1">glutathione biosynthetic process release of cytochrome c from mitochondria</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">16</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Uncharacterize d protein C7orf24</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">O75223</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">20.9/5.07</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">7</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">18</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">104</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">17</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">NEDD8-conjugating enzyme Ubc12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P61081</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">20.8/7.57</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">3</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">35</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">protein neddylation</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">18</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Serum albumin precursor</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P02768</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">69.3/5.92</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">41</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">25</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">388</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">lipoprotein metabolic process<break/>maintenance of mitochondrion location<break/>negative regulation of apoptotic process<break/>response to nutrient</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">19</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Glial fibrillary acidic protein</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P14136</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">49.8/5.42</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">11</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">141</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">extracellular matrix organization<break/>intermediate filament organization<break/>response to wounding</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">20</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Ig alpha-1 chain C region</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P01876</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">37.6/6.08</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">81</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">immune response<break/>protein-chromophore linkage</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">21</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Transitional endoplasmic reticulum ATPase</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P55072</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">89.2/5.14</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">27</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">21</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">176</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">ER-associated protein catabolic process<break/>activity involved in apoptotic process<break/>double-strand break repair<break/>endoplasmic reticulum unfolded<break/>protein response<break/>protein ubiquitination</td>
+          </tr>
+          <tr>
+            <td colspan="8" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">22</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Serotransferrin precursor</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P02787</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">77.0/6.81</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">31</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">23</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">306</td>
+            <td align="center" valign="middle" rowspan="2" colspan="1">cellular iron ion homeostasis<break/>transferrin transport<break/>transmembrane transport</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">23</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Serotransferrin precursor</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">P02787</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">77.0/6.81</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">20</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">18</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">181</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+    <table-wrap id="t2-ijms-14-14439" position="float">
+      <label>Table 2</label>
+      <caption>
+        <p>Statistical characteristics of patients with cholesteatoma and the staining scores of HSP27 for the twelve patients.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="center" valign="top" rowspan="1" colspan="1">Patient No.</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Sex</th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Age</th>
+            <th colspan="2" align="center" valign="top" rowspan="1">Hsp27 staining score</th>
+          </tr>
+          <tr>
+            <th align="center" valign="top" rowspan="1" colspan="1"/>
+            <th align="center" valign="top" rowspan="1" colspan="1"/>
+            <th align="center" valign="top" rowspan="1" colspan="1"/>
+            <th colspan="2" align="left" valign="top" rowspan="1">
+<hr/></th>
+          </tr>
+          <tr>
+            <th align="center" valign="top" rowspan="1" colspan="1"/>
+            <th align="center" valign="top" rowspan="1" colspan="1"/>
+            <th align="center" valign="top" rowspan="1" colspan="1"/>
+            <th align="center" valign="top" rowspan="1" colspan="1">Cholesteatoma <xref rid="tfn2-ijms-14-14439" ref-type="table-fn">a</xref></th>
+            <th align="center" valign="top" rowspan="1" colspan="1">Retroauricular skin <xref rid="tfn2-ijms-14-14439" ref-type="table-fn">b</xref></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">1</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Male</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">22</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">4</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">2</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">13</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">3</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">56</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">4</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">68</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">3</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">5</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">31</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Male</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">35</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">2</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">7</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">2</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">8</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Male</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">50</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">8</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">3</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">57</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">8</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">2</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">10</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">26</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">9</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">4</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">11</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">14</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">6</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">12</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">Female</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">57</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">8</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">3</td>
+          </tr>
+          <tr>
+            <td colspan="5" align="left" valign="top" rowspan="1">
+<hr/></td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" rowspan="1" colspan="1">Mean</td>
+            <td align="center" valign="top" rowspan="1" colspan="1"/>
+            <td align="center" valign="top" rowspan="1" colspan="1">40.5</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">9.7</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">4.0</td>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn1-ijms-14-14439">
+          <p>Paired <italic>t</italic>-test:</p>
+        </fn>
+        <fn id="tfn2-ijms-14-14439">
+          <label>a b</label>
+          <p><italic>p</italic> &lt; 0.05.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

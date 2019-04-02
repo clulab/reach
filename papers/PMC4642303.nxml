@@ -1,0 +1,547 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26559489</article-id>
+      <article-id pub-id-type="pmc">4642303</article-id>
+      <article-id pub-id-type="pii">srep16479</article-id>
+      <article-id pub-id-type="doi">10.1038/srep16479</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Generation of enterocyte-like cells from human induced pluripotent stem cells for drug absorption and metabolism studies in human small intestine</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ozawa</surname>
+            <given-names>Tatsuya</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+          <xref ref-type="aff" rid="a2">2</xref>
+          <xref ref-type="author-notes" rid="n1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takayama</surname>
+            <given-names>Kazuo</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+          <xref ref-type="aff" rid="a2">2</xref>
+          <xref ref-type="aff" rid="a3">3</xref>
+          <xref ref-type="author-notes" rid="n1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Okamoto</surname>
+            <given-names>Ryota</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+          <xref ref-type="aff" rid="a2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Negoro</surname>
+            <given-names>Ryosuke</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sakurai</surname>
+            <given-names>Fuminori</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+          <xref ref-type="aff" rid="a4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tachibana</surname>
+            <given-names>Masashi</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kawabata</surname>
+            <given-names>Kenji</given-names>
+          </name>
+          <xref ref-type="aff" rid="a5">5</xref>
+          <xref ref-type="aff" rid="a6">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mizuguchi</surname>
+            <given-names>Hiroyuki</given-names>
+          </name>
+          <xref ref-type="corresp" rid="c1">a</xref>
+          <xref ref-type="aff" rid="a1">1</xref>
+          <xref ref-type="aff" rid="a2">2</xref>
+          <xref ref-type="aff" rid="a3">3</xref>
+          <xref ref-type="aff" rid="a7">7</xref>
+        </contrib>
+        <aff id="a1"><label>1</label><institution>Laboratory of Biochemistry and Molecular Biology, Graduate School of Pharmaceutical Sciences, Osaka University</institution>, Osaka 565-0871, <country>Japan</country></aff>
+        <aff id="a2"><label>2</label><institution>Laboratory of Hepatocyte Regulation, National Institute of Biomedical Innovation, Health and Nutrition</institution>, Osaka 567-0085, <country>Japan</country></aff>
+        <aff id="a3"><label>3</label><institution>iPS Cell-based Research Project on Hepatic Toxicity and Metabolism, Graduate School of Pharmaceutical Sciences, Osaka University</institution>, Osaka 565-0871, <country>Japan</country></aff>
+        <aff id="a4"><label>4</label><institution>Laboratory of Regulatory Sciences for Oligonucleotide Therapeutics, Clinical Drug Development Project, Graduate School of Pharmaceutical Sciences, Osaka University</institution> Osaka 565-0871, <country>Japan</country></aff>
+        <aff id="a5"><label>5</label><institution>Laboratory of Stem Cell Regulation, National Institute of Biomedical Innovation, Health and Nutrition</institution>, Osaka 567-0085, <country>Japan</country></aff>
+        <aff id="a6"><label>6</label><institution>Laboratory of Biomedical Innovation, Graduate School of Pharmaceutical Sciences, Osaka University</institution>, Osaka 565-0871, <country>Japan</country></aff>
+        <aff id="a7"><label>7</label><institution>Global Center for Medical Engineering and Informatics, Osaka University</institution>, Osaka 565-0871, <country>Japan</country></aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1">
+          <label>a</label>
+          <email>mizuguch@phs.osaka-u.ac.jp</email>
+        </corresp>
+        <fn id="n1">
+          <label>*</label>
+          <p>These authors contributed equally to this work.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>12</day>
+        <month>11</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2015</year>
+      </pub-date>
+      <volume>5</volume>
+      <elocation-id>16479</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>27</day>
+          <month>03</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>14</day>
+          <month>10</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2015, Macmillan Publishers Limited</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <copyright-holder>Macmillan Publishers Limited</copyright-holder>
+        <license xmlns:xlink="http://www.w3.org/1999/xlink" license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <!--author-paid-->
+          <license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Enterocytes play an important role in drug absorption and metabolism. However, a widely used enterocyte model, Caco-2 cell, has difficulty in evaluating both drug absorption and metabolism because the expression levels of some drug absorption and metabolism-related genes in these cells differ largely from those of human enterocytes. Therefore, we decided to generate the enterocyte-like cells from human induced pluripotent stem (iPS) cells (hiPS-ELCs), which are applicable to drug absorption and metabolism studies. The efficiency of enterocyte differentiation from human iPS cells was significantly improved by using EGF, SB431542, and Wnt3A, and extending the differentiation period. The gene expression levels of <italic>cytochrome P450 3A4</italic> (CYP3A4) and <italic>peptide transporter 1</italic> in the hiPS-ELCs were higher than those in Caco-2 cells. In addition, CYP3A4 expression in the hiPS-ELCs was induced by treatment with 1, 25-dihydroxyvitamin D3 or rifampicin, which are known to induce CYP3A4 expression, indicating that the hiPS-ELCs have CYP3A4 induction potency. Moreover, the transendothelial electrical resistance (TEER) value of the hiPS-ELC monolayer was approximately 240&#x2009;&#x3A9;*cm<sup>2</sup>, suggesting that the hiPS-ELC monolayer could form a barrier. In conclusion, we succeeded in establishing an enterocyte model from human iPS cells which have potential to be applied for drug absorption and metabolism studies.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <p>It is known that poor pharmacokinetics and poor bioavailability are responsible for approximately 10% of drug withdrawal<xref ref-type="bibr" rid="b1">1</xref>. Various organs, including the small intestine, play an important role in pharmacokinetics (absorption, distribution, metabolism, and excretion) and bioavailability. Because the drug transporters and metabolism enzymes are strongly expressed in enterocytes, which are the primary site of drug absorption after oral administration, the small intestine plays a major role in drug absorption and metabolism<xref ref-type="bibr" rid="b2">2</xref>. Specifically, cytochrome P450 3A4 (CYP3A4, the dominant drug metabolizing enzyme in the human small intestine), peptide transporter 1 (PEPT1), and P-glycoprotein (P-gp) are expressed at high levels in the enterocytes<xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b4">4</xref>. Because CYP3A4 interacts with absorbed drugs in the enterocytes, CYP3A4-mediated intestinal metabolism is a significant factor in oral drug bioavailability<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. In addition, CYP3A4 and P-gp share not only many substrates (e.g., dexamethasone and etoposide) and inhibitors (e.g., quinidine and testosterone), but also inducers such as rifampicin<xref ref-type="bibr" rid="b7">7</xref>. Therefore, a model that could evaluate both drug absorption and metabolism would greatly facilitate the development of safer and more effective drugs.</p>
+    <p>Animal models are used for evaluation of drug absorption in the small intestine. However, it is known that there are species differences in small intestinal drug absorption and the first-pass effect. Because human primary enterocytes cannot be obtained in large numbers, Caco-2 cells (a human colorectal carcinoma cell line) monolayers are widely utilized for drug absorption studies in human small intestine<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref>. Polarized Caco-2 cell monolayers can form a physical and biochemical barrier that reproduces the enterocyte barrier of the human small intestine. Although the Caco-2 cell monolayer is a useful model, it does have some significant drawbacks. First, it is difficult to accurately evaluate CYP3A4-mediated drug metabolism and the CYP3A4 induction potency of drugs because the CYP3A4 expression levels in Caco-2 cells are much lower than those in the enterocytes<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref>. Consequently, it is difficult to evaluate both drug absorption and metabolism by using the Caco-2 cell monolayer model. Secondly, the permeability level of hydrophilic drugs, which are absorbed via the paracellular route, in Caco-2 cells is lower than that in the human small intestine<xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b13">13</xref>. Therefore, it is also difficult to evaluate the hydrophilic drug absorption by using the Caco-2 cell monolayer model. There is thus, need of a novel model to resolve these issues.</p>
+    <p>Human induced pluripotent stem (iPS) cells<xref ref-type="bibr" rid="b14">14</xref> have the potential to self-replicate and differentiate into multiple types of body cells, including enterocytes. In this study, we aimed to generate enterocyte-like cells from human iPS cells (hiPS-ELCs) which could evaluate both drug absorption and metabolism. Recently, some groups have reported that intestinal tissues and intestinal organoids, which are consist of all four intestinal cell types (paneth cells, goblet cells, enterocytes, and enteroendocrine cells), could be differentiated from human pluripotent stem cells <italic>in vitro</italic><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref>. However, it might be difficult to apply the intestinal tissues to drug absorption and metabolism studies because they are generated under 3-dimensional culture conditions. Although some researchers have demonstrated that enterocyte-like cells could be generated under 2-dimensional culture conditions, their drug absorption and metabolism capacities have not been sufficiently characterized<xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref>. Therefore, we decided to generate enterocyte monolayers, which have drug absorption and metabolism capacities, from human iPS cells.</p>
+    <sec disp-level="1">
+      <title>Materials and Methods</title>
+      <sec disp-level="2">
+        <title>Reagents for compound screening</title>
+        <p>PMA was purchased from BIAFFIN GMBH &amp; CO KG. TGF&#x3B2;1, EGF, Follistatin, and R-spondin 1 were purchased from R&amp;D systems. Wortmannin and Pentagastrin were purchased from Sigma. Noggin was purchased from PeproTech. SB431542 was obtained from Wako. To generate Wnt3A-conditional medium, L-Wnt-3A cells (ATCC, CRL2647) were cultured with the DMEM-High Glucose medium (Invitrogen), which contains 10% Knockout Serum Replacement, 1% Non-Essential Amino Acid Solution, Penicillin-Streptomycin, 2&#x2009;mM L-Glutamine, and 100&#x2009;&#x3BC;M &#x3B2;-mercaptoethanol, for 24&#x2009;hr, and then the conditioned medium was collected.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Human iPS cells culture</title>
+        <p>A human iPS cell line, Tic<xref ref-type="bibr" rid="b22">22</xref><xref ref-type="bibr" rid="b23">23</xref> (provided by Dr. A. Umezawa, National Center for Child Health and Development), was maintained on a feeder layer of mitomycin C-treated mouse embryonic fibroblasts (Millipore) with ReproStem medium (ReproCELL) supplemented with 10&#x2009;ng/ml fibroblast growth factor 2 (FGF2, KATAYAMA CHEMICAL INDUSTRIES).</p>
+      </sec>
+      <sec disp-level="2">
+        <title><italic>In vitro</italic> differentiation</title>
+        <p>Before the initiation of enterocyte differentiation, human iPS cells were dissociated into clumps by using dispase (Roche) and plated onto BD Matrigel Basement Membrane Matrix (BD Biosciences). These cells were cultured in the MEF-conditioned medium for 2&#x2013;3 days. The differentiation protocol for the induction of definitive endoderm cells was described previously<xref ref-type="bibr" rid="b24">24</xref>. Briefly, for the definitive endoderm differentiation, human iPS cells were cultured for 4 days in L-Wnt3A-expressing cell-conditioned RPMI1640 medium (Sigma) containing 100&#x2009;ng/ml Activin A (R&amp;D Systems), 4&#x2009;mM L-Glutamine, 0.2~0.5% FBS, and 1&#x2009;&#xD7;&#x2009;B27 Supplement Minus Vitamin A (Life Technologies). For the induction of intestine-like cells, the definitive endoderm cells were cultured for 15 days in DMEM-High Glucose medium (Invitrogen) containing 5&#x2009;&#x3BC;M 6-Bromoindirubin-3&#x2032;-oxime (BIO; Calbiochem), 10&#x2009;&#x3BC;M N-[(3,5-difluorophenyl) acetyl]-L-alanyl-2-phenyl-1, 1-dimethylethyl ester-glycine (DAPT; Peptide Institute), 10% Knockout Serum Replacement (Invitrogen), 1% Non-Essential Amino Acid Solution (Invitrogen), Penicillin-Streptomycin, 2&#x2009;mM L-Glutamine, and 100&#x2009;&#x3BC;M &#x3B2;-mercaptoethanol. For the induction of hiPS-ELCs, the intestine-like cells were cultured for 15 days in L-Wnt3A-expressing cell-conditioned DMEM-High Glucose medium (Invitrogen) containing 5&#x2009;&#x3BC;M BIO, 10&#x2009;&#x3BC;M DAPT, 10&#x2009;&#x3BC;M SB431542 (Wako), 250&#x2009;ng/ml EGF (R&amp;D systems), 10% Knockout Serum Replacement, 1% Non-Essential Amino Acid Solution, Penicillin-Streptomycin, 2&#x2009;mM L-Glutamine, and 100&#x2009;&#x3BC;M &#x3B2;-mercaptoethanol.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Caco-2 cells culture and differentiation</title>
+        <p>Caco-2 cells were cultured with DMEM-High Glucose medium (Invitrogen) containing 1&#x2009;&#xD7;&#x2009;HEPES (Invitrogen), 10% FBS, 1% Non-Essential Amino Acid Solution (Invitrogen), Penicillin-Streptomycin, and 4&#x2009;mM L-Gln. For differentiation of Caco-2 cells, Caco-2 cells were cultured for 21 days after they reached confluence.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>RNA Isolation and Reverse Transcription-Polymerase Chain Reaction (RT-PCR)</title>
+        <p>Total RNA was isolated from Caco-2 cells, human iPS cells and their derivatives using ISOGENE (NIPPON GENE). cDNA was synthesized using 500&#x2009;ng of total RNA (including Human Adult Intestine Total RNA (Clontech, BioChain: 4 lots)) with a Superscript VILO cDNA synthesis kit (Invitrogen). Real-time RT-PCR was performed with SYBR Green PCR Master Mix (Applied Biosystems) using a StepOnePlus real-time PCR system (Applied Biosystems). Relative quantification was performed against a standard curve and the values were normalized against the input determined for the housekeeping gene, <italic>glyceraldehyde 3-phosphate dehydrogenase</italic> (<italic>GAPDH</italic>). PCR primers sequences were described in <xref ref-type="supplementary-material" rid="S1">Table. S1</xref>.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Immunohistochemistry</title>
+        <p>To perform the immunohistochemistry, the human iPS-derived cells were fixed with 4% PFA in PBS for 10&#x2009;min. After blocking the cells with PBS containing 10% FBS, 1% bovine serum albumin (BSA), and 1% Triton X-100 for 45&#x2009;min, the cells were incubated with a primary antibody (described in <xref ref-type="supplementary-material" rid="S1">Table S1</xref>) at 4&#x2009;&#xB0;C overnight, and finally, incubated with a secondary antibody (described in <xref ref-type="supplementary-material" rid="S1">Table S1</xref>) at room temperature for 1&#x2009;hr.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Flow cytometry</title>
+        <p>Single-cell suspensions of the human iPS-derived cells were treated with 1&#x2009;&#xD7;&#x2009;Permeabilization Buffer (e-Bioscience), and then incubated with the primary antibody (anti-VILLIN antibody, (Abcam, ab109516)), followed by the secondary antibody (Goat Anti-Rabbit IgG APC-conjugated Antibody (R&amp;D systems) or Donkey anti-Rabbit IgG (H&#x2009;+&#x2009;L) Secondary Antibody, Alexa Fluor 488 conjugate (Molecular probes)). Single-cell suspensions of the human iPS-derived cells were also incubated with the Ki-67 Antibody (Ki-67) FITC or Annexin V (FL) FITC (both from Santa Cruz Biotechnology). Flow cytometry analysis was performed using a FACS LSR Fortessa flow cytometer (BD Biosciences).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Western Blotting</title>
+        <p>The human iPS-derived cells and Caco-2 cells were homogenized with lysis buffer (20&#x2009;mM HEPES, 2&#x2009;mM EDTA, 10% glycerol, and 1% Triton X-100) containing a protease inhibitor mixture (Sigma). After being frozen and thawed, the homogenates were centrifuged at 15,000&#x2009;<italic>g</italic> at 4&#x2009;&#xB0;C for 15&#x2009;min, and the supernatants were collected. The lysates were subjected to SDS-PAGE on 7.5% polyacrylamide gel, and then transferred onto polyvinylidene fluoride membranes (Millipore). After the reaction was blocked with 1% skim milk in TBS containing 0.1% Tween 20 at room temperature for 1&#x2009;hr, the membranes were incubated with anti-human CYP3A4 or &#x3B2;-actin antibodies at 4&#x2009;&#xB0;C overnight, followed by reaction with horseradish peroxidaseconjugated anti-goat IgG antibodies or anti-mouse IgG antibodies, respectively, at room temperature for 1&#x2009;hr. The band was visualized by Chemi-Lumi One Super (Nacalai Tesque) and the signals were read using an LAS-4000 imaging system (GE Healthcare).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>CYP3A4 activity</title>
+        <p>To measure the CYP3A4 activity, we performed lytic assays by using a P450-Glo CYP3A4 (catalog number; V9001) Assay Kit (Promega). We measured the fluorescence activity with a luminometer (Lumat LB 9507; Berthold) according to the manufacturer&#x2019;s instructions. The CYP3A4 activity was normalized with the protein content per well.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>CYP3A4 and P-gp induction</title>
+        <p>The human iPS-derived cells were treated with 1,25-Dihydroxyvitamin D3 (Sigma)<xref ref-type="bibr" rid="b10">10</xref> or rifampicin (Wako)<xref ref-type="bibr" rid="b25">25</xref>, which are known to induce CYP 3A4 and P-gp, at a final concentration of 100&#x2009;nM for 24&#x2009;hr or 20&#x2009;&#x3BC;M for 48&#x2009;hr. Controls were treated with DMSO (final concentration 0.1%).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>TEER measurements</title>
+        <p>TEER of human iPS-derived cells and Caco-2 cells, which were cultured on cell culture inserts (BD Biosciences) from day 0 of differentiation, was measured by Millicell-ERS (Merck Millipore). The raw data were converted to &#x3A9;&#x2009;&#xD7;&#x2009;cm<sup>2</sup> based on the culture insert area.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Fluorescein isothiocyanate&#x2013;dextran 4000 (FD-4) permeability tests</title>
+        <p>Human iPS-derived cells, Caco-2 cells, and undifferentiated human iPS cells, which were cultured on the cell culture inserts were washed Hank&#x2019;s Balanced Salt Solution (HBSS; Life Technologies). HBSS containing 12.5&#x2009;mg/ml FD-4 (Sigma) was added to the apical side, and HBSS was added to the basolateral side. After 90&#x2009;min incubation at 37&#x2009;&#xB0;C, the solution was collected from the basolateral side. The concentration of FD-4 in the solution was measured by using the plate reader Sunrise (Tecan).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Uptake of D-Ala-Leu-Lys-7-amido-4-methylcoumarin (AMCA)</title>
+        <p>To examine PEPT1 activity, the cells were treated with 25&#x2009;&#x3BC;M D-Ala-Leu-Lys-AMCA (a fluorescence-labeled tripeptide which is a substrate of PEPT1; sigma) for 4&#x2009;hr. To inhibit the PEPT1 activity level, the cells were pretreated with 100&#x2009;&#x3BC;M captopril (sigma) for 24&#x2009;hr before D-Ala-Leu-Lys-AMCA treatment.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Cell viability</title>
+        <p>Cell viability was assessed by using a WST-8 assay kit (Dojindo). The cell viability of hiPS-ELCs (on day 19) was taken as 100.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Results</title>
+      <sec disp-level="2">
+        <title>Improvement of the enterocyte differentiation efficiency by treatment with compounds and extension the differentiation period</title>
+        <p>Although many groups have demonstrated that intestinal cells could be differentiated from human pluripotent stem cells<xref ref-type="bibr" rid="b16">16</xref><xref ref-type="bibr" rid="b19">19</xref><xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref><xref ref-type="bibr" rid="b26">26</xref>, a protocol for enterocyte monolayer differentiation for drug absorption and metabolism studies has not been well established, to our knowledge. Ogaki <italic>et al.</italic> reported that the combination of BIO and DAPT treatments could promote intestinal differentiation from the definitive endoderm cells<xref ref-type="bibr" rid="b26">26</xref>. We also tried to perform intestinal differentiation by using BIO and DAPT treatment according to the protocol described in <xref ref-type="supplementary-material" rid="S1">Fig. S1A</xref>. To examine the efficiency of enterocyte differentiation, the percentage of VILLIN-positive cells was measured by FACS analysis. The percentage of VILLIN-positive cells in the human iPS-derived intestinal cells was approximately 17% (<xref ref-type="supplementary-material" rid="S1">Fig. S1B</xref>). Thus, it was necessary to improve the enterocyte differentiation efficiency in order to apply the hiPS-ELCs to drug pharmacokinetic studies.</p>
+        <p>To promote the enterocyte differentiation, we examined whether the treatment of compounds could promote enterocyte differentiation. First, we measured the temporal gene expression levels of the enterocyte marker <italic>VILLIN</italic> in the human iPS-derived intestinal cells (<xref ref-type="supplementary-material" rid="S1">Fig. S1C</xref>). From day 19 to 24, the <italic>VILLIN</italic> gene expression levels were dramatically increased, suggested that enterocyte differentiation seems to be started after day 19. Therefore, we searched for compounds that could further promote enterocyte differentiation during this period. As shown in <xref ref-type="fig" rid="f1">Fig. 1A</xref>, human iPS-derived intestinal cells (day 19) were treated with ten compounds respectively. These compounds are known to regulate signals which play important roles in intestinal epithelium differentiation or intestinal stem cell homeostasis. The gene expression levels of enterocyte marker <italic>ANPEP</italic> in the compound-treated human iPS-derived intestinal cells were examined by real-time RT-PCR on day 24. The gene expression levels of <italic>ANPEP</italic> were increased in the PMA, Wortmannin, SB431542, EGF, or Wnt3A-treated cells (<xref ref-type="fig" rid="f1">Fig. 1B</xref>). Because <italic>ANPEP</italic> is highly expressed not only in the small intestine but also in other organs such as the liver and pancreas<xref ref-type="bibr" rid="b27">27</xref>, the gene expression levels of the enterocyte-specific marker <italic>VILLIN</italic> were also measured in the PMA, Wortmannin, SB431542, EGF, or Wnt3A-treated cells (<xref ref-type="fig" rid="f1">Fig. 1C</xref>). The <italic>VILLIN</italic> gene expression levels were also increased in the SB431542, EGF, or Wnt3A-treated cells. These results might suggest that SB431542, EGF and Wnt3A treatment could promote enterocyte-like cell differentiation. In addition, the gene expression level of enterocyte marker <italic>LACTASE</italic> was increased by simultaneous treatment with SB431542, EGF and Wnt3A as compared with individual treatment with any one of these compounds (Fig. S2). The gene expression levels of <italic>ANPEP</italic> were decreased by removing one of three compounds (SB431542, EGF, or Wnt3A) (Fig. S3A). These results suggest that all these compounds play an important role in enterocyte-like cell differentiation. However, it has been reported that Wnt3A removal<xref ref-type="bibr" rid="b28">28</xref> or TGF&#x3B2; treatment<xref ref-type="bibr" rid="b29">29</xref> could promote enterocyte differentiation. These reports contradict our present findings, which suggested that EGF, Wnt3A, and SB431542 treatment might promote enterocyte-like cell differentiation. To investigate this contradiction, we first examined the role of Wnt3A in enterocyte-like cell differentiation. We found that the <italic>LGR5</italic> (an intestinal stem cell marker) expression level was maintained and enhanced during the enterocyte differentiation by Wnt3A treatment (from day 19 to 34, Fig. S3B). In addition, most of the VILLIN-positive hiPS-ELCs were highly proliferative (Fig. S3D, left). It is known that Wnt3A signal is essential for maintenance of intestinal stem cells and transiently amplifying cells<xref ref-type="bibr" rid="b30">30</xref>. Taken together, we considered that our hiPS-ELCs required Wnt3A treatment, because the hiPS-ELCs were not terminally differentiated, but still have characters as intestinal progenitor/stem cell-like cells. Next, we examined the role of SB431542 in our enterocyte-like cell differentiation. Interestingly, the cell viability was decreased by SB431542 removal (Fig. S3C). Because the generated enterocyte-like cells were a heterogeneous population, we next examined the cellular changes of VILLIN-positive hiPS-ELCs in response to SB431542 treatment. By SB431542 removal, the percentages of Ki67 (a cellular proliferation marker; Fig. S3D)-positive cells and Annexin V (an early apoptosis marker; Fig. S3E)-positive cells among VILLIN-positive cells were decreased and increased, respectively. These results suggest that the inhibition of TGF&#x3B2; signals could maintain the proliferative activity of VILLIN-positive enterocyte-like cells, and could also rescue these cells from apoptosis. Consequently, the differentiation to VILLIN-positive enterocyte-like cells was promoted by SB431542 treatment. Consistent with this notion, it has been reported that incubation of Caco-2 cells with TGF&#x3B2; resulted in a significant decrease in cell viability and increased cell apoptosis<xref ref-type="bibr" rid="b31">31</xref>. The molecular mechanisms underlying the promotion of differentiation by EGF, SB431542, and Wnt3A should be further examined in the future.</p>
+        <p>To further promote enterocyte differentiation, the enterocyte differentiation period was optimized. In <xref ref-type="fig" rid="f1">Fig. 1A&#x2013;C</xref>, the human iPS-derived intestinal cells were treated with SB431542, EGF and Wnt3A for 5 days, versus 10 or 15 days in <xref ref-type="fig" rid="f1">Fig. 1D</xref>. The gene expression levels of <italic>ANPEP</italic> in the SB431542, EGF and Wnt3A-treated cells (day 24, 29, or 34) were analyzed by real-time RT-PCR analysis. The <italic>ANPEP</italic> expression levels on day 34 were higher than those on day 24 and 29, suggesting that longer period of SB431542, EGF and Wnt3A treatment facilitates the enterocyte differentiation. Taken together, these results showed that the enterocyte differentiation could be promoted by treatment with the three compounds and extension of the differentiation period (<xref ref-type="fig" rid="f1">Fig. 1E</xref>). After the enterocyte differentiation, epithelial-like cells were observed (<xref ref-type="fig" rid="f1">Fig. 1F</xref>).</p>
+        <p>To examine the efficiency of enterocyte differentiation, the percentage of cells positive for the intestinal marker caudal type homeobox 2 (CDX2) or the enterocyte marker VILLIN were measured (<xref ref-type="fig" rid="f1">Fig. 1G,H</xref>, respectively). The hiPS-ELCs were almost homogeneously positive for CDX2. This result suggests that almost all of the undifferentiated human iPS cells were successfully differentiated into intestinal lineage cells. The percentage of VILLIN-positive cells in the SB431542, EGF and Wnt3A-treated cells (day 34) was approximately 40%, although that in non-treated cells (day 24) was approximately 17%. In addition, the percentage of MUCIN2-positive secretory goblet cells was also increased (from 0.9% to 2.4%) by extending the differentiation period and treating the cells with three compounds (Fig. S4D). These results suggest that the intestinal epithelium differentiation was promoted by treatment with the compounds and extension of the differentiation period.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Expression analysis of transporters in the human iPS-derived enterocyte-like cells</title>
+        <p>Various transporters, such as PEPT1 and P-gp, are expressed at high levels in the enterocytes. Although PEPT1 mediates the absorption of drugs with a peptide-like structure<xref ref-type="bibr" rid="b32">32</xref>, such as &#x3B2;-lactam antibiotics, the PEPT1 expression levels in Caco-2 cells are significantly lower than those in the human small intestine<xref ref-type="bibr" rid="b25">25</xref>. Here, the PEPT1 expression levels in the hiPS-ELCs were compared with those in Caco-2 cells and the human adult intestine. The <italic>PEPT1</italic> gene expression level in the hiPS-ELCs was approximately 13 times higher than that in Caco-2 cells, and was similar to that in the human adult intestine (<xref ref-type="fig" rid="f2">Fig. 2A</xref>). Moreover, immunohistochemical analysis showed that the hiPS-ELCs were positive for PEPT1 (<xref ref-type="fig" rid="f2">Fig. 2B</xref>). These results suggest that the PEPT1-mediated drug absorption might be more accurately evaluated by using the hiPS-ELCs than Caco-2 cells. The gene expression levels of other transporters expressed in the enterocytes<xref ref-type="bibr" rid="b2">2</xref> were also measured by real-time RT-PCR analysis. The gene expression levels of transporters that are expressed on the apical surface of enterocytes were slightly lower in the hiPS-ELCs than in the human adult intestine, although this difference was not statistically significant (<xref ref-type="fig" rid="f2">Fig. 2C</xref>). The gene expression levels of transporters that are expressed on the basolateral surface of enterocytes were similar between the hiPS-ELCs and the human adult intestine (<xref ref-type="fig" rid="f2">Fig. 2D</xref>). However the gene expression levels of <italic>P-gp</italic> in the hiPS-ELCs were significantly lower than that in the human adult intestine. To examine the peptide transporting activities, the hiPS-ELCs were treated with fluorescent-labeled tripeptide (D-Ala-Leu-Lys-AMCA). The hiPS-ELCs could successfully uptake D-Ala-Leu-Lys-AMCA (<xref ref-type="fig" rid="f2">Fig. 2E</xref>). In addition, this uptake was inhibited by PEPT1 inhibitor (Captopril) treatment, suggesting that uptake of D-Ala-Leu-Lys-AMCA in the hiPS-ELCs depends on PEPT1 activity. Taken together, these findings indicated that drug intestinal absorption through transporters including PEPT1 may be accurately predicted by using the hiPS-ELC model.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Evaluation of CYP3A4 expression and activity level, and its induction potency in the human iPS-derived enterocyte-like cells</title>
+        <p>It is known that CYP3A4 is a dominant drug metabolism enzyme in the enterocytes<xref ref-type="bibr" rid="b33">33</xref>. Although CYP3A4-mediated intestinal metabolism is a significant factor in oral drug bioavailability, the CYP3A4 expression levels in Caco-2 cells are significantly lower than those in the human small intestine<xref ref-type="bibr" rid="b25">25</xref>. Here, the CYP3A4 gene and protein expression levels were compared between the hiPS-ELCs and Caco-2 cells by real-time RT-PCR and western blotting analysis (<xref ref-type="fig" rid="f3">Fig. 3A,B</xref>, respectively). The results showed that <italic>CYP3A4</italic> expression levels in the hiPS-ELCs were approximately 16 times higher than those in Caco-2 cells. Consistently, CYP3A4 protein expression levels in the hiPS-ELCs were higher than those in Caco-2 cells. In addition, the CYP3A4 activity levels in the hiPS-ELCs were approximately 20 times higher than those in Caco-2 cells (<xref ref-type="fig" rid="f3">Fig. 3C</xref>). However, the <italic>CYP3A4</italic> expression levels in the hiPS-ELCs were approximately 100 times lower than those in the human adult intestine.</p>
+        <p>To examine the CYP3A4 and P-gp induction potencies in the hiPS-ELCs, the hiPS-ELCs were treated with the CYP3A4 inducers. It is known that 1,25-dihidroxyvitamin D3<xref ref-type="bibr" rid="b12">12</xref><xref ref-type="bibr" rid="b34">34</xref> treatment induces CYP3A4 expression in Caco-2 cells, although rifampicin treatment does not induce CYP3A4 expression in Caco-2 cells<xref ref-type="bibr" rid="b12">12</xref>. This difference was attributed to the low expression of pregnane X receptor (PXR), which is known to be a nuclear receptor of rifampicin, in Caco-2 cells<xref ref-type="bibr" rid="b35">35</xref>. In <xref ref-type="fig" rid="f3">Fig. 3D,E</xref>, the hiPS-ELCs and Caco-2 cells were treated with 1,25-dihidroxyvitamin D3 or rifampicin, and then the gene expression levels of <italic>CYP3A4</italic> were examined by real-time RT-PCR analysis. The <italic>CYP3A4</italic> expression levels in the 1,25-dihidroxyvitamin D3- or rifampicin-treated hiPS-ELCs were significantly increased as compared with those in the DMSO-treated hiPS-ELCs (<xref ref-type="fig" rid="f3">Fig. 3D,E</xref>, respectively). On the other hand, the <italic>CYP3A4</italic> expression levels in Caco-2 cells were increased by 1,25-dihidroxyvitamin D3 treatment, but not by rifampicin treatment. In addition, the gene expression of <italic>P-gp</italic> in the hiPS-ELCs could also be induced by 1,25-dihidroxyvitamin D3 or rifampicin treatment (Fig. S5). We confirmed that the vitamin D receptor (<italic>VDR</italic>) expression levels in hiPS-ECLs and Caco-2 cells were similar to each other (<xref ref-type="fig" rid="f3">Fig. 3F</xref>), although the <italic>PXR</italic> expression levels in hiPS-ELCs were significantly higher than those in Caco-2 cells (<xref ref-type="fig" rid="f3">Fig. 3G</xref>). This might have been the reason why the rifampicin-mediated CYP3A4 and P-gp inductions were successfully confirmed in the hiPS-ELCs, but not in Caco-2 cells. These results suggest that CYP3A4 and P-gp induction by the test drugs would be evaluable by using the hiPS-ELCs.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Tight junction and barrier formation in the human iPS-derived enterocyte-like cell monolayers</title>
+        <p>To examine whether the hiPS-ELCs would be applicable to drug absorption studies, the expression levels of tight junction-related genes and barrier function in the hiPS-ELCs were evaluated. The gene and protein expression levels of ZO-1 in the hiPS-ELCs were measured by real-time RT-PCR and immunohistochemical analysis (<xref ref-type="fig" rid="f4">Fig. 4A,B</xref>, respectively). The gene expression levels of <italic>ZO-1</italic> in the hiPS-ELCs were similar to those in the human adult intestine, and were lower than those in Caco-2 cells. In addition, both the hiPS-ELCs and Caco-2 cells were positive for ZO-1. Barrier function in the hiPS-ELC and Caco-2 cell monolayers was analyzed by TEER measurements and FD-4 permeability tests (<xref ref-type="fig" rid="f4">Fig. 4C</xref> and S6, respectively). The TEER values in the hiPS-ELC and Caco-2 cell monolayers were approximately 240 and 400&#x2009;&#x3A9;*cm<sup>2</sup>, respectively. Moreover, the hiPS-ELC monolayers had higher FD-4 permeability than Caco-2 cells, but lower than undifferentiated human iPS cells. These results suggest that the hiPS-ELC monolayers have weaker barrier function than the Caco-2 cell monolayers. Importantly, it is known that the TEER values in Caco-2 cell monolayers are higher than those in the small intestine<xref ref-type="bibr" rid="b13">13</xref><xref ref-type="bibr" rid="b36">36</xref>. Therefore, the hiPS-ELC monolayers might be a more suitable <italic>in vitro</italic> model for evaluating the absorption of hydrophilic drugs than the Caco-2 cell monolayers.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Discussion</title>
+      <p>The main purpose of this study was to generate hiPS-ELCs that could be used for drug absorption and metabolism studies. The efficiency of enterocyte differentiation from human iPS cells was significantly improved by using EGF, SB431542, and Wnt3A treatment, and by the extension of differentiation period (<xref ref-type="fig" rid="f1">Fig. 1</xref>). The hiPS-ELCs expressed CYP3A4 and PEPT1 at higher levels than Caco-2 cells (<xref ref-type="fig" rid="f2">Figs 2</xref> and <xref ref-type="fig" rid="f3">3</xref>, respectively). In addition, the hiPS-ELCs showed CYP3A4 and P-gp induction potency (<xref ref-type="fig" rid="f3">Fig. 3</xref> and S3, respectively) and barrier forming potency (<xref ref-type="fig" rid="f4">Fig. 4</xref>).</p>
+      <p>We identified that treatment with the combination of EGF, SB431542 (TGF&#x3B2; signal inhibitor) and Wnt3A treatments could enhance the enterocyte differentiation efficiency (<xref ref-type="fig" rid="f1">Fig. 1</xref>). At the end of differentiation (day 34), the <italic>LGR5</italic> expression was maintained at a high level (Fig. S3B), and approximately 80% of VILLIN-positive hiPS-ELCs were proliferative (Fig. S3D). Because it is known that EGF and Wnt3A are essential for maintenance of the self-renewing intestinal organoids<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b37">37</xref><xref ref-type="bibr" rid="b38">38</xref>, EGF and Wnt3A treatments might support the proliferation of the human iPS-derived intestinal stem/progenitor cells. Therefore, EGF and Wnt3A treatment might have increased the enterocyte differentiation efficiency by enhancing the proliferation of human iPS-derived intestinal stem/progenitor cells. In addition, the removal of SB431542 resulted in a significant decrease of proliferating VILLIN-positive cells, and an increase of apoptotic VILLIN-positive cells (Figs S3D and S3E, respectively). Thus the inhibition of TGF&#x3B2; signals might also have contributed to the survival and proliferation of human iPS-derived intestinal stem/progenitor cells.</p>
+      <p>Although the percentage of VILLIN-positive hiPS-ELCs was significantly improved by using EGF, SB431542, and Wnt3A treatment, and differentiation period extension (<xref ref-type="fig" rid="f1">Fig. 1</xref>), the percentage of VILLIN-negative cells (i.e. non-enterocytes) was still more than 50%. Because the percentage of CDX2-positive cells was almost 100% (<xref ref-type="fig" rid="f1">Fig. 1G</xref>), the VILLIN-negative cells seemed to be immature cells in intestinal lineage, such as hindgut cells. The higher purity of enterocyte populations is, the more precise drug absorption and metabolism experiments would be performed. Therefore, we consider that further enhancement of the enterocyte differentiation efficiency is required. Because we have previously reported that hepatocyte differentiation from human pluripotent stem cells could be promoted by gene transfer technology<xref ref-type="bibr" rid="b39">39</xref><xref ref-type="bibr" rid="b40">40</xref> and 3-dimensional cell culture system<xref ref-type="bibr" rid="b41">41</xref>, these technologies might also be useful for improvement of the enterocyte differentiation method.</p>
+      <p>In <xref ref-type="fig" rid="f2">Fig. 2</xref>, the gene expression levels of <italic>PEPT1</italic> in the hiPS-ELCs were approximately 13 times higher than those in Caco-2 cells. It is known that the PEPT1 expression levels in the human duodenum and ileum are approximately 54 and 88 times higher than that in the human large intestine<xref ref-type="bibr" rid="b42">42</xref>. As shown in <xref ref-type="fig" rid="f4">Fig. 4</xref>, the TEER value in the hiPS-ELC monolayers was lower than that in Caco-2 cell (human colon carcinoma cell line) monolayers. It has been reported the TEER value in the small intestine is lower than that in the colon<xref ref-type="bibr" rid="b36">36</xref>. Taken together, these finding indicate that the hiPS-ELC model might faithfully reproduce the human small intestine rather than the human large intestine. In addition, the hiPS-ELCs expressed CYP3A4, while Caco-2 cells express CYP3A4 at a low level. Because CYP3A4-mediated intestinal metabolism is a significant factor in oral drug bioavailability, the hiPS-ELCs have potential for use in the accurate prediction of oral drug bioavailability. Moreover, the hiPS-ELCs have CYP3A4 and P-gp induction potency, and thus the hiPS-ELC model might be useful for screening drug candidates which have risk to induce CYP3A4 and P-gp expression levels.</p>
+      <p>In conclusion, we have succeeded in generating the hiPS-ELCs which have a potential to be utilized in both drug absorption and metabolism studies. In addition, the hiPS-ELC models, which can be evaluate CYP3A4 and P-gp induction potency by test drugs, were successfully generated. We believe that our hiPS-ELC model will greatly accelerate the safe and efficient discovery and development of novel drugs.</p>
+    </sec>
+    <sec disp-level="1">
+      <title>Additional Information</title>
+      <p><bold>How to cite this article</bold>: Ozawa, T. <italic>et al.</italic> Generation of enterocyte-like cells from human induced pluripotent stem cells for drug absorption and metabolism studies in human small intestine. <italic>Sci. Rep.</italic>
+<bold>5</bold>, 16479; doi: 10.1038/srep16479 (2015).</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="S1">
+      <title>Supplementary Material</title>
+      <supplementary-material id="d33e23" content-type="local-data">
+        <caption>
+          <title>Supplementary Information</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep16479-s1.pdf"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Ms. Yasuko Hagihara, Ms. Natsumi Mimura, and Ms. Ayaka Sakamoto for their excellent technical support. We also thank Dr. Seiichi Ishida (National Institute of Health Sciences) for helpful discussion. This research is supported by the grants (15mk0101011h0102, 15bk0104005h0003) from Japan Agency for Medical Research and development, AMED.</p>
+    </ack>
+    <ref-list>
+      <ref id="b1">
+        <mixed-citation publication-type="journal"><name><surname>Frank</surname><given-names>R.</given-names></name> &amp; <name><surname>Hargreaves</surname><given-names>R.</given-names></name>
+<article-title>Clinical biomarkers in drug discovery and development</article-title>. <source>Nat Rev Drug Discov</source>
+<volume>2</volume>, <fpage>566</fpage>&#x2013;<lpage>580</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12838269</pub-id></mixed-citation>
+      </ref>
+      <ref id="b2">
+        <mixed-citation publication-type="journal"><name><surname>Giacomini</surname><given-names>K. M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Membrane transporters in drug development</article-title>. <source>Nat Rev Drug Discov</source>
+<volume>9</volume>, <fpage>215</fpage>&#x2013;<lpage>236</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20190787</pub-id></mixed-citation>
+      </ref>
+      <ref id="b3">
+        <mixed-citation publication-type="journal"><name><surname>Doherty</surname><given-names>M. M.</given-names></name> &amp; <name><surname>Charman</surname><given-names>W. N.</given-names></name>
+<article-title>The mucosa of the small intestine: how clinically relevant as an organ of drug metabolism&#x2009;?&#x2009;</article-title>
+<source>Clin Pharmacokinet</source>
+<volume>41</volume>, <fpage>235</fpage>&#x2013;<lpage>253</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">11978143</pub-id></mixed-citation>
+      </ref>
+      <ref id="b4">
+        <mixed-citation publication-type="journal"><name><surname>Leibach</surname><given-names>F. H.</given-names></name> &amp; <name><surname>Ganapathy</surname><given-names>V.</given-names></name>
+<article-title>Peptide transporters in the intestine and the kidney</article-title>. <source>Annu Rev Nutr</source>
+<volume>16</volume>, <fpage>99</fpage>&#x2013;<lpage>119</lpage> (<year>1996</year>).<pub-id pub-id-type="pmid">8839921</pub-id></mixed-citation>
+      </ref>
+      <ref id="b5">
+        <mixed-citation publication-type="journal"><name><surname>Kolars</surname><given-names>J. C.</given-names></name>, <name><surname>Awni</surname><given-names>W. M.</given-names></name>, <name><surname>Merion</surname><given-names>R. M.</given-names></name> &amp; <name><surname>Watkins</surname><given-names>P. B.</given-names></name>
+<article-title>First-pass metabolism of cyclosporin by the gut</article-title>. <source>Lancet</source>
+<volume>338</volume>, <fpage>1488</fpage>&#x2013;<lpage>1490</lpage> (<year>1991</year>).<pub-id pub-id-type="pmid">1683920</pub-id></mixed-citation>
+      </ref>
+      <ref id="b6">
+        <mixed-citation publication-type="journal"><name><surname>Webber</surname><given-names>I. R.</given-names></name>, <name><surname>Peters</surname><given-names>W. H.</given-names></name> &amp; <name><surname>Back</surname><given-names>D. J.</given-names></name>
+<article-title>Cyclosporin metabolism by human gastrointestinal mucosal microsomes</article-title>. <source>Br J Clin Pharmacol</source>
+<volume>33</volume>, <fpage>661</fpage>&#x2013;<lpage>664</lpage> (<year>1992</year>).<pub-id pub-id-type="pmid">1389941</pub-id></mixed-citation>
+      </ref>
+      <ref id="b7">
+        <mixed-citation publication-type="journal"><name><surname>Wacher</surname><given-names>V. J.</given-names></name>, <name><surname>Salphati</surname><given-names>L.</given-names></name> &amp; <name><surname>Benet</surname><given-names>L. Z.</given-names></name>
+<article-title>Active secretion and enterocytic drug metabolism barriers to drug absorption</article-title>. <source>Adv Drug Deliv Rev</source>
+<volume>46</volume>, <fpage>89</fpage>&#x2013;<lpage>102</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11259835</pub-id></mixed-citation>
+      </ref>
+      <ref id="b8">
+        <mixed-citation publication-type="journal"><name><surname>Artursson</surname><given-names>P.</given-names></name> &amp; <name><surname>Karlsson</surname><given-names>J.</given-names></name>
+<article-title>Correlation between oral drug absorption in humans and apparent drug permeability coefficients in human intestinal epithelial (Caco-2) cells</article-title>. <source>Biochem Biophys Res Commun</source>
+<volume>175</volume>, <fpage>880</fpage>&#x2013;<lpage>885</lpage> (<year>1991</year>).<pub-id pub-id-type="pmid">1673839</pub-id></mixed-citation>
+      </ref>
+      <ref id="b9">
+        <mixed-citation publication-type="journal"><name><surname>Rubas</surname><given-names>W.</given-names></name>
+<italic>et al.</italic>
+<article-title>Flux measurements across Caco-2 monolayers may predict transport in human large intestinal tissue</article-title>. <source>J Pharm Sci</source>
+<volume>85</volume>, <fpage>165</fpage>&#x2013;<lpage>169</lpage> (<year>1996</year>).<pub-id pub-id-type="pmid">8683442</pub-id></mixed-citation>
+      </ref>
+      <ref id="b10">
+        <mixed-citation publication-type="journal"><name><surname>Balimane</surname><given-names>P. V.</given-names></name> &amp; <name><surname>Chong</surname><given-names>S.</given-names></name>
+<article-title>Cell culture-based models for intestinal permeability: a critique</article-title>. <source>Drug Discov Today</source>
+<volume>10</volume>, <fpage>335</fpage>&#x2013;<lpage>343</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15749282</pub-id></mixed-citation>
+      </ref>
+      <ref id="b11">
+        <mixed-citation publication-type="journal"><name><surname>Nakamura</surname><given-names>T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Real-time quantitative polymerase chain reaction for MDR1, MRP1, MRP2, and CYP3A-mRNA levels in Caco-2 cell lines, human duodenal enterocytes, normal colorectal tissues, and colorectal adenocarcinomas</article-title>. <source>Drug Metab Dispos</source>
+<volume>30</volume>, <fpage>4</fpage>&#x2013;<lpage>6</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">11744604</pub-id></mixed-citation>
+      </ref>
+      <ref id="b12">
+        <mixed-citation publication-type="journal"><name><surname>Schmiedlin-Ren</surname><given-names>P.</given-names></name>, <name><surname>Thummel</surname><given-names>K. E.</given-names></name>, <name><surname>Fisher</surname><given-names>J. M.</given-names></name>, <name><surname>Paine</surname><given-names>M. F.</given-names></name> &amp; <name><surname>Watkins</surname><given-names>P. B.</given-names></name>
+<article-title>Induction of CYP3A4 by 1 alpha,25-dihydroxyvitamin D3 is human cell line-specific and is unlikely to involve pregnane X receptor</article-title>. <source>Drug Metab Dispos</source>
+<volume>29</volume>, <fpage>1446</fpage>&#x2013;<lpage>1453</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11602520</pub-id></mixed-citation>
+      </ref>
+      <ref id="b13">
+        <mixed-citation publication-type="journal"><name><surname>Artursson</surname><given-names>P.</given-names></name>, <name><surname>Ungell</surname><given-names>A. L.</given-names></name> &amp; <name><surname>Lofroth</surname><given-names>J. E.</given-names></name>
+<article-title>Selective paracellular permeability in two models of intestinal absorption: cultured monolayers of human intestinal epithelial cells and rat intestinal segments</article-title>. <source>Pharm Res</source>
+<volume>10</volume>, <fpage>1123</fpage>&#x2013;<lpage>1129</lpage> (<year>1993</year>).<pub-id pub-id-type="pmid">8415396</pub-id></mixed-citation>
+      </ref>
+      <ref id="b14">
+        <mixed-citation publication-type="journal"><name><surname>Takahashi</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Induction of pluripotent stem cells from adult human fibroblasts by defined factors</article-title>. <source>Cell</source>
+<volume>131</volume>, <fpage>861</fpage>&#x2013;<lpage>872</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">18035408</pub-id></mixed-citation>
+      </ref>
+      <ref id="b15">
+        <mixed-citation publication-type="journal"><name><surname>McCracken</surname><given-names>K. W.</given-names></name>, <name><surname>Howell</surname><given-names>J. C.</given-names></name>, <name><surname>Wells</surname><given-names>J. M.</given-names></name> &amp; <name><surname>Spence</surname><given-names>J. R.</given-names></name>
+<article-title>Generating human intestinal tissue from pluripotent stem cells <italic>in vitro</italic></article-title>. <source>Nat Protoc</source>
+<volume>6</volume>, <fpage>1920</fpage>&#x2013;<lpage>1928</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">22082986</pub-id></mixed-citation>
+      </ref>
+      <ref id="b16">
+        <mixed-citation publication-type="journal"><name><surname>Spence</surname><given-names>J. R.</given-names></name>
+<italic>et al.</italic>
+<article-title>Directed differentiation of human pluripotent stem cells into intestinal tissue <italic>in vitro</italic></article-title>. <source>Nature</source>
+<volume>470</volume>, <fpage>105</fpage>&#x2013;<lpage>109</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21151107</pub-id></mixed-citation>
+      </ref>
+      <ref id="b17">
+        <mixed-citation publication-type="journal"><name><surname>McCracken</surname><given-names>K. W.</given-names></name>
+<italic>et al.</italic>
+<article-title>Modelling human development and disease in pluripotent stem-cell-derived gastric organoids</article-title>. <source>Nature</source>
+<volume>516</volume>, <fpage>400</fpage>&#x2013;<lpage>404</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25363776</pub-id></mixed-citation>
+      </ref>
+      <ref id="b18">
+        <mixed-citation publication-type="journal"><name><surname>Forster</surname><given-names>R.</given-names></name>
+<italic>et al.</italic>
+<article-title>Human intestinal tissue with adult stem cell properties derived from pluripotent stem cells</article-title>. <source>Stem Cell Reports</source>
+<volume>2</volume>, <fpage>838</fpage>&#x2013;<lpage>852</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24936470</pub-id></mixed-citation>
+      </ref>
+      <ref id="b19">
+        <mixed-citation publication-type="journal"><name><surname>Iwao</surname><given-names>T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Generation of enterocyte-like cells with pharmacokinetic functions from human induced pluripotent stem cells using small-molecule compounds</article-title>. <source>Drug Metab Dispos</source>
+<volume>43</volume>, <fpage>603</fpage>&#x2013;<lpage>610</lpage> (<year>2015</year>).<pub-id pub-id-type="pmid">25650381</pub-id></mixed-citation>
+      </ref>
+      <ref id="b20">
+        <mixed-citation publication-type="journal"><name><surname>Iwao</surname><given-names>T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Differentiation of human induced pluripotent stem cells into functional enterocyte-like cells using a simple method</article-title>. <source>Drug Metab Pharmacokinet</source>
+<volume>29</volume>, <fpage>44</fpage>&#x2013;<lpage>51</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">23822979</pub-id></mixed-citation>
+      </ref>
+      <ref id="b21">
+        <mixed-citation publication-type="journal"><name><surname>Kauffman</surname><given-names>A. L.</given-names></name>
+<italic>et al.</italic>
+<article-title>Alternative functional <italic>in vitro</italic> models of human intestinal epithelia</article-title>. <source>Front Pharmacol</source>
+<volume>4</volume>, <fpage>79</fpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23847534</pub-id></mixed-citation>
+      </ref>
+      <ref id="b22">
+        <mixed-citation publication-type="journal"><name><surname>Makino</surname><given-names>H.</given-names></name>
+<italic>et al.</italic>
+<article-title>Mesenchymal to embryonic incomplete transition of human cells by chimeric OCT4/3 (POU5F1) with physiological co-activator EWS</article-title>. <source>Exp Cell Res</source>
+<volume>315</volume>, <fpage>2727</fpage>&#x2013;<lpage>2740</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19559696</pub-id></mixed-citation>
+      </ref>
+      <ref id="b23">
+        <mixed-citation publication-type="journal"><name><surname>Nagata</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Efficient reprogramming of human and mouse primary extra-embryonic cells to pluripotent stem cells</article-title>. <source>Genes Cells</source>
+<volume>14</volume>, <fpage>1395</fpage>&#x2013;<lpage>1404</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19912344</pub-id></mixed-citation>
+      </ref>
+      <ref id="b24">
+        <mixed-citation publication-type="journal"><name><surname>Takayama</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Prediction of interindividual differences in hepatic functions and drug sensitivity by using human iPS-derived hepatocytes</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>111</volume>, <fpage>16772</fpage>&#x2013;<lpage>16777</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">25385620</pub-id></mixed-citation>
+      </ref>
+      <ref id="b25">
+        <mixed-citation publication-type="journal"><name><surname>Sun</surname><given-names>D.</given-names></name>
+<italic>et al.</italic>
+<article-title>Comparison of human duodenum and Caco-2 gene expression profiles for 12,000 gene sequences tags and correlation with permeability of 26 drugs</article-title>. <source>Pharm Res</source>
+<volume>19</volume>, <fpage>1400</fpage>&#x2013;<lpage>1416</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12425456</pub-id></mixed-citation>
+      </ref>
+      <ref id="b26">
+        <mixed-citation publication-type="journal"><name><surname>Ogaki</surname><given-names>S.</given-names></name>, <name><surname>Shiraki</surname><given-names>N.</given-names></name>, <name><surname>Kume</surname><given-names>K.</given-names></name> &amp; <name><surname>Kume</surname><given-names>S.</given-names></name>
+<article-title>Wnt and Notch signals guide embryonic stem cell differentiation into the intestinal lineages</article-title>. <source>Stem Cells</source>
+<volume>31</volume>, <fpage>1086</fpage>&#x2013;<lpage>1096</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23378042</pub-id></mixed-citation>
+      </ref>
+      <ref id="b27">
+        <mixed-citation publication-type="journal"><name><surname>Dixon</surname><given-names>J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Expression of aminopeptidase-n (CD 13) in normal tissues and malignant neoplasms of epithelial and lymphoid origin</article-title>. <source>J Clin Pathol</source>
+<volume>47</volume>, <fpage>43</fpage>&#x2013;<lpage>47</lpage> (<year>1994</year>).<pub-id pub-id-type="pmid">7907609</pub-id></mixed-citation>
+      </ref>
+      <ref id="b28">
+        <mixed-citation publication-type="journal"><name><surname>Sato</surname><given-names>T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Long-term expansion of epithelial organoids from human colon, adenoma, adenocarcinoma, and Barrett&#x2019;s epithelium</article-title>. <source>Gastroenterology</source>
+<volume>141</volume>, <fpage>1762</fpage>&#x2013;<lpage>1772</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21889923</pub-id></mixed-citation>
+      </ref>
+      <ref id="b29">
+        <mixed-citation publication-type="journal"><name><surname>Liao</surname><given-names>Y.</given-names></name>, <name><surname>Zhang</surname><given-names>M.</given-names></name> &amp; <name><surname>Lonnerdal</surname><given-names>B.</given-names></name>
+<article-title>Growth factor TGF-beta induces intestinal epithelial cell (IEC-6) differentiation: miR-146b as a regulatory component in the negative feedback loop</article-title>. <source>Genes Nutr</source>
+<volume>8</volume>, <fpage>69</fpage>&#x2013;<lpage>78</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">22570175</pub-id></mixed-citation>
+      </ref>
+      <ref id="b30">
+        <mixed-citation publication-type="journal"><name><surname>Gregorieff</surname><given-names>A.</given-names></name> &amp; <name><surname>Clevers</surname><given-names>H.</given-names></name>
+<article-title>Wnt signaling in the intestinal epithelium: from endoderm to cancer</article-title>. <source>Genes Dev</source>
+<volume>19</volume>, <fpage>877</fpage>&#x2013;<lpage>890</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15833914</pub-id></mixed-citation>
+      </ref>
+      <ref id="b31">
+        <mixed-citation publication-type="journal"><name><surname>Sukhotnik</surname><given-names>I.</given-names></name>
+<italic>et al.</italic>
+<article-title>TGF-beta affects enterocyte turnover in correlation with TGF-beta receptor expression after massive small bowel resection</article-title>. <source>J Pediatr Gastroenterol Nutr</source>
+<volume>55</volume>, <fpage>721</fpage>&#x2013;<lpage>727</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22711000</pub-id></mixed-citation>
+      </ref>
+      <ref id="b32">
+        <mixed-citation publication-type="journal"><name><surname>Rubio-Aliaga</surname><given-names>I.</given-names></name> &amp; <name><surname>Daniel</surname><given-names>H.</given-names></name>
+<article-title>Mammalian peptide transporters as targets for drug delivery</article-title>. <source>Trends Pharmacol Sci</source>
+<volume>23</volume>, <fpage>434</fpage>&#x2013;<lpage>440</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12237156</pub-id></mixed-citation>
+      </ref>
+      <ref id="b33">
+        <mixed-citation publication-type="journal"><name><surname>Zhang</surname><given-names>Q. Y.</given-names></name>
+<italic>et al.</italic>
+<article-title>Characterization of human small intestinal cytochromes P-450</article-title>. <source>Drug Metab Dispos</source>
+<volume>27</volume>, <fpage>804</fpage>&#x2013;<lpage>809</lpage> (<year>1999</year>).<pub-id pub-id-type="pmid">10383924</pub-id></mixed-citation>
+      </ref>
+      <ref id="b34">
+        <mixed-citation publication-type="journal"><name><surname>Fan</surname><given-names>J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Up-regulation of transporters and enzymes by the vitamin D receptor ligands, 1alpha,25-dihydroxyvitamin D3 and vitamin D analogs, in the Caco-2 cell monolayer</article-title>. <source>J Pharmacol Exp Ther</source>
+<volume>330</volume>, <fpage>389</fpage>&#x2013;<lpage>402</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19414624</pub-id></mixed-citation>
+      </ref>
+      <ref id="b35">
+        <mixed-citation publication-type="journal"><name><surname>Thummel</surname><given-names>K. E.</given-names></name>
+<italic>et al.</italic>
+<article-title>Transcriptional control of intestinal cytochrome P-4503A by 1alpha,25-dihydroxy vitamin D3</article-title>. <source>Mol Pharmacol</source>
+<volume>60</volume>, <fpage>1399</fpage>&#x2013;<lpage>1406</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11723248</pub-id></mixed-citation>
+      </ref>
+      <ref id="b36">
+        <mixed-citation publication-type="journal"><name><surname>Le Ferrec</surname><given-names>E.</given-names></name>
+<italic>et al.</italic>
+<article-title><italic>In vitro</italic> models of the intestinal barrier. The report and recommendations of ECVAM Workshop 46. European Centre for the Validation of Alternative methods</article-title>. <source>Altern Lab Anim</source>
+<volume>29</volume>, <fpage>649</fpage>&#x2013;<lpage>668</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11709041</pub-id></mixed-citation>
+      </ref>
+      <ref id="b37">
+        <mixed-citation publication-type="journal"><name><surname>Sato</surname><given-names>T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Paneth cells constitute the niche for Lgr5 stem cells in intestinal crypts</article-title>. <source>Nature</source>
+<volume>469</volume>, <fpage>415</fpage>&#x2013;<lpage>418</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21113151</pub-id></mixed-citation>
+      </ref>
+      <ref id="b38">
+        <mixed-citation publication-type="journal"><name><surname>Sato</surname><given-names>T.</given-names></name>
+<italic>et al.</italic>
+<article-title>Single Lgr5 stem cells build crypt-villus structures <italic>in vitro</italic> without a mesenchymal niche</article-title>. <source>Nature</source>
+<volume>459</volume>, <fpage>262</fpage>&#x2013;<lpage>265</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19329995</pub-id></mixed-citation>
+      </ref>
+      <ref id="b39">
+        <mixed-citation publication-type="journal"><name><surname>Takayama</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Generation of metabolically functioning hepatocytes from human pluripotent stem cells by FOXA2 and HNF1alpha transduction</article-title>. <source>J Hepatol</source>
+<volume>57</volume>, <fpage>628</fpage>&#x2013;<lpage>636</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22659344</pub-id></mixed-citation>
+      </ref>
+      <ref id="b40">
+        <mixed-citation publication-type="journal"><name><surname>Takayama</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Efficient generation of functional hepatocytes from human embryonic stem cells and induced pluripotent stem cells by HNF4alpha transduction</article-title>. <source>Mol Ther</source>
+<volume>20</volume>, <fpage>127</fpage>&#x2013;<lpage>137</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22068426</pub-id></mixed-citation>
+      </ref>
+      <ref id="b41">
+        <mixed-citation publication-type="journal"><name><surname>Takayama</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>3D spheroid culture of hESC/hiPSC-derived hepatocyte-like cells for drug toxicity testing</article-title>. <source>Biomaterials</source>
+<volume>34</volume>, <fpage>1781</fpage>&#x2013;<lpage>1789</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23228427</pub-id></mixed-citation>
+      </ref>
+      <ref id="b42">
+        <mixed-citation publication-type="journal"><name><surname>Englund</surname><given-names>G.</given-names></name>
+<italic>et al.</italic>
+<article-title>Regional levels of drug transporters along the human intestinal tract: co-expression of ABC and SLC transporters and comparison with Caco-2 cells</article-title>. <source>Eur J Pharm Sci</source>
+<volume>29</volume>, <fpage>269</fpage>&#x2013;<lpage>277</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16822659</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn>
+        <p><bold>Author Contributions</bold> Designed research: T.O., K.T. and H.M. Performed experiments: T.O., K.T., R.O. and RN. Analyzed data: T.O., K.T., R.O., M.T., F.S., K.K. and H.M. Wrote manuscript: T.O., K.T. and H.M.</p>
+      </fn>
+    </fn-group>
+  </back>
+  <floats-group>
+    <fig id="f1">
+      <label>Figure 1</label>
+      <caption>
+        <title>Promotion of enterocyte differentiation by combination treatment with three compounds and differentiation period extension.</title>
+        <p>(<bold>A</bold>) The procedure for enterocyte differentiation from human iPS cells by treatment of compounds is presented. From day 19 to 24, the human iPS-derived intestinal cells were treated with the test compounds. (<bold>B</bold>) The gene expression levels of the enterocyte marker <italic>ANPEP</italic> in the test compound-treated human iPS-derived intestinal cells were measured by real-time RT-PCR analysis on day 24. On the y axis, the gene expression levels in &#x201C;Control (untreated hiPS-ELCs)&#x201D; were taken as 1.0. (<bold>C</bold>) On day 24, the gene expression levels of the enterocyte marker <italic>VILLIN</italic> in the PMA, Wortmannin, SB431542, EGF or Wnt3A-treated human iPS-derived intestinal cells were measured by real-time RT-PCR analysis. On the y axis, the gene expression levels in &#x201C;Control&#x201D; were taken as 1.0. (<bold>D</bold>) Temporal gene expression levels of <italic>ANPEP</italic> in the human iPS cell-derived intestinal cells (day 24, 29, and 34) were measured by real-time RT-PCR analysis. On the y axis, the gene expression levels in Adult Intestine were taken as 1.0. (<bold>E</bold>) The modified enterocyte differentiation protocol is illustrated. (<bold>F</bold>) A morphological image of human iPS-derived enterocyte-like cells is represented. Scale bar represents 100&#x2009;&#x3BC;m. (<bold>G</bold>) Human iPS cell-derived enterocyte-like cells were assayed for the expression of intestinal marker CDX2 (Red) by immunohistochemistry. Nuclei were stained with DAPI (Blue). Scale bar represents 40&#x2009;&#x3BC;m. (<bold>H</bold>) Percentages of VILLIN-positive cells in the SB431542, EGF, and Wnt3A-treated enterocyte-like cells were analyzed by flow cytometry analysis on day 24 and 34. Data are represented as the means&#x2009;&#xB1;&#x2009;S.E. (<italic>n</italic>&#x2009;&#x2267;&#x2009;3). Statistical analysis was performed using the unpaired two-tailed student&#x2019;s <italic>t</italic>-test. *<italic>P</italic>&#x2009;&lt;&#x2009;0.05.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep16479-f1"/>
+    </fig>
+    <fig id="f2">
+      <label>Figure 2</label>
+      <caption>
+        <title>Expression analyses of intestinal transporters in the human iPS-derived enterocyte-like cells.</title>
+        <p>Human iPS-derived enterocyte-like cells (hiPS-ELCs) were differentiated according to the protocol described in <xref ref-type="fig" rid="f1">Fig. 1E</xref>. (<bold>A</bold>) The gene expression levels of <italic>PEPT1</italic> in Caco-2 cells, hiPS-ELCs, and Adult Intestine were measured by real-time RT-PCR analysis. On the y axis, the gene expression levels in Caco-2 cells were taken as 1.0. (<bold>B</bold>) The hiPS-ELCs were assayed for expression of PEPT1 (Red) by immunohistochemistry. Nuclei were stained with DAPI (Blue). Scale bars represent 40&#x2009;&#x3BC;m. (<bold>C,D</bold>) The gene expression levels of apical transporters (<bold>C</bold>) and basolateral transporters (<bold>D</bold>) in the Caco-2 cells, hiPS-ELCs, and Adult Intestine were measured by real-time RT-PCR analysis. On the y axis, the gene expression levels in Adult Intestine were taken as 1.0. Data are represented as the means&#x2009;&#xB1;&#x2009;S.E. (<italic>n</italic>&#x2009;&#x2267;&#x2009;3). Statistical analysis was performed using the unpaired two-tailed student&#x2019;s <italic>t</italic>-test. *<italic>P</italic>&#x2009;&lt;&#x2009;0.05. (<bold>E</bold>) After the enterocyte differentiation, the hiPS-ELCs were treated with or without 100&#x2009;&#x3BC;M captopril for 24&#x2009;hr. The hiPS-ELCs were treated with D-Ala-Leu-Lys-AMCA (blue) for 4&#x2009;hr. After the uptake of D-Ala-Leu-Lys-AMCA, the cells were fixed, and stained with anti-VILLIN antibodies (green). Scale bars represent 50&#x2009;&#x3BC;m.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep16479-f2"/>
+    </fig>
+    <fig id="f3">
+      <label>Figure 3</label>
+      <caption>
+        <title>CYP3A4 expression level and induction potency in the human iPS-derived enterocyte-like cells.</title>
+        <p>Human iPS cell-derived enterocyte-like cells (hiPS-ELCs) were differentiated according to the protocol described in <xref ref-type="fig" rid="f1">Fig. 1E</xref>. (<bold>A</bold>) The gene expression levels of <italic>CYP3A4</italic> in Caco-2 cells, hiPS-ELCs, and Adult Intestine were measured by real-time RT-PCR analysis. On the y axis, the gene expression level in Caco-2 cells was taken as 1.0. (<bold>B</bold>) The CYP3A4 protein expression levels in the Caco-2 cells and hiPS-ELCs were measured by western blotting analysis. (<bold>C</bold>) The CYP3A4 activity levels in the Caco-2 cells and hiPS-ELCs were measured by CYP3A4-Glo assay kit. (<bold>D,E</bold>) The CYP3A4 induction potency was examined in the hiPS-ELCs and Caco-2 cells. The hiPS-ELCs and Caco-2 cells were treated with 100&#x2009;nM 1,25-dihidroxyvitamin D3 (VD3) (<bold>D</bold>) or 20&#x2009;&#x3BC;M rifampicin (RIF) (<bold>E</bold>) for 24&#x2009;hr or 48&#x2009;hr, respectively, and then the gene expression levels of <italic>CYP3A4</italic> were measured by real-time RT-PCR analysis. On the y axis, the gene expression levels of <italic>CYP3A4</italic> in Caco-2 cells treated with DMSO (Solvent) were taken as 1.0. (<bold>F,G</bold>) The gene expression levels of VDR (<bold>F</bold>) and PXR (<bold>G</bold>) in the hiPS-ELCs and Caco-2 cells were examined by real-time RT-PCR analysis. On the y axis, the gene expression levels of VDR and PXR in Caco-2 cells were taken as 1.0. The data are represented as the means&#x2009;&#xB1;&#x2009;S.E. (<italic>n</italic>&#x2009;&#x2267;&#x2009;3).</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep16479-f3"/>
+    </fig>
+    <fig id="f4">
+      <label>Figure 4</label>
+      <caption>
+        <title>Analysis of barrier formation capacity in the human iPS-derived enterocyte-like cell monolayers.</title>
+        <p>(<bold>A</bold>) The gene expression levels of <italic>ZO-1</italic> in Caco-2 cells, human iPS-derived enterocyte-like cells (hiPS-ELCs) and Adult Intestine were examined by real-time RT-PCR analysis. On the y axis, the gene expression levels in Caco-2 cells were taken as 1.0. (<bold>B</bold>) Immunostaining analysis of ZO-1 (Green) in the hiPS-ELCs and Caco-2 cells was performed. Nuclei were stained with DAPI (Blue). Scale bars represent 40 &#x3BC;m. (<bold>C</bold>) TEER values of Caco-2 cell monolayers and hiPS-ELC monolayers were measured by Millicell-ERS. All data are represented as the means&#x2009;&#xB1;&#x2009;S.E. (<italic>n</italic>&#x2009;&#x2267;&#x2009;3).</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep16479-f4"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

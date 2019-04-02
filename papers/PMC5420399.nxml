@@ -1,0 +1,3024 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">BMC Genomics</journal-id>
+      <journal-id journal-id-type="iso-abbrev">BMC Genomics</journal-id>
+      <journal-title-group>
+        <journal-title>BMC Genomics</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1471-2164</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28477620</article-id>
+      <article-id pub-id-type="pmc">5420399</article-id>
+      <article-id pub-id-type="publisher-id">3726</article-id>
+      <article-id pub-id-type="doi">10.1186/s12864-017-3726-2</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Effects of dietary physical or nutritional factors on morphology of rumen papillae and transcriptome changes in lactating dairy cows based on three different forage-based diets</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Bing</given-names>
+          </name>
+          <address>
+            <email>wbwz0810@126.com</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff5">5</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Diming</given-names>
+          </name>
+          <address>
+            <email>wdm@zju.edu.cn</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Xuehui</given-names>
+          </name>
+          <address>
+            <email>743047369@qq.com</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cai</surname>
+            <given-names>Jie</given-names>
+          </name>
+          <address>
+            <email>876418837@qq.com</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Mei</given-names>
+          </name>
+          <address>
+            <email>21131778@qq.com</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Xinbei</given-names>
+          </name>
+          <address>
+            <email>196773620@qq.com</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Jiusheng</given-names>
+          </name>
+          <address>
+            <email>wujosh@zju.edu.cn</email>
+          </address>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-5812-5186</contrib-id>
+          <name>
+            <surname>Liu</surname>
+            <given-names>Jianxin</given-names>
+          </name>
+          <address>
+            <email>liujx@zju.edu.cn</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Guan</surname>
+            <given-names>Leluo</given-names>
+          </name>
+          <address>
+            <email>lguan@ualberta.ca</email>
+          </address>
+          <xref ref-type="aff" rid="Aff4">4</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1759 700X</institution-id><institution-id institution-id-type="GRID">grid.13402.34</institution-id><institution>Institute of Dairy Science, College of Animal Sciences, </institution><institution>Zhejiang University, </institution></institution-wrap>Hangzhou, 310058 China </aff>
+        <aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1759 700X</institution-id><institution-id institution-id-type="GRID">grid.13402.34</institution-id><institution>MoE Key Laboratory of Molecular Animal Nutrition, </institution><institution>Zhejiang University, </institution></institution-wrap>Hangzhou, 310058 China </aff>
+        <aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1759 700X</institution-id><institution-id institution-id-type="GRID">grid.13402.34</institution-id><institution>Department of Veterinary Medicine, College of Animal Sciences, </institution><institution>Zhejiang University, </institution></institution-wrap>Hangzhou, 310058 China </aff>
+        <aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="GRID">grid.17089.37</institution-id><institution>Department of Agricultural, Food and Nutritional Science, </institution><institution>University of Alberta, </institution></institution-wrap>Edmonton, AB T6G 2P5 Canada </aff>
+        <aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1798 6793</institution-id><institution-id institution-id-type="GRID">grid.411626.6</institution-id><institution>Current address: Beijing Key Laboratory for Dairy Cow Nutrition, College of Animal Science and Technology, </institution><institution>Beijing University of Agriculture, </institution></institution-wrap>Beijing, 102206 China </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>6</day>
+        <month>5</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>6</day>
+        <month>5</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2017</year>
+      </pub-date>
+      <volume>18</volume>
+      <elocation-id>353</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>7</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>26</day>
+          <month>4</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s). 2017</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <sec>
+          <title>Background</title>
+          <p>Rumen epithelial tissue plays an important role in nutrient absorption and rumen health. However, whether forage quality and particle size impact the rumen epithelial morphology is unclear. The current study was conducted to elucidate the effects of forage quality and forage particle size on rumen epithelial morphology and to identify potential underlying molecular mechanisms by analyzing the transcriptome of the rumen epithelium (RE). To achieve these objectives, 18 mid-lactation dairy cows were allocated to three groups (6 cows per group), and were fed with one of three different forage-based diets, alfalfa hay (AH), corn stover (CS), and rice straw (RS) for 14 weeks, respectively. Ruminal volatile fatty acids (VFAs) and epithelial thickness were determined, and RNA-sequencing was conducted to identify the transcriptomic changes of rumen epithelial under different forage-based diets.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>The RS diet exhibited greater particle size but low quality, the AH diet was high nutritional value but small particle size, and CS diet was low quality and small particle size. The ruminal total VFA concentration was greater in AH compared with those in CS or RS. The width of the rumen papillae was greater in RS-fed cows than in cows fed AH or CS. In total, 31, 40, and 28 differentially expressed (DE, fold change&#x2009;&gt;&#x2009;2, FDR&#x2009;&lt;&#x2009;0.05) genes were identified via pair-wise comparisons including AH vs. CS, AH vs. RS, and RS vs. CS, respectively. Functional classification analysis of DE genes revealed dynamic changes in ion binding (such as <italic>DSG1</italic>) between AH and CS, proliferation and apoptotic processes (such as <italic>BAG3</italic>, <italic>HLA-DQA1</italic>, and <italic>UGT2B17</italic>) and complement activation (such as <italic>C7</italic>) between AH or RS and CS. The expression of <italic>HLA-DQA1</italic> was down-regulated in RS compared with AH and CS, and the expression of <italic>UGT2B17</italic> was down-regulated in RS compared with CS, with positive (<italic>R</italic>&#x2009;=&#x2009;0.94) and negative (<italic>R</italic>&#x2009;=&#x2009;-0.96) correlation with the width of rumen epithelial papillae (<italic>P</italic>&#x2009;&lt;&#x2009;0.05), respectively.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>Our results suggest that both nutrients (VFAs) and particle sizes can alter expression of genes involved in cell proliferation/apoptosis process and complement complex. Our results suggest that particle size may be more important in regulating rumen epithelial morphology when animals are fed with low-quality forage diets and the identified DE genes may affect the RE nutrient absorption or morphology of RE. Our findings provide insights into the effects of the dietary particle size in the future management of dairy cow feeding, that when cows were fed with low-quality forage (such as rice straw), smaller particle size may be beneficial for nutrients absorption and milk production.</p>
+        </sec>
+        <sec>
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:10.1186/s12864-017-3726-2) contains supplementary material, which is available to authorized users.</p>
+        </sec>
+      </abstract>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/501100001809</institution-id>
+              <institution>National Natural Science Foundation of China</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>No. 31328022</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Jianxin</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group>
+          <funding-source>
+            <institution>National Basic Research Program of China</institution>
+          </funding-source>
+          <award-id>No. 2011CB100801</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Jianxin</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+      </funding-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2017</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1">
+      <title>Background</title>
+      <p>Rumen epithelium (RE) consists of leaflike papillae, which not only serves as absorptive structures, but also epithelial barrier to prevent the invasion of rumen microbes and/or toxins [<xref ref-type="bibr" rid="CR1">1</xref>]. The morphology of the rumen epithelium plays a critical role in coping with altered dietary regimens in ruminants [<xref ref-type="bibr" rid="CR2">2</xref>]. During the dietary transition period, the morphology of RE could be changed by diets with different energy density, which may be attributed to the varied volatile fatty acids (VFAs) concentrations [<xref ref-type="bibr" rid="CR3">3</xref>]. In addition, physical features of diet such as the finely ground compared with unground feed were also known to alter the RE morphology in dairy cows [<xref ref-type="bibr" rid="CR4">4</xref>].</p>
+      <p>Recent studies have found that butyrate acts as a mitogenic factor and signaling molecule during cell proliferation in both cattle and humans [<xref ref-type="bibr" rid="CR5">5</xref>&#x2013;<xref ref-type="bibr" rid="CR7">7</xref>]. The increase in the total thickness of the RE in goats after ruminal butyrate infusion has been reported, and the expression of <italic>cyclin D1</italic> gene was found to be associated with the increased papillae growth at the same time [<xref ref-type="bibr" rid="CR8">8</xref>]. In addition, the changes in epithelial thickness can be linked to various cellular functions, such as cell proliferation [<xref ref-type="bibr" rid="CR5">5</xref>] and epithelial differentiation and proliferation [<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR10">10</xref>]. At the transcriptional level [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR8">8</xref>], it has been identified that RE morphology was related to gene targeting functions such as cellular development [<xref ref-type="bibr" rid="CR11">11</xref>], epithelial proliferation [<xref ref-type="bibr" rid="CR10">10</xref>], papilla size and surface area [<xref ref-type="bibr" rid="CR12">12</xref>], and tight junctions [<xref ref-type="bibr" rid="CR13">13</xref>]. These studies revealed aspects of the potential mechanisms by which RE morphology is regulated, but the systematic mechanisms involved in regulating rumen epithelial morphology remain to be clarified.</p>
+      <p>RNA sequencing (RNA-seq), a high-throughput sequencing based transcriptome profiling, has been proven to provide extensive quantitative and qualitative information on the expression of genes in both prokaryotes and eukaryotes [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>] and their potential changes under different conditions. This technique has been successfully applied to identify potential transcriptional mechanisms underlying phenotypic and physiological changes in bovine species [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR16">16</xref>], leading to the findings of &#x201C;potential gene markers&#x201D; [<xref ref-type="bibr" rid="CR17">17</xref>]. Therefore, in the current study RNA-seq based transcriptomic profiling was used to investigate the effects of dietary forage sources with different nutritional values (energy density) and physical forms (particle sizes) on the RE morphology and the underlying mechanism in dairy cows.</p>
+    </sec>
+    <sec id="Sec2">
+      <title>Methods</title>
+      <sec id="Sec3">
+        <title>Animals, management, and nutritional and physical characteristics of the diets</title>
+        <p>The procedures of this study were approved by the Animal Care and Use Committee of Zhejiang University (Hangzhou, China) and were in accordance with the university&#x2019;s guidelines for animal research.</p>
+        <p>A total of 18 multiparous Holstein dairy cows (6 cows per group; milk yield&#x2009;=&#x2009;29.9&#x2009;&#xB1;&#x2009;2.83 kg/d, day in milk&#x2009;=&#x2009;167&#x2009;&#xB1;&#x2009;25.7, parity&#x2009;=&#x2009;3.5&#x2009;&#xB1;&#x2009;1.77; mean&#x2009;&#xB1;&#x2009;SD) were selected in this study. A detailed description of the experimental design and treatments has been reported previously [<xref ref-type="bibr" rid="CR18">18</xref>]. Briefly, the 3 diets contained an identical concentrate mixture (55%, dry matter basis) and 15% corn silage, with the remaining 30% consisting of the following forage sources (dry matter basis): (1) 23% alfalfa hay and 7% Chinese wild rye hay (AH); (2) 30% corn stover (CS); (3) and 30% rice straw (RS). The crude protein content of the 3 diets was similar, but the NE<sub>L</sub> values of AH, CS, and RS were 1.57, 1.45, and 1.43 Mcal/kg, respectively (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>). The particle size distributions of the 3 diets were evaluated using a Penn State Particle Separator according to a previous report [<xref ref-type="bibr" rid="CR19">19</xref>]. Samples of each fraction were dried in a forced-air oven at 65 &#xB0;C for 48 h and were then ground to a size of 1 mm before analysis of the dry matter (105 &#xB0;C for 5 h) and natural detergent fiber (NDF) contents [<xref ref-type="bibr" rid="CR20">20</xref>]. Dietary physical effectiveness factors and physically effective NDF (peNDF) were also calculated as described previously [<xref ref-type="bibr" rid="CR19">19</xref>].<table-wrap id="Tab1"><label>Table 1</label><caption><p>Primers used for quantitative real-time PCR</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Gene</th><th>Gene Bank ID</th><th>Primers</th><th>Primer sequence (5&#x2019;-3&#x2019;)</th><th>Amplicon Size</th><th>References</th></tr></thead><tbody><tr><td rowspan="2">
+<italic>HLA-DQA1</italic>
+</td><td rowspan="2">BT020994.1</td><td>Forward</td><td>CCTTGTGGGTATCGTGGTGG</td><td rowspan="2">150 bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>CGTCTAGCACGTCCACTCTT</td></tr><tr><td rowspan="2">
+<italic>PI3</italic>
+</td><td rowspan="2">XM_005214890.3</td><td>Forward</td><td>TGACTGGGCAAGGGGAGCCG</td><td rowspan="2">112bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>GGGGCCACCCCAAAGAAGCC</td></tr><tr><td rowspan="2">
+<italic>HSPB8</italic>
+</td><td rowspan="2">BT020640.1</td><td>Forward</td><td>CAGTCTTGGCCCTTCCTTGT</td><td rowspan="2">176bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>TCAATTGCGCCATCTTGCAG</td></tr><tr><td rowspan="2">
+<italic>PRSS53</italic>
+</td><td rowspan="2">XM_015469379.1</td><td>Forward</td><td>TGCACAGCTAACATGAGCCA</td><td rowspan="2">148 bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>CCAGAGCCCTTTGCACTGTA</td></tr><tr><td rowspan="2">
+<italic>DSG1</italic>
+</td><td rowspan="2">NM_174045.1</td><td>Forward</td><td>ATCCAACTGACTTGCTCGCT</td><td rowspan="2">278 bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>ACCACCACCAGTTGTGTAGC</td></tr><tr><td rowspan="2">
+<italic>BAG3</italic>
+</td><td rowspan="2">BC133574.1</td><td>Forward</td><td>ACGCAGTAACTTGGGTGGAG</td><td rowspan="2">148 bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>ACAGAGACGGCTCCAAAACA</td></tr><tr><td rowspan="2">
+<italic>CYR61</italic>
+</td><td rowspan="2">NM_001034340.2</td><td>Forward</td><td>GATGCAACTACAACTGCCCG</td><td rowspan="2">116 bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>CCACCCTTATGCTGGAAGCC</td></tr><tr><td rowspan="2">
+<italic>IGFBP3</italic>
+</td><td rowspan="2">NM_174556.1</td><td>Forward</td><td>TTAATGCCTGCACATCCCGA</td><td rowspan="2">259 bp</td><td rowspan="2">This study</td></tr><tr><td>Reverse</td><td>CCCTATGGGGCTTCAGCAAA</td></tr><tr><td rowspan="2">
+<italic>GAPDH</italic>
+</td><td rowspan="2">BC102589</td><td>Forward</td><td>TGGAAAGGCCATCACCATCT</td><td rowspan="2">60 bp</td><td rowspan="2">[<xref ref-type="bibr" rid="CR31">31</xref>]</td></tr><tr><td>Reverse</td><td>CCCACTTGA TGTTGGCAG</td></tr><tr><td rowspan="2">
+<italic>&#x3B2;-actin</italic>
+</td><td rowspan="2">NM-173979</td><td>Forward</td><td>GCCATGAAGCTGAAGATGAC</td><td rowspan="2">229 bp</td><td rowspan="2">[<xref ref-type="bibr" rid="CR29">29</xref>]</td></tr><tr><td>Reverse</td><td>CCTTCTGCAGCTCAGATATG</td></tr></tbody></table></table-wrap>
+</p>
+      </sec>
+      <sec id="Sec4">
+        <title>Rumen fermentation characteristics</title>
+        <p>Approximately 150 mL of rumen fluid was collected 3 h after morning feeding using an oral stomach tube [<xref ref-type="bibr" rid="CR21">21</xref>] on day 6 of weeks 3, 6, 9, and 12, respectively. The pH was immediately determined using a portable pH meter (Starter 300; Ohaus Instruments Co. Ltd., Shanghai, China). The VFA concentration was determined via gas chromatography (GC-8A; Shimadzu Corp., Kyoto, Japan) [<xref ref-type="bibr" rid="CR22">22</xref>]. The ammonia-nitrogen concentration was determined through steam distillation into boric acid and titration with dilute hydrochloric acid (10 mL).</p>
+      </sec>
+      <sec id="Sec5">
+        <title>Characteristics of ruminal papillae</title>
+        <p>The animals were slaughtered before morning feeding (7 a.m.) after 14 weeks of the feeding trial. The rumen was exteriorized and separated from the omasum after slaughter, following a previously described method [<xref ref-type="bibr" rid="CR23">23</xref>]. A detailed description of the collected rumen papillae and histomorphometric analyses was performed according to a published procedure [<xref ref-type="bibr" rid="CR8">8</xref>]. Briefly, the ventral sac of the rumen was chosen, as it has been determined to be the site with the highest capillary blood flow per unit weight mucosa of any location within the rumen [<xref ref-type="bibr" rid="CR24">24</xref>]. Sterile surgical scissors were used to clip approximately 800 mg of ruminal tissue, which was then quickly washed 20 times in ice-cold PBS buffer (pH&#x2009;=&#x2009;7.2). For histomorphometric analyses, the RE samples (approximately 2 cm<sup>2</sup>) including atrium ruminis, ventral rumen sac, and ventral blind sac were selected and were fixed in 4% paraformaldehyde overnight. Then, they were dehydrated, cleared, and embedded in paraffin. Sections of 8 &#x3BC;m in width were cut and stained using the standard hematoxylin and eosin (H&amp;E) procedure. Papillae with almost identical shapes and sizes were embedded for paraffin sectioning and microscopic observation for histomorphological analysis. The morphological characteristics of the ruminal papillae were selected from 4 paraffin sections showing the best orientation of papillae in the median sagittal plane for evaluation using Image-Pro Plus 6.0 (Media Cybernetics Inc., Bethesda, MD). The width of rumen papillae (WP) was measured following previously described methods [<xref ref-type="bibr" rid="CR8">8</xref>], which can be seen in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. In the meantime, the rumen papillae were separated from the stratum basale of the RE and were snap frozen using liquid nitrogen, transferred to the laboratory, and stored at -80&#xB0;C for downstream transcriptomic analysis.<fig id="Fig1"><label>Fig. 1</label><caption><p>Histomicrograph showing the width of ruminal papilla (a)</p></caption><graphic xlink:href="12864_2017_3726_Fig1_HTML" id="MO1"/></fig>
+</p>
+      </sec>
+      <sec id="Sec6">
+        <title>Total RNA extraction and mRNA library construction</title>
+        <p>Total RNA from the RE tissue (approximately 100 mg) was extracted with TRIZOL reagent (Invitrogen, Carlsbad, CA) according to the manufacturer&#x2019;s procedures. The concentration and purity of the total RNA were measured using a NanoDrop&#xAE; ND-1000 Spectrophotometer (NanoDrop Technologies Inc., Wilmington, DE, USA). The RNA concentration of each sample was further examined using a Qubit&#xAE; 2.0 Fluorometer (Life Technologies, CA, USA), and its quality was determined using an Agilent 2200 TapeStation (Agilent Technologies, Santa Clara, CA). RNA samples exhibiting integrity values of more than 7.0 was used for further RNA-seq library construction. The RNA sequencing library was conducted using the TruSeq&#xAE; Stranded mRNA Sample Preparation Guideprovided by the manufacturer according to a previous study [<xref ref-type="bibr" rid="CR25">25</xref>]. Briefly, total RNA was rRNA-depleted, fragmented, and used for the generation of cDNA via reverse transcription. The cDNA was then amplified by PCR, and the purified cDNA amplicons were subjected to sequencing at G&#xE9;nome Qu&#xE9;bec Center at McGill University (Montr&#xE9;al, Canada) using the HiSeq 2000 system (Illumina) to generate 100 bp paired-end reads.</p>
+      </sec>
+      <sec id="Sec7">
+        <title>Transcriptome analysis</title>
+        <p>The high-quality sequencing reads were aligned to the reference genome (UMD 3.1/bosTau6, <ext-link ext-link-type="uri" xlink:href="http://genome.ucsc.edu/">http://genome.ucsc.edu/</ext-link>) using Bowtie/TopHat2 according to a previous study [<xref ref-type="bibr" rid="CR26">26</xref>]. Htseq counts were employed to filter the data to eliminate reads with more than two mismatches to the reference genome and reads showing multiple mapping hits [<xref ref-type="bibr" rid="CR27">27</xref>]. Guided transcript assembly was conducted using the bovine reference genome assembly UMD3.1 (<ext-link ext-link-type="uri" xlink:href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/website">ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/website</ext-link>), in addition to the ENSEMBL reference annotation. Htseq counts were also used to count the reads that mapped to each of the bovine genes using the Tophat2 output [<xref ref-type="bibr" rid="CR27">27</xref>]. The reads were normalized to counts per million (CPM) using the following formula: CPM&#x2009;=&#x2009;(number of reads mapped to a gene)/(total number of reads mapped to all annotated genes)&#x2009;&#xD7;&#x2009;10<sup>6</sup>. All the sequencing data (fastq files) generated in the present study are available in GEO database (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/geo/">http://www.ncbi.nlm.nih.gov/geo/</ext-link>) with accession number GSE78197.</p>
+      </sec>
+      <sec id="Sec8">
+        <title>Identification of differentially expressed genes</title>
+        <p>The dietary effect on gene expression was investigated by characterizing dietary differentially expressed (DE) genes through pair-wise comparisons (AH vs. CS, AH vs. RS, and RS vs. CS) using the bioinformatics tool edge in R [<xref ref-type="bibr" rid="CR28">28</xref>]. For each comparison, transcripts with CPM&#x2009;&gt;&#x2009;1 in at least 50% of the samples per treatment were subjected to DE analysis. Fold change (FC) was defined as the ratio of the arithmetic mean of the CPM within each comparison group, and differential expression was determined with log<sub>2</sub>FC&#x2009;&gt;&#x2009;1 or&#x2009;&lt;&#x2009;-1 with the Benjamini-Hochberg method (FDR). Furthermore, the dietary associated DE genes were identified based on the mutually DE gene between every two dietary pair-wise comparisons. The mutually DE genes between AH vs. CS and AH vs. RS were identified as AH associated DE genes. Similarly, the mutually DE genes between CS vs AH and CS vs. RS were identified as CS associated DE genes, while the mutually DE genes between RS vs AH and RS vs. CS were identified as RS associated DE genes.</p>
+      </sec>
+      <sec id="Sec9">
+        <title>Functional analysis</title>
+        <p>PANTHER (<ext-link ext-link-type="uri" xlink:href="http://www.pantherdb.org/">http://www.pantherdb.org/</ext-link>) was used to identify the functional classification of the biological processes that DE genes involved in. The enriched ontologies for DE genes were identified using web-based annotation tool DAVID v 6.8 (Database for Annotation, Visualization, and Integrated Discovery; <ext-link ext-link-type="uri" xlink:href="https://david.ncifcrf.gov/">https://david.ncifcrf.gov/</ext-link>) [<xref ref-type="bibr" rid="CR29">29</xref>]. The DAVID-defined annotation selection was also employed to define Kyoto Encyclopedia of Genes and Genomes (KEGG) pathways and GO terms (GOTERM_XX) [<xref ref-type="bibr" rid="CR30">30</xref>]. Clustering enrichment thresholds were set as required according to DAVID EASE scores. The classification stringency was set to medium, and the adjusted <italic>P</italic>-values obtained from Bonferroni correction for multiple testing [<xref ref-type="bibr" rid="CR31">31</xref>] were used to define the significance of the identified functions.</p>
+      </sec>
+      <sec id="Sec10">
+        <title>Validation of expression of selected DE genes using qRT-PCR</title>
+        <p>The total RNA of ruminal epithelium was reverse transcribed to cDNA using the PrimeScript 1st Strand cDNA Synthesis Kit (Code No. 6110A, Takara, Otsu, Japan). Quantitative real-time PCR (qRT-PCR) was performed with the 2&#x2009;&#xD7;&#x2009;SYBR&#xAE; Premix Ex Taq (Tli RNaseH Plus) kit (Code No. RR420A, Takara, Otsu, Japan) and the Applied Biosystems 7500 (Foster City, CA). The PCR conditions were set as follows: 1 cycle at 95 &#xB0;C for 10 min, 40 cycles of 95 &#xB0;C for 15 s, and 60 &#xB0;C for 34 s, followed by a melting curve program (60 to 95 &#xB0;C). The primers (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>) targeting for <italic>DSG1</italic>, <italic>PRSS53</italic>, <italic>BAG3</italic>, <italic>IGFBP3</italic>, <italic>CYR61</italic>, <italic>HSPB8</italic>, <italic>PI3</italic>, <italic>HLA-DQA1</italic>, were designed using National Center for Biotechnology Information Nucleotide (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/">http://www.ncbi.nlm.nih.gov/nuccore/</ext-link>), with <italic>Bos taurus</italic> set us species. The specificity of the primers was validated by primer-BLAST (<ext-link ext-link-type="uri" xlink:href="https://www.ncbi.nlm.nih.gov/tools/primer-blast/">https://www.ncbi.nlm.nih.gov/tools/primer-blast/</ext-link>). The <italic>GAPDH</italic> [<xref ref-type="bibr" rid="CR32">32</xref>] and <italic>&#x3B2;-actin</italic> [<xref ref-type="bibr" rid="CR33">33</xref>] were used as reference genes. The relative changes at the mRNA level for each individual gene was analyzed using the 2<sup>-&#x394;CT</sup>, &#x394;CT&#x2009;=&#x2009;CT<sub>target mRNA</sub> &#x2013; CT<sub>house keeping mRNA</sub> (where CT&#x2009;=&#x2009;cycle threshold) method [<xref ref-type="bibr" rid="CR34">34</xref>].</p>
+      </sec>
+      <sec id="Sec11">
+        <title>Statistical analysis</title>
+        <p>The data on dietary physical factor, rumen fermentation characteristics, the WP, and relative mRNA expression using qRT-PCR were analyzed through pairwise comparisons using the PROC MIXED procedure in SAS (SAS 8.1) under a randomized complete block design, with diet as the fixed effect and the cows as the random effect. The results were reported as the least squares means. The statistical significance was declared at <italic>P</italic>&#x2009;&#x2264;&#x2009;0.05, and the tendency was accepted at 0.05&#x2009;&lt;&#x2009;<italic>P</italic>&#x2009;&#x2264;&#x2009;0.10.</p>
+        <p>The possible relationships between the expression of genes and the examined phenotypes (such as WP) were analyzed using one-way ANOVA and Pearson correlation using the whole dataset and the COR function in R software with diet as the fixed variable. Correlation analysis was firstly performed between all transcripts and VFA or WP, and then to determine how many of them overlapping with DE genes under each diet. These overlapped DE genes were then subjected a further correlation analysis under each diet. Significant positive or negative correlations were defined at <italic>P</italic>&#x2009;&lt;&#x2009;0.05.</p>
+      </sec>
+    </sec>
+    <sec id="Sec12">
+      <title>Results</title>
+      <sec id="Sec13">
+        <title>Nutritional and physical features of different forage based diets</title>
+        <p>The energy density and physically effective fiber differed among three diets. The peNDF<sub>8.0</sub> was greater for RS compared with CS (<italic>P</italic>&#x2009;&lt;&#x2009;0.01) and AH (<italic>P</italic>&#x2009;&lt;&#x2009;0.01) (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>). The AH and CS had similar physical form, while AH was higher in energy density and CP content (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). The CS and RS had similar energy density but different physical form with RS having a greater particle size. The AH had greater energy density but smaller particle size compared with RS. The AH diet had similar physical form but greater energy density in comparison with CS diet.<table-wrap id="Tab2"><label>Table 2</label><caption><p>Nutritional and Physical features [Particle size (PS) distribution (%) and physically effective NDF (peNDF)] of three experimental diets (<italic>n</italic>&#x2009;=&#x2009;5)</p></caption><table frame="hsides" rules="groups"><thead><tr><th/><th colspan="4">Diet<sup>a</sup>
+</th><th colspan="3">
+<italic>P</italic>-value</th></tr><tr><th>Item<sup>b</sup>
+</th><th>AH</th><th>CS</th><th>RS</th><th>SEM</th><th>AH vs. CS</th><th>AH vs. RS</th><th>CS vs. RS</th></tr></thead><tbody><tr><td colspan="8">Nutritional factor</td></tr><tr><td>&#x2003;CP</td><td>16.7</td><td>16.2</td><td>16.0</td><td>0.25</td><td>0.02</td><td>0.01</td><td>0.47</td></tr><tr><td>&#x2003;Net energy for lactation<sub>,</sub> Mcal/kg</td><td>1.57</td><td>1.45</td><td>1.43</td><td/><td/><td/><td/></tr><tr><td colspan="8">Physical factor</td></tr><tr><td>&#x2003;PS, &gt;19.0mm</td><td>32.2</td><td>16.9</td><td>40.4</td><td>1.84</td><td>&lt;0.01</td><td>0.03</td><td>&lt;0.01</td></tr><tr><td>&#x2003;PS, 8.0 to 19.0 mm</td><td>16.0</td><td>30.6</td><td>10.4</td><td>1.89</td><td>&lt;0.01</td><td>0.07</td><td>&lt;0.01</td></tr><tr><td>&#x2003;PS, 1.18 to 8.0 mm</td><td>35.8</td><td>36.1</td><td>33.0</td><td>2.08</td><td>0.94</td><td>0.46</td><td>0.18</td></tr><tr><td>&#x2003;PS, &lt;1.18 mm</td><td>16.1</td><td>16.4</td><td>16.2</td><td>1.34</td><td>0.81</td><td>0.96</td><td>0.91</td></tr><tr><td>&#x2003;peNDF<sub>19.0</sub>
+</td><td>10.0</td><td>6.1</td><td>14.9</td><td>0.67</td><td>&lt;0.01</td><td>&lt;0.01</td><td>&lt;0.01</td></tr><tr><td>&#x2003;peNDF<sub>8.0</sub>
+</td><td>23.4</td><td>25.0</td><td>33.7</td><td>1.71</td><td>0.34</td><td>&lt;0.01</td><td>&lt;0.01</td></tr></tbody></table><table-wrap-foot><p>
+<sup>a</sup>AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p><p>
+<sup>b</sup>CP&#x2009;=&#x2009;crude protein; NE<sub>L</sub>&#x2009;=&#x2009;Calculated values based on Chinese recommondations; NDF&#x2009;=&#x2009;neutral detergent fiber; peNDF<sub>8.0</sub> measured as the NDF content of diet multiplied by proportion of particles&#x2009;&gt;&#x2009;8.0 mm; peNDF<sub>19.0</sub> measured as the NDF content of diet multiplied by proportion of particles&#x2009;&gt;&#x2009;19.0 mm; Particle size distribution determined by the Penn State Particle Separator sieving technique</p></table-wrap-foot></table-wrap>
+</p>
+      </sec>
+      <sec id="Sec14">
+        <title>Rumen fermentation characteristics</title>
+        <p>Total VFA concentration was greater in the AH-fed cows compared with the cows consumed CS (<italic>P</italic>&#x2009;=&#x2009;0.04) or RS (Table&#xA0;<xref rid="Tab3" ref-type="table">3</xref>, <italic>P</italic>&#x2009;=&#x2009;0.02), respectively. No difference was observed between the cows fed RS and CS (<italic>P</italic>&#x2009;=&#x2009;0.63). The acetate concentration was greater in AH-fed cows than in cows fed CS (<italic>P</italic>&#x2009;=&#x2009;0.03) or in RS (<italic>P</italic>&#x2009;=&#x2009;0.02, Table&#xA0;<xref rid="Tab3" ref-type="table">3</xref>). The propionate concentration tended to be higher in cows fed AH compared with those fed RS (<italic>P</italic>&#x2009;=&#x2009;0.07). The ratio of acetate to propionate tended to be higher in cows fed RS compared with those fed CS (<italic>P</italic>&#x2009;=&#x2009;0.07), while there was no difference between the AH and RS animals. The butyrate concentration was lower in RS-fed cows than in CS- or AH-fed cows (<italic>P</italic>&#x2009;=&#x2009;0.02), whereas the molar proportion of butyrate was greater in the CS-fed cows than in AH-fed cows (<italic>P</italic>&#x2009;&lt;&#x2009;0.01) or RS (<italic>P</italic>&#x2009;=&#x2009;0.02).<table-wrap id="Tab3"><label>Table 3</label><caption><p>Rumen fermentation characteristics in dairy cows fed with three experimental forage-based diets (<italic>n</italic>&#x2009;=&#x2009;6)</p></caption><table frame="hsides" rules="groups"><thead><tr><th/><th colspan="4">Dietary treatments<sup>a</sup>
+</th><th colspan="3">
+<italic>P</italic>-value</th></tr><tr><th>Item</th><th>AH</th><th>CS</th><th>RS</th><th>SEM</th><th>AH vs. CS</th><th>AH vs. RS</th><th>CS vs. RS</th></tr></thead><tbody><tr><td>pH</td><td>6.39</td><td>6.41</td><td>6.39</td><td>0.050</td><td>0.89</td><td>0.98</td><td>0.85</td></tr><tr><td>Ammonia-N, mg/dL</td><td>14.5</td><td>15.8</td><td>20.3</td><td>1.07</td><td>0.37</td><td>0.01</td><td>0.04</td></tr><tr><td>Total VFA, m<italic>M</italic>
+</td><td>93.5</td><td>81.0</td><td>83.1</td><td>2.83</td><td>0.04</td><td>0.02</td><td>0.63</td></tr><tr><td>Acetate, m<italic>M</italic>
+</td><td>66.2</td><td>57.1</td><td>59.8</td><td>1.99</td><td>0.03</td><td>0.02</td><td>0.20</td></tr><tr><td>Propionate, m<italic>M</italic>
+</td><td>19.4</td><td>17.2</td><td>17.1</td><td>0.75</td><td>0.14</td><td>0.07</td><td>0.95</td></tr><tr><td>Butyrate, m<italic>M</italic>
+</td><td>7.90</td><td>8.64</td><td>6.18</td><td>0.483</td><td>0.13</td><td>0.09</td><td>0.02</td></tr><tr><td colspan="8">Molar proportion, %</td></tr><tr><td>&#x2003;Acetate</td><td>71.1</td><td>70.3</td><td>72.2</td><td>0.89</td><td>0.03</td><td>0.40</td><td>0.02</td></tr><tr><td>&#x2003;Propionate</td><td>20.7</td><td>21.4</td><td>20.5</td><td>0.55</td><td>0.51</td><td>0.80</td><td>0.36</td></tr><tr><td>&#x2003;Butyrate</td><td>8.29</td><td>10.9</td><td>7.34</td><td>0.556</td><td>&lt;0.01</td><td>0.27</td><td>0.02</td></tr><tr><td>Acetate: Propionate</td><td>3.47</td><td>3.24</td><td>3.60</td><td>0.108</td><td>0.23</td><td>0.45</td><td>0.07</td></tr></tbody></table><table-wrap-foot><p>
+<sup>a</sup>AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></table-wrap-foot></table-wrap>
+</p>
+      </sec>
+      <sec id="Sec15">
+        <title>Morphological parameters of ruminal papillae</title>
+        <p>The cows fed RS had a thicker ruminal papilla layer (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref>) than the cows fed AH (<italic>P</italic>&#x2009;=&#x2009;0.038) or CS (<italic>P</italic>&#x2009;=&#x2009;0.048). Whereas WP was not changed between the cows fed AH or CS diet (<italic>P</italic>&#x2009;&gt;&#x2009;0.05).<fig id="Fig2"><label>Fig. 2</label><caption><p>The evaluation of width of rumen papillae in dairy cows fed three different diets (<italic>n</italic>&#x2009;=&#x2009;6). AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></caption><graphic xlink:href="12864_2017_3726_Fig2_HTML" id="MO2"/></fig>
+</p>
+      </sec>
+      <sec id="Sec16">
+        <title>Transcriptome profiling of rumen epithelial tissues</title>
+        <p>In total, 721.2&#xA0;M reads were generated from 18 samples, ranging from 35.2 to 53.6 M per sample. Among them, 593.8 M reads were mapped to the bovine genome, ranging from 28.2 to 47.9 M per sample. Totally, the expression of 12,943, 12,935, and 13,020 genes was detected in the rumen epithelia and 102, 83, and 131 of them expressed uniquely when cows fed AH, CS and RS diets, respectively (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Figure S1-A). The predominant 2490 genes covered more than 80% abundance of total mapped reads (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Figure S1-B), with predominant functions in translation, ribosomal protein, and structural molecule activity.</p>
+      </sec>
+      <sec id="Sec17">
+        <title>Dietary effects on gene expression in rumen papillae</title>
+        <p>A total of 31, 40, and 28 DE genes were identified from the comparison of AH vs. CS, AH vs. RS, and RS vs. CS, respectively (FDR&#x2009;&lt;&#x2009;0.05, Additional file <xref rid="MOESM2" ref-type="media">2</xref>: Table S1). Among DE genes identified in AH vs. CS, 13 of them were up-regulated (log<sub>2</sub>FC ranged from 1.01 to 2.99), while 18 genes were down-regulated (log<sub>2</sub>FC ranged from -3.25 to -1.18). Similarly, 22 and 24 DE genes from the comparison of AH vs. RS (log<sub>2</sub>FC ranged from 1.01 to 2.45). and RS vs. CS (log<sub>2</sub>FC ranged from 1.02 to 2.82), respectively, were up-regulated, while 18 (log<sub>2</sub>FC ranged from -3.12 to -1.01) and four (log<sub>2</sub>FC ranged from -1.87 to -1.02) of them were down-regulated respectively.</p>
+      </sec>
+      <sec id="Sec18">
+        <title>Function and pathway analysis of differentially expressed genes under different diets</title>
+        <p>The functional analysis using DAVID revealed that DE genes under three dietary comparisons were involved in different functions (Table&#xA0;<xref rid="Tab4" ref-type="table">4</xref>). The identified DE genes including <italic>DSG1</italic>, <italic>EFEMP1</italic>, <italic>S100A9</italic>, <italic>LPO</italic>, <italic>PADI1</italic>, <italic>S100A8</italic>, <italic>AIF1</italic>, <italic>RCN1</italic>, and <italic>TGM3</italic>, from AH vs. CS were involved in calcium ion binding (<italic>P</italic>&#x2009;=&#x2009;2.0E-4), while identified DE genes including <italic>C3</italic>, <italic>C7</italic>, and <italic>CFH</italic> from RS vs. CS were involved in complement activation (<italic>P</italic>&#x2009;=&#x2009;4.8E-3). The DE genes including <italic>S100A9</italic>, <italic>APOLD1</italic>, <italic>C2</italic>, <italic>CFB</italic>, <italic>CRISP3</italic>, <italic>LAP</italic>, <italic>PI3</italic>, <italic>SLURP1</italic>, and <italic>TAP</italic> between AH and RS, were predicted to impact extracellular region (<italic>P</italic>&#x2009;=&#x2009;5.9E-4). The functional classification determined using PANTHER showed that the DE genes were mainly involved in of the functions of stimulus response, developmental processes, biological adhesion, apoptotic processes, biological regulation, cellular component organization or biogenesis, cellular processes, immune system processes, localization, and metabolic processes, with different numbers of DE genes for the three pair-wise comparisons (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>).<table-wrap id="Tab4"><label>Table 4</label><caption><p>Enriched functions of dietary differentially expressed genes based on GO terms analyzed using DAVID</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Functional term</th><th>Count</th><th>%</th><th>
+<italic>P</italic>-value</th><th>
+<italic>P</italic>-value<break/>(adjusted)</th><th>Fold Enrichment</th><th>Involved genes</th></tr></thead><tbody><tr><td colspan="7">
+<italic>AH vs. CS</italic>
+</td></tr><tr><td>&#x2003;calcium ion binding</td><td>9</td><td>29.0</td><td>5.3E-6</td><td>2.0E-4</td><td>8.2</td><td>
+<italic>DSG1, EFEMP1, S100A9, LPO, PADI1, S100A8, AIF1, RCN1, TGM3</italic>
+</td></tr><tr><td colspan="7">
+<italic>AH vs. RS</italic>
+</td></tr><tr><td>&#x2003;extracellular region</td><td>9</td><td>22.5</td><td>1.3E-5</td><td>5.9E-4</td><td>7.7</td><td>
+<italic>S100A9, APOLD1, C2, CFB, CRISP3, LAP, PI3, SLURP1, TAP</italic>
+</td></tr><tr><td colspan="7">
+<italic>RS vs. CS</italic>
+</td></tr><tr><td>&#x2003;complement activation, alternative pathway</td><td>3</td><td>10.7</td><td>5.1E-5</td><td>4.8E-3</td><td>256.9</td><td>
+<italic>C3, C7, CFH</italic>
+</td></tr></tbody></table><table-wrap-foot><p>
+<sup>1</sup>AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></table-wrap-foot></table-wrap>
+<fig id="Fig3"><label>Fig. 3</label><caption><p>Functional classification involved in biological process targeted by dietary DE genes in the rumen of dairy cows fed three different diets. AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></caption><graphic xlink:href="12864_2017_3726_Fig3_HTML" id="MO3"/></fig>
+</p>
+        <p>The KEGG pathways of DE genes were analyzed among the three pair-wise comparisons. Only one KEGG pathway, complement and coagulation cascades, was enriched (<italic>P</italic>&#x2009;&lt;&#x2009;0.01; Additional file <xref rid="MOESM3" ref-type="media">3</xref>: Figure S2) in the comparison between RS and CS.</p>
+      </sec>
+      <sec id="Sec19">
+        <title>Diet-associated DE genes</title>
+        <p>According to Venn diagrams analysis, the dietary associated DE genes were further identified (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4</xref>). A total of 15, 6, and 4 genes were identified as AH associated DE genes, CS associated DE genes, and RS associated DE genes, respectively. Among AH associated DE genes, the expression of <italic>PI3</italic>, <italic>AIF1</italic>, <italic>HSPB8</italic>, <italic>BAG3</italic>, and <italic>PRSS53</italic> were down-regulated, while the expression of <italic>DSG1</italic> and <italic>ARG1</italic> were up-regulated. Similarly, for CS associated DE genes, the expression of <italic>MT-ATP8</italic> and <italic>EFEMP1</italic> were down-regulated, while the expression of RS associated DE genes <italic>HLA-DQA1</italic> and <italic>HLA-DQB1</italic> were up-regulated.<fig id="Fig4"><label>Fig. 4</label><caption><p>The dietary associated differentially expressed (DE) genes. AH associated DE genes, the mutually DE genes between AH vs. CS and AH vs. RS; CS associated DE genes, the mutually DE genes between CS vs AH and CS vs. RS; RS associated DE genes, the mutually DE genes between RS vs AH and RS vs. CS. AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></caption><graphic xlink:href="12864_2017_3726_Fig4_HTML" id="MO4"/></fig>
+</p>
+      </sec>
+      <sec id="Sec20">
+        <title>Association between ruminal fermentation characteristics and dietary DE genes</title>
+        <p>The relationships between ruminal fermentation characteristics and DE genes were further explored using correlation analysis. In total, the expression of 12 genes were significantly correlated with at least one of the fermentation parameters (VFAs) regardless of diet, with three of them (<italic>C3, C7,</italic> and <italic>IFI47</italic>) positively correlated with butyrate concentration (<italic>P</italic>&#x2009;&lt;&#x2009;0.05) and nine of them (<italic>C2</italic>, <italic>Gm8618</italic>, <italic>KRT36</italic>, <italic>LPO</italic>, <italic>PI3</italic>, <italic>PRSS53</italic>, <italic>S100A9</italic>, <italic>SAA1</italic>, and <italic>TGM3</italic>) negatively correlated with at least one of the fermentation parameters (<italic>P</italic>&#x2009;&lt;&#x2009;0.05) (Table&#xA0;<xref rid="Tab5" ref-type="table">5</xref>). Among them, <italic>C7</italic> and <italic>SAA1</italic> were DE and their expressions were correlated with the concentration of total VFA and acetate, propionate respectively, under AH. Similarly, <italic>LPO</italic> and <italic>PI3</italic> were DE and correlated with total VFA, acetate, and propionate, and DE <italic>KRT36</italic> was correlated with the four characteristics under CS. Under RS, the expression of <italic>C2</italic> (DE) was correlated with the concentration of total VFA and acetate (Table&#xA0;<xref rid="Tab5" ref-type="table">5</xref>).<table-wrap id="Tab5"><label>Table 5</label><caption><p>Correlations between the concentration of volatile fatty acids and expression of detected genes (<italic>P</italic>&#x2009;&lt;&#x2009;0.05, <italic>n</italic>&#x2009;=&#x2009;18 vs. <italic>n</italic>&#x2009;=&#x2009;6) in dairy cows fed with three experimental forage-based diets</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Genes</th><th>Total VFA</th><th>Acetate</th><th>Propionate</th><th>Butyrate</th></tr></thead><tbody><tr><td colspan="5">All<sup>a</sup>
+</td></tr><tr><td>&#x2003;
+<italic>C2</italic>
+</td><td>&#x2212;0.51</td><td>&#x2212;0.61</td><td/><td/></tr><tr><td>&#x2003;
+<italic>C3</italic>
+</td><td/><td/><td/><td>0.54</td></tr><tr><td>&#x2003;
+<italic>C7</italic>
+</td><td/><td/><td/><td>0.47</td></tr><tr><td>&#x2003;
+<italic>Gm8618</italic>
+</td><td/><td>&#x2212;0.49</td><td/><td/></tr><tr><td>&#x2003;
+<italic>IFI47</italic>
+</td><td/><td/><td/><td>0.54</td></tr><tr><td>&#x2003;
+<italic>KRT36</italic>
+</td><td>&#x2212;0.52</td><td/><td>&#x2212;0.48</td><td>&#x2212;0.60</td></tr><tr><td>&#x2003;
+<italic>LPO</italic>
+</td><td>&#x2212;0.52</td><td/><td/><td>&#x2212;0.67</td></tr><tr><td>&#x2003;
+<italic>PI3</italic>
+</td><td>&#x2212;0.56</td><td>&#x2212;0.55</td><td/><td/></tr><tr><td>&#x2003;
+<italic>PRSS53</italic>
+</td><td>&#x2212;0.63</td><td>&#x2212;0.62</td><td>&#x2212;0.48</td><td/></tr><tr><td>&#x2003;
+<italic>S100A9</italic>
+</td><td>&#x2212;0.61</td><td>&#x2212;0.64</td><td>&#x2212;0.48</td><td/></tr><tr><td>&#x2003;
+<italic>SAA1</italic>
+</td><td>&#x2212;0.52</td><td>&#x2212;0.54</td><td>&#x2212;0.52</td><td/></tr><tr><td>&#x2003;
+<italic>TGM3</italic>
+</td><td>&#x2212;0.52</td><td>&#x2212;0.53</td><td/><td/></tr><tr><td colspan="5">AH<sup>b</sup>
+</td></tr><tr><td>&#x2003;
+<italic>C7</italic>
+</td><td>0.88</td><td>0.88</td><td/><td/></tr><tr><td>&#x2003;
+<italic>SAA1</italic>
+</td><td/><td/><td>&#x2212;0.91</td><td/></tr><tr><td colspan="5">CS<sup>c</sup>
+</td></tr><tr><td>&#x2003;
+<italic>LPO</italic>
+</td><td>&#x2212;0.95</td><td>&#x2212;0.92</td><td>&#x2212;0.88</td><td/></tr><tr><td>&#x2003;
+<italic>PI3</italic>
+</td><td>&#x2212;0.91</td><td>&#x2212;0.88</td><td>&#x2212;0.86</td><td/></tr><tr><td>&#x2003;
+<italic>KRT36</italic>
+</td><td>&#x2212;0.93</td><td>&#x2212;0.84</td><td>&#x2212;0.94</td><td>&#x2212;0.88</td></tr><tr><td colspan="5">RS<sup>d</sup>
+</td></tr><tr><td>&#x2003;
+<italic>C2</italic>
+</td><td>&#x2212;0.86</td><td>&#x2212;0.86</td><td/><td/></tr></tbody></table><table-wrap-foot><p>
+<sup>a</sup>All, based on analysis with all 18 animals</p><p>
+<sup>b</sup>AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage</p><p>
+<sup>c</sup>CS&#x2009;=&#x2009;TMR containing corn stover as the main forage</p><p>
+<sup>d</sup>RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></table-wrap-foot></table-wrap>
+</p>
+      </sec>
+      <sec id="Sec21">
+        <title>Association between rumen epithelial morphology phenotype and dietary associated DE genes</title>
+        <p>We further investigated the correlations between morphological traits (WP) and gene expression (Table&#xA0;<xref rid="Tab6" ref-type="table">6</xref>). In total, the expressions of two genes were significantly correlated with WP regardless of diet: <italic>HLA-DQA1</italic> (<italic>R</italic>&#x2009;=&#x2009;0.52, <italic>P</italic>&#x2009;&lt;&#x2009;0.05) positively correlated with WP, and <italic>UGT2B17</italic> (<italic>R</italic>&#x2009;=&#x2009;-0.69; <italic>P</italic>&#x2009;&lt;&#x2009;0.01) negatively correlated with WP. Among them, the DE gene <italic>HLA-DQA1</italic> was also correlated with WP under RS diet (<italic>R</italic>&#x2009;=&#x2009;0.94; <italic>P</italic>&#x2009;&lt;&#x2009;0.01), and <italic>UGT2B17</italic> was also correlated with WP under CS (<italic>R</italic>&#x2009;=&#x2009;-0.94; <italic>P</italic>&#x2009;&lt;&#x2009;0.01) and RS diet (<italic>R</italic>&#x2009;=&#x2009;-0.96; <italic>P</italic>&#x2009;&lt;&#x2009;0.01).<table-wrap id="Tab6"><label>Table 6</label><caption><p>Correlation between the rumen morphology and the expression of differential expressed genes (<italic>P</italic>&#x2009;&lt;&#x2009;0.05, <italic>n</italic>&#x2009;=&#x2009;18 vs. <italic>n</italic>&#x2009;=&#x2009;6) in dairy cows fed with three experimental forage-based diets</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Item</th><th>R</th><th>Item</th><th>R</th></tr></thead><tbody><tr><td>All<sup>a</sup>
+</td><td/><td>CS<sup>b</sup>
+</td><td/></tr><tr><td>
+<italic>HLA-DQA1</italic>
+</td><td>0.52</td><td>
+<italic>UGT2B17</italic>
+</td><td>&#x2212;0.92</td></tr><tr><td>
+<italic>UGT2B17</italic>
+</td><td>&#x2212;0.69</td><td>RS<sup>c</sup>
+</td><td/></tr><tr><td/><td/><td>
+<italic>HLA-DQA1</italic>
+</td><td>0.94</td></tr><tr><td/><td/><td>
+<italic>UGT2B17</italic>
+</td><td>&#x2212;0.96</td></tr></tbody></table><table-wrap-foot><p>
+<sup>a</sup>All, based on analysis with all 18 animals</p><p>
+<sup>b</sup>CS&#x2009;=&#x2009;Total mixed ration (TMR) containing corn stover as the main forage</p><p>
+<sup>c</sup>RS&#x2009;=&#x2009;TMR containing rice straw as the main forage</p></table-wrap-foot></table-wrap>
+</p>
+      </sec>
+      <sec id="Sec22">
+        <title>Quantitative real-time PCR validation of expression of ruminal morphology associated genes</title>
+        <p>The DE genes including <italic>DSG1</italic>, <italic>PRSS53</italic>, <italic>BAG3</italic>, <italic>IGFBP3</italic>, <italic>CYR61</italic>, <italic>HSPB8</italic>, <italic>PI3</italic>, and <italic>HLA-DQA1</italic> were selected for qPCR validation (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). The qPCR analysis confirmed that the gene expression of <italic>HLA-DQA1, HSPB8</italic>, <italic>PRSS53</italic>, <italic>BAG3</italic>, and <italic>PI3</italic> was higher (<italic>P</italic>&#x2009;&lt;&#x2009;0.05) in the rumen epithelial tissue of cows fed with RS, while the expressions of <italic>DSG1</italic>, <italic>IGFBP3</italic>, and <italic>CYR61</italic> (tended, <italic>P</italic>&#x2009;=&#x2009;0.052) were lower in the RS compared with AH. The expressions of <italic>PRSS53</italic> (<italic>P</italic>&#x2009;&lt;&#x2009;0.05), <italic>HSPB8</italic> (<italic>P</italic>&#x2009;&lt;&#x2009;0.05), and <italic>BAG3</italic> (tended; <italic>P</italic>&#x2009;=&#x2009;0.053) and <italic>PI3</italic> (tended; <italic>P</italic>&#x2009;=&#x2009;0.066) were greater in cows fed CS, compared with those consumed AH, while the expression of <italic>DSG1</italic> was lower in CS compared with that in AH fed cows (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). Additionally, the expression of <italic>HLA-DQA1</italic> was greater in RS fed cows compared with CS-fed cows (<italic>P</italic>&#x2009;&lt;&#x2009;0.05).<fig id="Fig5"><label>Fig. 5</label><caption><p>Expression of <italic>DSG1</italic>, <italic>PRSS53</italic>, <italic>BAG3</italic>, <italic>IGFBP3</italic>, <italic>CYR61</italic>, <italic>HSPB8</italic>, <italic>PI3</italic>, and <italic>HLA-DQA1</italic> detected by quantitative real-time PCR validation and RNA-seq. AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage. Note: a-b means within same index column with different superscripts differ (<italic>P</italic>&#x2009;&lt;&#x2009;0.05; among the three pair-wise comparisons)</p></caption><graphic xlink:href="12864_2017_3726_Fig5_HTML" id="MO5"/></fig>
+</p>
+      </sec>
+    </sec>
+    <sec id="Sec23">
+      <title>Discussion</title>
+      <p>RNA-seq is an effective, efficient, and widely used method for conducting analyses in transcriptional status and functional gene discovery [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR16">16</xref>]. The transcripts detected from rumen epithelial tissue in this study with dairy cows were relatively lower compared with the previous study detected from rumen epithelial tissue of beef cattle [<xref ref-type="bibr" rid="CR35">35</xref>] (12,868 vs. 14,709 transcripts). However, the majority of the transcripts was identified in both studies, with 12,516 common transcripts. In this study, feeding lactating dairy cows with three diets with different forage sources, which varied in feed particle sizes and energy densities, led to changes in rumen papillary morphology and VFAs concentrations in the rumen. By linking dietary composition, rumen fermentation traits, rumen epithelial morphology, and rumen epithelial transcriptomes together, the effects of dietary physical and nutritional factors on rumen epithelial morphology and the underlying mechanisms were identified.</p>
+      <sec id="Sec24">
+        <title>Nutritional factors</title>
+        <p>In the current study, we found that the function of AH associated DE gene <italic>DSG1</italic> (up-regulated in cows fed AH, compared with those fed CS and RS) was enriched under the ion-binding function as well as was associated with tight junctions. This gene encodes a member of the desmoglein protein subfamily which has been reported to be involved in epithelial cell proliferation in bovine epidermis and tongue papillae [<xref ref-type="bibr" rid="CR36">36</xref>]. It has been speculated that ion binding in the rumen may be attributed to the Na<sup>+</sup>-K<sup>-</sup>-ATPase transport system for nutrient absorption [<xref ref-type="bibr" rid="CR37">37</xref>]. Na<sup>+</sup>-K<sup>-</sup> pumps are predominately localized to the innermost living cell layers of the stratum spinosum and the stratum germinativum [<xref ref-type="bibr" rid="CR38">38</xref>]. Increased VFAs absorption by greater Na<sup>+</sup>-K<sup>-</sup>-ATPase activity could prevent possible disturbance of epithelial functions (transport and barrier functions) [<xref ref-type="bibr" rid="CR39">39</xref>]. The higher amount of VFAs and the greater expression of <italic>DSG1</italic> in cows fed AH diet indicates likely more nutrient transport through RE when animals fed AH diet.</p>
+        <p>In the meantime, the absorption of the nutrients through the RE consists of active transport and passive transport pathways [<xref ref-type="bibr" rid="CR40">40</xref>]. The transmural movement of VFAs is a concentration-dependent passive diffusion process, which contributes to the absorption of VFA in addition to the carrier-mediated VFAs transport [<xref ref-type="bibr" rid="CR41">41</xref>]. The rate of uptake of VFAs through passive pathway can be as high as up to 75% in the RE [<xref ref-type="bibr" rid="CR42">42</xref>], and the WP of RE could be directly associated with the passive nutrient uptake. Therefore, the increased WP in RS fed animals indicate the potentially lower absorption of VFA which may lead to lower productivity and feed efficiency [<xref ref-type="bibr" rid="CR18">18</xref>] when compared to AH and CS-fed animals. Moreover, the function of <italic>ARG1</italic> (higher expression in AH compared with CS or RS) has been reported to be involved in catalyzing the hydrolysis of arginine to ornithine and urea in bovine liver [<xref ref-type="bibr" rid="CR43">43</xref>]. It has been reported that N conversion efficiency in CS or RS-fed cows were lower than that in AH-fed cows [<xref ref-type="bibr" rid="CR18">18</xref>]. The observed expression differences in genes involved in AA metabolism in RE may further provide the explanation of RE function in N metabolism under different forage-based diets.</p>
+        <p>In this study, DE gene <italic>C7</italic> (lower expression in CS compared with AH or RS) was enriched in the function of complement activation, alternative pathway, playing an integral role in the assembly of complement complex [<xref ref-type="bibr" rid="CR44">44</xref>], and <italic>C2</italic>, an activator of the classical complement pathway [<xref ref-type="bibr" rid="CR44">44</xref>], was enriched in the function of extracellular region. Activation of the complement system forms a major part of the innate immune system, resulting in the formation of complement complex [<xref ref-type="bibr" rid="CR44">44</xref>]. Complement C2/C7 was involved in the complement component that is a key system for immune surveillance and homeostasis [<xref ref-type="bibr" rid="CR45">45</xref>]. Serum amyloid A protein (SAA) is an inflammatory factor and plasma SAA is considered as the important acute phase proteins in cattle [<xref ref-type="bibr" rid="CR46">46</xref>]. Furthermore, the expression of <italic>C2</italic>, <italic>C7</italic>, and <italic>SAA1</italic> was correlated with the concentration of butyrate (positively), total VFA and acetate (negatively), and total VFA, acetate, and propionate (negatively), respectively, regardless of dietary effects. To date, the expression of these genes was not reported from RE, and the findings of its relationship with butyrate and other VFAs under AH or RS may provide the evidence on its function in the rumen health.</p>
+        <p>In addition, the expression of <italic>LPO</italic> and <italic>KRT36</italic> was negatively correlated with butyrate and total VFA concentration regardless of dietary effects or in CS. Lactoperoxidase (LPO) is an important component of defense mechanism in the body with the antimicrobial and physical properties [<xref ref-type="bibr" rid="CR47">47</xref>]. Keratins (KRT), the epithelial-specific intermediate filaments, changes in keratin gene expression implied the effect on terminal keratin synthesis, which might affect the epithelium morphology [<xref ref-type="bibr" rid="CR48">48</xref>]. The previous study found that butyrate infusion could down-regulate the expression of <italic>LPO</italic> and <italic>KRT36</italic> in RE [<xref ref-type="bibr" rid="CR7">7</xref>]. Moreover, the expression of <italic>PI3</italic> was lower in cows fed AH compared with CS and RS and enriched in the function of extracellular region. The <italic>PI3</italic> gene, which is also known as the elastase-specific inhibitor, is a low-molecular-weight proteinase inhibitor that is synthesized and secreted at the site of neutrophil infiltration [<xref ref-type="bibr" rid="CR49">49</xref>]. The covalent cross-linking of the <italic>PI3</italic> protein to ECM proteins [<xref ref-type="bibr" rid="CR50">50</xref>], confers the antimicrobial activity on <italic>PI3</italic> and promotes its involvement in the innate immune system, and protects epithelial surfaces from being infected [<xref ref-type="bibr" rid="CR51">51</xref>]. Therefore, the down-regulation of <italic>PI3</italic> together with increased VFAs in AH may suggest the protective function against for adverse or irritant factors&#x2019; absorption but promoting VFAs&#x2019; assimilate from RE, which then improving the animal performance for AH-fed animals. Therefore, the identified DE genes and their relationships with VFAs in response to different forage diets reveal that the observed changes in RE morphology could result from dietary induced VFA changes, especially butyrate, and their effect on gene expression. Future studies are needed to understand the roles of VFAs on the expression of <italic>C2</italic>, <italic>C7</italic>, <italic>SAA1, LPO, KRT36, PI3</italic> and rumen epithelium barrier, nutrient absorption, as well as the pathway of complement and coagulation cascades in RE using <italic>in vitro</italic> and <italic>in vivo</italic> models.</p>
+        <p>In ruminants, the stimulation of papilla growth by VFAs or concentrates stimulating rumen epithelial functions has also been well described [<xref ref-type="bibr" rid="CR9">9</xref>], for example, butyrate is a specific inhibitor of ruminal apoptosis as well as a stimulator of papillae proliferation [<xref ref-type="bibr" rid="CR11">11</xref>]. Additionally, the cellular or tissue proliferation/apoptotic processes in RE could directly affect rumen papillae morphology. In this study, we reported the expression of <italic>BAG3</italic> was down-regulated in cows fed AH and was positively correlated with ruminal WP (Table&#xA0;<xref rid="Tab6" ref-type="table">6</xref>). The <italic>BAG3</italic> has been reported to play an important role in cell proliferation, apoptosis, migration, and invasion [<xref ref-type="bibr" rid="CR52">52</xref>], suggesting that the lower expression of this gene could be associated with the lower proliferation/apoptotic processes in RE which could subsequently lead to thinner epithelial layer in cows fed AH. In addition, it has been reported that <italic>BAG3</italic> and <italic>HSPB8</italic> (Heat shock protein family B (small) member 8) were chaperone complex targeting misfolded proteins to macroautophagy [<xref ref-type="bibr" rid="CR53">53</xref>], which is a process that can be activated in response to the nutrient deficiency in eukaryotic cells [<xref ref-type="bibr" rid="CR54">54</xref>]. HSPB8 is known to recognize the misfolded proteins whereas BAG3 might recruit and activate the macroautophagy machinery [<xref ref-type="bibr" rid="CR53">53</xref>]. Thus, the expression differences in <italic>HSPB8</italic> and <italic>BAG3</italic> in cows fed CS and RS suggest that the cells of RE might suffer macroautophagy due to the lower energy supply and nutrient availability (VFAs) from these two cereal straw diets.</p>
+        <p>From the above results, it is suggested that energy density may regulate the immunologic barrier and nutritional transport in ruminal epithelium by influencing ion binding, complement activation, and cell growth, partly induced by altered ruminal VFAs concentration.</p>
+      </sec>
+      <sec id="Sec25">
+        <title>Physical factors</title>
+        <p>Recent studies have proposed that in addition to nutrients (VFAs or concentrates), fiber particle characteristics (size) and the effective fiber content may also play a key role in rumen muscularization and volume development [<xref ref-type="bibr" rid="CR55">55</xref>]. In the current study, the observed significant greater rumen papillae width when animals fed with RS, which contains higher peNDF comparing to in CS and AH, further highlights the importance of dietary physical factor in affecting the ruminal morphology.</p>
+        <p>Particle size can regulate rumen development by altering blood supply to the RE [<xref ref-type="bibr" rid="CR4">4</xref>]. When cows ingested large quantities of solid rice straw, the RE was exposed to indigestible solid fiber, and the rumen cyclically contracted to mix the solid fiber [<xref ref-type="bibr" rid="CR56">56</xref>]. Accordingly, the cows fed a diet with a larger particle size (RS diet) may secrete more saliva, since the salivary secretion could be enhanced by an increased intake of physically effective fiber [<xref ref-type="bibr" rid="CR57">57</xref>]. It has been proposed that rumen development regulation can be mediated through decorin (DCN) and the EGF receptors and that a direct interaction exists between these two receptor to regulate cell growth during remodeling [<xref ref-type="bibr" rid="CR58">58</xref>]. The EGF, a bioactive peptide [<xref ref-type="bibr" rid="CR59">59</xref>], stimulates epithelial proliferation and differentiation when supplied to the luminal side of the rumen via the saliva [<xref ref-type="bibr" rid="CR60">60</xref>]. Intrinsic EGF-like molecules in the digestive tract are known to maintain mucosal integrity by controlling epithelial cell turnover and accelerating the healing of mucosal injuries [<xref ref-type="bibr" rid="CR61">61</xref>]. Indeed, the expression of gene encoding multiple EGF like domains 8 (<italic>MEGF8</italic>) was positively correlated with the rumen papillae width (<italic>P</italic>&#x2009;=&#x2009;0.01; <italic>R</italic>&#x2009;=&#x2009;0.58) although it was not differentially expressed among the diets. Gene expression is not always correlated with the protein expression, therefore, future study is needed to measure the protein level of DCN and MEGF8, in order to provide more information on how these two genes are involved in rumen epithelial cell proliferation. In addition, the expression of <italic>DCN</italic> (decorin) was significantly higher in RS compared to CS-fed animals, which might be attributed to the increase in salivary secretion due to stimulation by a larger dietary particle size [<xref ref-type="bibr" rid="CR62">62</xref>]. Future studies are needed to measure the salivary secretion difference in AH, RS, and CS-fed cows to verify their role in affecting WP.</p>
+        <p>In the current study, the expression of <italic>IGFBP3</italic> was lower in cows fed RS compared with those fed AH. The <italic>IGFBP3</italic> has been well characterized to have functions opposing IGF-1 events [<xref ref-type="bibr" rid="CR63">63</xref>]. IGF-1 is reported to be involved in rumen epithelial growth, as it induces RE cell proliferation <italic>in vitro</italic> [<xref ref-type="bibr" rid="CR7">7</xref>]. The cellular events associated with IGF-1 are modulated by the function of IGFBP [<xref ref-type="bibr" rid="CR64">64</xref>], which may either inhibit or stimulate cellular proliferation or differentiation due to the effects of IGFs [<xref ref-type="bibr" rid="CR65">65</xref>]. In addition, the down-regulated expression of the <italic>IGFBP3</italic> genes in RE of cows was mainly due to the accelerated cellular migration and postmitotic aging induced by subacute ruminal acidosis, which can influence ruminal epithelial growth [<xref ref-type="bibr" rid="CR66">66</xref>]. The changes in mRNA abundance of <italic>IGFBP3</italic> in RS cows might be attributed to reduced organization and intercellular adhesion between the cells of the stratum granulosum. This suggests that the physical factor affects the structural integrity of the RE, through influencing the expression of several related genes such as <italic>IGFBP3</italic>. In the meantime, the expression of <italic>CYR61</italic> and <italic>NOV</italic> were also down-regulated in RS fed cows compared to that in AH fed cows. Their encoded proteins are members of the <italic>CNN</italic> family, which share similarities with <italic>IGFBP. CYR61</italic> is a secreted, extracellular matrix (ECM)-associated heparin-binding protein, mediating cell adhesion, stimulates cell migration, and potentiates growth factor-induced DNA synthesis in fibroblasts and endothelial cells [<xref ref-type="bibr" rid="CR67">67</xref>]. Therefore, the down-regulation of <italic>IGFBP3</italic> and <italic>CYR61</italic>, as well as up-regulation of <italic>PI3</italic> might enhance cellular growth in the RE under the RS diet, which could be one of the causes of the increase in epithelial width.</p>
+        <p>The expression of <italic>HLA-DQA1</italic> was higher in cows fed RS, compared to CS, and was significantly positively correlated with the ruminal WP. It has been reported that the down-regulation of this gene can reduce antigen-specific human T cell proliferation [<xref ref-type="bibr" rid="CR68">68</xref>], which might indicate the potential function of <italic>HLA-DQA1</italic> in cell proliferation and explain the observed relationship with rumen epithelial width under RS diet. The expression of <italic>UGT2B17</italic> was down-regulated in cows fed RS diet compared with that fed CS diet. Down-regulation of <italic>UGT2B17</italic> by growth factors such as fibroblast growth factor family may increase the proliferation of androgen-dependent tumors [<xref ref-type="bibr" rid="CR69">69</xref>]. Therefore, its significant negative correlation with the WP might indicate its potential function in the proliferation of rumen epithelium. Although both <italic>HLA-DQA1</italic> and <italic>UGT2B17</italic> showed potential relationship with WP under different diets, the functions of these genes in the rumen epithelia have not been reported. Future studies are needed to verify their changes in expression and their function in cell proliferation in RE, and how they could be related to rumen WP in other studies or potentially <italic>in vitro</italic> cell models. Regardless, this is the first study to report the physical factor derived expression change of these genes in the rumen epithelia and their relationship with rumen epithelial morphology. Future studies are needed to verify their function and the action of mode in impacting the ruminal epithelial morphology.</p>
+      </sec>
+    </sec>
+    <sec id="Sec26">
+      <title>Conclusion</title>
+      <p>In summary, our obtained DE genes by transcriptome analysis suggest that diet can affect the expression of genes involved in ion binding, cellular growth, and cell proliferation, which may lead to the alteration of RE morphology. A possible mechanism that affects the rumen epithelium function and morphology through physical and nutritional factor under different forages based diets was proposed (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6</xref>). The interaction of dietary nutritional and physical factors could affect the rumen microbiota and microbial fermentation that could subsequently alter the expression of the DE genes including <italic>IGFBP3</italic>, <italic>C2</italic>, <italic>C7</italic>, <italic>SAA1</italic>, <italic>BAG3, HSPB8, PI3</italic>, <italic>LPO</italic>, <italic>ARG1</italic>, <italic>DSG1</italic>, <italic>HLA-DQA1,</italic> and <italic>UGT2B17</italic>, which have the function associated with the tissue morphology or nutritional absorption. The DE genes <italic>HLA-DQA1</italic> and <italic>UGT2B17</italic> identified in this study may be also involved in cell proliferation in rumen epithelium, with further validation research needed. Among the identified DE genes, <italic>HLA-DQA1</italic>, <italic>IGFBP3</italic>, <italic>DSG1</italic>, and <italic>BAG3</italic> may be potential gene markers for the RE morphology and the indicators for nutrient metabolism in the rumen, <italic>C7</italic> and <italic>PI3</italic> may be potential gene markers for the nutrient transport such as VFAs absorption through RE. Overall, our results suggest that the dietary physical form is important for the morphology of RE in lactating dairy cows in addition to the dietary nutritional level, indicating that the forage particle size should be moderate when prepared for total mixed ration diet; and that shorter particle size of low-quality forage may be beneficial for VFAs synthesis as well as absorption (especially through passive transport). Future studies are needed to identify how the morphological changes in the RE-induced by nutritional and physical factors as well as the interaction between them impact nutrient absorption by the rumen papillae, thereby increasing our understanding of how feeding strategies influence the function of the rumen. Also, measuring the protein level of the identified DE genes from this study is needed to verify the dietary effects on the relationship between the RE morphology and altered gene expression. Regardless, our results provide novel insights into the potential transcriptional mechanisms involved in regulating rumen epithelial width and may offer guidance for future experimentation related to balancing rumen epithelial characteristics and dietary regimens.<fig id="Fig6"><label>Fig. 6</label><caption><p>A proposed relationship between transcriptional mechanism and phenotype of the morphology of RE affected by nutritional and physical factors in the cows fed three different diets. The arrows with solid red line indicate the significant correlation between the two defined items from this study (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). Arrows with solid blue line indicate the determined or reported relationship between the two defined items. While arrows with dotted blue line indicate the potential correlation between the two items identified from this study. AH&#x2009;=&#x2009;Total mixed ration (TMR) containing alfalfa hay as the main forage; CS&#x2009;=&#x2009;TMR containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage. The different colors or shapes across the genes represent the differentially expressed genes among the comparisons between 2 dietary treatments. <italic>BAG3</italic>&#x2009;=&#x2009;BCL2-associated athanogene 3; <italic>C2</italic>&#x2009;=&#x2009;complement C2; <italic>C7</italic>&#x2009;=&#x2009;complement C7; <italic>DSG1</italic>&#x2009;=&#x2009;desmoglein 1; <italic>HLA-DQA1</italic>&#x2009;=&#x2009;major histocompatibility complex, class II, DQ alpha 1; <italic>HSPB8</italic>&#x2009;=&#x2009;heat shock protein family B (small) member 8; <italic>IGFBP3</italic>&#x2009;=&#x2009;insulin-like growth factor binding protein 3; <italic>LPO</italic>&#x2009;=&#x2009;lactoperoxidase; <italic>PI3</italic>&#x2009;=&#x2009;peptidase inhibitor 3, skin-derived; <italic>SAA1</italic>&#x2009;=&#x2009;serum amyloid A1; <italic>UGT2B17</italic>&#x2009;=&#x2009;UDP glucuronosyltransferase family 2 member B17. Color version available in the online PDF</p></caption><graphic xlink:href="12864_2017_3726_Fig6_HTML" id="MO6"/></fig>
+</p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Additional files</title>
+      <sec id="Sec27">
+        <p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="12864_2017_3726_MOESM1_ESM.pdf"><label>Additional file 1:Figure S1.</label><caption><p>The identified genes using RNA-seq in rumen under AH, CS and RS diets (A) and the predominant 2490 genes (B; covered more than 80% abundance of total mapped reads). (PDF 41 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="12864_2017_3726_MOESM2_ESM.doc"><label>Additional file 2: Table S1.</label><caption><p>Differentially expressed genes identified from the comparison of AH vs. CS, AH vs. RS, and RS vs. CS, respectively. (DOC 160 kb)</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM3"><media xlink:href="12864_2017_3726_MOESM3_ESM.pdf"><label>Additional file 3: Figure S2.</label><caption><p>The enriched pathway through the DE genes in the comparison between CS and RS. CS&#x2009;=&#x2009;Total mixed ration (TMR) containing corn stover as the main forage; RS&#x2009;=&#x2009;TMR containing rice straw as the main forage. (PDF 357 kb)</p></caption></media></supplementary-material>
+</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>AH</term>
+          <def>
+            <p>Alfalfa hay based diet</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>ARG1</italic>
+          </term>
+          <def>
+            <p>Arginase 1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>BAG3</italic>
+          </term>
+          <def>
+            <p>Athanogene 3</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>C2</italic>
+          </term>
+          <def>
+            <p>Complement C2</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>C7</italic>
+          </term>
+          <def>
+            <p>Complement C7</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CPM</term>
+          <def>
+            <p>Counts per million</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CS</term>
+          <def>
+            <p>Corn stover based diet</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>CYR61</italic>
+          </term>
+          <def>
+            <p>Cysteine-rich, angiogenic inducer, 61</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>DCN</italic>
+          </term>
+          <def>
+            <p>Decorin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DE</term>
+          <def>
+            <p>Differentially expressed</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>DSG1</italic>
+          </term>
+          <def>
+            <p>Desmoglein 1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ECM</term>
+          <def>
+            <p>Extracellular matrix</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>EFEMP1</italic>
+          </term>
+          <def>
+            <p>EGF-containing fibulin-like extracellular matrix protein 1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF</term>
+          <def>
+            <p>Epidermal growth factor family</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>FDR</term>
+          <def>
+            <p>Benjamini-Hochberg method</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>HLA-DQA1</italic>
+          </term>
+          <def>
+            <p>Major histocompatibility complex, class II, DQ alpha 1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>HLA-DQB1</italic>
+          </term>
+          <def>
+            <p>Major histocompatibility complex, class II, DQ beta 1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>HSPB8</italic>
+          </term>
+          <def>
+            <p>Heat shock 22kDa protein 8</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>IGFBP3</italic>
+          </term>
+          <def>
+            <p>Insulin-like growth factor binding protein 3</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>KEGG</term>
+          <def>
+            <p>Kyoto Encyclopedia of Genes and Genomes</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>LPO</italic>
+          </term>
+          <def>
+            <p>Lactoperoxidase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>MT-ATP8</italic>
+          </term>
+          <def>
+            <p>Skin-derived; mitochondrially encoded ATP synthase 8</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NDF</term>
+          <def>
+            <p>Natural detergent fiber</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>NOV</italic>
+          </term>
+          <def>
+            <p>Nephroblastoma overexpressed</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>peNDF</term>
+          <def>
+            <p>Physically effective NDF</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>PI3</italic>
+          </term>
+          <def>
+            <p>Peptidase inhibitor 3</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>RE</term>
+          <def>
+            <p>Rumen epithelium</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>RNA-seq</term>
+          <def>
+            <p>RNA sequencing</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>RS</term>
+          <def>
+            <p>Rice straw based diet</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>SAA1</italic>
+          </term>
+          <def>
+            <p>Serum amyloid A1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TGF-&#x3B1;</term>
+          <def>
+            <p>Transforming growth factor-&#x3B1;</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TGF-&#x3B2;1</term>
+          <def>
+            <p>Transforming growth factor-&#x3B2;1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TMR</term>
+          <def>
+            <p>Total mixed ration</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>
+            <italic>UGT2B17</italic>
+          </term>
+          <def>
+            <p>UDP glucuronosyltransferase family 2 member B17</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>VFA</term>
+          <def>
+            <p>Volatile fatty acid</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>WP</term>
+          <def>
+            <p>Width of rumen papillae</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The authors are thankful for the funding support provided the National Natural Science Foundation of China (No. 31328022), the National Basic Research Program of the China, the Ministry of Science and Technology (No. 2011CB100801), the Natural Sciences and Engineering Research Council of Canada, and the Alberta Innovates Graduate Student Scholarship. The authors acknowledge all members of the Institute of Dairy Science, Zhejiang University for their assistance in sampling and X. Sun and Y. Chen from the University of Alberta for their technical assistance.</p>
+      <sec id="FPar1">
+        <title>Funding</title>
+        <p>This work was supported by the National Natural Science Foundation of China (No. 31328022), the National Basic Research Program of the China, the Ministry of Science and Technology (No. 2011CB100801). The funding body has not participated in or interfered with the research.</p>
+      </sec>
+      <sec id="FPar2">
+        <title>Availability of data and materials</title>
+        <p>The RNA-seq data is available under accession GSE78197 at the Gene Expression Omnibus repository [<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE78197">http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE78197</ext-link>].</p>
+      </sec>
+      <sec id="FPar3">
+        <title>Authors&#x2019; contributions</title>
+        <p>LLG and JXL conceived and designed the study and methods, revised the manuscript, and offered valuable suggestions on the manuscript and methods. BW and DMW performed the procedures, analyzed all the data, and wrote the manuscript. XHW, JC, ML, XBH, and JSW helped with sampling during the slaughter trial and provided the trait data. All authors reviewed the manuscript. All authors read and approved the final manuscript.</p>
+      </sec>
+      <sec id="FPar4">
+        <title>Competing interests</title>
+        <p>The authors declare that they have no competing interests.</p>
+      </sec>
+      <sec id="FPar5">
+        <title>Consent for publication</title>
+        <p>Not applicable.</p>
+      </sec>
+      <sec id="FPar6">
+        <title>Ethics approval and consent to participate</title>
+        <p>The procedures of this study were approved by the Animal Care and Use Committee of Zhejiang University (Hangzhou, China) and were in accordance with the university&#x2019;s guidelines for animal research.</p>
+      </sec>
+      <sec id="FPar7">
+        <title>Publisher&#x2019;s Note</title>
+        <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+      </sec>
+    </ack>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Graham</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Simmons</surname>
+              <given-names>NL</given-names>
+            </name>
+          </person-group>
+          <article-title>Functional organization of the bovine rumen epithelium</article-title>
+          <source>Am J Physiol Regul Integr Comp Physiol</source>
+          <year>2005</year>
+          <volume>288</volume>
+          <issue>1</issue>
+          <fpage>R173</fpage>
+          <lpage>R181</lpage>
+          <pub-id pub-id-type="doi">10.1152/ajpregu.00425.2004</pub-id>
+          <pub-id pub-id-type="pmid">15319221</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>G&#xE4;bel</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Aschenbach</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>M&#xFC;ller</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Transfer of energy substrates across the ruminal epithelium: implications and limitations</article-title>
+          <source>Anim Health Res Rev</source>
+          <year>2002</year>
+          <volume>3</volume>
+          <issue>1</issue>
+          <fpage>15</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="doi">10.1079/AHRR200237</pub-id>
+          <pub-id pub-id-type="pmid">12400867</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Steele</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Schiestel</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>AlZahal</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Dionissopoulos</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Laarman</surname>
+              <given-names>AH</given-names>
+            </name>
+            <name>
+              <surname>Matthews</surname>
+              <given-names>JC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The periparturient period is associated with structural and transcriptomic adaptations of rumen papillae in dairy cattle</article-title>
+          <source>J Dairy Sci</source>
+          <year>2015</year>
+          <volume>98</volume>
+          <issue>4</issue>
+          <fpage>2583</fpage>
+          <lpage>2595</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.2014-8640</pub-id>
+          <pub-id pub-id-type="pmid">25682143</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beharka</surname>
+              <given-names>AA</given-names>
+            </name>
+            <name>
+              <surname>Nagaraja</surname>
+              <given-names>TG</given-names>
+            </name>
+            <name>
+              <surname>Morrill</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Kennedy</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Klemm</surname>
+              <given-names>RD</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of form of the diet on anatomical, microbial, and fermentative development of the rumen of neonatal calves</article-title>
+          <source>J Dairy Sci</source>
+          <year>1998</year>
+          <volume>81</volume>
+          <issue>7</issue>
+          <fpage>1946</fpage>
+          <lpage>1955</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.S0022-0302(98)75768-6</pub-id>
+          <pub-id pub-id-type="pmid">9710764</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hamer</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Jonkers</surname>
+              <given-names>DMAE</given-names>
+            </name>
+            <name>
+              <surname>Venema</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Vanhoutvin</surname>
+              <given-names>SALW</given-names>
+            </name>
+            <name>
+              <surname>Troost</surname>
+              <given-names>FJ</given-names>
+            </name>
+            <name>
+              <surname>Brummer</surname>
+              <given-names>RJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Review article: the role of butyrate on colonic function</article-title>
+          <source>Aliment Pharm Therap</source>
+          <year>2008</year>
+          <volume>27</volume>
+          <issue>2</issue>
+          <fpage>104</fpage>
+          <lpage>119</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2036.2007.03562.x</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mathew</surname>
+              <given-names>OP</given-names>
+            </name>
+            <name>
+              <surname>Ranganna</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yatsu</surname>
+              <given-names>FM</given-names>
+            </name>
+          </person-group>
+          <article-title>Butyrate, an HDAC inhibitor, stimulates interplay between different posttranslational modifications of histone H3 and differently alters G1-specific cell cycle proteins in vascular smooth muscle cells</article-title>
+          <source>Biomed Pharmacother</source>
+          <year>2010</year>
+          <volume>64</volume>
+          <issue>10</issue>
+          <fpage>733</fpage>
+          <lpage>740</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biopha.2010.09.017</pub-id>
+          <pub-id pub-id-type="pmid">20970954</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baldwin</surname>
+              <given-names>RL</given-names>
+              <suffix>6th</suffix>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bequette</surname>
+              <given-names>BJ</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>RW</given-names>
+            </name>
+          </person-group>
+          <article-title>Quantification of transcriptome responses of the rumen epithelium to butyrate infusion using RNA-seq technology</article-title>
+          <source>Gene Regul Syst Bio</source>
+          <year>2012</year>
+          <volume>6</volume>
+          <fpage>67</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="pmid">22654504</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Malhi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Gui</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Yao</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Aschenbach</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>G&#xE4;bel</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>Increased papillae growth and enhanced short-chain fatty acid absorption in the rumen of goats are associated with transient increases in cyclin D1 expression after ruminal butyrate infusion</article-title>
+          <source>J Dairy Sci</source>
+          <year>2013</year>
+          <volume>96</volume>
+          <issue>12</issue>
+          <fpage>7603</fpage>
+          <lpage>7616</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.2013-6700</pub-id>
+          <pub-id pub-id-type="pmid">24119813</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Seyfert</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>L&#xF6;hrke</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Schneider</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Zitnan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Chudy</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>An energy-rich diet causes rumen papillae proliferation associated with more IGF type 1 receptors and increased plasma IGF-1 concentrations in young goats</article-title>
+          <source>J Nutr</source>
+          <year>2004</year>
+          <volume>134</volume>
+          <issue>1</issue>
+          <fpage>11</fpage>
+          <lpage>17</lpage>
+          <pub-id pub-id-type="pmid">14704286</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Penner</surname>
+              <given-names>GB</given-names>
+            </name>
+            <name>
+              <surname>Steele</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Aschenbach</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>McBride</surname>
+              <given-names>BW</given-names>
+            </name>
+          </person-group>
+          <article-title>Ruminant Nutrition Symposium: Molecular adaptation of ruminal epithelia to highly fermentable diets</article-title>
+          <source>J Anim Sci</source>
+          <year>2011</year>
+          <volume>89</volume>
+          <issue>4</issue>
+          <fpage>1108</fpage>
+          <lpage>1119</lpage>
+          <pub-id pub-id-type="doi">10.2527/jas.2010-3378</pub-id>
+          <pub-id pub-id-type="pmid">20971890</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mentschel</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Leiser</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>M&#xFC;lling</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Pfarrer</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Claus</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Butyric acid stimulates rumen mucosa development in the calf mainly by a reduction of apoptosis</article-title>
+          <source>Arch Anim Nutr</source>
+          <year>2001</year>
+          <volume>55</volume>
+          <issue>2</issue>
+          <fpage>85</fpage>
+          <lpage>102</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shen</surname>
+              <given-names>ZM</given-names>
+            </name>
+            <name>
+              <surname>Kuhla</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zitnan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Seyfert</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Schneider</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Hagemeister</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Intraruminal infusion of n-butyric acid induces an increase of ruminal papillae size independent of IGF-1 system in castrated bulls</article-title>
+          <source>Arch Anim Nutr</source>
+          <year>2005</year>
+          <volume>59</volume>
+          <fpage>213</fpage>
+          <lpage>225</lpage>
+          <pub-id pub-id-type="doi">10.1080/17450390500216894</pub-id>
+          <pub-id pub-id-type="pmid">16320810</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>TT</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>WY</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>SY</given-names>
+            </name>
+          </person-group>
+          <article-title>A high-grain diet causes massive disruption of ruminal epithelial tight junctions in goats</article-title>
+          <source>Am J Physiol Regul Integr Comp Physiol</source>
+          <year>2013</year>
+          <volume>305</volume>
+          <issue>3</issue>
+          <fpage>R232</fpage>
+          <lpage>R241</lpage>
+          <pub-id pub-id-type="doi">10.1152/ajpregu.00068.2013</pub-id>
+          <pub-id pub-id-type="pmid">23739344</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ozsolak</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Milos</surname>
+              <given-names>PM</given-names>
+            </name>
+          </person-group>
+          <article-title>RNA sequencing: advances, challenges and opportunities</article-title>
+          <source>Nat Rev Genet</source>
+          <year>2011</year>
+          <volume>12</volume>
+          <issue>2</issue>
+          <fpage>87</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrg2934</pub-id>
+          <pub-id pub-id-type="pmid">21191423</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Choi</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Bao</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kommadath</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hosseini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Meng</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Stothard</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Plastow</surname>
+              <given-names>GS</given-names>
+            </name>
+            <name>
+              <surname>Tuggle</surname>
+              <given-names>CK</given-names>
+            </name>
+            <name>
+              <surname>Reecy</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Waters</surname>
+              <given-names>EF</given-names>
+            </name>
+            <name>
+              <surname>Abrams</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Lunney</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>LL</given-names>
+            </name>
+          </person-group>
+          <article-title>Increasing gene discovery and coverage using RNA-seq of globin RNA reduced porcine blood samples</article-title>
+          <source>BMC Genomics</source>
+          <year>2014</year>
+          <volume>15</volume>
+          <issue>1</issue>
+          <fpage>954</fpage>
+          <pub-id pub-id-type="doi">10.1186/1471-2164-15-954</pub-id>
+          <pub-id pub-id-type="pmid">25374277</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>C&#xE1;novas</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rincon</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Islas-Trejo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Jimenez-Flores</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Laubscher</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Medrano</surname>
+              <given-names>JF</given-names>
+            </name>
+          </person-group>
+          <article-title>RNA sequencing to study gene expression and single nucleotide polymorphism variation associated with citrate content in cow milk</article-title>
+          <source>J Dairy Sci</source>
+          <year>2013</year>
+          <volume>96</volume>
+          <issue>4</issue>
+          <fpage>2637</fpage>
+          <lpage>2648</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.2012-6213</pub-id>
+          <pub-id pub-id-type="pmid">23403202</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Turenne</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Tiys</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Ivanisenko</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Yudin</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Ignatieva</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Valour</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Finding biomarkers in non-model species: literature mining of transcription factors involved in bovine embryo development</article-title>
+          <source>Bio Data Min</source>
+          <year>2012</year>
+          <volume>5</volume>
+          <issue>1</issue>
+          <fpage>1</fpage>
+          <lpage>21</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>YM</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>SL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of alfalfa and cereal straw as a forage source on nutrient digestibility and lactation performance in lactating dairy cows</article-title>
+          <source>J Dairy Sci</source>
+          <year>2014</year>
+          <volume>97</volume>
+          <issue>12</issue>
+          <fpage>7706</fpage>
+          <lpage>7715</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.2014-7961</pub-id>
+          <pub-id pub-id-type="pmid">25262188</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kononoff</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Heinrichs</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Buckmaster</surname>
+              <given-names>DR</given-names>
+            </name>
+          </person-group>
+          <article-title>Modification of the Penn State forage and total mixed ration particle separator and the effects of moisture content on its measurements</article-title>
+          <source>J Dairy Sci</source>
+          <year>2003</year>
+          <volume>86</volume>
+          <issue>5</issue>
+          <fpage>1858</fpage>
+          <lpage>1863</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.S0022-0302(03)73773-4</pub-id>
+          <pub-id pub-id-type="pmid">12778598</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Van Soest</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Lewis</surname>
+              <given-names>BA</given-names>
+            </name>
+          </person-group>
+          <article-title>Methods for dietary fiber, neutral detergent fiber, and nonstarch polysaccharides in relation to animal nutrition</article-title>
+          <source>J Dairy Sci</source>
+          <year>1991</year>
+          <volume>74</volume>
+          <fpage>3583</fpage>
+          <lpage>3597</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.S0022-0302(91)78551-2</pub-id>
+          <pub-id pub-id-type="pmid">1660498</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shen</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Chai</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>LJ</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>JX</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>YM</given-names>
+            </name>
+          </person-group>
+          <article-title>Insertion depth of oral stomach tubes may affect the fermentation parameters of ruminal fluid collected in dairy cows</article-title>
+          <source>J Dairy Sci</source>
+          <year>2012</year>
+          <volume>95</volume>
+          <fpage>5978</fpage>
+          <lpage>5984</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.2012-5499</pub-id>
+          <pub-id pub-id-type="pmid">22921624</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>WL</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>JX</given-names>
+            </name>
+            <name>
+              <surname>Ye</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>YM</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>YQ</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of tea saponin on rumen fermentation in vitro</article-title>
+          <source>Anim Feed Sci Technol</source>
+          <year>2005</year>
+          <volume>120</volume>
+          <fpage>333</fpage>
+          <lpage>339</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.anifeedsci.2005.02.029</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krueger</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Gutierrez-Banuelos</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Carstens</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Min</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Pinchak</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Gomez</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of dietary tannin source on performance, feed efficiency, ruminal fermentation, and carcass and non-carcass traits in steers fed a high-grain diet</article-title>
+          <source>Anim Feed Sci Technol</source>
+          <year>2010</year>
+          <volume>159</volume>
+          <issue>1</issue>
+          <fpage>1</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.anifeedsci.2010.05.003</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Von Engelhardt</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Hales</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Partition of capillary blood flow in rumen, reticulum, and omasum of sheep</article-title>
+          <source>Am J Physiol Endocrinol Metab</source>
+          <year>1977</year>
+          <volume>232</volume>
+          <issue>1</issue>
+          <fpage>E53</fpage>
+          <lpage>E56</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Changhoon Lee</surname>
+              <given-names>RAH</given-names>
+            </name>
+            <name>
+              <surname>Wall</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Mayfield</surname>
+              <given-names>RD</given-names>
+            </name>
+            <name>
+              <surname>Wilke</surname>
+              <given-names>CO</given-names>
+            </name>
+          </person-group>
+          <article-title>RNaseIII and T4 Polynucleotide Kinase sequence biases and solutions during RNA-seq library construction</article-title>
+          <source>Biol Direct</source>
+          <year>2013</year>
+          <volume>8</volume>
+          <issue>1621</issue>
+          <fpage>1</fpage>
+          <lpage>16</lpage>
+          <pub-id pub-id-type="pmid">23324625</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Trapnell</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Roberts</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Goff</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Pertea</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kelley</surname>
+              <given-names>DR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks</article-title>
+          <source>Nat Protoc</source>
+          <year>2012</year>
+          <volume>7</volume>
+          <issue>3</issue>
+          <fpage>562</fpage>
+          <lpage>578</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2012.016</pub-id>
+          <pub-id pub-id-type="pmid">22383036</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <mixed-citation publication-type="other">Anders S, Pyl PT, Huber W. HTSeq&#x2013;a Python framework to work with high-throughput sequencing data. Bioinformatics. 2015;31(2):166&#x2013;169.</mixed-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Robinson</surname>
+              <given-names>MD</given-names>
+            </name>
+            <name>
+              <surname>Mccarthy</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Smyth</surname>
+              <given-names>GK</given-names>
+            </name>
+          </person-group>
+          <article-title>edgeR: a Bioconductor package for differential expression analysis of digital gene expression data</article-title>
+          <source>Bioinformatics</source>
+          <year>2010</year>
+          <volume>26</volume>
+          <issue>1</issue>
+          <fpage>139</fpage>
+          <lpage>140</lpage>
+          <pub-id pub-id-type="doi">10.1093/bioinformatics/btp616</pub-id>
+          <pub-id pub-id-type="pmid">19910308</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Benjamini</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hochberg</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Controlling the false discovery rate: a practical and powerful approach to multiple testing</article-title>
+          <source>J Roy Stat Soc B</source>
+          <year>1995</year>
+          <volume>57</volume>
+          <issue>1</issue>
+          <fpage>289</fpage>
+          <lpage>300</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ashburner</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ball</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Blake</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Botstein</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Butler</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Cherry</surname>
+              <given-names>JM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gene Ontology: tool for the unification of biology</article-title>
+          <source>Nat Genet</source>
+          <year>2000</year>
+          <volume>25</volume>
+          <issue>1</issue>
+          <fpage>25</fpage>
+          <lpage>29</lpage>
+          <pub-id pub-id-type="doi">10.1038/75556</pub-id>
+          <pub-id pub-id-type="pmid">10802651</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Ling</surname>
+              <given-names>TY</given-names>
+            </name>
+            <name>
+              <surname>Tseng</surname>
+              <given-names>WF</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>FM</given-names>
+            </name>
+            <name>
+              <surname>Leal</surname>
+              <given-names>SM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cellular growth inhibition by IGFBP-3 and TGF-&#x3B2;1 requires LRP-1</article-title>
+          <source>FASEB J</source>
+          <year>2003</year>
+          <volume>17</volume>
+          <issue>14</issue>
+          <fpage>2068</fpage>
+          <lpage>2081</lpage>
+          <pub-id pub-id-type="doi">10.1096/fj.03-0256com</pub-id>
+          <pub-id pub-id-type="pmid">14597676</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bionaz</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Loor</surname>
+              <given-names>JJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of reference genes for quantitative real-time PCR in the bovine mammary gland during the lactation cycle</article-title>
+          <source>Physiol Genomics</source>
+          <year>2007</year>
+          <volume>29</volume>
+          <issue>3</issue>
+          <fpage>312</fpage>
+          <lpage>319</lpage>
+          <pub-id pub-id-type="doi">10.1152/physiolgenomics.00223.2006</pub-id>
+          <pub-id pub-id-type="pmid">17284669</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>HF</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>JX</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of glucose availability on glucose transport in bovine mammary epithelial cells</article-title>
+          <source>Animal</source>
+          <year>2012</year>
+          <volume>6</volume>
+          <issue>3</issue>
+          <fpage>488</fpage>
+          <lpage>493</lpage>
+          <pub-id pub-id-type="doi">10.1017/S1751731111001893</pub-id>
+          <pub-id pub-id-type="pmid">22436228</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Livak</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Schmittgen</surname>
+              <given-names>TD</given-names>
+            </name>
+          </person-group>
+          <article-title>Analysis of relative gene expression data using real-time quantitative PCR and the 2&#x2009;&#x2212;&#x2009;&#x394;&#x394;CT method</article-title>
+          <source>Methods</source>
+          <year>2001</year>
+          <volume>25</volume>
+          <issue>4</issue>
+          <fpage>402</fpage>
+          <lpage>408</lpage>
+          <pub-id pub-id-type="doi">10.1006/meth.2001.1262</pub-id>
+          <pub-id pub-id-type="pmid">11846609</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kong</surname>
+              <given-names>RS</given-names>
+            </name>
+            <name>
+              <surname>Liang</surname>
+              <given-names>GX</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Stothard</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>LL</given-names>
+            </name>
+          </person-group>
+          <article-title>Transcriptome profiling of the rumen epithelium of beef cattle differing in residual feed intake</article-title>
+          <source>BMC Genomics</source>
+          <year>2016</year>
+          <volume>17</volume>
+          <fpage>592</fpage>
+          <pub-id pub-id-type="doi">10.1186/s12864-016-2935-4</pub-id>
+          <pub-id pub-id-type="pmid">27506548</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Legan</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Yue</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Chidgey</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Holton</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wilkinson</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Garrod</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>The bovine desmocollin family: a new gene and expression patterns reflecting epithelial cell proliferation and differentiation</article-title>
+          <source>J Cell Boil</source>
+          <year>1994</year>
+          <volume>126</volume>
+          <fpage>507</fpage>
+          <lpage>518</lpage>
+          <pub-id pub-id-type="doi">10.1083/jcb.126.2.507</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Russell</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Strobel</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of ionophores on ruminal fermentation</article-title>
+          <source>Appl Environ Microbiol</source>
+          <year>1989</year>
+          <volume>55</volume>
+          <issue>1</issue>
+          <fpage>1</fpage>
+          <pub-id pub-id-type="pmid">2650616</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mills</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Ernst</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Dibona</surname>
+              <given-names>DR</given-names>
+            </name>
+          </person-group>
+          <article-title>Localization of Na<sup>+</sup>-pump sites in frog skin</article-title>
+          <source>J Cell Biol</source>
+          <year>1977</year>
+          <volume>73</volume>
+          <issue>1</issue>
+          <fpage>88</fpage>
+          <lpage>110</lpage>
+          <pub-id pub-id-type="doi">10.1083/jcb.73.1.88</pub-id>
+          <pub-id pub-id-type="pmid">140176</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uppal</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Wolf</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Khahra</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Martens</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Modulation of Na&#x2009;+&#x2009;transport across isolated rumen epithelium by short&#x2010;chain fatty acids in hay-and concentrate-fed sheep</article-title>
+          <source>J Anim Physiolo a Anim Nutr</source>
+          <year>2003</year>
+          <volume>87</volume>
+          <issue>11-12</issue>
+          <fpage>380</fpage>
+          <lpage>388</lpage>
+          <pub-id pub-id-type="doi">10.1046/j.1439-0396.2003.00448.x</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frizzell</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Field</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schultz</surname>
+              <given-names>SG</given-names>
+            </name>
+          </person-group>
+          <article-title>Sodium-coupled chloride transport by epithelial tissues</article-title>
+          <source>Am J Physiol-Renal</source>
+          <year>1979</year>
+          <volume>236</volume>
+          <issue>1</issue>
+          <fpage>F1</fpage>
+          <lpage>F8</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Titus</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Ahearn</surname>
+              <given-names>GA</given-names>
+            </name>
+          </person-group>
+          <article-title>Vertebrate gastrointestinal fermentation: transport mechanisms for volatile fatty acids</article-title>
+          <source>Am J Physiol Regul Integr Comp Physiol</source>
+          <year>1992</year>
+          <volume>262</volume>
+          <issue>4</issue>
+          <fpage>R547</fpage>
+          <lpage>R553</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bergman</surname>
+              <given-names>EN</given-names>
+            </name>
+          </person-group>
+          <article-title>Energy contributions of volatile fatty acids from the gastrointestinal tract in various species</article-title>
+          <source>Physiol Rev</source>
+          <year>1990</year>
+          <volume>70</volume>
+          <issue>2</issue>
+          <fpage>567</fpage>
+          <lpage>590</lpage>
+          <pub-id pub-id-type="pmid">2181501</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhan</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Jiao</surname>
+              <given-names>Q</given-names>
+            </name>
+          </person-group>
+          <article-title>Biotransformation of l-ornithine from l-arginine using whole-cell recombinant arginase</article-title>
+          <source>Wld J Microbiol Biotech</source>
+          <year>2013</year>
+          <volume>29</volume>
+          <issue>11</issue>
+          <fpage>2167</fpage>
+          <lpage>2172</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11274-013-1382-5</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shen</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of complement component C7 and involvement in innate immune responses to bacteria in grass carp</article-title>
+          <source>Fish Shellfish Immun</source>
+          <year>2012</year>
+          <volume>33</volume>
+          <issue>2</issue>
+          <fpage>448</fpage>
+          <lpage>454</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.fsi.2012.05.016</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ricklin</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Hajishengallis</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Lambris</surname>
+              <given-names>JD</given-names>
+            </name>
+          </person-group>
+          <article-title>Complement: a key system for immune surveillance and homeostasis</article-title>
+          <source>Nat Immunol</source>
+          <year>2010</year>
+          <volume>11</volume>
+          <issue>9</issue>
+          <fpage>785</fpage>
+          <lpage>797</lpage>
+          <pub-id pub-id-type="doi">10.1038/ni.1923</pub-id>
+          <pub-id pub-id-type="pmid">20720586</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Humblet</surname>
+              <given-names>MF</given-names>
+            </name>
+            <name>
+              <surname>Guyot</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Boudry</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Mbayahi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Hanzen</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Rollin</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Relationship between haptoglobin, serum amyloid A, and clinical status in a survey of dairy herds during a 6-month period</article-title>
+          <source>Vet Clin Pathol</source>
+          <year>2006</year>
+          <volume>35</volume>
+          <fpage>188</fpage>
+          <lpage>193</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1939-165X.2006.tb00112.x</pub-id>
+          <pub-id pub-id-type="pmid">16783711</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mohamed</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Clementine</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Didier</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>G&#xE9;rard</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>No&#xEB;lle</surname>
+              <given-names>DCM</given-names>
+            </name>
+          </person-group>
+          <article-title>Antimicrobial and physical properties of edible chitosan films enhanced by lactoperoxidase system</article-title>
+          <source>Food Hydrocolloid</source>
+          <year>2013</year>
+          <volume>30</volume>
+          <issue>2</issue>
+          <fpage>576</fpage>
+          <lpage>580</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.foodhyd.2012.07.018</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pan</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Hobbs</surname>
+              <given-names>RP</given-names>
+            </name>
+            <name>
+              <surname>Coulombe</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>The expanding significance of keratin intermediate filaments in normal and diseased epithelia</article-title>
+          <source>Curr Opin Cell Boil</source>
+          <year>2013</year>
+          <volume>25</volume>
+          <issue>1</issue>
+          <fpage>47</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ceb.2012.10.018</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tejera</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Zhai</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Su</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Sheu</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>DM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genetic polymorphisms of peptidase inhibitor 3 (elafin) are associated with acute respiratory distress syndrome</article-title>
+          <source>Am J Respir Cell Mol Biol</source>
+          <year>2009</year>
+          <volume>41</volume>
+          <issue>6</issue>
+          <fpage>696</fpage>
+          <lpage>704</lpage>
+          <pub-id pub-id-type="doi">10.1165/rcmb.2008-0410OC</pub-id>
+          <pub-id pub-id-type="pmid">19251943</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Guyot</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Zani</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Maurel</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Dallet-Choisy</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Moreau</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Elafin and its precursor trappin-2 still inhibit neutrophil serine proteinases when they are covalently bound to extracellular matrix proteins by tissue transglutaminase</article-title>
+          <source>Biochem</source>
+          <year>2005</year>
+          <volume>44</volume>
+          <fpage>15610</fpage>
+          <lpage>15618</lpage>
+          <pub-id pub-id-type="doi">10.1021/bi051418i</pub-id>
+          <pub-id pub-id-type="pmid">16300411</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sallenave</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Antimicrobial activity of antiproteinases</article-title>
+          <source>Biochem Soc Trans</source>
+          <year>2002</year>
+          <volume>30</volume>
+          <issue>2</issue>
+          <fpage>111</fpage>
+          <lpage>115</lpage>
+          <pub-id pub-id-type="doi">10.1042/bst0300111</pub-id>
+          <pub-id pub-id-type="pmid">12023836</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meng</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>DH</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Zong</surname>
+              <given-names>ZH</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>BQ</given-names>
+            </name>
+            <name>
+              <surname>Du</surname>
+              <given-names>ZX</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Knockdown of BAG3 induces epithelial&#x2013;mesenchymal transition in thyroid cancer cells through ZEB1 activation</article-title>
+          <source>Cell Death Dis</source>
+          <year>2014</year>
+          <volume>5</volume>
+          <issue>2</issue>
+          <fpage>e1092</fpage>
+          <pub-id pub-id-type="doi">10.1038/cddis.2014.32</pub-id>
+          <pub-id pub-id-type="pmid">24577090</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carra</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Seguin</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Landry</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>HspB8 and Bag3: a new chaperone complex targeting misfolded proteins to macroautophagy</article-title>
+          <source>Autophagy</source>
+          <year>2008</year>
+          <volume>4</volume>
+          <issue>2</issue>
+          <fpage>237</fpage>
+          <lpage>239</lpage>
+          <pub-id pub-id-type="doi">10.4161/auto.5407</pub-id>
+          <pub-id pub-id-type="pmid">18094623</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chang</surname>
+              <given-names>YY</given-names>
+            </name>
+            <name>
+              <surname>Juh&#xE1;sz</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Goraksha-Hicks</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Arsham</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Mallin</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Muller</surname>
+              <given-names>LK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Nutrient-dependent regulation of autophagy through the target of rapamycin pathway</article-title>
+          <source>Biochem Soc Trans</source>
+          <year>2009</year>
+          <volume>37</volume>
+          <issue>1</issue>
+          <fpage>232</fpage>
+          <lpage>236</lpage>
+          <pub-id pub-id-type="doi">10.1042/BST0370232</pub-id>
+          <pub-id pub-id-type="pmid">19143638</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rickard</surname>
+              <given-names>MD</given-names>
+            </name>
+            <name>
+              <surname>Ternouth</surname>
+              <given-names>JH</given-names>
+            </name>
+          </person-group>
+          <article-title>The effect of the increased dietary volatile fatty acids on the morphological and physiological development of lambs with particular reference to the rumen</article-title>
+          <source>J Agric Sci</source>
+          <year>1965</year>
+          <volume>65</volume>
+          <issue>3</issue>
+          <fpage>371</fpage>
+          <lpage>377</lpage>
+          <pub-id pub-id-type="doi">10.1017/S0021859600048930</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kay</surname>
+              <given-names>RN</given-names>
+            </name>
+          </person-group>
+          <article-title>Rumen function and physiology</article-title>
+          <source>Vet Rec</source>
+          <year>1983</year>
+          <volume>113</volume>
+          <issue>1</issue>
+          <fpage>6</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1136/vr.113.1.6</pub-id>
+          <pub-id pub-id-type="pmid">6880003</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>WZ</given-names>
+            </name>
+            <name>
+              <surname>Beauchemin</surname>
+              <given-names>KA</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of physically effective fiber on chewing activity and ruminal pH of dairy cows fed diets based on barley silage</article-title>
+          <source>J Dairy Sci</source>
+          <year>2006</year>
+          <volume>89</volume>
+          <issue>1</issue>
+          <fpage>217</fpage>
+          <lpage>228</lpage>
+          <pub-id pub-id-type="doi">10.3168/jds.S0022-0302(06)72086-0</pub-id>
+          <pub-id pub-id-type="pmid">16357285</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Iozzo</surname>
+              <given-names>RV</given-names>
+            </name>
+            <name>
+              <surname>Moscatello</surname>
+              <given-names>DK</given-names>
+            </name>
+            <name>
+              <surname>McQuillan</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Eichstetter</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Decorin is a biological ligand for the epidermal growth factor receptor</article-title>
+          <source>J Biol Chem</source>
+          <year>1999</year>
+          <volume>274</volume>
+          <issue>8</issue>
+          <fpage>4489</fpage>
+          <lpage>4492</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.274.8.4489</pub-id>
+          <pub-id pub-id-type="pmid">9988678</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Savage</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Inagami</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>The primary structure of epidermal growth factor</article-title>
+          <source>J Biol Chem</source>
+          <year>1972</year>
+          <volume>247</volume>
+          <issue>23</issue>
+          <fpage>7612</fpage>
+          <lpage>7621</lpage>
+          <pub-id pub-id-type="pmid">4636327</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Onaga</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hayashi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tsuji</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Endoh</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Okada</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Localization and secretion of epidermal growth factor in the parotid gland and its intragastric kinetics in sheep</article-title>
+          <source>Life Sci</source>
+          <year>2006</year>
+          <volume>79</volume>
+          <issue>17</issue>
+          <fpage>1616</fpage>
+          <lpage>1629</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.lfs.2006.05.016</pub-id>
+          <pub-id pub-id-type="pmid">16777144</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olsen</surname>
+              <given-names>PS</given-names>
+            </name>
+            <name>
+              <surname>Kirkegaard</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Poulsen</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Nex&#xF8;</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Adrenergic effects on exocrine secretion of rat subm andibular epidermal growth factor</article-title>
+          <source>Gut</source>
+          <year>1984</year>
+          <volume>25</volume>
+          <issue>11</issue>
+          <fpage>1234</fpage>
+          <lpage>1240</lpage>
+          <pub-id pub-id-type="doi">10.1136/gut.25.11.1234</pub-id>
+          <pub-id pub-id-type="pmid">6149980</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zebeli</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Tafaj</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Steingass</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Drochner</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of dietary forage particle size and concentrate level on fermentation profile, in vitro degradation characteristics and concentration of liquid-or solid-associated bacterial mass in the rumen of dairy cows</article-title>
+          <source>Anim Feed Sci Technol</source>
+          <year>2008</year>
+          <volume>140</volume>
+          <issue>3</issue>
+          <fpage>307</fpage>
+          <lpage>325</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.anifeedsci.2007.04.002</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Albiston</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Herington</surname>
+              <given-names>AC</given-names>
+            </name>
+          </person-group>
+          <article-title>Tissue distribution and regulation of insulin-like growth factor (IGF)-binding protein-3 messenger ribonucleic acid (mRNA) in the rat: comparison with IGF-I mRNA expression</article-title>
+          <source>Endocrinol</source>
+          <year>1992</year>
+          <volume>130</volume>
+          <issue>1</issue>
+          <fpage>497</fpage>
+          <lpage>502</lpage>
+          <pub-id pub-id-type="doi">10.1210/endo.130.1.1370153</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Firth</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Baxter</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Cellular actions of the insulin-like growth factor binding proteins</article-title>
+          <source>Endocr Rev</source>
+          <year>2002</year>
+          <volume>23</volume>
+          <issue>6</issue>
+          <fpage>824</fpage>
+          <lpage>854</lpage>
+          <pub-id pub-id-type="doi">10.1210/er.2001-0033</pub-id>
+          <pub-id pub-id-type="pmid">12466191</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oksbjerg</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Gondret</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Vestergaard</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Basic principles of muscle development and growth in meat-producing mammals as affected by the insulin-like growth factor (IGF) system</article-title>
+          <source>Domest Anim Endocrinol</source>
+          <year>2004</year>
+          <volume>27</volume>
+          <issue>3</issue>
+          <fpage>219</fpage>
+          <lpage>240</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.domaniend.2004.06.007</pub-id>
+          <pub-id pub-id-type="pmid">15451071</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Steele</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Croom</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kahler</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>AlZahal</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Hook</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Plaizier</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bovine rumen epithelium undergoes rapid structural adaptations during grain-induced subacute ruminal acidosis</article-title>
+          <source>Am J Physiol Regul Integr Comp Physiol</source>
+          <year>2011</year>
+          <volume>300</volume>
+          <issue>6</issue>
+          <fpage>R1515</fpage>
+          <lpage>R1523</lpage>
+          <pub-id pub-id-type="doi">10.1152/ajpregu.00120.2010</pub-id>
+          <pub-id pub-id-type="pmid">21451145</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Grzeszkiewicz</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Kirschling</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Lau</surname>
+              <given-names>LF</given-names>
+            </name>
+          </person-group>
+          <article-title>CYR61 stimulates human skin fibroblasts migration through integrin &#x3B1;V&#x3B2;5 and enhances mitogenesis through integrin &#x3B1;V&#x3B2;3, independent of its carboxy-terminal domain</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>21943</fpage>
+          <lpage>21950</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M100978200</pub-id>
+          <pub-id pub-id-type="pmid">11287419</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De</surname>
+              <given-names>WMR</given-names>
+            </name>
+            <name>
+              <surname>Haanen</surname>
+              <given-names>JBAG</given-names>
+            </name>
+            <name>
+              <surname>Spits</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Roncarolo</surname>
+              <given-names>MG</given-names>
+            </name>
+            <name>
+              <surname>Te Velde</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Figdor</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kastelein</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yssel</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>De Vries</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Interleukin 10 (IL-10) and viral IL-10 strongly reduce antigen-specific human T cell proliferation by diminishing the antigen-presenting capacity of monocytes via downregulation of class II major histocompatibility complex expression</article-title>
+          <source>J Exp Med</source>
+          <year>1991</year>
+          <volume>174</volume>
+          <issue>4</issue>
+          <fpage>915</fpage>
+          <lpage>924</lpage>
+          <pub-id pub-id-type="doi">10.1084/jem.174.4.915</pub-id>
+          <pub-id pub-id-type="pmid">1655948</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>L&#xE9;vesque</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Beaulieu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Guillemette</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hum</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>B&#xE9;langer</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of fibroblastic growth factors (FGF) on steroid UDP-glucuronosyltransferase expression and activity in the LNCaP cell line</article-title>
+          <source>J Steroid Biochem</source>
+          <year>1998</year>
+          <volume>64</volume>
+          <issue>1</issue>
+          <fpage>43</fpage>
+          <lpage>48</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0960-0760(97)00137-4</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

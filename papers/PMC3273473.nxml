@@ -1,0 +1,1095 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22328933</article-id>
+      <article-id pub-id-type="pmc">3273473</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-11-10345</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0031467</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Cytochemistry</subject>
+              <subj-group>
+                <subject>Cell Membrane</subject>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Proteins</subject>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Bioethics</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Molecular Cell Biology</subject>
+            <subj-group>
+              <subject>Cell Adhesion</subject>
+            </subj-group>
+            <subj-group>
+              <subject>Cellular Structures</subject>
+            </subj-group>
+            <subj-group>
+              <subject>Cellular Types</subject>
+            </subj-group>
+            <subj-group>
+              <subject>Signal Transduction</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Oncology</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Urology</subject>
+            <subj-group>
+              <subject>Prostate Diseases</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Cell-to-Cell Signaling Influences the Fate of Prostate Cancer Stem Cells and Their Potential to Generate More Aggressive Tumors</article-title>
+        <alt-title alt-title-type="running-head">Tumor Environment Controls the Fate of CSC</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Salvatori</surname>
+            <given-names>Luisa</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Caporuscio</surname>
+            <given-names>Francesca</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Verdina</surname>
+            <given-names>Alessandra</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Starace</surname>
+            <given-names>Giuseppe</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Crispi</surname>
+            <given-names>Stefania</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nicotra</surname>
+            <given-names>Maria Rita</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Russo</surname>
+            <given-names>Andrea</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Calogero</surname>
+            <given-names>Raffaele Adolfo</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff6">
+<sup>6</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Morgante</surname>
+            <given-names>Emanuela</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Natali</surname>
+            <given-names>Pier Giorgio</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff7">
+<sup>7</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Russo</surname>
+            <given-names>Matteo Antonio</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+          <xref ref-type="aff" rid="aff8">
+<sup>8</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Petrangeli</surname>
+            <given-names>Elisa</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Institute of Molecular Biology and Pathology, CNR, Rome, Italy</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Department of Therapeutic Program Development, CRS, Regina Elena Cancer Institute, Rome, Italy</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Department of Experimental Medicine, Sapienza University of Rome, Rome, Italy</addr-line>
+</aff>
+      <aff id="aff4">
+<label>4</label>
+<addr-line>Gene Expression Core - Human Molecular Genetics Laboratory, Institute of Genetics and Biophysics, CNR, Naples, Italy</addr-line>
+</aff>
+      <aff id="aff5">
+<label>5</label>
+<addr-line>Department of Surgical Pathology, Regina Elena Cancer Institute, Rome, Italy</addr-line>
+</aff>
+      <aff id="aff6">
+<label>6</label>
+<addr-line>Bioinformatics and Genomics Unit, Molecular Biotechnology Center, Turin, Italy</addr-line>
+</aff>
+      <aff id="aff7">
+<label>7</label>
+<addr-line>CINBO Laboratories, University of Chieti, Chieti, Italy</addr-line>
+</aff>
+      <aff id="aff8">
+<label>8</label>
+<addr-line>Department of Cellular and Molecular Pathology, IRCCS San Raffaele Pisana, Rome, Italy</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Fusco</surname>
+            <given-names>Alfredo</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">Consiglio Nazionale delle Ricerche (CNR), Italy</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>luisa.salvatori@ifo.it</email></corresp>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: LS. Performed the experiments: LS FC AV GS SC MRN AR RAC EM PGN. Analyzed the data: LS FC AV PGN MAR EP. Contributed reagents/materials/analysis tools: AV PGN MAR EP. Wrote the paper: LS.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>6</day>
+        <month>2</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>2</issue>
+      <elocation-id>e31467</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>6</month>
+          <year>2011</year>
+        </date>
+        <date date-type="accepted">
+          <day>9</day>
+          <month>1</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Salvatori et al.</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>An increasing number of malignancies has been shown to be initiated and propelled by small subpopulations of cancer stem cells (CSC). However, whether tumor aggressiveness is driven by CSC and by what extent this property may be relevant within the tumor mass is still unsettled. To address this issue, we isolated a rare tumor cell population on the basis of its CD44<sup>+</sup>CD24<sup>&#x2212;</sup> phenotype from the human androgen-independent prostate carcinoma cell line DU145 and established its CSC properties. The behavior of selected CSC was investigated with respect to the bulk DU145 cells. The injection of CSC in nude mice generated highly vascularized tumors infiltrating the adjacent tissues, showing high density of neuroendocrine cells and expressing low levels of E-cadherin and &#x3B2;-catenin as well as high levels of vimentin. On the contrary, when a comparable number of unsorted DU145 cells were injected the resulting tumors were less aggressive. To investigate the different features of tumors <italic>in vivo</italic>, the influence of differentiated tumor cells on CSC was examined <italic>in vitro</italic> by growing CSC in the absence or presence of conditioned medium from DU145 cells. CSC grown in permissive conditions differentiated into cell populations with features similar to those of cells held in aggressive tumors generated from CSC injection. Differently, conditioned medium induced CSC to differentiate into a cell phenotype comparable to cells of scarcely aggressive tumors originated from bulk DU145 cell injection. These findings show for the first time that CSC are able to generate differentiated cells expressing either highly or scarcely aggressive phenotype, thus influencing prostate cancer progression. The fate of CSC was determined by signals released from tumor environment. Moreover, using microarray analysis we selected some molecules which could be involved in this cell-to-cell signaling, hypothesizing their potential value for prognostic or therapeutic applications.</p>
+      </abstract>
+      <counts>
+        <page-count count="14"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Prostatic adenocarcinoma (PCa) is a leading cause of death among men in the United States and Western Europe <xref rid="pone.0031467-Jemal1" ref-type="bibr">[1]</xref>. Because of its androgen-dependent growth, hormone ablation remains the main treatment of metastatic disease. While initially effective, this treatment is followed in a few years by tumor recurrence <xref rid="pone.0031467-Feldman1" ref-type="bibr">[2]</xref> in which an androgen-independent neuroendocrine (NE) subpopulation of cells is thought to play an important role <xref rid="pone.0031467-Bonkhoff1" ref-type="bibr">[3]</xref>, <xref rid="pone.0031467-Debes1" ref-type="bibr">[4]</xref>. NE cells are quiescent, terminally differentiated cells characterized by dendrite-like processes extending between adjacent cells and by the expression of neuronal-like proteins such as CD56 and chromogranin A (CGA) contained in dense cytoplasmic granules <xref rid="pone.0031467-Abrahamsson1" ref-type="bibr">[5]</xref>. Through the secretion of neuropeptides NE cells modulate the activity of normal prostate epithelium but are also capable to influence adjacent transformed epithelial cells via paracrine signals, thus stimulating tumor growth and metastatic capacity <xref rid="pone.0031467-Abrahamsson1" ref-type="bibr">[5]</xref>&#x2013;<xref rid="pone.0031467-Hoosein1" ref-type="bibr">[7]</xref>. In fact, an increased NE cell population in PCa is thought to be associated with a more aggressive disease, whereas a low number of NE cells in tumor tissue have no specific prognostic meaning <xref rid="pone.0031467-Abrahamsson2" ref-type="bibr">[6]</xref>, <xref rid="pone.0031467-Grobholz1" ref-type="bibr">[8]</xref>, <xref rid="pone.0031467-Kamiya1" ref-type="bibr">[9]</xref>. Interestingly, both NE and secretory epithelial lineage are derived from a common pluripotent prostate stem cell <xref rid="pone.0031467-Huss1" ref-type="bibr">[10]</xref>.</p>
+      <p>A further basic mechanism involved in the progression of PCa is decreased expression of E-cadherin, the main transmembrane adhesion molecule responsible for cell-to-cell interactions and tissue organization in epithelial cells <xref rid="pone.0031467-Damsky1" ref-type="bibr">[11]</xref>, <xref rid="pone.0031467-Takeichi1" ref-type="bibr">[12]</xref>. Through the cytoplasmic domain, it binds &#x3B2;-catenin, which influences cytoskeletal arrangement <xref rid="pone.0031467-Hinck1" ref-type="bibr">[13]</xref>. As a consequence, loss of E-cadherin function or expression is considered a crucial event in the disruption of cell-cell adhesion and cytoskeletal architecture and in the acquisition of an invasive phenotype in tumor cells <xref rid="pone.0031467-Vleminckx1" ref-type="bibr">[14]</xref>. In particular, in PCa, lower expression of E-cadherin was associated with more advanced tumor stage and grade <xref rid="pone.0031467-Umbas1" ref-type="bibr">[15]</xref>, <xref rid="pone.0031467-DeMarzo1" ref-type="bibr">[16]</xref>. Poorly differentiated prostate tumors also showed higher expression of vimentin, a cytoskeletal component responsible for maintaining cell integrity, and high levels of vimentin correlated with the invasive capacity of prostate cancer cell lines, including DU145 <xref rid="pone.0031467-Lang1" ref-type="bibr">[17]</xref>.</p>
+      <p>Traditionally, tumors have been considered to be composed of heterogeneous cells with comparable unlimited proliferative and tumorigenic potential. However, it has recently been hypothesized that only rare cells within the tumor, named cancer stem cells (CSC), are able to proliferate extensively and are tumorigenic, whereas the majority of cells in the tumor mass show a variable degree of differentiation and undergo a limited number of divisions. Their contribution to tumor growth and metastatization is considered to be rather limited. Importantly, this model implies the need for a new therapeutic approach specifically targeted towards the CSC in the attempt to definitively eradicate the tumor <xref rid="pone.0031467-Reya1" ref-type="bibr">[18]</xref>. However, whether tumor aggressiveness is driven by CSC and by what extent this property may be biologically relevant within the naturally occurring tumor mass is still unsettled.</p>
+      <p>As the presence of CSC in PCa <xref rid="pone.0031467-Collins1" ref-type="bibr">[19]</xref> and prostate cancer cell lines <xref rid="pone.0031467-Hurt1" ref-type="bibr">[20]</xref> was recently demonstrated on the basis of the surface antigenic profile CD44<sup>+</sup>/&#x3B1;<sub>2</sub>&#x3B2;<sub>1</sub>
+<sup>hi</sup>/CD133<sup>+</sup> and CD44<sup>+</sup>CD24<sup>&#x2212;</sup>, respectively, in the present study we aimed to evaluate the contribution of CSC to tumor progression. We isolated CD44<sup>+</sup>CD24<sup>&#x2212;</sup> stem-like cancer cells from the androgen-independent prostate cancer cell line DU145 derived from a brain metastasis of human PCa, showed their CSC properties, and investigated their phenotype and behavior with respect to the bulk DU145 cells. Importantly, in this model of prostate cancer we observed that CSC were able to generate highly aggressive tumors in NOD/SCID mice and that this potential was limited by the presence of differentiated DU145 cells with the consequent growth of less aggressive tumors. Consistently, by growing CSC in conditioned medium from DU145 cells <italic>in vitro</italic>, we unveiled that diffusible factors released from differentiated tumor cells were able to restrain CSC from differentiating into cell populations showing an aggressive phenotype and with features similar to those of cells held in tumors generated in mice from the injection of CSC. Finally, functional analysis of genes found differentially expressed in CSC and DU145 cells by microarray analysis confirmed the essential role of cell-to-cell signaling molecules to determine the behavior of CSC. Further investigations performed also in other models of prostate cancer might assign prognostic or therapeutic value to this signature.</p>
+    </sec>
+    <sec id="s2">
+      <title>Results</title>
+      <sec id="s2a">
+        <title>Isolation and characterization of CSC from DU145 prostate cancer cells</title>
+        <p>DU145 cells were enriched by fluorescence-activated cell sorting (FACS) for the population expressing CD44<sup>+</sup>CD24<sup>&#x2212;</sup>
+<xref rid="pone.0031467-Hurt1" ref-type="bibr">[20]</xref> which represented about 10% of bulk DU145 cells (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1A</xref>). We tested the stem-like properties of selected cells to indisputably describe them as prostate CSC. A very small percentage of CD44<sup>+</sup>CD24<sup>&#x2212;</sup> isolated cells was able to generate non-adherent spherical clusters, termed spheroids or prostaspheres, in serum-free medium supplemented with EGF, bFGF and insulin (Serum Replacement Medium, SRM). Spheroids grew very slowly, reaching the size of about 300 &#xB5;m within 6&#x2013;8 weeks (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1B</xref>). As expected, spheroids were enriched for CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells, as determined by both immunofluorescence (IF) staining (data not shown) and quantitative real-time PCR (Q-PCR) analysis, with comparable results. In fact, in spheroids CD44 mRNA was expressed at levels similar to DU145 cells, whereas the expression of CD24 was significantly lower (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1C</xref>).</p>
+        <fig id="pone-0031467-g001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Sorting, culture and characterization of stem-like cells from DU145 cell line.</title>
+            <p>(<bold>A</bold>) FACS analysis of CD44 and CD24 expression in DU145 cells. (<bold>B</bold>) Culture of isolated CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells growing in SRM as nonadherent prostaspheres (5&#xD7; objective). (<bold>C</bold>) Q-PCR of CD44 and CD24 expression in spheroid and DU145 cells. Data are presented as mean &#xB1; SEM from 3 experiments. *, <italic>p</italic>&lt;0.05 <italic>vs</italic> DU145 cells. (<bold>D</bold>) Self-renewal capacity of spheroids. Serum supplementation and the withdrawal of growth factors induce the growth of spheroid cells as adherent cells with morphology (<bold>E</bold>), proliferation rate (<bold>F</bold>) and expression of vimentin (<bold>G</bold>) comparable to DU145 cells. Photographs of spheroid cells were taken under a phase contrast microscope after 10 and 20 days of growth in FBS-containing medium (20&#xD7;). The representative western blots show the expression of vimentin and &#x3B2;-actin in spheroid cells grown in FBS-supplemented medium with respect to control spheroids and DU145 cells. The histogram displays the densitometric quantification of vimentin normalized to &#x3B2;-actin levels. Values are expressed as mean &#xB1; SEM from 3 independent experiments. (<bold>H</bold>) Tumor incidence and latency after injection of 1 spheroid, 5,000 or 3&#xD7;10<sup>6</sup> DU145 cells in NOD/SCID mice.</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g001"/>
+        </fig>
+        <p>Spheroids contained long-term self-renewing cells, as demonstrated by the ability of a fraction of cells from dissociated spheroids to generate new prostaspheres lasted over 5 passages (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1D</xref>).</p>
+        <p>We observed that spheroid cells displayed differentiation capacity. In fact, when removed of growth factors and exposed to 10% FBS-containing medium, a significant fraction of spheroid cells became adherent, grew as a flat monolayer and showed a heterogeneous morphology highly similar to DU145 cells after 20 days (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1E</xref>). In the early days of growth in these permissive conditions, spheroid cells showed a doubling time of about 50 h that progressively decreased up to the proliferation rate of DU145 cells, namely 30 h, starting from 15 days of culture (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1F</xref>). Moreover, to confirm the appearance of the phenotype of DU145 differentiated cancer cells we analyzed the expression of the intermediate filament protein vimentin. In fact, vimentin expression has been reported to be modulated during cell maturation according to the cell lineage <xref rid="pone.0031467-Rius1" ref-type="bibr">[21]</xref> and was found highly expressed in DU145 cell line <xref rid="pone.0031467-Lang1" ref-type="bibr">[17]</xref>. Actually, after 20 days in FBS-supplemented medium, vimentin-negative cells derived from spheroids expressed vimentin at levels comparable to DU145 cells (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1G</xref>).</p>
+        <p>Finally, we determined the tumor-producing ability of spheroid cells with respect to unsorted DU145 cells into immunodeficient mice. The injection of 1 spheroid of 300 &#xB5;m in diameter, containing approximately 5,000 cells, resulted in tumors in 80% of mice, whereas the injection of 5,000 bulk DU145 cells generated tumors in 40% of animals (<xref ref-type="fig" rid="pone-0031467-g001">Figure 1H</xref>). Moreover, the tumor latency was also shorter in the spheroid-injected mice than in the mice injected with unsorted cells (37 and 54 days, respectively). The injection of 3&#xD7;10<sup>6</sup> DU145 cells, which were used as controls, generated tumors with the lowest latency in all the mice. Consistent with a previous report <xref rid="pone.0031467-Hurt1" ref-type="bibr">[20]</xref>, all together our results indicate that CD44<sup>+</sup>CD24<sup>&#x2212;</sup> spheroid cells present key biological properties of CSC since they showed capacity for self-renewal, were able to differentiate into parental DU145 cells and were more tumorigenic than bulk DU145 cells when the same number of cells was injected in mice.</p>
+      </sec>
+      <sec id="s2b">
+        <title>Heterogeneous composition of spheroids</title>
+        <p>Spheroids up to 300&#x2013;400 &#xB5;m in diameter showed a compact architecture (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2A</xref>) due to the presence of very tight cell-to-cell contacts, as seen on Transmission Electron Microscopy (TEM). High-power magnification showed multiple junctional complexes formed by desmosomes and adherent junctions (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2B</xref>). Spheroid cells also presented nuclear pore complexes organized in annulate lamellae (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2C</xref>), which are considered precursors in the assembly of the nuclear envelop. They are typically present in embryonic and immature cells and disappear during differentiation <xref rid="pone.0031467-Kessel1" ref-type="bibr">[22]</xref>. However, spheroids also hold differentiated cells that, in these culture conditions selective for stem cells, showed several levels of cell degradation. In particular, characteristic cytoplasmic blebs were evident (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2D</xref>), indicating that the degrading phase approached cell necrosis (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2F</xref>), while nuclei appeared mostly intact (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2E</xref>). These damages suggest the terminal destiny of differentiated cells.</p>
+        <fig id="pone-0031467-g002" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Structure and composition of spheroids.</title>
+            <p>(<bold>A</bold>) Phase contrast evaluation of spheroid structure (10&#xD7;). (<bold>B</bold>) TEM analysis showing desmosomes and adherent junctions (top and bottom, respectively) as well as the annulate lamellae (<bold>C</bold>) in spheroid cells. (<bold>D</bold>) Phase contrast (20&#xD7;) of a fragment of spheroid surrounded by cells characterized by protruding blebs of empty cytoplasm, which present intact nuclei as shown by DAPI staining (40&#xD7;, <bold>E</bold>). (<bold>F</bold>) Staining with trypan blue shows the presence of dead cells in spheroids (10&#xD7;). Immunofluorescence staining of a section of spheroids and DU145 cells (original magnification &#xD7;200) showing the expression of E-cadherin (<bold>G</bold>), &#x3B2;-catenin (<bold>H</bold>) and vimentin (<bold>I</bold>).</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g002"/>
+        </fig>
+        <p>Spheroids and DU145 cells were also evaluated for the expression of markers of stem (E-cadherin and &#x3B2;-catenin <xref rid="pone.0031467-Bae1" ref-type="bibr">[23]</xref>&#x2013;<xref rid="pone.0031467-Patrawala1" ref-type="bibr">[25]</xref>) and differentiated cells (vimentin). Immunofluorescence staining identified E-cadherin and &#x3B2;-catenin expression in both cell populations, but at higher levels in spheroids (<xref ref-type="fig" rid="pone-0031467-g002">Figures 2G and 2H</xref>, respectively). Notably, in spheroid cells E-cadherin and &#x3B2;-catenin staining was localized on the plasma membrane, whereas in DU145 cells it was mainly cytoplasmic, indicating that differentiated tumor cells were quite independent of cell-to-cell interactions. The mature phenotype of DU145 cells was accompanied by a high expression of vimentin, which, on the contrary, was expressed only by rare cells in spheroids (<xref ref-type="fig" rid="pone-0031467-g002">Figure 2I</xref>). Therefore, we can conclude that spheroids are enriched for CSC but also held some damaged differentiated cells destined to necrosis.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Analysis of tumors grown in mice</title>
+        <p>Comparing tumors generated in NOD/SCID mice after injection of 1 spheroid (containing approximately 5,000 total cells, considering both CSC and damaged differentiated cells) or 5,000 unsorted DU145 cells (which contain mainly differentiated cells and a very small percentage of CSC), several macroscopic differences were evident at the time of tumor excision. Tumors from spheroids grew deeply at the site of injection, invaded adjacent tissues and showed marked vascularization. Differently, tumors originating from DU145 cell injection grew superficially and appeared well delimited and mobile in relation to the surrounding tissues. Visible vessels were rare or absent (data not shown).</p>
+        <p>These differences were confirmed by histological analysis. Spheroid-derived tumors were composed of monomorphic cells with a high nucleus/cytoplasm ratio and presented a marked infiltrative growth characterized by bands invading the surrounding muscular and adipose tissues (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3A</xref>, left panel). On the contrary, tumors generated from unsorted DU145 cells were composed of morphologically heterogeneous subpopulations of cells and showed an expansive growth, compressing rather than infiltrating the adjacent host tissues (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3A</xref>, right panel). Interestingly, highly invasive tumors showed lower expression of E-cadherin and &#x3B2;-catenin and higher expression of vimentin when compared to scarcely invasive tumors (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3B</xref>). Notably, in each tumor the pattern of expression of these 3 markers was opposite to that of the cells which originated the tumor itself, namely CSC or DU145 cells (<xref ref-type="fig" rid="pone-0031467-g002">Figures 2G&#x2013;2H</xref>).</p>
+        <fig id="pone-0031467-g003" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Analysis of tumors generated in NOD/SCID mice.</title>
+            <p>(<bold>A</bold>) Histological staining with H&amp;E of tumors grown following the injection of 1 spheroid or 5,000 DU145 cells showing highly invasive (left panel) and scantly invasive (right) phenotype (5&#xD7;). Asterisks indicate the borders between tumors and the surrounding tissues. (<bold>B</bold>) Representative western blots showing the expression of E-cadherin, &#x3B2;-catenin and vimentin in tumors. (<bold>C</bold>) IHC staining with anti-mouse CD31 antibody highlighting higher vessel density in spheroid-derived tumors (indicated by asterisks, left panel) compared to tumors from DU145 cells (right). (<bold>D</bold>) Q-PCR showing mouse CD31 expression in tumors. Mouse B2M was used as endogenous control. Values are mean &#xB1; SEM from 3 experiments. *, <italic>p</italic>&lt;0.05 relative to tumors generated from spheroid. (<bold>E</bold>) IHC with anti-CD56 antibody showing higher density of NE cells in tumors generated from spheroid than from DU145 cells (20&#xD7;). (<bold>F</bold>) Q-PCR displaying CGA mRNA level in tumors. Results are expressed as ratios between the target gene and the endogenous control GAPDH and represent mean &#xB1; SEM from 3 independent experiments. *, <italic>p</italic>&lt;0.05 with respect to tumors generated from spheroid. (<bold>G</bold>) A representative FACS analysis showing the presence of CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells in tumors generated from the injection of 1 spheroid in mice. Tumors originating from the injection of 5,000 DU145 cells showed a comparable CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cell population (data not shown).</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g003"/>
+        </fig>
+        <p>Tumors generated from spheroids showed also a significant higher number of blood vessels (<italic>p</italic>&lt;0.0001), as monitored by staining with the endothelial cell marker CD31 (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3C</xref>, left), when compared to tumors originated from DU145 cells (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3C</xref>, right). These results were confirmed by the analysis of CD31 mRNA expression level (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3D</xref>) and indicate active neoangiogenesis in tumors generated from spheroids. In addition, immunohistochemical (IHC) analysis showed a higher number of cells positive for CD56, a marker of NE cells, in more invasive tumors than in less invasive tumors (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3E</xref>). This observation was confirmed by real-time PCR analysis of CGA, a further marker of NE cells (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3F</xref>). Furthermore, FACS analysis of tumors excised and digested revealed that both types of neoplasia contained a comparable CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cell population (<xref ref-type="fig" rid="pone-0031467-g003">Figure 3G</xref>). These findings provide evidence that CSC were able to generate highly invasive tumors in nude mice. However, injection of CSC with DU145 differentiated tumor cells (i.e. injection of unsorted DU145 cells) resulted in the growth of tumors of low degree of aggressiveness.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Effect of conditioned medium from DU145 cells on the differentiation of CSC</title>
+        <p>In view of the above findings, we investigated the influence of DU145 differentiated cells on selected CD44<sup>+</sup>CD24<sup>&#x2212;</sup> prostate CSC <italic>in vitro</italic>. Dissected spheroids were grown in DMEM supplemented with FBS (to simulate the injection of spheroids in mice) or in DMEM supplemented with FBS in which DU145 cells were previously grown for 3 days (conditioned medium (CM), to simulate the injection of bulk DU145 cells in mice). In both culture conditions, CSC contained in spheroids grew in monolayer, but their proliferation was significantly reduced when they were cultured for 20 days in CM (&#x2212;47%; <xref ref-type="fig" rid="pone-0031467-g004">Figure 4A</xref>). The inhibition of spheroid proliferation was further enhanced by increasing the concentration of CM (data not shown). Moreover, it appeared very evident that cells grown in FBS-containing medium were quite independent from cell-to-cell interactions as they grew mainly singly or in little groups with irregular shape, and their morphology and pattern of growth were similar to those of DU145 cells (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4B</xref>, left panel). On the contrary, cells in CM were tight each other and grew mainly as roundish islands (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4B</xref>, right panel). Interestingly, after 20 days and only in the plates containing FBS-supplemented medium, we observed the appearance of cells exhibiting the dendrite-like morphology typical of NE cells (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4B</xref>, left panel and <xref ref-type="fig" rid="pone-0031467-g004">Figure 4C</xref>). The identity of these cells was confirmed by the evaluation of CD56 expression in the cytoplasmic granules of NE cells (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4C</xref>, right panel). The analysis of the expression of markers of stem and differentiated cells highlighted that after 20 days in FBS-containing medium, cells displayed levels of E-cadherin, &#x3B2;-catenin and vimentin comparable to those shown by DU145 cells (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4D</xref>). On the contrary, cells grown for 20 days in CM exhibited levels of expression intermediate between those shown by control CSC and DU145 cells but closer to the levels of CSC. In particular, a reduction in the expression of E-cadherin and &#x3B2;-catenin and a slight increase in the level of vimentin with respect to control spheroids was evident (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4D</xref>). It is of interest to note that both the high expression of adhesion molecules and the low expression of vimentin indicated strong cell-to-cell interactions and reduced cell motility, respectively, which agreed well with the peculiar cell growth as isles. These results indicate that CSC cultured in permissive conditions were able to generate terminally differentiated cells, namely DU145 and NE cells. However, diffusible factors released from DU145 cells prevented the differentiation of CSC.</p>
+        <fig id="pone-0031467-g004" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Effect of CM from DU145 cells on the phenotype of CSC.</title>
+            <p>(<bold>A</bold>) The proliferation of CSC contained in spheroids grown in FBS-containing medium or in CM from DU145 cells was evaluated at different times of culture. Data are shown as the mean &#xB1; SEM from 3 experiments. Asterisks indicate a significant inhibitory effect of CM with respect to FBS-medium (*, <italic>p</italic>&lt;0.05). (<bold>B</bold>) Phase contrast (10&#xD7;) of cells after 20 days in FBS-containing medium or in CM showing the different pattern of cell growth. In the left panel, the rectangle highlights the presence of NE cells. (<bold>C</bold>) Phase contrast (left, 20&#xD7;) and IF staining (right, 40&#xD7;) of branched NE cells generated from CSC grown in FBS-medium. In particular, the right panel shows the expression of CD56 in the cytoplasm and in the long cell processes. (<bold>D</bold>) Representative western blots showing the changes in the expression of E-cadherin, &#x3B2;-catenin, and vimentin in spheroid CSC grown in the different culture conditions with respect to control spheroids and DU145 cells. The expression levels of the 3 proteins were determined by densitometric analysis of the respective bands and normalized to &#x3B2;-actin levels. Values reported in the histograms are mean &#xB1; SEM from 3 independent experiments.</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g004"/>
+        </fig>
+      </sec>
+      <sec id="s2e">
+        <title>Gene expression profile of CSC and DU145 cells</title>
+        <p>To investigate the cellular response involved in tumorigenesis both at the level of gene expression and at the pre-mRNA splicing level, we performed a whole genome, splicing-sensitive microarray analysis of DU145 cells and their selected CSC. RNA samples prepared from each cell population were hybridized to Human Exon 1.0 ST Arrays, which allow the definition of both transcription patterns (gene-level analysis) and alternative pre-mRNA maturation events (exon-level analysis). Gene-level expression profiling was detected by linear model statistics using an empirical Bayes method to moderate the standard errors. To evaluate transcriptional modifications, we analyzed gene expression changes in spheroid CSC <italic>vs</italic> DU145 cells. To identify differentially expressed genes, we applied an absolute log<sub>2</sub>-fold change &#x2265;+/&#x2212;1 and a P-value&#x2264;0.05 as cutoffs. The complexity of the data set was reduced by removing the non-significant probe sets (those not expressed and those not changing). In this way, more than 400 genes whose levels were significantly different in CSC and DU145 cells were selected. A complete list of the differentially expressed genes is found in <xref ref-type="supplementary-material" rid="pone.0031467.s001">Table S1</xref>.</p>
+      </sec>
+      <sec id="s2f">
+        <title>Analysis of selected genes</title>
+        <p>The differentially expressed genes were analyzed for their molecular and cellular functions and associated pathways using the Ingenuity Pathways Analysis software (IPA 7.0, Ingenuity Systems). The IPA analysis identified more than 70 functional classes, and among them, we selected the 8 most consistent classes found enriched within the set of differentially expressed genes (i.e., cancer, cellular movement, cellular growth and proliferation, cell morphology, cell death, cellular development, cell cycle, cell-to-cell signaling and interaction; <xref ref-type="fig" rid="pone-0031467-g005">Figure 5A</xref>) that were suited to characterize CSC and DU145 cells. We combined the genes from the 8 selected functional classes, detecting 22 common genes still showing functional links. These were then separated according to their cellular localization. Interestingly, further analysis of the sub-selected genes showed that 17 out of 22 gene products were localized on the plasma membrane or were secreted in the extracellular space (<xref ref-type="fig" rid="pone-0031467-g005">Figure 5B</xref>), strengthening our above findings showing the importance of the interactions between CSC and the microenvironment. Although the selected genes encoded proteins with a wide variety of functions, 4 main groups could be identified: 1) Pro-angiogenic factors angiopoietin 2 (ANGPT2), vascular endothelial growth factor C (VEGFC) and cysteine-rich angiogenic inducer 61 (CYR61) were found down-regulated in CSC with respect to DU145 cells; 2) Genes coding for adhesion molecules E-cadherin (CDH1), integrin beta 6 (ITGB6) and junction plakoglobin (JUP) were expressed more in CSC in agreement with the parallel down-regulation of caveolae protein (CAV1); 3) Tumor suppressor genes lipocalin 2 (LCN2), dipeptidyl peptidase-4 (DPP4), insulin-like growth factor binding protein 3 (IGFBP3), thioredoxin interacting protein (TXNIP) and Kruppel-like factor 4 (KLF4) were up-regulated in CSC; 4) Diffusible factors relevant in the maintenance of stem cell niche such as epidermal growth factor (EGF), bone morphogenetic protein 4 (BMP4) and transforming growth factor beta 2 (TGFB2) were also differently expressed in CSC and DU145 cells. Noteworthy, 19 out of 22 genes that we identified were not previously described to be abnormally expressed in prostate CSC. These data confirm that interactions with the microenvironment have a crucial role in the control of the phenotype of CSC and suggest a limited number of genes whose relevance in CSC signaling will need to be investigated. Moreover, most of the 22 selected genes could be novel markers of prostate CSC.</p>
+        <fig id="pone-0031467-g005" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>Analysis of CSC <italic>vs</italic> DU145 cells by microarray, IPA and Q-PCR analysis.</title>
+            <p>(<bold>A</bold>) Selected 8 top biological functions found enriched within the set of transcripts modulated in CSC with respect to total DU145 cells by microarray analysis. (<bold>B</bold>) The 22 deregulated genes, as determined by IPA, are positioned in subcellular layouts, and relationships are marked by arrows: filled and dashed line arrows mark direct and indirect interactions, respectively. Genes in red showed increased expression in CSC, while genes in green were down-regulated. (<bold>C</bold>) Differences in gene expression determined by microarray analysis were confirmed by Q-PCR, choosing 7 representative genes among selected 22. Results are expressed as ratio between each target gene and the endogenous control GAPDH. Expression in CSC was compared to what was observed in DU145 cells to which a value equal to 1 was arbitrarily assigned. Values are mean &#xB1; SEM from 3 experiments. *, <italic>p</italic>&lt;0.05 relative to DU145 cells.</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g005"/>
+        </fig>
+      </sec>
+      <sec id="s2g">
+        <title>Validation of gene expression</title>
+        <p>To confirm the differences in gene expression found by microarray analysis, Q-PCR was performed for 7 differentially expressed genes (CDH1, CYR61, DPP4, IGFBP3, ITGB6, LCN2, TGFB2). In all cases, the differences in the mRNA levels were confirmed (<xref ref-type="fig" rid="pone-0031467-g005">Figure 5C</xref>).</p>
+      </sec>
+      <sec id="s2h">
+        <title>Role of the pathway of E-cadherin in the differentiation of CSC</title>
+        <p>Q-PCR analysis showed that mRNA expression of lipocalin 2 and E-cadherin followed a comparable trend in CSC, DU145 cells and in CSC grown for 20 days in FBS-containing medium or in CM. In particular, mRNA levels of both genes were very high in CSC contained in spheroids, were reduced in CSC grown in CM and were significantly lower and comparable in CSC grown in FBS-medium and in DU145 cells (<xref ref-type="fig" rid="pone-0031467-g006">Figure 6</xref>). This trend was in agreement with the modulation of &#x3B2;-catenin expression previously observed in the same culture conditions (<xref ref-type="fig" rid="pone-0031467-g004">Figure 4D</xref>). Collectively, these results indicate that the pathway of E-cadherin was modulated during CSC differentiation.</p>
+        <fig id="pone-0031467-g006" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Influence of culture conditions on the expression of lipocalin-2 and E-cadherin in CSC.</title>
+            <p>Q-PCR showing changes in mRNA levels for lipocalin-2 and E-cadherin in DU145 cells, CSC contained in control spheroids, and CSC grown for 20 days in FBS-medium or CM from DU145 cells. Data represent mean &#xB1; SEM from 3 individual experiments. Asterisks indicate a significant difference (*, <italic>p</italic>&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g006"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Discussion</title>
+      <sec id="s3a">
+        <title>Tumorigenicity of prostate CSC</title>
+        <p>CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells isolated from DU145 prostate carcinoma cell line using cell surface markers were able to grow as non-adherent spheroids in serum-free medium supplemented with specific growth factors. As a result of asymmetric stem cell division spheroids were enriched in cancer stem cells (CSC), but also held a percentage of differentiated cells approaching necrosis. It should be noted that CSC were able to undergo asymmetric division also <italic>in vivo</italic> because after injection in mice, they both produced differentiated cells that constituted the bulk of the tumor and self-renewed themselves as demonstrated by the presence of CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells in all excised tumors.</p>
+        <p>A striking difference in tumorigenic capacity was shown by the different incidence and latency of tumors originating from spheroid CSC or DU145 cells injection, with the former cell population being more tumorigenic. We suggest that the delay in tumor formation after the injection of 5,000 DU145 cells could be ascribed to the negligible number of CSC held in DU145 cells injected compared to the enriched amount of CSC contained in each spheroid. These findings and this suggestion were further confirmed by the injection of 3&#xD7;10<sup>6</sup> DU145 cells, which held a greater amount of CSC than 1 spheroid and generated tumors in just 1 week.</p>
+        <p>Importantly, the further <italic>in vivo</italic> evaluation of the biological behavior of CSC contained in spheroids revealed that the injection of spheroids in nude mice generated highly aggressive tumors that were able to infiltrate the adjacent tissues and showed high density of NE cells and substantial vascularization, both of which were established features associated with prostate tumor progression <xref rid="pone.0031467-Abrahamsson2" ref-type="bibr">[6]</xref>, <xref rid="pone.0031467-Nicholson1" ref-type="bibr">[26]</xref>. Our findings are consistent with a previous report which showed by histological analysis that purified CD44<sup>+</sup> PCa cells, which possess many features of CSC, generated more invasive and metastatic tumors than the corresponding CD44<sup>&#x2212;</sup> cells <xref rid="pone.0031467-Patrawala1" ref-type="bibr">[25]</xref>. Interestingly, we observed that invasive tumors generated from spheroid injection showed low levels of E-cadherin and &#x3B2;-catenin, consistently with the prognostic value of these indicators, which inversely correlated with PCa invasiveness and survival <xref rid="pone.0031467-Umbas1" ref-type="bibr">[15]</xref>, <xref rid="pone.0031467-Morita1" ref-type="bibr">[27]</xref>. In confirmation of these findings, scarcely invasive tumors originating from the injection of 5,000 DU145 cells expressed high levels of E-cadherin and &#x3B2;-catenin, and the injection of 3&#xD7;10<sup>6</sup> DU145 cells generated non-invasive capsulated tumors expressing the highest levels of E-cadherin and &#x3B2;-catenin (data not shown). In addition, more invasive tumors generated from spheroids also showed higher levels of vimentin, which correlated with poorly differentiated and metastatic PCa <xref rid="pone.0031467-Lang1" ref-type="bibr">[17]</xref>. These data provide novel interesting information about the characteristics of the cells held in tumors originated in mice from the injection of CSC and DU145 cells. In particular, it appeared evident that the phenotype of CSC and DU145 cells was different from that of the cells of the tumors that they generated which showed an opposite pattern of expression of E-cadherin, &#x3B2;-catenin and vimentin. To explain this apparent contradiction it is important to consider the broad plasticity of CSC whose differentiation capacity is influenced by environmental stimuli. With this in mind, of particular interest is the observation that tumors generated by the injection of spheroids were more aggressive than those produced from DU145 cells, suggesting that CSC had the potential to form very aggressive tumors only when they were injected deprived of differentiated cells. On the contrary, when CSC were injected together with differentiated cells (i.e., injection of bulk DU145 cells), their potential was not expressed, and the resulting tumors were less aggressive. We underline that the different levels of aggressiveness of tumors were independent of the number of CSC inoculated, as confirmed by the injection of 3&#xD7;10<sup>6</sup> DU145 cells, which contained the highest amount of CSC but generated non-invasive tumors. We rather believe that higher or lower levels of tumor aggressiveness depend on the absence or presence of DU145 cells together with CSC. Although obtained in a single model of prostate cancer, these findings provide important information indicating that CSC can be controlled by environmental mechanisms that induce them to differentiate into cells expressing a highly or scarcely aggressive phenotype, thus determining tumor aggressiveness. These results lead us to speculate whether conventional therapies aimed to decrease the tumor mass indiscriminately may facilitate tumor progression as a consequence of removal of the differentiated tumor cell population.</p>
+      </sec>
+      <sec id="s3b">
+        <title>Interactions between CSC and DU145 cells</title>
+        <p>In an attempt to explain the different features of tumors <italic>in vivo</italic>, we explored the pathways underlying the interactions between prostate CSC and differentiated DU145 cells <italic>in vitro</italic>. As pointed out in <xref ref-type="fig" rid="pone-0031467-g007">Figure 7</xref>, we observed a striking parallelism between the phenotypes of cells held in the 2 types of tumor generated in mice and those of the CSC grown in the 2 different culture conditions. In particular, molecular and cellular analyses demonstrated that CSC grown in permissive conditions <italic>in vitro</italic> underwent terminal differentiation producing cell populations with features similar to those of cells held in aggressive tumors generated from CSC injection in nude mice, namely NE cells and cells independent of cell-to-cell contacts, which were indistinguishable from DU145 cells. These findings further confirm the stem-like features of CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells analyzed in this study, since CSC differentiation was able to generate both prostate lineages, NE cells and epithelial cells. Moreover, it is interesting to note that because products released from NE cells enhanced the invasive potential of DU145 cells <xref rid="pone.0031467-Nagakawa1" ref-type="bibr">[28]</xref>, NE cells could participate in the differentiation of CSC grown in FBS-medium towards a more aggressive phenotype. On the contrary, CSC grown in the presence of signals released from DU145 cells seemed to undergo an incomplete or alternative differentiation program resulting into a cell phenotype comparable to cells of scarcely aggressive tumors originated from the injection of bulk DU145 cells in mice. Therefore, our results provided evidence that the fate of prostate CSC was significantly context-dependent because the aggressive behavior of CSC was clearly controlled by cell-to-cell contacts as well as by soluble factors released from DU145 cells.</p>
+        <fig id="pone-0031467-g007" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0031467.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>Parallelism between the phenotype of cells held in tumors and of CSC grown <italic>in vitro</italic>.</title>
+            <p>In particular, CSC grown in FBS-medium aimed to reproduce the injection of 1 spheroid in mice, whereas CSC grown in CM from DU145 cells allowed us to simulate the injection of 5,000 unsorted DU145 cells.</p>
+          </caption>
+          <graphic xlink:href="pone.0031467.g007"/>
+        </fig>
+      </sec>
+      <sec id="s3c">
+        <title>Potentially relevant molecules in mediating the interactions between CSC and microenvironment</title>
+        <p>The importance of the interactions with the microenvironment to determine the phenotype of prostate CSC was confirmed by performing microarray and IPA analyses of spheroid CSC in comparison with total DU145 cells. In this way 22 genes particularly significant in the control of prostate CSC functions were selected most of which coded for products localized on the plasma membrane or secreted in the extracellular space. Many of these 22 genes have a well known role in PCa and were expressed in DU145 cells as expected in tumor cells. Interestingly, these genes were always inversely expressed in CSC and in DU145 cells. In particular, ANGPT2, CYR61 and VEGFC are involved in angiogenesis and are up-regulated in prostate cancer <xref rid="pone.0031467-Lind1" ref-type="bibr">[29]</xref>&#x2013;<xref rid="pone.0031467-Jennbacken1" ref-type="bibr">[31]</xref>. Other genes code for molecules involved in cell-to-cell adhesion, such as E-cadherin (CDH1), which is the main component of adherent junctions and whose reduced expression correlates with highly invasive PCa <xref rid="pone.0031467-Damsky1" ref-type="bibr">[11]</xref>, <xref rid="pone.0031467-Umbas1" ref-type="bibr">[15]</xref>. JUP is a component of desmosomes and is less expressed in cancer with respect to normal prostate tissue <xref rid="pone.0031467-Shiina1" ref-type="bibr">[32]</xref>. ITGB6, which mediates the interactions between adjacent cells and between cells and extracellular matrix, is down-regulated during tumor progression <xref rid="pone.0031467-PontesJunior1" ref-type="bibr">[33]</xref>. CAV1 mediates the internalization of CDH1 and is up-regulated in prostate tumors <xref rid="pone.0031467-Orlichenko1" ref-type="bibr">[34]</xref>. Other genes act as tumor suppressors, such as IGFBP3, which inhibits prostate cancer growth through suppression of angiogenesis <xref rid="pone.0031467-Liu1" ref-type="bibr">[35]</xref>, and LCN2, which increases the expression of E-cadherin and suppresses cell invasiveness <xref rid="pone.0031467-Hanai1" ref-type="bibr">[36]</xref>. DPP4, KLF4 and TXNIP instead inhibit cell migration and invasion and induce cell cycle arrest <xref rid="pone.0031467-Wesley1" ref-type="bibr">[37]</xref>&#x2013;<xref rid="pone.0031467-Han1" ref-type="bibr">[39]</xref>. Some of the selected genes play a relevant role in the maintenance of the stem cell niche. In particular, EGF induces stem cell differentiation, whereas BMP4 and TGFB2 induce quiescence <xref rid="pone.0031467-Walker1" ref-type="bibr">[40]</xref>. These findings suggest that further investigations of the selected genes might allow to identify molecules that participate in determining the fate of CSC. In this regard, our preliminary results highlighted that the pathway of E-cadherin was clearly involved in the differentiation of prostate CSC. Notably, this last observation indicates that therapeutic manipulation of the adhesive interactions of prostate CSC could play an important role in the control of tumor progression.</p>
+        <p>Although some of the 22 selected genes have previously been identified in stem cells isolated in several different systems, only CDH1, KLF4 and ITGB6 have been correlated to the phenotype of prostate CSC <xref rid="pone.0031467-Collins1" ref-type="bibr">[19]</xref>, <xref rid="pone.0031467-Bae1" ref-type="bibr">[23]</xref>. Therefore, in this study, we identified 19 potential novel markers associated with CD44<sup>+</sup>CD24<sup>&#x2212;</sup> prostate CSC that could be investigated for prospective new therapeutic applications after further evaluation in other experimental models.</p>
+      </sec>
+      <sec id="s3d">
+        <title>Conclusions</title>
+        <p>In the present study, we report for the first time that context-specific signals released from tumor microenvironment can induce CSC isolated from DU145 prostate carcinoma cell line to differentiate into mature tumor cells expressing a highly or scarcely aggressive phenotype, thus affecting prostate cancer progression. These findings encourage the identification of soluble factors present in the CM from DU145 cells that can be responsible for the control of the fate of the prostate CSC. For this purpose, the information gained by microarray analysis could be useful because it suggests a limited set of genes, most of which have never been considered before, potentially relevant in the interactions between CSC and the tumor microenvironment.</p>
+      </sec>
+    </sec>
+    <sec sec-type="materials|methods" id="s4">
+      <title>Materials and Methods</title>
+      <sec id="s4a">
+        <title>Ethics statement</title>
+        <p>Mice were purchased from Harlan Laboratories (Udine, Italy) and housed in the animal facility of the Regina Elena Cancer Institute, where there is currently no active ethical committee for animal research. Animals had <italic>ad libitum</italic> water and food and were maintained in standard conditions according to institutional guidelines under the control of the Italian Ministry of Health (DL 116/92).</p>
+      </sec>
+      <sec id="s4b">
+        <title>Cell cultures</title>
+        <p>DU145 cells (ATCC, HTB-81) were routinely cultured in DMEM medium (Invitrogen, Carlsbad, CA) supplemented with 10% FBS (HyClone, South Logan, UT) and 1% antibiotics (Sigma-Aldrich, Saint Louis, MO) in a humidified atmosphere at 37&#xB0;C and 5% CO<sub>2</sub>.</p>
+      </sec>
+      <sec id="s4c">
+        <title>Sorting of CD44<sup>+</sup>CD24<sup>&#x2212;</sup> cells and cultures of spheroids</title>
+        <p>DU145 cells were incubated with anti CD44-PE and anti CD24-FITC antibodies (Invitrogen) on ice for 15 min, washed and resuspended in FACS buffer (PBS plus 1.5% BSA and 5 mM EDTA) and kept on ice until subsequent analysis on FACS Vantage-DIVA flow cytometer (excitation 488 nm, 100 mW, emission 530 nm BP (BrdU) and 610 nm LP (PI); Beckton Dickinson, San Jose, CA). Selected cells were seeded in 100 mm diameter plates at about 200,000 cells/dish in SRM consisting of DMEM/F12 medium (Invitrogen) supplemented with 20 ng/ml EGF, 10 ng/ml bFGF, 5 &#xB5;g/ml insulin, 0.4% BSA and 1% antibiotics (Sigma-Aldrich). To avoid cell damage by centrifugations, 1 ml of fresh medium was added weekly in the plates until spheroids were generated. At that time, each spheroid was drawn with a tip and transferred to a new plate.</p>
+      </sec>
+      <sec id="s4d">
+        <title>Analysis of spheroid differentiation</title>
+        <p>Spheroids were mechanically fragmented and seeded in DMEM supplemented with 10% FBS. At different time points, cells were detached and counted using a Neubauer counting chamber. Photographs of the cells were taken under a phase contrast microscope (Leica Microsystems, Wetzlar, Germany).</p>
+      </sec>
+      <sec id="s4e">
+        <title>Western Blot analysis</title>
+        <p>To analyze protein expression in DU145 cells, control spheroids and spheroid cells grown in FBS-containing medium or CM, according to the experimental design, cell lysates were prepared by solubilizing cells in lysis buffer containing 20 mM Tris pH 8, 137 mM NaCl, 1% Nonidet P40, 10% glycerol, 10 mM EDTA pH 8 and a proteinase inhibitor cocktail (Complete TM, Roche Diagnostics GmbH Mannheim, Germany) for 20 min on ice. The supernatants were collected after centrifugation at 13,000 rpm for 15 min at 4&#xB0;C. For protein extraction from mice tumors, frozen tissues were homogenized with an Ultra Turrax T 25 homogenizer in lysis buffer (2% SDS, 5 mM EDTA) supplemented with proteinase inhibitor cocktail. Homogenates were boiled for 10 min and clarified by centrifugation at 13,000 rpm for 15 min. The BCA Protein Assay Kit (Pierce, Rockford, IL) was used to measure protein concentration. Equal amounts of proteins (20 &#xB5;g of cell lysates or 40 &#xB5;g of tissue extracts) were subjected to 8% SDS-PAGE and electrophoretically transferred to PVDF membranes. Membranes were probed with monoclonal antibodies anti-E-cadherin (BD Transduction Laboratories, New Jersey, NJ), anti-&#x3B2;-catenin (BD), anti-vimentin (Santa Cruz Biotechnology, Santa Cruz, CA) and anti-&#x3B2;-actin (Sigma-Aldrich) followed by incubation in the presence of the appropriate secondary antibody conjugated to peroxidase (Bio-Rad, Hercules, CA). The signal was then detected by an enhanced chemiluminescence detection system.</p>
+      </sec>
+      <sec id="s4f">
+        <title>Transmission electron microscopy studies</title>
+        <p>Spheroids were fixed in 2.5% glutaraldehyde in phosphate buffer and then processed for TEM analysis following standard procedures <xref rid="pone.0031467-Ravenna1" ref-type="bibr">[41]</xref>.</p>
+      </sec>
+      <sec id="s4g">
+        <title>Evaluation of necrotic cells in spheroids</title>
+        <p>Spheroids were moved in a plate containing 1&#x2236;4 Trypan blue in SRM for 4 h, placed in PBS and photographed at phase contrast. Spheroid cells showing cytosolic blebs were spotted on a glass slide, stained with DAPI and analyzed by fluorescence microscope.</p>
+      </sec>
+      <sec id="s4h">
+        <title>Immunofluorescence</title>
+        <p>Ten spheroids were placed in a well of a vinyl multiwell plate (Costar, Cambridge, MA). The culture medium was carefully removed, and 100 &#xB5;l of OCT compound (Tissue Tek, Sakura, Zoeterwoude, NL) was layered on spheroid sediments, which were snap frozen by contact with liquid nitrogen. After the removal of the vinyl coat, the embedded spheroids were cut (4 &#xB5;m) in a Leica CM 1850 cryostat microtome. Following air drying, sections were fixed in absolute acetone for 5 min. The same fixing procedure was applied to 15,000 DU145 cells plated in an 8 well Tissue Chamber Slide (Nunc, Naperville, IL) and allowed to grow for 1 day. Primary antibodies and secondary fluoresceine-labeled antibodies that were employed for immunophenotyping were used at optimal dilutions established on positive and negative controls. Primary antibodies anti-E-cadherin, anti-&#x3B2;-catenin (BD Transduction Laboratories) and anti-vimentin (Santa Cruz Biotechnology) were used. Fluorescein-labeled goat anti rabbit IgG antibodies were purchased from Cappel Lab (Cochranville, PA), and fluorescein-labeled F(ab)2 rabbit anti mouse IgG were obtained from Sigma-Aldrich. Stained cells were analyzed employing a Leica DMIRE2 microscope equipped with a Leica DFC 350FX camera and elaborated by a Leica FW4000 deconvolution software (Leica, Solms, Germany).</p>
+        <p>Immunofluorescence staining for CD56 was performed on spheroid cells grown for 20 days in FBS-supplemented medium. Cells were fixed in 4% paraformaldehyde and permeabilized with 0.2% Nonidet P40. Primary antibody anti-CD56 (Epitomics, Burlingame, CA) and secondary fluoresceine-labeled antibody (Alexa Fluor 488, Invitrogen) were used. Nuclei were stained with Hoechst before analysis by fluorescence microscope.</p>
+      </sec>
+      <sec id="s4i">
+        <title>Mouse xenograft studies</title>
+        <p>Male NOD/SCID mice (6&#x2013;8 weeks old, weight 22&#x2013;25 g) were maintained for 2 weeks prior to each experiment. Before cell injection, animals were randomly allocated to one of the following groups: a) not injected, b) injected with 1 spheroid containing approximately 5,000 cells, c) injected with 5,000 unsorted DU145 cells, and d) injected with 3&#xD7;10<sup>6</sup> unsorted DU145 cells. Each group consisted of 10 animals. On ice, 125 &#xB5;l DU145 cell suspensions or 125 &#xB5;l SRM containing 1 intact spheroid were mixed with 75 &#xB5;l matrigel. Mice were injected subcutaneously in the flank and monitored thrice every week for palpable tumor formation for a total of 100 days. Tumor size was measured with caliper and area was assessed by using the values of long axis and short axis. Once tumors reached an area between 1.2 and 1.5 cm<sup>2</sup>, mice were euthanized, and tumors were excised.</p>
+      </sec>
+      <sec id="s4j">
+        <title>Histological and immunohistochemical analysis</title>
+        <p>At sacrifice, a portion of tumor samples was fixed in 4% paraformaldehyde, paraffin-embedded and routinely stained by hematoxylin and eosin (H&amp;E). CD56 immunohistochemical staining was carried out on 2 &#xB5;m thick paraffin-embedded sections harvested on SuperFrost Plus slides (Menzel-Glaser, Braunschweig, Germany). The deparafinized and rehydrated sections were incubated with anti-CD56 primary antibody (Novocastra, Newcastle upon Tyne, UK) followed by anti-mouse biotinylated antibody and streptavidin-peroxidase complex (LSAB 2 system HRP, DakoCytomation, Milan, Italy) and 3,3&#x2032;-diaminobenzidine (DAB substrate chromogen, DakoCytomation) was used as chromogen. To assess blood vessels density, 4 &#xB5;m acetone-fixed cryostat sections were stained with anti-mouse CD31 monoclonal antibody kindly provided by Prof. A. Mantovani (Humanitas Inst. Milan, Italy) and MOM immunoenzymatic detection system purchased from Vectastain Labor (Burlingame, CA). Amino-ethyl carbazole was employed as chromogenic substrate. Nuclei were detected by slightly counterstain with Mayer hematoxylin and slides mounted in aqueous mounting medium (UCS Diagnostic, Rome, Italy). Vessels density was assessed by counting CD31 positive structures in at least 15 randomly selected microscopic fields at &#xD7;200 magnification. All morphological analyses were performed by two independent investigators.</p>
+      </sec>
+      <sec id="s4k">
+        <title>FACS analysis of tumors</title>
+        <p>Tumors excised from mice were collected in DMEM containing FBS and immediately processed. Tumors generated from spheroid injection needed an accurate removal of the adjacent murine tissues. Neoplastic tissues were dissociated mechanically and enzimatically using 2 mg/ml collagenase (Sigma-Aldrich) at 37&#xB0;C for 90 min and sieved through 40 &#xB5;m cell strainers. The cells were then resuspended in FACS buffer and incubated with anti CD44-PE and anti CD24-FITC antibodies for FACS analysis, as previously described.</p>
+      </sec>
+      <sec id="s4l">
+        <title>Conditioned medium experiments</title>
+        <p>DU145 cells were plated in 100 mm tissue culture dishes in 10 ml DMEM medium supplemented with FBS and grown for 3 days until subconfluence. The third day cells were harvested and plated again at the starting density in fresh medium for another 3 days, whereas the medium removed from the plates was used as CM from DU145 cells after being centrifuged at 1,000 rpm for 5 min and filtered through a 0.2 &#xB5;m filter. This protocol was repeated for the duration of the experiment (20 days). In parallel, 4 spheroids were fragmented and cultured in CM or in DMEM containing FBS. The 2 culture media were replaced every 3 days with fresh CM or FBS-supplemented medium up to 20 days. To increase the concentration of soluble factors released from DU145 cells in CM a double number of DU145 cells were cultured in 10 ml FBS-containing medium for 3 days. As previously described, every 3 days cells were harvested and plated again at the starting density, whereas the collected medium was used as enriched CM to grow CSC contained in spheroids for a total of 20 days. On days 5, 10, 15 and 20, the proliferation of cells was measured with a Neubauer counting chamber. The cell culture morphology was observed under an optical microscope.</p>
+      </sec>
+      <sec id="s4m">
+        <title>RNA extraction</title>
+        <p>Total RNA was extracted from DU145 cells, control spheroids (groups of at least 30 spheroids of 400 &#xB5;m in diameter or smaller) and spheroid cells grown in FBS-containing medium or in CM, according to the experimental design, through RNeasy Plus Micro Kit (Qiagen, Valencia, CA). For RNA extraction from mice tumors, frozen tissues were homogenized with an Ultra Turrax T 25 homogenizer in Trizol reagent (Invitrogen) and processed according to the manufacturer's instructions. RNA quantity and purity were assessed using a NanoDrop&#xAE; instrument (Thermo Fisher Scientific Inc., Wilmington, DE). Total RNA integrity was assessed by Experion RNA Standard Sense kit (BioRad), and the RNA Integrity Number was calculated.</p>
+      </sec>
+      <sec id="s4n">
+        <title>Microarray hybridization and data analysis</title>
+        <p>Each condition was replicated 3 times. After extraction from spheroids and DU145 cells and quality checks, 70 ng of total RNA was retrotranscribed to cDNA by using the Applause&#x2122; WT-Amp Plus ST RNA Amplification Systems (NuGEN Technologies, San Carlos, CA). Five microliters of cDNA was fragmented and biotin-labeled by the Encore&#x2122; Biotin Module (NuGEN Technologies) following the procedure described by the manufacturer. The resulting biotin-labeled library was hybridized on GeneChip&#xAE; Exon 1.0 ST human microarrays (Affymetrix, Santa Clara, CA). The CEL files resulting from the hybridization were analyzed using oneChannelGUI 1.6.5 <xref rid="pone.0031467-Sanges1" ref-type="bibr">[42]</xref>. Gene-level calculations were performed by Robust Multichip Average <xref rid="pone.0031467-Irizarry1" ref-type="bibr">[43]</xref> and normalization by quantile sketch <xref rid="pone.0031467-Bolstad1" ref-type="bibr">[44]</xref>. To assess differential expression at the gene-level, we used an empirical Bayes method <xref rid="pone.0031467-Smyth1" ref-type="bibr">[45]</xref> together with a false discovery rate (FDR) correction of the p-value <xref rid="pone.0031467-Westfall1" ref-type="bibr">[46]</xref>. Thus, the list of differentially expressed genes was generated using an FDR&#x2264;0.05 together with an absolute log<sub>2</sub>-(fold-change) threshold of 1. Differential expression was detected by linear model statistics. This method is based on the fitting of a linear model to estimate the variability in the data. In the case of one-channel microarray data, this approach is the same as the analysis of variance except that a model is fitted for every gene. For the detection of the differential expression, an empirical Bayes method is used to moderate the standard errors. The use of moderated statistics for the detection of differential expression is especially useful in cases of experiments with a small number of replicates.</p>
+        <p>The data discussed in this publication have been deposited in the NCBI Gene Expression Omnibus <xref rid="pone.0031467-Barrett1" ref-type="bibr">[47]</xref> and are accessible through GEO Series accession number GSE28313.</p>
+      </sec>
+      <sec id="s4o">
+        <title>cDNA synthesis and quantitative PCR</title>
+        <p>RNA was reverse-transcribed to single strand cDNA using random primers and Superscript II (Invitrogen). The ABI Prism 7000 Sequence Detection System and all reagents for Q-PCR were purchased from Applied Biosystems (Foster City, CA). Primers and probes for human CD44, CD24, CGA, CDH1, CYR61, DPP4, IGFBP3, ITGB6, LCN2, TGFB2 and mouse CD31, and for the endogenous reference genes human glyceraldehyde-3-phosphate dehydrogenase (GAPDH) and mouse &#x3B2;2-microglobulin (B2M) were purchased as TaqMan Gene Expression Assays. cDNA template was amplified in a reaction mixture containing TaqMan Universal PCR master mix and primers/probe mixture according to the manufacturer's default cycling conditions. For each amplification reaction, a standard curve was generated using serial dilutions (200, 40, 8, 1.6, 0.32 ng) of reverse-transcribed RNA extracted from DU145 cells or tumors generated from spheroid injection, according to the experimental design, and run concurrently with the test samples. All amplification reactions were performed in triplicate. Target gene expression was normalized to GAPDH or to B2M to correct for differences in the quantity of cDNA used for the amplification reactions.</p>
+      </sec>
+      <sec id="s4p">
+        <title>Statistical analysis</title>
+        <p>Mean values &#xB1; SEM from 3 independent experiments are shown. Statistical analysis was performed using the unpaired Student's <italic>t</italic>-test. <italic>P</italic> values of &lt;0.05 were considered significant.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0031467.s001">
+        <label>Table S1</label>
+        <caption>
+          <p>
+<bold>List of differentially expressed genes in CSC and DU145 cells obtained by microarray analysis.</bold> Fold change represent the differential expression level of each gene in spheroid CSC with respect to DU145 cells. Genes listed in red are over-expressed in CSC, whereas genes showed in green are less expressed.</p>
+          <p>(XLS)</p>
+        </caption>
+        <media xlink:href="pone.0031467.s001.xls">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Linda Ravenna (CNR, Institute of Molecular Biology and Pathology) for helpful discussions.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding: </bold>This study was supported in part by the Italian Ministry of Health (PRIN 2006062242). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript. No additional external funding was received for this study.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0031467-Jemal1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jemal</surname><given-names>A</given-names></name><name><surname>Siegel</surname><given-names>R</given-names></name><name><surname>Xu</surname><given-names>J</given-names></name><name><surname>Ward</surname><given-names>E</given-names></name></person-group>
+<year>2010</year>
+<article-title>Cancer statistics.</article-title>
+<source>CA Cancer J Clin</source>
+<volume>60</volume>
+<fpage>277</fpage>
+<lpage>300</lpage>
+<pub-id pub-id-type="pmid">20610543</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Feldman1">
+        <label>2</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Feldman</surname><given-names>BJ</given-names></name><name><surname>Feldman</surname><given-names>D</given-names></name></person-group>
+<year>2001</year>
+<article-title>The development of androgen-independent prostate cancer.</article-title>
+<source>Nat Rev Cancer</source>
+<volume>1</volume>
+<fpage>34</fpage>
+<lpage>45</lpage>
+<pub-id pub-id-type="pmid">11900250</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Bonkhoff1">
+        <label>3</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bonkhoff</surname><given-names>H</given-names></name><name><surname>Stein</surname><given-names>U</given-names></name><name><surname>Remberger</surname><given-names>K</given-names></name></person-group>
+<year>1993</year>
+<article-title>Androgen receptor status in endocrine-paracrine cell types of the normal, hyperplastic and neoplastic human prostate.</article-title>
+<source>Virchows Arch A Pathol Anat Histopathol</source>
+<volume>423</volume>
+<fpage>291</fpage>
+<lpage>294</lpage>
+<pub-id pub-id-type="pmid">7694424</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Debes1">
+        <label>4</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Debes</surname><given-names>JD</given-names></name><name><surname>Tindall</surname><given-names>DJ</given-names></name></person-group>
+<year>2004</year>
+<article-title>Mechanisms of androgen-refractory prostate cancer.</article-title>
+<source>N Engl J Med</source>
+<volume>351</volume>
+<fpage>1488</fpage>
+<lpage>1490</lpage>
+<pub-id pub-id-type="pmid">15470210</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Abrahamsson1">
+        <label>5</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Abrahamsson</surname><given-names>PA</given-names></name><name><surname>Di Sant'Agnese</surname><given-names>PA</given-names></name></person-group>
+<year>1993</year>
+<article-title>Neuroendocrine cells in the human prostate gland.</article-title>
+<source>J Androl</source>
+<volume>14</volume>
+<fpage>307</fpage>
+<lpage>309</lpage>
+<pub-id pub-id-type="pmid">8288485</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Abrahamsson2">
+        <label>6</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Abrahamsson</surname><given-names>PA</given-names></name></person-group>
+<year>1999</year>
+<article-title>Neuroendocrine cells in tumor growth of the prostate.</article-title>
+<source>Endocr Relat Cancer</source>
+<volume>6</volume>
+<fpage>503</fpage>
+<lpage>519</lpage>
+<pub-id pub-id-type="pmid">10730904</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Hoosein1">
+        <label>7</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hoosein</surname><given-names>NM</given-names></name><name><surname>Logothetis</surname><given-names>CJ</given-names></name><name><surname>Chung</surname><given-names>LW</given-names></name></person-group>
+<year>1993</year>
+<article-title>Differential effects of peptide hormones bombesin, vasoactive intestinal polypeptide and somatostatin analog RC-160 on the invasive capacity of human prostatic carcinoma cells.</article-title>
+<source>J Urol</source>
+<volume>149</volume>
+<fpage>1209</fpage>
+<lpage>1213</lpage>
+<pub-id pub-id-type="pmid">8097794</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Grobholz1">
+        <label>8</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Grobholz</surname><given-names>R</given-names></name><name><surname>Griebe</surname><given-names>M</given-names></name><name><surname>Sauer</surname><given-names>CG</given-names></name><name><surname>Michel</surname><given-names>MS</given-names></name><name><surname>Trojan</surname><given-names>L</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Influence of neuroendocrine tumor cells on proliferation in prostatic carcinoma.</article-title>
+<source>Hum Pathol</source>
+<volume>36</volume>
+<fpage>562</fpage>
+<lpage>570</lpage>
+<pub-id pub-id-type="pmid">15948124</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Kamiya1">
+        <label>9</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kamiya</surname><given-names>N</given-names></name><name><surname>Suzuki</surname><given-names>H</given-names></name><name><surname>Kawamura</surname><given-names>K</given-names></name><name><surname>Imamoto</surname><given-names>T</given-names></name><name><surname>Naya</surname><given-names>Y</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Neuroendocrine differentiation in stage D<sub>2</sub> prostate cancers.</article-title>
+<source>Int J Urol</source>
+<volume>15</volume>
+<fpage>423</fpage>
+<lpage>428</lpage>
+<pub-id pub-id-type="pmid">18452460</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Huss1">
+        <label>10</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Huss</surname><given-names>WJ</given-names></name><name><surname>Gray</surname><given-names>DR</given-names></name><name><surname>Werdin</surname><given-names>ES</given-names></name><name><surname>Funkhouser</surname><given-names>WK</given-names><suffix>Jr</suffix></name><name><surname>Smith</surname><given-names>GJ</given-names></name></person-group>
+<year>2004</year>
+<article-title>Evidence of pluripotent human prostate stem cells in a human prostate primary xenograft model.</article-title>
+<source>Prostate</source>
+<volume>60</volume>
+<fpage>77</fpage>
+<lpage>90</lpage>
+<pub-id pub-id-type="pmid">15162374</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Damsky1">
+        <label>11</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Damsky</surname><given-names>CH</given-names></name><name><surname>Richa</surname><given-names>J</given-names></name><name><surname>Solter</surname><given-names>D</given-names></name><name><surname>Knudsen</surname><given-names>K</given-names></name><name><surname>Buck</surname><given-names>CA</given-names></name></person-group>
+<year>1983</year>
+<article-title>Identification and purification of a cell surface glycoprotein mediating intercellular adhesion in embryonic and adult tissue.</article-title>
+<source>Cell</source>
+<volume>34</volume>
+<fpage>455</fpage>
+<lpage>466</lpage>
+<pub-id pub-id-type="pmid">6352050</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Takeichi1">
+        <label>12</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Takeichi</surname><given-names>M</given-names></name></person-group>
+<year>1991</year>
+<article-title>Cadherin cell adhesion receptors as a morphogenetic regulator.</article-title>
+<source>Science</source>
+<volume>251</volume>
+<fpage>1451</fpage>
+<lpage>1455</lpage>
+<pub-id pub-id-type="pmid">2006419</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Hinck1">
+        <label>13</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hinck</surname><given-names>L</given-names></name><name><surname>Nelson</surname><given-names>WJ</given-names></name><name><surname>Papkoff</surname><given-names>J</given-names></name></person-group>
+<year>1994</year>
+<article-title>Wnt-1 modulates cell-cell adhesion in mammalian cells by stabilizing beta-catenin binding to the cell adhesion protein cadherin.</article-title>
+<source>J Cell Biol</source>
+<volume>124</volume>
+<fpage>729</fpage>
+<lpage>741</lpage>
+<pub-id pub-id-type="pmid">8120095</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Vleminckx1">
+        <label>14</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Vleminckx</surname><given-names>K</given-names></name><name><surname>Vakaet</surname><given-names>L</given-names><suffix>Jr</suffix></name><name><surname>Mareel</surname><given-names>M</given-names></name><name><surname>Fiers</surname><given-names>W</given-names></name><name><surname>van Roy</surname><given-names>F</given-names></name></person-group>
+<year>1991</year>
+<article-title>Genetic manipulation of E-cadherin expression by epithelial tumor cells reveals an invasion suppressor role.</article-title>
+<source>Cell</source>
+<volume>66</volume>
+<fpage>107</fpage>
+<lpage>119</lpage>
+<pub-id pub-id-type="pmid">2070412</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Umbas1">
+        <label>15</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Umbas</surname><given-names>R</given-names></name><name><surname>Isaacs</surname><given-names>WB</given-names></name><name><surname>Bringuier</surname><given-names>PP</given-names></name><name><surname>Schaafsma</surname><given-names>HE</given-names></name><name><surname>Karthaus</surname><given-names>HFM</given-names></name><etal/></person-group>
+<year>1994</year>
+<article-title>Decreased E-cadherin expression is associated with poor prognosis in patients with prostate cancer.</article-title>
+<source>Cancer Res</source>
+<volume>54</volume>
+<fpage>3929</fpage>
+<lpage>3933</lpage>
+<pub-id pub-id-type="pmid">7518346</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-DeMarzo1">
+        <label>16</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>De Marzo</surname><given-names>AM</given-names></name><name><surname>Knudsen</surname><given-names>B</given-names></name><name><surname>Chan-Tack</surname><given-names>K</given-names></name><name><surname>Epstein</surname><given-names>JI</given-names></name></person-group>
+<year>1999</year>
+<article-title>E-cadherin expression as a marker of tumor aggressiveness in routinely processed radical prostatectomy specimens.</article-title>
+<source>Urology</source>
+<volume>53</volume>
+<fpage>707</fpage>
+<lpage>713</lpage>
+<pub-id pub-id-type="pmid">10197845</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Lang1">
+        <label>17</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lang</surname><given-names>SH</given-names></name><name><surname>Hyde</surname><given-names>C</given-names></name><name><surname>Reid</surname><given-names>IN</given-names></name><name><surname>Hitchcock</surname><given-names>IS</given-names></name><name><surname>Hart</surname><given-names>CA</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Enhanced expression of vimentin in motile prostate cell lines and in poorly differentiated and metastatic prostate carcinoma.</article-title>
+<source>Prostate</source>
+<volume>52</volume>
+<fpage>253</fpage>
+<lpage>263</lpage>
+<pub-id pub-id-type="pmid">12210485</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Reya1">
+        <label>18</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Reya</surname><given-names>T</given-names></name><name><surname>Morrison</surname><given-names>SJ</given-names></name><name><surname>Clarke</surname><given-names>MF</given-names></name><name><surname>Weissman</surname><given-names>IL</given-names></name></person-group>
+<year>2001</year>
+<article-title>Stem cells, cancer, and cancer stem cells.</article-title>
+<source>Nature</source>
+<volume>414</volume>
+<fpage>105</fpage>
+<lpage>111</lpage>
+<pub-id pub-id-type="pmid">11689955</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Collins1">
+        <label>19</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Collins</surname><given-names>AT</given-names></name><name><surname>Berry</surname><given-names>PA</given-names></name><name><surname>Hyde</surname><given-names>C</given-names></name><name><surname>Stower</surname><given-names>MJ</given-names></name><name><surname>Maitland</surname><given-names>NJ</given-names></name></person-group>
+<year>2005</year>
+<article-title>Prospective identification of tumorigenic prostate cancer stem cells.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>10946</fpage>
+<lpage>10951</lpage>
+<pub-id pub-id-type="pmid">16322242</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Hurt1">
+        <label>20</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hurt</surname><given-names>EM</given-names></name><name><surname>Kawasaki</surname><given-names>BT</given-names></name><name><surname>Klarmann</surname><given-names>GJ</given-names></name><name><surname>Thomas</surname><given-names>SB</given-names></name><name><surname>Farrar</surname><given-names>WL</given-names></name></person-group>
+<year>2008</year>
+<article-title>CD44<sup>+</sup>CD24<sup>&#x2212;</sup> prostate cells are early cancer progenitor/stem cells that provide a model for patients with poor prognosis.</article-title>
+<source>Brit J Cancer</source>
+<volume>98</volume>
+<fpage>756</fpage>
+<lpage>765</lpage>
+<pub-id pub-id-type="pmid">18268494</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Rius1">
+        <label>21</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rius</surname><given-names>C</given-names></name><name><surname>Aller</surname><given-names>P</given-names></name></person-group>
+<year>1992</year>
+<article-title>Vimentin expression as a late event in the in vitro differentiation of human promonocytic cells.</article-title>
+<source>J Cell Sci</source>
+<volume>101</volume>
+<fpage>395</fpage>
+<lpage>401</lpage>
+<pub-id pub-id-type="pmid">1352781</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Kessel1">
+        <label>22</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kessel</surname><given-names>RG</given-names></name></person-group>
+<year>1992</year>
+<article-title>Annulate lamellae: a last frontier in cellular organelles.</article-title>
+<source>Int Rev Cytol</source>
+<volume>133</volume>
+<fpage>43</fpage>
+<lpage>120</lpage>
+<pub-id pub-id-type="pmid">1374369</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Bae1">
+        <label>23</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bae</surname><given-names>KM</given-names></name><name><surname>Su</surname><given-names>Z</given-names></name><name><surname>Frye</surname><given-names>C</given-names></name><name><surname>McClellan</surname><given-names>S</given-names></name><name><surname>Allan</surname><given-names>RW</given-names></name><etal/></person-group>
+<year>2010</year>
+<article-title>Expression of pluripotent stem cell reprogramming factors by prostate tumor initiating cells.</article-title>
+<source>J Urol</source>
+<volume>183</volume>
+<fpage>2045</fpage>
+<lpage>2053</lpage>
+<pub-id pub-id-type="pmid">20303530</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Redmer1">
+        <label>24</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Redmer</surname><given-names>T</given-names></name><name><surname>Diecke</surname><given-names>S</given-names></name><name><surname>Grigoryan</surname><given-names>T</given-names></name><name><surname>Quiroga-Negreira</surname><given-names>A</given-names></name><name><surname>Birchmeier</surname><given-names>W</given-names></name><etal/></person-group>
+<year>2011</year>
+<article-title>E-cadherin is crucial for embryonic stem cell pluripotency and can replace OCT<sub>4</sub> during somatic cell reprogramming.</article-title>
+<source>EMBO reports</source>
+<volume>12</volume>
+<fpage>720</fpage>
+<lpage>726</lpage>
+<pub-id pub-id-type="pmid">21617704</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Patrawala1">
+        <label>25</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Patrawala</surname><given-names>L</given-names></name><name><surname>Calhoun</surname><given-names>T</given-names></name><name><surname>Schneider-Broussard</surname><given-names>R</given-names></name><name><surname>Li</surname><given-names>H</given-names></name><name><surname>Bhatia</surname><given-names>B</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>Highly purified CD44<sup>+</sup> prostate cancer cells from xenograft human tumors are enriched in tumorigenic and metastatic progenitor cells.</article-title>
+<source>Oncogene</source>
+<volume>25</volume>
+<fpage>1696</fpage>
+<lpage>1708</lpage>
+<pub-id pub-id-type="pmid">16449977</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Nicholson1">
+        <label>26</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Nicholson</surname><given-names>B</given-names></name><name><surname>Theodorescu</surname><given-names>D</given-names></name></person-group>
+<year>2004</year>
+<article-title>Angiogenesis and prostate cancer tumor growth.</article-title>
+<source>J Cell Biochem</source>
+<volume>91</volume>
+<fpage>125</fpage>
+<lpage>150</lpage>
+<pub-id pub-id-type="pmid">14689586</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Morita1">
+        <label>27</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Morita</surname><given-names>N</given-names></name><name><surname>Uemura</surname><given-names>H</given-names></name><name><surname>Tsumatani</surname><given-names>K</given-names></name><name><surname>Cho</surname><given-names>M</given-names></name><name><surname>Hirao</surname><given-names>Y</given-names></name><etal/></person-group>
+<year>1999</year>
+<article-title>E-cadherin and alpha-, beta- and gamma-catenin expression in prostate cancers: correlation with tumour invasion.</article-title>
+<source>Brit J Cancer</source>
+<volume>79</volume>
+<fpage>1879</fpage>
+<lpage>1883</lpage>
+<pub-id pub-id-type="pmid">10206308</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Nagakawa1">
+        <label>28</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Nagakawa</surname><given-names>O</given-names></name><name><surname>Murakami</surname><given-names>K</given-names></name><name><surname>Ogasawara</surname><given-names>M</given-names></name><name><surname>Murata</surname><given-names>J</given-names></name><name><surname>Fuse</surname><given-names>H</given-names></name><etal/></person-group>
+<year>1999</year>
+<article-title>Effect of chromogranin A (pancreastatin) fragment on invasion of prostate cancer cells.</article-title>
+<source>Cancer Lett</source>
+<volume>147</volume>
+<fpage>207</fpage>
+<lpage>213</lpage>
+<pub-id pub-id-type="pmid">10660108</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Lind1">
+        <label>29</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lind</surname><given-names>AJ</given-names></name><name><surname>Wikstrom</surname><given-names>P</given-names></name><name><surname>Granfors</surname><given-names>T</given-names></name><name><surname>Egevad</surname><given-names>L</given-names></name><name><surname>Stattin</surname><given-names>P</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Angiopoietin 2 expression is related to histological grade, vascular density, metastases and outcome in prostate cancer.</article-title>
+<source>Prostate</source>
+<volume>62</volume>
+<fpage>394</fpage>
+<lpage>399</lpage>
+<pub-id pub-id-type="pmid">15378518</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Sun1">
+        <label>30</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sun</surname><given-names>ZJ</given-names></name><name><surname>Wang</surname><given-names>Y</given-names></name><name><surname>Cai</surname><given-names>Z</given-names></name><name><surname>Chen</surname><given-names>PP</given-names></name><name><surname>Tong</surname><given-names>XJ</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Involvement of Cyr61 in growth, migration, and metastasis of prostate cancer cells.</article-title>
+<source>Brit J Cancer</source>
+<volume>99</volume>
+<fpage>1656</fpage>
+<lpage>1667</lpage>
+<pub-id pub-id-type="pmid">18941464</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Jennbacken1">
+        <label>31</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jennbacken</surname><given-names>K</given-names></name><name><surname>Vallbo</surname><given-names>C</given-names></name><name><surname>Wang</surname><given-names>W</given-names></name><name><surname>Damber</surname><given-names>JE</given-names></name></person-group>
+<year>2005</year>
+<article-title>Expression of vascular endothelial growth factor C (VEGF-C) and VEGF receptor-3 in human prostate cancer is associated with regional lymph node metastasis.</article-title>
+<source>Prostate</source>
+<volume>65</volume>
+<fpage>110</fpage>
+<lpage>116</lpage>
+<pub-id pub-id-type="pmid">15880525</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Shiina1">
+        <label>32</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Shiina</surname><given-names>H</given-names></name><name><surname>Breault</surname><given-names>JE</given-names></name><name><surname>Basset</surname><given-names>WW</given-names></name><name><surname>Enokida</surname><given-names>H</given-names></name><name><surname>Urakami</surname><given-names>S</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Functional loss of the gamma-catenin gene through epigenetic and genetic pathways in human prostate cancer.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>2130</fpage>
+<lpage>2138</lpage>
+<pub-id pub-id-type="pmid">15781623</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-PontesJunior1">
+        <label>33</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pontes-Junior</surname><given-names>J</given-names></name><name><surname>Reis</surname><given-names>ST</given-names></name><name><surname>Dall'Oglio</surname><given-names>M</given-names></name><name><surname>Neves de Oliveira</surname><given-names>LC</given-names></name><name><surname>Cury</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>Evaluation of the expression of integrins and cell adhesion molecules through tissue microarray in lymph node metastases of prostate cancer.</article-title>
+<source>J Carcinog</source>
+<volume>8</volume>
+<fpage>1</fpage>
+<lpage>7</lpage>
+<pub-id pub-id-type="pmid">19240371</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Orlichenko1">
+        <label>34</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Orlichenko</surname><given-names>L</given-names></name><name><surname>Weller</surname><given-names>SG</given-names></name><name><surname>Cao</surname><given-names>H</given-names></name><name><surname>Krueger</surname><given-names>EW</given-names></name><name><surname>Awoniyi</surname><given-names>M</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>Caveolae mediate growth factor-induced disassembly of adherens junctions to support tumor cell dissociation.</article-title>
+<source>Mol Biol Cell</source>
+<volume>20</volume>
+<fpage>4140</fpage>
+<lpage>4152</lpage>
+<pub-id pub-id-type="pmid">19641024</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Liu1">
+        <label>35</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liu</surname><given-names>B</given-names></name><name><surname>Lee</surname><given-names>KW</given-names></name><name><surname>Anzo</surname><given-names>M</given-names></name><name><surname>Zhang</surname><given-names>B</given-names></name><name><surname>Zi</surname><given-names>X</given-names></name><etal/></person-group>
+<year>2007</year>
+<article-title>Insulin-like growth factor-binding protein-3 inhibition of prostate cancer growth involves suppression of angiogenesis.</article-title>
+<source>Oncogene</source>
+<volume>26</volume>
+<fpage>1811</fpage>
+<lpage>1819</lpage>
+<pub-id pub-id-type="pmid">16983336</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Hanai1">
+        <label>36</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hanai</surname><given-names>J</given-names></name><name><surname>Mammoto</surname><given-names>T</given-names></name><name><surname>Seth</surname><given-names>P</given-names></name><name><surname>Mori</surname><given-names>K</given-names></name><name><surname>Karumanchi</surname><given-names>SA</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Lipocalin 2 diminishes invasiveness and metastasis of Ras-transformed cells.</article-title>
+<source>J Biol Chem</source>
+<volume>280</volume>
+<fpage>13641</fpage>
+<lpage>13647</lpage>
+<pub-id pub-id-type="pmid">15691834</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Wesley1">
+        <label>37</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wesley</surname><given-names>UV</given-names></name><name><surname>McGroarty</surname><given-names>M</given-names></name><name><surname>Homoyouni</surname><given-names>A</given-names></name></person-group>
+<year>2005</year>
+<article-title>Dipeptidyl peptidase inhibits malignant phenotype of prostate cancer cells by blocking basic fibroblast growth factor signaling pathway.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>1325</fpage>
+<lpage>1334</lpage>
+<pub-id pub-id-type="pmid">15735018</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Wang1">
+        <label>38</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wang</surname><given-names>J</given-names></name><name><surname>Place</surname><given-names>RF</given-names></name><name><surname>Huang</surname><given-names>V</given-names></name><name><surname>Wang</surname><given-names>X</given-names></name><name><surname>Noonan</surname><given-names>EJ</given-names></name><etal/></person-group>
+<year>2010</year>
+<article-title>Prognostic value and function of KLF4 in prostate cancer: RNAa and vector-mediated overexpression identify KLF4 as an inhibitor of tumor cell growth and migration.</article-title>
+<source>Cancer Res</source>
+<volume>70</volume>
+<fpage>10182</fpage>
+<lpage>10191</lpage>
+<pub-id pub-id-type="pmid">21159640</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Han1">
+        <label>39</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Han</surname><given-names>SH</given-names></name><name><surname>Jeon</surname><given-names>JH</given-names></name><name><surname>Ju</surname><given-names>HR</given-names></name><name><surname>Jung</surname><given-names>U</given-names></name><name><surname>Kim</surname><given-names>KY</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>VDUP1 upregulated by TGF-beta1 and 1,25-dihydroxyvitamin D3 inhibits tumor cell growth by blocking cell-cycle progression.</article-title>
+<source>Oncogene</source>
+<volume>22</volume>
+<fpage>4035</fpage>
+<lpage>4046</lpage>
+<pub-id pub-id-type="pmid">12821938</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Walker1">
+        <label>40</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Walker</surname><given-names>MR</given-names></name><name><surname>Patel</surname><given-names>KK</given-names></name><name><surname>Stappenbeck</surname><given-names>TS</given-names></name></person-group>
+<year>2009</year>
+<article-title>The stem cell niche.</article-title>
+<source>J Pathol</source>
+<volume>217</volume>
+<fpage>169</fpage>
+<lpage>180</lpage>
+<pub-id pub-id-type="pmid">19089901</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Ravenna1">
+        <label>41</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ravenna</surname><given-names>L</given-names></name><name><surname>Di Silverio</surname><given-names>F</given-names></name><name><surname>Russo</surname><given-names>MA</given-names></name><name><surname>Salvatori</surname><given-names>L</given-names></name><name><surname>Morgante</surname><given-names>E</given-names></name><etal/></person-group>
+<year>1996</year>
+<article-title>Effects of the lipidosterolic extract of serenoa repens (Permixon&#xAE;) on human prostatic cell lines.</article-title>
+<source>Prostate</source>
+<volume>29</volume>
+<fpage>219</fpage>
+<lpage>230</lpage>
+<pub-id pub-id-type="pmid">8876705</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Sanges1">
+        <label>42</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sanges</surname><given-names>R</given-names></name><name><surname>Cordero</surname><given-names>F</given-names></name><name><surname>Calogero</surname><given-names>RA</given-names></name></person-group>
+<year>2007</year>
+<article-title>OneChannelGUI: a graphical interface to Bioconductor tools, designed for life scientists who are not familiar with R language.</article-title>
+<source>Bioinformatics</source>
+<volume>23</volume>
+<fpage>3406</fpage>
+<lpage>3408</lpage>
+<pub-id pub-id-type="pmid">17875544</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Irizarry1">
+        <label>43</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Irizarry</surname><given-names>RA</given-names></name><name><surname>Hobbs</surname><given-names>B</given-names></name><name><surname>Collin</surname><given-names>F</given-names></name><name><surname>Beazer-Barclay</surname><given-names>YD</given-names></name><name><surname>Antonellis</surname><given-names>KJ</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Exploration, normalization, and summaries of high density oligonucleotide array probe level data.</article-title>
+<source>Biostatistics</source>
+<volume>4</volume>
+<fpage>249</fpage>
+<lpage>264</lpage>
+<pub-id pub-id-type="pmid">12925520</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Bolstad1">
+        <label>44</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bolstad</surname><given-names>BM</given-names></name><name><surname>Irizarry</surname><given-names>RA</given-names></name><name><surname>Astrand</surname><given-names>M</given-names></name><name><surname>Speed</surname><given-names>TP</given-names></name></person-group>
+<year>2003</year>
+<article-title>A comparison of normalization methods for high density oligonucleotide array data based on variance and bias.</article-title>
+<source>Bioinformatics</source>
+<volume>19</volume>
+<fpage>185</fpage>
+<lpage>193</lpage>
+<pub-id pub-id-type="pmid">12538238</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Smyth1">
+        <label>45</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Smyth</surname><given-names>GK</given-names></name></person-group>
+<year>2004</year>
+<article-title>Linear models and empirical bayes methods for assessing differential expression in microarray experiments.</article-title>
+<source>Stat Appl Genet Mol Biol</source>
+<volume>3 3</volume>
+<fpage>Article3</fpage>
+<pub-id pub-id-type="pmid">16646809</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0031467-Westfall1">
+        <label>46</label>
+        <element-citation publication-type="book">
+<person-group person-group-type="author"><name><surname>Westfall</surname><given-names>PH</given-names></name><name><surname>Young</surname><given-names>SS</given-names></name></person-group>
+<year>1993</year>
+<source>Resampling-based multiple testing: examples and materials and methods for P-value adjustment</source>
+<publisher-loc>New York</publisher-loc>
+<publisher-name>John Wiley &amp; Sons</publisher-name>
+</element-citation>
+      </ref>
+      <ref id="pone.0031467-Barrett1">
+        <label>47</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Barrett</surname><given-names>T</given-names></name><name><surname>Suzek</surname><given-names>TO</given-names></name><name><surname>Troup</surname><given-names>DB</given-names></name><name><surname>Wilhite</surname><given-names>SE</given-names></name><name><surname>Ngau</surname><given-names>WC</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>NCBI GEO: mining millions of expression profiles-database and tools.</article-title>
+<source>Nucleic Acids Res</source>
+<volume>33</volume>
+<issue>Database issue</issue>
+<fpage>D562</fpage>
+<lpage>566</lpage>
+<pub-id pub-id-type="pmid">15608262</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

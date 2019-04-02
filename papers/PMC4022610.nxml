@@ -1,0 +1,865 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24831017</article-id>
+      <article-id pub-id-type="pmc">4022610</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-14-04044</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0097411</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Biophysics</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Computational Biology</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Genetics</subject>
+            <subj-group>
+              <subject>Genomics</subject>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Systems Biology</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Theoretical Biology</subject>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Physical Sciences</subject>
+          <subj-group>
+            <subject>Physics</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Global Genetic Response in a Cancer Cell: Self-Organized Coherent Expression Dynamics</article-title>
+        <alt-title alt-title-type="running-head">Global Self-Organized Coherent Expression Dynamics</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tsuchiya</surname>
+            <given-names>Masa</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hashimoto</surname>
+            <given-names>Midori</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takenaka</surname>
+            <given-names>Yoshiko</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Motoike</surname>
+            <given-names>Ikuko N.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yoshikawa</surname>
+            <given-names>Kenichi</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff6">
+<sup>6</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Institute for Advanced Biosciences, Keio University, Tsuruoka, Japan</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Systems Biology Program, School of Media and Governance, Keio University, Fujisawa, Japan</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Graduate School of Frontier Science, The University of Tokyo, Kashiwa, Japan</addr-line>
+</aff>
+      <aff id="aff4">
+<label>4</label>
+<addr-line>Nanosystem Research Institute, National Institute of Advanced Industrial Science and Technology, Tsukuba, Japan</addr-line>
+</aff>
+      <aff id="aff5">
+<label>5</label>
+<addr-line>Tohoku Medical Megabank Organization, Tohoku University, Sendai, Japan</addr-line>
+</aff>
+      <aff id="aff6">
+<label>6</label>
+<addr-line>Faculty of Life and Medical Sciences, Doshisha University, Kyotanabe, Japan</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Chialvo</surname>
+            <given-names>Dante R.</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>National Scientific and Technical Research Council (CONICET), Argentina</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>tsuchiya@ttck.keio.ac.jp</email> (MT); <email>keyoshik@mail.doshisha.ac.jp</email> (KY)</corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>Masa Tsuchiya is a PLOS ONE Editorial Board member. This does not alter the authors' adherence to PLOS ONE Editorial policies and criteria.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: MT MH YT IM KY. Analyzed the data: MT MH KY. Wrote the paper: MT KY.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>15</day>
+        <month>5</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>9</volume>
+      <issue>5</issue>
+      <elocation-id>e97411</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>27</day>
+          <month>1</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>18</day>
+          <month>4</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2014 Tsuchiya et al</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <copyright-holder>Tsuchiya et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Understanding the basic mechanism of the spatio-temporal self-control of genome-wide gene expression engaged with the complex epigenetic molecular assembly is one of major challenges in current biological science. In this study, the genome-wide dynamical profile of gene expression was analyzed for MCF-7 breast cancer cells induced by two distinct ErbB receptor ligands: epidermal growth factor (EGF) and heregulin (HRG), which drive cell proliferation and differentiation, respectively. We focused our attention to elucidate how global genetic responses emerge and to decipher what is an underlying principle for dynamic self-control of genome-wide gene expression. The whole mRNA expression was classified into about a hundred groups according to the root mean square fluctuation (<italic>rmsf</italic>). These expression groups showed characteristic time-dependent correlations, indicating the existence of collective behaviors on the ensemble of genes with respect to mRNA expression and also to temporal changes in expression. All-or-none responses were observed for HRG and EGF (biphasic statistics) at around 10&#x2013;20 min. The emergence of time-dependent collective behaviors of expression occurred through bifurcation of a coherent expression state (CES). In the ensemble of mRNA expression, the self-organized CESs reveals distinct characteristic expression domains for biphasic statistics, which exhibits notably the presence of criticality in the expression profile as a route for genomic transition. In time-dependent changes in the expression domains, the dynamics of CES reveals that the temporal development of the characteristic domains is characterized as autonomous bistable switch, which exhibits dynamic criticality (the temporal development of criticality) in the genome-wide coherent expression dynamics. It is expected that elucidation of the biophysical origin for such critical behavior sheds light on the underlying mechanism of the control of whole genome.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This study was funded by Tsuruoka City, the Yamagata prefectural government, and the GCOE program of Keio University, and was supported in part by Grants-in-Aid, KAKENHI (Nos. 23240044 and 25103012). The funders had no role in study design, data collection and analysis, decision to publish.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="16"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>One of the fundamental challenges in life science is to unveil the basic mechanism that underlies how the genome regulates the activity of tens of thousands of genes in an autonomous manner. The recent remarkable success with iPS cells by the ectopic expression of key transcription factors <xref rid="pone.0097411-Takahashi1" ref-type="bibr">[1]</xref> has opened the door not only to possible manipulation of the cell fate to any cell state through somatic genome reprogramming, but also to understanding the genetic mechanism of development and disease in vitro. The eukaryotic genome (epigenome) defines a cell state by determining dynamically which genes are activated or arrested; the cellular process organizes the exceedingly complex molecular structure on giant DNA molecules with the cooperation of nuclear proteins accompanied by dynamic epigenetic modifications <xref rid="pone.0097411-Kouzarides1" ref-type="bibr">[2]</xref>. However, our present understanding of fundamental questions, such as how can the genome, which is a highly complex molecular system, self-regulate genome-wide genetic activity and what is the guiding principle by which the genome drives cell differentiation and reprogramming, is still in its infancy.</p>
+      <p>With regard to the control of gene regulation, it has been reported that several hundreds or thousands of genes in a yeast cell culture are up-regulated within a few minutes in a rapid and genome-wide transcriptional response <xref rid="pone.0097411-Klevecz1" ref-type="bibr">[3]</xref>, <xref rid="pone.0097411-Radonjic1" ref-type="bibr">[4]</xref>; in embryonic mammalian stem cells, a few key transcription factors (Oct4, Sox2, and Nanog) coordinate the expression of thousands of genes with epigenetic modifications accompanied by epigenetic molecules such as chromatin regulators <xref rid="pone.0097411-Young1" ref-type="bibr">[5]</xref>.</p>
+      <p>When we scrutinize the dynamics of biochemical reactions associated with gene expression, the expression of each gene in a population of cells (e.g., MCF-7 human cancer cells in this report) carries stochastic noise stemming from intra- (intrinsic) and inter-cellular (extrinsic) processes <xref rid="pone.0097411-Elowitz1" ref-type="bibr">[6]</xref>&#x2013;<xref rid="pone.0097411-Assaf1" ref-type="bibr">[12]</xref>. This stochasticity has constructive (correlated) and destructive effects (uncorrelated) on biological processes including the regulation of gene expression. There exist two underlying difficulties to understand the robust on/off control of gene expression in a cell: noise in stochastic expression and noise due to the heterogeneity of cell types (cell-to-cell variability) in the population.</p>
+      <p>The presence of stochastic noise (due to the intrinsic effect of a low copy number of mRNAs of a gene per cell) suggests bringing about instability in abundance of genetic product if the system is based solely on a very large number of specific key-lock interactions (i.e., if we do not include the molecular environment) <xref rid="pone.0097411-Raser1" ref-type="bibr">[13]</xref>. In addition to the noisy low copy number effect, there may not be enough statistical number of molecules within the small space of the cell nucleus: the breakdown of the central limit theorem upon binding equilibrium between key and lock molecules <xref rid="pone.0097411-Yoshikawa1" ref-type="bibr">[14]</xref> can increase the stochastic (destructive) effect due to random collision between reactants (e.g., RNA polymerase and DNA) on the dynamics of gene expression. These intrinsic effects should cause the breakdown of the collective ensemble behavior of gene expression.</p>
+      <p>The extrinsic effect of cell-to-cell interaction might generate non-genetic heterogeneity (cell-to-cell variability generated by the same set of genes) <xref rid="pone.0097411-Chang1" ref-type="bibr">[15]</xref>, <xref rid="pone.0097411-Huang1" ref-type="bibr">[16]</xref>. Different processes in different cell types in the population might cause further instability in the robust control of the expression of a large number of genes in the cell. In contrast, another report suggested that cell-to-cell variability is largely the result of deterministic regulatory processes, rather than stochasticity at the single-cell level <xref rid="pone.0097411-Snijder1" ref-type="bibr">[17]</xref>. A recent theoretical study showed that extrinsic noise plays an important role in the heterogeneity within a population of cells through phenotype switching in the regulation of gene expression <xref rid="pone.0097411-Assaf1" ref-type="bibr">[12]</xref>. Further research will be needed to elucidate the essential cause of the heterogeneity in a cell population.</p>
+      <p>Until recently, the most widely accepted mechanism for the self-regulation of gene expression has been a genetic network composed of a large number of specific interactions, i.e., key-lock complex molecular interactions; gene expression is a dynamic process of unwrapping DNA from histone molecules and exposing a specific region of double-stranded DNA to produce mRNA from DNA sequence information for a certain gene to carry out a specific cellular process. The staggeringly complex cellular system that arises from the dynamic key-lock molecular interactions with intrinsic and extrinsic stochastic environments raises a fundamental question, despite the underlying stochastic nature and heterogeneous environment: How can a cell with a small, compact nucleus provide robust control of coordinated genome-wide gene expression <xref rid="pone.0097411-Raser1" ref-type="bibr">[13]</xref>?</p>
+      <p>To tackle this fundamental question, we may wish to pay attention to the &#x2018;noise&#x2019; of gene expression in genome-wide data through the quantitative evaluation of stochastic fluctuation to shed light on the hidden mechanism of genome-wide global self-regulation. We investigated the whole transcriptome activity considering the entire set of genes, i.e., the expression of all genes obtained from microarray data, and sorted all mRNA expression (usually on the order of tens of thousands) according to the degree of the change in temporal expression from a baseline, and formed groups of mRNA expression (see Methods). Through this grouping of gene expression in different biological processes, we have uncovered emergent nonlinear correlations (e.g., <xref ref-type="fig" rid="pone-0097411-g001">Figure 1</xref>) <xref rid="pone.0097411-Tsuchiya1" ref-type="bibr">[18]</xref>&#x2013;<xref rid="pone.0097411-Tsuchiya3" ref-type="bibr">[20]</xref>: i.e., global nonlinear correlations between ensemble (group) averages of temporal changes in expression and mRNA expression with an increase in <italic>n</italic> (see details in <xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>). These global correlations indicate the presence of averaging (mean field) behavior in large and stochastic genetic activity as hidden genome-scale collective behavior. It is well known that the existence of mean field behavior suggests the presence of a governing principle in physical many-body (e.g., molecular) systems; thus, genetic mean field behaviors suggest the existence of underlying principles that are &#x2018;sensed&#x2019; by the genome as a whole with the consequent emergence of collective modes that encompass the coordinated activity of thousands of genes [Tsuchiya M, Hashimoto M, Tomita M, Yoshikawa K, Giuliani A, &#x201C;Collective Genome-Wide Expression Modes: Major Roles of Low-Variance Genes&#x201D;, unpublished].</p>
+      <fig id="pone-0097411-g001" orientation="portrait" position="float">
+        <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g001</object-id>
+        <label>Figure 1</label>
+        <caption>
+          <title>Emergence of biphasic <italic>dynamic emergent averaging behaviors</italic> (DEABs) of the expression and the expression change.</title>
+          <p>The transition from scattered expression (first row; <italic>N</italic>&#x200A;=&#x200A;22035) to time-dependent correlation (second row) is shown as the collective behavior of ensemble groups: DEAB of A) the expression (symbolically represented by <italic>ln</italic>(<italic>&#x3B5;</italic>(<italic>t</italic>)); called simply &#x2018;the expression&#x2019;) and B) the expression change (<italic>ln</italic>(<italic>&#x3B5;</italic>(<italic>t<sub>i</sub></italic>)/<italic>&#x3B5;</italic>(<italic>t<sub>i</sub></italic>
+<sub>&#x2013;1</sub>))). The image shows biphasic genomic responses (biphasic statistics) to HRG and EGF; plots of single mRNA (<italic>n</italic>&#x200A;=&#x200A;1; first row) and a group of genes (<italic>n</italic>&#x200A;=&#x200A;200; second row) for A) the expression at <italic>t</italic>&#x200A;=&#x200A;10 min (black dot), 15 min (blue), and 20 min (red), and B) the expression change from <italic>t<sub>i</sub></italic>
+<sub>&#x2013;1</sub>&#x200A;=&#x200A;10 min to <italic>t<sub>i</sub></italic>&#x200A;=&#x200A;15 min (blue cycle) and from <italic>t<sub>i</sub></italic>
+<sub>&#x2013;1</sub>&#x200A;=&#x200A;15 min to <italic>t<sub>i</sub></italic>&#x200A;=&#x200A;20 min (red), reflects OFF-ON switching down- to up-regulation). Brackets around <italic>x,</italic> &lt;<italic>x</italic>&gt;, reflect the simple arithmetic mean of <italic>x</italic> in a group (<italic>n</italic>&#x200A;=&#x200A;200).</p>
+        </caption>
+        <graphic xlink:href="pone.0097411.g001"/>
+      </fig>
+      <p>The emerging picture of gene-expression regulation can be explained in terms of a highly integrated dynamical system in a multidimensional phase space spanned by the expression levels of the whole set of genes. Notably, even mRNA species with very low signal intensities allow for the global reconstruction of cell population dynamics, as in the case of hematopoietic stem cell differentiation <xref rid="pone.0097411-Felli1" ref-type="bibr">[21]</xref>, which is consistent with the picture arising from an analysis of the entire transcriptome, which strongly suggests the presence of a set of constraints that allow the genome to act as a highly coherent/cooperative system (&#x2018;genome field&#x2019; <xref rid="pone.0097411-Erenpreisa1" ref-type="bibr">[22]</xref>). A similar profile that resembles the emergent nonlinear correlation accompanied by fluctuation can occur for the distribution of single-gene expression for cells in culture when the intrinsic (uncorrelated) noise becomes low <xref rid="pone.0097411-Elowitz1" ref-type="bibr">[6]</xref>.</p>
+      <p>In this report, we analyzed the whole genome expression dynamics (22035 probes and 18 time points; Methods) that accompanied MCF-7 (human breast cancer) cell proliferation and differentiation through the activation of ErbB receptor by epidermal growth factor (EGF) and heregulin (HRG), respectively. HRG induces cell differentiation by sustaining extracellular signal-regulated kinase (ERK) activity to produce a significant phosphorylated transcription factor, c-Fos activation, while EGF stimulates cell proliferation by inducing transient ERK activity with negligible c-Fos induction <xref rid="pone.0097411-Nagashima1" ref-type="bibr">[23]</xref>. A biphasic signaling response in respect to ErB receptor signaling dynamics with differences at the c-Fos level was elucidated <xref rid="pone.0097411-Nagashima1" ref-type="bibr">[23]</xref>&#x2013;<xref rid="pone.0097411-Nakakuki1" ref-type="bibr">[25]</xref>.</p>
+      <p>To understand whether there are distinct genomic responses in relation to the biphasic signaling response, we conducted a comprehensive analysis of the whole genomic response for both HRG and EGF ligand activation on the ErbB receptor of MCF-7 breast cancer cells by grouping genes based on time-dependent changes in expression. To elucidate how global genetic responses emerge and further to decipher what is an underlying principle for dynamic self-control of genome-wide gene expression, we focused on time-dependent global genetic responses for the first 30 min after ligand activation, which shows the biphasic genomic responses (biphasic statistics) to EGF and HRG.</p>
+      <p>In the following sections, we demonstrate that the essential scenario on self-organized expression dynamics through bifurcation of ensemble of coherent expression reveals how genome-wide expression is coordinated differently (all-or-none) in cell proliferation (EGF) and differentiation (HRG). Most importantly, we address the presence of criticality as a route for genomic transition and its dynamical change (dynamic criticality) in collective behaviors of mRNA expression, which give us a thought-provoking insight to understand how a cell in population can conduct the robust dynamic control of genome-wide coordinated gene expression for a short time, even within the small, packed nuclear space. Finally, we discuss a potential biophysical origin of criticality from the conformal transition of genomic DNA that controls transcriptional activity through a structural transition <xref rid="pone.0097411-Takenaka1" ref-type="bibr">[26]</xref>, <xref rid="pone.0097411-Nagahara1" ref-type="bibr">[27]</xref>.</p>
+    </sec>
+    <sec id="s2">
+      <title>Results</title>
+      <sec id="s2a">
+        <title>Global Genetic Response Led by Group Dynamics of Genes: Dynamic Emergent Averaging Behaviors (DEABs)</title>
+        <p>We investigated whole transcriptome activity in MCF-7 cancer cells stimulated by HRG-beta and EGF at 18 time points (<italic>t</italic>&#x200A;=&#x200A;0, 10, 15, 20, 30, 45, 60, 90[min], 2, 3, 4, 6, 8, 12, 24, 36, 48, <italic>t<sub>T</sub></italic>&#x200A;=&#x200A;72[h]), and considered the expression of all probes (<italic>N</italic>&#x200A;=&#x200A;22035; Gene Expression Omnibus database ID: GSE13009; see Methods) assigned to each gene or open reading frame (ORF) in microarray data; we call such probes &#x2018;mRNA expression&#x2019;, which includes the expression of genes as well as the expression of variants of mRNA. Two ligands, EGF and HRG, activate ErbB family receptors to produce distinct cell fates (cell differentiation and cell proliferation, respectively) by provoking different signal durations which leads to the ligand-specific biphasic production of c-Fos proteins after 20 min. EGF provokes transient ERK activation, while HRG induces sustained ERK activation, causing all-or-none (i.e., all for HRG and none for EGF) responses of the phosphorylated transcription factor c-Fos <xref rid="pone.0097411-Nagashima1" ref-type="bibr">[23]</xref>, <xref rid="pone.0097411-Nakakuki1" ref-type="bibr">[25]</xref>.</p>
+        <p>To clarify whether these two ligands can induce distinct genomic activities by better understanding the transcriptome expression dynamics, we grouped mRNA expression according to the standard deviation of time-dependent fluctuation in expression (<italic>root mean square fluctuation</italic>: <italic>rmsf</italic>) for all of the probes without any filtering of the original data (see Methods). As the group size (<italic>n</italic>&#x200A;=&#x200A;1, 100, 200, 300) increased, a nonlinear correlation emerged from scattered points at time <italic>t</italic>, where the fluctuation of groups from these asymptotic correlations reduced as the grouping size <italic>n</italic> increased <xref rid="pone.0097411-Tsuchiya2" ref-type="bibr">[19]</xref>. Dynamic emergent averaging (collective) behaviors (DEABs) were noticed in the profile of <italic>rmsf</italic> against logarithm of mRNA expression, &lt;<italic>rmsf</italic>&gt; versus &lt;<italic>ln</italic>(<italic>&#x3B5;</italic>(<italic>t<sub>i</sub></italic>))&gt; (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>) or <italic>rmsf</italic> against temporal change in logarithm of mRNA expression, &lt;<italic>rmsf</italic>&gt; versus &lt;<italic>ln</italic>(<italic>&#x3B5;</italic>(<italic>t<sub>i</sub></italic>)/<italic>&#x3B5;</italic>(<italic>t<sub>i</sub></italic>
+<sub>&#x2212;1</sub>))&gt; (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>), where the brackets, &lt; &gt;, denote the ensemble/group average, and <italic>&#x3B5;</italic>(<italic>t<sub>i</sub></italic>) reflects mRNA expression at time <italic>t<sub>i</sub></italic> (<italic>i&#x200A;=&#x200A;</italic>0,1,.,17). Hereafter, we refer to the logarithm of mRNA expression and the temporal change in logarithm of mRNA expression as <italic>the expression</italic> and <italic>the expression change</italic>, respectively.</p>
+        <p>
+<italic>DEAB of the expression</italic> at time <italic>t</italic> (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>) revealed a nonlinear correlation between groups based on average values of expression and <italic>rmsf</italic> at a fixed time point. When we compare DEAB of the expression between different time points, coordinated motion of the ensemble of mRNA expression emerges according to the degree (i.e., standard deviation) of temporal fluctuation of mRNA expression (i.e., <italic>rmsf</italic>). In <xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>, DEABs of the expression at three time points (10, 15, and 20 min) show a clear difference between EGF and HRG: for EGF induction, they overlap, with no apparent change, while for HRG induction, in some groups (&lt;<italic>rmsf</italic>&gt; &gt;0.42) distinct slopes were seen at three time points, and an especially sharp change from a negative to a positive slope was seen between 15 min and 20min, while there were no changes in the other groups (&lt;<italic>rmsf</italic>&gt; &lt;0.42). Thus, in DEAB of the expression, there appear to be dynamic and static ensembles of mRNA expression; a more rigorous definition of expression ensembles is given in the following section.</p>
+        <p>On the other hand, <italic>DEAB of the expression change</italic> shows a marked change with time between different time points (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>), indicating which groups are up- or down-regulated in a coordinated manner. As shown in <xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>, an all-or-none response is also seen in the regulation of mRNA expression; in the EGF response, DEABs are nearly balanced (i.e., nearly zero average change in expression), whereas in the HRG response, for &lt;<italic>rmsf</italic>&gt; &gt;0.42, the corresponding DEAB shows a marked change from down-regulation (10&#x2013;15 min) to up-regulation (15&#x2013;20 min). In contrast, DEAB for &lt;<italic>rmsf</italic>&gt; &lt;0.42 changed from nearly balanced or up-regulation to down-regulation. Thus, in the HRG response, the dynamic changes in DEABs of both the expression (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>) and the expression change (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>) were consistent for &lt;<italic>rmsf</italic>&gt; &gt;0.42, while changes in opposite directions were seen for &lt;<italic>rmsf</italic>&gt; &lt;0.42. These temporal changes in DEAB of the expression and the expression change will be addressed as autonomous coherent expression dynamics.</p>
+        <p>Next, we investigated the frequency distributions of mRNA expression according to DEAB to understand the biophysical phenomena that underlie gene expression dynamics. Profiles that include thousands of mRNAs can provide information on the biophysical laws that underlie mRNA expression dynamics, such as the Gaussian distribution for Brownian dynamics and power-law behavior for scale-free interaction. Furthermore, the changes in profiles, e.g., a change from unimodal to bimodal, might reveal some critical phenomena <xref rid="pone.0097411-Landau1" ref-type="bibr">[28]</xref>&#x2013;<xref rid="pone.0097411-Ryabov1" ref-type="bibr">[30]</xref>.</p>
+        <p>In <xref ref-type="fig" rid="pone-0097411-g002">Figure 2</xref>, the frequency histograms of expression (15&#x2013;20 min) change from a unimodal (<italic>rmsf</italic> &gt;0.42) to bimodal distribution (<italic>rmsf</italic> &lt;0.42) for both the EGF and HRG ensemble groups. Interestingly, in the HRG response, the frequency distributions for <italic>rmsf</italic> &gt;0.42 between 15 min and 20 min do not overlap; the profile is deformed with a shift in the peak from <italic>ln</italic>(<italic>&#x3B5;</italic>(15 min)) &#x200A;=&#x200A;1.8 to <italic>ln</italic>(<italic>&#x3B5;</italic>(20 min)) &#x200A;=&#x200A;2, which is called the <italic>unimodal shift</italic>. Otherwise, the frequency distributions at 15 min and 20 min almost overlap each other.</p>
+        <fig id="pone-0097411-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Unimodal to bimodal frequency distribution for DEAB of the expression.</title>
+            <p>The profiles of the frequency distribution of the expression (<italic>ln</italic>(<italic>&#x3B5;</italic>(<italic>t</italic>))) from 15 min to 20 min change from unimodal to bimodal for A) high-variance expression (the root mean square fluctuation, <italic>rmsf</italic> &gt;0.42) and B) low-variance expression (<italic>rmsf</italic> &lt;0.42). First row: the HRG response for <italic>rmsf</italic> &gt;0.42 shows a peak-shift of unimodal profiles from <italic>t&#x200A;=&#x200A;</italic>15 min (blue histogram) to <italic>t</italic>&#x200A;=&#x200A;20 min (red) with a change in the lower to higher value of the expression, while binomial frequency distributions between 15 min (blue polygonal line) and 20 min (red histogram) almost perfectly overlap each other for <italic>rmsf</italic> &lt;0.42. Second row: the EGF response shows almost the perfect overlap of profiles for both unimodal (<italic>rmsf</italic> &gt;0.42) and bimodal (<italic>rmsf</italic> &lt;0.42) distributions, which suggests that there is no temporal averaging response, consistent with DEAB of the expression for the EGF response (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>). For all histograms in this report, the bin size is set to 0.05.</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g002"/>
+        </fig>
+        <p>DEABs showed genome-wide dynamic correlations for both the expression and the expression change. The results of the entire transcriptome analysis suggest the presence of a set of constraints that allow the genome to act as a coherent/coordinated system. We will now consider the biophysical significance of the dynamic motion of DEABs of the expression that is accompanied by a change from a unimodal to a bimodal frequency distribution.</p>
+      </sec>
+      <sec id="s2b">
+        <title>Bifurcation of Coherent Expression States in DEAB of the Expression: Characteristic Expression Domains Revealed</title>
+        <p>To understand how a global response emerges and then to elucidate its underlying principle, we need to understand how gene expression is self-organized on a genome-wide scale. We used a density analysis to visualize the dynamics of up- or down-regulation between different time points. A density analysis of the clustering of noisy gene-expression profiles has been shown to be robust <xref rid="pone.0097411-Shu1" ref-type="bibr">[31]</xref>. We applied a Gaussian kernel as a density analysis on the space spanned by the expression versus the change in expression (&#x2018;regulatory space&#x2019;). Since the most dramatic response was observed between 15 min and 20 min, in this section we focus on analyzing the dynamics of mRNA expression in DEABs of the expression from 15 to 20 min.</p>
+        <p>Given an expression value at time <italic>t</italic> (<italic>t</italic>&#x200A;=&#x200A;15 min or 20 min), the regulatory space shows whether mRNA expression at time <italic>t</italic> is up-regulated, down-regulated, or balanced during this period. Interestingly, if we evaluate the probability density function (PDF) for the regulatory space and take the probability density on the z-axis, the pseudo-3-dimensional-plot shows hill-like functions to reveal the density landscape (&#x201C;genetic landscape&#x201D;) of the expression dynamics (<xref ref-type="fig" rid="pone-0097411-g003">Figure 3</xref>). In the HRG response, there are two hill-like functions at each time point; if we superimpose the genetic landscapes between 15 min and 20 min, we see three independent hill-like functions for <italic>rmsf</italic> &gt;0.42 (<italic>n</italic>&#x200A;=&#x200A;3269 mRNAs): two distinct hill-like functions for each time point and one that results from the overlapping of two temporally (almost) invariant hill-like functions. In contrast, in the EGF response (<italic>rmsf</italic> &gt;0.42; <italic>n</italic>&#x200A;=&#x200A;1482), a single hill-like function does not show an apparent temporal change. Thus, up- or down-regulated mRNA expressions form up- or down-regulated hills on the landscape and their dynamic changes reflect the coherent expression behavior of thousands of mRNAs; a hill-like function on the genetic landscape is considered to be a coherent expression state (CES). To further confirm the existence of CES, we analyzed the dynamic motion of CESs (the next section).</p>
+        <fig id="pone-0097411-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Existence of coherent expression states (CESs) as hill-like functions.</title>
+            <p>Plots of single mRNA expression for <italic>rmsf</italic> &gt;0.42 (blue dot: 15 min and red dot: 20 min) are superimposed in the left panel (first row: 3269 expressions for HRG; second row: 1482 for EGF). In the right panel, the probability density function (PDF) using a Gaussian kernel by Mathematica 9 (default setting) for each point (left panel) reveals hill-like functions in pseudo-3-dimensional space (genetic landscape; z-axis: probability density). Superimposition of the genetic landscapes between <italic>t<sub>i&#x2013;</sub></italic>
+<sub>1</sub>&#x200A;=&#x200A;15 min and <italic>t<sub>i</sub></italic>&#x200A;=&#x200A;20 min - first row: the HRG response has three CESs; two independent CESs plus one CES that results from the overlap of CESs between 15 min (darker color) and 20 min (lighter color) around a zero change in expression at the y-axis; second row: the EGF response has a single CES as the overlap of two CESs around a zero change in expression. The legend shows a lighter (darker) color bar at 20 min (at 15 min) for PDF.</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g003"/>
+        </fig>
+        <p>We investigated the formation of a CES in DEAB of the expression in terms of the incremental change in a segment with a certain range of <italic>rmsf</italic> (<italic>v</italic> &lt; <italic>rmsf</italic> &lt; <italic>v</italic> + <italic>r</italic>), where the range <italic>r</italic> is set to 0.4 so that it includes the expression of thousands of mRNAs, and <italic>v</italic> is a variable of <italic>rmsf</italic>. In <xref ref-type="fig" rid="pone-0097411-g004">Figure 4</xref>, the three segments of <italic>rmsf</italic> for the HRG response describe the onset of bifurcation of CES during the period 15&#x2013;20 min, where a new CES bifurcated at the segment around 0.21&lt; <italic>rmsf</italic> &lt;0.61. A similar onset of bifurcation of CES at the segment around 0.16&lt; <italic>rmsf</italic> &lt;0.56 was observed in the EGF response (data not shown). Bifurcation diagrams of CESs as a function of <italic>v</italic> against mRNA expression (<italic>bifurcation diagram in the expression</italic>) or the change in the expression (<italic>bifurcation diagram in the expression change</italic>) were obtained by tracing the positions of hilltops of CESs (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>). CESs are functions of the expression level and expression activity. Note that the position of a hilltop can depend on the choice of the kernel density, but the bifurcation property does not change in DEAB.</p>
+        <fig id="pone-0097411-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Onset of the bifurcation of CES for DEAB of the expression (HRG).</title>
+            <p>The onset of bifurcation of a new CES as the growth of a hill-like function is shown. In the first row, the profile of the frequency distribution of expression changes from unimodal (0.26&lt; <italic>rmsf</italic> &lt;0.66; left) to bimodal (0.17&lt; <italic>rmsf</italic> &lt;0.57; right) through a flattened unimodal profile (0.22&lt; <italic>rmsf</italic> &lt;0.62; center). The genetic landscape (second row) for 15&#x2013;20 min for each region of <italic>rmsf</italic> illustrates that the onset of bifurcation of CES transforms from a unimodal to bimodal profile; the red arrow (second row) points to the formation of CES and the blue arrow points to the formation of a valley, which gives rise to a low-expression state (LES). The peaks of the bimodal frequency distribution coincide with the highest density of CESs at around <italic>ln</italic>(<italic>&#x3B5;</italic>)<italic>&#x200A;=&#x200A;</italic>1.7 and 2.2 (black dash lines).</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g004"/>
+        </fig>
+        <fig id="pone-0097411-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>Bifurcation of CESs in DEAB of the expression.</title>
+            <p>The bifurcations of CESs in DEAB of the expression for 15&#x2013;20 min are examined with an incremental change in a segment, <italic>v</italic> &lt; <italic>rmsf</italic> &lt; <italic>v</italic> + <italic>r,</italic> as an extension of <xref ref-type="fig" rid="pone-0097411-g004">Figure 4</xref>, where the range <italic>r</italic> is set to 0.4 and <italic>v</italic> is a variable of <italic>rmsf</italic>. The bifurcation diagrams of the expression (<italic>v</italic> against the expression; first row) at <italic>t</italic>&#x200A;=&#x200A;20 min, and the expression change (<italic>v</italic> against the change in the expression for 15&#x2013;20 min; second row) are plotted for HRG (left panel) and EGF (right). The bifurcation diagram of the expression defines the expression level at <italic>ln</italic>(<italic>&#x3B5;</italic>) &#x200A;=&#x200A;2.075 (lower: low- and upper: high-expression) because of the existence of a valley, which separates the low and high CESs (<xref ref-type="fig" rid="pone-0097411-g006">Figure 6</xref>), whereas the bifurcation diagram of the expression change shows three activity levels of CES: ON (positive change in the expression), EQ (near zero) and OFF (negative change in the expression). The bifurcation diagrams clearly show distinct characteristic expression domains between HRG and EGF: static, transit and dynamic domains for <italic>rmsf</italic> &lt;0.21, 0.21&lt; <italic>rmsf</italic> &lt;0.42, and 0.42&lt; <italic>rmsf</italic> for HRG, and static and transit domains for <italic>rmsf</italic> &lt;0.16 and 0.16&lt; <italic>rmsf</italic> for EGF (see details in the main text).</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g005"/>
+        </fig>
+        <p>With regard to the expression level, the existence of a valley in the landscape between two hills of CES separates the expression levels into high and low at <italic>ln</italic>(<italic>&#x3B5;</italic>)&#x200A;=&#x200A;2.075 for both HRG and EGF (<xref ref-type="fig" rid="pone-0097411-g005">Figures 5</xref> and <xref ref-type="fig" rid="pone-0097411-g006">6</xref>). Moreover, a bifurcation in the regulatory space revealed that CES possesses three expression activities between 15 min and 20 min: up-regulated, down-regulated and equilibrated. The up- and down-regulations can be considered to be the ON and OFF activity levels in comparison to equilibrated (EQ) regulation, where the rates of mRNA production and decomposition are nearly balanced. Interestingly, in the EGF genomic response, all of the CESs are at the EQ level (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>).</p>
+        <fig id="pone-0097411-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Genetic landscape of the characteristic expression domains.</title>
+            <p>Each row (A: HRG and B: EGF) corresponds to frequency distributions of mRNA expression (first) and genetic landscapes (second: side view). In the genetic landscape, a static domain with a valley is characterized by two CESs: A) HES1(EQ) and LES1(OFF) for <italic>rmsf</italic> &lt;0.21; and B) HES(EQ) and LES(EQ) for <italic>rmsf</italic> &lt;0.16, a transit domain is characterized by A) HES1(EQ) for 0.21&lt; <italic>rmsf</italic> &lt;0.42; and B) HES(EQ) for <italic>rmsf</italic> &gt;0.16, and a dynamic domain is characterized by three CESs: A) LES2(ON), HES2(ON) and HES1(EQ) for <italic>rmsf</italic> &gt;0.42, which is the result of superimposition of the genetic landscapes between 15 min and 20 min (right panel in the second row); a state shift occurs from LES2(ON) at 15 min to HES2(ON) at 20 min, consistent with the unimodal shift of the frequency distribution (A: first row). The red arrow points to the valley to separate the low and high CESs. The activity level of a coherent expression state (ON, EQ and OFF) refers to <xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>.</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g006"/>
+        </fig>
+        <p>Most importantly, the bifurcation diagrams (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>) during the period 15&#x2013;20 min clearly show differences between the HRG and EGF genomic responses; the three characteristic domains in the HRG response can be categorized as i) <italic>static domain</italic> (<italic>n</italic>&#x200A;=&#x200A;9059): <italic>rmsf</italic> &lt;0.21 with two high-expression states (HES1(EQ) and HES2(ON), ii) <italic>transit domain</italic> (<italic>n</italic>&#x200A;=&#x200A;9707): 0.21&lt; <italic>rmsf</italic> &lt;0.42 with a high-expression state (HES1(EQ)), and iii) <italic>dynamic domain</italic> (<italic>n</italic>&#x200A;=&#x200A;3269): <italic>rmsf</italic> &lt;0.42 with high- and low-expression states (HES1(EQ) and LES1(OFF)). In contrast, the EG response does not show a dynamic domain and only two domains are present: i) <italic>static domain</italic> (<italic>n</italic>&#x200A;=&#x200A;7091): <italic>rmsf</italic> &lt;0.16 with HES(EQ) and LES(EQ), and ii) <italic>transit domain</italic> (<italic>n</italic>&#x200A;=&#x200A;14944): 0.16&lt; <italic>rmsf</italic> with HES(EQ).</p>
+        <p>Regarding the naming of domains, <xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref> for the HRG response showed ensemble of relatively small fluctuations with <italic>rmsf</italic> &lt;0.42 and dynamic ensemble of relatively large fluctuations with <italic>rmsf</italic> &gt;0.42. We named the ensemble with <italic>rmsf</italic> &gt;0.42 as the dynamic domain. Whereas, the bifurcation analysis of CES (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref> for HRG) indicates that the ensemble of small fluctuations (<italic>rmsf</italic> &lt;0.42) is further categorized into two ensembles: one (0.21&lt; <italic>rmsf</italic> &lt;0.42) for the onset of CES with the flattened unimodal frequency profile as shown in <xref ref-type="fig" rid="pone-0097411-g004">Figure 4</xref> and another (<italic>rmsf</italic> &lt;0.21) for two CESs with the bimodal profile (<xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>); the former is called the transit domain and the latter, the static domain. The situation is essentially the same in the EGF response, except for the lack of dynamic domain.</p>
+        <p>A repeated experiment confirmed the characteristic domains during the period 15&#x2013;20 min (<xref ref-type="supplementary-material" rid="pone.0097411.s002">File S2</xref>), and although different ensembles of mRNAs are being considered, the same naming of CES in the different domains can be applied when the continuity of CES holds in the bifurcation diagram in terms of the parameter <italic>rmsf</italic>. It would be interesting to determine whether a common genomic property is necessary for the continuity of CES upon bifurcation.</p>
+        <p>The emergence of a low-expression state in the static domains for both HRG and EGF corresponds to the formation of a bimodal frequency distribution of the expression (<xref ref-type="fig" rid="pone-0097411-g006">Figures 6A&#x2013;B</xref>). It is important to realize that the bifurcation of CES (i.e., LES) occurred with a change from a unimodal to a bimodal density profile to generate low-expression state. Moreover, in the static domain, phase separation was observed between LES and HES through the valley, which suggests that the two separate states should be related to each other through a specific genomic DNA structure. Furthermore, as demonstrated in the following section, the dynamics of a pair of CESs (LES and HES) forms autonomous bistable switch (ABS): a pendulum oscillatory system. The only difference in the static domains between the HRG and EGF responses was in the activity level of the low-expression states, LES<sub>HRG</sub>(OFF) and LES<sub>EGF</sub>(EQ), which will be addressed in terms of the dynamic motion of LES in the next section.</p>
+        <p>
+<xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref> shows that through a unimodal shift of the HRG frequency distribution, one of the two CESs at 15 min in the dynamic domain changed from a low- to a high-expression state (LES2 to HES2) at 20 min, while another high-expression state at 15 min, HES1(EQ), remained unchanged. The change from LES2 to HES2 explains the temporal ensemble motion of DEAB of the expression, with a change in the slope from negative to positive (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>).</p>
+        <p>Therefore, the biphasic statistics on DEAB of the expression (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>) between HRG and EGF can be explained by a) the bifurcation of LES2(ON) in the HRG dynamic domain through unimodal to bimodal profile of frequency distribution of mRNA expression, and b) the state change of CES from LES2(ON) to HES2(ON) around HES1(EQ), whereas in the EGF genomic response, all of the CESs remain in an equilibrated state during the period 15&#x2013;20 min (<xref ref-type="fig" rid="pone-0097411-g006">Figure 6B</xref>). <xref ref-type="table" rid="pone-0097411-t001">Table 1</xref> summarizes the self-organized coherent expression through the bifurcation of CESs in DEAB of the expression, with differences in the characteristic domains between HRG and EGF.</p>
+        <table-wrap id="pone-0097411-t001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>Bifurcations of CES, Characteristic Domains and Criticality at 15&#x2013;20 min.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0097411-t001-1" xlink:href="pone.0097411.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td colspan="3" align="left" rowspan="1">HRG</td>
+                  <td colspan="2" align="left" rowspan="1">EGF</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Criticality Domain</td>
+                  <td align="left" rowspan="1" colspan="1">Above Dynamic</td>
+                  <td align="left" rowspan="1" colspan="1">Near Transit</td>
+                  <td align="left" rowspan="1" colspan="1">Below Static</td>
+                  <td align="left" rowspan="1" colspan="1">Near Transit</td>
+                  <td align="left" rowspan="1" colspan="1">Below Static</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Range of <italic>rmsf</italic>
+</td>
+                  <td align="left" rowspan="1" colspan="1">&gt;0.42</td>
+                  <td align="left" rowspan="1" colspan="1">0.21&#x2013;0.42</td>
+                  <td align="left" rowspan="1" colspan="1">&lt;0.21</td>
+                  <td align="left" rowspan="1" colspan="1">&gt;0.16</td>
+                  <td align="left" rowspan="1" colspan="1">&lt;0.16</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"># of mRNAs</td>
+                  <td align="left" rowspan="1" colspan="1">3269</td>
+                  <td align="left" rowspan="1" colspan="1">9707</td>
+                  <td align="left" rowspan="1" colspan="1">9059</td>
+                  <td align="left" rowspan="1" colspan="1">14944</td>
+                  <td align="left" rowspan="1" colspan="1">7091</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Distribution:mRNA expression</td>
+                  <td align="left" rowspan="1" colspan="1">Unimodal</td>
+                  <td align="left" rowspan="1" colspan="1">FlattenedUnimodal</td>
+                  <td align="left" rowspan="1" colspan="1">Bimodal</td>
+                  <td align="left" rowspan="1" colspan="1">FlattenedUnimodal</td>
+                  <td align="left" rowspan="1" colspan="1">Bimodal</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">DEAB of the expression</td>
+                  <td align="left" rowspan="1" colspan="1">Up</td>
+                  <td align="left" rowspan="1" colspan="1">No change</td>
+                  <td align="left" rowspan="1" colspan="1">No change</td>
+                  <td align="left" rowspan="1" colspan="1">No change</td>
+                  <td align="left" rowspan="1" colspan="1">No change</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Coherent Expression State: CES</td>
+                  <td align="left" rowspan="1" colspan="1">HES1 (EQ)andHES2 (ON)</td>
+                  <td align="left" rowspan="1" colspan="1">HES1 (EQ)</td>
+                  <td align="left" rowspan="1" colspan="1">HES1 (EQ)andLES1 (OFF)</td>
+                  <td align="left" rowspan="1" colspan="1">HES (EQ)</td>
+                  <td align="left" rowspan="1" colspan="1">HES (EQ)andLES (OFF)</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Bifurcation of CES</td>
+                  <td align="left" rowspan="1" colspan="1">LES2 (ON)</td>
+                  <td align="left" rowspan="1" colspan="1">Onset of birth of LES1</td>
+                  <td align="left" rowspan="1" colspan="1">LES1 (OFF)</td>
+                  <td align="left" rowspan="1" colspan="1">Onset of birth of LES</td>
+                  <td align="left" rowspan="1" colspan="1">LES (OFF)</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">State change</td>
+                  <td align="left" rowspan="1" colspan="1">LES2 (ON; 15 min)&#x2192;HES2 (ON; 20 min)</td>
+                  <td align="left" rowspan="1" colspan="1">-</td>
+                  <td align="left" rowspan="1" colspan="1">-</td>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>-</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+      </sec>
+      <sec id="s2c">
+        <title>Dynamic Motion of CES in DEAB of the Expression Change: Autonomous Bistable Switch Revealed</title>
+        <p>In this section, we elucidate the dynamic relation between the motion of CES within a characteristic domain (<xref ref-type="fig" rid="pone-0097411-g006">Figures 6A&#x2013;B</xref>) and DEABs of the expression change (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>). Importantly, the sorting of mRNA expression was based on the time-independent variable <italic>rmsf</italic>, such that the mRNA&#x2019;s IDs (probe IDs) for a given characteristic domain do not change over time, but the expression of mRNAs is up- or down-regulated in a coherent manner. Especially, the phase separation of LES and HES in the static domains was confirmed, such that about 98% of mRNA expression within a specific CES (LES or HES) during the period 10&#x2013;20 min was common between two different time points, thus ensuring the existence of CES. Notably, the dynamics of gene expression within a CES is stochastic; i.e., the coherent behavior emerges only from the ensemble of mRNA expression.</p>
+        <p>The time-dependent change in the characteristic domains on the landscape with HRG (<xref ref-type="fig" rid="pone-0097411-g007">Figures 7A&#x2013;B</xref>) exhibited temporal change and the bifurcation of CES, whereas the EGF domains did not show any apparent change (data not shown), as revealed by DEABs (<xref ref-type="fig" rid="pone-0097411-g001">Figures 1A&#x2013;B</xref>). In the static domain for HRG, the low-expression state exhibits temporal change; LES1 is switched from ON (10&#x2013;15 min) to OFF (15&#x2013;20 min) (<xref ref-type="fig" rid="pone-0097411-g007">Figure 7A</xref>). The ON-OFF switch of LES1 is consistent with the change in DEAB from near-equilibrated to down-regulated for the HRG static domain (<italic>rmsf</italic> &lt;0.21) between 10&#x2013;15 min and 15&#x2013;20 min (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>).</p>
+        <fig id="pone-0097411-g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>Dynamic motion of the characteristic HRG domains in DEAB of the expression change.</title>
+            <p>The coordinated expression dynamics around an equilibrated high-expression state exhibit the pendulum oscillation of CES (autonomous bistable switch) between different time periods (10&#x2013;15 min, 15 min&#x2013;20 min, and 20&#x2013;30 min): A) in the static domain (9059 mRNAs) LES1 shows ON-OFF-EQ oscillation around HES1(EQ) through a unimodal shift, and B) in the dynamic domain (3269 mRNAs) the bifurcation of LES2 at 15 min shows a dynamic change from LES2(ON) to HES2(ON) through a unimodal to bimodal profile at 20 min, and the annihilation of HES2 through a bimodal to unimodal profile at 20&#x2013;30 min around HES2(EQ). The annihilation of HES2 reveals a short-lived dynamic domain. First row: frequency distribution of the expression change. Second row: the genetic landscapes of A) the static domain and B) the dynamic domain from the top view with density color bars.</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g007"/>
+        </fig>
+        <p>
+<xref ref-type="fig" rid="pone-0097411-g007">Figure 7B</xref> shows a pair of CESs forming a pendulum of oscillation, in which the pendulum of one CES oscillates around another CES: the low-expression state, LES1<sub>HRG</sub>, swings around the high expression state, HES1<sub>HRG</sub>(EQ), in the HRG static domain, where the EQ level corresponds to the lowest energy level of the pendulum system. In the dynamic domain, the pendulum motion is accompanied by bifurcation and the annihilation of CES (<xref ref-type="fig" rid="pone-0097411-g007">Figure 7B</xref>); a CES oscillates around HES1<sub>HRG</sub>(EQ). Three are elicited during the period 15&#x2013;30 min: the bifurcation of LES2<sub>HRG</sub> at 15 min, the change from LES2<sub>HRG</sub>(ON) at 15 min to HES2<sub>HRG</sub>(ON) at 20 min (unimodal shift: <xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>), and the annihilation of HES2<sub>HRG</sub> at 20&#x2013;30 min. Thus, the annihilation of HES2 reveals that the HRG dynamic domain is short-lived; the characteristics of the domains vary with time through dynamic bifurcation. The pendulum of oscillation based on a pair of CESs shows <italic>autonomous bistable switch</italic> (ABS) as shown in <xref ref-type="fig" rid="pone-0097411-g009">Figure 9</xref>, in order to represent the scenario in the dynamic bifurcation in a schematic manner without the usage of any mathematical equation. The dynamics of characteristic expression domains exhibits non-equilibrium dynamics through the energy flow between the oscillations of CES.</p>
+        <p>Regarding the bifurcation of CES associated with the change in the frequency profile for DEAB in the dynamic domain, interestingly, at 15&#x2013;20 min, the frequency distribution of the expression for HRG shows a unimodal shift (<xref ref-type="fig" rid="pone-0097411-g006">Figures 6A</xref> and <xref ref-type="fig" rid="pone-0097411-g008">8</xref>), while the frequency distribution of the expression change (<xref ref-type="fig" rid="pone-0097411-g007">Figures 7B</xref> and <xref ref-type="fig" rid="pone-0097411-g009">9</xref>) shows a bimodal profile. Thus, in the dynamic domain, the bifurcation of CES (at 15 min) occurs in DEAB of the expression change, while the bifurcation of CES does not occur in DEAB of the expression at 15&#x2013;20 min.</p>
+        <p>In summary, the temporal change of the low- to high-expression state (LES2<sub>HRG</sub> to HES2<sub>HRG</sub>) around HES1<sub>HRG</sub>(EQ) explains the up-regulated motion of the dynamic domain on DEAB of the expression change, whereas the swing of LES1<sub>HRG</sub> which induces an ON to OFF switch (opposite change for the dynamic domain) describes the down-regulation of the static domain. In the HRG transit domain, the high-expression state, HES1, showed the same pendulum swing as the static domain.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Discussion</title>
+      <p>To understand the principles that underlie the global genetic response, as shown in <xref ref-type="fig" rid="pone-0097411-g001">Figures 1A&#x2013;B</xref>, it is important that we shed light on how a CES, which is formed as a hill-like function on each domain, self-emerges on the genetic landscape. Gene expression is the result of complex biochemical reactions between genomic DNA and surrounding proteins following physicochemical laws (these laws do not imply that the expression process is deterministic, but rather this process is stochastic). As a central question, we address how coordinated gene expression that encompasses thousands of mRNAs is possible in a dynamic molecular transcriptional system from an understanding of the basic mechanism of self-organizing physical systems.</p>
+      <sec id="s3a">
+        <title>Principle of the Self-organization of CESs Underlying the Genomic Response: Criticality of Self-organized Coherent Expression</title>
+        <p>According to the degree of <italic>rmsf</italic> (i.e., standard deviation of temporal fluctuation of mRNA expression), bifurcation of coherent expression of ensemble of mRNAs (coherent expression state: CES) clearly revealed three characteristic expression domains: dynamic, transit and static domains in cell differentiation (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>: HRG). The corresponding frequency distribution of the ensemble of mRNA expression for each domain changes its profile from unimodal to bimodal through flattened unimodal profile (<xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>). <xref ref-type="fig" rid="pone-0097411-g004">Figure 4</xref> showed that the onset of bimodal profile accompanies bifurcation of a CES.</p>
+        <p>The result indicates: 1) Power-law behavior defined by the order parameter <italic>&#x3B7;</italic>, such as <italic>a&#x3B7;+b&#x3B7;<sup>2</sup>+c&#x3B7;</italic>
+<sup>4</sup> merges near the critical condition, where a unimodal expression profile becomes flattened as discussed in more details in Supporting Information (<xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>); a unimodal to bimodal change suggests that the variables of mRNA expression and temporal change in expression (<xref ref-type="fig" rid="pone-0097411-g004">Figures 4</xref>, <xref ref-type="fig" rid="pone-0097411-g006">6</xref> and <xref ref-type="fig" rid="pone-0097411-g007">7</xref>) play the role as the important parameters, being something like the order parameter such as density to describe the coordinated expression behavior in terms of statistical physics. 2) Bifurcation of CES occurs from a unimodal onto a bimodal profile (<xref ref-type="fig" rid="pone-0097411-g006">Figures 6A</xref> and <xref ref-type="fig" rid="pone-0097411-g007">7A</xref>); the peak of the frequency distribution coincides with the highest density of CES (<xref ref-type="fig" rid="pone-0097411-g004">Figure 4</xref>). Therefore, the result suggests that a unimodal to bimodal change in the frequency distribution might be related to change in stability of the profile that causes the bifurcation of CES.</p>
+        <p>A well-known example of critical behavior is the spontaneous ferromagnetization of iron through the synchronization of spins of the components with temperature; below the critical temperature (<italic>T</italic>&lt;<italic>T</italic>
+<sub>c</sub>: subcritical), the system is ferromagnetic (long-range ordered) and above it (<italic>T</italic>&gt;<italic>T</italic>
+<sub>c</sub>: supercritical), the system is paramagnetic (disordered). Unlike the spins of ferromagnetic iron, the ensemble of gene expression does not behave in unison; rather, stochastic gene expression was seen around the mean value of the group in DEABs based on the grouping of <italic>rmsf</italic>, as shown in <xref ref-type="fig" rid="pone-0097411-g001">Figures 1A&#x2013;B</xref>. Interestingly, recent theoretical and empirical results of emergent neural collective phenomena in the brain support the concept that &#x2018;the brain is naturally poised near criticality&#x2019; <xref rid="pone.0097411-Chialvo1" ref-type="bibr">[32]</xref>.</p>
+        <p>The occurrence of a unimodal to bimodal frequency change in expression profile of the ensemble of mRNAs through the bifurcation of CES suggests evidence of the genetic transition that possesses features of criticality. The mean field behavior of bimodal critical phenomena can be interpreted in terms of Landau theory <xref rid="pone.0097411-Landau1" ref-type="bibr">[28]</xref>. The significance of the potential occurrence of &#x2018;genetic criticality&#x2019; in DEAB of the expression provides an underlying principle for how genome-wide genetic activities are self-organized. Thus, criticality can be a fundamental biophysical mechanism in regard to how a cell with a small, compact nucleus space can conduct robust control of genome-wide coordinated gene expression for a short time (in our case within 5 minutes), despite of the underlying stochastic nature and heterogeneous environment.</p>
+        <p>We discuss the details of the genetic criticality in terms of Landau&#x2019;s approach in the Supporting Information (<xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>). In brief, the frequency distribution of the expression (natural logarithm of mRNA expression: scaling exponent) follows a unimodal to bimodal change (<xref ref-type="fig" rid="pone-0097411-g006">Figures 6A&#x2013;B</xref>) that is accompanied by the bifurcation of CESs. Thus, the profile of the negative scaling exponent reflects the profile of the &#x2018;genetic energy potential&#x2019;, i.e., the energy of the transcriptional system to arrange expression. The genetic energy potential follows a change from a single-well to a double-well function like a Mexican hat. The genetic energy potential is a function of at least two variables: mRNA expression and its temporal change in expression, so that the genetic energy potential for expression (or change in expression) is obtained under a fixed change in expression (or expression).</p>
+        <p>We noted that the bifurcation of CESs in DEAB of the expression for HRG self-organizes genome-wide expression through genetic criticality (<xref ref-type="table" rid="pone-0097411-t001">Table 1</xref> and <xref ref-type="fig" rid="pone-0097411-g008">Figure 8</xref>): the dynamic domain (high <italic>rmsf</italic>: <italic>rmsf</italic> &gt;0.42): <italic>above criticality</italic> (supercritical) with the unimodal frequency distribution that reflects the existence of a single-well energy potential, the transit domain (intermediate <italic>rmsf</italic>: 0.21&lt; <italic>rmsf &lt;</italic>0.42): <italic>near criticality</italic> (critical) with broadening of the unimodal profile (i.e., broadening of a single-well energy potential), and the static domain (low <italic>rmsf</italic>: <italic>rmsf &lt;</italic>0.21): <italic>below criticality</italic> (subcritical) with the bimodal distribution (reflects the existence of a double-well energy potential). The EGF response does not show above-criticality; which suggests that the genomic state induced by EGF could be a &#x2018;transit&#x2019; genomic state, which is ready to shift to be either up- (ON) or down-regulated (OFF).</p>
+        <fig id="pone-0097411-g008" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g008</object-id>
+          <label>Figure 8</label>
+          <caption>
+            <title>Schematic illustration of genetic criticality in DEAB of the expression.</title>
+            <p>The putative genetic energy potential (15 min: blue; 20 min: red) with a fixed change in the expression (see the main text) describes the arrangement of mRNA expression in a transcriptional system, where the profile of the potential is anticipated from the scaling exponent of the frequency distribution of the expression (histograms: right panel; blue: 15 min; red: 20 min; gray: overlapped). The potential profile follows a change from single-well to double-well through a flattening profile as the <italic>rmsf</italic> is decreased (black arrow). The picture exhibits genetic criticality (details in <xref ref-type="table" rid="pone-0097411-t001">Table 1</xref> and <xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>) as interpreted by the Landau theory <xref rid="pone.0097411-Landau1" ref-type="bibr">[28]</xref> on characteristic expression domains for the HRG genomic response: dynamic (dark red), transit (dark blue), and static (black) domains represent above-, near- and below-criticality, respectively. In the above-criticality, due to the unimodal to bimodal shift of the frequency distribution (see also <xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>), the energy potential should also be shifted; in the near-criticality and below-criticality due to the overlapping frequency distributions between 15 min and 20 min, the energy potential should be (almost) temporally invariant. Note that, in the double-well potential (below-criticality), instead of generating two independent Boltzmann distributions (two equilibrium states), the frequency distribution shows broken distributions, which suggests non-linear interaction between coherent expression states in a non-equilibrium system.</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g008"/>
+        </fig>
+        <p>With regard to DEAB of the expression, genetic criticality is expected (<xref ref-type="fig" rid="pone-0097411-g008">Figure 8</xref>), whereas with regard to DEAB of the expression change, CES dynamics, i.e., ABS to explain the temporal development of criticality (dynamic criticality; <xref ref-type="fig" rid="pone-0097411-g009">Figure 9</xref> and <xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>) was revealed. Thus, if we combine the pictures of the dynamics of CES for both DEABs, coherent gene-expression dynamics are reflected in the genetic energy potential as a function of mRNA expression and the temporal change in expression (see details in <xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>). Notably, with regard to the HRG dynamic domain, the key domain that caused a biphasic response was annihilated at 20&#x2013;30 min, which showed that ABS without HES2 is back to an equilibrated state (<xref ref-type="fig" rid="pone-0097411-g009">Figure 9</xref>) through the bimodal to unimodal transition.</p>
+        <fig id="pone-0097411-g009" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0097411.g009</object-id>
+          <label>Figure 9</label>
+          <caption>
+            <title>Schematic illustration of autonomous bistable switch (ABS) with genetic &#x2018;energy profile&#x2019; in DEAB of the expression change.</title>
+            <p>First row: the schematic illustration depicts the temporal development of ABS showing the opposite changes of pendulum oscillation of CES between the static and dynamic domains (refer to <xref ref-type="fig" rid="pone-0097411-g007">Figure 7</xref>). In the HRG static domain (left panel), the temporal change of CES (LES1) occurs without the bifurcation of CES; in the dynamic domain (right), the pendulum oscillation occurs through the dynamic bifurcation of CES: bifurcation of a low-expression state with a change in a putative potential profile from single- to double-well at 15 min, a change from the low- to the high-expression state at 20 min (refer to <xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>) with a single-well potential shift (small dashed box), and annihilation of the high-expression state with a change from double- to single-well at 20&#x2013;30 min. Second row: schematic illustration describes the dynamics of the genetic energy potential as a function of the expression change (with a fixed expression; see details in the main text): 1. purple line: 10&#x2013;15 min (at 15 min); 2. blue: 15&#x2013;20 min (at 15 min); 3. red: 15&#x2013;20 min (at 20 min); 4. black: 20&#x2013;30 min (at 30 min). The picture shows the energy flow between the pendulum motions, which reflects the non-equilibrium dynamics of CES.</p>
+          </caption>
+          <graphic xlink:href="pone.0097411.g009"/>
+        </fig>
+        <p>To help clarify the unique time-dependent genetic behavior found in the present study, in <xref ref-type="fig" rid="pone-0097411-g009">Figure 9</xref> we illustrated ABS with a time-dependent (dynamic) energy-like potential as expected from the scaling exponent of the frequency distribution of the expression change (<xref ref-type="fig" rid="pone-0097411-g007">Figures 7A&#x2013;B</xref>). The bifurcation of CES induced by the energy flow between oscillations of CES is clearly depicted. In contrast, the ON-OFF switch of LES1 occurred through a unimodal shift (<xref ref-type="fig" rid="pone-0097411-g007">Figure 7A</xref>) as well as a dynamic change from a low- to a high-expression state (LES2 to HES2: <xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>). This suggests that the stability change in the profile (i.e., unimodal to bimodal transition in frequency distribution, and vice versa) does not occur for either an ON-OFF switch or for the change from a low- to high-expression state.</p>
+      </sec>
+      <sec id="s3b">
+        <title>Higher-order Structural Transition of DNA as a Possible Biophysical Origin of Genetic Criticality</title>
+        <p>We observed coordinated genome-wide mRNA expression dynamics and anticipate the presence of genetic criticality in the genome-wide coherent mRNA expression dynamics. However, the biophysical origin of such genetic criticality is not clear.</p>
+        <p>Gene expression in a mammalian cell involves the dynamic read-out of genetic information on a specific genomic DNA sequence, which is tightly regulated by chromatin folding/unfolding dynamics; chromatin can exist in an open form (loosely packed), which allows the transcriptional machinery to bind a specific genomic DNA sequence, or a closed form (densely compacted), which makes DNA inaccessible, in the presence of chromatin remodeling proteins, thus determining which genes are expressed or not <xref rid="pone.0097411-SimsIII1" ref-type="bibr">[33]</xref>&#x2013;<xref rid="pone.0097411-GasparMaia1" ref-type="bibr">[35]</xref>.</p>
+        <p>It has been well established that DNA molecules undergo on/off transition between swelled state and compact state on the scale of 100 kbp&#x2013;1 Mbp accompanied by a change in density on the order of 10<sup>4</sup>&#x2013;10<sup>5</sup>
+<xref rid="pone.0097411-Yoshikawa3" ref-type="bibr">[36]</xref>. Thus, the elongated swelled state of DNA can induce ON expression, whereas the compact state turns expression off, i.e., OFF expression. The time-scale of this conformational transition is rather fast, on the order of less than minutes according to the <italic>in vitro</italic> observation, which is consistent with the biphasic genomic response. Such discrete transition is induced by the change of environmental parameters, such as the concentration of RNA, polyamine, NTP, magnesium ion, etc <xref rid="pone.0097411-Makita1" ref-type="bibr">[37]</xref>, <xref rid="pone.0097411-Tsumoto1" ref-type="bibr">[38]</xref>.</p>
+        <p>On the other hand, specific key-lock interaction through transcriptional machinery is well known to cause the change on DNA only up to the order of kbp. Thus, it may be of natural that change on the environmental parameters in nucleus may cause on/off type transition simultaneously on many domains in the whole genome; although such hypothesis is only in an immature state, a plausible scenario might be that through signaling transduction, the control of production of RNA molecules, that are able to induce the switch between the compact and elongated states of local DNA <xref rid="pone.0097411-Tsumoto1" ref-type="bibr">[38]</xref>, leads to the induction of the transition of specific regions of genomic DNA; this in turn might coordinate the initiation of coherent genomic DNA transitions to provoke a global genetic response.</p>
+        <p>The crucial elucidation might be to decipher intra- and inter-chromosome interaction for each characteristic domain to grasp coherent expression dynamics, especially to understand the relationship between ABS in the static domain (<xref ref-type="fig" rid="pone-0097411-g007">Figure 7A</xref>) and genomic DNA higher-order structural transitions. We expect that the temporal change of LES1<sub>HRG</sub> (coordinated low expression) in the static domain could result from the coherent activity of genomic DNA higher-order structural transitions through non-specific interactions between genomic DNA and environmental factors, where mainly low expression dynamics are anticipated, while the remaining HES1<sub>HRG</sub> (coordinated high expression) in an equilibrated state reflects a stable swelled state of the ensemble of genomic DNAs. Furthermore, understanding of the opposite pendulum motions seen in the static and dynamic domains (<xref ref-type="fig" rid="pone-0097411-g007">Figures 7A&#x2013;B</xref> and <xref ref-type="fig" rid="pone-0097411-g008">8</xref>) for a short time period might provide important insight into the interactions among conformal DNA transitions, such as cross-talk <xref rid="pone.0097411-Takagi1" ref-type="bibr">[39]</xref>.</p>
+        <p>Along these lines, the coordinated relationship between key-lock molecular transcriptionally machinery and the genomic DNA on/off transition in gene expression dynamics could be revealed, such that the organized activity of the molecular transcriptional machinery on coiled/swollen genetic DNAs regulates coherent mRNA expression dynamics in the dynamic domain (with a unimodal expression profile), whereas in the static domain (with a bimodal profile), coherent genomic DNA on/off transitions predominate in the dynamic control of coherent gene expression through the balanced stage in the transit domain. Thus, it is reasonable to expect that the characteristic expression domains based on the standard deviation of temporal expression fluctuation (i.e., <italic>rmsf</italic>) should be related to the plasticity of genomic DNA: a higher <italic>rmsf</italic> is associated with a more pliable DNA structure; interestingly, the conformational transition of DNA, such as an all-or-none discrete transition <xref rid="pone.0097411-Yanagida1" ref-type="bibr">[40]</xref>&#x2013;<xref rid="pone.0097411-Zinchenko1" ref-type="bibr">[42]</xref>, stepwise collapse or continuous gradual change <xref rid="pone.0097411-Takagi1" ref-type="bibr">[39]</xref>, <xref rid="pone.0097411-Yoshikawa4" ref-type="bibr">[43]</xref>, <xref rid="pone.0097411-Akitaya1" ref-type="bibr">[44]</xref>, is induced depending on &#x201C;nonspecific&#x201D; interactions between a DNA molecule and environmental factors within a cell nucleus.</p>
+        <p>Finally, it is important to point out that while the bifurcation of CES occurs through a unimodal to bimodal frequency change, the dynamic motion of CES is induced by a unimodal shift, which suggests that genetic criticality might result from a continuous phase transition of genomic DNA, where stochastic expression except for experimental noise stems from unspecific interaction between genomic DNA and environmental factors. Hereafter, we might examine whether our hypothesis stands on the underlying mechanism of the control of whole genome.</p>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Conclusion</title>
+      <p>We examined how it is possible for differentiating MCF-7 breast cancer cells to carry out the robust self-control of dynamic genome-wide gene expression compared with that in the proliferating state. Through the grouping of mRNA expression, dynamic ensemble averaging behaviors (DEABs) of gene expression and differences in gene expression over time: DEAB of the expression (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>) and the expression change (<xref ref-type="fig" rid="pone-0097411-g001">Figure 1B</xref>), respectively, were shown to reflect the existence of genome-wide coordinating expression dynamics, which clearly differentiated between the HRG and EGF genomic responses in a biphasic manner, i.e., all-or-none response (<xref ref-type="fig" rid="pone-0097411-g001">Figures 1A&#x2013;B</xref>). The coordinating expression dynamics stemmed from the dynamics of a coherent expression state (CES) to form a hill-like function on the genetic landscape (<xref ref-type="fig" rid="pone-0097411-g003">Figure 3</xref>). The different coordinated genome-wide expression dynamics in cell proliferation (EGF) and differentiation (HRG) were revealed in DEABs of the expression and the expression change:</p>
+      <p>1) In DEAB of the expression, a coordinated motion of the ensemble of mRNA expression emerges as a CES by analyzing expression dynamics between different time points. The dynamic ensemble motion of DEAB of the expression with a change in the slope from negative (15 min) to positive (20 min: <xref ref-type="fig" rid="pone-0097411-g001">Figure 1A</xref>) was explained by the change from low-expression state (LES: 15 min) to high-expression state (HES: 20 min) with a unimodal shift in the dynamic domain (<xref ref-type="fig" rid="pone-0097411-g006">Figure 6A</xref>). The scenario of bifurcation of CES (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>) at 15&#x2013;20 min revealed distinct characteristic expression domains between the HRG and EGF responses (<xref ref-type="fig" rid="pone-0097411-g006">Figures 6A&#x2013;B</xref> and <xref ref-type="fig" rid="pone-0097411-g008">8</xref>; <xref ref-type="table" rid="pone-0097411-t001">Table 1</xref>): dynamic, transit and static domains in the HRG response, but only transit and static domains in the EGF response.</p>
+      <p>The scenario of bifurcation of CES in DEAB of the expression exhibited the presence of criticality in expression profile as interpreted by Landau&#x2019;s theory (<xref ref-type="fig" rid="pone-0097411-g008">Figure 8</xref> and <xref ref-type="table" rid="pone-0097411-t001">Table 1</xref>): a unimodal (dynamic) to bimodal (static) change through flattening of the unimodal profile (transit domain) in the HRG response with a decrease in <italic>rmsf</italic>, whereas in the EGF response, the bifurcation of CES occurred only through flattening of a unimodal to bimodal profile. As an underlying principle, criticality in genetic dynamics self-organizes CESs into characteristic domains that are distinctively different between the HRG and EGF genomic responses for a route to genomic transition. To grasp the essence on global genetic dynamics, it might be useful to interpret the bifurcation of CES on the profile, from unimodal into bimodal, in terms of &#x201C;symmetry&#x201D; and &#x201C;symmetry breaking&#x201D; <xref rid="pone.0097411-Ryabov1" ref-type="bibr">[30]</xref> (see more discussion in <xref ref-type="supplementary-material" rid="pone.0097411.s001">File S1</xref>).</p>
+      <p>2) In DEAB of the expression change, the coordinated expression dynamics emerges as autonomous bistable switch (ABS) - the pendulum oscillation formed by a pair of CESs - between different time periods (10&#x2013;15 min, 15&#x2013;20 min and 20&#x2013;30 min). ABS in the static domains at 15&#x2013;20 min described the all-or-none response: the pendulum motion of the low-expression state from up- (at 15 min) to down-regulation (at 20 min) around the high-expression state in the HRG static domain, which was opposite motion in the HRG dynamic domain (<xref ref-type="fig" rid="pone-0097411-g007">Figures 7</xref> and <xref ref-type="fig" rid="pone-0097411-g009">9</xref>), while there was no apparent change in the EGF response (clearly shown in <xref ref-type="fig" rid="pone-0097411-g001">Figures 1A&#x2013;B</xref>).</p>
+      <p>The scenario of dynamic bifurcation suggested the temporal development of criticality (dynamic criticality: <xref ref-type="fig" rid="pone-0097411-g009">Figure 9</xref>): in the dynamic domain, the bifurcated CES (<xref ref-type="fig" rid="pone-0097411-g007">Figure 7B</xref>) at 15 min changed from LES to HES at 20 min (unimodal shift: <xref ref-type="fig" rid="pone-0097411-g006">Figures 6A</xref> and <xref ref-type="fig" rid="pone-0097411-g007">7B</xref>) in the pendulum swing, and annihilated at 20&#x2013;30 min, which revealed a short-lived dynamic domain.</p>
+      <p>Thus, molecular biological follow-up associated with epigenetic modifications for the dynamic domain might reveal crucial biological processes that determine the early cell-fate decision in MCF-7 cells. Furthermore, the short-lived dynamic domain implies that genes of relatively small fluctuation in the transit and static domains may play the role as a foundation of the global genetic response, which is consistent with the indication in our recent works concerning the major roles of low variant genes in global collective modes [Tsuchiya M et al., unpublished].</p>
+      <p>We expect that the characteristic expression domains associated with the dynamics of CES should be related to distinct genomic structures that result from coherent epigenomic activity such as methylation and acetylation that are accompanied by a steric change in genomic DNA with a size of several kbp to several Mbp. We discussed the anticipated potential biophysical origin of genetic criticality (the co-existence of above-, near- and below-criticality) in terms of the genomic DNA phase transition. Based on the genomic structure <xref rid="pone.0097411-Joti1" ref-type="bibr">[45]</xref>&#x2013;<xref rid="pone.0097411-Mirny1" ref-type="bibr">[48]</xref>, an analysis of characteristic domains on chromosomes may help to elucidate the dynamic interaction in chromatin-folding or -unfolding dynamics <xref rid="pone.0097411-Barbieri1" ref-type="bibr">[49]</xref> through the genomic DNA structural transition. This interaction may represent a basic mechanism for the induction of a global genetic response as well as a mechanism for systemic genomic control in cell differentiation.</p>
+    </sec>
+    <sec sec-type="methods" id="s5">
+      <title>Methods</title>
+      <sec id="s5a">
+        <title>Biological Datasets</title>
+        <p>We analyzed time-series Affymetrix GeneChip (Affymetrix U133A 2.0 chip) microarray data (Gene Expression Omnibus database ID: GSE13009) that included all human gene expressions in MCF-7 breast cancer cell line under the addition of distinct ErbB receptor ligand, either EGF or HRG-&#x3B2; <xref rid="pone.0097411-Saeki1" ref-type="bibr">[50]</xref>. We evaluated expression levels of 22035 Affymetrix probe set IDs and normalized data using Robust Multichip Average (RMA) for further background adjustment and the reduction of false positives <xref rid="pone.0097411-Bolstad1" ref-type="bibr">[51]</xref>&#x2013;<xref rid="pone.0097411-McClintick1" ref-type="bibr">[53]</xref>. In the microarray experiment, there are two repeated data (rep 1 and rep 2), where rep 1 was analyzed in this report and the bifurcation of CES (<xref ref-type="fig" rid="pone-0097411-g005">Figure 5</xref>) for rep 2 was shown in <xref ref-type="supplementary-material" rid="pone.0097411.s002">File S2</xref> (Supporting Information). The complete experimental details were reported by Saeki et al. <xref rid="pone.0097411-Saeki1" ref-type="bibr">[50]</xref>.</p>
+      </sec>
+      <sec id="s5b">
+        <title>Grouping of mRNA Expression</title>
+        <p>In studies of large-scale, high-throughput gene expression, such as in microarray experiments, it can be difficult to estimate the signal intensity. Especially, in microarray experimental data, expression noise stems from two major sources <xref rid="pone.0097411-Southern1" ref-type="bibr">[54]</xref>&#x2013;<xref rid="pone.0097411-Zhang1" ref-type="bibr">[56]</xref>: biological noise due to asynchronous cell activities in cell culture, which results in the fluctuation of mRNA production from average values of gene expression, and experimental noise, which can arise from the array material, estimation of the amount of mRNA, unspecific binding between probes and target mRNAs, etc. Most expression noise is considered to be unspecific and uncorrelated. In low-level expression, the relative effect of measurement noise, compared with the specific binding activity, is expected to be much larger than that for highly variable genes. Thus, in many studies, a subjective expression threshold was introduced to cut off the majority of gene expression, which might not accurately reflect the correlation among mRNA expression if such a global correlation exists <xref rid="pone.0097411-Tsuchiya1" ref-type="bibr">[18]</xref>&#x2013;<xref rid="pone.0097411-Tsuchiya3" ref-type="bibr">[20]</xref>.</p>
+        <p>To examine genome-wide expression dynamics, all mRNA expression (<italic>N</italic>&#x200A;=&#x200A;22035) in MCF-7 cells was sorted from the highest temporal fluctuation to the lowest, and the root mean square fluctuation (<italic>rmsf</italic>) of expression for each mRNA was evaluated at 18 time points:</p>
+        <p>
+<disp-formula id="pone.0097411.e001"><graphic xlink:href="pone.0097411.e001.jpg" position="anchor" orientation="portrait"/><label>(1)</label></disp-formula>where <italic>rmsf<sub>j</sub></italic> is <italic>rmsf</italic> of the <italic>j<sup>th</sup></italic> mRNA, which has the expression, <italic>&#x3B5;<sub>j</sub></italic>(<italic>t<sub>i</sub></italic>), at <italic>t</italic>&#x200A;=&#x200A;<italic>t<sub>i</sub></italic> (<italic>i</italic>&#x200A;=&#x200A;0,..,17; <italic>j</italic>&#x200A;=&#x200A;1,..,<italic>N</italic>); and <inline-formula><inline-graphic xlink:href="pone.0097411.e002.jpg"/></inline-formula> is the average expression value of the <italic>j<sup>th</sup></italic> mRNA over the 18 time points: <italic>t</italic>
+<sub>0</sub>&#x200A;=&#x200A;0, <italic>t</italic>
+<sub>1</sub>&#x200A;=&#x200A;10 min, 15, 20, 30, 45, 60, 90 min, 2 h, 3, 4, 6, 8, 12, 24, 36, 48, <italic>t<sub>T</sub></italic>
+<sub>&#x200A;=&#x200A;17</sub>&#x200A;=&#x200A;72 h. Note that <italic>rmsf<sub>j</sub></italic> is not time-dependent, and that a low (high) <italic>rmsf</italic> value does not mean that the expression is low (high); i.e., temporal fluctuation from the average expression is small (large). Next, we divided the sorted genes into <italic>k</italic> groups with an equal number <italic>n</italic> of mRNAs in the genome (<italic>k</italic>&#x200A;=&#x200A;<italic>N/n</italic>), where <italic>k</italic> is integer of <italic>N/n</italic>; <italic>n</italic> is the number of mRNAs. Ensemble averages &lt;<italic>rmsf</italic> &gt; and &lt;<italic>&#x3B5;</italic>&gt; are defined as the simple arithmetic mean over an ensemble or a group of mRNAs.</p>
+        <p>We sorted mRNA expression according to the value of <italic>rmsf</italic> over all time points and investigated the genomic response at 15&#x2013;20 min. It is important to note the possible discrepancy in the regulation of expression between the standard deviation of the change in expression (Eq. 1) and the change in expression if we only consider from 15 min to 20 min; for instance, when we compared 3269 mRNA expressions in the dynamic domain of HRG with the same number of the most up-regulated expressions from <italic>t</italic>&#x200A;=&#x200A;15 to <italic>t</italic>&#x200A;=&#x200A;20 min, we found that only about 57% of the mRNAs (1878 probes) were common between them. Biphasic statistics emerged from the grouping based on <italic>rmsf</italic>, and thus the analysis of these two ensembles of mRNAs may lead to different models (or modes) of gene regulation.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s6">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0097411.s001">
+        <label>File S1</label>
+        <caption>
+          <p>
+<bold>Dynamic Emergent Averaging Behaviors (DEABs) through the grouping of genes and Dynamic Criticality with Figure S1.</bold>
+</p>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0097411.s001.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0097411.s002">
+        <label>File S2</label>
+        <caption>
+          <p>
+<bold>2D plots of genetic landscape to show the bifurcation of coherent expression states in DEAB of the expression for HRG and EGF for repeated experimental data (rep 1 and rep 2).</bold>
+</p>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0097411.s002.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>The authors are thankful to Prof. Alessandro Giuliani for his fruitful discussions and to Prof. Takaaki Nishioka for his valuable comments.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0097411-Takahashi1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Takahashi</surname><given-names>K</given-names></name>, <name><surname>Yamanaka</surname><given-names>S</given-names></name> (<year>2006</year>) <article-title>Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors</article-title>. <source>Cell</source>
+<volume>131</volume>: <fpage>861</fpage>&#x2013;<lpage>872</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Kouzarides1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kouzarides</surname><given-names>T</given-names></name> (<year>2007</year>) <article-title>Chromatin modifications and their function</article-title>. <source>Cell</source>
+<volume>128</volume>: <fpage>693</fpage>&#x2013;<lpage>705</lpage>.<pub-id pub-id-type="pmid">17320507</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Klevecz1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Klevecz</surname><given-names>RR</given-names></name>, <name><surname>Bolen</surname><given-names>J</given-names></name>, <name><surname>Forrest</surname><given-names>G</given-names></name>, <name><surname>Murray</surname><given-names>DB</given-names></name> (<year>2004</year>) <article-title>A genomewide oscillation in transcription gates DNA replication and cell cycle</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>100</volume>: <fpage>1200</fpage>&#x2013;<lpage>1205</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Radonjic1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Radonjic</surname><given-names>M</given-names></name>, <name><surname>Andrau</surname><given-names>JC</given-names></name>, <name><surname>Lijnzaad</surname><given-names>P</given-names></name>, <name><surname>Kemmeren</surname><given-names>P</given-names></name>, <name><surname>Kockelkorn</surname><given-names>TTJP</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Genome-wide analyses reveal RNA polymerase II located upstream of genes poised for rapid response upon S-cerevisiae stationary phase exit</article-title>. <source>Mol Cell</source>
+<volume>18</volume>: <fpage>171</fpage>&#x2013;<lpage>183</lpage>.<pub-id pub-id-type="pmid">15837421</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Young1">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Young</surname><given-names>RA</given-names></name> (<year>2011</year>) <article-title>Control of the embryonic stem cell state</article-title>. <source>Cell</source>
+<volume>144</volume>: <fpage>940</fpage>&#x2013;<lpage>954</lpage>.<pub-id pub-id-type="pmid">21414485</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Elowitz1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Elowitz</surname><given-names>MB</given-names></name>, <name><surname>Levine</surname><given-names>AJ</given-names></name>, <name><surname>Siggia</surname><given-names>ED</given-names></name>, <name><surname>Swain</surname><given-names>PS</given-names></name> (<year>2002</year>) <article-title>Stochastic gene expression in a single cell</article-title>. <source>Science</source>
+<volume>297</volume>: <fpage>1183</fpage>&#x2013;<lpage>1186</lpage>.<pub-id pub-id-type="pmid">12183631</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Paulsson1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Paulsson</surname><given-names>J</given-names></name> (<year>2004</year>) <article-title>Summing up the noise in gene networks</article-title>. <source>Nature</source>
+<volume>427</volume>: <fpage>415</fpage>&#x2013;<lpage>418</lpage>.<pub-id pub-id-type="pmid">14749823</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Kaern1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kaern</surname><given-names>M</given-names></name>, <name><surname>Elston</surname><given-names>TR</given-names></name>, <name><surname>Blake</surname><given-names>WJ</given-names></name>, <name><surname>Collins</surname><given-names>JJ</given-names></name> (<year>2005</year>) <article-title>Stochasticity in gene expression: from theories to phenotypes</article-title>. <source>Nat Rev Genet</source>
+<volume>6</volume>: <fpage>451</fpage>&#x2013;<lpage>464</lpage>.<pub-id pub-id-type="pmid">15883588</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Newman1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Newman</surname><given-names>JRS</given-names></name>, <name><surname>Ghaemmaghami</surname><given-names>S</given-names></name>, <name><surname>Ihmels</surname><given-names>J</given-names></name>, <name><surname>Breslow</surname><given-names>DK</given-names></name>, <name><surname>Noble</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Single-cell proteomic analysis of S. cerevisiae reveals the architecture of biological noise</article-title>. <source>Nature</source>
+<volume>441</volume>: <fpage>840</fpage>&#x2013;<lpage>846</lpage>.<pub-id pub-id-type="pmid">16699522</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Raj1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Raj</surname><given-names>A</given-names></name>, <name><surname>van Oudenaarden</surname><given-names>A</given-names></name> (<year>2008</year>) <article-title>Nature, nurture, or chance: stochastic gene expression and its consequences</article-title>. <source>Cell</source>
+<volume>135</volume>: <fpage>216</fpage>&#x2013;<lpage>226</lpage>.<pub-id pub-id-type="pmid">18957198</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Hilfinger1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hilfinger</surname><given-names>A</given-names></name>, <name><surname>Paulsson</surname><given-names>J</given-names></name> (<year>2011</year>) <article-title>Separating intrinsic from extrinsic fluctuations in dynamic biological systems</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>108</volume>: <fpage>12167</fpage>&#x2013;<lpage>12172</lpage>.<pub-id pub-id-type="pmid">21730172</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Assaf1">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Assaf</surname><given-names>M</given-names></name>, <name><surname>Roberts</surname><given-names>E</given-names></name>, <name><surname>Luthey-Schulten</surname><given-names>Z</given-names></name>, <name><surname>Goldenfeld</surname><given-names>N</given-names></name> (<year>2013</year>) <article-title>Extrinsic noise driven phenotype switching in a self-regulating gene</article-title>. <source>Phys Rev Lett</source>
+<volume>111</volume>: <fpage>058102</fpage>&#x2013;<lpage>058105</lpage>.<pub-id pub-id-type="pmid">23952448</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Raser1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Raser</surname><given-names>JM</given-names></name>, <name><surname>O&#x2019;Shea</surname><given-names>EK</given-names></name> (<year>2005</year>) <article-title>Noise in gene expression: origins, consequences, and control</article-title>. <source>Science</source>
+<volume>309</volume>: <fpage>2010</fpage>&#x2013;<lpage>2013</lpage>.<pub-id pub-id-type="pmid">16179466</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Yoshikawa1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>2002</year>) <article-title>Field hypothesis on the self-regulation of gene expression</article-title>. <source>J Biol Phys</source>
+<volume>28</volume>: <fpage>701</fpage>&#x2013;<lpage>712</lpage>.<pub-id pub-id-type="pmid">23345807</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Chang1">
+        <label>15</label>
+        <mixed-citation publication-type="other">Chang HH, Hemberg M, Barahona M, Ingber DE, Huang S (2008) Transcriptome-wide noise controls lineage choice in mammalian progenitor cells. Nature 453, 544&#x2013;547.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Huang1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Huang</surname><given-names>S</given-names></name> (<year>2009</year>) <article-title>Non-genetic heterogeneity of cells in development: more than just noise</article-title>. <source>Development</source>
+<volume>136</volume>: <fpage>3853</fpage>&#x2013;<lpage>3862</lpage>.<pub-id pub-id-type="pmid">19906852</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Snijder1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Snijder</surname><given-names>B</given-names></name>, <name><surname>Pelkmans</surname><given-names>L</given-names></name> (<year>2011</year>) <article-title>Origins of regulated cell-to-cell variability</article-title>. <source>Nat Rev Mol Cell Biol</source>
+<volume>12</volume>: <fpage>119</fpage>&#x2013;<lpage>125</lpage>.<pub-id pub-id-type="pmid">21224886</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Tsuchiya1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tsuchiya</surname><given-names>M</given-names></name>, <name><surname>Piras</surname><given-names>V</given-names></name>, <name><surname>Choi</surname><given-names>S</given-names></name>, <name><surname>Akira</surname><given-names>S</given-names></name>, <name><surname>Tomita</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Emergent genome-wide control in wildtype and genetically mutated lipopolysaccharide-stimulated macrophages</article-title>. <source>PLOS One</source>
+<volume>4</volume>: <fpage>e4905</fpage>.<pub-id pub-id-type="pmid">19300509</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Tsuchiya2">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tsuchiya</surname><given-names>M</given-names></name>, <name><surname>Piras</surname><given-names>V</given-names></name>, <name><surname>Giuliani</surname><given-names>A</given-names></name>, <name><surname>Tomita</surname><given-names>M</given-names></name>, <name><surname>Selvarajoo</surname><given-names>K</given-names></name> (<year>2010</year>) <article-title>Collective dynamics of specific gene ensembles crucial for neutrophil differentiation: the existence of genome vehicles revealed</article-title>. <source>PLOS One</source>
+<volume>5</volume>: <fpage>e12116</fpage>.<pub-id pub-id-type="pmid">20725638</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Tsuchiya3">
+        <label>20</label>
+        <mixed-citation publication-type="other">Tsuchiya M, Hashimoto M, Tomita M (2012) Robust global regulations of gene expression in biological processes: A major driver of cell fate decision revealed. Proceedings of the 2012 ICME, 744&#x2013;749.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Felli1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Felli</surname><given-names>N</given-names></name>, <name><surname>Cianetti</surname><given-names>L</given-names></name>, <name><surname>Pelosi</surname><given-names>E</given-names></name>, <name><surname>Care</surname><given-names>A</given-names></name>, <name><surname>Liu</surname><given-names>CG</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Hematopoietic differentiation: A coordinated dynamical process towards attractor stable states</article-title>. <source>BMC Syst Biol</source>
+<volume>4</volume>: <fpage>85</fpage>.<pub-id pub-id-type="pmid">20553595</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Erenpreisa1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Erenpreisa</surname><given-names>JA</given-names></name>, <name><surname>Zhukotsky</surname><given-names>AV</given-names></name> (<year>1992</year>) <article-title>The Genome Field</article-title>. <source>Proc Latvian Acad Sci B</source>
+<volume>536</volume>: <fpage>64</fpage>&#x2013;<lpage>68</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Nagashima1">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nagashima</surname><given-names>T</given-names></name>, <name><surname>Shimodaira</surname><given-names>H</given-names></name>, <name><surname>Ide</surname><given-names>K</given-names></name>, <name><surname>Nakakuki</surname><given-names>T</given-names></name>, <name><surname>Tani</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Quantitative transcriptional control of ErbB receptor signaling undergoes graded to biphasic response for cell differentiation</article-title>. <source>J Biol Chem</source>
+<volume>282</volume>: <fpage>4045</fpage>&#x2013;<lpage>4056</lpage>.<pub-id pub-id-type="pmid">17142811</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Birtwistle1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Birtwistle</surname><given-names>MR</given-names></name>, <name><surname>Hatakeyama</surname><given-names>M</given-names></name>, <name><surname>Yumoto</surname><given-names>N</given-names></name>, <name><surname>Ogunnaike</surname><given-names>BA</given-names></name>, <name><surname>Hoek</surname><given-names>JB</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Ligand-dependent responses of the ErbB signaling network: Experimental and modeling analyses</article-title>. <source>Mol Syst Bio</source>
+<volume>3</volume>: <fpage>144</fpage>.<pub-id pub-id-type="pmid">18004277</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Nakakuki1">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nakakuki</surname><given-names>T</given-names></name>, <name><surname>Birtwistle</surname><given-names>MR</given-names></name>, <name><surname>Saeki</surname><given-names>Y</given-names></name>, <name><surname>Yumoto</surname><given-names>N</given-names></name>, <name><surname>Ide</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Ligand-specific c-Fos expression emerges from the spatiotemporal control of ErbB network dynamics</article-title>. <source>Cell</source>
+<volume>141</volume>: <fpage>884</fpage>&#x2013;<lpage>896</lpage>.<pub-id pub-id-type="pmid">20493519</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Takenaka1">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Takenaka</surname><given-names>Y</given-names></name>, <name><surname>Nagahara</surname><given-names>H</given-names></name>, <name><surname>Kitahata</surname><given-names>H</given-names></name>, <name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>2008</year>) <article-title>Large-scale on-off switching of genetic activity mediated by the folding-unfolding transition in a giant DNA molecule: An hypothesis</article-title>. <source>Phys Rev E</source>
+<volume>77</volume>: <fpage>031905</fpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Nagahara1">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nagahara</surname><given-names>H</given-names></name>, <name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>2010</year>) <article-title>Large system in a small cell: A hypothetical pathway from a microscopic stochastic process towards robust genetic regulation</article-title>. <source>Chem Phys Lett</source>
+<volume>494</volume>: <fpage>88</fpage>&#x2013;<lpage>94</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Landau1">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Landau</surname><given-names>LD</given-names></name> (<year>1937</year>) <article-title>On the theory of phase transitions</article-title>. <source>Zh Eksp Teor Fiz</source>
+<volume>7</volume>: <fpage>19</fpage>&#x2013;<lpage>32</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Yoshikawa2">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoshikawa</surname><given-names>K</given-names></name>, <name><surname>Takahashi</surname><given-names>M</given-names></name>, <name><surname>Vasilevskaya</surname><given-names>VV</given-names></name>, <name><surname>Khokhlov</surname><given-names>AR</given-names></name> (<year>1996</year>) <article-title>Large discrete transition in a single DNA molecule appears continuous in the ensemble</article-title>. <source>Phys Rev Lett</source>
+<volume>76</volume>: <fpage>3029</fpage>&#x2013;<lpage>3031</lpage>.<pub-id pub-id-type="pmid">10060852</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Ryabov1">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ryabov</surname><given-names>D</given-names></name>, <name><surname>Gribskov</surname><given-names>M</given-names></name> (<year>2008</year>) <article-title>Spontaneous symmetry breaking in genome evolution</article-title>. <source>Nucleic Acids Res</source>
+<volume>36</volume>: <fpage>2756</fpage>&#x2013;<lpage>2763</lpage>.<pub-id pub-id-type="pmid">18367477</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Shu1">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shu</surname><given-names>G</given-names></name>, <name><surname>Zeng</surname><given-names>B</given-names></name>, <name><surname>Chen</surname><given-names>YP</given-names></name>, <name><surname>Smith</surname><given-names>OH</given-names></name> (<year>2003</year>) <article-title>Performance assessment of kernel density clustering for gene expression profile data</article-title>. <source>Comp Funct Genomics</source>
+<volume>4</volume>: <fpage>287</fpage>&#x2013;<lpage>299</lpage>.<pub-id pub-id-type="pmid">18629292</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Chialvo1">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chialvo</surname><given-names>DR</given-names></name> (<year>2010</year>) <article-title>Emergent complex neural dynamics</article-title>. <source>Nature Physics</source>
+<volume>6</volume>: <fpage>744</fpage>&#x2013;<lpage>750</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-SimsIII1">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sims III</surname><given-names>RJ</given-names></name>, <name><surname>Reinberg</surname><given-names>D</given-names></name> (<year>2009</year>) <article-title>Escaping fates with open states</article-title>. <source>Nature</source>
+<volume>460</volume>: <fpage>802</fpage>&#x2013;<lpage>803</lpage>.<pub-id pub-id-type="pmid">19675633</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Guenther1">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Guenther</surname><given-names>MG</given-names></name>, <name><surname>Frampton</surname><given-names>GM</given-names></name>, <name><surname>Soldner</surname><given-names>F</given-names></name>, <name><surname>Hockemeyer</surname><given-names>D</given-names></name>, <name><surname>Mitalipova</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Chromatin structure and gene expression programs of human embryonic and induced pluripotent stem cells</article-title>. <source>Cell Stem Cell</source>
+<volume>7</volume>: <fpage>249</fpage>&#x2013;<lpage>257</lpage>.<pub-id pub-id-type="pmid">20682450</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-GasparMaia1">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Gaspar-Maia</surname><given-names>A</given-names></name>, <name><surname>Alajem</surname><given-names>A</given-names></name>, <name><surname>Meshorer</surname><given-names>E</given-names></name>, <name><surname>Ramalho-Santos</surname><given-names>M</given-names></name> (<year>2011</year>) <article-title>Open chromatin in pluripotency and reprogramming</article-title>. <source>Nature Rev Mol Cell Biol</source>
+<volume>12</volume>: <fpage>36</fpage>&#x2013;<lpage>47</lpage>.<pub-id pub-id-type="pmid">21179060</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Yoshikawa3">
+        <label>36</label>
+        <mixed-citation publication-type="other">Yoshikawa K, Yoshikawa Y (2002) Compaction and condensation of DNA. In: Mahato RI, Kim SW, editors. Pharmaceutical Perspectives of Nucleic Acid-Based Therapeutics. Taylor &amp; Francis, London, 137&#x2013;163.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Makita1">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Makita</surname><given-names>N</given-names></name>, <name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>1999</year>) <article-title>ATP/ADP switches the higher-order structure of DNA in the presence of spermidine</article-title>. <source>FEBS Lett</source>
+<volume>460</volume>: <fpage>333</fpage>&#x2013;<lpage>337</lpage>.<pub-id pub-id-type="pmid">10544259</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Tsumoto1">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tsumoto</surname><given-names>K</given-names></name>, <name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>1999</year>) <article-title>RNA switches the higher-order structure of DNA</article-title>. <source>Biophys Chem</source>
+<volume>82</volume>: <fpage>1</fpage>&#x2013;<lpage>8</lpage>.<pub-id pub-id-type="pmid">17030336</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Takagi1">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Takagi</surname><given-names>S</given-names></name>, <name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>1999</year>) <article-title>Stepwise collapse of polyelectrolyte chains entrapped in a finite space as predicted by theoretical considerations</article-title>. <source>Langmuir</source>
+<volume>15</volume>: <fpage>4143</fpage>&#x2013;<lpage>4146</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Yanagida1">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yanagida</surname><given-names>M</given-names></name>, <name><surname>Hiraoka</surname><given-names>Y</given-names></name>, <name><surname>Katsuya</surname><given-names>I</given-names></name> (<year>1983</year>) <article-title>Dynamic behavior of DNA molecules in solution studied by fluorescence microscopy</article-title>. <source>Cold Spring Harbor Symp Quant Biol</source>
+<volume>47</volume>: <fpage>177</fpage>&#x2013;<lpage>187</lpage>.<pub-id pub-id-type="pmid">6345057</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Ueda1">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ueda</surname><given-names>M</given-names></name>, <name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>1996</year>) <article-title>Phase transition and phase segregation in a single double-stranded DNA molecule</article-title>. <source>Phys Rev Lett</source>
+<volume>77</volume>: <fpage>2133</fpage>&#x2013;<lpage>2136</lpage>.<pub-id pub-id-type="pmid">10061865</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Zinchenko1">
+        <label>42</label>
+        <mixed-citation publication-type="other">Zinchenko AA, Pyshkina OA, Andrey LV, Sergeyev VG, Yoshikawa K (2008) Single DNA molecules: Compaction and decompaction. In: Dias R, Lindman B, editors. DNA Interactions with Polymers and Surfactants. John Wiley &amp; Sons Inc, Hoboken NJ USA. 59&#x2013;88.</mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Yoshikawa4">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoshikawa</surname><given-names>K</given-names></name> (<year>2001</year>) <article-title>Controlling the higher-order structure of giant DNA molecules</article-title>. <source>Adv Drug Deliv Rev</source>
+<volume>52</volume>: <fpage>235</fpage>&#x2013;<lpage>244</lpage>.<pub-id pub-id-type="pmid">11718948</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Akitaya1">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Akitaya</surname><given-names>T</given-names></name>, <name><surname>Seno</surname><given-names>A</given-names></name>, <name><surname>Nakai</surname><given-names>T</given-names></name>, <name><surname>Hazemoto</surname><given-names>N</given-names></name>, <name><surname>Murata</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Weak interaction induces an ON/OFF switch, whereas strong interaction causes gradual change: Folding transition of a long duplex DNA chain by Poly-L-lysine</article-title>. <source>Biomacromolecules</source>
+<volume>8</volume>: <fpage>273</fpage>&#x2013;<lpage>278</lpage>.<pub-id pub-id-type="pmid">17206817</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Joti1">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Joti</surname><given-names>Y</given-names></name>, <name><surname>Hikima</surname><given-names>T</given-names></name>, <name><surname>Nishino</surname><given-names>Y</given-names></name>, <name><surname>Kamada</surname><given-names>F</given-names></name>, <name><surname>Hihara</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Chromosomes without a 30-nm chromatin fiber</article-title>. <source>Nucleus</source>
+<volume>3</volume>: <fpage>404</fpage>&#x2013;<lpage>410</lpage>.<pub-id pub-id-type="pmid">22825571</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Nishino1">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nishino</surname><given-names>Y</given-names></name>, <name><surname>Eltsov</surname><given-names>M</given-names></name>, <name><surname>Joti</surname><given-names>Y</given-names></name>, <name><surname>Ito</surname><given-names>K</given-names></name>, <name><surname>Takata</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Human mitotic chromosomes consist predominantly of irregularly folded nucleosome fibers without a 30-nm chromatin structure</article-title>. <source>EMBO J</source>
+<volume>31</volume>: <fpage>1644</fpage>&#x2013;<lpage>1653</lpage>.<pub-id pub-id-type="pmid">22343941</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-LiebermanAiden1">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lieberman-Aiden</surname><given-names>E</given-names></name>, <name><surname>van Berkum</surname><given-names>NL</given-names></name>, <name><surname>Williams</surname><given-names>L</given-names></name>, <name><surname>Imakaev</surname><given-names>M</given-names></name>, <name><surname>Ragoczy</surname><given-names>T</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Comprehensive mapping of long-range interactions reveals folding principles of the human genome</article-title>. <source>Science</source>
+<volume>326</volume>: <fpage>289</fpage>&#x2013;<lpage>293</lpage>.<pub-id pub-id-type="pmid">19815776</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Mirny1">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mirny</surname><given-names>LA</given-names></name> (<year>2011</year>) <article-title>The fractal globule as a model of chromatin architecture in the cell</article-title>. <source>Chromosome Res</source>
+<volume>19</volume>: <fpage>37</fpage>&#x2013;<lpage>51</lpage>.<pub-id pub-id-type="pmid">21274616</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Barbieri1">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Barbieri</surname><given-names>M</given-names></name>, <name><surname>Chotalia</surname><given-names>M</given-names></name>, <name><surname>Fraser</surname><given-names>J</given-names></name>, <name><surname>Lavitas</surname><given-names>LM</given-names></name>, <name><surname>Dostie</surname><given-names>J</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Complexity of chromatin folding is captured by the strings and binders switch model</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>109</volume>: <fpage>16173</fpage>&#x2013;<lpage>16178</lpage>.<pub-id pub-id-type="pmid">22988072</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Saeki1">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Saeki</surname><given-names>Y</given-names></name>, <name><surname>Endo</surname><given-names>T</given-names></name>, <name><surname>Ide</surname><given-names>K</given-names></name>, <name><surname>Nagashima</surname><given-names>T</given-names></name>, <name><surname>Yumoto</surname><given-names>N</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Ligand-specific sequential regulation of transcription factors for differentiation of MCF-7 cells</article-title>. <source>BMC Genomics</source>
+<volume>10</volume>: <fpage>545</fpage>.<pub-id pub-id-type="pmid">19925682</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Bolstad1">
+        <label>51</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bolstad</surname><given-names>BM</given-names></name>, <name><surname>Irizarry</surname><given-names>RA</given-names></name>, <name><surname>Astrand</surname><given-names>M</given-names></name>, <name><surname>Speed</surname><given-names>TP</given-names></name> (<year>2003</year>) <article-title>A comparison of normalization methods for high density oligonucleotide array data based on variance and bias</article-title>. <source>Bioinformatics</source>
+<volume>19</volume>: <fpage>185</fpage>&#x2013;<lpage>193</lpage>.<pub-id pub-id-type="pmid">12538238</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Irizarry1">
+        <label>52</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Irizarry</surname><given-names>RA</given-names></name>, <name><surname>Hobbs</surname><given-names>B</given-names></name>, <name><surname>Collin</surname><given-names>F</given-names></name>, <name><surname>Beazer-Barclay</surname><given-names>YD</given-names></name>, <name><surname>Antonellis</surname><given-names>KJ</given-names></name>, <etal>et al</etal> (<year>2003</year>) <article-title>Exploration, normalization, and summaries of high density oligonucleotide array probe level data</article-title>. <source>Biostatistics</source>
+<volume>4</volume>: <fpage>249</fpage>&#x2013;<lpage>264</lpage>.<pub-id pub-id-type="pmid">12925520</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-McClintick1">
+        <label>53</label>
+        <mixed-citation publication-type="journal">
+<name><surname>McClintick</surname><given-names>JN</given-names></name>, <name><surname>Edenberg</surname><given-names>HJ</given-names></name> (<year>2006</year>) <article-title>Effects of filtering by present call on analysis of microarray experiments</article-title>. <source>BMC Bioinformatics</source>
+<volume>7</volume>: <fpage>49</fpage>.<pub-id pub-id-type="pmid">16448562</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Southern1">
+        <label>54</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Southern</surname><given-names>E</given-names></name>, <name><surname>Mir</surname><given-names>K</given-names></name>, <name><surname>Shchepinov</surname><given-names>M</given-names></name> (<year>1999</year>) <article-title>Molecular interactions on microarrays</article-title>. <source>Nat Genet</source>
+<volume>21</volume>: <fpage>5</fpage>&#x2013;<lpage>9</lpage>.<pub-id pub-id-type="pmid">9915493</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Tu1">
+        <label>55</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tu</surname><given-names>Y</given-names></name>, <name><surname>Stolovitzky</surname><given-names>G</given-names></name>, <name><surname>Klein</surname><given-names>U</given-names></name> (<year>2002</year>) <article-title>Quantitative noise analysis for gene expression microarray experiments</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>99</volume>: <fpage>14031</fpage>&#x2013;<lpage>14036</lpage>.<pub-id pub-id-type="pmid">12388780</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0097411-Zhang1">
+        <label>56</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhang</surname><given-names>L</given-names></name>, <name><surname>Miles</surname><given-names>MF</given-names></name>, <name><surname>Aldape</surname><given-names>KD</given-names></name> (<year>2003</year>) <article-title>A model of molecular interactions on short oligonucleotide microarrays</article-title>. <source>Nat Biotechnol</source>
+<volume>21</volume>: <fpage>818</fpage>&#x2013;<lpage>821</lpage>.<pub-id pub-id-type="pmid">12794640</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

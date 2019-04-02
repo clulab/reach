@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101300215</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">33297</journal-id>
+      <journal-id journal-id-type="nlm-ta">Dev Neurobiol</journal-id>
+      <journal-title-group>
+        <journal-title>Developmental neurobiology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1932-8451</issn>
+      <issn pub-type="epub">1932-846X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21312341</article-id>
+      <article-id pub-id-type="pmc">3154513</article-id>
+      <article-id pub-id-type="doi">10.1002/dneu.20878</article-id>
+      <article-id pub-id-type="manuscript">NIHMS287693</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Akt1 interacts with epidermal growth factor receptors and Hedgehog signaling to increase stem/transit amplifying cells in the embryonic mouse cortex</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sinor-Anderson</surname>
+            <given-names>Amy</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lillien</surname>
+            <given-names>Laura</given-names>
+          </name>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <aff id="A1">University of Pittsburgh School of Medicine, Department of Neurobiology, Pittsburgh, PA 15261</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1"><label>*</label>Corresponding author: Laura Lillien (<email>lillien@pitt.edu</email>), W1454 Biomedical Science Tower, Department of Neurobiology, University of Pittsburgh School of Medicine. Phone: (412) 383-7269. FAX: (412) 648-1441</corresp>
+        <fn id="FN1" fn-type="present-address">
+          <p id="P1">Amy Sinor-Anderson&#x2019;s current address: Thermo Fisher Scientific, 100 Technology Drive, Pittsburgh, PA 15219</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>19</day>
+        <month>4</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>9</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>9</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>71</volume>
+      <issue>9</issue>
+      <fpage>759</fpage>
+      <lpage>771</lpage>
+      <abstract>
+        <p id="P2">A subset of precursors in the embryonic mouse cortex and in neurospheres expresses a higher level of the serine/threonine kinase Akt1 than neighboring precursors. We reported previously that the functional significance of high Akt1 expression was enhanced Akt1 activity, resulting in an increase in survival, proliferation, and self-renewal of multipotent stem/transit amplifying cells. Akt1 can interact with a number of signaling pathways, but the extrinsic factors that are required for specific effects of elevated Akt1 expression have not been identified. In the present study we addressed the contributions of signaling via epidermal growth factor (EGF) and hedgehog (Hh) receptors. In EGF receptor-null precursors or following transient inhibition of EGF receptor tyrosine kinase activity, elevating Akt1 by retroviral transduction could still increase survival and proliferation but could not increase self-renewal. We also found that elevated Akt1 expression induced the expression of EGF receptors (EGFRs) in wild-type precursors. Several extrinsic factors, including Shh, can induce EGFR expression by cortical precursors, and we found that elevating Akt1 allowed them to respond to a sub-threshold concentration of Shh to induce EGFRs. In precursors that lack the Hh receptor smoothened, however, elevating Akt1 did not increase EGFR expression or self-renewal, though it could still stimulate proliferation. These findings suggest that a subset of precursors in the embryonic cortex that express an elevated level of Akt1 can respond to lower concentrations of Shh than neighboring precursors, resulting in an increase in their expression of EGFRs. Signaling via EGFRs is required for their self-renewal.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Akt1</kwd>
+        <kwd>cerebral cortex</kwd>
+        <kwd>EGF receptor</kwd>
+        <kwd>stem cell</kwd>
+        <kwd>hedgehog</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

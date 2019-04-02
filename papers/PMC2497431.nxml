@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">2984705R</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2786</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cancer Res</journal-id>
+      <journal-title>Cancer research</journal-title>
+      <issn pub-type="ppub">0008-5472</issn>
+      <issn pub-type="epub">1538-7445</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18676863</article-id>
+      <article-id pub-id-type="pmc">2497431</article-id>
+      <article-id pub-id-type="doi">10.1158/0008-5472.CAN-08-0508</article-id>
+      <article-id pub-id-type="manuscript">NIHMS56463</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Rat Prolactinoma cell growth regulation by Epidermal Growth Factor receptor ligands</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vlotides</surname>
+            <given-names>George</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Siegel</surname>
+            <given-names>Emily</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Donangelo</surname>
+            <given-names>Ines</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gutman</surname>
+            <given-names>Shiri</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ren</surname>
+            <given-names>Song-Guang</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Melmed</surname>
+            <given-names>Shlomo</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">Department of Medicine, Cedars-Sinai Medical Center, University of California School of Medicine, Los Angeles, California 90048, USA</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">Correspondence: Shlomo Melmed, Academic Affairs, Room 2015, Cedars-Sinai Medical Center, 8700 Beverly Blvd., Los Angeles, CA 90048, Tel: (310) 423 4691, Fax: (310) 423 0119, E-mail: <email>melmed@csmc.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>3</day>
+        <month>7</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>1</day>
+        <month>8</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>8</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>68</volume>
+      <issue>15</issue>
+      <fpage>6377</fpage>
+      <lpage>6386</lpage>
+      <abstract>
+        <p id="P1">Epidermal growth factor (EGF) regulates pituitary development, hormone synthesis and cell proliferation. Although ErbB receptor family members are expressed in pituitary tumors, effects of EGF signaling on pituitary tumors are not known. Immunoprecipitation and Western blot confirmed EGFR and p185<sup>c-neu</sup> protein expression in GH3 lacto-somatotroph but not in ACTH-secreting AtT20 pituitary tumor cells. EGF (5 nM) selectively enhanced baseline (~ 4-fold) and serum-induced (&gt; 6-fold) PRL mRNA levels, while gefitinib, an EGFR antagonist, suppressed serum-induced cell proliferation and <italic>Pttg1</italic> expression, blocked PRL gene expression, and reversed EGF-mediated somatotroph-lactotroph phenotype switching. Downstream EGFR signaling by ERK, but not PI3K or PKC, mediated the gefitinib-response. Tumors in athymic mice implanted sc with GH3 cells resulted in weight gain accompanied by increased serum PRL, GH and IGF-I levels. Gefitinib decreased tumor volumes and peripheral hormone levels by ~ 30% and restored normal mouse body weight patterns. Mice treated with gefitinib exhibited decreased tumor tissue ERK1/2 phosphorylation and downregulated tumor PRL and <italic>Pttg1</italic> mRNA abundance. These results show that EGFR inhibition controls tumor growth and PRL secretion in experimental lacto-somatotroph tumors. EGFR inhibitors could therefore be useful for control of PRL secretion and tumor load in prolactinomas resistant to dopaminergic treatment, or for those prolactinomas undergoing rare malignant transformation.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Pituitary tumor</kwd>
+        <kwd>Prolactinoma</kwd>
+        <kwd>GH3 cells</kwd>
+        <kwd>PRL</kwd>
+        <kwd>EGFR</kwd>
+      </kwd-group>
+      <contract-num rid="CA1">R01 CA075979-10</contract-num>
+      <contract-sponsor id="CA1">National Cancer Institute : NCI</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

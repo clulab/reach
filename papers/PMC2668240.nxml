@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101137841</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">30098</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cell Cycle</journal-id>
+      <journal-title>Cell cycle (Georgetown, Tex.)</journal-title>
+      <issn pub-type="ppub">1538-4101</issn>
+      <issn pub-type="epub">1551-4005</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19270522</article-id>
+      <article-id pub-id-type="pmc">2668240</article-id>
+      <article-id pub-id-type="manuscript">NIHMS101287</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Quantitative analysis of cell cycle phase durations and PC12 differentiation using fluorescent biosensors</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hahn</surname>
+            <given-names>Angela T.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jones</surname>
+            <given-names>Joshua T.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Meyer</surname>
+            <given-names>Tobias</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="author-notes" rid="FN1">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Molecular and Cellular Physiology; Stanford University School of Medicine; Stanford, California USA</aff>
+      <aff id="A2"><label>2</label>Department of Chemical and Systems Biology; Stanford University School of Medicine; Stanford, California USA</aff>
+      <author-notes>
+        <fn fn-type="corresp" id="FN1">
+          <label>*</label>
+          <p id="P1">Correspondence to: Tobias Meyer; Department of Chemical and Systems Biology; Stanford University School of Medicine; 318 Campus Drive; Clark Center W200; Stanford, California 94305-5439 USA; Tel.: 650.725.6926; Fax: 650.725.2952; Email: <email>tobias.meyer@stanford.edu</email></p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>13</day>
+        <month>3</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>2</day>
+        <month>4</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>1</day>
+        <month>4</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>10</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>7</issue>
+      <fpage>1044</fpage>
+      <lpage>1052</lpage>
+      <abstract>
+        <p id="P2">Cell cycle analysis typically relies on fixed time-point measurements of cells in particular phases of the cell cycle. The cell cycle, however, is a dynamic process whose subtle shifts are lost by fixed time-point methods. Live-cell fluorescent biosensors and time-lapse microscopy allows the collection of temporal information about real time cell cycle progression and arrest. Using two genetically-encoded biosensors, we measured the precision of the G<sub>1</sub>, S, G<sub>2</sub> and M cell cycle phase durations in different cell types and identified a bimodal G<sub>1</sub> phase duration in a fibroblast cell line that is not present in the other cell types. Using a cell line model for neuronal differentiation, we demonstrated that NGF-induced neurite extension occurs independently of NGF-induced cell cycle G<sub>1</sub> phase arrest. Thus, we have begun to use cell cycle fluorescent biosensors to examine the proliferation of cell populations at the resolution of individual cells and neuronal differentiation as a dynamic process of parallel cell cycle arrest and neurite outgrowth.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>phase duration</kwd>
+        <kwd>biosensor</kwd>
+        <kwd>fluorescence</kwd>
+        <kwd>live-cell imaging</kwd>
+        <kwd>PC12</kwd>
+        <kwd>neurite</kwd>
+        <kwd>G<sub>1</sub> arrest</kwd>
+      </kwd-group>
+      <contract-num rid="CA1">R33 CA120732-02</contract-num>
+      <contract-num rid="CA1">R21 CA120732-01</contract-num>
+      <contract-sponsor id="CA1">National Cancer Institute : NCI</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

@@ -1,0 +1,3006 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">BMC Cancer</journal-id>
+      <journal-title-group>
+        <journal-title>BMC Cancer</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1471-2407</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21062462</article-id>
+      <article-id pub-id-type="pmc">2994823</article-id>
+      <article-id pub-id-type="publisher-id">1471-2407-10-618</article-id>
+      <article-id pub-id-type="doi">10.1186/1471-2407-10-618</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Metastatic canine mammary carcinomas can be identified by a gene expression profile that partly overlaps with human breast cancer profiles</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes" id="A1">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>Robert</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>klopfleisch.robert@vetmed.fu-berlin.de</email>
+        </contrib>
+        <contrib contrib-type="author" id="A2">
+          <name>
+            <surname>Lenze</surname>
+            <given-names>Dido</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">2</xref>
+          <email>dido.lenze@charite.de</email>
+        </contrib>
+        <contrib contrib-type="author" id="A3">
+          <name>
+            <surname>Hummel</surname>
+            <given-names>Michael</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">2</xref>
+          <email>michael.hummel@charite.de</email>
+        </contrib>
+        <contrib contrib-type="author" id="A4">
+          <name>
+            <surname>Gruber</surname>
+            <given-names>Achim D</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>gruber.achim@vetmed.fu-berlin.de</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Department of Veterinary Pathology, Freie Universit&#xE4;t Berlin, Robert-von-Ostertag-Stra&#xDF;e 15, 14163 Berlin, Germany</aff>
+      <aff id="I2"><label>2</label>Charit&#xE9; Universit&#xE4;tsmedizin Berlin, Campus Benjamin Franklin, Institute of Pathology, Hindenburgdamm 30, D-12200 Berlin, Germany</aff>
+      <pub-date pub-type="collection">
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>9</day>
+        <month>11</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>10</volume>
+      <fpage>618</fpage>
+      <lpage>618</lpage>
+      <history>
+        <date date-type="received">
+          <day>12</day>
+          <month>4</month>
+          <year>2010</year>
+        </date>
+        <date date-type="accepted">
+          <day>9</day>
+          <month>11</month>
+          <year>2010</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9;2010 Klopfleisch et al; licensee BioMed Central Ltd.</copyright-statement>
+        <copyright-year>2010</copyright-year>
+        <copyright-holder>Klopfleisch et al; licensee BioMed Central Ltd.</copyright-holder>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0">
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/2.0">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <self-uri xlink:href="http://www.biomedcentral.com/1471-2407/10/618"/>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>Similar to human breast cancer mammary tumors of the female dog are commonly associated with a fatal outcome due to the development of distant metastases. However, the molecular defects leading to metastasis are largely unknown and the value of canine mammary carcinoma as a model for human breast cancer is unclear. In this study, we analyzed the gene expression signatures associated with mammary tumor metastasis and asked for parallels with the human equivalent.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>Messenger RNA expression profiles of twenty-seven lymph node metastasis positive or negative canine mammary carcinomas were established by microarray analysis. Differentially expressed genes were functionally characterized and associated with molecular pathways. The findings were also correlated with published data on human breast cancer.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>Metastatic canine mammary carcinomas had 1,011 significantly differentially expressed genes when compared to non-metastatic carcinomas. Metastatic carcinomas had a significant up-regulation of genes associated with cell cycle regulation, matrix modulation, protein folding and proteasomal degradation whereas cell differentiation genes, growth factor pathway genes and regulators of actin organization were significantly down-regulated. Interestingly, 265 of the 1,011 differentially expressed canine genes are also related to human breast cancer and, vice versa, parts of a human prognostic gene signature were identified in the expression profiles of the metastatic canine tumors.</p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>Metastatic canine mammary carcinomas can be discriminated from non-metastatic carcinomas by their gene expression profiles. More than one third of the differentially expressed genes are also described of relevance for human breast cancer. Many of the differentially expressed genes are linked to functions and pathways which appear to be relevant for the induction and maintenance of metastatic progression and may represent new therapeutic targets. Furthermore, dogs are in some aspects suitable as a translational model for human breast tumors in order to identify prognostic molecular signatures and potential therapeutic targets.</p>
+        </sec>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Background</title>
+      <p>Canine mammary tumor (CMT) is the most common cancer among female dogs and often becomes fatal due to the development of distant metastases [<xref ref-type="bibr" rid="B1">1</xref>-<xref ref-type="bibr" rid="B3">3</xref>]. Metastasis to the regional lymph node is an early step in metastasis and one of the most important prognostic factors in the diagnosis of CMT, a criterion that is also valid for human breast cancer [<xref ref-type="bibr" rid="B4">4</xref>,<xref ref-type="bibr" rid="B5">5</xref>]. Lymph node metastases of CMT are usually followed by the development of distant metastases, mainly in the lung, ultimately leading to the death of the dog [<xref ref-type="bibr" rid="B6">6</xref>]. However, knowledge of the molecular mechanisms contributing to lymph node and distant metastasis is still fragmentary. Despite numerous studies on this issue, significant metastasis-associated and predictable expression patterns of single genes have not been identified in CMT as yet [<xref ref-type="bibr" rid="B7">7</xref>-<xref ref-type="bibr" rid="B9">9</xref>]. Global gene expression profiles that compare metastasizing versus non-metastasizing CMT are unavailable whereas several studies on human breast cancer found significant metastasis associated expression profiles. The latter studies identified several non-overlapping expression signatures which are related to the development of lymph node and distant metastases and worse prognoses [<xref ref-type="bibr" rid="B10">10</xref>-<xref ref-type="bibr" rid="B13">13</xref>]. The available studies on global gene expression in CMT compared normal mammary gland, benign and malignant tumors with unknown lymph node status and clinical follow-up [<xref ref-type="bibr" rid="B14">14</xref>,<xref ref-type="bibr" rid="B15">15</xref>]. The authors reported that the gene expression profiles of CMT include a gene expression signature associated with neoplastic transformation. Furthermore, comparison of canine and human expression profiles disclosed an overlap of deregulated genes in human and canine mammary tumors [<xref ref-type="bibr" rid="B15">15</xref>]. Generally, clinical and molecular features of human and canine bear a likeness in several aspects. Both malignancies are the most common cancer of the female, lymph node metastases indicate a poor prognosis, the hormonal status influences the development of CMT and estrogen receptor (ER), progesterone receptor (PR) and ERBB2 expression patterns do influence the overall survival rate [<xref ref-type="bibr" rid="B1">1</xref>,<xref ref-type="bibr" rid="B16">16</xref>-<xref ref-type="bibr" rid="B18">18</xref>].</p>
+      <p>The aim of this study was the identification of gene expression signatures in primary CMT that are associated with early lymph node metastasis. Global mRNA expression profiles obtained from metastatic versus non-metastatic CMT cases were compared and differentially expressed genes were analyzed for their function and their role in pathway activation. Moreover, mining in published literature revealed interesting overlapping features when compared to data derived from gene expression profiles of metastatic human breast carcinomas.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Tissue samples</title>
+        <p>Thirteen simple mammary carcinomas with invasive growth and lymph node metastases at the time of tumor resection and 14 simple carcinomas without lymph node metastases were included in the study (Table <xref ref-type="table" rid="T1">1</xref>). Complex carcinomas were excluded from the study to avoid differences in gene expression levels due to differences in mesenchymal/epithelial ratio in the different tissues. None of the patients had a history of progestin treatment or radiographically detectable pulmonary metastases at the time of tumor resection. Distant metastases as the cause of death were determined postoperatively by radiographic detection of metastases (nos. 1-11) or necropsy (nos. 12 and 13). Selection criteria for carcinomas without lymph node metastases included an invasive growth, a negative lymph node status, a histological grade III and a minimal tumor diameter above the average of the lymph node positive tumors (&gt; 2.42 cm). All animals with non-metastatic carcinomas had a overall survival rate of over 24 months except animal no. 22 which developed radiographic detectable lung metastases 8 months after surgery.</p>
+        <table-wrap id="T1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p>Tumors, lymph node status and histologic and immunohistochemical features of metastatic and non-metastatic canine mammary carcinomas</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="center">Dog</th>
+                <th align="center">Breed</th>
+                <th align="center">Age in years</th>
+                <th align="center">Histologic Grade</th>
+                <th align="center">Tumor size (cm)</th>
+                <th align="center">Affected lymph node</th>
+                <th align="center">Postoperative overall survival (months)</th>
+                <th align="center">ERa</th>
+                <th align="center">ERBB2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">1</td>
+                <td align="center">American Pittbull</td>
+                <td align="center">9</td>
+                <td align="center">Grade III</td>
+                <td align="center">3</td>
+                <td align="center">Inguinal</td>
+                <td align="center">8</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td align="center">Bobtail</td>
+                <td align="center">10</td>
+                <td align="center">Grade III</td>
+                <td align="center">3</td>
+                <td align="center">inguinal</td>
+                <td align="center">6</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td align="center">Rottweiler</td>
+                <td align="center">10</td>
+                <td align="center">Grade III</td>
+                <td align="center">3</td>
+                <td align="center">inguinal</td>
+                <td align="center">6</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td align="center">Dachshund</td>
+                <td align="center">13</td>
+                <td align="center">Grade II</td>
+                <td align="center">2</td>
+                <td align="center">inguinal</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td align="center">Bavarian Mountain Dog</td>
+                <td align="center">13</td>
+                <td align="center">Grade III</td>
+                <td align="center">5</td>
+                <td align="center">inguinal</td>
+                <td align="center">8</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td align="center">Golden Retriever</td>
+                <td align="center">11</td>
+                <td align="center">Grade III</td>
+                <td align="center">1</td>
+                <td align="center">inguinal</td>
+                <td align="center">5</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td/>
+                <td align="center">12</td>
+                <td align="center">Grade II</td>
+                <td align="center">1</td>
+                <td align="center">axillary</td>
+                <td align="center">2</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">8</td>
+                <td align="center">Pudel</td>
+                <td align="center">16</td>
+                <td align="center">Grade II</td>
+                <td align="center">3</td>
+                <td align="center">inguinal</td>
+                <td align="center">2</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center">9</td>
+                <td align="center">West Highland White Terrier</td>
+                <td align="center">16</td>
+                <td align="center">Grade II</td>
+                <td align="center">0.5</td>
+                <td align="center">inguinal</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">10</td>
+                <td align="center">French Bulldog</td>
+                <td align="center">15</td>
+                <td align="center">Grade III</td>
+                <td align="center">1</td>
+                <td align="center">inguinal</td>
+                <td align="center">/</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">11</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">16</td>
+                <td align="center">Grade II</td>
+                <td align="center">3</td>
+                <td align="center">inguinal</td>
+                <td align="center">9</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">12</td>
+                <td align="center">Beagle</td>
+                <td align="center">11</td>
+                <td align="center">Grade II</td>
+                <td align="center">4</td>
+                <td align="center">inguinal</td>
+                <td align="center">1</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">13</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">9</td>
+                <td align="center">Grade III</td>
+                <td align="center">2</td>
+                <td align="center">inguinal</td>
+                <td align="center">/</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td colspan="9">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">14</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">12</td>
+                <td align="center">Grade III</td>
+                <td align="center">4</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">15</td>
+                <td align="center">Dalmatian</td>
+                <td align="center">10</td>
+                <td align="center">Grade II</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">16</td>
+                <td align="center">Irish Setter</td>
+                <td align="center">9</td>
+                <td align="center">Grade II</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">17</td>
+                <td align="center">Labrador</td>
+                <td align="center">11</td>
+                <td align="center">Grade III</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center">18</td>
+                <td align="center">Soft coat. wheaten Terrier</td>
+                <td align="center">12</td>
+                <td align="center">Grade III</td>
+                <td align="center">4</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">19</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">11</td>
+                <td align="center">Grade III</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">20</td>
+                <td align="center">German Short Hair</td>
+                <td align="center">12</td>
+                <td align="center">Grade III</td>
+                <td align="center">15</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">21</td>
+                <td align="center">Poodle</td>
+                <td align="center">11</td>
+                <td align="center">Grade II</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">22</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">15</td>
+                <td align="center">Grade III</td>
+                <td align="center">7</td>
+                <td align="center">-</td>
+                <td align="center">&gt;8</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">23</td>
+                <td align="center">Miniature Pinscher</td>
+                <td align="center">13</td>
+                <td align="center">Grade II</td>
+                <td align="center">2</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">24</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">11</td>
+                <td align="center">Grade III</td>
+                <td align="center">9</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">25</td>
+                <td align="center">Great Dane</td>
+                <td align="center">10</td>
+                <td align="center">Grade III</td>
+                <td align="center">7</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">26</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">9</td>
+                <td align="center">Grade III</td>
+                <td align="center">3</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+              <tr>
+                <td align="center">27</td>
+                <td align="center">Mixed Breed</td>
+                <td align="center">13</td>
+                <td align="center">Grade III</td>
+                <td align="center">7</td>
+                <td align="center">-</td>
+                <td align="center">&gt;24</td>
+                <td align="center">-</td>
+                <td align="center">+</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>WHWT: West Highland White Terrier</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>The experimental research reported in the manuscript has been performed with the approval of animal welfare authorities and the ethical committee of the Freie Universit&#xE4;t Berlin. Surgical excision of tumour biopsies was part of the tumour treatment according to the state of the art treatment and solely to improve the animals welfare. Furthermore, the animals were under full anaesthesia and not exposed to any additional manipulation due to the inclusion in this study. All animal owners received and approved an informed client consent form.</p>
+        <p>Tissue specimens were fixed in neutral-buffered 4% formalin or snap frozen in liquid nitrogen within 15 minutes after resection and stored at -80&#xB0;C until further use. Formalin fixed tumor tissue samples were routinely embedded in paraffin and sections of 2-&#x3BC;m were stained with hematoxylin and eosin. Tumor and lymph node histologies were evaluated independently by two board-certified pathologists, following the criteria of the WHO classification of canine mammary tumors and the Nottingham grading system [<xref ref-type="bibr" rid="B19">19</xref>,<xref ref-type="bibr" rid="B20">20</xref>]. All 27 tumors were simple carcinomas and characterized by an invasive, mostly solid growth pattern, marked cellular pleomorphism, anisokaryosis and 3 or more mitotic figures per high power field.</p>
+      </sec>
+      <sec>
+        <title>Immunohistochemistry</title>
+        <p>Oestrogen receptor alpha (ER), ERBB2 expression was immunohistochemically determined using the ABC-method. In brief, monoclonal mouse anti-human ER specific antibody (1:1000, clone CC4-5, Novocastra, Wetzlar, Germany) and rabbit polyclonal anti-human ERBB2 specific antibody (1:150, cat. no. A0485, Dako, Hamburg, Germany) were diluted in Tris-buffered saline (TBS, 50 mM, pH 7.6) and incubated at 4&#xB0;C overnight after a blocking step with 50% goat serum in TBS for 30 min at room temperature. Polyclonal goat anti-rabbit IgG (1:200; Vector, England, BA1000) and goat anti-mouse IgG (1:200; BA9200, Vector, Burlingame, USA) were used as secondary antibody. Diaminobenzidine tetrahydrochloride (D8001, Sigma Aldrich, Munich, Germany) was used as chromogen and slides were counterstained with hematoxylin (Merck). Normal canine and human mammary gland were used as positive tissue controls. ER and ERBB2 immunolabeling was evaluated in 10 random 200&#xD7; magnification fields. Tumors were defined as ER or ERBB2 positive if more than 10% of the cells stained positive with the respective antibody.</p>
+      </sec>
+      <sec>
+        <title>Macrodissection of tumor samples and RNA isolation</title>
+        <p>Macrodissection was performed on all tumor specimens to ensure high tumor cellularity. Only sections with more than 70% carcinoma cells were included in the study as shown by digital image analysis (Scanscope T3, Aperio, Vista, USA; Zeiss Axiovision, Jena, Germany). For mRNA isolation, tissue sections were transferred into 300 &#x3BC;l of lysis buffer (NucleoSpin RNA; Macherey&amp;Nagel, Dueren, Germany) and homogenized (Precellyse 24, Bertin Technology, France). RNA was extracted and purified using a commercial system (NucleoSpin RNA; Macherey&amp;Nagel, D&#xFC;ren, Germany). The RNA quality was controlled using the BioAnalyzer (Agilent Technologies, USA) and only high quality RNA (RIN &gt;8) was used for microarray analyses. For reverse transcription a commercial kit (Iscript cDNA synthesis Kit, Biorad, Germany) was used. 100 ng of total RNA of each sample were used for reverse transcription of each tissue sample and the reactions were performed exactly according to the manufacturers instructions. cDNA was stored in low adhesion tubes at -20&#xB0;C.</p>
+      </sec>
+      <sec>
+        <title>Microarray analyses</title>
+        <p>Affymetrix GeneChip hybridization (Canine Genome 2.0 Array) was performed with 2 &#x3BC;g total RNA according to the manufacturer's recommendations. The chips were stained and washed with the GeneChip Fluidics Station 450 and visualized on an Affymetrix GeneChip Scanner 3000. Microarray data were deposited at the Gene Expression Omnibus data repository under the number GSE20718: (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?token=bbwvhacsemokkfq&amp;acc=GSE20718">http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?token=bbwvhacsemokkfq&amp;acc=GSE20718</ext-link>)</p>
+      </sec>
+      <sec>
+        <title>Quantitative RT-PCR (qPCR)</title>
+        <p>Quantitative PCR was used to validate array gene expression data. To this end, established qPCR assays for eight genes that were identified in the metastatic gene signature were used to compare mRNA expression levels in metastatic and non-metastatic tumors. Primer sequences, product length and sequence accession numbers for the PCR assays for AURKA, ALOX12, BMP6, ERBB4, HEPACAM2, IGFR2, RAD51, TGFBR3 and the housekeeper genes A5B, HPRT and RP32 mRNA expression levels were used before [<xref ref-type="bibr" rid="B17">17</xref>,<xref ref-type="bibr" rid="B21">21</xref>-<xref ref-type="bibr" rid="B24">24</xref>] and are describe in Additional file <xref ref-type="supplementary-material" rid="S1">1</xref>. Each qPCR reaction had a 20 &#x3BC;l reaction volume containing 5 &#x3BC;l cDNA corresponding to 100 ng input RNA, 500 nM of each forward and reverse primer, 12.5 &#x3BC;l of the Maxima Sybr Green/Rox qPCR Master Mix (Fermentas, Germany) containing 2.5 mM Mg<sup>2+ </sup>and 5 mM dNTP. Tubes and lids were purchased from Fermentas (Germany). Cycling parameters for all assays were, 95&#xB0;C for 10 min, 95&#xB0;C for 30 sec, 58&#xB0;C for 60 sec, 72&#xB0;C for 30 sec for 40 cycles. Melting curve ranged from 58&#xB0;C to 95&#xB0;C and was read every 0.2&#xB0;C and hold for 2 sec. The cDNA of all samples were amplified on the same plate for every primer pair to ensure equal amplification conditions. Specificity of amplification products was confirmed by melting curve and sequence analyses. For each sample, results were documented as cycle threshold (CT) set to 100 relative fluorescence unit values of background subtracted qPCR fluorescence kinetics by using the MX Pro Stratagene analysis software, applying the adaptive baseline, amplification based threshold and moving average algorithm enhancement. Relative expression of the target gene (TG) was calculated using a comparative &#x394;CT-method with multiple housekeepers as previously described[<xref ref-type="bibr" rid="B25">25</xref>-<xref ref-type="bibr" rid="B27">27</xref>]. The housekeeper genes used were selected from a panel of reference genes (RG) according to the GeNorm algorithm[<xref ref-type="bibr" rid="B28">28</xref>]. Data are presented as fold change in gene expression level of the gene of interest (GOI) in lymph node-positive carcinomas (LN+) normalized to the housekeepers and to the similarly normalized GOI expression levels in lymph node-negative carcinomas (LN-). Significance (p &lt; 0.05) of differential gene expression was tested using Shapiro-Wilk-test and t-test.</p>
+      </sec>
+      <sec>
+        <title>Data analysis</title>
+        <p>Affymetrix CEL files were imported into Partek Genomic Suite Software (Version 6.4, Partek Inc., St. Louis, USA) and processed by the implemented gcRMA workflow (median polish probe set summarization, RMA background correction, quantile normalization). Differences in gene expression between samples with and without metastases were analyzed by ANOVA and false discovery rate was controlled by using the q-value method. Differentially expressed genes were selected by applying a filter of q &lt; 0.001 and a fold-change of &gt;1.7 in both directions. Unnamed genes were excluded from the list. Hierarchical clustering of the samples and genes was conducted using Pearson correlation and complete linkage.</p>
+        <p>To supplement the gene annotations of the differentially expressed genes with functional information, BLAST search and Affymetrix-provided human to canine microarray comparisons were used to map canine genes to their human equivalents as has been shown before [<xref ref-type="bibr" rid="B29">29</xref>]. Using the human equivalents as templates, the DAVID database was queried for gene ontology information [<xref ref-type="bibr" rid="B30">30</xref>]. To study enriched functional gene families and functional annotation, all down-regulated and all up-regulated genes were submitted separately to DAVID. In the case of redundant probe with a fold change in the same direction only the probe set with the highest fold change was included in further analysis. Selection criteria for DAVID included a medium stringency, &#x2265; 4 probes within a cluster and an enrichment factor &gt;1.3. In case of multiple appearances of similar gene families or functional annotation terms, the cluster with the higher enrichment factor was selected. Reported associations between the differentially expressed genes and human breast cancer were determined using the MEDGENE database [<xref ref-type="bibr" rid="B31">31</xref>], entering the search term: 'breast neoplasms'.</p>
+        <p>The GenMAPP software was used for pathway analysis [<xref ref-type="bibr" rid="B32">32</xref>]. Analyses of up- or down-regulated gene sets were performed independently. Quality criteria for pathway selection included more than 3 genes, z-score of |&gt;2| and p &lt; 0.05.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Immunohistological phenotype of the tumors</title>
+        <p>All lymph node positive and lymph node negative tumors were ER negative. In addition, 11/13 lymph node positive tumors and 13/14 lymph node negative tumors were ERBB2 positive.</p>
+      </sec>
+      <sec>
+        <title>Identification of differentially expressed genes</title>
+        <p>Comparison of the global expression of canine mammary carcinomas with or without lymph node metastasis revealed 1011 differentially expressed genes, 744 genes of which were up-regulated metastatic carcinomas whereas only 267 genes were down-regulated (1.7&#xD7; fold change, false discovery rate q &lt; 0.001, Additional file <xref ref-type="supplementary-material" rid="S2">2</xref>). With the exception of two cases (dogs no. 14, 22), these genes were able to clearly separate the two tumor groups by means of two-dimensional hierarchical clustering (Figure <xref ref-type="fig" rid="F1">1</xref>). Interestingly, one of the tumors (no. 22) developed radiographic detectable lung metastases 8 months postoperatively. However, the other case (14) did not develop metastases during a 24 month clinical follow-up. qPCR confirmed significant expression differences for all seven of the eight genes analyzed (Table <xref ref-type="table" rid="T2">2</xref>).</p>
+        <fig id="F1" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p><bold>Two dimensional cluster analysis of metastatic versus non-metastatic canine mammary tumors</bold>. Two of the lymph node metastasis-negative carcinomas were adjoined to the metastatic tumor cluster. One of these animals (no. 22) developed lung metastases 8 months after initial surgery despite negative lymph-node status.</p>
+          </caption>
+          <graphic xlink:href="1471-2407-10-618-1"/>
+        </fig>
+        <table-wrap id="T2" position="float">
+          <label>Table 2</label>
+          <caption>
+            <p>Confirmation of cDNA-Array data by quantitative RT-PCT</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="left">Gene</th>
+                <th align="left">Mean fold change in metastatic carcinomas by qPCR</th>
+                <th align="left">Mean fold change in metastatic carcinomas by microarray</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">AURKA</td>
+                <td align="left">2.5 (0.52)*</td>
+                <td align="left">5.9</td>
+              </tr>
+              <tr>
+                <td align="left">ALOX12</td>
+                <td align="left">0.6 (0.11)*</td>
+                <td align="left">0.4</td>
+              </tr>
+              <tr>
+                <td align="left">BMP-6</td>
+                <td align="left">2.4 (0.97)*</td>
+                <td align="left">4.4</td>
+              </tr>
+              <tr>
+                <td align="left">ERBB-4</td>
+                <td align="left">0.4 (0.09)*</td>
+                <td align="left">0.4</td>
+              </tr>
+              <tr>
+                <td align="left">HEPACAM2</td>
+                <td align="left">0.2 (0.05)*</td>
+                <td align="left">0.01</td>
+              </tr>
+              <tr>
+                <td align="left">IGFR2</td>
+                <td align="left">0.6 (0.11)</td>
+                <td align="left">0.4</td>
+              </tr>
+              <tr>
+                <td align="left">RAD51</td>
+                <td align="left">2.4 (0.67)*</td>
+                <td align="left">4.7</td>
+              </tr>
+              <tr>
+                <td align="left">TGFBR-3</td>
+                <td align="left">0.41 (0.90)*</td>
+                <td align="left">0.2</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>* Difference between mean expression levels significant (p &lt; 0.05)</p>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Up-regulation of cell cycle and DNA-damage repair genes in metastatic canine carcinomas</title>
+        <p>Functional analysis of the metastasis-associated genes identified an up-regulation of 93 cell cycle associated genes with functions in cell cycle progression (Table <xref ref-type="table" rid="T3">3</xref>). Interestingly, the 13 cell cycle checkpoint genes and 27 DNA-damage repair genes in the gene list were exclusively up-regulated and only one of the 6 cyclin genes was down-regulated (Table <xref ref-type="table" rid="T3">3</xref>). 49 genes associated with protein metabolism were also up-regulated, including protein folding, ubiquitin dependent proteins and prefoldins, suggesting an increased biosynthesis of the cells. Furthermore, anti-apoptotic and pro-apoptotic genes, members of the RAS signaling cascade were up-regulated (Table <xref ref-type="table" rid="T4">4</xref>). Interestingly, transcription factors and methyltransferases were significantly enriched in both up-regulated and down-regulated gene lists indicating that the metastatic phenotype is associated with a different equilibrium of gene activation and deactivation (Table <xref ref-type="table" rid="T4">4</xref>).</p>
+        <table-wrap id="T3" position="float">
+          <label>Table 3</label>
+          <caption>
+            <p>Up- and down-regulated cell cycle genes</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="left">Up-regulated cell cycle genes</th>
+                <th align="left">Down-regulated cell cycle genes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" colspan="2">Cell Cycle Genes</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">ANAPC10, APPL1, AURKA, BIRC5, BUB3, CCDC5, CCNA2, CCNB1, CCNB2, CCNE1, CDC2, CDC27, CDC37, CDC45L, CDC5L, CDC6, CDCA2, CDCA5, CDCA8, CETN3, CGREF1, CHAF1A, CHAF1B, CHEK2, CKAP2, DKC1, DTYMK, ERBB2IP, ESCO2, ESPL1, EXO1, FBXO5, GADD45B, GADD45GIP1, GMNN, GTSE1, ILF3, INCENP, IRF1, KATNA1, KIF15, KIF23, KIFC1, LIN9, MAD2L1, MCM5, MCM6, MIS12, MRPL41, MYBL2, NCAPG, NCAPG2, NCAPH, NDC80, NME1, NOLC1, NPM1, NUF2, NUSAP1, PARD3B, PBK, PES1, PFDN1, PIK3CB, PLK1, PPM1G, PRC1, PRMT5, PTPN11, RAD17, RAD21, RAD51, RANBP1, RASSF1, RASSF4, B1CC1, RBL1, RPA1, SASS6, SGOL1, SMC1A, SPC24, SPC25, SPIN1, STK11, SUGT1, TPX2, TTK, TXNL4A, UHRF1, YEATS4, YWHAQ, ZW10</td>
+                <td align="left">BCL6, DBC1, DST, KHDRBS1, LATS1, NEDD9, PPP2R1B, RBM5, SESN1, TARDBP,</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">Cell Cycle Checkpoint Genes</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">BIRC5, BUB3, CDC2, CDC45L, CDC6, CHEK2, GTSE1, MAD2L1, PTPN11, RAD17, SMC1A, TTK, ZW10,</td>
+                <td/>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">Cyclin Genes</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">CCNE1, RBL1, CCNB2, CCNA2, CCNB1</td>
+                <td align="left">CCNL2</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">DNA-Damage Repair Genes</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">APEX2, CHAF1A, CHAF1B, DCLRE1B, ESCO2, EXO1, FEN1, GADD45B, GADD45GIP1, GEN1, GTF2H3, NSMCE2, NUDT1, POLD3, RAD17, RAD21, RAD51, RAD51C, RFC3, RPA1, SMC1A, SMC5, TOPBP1, TYMS, UBE2N, UHRF1, UNG</td>
+                <td/>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <table-wrap id="T4" position="float">
+          <label>Table 4</label>
+          <caption>
+            <p>Enriched functional gene classes in the differential expression profile of metastatic canine mammary tumors</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="center">Functional gene class</th>
+                <th align="center">Gene number</th>
+                <th align="center">Enrichment factor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">
+                  <bold>up-regulated genes</bold>
+                </td>
+                <td/>
+                <td/>
+              </tr>
+              <tr>
+                <td align="center">M-phase</td>
+                <td align="center">52</td>
+                <td align="center">17.49</td>
+              </tr>
+              <tr>
+                <td align="center">DNA replication</td>
+                <td align="center">29</td>
+                <td align="center">6.72</td>
+              </tr>
+              <tr>
+                <td align="center">Protein folding</td>
+                <td align="center">32</td>
+                <td align="center">6.34</td>
+              </tr>
+              <tr>
+                <td align="center">Transcription factors</td>
+                <td align="center">48</td>
+                <td align="center">6.21</td>
+              </tr>
+              <tr>
+                <td align="center">RNA processing</td>
+                <td align="center">50</td>
+                <td align="center">5.99</td>
+              </tr>
+              <tr>
+                <td align="center">Apoptosis</td>
+                <td align="center">10</td>
+                <td align="center">5.98</td>
+              </tr>
+              <tr>
+                <td align="center">Mitochondrion</td>
+                <td align="center">59</td>
+                <td align="center">5.96</td>
+              </tr>
+              <tr>
+                <td align="center">Cell cycle checkpoint</td>
+                <td align="center">14</td>
+                <td align="center">4.09</td>
+              </tr>
+              <tr>
+                <td align="center">DNA damage response</td>
+                <td align="center">30</td>
+                <td align="center">3.52</td>
+              </tr>
+              <tr>
+                <td align="center">Ubiquitin-pathway</td>
+                <td align="center">13</td>
+                <td align="center">2.56</td>
+              </tr>
+              <tr>
+                <td align="center">DNA-replication initiation</td>
+                <td align="center">7</td>
+                <td align="center">2.05</td>
+              </tr>
+              <tr>
+                <td align="center">Methyltransferases</td>
+                <td align="center">15</td>
+                <td align="center">1.95</td>
+              </tr>
+              <tr>
+                <td align="center">RAS-signalling</td>
+                <td align="center">5</td>
+                <td align="center">1.71</td>
+              </tr>
+              <tr>
+                <td align="center">Prefoldins</td>
+                <td align="center">4</td>
+                <td align="center">1.62</td>
+              </tr>
+              <tr>
+                <td align="center">Transcription repressors</td>
+                <td align="center">13</td>
+                <td align="center">1.32</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">
+                  <bold>down-regulated genes</bold>
+                </td>
+                <td/>
+                <td/>
+              </tr>
+              <tr>
+                <td align="center">Transcription factors</td>
+                <td align="center">55</td>
+                <td align="center">3.62</td>
+              </tr>
+              <tr>
+                <td align="center">mRNA processing</td>
+                <td align="center">11</td>
+                <td align="center">3.45</td>
+              </tr>
+              <tr>
+                <td align="center">Muscle contraction</td>
+                <td align="center">10</td>
+                <td align="center">2.86</td>
+              </tr>
+              <tr>
+                <td align="center">Transcription regulation</td>
+                <td align="center">41</td>
+                <td align="center">2.36</td>
+              </tr>
+              <tr>
+                <td align="center">Cell growth regulation</td>
+                <td align="center">10</td>
+                <td align="center">2.03</td>
+              </tr>
+              <tr>
+                <td align="center">Methyltransferases</td>
+                <td align="center">6</td>
+                <td align="center">1.75</td>
+              </tr>
+              <tr>
+                <td align="center">Cell differentiation</td>
+                <td align="center">54</td>
+                <td align="center">1.58</td>
+              </tr>
+              <tr>
+                <td align="center">Transmembrane tyrosine kinase receptors</td>
+                <td align="center">12</td>
+                <td align="center">1.33</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Down-regulation of growth factor receptor pathways and cell differentiation genes in metastatic canine carcinomas</title>
+        <p>39 genes with receptor activity were up- and down regulated in metastatic tumors (Table <xref ref-type="table" rid="T4">4</xref>, <xref ref-type="table" rid="T5">5</xref>). However, transmembrane tyrosine kinase receptor genes were significantly and exclusively down-regulated in metastatic carcinomas (Table <xref ref-type="table" rid="T5">5</xref>). Specifically, genes of growth factor signaling pathways epidermal growth factor (<italic>EGF</italic>), transforming growth factor-beta (<italic>TGFB</italic>), fibroblast growth factor (<italic>FGF</italic>), hepatocyte growth factor receptor (<italic>MET</italic>) and insulin-like growth factor (<italic>IGF</italic>) I and II were preferentially down-regulated in the metastatic tumors. Besides their growth stimulatory effects, <italic>EGF</italic>, <italic>TGF </italic>and <italic>FGF </italic>signaling also induces cell differentiation in mammary epithelial cells and a down regulation of these pathways and associated proteins has been described before [<xref ref-type="bibr" rid="B24">24</xref>,<xref ref-type="bibr" rid="B33">33</xref>-<xref ref-type="bibr" rid="B37">37</xref>].</p>
+        <table-wrap id="T5" position="float">
+          <label>Table 5</label>
+          <caption>
+            <p>Up- and down-regulated receptors genes</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="left">Up-regulated receptor genes</th>
+                <th align="left">Down-regulated receptor genes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" colspan="2">Receptors</td>
+              </tr>
+              <tr>
+                <td align="left">CD300LF, CRLF3, F2RL1, FKBP3, GOSR2, HYAL2, IL10RB, ITGA4, JMJD6, KIF15, LBR, MED30, PFDN6, RNF139, SIVA1, TFRC, TREM1, ZNHIT3</td>
+                <td align="left">EPHB1, EPHB3, ERBB4, FGFR1, FKBP, GIT2, GPR116, IGF2R, MET, NISCH, NRP1, NPR2, NRXN1 NTRK2, PRKCZ, PTPN2, TGFBR3, THRB, TNFRSF1B, TNFRSF21, TNPO3</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">Transmembrane Receptors with Tyrosine Kinase Activity</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td/>
+                <td align="left">EPHB1, EPHB3, ERBB4, FGFR1, IGF2R, MET, NRP1, NTRK2, TGFBR3,</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">G-Protein Coupled Receptors</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">F2RL1, SLC26A6</td>
+                <td align="left">GPR116, NPR2</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">Cell Differentiation Genes</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">AATF, ASF1B, Bak1, BCLAF1, BID, BIRC3, BIRC5, BMP6, BNIP2, CASC5, CASP6, CDC2, CEP57, CHEK2, CKAP2, CLN5, CNP, CSE1L, DNAJA3, DNM1L, EIF2B2, ESPL1, FASTKD3, FBXO5, GADD45B, HRB, HSPD1, JMJD6, KATNA1, MRPL41, MYBL2, NME1, NPM1, OPA1, PDCD10, PEX13, PLDN, PRKAA1, PTPN11, RAD21, RB1CC1, RNF6, RNF7, SAP30BP, SFXN1, SIVA1, SKIL, SLTM, SON, STK3, STK4, STRBP, TGM2, WHSC1L1, YWHAG</td>
+                <td align="left">ACTN1, AFF4, ALOX12, BCL6, CATSPER1, CSPG5, DBC1, EPHB3, ERBB4, FGFR1, FST, GATA3, MET, MYH11, NRP1, NRXN1, NTF3, NTRK2, PIK3R1, PPP2R1B, PRKCZ, SEMA6D, SMARCA1, SOX5, SOX6, TBX19, THRB, TNFRSF1B, TNFRSF21, TSG101, ZBTB16</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <p>In line with this changed receptor signaling in metastatic carcinomas is therefore the de-regulation of several genes associated with cell growth regulation and cell differentiation in the metastatic tumors (Table <xref ref-type="table" rid="T5">5</xref>). Interestingly, statistical analysis by DAVID gene ontology identified a significant enrichment of cell differentiation genes only in the list of down-regulated genes (Tables <xref ref-type="table" rid="T4">4</xref>).</p>
+      </sec>
+      <sec>
+        <title>Cell-cell adhesion and matrix modulation genes are differentially expressed in metastatic tumors</title>
+        <p>It is commonly accepted that metastasis requires loss of cell-cell adhesion and expression of extracellular matrix modulators by the tumor cells. We, therefore, specifically screened the gene list for modulators of the extracellular matrix, cell adhesion and angiogenesis genes. Statistical analysis found no significant enrichment of matrix modulator genes in the gene list (Table <xref ref-type="table" rid="T4">4</xref>). However, three matrix modulator genes: matrix-metalloproteinase 11, cathepsin L2 and the pro-cancerogenic serin peptidase inhibitor E1, were up-regulated in metastatic tumors (Table <xref ref-type="table" rid="T6">6</xref>) and this is in agreement with earlier observations in human breast cancer [<xref ref-type="bibr" rid="B38">38</xref>-<xref ref-type="bibr" rid="B40">40</xref>]. Similarly, cell adhesion genes were also not significantly enriched in the gene list. However, the 20 adhesion and focal adhesion complex genes present in the differential gene list were predominantly down-regulated, like <italic>HEPACAM2, EMILIN1, PCDHGC3 </italic>and <italic>ASAM </italic>but some adhesion genes were also up-regulated, like <italic>ICAM2 </italic>and the <italic>ITGA4 </italic>(Table <xref ref-type="table" rid="T6">6</xref>). A similar expression pattern for several of these genes has been described for human breast cancer and other cancer types before (Table <xref ref-type="table" rid="T6">6</xref>) [<xref ref-type="bibr" rid="B23">23</xref>,<xref ref-type="bibr" rid="B41">41</xref>-<xref ref-type="bibr" rid="B44">44</xref>].</p>
+        <table-wrap id="T6" position="float">
+          <label>Table 6</label>
+          <caption>
+            <p>Up- and down-regulated matrix modulator, cell adhesion and focal adhesion complex genes</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="left">Up-regulated genes</th>
+                <th align="left">Down-regulated genes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" colspan="2">Matrix Modulators</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">MMP11, SERPINE1, CTSL2</td>
+                <td/>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">Cell adhesion</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">DST, ICAM2, ITGA4, ITGB1BP1, LBR</td>
+                <td align="left">ACTN1, ALOX12, ASAM, BCL6, CHAD, COL16A1, CYR61, DST, EMILIN1, HEPACAM2, MIA3, NEDD9, NRP1, NRXN1, PCDHGC3</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">Focal Adhesion</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">PTK2</td>
+                <td align="left">ACTN1, BIRC3, CHAD, COL2A1, MET, MYLK, PIK3R1</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <p>Finally, analysis of the gene list disclosed no significant enrichment of angiogenesis genes. The 7 angiogenesis genes present in the list were also predominantly down-regulated (e.g. <italic>NRP1, JMJD6, CYR61, FGFR1</italic>) and again the impact of these genes on the carcinogenesis of breast cancer cells has been described[<xref ref-type="bibr" rid="B36">36</xref>,<xref ref-type="bibr" rid="B45">45</xref>,<xref ref-type="bibr" rid="B46">46</xref>].</p>
+      </sec>
+      <sec>
+        <title>Comparison with human breast cancer expression profiles</title>
+        <p>The identified metastasis-associated expression profile of canine mammary tumors has several significant overlaps with expression profiles of metastatic human breast cancer. Literature mining by Medgene disclosed that 25% of the canine gene list has been cited in association with human breast cancer before. However, the mining approach by Medgene is based on information presented in the abstract of the articles and not complete gene expression profiles [<xref ref-type="bibr" rid="B31">31</xref>]. It is therefore likely that a comparative meta-analysis of gene expression profiles will identify additional overlapping gene expression patterns. The overlapping genes are mostly associated with cell division, cell growth, kinase activity, translation, DNA integrity checkpoint and transcription regulation.</p>
+        <p>GenMapp pathway analysis identified a marked overlap of deregulated pathways in the canine metastatic profile and a recent meta-analysis on metastasis-associated gene expression profiles (Table <xref ref-type="table" rid="T7">7</xref>) [<xref ref-type="bibr" rid="B10">10</xref>]. All 5 significantly up-regulated pathways were Identical to human breast cancer the cell cycle, G1 to S control reactome and DNA replication reactome pathways were up-regulated, whereas striated muscle contraction and IL-6 pathways were significantly down-regulated. (Table <xref ref-type="table" rid="T7">7</xref>).</p>
+        <table-wrap id="T7" position="float">
+          <label>Table 7</label>
+          <caption>
+            <p>Up- and downregulated pathways in metastatic carcinomas when and (GenMAPP analysis)</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="center">Dysregulated pathways in metastatic<break/>canine mammary tumors</th>
+                <th align="center">Gene number</th>
+                <th align="center">Dysregulated pathways in<break/>metastatic human breast cancer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">
+                  <bold>up-regulated pathways</bold>
+                </td>
+                <td/>
+                <td align="center">Ranking in a meta-analysis[<xref ref-type="bibr" rid="B1">1</xref>]</td>
+              </tr>
+              <tr>
+                <td align="center">Cell_cycle</td>
+                <td align="center">33</td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="center">Cell_cycle_G1_to_S_control_reactome</td>
+                <td align="center">22</td>
+                <td align="center">2</td>
+              </tr>
+              <tr>
+                <td align="center">DNA_replication_reactome</td>
+                <td align="center">25</td>
+                <td align="center">3</td>
+              </tr>
+              <tr>
+                <td align="center">Tissue_embryonic_stem_cell</td>
+                <td align="center">11</td>
+                <td align="center">6</td>
+              </tr>
+              <tr>
+                <td align="center">Proteasome degradation</td>
+                <td align="center">7</td>
+                <td align="center">7</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">
+                  <bold>down-regulated pathways</bold>
+                </td>
+                <td/>
+                <td/>
+              </tr>
+              <tr>
+                <td align="center">Striated_muscle_contraction</td>
+                <td align="center">8</td>
+                <td align="center">4</td>
+              </tr>
+              <tr>
+                <td align="center">Focal_adhesion</td>
+                <td align="center">11</td>
+                <td align="center">/</td>
+              </tr>
+              <tr>
+                <td align="center">IL-6_NetPath_18</td>
+                <td align="center">5</td>
+                <td align="center">6</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>/not present in the metastatic pathways analysis of human breast cancer</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>Furthermore, comparison with the van't Veer 70 gene prognostic signature which reliably identifies human breast cancers with metastatic potential also found a significant overlap [<xref ref-type="bibr" rid="B13">13</xref>]. However, only 34 of the 70 genes are present on the canine gene array but 23 (68%) of these genes were included in the metastatic gene expression profile of CMT indicating that comparable prognostic gene expression patterns may exist in canine mammary tumors (Table <xref ref-type="table" rid="T8">8</xref>).</p>
+        <table-wrap id="T8" position="float">
+          <label>Table 8</label>
+          <caption>
+            <p>Identification of canine genes in the expression profile of metastatic CMT homologous or similar to the 70-gene prognostic signature for human breast cancer</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="left">Human genes of the 70 prognostic gene profile<break/>(van't Veer et al.)</th>
+                <th align="center">Homologous genes expressed in metastatic canine tumors</th>
+                <th align="center">Gene family members expressed in canine tumors</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">Homologous genes present on canine gene array</td>
+                <td/>
+                <td/>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;AP2B1</td>
+                <td align="center">AP2B1</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;CCNE2</td>
+                <td align="center">-</td>
+                <td align="center">CCNE1</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;CDC42BPA</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;CENPA</td>
+                <td align="center">CENPA</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;COL4A2</td>
+                <td/>
+                <td align="center">COL2, 16</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;DCK</td>
+                <td align="center">DCK</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;DIAPH3</td>
+                <td align="center">DIAPH3</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;ECT2</td>
+                <td align="center">ECT2</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;EGLN1</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;ESM1</td>
+                <td align="center">ESM1</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;EXT1</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;FGF18</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;FLT1</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;GMPS</td>
+                <td align="center">-</td>
+                <td align="center">GMPS</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;GNAZ</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;HRASLS</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;IGFBP5</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;LPCAT1</td>
+                <td align="center">LPCAT1</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;MCM6</td>
+                <td align="center">MCM6</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;MELK</td>
+                <td align="center">MELK</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;MMP9</td>
+                <td align="center">-</td>
+                <td align="center">MMP11</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;MS4A7</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;NDC80</td>
+                <td align="center">NDC80</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;ORC6L</td>
+                <td align="center">ORC6L</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;OXCT</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;PECI</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;PRC1</td>
+                <td align="center">PRC1</td>
+                <td/>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;RAB6B</td>
+                <td align="center">-</td>
+                <td align="center">RAB10, 7L1, EPK</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;RFC4</td>
+                <td align="center">-</td>
+                <td align="center">RFC2, 3</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;SCUBE2</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;SLC2A3</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;STK32</td>
+                <td align="center">-</td>
+                <td align="center">STK3, 4, 11</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;TGFB3</td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;UCHL5</td>
+                <td align="center">-</td>
+                <td align="center">UCHL3</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;ALDH4</td>
+                <td align="center">-</td>
+                <td align="center">ALDH16</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;FAM2A</td>
+                <td align="center">-</td>
+                <td align="center">FAM13B</td>
+              </tr>
+              <tr>
+                <td align="left">&#x2003;NMU</td>
+                <td align="center">-</td>
+                <td align="center">NMB</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>In the present study we identified a gene expression profile in CMT that is associated with early metastatic spread to the lymph nodes and is able to discriminate carcinomas with similar histological features but divergent metastatic potential. The differential expression profile contains several enriched functional gene classes and has significant overlaps with expression profiles of metastatic human breast cancer.</p>
+      <p>The similarities found between canine and human mammary tumors in terms of increased proliferation, altered cell differentiation status and decreased cell adhesion were also confirmed by Medgene literature mining. Approximately 25% of the deregulated genes in metastatic canine carcinomas have been cited in association with human breast cancer. In this subset of cited genes, a significant enrichment of genes associated with cell cycle regulation, protein kinases, DNA integrity checkpoint and protein metabolism was observed. In addition, more than 60 percent of the van't Veer 70-gene prognostic signature was identified in our differential gene list. It is therefore likely that gene expression profiles may also predict metastasis in CMT. For instance, one of the dogs without lymph node metastases at the time of investigation developed later distant metastases. Strikingly, this case clustered within the group of metastatic tumors indicating that metastatic potential can be identified in CMT before clinically and morphologically overt metastases. It will be therefore of interest to compare the gene expression profiles of lymph node negative CMT with a comprehensive clinical follow-up to identify potential predictive patterns similar to human breast cancer.</p>
+      <p>Generally, metastatic CMT were characterized by increased expression of cell division genes. These findings are identical to a recent meta-analysis on expression profiles of metastasizing human breast cancer which found cell cycle and DNA replication pathways most significantly up-regulated [<xref ref-type="bibr" rid="B10">10</xref>,<xref ref-type="bibr" rid="B13">13</xref>,<xref ref-type="bibr" rid="B47">47</xref>]. Unexpectedly, this expression profile of increased proliferation was accompanied by significantly decreased growth factor receptor expression. Increased proliferation and malignant transformation of most cancer types is at least in part commonly attributed to aberrant growth factor signaling. In addition, growth factor signaling is also a major differentiation impulse. The decreased growth factor pathway expression in metastatic carcinomas hence may be a possible cause for the altered expression of cell differentiation and unlocked cell growth regulation genes in these CMT. The dysregulation of cell cycle control is therefore a dominant, cross species feature metastatic mammary tumors. Common "driver" mutations of this cell proliferation in the tumor genome of both species are unknown at the moment. The partly overlapping transcriptome of metastatic canine and human carcinomas, however, indicate similar mechanisms of mammary carcinogenesis and a suitable molecular model character of canine mammary tumors.</p>
+      <p>Genes associated with focal adhesion and regulation of actin cytoskeleton organization were significantly down-regulated in metastasizing CMT. This is in agreement with the observation that loss of cell to cell contact is a major step in the metastatic process and has been observed in canine mammary tumors before [<xref ref-type="bibr" rid="B48">48</xref>,<xref ref-type="bibr" rid="B49">49</xref>]. The effect of the down-regulated pathway of actin regulation is somewhat unclear, but disorganization of the actin cytoskeleton is a common feature of malignant breast cancer cells [<xref ref-type="bibr" rid="B50">50</xref>]. Of interest qPCR analyses confirmed the differences in mRNA expression levels in metastatic and non-metastatic carcinomas although the fold change in expression difference consistently lower in the qPCR assays when compared with microarray assays for all eight genes analyzed. The eight genes, <italic>AURKA, ALOX12, BMP6, ERBB4, HEPACAM2, IGFR2, RAD51, TGFBR3</italic>, were selected due to their description in the literature on canine mammary tumors before[<xref ref-type="bibr" rid="B17">17</xref>,<xref ref-type="bibr" rid="B21">21</xref>-<xref ref-type="bibr" rid="B24">24</xref>,<xref ref-type="bibr" rid="B51">51</xref>]. Their gene expression has been described metastatic carcinomas, metastases, adenomas and normal mammary gland and these studies showed a similar tendency of changes in gene expression between benign and malignant canine mammary tissue types[<xref ref-type="bibr" rid="B17">17</xref>,<xref ref-type="bibr" rid="B21">21</xref>-<xref ref-type="bibr" rid="B24">24</xref>,<xref ref-type="bibr" rid="B51">51</xref>]. Of note, a comparison of the proteome of the same subset of tumours did not identify similar proteins[<xref ref-type="bibr" rid="B52">52</xref>].</p>
+    </sec>
+    <sec>
+      <title>Conclusion</title>
+      <p>In conclusion, our findings show that metastatic spread of CMT to the lymph nodes is associated with a gene expression profile of increased cell cycle progression, altered cell differentiation and decreased growth factor signaling. Furthermore, several matrix modulators and cell adhesion genes have an altered expression in metastatic tumor cells while angiogenesis gene expression is not differentially regulated in metastatic and non-metastatic CMT. Several major aspects of metastasis-associated gene expression are therefore similar between human and canine mammary tumors. Furthermore, the differential expression profiles in metastatic and non-metastatic carcinomas allow a prediction of clinical behavior and offer several new hypotheses for molecular pathways and networks involved in the metastatic process of canine mammary tumors.</p>
+    </sec>
+    <sec>
+      <title>List of abbreviations</title>
+      <p>ASAM: adipocyte-specific adhesion molecule; BLAST: basic local alignment search tool; CMT: canine mammary tumour; CYR61: cysteine-rich, angiogenic inducer 61; DAVID: database for annotation, visualization and integrated discovery; EGF: epidermal growth factor; EMILIN1: elastin microfibril interfacer 1; ER: estrogen receptor; ERBB2: epidermal growth factor receptor 2; FGF: fibroblast growth factor; FGFR1: fibroblast growth factor receptor 1; HEPACAM2: hepatocyte cellular adhesion molecule; ICAM2: intercellular adhesion molecule; IGF: insulin-like growth factor; ITGA4: integrin A4; JMJD6: jumonji domain containing 6; MET: hepatocyte growth factor; NRP1: neuropilin 1; PCDHGC3: protocadherin gamma subfamily C3; RIN: RNA integrity number; TBS: Tris-buffered saline; TGFB: tTransforming growth factor-beta; WHO: World Health Organization.</p>
+    </sec>
+    <sec>
+      <title>Competing interests</title>
+      <p>The authors declare that they have no competing interests.</p>
+    </sec>
+    <sec>
+      <title>Authors' contributions</title>
+      <p>All authors read and approved the manuscript. RK conducted the experimental work including microarray hybridization. RK and ADG designed the study, performed the histological analysis and the follow-up of the patients. DL, MH and RK accomplished the data analysis and prepared the manuscript.</p>
+    </sec>
+    <sec>
+      <title>Pre-publication history</title>
+      <p>The pre-publication history for this paper can be accessed here:</p>
+      <p>
+        <ext-link ext-link-type="uri" xlink:href="http://www.biomedcentral.com/1471-2407/10/618/prepub">http://www.biomedcentral.com/1471-2407/10/618/prepub</ext-link>
+      </p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="S1">
+        <caption>
+          <title>Additional file 1</title>
+          <p>Sequences of primers used for qPCR</p>
+        </caption>
+        <media xlink:href="1471-2407-10-618-S1.DOC" mimetype="application" mime-subtype="msword">
+          <caption>
+            <p>Click here for file</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="S2">
+        <caption>
+          <title>Additional file 2</title>
+          <p>excel data sheet, gene list of differentially expressed genes in metastatic CMT, selection criteria included fold-change &gt;2 or &lt;-2 and q &lt; 0.001</p>
+        </caption>
+        <media xlink:href="1471-2407-10-618-S2.XLS" mimetype="application" mime-subtype="vnd.ms-excel">
+          <caption>
+            <p>Click here for file</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <sec>
+      <title>Acknowledgements</title>
+      <p>We thank L. Brunnberg, H. Linzmann, M. K&#xF6;hle and T. Lottermoser for providing tumors samples and S. Mende and M. Sch&#xE4;rig for excellent technical assistance. Research by RK and ADG is funded be the German Research Council (DFG KL 2240/1).</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Benjamin</surname>
+            <given-names>SA</given-names>
+          </name>
+          <name>
+            <surname>Lee</surname>
+            <given-names>AC</given-names>
+          </name>
+          <name>
+            <surname>Saunders</surname>
+            <given-names>WJ</given-names>
+          </name>
+          <article-title>Classification and behavior of canine mammary epithelial neoplasms based on life-span observations in beagles</article-title>
+          <source>Vet Pathol</source>
+          <year>1999</year>
+          <volume>36</volume>
+          <issue>5</issue>
+          <fpage>423</fpage>
+          <lpage>436</lpage>
+          <pub-id pub-id-type="doi">10.1354/vp.36-5-423</pub-id>
+          <pub-id pub-id-type="pmid">10490210</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Kitchell</surname>
+            <given-names>BE</given-names>
+          </name>
+          <name>
+            <surname>Loar</surname>
+            <given-names>AS</given-names>
+          </name>
+          <person-group person-group-type="editor">Morgan RV</person-group>
+          <article-title>Diseases of the mammary glands</article-title>
+          <source>Handbook of Small Animal Practice</source>
+          <year>1997</year>
+          <edition>3</edition>
+          <publisher-name>WB Saunders, Philadelphia</publisher-name>
+          <fpage>615</fpage>
+          <lpage>625</lpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Misdorp</surname>
+            <given-names>W</given-names>
+          </name>
+          <person-group person-group-type="editor">Meuten DJ</person-group>
+          <article-title>Tumors of the mammary gland</article-title>
+          <source>Tumours in Domestic Animals</source>
+          <year>2002</year>
+          <edition>4</edition>
+          <publisher-name>Iowa State Press, Iowa</publisher-name>
+          <fpage>575</fpage>
+          <lpage>606</lpage>
+          <comment>full_text</comment>
+        </mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fitzgibbons</surname>
+            <given-names>PL</given-names>
+          </name>
+          <name>
+            <surname>Page</surname>
+            <given-names>DL</given-names>
+          </name>
+          <name>
+            <surname>Weaver</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Thor</surname>
+            <given-names>AD</given-names>
+          </name>
+          <name>
+            <surname>Allred</surname>
+            <given-names>DC</given-names>
+          </name>
+          <name>
+            <surname>Clark</surname>
+            <given-names>GM</given-names>
+          </name>
+          <name>
+            <surname>Ruby</surname>
+            <given-names>SG</given-names>
+          </name>
+          <name>
+            <surname>O'Malley</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Simpson</surname>
+            <given-names>JF</given-names>
+          </name>
+          <name>
+            <surname>Connolly</surname>
+            <given-names>JL</given-names>
+          </name>
+          <etal/>
+          <article-title>Prognostic factors in breast cancer. College of American Pathologists Consensus Statement 1999</article-title>
+          <source>Archives of pathology &amp; laboratory medicine</source>
+          <year>2000</year>
+          <volume>124</volume>
+          <issue>7</issue>
+          <fpage>966</fpage>
+          <lpage>978</lpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Misdorp</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Hart</surname>
+            <given-names>AA</given-names>
+          </name>
+          <article-title>Prognostic factors in canine mammary cancer</article-title>
+          <source>J Natl Cancer Inst</source>
+          <year>1976</year>
+          <volume>56</volume>
+          <issue>4</issue>
+          <fpage>779</fpage>
+          <lpage>786</lpage>
+          <pub-id pub-id-type="pmid">1255797</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Misdorp</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Hart</surname>
+            <given-names>AA</given-names>
+          </name>
+          <article-title>Canine mammary cancer. II. Therapy and causes of death</article-title>
+          <source>The Journal of small animal practice</source>
+          <year>1979</year>
+          <volume>20</volume>
+          <issue>7</issue>
+          <fpage>395</fpage>
+          <lpage>404</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1748-5827.1979.tb06744.x</pub-id>
+          <pub-id pub-id-type="pmid">470351</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Setoguchi</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Sakai</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Okuda</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Minehata</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Yazawa</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Ishizaka</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Watari</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Nishimura</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Sasaki</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Hasegawa</surname>
+            <given-names>A</given-names>
+          </name>
+          <etal/>
+          <article-title>Aberrations of the p53 tumor suppressor gene in various tumors in dogs</article-title>
+          <source>Am J Vet Res</source>
+          <year>2001</year>
+          <volume>62</volume>
+          <issue>3</issue>
+          <fpage>433</fpage>
+          <lpage>439</lpage>
+          <pub-id pub-id-type="doi">10.2460/ajvr.2001.62.433</pub-id>
+          <pub-id pub-id-type="pmid">11277210</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nieto</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Perez-Alenza</surname>
+            <given-names>MD</given-names>
+          </name>
+          <name>
+            <surname>Del Castillo</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Tabanera</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Castano</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Pena</surname>
+            <given-names>L</given-names>
+          </name>
+          <article-title>BRCA1 expression in canine mammary dysplasias and tumours: relationship with prognostic variables</article-title>
+          <source>J Comp Pathol</source>
+          <year>2003</year>
+          <volume>128</volume>
+          <issue>4</issue>
+          <fpage>260</fpage>
+          <lpage>268</lpage>
+          <pub-id pub-id-type="doi">10.1053/jcpa.2002.0631</pub-id>
+          <pub-id pub-id-type="pmid">12834609</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Muthuswamy</surname>
+            <given-names>SK</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Lelievre</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Bissell</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <name>
+            <surname>Brugge</surname>
+            <given-names>JS</given-names>
+          </name>
+          <article-title>ErbB2, but not ErbB1, reinitiates proliferation and induces luminal repopulation in epithelial acini</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2001</year>
+          <volume>3</volume>
+          <issue>9</issue>
+          <fpage>785</fpage>
+          <lpage>792</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb0901-785</pub-id>
+          <pub-id pub-id-type="pmid">11533657</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Thomassen</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Tan</surname>
+            <given-names>Q</given-names>
+          </name>
+          <name>
+            <surname>Kruse</surname>
+            <given-names>TA</given-names>
+          </name>
+          <article-title>Gene expression meta-analysis identifies metastatic pathways and transcription factors in breast cancer</article-title>
+          <source>BMC Cancer</source>
+          <year>2008</year>
+          <volume>8</volume>
+          <fpage>394</fpage>
+          <pub-id pub-id-type="doi">10.1186/1471-2407-8-394</pub-id>
+          <pub-id pub-id-type="pmid">19116006</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lu</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Lu</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>ZC</given-names>
+          </name>
+          <name>
+            <surname>Iglehart</surname>
+            <given-names>JD</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Richardson</surname>
+            <given-names>AL</given-names>
+          </name>
+          <article-title>Predicting features of breast cancer with gene expression patterns</article-title>
+          <source>Breast Cancer Res Treat</source>
+          <year>2008</year>
+          <volume>108</volume>
+          <issue>2</issue>
+          <fpage>191</fpage>
+          <lpage>201</lpage>
+          <pub-id pub-id-type="doi">10.1007/s10549-007-9596-6</pub-id>
+          <pub-id pub-id-type="pmid">18297396</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Weigelt</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Hu</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>He</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Livasy</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Carey</surname>
+            <given-names>LA</given-names>
+          </name>
+          <name>
+            <surname>Ewend</surname>
+            <given-names>MG</given-names>
+          </name>
+          <name>
+            <surname>Glas</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Perou</surname>
+            <given-names>CM</given-names>
+          </name>
+          <name>
+            <surname>Van't Veer</surname>
+            <given-names>LJ</given-names>
+          </name>
+          <article-title>Molecular portraits and 70-gene prognosis signature are preserved throughout the metastatic process of breast cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2005</year>
+          <volume>65</volume>
+          <issue>20</issue>
+          <fpage>9155</fpage>
+          <lpage>9158</lpage>
+          <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-05-2553</pub-id>
+          <pub-id pub-id-type="pmid">16230372</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>van 't Veer</surname>
+            <given-names>LJ</given-names>
+          </name>
+          <name>
+            <surname>Dai</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>van de Vijver</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <name>
+            <surname>He</surname>
+            <given-names>YD</given-names>
+          </name>
+          <name>
+            <surname>Hart</surname>
+            <given-names>AA</given-names>
+          </name>
+          <name>
+            <surname>Mao</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Peterse</surname>
+            <given-names>HL</given-names>
+          </name>
+          <name>
+            <surname>van der Kooy</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Marton</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <name>
+            <surname>Witteveen</surname>
+            <given-names>AT</given-names>
+          </name>
+          <etal/>
+          <article-title>Gene expression profiling predicts clinical outcome of breast cancer</article-title>
+          <source>Nature</source>
+          <year>2002</year>
+          <volume>415</volume>
+          <issue>6871</issue>
+          <fpage>530</fpage>
+          <lpage>536</lpage>
+          <pub-id pub-id-type="doi">10.1038/415530a</pub-id>
+          <pub-id pub-id-type="pmid">11823860</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Rao</surname>
+            <given-names>NA</given-names>
+          </name>
+          <name>
+            <surname>van Wolferen</surname>
+            <given-names>ME</given-names>
+          </name>
+          <name>
+            <surname>Gracanin</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Bhatti</surname>
+            <given-names>SF</given-names>
+          </name>
+          <name>
+            <surname>Krol</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Holstege</surname>
+            <given-names>FC</given-names>
+          </name>
+          <name>
+            <surname>Mol</surname>
+            <given-names>JA</given-names>
+          </name>
+          <article-title>Gene expression profiles of progestin-induced canine mammary hyperplasia and spontaneous mammary tumors</article-title>
+          <source>J Physiol Pharmacol</source>
+          <year>2009</year>
+          <volume>60</volume>
+          <issue>Suppl 1</issue>
+          <fpage>73</fpage>
+          <lpage>84</lpage>
+          <pub-id pub-id-type="pmid">19609016</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Uva</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Aurisicchio</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Watters</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Loboda</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Kulkarni</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Castle</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Palombo</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Viti</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Mesiti</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Zappulli</surname>
+            <given-names>V</given-names>
+          </name>
+          <etal/>
+          <article-title>Comparative expression pathway analysis of human and canine mammary tumors</article-title>
+          <source>BMC genomics</source>
+          <year>2009</year>
+          <volume>10</volume>
+          <fpage>135</fpage>
+          <pub-id pub-id-type="doi">10.1186/1471-2164-10-135</pub-id>
+          <pub-id pub-id-type="pmid">19327144</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Khanna</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Lindblad-Toh</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Vail</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>London</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Bergman</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Barber</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Breen</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Kitchell</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>McNeil</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Modiano</surname>
+            <given-names>JF</given-names>
+          </name>
+          <etal/>
+          <article-title>The dog as a cancer model</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <issue>9</issue>
+          <fpage>1065</fpage>
+          <lpage>1066</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt0906-1065b</pub-id>
+          <pub-id pub-id-type="pmid">16964204</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Klose</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>The combined expression pattern of BMP2, LTBP4, and DERL1 discriminates malignant from benign canine mammary tumors</article-title>
+          <source>Vet Pathol</source>
+          <year>2010</year>
+          <volume>47</volume>
+          <issue>3</issue>
+          <fpage>446</fpage>
+          <lpage>454</lpage>
+          <pub-id pub-id-type="doi">10.1177/0300985810363904</pub-id>
+          <pub-id pub-id-type="pmid">20375427</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Sassi</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Benazzi</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Castellani</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Sarli</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Molecular-based tumour subtypes of canine mammary carcinomas assessed by immunohistochemistry</article-title>
+          <source>BMC Vet Res</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <fpage>5</fpage>
+          <pub-id pub-id-type="doi">10.1186/1746-6148-6-5</pub-id>
+          <pub-id pub-id-type="pmid">20109214</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Misdorp</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Else</surname>
+            <given-names>RW</given-names>
+          </name>
+          <name>
+            <surname>Hellm&#xE9;n</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Lipscomb</surname>
+            <given-names>TP</given-names>
+          </name>
+          <source>Histological classification of mammary tumors of the dog and the cat</source>
+          <year>1999</year>
+          <volume>7</volume>
+          <publisher-name>Washington: Armed Forces Institute of Pathology</publisher-name>
+        </mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Elston</surname>
+            <given-names>CW</given-names>
+          </name>
+          <name>
+            <surname>Ellis</surname>
+            <given-names>IO</given-names>
+          </name>
+          <article-title>Pathological prognostic factors in breast cancer. I. The value of histological grade in breast cancer: experience from a large study with long-term follow-up</article-title>
+          <source>Histopathology</source>
+          <year>1991</year>
+          <volume>19</volume>
+          <issue>5</issue>
+          <fpage>403</fpage>
+          <lpage>410</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2559.1991.tb00229.x</pub-id>
+          <pub-id pub-id-type="pmid">1757079</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="other">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Henning</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Costa da</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Klose</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Insulin receptor is expressed in normal canine mammary gland and benign adenomas but decreased in metastatic canine mammary carcinomas similar to human breast cancer</article-title>
+          <source>Vet Comp Oncol</source>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">21062411</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Increased Expression of BRCA2 and RAD51 in Lymph Node Metastases of Canine Mammary Adenocarcinomas</article-title>
+          <source>Vet Pathol</source>
+          <year>2009</year>
+          <volume>46</volume>
+          <issue>3</issue>
+          <fpage>416</fpage>
+          <lpage>422</lpage>
+          <pub-id pub-id-type="doi">10.1354/vp.08-VP-0212-K-FL</pub-id>
+          <pub-id pub-id-type="pmid">19176491</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Klose</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>da Costa</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Brunnberg</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>HEPACAM1 and 2 are differentially regulated in canine mammary adenomas and carcinomas and its lymph node metastases</article-title>
+          <source>BMC Vet Res</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <fpage>15</fpage>
+          <pub-id pub-id-type="doi">10.1186/1746-6148-6-15</pub-id>
+          <pub-id pub-id-type="pmid">20226097</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="other">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Schutze</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Downregulation of transforming growth factor beta (TGFbeta) and latent TGFbeta binding protein (LTBP)-4 expression in late stage canine mammary tumours</article-title>
+          <source>The Veterinary Journal</source>
+          <year>2009</year>
+          <pub-id pub-id-type="pmid">19836277</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Derlin-1 and stanniocalcin-1 are differentially regulated in metastasizing canine mammary adenocarcinomas</article-title>
+          <source>J Comp Pathol</source>
+          <year>2009</year>
+          <volume>141</volume>
+          <issue>2-3</issue>
+          <fpage>113</fpage>
+          <lpage>120</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jcpa.2008.09.010</pub-id>
+          <pub-id pub-id-type="pmid">19515379</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Livak</surname>
+            <given-names>KJ</given-names>
+          </name>
+          <name>
+            <surname>Schmittgen</surname>
+            <given-names>TD</given-names>
+          </name>
+          <article-title>Analysis of relative gene expression data using real-time quantitative PCR and the 2(-Delta Delta C(T)) Method</article-title>
+          <source>Methods</source>
+          <year>2001</year>
+          <volume>25</volume>
+          <issue>4</issue>
+          <fpage>402</fpage>
+          <lpage>408</lpage>
+          <pub-id pub-id-type="doi">10.1006/meth.2001.1262</pub-id>
+          <pub-id pub-id-type="pmid">11846609</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Vandesompele</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>De Preter</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Pattyn</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Poppe</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Van Roy</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>De Paepe</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Speleman</surname>
+            <given-names>F</given-names>
+          </name>
+          <article-title>Accurate normalization of real-time quantitative RT-PCR data by geometric averaging of multiple internal control genes</article-title>
+          <source>Genome Biol</source>
+          <year>2002</year>
+          <volume>3</volume>
+          <issue>7</issue>
+          <fpage>RESEARCH0034</fpage>
+          <pub-id pub-id-type="doi">10.1186/gb-2002-3-7-research0034</pub-id>
+          <pub-id pub-id-type="pmid">12184808</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Etschmann</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Wilcken</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Stoevesand</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>von der Schulenburg</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Sterner-Kock</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Selection of reference genes for quantitative real-time PCR analysis in canine mammary tumors using the GeNorm algorithm</article-title>
+          <source>Vet Pathol</source>
+          <year>2006</year>
+          <volume>43</volume>
+          <issue>6</issue>
+          <fpage>934</fpage>
+          <lpage>942</lpage>
+          <pub-id pub-id-type="doi">10.1354/vp.43-6-934</pub-id>
+          <pub-id pub-id-type="pmid">17099150</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Cardin</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Libby</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Pelletier</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Le Bouter</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Shiroshita-Takeshita</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Le Meur</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Leger</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Demolombe</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Ponton</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Glass</surname>
+            <given-names>L</given-names>
+          </name>
+          <etal/>
+          <article-title>Contrasting gene expression profiles in two canine models of atrial fibrillation</article-title>
+          <source>Circ Res</source>
+          <year>2007</year>
+          <volume>100</volume>
+          <issue>3</issue>
+          <fpage>425</fpage>
+          <lpage>433</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.RES.0000258428.09589.1a</pub-id>
+          <pub-id pub-id-type="pmid">17234964</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Huang da</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Sherman</surname>
+            <given-names>BT</given-names>
+          </name>
+          <name>
+            <surname>Lempicki</surname>
+            <given-names>RA</given-names>
+          </name>
+          <article-title>Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources</article-title>
+          <source>Nat Protoc</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <issue>1</issue>
+          <fpage>44</fpage>
+          <lpage>57</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2008.211</pub-id>
+          <pub-id pub-id-type="pmid">19131956</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Hines</surname>
+            <given-names>LM</given-names>
+          </name>
+          <name>
+            <surname>Weng</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Zuo</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Rivera</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Richardson</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>LaBaer</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Analysis of genomic and proteomic data using advanced literature mining</article-title>
+          <source>J Proteome Res</source>
+          <year>2003</year>
+          <volume>2</volume>
+          <issue>4</issue>
+          <fpage>405</fpage>
+          <lpage>412</lpage>
+          <pub-id pub-id-type="doi">10.1021/pr0340227</pub-id>
+          <pub-id pub-id-type="pmid">12938930</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Salomonis</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Hanspers</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Zambon</surname>
+            <given-names>AC</given-names>
+          </name>
+          <name>
+            <surname>Vranizan</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Lawlor</surname>
+            <given-names>SC</given-names>
+          </name>
+          <name>
+            <surname>Dahlquist</surname>
+            <given-names>KD</given-names>
+          </name>
+          <name>
+            <surname>Doniger</surname>
+            <given-names>SW</given-names>
+          </name>
+          <name>
+            <surname>Stuart</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Conklin</surname>
+            <given-names>BR</given-names>
+          </name>
+          <name>
+            <surname>Pico</surname>
+            <given-names>AR</given-names>
+          </name>
+          <article-title>GenMAPP 2: new features and resources for pathway analysis</article-title>
+          <source>BMC bioinformatics</source>
+          <year>2007</year>
+          <volume>8</volume>
+          <fpage>217</fpage>
+          <pub-id pub-id-type="doi">10.1186/1471-2105-8-217</pub-id>
+          <pub-id pub-id-type="pmid">17588266</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Differential expression of cell cycle regulators p21, p27 and p53 in metastasizing canine mammary adenocarcinomas versus normal mammary glands</article-title>
+          <source>Res Vet Sci</source>
+          <year>2009</year>
+          <volume>87</volume>
+          <issue>1</issue>
+          <fpage>91</fpage>
+          <lpage>96</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.rvsc.2008.12.010</pub-id>
+          <pub-id pub-id-type="pmid">19185891</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Schutze</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Loss of p27 expression in canine mammary tumors and their metastases</article-title>
+          <source>Res Vet Sci</source>
+          <year>2010</year>
+          <volume>88</volume>
+          <issue>2</issue>
+          <fpage>300</fpage>
+          <lpage>303</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.rvsc.2009.08.007</pub-id>
+          <pub-id pub-id-type="pmid">19748645</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Benson</surname>
+            <given-names>JR</given-names>
+          </name>
+          <article-title>Role of transforming growth factor beta in breast carcinogenesis</article-title>
+          <source>The lancet oncology</source>
+          <year>2004</year>
+          <volume>5</volume>
+          <issue>4</issue>
+          <fpage>229</fpage>
+          <lpage>239</lpage>
+          <pub-id pub-id-type="doi">10.1016/S1470-2045(04)01426-3</pub-id>
+          <pub-id pub-id-type="pmid">15050954</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Schwertfeger</surname>
+            <given-names>KL</given-names>
+          </name>
+          <article-title>Fibroblast growth factors in development and cancer: insights from the mammary and prostate glands</article-title>
+          <source>Current drug targets</source>
+          <year>2009</year>
+          <volume>10</volume>
+          <issue>7</issue>
+          <fpage>632</fpage>
+          <lpage>644</lpage>
+          <pub-id pub-id-type="pmid">19601767</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Muraoka-Cook</surname>
+            <given-names>RS</given-names>
+          </name>
+          <name>
+            <surname>Feng</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Strunk</surname>
+            <given-names>KE</given-names>
+          </name>
+          <name>
+            <surname>Earp</surname>
+            <given-names>HS</given-names>
+          </name>
+          <article-title>ErbB4/HER4: role in mammary gland development, differentiation and growth inhibition</article-title>
+          <source>Journal of mammary gland biology and neoplasia</source>
+          <year>2008</year>
+          <volume>13</volume>
+          <issue>2</issue>
+          <fpage>235</fpage>
+          <lpage>246</lpage>
+          <pub-id pub-id-type="doi">10.1007/s10911-008-9080-x</pub-id>
+          <pub-id pub-id-type="pmid">18437540</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lah</surname>
+            <given-names>TT</given-names>
+          </name>
+          <name>
+            <surname>Kalman</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Najjar</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Gorodetsky</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Brennan</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Somers</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Daskal</surname>
+            <given-names>I</given-names>
+          </name>
+          <article-title>Cells producing cathepsins D, B, and L in human breast carcinoma and their association with prognosis</article-title>
+          <source>Human pathology</source>
+          <year>2000</year>
+          <volume>31</volume>
+          <issue>2</issue>
+          <fpage>149</fpage>
+          <lpage>160</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0046-8177(00)80214-2</pub-id>
+          <pub-id pub-id-type="pmid">10685628</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Van den Eynden</surname>
+            <given-names>GG</given-names>
+          </name>
+          <name>
+            <surname>Van Laere</surname>
+            <given-names>SJ</given-names>
+          </name>
+          <name>
+            <surname>Van der Auwera</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Trinh</surname>
+            <given-names>XB</given-names>
+          </name>
+          <name>
+            <surname>Van Marck</surname>
+            <given-names>EA</given-names>
+          </name>
+          <name>
+            <surname>Dirix</surname>
+            <given-names>LY</given-names>
+          </name>
+          <name>
+            <surname>Vermeulen</surname>
+            <given-names>PB</given-names>
+          </name>
+          <article-title>Two distinct expression patterns of urokinase, urokinase receptor and plasminogen activator inhibitor-1 in colon cancer liver metastases</article-title>
+          <source>Int J Cancer</source>
+          <year>2009</year>
+          <volume>125</volume>
+          <issue>6</issue>
+          <fpage>1494</fpage>
+          <lpage>1496</lpage>
+          <pub-id pub-id-type="doi">10.1002/ijc.24524</pub-id>
+          <pub-id pub-id-type="pmid">19536843</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nakopoulou</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Panayotopoulou</surname>
+            <given-names>EG</given-names>
+          </name>
+          <name>
+            <surname>Giannopoulou</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Alexandrou</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Katsarou</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Athanassiadou</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Keramopoulos</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Stromelysin-3 protein expression in invasive breast cancer: relation to proliferation, cell survival and patients' outcome</article-title>
+          <source>Mod Pathol</source>
+          <year>2002</year>
+          <volume>15</volume>
+          <issue>11</issue>
+          <fpage>1154</fpage>
+          <lpage>1161</lpage>
+          <pub-id pub-id-type="doi">10.1097/01.MP.0000037317.84782.CD</pub-id>
+          <pub-id pub-id-type="pmid">12429794</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Bon</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Di Carlo</surname>
+            <given-names>SE</given-names>
+          </name>
+          <name>
+            <surname>Folgiero</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Avetrani</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Lazzari</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>D'Orazi</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Brizzi</surname>
+            <given-names>MF</given-names>
+          </name>
+          <name>
+            <surname>Sacchi</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Soddu</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Blandino</surname>
+            <given-names>G</given-names>
+          </name>
+          <etal/>
+          <article-title>Negative regulation of beta4 integrin transcription by homeodomain-interacting protein kinase 2 and p53 impairs tumor progression</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <issue>14</issue>
+          <fpage>5978</fpage>
+          <lpage>5986</lpage>
+          <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-09-0244</pub-id>
+          <pub-id pub-id-type="pmid">19567674</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Moh</surname>
+            <given-names>MC</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Lee</surname>
+            <given-names>LH</given-names>
+          </name>
+          <name>
+            <surname>Shen</surname>
+            <given-names>S</given-names>
+          </name>
+          <article-title>Expression of hepaCAM is downregulated in cancers and induces senescence-like growth arrest via a p53/p21-dependent pathway in human breast cancer cells</article-title>
+          <source>Carcinogenesis</source>
+          <year>2008</year>
+          <volume>29</volume>
+          <issue>12</issue>
+          <fpage>2298</fpage>
+          <lpage>2305</lpage>
+          <pub-id pub-id-type="doi">10.1093/carcin/bgn226</pub-id>
+          <pub-id pub-id-type="pmid">18845560</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B43">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Yoon</surname>
+            <given-names>KJ</given-names>
+          </name>
+          <name>
+            <surname>Phelps</surname>
+            <given-names>DA</given-names>
+          </name>
+          <name>
+            <surname>Bush</surname>
+            <given-names>RA</given-names>
+          </name>
+          <name>
+            <surname>Remack</surname>
+            <given-names>JS</given-names>
+          </name>
+          <name>
+            <surname>Billups</surname>
+            <given-names>CA</given-names>
+          </name>
+          <name>
+            <surname>Khoury</surname>
+            <given-names>JD</given-names>
+          </name>
+          <article-title>ICAM-2 expression mediates a membrane-actin link, confers a nonmetastatic phenotype and reflects favorable tumor stage or histology in neuroblastoma</article-title>
+          <source>PloS one</source>
+          <year>2008</year>
+          <volume>3</volume>
+          <issue>11</issue>
+          <fpage>e3629</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0003629</pub-id>
+          <pub-id pub-id-type="pmid">18978946</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B44">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Christgen</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Christgen</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Heil</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Krech</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Langer</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Kreipe</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Lehmann</surname>
+            <given-names>U</given-names>
+          </name>
+          <article-title>Expression of KAI1/CD82 in distant metastases from estrogen receptor-negative breast cancer</article-title>
+          <source>Cancer science</source>
+          <year>2009</year>
+          <volume>100</volume>
+          <issue>9</issue>
+          <fpage>1767</fpage>
+          <lpage>1771</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1349-7006.2009.01231.x</pub-id>
+          <pub-id pub-id-type="pmid">19549254</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B45">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Hirschfeld</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>zur Hausen</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Bettendorf</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Jager</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Stickeler</surname>
+            <given-names>E</given-names>
+          </name>
+          <article-title>Alternative splicing of Cyr61 is regulated by hypoxia and significantly changed in breast cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <issue>5</issue>
+          <fpage>2082</fpage>
+          <lpage>2090</lpage>
+          <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-08-1997</pub-id>
+          <pub-id pub-id-type="pmid">19244129</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B46">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Gagnon</surname>
+            <given-names>ML</given-names>
+          </name>
+          <name>
+            <surname>Bielenberg</surname>
+            <given-names>DR</given-names>
+          </name>
+          <name>
+            <surname>Gechtman</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Miao</surname>
+            <given-names>HQ</given-names>
+          </name>
+          <name>
+            <surname>Takashima</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Soker</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Klagsbrun</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Identification of a natural soluble neuropilin-1 that binds vascular endothelial growth factor: In vivo expression and antitumor activity</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>2000</year>
+          <volume>97</volume>
+          <issue>6</issue>
+          <fpage>2573</fpage>
+          <lpage>2578</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.040337597</pub-id>
+          <pub-id pub-id-type="pmid">10688880</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B47">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Klijn</surname>
+            <given-names>JG</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Sieuwerts</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Look</surname>
+            <given-names>MP</given-names>
+          </name>
+          <name>
+            <surname>Yang</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Talantov</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Timmermans</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Meijer-van Gelder</surname>
+            <given-names>ME</given-names>
+          </name>
+          <name>
+            <surname>Yu</surname>
+            <given-names>J</given-names>
+          </name>
+          <etal/>
+          <article-title>Gene-expression profiles to predict distant metastasis of lymph-node-negative primary breast cancer</article-title>
+          <source>Lancet</source>
+          <year>2005</year>
+          <volume>365</volume>
+          <issue>9460</issue>
+          <fpage>671</fpage>
+          <lpage>679</lpage>
+          <pub-id pub-id-type="pmid">15721472</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B48">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Gama</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Paredes</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Gartner</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Alves</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Schmitt</surname>
+            <given-names>F</given-names>
+          </name>
+          <article-title>Expression of E-cadherin, P-cadherin and beta-catenin in canine malignant mammary tumours in relation to clinicopathological parameters, proliferation and survival</article-title>
+          <source>Vet J</source>
+          <year>2008</year>
+          <volume>177</volume>
+          <issue>1</issue>
+          <fpage>45</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.tvjl.2007.05.024</pub-id>
+          <pub-id pub-id-type="pmid">17631398</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B49">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>De Matos</surname>
+            <given-names>AJ</given-names>
+          </name>
+          <name>
+            <surname>Lopes</surname>
+            <given-names>CC</given-names>
+          </name>
+          <name>
+            <surname>Faustino</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Carvalheira</surname>
+            <given-names>JG</given-names>
+          </name>
+          <name>
+            <surname>Rutteman</surname>
+            <given-names>GR</given-names>
+          </name>
+          <name>
+            <surname>Gartner Mde</surname>
+            <given-names>F</given-names>
+          </name>
+          <article-title>E-cadherin, beta-catenin, invasion and lymph node metastases in canine malignant mammary tumours</article-title>
+          <source>Apmis</source>
+          <year>2007</year>
+          <volume>115</volume>
+          <issue>4</issue>
+          <fpage>327</fpage>
+          <lpage>334</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1600-0463.2007.apm_544.x</pub-id>
+          <pub-id pub-id-type="pmid">17504299</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B50">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Otto</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Muller</surname>
+            <given-names>CS</given-names>
+          </name>
+          <name>
+            <surname>Huff</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Hannappel</surname>
+            <given-names>E</given-names>
+          </name>
+          <article-title>Chemotherapeutic drugs change actin skeleton organization and the expression of beta-thymosins in human breast cancer cells</article-title>
+          <source>Journal of cancer research and clinical oncology</source>
+          <year>2002</year>
+          <volume>128</volume>
+          <issue>5</issue>
+          <fpage>247</fpage>
+          <lpage>256</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00432-002-0332-7</pub-id>
+          <pub-id pub-id-type="pmid">12029440</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B51">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Schutze</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>RAD51 protein expression is increased in canine mammary carcinomas</article-title>
+          <source>Vet Pathol</source>
+          <year>2010</year>
+          <volume>47</volume>
+          <issue>1</issue>
+          <fpage>98</fpage>
+          <lpage>101</lpage>
+          <pub-id pub-id-type="doi">10.1177/0300985809353310</pub-id>
+          <pub-id pub-id-type="pmid">20080488</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B52">
+        <mixed-citation publication-type="other">
+          <name>
+            <surname>Klopfleisch</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Klose</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Weise</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Bondzio</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Multhaup</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Einspanier</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Gruber</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>The Proteome of Metastatic Canine Mammary Carcinomas: Similarities and Differences to Human Breast Cancer</article-title>
+          <source>J Proteome Res</source>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20932060</pub-id>
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

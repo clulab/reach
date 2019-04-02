@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0217513</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1037</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biochim Biophys Acta</journal-id>
+      <journal-title-group>
+        <journal-title>Biochimica et biophysica acta</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0006-3002</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21605601</article-id>
+      <article-id pub-id-type="pmc">3123388</article-id>
+      <article-id pub-id-type="doi">10.1016/j.bbamcr.2011.05.006</article-id>
+      <article-id pub-id-type="manuscript">NIHMS296893</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>INTRACELLULAR &#x3B1;<sub>2C</sub>-ADRENOCEPTORS: STORAGE DEPOT, STUNTED DEVELOPMENT OR SIGNALING DOMAIN?</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chotani</surname>
+            <given-names>Maqsood A</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Flavahan</surname>
+            <given-names>Nicholas A</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Center for Cardiovascular and Pulmonary Research, The Research Institute at Nationwide Children&#x2019;s Hospital, Columbus, OH 43205, and Department of Pediatrics, The Ohio State University, Columbus OH 43210 
+</aff>
+      <aff id="A2"><label>2</label>Department of Anesthesiology and Critical Care Medicine, Johns Hopkins University, Baltimore MD 21205 
+</aff>
+      <author-notes>
+        <corresp id="CR1"><underline>Correspondence</underline>: Nicholas A. Flavahan, Ph D., Department of Anesthesiology, Johns Hopkins University, Ross Research Building, R1159, 720 Rutland Ave, Baltimore, MD 21205, Phone: 410-502-6738, Fax: 410-502-7007, <email>nflavah1@jhmi.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>17</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>14</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>8</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>8</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>1813</volume>
+      <issue>8</issue>
+      <fpage>1495</fpage>
+      <lpage>1503</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2011 Elsevier B.V. All rights reserved.</copyright-statement>
+        <copyright-year>2011</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">G-protein coupled receptors (GPCRs) are generally considered to function as cell surface signaling structures that respond to extracellular mediators, many of which do not readily access the cell&#x2019;s interior. Indeed, most GPCRs are preferentially targeted to the plasma membrane. However, some receptors, including &#x3B1;<sub>2C</sub>-adrenoceptors, challenge conventional concepts of GPCR activity by being preferentially retained and localized within intracellular organelles. This review will address the issues associated with this unusual GPCR localization and discuss whether it represents a novel sub-cellular niche for GPCR signaling, whether these receptors are being stored for rapid deployment to the cell surface, or whether they represent immature or incomplete receptor systems.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Signal transduction</kwd>
+        <kwd>Endoplasmic Reticulum</kwd>
+        <kwd>Golgi</kwd>
+        <kwd>cold</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

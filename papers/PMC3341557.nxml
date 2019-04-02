@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8100316</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1138</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biomaterials</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomaterials</journal-id>
+      <journal-title-group>
+        <journal-title>Biomaterials</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0142-9612</issn>
+      <issn pub-type="epub">1878-5905</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22483243</article-id>
+      <article-id pub-id-type="pmc">3341557</article-id>
+      <article-id pub-id-type="doi">10.1016/j.biomaterials.2012.03.050</article-id>
+      <article-id pub-id-type="manuscript">NIHMS365628</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The stimulation of adipose-derived stem cell differentiation and mineralization by ordered rod-like fluorapatite coatings</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Xiaodong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jin</surname>
+            <given-names>Qiming</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jin</surname>
+            <given-names>Taocong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>chang</surname>
+            <given-names>Syweren</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Zhaocheng</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Czajka-Jakubowska</surname>
+            <given-names>Agata</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">d</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Giannobile</surname>
+            <given-names>William V.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>N&#xF6;r</surname>
+            <given-names>Jacques E.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Clarkson</surname>
+            <given-names>Brian H</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>Department of Cariology, Restorative Sciences and Endodontics, Dental School, University of Michigan, 1011 N. University Ave., Ann Arbor, MI 48109, USA</aff>
+      <aff id="A2"><label>b</label>Department of Operative Dentistry &amp; Endodontics, School of Stomatology, Fourth Military Medical University, No.145 Western Changle Road, Xi&#x2019;an, Shaanxi 710032, P.R. China</aff>
+      <aff id="A3"><label>c</label>Department of Periodontics and Oral Medicine, Dental School, University of Michigan, 1011 N. University Ave., Ann Arbor, MI 48109, USA</aff>
+      <aff id="A4"><label>d</label>Department of Conservative Dentistry and Periodontology, Poznan University of Medical Sciences, Poznan, Poland</aff>
+      <author-notes>
+        <corresp id="cor1"><label>*</label>Corresponding author. Dental School, University of Michigan, 1011 N. University Ave., Ann Arbor, MI 48109, USA Tel.: +1 734 7633754; fax: +1 734 9361597. <email>junlc@umich.edu</email> (J. Liu)</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>3</day>
+        <month>4</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>06</day>
+        <month>4</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>7</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>7</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>33</volume>
+      <issue>20</issue>
+      <fpage>5036</fpage>
+      <lpage>5046</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Elsevier Ltd. All rights reserved.</copyright-statement>
+        <copyright-year>2012</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">In this study, the effect of ordered rod-like FA coatings of metal discs on adipose-derived stem cell (ASC)&#x2019;s growth, differentiation and mineralization was studied <italic>in vitro</italic>; and their mineral inductive effects <italic>in vivo</italic>. After 3 and 7 days, the cell number on the metal surfaces was significantly higher than those on the ordered and disordered FA surfaces. However, after 4 weeks much greater amounts of mineral formation was induced on the two FA surfaces with and even without osteogenesis induction. The osteogenic profiles showed the up regulation of a set of pro-osteogenic transcripts and bone mineralization phenotypic markers when the ASCs were grown on FA surfaces compared to metal surfaces at 7 and 21 days. In addition to BMP and TGF&#x3B2; signaling pathways, EGF and FGF pathways also appeared to be involved in ASC differentiation and mineralization. <italic>In vivo</italic> studies showed accelerated and enhanced mineralized tissue formation integrated within ordered FA coatings. After 5 weeks, over 80 % of the ordered FA coating was integrated with a mineralized tissue layer covering the implants. Both the intrinsic properties of the FA crystals and the topography of the FA coating appeared to dominate the cell differentiation and mineralization process.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Fluorapatite</kwd>
+        <kwd>differentiation</kwd>
+        <kwd>mineralization</kwd>
+        <kwd>gene profile</kwd>
+        <kwd>stem cells</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

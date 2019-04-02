@@ -1,0 +1,2454 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">BMC Vet Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">BMC Vet. Res</journal-id>
+      <journal-title-group>
+        <journal-title>BMC Veterinary Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1746-6148</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25142032</article-id>
+      <article-id pub-id-type="pmc">4236833</article-id>
+      <article-id pub-id-type="publisher-id">s12917-014-0171-1</article-id>
+      <article-id pub-id-type="doi">10.1186/s12917-014-0171-1</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Recombinant porcine epidermal growth factor-secreting <italic>Lactococcus lactis</italic> promotes the growth performance of early-weaned piglets</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" id="A1">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Dingyue</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>wong-dy@hotmail.com</email>
+        </contrib>
+        <contrib contrib-type="author" id="A2">
+          <name>
+            <surname>Xu</surname>
+            <given-names>Shengyu</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>shengyu_x@hotmail.com</email>
+        </contrib>
+        <contrib contrib-type="author" id="A3">
+          <name>
+            <surname>Lin</surname>
+            <given-names>Yan</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>able588@163.com</email>
+        </contrib>
+        <contrib contrib-type="author" id="A4">
+          <name>
+            <surname>Fang</surname>
+            <given-names>Zhengfeng</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>fangzhengfeng@hotmail.com</email>
+        </contrib>
+        <contrib contrib-type="author" id="A5">
+          <name>
+            <surname>Che</surname>
+            <given-names>Lianqiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>clianqiang@hotmail.com</email>
+        </contrib>
+        <contrib contrib-type="author" id="A6">
+          <name>
+            <surname>Xue</surname>
+            <given-names>Bai</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>xuebai68@163.com</email>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes" id="A7">
+          <name>
+            <surname>Wu</surname>
+            <given-names>De</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>pig2pig@sina.com.cn</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Institute of Animal Nutrition, Key Laboratory for Animal Disease Resistance Nutrition of Sichuan Province, Sichuan Agricultural University, Ya&#x2019;an 625014Sichuan, China</aff>
+      <pub-date pub-type="collection">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>21</day>
+        <month>8</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>10</volume>
+      <fpage>171</fpage>
+      <lpage>171</lpage>
+      <history>
+        <date date-type="received">
+          <day>28</day>
+          <month>11</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>21</day>
+          <month>7</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Wang et al.; licensee BioMed Central Ltd</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <copyright-holder>Wang et al.; licensee BioMed Central Ltd</copyright-holder>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0">
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/2.0">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly credited. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+        </license>
+      </permissions>
+      <self-uri xlink:href="http://www.biomedcentral.com/1746-6148/10/171"/>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>Epidermal growth factor (EGF) is an important growth factor in regulation of cell proliferation, differentiation, survival and apoptosis. Studies showed that food-grade <italic>Lactococcus lactis</italic> (<italic>L. lactis</italic>) and NICE expression system have superior performance in exogenous protein expression. This study aimed to construct and express porcine EGF (pEGF), and use <italic>L. lactis</italic> as vehicle for producing and delivering pEGF. Furthermore, investigating biological activity of pEGF and exploring applications feasibility of combination effects of <italic>L. lactis</italic> and pEGF on early weaned piglets&#x2019; production.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>A recombinant <italic>Lactococcus lactis</italic> which produced and secreted pEGF at 1000 ng/ml in culture supernatant was generated. Secreted pEGF was a fully biologically active protein, as demonstrated by its capacity to stimulate L929 mouse fibroblast cell line proliferation <italic>in vitro</italic>. For <italic>in vivo</italic> study, forty piglets were randomly allocated to control, antibiotic control, empty vector-expressing <italic>L. lactis</italic> (LL-EV) and pEGF-secreting <italic>L. lactis</italic> (LL-pEGF). After 14 d of rearing, final body weight and average daily gain in LL-pEGF were greater (<italic>P</italic> &lt; 0.05, 8.95 vs. 8.37 kg, 206.1 vs. 157.7 g/day, respectively) than those in control, but no significant differences between LL-pEGF, LL-EV and antibiotic control. Overall period average daily feed intake was higher in LL-pEGF, LL-EV and antibiotic control than in control (<italic>P</italic> &lt; 0.05, 252.9, 255.6, 250.0, 207.3 g/day, respectively). No significant difference was observed on ADFI/ADG. LL-pEGF increased villous height in the duodenum, jejunum and ileum than in control and LL-EV (<italic>P</italic> &lt; 0.05). Sucrase in the 3 intestinal segments, aminopeptidase A in the duodenum and Jejunum, aminopeptidase N and dipeptidase IV in the duodenum in LL-pEGF were higher than those in control (<italic>P</italic> &lt; 0.05). Furthermore, <italic>Escherichia coli</italic> and <italic>Enterococcus</italic> counts decreased in the ileum and <italic>Lactobacillus</italic> increased in the ileum and cecum digesta in LL-pEGF compare with the control (<italic>P</italic> &lt; 0.05). <italic>Lactobacillus</italic> increased in the cecum in LL-EV compared with control and antibiotic control (<italic>P</italic> &lt; 0.05).</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>We have generated a recombinant <italic>Lactococcus lactis</italic> which produced and secreted fully biologically active porcine EGF. Oral administration of pEGF-secreting <italic>L. lactis</italic> had beneficial effects on intestinal health and performance of early-weaned piglets.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>Porcine epidermal growth factor</kwd>
+        <kwd>Lactococcus lactis</kwd>
+        <kwd>Early-weaned piglets</kwd>
+        <kwd>Intestinal development</kwd>
+        <kwd>Production performance</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Background</title>
+      <p>Free-ranging domestic piglets start to eat solid food from the age of about 3&#xA0;weeks, and gradually eat increasing amounts of solid food before weaning at between 13&#xA0;weeks and 17&#xA0;weeks when the piglet has free access to its mother, closely resembling that of wild boars and feral pigs [<xref ref-type="bibr" rid="B1">1</xref>]-[<xref ref-type="bibr" rid="B4">4</xref>]. The weaning time is reported to be earlier in a loose-housing system of about 11&#xA0;weeks to 12&#xA0;weeks [<xref ref-type="bibr" rid="B5">5</xref>]. Based on information from several experiments and surveys, it has been concluded that early weaning at 3-4 weeks can be an effective management strategy to improve wean-to-finish growth performance and provide a higher number of piglets per sow per year in commercial multi-site production systems which would well control the disease transfer from the sow to the piglet [<xref ref-type="bibr" rid="B6">6</xref>]. When weaning at this time, a piglet&#x2019;s digestive apparatus is undeveloped and an abrupt transition from maternal milk to solid feed entails several problems. This leads to damaged mucosal integrity and reduced enzyme activities, and quite an amount of undigested nutrients are available for enteric pathogenic bacteria, which changes the intestinal microbiota and increases the rate of diarrhea. Although the application of antibiotics alleviated this problem to some extent, antibiotic use induced antibiotic-resistant bacteria generation, resulting in restriction of the use of antibiotics in present animal production [<xref ref-type="bibr" rid="B7">7</xref>]-[<xref ref-type="bibr" rid="B9">9</xref>]. How to help piglets overcoming post-weaning stress without any side effects are attracting people's attention at the present stage.</p>
+      <p>Stimulatory effects of colostrums and milk on growth and development of the intestine have long been recognized, and the putative role of milkborne growth factors in mediating this development has been the subject of considerable investigation [<xref ref-type="bibr" rid="B10">10</xref>],[<xref ref-type="bibr" rid="B11">11</xref>]. Epidermal growth factor (EGF), a small mitogenic polypeptide comprising 53 amino acid residues is typically present at about 1500&#xA0;ng/ml and 124&#xA0;ng/ml in porcine colostrum and mature milk, respectively [<xref ref-type="bibr" rid="B12">12</xref>]. EGF is synthesized in the salivary glands and kidneys and, to a lesser extent, in the lactating mammary glands, small intestine, liver and pancreas [<xref ref-type="bibr" rid="B13">13</xref>]-[<xref ref-type="bibr" rid="B15">15</xref>]. EGF has high stability in the gastrointestinal tract of human, mouse, rat and pig, especially in the gastric lumen and the proximal and mid-intestine lumen, with a higher degradation in the distal intestine lumen [<xref ref-type="bibr" rid="B16">16</xref>]-[<xref ref-type="bibr" rid="B20">20</xref>]. EGF signals via binding to the EGF receptor (EGFR, also known as ErbB1), a transmembrane receptor tyrosine kinase of the ErbB family [<xref ref-type="bibr" rid="B21">21</xref>],[<xref ref-type="bibr" rid="B22">22</xref>]. Binding of EGF receptor to EGF leads to autophosphorylation of receptor tyrosine kinase and subsequent activation of signal transduction pathways that are involved in regulating cellular survival, growth, proliferation and differentiation [<xref ref-type="bibr" rid="B23">23</xref>],[<xref ref-type="bibr" rid="B24">24</xref>]. The effects of EGF in stimulating growth of the gastrointestinal tract and inducing small intestinal enzymes have been reported [<xref ref-type="bibr" rid="B12">12</xref>],[<xref ref-type="bibr" rid="B25">25</xref>]-[<xref ref-type="bibr" rid="B27">27</xref>]. EGF was also found to reduce the colonization of the intestinal epithelium by enteropathogens [<xref ref-type="bibr" rid="B28">28</xref>].</p>
+      <p><italic>Lactococcus lactis</italic> is a food-grade, Gram-positive lactic acid bacterium that, in addition to its traditional use in food fermentations, is increasingly used in modern biotechnological applications. <italic>L. lactis</italic> is a novel cell factory for the production of proteins and bioactive compounds. Using pAMJ399 as an expression vector, which contains a pH-regulated promoter, P170, and an erythromycin-resistance gene for selection, Cheung et al. (2009) found that the transgenic <italic>L. lactis</italic> produced about 0.5 ug EGF per milliliter culture supernatant [<xref ref-type="bibr" rid="B29">29</xref>]. However, transcription from P170 was induced between pH&#xA0;6.5 and pH&#xA0;6.0, only when the culture entered stationary phase [<xref ref-type="bibr" rid="B30">30</xref>]. The protein production ability of <italic>L. lactis</italic> was facilitated by the development of an efficient expression system, such as the Nisin-controlled expression (NICE) system. The NICE system consists of a bacterial host with <italic>nisRK</italic> regulatory genes integrated into the chromosome and an expression vector carrying the gene of interest under the control of a <italic>nisA</italic> promoter [<xref ref-type="bibr" rid="B31">31</xref>]. Using this system, expression can be efficiently controlled through the addition of nisin [<xref ref-type="bibr" rid="B31">31</xref>]. The <italic>ups45</italic> gene encodes the major extracellular protein Usp45 from <italic>L. lactis</italic> MG1363. Chimeras of the 27-amino-acid Usp45 signal peptide (SP<sub><italic>usp45</italic></sub>), fused to a number of mature proteins and peptides, have been used to drive secretion by <italic>L. lactis</italic>, which is metabolically active in all compartments of the intestinal tract. Kuipers et al. (1995) found that lactococcal nisin biosynthesis was autoregulated in <italic>L. lactis</italic>[<xref ref-type="bibr" rid="B32">32</xref>]<italic>.</italic> Further study established that exogenous proteins production continued in <italic>L. lactis</italic> 10&#xA0;h after a 1-h nisin-pulse induction [<xref ref-type="bibr" rid="B33">33</xref>]. Therefore, NICE system is an ideal expression system to secrete foreign proteins. The first objective of the present study was to test the hypothesis that porcine EGF can be produced and efficiently secreted in the NICE system by <italic>L. lactis</italic> in a soluble and biologically active form. A second objective was to further determine the effects of oral administration pEGF<bold>-</bold>secreting <italic>L. lactis</italic> whole-cell suspension on intestinal development, digestive enzyme activities, intestinal microbiota and the performance of segregated early weaned pigs, to explore the application feasibility of the effects of microflora and specificity functional protein in the actual production.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Bacterial strains, plasmids and growth media</title>
+        <p>The expression strain <italic>L. lactis</italic> NZ9000 (NIZO food research B.V., Netherlands) was propagated in M17 (Difco, NJ, USA) containing 0.5% (wt/vol) glucose at 30&#xB0;C without shaking. <italic>Escherichia coli</italic> (<italic>E. coli</italic>) DH5<sub>&#x3B1;</sub> strains were grown in Luria-Bertani medium at 37&#xB0;C under aeration. The expression vector pNZ8148 (NIZO food research B.V., Netherlands) used in <italic>L. lactis</italic> NZ9000 has a chloromycetin-resistance gene for selection. Antibiotics were used when appropriate at the following concentrations: 5&#xA0;&#x3BC;g/ml chloramphenicol and 50&#xA0;&#x3BC;g/ml ampicillin.</p>
+      </sec>
+      <sec>
+        <title>Construction of recombinant L. lactis NZ9000/pNZ8148-SPUsp45-MPpEGF</title>
+        <p>Total RNA was isolated form renal tissue of newborn Meishan piglets using the Trizol (Invitrogen, Carlsbad, CA, USA) method according to the manufacturer&#x2019;s instructions. Reverse transcription and polymerase chain reactions (PCR) were carried out to amplify the mature pEGF (MPpEGF) sequence (GenBank: NM_214020.1, 2908..3066), using forward primers F1, F2, F3 and reverse primer R. The sequence of the primers were (Bold letters indicate the addition of restriction enzyme sites of <italic>Nco</italic>I and <italic>Sac</italic>I): F1, 5&#x2032;-GCT GCA GCC CCG TTG TCA GGT GTT TAC GCT AAT AGT TAC TCT GAA TGC C-3&#x2032;; F2, 5&#x2032;-CA GCT ATT TTA ATG TCT ACA GTG ATA CTT TCT GCT GCA GCC CCG TTG TCA G-3&#x2032;; F3, 5&#x2032;-CAT G<bold>CC ATG G</bold>CT AAA AAA AAG ATT ATC TCA GCT ATT TTA ATG TCT AC-3&#x2032; and R: 5&#x2032;-C <bold>GAG CTC</bold> TTA GCG CAG CTC CCA CCA TTT CAA G-3&#x2032;. The signal sequence of the major secreted protein Usp45 of <italic>L. lactis subsp. cremoris</italic> MG1363 was contained in the forward primers F1, F2, and F3 with a whole length of the 81 base pairs (GenBank EU382094.1). A unique high fidelity DNA polymerase PrimeSTARTM HS DNA Polymerase (TaKaRa, Osaka, Japan) was used in PCR. The PCR conditions were [98&#xB0;C (10&#xA0;sec), 55&#xB0;C (5&#xA0;sec), 72&#xB0;C (1&#xA0;min)] for 30&#xA0;cycles. The primers amplified a 259-bp fragment contained 81-bp of SPUsp45 and 159-bp of MPpEGF. TaKaRa LA Taq (Takara, Osaka, Japan) was finally used to amplify the 259-bp DNA fragment with a 3&#x2032;-A for TA cloning with forward primer F3 and reverse primer R. The 259-bp fusion fragment was verified by 1.2% agarose gel electrophoresis and gel-purified by using an E.Z.N.A.&#x2122; Gel Extraction Kit and ligated into pMD19-T Simple Vector to generate pMD19-SPUsp45-MPpEGF. After transforming into <italic>E. coli</italic> DH5<sub>&#x3B1;</sub> competent cells, positive clones were identified by sequencing, and then pMD19-SPUsp45-MPpEGF was digested with <italic>Nco</italic>I and <italic>Sac</italic>I to release the SPUsp45-MPpEGF insert. The purified insert was subsequently cloned into the corresponding site of expression vector pNZ8148 that was linearized with <italic>Nco</italic>I and <italic>Sac</italic>I. The resultant construct, known as pNZ8148-SPUsp45-MPpEGF, had a sequence of SPUsp45-MPpEGF placed behind the inducible promoter P<sub>nisA</sub> on the plasmid (Figure&#xA0;<xref ref-type="fig" rid="F1">1</xref>). The expression construct was then transformed into <italic>E. coli</italic> MC1061; DNA sequencing confirmed the identity of the plasmid. Finally, the plasmid was transformed into <italic>L. lactis</italic> NZ9000 competent cell by electroporation. Recombinant <italic>L. lactis</italic> NZ9000/pNZ8148-SPUsp45-MPpEGF was amplified with primers F0 (F0: 5&#x2032;-ATAACGCGAGCATAATAAAC-3&#x2032;) and R and sequenced to select positive recombinant strains. The empty vector pNZ8148 was also transformed into <italic>L. lactis</italic> NZ9000 and was designated as a control (LL-EV).</p>
+        <fig id="F1" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p><bold>Schematic representation of pNZ8148-SPUsp45-MpEGF vector expression of MpEGF in</bold><bold><italic>L. lactis</italic></bold><bold>.</bold> A 159-bp DNA fragment encoding mature porcine EGF (MpEGF) was fused in frame with an 81-bp DNA fragment containing the Usp45 signal peptide, derived from the predominant <italic>L. lactis</italic>-secreted protein. In this plasmid, pEGF expression is controlled by the nisin-inducible promoter (P<sub><italic>nisA</italic></sub>). The pNZ8148-SPUsp45-MpEGF carries the chloramphenicol resistance marker (cm).</p>
+          </caption>
+          <graphic xlink:href="s12917-014-0171-1-1"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Nisin induction</title>
+        <p>According to the growth and induction condition for <italic>L. lactis</italic> optimized by NIZO, nisin induction of the recombinant <italic>L. lactis</italic> strain was performed as follows. From a culture grown overnight, a 4% (vol/vol) inoculum was transferred to fresh medium and bacteria were grown at 30&#xB0;C until the optical density at 600&#xA0;nm was 0.4. Nisin A (Sigma, St Louis, MO, USA) was added at a final concentration of 1&#xA0;ng/ml, and <italic>L. lactis</italic> cells were propagated for 4&#xA0;h to 24&#xA0;h before harvesting.</p>
+      </sec>
+      <sec>
+        <title>Western blot analysis</title>
+        <p>Western blotting was performed as described [<xref ref-type="bibr" rid="B34">34</xref>]. Proteins in cell lysates and supernatant fluids were separated on 15% sodium dodecyl sulfate polyacrylamide gels and then transferred to polyvinylidene fluoride (PVDF; Millipore, Billerica, MA, USA) membranes. The blots were blocked in skim milk-phosphate-buffered saline (PBS) and then incubated with primary anti-EGF (1:500 dilution; Cell Sciences, Canton, MA), followed by incubation with a secondary antibody (anti-rabbit IgG horseradish peroxidase-linked anti body, 1:2000; Cell Signaling Technology, MA, USA). Proteins were detected by the enhanced chemiluminescence (ECL) Advance Western Blotting Detection Kit (Amersham, Piscataway, NJ, USA). Densitometric analyses of band intensities were performed using GeneTools (Syngene, Frederick, MD, USA). Each experiment was repeated at least three times.</p>
+      </sec>
+      <sec>
+        <title>In vitro cell proliferation assay</title>
+        <p>A L929 mouse fibroblast cell line (ATCC Cat. No. CCL-1) was used in an <italic>in vitro</italic> cell proliferation assay. Cells were seeded in a 6-well culture plate at an initial density of 0.16&#x2009;&#xD7;&#x2009;10<sup>5</sup> cells/well with 2.5&#xA0;ml Dulbecco&#x2032;s Modified Eagle&#x2032;s Medium (DMEM) containing 100&#xA0;IU/ml penicillin sodium, 100&#xA0;&#x3BC;g /ml streptomycin sulfate and 10% fetal bovine serum (FBS). Cells were incubated at 37.0&#xB0;C in 5% carbon dioxide until 60% confluent. Culture medium was removed and cells were washed 3 times with D-Hanks solution. Subsequently, the cells were incubated in DMEM for 24&#xA0;h to achieve serum deprivation. Then cells were washed twice with D-Hanks and fresh DMEN medium without FBS and were used for further culture. Cells were treated immediately with the following groups: recombinant human EGF (rhEGF; Cell science; 20&#xA0;ng/ml), supernatant fluid collected from 24&#xA0;h nisin A induced <italic>L. lactis</italic> NZ9000/pNZ8148&#x2013;SPUsp45-MPpEGF (LL-pEGF; 10 or 20&#xA0;&#x3BC;l), and supernatant fluid collected from <italic>L. lactis</italic> NZ9000/pNZ8148 cultured at the same time as the control (LL-EV; 20&#xA0;&#x3BC;l). All the supernatants from the cultures were filtered by using 0.22-&#x3BC;m sterile syringe filters before being added into the cell culture medium. After 24&#xA0;h treatment, cells were trypsinized and quantified using a hemocytometer. Cell counting was done in a blinded-manner by a 3rd party that was not aware of the experimental treatment.</p>
+      </sec>
+      <sec>
+        <title>Piglets and diet treatment</title>
+        <p>Forty-five crossbred piglets (Duroc&#x2009;&#xD7;&#x2009;Landrace&#x2009;&#xD7;&#x2009;Yorkshire) weaned at 21&#xA0;days were obtained from New Hope Group (Chengdu, SC). After two days of transition feeding, 40 piglets were selected and assigned to 1 of the 4 treatment groups based on sex and body weight: control (M17 broth), antibiotic control (kitasamycin, 25&#xA0;mg/kg diet), LL-EV (empty vector control, no pEGF was detected) and LL-pEGF (1.8 ug/ml pEGF, the concentration calculated based on the supernatant fluids and the <italic>L. lactis</italic> cell lysates), and each treatment had 10 replicates (5 males and 5 females). All the piglets were fed separately in a metabolic cage with a nipple waterer and a stainless steel feeder for a 14 d experimental period. The piglets were provided <italic>ad libitum</italic> access to water and diet. The basal diet represented a typical commercial corn-soybean meal that met the nutrient requirements suggested by the National Research Council (1998). The diets (Table&#xA0;<xref ref-type="table" rid="T1">1</xref>) did not contain any feed antibiotics except for the diet used for piglets in antibiotic control group. Piglets were reared in an environmentally regulated nursery house in Sichuan Agricultural University. Food intake of each piglet was recorded every day and bodyweight was recorded every 7 d. The study was conducted according to the guidelines from the Chinese Council of Animal Care and was approved by the Sichuan Agricultural University Animal Care Committee and all <italic>in vivo</italic> experiments in accordance with the ARRIVE guidelines.</p>
+        <table-wrap position="float" id="T1">
+          <label>Table 1</label>
+          <caption>
+            <p><bold>Diet composition and nutrient levels (90</bold>% <bold>dry matter basis, %)</bold></p>
+          </caption>
+          <table frame="hsides" rules="groups" border="1">
+            <colgroup>
+              <col align="left"/>
+              <col align="left"/>
+            </colgroup>
+            <thead>
+              <tr valign="top">
+                <th align="left" valign="top">
+                  <bold>Item</bold>
+                </th>
+                <th align="left" valign="top">&#xA0;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td align="left" valign="top">
+                  <italic>Ingredients (g/kg)</italic>
+                  <hr/>
+                </td>
+                <td align="left" valign="top">&#xA0;<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Corn<hr/></td>
+                <td align="left" valign="top">220.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Extruded corn<hr/></td>
+                <td align="left" valign="top">260.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Dehulled soybean meal<hr/></td>
+                <td align="left" valign="top">135.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Full fat extruded soybean<hr/></td>
+                <td align="left" valign="top">80.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Fish meal<hr/></td>
+                <td align="left" valign="top">40.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Soybean protein concentrate<hr/></td>
+                <td align="left" valign="top">50.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Whey<hr/></td>
+                <td align="left" valign="top">150.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Sucrose<hr/></td>
+                <td align="left" valign="top">20.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Glucose<hr/></td>
+                <td align="left" valign="top">15.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Calcium Carbonate<hr/></td>
+                <td align="left" valign="top">8.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Calcium hydrophosphate<hr/></td>
+                <td align="left" valign="top">6.80<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">L-Lysine<hr/></td>
+                <td align="left" valign="top">3.20<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">DL-Methionine<hr/></td>
+                <td align="left" valign="top">2.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">L-Tryptophan<hr/></td>
+                <td align="left" valign="top">0.50<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">L-Threonine<hr/></td>
+                <td align="left" valign="top">1.50<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Vitamin premix<sup>a</sup><hr/></td>
+                <td align="left" valign="top">0.40<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Trace mineral premix<sup>b</sup><hr/></td>
+                <td align="left" valign="top">3.60<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Choline chloride<hr/></td>
+                <td align="left" valign="top">1.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Salt<hr/></td>
+                <td align="left" valign="top">3.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Total<hr/></td>
+                <td align="left" valign="top">1000.00<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">
+                  <italic>Calculated nutritive composition</italic>
+                  <hr/>
+                </td>
+                <td align="left" valign="top">&#xA0;<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Digestible energy (KJ/kg)<hr/></td>
+                <td align="left" valign="top">14460<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Crude protein (%)<hr/></td>
+                <td align="left" valign="top">20.27<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Crude fat (%)<hr/></td>
+                <td align="left" valign="top">3.70<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Lysine (%)<hr/></td>
+                <td align="left" valign="top">1.33<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Met&#x2009;+&#x2009;Cys (%)<hr/></td>
+                <td align="left" valign="top">0.75<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Calcium (g/kg)<hr/></td>
+                <td align="left" valign="top">8.40<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Phosphorous (g/kg)</td>
+                <td align="left" valign="top">6.30</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p><sup>a</sup>Supplied per kilogram diet: Vitamin A, 2, 800&#xA0;IU; Vitamin D<sub>3</sub> 320&#xA0;IU; Vitamin E, 20&#xA0;IU; Vitamin K<sub>3</sub>, 1&#xA0;mg; Vitamin B<sub>1</sub>, 1.5&#xA0;mg; Vitamin B<sub>2</sub>, 5&#xA0;mg; Vitamin B<sub>6</sub>, 2&#xA0;mg; Vitamin B<sub>12</sub>, 0.03&#xA0;mg; Nicotonic, 20&#xA0;mg; Pantothenic, 15&#xA0;mg; Folic acid, 0.5&#xA0;mg; Biotin, 0.1&#xA0;mg.</p>
+            <p><sup>b</sup>Supplied per kilogram diet: Cu 6&#xA0;mg, Fe 100&#xA0;mg, Mn 4&#xA0;mg, Zn 100&#xA0;mg, I 0.14&#xA0;mg, Se 0.3&#xA0;mg, Cr 0.2&#xA0;mg.</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>LL-pEGF was induced for 24&#xA0;h as described above, and at the same time LL-EV was harvested and used for the treatments of LL-pEGF and LL-EV. Bacterial cultures were delivered to piglets as a whole-cell suspension. All the piglets were orally fed 50-ml doses, via intragastric gavage, twice daily through a human use stomach tube at 08:00 and 15:00. The piglets in the treatment of control were orally administrated 50-ml sterile M17 broth, and the piglets in the antibiotic control treatment were fed with 50-ml physiological saline in the same manner to create the same stress produced by gavage with other treatments.</p>
+      </sec>
+      <sec>
+        <title>Intestinal sample collection</title>
+        <p>At the end of the experiment, randomly selected six piglets (3 males and 3 females) from each treatment were anaesthetized with an intravenous injection of sodium pentobarbital [25&#xA0;mg/kg body weight (BW)] and bled by exsanguinations. The piglet abdomen was opened immediately from the sternum to the pubis; the entire intestine was rapidly removed. A 15&#xA0;cm section of distal duodenum, mid-jejunum and mid-ileum were ligated and removed to avoid chyme admixture in different intestinal sections. The small intestine was placed on a chilled stainless steel tray. A small incision was opened in the distal end of each segment, and the chyme was collected in a 5&#xA0;ml tube and stored at 4&#xB0;C. Two segments of 2&#xA0;cm and 10&#xA0;cm were cut at the distal duodenum, mid-jejunum and mid-ileum. The 2&#xA0;cm intestinal segments were flushed gently with ice-cold PBS (pH&#xA0;7.4) and then placed in 10% fresh, chilled formalin solution for histological measurement. Intestinal segments (10&#xA0;cm in length) were opened longitudinally and the contents were flushed with ice-cold PBS. Mucosa was collected with scraping on a sterile glass microscope slide, which was placed on an ice-cold tray, rapidly frozen in liquid nitrogen and stored at -80&#xB0;C until analysis. Intestinal sections used for histological measurement or mucosa collection were sampled at the same location of each piglet. All samples were collected within 20&#xA0;min after being killed.</p>
+      </sec>
+      <sec>
+        <title>Intestinal morphology</title>
+        <p>Formalin-fixed duodenum, jejunum and ileum samples were embedded in paraffin. Cross sections of the segments were cut with a microtome to be approximately 5-&#x3BC;m thick and were stained with hematoxylin and eosin. At least 4 sections of each of the small intestinal segments were checked, and more than 6 complete villous-crypt structures were examined under a microscope in each section. The villus height and the associated crypt depth were measured using a microscope with a Leica Q500MC computer-assisted morphometric system. Villus height was defined as the distance from the villus tip to the crypt mouth, and crypt depth from the crypt mouth to the base.</p>
+      </sec>
+      <sec>
+        <title>Brush border enzyme activity</title>
+        <p>The enzymes studied were lactase (EC 3.2.1.23), sucrase (EC 3.2.1.48), maltase (EC 3.2.1.20), aminopeptidase A (EC 3.4.11.1), aminopeptidase N (EC 3.4.11.2) and dipeptidyl peptidase IV (EC 3.4.14.5). All assays were carried out on homogenates of mucosal tissue obtained by thawing approximately 1&#xA0;g of tissue and homogenizing it in 9&#xA0;ml PBS (pH&#x2009;=&#x2009;7.2) using an ultrasonic homogenizer. The sample was stored at -80&#xB0;C before being assayed. Lactase, sucrase and maltase activities were assayed as described by Petersen et al. [<xref ref-type="bibr" rid="B35">35</xref>]. The protein content in mucosal homogenates was measured according to Lowry et al. [<xref ref-type="bibr" rid="B36">36</xref>], using bovine serum albumin (A 7638, Sigma Chemical, St. Louis) as the standard.</p>
+        <p>A porcine aminopeptidase A (APA) ELISA Kit (R&amp;D Systems Inc., MN, USA), porcine aminopeptidase N (APN) ELISA Kit (R&amp;D Systems Inc., MN, USA) and porcine dipeptidase IV (DPP-IV) ELISA Kit (R&amp;D Systems Inc., MN, USA) were used for quantitative detection of APA, APN and DPP-IV. Enzymes were first combined to the solid-phase antibody, and then the combined antibody, which was labeled with horseradish peroxidase (HRP) to form an antibody-antigen-enzyme-antibody complex. 3,3&#x2032;,5,5&#x2032;-Tetramethylbenzidine (TMB), was used as substrate to be enzyme-catalyzed by HRP. The reaction was terminated by addition of a sulphuric acid solution and measured spectrophotometrically at a wavelength of 450&#xA0;nm. The enzyme activities were expressed as units per milligram or nanogram per gram of mucosa.</p>
+      </sec>
+      <sec>
+        <title>Intestinal microbiota assay</title>
+        <p>The microbiological assay of ileum and cecum digesta was carried out according to the procedure of Torrallardona et al. [<xref ref-type="bibr" rid="B37">37</xref>]. The digesta collected from the ileum and cecum was homogenized in a sterile salt solution (NaCl 0.85%). Bacterial quantifications for homogenized liquid were made using serial 10 fold dilutions in the sterile salt solution (NaCl 0.85%), followed by plating on an agar medium. The samples of ileal and cecal digesta were cultured in different media for the determination of <italic>E. coli</italic> (MacConkey agar; Merck, Darmstadt, Germany), <italic>Enterococcus</italic> (EC agar; Merck, Darmstadt, Germany), <italic>Bifidobacterium</italic> (BL agar; Difco, NJ, USA) and <italic>Lactobacillus</italic> (MRS agar; Oxoid, Hampshire, UK). The concentration of bacteria in the original sample was calculated as the mean of three dilutions for each sample. The results are expressed as the mean of log<sub>10</sub> colony forming units (cfu)/g digesta from the 6 piglets with the standard deviations.</p>
+      </sec>
+      <sec>
+        <title>Statistical analyses</title>
+        <p>Western blot and <italic>in vitro</italic> cell proliferation assays were repeated at least three times, with data representing the mean values with standard deviations of all repeats within an individual experiment. For the animal trial, the experimental model used was a completely randomised design with four treatments and the individual piglets were the experimental units, with data representing the mean values with their standard deviations of all experimental units. Data were analyzed by one-way analysis of variance (ANOVA) followed by either the Bonferroni test for selected pair comparisons [Table&#xA0;<xref ref-type="table" rid="T2">2</xref>, final weight, average daily gain (ADG) of second week, average daily feed intake (ADFI) of first week and overall period; Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>A (II), the <italic>Enterococcus</italic> quantification; Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>B [I], the <italic>E. coli</italic> quantification], or the Tukey test for multiple comparisons (all other tables and figures) for ANOVA to determine statistical differences between groups using GraphPad Prism analysis software. Results were considered significant at <italic>P</italic>&#x2009;&lt;&#x2009;0.05.</p>
+        <table-wrap position="float" id="T2">
+          <label>Table 2</label>
+          <caption>
+            <p>Effects of diets supplemented with different additives on growth performance of early-weaned pigs (Mean values and standard deviations)</p>
+          </caption>
+          <table frame="hsides" rules="groups" border="1">
+            <colgroup>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+            </colgroup>
+            <thead>
+              <tr valign="top">
+                <th align="left" valign="top">&#xA0;</th>
+                <th align="left" valign="top">
+                  <bold>Control</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>Antibiotic control</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>LL-EV</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>LL-pEGF</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td align="left" valign="top">Initial weight (kg)<hr/></td>
+                <td align="left" valign="top">6.16&#x2009;&#xB1;&#x2009;0.38<hr/></td>
+                <td align="left" valign="top">6.27&#x2009;&#xB1;&#x2009;0.13<hr/></td>
+                <td align="left" valign="top">6.09&#x2009;&#xB1;&#x2009;0.19<hr/></td>
+                <td align="left" valign="top">6.06&#x2009;&#xB1;&#x2009;0.31<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Final weight (kg)<hr/></td>
+                <td align="left" valign="top">8.37&#x2009;&#xB1;&#x2009;0.43<sup>a</sup><hr/></td>
+                <td align="left" valign="top">8.91&#x2009;&#xB1;&#x2009;0.37<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">8.68&#x2009;&#xB1;&#x2009;0.36<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">8.95&#x2009;&#xB1;&#x2009;0.42<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">ADG (g/day)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">0-7 d<hr/></td>
+                <td align="left" valign="top">135.7&#x2009;&#xB1;&#x2009;21.8<sup>a</sup><hr/></td>
+                <td align="left" valign="top">142.9&#x2009;&#xB1;&#x2009;31.9<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">172.5&#x2009;&#xB1;&#x2009;30.4<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">178.6&#x2009;&#xB1;&#x2009;26.7<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">8-14 d<hr/></td>
+                <td align="left" valign="top">179.6&#x2009;&#xB1;&#x2009;27.4<sup>a</sup><hr/></td>
+                <td align="left" valign="top">230.3&#x2009;&#xB1;&#x2009;42.4<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">203.6&#x2009;&#xB1;&#x2009;33.3<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">233.7&#x2009;&#xB1;&#x2009;44.9<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">0-14 d<hr/></td>
+                <td align="left" valign="top">157.7&#x2009;&#xB1;&#x2009;25.4<sup>a</sup><hr/></td>
+                <td align="left" valign="top">188.6&#x2009;&#xB1;&#x2009;31.1<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">184.3&#x2009;&#xB1;&#x2009;29.5<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">206.1&#x2009;&#xB1;&#x2009;27.1<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">ADFI (g/day)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">0-7 d<hr/></td>
+                <td align="left" valign="top">168.1&#x2009;&#xB1;&#x2009;31.7<sup>a</sup><hr/></td>
+                <td align="left" valign="top">191.1&#x2009;&#xB1;&#x2009;44.3<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">215.9&#x2009;&#xB1;&#x2009;28.4<sup>b</sup><hr/></td>
+                <td align="left" valign="top">217.1&#x2009;&#xB1;&#x2009;40.1<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">8-14 d<hr/></td>
+                <td align="left" valign="top">246.6&#x2009;&#xB1;&#x2009;31.1<hr/></td>
+                <td align="left" valign="top">300.8&#x2009;&#xB1;&#x2009;38.0<hr/></td>
+                <td align="left" valign="top">295.5&#x2009;&#xB1;&#x2009;52.9<hr/></td>
+                <td align="left" valign="top">288.6&#x2009;&#xB1;&#x2009;34.9<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">0-14 d<hr/></td>
+                <td align="left" valign="top">207.3&#x2009;&#xB1;&#x2009;27.0<sup>a</sup><hr/></td>
+                <td align="left" valign="top">250.0&#x2009;&#xB1;&#x2009;37.1<sup>b</sup><hr/></td>
+                <td align="left" valign="top">255.6&#x2009;&#xB1;&#x2009;33.3<sup>b</sup><hr/></td>
+                <td align="left" valign="top">252.9&#x2009;&#xB1;&#x2009;34.2<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">ADFI/ADG<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">0-7 d<hr/></td>
+                <td align="left" valign="top">1.24&#x2009;&#xB1;&#x2009;0.12<hr/></td>
+                <td align="left" valign="top">1.39&#x2009;&#xB1;&#x2009;0.11<hr/></td>
+                <td align="left" valign="top">1.31&#x2009;&#xB1;&#x2009;0.30<hr/></td>
+                <td align="left" valign="top">1.22&#x2009;&#xB1;&#x2009;0.15<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">8-14 d<hr/></td>
+                <td align="left" valign="top">1.41&#x2009;&#xB1;&#x2009;0.32<hr/></td>
+                <td align="left" valign="top">1.31&#x2009;&#xB1;&#x2009;0.20<hr/></td>
+                <td align="left" valign="top">1.45&#x2009;&#xB1;&#x2009;0.04<hr/></td>
+                <td align="left" valign="top">1.26&#x2009;&#xB1;&#x2009;0.21<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">0-14 d</td>
+                <td align="left" valign="top">1.34&#x2009;&#xB1;&#x2009;0.25</td>
+                <td align="left" valign="top">1.34&#x2009;&#xB1;&#x2009;0.14</td>
+                <td align="left" valign="top">1.39&#x2009;&#xB1;&#x2009;0.15</td>
+                <td align="left" valign="top">1.23&#x2009;&#xB1;&#x2009;0.12</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>N&#x2009;=&#x2009;10.</p>
+            <p>LL-EV, empty vector-expressing <italic>Lactococcus lactis</italic> group; LL-pEGF, pEGF-secreting <italic>Lactococcus lactis</italic> group; ADG, Average daily gain; ADFI, Average daily feed intake.</p>
+            <p><sup>a,b</sup>Means with different superscripts in the same row indicate significant differences (<italic>P</italic>&#x2009;&lt;&#x2009;0.05).</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <fig id="F2" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p><bold>Effects of different treatments on the ileum microbiota (A) and the cecum microbiota (B) of early-weaned piglets. A</bold>(I), <italic>E. coli</italic> quantification in the ileum; <bold>A</bold>(II), <italic>Enterococcus</italic> quantification in the ileum; <bold>A</bold>(III), <italic>Lactobacillus</italic> quantification in the ileum. <bold>B</bold>(I), <italic>E. coli</italic> quantification in the cecum; <bold>B</bold>(II), <italic>Lactobacillus</italic> quantification in the cecum. Results are expressed as the mean of log<sub>10</sub> colony forming units (cfu)/g digesta with standard deviations. Different lowercase letters denote statistical differences between groups (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). Con., control; Antibotic, antibotic control; LL-EV, empty vector-expressing <italic>Lactococcus lactis</italic>; LL-pEGF, pEGF-secreting <italic>Lactococcus lactis</italic>.</p>
+          </caption>
+          <graphic xlink:href="s12917-014-0171-1-2"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>Characterization of pEGF production by L. lactis</title>
+        <p>The secreted porcine EGF bands of 6.0&#xA0;kDa were detected in nisin-induced cultures of the LL-pEGF strain, and no signal was detected in non-induced LL-pEGF cultures by western blotting (Figure&#xA0;<xref ref-type="fig" rid="F3">3</xref>A). The concentration of porcine EGF in the recombinant bacterial culture supernatant collected after 24&#xA0;hours of incubation was 1000&#xA0;ng/ml based on comparative densitometry analysis of the bands with that of a known amount of rhEGF (Figure&#xA0;<xref ref-type="fig" rid="F3">3</xref>B). Treatment of fibroblasts with supernatant (10&#xA0;&#x3BC;l or 20&#xA0;&#x3BC;l) from the LL-pEGF culture significantly (<italic>P</italic>&#x2009;=&#x2009;0.003) increased cell numbers during a 24-h culture compared with the control group in which 20&#xA0;&#x3BC;l of the supernatant from the LL-EV culture was added (Figure&#xA0;<xref ref-type="fig" rid="F4">4</xref>). Recombinant pEGF secreted by <italic>L. lactis</italic> had the same biological activity as rhEGF for stimulating cell proliferation (Figure&#xA0;<xref ref-type="fig" rid="F4">4</xref>).</p>
+        <fig id="F3" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p><bold>Quantification of porcine EGF secreted by</bold><bold><italic>L. lactis</italic></bold><bold>. A)</bold> Western blot analysis shows that the 6.0-kD porcine EGF was present in the supernatant of the induced LL-pEGF fermentation cultures, and no secreted pEGF was detected in the supernatant of the non-induced LL-pEGF fermentation cultures (NI). <bold>B)</bold> A representative western blot of supernatants from the induced LL-pEGF. Supernatants of the LL-pEGF induced at different times were used to determine the amounts of pEGF present in the culture supernatant by densitometry from three experiments. The pEGF concentrations in the LL-pEGF culture were about 600&#xA0;ng/ml, 900&#xA0;ng/ml and 1000&#xA0;ng/ml at 4&#xA0;h, 12&#xA0;h, and 24&#xA0;h, respectively. rhEGF, recombinant porcine epidermal growth factor; NI, non-induced LL-pEGF fermentation cultures.</p>
+          </caption>
+          <graphic xlink:href="s12917-014-0171-1-3"/>
+        </fig>
+        <fig id="F4" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p><bold><italic>In vitro</italic></bold><bold>biological activity of porcine EGF produced by</bold><bold><italic>L. lactis</italic></bold><bold>.</bold> Twenty-four hours after serum deprivation, L929 mouse fibroblast cells were cultured for an additional 24&#xA0;h in 2.0&#xA0;ml of DMEM containing 20&#xA0;ng/ml of rhEGF, 20&#xA0;&#x3BC;l of supernatant from LL-EV, and 10&#xA0;&#x3BC;l or 20&#xA0;&#x3BC;l of supernatant from LL-pEGF. Results are expressed as the cell numbers of each treatment and represent the means of three independent experiments performed in triplicate. Different lowercase letters denote statistical differences between groups at <italic>P</italic>&#x2009;&lt;&#x2009;0.05. rhEGF, recombinant porcine epidermal growth factor; LL-EV, empty vector-expressing <italic>Lactococcus lactis</italic>; LL-pEGF, pEGF-secreting <italic>Lactococcus lactis</italic>.</p>
+          </caption>
+          <graphic xlink:href="s12917-014-0171-1-4"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Growth performance of early-weaned piglets</title>
+        <p>The effects of dietary treatments on growth performance of early-weaned piglets were illustrated in Table&#xA0;<xref ref-type="table" rid="T2">2</xref>. LL-pEGF group had higher final BW compare with the control group (<italic>P</italic>&#x2009;=&#x2009;0.044). Overall ADG (from 0 to 14 d, <italic>P</italic>&#x2009;=&#x2009;0.031), ADG of the first week (<italic>P</italic>&#x2009;=&#x2009;0.019) and second week (<italic>P</italic>&#x2009;=&#x2009;0.043) in LL-pEGF group were greater than in the control group. No significant differences were observed in final BW and ADG among LL-pEGF, antibiotic control and LL-EV groups. ADFI of first week was higher in LL-pEGF and LL-EV than in the control group (<italic>P</italic>&#x2009;=&#x2009;0.042). The overall period ADFI were higher in LL-pEGF, LL-EV and antibiotic control than in control group (<italic>P</italic>&#x2009;=&#x2009;0.036). No differences were observed on feed efficiency (expressed as ADFI/ADG).</p>
+      </sec>
+      <sec>
+        <title>Intestinal development and brush border enzyme activity</title>
+        <p>As shown in Table&#xA0;<xref ref-type="table" rid="T3">3</xref>, the length of villi in the duodenum (<italic>P</italic>&#x2009;=&#x2009;0.001), jejunum (<italic>P</italic>&#x2009;&lt;&#x2009;0.001) and ileum (<italic>P</italic>&#x2009;&lt;&#x2009;0.001) was longer in the LL-pEGF treatment group than in control and LL-EV groups. Antibiotic treatment showed higher villi heights in the ileum than in controls (<italic>P</italic>&#x2009;&lt;&#x2009;0.001). In terms of crypt depth, there was no significant difference among the treatment groups at the duodenum, jejunum and ileum.</p>
+        <table-wrap position="float" id="T3">
+          <label>Table 3</label>
+          <caption>
+            <p>Effects of diets supplemented with different additives on intestinal development of early-weaned pigs (Mean values and standard deviations)</p>
+          </caption>
+          <table frame="hsides" rules="groups" border="1">
+            <colgroup>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+            </colgroup>
+            <thead>
+              <tr valign="top">
+                <th align="left" valign="top">&#xA0;</th>
+                <th align="left" valign="top">
+                  <bold>Control</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>Antibiotic control</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>LL-EV</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>LL-pEGF</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">Villus height (&#x3BC;m)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">275.59&#x2009;&#xB1;&#x2009;39.77<sup>a</sup><hr/></td>
+                <td align="left" valign="top">299.25&#x2009;&#xB1;&#x2009;27.03<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">292.62&#x2009;&#xB1;&#x2009;19.30<sup>a</sup><hr/></td>
+                <td align="left" valign="top">332.20&#x2009;&#xB1;&#x2009;40.82<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">272.34&#x2009;&#xB1;&#x2009;39.69<sup>a</sup><hr/></td>
+                <td align="left" valign="top">312.55&#x2009;&#xB1;&#x2009;47.44<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">282.95&#x2009;&#xB1;&#x2009;30.49<sup>a</sup><hr/></td>
+                <td align="left" valign="top">345.07&#x2009;&#xB1;&#x2009;29.75<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum<hr/></td>
+                <td align="left" valign="top">216.90&#x2009;&#xB1;&#x2009;25.54<sup>a</sup><hr/></td>
+                <td align="left" valign="top">271.93&#x2009;&#xB1;&#x2009;39.91<sup>bc</sup><hr/></td>
+                <td align="left" valign="top">235.29&#x2009;&#xB1;&#x2009;30.10<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">279.38&#x2009;&#xB1;&#x2009;41.66<sup>c</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">Crypt depth (&#x3BC;m)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">230.71&#x2009;&#xB1;&#x2009;35.98<hr/></td>
+                <td align="left" valign="top">203.29&#x2009;&#xB1;&#x2009;19.75<hr/></td>
+                <td align="left" valign="top">209.89&#x2009;&#xB1;&#x2009;24.81<hr/></td>
+                <td align="left" valign="top">205.78&#x2009;&#xB1;&#x2009;30.47<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">202.51&#x2009;&#xB1;&#x2009;31.19<hr/></td>
+                <td align="left" valign="top">189.19&#x2009;&#xB1;&#x2009;22.81<hr/></td>
+                <td align="left" valign="top">191.98&#x2009;&#xB1;&#x2009;26.32<hr/></td>
+                <td align="left" valign="top">181.51&#x2009;&#xB1;&#x2009;28.46<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum</td>
+                <td align="left" valign="top">159.64&#x2009;&#xB1;&#x2009;24.57</td>
+                <td align="left" valign="top">143.58&#x2009;&#xB1;&#x2009;23.97</td>
+                <td align="left" valign="top">148.37&#x2009;&#xB1;&#x2009;28.10</td>
+                <td align="left" valign="top">143.70&#x2009;&#xB1;&#x2009;22.71</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>N&#x2009;=&#x2009;6.</p>
+            <p>LL-EV, empty vector-expressing <italic>Lactococcus lactis</italic> group; LL-pEGF, pEGF-secreting <italic>Lactococcus lactis</italic> group.</p>
+            <p><sup>a,b,c</sup>Means with different superscripts in the same row indicate significant differences (<italic>P</italic>&#x2009;&lt;&#x2009;0.05).</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>Brush border enzyme activities are shown in Table&#xA0;<xref ref-type="table" rid="T4">4</xref>. No difference was observed in brush border lactase activity in the duodenum, jejunum and ileum among the treatments. Duodenum and jejunum sucrase activities in LL-pEGF group were the same as that in antibiotic control and LL-EV groups, but they were greater than that in controls group (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). Ileum sucrase activity in LL-pEGF group was greater (<italic>P</italic>&#x2009;=&#x2009;0.018) than that in antibiotic control group, control group and LL-EV group. No differences were observed of maltase activity in the duodenum and the jejunum among treatment groups, but that in the ileum was greater (<italic>P</italic>&#x2009;&lt;&#x2009;0.05) in LL-pEGF group than in antibiotic control group and LL-EV group. The activity of APA, APN and DPP-IV were increased in the duodenum compared with controls and the antibiotic controls (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). The activity of APA also was increased in the LL-pEGF treatment group compared with the controls and LL-EV treatment group in the jejunum (<italic>P</italic>&#x2009;&lt;&#x2009;0.05). There were no significant differences among treatments in the activities of APA in the ileum and APN and DPP-IV in the jejunum and ileum (Table&#xA0;<xref ref-type="table" rid="T4">4</xref>).</p>
+        <table-wrap position="float" id="T4">
+          <label>Table 4</label>
+          <caption>
+            <p>Effects of diets supplemented with different additives on brush border enzyme activity of early-weaned piglets (Mean values and standard deviations)</p>
+          </caption>
+          <table frame="hsides" rules="groups" border="1">
+            <colgroup>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+              <col align="left"/>
+            </colgroup>
+            <thead>
+              <tr valign="top">
+                <th align="left" valign="top">&#xA0;</th>
+                <th align="left" valign="top">
+                  <bold>Control</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>Antibiotic control</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>LL-EV</bold>
+                </th>
+                <th align="left" valign="top">
+                  <bold>LL-pEGF</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">Lactase (U/mg)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">2.73&#x2009;&#xB1;&#x2009;0.75<hr/></td>
+                <td align="left" valign="top">2.07&#x2009;&#xB1;&#x2009;0.98<hr/></td>
+                <td align="left" valign="top">1.90&#x2009;&#xB1;&#x2009;0.29<hr/></td>
+                <td align="left" valign="top">2.63&#x2009;&#xB1;&#x2009;0.63<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">1.32&#x2009;&#xB1;&#x2009;0.27<hr/></td>
+                <td align="left" valign="top">1.37&#x2009;&#xB1;&#x2009;0.48<hr/></td>
+                <td align="left" valign="top">1.56&#x2009;&#xB1;&#x2009;0.53<hr/></td>
+                <td align="left" valign="top">1.24&#x2009;&#xB1;&#x2009;0.33<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum<hr/></td>
+                <td align="left" valign="top">0.43&#x2009;&#xB1;&#x2009;0.19<hr/></td>
+                <td align="left" valign="top">0.45&#x2009;&#xB1;&#x2009;0.22<hr/></td>
+                <td align="left" valign="top">0.36&#x2009;&#xB1;&#x2009;0.09<hr/></td>
+                <td align="left" valign="top">0.40&#x2009;&#xB1;&#x2009;0.11<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">Sucrase (U/mg)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">0.69&#x2009;&#xB1;&#x2009;0.43<sup>a</sup><hr/></td>
+                <td align="left" valign="top">0.99&#x2009;&#xB1;&#x2009;0.46<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">1.92&#x2009;&#xB1;&#x2009;1.35<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">2.84&#x2009;&#xB1;&#x2009;1.00<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">3.12&#x2009;&#xB1;&#x2009;2.28<sup>a</sup><hr/></td>
+                <td align="left" valign="top">5.83&#x2009;&#xB1;&#x2009;2.58<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">7.03&#x2009;&#xB1;&#x2009;0.87<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">9.49&#x2009;&#xB1;&#x2009;2.28<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum<hr/></td>
+                <td align="left" valign="top">8.91&#x2009;&#xB1;&#x2009;0.42<sup>a</sup><hr/></td>
+                <td align="left" valign="top">9.08&#x2009;&#xB1;&#x2009;1.51<sup>a</sup><hr/></td>
+                <td align="left" valign="top">9.13&#x2009;&#xB1;&#x2009;0.95<sup>a</sup><hr/></td>
+                <td align="left" valign="top">11.33&#x2009;&#xB1;&#x2009;0.93<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">Maltase (U/mg)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">9.19&#x2009;&#xB1;&#x2009;1.35<hr/></td>
+                <td align="left" valign="top">7.17&#x2009;&#xB1;&#x2009;1.76<hr/></td>
+                <td align="left" valign="top">10.26&#x2009;&#xB1;&#x2009;2.45<hr/></td>
+                <td align="left" valign="top">12.07&#x2009;&#xB1;&#x2009;3.91<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">3.78&#x2009;&#xB1;&#x2009;1.89<hr/></td>
+                <td align="left" valign="top">4.09&#x2009;&#xB1;&#x2009;1.61<hr/></td>
+                <td align="left" valign="top">2.43&#x2009;&#xB1;&#x2009;0.78<hr/></td>
+                <td align="left" valign="top">4.74&#x2009;&#xB1;&#x2009;1.77<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum<hr/></td>
+                <td align="left" valign="top">6.93&#x2009;&#xB1;&#x2009;1.10<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">4.21&#x2009;&#xB1;&#x2009;1.42<sup>a</sup><hr/></td>
+                <td align="left" valign="top">4.77&#x2009;&#xB1;&#x2009;1.45<sup>a</sup><hr/></td>
+                <td align="left" valign="top">10.18&#x2009;&#xB1;&#x2009;3.30<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">APA (ng/g)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">23.21&#x2009;&#xB1;&#x2009;2.16<sup>a</sup><hr/></td>
+                <td align="left" valign="top">20.89&#x2009;&#xB1;&#x2009;2.64<sup>a</sup><hr/></td>
+                <td align="left" valign="top">25.96&#x2009;&#xB1;&#x2009;4.33<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">35.19&#x2009;&#xB1;&#x2009;7.52<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">23.24&#x2009;&#xB1;&#x2009;1.30<sup>a</sup><hr/></td>
+                <td align="left" valign="top">29.68&#x2009;&#xB1;&#x2009;1.31<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">23.39&#x2009;&#xB1;&#x2009;5.38<sup>a</sup><hr/></td>
+                <td align="left" valign="top">35.20&#x2009;&#xB1;&#x2009;4.35<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum<hr/></td>
+                <td align="left" valign="top">33.69&#x2009;&#xB1;&#x2009;7.22<hr/></td>
+                <td align="left" valign="top">33.74&#x2009;&#xB1;&#x2009;2.07<hr/></td>
+                <td align="left" valign="top">32.23&#x2009;&#xB1;&#x2009;3.82<hr/></td>
+                <td align="left" valign="top">33.20&#x2009;&#xB1;&#x2009;5.83<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">APN (ng/g)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">8.33&#x2009;&#xB1;&#x2009;1.44<sup>a</sup><hr/></td>
+                <td align="left" valign="top">6.96&#x2009;&#xB1;&#x2009;0.68<sup>a</sup><hr/></td>
+                <td align="left" valign="top">9.98&#x2009;&#xB1;&#x2009;1.27<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">12.33&#x2009;&#xB1;&#x2009;2.70<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">9.27&#x2009;&#xB1;&#x2009;1.81<hr/></td>
+                <td align="left" valign="top">9.61&#x2009;&#xB1;&#x2009;2.83<hr/></td>
+                <td align="left" valign="top">10.42&#x2009;&#xB1;&#x2009;1.46<hr/></td>
+                <td align="left" valign="top">12.44&#x2009;&#xB1;&#x2009;2.25<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum<hr/></td>
+                <td align="left" valign="top">11.23&#x2009;&#xB1;&#x2009;2.53<hr/></td>
+                <td align="left" valign="top">12.15&#x2009;&#xB1;&#x2009;1.62<hr/></td>
+                <td align="left" valign="top">11.61&#x2009;&#xB1;&#x2009;2.01<hr/></td>
+                <td align="left" valign="top">14.84&#x2009;&#xB1;&#x2009;3.68<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="5" align="left" valign="top">DPP-IV (ng/g)<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Duodenum<hr/></td>
+                <td align="left" valign="top">8.37&#x2009;&#xB1;&#x2009;1.11<sup>a</sup><hr/></td>
+                <td align="left" valign="top">6.99&#x2009;&#xB1;&#x2009;0.87<sup>a</sup><hr/></td>
+                <td align="left" valign="top">9.22&#x2009;&#xB1;&#x2009;1.39<sup>ab</sup><hr/></td>
+                <td align="left" valign="top">11.89&#x2009;&#xB1;&#x2009;2.47<sup>b</sup><hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Jejunum<hr/></td>
+                <td align="left" valign="top">10.03&#x2009;&#xB1;&#x2009;1.92<hr/></td>
+                <td align="left" valign="top">9.73&#x2009;&#xB1;&#x2009;0.86<hr/></td>
+                <td align="left" valign="top">8.34&#x2009;&#xB1;&#x2009;2.27<hr/></td>
+                <td align="left" valign="top">9.15&#x2009;&#xB1;&#x2009;2.44<hr/></td>
+              </tr>
+              <tr valign="top">
+                <td align="left" valign="top">Ileum</td>
+                <td align="left" valign="top">10.32&#x2009;&#xB1;&#x2009;1.97</td>
+                <td align="left" valign="top">10.65&#x2009;&#xB1;&#x2009;0.91</td>
+                <td align="left" valign="top">10.44&#x2009;&#xB1;&#x2009;1.28</td>
+                <td align="left" valign="top">13.35&#x2009;&#xB1;&#x2009;1.78</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>N&#x2009;=&#x2009;6.</p>
+            <p>LL-EV, empty vector-expressing <italic>Lactococcus lactis</italic> group; LL-pEGF, pEGF-secreting <italic>Lactococcus lactis</italic> group; APA, aminopeptidase A; APN, aminopeptidase N; DPP-IV, dipeptidase IV.</p>
+            <p><sup>a,b</sup>Means with different superscripts in the same row indicate significant differences (<italic>P</italic>&#x2009;&lt;&#x2009;0.05).</p>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Intestinal microbiota</title>
+        <p>The number of <italic>E. coli</italic> in the ileum in LL-pEGF group was similar (<italic>P&#x2009;&gt;</italic>&#x2009;0.05) to that in antibiotic control group, lower (<italic>P</italic>&#x2009;=&#x2009;0.01) than that in control group (Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>A [I]). LL-pEGF and antibiotic treatments reduced the number of <italic>Enterococcus</italic> (<italic>P</italic>&#x2009;=&#x2009;0.022, Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>A [II]) in the ileum. There was no significant difference observed in <italic>Bifidobacterium</italic> among the treatments (data not shown) in the ileum. Oral administration of <italic>L. lactis-</italic>secreting pEGF resulted in an increase of 1.09 log<sub>10</sub> cfu/g and 1.31 log<sub>10</sub> cfu/g in the number of <italic>Lactobacillus</italic> in the ileal digesta compared with controls and antibiotic treatments, respectively (<italic>P</italic>&#x2009;&lt;&#x2009;0.05, Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>A [III]).</p>
+        <p>For the microbiota in the cecum, compared with the control and LL-VE treatments, antibiotic treatment and LL-pEGF decreased the number of <italic>E. coli</italic> (<italic>P&#x2009;=</italic>&#x2009;0.004, Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>B [I]). No significant difference was observed in <italic>Enterococcus</italic> and <italic>Bifidobacterium</italic> among the treatments (data not shown) in the cecum. Oral administration of <italic>L. lactis-</italic>secreting pEGF increased the amount of <italic>Lactobacillus</italic> in the cecum by 0.82 log<sub>10</sub> cfu/g and 1.19 log<sub>10</sub> cfu/g compared with the control and antibiotic treatments, respectively (<italic>P&#x2009;&lt;</italic>&#x2009;0.001, Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>B [II]). LL-VE treatment also increased the amount of <italic>Lactobacillus</italic> in the cecum compared with the control and antibiotic treatments, respectively (<italic>P&#x2009;&lt;</italic>&#x2009;0.001, Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>B [II]).</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Early weaning has been used extensively to shorten interval of farrowing thus improve litter size per year and control the transfer of disease from the sow to the piglet, but the weaning stress was consequently intensified in piglets, which induced an intestinal villi height decrease and crypt depth increase, and enhanced the rate of diarrhea [<xref ref-type="bibr" rid="B38">38</xref>]-[<xref ref-type="bibr" rid="B40">40</xref>]. The problem of piglets overcoming post-weaning stress has plagued people for a long time. The application of antibiotics do played an important role at this problem, but it also has the limitations due to the antibiotics resistance [<xref ref-type="bibr" rid="B7">7</xref>],[<xref ref-type="bibr" rid="B8">8</xref>]. The current study demonstrated that supplementing diets with pEGF-secreting <italic>L. lactis</italic> (a swine-derived growth factor and the probiotics) facilitates intestinal health in early-weaned piglets, which might be a new way to help the animals overcome the weaning transition.</p>
+      <p>In this work, we cloned the porcine <italic>egf</italic> gene into a nisin-controlled expression vector, resulting in a vector that allows rapid and efficient secretion of soluble pEGF by <italic>L. lactis</italic>. Western blot analyses showed that the concentrations of pEGF proteins were increased in the supernatant of the induced LL-pEGF fermentation cultures that were collected at different time points. The peak occurred at 24&#xA0;h after nisin was induced (no significant differences in concentrations of pEGF proteins collected at 36&#xA0;h and 48&#xA0;h compared with 24&#xA0;h, data not shown). The concentration of pEGF from our nisin-controlled expression vector was higher than that from the pAMJ399 expression vector (1000&#xA0;ng/ml vs. 500&#xA0;ng/ml) [<xref ref-type="bibr" rid="B29">29</xref>]. We demonstrated that our recombinant pEGF is directly secreted in a biologically active form, as shown by its capacity to efficiently stimulate L929 mouse fibroblast cell proliferation. pEGF production in a secreted form allows for direct assessment of its biological activity in small volumes of culture medium, without any purification steps. This procedure was easily adapted for large-scale production of biologically active recombinant pEGF.</p>
+      <p>The role of EGF in stimulating intestinal epithelium proliferation, differentiation and intestinal maturation has been demonstrated [<xref ref-type="bibr" rid="B27">27</xref>],[<xref ref-type="bibr" rid="B41">41</xref>],[<xref ref-type="bibr" rid="B42">42</xref>]. EGF implements its function through binding to EGFR. Chandra and his colleagues demonstrated that activation of EGFR increases the cell number by promoting cell proliferation and suppressing either serum depletion-induced or TNF&#x3B1;-induced apoptosis [<xref ref-type="bibr" rid="B43">43</xref>]. EGFR was found located on the basolateral surfaces in the infant and adult gastrointestinal tract [<xref ref-type="bibr" rid="B21">21</xref>],[<xref ref-type="bibr" rid="B44">44</xref>]. In weaned pigs, EGFR appeared on both microvillar and basolateral surfaces of enterocytes. In the duodenum, EGFR was evenly distributed in the villi and crypts and present to a lesser extent in the duodenal glands. In the jejunum, most EGFR was seen in the top of the villi. In the ileum, most EGFR was seen to decrease from the villus tip to the crypt [<xref ref-type="bibr" rid="B45">45</xref>]-[<xref ref-type="bibr" rid="B47">47</xref>]. Furthermore, it has been suggested that there are 10 times more EGF receptors than EGF itself, which suggests that exogenous EGF administration may be taken up and well used by animals [<xref ref-type="bibr" rid="B48">48</xref>]. Consistent with previous reports, this study demonstrated that our recombinant pEGF stimulates L929 mouse fibroblast cell proliferation <italic>in vitro</italic> and increases mean villus height <italic>in vivo.</italic></p>
+      <p>In the <italic>in vivo</italic> study, LL-pEGF improved final BW and ADG compare with the control group, but its effects were similar with the antibiotic control and LL-EV group. The overall period ADFI were higher in LL-pEGF, LL-EV and antibiotic control groups than in the control group. The higher BW gain in LL-pEGF pigs could be resulting from the adequate intake of nutrients, as indicated by the markedly increased ADFI in LL-pEGF pigs than in control pigs. However, antibiotic and LL-EV supplementation were able to exert a growth rate similar to LL-pEGF when receiving a similar feed intake.</p>
+      <p>The Oral administration of LL-pEGF to early-weaned piglets enhanced intestinal development by increased villi height in the three intestinal segments compared with control and LL-EV group in this study. This is consistent with previous reports regarding the possible promotion of proliferation of EGF [<xref ref-type="bibr" rid="B26">26</xref>],[<xref ref-type="bibr" rid="B27">27</xref>],[<xref ref-type="bibr" rid="B49">49</xref>]-[<xref ref-type="bibr" rid="B51">51</xref>]. The antibiotics were helpful to increasing the villi height compared with the negative control in piglets [<xref ref-type="bibr" rid="B52">52</xref>]-[<xref ref-type="bibr" rid="B54">54</xref>]. In the present study, villi height of the antibiotic group was increased compared with control and were similar to LL-pEGF in the ileum. The increased villous height implied the increased surface area for nutrient absorption [<xref ref-type="bibr" rid="B55">55</xref>], thus may have resulted in higher growth rate in the LL-pEGF treatment than others.</p>
+      <p>Diets supplemented with the recombinant EGF from <italic>Pichia pastoris</italic> strain elevated jejunal alkaline phosphatase, sucrase, lactase and maltase activities in early-weaned piglets [<xref ref-type="bibr" rid="B56">56</xref>]. In newborn and weaned piglets, systemic or oral administration of EGF significantly increased jejunal lactase and sucrase activities [<xref ref-type="bibr" rid="B12">12</xref>],[<xref ref-type="bibr" rid="B25">25</xref>], suggesting EGF modulates enterocyte differentiation. It also reported that EGF plays an important role in cell differentiation rather than cell proliferation in young animals, and it may be involved in stimulating mucus secretion [<xref ref-type="bibr" rid="B46">46</xref>]. Our findings that LL-pEGF increases mean sucrase activities in the 3 intestinal segments compared with control, maltase activities in the ileum compared with antibiotic control and LL-EV group, APA, APN and DPP-IV in the duodenum compared with control and antibiotic control are consistent with these reports. The elevation of intestinal enzyme activity in LL-pEGF should be one reason to result in improvement of growth performance in this study.</p>
+      <p>In addition, the intestinal microbiotas interact with host intestinal epithelial cells and protect them from pathogens via interference with pathogen adhesion and invasion [<xref ref-type="bibr" rid="B57">57</xref>]. They also affect the host through the immune response and the metabolic products of fermentation processes. Thus, the intestinal microbiota is very important for the maintenance and recovery of intestinal health. An impaired balance of the intestinal microbiota could have many adverse effects on the health of the host [<xref ref-type="bibr" rid="B58">58</xref>]. <italic>Lactobacillus</italic> has been shown to play a role in the inhibition of pathogens in the intestine [<xref ref-type="bibr" rid="B59">59</xref>]. Here, we found that both LL-pEGF and LL-EV treatments increased the amount of <italic>Lactobacillus</italic> which suggests that part of the beneficial effects of LL-pEGF can be attributed to the probiotic properties of <italic>L. lactis</italic>. Although EGF did not affect the proliferation of <italic>E. coli in vitro</italic>, it is reported that orally administered EGF protects the gastrointestinal tract against colonization by enteropathogenic <italic>E. coli</italic> in rabbits [<xref ref-type="bibr" rid="B28">28</xref>]. Consistent with previous studies, we found LL-pEGF and antibiotic control treatments decreased the amount of <italic>E. coli</italic> in the ileum and cecum, and <italic>Enterococcus</italic> counts in the ileum. It&#x2019;s well known that the antibiotics would inhibit harmful bacteria, but also the probiotics, and it&#x2019;s well demonstrated in the present study that the antibiotic control decreased the amount of <italic>E. coli</italic>, <italic>Enterococcus</italic> and <italic>Lactobacillus</italic> which would not conducive to the balance of intestinal microbiota even affect the growth performance of the pig in the subsequent growth stage<italic>.</italic> However, LL-pEGF ameliorated the intestinal microbial flora by increasing the counts of probiotics <italic>L. lactis</italic> and inhibited potential harmful bacteria <italic>E. coli</italic> and <italic>Enterococcus</italic>, thus promoted intestinal health.</p>
+    </sec>
+    <sec sec-type="conclusions">
+      <title>Conclusions</title>
+      <p>In summary, we have successfully designed a <italic>L. lactis</italic> strain for highly efficient secretion pEGF, which can be directly recovered from the culture medium. The <italic>in vitro</italic> study showed that the secreted pEGF was a fully biologically active protein. The results obtained from the <italic>in vivo</italic> study indicated that oral administration of recombinant pEGF-secreting <italic>L. lactis</italic> promotes the health of the intestine and growth rate in early-weaned piglets. The potential benefits of pEGF-secreting <italic>L. lactis</italic> in weaning transition stage should make it acceptable as an alternative therapy for farm animals during specific stages of development.</p>
+    </sec>
+    <sec>
+      <title>Abbreviations</title>
+      <p>EGF: Epidermal growth factor</p>
+      <p>rpEGF: Recombinant porcine EGF</p>
+      <p>LL-pEGF: pEGF-secreting <italic>Lactococcus lactis</italic></p>
+      <p>LL-EV: Empty vector-expressing <italic>Lactococcus lactis</italic></p>
+      <p>EGFR: ErbB1 EGF receptor</p>
+      <p>rhEGF: recombinant human EGF</p>
+      <p>APA: Aminopeptidase A</p>
+      <p>APN: Aminopeptidase N</p>
+      <p>DPP-IV: Dipeptidase IV</p>
+      <p>cfu: Colony-forming unit</p>
+    </sec>
+    <sec>
+      <title>Competing interests</title>
+      <p>The authors declare that they have no competing interests.</p>
+    </sec>
+    <sec>
+      <title>Authors&#x2019; contributions</title>
+      <p>The authors&#x2019; contributions were as follows: DYW, SYX and DW designed the experiments; DYW and SYX performed the study and wrote the manuscript; YL, ZFF, LQC and BX assisted in writing the manuscript. All authors read and approved the final manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <sec>
+      <title>Acknowledgements</title>
+      <p>This work was supported by the Major Program of Educational Commission of Sichuan Province, China, Feed efficiency and low consumption processing technology research and demonstration of Special Fund for Agro-scientific Research in the Public Interest, China (2012030), and Program for Changjiang Scholars and Innovative Research Team in University, China (IRT13083).</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Arey</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Brooke</surname>
+            <given-names>P</given-names>
+          </name>
+          <source>Animal Welfare Aspects of Good Agricultural Practice: Pig Production</source>
+          <year>2006</year>
+          <publisher-name>Compassion in World Farming Trust, Petersfield, UK</publisher-name>
+        </mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Jensen</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>Maternal behaviour and mother-young interactions during lacation in free-ranging domestic pigs</article-title>
+          <source>Appl Anim Behav Sci</source>
+          <year>1988</year>
+          <volume>20</volume>
+          <fpage>297</fpage>
+          <lpage>308</lpage>
+          <pub-id pub-id-type="doi">10.1016/0168-1591(88)90054-8</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Jensen</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Rec&#xE9;n</surname>
+            <given-names>B</given-names>
+          </name>
+          <article-title>When to wean &#x2014; observations from free-ranging domestic pigs</article-title>
+          <source>Appl Anim Behav Sci</source>
+          <year>1989</year>
+          <volume>23</volume>
+          <fpage>49</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="doi">10.1016/0168-1591(89)90006-3</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Jensen</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Stangel</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Behaviour of piglets during weaning in a seminatural enclosure</article-title>
+          <source>Appl Anim Behav Sci</source>
+          <year>1992</year>
+          <volume>33</volume>
+          <fpage>227</fpage>
+          <lpage>239</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0168-1591(05)80010-3</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>B&#xF8;e</surname>
+            <given-names>K</given-names>
+          </name>
+          <article-title>The process of weaning in pigs: when the sow decides</article-title>
+          <source>Appl Anim Behav Sci</source>
+          <year>1991</year>
+          <volume>30</volume>
+          <fpage>47</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="doi">10.1016/0168-1591(91)90084-B</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Main</surname>
+            <given-names>RG</given-names>
+          </name>
+          <name>
+            <surname>Dritz</surname>
+            <given-names>SS</given-names>
+          </name>
+          <name>
+            <surname>Tokach</surname>
+            <given-names>MD</given-names>
+          </name>
+          <name>
+            <surname>Goodband</surname>
+            <given-names>RD</given-names>
+          </name>
+          <name>
+            <surname>Nelssen</surname>
+            <given-names>JL</given-names>
+          </name>
+          <article-title>Increasing weaning age improves pig performance in a multisite production system</article-title>
+          <source>J Anim Sci</source>
+          <year>2004</year>
+          <volume>82</volume>
+          <issue>5</issue>
+          <fpage>1499</fpage>
+          <lpage>1507</lpage>
+          <pub-id pub-id-type="pmid">15144093</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Doyle</surname>
+            <given-names>ME</given-names>
+          </name>
+          <name>
+            <surname>Hartmann</surname>
+            <given-names>FA</given-names>
+          </name>
+          <name>
+            <surname>Lee Wong</surname>
+            <given-names>AC</given-names>
+          </name>
+          <article-title>Methicillin-resistant staphylococci: implications for our food supply?</article-title>
+          <source>Anim Health Res Rev</source>
+          <year>2012</year>
+          <volume>13</volume>
+          <issue>2</issue>
+          <fpage>157</fpage>
+          <lpage>180</lpage>
+          <pub-id pub-id-type="doi">10.1017/S1466252312000187</pub-id>
+          <pub-id pub-id-type="pmid">23253164</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Hiroi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Kawamori</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Harada</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Sano</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Miwa</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Sugiyama</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Hara-Kudo</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Masuda</surname>
+            <given-names>T</given-names>
+          </name>
+          <article-title>Antibiotic resistance in bacterial pathogens from retail raw meats and food-producing animals in Japan</article-title>
+          <source>J Food Prot</source>
+          <year>2012</year>
+          <volume>75</volume>
+          <issue>10</issue>
+          <fpage>1774</fpage>
+          <lpage>1782</lpage>
+          <pub-id pub-id-type="doi">10.4315/0362-028X.JFP-11-479</pub-id>
+          <pub-id pub-id-type="pmid">23043825</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Schwaiger</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Huther</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Holzel</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Kampf</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Bauer</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Prevalence of antibiotic-resistant enterobacteriaceae isolated from chicken and pork meat purchased at the slaughterhouse and at retail in Bavaria, Germany</article-title>
+          <source>Int J Food Microbiol</source>
+          <year>2012</year>
+          <volume>154</volume>
+          <issue>3</issue>
+          <fpage>206</fpage>
+          <lpage>211</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ijfoodmicro.2011.12.014</pub-id>
+          <pub-id pub-id-type="pmid">22260925</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Koldovsky</surname>
+            <given-names>O</given-names>
+          </name>
+          <name>
+            <surname>Kong</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Philipps</surname>
+            <given-names>AF</given-names>
+          </name>
+          <name>
+            <surname>Rao</surname>
+            <given-names>RK</given-names>
+          </name>
+          <article-title>Studies on milk-borne insulin-like growth factor-1 and 2 (IGF-1 and IGF-2) and epidermal growth factor (EGF) in suckling rats</article-title>
+          <source>Endocr Regul</source>
+          <year>1993</year>
+          <volume>27</volume>
+          <issue>3</issue>
+          <fpage>149</fpage>
+          <lpage>153</lpage>
+          <pub-id pub-id-type="pmid">8193315</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Blum</surname>
+            <given-names>JW</given-names>
+          </name>
+          <name>
+            <surname>Baumrucker</surname>
+            <given-names>CR</given-names>
+          </name>
+          <article-title>Insulin-like growth factors (IGFs), IGF binding proteins, and other endocrine factors in milk: role in the newborn</article-title>
+          <source>Adv Exp Med Biol</source>
+          <year>2008</year>
+          <volume>606</volume>
+          <fpage>397</fpage>
+          <lpage>422</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-0-387-74087-4_16</pub-id>
+          <pub-id pub-id-type="pmid">18183939</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Jaeger</surname>
+            <given-names>LA</given-names>
+          </name>
+          <name>
+            <surname>Lamar</surname>
+            <given-names>CH</given-names>
+          </name>
+          <name>
+            <surname>Cline</surname>
+            <given-names>TR</given-names>
+          </name>
+          <name>
+            <surname>Cardona</surname>
+            <given-names>CJ</given-names>
+          </name>
+          <article-title>Effect of orally administered epidermal growth factor on the jejunal mucosa of weaned pigs</article-title>
+          <source>Am J Vet Res</source>
+          <year>1990</year>
+          <volume>51</volume>
+          <issue>3</issue>
+          <fpage>471</fpage>
+          <lpage>474</lpage>
+          <pub-id pub-id-type="pmid">2107778</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fagbemi</surname>
+            <given-names>AO</given-names>
+          </name>
+          <name>
+            <surname>Wright</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Lakhoo</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Edwards</surname>
+            <given-names>AD</given-names>
+          </name>
+          <article-title>Immunoreactive epidermal growth factor receptors are present in gastrointestinal epithelial cells of preterm infants with necrotising enterocolitis</article-title>
+          <source>Early Hum Dev</source>
+          <year>2001</year>
+          <volume>65</volume>
+          <issue>1</issue>
+          <fpage>1</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0378-3782(01)00164-5</pub-id>
+          <pub-id pub-id-type="pmid">11520624</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Clark</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>Lane</surname>
+            <given-names>RH</given-names>
+          </name>
+          <name>
+            <surname>Maclennan</surname>
+            <given-names>NK</given-names>
+          </name>
+          <name>
+            <surname>Holubec</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Dvorakova</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Halpern</surname>
+            <given-names>MD</given-names>
+          </name>
+          <name>
+            <surname>Williams</surname>
+            <given-names>CS</given-names>
+          </name>
+          <name>
+            <surname>Payne</surname>
+            <given-names>CM</given-names>
+          </name>
+          <name>
+            <surname>Dvorak</surname>
+            <given-names>B</given-names>
+          </name>
+          <article-title>Epidermal growth factor reduces intestinal apoptosis in an experimental model of necrotizing enterocolitis</article-title>
+          <source>Am J Physiol Gastrointest Liver Physiol</source>
+          <year>2005</year>
+          <volume>288</volume>
+          <issue>4</issue>
+          <fpage>G755</fpage>
+          <lpage>G762</lpage>
+          <pub-id pub-id-type="doi">10.1152/ajpgi.00172.2004</pub-id>
+          <pub-id pub-id-type="pmid">15528252</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nakai</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Hamada</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Kato</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Kitagawa</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Hioki</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Ito</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Okumura</surname>
+            <given-names>T</given-names>
+          </name>
+          <article-title>Further evidence that epidermal growth factor enhances the intestinal adaptation following small bowel transplantation</article-title>
+          <source>Life Sci</source>
+          <year>2004</year>
+          <volume>75</volume>
+          <issue>17</issue>
+          <fpage>2091</fpage>
+          <lpage>2102</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.lfs.2004.04.018</pub-id>
+          <pub-id pub-id-type="pmid">15312753</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Rao</surname>
+            <given-names>RK</given-names>
+          </name>
+          <name>
+            <surname>Koldovsky</surname>
+            <given-names>O</given-names>
+          </name>
+          <name>
+            <surname>Grimes</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Williams</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Davis</surname>
+            <given-names>TP</given-names>
+          </name>
+          <article-title>Regional differences in gastrointestinal processing and absorption of epidermal growth factor in suckling rats</article-title>
+          <source>Am J Physiol</source>
+          <year>1991</year>
+          <volume>261</volume>
+          <issue>5 Pt 1</issue>
+          <fpage>G790</fpage>
+          <lpage>G798</lpage>
+          <pub-id pub-id-type="pmid">1951698</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Rao</surname>
+            <given-names>RK</given-names>
+          </name>
+          <article-title>Luminal processing of epidermal growth factor in mouse gastrointestinal tract in vivo</article-title>
+          <source>Peptides</source>
+          <year>1995</year>
+          <volume>16</volume>
+          <issue>3</issue>
+          <fpage>505</fpage>
+          <lpage>513</lpage>
+          <pub-id pub-id-type="doi">10.1016/0196-9781(95)00002-2</pub-id>
+          <pub-id pub-id-type="pmid">7651906</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Shen</surname>
+            <given-names>WH</given-names>
+          </name>
+          <name>
+            <surname>Xu</surname>
+            <given-names>RJ</given-names>
+          </name>
+          <article-title>Stability of epidermal growth factor in the gastrointestinal lumen of sucking and weaned pigs</article-title>
+          <source>Life Sci</source>
+          <year>1996</year>
+          <volume>59</volume>
+          <issue>3</issue>
+          <fpage>197</fpage>
+          <lpage>208</lpage>
+          <pub-id pub-id-type="doi">10.1016/0024-3205(96)00285-8</pub-id>
+          <pub-id pub-id-type="pmid">8699930</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Rao</surname>
+            <given-names>RK</given-names>
+          </name>
+          <name>
+            <surname>Baker</surname>
+            <given-names>RD</given-names>
+          </name>
+          <name>
+            <surname>Baker</surname>
+            <given-names>SS</given-names>
+          </name>
+          <article-title>Bovine milk inhibits proteolytic degradation of epidermal growth factor in human gastric and duodenal lumen</article-title>
+          <source>Peptides</source>
+          <year>1998</year>
+          <volume>19</volume>
+          <issue>3</issue>
+          <fpage>495</fpage>
+          <lpage>504</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0196-9781(97)00462-2</pub-id>
+          <pub-id pub-id-type="pmid">9533637</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Shen</surname>
+            <given-names>WH</given-names>
+          </name>
+          <name>
+            <surname>Xu</surname>
+            <given-names>RJ</given-names>
+          </name>
+          <article-title>Stability and distribution of orally administered epidermal growth factor in neonatal pigs</article-title>
+          <source>Life Sci</source>
+          <year>1998</year>
+          <volume>63</volume>
+          <issue>10</issue>
+          <fpage>809</fpage>
+          <lpage>820</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0024-3205(98)00337-3</pub-id>
+          <pub-id pub-id-type="pmid">9734700</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Playford</surname>
+            <given-names>RJ</given-names>
+          </name>
+          <name>
+            <surname>Hanby</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Gschmeissner</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Peiffer</surname>
+            <given-names>LP</given-names>
+          </name>
+          <name>
+            <surname>Wright</surname>
+            <given-names>NA</given-names>
+          </name>
+          <name>
+            <surname>McGarrity</surname>
+            <given-names>T</given-names>
+          </name>
+          <article-title>The epidermal growth factor receptor (EGF-R) is present on the basolateral, but not the apical, surface of enterocytes in the human gastrointestinal tract</article-title>
+          <source>Gut</source>
+          <year>1996</year>
+          <volume>39</volume>
+          <issue>2</issue>
+          <fpage>262</fpage>
+          <lpage>266</lpage>
+          <pub-id pub-id-type="doi">10.1136/gut.39.2.262</pub-id>
+          <pub-id pub-id-type="pmid">8977341</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Thompson</surname>
+            <given-names>JF</given-names>
+          </name>
+          <article-title>Specific receptors for epidermal growth factor in rat intestinal microvillus membranes</article-title>
+          <source>Am J Physiol</source>
+          <year>1988</year>
+          <volume>254</volume>
+          <issue>3 Pt 1</issue>
+          <fpage>G429</fpage>
+          <lpage>G435</lpage>
+          <pub-id pub-id-type="pmid">3348408</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Herbst</surname>
+            <given-names>RS</given-names>
+          </name>
+          <article-title>Review of epidermal growth factor receptor biology</article-title>
+          <source>Int J Radiat Oncol Biol Phys</source>
+          <year>2004</year>
+          <volume>59</volume>
+          <issue>2 Suppl</issue>
+          <fpage>21</fpage>
+          <lpage>26</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ijrobp.2003.11.041</pub-id>
+          <pub-id pub-id-type="pmid">15142631</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Oda</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Matsuoka</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Funahashi</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Kitano</surname>
+            <given-names>H</given-names>
+          </name>
+          <article-title>A comprehensive pathway map of epidermal growth factor receptor signaling</article-title>
+          <source>Mol Syst Biol</source>
+          <year>2005</year>
+          <volume>1</volume>
+          <fpage>2005 0010</fpage>
+          <pub-id pub-id-type="doi">10.1038/msb4100014</pub-id>
+          <pub-id pub-id-type="pmid">16729045</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>James</surname>
+            <given-names>PS</given-names>
+          </name>
+          <name>
+            <surname>Smith</surname>
+            <given-names>MW</given-names>
+          </name>
+          <name>
+            <surname>Tivey</surname>
+            <given-names>DR</given-names>
+          </name>
+          <name>
+            <surname>Wilson</surname>
+            <given-names>TJ</given-names>
+          </name>
+          <article-title>Epidermal growth factor selectively increases maltase and sucrase activities in neonatal piglet intestine</article-title>
+          <source>J Physiol</source>
+          <year>1987</year>
+          <volume>393</volume>
+          <fpage>583</fpage>
+          <lpage>594</lpage>
+          <pub-id pub-id-type="pmid">3328784</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lee</surname>
+            <given-names>DN</given-names>
+          </name>
+          <name>
+            <surname>Kuo</surname>
+            <given-names>TY</given-names>
+          </name>
+          <name>
+            <surname>Chen</surname>
+            <given-names>MC</given-names>
+          </name>
+          <name>
+            <surname>Tang</surname>
+            <given-names>TY</given-names>
+          </name>
+          <name>
+            <surname>Liu</surname>
+            <given-names>FH</given-names>
+          </name>
+          <name>
+            <surname>Weng</surname>
+            <given-names>CF</given-names>
+          </name>
+          <article-title>Expression of porcine epidermal growth factor in Pichia pastoris and its biology activity in early-weaned piglets</article-title>
+          <source>Life Sci</source>
+          <year>2006</year>
+          <volume>78</volume>
+          <issue>6</issue>
+          <fpage>649</fpage>
+          <lpage>654</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.lfs.2005.05.067</pub-id>
+          <pub-id pub-id-type="pmid">16111721</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kang</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Toms</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Yin</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Cheung</surname>
+            <given-names>Q</given-names>
+          </name>
+          <name>
+            <surname>Gong</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>De Lange</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Epidermal growth factor-expressing Lactococcus lactis enhances intestinal development of early-weaned pigs</article-title>
+          <source>J Nutr</source>
+          <year>2010</year>
+          <volume>140</volume>
+          <issue>4</issue>
+          <fpage>806</fpage>
+          <lpage>811</lpage>
+          <pub-id pub-id-type="doi">10.3945/jn.109.114173</pub-id>
+          <pub-id pub-id-type="pmid">20147464</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Buret</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Olson</surname>
+            <given-names>ME</given-names>
+          </name>
+          <name>
+            <surname>Gall</surname>
+            <given-names>DG</given-names>
+          </name>
+          <name>
+            <surname>Hardin</surname>
+            <given-names>JA</given-names>
+          </name>
+          <article-title>Effects of orally administered epidermal growth factor on enteropathogenic Escherichia coli infection in rabbits</article-title>
+          <source>Infect Immun</source>
+          <year>1998</year>
+          <volume>66</volume>
+          <issue>10</issue>
+          <fpage>4917</fpage>
+          <lpage>4923</lpage>
+          <pub-id pub-id-type="pmid">9746597</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Cheung</surname>
+            <given-names>QC</given-names>
+          </name>
+          <name>
+            <surname>Yuan</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Dyce</surname>
+            <given-names>PW</given-names>
+          </name>
+          <name>
+            <surname>Wu</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>DeLange</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Generation of epidermal growth factor-expressing Lactococcus lactis and its enhancement on intestinal development and growth of early-weaned mice</article-title>
+          <source>Am J Clin Nutr</source>
+          <year>2009</year>
+          <volume>89</volume>
+          <issue>3</issue>
+          <fpage>871</fpage>
+          <lpage>879</lpage>
+          <pub-id pub-id-type="doi">10.3945/ajcn.2008.27073</pub-id>
+          <pub-id pub-id-type="pmid">19176742</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Madsen</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Arnau</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Vrang</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Givskov</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Israelsen</surname>
+            <given-names>H</given-names>
+          </name>
+          <article-title>Molecular characterization of the pH-inducible and growth phase-dependent promoter P170 of Lactococcus lactis</article-title>
+          <source>Mol Microbiol</source>
+          <year>1999</year>
+          <volume>32</volume>
+          <issue>1</issue>
+          <fpage>75</fpage>
+          <lpage>87</lpage>
+          <pub-id pub-id-type="doi">10.1046/j.1365-2958.1999.01326.x</pub-id>
+          <pub-id pub-id-type="pmid">10216861</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Mierau</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Kleerebezem</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>10&#xA0;years of the nisin-controlled gene expression system (NICE) in Lactococcus lactis</article-title>
+          <source>Appl Microbiol Biotechnol</source>
+          <year>2005</year>
+          <volume>68</volume>
+          <fpage>705</fpage>
+          <lpage>717</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00253-005-0107-6</pub-id>
+          <pub-id pub-id-type="pmid">16088349</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kuipers</surname>
+            <given-names>OP</given-names>
+          </name>
+          <name>
+            <surname>Beerthuyzen</surname>
+            <given-names>MM</given-names>
+          </name>
+          <name>
+            <surname>de Ruyter</surname>
+            <given-names>PG</given-names>
+          </name>
+          <name>
+            <surname>Luesink</surname>
+            <given-names>EJ</given-names>
+          </name>
+          <name>
+            <surname>de Vos</surname>
+            <given-names>WM</given-names>
+          </name>
+          <article-title>Autoregulation of nisin biosynthesis in Lactococcus lactis by signal transduction</article-title>
+          <source>J Biol Chem</source>
+          <year>1995</year>
+          <volume>270</volume>
+          <issue>45</issue>
+          <fpage>27299</fpage>
+          <lpage>27304</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.270.45.27299</pub-id>
+          <pub-id pub-id-type="pmid">7592991</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Bermudez-Humaran</surname>
+            <given-names>LG</given-names>
+          </name>
+          <name>
+            <surname>Langella</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Commissaire</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Gilbert</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Le Loir</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>L&#x2019;Haridon</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Corthier</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Controlled intra- or extracellular production of staphylococcal nuclease and ovine omega interferon in Lactococcus lactis</article-title>
+          <source>FEMS Microbiol Lett</source>
+          <year>2003</year>
+          <volume>224</volume>
+          <issue>2</issue>
+          <fpage>307</fpage>
+          <lpage>313</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0378-1097(03)00475-0</pub-id>
+          <pub-id pub-id-type="pmid">12892897</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Xu</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Linher-Melville</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Yang</surname>
+            <given-names>BB</given-names>
+          </name>
+          <name>
+            <surname>Wu</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Micro-RNA378 (miR-378) regulates ovarian estradiol production by targeting aromatase</article-title>
+          <source>Endocrinology</source>
+          <year>2011</year>
+          <volume>152</volume>
+          <issue>10</issue>
+          <fpage>3941</fpage>
+          <lpage>3951</lpage>
+          <pub-id pub-id-type="doi">10.1210/en.2011-1147</pub-id>
+          <pub-id pub-id-type="pmid">21846797</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Petersen</surname>
+            <given-names>YM</given-names>
+          </name>
+          <name>
+            <surname>Elnif</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Schmidt</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Sangild</surname>
+            <given-names>PT</given-names>
+          </name>
+          <article-title>Glucagon-like peptide 2 enhances maltase-glucoamylase and sucrase-isomaltase gene expression and activity in parenterally fed premature neonatal piglets</article-title>
+          <source>Pediatr Res</source>
+          <year>2002</year>
+          <volume>52</volume>
+          <issue>4</issue>
+          <fpage>498</fpage>
+          <lpage>503</lpage>
+          <pub-id pub-id-type="doi">10.1203/00006450-200210000-00007</pub-id>
+          <pub-id pub-id-type="pmid">12357042</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lowry</surname>
+            <given-names>OH</given-names>
+          </name>
+          <name>
+            <surname>Rosebrough</surname>
+            <given-names>NJ</given-names>
+          </name>
+          <name>
+            <surname>Farr</surname>
+            <given-names>AL</given-names>
+          </name>
+          <name>
+            <surname>Randall</surname>
+            <given-names>RJ</given-names>
+          </name>
+          <article-title>Protein measurement with the Folin phenol reagent</article-title>
+          <source>J Biol Chem</source>
+          <year>1951</year>
+          <volume>193</volume>
+          <issue>1</issue>
+          <fpage>265</fpage>
+          <lpage>275</lpage>
+          <pub-id pub-id-type="pmid">14907713</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Torrallardona</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Conde</surname>
+            <given-names>MR</given-names>
+          </name>
+          <name>
+            <surname>Badiola</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Polo</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Brufau</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Effect of fishmeal replacement with spray-dried animal plasma and colistin on intestinal structure, intestinal microbiology, and performance of weanling pigs challenged with Escherichia coli K99</article-title>
+          <source>J Anim Sci</source>
+          <year>2003</year>
+          <volume>81</volume>
+          <issue>5</issue>
+          <fpage>1220</fpage>
+          <lpage>1226</lpage>
+          <pub-id pub-id-type="pmid">12772849</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Cera</surname>
+            <given-names>KR</given-names>
+          </name>
+          <name>
+            <surname>Mahan</surname>
+            <given-names>DC</given-names>
+          </name>
+          <name>
+            <surname>Cross</surname>
+            <given-names>RF</given-names>
+          </name>
+          <name>
+            <surname>Reinhart</surname>
+            <given-names>GA</given-names>
+          </name>
+          <name>
+            <surname>Whitmoyer</surname>
+            <given-names>RE</given-names>
+          </name>
+          <article-title>Effect of age, weaning and postweaning diet on small intestinal growth and jejunal morphology in young swine</article-title>
+          <source>J Anim Sci</source>
+          <year>1988</year>
+          <volume>66</volume>
+          <issue>2</issue>
+          <fpage>574</fpage>
+          <lpage>584</lpage>
+          <pub-id pub-id-type="pmid">3372395</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nabuurs</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <article-title>Weaning piglets as a model for studying pathophysiology of diarrhea</article-title>
+          <source>Vet Q</source>
+          <year>1998</year>
+          <volume>20</volume>
+          <issue>Suppl 3</issue>
+          <fpage>S42</fpage>
+          <lpage>S45</lpage>
+          <pub-id pub-id-type="doi">10.1080/01652176.1998.9694967</pub-id>
+          <pub-id pub-id-type="pmid">9689724</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kiarie</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Nyachoti</surname>
+            <given-names>CM</given-names>
+          </name>
+          <name>
+            <surname>Slominski</surname>
+            <given-names>BA</given-names>
+          </name>
+          <name>
+            <surname>Blank</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Growth performance, gastrointestinal microbial activity, and nutrient digestibility in early-weaned pigs fed diets containing flaxseed and carbohydrase enzyme</article-title>
+          <source>J Anim Sci</source>
+          <year>2007</year>
+          <volume>85</volume>
+          <issue>11</issue>
+          <fpage>2982</fpage>
+          <lpage>2993</lpage>
+          <pub-id pub-id-type="doi">10.2527/jas.2006-481</pub-id>
+          <pub-id pub-id-type="pmid">17686904</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Dignass</surname>
+            <given-names>AU</given-names>
+          </name>
+          <name>
+            <surname>Sturm</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Peptide growth factors in the intestine</article-title>
+          <source>Eur J Gastroenterol Hepatol</source>
+          <year>2001</year>
+          <volume>13</volume>
+          <issue>7</issue>
+          <fpage>763</fpage>
+          <lpage>770</lpage>
+          <pub-id pub-id-type="doi">10.1097/00042737-200107000-00002</pub-id>
+          <pub-id pub-id-type="pmid">11474304</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Choi</surname>
+            <given-names>HJ</given-names>
+          </name>
+          <name>
+            <surname>Ahn</surname>
+            <given-names>JH</given-names>
+          </name>
+          <name>
+            <surname>Park</surname>
+            <given-names>SH</given-names>
+          </name>
+          <name>
+            <surname>Do</surname>
+            <given-names>KH</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Moon</surname>
+            <given-names>Y</given-names>
+          </name>
+          <article-title>Enhanced wound healing by recombinant Escherichia coli Nissle 1917 via human epidermal growth factor receptor in human intestinal epithelial cells: therapeutic implication using recombinant probiotics</article-title>
+          <source>Infect Immun</source>
+          <year>2012</year>
+          <volume>80</volume>
+          <fpage>1079</fpage>
+          <lpage>1087</lpage>
+          <pub-id pub-id-type="doi">10.1128/IAI.05820-11</pub-id>
+          <pub-id pub-id-type="pmid">22184415</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B43">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Chandra</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Lan</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Zhu</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Siclari</surname>
+            <given-names>VA</given-names>
+          </name>
+          <name>
+            <surname>Qin</surname>
+            <given-names>L</given-names>
+          </name>
+          <article-title>Epidermal growth factor receptor (EGFR) signaling promotes proliferation and survival in osteoprogenitors by increasing early growth response 2 (EGR2) expression</article-title>
+          <source>J Biol Chem</source>
+          <year>2013</year>
+          <volume>288</volume>
+          <fpage>20488</fpage>
+          <lpage>20498</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M112.447250</pub-id>
+          <pub-id pub-id-type="pmid">23720781</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B44">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Wallace</surname>
+            <given-names>LE</given-names>
+          </name>
+          <name>
+            <surname>Hardin</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>Gall</surname>
+            <given-names>DG</given-names>
+          </name>
+          <article-title>Expression of EGF and erbB receptor proteins in small intestinal epithelium</article-title>
+          <source>Can J Gastroenterol</source>
+          <year>2001</year>
+          <volume>15</volume>
+          <issue>suppl SA</issue>
+          <fpage>abstr 135</fpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B45">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kelly</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>McFadyen</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>King</surname>
+            <given-names>TP</given-names>
+          </name>
+          <name>
+            <surname>Morgan</surname>
+            <given-names>PJ</given-names>
+          </name>
+          <article-title>Characterization and autoradiographic localization of the epidermal growth factor receptor in the jejunum of neonatal and weaned pigs</article-title>
+          <source>Reprod Fertil Dev</source>
+          <year>1992</year>
+          <volume>4</volume>
+          <issue>2</issue>
+          <fpage>183</fpage>
+          <lpage>191</lpage>
+          <pub-id pub-id-type="doi">10.1071/RD9920183</pub-id>
+          <pub-id pub-id-type="pmid">1438948</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B46">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Schweiger</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Steffl</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Amselgruber</surname>
+            <given-names>WM</given-names>
+          </name>
+          <article-title>Differential expression of EGF receptor in the pig duodenum during the transition phase from maternal milk to solid food</article-title>
+          <source>J Gastroenterol</source>
+          <year>2003</year>
+          <volume>38</volume>
+          <issue>7</issue>
+          <fpage>636</fpage>
+          <lpage>642</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00535-002-1115-2</pub-id>
+          <pub-id pub-id-type="pmid">12898355</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B47">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ginneken</surname>
+            <given-names>CV</given-names>
+          </name>
+          <name>
+            <surname>Haver</surname>
+            <given-names>EV</given-names>
+          </name>
+          <name>
+            <surname>Oste</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Weyns</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>The presence of EGF- and IGF-1-receptors in the smallintestine of fetal, neonatal and weaned piglets</article-title>
+          <source>Livest Sci</source>
+          <year>2007</year>
+          <volume>108</volume>
+          <fpage>57</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.livsci.2007.01.054</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B48">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Miettinen</surname>
+            <given-names>PJ</given-names>
+          </name>
+          <name>
+            <surname>Perheentupa</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Otonkoski</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Lahteenmaki</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Panula</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>EGF- and TGF-alpha-like peptides in human fetal gut</article-title>
+          <source>Pediatr Res</source>
+          <year>1989</year>
+          <volume>26</volume>
+          <issue>1</issue>
+          <fpage>25</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="doi">10.1203/00006450-198907000-00009</pub-id>
+          <pub-id pub-id-type="pmid">2788859</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B49">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ulshen</surname>
+            <given-names>MH</given-names>
+          </name>
+          <name>
+            <surname>Lyn-Cook</surname>
+            <given-names>LE</given-names>
+          </name>
+          <name>
+            <surname>Raasch</surname>
+            <given-names>RH</given-names>
+          </name>
+          <article-title>Effects of intraluminal epidermal growth factor on mucosal proliferation in the small intestine of adult rats</article-title>
+          <source>Gastroenterology</source>
+          <year>1986</year>
+          <volume>91</volume>
+          <issue>5</issue>
+          <fpage>1134</fpage>
+          <lpage>1140</lpage>
+          <pub-id pub-id-type="pmid">3489652</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B50">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Abud</surname>
+            <given-names>HE</given-names>
+          </name>
+          <name>
+            <surname>Watson</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Heath</surname>
+            <given-names>JK</given-names>
+          </name>
+          <article-title>Growth of intestinal epithelium in organ culture is dependent on EGF signalling</article-title>
+          <source>Exp Cell Res</source>
+          <year>2005</year>
+          <volume>303</volume>
+          <issue>2</issue>
+          <fpage>252</fpage>
+          <lpage>262</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.yexcr.2004.10.006</pub-id>
+          <pub-id pub-id-type="pmid">15652340</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B51">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Roy</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>King</surname>
+            <given-names>TW</given-names>
+          </name>
+          <article-title>Epidermal growth factor regulates NIKS keratinocyte proliferation through Notch signaling</article-title>
+          <source>J Surg Res</source>
+          <year>2013</year>
+          <volume>185</volume>
+          <fpage>6</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jss.2013.06.046</pub-id>
+          <pub-id pub-id-type="pmid">23899513</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B52">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Bhandari</surname>
+            <given-names>SK</given-names>
+          </name>
+          <name>
+            <surname>Xu</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Nyachoti</surname>
+            <given-names>CM</given-names>
+          </name>
+          <name>
+            <surname>Giesting</surname>
+            <given-names>DW</given-names>
+          </name>
+          <name>
+            <surname>Krause</surname>
+            <given-names>DO</given-names>
+          </name>
+          <article-title>Evaluation of alternatives to antibiotics using an Escherichia coli K88+ model of piglet diarrhea: effects on gut microbial ecology</article-title>
+          <source>J Anim Sci</source>
+          <year>2008</year>
+          <volume>86</volume>
+          <issue>4</issue>
+          <fpage>836</fpage>
+          <lpage>847</lpage>
+          <pub-id pub-id-type="doi">10.2527/jas.2006-822</pub-id>
+          <pub-id pub-id-type="pmid">18192551</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B53">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Thu</surname>
+            <given-names>TV</given-names>
+          </name>
+          <name>
+            <surname>Loh</surname>
+            <given-names>TC</given-names>
+          </name>
+          <name>
+            <surname>Foo</surname>
+            <given-names>HL</given-names>
+          </name>
+          <name>
+            <surname>Yaakub</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Bejo</surname>
+            <given-names>MH</given-names>
+          </name>
+          <article-title>Effects of liquid metabolite combinations produced by Lactobacillus plantarum on growth performance, faeces characteristics, intestinal morphology and diarrhoea incidence in postweaning piglets</article-title>
+          <source>Trop Anim Health Prod</source>
+          <year>2011</year>
+          <volume>43</volume>
+          <issue>1</issue>
+          <fpage>69</fpage>
+          <lpage>75</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11250-010-9655-6</pub-id>
+          <pub-id pub-id-type="pmid">20632092</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B54">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>May</surname>
+            <given-names>KD</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>JE</given-names>
+          </name>
+          <name>
+            <surname>Maxwell</surname>
+            <given-names>CV</given-names>
+          </name>
+          <name>
+            <surname>Oliver</surname>
+            <given-names>WT</given-names>
+          </name>
+          <article-title>Granulated lysozyme as an alternative to antibiotics improves growth performance and small intestinal morphology of 10-day-old pigs</article-title>
+          <source>J Anim Sci</source>
+          <year>2012</year>
+          <volume>90</volume>
+          <issue>4</issue>
+          <fpage>1118</fpage>
+          <lpage>1125</lpage>
+          <pub-id pub-id-type="doi">10.2527/jas.2011-4297</pub-id>
+          <pub-id pub-id-type="pmid">22064735</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B55">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Caspary</surname>
+            <given-names>WF</given-names>
+          </name>
+          <article-title>Physiology and pathophysiology of intestinal absorption</article-title>
+          <source>Am J Clin Nutr</source>
+          <year>1992</year>
+          <volume>55</volume>
+          <issue>1 Suppl</issue>
+          <fpage>299S</fpage>
+          <lpage>308S</lpage>
+          <pub-id pub-id-type="pmid">1728844</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B56">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lee</surname>
+            <given-names>DN</given-names>
+          </name>
+          <name>
+            <surname>Chang</surname>
+            <given-names>WF</given-names>
+          </name>
+          <name>
+            <surname>Yu</surname>
+            <given-names>IT</given-names>
+          </name>
+          <name>
+            <surname>Chiou</surname>
+            <given-names>WS</given-names>
+          </name>
+          <name>
+            <surname>Weng</surname>
+            <given-names>CF</given-names>
+          </name>
+          <article-title>Effects of diets supplemented with recombinant epidermal growth factor and glutamine on gastrointestinal tract development of early-weaned piglets</article-title>
+          <source>Asian-Aust J Anim Sci</source>
+          <year>2008</year>
+          <volume>21</volume>
+          <fpage>582</fpage>
+          <lpage>589</lpage>
+          <pub-id pub-id-type="doi">10.5713/ajas.2008.70181</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B57">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Resta-Lenert</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Barrett</surname>
+            <given-names>KE</given-names>
+          </name>
+          <article-title>Live probiotics protect intestinal epithelial cells from the effects of infection with enteroinvasive Escherichia coli (EIEC)</article-title>
+          <source>Gut</source>
+          <year>2003</year>
+          <volume>52</volume>
+          <issue>7</issue>
+          <fpage>988</fpage>
+          <lpage>997</lpage>
+          <pub-id pub-id-type="doi">10.1136/gut.52.7.988</pub-id>
+          <pub-id pub-id-type="pmid">12801956</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B58">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Marteau</surname>
+            <given-names>P</given-names>
+          </name>
+          <person-group person-group-type="editor">Rambaud JC, Buts JP, Cortier G, Flouri&#xE9; B</person-group>
+          <article-title>Factor Controlling the Bacterial Microflora</article-title>
+          <source>Gut Microflora: Digestive Physiology and Pathology</source>
+          <year>2006</year>
+          <edition>1</edition>
+          <publisher-name>J Libbey Eurotext, DL, Paris, France</publisher-name>
+          <fpage>37</fpage>
+          <lpage>55</lpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B59">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Servin</surname>
+            <given-names>AL</given-names>
+          </name>
+          <name>
+            <surname>Coconnier</surname>
+            <given-names>MH</given-names>
+          </name>
+          <article-title>Adhesion of probiotic strains to the intestinal mucosa and interaction with pathogens</article-title>
+          <source>Best Pract Res Clin Gastroenterol</source>
+          <year>2003</year>
+          <volume>17</volume>
+          <issue>5</issue>
+          <fpage>741</fpage>
+          <lpage>754</lpage>
+          <pub-id pub-id-type="doi">10.1016/S1521-6918(03)00052-0</pub-id>
+          <pub-id pub-id-type="pmid">14507585</pub-id>
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,1470 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Int J Biomed Sci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Int J Biomed Sci</journal-id>
+      <journal-id journal-id-type="publisher-id">IJBS</journal-id>
+      <journal-title-group>
+        <journal-title>International Journal of Biomedical Science : IJBS</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1550-9702</issn>
+      <issn pub-type="epub">1555-2810</issn>
+      <publisher>
+        <publisher-name>Master Publishing Group</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23675063</article-id>
+      <article-id pub-id-type="pmc">3614676</article-id>
+      <article-id pub-id-type="publisher-id">IJBS-4-29</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Different Effects of Regulatory Genes (<italic>tat</italic>, <italic>nef</italic>) of Human Immunodeficiency Virus Type 1 (HIV-1) on the Proliferation and Differentiation of Mouse Embryonic Stem Cells <italic>in vitro</italic></article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Manuilova</surname>
+            <given-names>E. S.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Arsenyeva</surname>
+            <given-names>E. L.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Khaidarova</surname>
+            <given-names>N. V.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shugurova</surname>
+            <given-names>I. M.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Inozemtseva</surname>
+            <given-names>L. S.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tarantul</surname>
+            <given-names>V. Z.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Grivennikov</surname>
+            <given-names>I. A.</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <aff>
+        <italic>Department of Viral and Cellular Molecular Genetics, Institute of Molecular Genetics, Russian Academy of Sciences, Moscow, Russia</italic>
+      </aff>
+      <author-notes>
+        <corresp><bold>Corresponding author:</bold> Igor A. Grivennikov, Department of Viral and Cellular Molecular Genetics, Institute of Molecular Genetics, Russian Academy of Sciences, Kurchatov Sq. 2, 123182 Moscow, Russia. Tel: (+7-499)-1960014; Fax: (+7-499)-1960221; E-mail: <email xlink:href="igorag@img.ras.ru">igorag@img.ras.ru</email>.</corresp>
+        <fn fn-type="supported-by">
+          <p><bold>Note:</bold> This work was supported by Russian Fund for Basic Research (grant No. 04-04-48904), and the grant of the Russian Academy of Sciences &#x201C;Molecular and Cellular Biology&#x201D;.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>3</month>
+        <year>2008</year>
+      </pub-date>
+      <volume>4</volume>
+      <issue>1</issue>
+      <fpage>29</fpage>
+      <lpage>37</lpage>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>10</month>
+          <year>2007</year>
+        </date>
+        <date date-type="accepted">
+          <day>25</day>
+          <month>11</month>
+          <year>2007</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; E. S. Manuilova <italic>et al.</italic> Licensee Master Publishing Group</copyright-statement>
+        <copyright-year>2008</copyright-year>
+        <copyright-holder>E. S. Manuilova</copyright-holder>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.5/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (<uri xlink:type="simple" xlink:href="http://creativecommons.org/licenses/by/2.5/">http://creativecommons.org/licenses/by/2.5/</uri>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>To examine the effects of the <italic>tat</italic> and <italic>nef</italic> regulatory genes of human immunodeficiency virus (HIV-1) on cell differentiation we used the mouse embryonic stem cells (ESC) as a model. Proliferation, embryoid bodies (EB) formation and subsequent differentiation into cardiomyocytes, glial and neuronal cells were investigated in ESC lines transfected with these genes. It has been shown that the transfection of ESC by the <italic>tat</italic> gene increased their proliferating activity, whereas the <italic>nef</italic> gene transfected ESC showed its decrease. The number of embryoid bodies formed was higher in the cultures of ESC transfected by the <italic>nef</italic> and lower in the cells transfected by the <italic>tat</italic> in comparison with controls. The percentage of embryoid bodies with contracting cardiomyocytes was higher against control in the <italic>nef</italic> transfected cells and lower in ESC transfected with the <italic>tat</italic>. There were no reliable differences in the appearance of glial cells between control and the <italic>nef</italic> and <italic>tat</italic> transfected cell lines. Spontaneous differentiation of ESC into neuronal cells was almost not observed in the <italic>nef</italic> transfected cells, in contrast to control and the <italic>tat</italic> transfected cells. However, addition of retinoic acid (RA) to the <italic>nef</italic> transfected cells caused even a slight increase in neuron formation as compared to control ESC treated with RA. Thus, for the first time we have shown that the <italic>tat</italic> and <italic>nef</italic> regulatory genes of HIV-1 had a visible effect on proliferation of ESC and some first steps of their differentiation. In general, the reverse correlation between the effects of these two viral genes on ESC proliferation and differentiation were observed.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>embryonic stem cells</kwd>
+        <kwd>regulatory genes of human immunodeficiency virus</kwd>
+        <kwd>transfection</kwd>
+        <kwd>embryoid bodies</kwd>
+        <kwd>proliferation</kwd>
+        <kwd>differentiation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>INTRODUCTION</title>
+      <p>Studies on functional anatomy of human immunodeficiency virus (HIV) genome is one of approaches to understanding fine mechanisms of the viral interaction with cells. To fully understand functions of particular viral genes, it seems useful to investigate not only their effect on HIV sensitive human cells but also on other cell types and on cells of other species. In this respect, murine embryonic stem cells (ESC) might be a convenient model allowing one to study the impact of particular HIV genes also on the very early stages of differentiation processes. This point hasn&#x2019;t yet been studied in detail, although there is some evidence of HIV and some of its genes interference with differentiation of various cell types (<xref ref-type="bibr" rid="R1">1</xref>, <xref ref-type="bibr" rid="R2">2</xref>, <xref ref-type="bibr" rid="R3">3</xref>).</p>
+      <p>Pluripotent ESC is often used as a model for the study of differentiation processes. These cells retain the ability to differentiate both <italic>in vitro</italic> system and after introduction in blastocytes (<xref ref-type="bibr" rid="R4">4</xref>). One of the main features of ESC <italic>in vitro</italic> is their ability to differentiate into embryoid bodies (EBs) under specific culture condition. ESC differentiation can be either spontaneous or induced by some chemical compounds and growth factors. It is well known that activin A and transforming growth factor beta-1 (TGF&#x3B2;-1) induce the mesodermal cell differentiation into cardiomyocytes and skeletal muscle cells. The factors of another group &#x2013; retinoic acid, fibroblast growth factor (FGF) and epidermal growth factor (EGF) induce a direct differentiation of ESC to mesodermal and ectodermal cells. Finally, nerve growth factor (NGF) and hepatocyte growth factor (HGF) are involved in the development of all three embryonic germ layers: their action causes the formation of liver, pancreas, muscular, hematopoietic and neuronal cells (<xref ref-type="bibr" rid="R5">5</xref>, <xref ref-type="bibr" rid="R6">6</xref>, <xref ref-type="bibr" rid="R7">7</xref>). Genetic control studies of the myogenic and epithelial differentiation of ESC under the action of some growth factors <italic>in vitro</italic> showed that the expression of tissue-specific genes was the same as in the normal developmental process (<xref ref-type="bibr" rid="R5">5</xref>, <xref ref-type="bibr" rid="R8">8</xref>).</p>
+      <p>The another way to change proliferation and differentiation of ESC is connected to their genetic modification by the genetic vectors containing some cellular genes. It has been shown, for example, that overexpression of telomerase in ESC confers growth advantage, stress resistance, and enhanced differentiation of these cells towards the hematopoietic lineage (<xref ref-type="bibr" rid="R9">9</xref>).</p>
+      <p>Thus, ESC is a convenient test-system for the investigation of the effects of different genes on the processes of the cell differentiation. The present study is undertaken to investigate the effects of the HIV-1 <italic>tat</italic> and <italic>nef</italic> genes on the proliferation and differentiation of ESC. The function of these accessory viral genes is studied for a long time.</p>
+      <p>Tat protein is expressed early in the viral life cycle and stimulates viral gene expression by interacting with the TAR element found in HIV mRNA (<xref ref-type="bibr" rid="R10">10</xref>). Tat has been shown to bind several intracellular and extracellular proteins which suggests that it is capable of modulating various biological effects. Nef protein is an HIV-1 virulence factor shown to promote viral pathogenicity by altering host cell signaling pathways (<xref ref-type="bibr" rid="R11">11</xref>, <xref ref-type="bibr" rid="R12">12</xref>). This protein contributes to the replication of primate lentiviruses by altering the trafficking of cellular proteins involved in adaptive immunity (class I and II major histocompatibility complex) and viral transmission (CD4 and DC-SIGN).</p>
+      <p>There are a lot of data that demonstrate Tat and Nef effects on cellular metabolism. It has been shown that these regulatory proteins can be influenced by the process off proliferation (<xref ref-type="bibr" rid="R13">13</xref>, <xref ref-type="bibr" rid="R14">14</xref>, <xref ref-type="bibr" rid="R15">15</xref>, <xref ref-type="bibr" rid="R16">16</xref>, <xref ref-type="bibr" rid="R17">17</xref>) apoptosis (<xref ref-type="bibr" rid="R18">18</xref>, <xref ref-type="bibr" rid="R19">19</xref>) cancerogenesis (<xref ref-type="bibr" rid="R17">17</xref>, <xref ref-type="bibr" rid="R20">20</xref>, <xref ref-type="bibr" rid="R21">21</xref>) sensitivity cells to ionizing radiation (<xref ref-type="bibr" rid="R22">22</xref>) neurotoxicity (<xref ref-type="bibr" rid="R23">23</xref>) and some others.</p>
+      <p>The study of HIV regulatory genes attaching the cells which are nonpermissive for the virus is a way to estimate the universality of these genes action on metabolic processes in animal cells. The use of pluripotent embryonic stem cells for this purpose also allows to investigate the influence of the viral genes not only on the cell proliferation but on cellular differentiation as well.</p>
+      <p>The goal of this work is to study the effect of these viral regulatory genes on ESC proliferation, EBs formation and their differentiation in cardiomyocytes, neuronal and glial cells <italic>in vitro</italic>.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>MATERIALS AND METHODS</title>
+      <sec>
+        <title>Growth of ESC and embryonic fibroblasts</title>
+        <p>Mouse R1 line ESC (kindly presented by Dr. A. Nagy, Mount Sinai Hospital, Canada) was isolated from agouti-color (129/Sv &#xD7; 129/SvJ) F1 line mouse blastocytes (24). R1 line of ESC was routinely maintained at 37&#xB0;C humidified air with 5% CO<sub>2</sub> in alfa-MEM medium containing 15% fetal bovine serum (FBS) (&#x201C;Gibco&#x201D;, USA), 0.1 mM 2-mercaptoethanol, 2 mM L-glutamine, nonessential amino acids (&#x201C;Gibco&#x201D;, USA), nucleosides (&#x201C;Sigma&#x201D;, USA), vitamins (&#x201C;ICN&#x201D;, USA) and gentamycin (20 &#x3BC;g/ml). As a nutrient (feeder) layer for ESC, primary fibroblasts from 11-12 day-old embryo mice whose proliferation had been blocked by mitomycin C (5 &#x3BC;g/ml) were used. DMEM (&#x201C;Sigma&#x201D;, USA), containing 10% of FBS and all above mentioned additions except 2-mercaptoethanol, was used as the growth medium for the primary culture of fibroblasts. When ESC were cultivated without feeder, LIF (leukemia-inhibiting factor) (&#x201C;Sigma&#x201D;, USA) at a concentration of 10 ng/ml was added to the medium to block spontaneous differentiation of these cells (<xref ref-type="bibr" rid="R25">25</xref>). Cell replating accompanied by medium changing was repeated every three day.</p>
+      </sec>
+      <sec>
+        <title>Recombinant plasmids</title>
+        <p>Plasmid <italic>pNEF</italic> containing the <italic>nef</italic> gene of HIV-1 HXB3 isolate (the <italic>Hind</italic>III/<italic>Taq</italic>I-fragment, nucleotides from 8306 to 8998) under the control of cytomegalovirus (CMV) promoter was generously supplied by Dr. Hammes (26). To construct a HIV gene <italic>tat</italic>-carrying plasmid, the <italic>SalI/PstI</italic> fragment (from nucleotide 5786 through to the 3&#x2019; end) of HXB2 isolate with the deleted gene <italic>nef</italic>-carrying region (the <italic>Bam</italic>HI/<italic>BgI</italic>II fragment, nucleotides 8475 to 9558) was used. The <italic>Sal1/Pst1</italic> fragment containing 2<sup>nd</sup> and 3<sup>rd</sup> exons (the 1<sup>st</sup> and the 2<sup>nd</sup> translated exons, respectively) of the gene <italic>tat</italic> and the polyadenylation signal on its own was cloned after blunting the ends in the expression vector <italic>pcDNA3</italic> (&#x201C;Invitrogen&#x201D;, USA) at the <italic>EcoR</italic>V site. The obtained plasmid, <italic>pTat-neo,</italic> carried the gene of resistance to neomycin and contained gene <italic>tat</italic> under CMV promoter. Recombinant plasmids were purified by standard method (<xref ref-type="bibr" rid="R27">27</xref>).</p>
+        <p>To produce ESC transfected by the <italic>eGFP</italic> gene, we used the plasmid <italic>pEGFP-C1</italic> (&#x201C;Clontech&#x201D;, USA, No 6084-1) carrying this gene under the control of CMV promoter. <italic>eGFP</italic>-transfected cells were observed under a fluorescence microscope Axioskop 2 plus (&#x201C;Carl Zeiss&#x201D;, Germany).</p>
+      </sec>
+      <sec>
+        <title>Cell transfection and selection</title>
+        <p>ESC transfection by the vectors containing the <italic>tat</italic> or <italic>nef</italic> genes was performed by electroporation on &#x201C;SUM-4&#x201D; electroporator (Institute of Molecular Biology RAS, Moscow, Russia) under the following specially selected conditions: impulse duration, 1.5 ms; power, 400 W. 10 &#x3BC;g of plasmid DNA was used for the transfection of 1,000,000 cells. To reveal transfectants with the <italic>nef</italic> gene, co-transfection of <italic>pNef</italic> plasmid with plasmid <italic>pSV2neo</italic> (kindly presented by Dr. Southern P.J.) at a ratio of 10:1 was performed. ESC were transfected also by plasmid <italic>pSV2neo or pcDNA3</italic> alone and used as a control. The selection of transfected cells in both cases was performed using G418 (200 &#x3BC;g/ml). The frequency of transfection was near 2 &#xD7; 10<sup>-4</sup>. Polyclonal cultures were used in all further experiments. Every three months additional selection with G418 was performed for all transfected cell cultures to prevent the appearence the cells without transgenes.</p>
+        <p>The presence of the <italic>nef</italic> and <italic>tat</italic> gene transcripts in transfected cells was analyzed by RT- PCR with &#x201C;Access RT-PCR System&#x201D; (&#x201C;Promega&#x201D;, USA). The following primers were used:</p>
+        <p>for the <italic>nef</italic> -
+<list list-type="simple"><list-item><p>5&#x2019;-GGTGGCAAGTGGTCAAAAAGTAGTG-3&#x2019;,</p></list-item><list-item><p>5&#x2019;-AATCAGGGAAGTAGCCTTGTGTGTG-3&#x2019;</p></list-item></list>
+</p>
+        <p>for the <italic>tat</italic> -
+<list list-type="simple"><list-item><p>5&#x2019;-GAGCCAGTAGATCCTAGACTAGAGC-3&#x2019;</p></list-item><list-item><p>5&#x2019;-TCTGATGAGCTCTTCGTCGCTGTC-3&#x2019;</p></list-item></list></p>
+        <p>Conditions for PCR were the following: 94&#xB0;C 48 s., 59&#xB0;C 30 s, 72&#xB0;C 1 min., 27-30 cycles, then 72&#xB0;C 7-10 min. The predicted sizes of amplicons were: for the <italic>tat</italic> - 177 bp, for the <italic>nef - 367</italic> bp.</p>
+      </sec>
+      <sec>
+        <title>Assay for cell proliferation</title>
+        <p>An assessment of the proliferative activity of control and transfected ESC lines was carried out by the cytochemical method using MTT (3-(4,5-dimethyl tiasole-2-il)-2,5-diphenyl tetrasolium bromide) as previously described (<xref ref-type="bibr" rid="R28">28</xref>). At the same time, the number of alive cells used in the experiments was evaluated by Trypan Blue exclusion test under the inverted microscope Olympus CKX41 (&#x201C;Olympus&#x201D;, Japan) in a hematocytometer. The results were taken on the 3<sup>rd</sup> day after the cell plating.</p>
+      </sec>
+      <sec>
+        <title>EBs formation and cardiomyocyte differentiation</title>
+        <p>To perform the differentiation of ESC into EB, ESC was separated from fibroblast feeder. For this purpose, the cells were treated with trypsin (0.05%, 5 min) and obtained cell suspension were preplated on Petri dish (&#x201C;Nunc&#x201D; Denmark, d=60 mm) during 15 min at 37&#xB0;C, 5% CO<sub>2</sub>. This time was sufficient for the main mass of fibroblasts to get attached to the bottom of the plate, whereas ESC was stayed in the suspension. Cells from the suspension were pelleted by centrifugation, and viable cell numbers were determined. The frequency of contaminating embryonic fibroblasts in the undifferentiated (day 0) ESC samples was estimated to be less than 0.2% based on cell size during counting. To form EBs, suspension of ESC (1000 cells per well) was transferred to 96-U plates (&#x201C;Nunc&#x201D; Denmark) and then they were placed in CO<sub>2</sub>-incubator (5% CO<sub>2</sub>). After 3 days the formed EBs were counted in 10 wells for each cell line. The quantities of the beating clusters of cardiomyocytes in the plates were counted during 3 weeks of the incubation under the inverted microscope Olympus CKX41 (&#x201C;Olympus&#x201D;, Japan). Each experiment was repeated at least 4 times.</p>
+      </sec>
+      <sec>
+        <title>Neuronal and glial differentiation</title>
+        <p>EBs obtained from ESC were incubated for 2 days in the culture medium containing 1 &#x3BC;M of retinoic acid and then seeded by 8-10 EBs per well on gelatin (0.01%) coated 24 well plates (&#x201C;Nunc&#x201D; Denmark). The same quantities of EBs were incubated without retinoic acid and served as a control. Plates were placed in CO<sub>2</sub>-incubator (5% CO<sub>2</sub>) for differentiation for 20 days. Half of the culture medium was changed every 3 days. To detect different types of ESC differentiation, 10 days later part of the plates were processed for immunocytochemistry with antibodies raised against nestin, an antigen for neuronal precursor cells (&#x201C;Chemicon&#x201D;, USA) and GFAP (glial fibrillary acidic protein) (&#x201C;Sigma&#x201D;, USA). The remaining plates were incubated for additional 10 days to obtain neuronal differentiation which was detected with antibodies to MAP2 (mature neuronal phenotype) (&#x201C;Sigma&#x201D;, USA). To obtain quantitative characterization of neuronal differentiation of transfected cells the experiments were performed as follow. 8-10 EBs obtained from each of the cell line were transferred to the well of 24-well plate and after 10 days (for nestin) and 20 days (for MAP2) of incubation the quantities of nestin- and MAP2-positive cells were determined in each well using the microscope Olympus CKX41 (&#x201C;Olympus&#x201D;, Japan), as described below (see &#x201C;Materials and Methods&#x201D;, Immunocytochemistry). Ten wells for each cell line were counted.</p>
+      </sec>
+      <sec>
+        <title>Tests on pluripotency of transfected ESC</title>
+        <p><bold>Alkaline phosphatase detection.</bold> ESC was plated onto cover glasses with a mitomycin-blocked fibroblast feeder. After one day of cultivation, the cells were fixed by cooled acetone (+4&#xB0;C) for 1 min, air dried and then incubated in a solution of AS-B1-phosphate and BB-blue dye at 37&#xB0;C for 1 h (<xref ref-type="bibr" rid="R29">29</xref>). The stained cell preparations were studied under the microscope, and cells producing a positive response to alkaline phosphatase activity were regarded as non-differentiated.</p>
+        <p><bold>SSEA-1 detection.</bold> The colonies of ESC grown on fibroblast feeder were washed two times with PBS and fixed in 100% methanol (-20&#xB0;C, 5 min). Then cells were washed two times by PBS-0.01% Tween-20 and nonspecific binding was blocked by PBS-0.01% Tween-20 solution containing 5% of dry milk (solution A) and 15% FBS at room temperature for 30 min. Cells were incubated with anti-SSEA-1 mouse monoclonal antibodies (1:10 in solution A) for 1 h at room temperature. After 3 times washing with PBS-0.01% Tween-20 the secondary Alexa Fluor&#xAE; 546 goat anti-mouse IgG (H+L) (1:1000) from &#x201C;Molecular Probes&#x201D; (USA) in PBS-0.01% Tween-20 were added for additional 1 h. After incubation at room temperature samples were washed 3 times with PBS-0.01% Tween-20 and investigated under Axioskop 2 plus microscope (&#x201C;Carl Zeiss&#x201D;, Germany).</p>
+        <sec>
+          <title>Immunocytochemistry</title>
+          <p>The cells generated from EBs were fixed with freshly prepared 4% formaldehyde in PBS during 30 min. After 4-time washing with PBS, cells were incubated in PBS with 0.1% Triton X-100 and 2-5% of FBS (solution B) during 15 min. Then the samples were incubated with the first specific antibodies (anti-nestin 1:500, anti-GFAP 1:100, anti-MAP2 1:500) overnight at +4&#xB0;C. Next day antibodies were removed by three times washing with solution B and incubated at room temperature for additional 2 h with biotinylated secondary antibodies against mouse immunoglobulins (1:500; &#x201C;IMTEK&#x201D;, Russia). After three times washing with solution B streptavidin conjugated with peroxidase (1:100; &#x201C;IMTEK&#x201D;, Russia) was added for 1 h. After the incubation and washing (three times with solution B) colour was developed with 3-amino-9-ethylcarbazole (&#x201C;Sigma&#x201D;, USA). The detection of stained cells in cultures was performed using the microscope Olympus CKX41 (&#x201C;Olympus&#x201D;, Japan).</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>All statistical analyses were performed using the &#x201C;Sigma Plot&#x201D; software package (&#x201C;Jandel Scientific Corp.&#x201D;, USA). Results are expressed as mean &#xB1; SEM. Differences between groups of data were analyzed by one-way analysis of variance (one-way ANOVA). Statistical significance was accepted if <italic>p</italic>&lt;0.05.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>RESULTS</title>
+      <sec>
+        <title>Gene expression under CMV promoter</title>
+        <p>The efficiency assessment of the CMV promoter for transgene expression in ESC line R1 was conducted at the first stage of our work. The necessity of this kind of experiment was started in light of a study showing weaker activity of the CMV promoter in ESC lines D3 and J1, as compared with to CBA and EF promoters (<xref ref-type="bibr" rid="R30">30</xref>). The results of our experiments (Fig. <xref ref-type="fig" rid="F1">1</xref>) showed that the expression of <italic>EGFP</italic> gene under the control of the CMV promoter in R1 line of ESC was efficient.</p>
+        <fig id="F1" orientation="portrait" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>EGFP expression in ESC transfected by a plasmid carrying the <italic>eGFP</italic> gene under the control of CMV promoter. a, colonies of ESC in a light microscope; b, the same colonies in a fluorescent microscope; magnification &#xD7;200.</p>
+          </caption>
+          <graphic xlink:href="IJBS-4-29_F1"/>
+        </fig>
+        <p>The data obtained allowed us to take under the experiments on the ESC transfection by constructs with the regulatory <italic>tat</italic> and <italic>nef</italic> genes of HIV-1 under the control of the CMV promoter.</p>
+      </sec>
+      <sec>
+        <title>Characterization of transfected cell lines</title>
+        <p>After the transfection of ESC and subsequent selection four different cell lines were obtained: es-neok (transfected by plasmid <italic>pSV2neo</italic>, control), es-pcDNA3 (transfected by pcDNA3, control), es-tat (transfected by plasmid <italic>pTatneo</italic>) and es-nef (transfected by plasmids <italic>pNef</italic> and <italic>pSV2neo</italic>). By RT-PCR expression of the <italic>tat</italic> gene in es-tat cells and the <italic>nef</italic> gene in es-nef cells was detected (Fig. <xref ref-type="fig" rid="F2">2</xref>).</p>
+        <fig id="F2" orientation="portrait" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p><italic>tat</italic> and <italic>nef genes</italic> expression assessed by RT-PCR. Lanes 1,3, cell line es-neok (negative control), lane 2, cell line es-tat, lane 4, cell line es-nef.</p>
+          </caption>
+          <graphic xlink:href="IJBS-4-29_F2"/>
+        </fig>
+        <p>No changes in morphology were observed in each of the four ESC lines. The alkaline phosphatase and SSEA-1 staining served as markers of the mammalian ESC pluripotent status (<xref ref-type="bibr" rid="R25">25</xref>, <xref ref-type="bibr" rid="R30">30</xref>, <xref ref-type="bibr" rid="R31">31</xref>, <xref ref-type="bibr" rid="R32">32</xref>). All the obtained cell lines had the same level of staining of these markers (Fig. <xref ref-type="fig" rid="F3">3</xref> and <xref ref-type="fig" rid="F4">4</xref>).</p>
+        <fig id="F3" orientation="portrait" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p>Immunofluorescent detection of SSEA -1 expression in transfected ESC lines. a, es-neok (control); b, es-tat; c, es-nef; magnification &#xD7;200.</p>
+          </caption>
+          <graphic xlink:href="IJBS-4-29_F3"/>
+        </fig>
+        <fig id="F4" orientation="portrait" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p>Detection of alkaline phosphatase in transfected ESC growing on fibroblast feeder cells. a, colonies of es-nef, stained; b, fibroblast feeder cells, not stained (date for es-neok and es-tat not shown); magnification &#xD7;200.</p>
+          </caption>
+          <graphic xlink:href="IJBS-4-29_F4"/>
+        </fig>
+        <p>Although the expression of the <italic>nef</italic> gene in the es-nef cell line was easily detected in the first passages, it was entirely lost at later passages. This result is in agreement with the data obtained earlier and the observation that it is difficult to establish stable cell lines constitutively expressing Nef due to its toxicity in transfected cells (<xref ref-type="bibr" rid="R33">33</xref>, <xref ref-type="bibr" rid="R34">34</xref>)</p>
+      </sec>
+      <sec>
+        <title>Influence of the tat and nef genes on proliferation of ESC</title>
+        <p>Differences between the lines of ESC transfected by the <italic>tat</italic> and <italic>nef</italic> were brought to light when studying their proliferating activity. As follows from the results presented in Fig. <xref ref-type="fig" rid="F5">5</xref>, ESC proliferation in the es-tat cell line (black column) was about 20% higher and in the es-nef cell line (gray column) was about 20% lower compared to the es-pcDNA3 and es-neok control (white column) cell lines respectively.</p>
+        <fig id="F5" orientation="portrait" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p>The effect of HIV-1 regulatory genes <italic>tat</italic> and <italic>nef</italic> on the proliferation of transfected ESC: white column-es-neok (control), black column-es-tat, gray column - es-nef. <sub>*</sub><italic>p</italic>&lt;0.05, n=20.</p>
+          </caption>
+          <graphic xlink:href="IJBS-4-29_F5"/>
+        </fig>
+        <p>There were no reliable differences in proliferative activity between control cell lines es-neok and es-pcDNA3 in our experiments. The results with only es-neok line are presented in Fig. <xref ref-type="fig" rid="F5">5</xref>. Transfection of the plasmid containing the <italic>tat gene</italic> under the control of metallotioneine promoter (<xref ref-type="bibr" rid="R16">16</xref>, <xref ref-type="bibr" rid="R17">17</xref>) led to the same effect (data not shown).</p>
+      </sec>
+      <sec>
+        <title>Influence of tat and nef genes on EBs formation and their differentiation into cardiomyocytes</title>
+        <p>The next stage of our work was the investigation of the effect of <italic>tat</italic> and <italic>nef</italic> genes on spontaneous formation of EBs <italic>in vitro</italic>. EBs derived from ESC involves many events of early embryonic development. The analysis of spontaneous differentiation showed that EBs was formed after 2 or 3 days of ESC plating in the absence of the feeder cells. When EBs was transferred onto gelatin coated 4 well plates it was attached to the substrate so that the migration of the cells from the EBs and their differentiation into the cells of different types were observed. Our experiments allowed to see that the efficiency of EBs formation in R1 cell line was dependent on the number of cells, seeded on the feeder-free surface of the plate and the cultivation time of EBs before the beginning of differentiation.</p>
+        <p>After 5-6 days of EBs attachment to the surface, spontaneously contracting cardiomyocyte cells were observed. The time of cardiomyocyte development <italic>in vitro</italic> varied from 7 to 20 days after cell plating. The pulsation frequency of these cells was also variable and dependent on cultivation time of EBs. The frequency did not exceed 60 contractions per minute during the first day and slowly decreased eventually.</p>
+        <p>When analyzing a possible effect of <italic>tat</italic> and <italic>nef</italic> genes on ESC differentiation, experiments were conducted to estimate the following parameters for all cell lines: 1) time needed for EBs formation, 2) the number of formed EBs after 3 days of cell plating, 3) EB&#x2019;s size, and 4) the occurrence of the cells with different tissue specificity (in our case we assessed ESC differentiation into cardiomyocytes). It was demonstrated that the time of EBs formation was similar for all ESC cell lines (es-neok, es-pcDNA3, es-tat, and es-nef). No significant differences in EBs sizes in these lines were revealed either. However, the number of the EBs was different: it was approximately 2 times less in the es-tat cell line than in the es-pcDNA3 line, whereas, some increase (approx. 1.4 time) in the number of EBs was observed in the es-nef line as compared to the es-neok cell line (Table <xref ref-type="table" rid="T1">1</xref>). Again no differences in the quantity of EBs between two control cell lines were observed.</p>
+        <table-wrap id="T1" orientation="portrait" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p>Influence of regulatory genes HIV-1 <italic>tat</italic> and <italic>nef</italic> on EBs formation and differentiation in cardiomyocytes in transfected ESC</p>
+          </caption>
+          <table frame="border" rules="none" width="100%">
+            <thead>
+              <tr>
+                <th rowspan="1" colspan="1">Transfected cell line</th>
+                <th rowspan="1" colspan="1">The number of EBs bodies after seeding 1000 cells per well (3 days <italic>in vitro</italic>)</th>
+                <th rowspan="1" colspan="1">The number of clasters of cardiomyocytes (calculated on 200 EBs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="3" rowspan="1">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1">es-neok (control)</td>
+                <td align="center" rowspan="1" colspan="1">10.00 &#xB1; 0.80</td>
+                <td align="center" rowspan="1" colspan="1">5.0</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1">es-tat</td>
+                <td align="center" rowspan="1" colspan="1">6.27 &#xB1; 0.33<xref ref-type="table-fn" rid="T1FN2">b</xref></td>
+                <td align="center" rowspan="1" colspan="1">3.0</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1">es-nef</td>
+                <td align="center" rowspan="1" colspan="1">14.05 &#xB1; 1.80<xref ref-type="table-fn" rid="T1FN1">a</xref></td>
+                <td align="center" rowspan="1" colspan="1">11.0</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn id="T1FN1">
+              <label>a</label>
+              <p><italic>p</italic>&lt;0.05, n=40;</p>
+            </fn>
+            <fn id="T1FN2">
+              <label>b</label>
+              <p><italic>p</italic>&lt;0.01, n=40.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>The areas of contracting cardiomyocytes started appearing on the 5-6<sup>th</sup> day after the EBs attachment to the carrier in the es-tat and es-nef ESC lines. The amount of EBs with the clusters of contracting cardiomyocytes was higher in es-nef cell line, and it was considerably lower in the es-tat cell line against control cells (Table <xref ref-type="table" rid="T1">1</xref>).</p>
+      </sec>
+      <sec>
+        <title>The effects of the tat and nef on ESC differentiation into glial and neuronal cells</title>
+        <p>The influence of the <italic>tat</italic> and <italic>nef</italic> genes of HIV-1 on the differentiation of mouse ESC into neuronal and glial cells in the presence and absence of retinoic acid was studied. Retinoic acid (RA) is well known inducer of neuronal differentiation (<xref ref-type="bibr" rid="R35">35</xref>, <xref ref-type="bibr" rid="R36">36</xref>). To study neuronal and glial differentiation EBs were incubated in the presence or absence of retinoic acid as described in &#x201C;Material and Methods&#x201D; and transferred to 4 well plates coated with 0.01% gelatin. After 10 days part of the wells were stained with antibodies to GFAP, nestin or MAP2.</p>
+        <p>No significant differences in the number of GFAP-positive cells were observed between all cell lines in the presence and absence of retinoic acid. Thus, both viral regulatory genes did not essentially affect the differentiation of ESC into glial cells.</p>
+        <p>The number of nestin-positive cells was unchanged in the <italic>tat</italic> gene transfected cells, but it was decreased to none in nef-transfected cells (Table <xref ref-type="table" rid="T2">2</xref>). Therefore, the <italic>nef</italic> gene apparently suppressed neuronal differentiation of ESC. However, in the presence of retinoic acid the number of nestin-positive cells was greater in es-nef as compared with es-tat and control cell lines (Table <xref ref-type="table" rid="T2">2</xref>).</p>
+        <table-wrap id="T2" orientation="portrait" position="float">
+          <label>Table 2</label>
+          <caption>
+            <p>Influence of retinoic acid (RA) on neuronal differentiation of ESC transfected by the <italic>nef</italic> and <italic>tat</italic> regulatory genes of HIV-1</p>
+          </caption>
+          <table frame="border" rules="none" width="100%">
+            <thead>
+              <tr>
+                <th rowspan="2" colspan="1">Antibodies</th>
+                <th rowspan="2" colspan="1">Transfected cell lines</th>
+                <th colspan="2" rowspan="1">The number of stained cells per well<hr/>
+</th>
+              </tr>
+              <tr>
+                <th rowspan="1" colspan="1">-RA</th>
+                <th rowspan="1" colspan="1">+RA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="4" rowspan="1">
+                  <hr/>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="3" valign="top" align="center" colspan="1">
+                  <bold>Nestin</bold>
+                </td>
+                <td align="center" rowspan="1" colspan="1">es-neok (control)</td>
+                <td align="center" rowspan="1" colspan="1">62&#xB1;25</td>
+                <td align="center" rowspan="1" colspan="1">304&#xB1;48</td>
+              </tr>
+              <tr>
+                <td align="center" rowspan="1" colspan="1">es-tat</td>
+                <td align="center" rowspan="1" colspan="1">54&#xB1;21</td>
+                <td align="center" rowspan="1" colspan="1">336&#xB1;52</td>
+              </tr>
+              <tr>
+                <td align="center" rowspan="1" colspan="1">es-nef</td>
+                <td align="center" rowspan="1" colspan="1">1-2</td>
+                <td align="center" rowspan="1" colspan="1">535&#xB1;65</td>
+              </tr>
+              <tr>
+                <td rowspan="3" valign="top" align="center" colspan="1">
+                  <bold>MAP-2</bold>
+                </td>
+                <td align="center" rowspan="1" colspan="1">es-neok (control)</td>
+                <td align="center" rowspan="1" colspan="1">9&#xB1;2</td>
+                <td align="center" rowspan="1" colspan="1">100&#xB1;10</td>
+              </tr>
+              <tr>
+                <td align="center" rowspan="1" colspan="1">es-tat</td>
+                <td align="center" rowspan="1" colspan="1">6&#xB1;4</td>
+                <td align="center" rowspan="1" colspan="1">120&#xB1;15</td>
+              </tr>
+              <tr>
+                <td align="center" rowspan="1" colspan="1">es-nef</td>
+                <td align="center" rowspan="1" colspan="1">No</td>
+                <td align="center" rowspan="1" colspan="1">250&#xB1;22</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <p>Terminally differentiated neuron cells were stained with antibodies against MAP2. In contrast to the <italic>tat gene</italic> transfected and control cells, the cultures of the <italic>nef</italic> gene transfected ESC in the absence of retinoic acid completely lacked MAP-positive cells. In the presence of retinoic acid, MAP2-positive cells could be observed in all cell lines, but the number of these cells being 2-2.5 fold higher in es-nef cell line as compared with es-tat cell line and control cells (Table <xref ref-type="table" rid="T2">2</xref>).</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>DISCUSSION</title>
+      <p>An increase in proliferating activity was observed in the mouse ESC under the influence of the <italic>tat</italic> gene and its suppression under the influence of the <italic>nef</italic> gene. The result was consistent with our previous data obtained in different rat cell lines (Rat-2 line pseudonormal cells and pheochromocytome cells line PC-12) (<xref ref-type="bibr" rid="R17">17</xref>).</p>
+      <p>Data obtained in this work is shown for the first time that both viral regulatory genes affect not only ESC proliferation, but have the profound effects both on early stages of ESC differentiation (EBs formation) and on the processes of their differentiation into cardiomyocytes and neuronal cell types.</p>
+      <p>The effects of the <italic>tat</italic> and <italic>nef</italic> genes on ESC were apparent as early as at the stage of EB formation, and they were strictly opposite. Whereas <italic>tat</italic> hampered the EB formation, the <italic>nef</italic> gene significantly stimulated this process. The impact of these genes was detected also at later stages of ESC differentiation.</p>
+      <p>HIV-1 cardiomyopathy has become one of the major causes of death in AIDS patients, but its pathogenesis is unclear. Here, we have for the first time shown that the expression of the <italic>tat</italic> gene reduced spontaneous differentiation of ESC into cardiomyocytes. The Tat protein of HIV-1 is a powerful activator of viral genes expression. Besides this essential function of the HIV-1 promoter, the Tat also exerts a remarkable number of other biological activities including the effects on cell proliferation, differentiation and cell death (<xref ref-type="bibr" rid="R37">37</xref>). Moreover it has been shown that Tat can induce apoptosis in different cells, including cardiomyocytes (<xref ref-type="bibr" rid="R38">38</xref>). Our results showing the suppression of cardiomyocytes formation in <italic>tat</italic>-transfected cultures are in agreement with these data.</p>
+      <p>From the other hand, it is well known that Tat protein has been suspected of causing neuronal disfunction that often leads to the development of HIV-associated dementia in AIDS patients. The treatment of neuronal cells with Tat affects the nerve growth factor (NGF) signaling pathway (<xref ref-type="bibr" rid="R39">39</xref>). However, we did not find any essential influence of <italic>tat</italic> on the processes of neuronal or glial differentiation <italic>in vitro</italic>, using the mouse ESC model.</p>
+      <p>The effects of the <italic>nef</italic> gene on ESC are generally opposite to those of the <italic>tat</italic> gene. We have shown earlier that the <italic>nef</italic> gene decreased cell proliferation in different rat cell lines <italic>in vitro</italic> (<xref ref-type="bibr" rid="R16">16</xref>, <xref ref-type="bibr" rid="R17">17</xref>). In the present work we have shown that proliferation of ESC was also decreased in the <italic>nef-</italic>transfected cell line. Moreover, our results allowed us to reveal a new potential of the <italic>nef</italic> gene. It was found to induce spontaneous differentiation of ESC cells into EB and cardiomyocytes, but at the same time to completely inhibit spontaneous neuronal differentiation. The latter is in agreement with earlier data that Nef can mediate neural cell death (<xref ref-type="bibr" rid="R12">12</xref>, <xref ref-type="bibr" rid="R23">23</xref>, <xref ref-type="bibr" rid="R40">40</xref>, <xref ref-type="bibr" rid="R41">41</xref>). The <italic>nef</italic> gene does not express in neurons of HIV-infected patients, therefore, some observed pathological effects in nervous system may be due to its expression in glial cells.</p>
+      <p>Unexpectedly, the <italic>nef</italic> gene does not suppress the retinoic acid induction of ESC differentiation into neurons, it can even slightly stimulate this process. It might be due to a possible anti-apoptotic effect of Nef (<xref ref-type="bibr" rid="R42">42</xref>) on neuronal cells partially neutralizing the pro-apoptotic effect of retinoic acid (<xref ref-type="bibr" rid="R43">43</xref>) when Nef cytotoxicity is attenuated by this acid. Such a &#x2018;neutralization&#x2019; might occur e.g. due to retinoic acid suppression of synthesis of interferon-inducible protein 10 (IP-10) (<xref ref-type="bibr" rid="R44">44</xref>) also involved in the Nef protein mediated neuronal cell death (<xref ref-type="bibr" rid="R12">12</xref>).</p>
+      <p>In common, the reverse correlation between the effects of the <italic>tat</italic> and <italic>nef</italic> viral genes on ESC proliferation and differentiation were observed. Genetic modifications of ESC is a perspective approach not only for the investigations of the role of different genes in the processes of cellular and tissue differentiation but for the creation of the models for drug testing and for development of the new approaches to human cell therapy in the future.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>ACKNOWLEDGEMENTS</title>
+      <p>The authors are grateful to Tishchenko N.A. for technical assistance, Dolotov O.B. for secretarial assistance, Varshaver N.B. for helpful discussion of the results and M. Lagarkova for kindly presenting of SSEA-1 antibodies.</p>
+    </ack>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McCarthy</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Vidaurre</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Geffin</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Maturing neurons are selectively sensitive to human immunodeficiency virus type 1 exposure in differentiating human neuroepithelial progenitor cell cultures</article-title>
+          <source>J. Neurovirol</source>
+          <year>2006</year>
+          <volume>12</volume>
+          <issue>5</issue>
+          <fpage>333</fpage>
+          <pub-id pub-id-type="pmid">17065126</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Harman</surname>
+              <given-names>FN</given-names>
+            </name>
+            <name>
+              <surname>Wilkinson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bye</surname>
+              <given-names>CR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV induces maturation of monocyte-derived dendritic cells and Langerhans cells</article-title>
+          <source>J. Immunol</source>
+          <year>2006</year>
+          <volume>177</volume>
+          <issue>10</issue>
+          <fpage>103</fpage>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huynh</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Vincan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Mantamadiotis</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ovcogenic properties of HIV-Tat in colorectal cancer cells</article-title>
+          <source>Curr. HIV Res</source>
+          <year>2007</year>
+          <volume>5</volume>
+          <issue>4</issue>
+          <fpage>403</fpage>
+          <pub-id pub-id-type="pmid">17627503</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Robertson</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Bradley</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <source>Experimental approaches to mammalian embryonic development</source>
+          <year>1986</year>
+          <publisher-loc>Cambridge, UK</publisher-loc>
+          <publisher-name>Cambridge University Press</publisher-name>
+          <fpage>475</fpage>
+          <lpage>508</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rohwedel</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Maltsev</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Bober</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Muscle cell differentiation of embryonic stem cells reflects myogenesis <italic>in vivo</italic>: developmentally regulated expression of myogenic determination genes and functional expression of ionic currents</article-title>
+          <source>Dev. Biology</source>
+          <year>1994</year>
+          <volume>164</volume>
+          <fpage>87</fpage>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bain</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Kitchens</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Yao</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Embryonic stem cells express neuronal properties <italic>in vitro</italic></article-title>
+          <source>Dev. Biol</source>
+          <year>1995</year>
+          <volume>168</volume>
+          <fpage>342</fpage>
+          <pub-id pub-id-type="pmid">7729574</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schuldiner</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yanuka</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Itskovitz-Eldor</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of eight growth factors on the differentiation of cells derived human embryonic stem cells</article-title>
+          <source>Proc. Nat. Acad. Sci. USA</source>
+          <year>2000</year>
+          <volume>97</volume>
+          <fpage>11307</fpage>
+          <pub-id pub-id-type="pmid">11027332</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bagutti</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wobus</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Fassler</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differentiation of embryonal stem cells into keratinocytes: Comparison of wild-type and beta 1 integrin-deficient cells</article-title>
+          <source>Dev. Biol</source>
+          <year>1996</year>
+          <volume>179</volume>
+          <fpage>184</fpage>
+          <pub-id pub-id-type="pmid">8873763</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Armstrong</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Saretzki</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Peters</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Overexpression of telomerase confers growth advantage, stress resistance, and enhanced differentiation of ESCs toward the hematopoietic lineage</article-title>
+          <source>Stem Cells</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <fpage>516</fpage>
+          <pub-id pub-id-type="pmid">15790773</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jones</surname>
+              <given-names>KA</given-names>
+            </name>
+          </person-group>
+          <article-title>Tat and the HIV-1 promoter</article-title>
+          <source>Curr. Opin. Cell Biol</source>
+          <year>1993</year>
+          <volume>5</volume>
+          <fpage>461</fpage>
+          <pub-id pub-id-type="pmid">8352964</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Greenway</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Holloway</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>McPhee</surname>
+              <given-names>DA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV-1 Nef control of cell signalling molecules: multiple strategies to promote virus replication</article-title>
+          <source>J. Biosci</source>
+          <year>2003</year>
+          <volume>28</volume>
+          <issue>3</issue>
+          <fpage>323</fpage>
+          <pub-id pub-id-type="pmid">12734410</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van Marle</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Henry</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Todoruk</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human immunodeficiency virus type 1 Nef protein mediates neural cell death: a neurotoxic role for IP-10</article-title>
+          <source>Virology</source>
+          <year>2004</year>
+          <volume>9</volume>
+          <fpage>302</fpage>
+          <pub-id pub-id-type="pmid">15518810</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Skowronski</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Parks</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Mariani</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Altered T cell activation and development in transgenic mice expressing the HIV-1 nef gene</article-title>
+          <source>EMBO J</source>
+          <year>1993</year>
+          <volume>12</volume>
+          <fpage>703</fpage>
+          <pub-id pub-id-type="pmid">8095017</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chirmule</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Than</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Khan</surname>
+              <given-names>SA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human immunodeficiency virus Tat induces functional unresponsiveness in T cells</article-title>
+          <source>J. Virol</source>
+          <year>1995</year>
+          <volume>69</volume>
+          <fpage>492</fpage>
+          <pub-id pub-id-type="pmid">7983746</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Campioni</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Corallini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zauli</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV type 1 extracellular Tat protein stimulates growth and protects cells of BK virus/tat transgenic mice from apoptosis</article-title>
+          <source>AIDS Res. Hum. Retroviruses</source>
+          <year>1995</year>
+          <volume>11</volume>
+          <fpage>1039</fpage>
+          <pub-id pub-id-type="pmid">8554901</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shugurova</surname>
+              <given-names>IM</given-names>
+            </name>
+            <name>
+              <surname>Andreeva</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>Dubovaya</surname>
+              <given-names>VI</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The effects of genes <italic>tat</italic> and <italic>nef</italic> of human immunodeficiency virus type 1 on rodents&#x2019; cells in culture</article-title>
+          <source>Genetika</source>
+          <year>1997</year>
+          <volume>33</volume>
+          <fpage>1202</fpage>
+          <pub-id pub-id-type="pmid">9445814</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shugurova</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Bobrisheva</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Surkova</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The expression of HIV-1 <italic>tat</italic> and <italic>nef</italic> genes induces cell-specific changes in growth properties and morphology of different types of rat cells</article-title>
+          <source>Cell Prolif</source>
+          <year>2002</year>
+          <volume>35</volume>
+          <fpage>237</fpage>
+          <pub-id pub-id-type="pmid">12153615</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Acheampong</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Parveen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Muthoga</surname>
+              <given-names>LW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Molecular interactions of human immunodeficiency virus type 1 with primary human oral keratinocytes</article-title>
+          <source>J. Virol</source>
+          <year>2005</year>
+          <volume>79</volume>
+          <fpage>8440</fpage>
+          <pub-id pub-id-type="pmid">15956588</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Coiras</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Camafeita</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Urena</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Modifications in the human T cell proteome induced by intracellular HIV-1 Tat protein expression</article-title>
+          <source>Proteomics</source>
+          <year>2006</year>
+          <volume>6</volume>
+          <fpage>63</fpage>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Corallini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Altavilla</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Pozzi</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Systemic expression of HIV-1 tat gene in transgenic mice induces endothelial proliferation and tumors of different histotypes</article-title>
+          <source>Cancer Res</source>
+          <year>1993</year>
+          <volume>53</volume>
+          <fpage>5569</fpage>
+          <pub-id pub-id-type="pmid">8221699</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Altavilla</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Caputo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lanfredi</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Enhancement of chemical hepatocarcinogenesis by the HIV-1 tat gene</article-title>
+          <source>Am. J. Pathol</source>
+          <year>2000</year>
+          <volume>157</volume>
+          <fpage>1081</fpage>
+          <pub-id pub-id-type="pmid">11021811</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sun</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>YC</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>QZ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV-1 Tat depresses DNA-PK(CS) expression and DNA repair, and sensitizes cells to ionizing radiation</article-title>
+          <source>Int. J. Radiat. Oncol. Biol. Phys</source>
+          <year>2006</year>
+          <volume>65</volume>
+          <fpage>842</fpage>
+          <pub-id pub-id-type="pmid">16751065</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wallace</surname>
+              <given-names>DR</given-names>
+            </name>
+          </person-group>
+          <article-title>HIV Neurotoxicity: Potential Therapeutic Interventions</article-title>
+          <source>J. Biomed. Biotechnol</source>
+          <year>2006</year>
+          <volume>2006</volume>
+          <fpage>65741</fpage>
+          <pub-id pub-id-type="pmid">17047310</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nagy</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rossant</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nagy</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Derivation of completely cell culture-derived mice from early-passage embryonic stem cells</article-title>
+          <source>Proc. Nat. Acad. Sci. USA</source>
+          <year>1993</year>
+          <volume>90</volume>
+          <fpage>8424</fpage>
+          <pub-id pub-id-type="pmid">8378314</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <label>25</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Joyner</surname>
+              <given-names>AL</given-names>
+            </name>
+          </person-group>
+          <source>Gene Targeting. A Practical Approach</source>
+          <year>1993</year>
+          <publisher-loc>New York</publisher-loc>
+          <publisher-name>Oxford Univercity Press</publisher-name>
+          <fpage>45</fpage>
+          <lpage>46</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hammes</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>Dixon</surname>
+              <given-names>EP</given-names>
+            </name>
+            <name>
+              <surname>Malim</surname>
+              <given-names>MH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Nef protein of human immunodeficiency virus type 1: Evidence against its role as transcriptional inhibitor</article-title>
+          <source>Proc. Nat. Acad. Sci. USA</source>
+          <year>1989</year>
+          <volume>86</volume>
+          <fpage>9549</fpage>
+          <pub-id pub-id-type="pmid">2687884</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <label>27</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Maniatis</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Fritsh</surname>
+              <given-names>EE</given-names>
+            </name>
+            <name>
+              <surname>Sambrook</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <source>Molecular Cloning. A laboratory Manual</source>
+          <year>1982</year>
+          <publisher-loc>USA</publisher-loc>
+          <publisher-name>Cold Spring Harbor Laboratory</publisher-name>
+          <fpage>236</fpage>
+          <lpage>241</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hansen</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Nielsen</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Berg</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Re-examination and further development of a precise and rapid dye method for measuring cell growth/cell kill</article-title>
+          <source>J. Immunol. Methods</source>
+          <year>1989</year>
+          <volume>119</volume>
+          <fpage>203</fpage>
+          <pub-id pub-id-type="pmid">2470825</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <label>29</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Loyda</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Gossrau</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Shibler</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <source>Histochemistry of Enzymes</source>
+          <year>1982</year>
+          <publisher-loc>Moscow, Russia</publisher-loc>
+          <publisher-name>Laboratory methods Mir Publishers</publisher-name>
+          <fpage>4</fpage>
+          <lpage>67</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chung</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Andersson</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sonntag</surname>
+              <given-names>K-C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Analysis of different promoter systems for efficient transgene expression in mouse embryonic stem cell lines</article-title>
+          <source>Stem Cells</source>
+          <year>2002</year>
+          <volume>20</volume>
+          <fpage>139</fpage>
+          <pub-id pub-id-type="pmid">11897870</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <label>31</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dyban</surname>
+              <given-names>AP</given-names>
+            </name>
+          </person-group>
+          <year>1988</year>
+          <publisher-loc>Leningrad, Russia</publisher-loc>
+          <publisher-name>Early Development of Mammalians Nauka Publishers</publisher-name>
+          <fpage>64</fpage>
+          <lpage>67</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Solter</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Knowles</surname>
+              <given-names>BB</given-names>
+            </name>
+          </person-group>
+          <article-title>Monoclonal antibody defining a stage-specific mouse embryonic antigen (SSEA-1)</article-title>
+          <source>Proc. Nat. Acad. Sci. USA</source>
+          <year>1978</year>
+          <volume>75</volume>
+          <fpage>5565</fpage>
+          <pub-id pub-id-type="pmid">281705</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Murphy</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Sweet</surname>
+              <given-names>RT</given-names>
+            </name>
+            <name>
+              <surname>Ross</surname>
+              <given-names>IL</given-names>
+            </name>
+            <name>
+              <surname>Hume</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of the tat and nef gene products of human immunodeficiency virus type 1 (HIV-1) on transcription controlled by the HIV-1 LTR and on cell growth in macrophages</article-title>
+          <source>J. Virol</source>
+          <year>1993</year>
+          <volume>67</volume>
+          <fpage>6959</fpage>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baur</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Sawai</surname>
+              <given-names>ET</given-names>
+            </name>
+            <name>
+              <surname>Dazin</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV-1 Nef leads to inhibition or activation of T cells depending on its intracellular localization</article-title>
+          <source>Immunity</source>
+          <year>1994</year>
+          <volume>1</volume>
+          <fpage>373</fpage>
+          <pub-id pub-id-type="pmid">7882168</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bain</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ray</surname>
+              <given-names>WJ</given-names>
+            </name>
+            <name>
+              <surname>Yao</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Retinoic acid promotes neural and represses mesodermal gene expression in mouse embryonic stem cells in culture</article-title>
+          <source>Biochem. Biophys. Res. Commun</source>
+          <year>1996</year>
+          <volume>223</volume>
+          <fpage>691</fpage>
+          <pub-id pub-id-type="pmid">8687458</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Guan</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Rohwede</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wobus</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Embryonic stem cell differentiation models: cardiogenesis, myogenesis, neurogenesis, epithelial and vascular smooth muscle cell differentiation <italic>in vitro</italic></article-title>
+          <source>Cytotechnology</source>
+          <year>1999</year>
+          <volume>30</volume>
+          <fpage>211</fpage>
+          <pub-id pub-id-type="pmid">19003371</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brigati</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Giacca</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Noonan</surname>
+              <given-names>DM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV Tat, its TARgets and the control of viral gene expression</article-title>
+          <source>FEMS Microbiol. Lett</source>
+          <year>2003</year>
+          <volume>220</volume>
+          <fpage>57</fpage>
+          <pub-id pub-id-type="pmid">12644228</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fiala</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Popik</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Qiao</surname>
+              <given-names>JH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV-1 induces cardiomyopathyby cardiomyocyte invasion and gp120, Tat, and cytokine apoptotic signaling</article-title>
+          <source>Cardiovasc. Toxicol</source>
+          <year>2004</year>
+          <volume>4</volume>
+          <fpage>97</fpage>
+          <pub-id pub-id-type="pmid">15371627</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bergonzini</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Delbue</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>JY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HIV-Tat promotes cellular proliferation and inhibits NGF-induced differentiation through mechanisms involving Id1 regulation</article-title>
+          <source>Oncogene</source>
+          <year>2004</year>
+          <volume>23</volume>
+          <fpage>7701</fpage>
+          <pub-id pub-id-type="pmid">15361847</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Joseph</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Kumar</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mitra</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Nef: &#x201C;necessary and enforcing factor&#x201D; in HIV infection</article-title>
+          <source>Curr. HIV Res</source>
+          <year>2005</year>
+          <volume>3</volume>
+          <fpage>87</fpage>
+          <pub-id pub-id-type="pmid">15638726</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shugurova</surname>
+              <given-names>IM</given-names>
+            </name>
+            <name>
+              <surname>Bobrysheva</surname>
+              <given-names>IV</given-names>
+            </name>
+            <name>
+              <surname>Grivennikov</surname>
+              <given-names>IA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The effect of genes <italic>tat</italic> and <italic>nef</italic> of human immunodeficiency virus type 1 on rat pheochromocytoma PC12 cells</article-title>
+          <source>Genetika</source>
+          <year>2000</year>
+          <volume>36</volume>
+          <fpage>1140</fpage>
+          <pub-id pub-id-type="pmid">11033786</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olivetta</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Federico</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>HIV-1 Nef protects human-monocyte-derived macrophages from HIV-1-induced apoptosis</article-title>
+          <source>Exp. Cell Res</source>
+          <year>2006</year>
+          <volume>312</volume>
+          <fpage>890</fpage>
+          <pub-id pub-id-type="pmid">16445909</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sarkar</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Sharma</surname>
+              <given-names>RP</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of selected apoptosis related genes, MIF, IGIF and TNF alpha, during retinoic acid-induced neural differentiation in murine embryonic stem cells</article-title>
+          <source>Cell Struct. Funct</source>
+          <year>2002</year>
+          <volume>27</volume>
+          <issue>2</issue>
+          <fpage>99</fpage>
+          <pub-id pub-id-type="pmid">12207051</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Adams</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kiss</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Arroyo</surname>
+              <given-names>AB</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>13-cis retinoic acid inhibits development and progression of chronic allograft nephropathy</article-title>
+          <source>Am. J. Pathol</source>
+          <year>2005</year>
+          <volume>167</volume>
+          <issue>1</issue>
+          <fpage>285</fpage>
+          <pub-id pub-id-type="pmid">15972972</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

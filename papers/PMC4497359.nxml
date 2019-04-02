@@ -1,0 +1,1818 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:ali="http://www.niso.org/schemas/ali/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Tissue Eng Regen Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J Tissue Eng Regen Med</journal-id>
+      <journal-id journal-id-type="publisher-id">term</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of Tissue Engineering and Regenerative Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1932-6254</issn>
+      <issn pub-type="epub">1932-7005</issn>
+      <publisher>
+        <publisher-name>John Wiley &amp; Sons, Ltd</publisher-name>
+        <publisher-loc>Chichester, UK</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24764222</article-id>
+      <article-id pub-id-type="pmc">4497359</article-id>
+      <article-id pub-id-type="doi">10.1002/term.1900</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Synergistic induction of early stage of bone formation by combination of recombinant human bone morphogenetic protein-2 and epidermal growth factor</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Jae Hyup</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">1</xref>
+          <xref ref-type="aff" rid="au2">2</xref>
+          <xref ref-type="aff" rid="au3">3</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jang</surname>
+            <given-names>Soo-Jeong</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">2</xref>
+          <xref ref-type="aff" rid="au3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Baek</surname>
+            <given-names>Hae-Ri</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">2</xref>
+          <xref ref-type="aff" rid="au3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Kyung Mee</given-names>
+          </name>
+          <xref ref-type="aff" rid="au2">2</xref>
+          <xref ref-type="aff" rid="au3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chang</surname>
+            <given-names>Bong-Soon</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Choon-Ki</given-names>
+          </name>
+          <xref ref-type="aff" rid="au1">1</xref>
+        </contrib>
+        <aff id="au1">
+          <label>1</label>
+          <institution>Department of Orthopaedic Surgery, College of Medicine, Seoul National University</institution>
+          <addr-line>Korea</addr-line>
+        </aff>
+        <aff id="au2">
+          <label>2</label>
+          <institution>Institute of Medical and Biological Engineering, Medical Research Centre, Seoul National University</institution>
+          <addr-line>Korea</addr-line>
+        </aff>
+        <aff id="au3">
+          <label>3</label>
+          <institution>SMG-SNU Boramae Medical Centre</institution>
+          <addr-line>Seoul, Korea</addr-line>
+        </aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1">*Correspondence to: Jae Hyup Lee, SMG-SNU Boramae Medical Centre, 425 Shindaebang-2-Dong, Seoul 156-707, Korea. E-mail: <email>spinelee@snu.ac.kr</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>25</day>
+        <month>4</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>9</volume>
+      <issue>4</issue>
+      <fpage>447</fpage>
+      <lpage>459</lpage>
+      <history>
+        <date date-type="received">
+          <day>31</day>
+          <month>5</month>
+          <year>2013</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>13</day>
+          <month>11</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>17</day>
+          <month>3</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2014 The Authors. <italic>Journal of Tissue Engineering and Regenerative Medicine</italic> published by John Wiley &amp; Sons Ltd.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">
+          <license-p>This is an open access article under the terms of the Creative Commons Attribution-NonCommercial License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>This study evaluates whether the combination of the rhBMP-2 and various types of growth factors including EGF, FGF, PDGF and VEGF increases osteoinductivity compared to the single use of rhBMP-2 through <italic>in vitro</italic> and <italic>in vivo</italic> study. Cultured human MSCs were treated with rhBMP-2 only or in combination with growth factors. For <italic>in vivo</italic> evaluation, rhBMP-2 only or with growth factors was implanted into the calvarial defect made on SD rats. Both EGF and PDGF significantly increased both ALP activity and expression level in hMSCs when treated in combination with rhBMP-2 at 3 and 7 days of differentiation and significantly raised the accumulation of the calcium at day 14. Furthermore, micro-CT scanning revealed that the EGF an FGF groups show significantly increased new bone surface ratio compared to the rhBMP-2 only group and, the EGF treatment significantly up regulated percent bone volume and trabecular number at two weeks after the surgery. VEGF treatment also significantly raised trabecular number and FGF treatment significantly increased the trabecular thickness. Histological examination revealed that the EGF combination group showed enhanced bone regeneration than the rhBMP-2 only group two weeks after the implantation. Even though the treatment of rhBMP-2 with PDGF and FGF failed to show enhanced osteogenesis <italic>in vitro</italic> and <italic>in vivo</italic> simultaneously, these results suggest that the positive effect of the combination of EGF and rhBMP-2 is expected to induce the bone formation earlier compared to the single use of rhBMP-2 <italic>in vitro</italic> and <italic>in vivo</italic>. &#xA9; 2014 The Authors. <italic>Journal of Tissue Engineering and Regenerative Medicine</italic> published by John Wiley &amp; Sons Ltd.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>rhBMP-2</kwd>
+        <kwd>epidermal growth factor</kwd>
+        <kwd>bone formation</kwd>
+        <kwd>synergistic effect</kwd>
+        <kwd>calvarial defect model</kwd>
+        <kwd>osteoblastic differentiation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>1. Introduction</title>
+      <p>Autogenous bone graft has been used as a standard treatment for bone fusion and healing (Lane <italic>et al</italic>., <xref rid="b25" ref-type="bibr">1999</xref>). However, it requires second operation and often causes complications such as wound problem, vessel injuries, infection, fracture, hematoma, and persistent pain (Kessler <italic>et al</italic>., <xref rid="b19" ref-type="bibr">2005</xref>; nKenke <italic>et al</italic>., <xref rid="b33" ref-type="bibr">2004</xref>). To compensate the defects, allograft and xenograft are also used but they carry the risk of disease transmission and possess low osteoinductivity (Barrack, <xref rid="b4" ref-type="bibr">2005</xref>). Synthetic bone substitutes can be mass-produced and they are safe from disease transmission but their application is limited due to lack of osteoinductivity (Giannoudis <italic>et al</italic>., <xref rid="b17" ref-type="bibr">2005</xref>).</p>
+      <p>Bone morphogenetic proteins (BMPs) play essential roles in bone regeneration strategies (Kempen <italic>et al</italic>., <xref rid="b18" ref-type="bibr">2009</xref>) and are also known to initiate bone formation signals leading mesenchymal stem cell migration and osteoblast differentiation. However, relatively large amounts of BMPs are required to demonstrate their clinical benefits in spine fusion or non-union for patients mainly due to their short half-life, rapid local clearance by the circulation and short residence in tissues (Calori <italic>et al</italic>., <xref rid="b6" ref-type="bibr">2009</xref>; Friess <italic>et al</italic>., <xref rid="b11" ref-type="bibr">1999</xref>; Ruhe <italic>et al</italic>., <xref rid="b35" ref-type="bibr">2006</xref>; Geiger <italic>et al</italic>., <xref rid="b16" ref-type="bibr">2003</xref>). And the clinical application may be compromised by excessive Noggin expression. Noggin is an extra-cellular BMP antagonist and potently induced by BMP (Abe <italic>et al</italic>., <xref rid="b1" ref-type="bibr">2000</xref>; Gazzerro <italic>et al</italic>., <xref rid="b15" ref-type="bibr">1998</xref>); thus, it may be involved in a negative feedback mechanism (de Gorter <italic>et al</italic>., <xref rid="b8" ref-type="bibr">2011</xref>). Moreover, the high dose of BMP is reported to be associated with several side effects, such as heterotopic bone formation, soft tissue swelling, seroma and radiculopathy.</p>
+      <p>Growth factors such as fibroblast growth factor (FGF), epidermal growth factor (EGF), insulin-like growth factor (IGF), vascular endothelial growth factor (VEGF) and platelet-derived growth factor (PDGF) are known to promote cell proliferation and migration, and they also play important roles in fracture repair (Devescovi <italic>et al</italic>., <xref rid="b9" ref-type="bibr">2008</xref>). Previous studies have revealed that FGF and PDGF promote osteoblastic cell proliferation (Suzuki <italic>et al</italic>., <xref rid="b40" ref-type="bibr">1996</xref>; Mehrotra <italic>et al</italic>., <xref rid="b30" ref-type="bibr">2004</xref>) and stimulate bone formation <italic>in vivo</italic> (Nakamura <italic>et al</italic>., <xref rid="b32" ref-type="bibr">1995</xref>; Mitlak <italic>et al</italic>., <xref rid="b31" ref-type="bibr">1996</xref>).</p>
+      <p>There are cross-talks between the BMP signaling and other signaling routes including TGF-&#x3B2;, hedgehog/Gli, PTH/CREB, NF-&#x138;B, PGE2, microtubule signaling pathways (Zhang <italic>et al</italic>., <xref rid="b43" ref-type="bibr">2013</xref>; Arikawa <italic>et al</italic>., <xref rid="b3" ref-type="bibr">2004</xref>; Feng <italic>et al</italic>., <xref rid="b10" ref-type="bibr">2003</xref>). The integrated signal by BMP and other cytokines are known to affect osteoblastic differentiation of MSC and bone formation (de Gorter <italic>et al</italic>., <xref rid="b8" ref-type="bibr">2011</xref>). FGF and Wnt regulate the BMP signal transduction via SMAD1 phosphorylation at its linker region (Fuentealba <italic>et al</italic>., <xref rid="b12" ref-type="bibr">2007</xref>; Sapkota <italic>et al</italic>., <xref rid="b38" ref-type="bibr">2007</xref>). Other study reported that the combined delivery of BMP-4 and VEGF to human mesenchymal stem cells significantly enhanced bone formation in implanted mouse (Huang <italic>et al</italic>., <xref rid="b14" ref-type="bibr">2005</xref>).</p>
+      <p><italic>E. coli</italic> provides a higher expression system than a mammalian cell expression system for rhBMP-2 and thus <italic>E.coli</italic>-derived rhBMP-2(E.BMP-2) has higher production yield (Lee <italic>et al</italic>., <xref rid="b26" ref-type="bibr">2011</xref>). E.BMP-2 proved its osteoinductivity in <italic>in vitro</italic> study (Lee <italic>et al</italic>., <xref rid="b26" ref-type="bibr">2011</xref>) and calvarial bone defect model (Kim <italic>et al</italic>., <xref rid="b21" ref-type="bibr">2011</xref>). Also the protein showed successful fusion results in rabbit posterolateral fusion model (Lee <italic>et al</italic>., <xref rid="b27" ref-type="bibr">2012</xref>). But, there is no report about the combination treatment of E.BMP-2 with growth factors including EGF.</p>
+      <p>In this study, we investigated the synergistic effects of growth factors with E.BMP-2 in various combinations on bone formation and osteoinduction using hMSCs and rat calvarial defect model to suggest the most effective combination with E.BMP-2 treatment both <italic>in vivo</italic> and <italic>in vitro</italic>.</p>
+    </sec>
+    <sec>
+      <title>2. Materials and methods</title>
+      <sec>
+        <title>2.1. Human mesenchymal stem cell culture and differentiation</title>
+        <p>Human bone marrow mesenchymal stem cells (hMSCs) (Lonza Walkersville Inc, USA) were maintained in Dulbecco's modified Eagle's medium (DMEM) supplemented with 10% foetal bovine serum (FBS) and 1% antibiotic-antimyotics (Gibco, USA). The cells were expanded in 100-mm dishes for various assays, staining and RT&#x2013;PCR. Osteoblastic differentiation media was generated by supplementing the basal media with dexamethason (10<sup>&#x2212;8</sup> M), beta-glycerophosphate (10 mM), and ascorbic acid (100 &#x3BC;M). The following growth factors were used for the treatments: E.BMP-2 (Daewoong Pharm., Korea), EGF (Daewoong Pharm., Korea), FGF (Kaken Pharm., Japan), PDGF and VEGF (R&amp;D, Germany) (Figure<xref ref-type="fig" rid="fig01">1</xref>).</p>
+        <fig id="fig01" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>Schematic figure of <italic>in vitro</italic> study</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f1"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>2.2. Alkaline phosphatase (ALP) activity</title>
+        <p>The cells were seeded in 96-well plates with 2x10<sup>3</sup> cells/well according to the following groups: control, induce, only BMP-2, BMP-2+EGF, BMP-2+FGF, BMP-2+PDGF, and BMP-2+VEGF. The treatment concentrations of BMP-2 and the other factors were 250 ng/ml and 10 ng/ml, respectively, and the same condition was applied for the rest of experiments. The cells were cultured further in the differentiation media with or without appropriate factors for 3, 7, or 14 days. After washing with PBS (Gibco, USA), the cells were lysed with 100 &#xB5;l of 0.02% Triton X-100 (Sigma, USA) solution. ALP activity was monitored by colour change of p-NPP to p-nitrophenol, measured at 405 nm. The enzyme activity was normalized by total protein concentration determined through the Bradford assay and calculated as nM/min/mg of protein. For ALP staining, the cells were seeded in 24-well plates with 2x10<sup>4</sup> cells/well according to the groups and treated for 3, 7, or 14 days. After washing with PBS, the cells were fixed with 10% formalin for 30 seconds and incubated with 0.25% naphthol AS-MX phosphate alkaline (Sigma, Germany) including fast blue RR salt (Sigma-Aldrich, Brondby, Denmark) for 30 minutes.</p>
+      </sec>
+      <sec>
+        <title>2.3. Alizarin red S staining and calcium assay</title>
+        <p>The cells were seeded in 24-well plates with 2x10<sup>4</sup> cells/well. According to the groups, the cells were treated and differentiated for 7, 14 or 21 days. The treated cells were fixed with 70% ethanol for one hour at 4&#xB0;C. The fixed cells were incubated in 40 mM alizarin red S solution (pH 4.2; Sigma, USA) for 10 minutes and examined by light microscopy. For calcium assay, the cells were seeded in 96-well plates with 2x10<sup>3</sup> cells/well and stained with the same method as alizarin red S staining. Calcium concentration was determined with a QuantiChrom calcium assay kit (BioAssay Systems, USA). After the calcium analysis buffer was added, the absorbance of the supernatant was measured at 612 nm using an ELISA reader.</p>
+      </sec>
+      <sec>
+        <title>2.4. RT&#x2013;PCR</title>
+        <p>To monitor the expression level of genes associated with bone differentiation, the cells were seeded in 24-well plate with 2x10<sup>4</sup> cells/well according to the groups and treated for 3, 7, 14, or 21 days. Total RNA was isolated from the treated cells using easy-BLUE&#x2122; reagent (Intron, Korea). cDNA was generated from 500 ng of RNA using reverse transcriptase (Invitrogen, USA). PCR was performed using the primers for the osteoblast specific markers or a housekeeping gene: alkaline phosphatase (ALP), Runt-related transcription factor 2 (Runx-2), osteopontin (OPN), bone sialoprotein (BSP), type I collagen, osteocalcin (OCN) and GAPDH in 1X PCR buffer (10 mM Tris&#x2013;HCl, pH 8.3, 50 mM KCl, 25 mM MgCl<sub>2</sub>, 10 mM dNTPs and 0.5 units of Taq DNA polymerase) (Table <xref ref-type="table" rid="tbl1">1</xref>). PCR products were separated in 1.5% agarose gels and visualised with a UV imaging system (Leica, Wetzlar, Germany).</p>
+        <table-wrap id="tbl1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p>Gene-specific primers for RT&#x2013;PCR analysis</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="left" rowspan="1" colspan="1">Genes</th>
+                <th align="center" rowspan="1" colspan="1">Sequence (5'&#x2192;3')</th>
+                <th align="center" rowspan="1" colspan="1">Annealing temperature (&#xB0;C)</th>
+                <th align="center" rowspan="1" colspan="1">Prod size (bp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+                  <italic>ALP</italic>
+                </td>
+                <td align="left" rowspan="1" colspan="1">F: TGGAGCTTCAGAAGCTCAACACCA</td>
+                <td align="center" rowspan="1" colspan="1">51</td>
+                <td align="center" rowspan="1" colspan="1">453</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">R: ATCTCGTTGTCTGAGTACCAGTCC</td>
+                <td rowspan="1" colspan="1"/>
+                <td rowspan="1" colspan="1"/>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+                  <italic>Runx-2</italic>
+                </td>
+                <td align="left" rowspan="1" colspan="1">F: CCGCACGACAACCGCACCAT</td>
+                <td align="center" rowspan="1" colspan="1">57</td>
+                <td align="center" rowspan="1" colspan="1">530</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">R: CGCTCCGGCCCACAAATCTC</td>
+                <td rowspan="1" colspan="1"/>
+                <td rowspan="1" colspan="1"/>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+                  <italic>Osteopontin</italic>
+                </td>
+                <td align="left" rowspan="1" colspan="1">F: CCAAGTAAGTCCAACGAAAG</td>
+                <td align="center" rowspan="1" colspan="1">55</td>
+                <td align="center" rowspan="1" colspan="1">348</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">R: GGTGATGTCCTCGTCTGTA</td>
+                <td rowspan="1" colspan="1"/>
+                <td rowspan="1" colspan="1"/>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+                  <italic>BSP</italic>
+                </td>
+                <td align="left" rowspan="1" colspan="1">F: CGAAGACAACAACCTCTCCAAATG</td>
+                <td align="center" rowspan="1" colspan="1">51</td>
+                <td align="center" rowspan="1" colspan="1">257</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">R: ACCATCATAGCCATCGTAGCCTTG</td>
+                <td rowspan="1" colspan="1"/>
+                <td rowspan="1" colspan="1"/>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+                  <italic>Collagen I</italic>
+                </td>
+                <td align="left" rowspan="1" colspan="1">F: GGTGTAAGCGGTGGTGGTTAT</td>
+                <td align="center" rowspan="1" colspan="1">57</td>
+                <td align="center" rowspan="1" colspan="1">335</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">R: GCTGGGATGTTTTCAGGTTGG</td>
+                <td rowspan="1" colspan="1"/>
+                <td rowspan="1" colspan="1"/>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+                  <italic>GAPDH</italic>
+                </td>
+                <td align="left" rowspan="1" colspan="1">F: CCAGAACATCATCCCTGCCTCTAC</td>
+                <td align="center" rowspan="1" colspan="1">54</td>
+                <td align="center" rowspan="1" colspan="1">554</td>
+              </tr>
+              <tr>
+                <td rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">R: GGTCTCTCTCTTCCTCTTGTGC</td>
+                <td rowspan="1" colspan="1"/>
+                <td rowspan="1" colspan="1"/>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>2.5. Animals and implantation</title>
+        <p>E.BMP-2 was loaded onto absorbable collagen sponge (ACS). The ACS was prepared from the cross-reaction of type I collagen and chondroitin-6-sulfate obtained from Bioland Co. (OChang, South Korea) and Sigma Chemical Company (St. Louis, MO, USA), respectively.</p>
+        <p>In this study, 180 male Sprague&#x2013;Dawley rats were randomised into the following six groups: Group I: ACS only; Group II: 3 &#xB5;g of E.BMP-2 only; Group III: 3 &#xB5;g of E.BMP-2 with 5 &#xB5;g EGF; Group IV: 3 &#xB5;g E.BMP-2 with 5 &#xB5;g of FGF; Group V: 3 &#xB5;g of E.BMP-2 with 5 &#xB5;g of PDGF; and Group VI: 3 &#xB5;g E.BMP-2 with 5 &#xB5;g of VEGF (Figure<xref ref-type="fig" rid="fig02">2</xref>). Each subject group was divided into two subgroups with an implantation period of 2 or 6 weeks (n = 15 in each subgroup).</p>
+        <fig id="fig02" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p>Schematic figure of <italic>in vivo</italic> study</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f2"/>
+        </fig>
+        <p>The rats were anaesthetised with a zoletil (0.4 mL/kg, Virbac Laboratories, France)-Rompun (10 mg/kg, Bayer Korea Ltd., Korea) mixture. After skin incision over the scalp, a surgical defect was created in the cranium using an 8-mm diameter trephine. E.BMP-2 with each growth factor was implanted with type I collagen carrier (8 mm in diameter and 1 mm thick) within the defect. The periosteum and scalp were closed, and the animal was given antibiotics. After the surgery, the animals were housed under the controlled temperature condition (22 &#xB1; 5&#xB0;C) and humidity (50 &#xB1; 5%) with a 12:12 (dark: light) cycle. The animals were sacrificed at 2 or 6 weeks after the implantation and subjected to analysis. Procedures involving the use of animals were approved by the International Animal Care and Use Committee (IACUC No. 09&#x2013;0255).</p>
+      </sec>
+      <sec>
+        <title>2.6. Micro-CT evaluation</title>
+        <p>Micro-CT scans were taken for quantitative evaluation of new bone using the SkyScan 1173&#xAE; system (Skyscan 1173&#xAE;, Kontich, Belgium) with an aluminium filter at 130 kV, 30 &#x3BC;A. The scanned images were reconstituted into sagittal and coronal axial planes. The defect coverage ratio of newly formed bone in 8 mm calvarial defect was compared among the groups. Also, the following points were measured to evaluate new bone formation in the calvarial defect; percent bone volume, bone surface/volume ratio, trabecular thickness, trabecular separation, trabecular number, trabecular bone pattern factor, structure model index and degree of anisotropy.</p>
+      </sec>
+      <sec>
+        <title>2.7. Histological evaluation</title>
+        <p>The samples were fixed in 10% formalin and embedded in paraffin. Sagittal sections were generated with 4 &#xB5;m thickness through the centre of the defects to contain both newly formed bone and surrounding bony tissue. Tissue sections were stained with hematoxylin and eosin (H&amp;E) and examined by light microscopy.</p>
+      </sec>
+      <sec>
+        <title>2.8. Statistics</title>
+        <p>Analysis of variance (ANOVA) was performed using SPSS software, and the Student-Newman-Keuls test was used to compare the differences in mean values. The Kruskal-Wallis test was performed on the non-parametric data. Values of <italic>p &lt;</italic> 0.05 were considered statistically significant.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>3. Results</title>
+      <sec>
+        <title>3.1. The activity of ALP of hBMSCs cultured in osteogenic medium</title>
+        <p>In the combination of E.BMP-2 (250 ng/ml) with EGF or FGF (each 10 ng/ml), ALP activity was significantly higher compared to the control at 3 days of osteogenesis (<italic>p &lt;</italic> 0.05) (Figure<xref ref-type="fig" rid="fig03">3</xref>A). Moreover, at 7 days of osteogenesis, the combined treatments with EGF and PDGF increased the ALP activity by 1.8 fold and 2.2 fold, respectively (<italic>p &lt;</italic> 0.05), while the ALP activity in cell lysates of combined treatment with FGF or VEGF was comparable with the control. The ALP staining was markedly stronger in the combination of E.BMP-2 and EGF at 3 and 7 days of osteogenesis (Figure<xref ref-type="fig" rid="fig03">3</xref>B). The ALP staining intensity with the combination of E.BMP-2 and PDGF was slightly elevated at 3 days of osteogenesis.</p>
+        <fig id="fig03" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p>Alkaline phosphatase (ALP) activity and staining. (A) ALP activity of E.BMP-2 with growth factors treatment at 3, 7 and 14 days in osteogenic differentiation. Results are presented as mean &#xB1; standard error of the mean (SEM); *, **, <italic>p &lt;</italic> 0.05. (B) ALP staining at 3, 7 and 14 days for osteogenesis; magnification = &#xD7;10</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f3"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>3.2. Mineralisation and calcium accumulation in cultured hBMSCs</title>
+        <p>Calcium mineralisation was greatly elevated in the cells treated in combination with EGF at 7 and 14 days of oesteogenesis, assessed by alizarin red S staining (Figure<xref ref-type="fig" rid="fig04">4</xref>A). Combination treatment of PDGF or FGF also increased the staining intensity at 14 days of osteogenesis. Calcium accumulation was slightly higher in the cell lysates combination-treated with EGF or PDGF at 7 days of oesteogenesis and significantly increased at 14 days of oesteogenesis (<italic>p &lt;</italic> 0.05) (Figure<xref ref-type="fig" rid="fig04">4</xref>B). E.BMP-2 only or in combination with FGF or VEGF also increased calcium accumulation in treated cells but was less effective than combination treatment with EFG or PDGF at all of the time points that we examined. At 21 days of osteogenesis, significantly higher calcium accumulation was observed in the cells treated in combination with EGF, FGF or PDGF (<italic>p &lt;</italic> 0.05).</p>
+        <fig id="fig04" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p>Alizarin red-S (AR-S) staining and calcium concentration. (A) AR-S staining at 7, 14 and 21 days of osteogenesis; magnification = &#xD7;10. (B) Calcium concentrations at 7, 14 and 21 days in osteogenic differentiation; the results are presented as mean &#xB1; SEM; *, **, <italic>p &lt;</italic> 0.05</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f4"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>3.3. Changes in gene expression in the hMSC cells</title>
+        <p>The expression of ALP gene was relatively higher at 3 and 7 days of osteogenesis and rapidly decreased by 14 days (Figure<xref ref-type="fig" rid="fig05">5</xref>). ALP expression was decreased in the cells treated with E.BMP-2 only or in combination with PDGF in a time-dependent manner. Interestingly, Collagen I gene expression was decreased in a time-dependent manner in all groups with no quantifiable differences. The expression of bone sialoprotein (BSP) was markedly elevated with time in the cells treated in combination with EGF, FGF, or PDGF. EGF and FGF increased E.BMP2-induced osteopontin expression in a time-dependent manner. Runx-2 expression was increased at 7 days of treatment. Especially the groups treated in combination with EGF or FGF showed the increased expression up to 14 days. OPN expression was increased at 14 and 21 days of treatment in a time-dependent manner and the expression was significantly higher in the combination treatment group with EGF or FGF compared to the other groups.</p>
+        <fig id="fig05" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p>Gene expression in hMSCs by RT&#x2013;PCR. (A) Runx-2 expression was increased at 7 days of treatment. Especially the groups treated in combination with EGF or FGF showed increased expression up to 14 days. (B) The expression of BSP was markedly elevated with time in cells treated in combination with EGF, FGF or PDGF. EGF and FGF increased E.BMP2-induced osteopontin expression in a time-dependent manner. OPN expression was higher in the combination treatment group with EGF or FGF compared to the other groups; C, control; I, induction of osteogenesis; B, E.BMP-2; E, EGF; F, FGF; P, PDGF; V, VEGF</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f5"/>
+        </fig>
+        <p>Also, real-time PCR revealed that the E.BMP-2 and EGF treatment group showed the highest expression of OCN at 21 days of treatment (see Supporting Information, Figure <xref ref-type="supplementary-material" rid="SD1">S1</xref>).</p>
+        <p>Taken together, EGF increased osteoblast differentiation of hMSC cells most effectively with combination treatment of E.BMP-2. Likewise, PDGF and FGF were greatly effective on osteogenesis.</p>
+      </sec>
+      <sec>
+        <title>3.4. Micro-CT results</title>
+        <p>Perioperative mortality was 11.7% (21/180), which was not higher than that of other calvarial defect models (Kneser <italic>et al</italic>., <xref rid="b22" ref-type="bibr">2006</xref>). Also, there was no significant difference among groups. At 2 weeks after the implantation, the EGF combination group showed significantly higher new bone surface ratio compared to the ACS group, the E.BMP-2 only group, and the FGF, PDGF, and VEGF combination groups (<italic>p &lt;</italic> 0.0001, <italic>p &lt;</italic> 0.0003, <italic>p &lt;</italic> 0.01, <italic>p &lt;</italic> 0.036, and <italic>p &lt;</italic> 0.0288, respectively). The level was significantly higher in the FGF combination group compared to the ACS and E.BMP-2 groups (<italic>p &lt;</italic> 0.0001 and <italic>p &lt;</italic> 0.0077, respectively). The PDGF combination group also showed significantly higher level than the ACS group (<italic>p =</italic> 0.011). At 6 weeks after the implantation, the level was significantly higher in the EGF combination group compared to the ACS group and the FGF and PDGF combination groups (<italic>p &lt;</italic> 0.0001, <italic>p &lt;</italic> 0.0381, and <italic>p &lt;</italic> 0.0425, respectively). The E.BMP-2 group and the FGF, PDGF, and VEGF combination groups showed significantly higher new bone surface ratio compared to the ACS group (<italic>p =</italic> 0.0002, <italic>p =</italic> 0.0022, <italic>p =</italic> 0.0002, and <italic>p &lt;</italic> 0.0001) (Table <xref ref-type="table" rid="tbl2">2</xref>).</p>
+        <table-wrap id="tbl2" position="float">
+          <label>Table 2</label>
+          <caption>
+            <p>Defect coverage ratio of newly formed bone in 8 mm calvarial defect using micro-CT (<italic>n</italic> = 11)</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th rowspan="1" colspan="1"/>
+                <th align="center" colspan="6" rowspan="1">Average (SD)<hr/></th>
+              </tr>
+              <tr>
+                <th align="left" rowspan="1" colspan="1">Group</th>
+                <th align="center" rowspan="1" colspan="1">Group I</th>
+                <th align="center" rowspan="1" colspan="1">Group II</th>
+                <th align="center" rowspan="1" colspan="1">Group III</th>
+                <th align="center" rowspan="1" colspan="1">Group IV</th>
+                <th align="center" rowspan="1" colspan="1">Group V</th>
+                <th align="center" rowspan="1" colspan="1">Group VI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">2 weeks</td>
+                <td align="center" rowspan="1" colspan="1">8.0 (6.4)</td>
+                <td align="center" rowspan="1" colspan="1">11.8 (12.1)</td>
+                <td align="center" rowspan="1" colspan="1">45.0 (22.5)</td>
+                <td align="center" rowspan="1" colspan="1">20.0 (18.6)</td>
+                <td align="center" rowspan="1" colspan="1">25.0 (19.1)</td>
+                <td align="center" rowspan="1" colspan="1">26.9 (11.8)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">6 weeks</td>
+                <td align="center" rowspan="1" colspan="1">29.9 (11.7)</td>
+                <td align="center" rowspan="1" colspan="1">62.3 (20.3)</td>
+                <td align="center" rowspan="1" colspan="1">69.5 (16.4)</td>
+                <td align="center" rowspan="1" colspan="1">53.0 (18.4)</td>
+                <td align="center" rowspan="1" colspan="1">55.2 (14.5)</td>
+                <td align="center" rowspan="1" colspan="1">61.1 (9.9)</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p>Groups: I, absorbable collagen sponge group; II, E.BMP-2 3 &#xB5;g group; III, E.BMP-2 3 &#xB5;g + EGF 5 &#xB5;g group; IV, E.BMP-2 3 &#xB5;g + FGF 5 &#xB5;g group; V, E.BMP-2 3 &#xB5;g + PDGF 5 &#xB5;g group; VI, E.BMP-2 3 &#xB5;g + VEGF 5 &#xB5;g group.</p>
+            </fn>
+            <fn>
+              <p>At 2 weeks after the implantation, group III showed significantly higher new bone surface ratio compared to groups I, II, IV, V and VI (<italic>p &lt;</italic> 0.0001, <italic>p &lt;</italic> 0.0003, <italic>p &lt;</italic> 0.01, <italic>p &lt;</italic> 0.036 and <italic>p &lt;</italic> 0.0288, respectively). The level was significantly higher in group IV compared to groups I and II (<italic>p &lt;</italic> 0.0001 and <italic>p &lt;</italic> 0.0077, respectively). Group V showed a significantly higher level than group I (<italic>p =</italic> 0.011). At 6 weeks after implantation, the level was significantly higher in group III compared to groups I, IV and V (<italic>p &lt;</italic> 0.0001, <italic>p &lt;</italic> 0.0381 and <italic>p &lt;</italic> 0.0425, respectively). Groups II, IV, V and VI showed a significantly higher new bone surface ratio compared to group I (<italic>p</italic> = 0.0002, <italic>p</italic> = 0.0022, <italic>p</italic> = 0.0002 and <italic>p &lt;</italic> 0.0001).</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>At 2 weeks after the surgery, the percent bone volume of the EGF combination group was highest, and it was significantly higher compared to that in the ACS group. At 6 weeks, the ACS group showed significantly lower percent bone volume compared to the other groups, and the percent bone volume of the FGF combination group was significantly lower compared to those of the E.BMP-2, EGF, PDGF, and VEGF combination groups (Figure<xref ref-type="fig" rid="fig06">6</xref>, Tables <xref ref-type="table" rid="tbl3">3</xref> and <xref ref-type="table" rid="tbl4">4</xref>). For the specific surface, the ACS group showed significantly higher level compared to the other groups at 6 weeks.</p>
+        <fig id="fig06" position="float">
+          <label>Figure 6</label>
+          <caption>
+            <p>Micro-CT results. The bone volume was higher in animals that received combination therapy with EGF than in ones implanted with E.BMP-2 only at 2 weeks after surgery. At 6 weeks, by micro-CT scan, the EGF combination group also showed high volume compared to E.BMP-2 only</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f6"/>
+        </fig>
+        <table-wrap id="tbl3" position="float">
+          <label>Table 3</label>
+          <caption>
+            <p>Micro-CT results 2 weeks after implantation</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th rowspan="1" colspan="1"/>
+                <th align="center" colspan="8" rowspan="1">Average (SD)<hr/></th>
+              </tr>
+              <tr>
+                <th align="left" rowspan="1" colspan="1">Group (<italic>n</italic>)</th>
+                <th align="center" rowspan="1" colspan="1">BV/TV</th>
+                <th align="center" rowspan="1" colspan="1">BS/BV</th>
+                <th align="center" rowspan="1" colspan="1">Tb.Pf</th>
+                <th align="center" rowspan="1" colspan="1">SMI</th>
+                <th align="center" rowspan="1" colspan="1">Tb.Th</th>
+                <th align="center" rowspan="1" colspan="1">Tb.N</th>
+                <th align="center" rowspan="1" colspan="1">Tb.Sp</th>
+                <th align="center" rowspan="1" colspan="1">DA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group I (13) (ACS)</td>
+                <td align="center" rowspan="1" colspan="1">10.3 (5.93)</td>
+                <td align="center" rowspan="1" colspan="1">19.9 (5.58)</td>
+                <td align="center" rowspan="1" colspan="1">15.81 (7.002)</td>
+                <td align="center" rowspan="1" colspan="1">4.163 (1.022)</td>
+                <td align="center" rowspan="1" colspan="1">0.275 (0.043)</td>
+                <td align="center" rowspan="1" colspan="1">0.375 (0.219)</td>
+                <td align="center" rowspan="1" colspan="1">0.570 (0.116)</td>
+                <td align="center" rowspan="1" colspan="1">0.490 (0.078)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group II (14) (BMP)</td>
+                <td align="center" rowspan="1" colspan="1">16.4 (7.16)</td>
+                <td align="center" rowspan="1" colspan="1">19.1 (4.52)</td>
+                <td align="center" rowspan="1" colspan="1">9.723 (6.057)</td>
+                <td align="center" rowspan="1" colspan="1">2.969 (1.045)</td>
+                <td align="center" rowspan="1" colspan="1">0.255 (0.066)</td>
+                <td align="center" rowspan="1" colspan="1">0.651 (0.291)</td>
+                <td align="center" rowspan="1" colspan="1">0.543 (0.115)</td>
+                <td align="center" rowspan="1" colspan="1">0.562 (0.086)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group III (13) (BMP + EGF)</td>
+                <td align="center" rowspan="1" colspan="1">26.7 (14.5)</td>
+                <td align="center" rowspan="1" colspan="1">17.3 (3.69)</td>
+                <td align="center" rowspan="1" colspan="1">3.248 (7.826)</td>
+                <td align="center" rowspan="1" colspan="1">1.778 (1.113)</td>
+                <td align="center" rowspan="1" colspan="1">0.253 (0.046)</td>
+                <td align="center" rowspan="1" colspan="1">1.00 (0.522)</td>
+                <td align="center" rowspan="1" colspan="1">0.486 (0.118)</td>
+                <td align="center" rowspan="1" colspan="1">0.550 (0.060)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group IV (14) (BMP + FGF)</td>
+                <td align="center" rowspan="1" colspan="1">24.2 (24.9)</td>
+                <td align="center" rowspan="1" colspan="1">17.5 (8.01)</td>
+                <td align="center" rowspan="1" colspan="1">11.48 (9.251)</td>
+                <td align="center" rowspan="1" colspan="1">3.378 (1.789)</td>
+                <td align="center" rowspan="1" colspan="1">0.334 (0.156)</td>
+                <td align="center" rowspan="1" colspan="1">0.616 (0.420)</td>
+                <td align="center" rowspan="1" colspan="1">0.542 (0.125)</td>
+                <td align="center" rowspan="1" colspan="1">0.590 (0.113)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group V (13) (BMP + PDGF)</td>
+                <td align="center" rowspan="1" colspan="1">22.8 (13.4)</td>
+                <td align="center" rowspan="1" colspan="1">19.6 (7.00)</td>
+                <td align="center" rowspan="1" colspan="1">6.868 (7.702)</td>
+                <td align="center" rowspan="1" colspan="1">2.332 (0.884)</td>
+                <td align="center" rowspan="1" colspan="1">0.246 (0.068)</td>
+                <td align="center" rowspan="1" colspan="1">0.879 (0.443)</td>
+                <td align="center" rowspan="1" colspan="1">0.479 (0.123)</td>
+                <td align="center" rowspan="1" colspan="1">0.529 (0.069)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group VI (13) (BMP + VEGF)</td>
+                <td align="center" rowspan="1" colspan="1">20.4 (7.81)</td>
+                <td align="center" rowspan="1" colspan="1">19.2 (2.80)</td>
+                <td align="center" rowspan="1" colspan="1">8.258 (2.993)</td>
+                <td align="center" rowspan="1" colspan="1">2.429 (0.731)</td>
+                <td align="center" rowspan="1" colspan="1">0.228 (0.029)</td>
+                <td align="center" rowspan="1" colspan="1">0.934 (0.351)</td>
+                <td align="center" rowspan="1" colspan="1">0.445 (0.100)</td>
+                <td align="center" rowspan="1" colspan="1">0.625 (0.078)</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p>Analysis of variance was performed and the Student&#x2013;Newman&#x2013;Keuls test was used to compare differences among mean values.</p>
+            </fn>
+            <fn>
+              <p>ACS, absorbable collagen sponge; BMP, E.BMP-2 3 &#xB5;g; EGF, EGF 5 &#xB5;g; FGF, FGF 5 &#xB5;g; PDGF, PDGF 5 &#xB5;g; VEGF, VEGF 5 &#xB5;g.</p>
+            </fn>
+            <fn>
+              <p>Percentage volume (BV/TV): group III &gt; group I; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Trabecular pattern factor (Tb.Pf): group II &gt; groups III, V, VI; group IV &gt; group III; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Structure model index (SMI): group III &lt; groups I, II, IV; group II &gt; groups I, III, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Trabecular thickness (Tb.Th): group IV &gt; groups I, V; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Trabecular number (Tb.N): groups III, V, VI &gt; group I; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Degree of anisotropy (DA): group IV, VI &gt; group II; group VI &gt; group V; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <table-wrap id="tbl4" position="float">
+          <label>Table 4</label>
+          <caption>
+            <p>Micro-CT results 6 weeks after implantation</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th rowspan="1" colspan="1"/>
+                <th align="center" colspan="8" rowspan="1">Average (SD)<hr/></th>
+              </tr>
+              <tr>
+                <th align="left" rowspan="1" colspan="1">Group (<italic>n</italic>)</th>
+                <th align="center" rowspan="1" colspan="1">BV/TV</th>
+                <th align="center" rowspan="1" colspan="1">BS/BV</th>
+                <th align="center" rowspan="1" colspan="1">Tb.Pf</th>
+                <th align="center" rowspan="1" colspan="1">SMI</th>
+                <th align="center" rowspan="1" colspan="1">Tb.Th</th>
+                <th align="center" rowspan="1" colspan="1">Tb.N</th>
+                <th align="center" rowspan="1" colspan="1">Tb.Sp</th>
+                <th align="center" rowspan="1" colspan="1">DA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group I (13) (ACS)</td>
+                <td align="center" rowspan="1" colspan="1">29.4 (17.0)</td>
+                <td align="center" rowspan="1" colspan="1">11.8 (4.80)</td>
+                <td align="center" rowspan="1" colspan="1">5.751 (5.175)</td>
+                <td align="center" rowspan="1" colspan="1">2.861 (1.078)</td>
+                <td align="center" rowspan="1" colspan="1">0.433 (0.094)</td>
+                <td align="center" rowspan="1" colspan="1">0.640 (0.336)</td>
+                <td align="center" rowspan="1" colspan="1">0.581 (0.119)</td>
+                <td align="center" rowspan="1" colspan="1">0.588 (0.077)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group II (15) (BMP)</td>
+                <td align="center" rowspan="1" colspan="1">78.1 (17.1)</td>
+                <td align="center" rowspan="1" colspan="1">7.29 (2.70)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;9.737 (6.390)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;2.805 (2.650)</td>
+                <td align="center" rowspan="1" colspan="1">0.436 (0.066)</td>
+                <td align="center" rowspan="1" colspan="1">1.785 (0.372)</td>
+                <td align="center" rowspan="1" colspan="1">0.241 (0.105)</td>
+                <td align="center" rowspan="1" colspan="1">0.729 (0.089)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group III (13) (BMP + EGF)</td>
+                <td align="center" rowspan="1" colspan="1">68.8 (14.0)</td>
+                <td align="center" rowspan="1" colspan="1">8.16 (2.02)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;5.375 (5.691)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;0.618 (2.201)</td>
+                <td align="center" rowspan="1" colspan="1">0.823 (1.50)</td>
+                <td align="center" rowspan="1" colspan="1">1.675 (0.371)</td>
+                <td align="center" rowspan="1" colspan="1">0.298 (0.113)</td>
+                <td align="center" rowspan="1" colspan="1">0.699 (0.050)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group IV (12) (BMP + FGF)</td>
+                <td align="center" rowspan="1" colspan="1">51.9 (29.6)</td>
+                <td align="center" rowspan="1" colspan="1">9.13 (3.68)</td>
+                <td align="center" rowspan="1" colspan="1">1.040 (8.381)</td>
+                <td align="center" rowspan="1" colspan="1">1.466 (2.690)</td>
+                <td align="center" rowspan="1" colspan="1">0.473 (0.115)</td>
+                <td align="center" rowspan="1" colspan="1">1.028 (0.469)</td>
+                <td align="center" rowspan="1" colspan="1">0.436 (0.143)</td>
+                <td align="center" rowspan="1" colspan="1">0.655 (0.112)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group V (13) (BMP + PDGF)</td>
+                <td align="center" rowspan="1" colspan="1">73.1 (9.60)</td>
+                <td align="center" rowspan="1" colspan="1">7.38 (1.16)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;7.587 (3.757)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;1.586 (1.812)</td>
+                <td align="center" rowspan="1" colspan="1">0.433 (0.049)</td>
+                <td align="center" rowspan="1" colspan="1">1.588 (0.410)</td>
+                <td align="center" rowspan="1" colspan="1">0.324 (0.108)</td>
+                <td align="center" rowspan="1" colspan="1">0.725 (0.035)</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">Group VI (13) (BMP + VEGF)</td>
+                <td align="center" rowspan="1" colspan="1">74.8 (21.4)</td>
+                <td align="center" rowspan="1" colspan="1">7.28 (2.06)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;9.844 (8.080)</td>
+                <td align="center" rowspan="1" colspan="1">&#x2212;2.672 (3.079)</td>
+                <td align="center" rowspan="1" colspan="1">0.439 (0.063)</td>
+                <td align="center" rowspan="1" colspan="1">1.725 (0.501)</td>
+                <td align="center" rowspan="1" colspan="1">0.290 (0.149)</td>
+                <td align="center" rowspan="1" colspan="1">0.709 (0.066)</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p>Analysis of variance was performed and the Student&#x2013;Newman&#x2013;Keuls test was used to compare differences among mean values.</p>
+            </fn>
+            <fn>
+              <p>ACS, absorbable collagen sponge; BMP, E.BMP-2 3 &#xB5;g; EGF, EGF 5 &#xB5;g; FGF, FGF 5 &#xB5;g; PDGF, PDGF 5 &#xB5;g; VEGF, VEGF 5 &#xB5;g.</p>
+            </fn>
+            <fn>
+              <p>Percentage volume (BV/TV): group II &lt; groups I, III, IV, V, VI; group IV &lt; groups I, III, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Specific surface (BS/BV): group I &gt; groups II, III, IV, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Trabecular pattern factor (Tb.Pf): groups II and IV &gt; groups I, III, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Structure model index (SMI): groups II and IV &gt; group I, III, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Trabecular number (Tb.N): group II &lt; groups I, III, IV, V, VI; group IV &lt; groups I, III, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Trabecular separation (Tb.Sp): group II &gt; groups I, III, IV, V, VI; group IV &gt; groups I, III, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+            <fn>
+              <p>Degree of anisotropy (DOA): group II &lt; groups I, III, IV, V, VI; <italic>p &lt;</italic> 0.05.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>The trabecular pattern factor of the EGF combination group was lowest at 2 weeks, and it was significantly lower compared to that of the ACS and FGF combination group. The trabecular pattern factor of the EGF, PDGF, and VEGF combination groups was also significantly lower compared to that of the ACS group at 2 weeks. The trabecular pattern factor of the ACS group and the FGF combination groups was significantly higher compared to that of the E.BMP group, and the EGF, PDGF, and VEGF combination groups at 6 weeks.</p>
+        <p>The structural model index of the EGF combination group was significantly lower compared to that of the E.BMP group and the PDGF and VEGF combination groups at 2 weeks. The structural model index of the ACS group was significantly higher compared to that of the E.BMP group and the EGF, PDGF, and VEGF combination groups at 2 weeks. The structural model index of the ACS and the FGF combination group was significantly higher compared to that of the E.BMP group and the EGF, PDGF, and VEGF combination group at 6 weeks.</p>
+        <p>The trabecular thickness of the FGF combination group was significantly higher compared to that of the E.BMP group and the VEGF combination group at 2 weeks. The trabecular number of the EGF combination group was highest at 2 weeks and that of the EGF and the PDGF and VEGF combination groups was significantly higher compared to that in the ACS group. The trabecular number of the ACS group was significantly lower compared to that of the other groups, and the trabecular number of the FGF combination group was significantly lower compared to that of the E.BMP group and the EGF, PDGF, and VEGF combination groups at 6 weeks. Trabecular separation of the ACS group was significantly higher compared to that of the other groups, and the trabecular separation of the FGF combination group was significantly higher compared to that of the E.BMP group and the EGF, PDGF, and VEGF combination groups at 6 weeks. The degree of anisotropy in the ACS group was significantly lower compared to that of the other groups at 6 weeks.</p>
+      </sec>
+      <sec>
+        <title>3.5. Histological results</title>
+        <p>New bone formation was rarely observed at 2 weeks after the implantation in the ACS control group, but at 6 weeks, new bone formation was restricted to the peripheral area of the defect (Figure<xref ref-type="fig" rid="fig07">7</xref>). However, newly formed bone mixture with cartilage was found at the lateral cortical bone of the E.BMP-2 control group at 2 weeks after the surgery, and by 6 weeks, the cartilage was transformed into bone tissue. Similarly, in the group treated in combination with EGF, new bone formed at the lateral area of the defect in greater amounts at 2 weeks after the surgery and had transformed into complete bone tissue at 6 weeks post-implant. The combination groups with FGF, PDGF, and VEGF showed similar degree of new bone formation with the E.BMP-2 only group.</p>
+        <fig id="fig07" position="float">
+          <label>Figure 7</label>
+          <caption>
+            <p>Undecalcified histological results of 2 and 6 weeks (w) post-implantation; haematoxylin and eosin staining. (A) A newly formed bone mixture with cartilage was found at the lateral cortical bone of E.BMP-2 control group and in the combination group with FGF, PDGF or VEGF. The new bone formation was more prominent in the combination group with EGF than in the E.BMP-2 control group. (B) In the combination-treated group with EGF, FGF, PDGF or VEGF, new bone was formed at the lateral area of the defect, with a greater quantity at 2 weeks after surgery, and was transformed into complete bone tissue at 6 weeks post-implantation</p>
+          </caption>
+          <graphic xlink:href="term0009-0447-f7"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec>
+      <title>4. Discussion and conclusion</title>
+      <p>rhBMP-2 is the one of the most effective supplements for bone formation and so far around 20 different isoforms have been identified, including BMP-4, BMP-6 and BMP-7. Previous report demonstrated that its osteoinductivity was high as autograft (Kim <italic>et al</italic>., <xref rid="b20" ref-type="bibr">2007</xref>). Clinically proven rhBMP-2 has been purified from mammalian cells and its clinical efficacy has been proved. <italic>E.coli</italic>-derived rhBMP-2 also has showed osteoinductivity through few preclinical data but there is no clinical data with the protein (Bessho <italic>et al</italic>., <xref rid="b5" ref-type="bibr">2000</xref>).</p>
+      <p>Growth factors play critical roles in bone regeneration by inducing osteoblast proliferation and differentiation. EGF is a well-known growth factor involved in bone repair and also acts as a mitogen in various cell types inducing osteoblast growth and bone formation. However, its inhibitory role in bone differentiation was also reported (Krampera <italic>et al</italic>., <xref rid="b23" ref-type="bibr">2005</xref>). The contradictory results might come from differential experimental conditions such as heterogeneity of MSC primary cell and EGF concentration. Alizarin red S staining was performed with the cells treated with EGF only, E.BMP-2 only, and differential combination of EGF and E.BMP-2 (see Supporting Information, Figure <xref ref-type="supplementary-material" rid="SD1">S2</xref>). The results showed that the level of mineral product formation was different based on the differential combination.</p>
+      <p>In this study, we screened the most stimulatory and synergistic growth factors of E.BMP-2-induced osteoblastic differentiation, and EGF has been proposed as the most effective growth factor when used in combination with E.BMP-2 both <italic>in vivo</italic> and <italic>in vitro</italic>. However, the optimal condition for osteoinductivity may differ among the individual growth factors. In several reports, growth factors show stimulatory or inhibitory effects on mammalian cell-derived BMP-2-elicited bone formation depending on timing and duration of the co-stimulation (de Gorter <italic>et al</italic>., <xref rid="b8" ref-type="bibr">2011</xref>). Besides the composition of the differentiation media, the ratio between rhBMP-2 and growth factors influences their interaction. Also, the efficacy may vary by the animal model used. The method of growth factor delivery should also be considered.</p>
+      <p>In previous study, we optimized the <italic>in vivo</italic> dose of E.BMP-2 as 5 &#xB5;g for calvarial bone healing for 8 mm surgical defects (Lee <italic>et al.</italic>, <xref rid="b45" ref-type="bibr">2013</xref>). In this study, we reduced the dose to 3 &#xB5;g, which is insufficient for new bone formation in single drug treatment. Thereby, we were able to assess the synergistic effects of growth factors as well as expect lowered dosage for the future clinical application. Due to the fact that the dose of growth factor varies from few to dozens of micrograms in previous researches, we determined to use 5 &#xB5;g of each growth factor for the combination treatment with E.BMP-2 for screening purpose.</p>
+      <p>In our <italic>in vitro</italic> data, ALP activity was significantly increased in the cells treated with E.BMP-2 and EGF at 3 and 7 days after the treatment but not at 14 days, confirming the previous results that EGF promoted early phase of osteoblast formation (Laflamme <italic>et al</italic>., <xref rid="b24" ref-type="bibr">2010</xref>). The investigators also reported that EGF decreased the number and size of bone nodules. In contrast, our Alizarin red S staining and calcium assay revealed that the EGF combination-treated group showed high mineralisation and calcium accumulation at 14 and 21 days after the treatment under the cell culture condition we used. Taken together, this study suggests that EGF might induce not only the E.BMP-2-elicited osteogenesis but also the bone mineralisation. The increased expression of ALP, BSP, osteopontin and osteocalcin as osteogenesis markers also suggested EGF, FGF and PDGF enhance osteogenic differentiation when treated with E.BMP-2.</p>
+      <p>In our rat calvarial defect model, EGF increased the percent bone volume, trabecular number at 2 weeks after the surgery, indicating EGF enhanced new bone formation at early stage. In particular, the trabecular bone pattern factor was significantly smaller in the EGF combination group than the E.BMP-2 only or combination with FGF group at 2 weeks after the implantation. The EGF combination improved the micro-structure of the newly formed bone by connecting the trabecular lattice more compactly. The structural model index of the EGF combination group was also lower than that of the E.BMP-2 only or FGF combination group, which was in agreement with other parameters and the improved the micro-structure. These results indicate that EGF combination treatment enhances both bone quantity and quality at 2 weeks when compared to the treatment with BMP-2 only.</p>
+      <p>The EGF group represented significantly lower trabecular pattern factor and trabecular separation, indicating improved bone quality when compared to the BMP-2 group at 6 weeks after the surgery. However, we failed to observe definite synergistic effects of EGF on the new bone formation through micro-CT images. Thus, we concluded that EGF was not effective on the late stage of bone formation. PDGF was similarly effective on E.BMP-2-induced ostegenesis <italic>in vitro</italic> by increasing ALP activity, calcium accumulation, Alizarin red S staining and bone sialoprotein expression. However, the efficacy on <italic>in vivo</italic> bone formation was lower than the one of EGF.</p>
+      <p>FGF is known to be involved in angiogenesis and blood vessel differentiation and PDGF plays roles in the migration and differentiation of osteoprogenitor cells (Devescovi <italic>et al</italic>., <xref rid="b9" ref-type="bibr">2008</xref>; Malizos and Papatheodorou, <xref rid="b29" ref-type="bibr">2005</xref>). FGF and PDGF are necessary for early bone repair and VEGF is important for conversion of cartilage into bone, and proliferation and differentiation of osteoblast (Malizos and Papatheodorou, <xref rid="b29" ref-type="bibr">2005</xref>). The effects of FGF on bone formation are controversial. Previous reports have discussed the potential inhibitory effects rather than enhancing bone formation when administrating a dual growth factors including FGF (Vonau <italic>et al</italic>., <xref rid="b41" ref-type="bibr">2001</xref>; Springer <italic>et al</italic>., <xref rid="b39" ref-type="bibr">2008</xref>). However, the FGF combination group showed significantly higher new bone surface formation and trabecular thickness than the BMP-2 group in this study. This result is consistent with a previous report showing that FGF-2 isoforms regulate BMP-2 function and subsequently bone differentiation genes and their related signaling pathways (Sabbieti <italic>et al</italic>., <xref rid="b37" ref-type="bibr">2013</xref>). FGF-2 is also known to enhance Runx-2/Smads nuclear localization in BMP-2 canonical signaling in osteoblasts, supporting the synergistic effect of FGF and BMP-2 (Agas <italic>et al</italic>., <xref rid="b2" ref-type="bibr">2013</xref>).</p>
+      <p>In several studies, VEGF failed to enhance the bone formation when treated in combination with rhBMP-2 (Young <italic>et al</italic>., <xref rid="b42" ref-type="bibr">2009</xref>; Roldan <italic>et al</italic>., <xref rid="b34" ref-type="bibr">2010</xref>). In our study, the trabecular number was significantly higher, and the percent bone volume was high in the VEGF combination group, indicating that VEGF increased the quality of new bones in early stage of bone healing. Based on the known role of VEGF, its effect on bone formation may come from enhanced blood vessels formation by angiogenesis modulation (Samee <italic>et al</italic>., <xref rid="b36" ref-type="bibr">2008</xref>). The synergistic effect is further supported by previous reports suggesting that VEGF enhances host stem cell recruitment and cell survival, which are advantageous to bone regenerative procedure (Samee <italic>et al</italic>., <xref rid="b36" ref-type="bibr">2008</xref>; Deckers <italic>et al</italic>., <xref rid="b7" ref-type="bibr">2002</xref>; Furumatsu <italic>et al</italic>., <xref rid="b13" ref-type="bibr">2003</xref>). However, the clinical application of VEGF has yet to be investigated further.</p>
+      <p>Generally, the administration of multiple growth factors is known to result in better bone formation. However, translation of these results to the clinic is still limited mainly due to the need of effective delivery system (Makhdom and Hamdy, <xref rid="b28" ref-type="bibr">2013</xref>). Also, combination of dual growth factors needs to mimic the natural spatiotemporal expression of bone cascade (Makhdom and Hamdy, <xref rid="b28" ref-type="bibr">2013</xref>). Thus, the effective delivery system and differentiation condition are required for clinical application of the growth factors.</p>
+      <p>In this study, we screened four candidate growth factors in combination with E.BMP-2, which have been known to produce positive effects on bone healing process and showed the positive effect of the combination of EGF and E.BMP-2 on the early stage of bone healing. However, the limitation of this study is that calvarial bone defect healing was only evaluated by image analysis and histology and the effect of the growth factors on mechanical strength was not tested.</p>
+      <p>In conclusion, EGF interacts synergistically with E.BMP-2 and accelerates the protein induced bone formation and healing in early stage. Our findings provide insights into the clinical application to allow shortening the healing time and reduce the <italic>E.coli</italic>-derived rhBMP-2 dosage for future use.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>This study was supported by a Grant-in-Aid from the Korean Ministry of Knowledge Economy (KEIT; No. 10033623). The authors thank Professor Yong-Kwon Seo for providing collagen and Daewoong Pharmaceutical for providing the rhBMP-2 and EGF used in this study. We also thank Dr A. Young Lee for writing and editing the English text.</p>
+    </ack>
+    <sec>
+      <title>Conflict of interest</title>
+      <p>No benefits in any form have been or will be received from a commercial party related directly or indirectly to the subject of this manuscript.</p>
+    </sec>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abe</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Taguchi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Essential requirement of BMPs-2/4 for both osteoblast and osteoclast formation in murine bone marrow cultures from adult mice: antagonism by noggin</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2000</year>
+          <volume>15</volume>
+          <fpage>663</fpage>
+          <lpage>673</lpage>
+          <pub-id pub-id-type="pmid">10780858</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Agas</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Sabbieti</surname>
+              <given-names>MG</given-names>
+            </name>
+            <name>
+              <surname>Marchetti</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>FGF-2 enhances Runx-2/Smads nuclear localization in BMP-2 canonical signaling in osteoblasts</article-title>
+          <source>J Cell Physiol</source>
+          <year>2013</year>
+          <volume>228</volume>
+          <fpage>2149</fpage>
+          <lpage>2158</lpage>
+          <pub-id pub-id-type="pmid">23559326</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arikawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Omura</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Morita</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of bone morphogenetic protein-2 expression by endogenous prostaglandin E2 in human mesenchymal stem cells</article-title>
+          <source>J Cell Physiol</source>
+          <year>2004</year>
+          <volume>200</volume>
+          <fpage>400</fpage>
+          <lpage>406</lpage>
+          <pub-id pub-id-type="pmid">15254968</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barrack</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Bone graft extenders, substitutes, and osteogenic proteins</article-title>
+          <source>J Arthroplasty</source>
+          <year>2005</year>
+          <volume>20</volume>
+          <fpage>94</fpage>
+          <lpage>97</lpage>
+          <pub-id pub-id-type="pmid">15991141</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bessho</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Konish</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kaihara</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone induction by <italic>Escherichia coli</italic>-derived recombinant human bone morphogenetic protein-2 compared with Chinese hamster ovary cell-derived recombinant human bone morphogenetic protein-2</article-title>
+          <source>Br J Oral Maxillofac Surg</source>
+          <year>2000</year>
+          <volume>38</volume>
+          <fpage>645</fpage>
+          <lpage>649</lpage>
+          <pub-id pub-id-type="pmid">11092786</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Calori</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Donati</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Di Bella</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone morphogenetic proteins and tissue engineering: future directions</article-title>
+          <source>Injury Int J Care Injured</source>
+          <year>2009</year>
+          <volume>40</volume>
+          <fpage>S67</fpage>
+          <lpage>76</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b7">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Deckers</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>van Bezooijen</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>van der Horst</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone morphogenetic proteins stimulate angiogenesis through osteoblast-derived vascular endothelial growth factor A</article-title>
+          <source>Endocrinology</source>
+          <year>2002</year>
+          <volume>143</volume>
+          <fpage>1545</fpage>
+          <lpage>1553</lpage>
+          <pub-id pub-id-type="pmid">11897714</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Gorter</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>van Dinther</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Korchynskyi</surname>
+              <given-names>O</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Biphasic effects of transforming growth factor beta on bone morphogenetic protein-induced osteoblast differentiation</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2011</year>
+          <volume>26</volume>
+          <fpage>1178</fpage>
+          <lpage>1187</lpage>
+          <pub-id pub-id-type="pmid">21611961</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Devescovi</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Leonardi</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Ciapetti</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Growth factors in bone repair</article-title>
+          <source>Chir Organi Mov</source>
+          <year>2008</year>
+          <volume>92</volume>
+          <fpage>161</fpage>
+          <lpage>168</lpage>
+          <pub-id pub-id-type="pmid">19043663</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Feng</surname>
+              <given-names>JQ</given-names>
+            </name>
+            <name>
+              <surname>Xing</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>JH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>NF-<italic>&#x3BA;</italic>B specifically activates <italic>BMP-2</italic> gene expression in growth plate chondrocytes <italic>in vivo</italic> and in a chondrocyte cell line <italic>in vitro</italic></article-title>
+          <source>J Biol Chem</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <fpage>29130</fpage>
+          <lpage>29135</lpage>
+          <pub-id pub-id-type="pmid">12759356</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Friess</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Uludag</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Foskett</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Characterization of absorbable collagen sponges as rhBMP-2 carriers</article-title>
+          <source>Int J Pharm</source>
+          <year>1999</year>
+          <volume>187</volume>
+          <fpage>91</fpage>
+          <lpage>99</lpage>
+          <pub-id pub-id-type="pmid">10502616</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fuentealba</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>Eivers</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Ikeda</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Integrating patterning signals: Wnt/GSK3 regulates the duration of the BMP/Smad1 signal</article-title>
+          <source>Cell</source>
+          <year>2007</year>
+          <volume>131</volume>
+          <fpage>980</fpage>
+          <lpage>993</lpage>
+          <pub-id pub-id-type="pmid">18045539</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Furumatsu</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>ZN</given-names>
+            </name>
+            <name>
+              <surname>Kawai</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Vascular endothelial growth factor principally acts as the main angiogenic factor in the early stage of human osteoblastogenesis</article-title>
+          <source>J Biochem</source>
+          <year>2003</year>
+          <volume>133</volume>
+          <fpage>633</fpage>
+          <lpage>639</lpage>
+          <pub-id pub-id-type="pmid">12801915</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>YC</given-names>
+            </name>
+            <name>
+              <surname>Kaigler</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Rice</surname>
+              <given-names>KG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Combined angiogenic and osteogenic factor delivery enhances bone marrow stromal cell-driven bone regeneration</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2005</year>
+          <volume>20</volume>
+          <fpage>848</fpage>
+          <lpage>857</lpage>
+          <pub-id pub-id-type="pmid">15824858</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gazzerro</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Gangji</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Canalis</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Bone morphogenetic proteins induce the expression of noggin, which limits their activity in cultured rat osteoblasts</article-title>
+          <source>J Clin Invest</source>
+          <year>1998</year>
+          <volume>102</volume>
+          <fpage>2106</fpage>
+          <lpage>2114</lpage>
+          <pub-id pub-id-type="pmid">9854046</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Geiger</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>RH</given-names>
+            </name>
+            <name>
+              <surname>Friess</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Collagen sponges for bone regeneration with rhBMP-2</article-title>
+          <source>Adv Drug Deliv</source>
+          <year>2003</year>
+          <volume>55</volume>
+          <fpage>1613</fpage>
+          <lpage>1629</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b17">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Giannoudis</surname>
+              <given-names>PV</given-names>
+            </name>
+            <name>
+              <surname>Dinopoulos</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tsiridis</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Bone substitutes: an update</article-title>
+          <source>Injury</source>
+          <year>2005</year>
+          <volume>365</volume>
+          <fpage>S20</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="pmid">16188545</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kempen</surname>
+              <given-names>DH</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Heijink</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effect of local sequential VEGF and BMP-2 delivery on ectopic and orthotopic bone regeneration</article-title>
+          <source>Biomaterials</source>
+          <year>2009</year>
+          <volume>30</volume>
+          <fpage>2816</fpage>
+          <lpage>2825</lpage>
+          <pub-id pub-id-type="pmid">19232714</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kessler</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Thorwarth</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bloch-Birkholz</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Harvesting of bone from the iliac crest-comparison of the anterior and posterior sites</article-title>
+          <source>Br J Oral Maxillofac Surg</source>
+          <year>2005</year>
+          <volume>43</volume>
+          <fpage>51</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="pmid">15620775</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>TH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone regeneration using hyaluronic acid-based hydrogel with bone morphogenic protein-2 and human mesenchymal stem cells</article-title>
+          <source>Biomaterials</source>
+          <year>2007</year>
+          <volume>28</volume>
+          <fpage>1830</fpage>
+          <lpage>1837</lpage>
+          <pub-id pub-id-type="pmid">17208295</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>EN</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>TH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Promising efficacy of <italic>Escherichia coli</italic> recombinant human bone morphogenetic protein-2 in collagen sponge for ectopic and orthotopic bone formation and comparison with mammalian cell recombinant human bone morphogenetic protein-2</article-title>
+          <source>Tissue Eng A</source>
+          <year>2011</year>
+          <volume>17</volume>
+          <fpage>337</fpage>
+          <lpage>348</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b22">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kneser</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Stangenberg</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Ohnolz</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Evaluation of processed bovine cancellous bone matrix seeded with syngenic osteoblasts in a critical size calvarial defect rat model</article-title>
+          <source>J Cell Mol Med</source>
+          <year>2006</year>
+          <volume>10</volume>
+          <fpage>693</fpage>
+          <lpage>707</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b23">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krampera</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pasini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rigo</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>HB-EGF/HER-1 signaling in bone marrow mesenchymal stem cells: inducing cell expansion and reversibly preventing multilineage differentiation</article-title>
+          <source>Blood</source>
+          <year>2005</year>
+          <volume>106</volume>
+          <fpage>59</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="pmid">15755902</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Laflamme</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Curt</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Rouabhia</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor and bone morphogenetic proteins upregulate osteoblast proliferation and osteoblastic markers and inhibit bone nodule formation</article-title>
+          <source>Arch Oral Biol</source>
+          <year>2010</year>
+          <volume>55</volume>
+          <fpage>689</fpage>
+          <lpage>701</lpage>
+          <pub-id pub-id-type="pmid">20627196</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lane</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Tomin</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Bostrom</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Biosynthetic bone grafting</article-title>
+          <source>Clin Orthop Relat Res</source>
+          <year>1999</year>
+          <volume>367</volume>
+          <fpage>S107</fpage>
+          <lpage>117</lpage>
+          <pub-id pub-id-type="pmid">10546640</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Jang</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Koo</surname>
+              <given-names>TY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expression, purification and osteogenic bioactivity of recombinant human <italic>BMP-2</italic> produced by <italic>Escherichia coli</italic></article-title>
+          <source>Tissue Eng Reg Med</source>
+          <year>2011</year>
+          <volume>8</volume>
+          <fpage>8</fpage>
+          <lpage>15</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b45">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Ryu</surname>
+              <given-names>MY</given-names>
+            </name>
+            <name>
+              <surname>Baek</surname>
+              <given-names>HR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of porous beta-tricaclium phosphate-based ceramics used as an E.coli-derived rhBMP-2 carrier for bone regeneration</article-title>
+          <source>J Mater Sci Mater Med</source>
+          <year>2013</year>
+          <volume>24</volume>
+          <fpage>2117</fpage>
+          <lpage>2127</lpage>
+          <pub-id pub-id-type="pmid">23728522</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Comparative study of fusion rate induced by different dosages of <italic>Echerichia coli</italic>-derived recombinant human bone morphogenetic protein-2 using hydroxyapatite carrier</article-title>
+          <source>Spine J</source>
+          <year>2012</year>
+          <volume>12</volume>
+          <fpage>239</fpage>
+          <lpage>248</lpage>
+          <pub-id pub-id-type="pmid">22341396</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Makhdom</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Hamdy</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of growth factors on acceleration of bone regeneration during distraction osteogenesis</article-title>
+          <source>Tissue Eng B Rev</source>
+          <year>2013</year>
+          <volume>19</volume>
+          <fpage>442</fpage>
+          <lpage>453</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b29">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Malizos</surname>
+              <given-names>KN</given-names>
+            </name>
+            <name>
+              <surname>Papatheodorou</surname>
+              <given-names>LK</given-names>
+            </name>
+          </person-group>
+          <article-title>The healing potential of the periosteum: molecular aspects</article-title>
+          <source>Injury</source>
+          <year>2005</year>
+          <volume>36</volume>
+          <fpage>S13</fpage>
+          <lpage>19</lpage>
+          <pub-id pub-id-type="pmid">16188544</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mehrotra</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Krane</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Walters</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differential regulation of platelet-derived growth factor stimulated migration and proliferation in osteoblastic cells</article-title>
+          <source>J Cell Biochem</source>
+          <year>2004</year>
+          <volume>93</volume>
+          <fpage>741</fpage>
+          <lpage>752</lpage>
+          <pub-id pub-id-type="pmid">15660418</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mitlak</surname>
+              <given-names>BH</given-names>
+            </name>
+            <name>
+              <surname>Finkelman</surname>
+              <given-names>RD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The effect of systemically administered PDGF-BB on the rodent skeleton</article-title>
+          <source>J Bone Miner Res</source>
+          <year>1996</year>
+          <volume>11</volume>
+          <fpage>238</fpage>
+          <lpage>247</lpage>
+          <pub-id pub-id-type="pmid">8822348</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hanada</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Tamura</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Stimulation of endosteal bone formation by systemic injections of recombinant basic fibroblast growth factor in rats</article-title>
+          <source>Endocrinology</source>
+          <year>1995</year>
+          <volume>136</volume>
+          <fpage>1276</fpage>
+          <lpage>1284</lpage>
+          <pub-id pub-id-type="pmid">7867582</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b33">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nkenke</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Weisbach</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Winckler</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Morbidity of harvesting of bone grafts from the iliac crest for preprosthetic augmentation procedures: a prospective study</article-title>
+          <source>Int J Oral Maxillofac Surg</source>
+          <year>2004</year>
+          <volume>33</volume>
+          <fpage>157</fpage>
+          <lpage>163</lpage>
+          <pub-id pub-id-type="pmid">15050072</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roldan</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Detsch</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Schaefer</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone formation and degradation of a highly porous biphasic calcium phosphate ceramic in presence of BMP-7, VEGF and mesenchymal stem cells in an ectopic mouse model</article-title>
+          <source>J Craniomaxillofac Surg</source>
+          <year>2010</year>
+          <volume>38</volume>
+          <fpage>423</fpage>
+          <lpage>430</lpage>
+          <pub-id pub-id-type="pmid">20189819</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ruhe</surname>
+              <given-names>PQ</given-names>
+            </name>
+            <name>
+              <surname>Boerman</surname>
+              <given-names>OC</given-names>
+            </name>
+            <name>
+              <surname>Russel</surname>
+              <given-names>FGM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title><italic>In vivo</italic> release of rhBMP-2 loaded porous calcium phosphate cement pretreated with albumin</article-title>
+          <source>J Mater Sci Mater Med</source>
+          <year>2006</year>
+          <volume>17</volume>
+          <fpage>919</fpage>
+          <lpage>927</lpage>
+          <pub-id pub-id-type="pmid">16977389</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b36">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Samee</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kasugai</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kondo</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bone morphogenetic protein-2 (BMP-2) and vascular endothelial growth factor (VEGF) transfection to human periosteal cells enhances osteoblast differentiation and bone formation</article-title>
+          <source>J Pharmacol Sci</source>
+          <year>2008</year>
+          <volume>108</volume>
+          <fpage>18</fpage>
+          <lpage>31</lpage>
+          <pub-id pub-id-type="pmid">18776714</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b37">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sabbieti</surname>
+              <given-names>MG</given-names>
+            </name>
+            <name>
+              <surname>Agas</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Marchetti</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BMP-2 differentially modulates FGF-2 isoform effects in osteoblasts from newborn transgenic mice</article-title>
+          <source>Endocrinology</source>
+          <year>2013</year>
+          <volume>154</volume>
+          <fpage>2723</fpage>
+          <lpage>2733</lpage>
+          <pub-id pub-id-type="pmid">23715864</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b38">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sapkota</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Alarcon</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Spagnoli</surname>
+              <given-names>FM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Balancing BMP signaling through integrated inputs into the Smad1 linker</article-title>
+          <source>Mol Cell</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>441</fpage>
+          <lpage>454</lpage>
+          <pub-id pub-id-type="pmid">17289590</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b39">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Springer</surname>
+              <given-names>IN</given-names>
+            </name>
+            <name>
+              <surname>Niehoff</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Acil</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BMP-2 and bFGF in an irradiated bone model</article-title>
+          <source>J Craniomaxillofac Surg</source>
+          <year>2008</year>
+          <volume>36</volume>
+          <fpage>210</fpage>
+          <lpage>217</lpage>
+          <pub-id pub-id-type="pmid">17945502</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b40">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shinoda</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kanda</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Basic fibroblast growth factor stimulates phosphatidylcholine-hydrolyzing phospholipase D in osteoblast-like cells</article-title>
+          <source>J Cell Biochem</source>
+          <year>1996</year>
+          <volume>15</volume>
+          <fpage>491</fpage>
+          <lpage>499</lpage>
+          <pub-id pub-id-type="pmid">8978464</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b41">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vonau</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Bostrom</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Aspenberg</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Combination of growth factors inhibits bone ingrowth in the bone harvest chamber</article-title>
+          <source>Clin Orthop Relat Res</source>
+          <year>2001</year>
+          <volume>386</volume>
+          <fpage>243</fpage>
+          <lpage>251</lpage>
+          <pub-id pub-id-type="pmid">11347843</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b42">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Young</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Patel</surname>
+              <given-names>ZS</given-names>
+            </name>
+            <name>
+              <surname>Kretlow</surname>
+              <given-names>JD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Dose effect of dual delivery of vascular endothelial growth factor and bone morphogenetic protein-2 on bone regeneration in a rat critical-size defect model</article-title>
+          <source>Tissue Eng A</source>
+          <year>2009</year>
+          <volume>15</volume>
+          <fpage>2347</fpage>
+          <lpage>2362</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b43">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Oyajobi</surname>
+              <given-names>BO</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>SE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Wnt/<italic>&#x3B2;</italic>-catenin signaling activates bone morphogenetic protein 2 expression in osteoblasts</article-title>
+          <source>Bone</source>
+          <year>2013</year>
+          <volume>52</volume>
+          <fpage>145</fpage>
+          <lpage>156</lpage>
+          <pub-id pub-id-type="pmid">23032104</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+    <sec sec-type="supplementary-material">
+      <title>Supporting information</title>
+      <p>Additional supporting information may be found in the online version of this article at the publisher's web-site.</p>
+      <p>Osteocalcin expression analysis by real-time PCR. Osteocalcin is an important factor for differentiation of osteoblast progenitor cells and its upregulation results in increased matrix synthesis and mineralization. Compared to the levels at day 3, 7, and 14 after the treatment, osteocalcin expression at day 21 was significantly increased. Especially the combination treatment group with E.BMP-2 and EGF showed significantly increased level (<italic>p =</italic> 0.0066) compared to those of control, E.BMP-2, FGF, PDGF and VEGF group</p>
+      <p>Calcium staining results of differential combination of EGF and E.BMP-2 in concentration at 14 days of treatment. Alizarin red S staining was performed with cells treated with EGF only, E.BMP-2 only and differential combination of EGF and E.BMP-2 to monitor differentiation levels. The amount of mineral product formation was different based on various concentration combinations of the proteins</p>
+      <supplementary-material content-type="local-data" id="SD1">
+        <caption>
+          <p>Supporting info item</p>
+        </caption>
+        <media mimetype="application" mime-subtype="doc" xlink:href="term0009-0447-sd1.doc" xlink:type="simple" id="d35e2887" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </back>
+</article>
+</pmc-articleset>

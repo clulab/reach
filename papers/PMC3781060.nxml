@@ -1,0 +1,653 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24086544</article-id>
+      <article-id pub-id-type="pmc">3781060</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-13-22529</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0075497</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Low-Density Lipoprotein Receptor Related protein-1 (LRP1)-Dependent Cell Signaling Promotes Neurotrophic Activity in Embryonic Sensory Neurons</article-title>
+        <alt-title alt-title-type="running-head">LRP1 Promotes Neurotrophic Activity in Neurons</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yamauchi</surname>
+            <given-names>Kazuyo</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yamauchi</surname>
+            <given-names>Tomonori</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mantuano</surname>
+            <given-names>Elisabetta</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Murakami</surname>
+            <given-names>Kenichi</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Henry</surname>
+            <given-names>Kenneth</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takahashi</surname>
+            <given-names>Kazuhisa</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Campana</surname>
+            <given-names>Wendy Marie</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Department of Anesthesiology, School of Medicine, University of California San Diego, La Jolla, California, United States of America</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Department of Orthopedic Surgery, Graduate School of Medicine, Chiba University, Chiba, Japan</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Program in Neurosciences, University of California San Diego, La Jolla, California, United States of America</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Sanyal</surname>
+            <given-names>Subhabrata</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Biogen Idec, United States of America</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>wcampana@ucsd.edu</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: KY KT WMC. Performed the experiments: KY TY EM KM KH. Analyzed the data: KY WMC. Wrote the manuscript: KY WMC. </p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>23</day>
+        <month>9</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>9</issue>
+      <elocation-id>e75497</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>31</day>
+          <month>5</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>14</day>
+          <month>8</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 Yamauchi et al</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <copyright-holder>Yamauchi et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Developing sensory neurons require neurotrophic support for survival, neurite outgrowth and myelination. The low-density lipoprotein receptor-related protein-1 (LRP1) transactivates Trk receptors and thereby functions as a putative neurotrophin. Herein, we show that LRP1 is abundantly expressed in developing dorsal root ganglia (DRG) and that LRP1-dependent cell signaling supports survival, neurite extension and receptivity to Schwann cells even in the absence of neurotrophins. Cultured embryonic DRG neurons (E15) were treated with previously characterized LRP1 ligands, LRP1-receptor binding domain of &#x3B1;2-macroglobulin (RBD), hemopexin domain of MMP-9 (PEX) or controls (GST) for two weeks. These structurally diverse LRP1 ligands significantly activated and sustained extracellular signal-regulated kinases (ERK1/2) 5-fold (p&lt;0.05), increased expression of growth-associated protein-43(GAP43) 15-fold (P&lt;0.01), and increased neurite outgrowth 20-fold (P&lt;0.01). Primary sensory neurons treated with LRP1 ligands survived &gt; 2 weeks <italic>in vitro</italic>, to an extent equaling NGF, a finding associated with canonical signaling mechanisms and blockade of caspase-3 cleavage. LRP1 ligand-induced survival and sprouting were blocked by co-incubation with the LRP1 antagonist, receptor associated protein (RAP), whereas RAP had no effect on NGF-induced activity. Site directed mutagenesis of the LRP1 ligand, RBD, in which Lys<sup>1370</sup> and Lys<sup>1374</sup> are converted to alanine to preclude LRP1 binding, were ineffective in promoting cell signaling, survival or inducing neurite extension in primary sensory neurons, confirming LRP1 specificity. Furthermore, LRP1-induced neurite sprouting was mediated by Src-family kinase (SFK) activation, suggesting transactivation of Trk receptors. Co-cultures of primary embryonic neurons and Schwann cells showed that LRP1 agonists promoted axonal receptivity to myelination to Schwann cells. Collectively, these findings identify LRP1 as a novel and perhaps essential trophic molecule for sensory neuronal survival and development.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>NINDS R01 NS-057456, R01 NS-054671 and P30 NS047101. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="introduction" id="s1">
+      <title>Introduction</title>
+      <p>Embryonic sensory neurons undergo substantial programmed cell death during development [<xref rid="B1" ref-type="bibr">1</xref>] to ensure balance between neuronal numbers and the sizes of their target areas. During neurogenesis in the rat, (E10-E13) neuronal precursors, post mitotic sensory neurons and fully differentiated proprioceptors are dependent on locally synthesized BDNF and NT-3, and to a lesser extent NGF, but then switch their neurotrophin survival requirements to NGF by E15 [<xref rid="B2" ref-type="bibr">2</xref>,<xref rid="B3" ref-type="bibr">3</xref>]. Accordingly, levels of TrkA and p75 mRNA and protein are markedly elevated at day E15 [<xref rid="B4" ref-type="bibr">4</xref>]. Thus, developing sensory neurons are differentially regulated by various neurotrophins to survive and innervate target tissues. Switching neurotrophic support during development is tightly regulated by cell signaling mechanisms, many of which are currently under investigation.</p>
+      <p>More recent reports have suggested a potential role for a member of the LDL gene receptor family member, the low-density lipoprotein (LDL) receptor-related protein-1 (LRP1), in neural development and regeneration. LRP1 is the most multifunctional member of the LDL receptor gene family [<xref rid="B5" ref-type="bibr">5</xref>]. The mature receptor is derived from a large (600 kDa) two chain transmembrane receptor that is proteolytically processed upon furin cleavage. The processed form of the receptor includes an 85 kDa fragment that contains the intracellular and transmembrane domain and a 515 kDa extracellular domain that is capable of binding multiple LRP1 ligands [<xref rid="B6" ref-type="bibr">6</xref>]. Prior to its discovery in the PNS [<xref rid="B7" ref-type="bibr">7</xref>], LRP1 has been implicated in two main biological functions: endocytosis of its numerous ligands and modulation of cell signaling pathways. Structurally diverse ligands including tissue-type plasminogen activator (tPA), matrix metalloproteinase-9 (MMP-9), and activated &#x3B1;<sub>2</sub>-macroglobulin have been shown to activate LRP1-dependent cell signaling [<xref rid="B5" ref-type="bibr">5</xref>,<xref rid="B8" ref-type="bibr">8</xref>,<xref rid="B9" ref-type="bibr">9</xref>,<xref rid="B10" ref-type="bibr">10</xref>,<xref rid="B11" ref-type="bibr">11</xref>]. More recently, LRP1 ligands were shown to transactivate Trk receptors in a Src-family kinase dependent manner [<xref rid="B12" ref-type="bibr">12</xref>].</p>
+      <p>Global deletion of the LRP1 gene in the mouse highlights the biological importance of this receptor and reveals a critical but yet undefined role in development [<xref rid="B13" ref-type="bibr">13</xref>]. Furthermore, LRP1 knockouts in forebrain neurons facilitates synaptic loss and neurodegeneration [<xref rid="B14" ref-type="bibr">14</xref>], whereas LRP1 agonists promote axonal growth after dorsal column lesions [<xref rid="B15" ref-type="bibr">15</xref>]. These findings potentially identify a candidate mechanism for broad and essential actions of LRP1 in sensory neuronal survival and function.</p>
+      <p>Herein, we demonstrate that recombinant proteins, produced specifically to augment LRP1 signaling without off-target effects [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B16" ref-type="bibr">16</xref>], induced primary embryonic sensory neuron survival, neurite outgrowth and myelination by blocking caspase-3 cleavage and sustaining ERK1/2 activation even in the complete absence of NGF. Furthermore, when LRP1-dependent cell signaling is blocked by competitive antagonists or genetic mutation, ERK1/2 activation, neurite outgrowth, and neuronal survival are inhibited. Our findings suggest that LRP1 is a novel trophic molecule for sensory neuronal survival and development.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Material and Methods</title>
+      <sec id="s2.1">
+        <title>Ethics Statement</title>
+        <p>All animal procedures were approved by the Institutional Animal Care and Use Committee of the University of California, San Diego. In accordance with OLAW guidelines, rats were euthanized in a non-pre-charged container with 100% carbon dioxide introduced into the chamber and volume is measured with a flow meter attached to the carbon dioxide canister. Animals remain in the chamber a minimum for 5 min. These methods bring rapid death and results in minimal distress to the animal. This method is consistent with the recommendations of the Panel on Euthanasia of the American Veterinary Medical Association.</p>
+      </sec>
+      <sec id="s2.2">
+        <title>Reagents</title>
+        <p>Glutathione-S-transferase (GST) fusion proteins that directly bind LRP1 and act as LRP1 agonists are expressed in bacteria, purified to homogeneity and characterized as previously described [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B16" ref-type="bibr">16</xref>]. The fusion proteins include: 1) the 18kDA <bold>R</bold>eceptor <bold>B</bold>inding <bold>D</bold>omain of &#x3B1;2-macroglobulin (&#x3B1;<sub>2</sub>M), henceforth referred to as RBD [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B17" ref-type="bibr">17</xref>,<xref rid="B18" ref-type="bibr">18</xref>,<xref rid="B19" ref-type="bibr">19</xref>], which encompasses amino acids 1242 to 1451 of the mature &#x3B1;<sub>2</sub>M structure and is an LRP1 agonist; and 2) the 18 kDa LRP1 binding domain of matrix metalloprotease-9, the hemopexin domain, henceforth referred to as MMP-9-PEX [<xref rid="B20" ref-type="bibr">20</xref>], which includes amino acids 514 to 704 of mature MMP-9 and is an LRP1 agonist. We also prepared fusion proteins that preclude LRP1 binding. These include 1) a well established LRP1 competitive antagonist, consisting of the 39 kDa Receptor Associated Protein (RAP) expressed as previously described [<xref rid="B21" ref-type="bibr">21</xref>] and a mutated form of RBD, that changes two lysines (1370,1374) to alanines [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B17" ref-type="bibr">17</xref>]. As a control, we expressed GST in bacteria transformed with the empty vector, pGEX-2T. After purification, the RBD, PEX, RAP and GST were subjected to chromatography on Detoxi-Gel endotoxin-removing columns (Pierce). Murine NGF-&#x3B2; was purchased from Sigma (St. Louis, MO). The Src-family kinase selective inhibitor (SFK), (PP2); 3-(4-chlorophenyl) 1-(1,1-dimethyl)-H-pyrazolo[3,-d] pyrimidine-4-amine), was purchased from Calbiochem (San Diego, CA).</p>
+      </sec>
+      <sec id="s2.3">
+        <title>Primary embryonic DRG neurons</title>
+        <p>Primary cultures of DRG neurons were prepared from embryo day 15 (E15) Sprague-Dawley rats as described [<xref rid="B22" ref-type="bibr">22</xref>,<xref rid="B23" ref-type="bibr">23</xref>] with some modifications [<xref rid="B24" ref-type="bibr">24</xref>]. National Institutes of Health and Institutional Animal Use and Safety Committee guidelines for laboratory animal care and safety were strictly followed for all animal use. DRG cells were isolated from tissue by mechanical dissociation in a solution that contained trypsin (1 mg/ml) for 15 min at 37&#xB0;C. The cells were plated on glass coverslips coated with collagen type I (25 &#xB5;g/ml) at a density of 120,000 cells/10 cm<sup>2</sup> (6-well plate) and cultured in Ultraculture media with 2 mM L-glutamine (Mediatech), 1% penicillin-streptomycin (100 &#xB5;g/ml; GIBCO) under a 5% CO<sub>2</sub> atmosphere at 37&#xB0;C. The DRG cells were then treated every 2 days with 10 &#xB5;M uridine and 10 &#xB5;M 5-fluoro-2&#x2019;-deoxyuridine to remove all non-neural cells. Cells were treated with RBD (100 nM), MMP-9-PEX (100 nM), NGF (50 ng/ml) or GST (100 nM) immediately after plating DRG cells and subsequently every other day in fresh media. In some experiments, DRG cells were pretreated for 30 min prior to the addition of LRP1 ligands with or without GST-RAP (100 nM) or PP2 (1 &#xB5;M). After two weeks, cell viability in each well was assessed by Trypan Blue exclusion.</p>
+      </sec>
+      <sec id="s2.4">
+        <title>Primary Schwann cell cultures</title>
+        <p>Schwann cells were isolated from the sciatic nerve of 1-day-old Sprague-Dawley rats as previously described [<xref rid="B19" ref-type="bibr">19</xref>,<xref rid="B25" ref-type="bibr">25</xref>]. Final preparations contained at least 95% Schwann cells, as determined by immunofluorescence for S100, which is a specific Schwann cell marker. Primary cultures of Schwann cells were maintained in DMEM containing 10% FBS (HyClone Laboratories, Logan, UT), 1% penicillin-streptomycin, bovine pituitary extract (21 &#xB5;g/ml; Clonetics), and 4 &#xB5;M forskolin (Calbiochem) at 37&#xB0;C under humidified 5.0% CO<sub>2</sub>.</p>
+      </sec>
+      <sec id="s2.5">
+        <title>Schwann cell and embryonic DRG co-cultures</title>
+        <p>We adapted the co-culture systems previously developed [<xref rid="B23" ref-type="bibr">23</xref>,<xref rid="B26" ref-type="bibr">26</xref>]. DRG neurons were cultured in RBD (100 nM), GST (100 nM) or NGF (50 ng/ml) for 2 weeks. Schwann cells (600,000 cells/cm<sup>2</sup>) were subsequently added to established primary DRG neurons cultures. Cells were subsequently co-cultured for 48 hours in Ultraculture media supplemented with 10% FBS, 2 mM L-glutamine, 1% penicillin-streptomycin at 37&#xB0;C under humidified 5.0% CO<sub>2</sub>.</p>
+      </sec>
+      <sec id="s2.6">
+        <title>RNA isolation and real-time qPCR</title>
+        <p>RNA was extracted from cultured embryonic neurons (GAP-43; Applied Biosystems, Inc.) or co-cultures of neurons and Schwann cells (P0 and MAG; Applied Bio Systems, Inc.). DNA-free total RNA was extracted using Trizol (Invitrogen) and treated with Turbo DNA-free DNase. cDNA was synthesized using the ProSTAR first-strand RT-PCR kit (Stratagene). The one-step program included 2 min at 50&#xB0;C, 10 min at 95&#xB0;C, followed by 40 cycles of 95&#xB0;C for 15 s; 60&#xB0;C for 1 min, using an ABI 7300 instrument. Rat cyclophilin mRNA was measured in each sample as a housekeeping gene [<xref rid="B7" ref-type="bibr">7</xref>]. Samples without cDNA were analyzed as &#x201C;no-template&#x201D; controls. mRNA levels were measured in duplicate, in four separate experiments, and normalized against the Ct value for the housekeeping gene. For the GST group, several wells were pooled to yield adequate total RNA levels.</p>
+      </sec>
+      <sec id="s2.7">
+        <title>Immunofluorescence and microscopy</title>
+        <p>For immunofluorescence studies, cells were plated on glass coverslips and then fixed in absolute methanol. Fixed cells were permeabilized in 0.2% Triton X-100 for 5 min and nonspecific binding was blocked with 1% bovine serum albumin for 30 min at 37&#xB0;C. Primary antibodies included cleaved caspase-3 (1:500; Cell Signaling) and monoclonal antibody neuronal Class III &#x3B2;-tubulin (Tuj1; 1:500; Covance) that were incubated overnight at 4&#xB0;C. The cells were then rinsed in PBS and incubated with secondary antibodies conjugated to either Alexa 594 conjugate (red) or Alexa 488 (green) for 30 min at 22&#xB0;C. In some cases, dual labeling with cleaved caspase-3 and Tuj1 was performed as described [<xref rid="B15" ref-type="bibr">15</xref>]. Sections were mounted on slides using Pro-long Gold with 4,6-diamidino-2-phenylindole (DAPI) (Invitrogen) to identify nuclei. Sections without primary antibody served as a non-specific control. Imaging was performed using an Olympus MVX10 (Tokyo, Japan) fluorescence microscope and OpenLab software. Neurons labeled by Tuj1 a specific marker of neurons were imaged manually x100 magnification, and the longest neurite length per cell was measured in a minimum of 60-80 neurons/well using imageJ. Quantification was performed in a blinded manner.</p>
+      </sec>
+      <sec id="s2.8">
+        <title>Phosphorylation studies and immunoblots</title>
+        <p>PC12 cells or primary cultures of embryonic DRG cells cultured in NGF (50 ng/ml) for 2 weeks were incubated in serum free media (4 or 1 h, respectively), cells were treated with RBD (100 nM), NGF (50 ng/ml), or GST (100 nM) for 0, 10, 30, 60 or 90 min. In some experiments, GST-RAP was incubated with the cells for 15 min prior to the addition of LRP1 agonists and NGF. Cells were then rinsed twice with ice-cold PBS and lysed in RIPA buffer (PBS with 1% Triton X-100, 0.5% sodium deoxycholate, 0.1% SDS, proteinase inhibitor mixture and sodium orthovanadate) as previously described [<xref rid="B27" ref-type="bibr">27</xref>]. The protein concentration in tissue extracts was determined by bicinchoninic acid assay. An equivalent amount of cellular protein (50 &#xB5;g per lane) was subjected to 10% SDS-PAGE and electrotransferred to nitrocellulose membranes. Membranes were blocked with 5% nonfat dry milk in 10 mM Tris-HCl, 150 mM NaCl, pH 7.4, with 0.1% Tween 20 and incubated with primary antibodies (anti-pERK1/2, anti-pAKT, anti-tERK1/2; Cell Signaling, and anti-LRP1 and anti-tubulin; Sigma) diluted in TBS containing 5% BSA overnight at 4&#xB0;C. The membranes were washed and followed by incubation with horseradish peroxidase-conjugated secondary antibodies for 1 h at room temperature. Immunoblots were developed using enhanced chemiluminescence ECL Plus&#x2122; (GE Healthcare) and HyBlot CL Autoradiography film (Denville Scientific Inc.). Blots were scanned (Canoscan) and densitometry was performed (NIH Image).</p>
+      </sec>
+      <sec id="s2.9">
+        <title>Statistical analysis</title>
+        <p>Neurite extension, qPCR, and immunoblots were subjected to one-way ANOVA. Tukey&#x2019;s or Student&#x2019;s Neuman Keuls <italic>post hoc</italic> analysis was used to assess the differences between treatment groups. Data were analyzed with PRISM (La Jolla, CA).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="s3">
+      <title>Results</title>
+      <sec id="s3.1">
+        <title>RBD activates LRP1-dependent cell signaling that is sustained in PC12 and primary embryonic DRG neurons</title>
+        <p>Previously, we showed that the RBD and other LRP1 ligands rapidly (within 5 min) induced activation of ERK1/2 [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B19" ref-type="bibr">19</xref>]. To test whether LRP1 induces sustained (&gt;10 to 90 min) activation of ERK1/2, we treated PC12 cells with RBD (100 nM) over time. RBD substantially increased sustained activation of ERK1/2 (p&lt;0.05; <xref ref-type="fig" rid="pone-0075497-g001">Figure 1A,B</xref>). While the magnitude of activation was not as robust as NGF, the extent of activation was similar to NGF previously reported [<xref rid="B28" ref-type="bibr">28</xref>]. When we mutated RBD (muRBD) to convert lysine<sup>1374</sup> and lysine<sup>1370</sup> to alanine, LRP1 binding was precluded [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B17" ref-type="bibr">17</xref>] and ERK1/2 activation did not occur, indicating that LRP1-dependent cell signaling was not operational. Thus, studies in PC12 cells demonstrated that RBD initiates LRP1-dependent cell signaling that is sustained.</p>
+        <fig id="pone-0075497-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0075497.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>RBD induces LRP1-dependent and sustained ERK1/2 signaling in sensory neurons.</title>
+            <p>
+<bold>A</bold>, Immunoblot analysis of ERK1/2 after treatment with RBD, muRBD, NGF or vehicle for 0-90 min in PC12 cells. <bold>B</bold>, Quantification of ERK1/2 by densitometry (n=3-6/group). Total ERK1/2 was used as a loading control (**<italic>p</italic>&lt;0.01; *<italic>p</italic>&lt;0.05). <bold>C</bold>, Immunoblot analysis of ERK1/2 after RBD, NGF or vehicle treatment for 0-60 min in primary embryonic sensory neurons. <bold>D</bold>, Quantification of ERK1/2 by densitometry (n=4/group). Total ERK1/2 was used as a loading control (**<italic>p</italic>&lt;0.01; *<italic>p</italic>&lt;0.05). Equal amounts of cellular protein (50 &#xB5;g) were loaded into each lane and subjected to SDS-PAGE and electrotransferred to nitrocellulose for detection with specific antibodies. Primary cultures of DRG neurons were prepared from rat embryos day 15 (E15).</p>
+          </caption>
+          <graphic xlink:href="pone.0075497.g001"/>
+        </fig>
+        <p>We next examined effects of RBD in cultures of primary embryonic DRG neurons. After 2 weeks of culture in NGF and deoxyuridine to eliminate other proliferating cells [<xref rid="B22" ref-type="bibr">22</xref>], the remaining neurons exhibited extensive neurite outgrowth (<xref ref-type="fig" rid="pone-0075497-g002">Figure 2A,B</xref>). These neurons were then placed in serum free media for 1 h prior to cell signaling experiments. Neurons were then treated with RBD (100 nM) or NGF-&#x3B2; (50 ng/ml). RBD induced robust and sustained (&gt;1 h) activation of ERK1/2 that was similar in extent and magnitude to NGF-&#x3B2; (p&lt;0.05; <xref ref-type="fig" rid="pone-0075497-g001">Figure 1C,D</xref>).</p>
+        <fig id="pone-0075497-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0075497.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>RBD promotes neurite sprouting in primary embryonic sensory neurons that is blocked by the LRP1 antagonist, GST-RAP.</title>
+            <p>
+<bold>A</bold>, Phase-contrast images of DRG neurons cultured on collagen using an inverted microscope. DRG neurons were pretreated with or without GST-RAP (200 nM) for 30 min prior to the addition of RBD or NGF (50 ng/ml). Images represent n=6 independent studies. Scale bar, 50 &#xB5;m. <bold>B</bold>, Immunolabeling of primary embryonic neurons with &#x3B2; neuronal class II tubulin (Tuj1; green) and Dapi (blue). Scale bar, 15 &#xB5;m. <bold>C</bold>, Quantification of neurite sprouting in DRG neurons. Data are expressed as mean &#xB1; SEM (n=4 independent studies). In each study, 3 replicate wells were used to measure a minimum of 30 axonal extensions. **<italic>p</italic>&lt;0.01 compared with respective GST or RAP controls. <bold>D</bold>, Immunoblot analysis of ERK1/2 in GST-RAP-treated DRG neurons subsequently stimulated with RBD or NGF for 30 min. The blot represents 2 independent experiments. <bold>E</bold>, Quantification of neuronal viability after two weeks in primary culture. Data are expressed as mean &#xB1; SEM (n=3) (**<italic>p</italic>&lt;0.01).</p>
+          </caption>
+          <graphic xlink:href="pone.0075497.g002"/>
+        </fig>
+      </sec>
+      <sec id="s3.2">
+        <title>LRP1-dependent cell signaling promotes embryonic sensory neurite outgrowth</title>
+        <p>Next, we tested whether RBD promotes neurite outgrowth in a LRP1 dependent manner. Primary embryonic sensory neurons were cultured for 2 weeks with RBD, NGF or the negative control, GST. In some cases, cells were pretreated with RAP, which precludes binding of LRP1 ligands and blocks LRP1-dependent cell signaling [<xref rid="B6" ref-type="bibr">6</xref>,<xref rid="B11" ref-type="bibr">11</xref>]. NGF and RBD treatment resulted in the presence of viable sensory neurons that exhibited abundant neurite extension (<xref ref-type="fig" rid="pone-0075497-g002">Figure 2A,B</xref>). Quantitation demonstrated that NGF and RBD induced more than 40-fold increases in neurite outgrowth compared to GST controls (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g002">Figure 2C</xref>). Furthermore, the magnitude of increase in neurite outgrowth induced by RBD was similar to that observed by NGF (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g002">Figure 2C</xref>). In contrast, inhibition of LRP1 binding by RAP, the LRP1 antagonist, blocked neurite sprouting (<xref ref-type="fig" rid="pone-0075497-g002">Figure 2A-C</xref>). RAP completely blocked RBD-induced increases in neurite growth, but had no effect on neurite outgrowth in the absence of RBD. RAP had no effect on NGF-induced neurite outgrowth. To confirm that LRP1 was necessary for RBD-induced cell signaling in cultured embryonic DRG neurons, we pretreated neurons with the LRP1 antagonist, GST-RAP. GST-RAP completely blocked the ability of the LRP1 ligands to activate ERK1/2; however, cell signaling in response to NGF was unaffected (<xref ref-type="fig" rid="pone-0075497-g002">Figure 2D</xref>).</p>
+      </sec>
+      <sec id="s3.3">
+        <title>LRP1 promotes survival in embryonic sensory neurons</title>
+        <p>The function of LRP1 ligands such as RBD or tPA as potent activators of neuronal cell signalling raised the hypothesis that LRP1 may function as a pro-survival receptor for developing sensory neurons. Embryonic sensory neurons are dependent on neurotrophins for development prior to and when axons innervate their targets <italic>in vivo</italic> [<xref rid="B3" ref-type="bibr">3</xref>] and for survival during their first week of culture [<xref rid="B29" ref-type="bibr">29</xref>]. Thus, primary cultured embryonic sensory neurons are an excellent model to test whether RBD can facilitate their survival in the absence of NGF. Primary DRG cells were treated with GST (100 nM), RBD (100 nM) or NGF (50 ng/ml) with and without RAP, immediately after dissection and every other day. After two weeks in culture, DRG neurons were counted by Trypan blue exclusion. NGF and RBD treated neurons showed robust viability compared to GST, RAP or RBD+RAP treatments (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g002">Figure 2E</xref>). Next, DRG neurons were immunolabeled with &#x3B2;-neuronal tubulin to identify neurons, and cleaved caspase-3 to identify cells undergoing apoptosis. Neurons treated with RBD or NGF for one week were viable and showed almost no immunoreactivity for cleaved caspase-3 (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g003">Figure 3A,B</xref>). In contrast, sensory neurons treated with GST were immunolabeled for cleaved caspase-3. In some cases, neighboring non-neuronal cells were immunolabeled with cleaved caspase-3; this is likely due to deoxyuridine treatment that kills proliferating cells. Thus, RBD promotes the survival of primary embryonic sensory neurons <italic>in vitro</italic>.</p>
+        <fig id="pone-0075497-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0075497.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>LRP1 promotes survival in primary embryonic sensory neurons and is abundantly expressed in neonatal dorsal root ganglia (DRGs).</title>
+            <p>
+<bold>A</bold>, Immunofluorescence microscopy of cleaved caspase-3 (red) and &#x3B2;-neuronal class III tubulin (Tuj1; green) in primary DRG neurons cultured for 2 weeks. Scale bar, 12 &#xB5;m. Cell nuclei are identified by Dapi (blue). Images represent n=3 independent replicates. <bold>B</bold>, Quantification of cleaved caspase-3 positive neurons. Neurons in random fields within each treatment group were counted (n=3 independent experiments). <bold>C</bold>, Immunoblot analysis of LRP1 (85 kDa) in uninjured adult (8 weeks) or neonatal (1 day) rat DRGs. DRGs were solubilized in RIPA buffer supplemented with sodium orthovanadate and proteinase inhibitors. &#x3B2; tubulin was used as a loading control. Equal amounts of cellular protein (20 &#xB5;g) were loaded into each lane and subjected to SDS-PAGE and electrotransferred to nitrocellulose for detection with specific antibodies. Each lane represents an individual rat. <bold>D</bold>, Quantification of LRP1 by densitometry. Data are expressed as mean &#xB1; SEM (n=5-7 rats), <italic>**p</italic> &lt; 0.01 compared with respective GST.</p>
+          </caption>
+          <graphic xlink:href="pone.0075497.g003"/>
+        </fig>
+        <p>The NGF receptor, TrkA, is expressed in approximately 90% of rodent DRG neurons immediately prior to birth and their proportion drops to less than 40% in adult DRGs [<xref rid="B30" ref-type="bibr">30</xref>,<xref rid="B31" ref-type="bibr">31</xref>]. We hypothesized that LRP1 levels may also be developmentally regulated given its putative role in survival signalling [<xref rid="B7" ref-type="bibr">7</xref>,<xref rid="B14" ref-type="bibr">14</xref>]. Using an antibody that recognizes the transmembrane small chain LRP1 (85 kDa), we measured LRP1 levels in DRG lysates from both newborn and adult DRGs by immunoblot analysis. LRP1 levels were 3-4-fold greater in post-natal compared to adult DRGs (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g003">Figure 3C,D</xref>).</p>
+      </sec>
+      <sec id="s3.4">
+        <title>Src-family kinases (SFKs) are activated and required for LRP1-induced neurite sprouting</title>
+        <p>Because LRP1 transactivates Trk receptors in a Src-family kinase (SFK) dependent-manner in PC12 cells [<xref rid="B12" ref-type="bibr">12</xref>] and embryonic sensory neurons are initially dependent upon Trk activation for survival [<xref rid="B3" ref-type="bibr">3</xref>], we tested whether LRP1 ligands promote neurite sprouting in developing neurons through an SFK-mediated mechanism. We used growth-associated protein-43 (GAP-43) as a quantitative index of neurite sprouting. GAP-43 is a highly expressed protein in neuronal growth cones during development that is used as a marker of growth or plasticity in regenerating axons [<xref rid="B32" ref-type="bibr">32</xref>]. Primary embryonic neurons were cultured with a selective pharmacological inhibitor of intracellular SFK (PP2), with and without RBD or NGF for 2 weeks. Both RBD and NGF manifested neurite sprouting (<xref ref-type="fig" rid="pone-0075497-g004">Figure 4A</xref>) and significant increases in GAP-43 mRNA expression (&gt;17-fold) compared to GST controls (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g004">Figure 4B</xref>). The extent of RBD&#x2019;s neurotrophic effects was similar to NGF. However, in the presence of PP2, neurite outgrowth and GAP-43 expression were significantly reduced in RBD treated neurons, although some sprouting and GAP-43 expression remained. In contrast, NGF treated neurons still had groups of viable neurons, extensive neurite outgrowth and increased GAP-43 expression in the presence of PP2 (&gt;20-fold). Collectively, these results indicate that LRP1 ligands promote embryonic sensory neurite extension via an SFK-mediated pathway and further supports a model in which LRP1 ligands indirectly activate Trk receptors through an intracellular SFK-dependent transactivation pathway</p>
+        <fig id="pone-0075497-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0075497.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>RBD-induced neurite sprouting is blocked in primary sensory neurons pre-treated with a Src-family kinase inhibitor, PP2.</title>
+            <p>
+<bold>A</bold>, Phase-contrast images of cultured sensory neurons after 2 weeks of treatment. Note the reduction of sprouting in RBD (100 nM) treated cultures, but not NGF (50 ng/ml) treated cultures with treatment of PP2 (1 &#xB5;M) for 30 min prior to the addition of factors. Scale bar, 50 &#xB5;m. <bold>B</bold>, Levels of GAP-43 mRNA in primary cultures treated with RBD (100 nM) or NGF (50 ng/ml) for 2 weeks, with or without PP2 treatment. *<italic>p</italic>&lt;0.05 (n=3-4 independent experiments).</p>
+          </caption>
+          <graphic xlink:href="pone.0075497.g004"/>
+        </fig>
+        <p>As a second approach to study the role of LRP1 in neurite outgrowth, we examined a structurally distinct LRP1 ligand, the hemopexin domain of matrix metalloproteinase-9 (MMP-9-PEX). Previously, we have shown that MMP-9-PEX activates cell signaling in PC12 cells and Schwann cells by binding to LRP1 [<xref rid="B12" ref-type="bibr">12</xref>,<xref rid="B19" ref-type="bibr">19</xref>]. After 2 weeks in culture, MMP-9-PEX &#x2013;treated neurons were viable in the absence of neurotrophins, and induced robust neurite outgrowth that was quantified by a 15-fold increase in expression of GAP-43 compared to GST (p&lt;0.01; <xref ref-type="fig" rid="pone-0075497-g005">Figure 5A-C</xref>). We also treated cultured neurons with muRBD (100 nM), a mutated LRP1 ligand that is unable to bind LRP1 [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B16" ref-type="bibr">16</xref>] and failed to induce activation of ERK1/2 (<xref ref-type="fig" rid="pone-0075497-g001">Figure 1</xref>). In primary embryonic sensory neurons, muRBD also failed to promote neuronal survival, outgrowth and expression of GAP-43 (<xref ref-type="fig" rid="pone-0075497-g005">Figure 5</xref>).</p>
+        <fig id="pone-0075497-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0075497.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>Structurally diverse LRP1 ligands such as MMP-9-PEX, but not mutated RBD (muRBD), promoted sensory neurite extensions.</title>
+            <p>
+<bold>A</bold>, Phase contrast images of cultured sensory neurons treated with the hemopexin domain of MMP-9 (MMP-9-PEX; 100 nM), mutated RBD (muRBD; lysine residues 1370 and 1374 that are essential for LRP1 binding are replaced by alanine; 100 nM) or GST (100 nM). Scale bar, 50 &#xB5;m. <bold>B</bold>, Immunofluorescence microscopy of &#x3B2;-neuronal class III tubulin (Tuj1; green) in primary DRG neurons cultured for 2 weeks in MMP-9-PEX or GST. Scale bar, 10 &#xB5;m. Cell nuclei are identified by Dapi (blue). Images represent n=2 independent replicates. <bold>C</bold>, GAP-43 mRNA levels in cultured sensory neurons treated with GST, MMP-9-PEX or muRBD every other day for 2 weeks. Results are compared to vehicle-treated control cultures. Data are expressed as mean&#xB1;SEM (n=2-4). **<italic>p</italic> &lt; 0.01 compared with controls.</p>
+          </caption>
+          <graphic xlink:href="pone.0075497.g005"/>
+        </fig>
+      </sec>
+      <sec id="s3.5">
+        <title>Embryonic sensory neurons treated with LRP1 agonists are receptive to Schwann cells</title>
+        <p>Because axons may dictate whether or not they will become myelinated in the PNS, and that NGF is a potent regulator of these axonal signals [<xref rid="B33" ref-type="bibr">33</xref>], we investigated whether cultured DRG neurons treated with LRP1 agonists are receptive to Schwann cells. First, we established neurite-bearing cultures of embryonic sensory neurons by treating neurons with RBD (100 nM), NGF (50 ng/ml) or GST (100 nM; negative control) for 2 weeks. Both RBD and NGF manifested neurite outgrowth as shown (<xref ref-type="fig" rid="pone-0075497-g002">Figures 2-5</xref>). Equal numbers of primary Schwann cells were subsequently seeded onto neurons and co-cultured for 2 days without further treatment. Co-cultures treated with RBD or NGF exhibited organized, elongated spindle shaped Schwann cells, as anticipated (<xref ref-type="fig" rid="pone-0075497-g006">Figure 6A</xref>). Next, we measured mRNA for two significant proteins that are present in peripheral myelin: P0, a major component of structural myelin; and myelin-associated glycoprotein (MAG), an essential component of non-compact myelin. RBD significantly increased both MAG and P0 mRNA compared to GST controls after 48 h of co-culture (<xref ref-type="fig" rid="pone-0075497-g006">Figure 6B</xref>; p&lt;0.05). The magnitude of RBD-induced myelin gene expression was similar or greater than NGF treatment, indicating that RBD induced axon signals are capable of promoting receptivity to myelination by Schwann cells.</p>
+        <fig id="pone-0075497-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0075497.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Axonal Receptivity to myelination by Schwann cells after treatment with LRP1 ligands.</title>
+            <p>
+<bold>A</bold>, Phase-contrast images of primary sensory neurons treated with NGF (50 ng/ml) or RBD (100 nM) for 2 weeks and now with Schwann cells for 48 hours. Scale bar, 50 &#xB5;m. Images represent n=3 independent replicates with internal duplicates; <bold>B</bold>, Levels of the non-compact myelin marker, MAG and <bold>C</bold>, compact myelin marker, P0 mRNA in Schwann cells after 48 hours of co-culture with RBD or NGF treated DRG neurons. Data are expressed as mean &#xB1; SEM. *<italic>p</italic> &lt; 0.01 compared with GST (n=3 independent experiments).</p>
+          </caption>
+          <graphic xlink:href="pone.0075497.g006"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion" id="s4">
+      <title>Discussion</title>
+      <p>Accumulating evidence indicates that LRP1 activation plays a role in the survival of glia and some CNS neuronal populations [<xref rid="B7" ref-type="bibr">7</xref>,<xref rid="B14" ref-type="bibr">14</xref>]. However, the relevance of this activity in regulating growth, differentiation and survival of developing peripheral neurons is unknown. Herein, we implicate LRP1 as a novel neurotrophic receptor for embryonic sensory neurons. These results provide the first evidence that a new class of receptors, the LDL receptor gene family, regulate survival and growth of developing sensory neurons. Specifically, LRP1-dependent cell signaling emerges as a novel mechanism underlying neurotrophic activity during development.</p>
+      <p>During early stages of development, many sensory neurons of the dorsal root ganglion switch their survival requirements from one neurotrophin to another [<xref rid="B34" ref-type="bibr">34</xref>] and are ultimately dependent on NGF prior to birth. NGF is a potent neurotrophic factor [<xref rid="B35" ref-type="bibr">35</xref>] that binds primarily to the receptor tyrosine kinase (RTK), TrkA [<xref rid="B36" ref-type="bibr">36</xref>]. Ligand binding induces dimerization of the receptor and recruits adapter proteins (Shc and Grb2) as well as enzymes (PI3K/Akt, PLCg) that contribute to sustained Ras/ERK1/2 signaling and neurite outgrowth [<xref rid="B37" ref-type="bibr">37</xref>,<xref rid="B38" ref-type="bibr">38</xref>,<xref rid="B39" ref-type="bibr">39</xref>]. Herein, we show for the first time that LRP1-dependent cell signaling also mediates sustained ERK1/2 activation in PC12 cells and primary embryonic sensory neurons, independently of NGF. Sustained ERK1/2 signaling is associated with neuronal differentiation [<xref rid="B40" ref-type="bibr">40</xref>,<xref rid="B41" ref-type="bibr">41</xref>] and indeed LRP1-dependent cell signaling induced robust neurite extension in primary sensory neurons.</p>
+      <p>Mechanistically, we propose two possibilities for LRP1 activity: 1) Levels of LRP1 in embryonic sensory neurons are abundant, and therefore activate sustained ERK1/2 signaling and differentiation. Previously, it has been shown that there is no receptor specific pathway of differentiation, however, the number of RTKs located on the cell surface appear to directly regulate the duration of ERK1/2 activation [<xref rid="B40" ref-type="bibr">40</xref>]. For example, in PC12 cells, stimulation of the endogenous EGF receptor leads to transient activation of ERK1/2 without differentiation, while overexpression of EGF leads to EGF-dependent differentiation and sustained activation of ERKs [<xref rid="B38" ref-type="bibr">38</xref>]. Moreover, when PDGF receptors (which are not endogenously expressed by PC12 cells) are overexpressed, PDGF induces sustained activation of ERKs and neurite outgrowth [<xref rid="B42" ref-type="bibr">42</xref>]. Conversely, if the number of TrkA receptors is reduced, NGF is no longer able to induce differentiation or sustained ERK1/2 signaling. Although LRP1 is not a RTK, its cytoplasmic tail can become phosphorylated and recruit adapter proteins [<xref rid="B43" ref-type="bibr">43</xref>] and, thus, elevated levels of LRP1 in neonatal DRGs represents a mechanism by which LRP1 ligands can activate and support sustained ERK1/2 signaling and differentiation; 2) LRP1 transactivates Trk receptors in embryonic sensory neurons through a SFK-dependent pathway. Previously, we have demonstrated that LRP1 transactivates Trk via Src in PC12 cells and cerebellar granular neurons [<xref rid="B12" ref-type="bibr">12</xref>]. Src is associated with neuronal differentiation in PC12 cells [<xref rid="B44" ref-type="bibr">44</xref>] and participates in cooperative signal amplification from other ligand receptor systems. This cooperation may provide more continuous activation of Trk and downstream signaling of ERK1/2. Concomitant activation of RTKs and LRP1 leads to sustained activation of ERK1/2 in fibrosarcoma cells [<xref rid="B45" ref-type="bibr">45</xref>]. Accordingly, we show that the pharmacological inhibitor of Src, PP2, reduces the ability of LRP1 ligands to extend neurites, but still survive, suggesting that LRP1-dependent cell signaling pathways of differentiation are SFK-mediated in embryonic sensory neurons.</p>
+      <p>Previously, it was reported that LRP1 ligands may bind directly to TrkA independently of LRP1 and antagonize TrkA-initiated signaling [<xref rid="B46" ref-type="bibr">46</xref>], yet our results in primary embryonic sensory neurons support another model. We show that structurally distinct LRP1 ligands, RBD and MMP-9-PEX, induce neurite outgrowth equivalently, which was blocked by RAP, a competitive antagonist of LRP1 ligand binding. Furthermore, a mutated form of RBD that precludes LRP1 binding was ineffective in inducing ERK1/2 activation or neurite sprouting. These findings provide evidence that LRP1 ligands have direct interaction with LRP1 and lead to signaling activity. Direct ligand binding to LRP1 and subsequent cell signaling activity has been shown in primary Schwann cells [<xref rid="B11" ref-type="bibr">11</xref>,<xref rid="B19" ref-type="bibr">19</xref>].</p>
+      <p>We also identified LRP1 as a potent survival factor for primary embryonic sensory neurons. Without LRP1 ligands or NGF, neurons did not survive as evidenced by trypan blue exclusion, cleaved caspase-3 and morphological assessment. The effectiveness of LRP1 ligands was similar to NGF. Yet, why do developing neurons need multiple signaling mechanisms to promote survival? One possibility is that dependence on survival signaling to control cell numbers is complex in vertebrate systems. Cells are forced to compete with one another for limiting amounts of survival factors. In the developing peripheral nervous system, competition for target derived survival signals is operational and plays an important role in matching the numbers of presynaptic and postsynaptic cells during both evolution and development [<xref rid="B1" ref-type="bibr">1</xref>,<xref rid="B47" ref-type="bibr">47</xref>,<xref rid="B48" ref-type="bibr">48</xref>]. Competing for limiting amounts of multiple survival factors could more finely select cells that establish optimal contacts during development, enhancing competitive mechanisms. The most competitive cells may be those with the most receptors for survival or those with the most efficient signal transduction [<xref rid="B49" ref-type="bibr">49</xref>]. LRP1 may provide adaptive strategies for neurotrophic activity when target derived growth factors are limited or &#x201C;switching&#x201D; [<xref rid="B34" ref-type="bibr">34</xref>]. Accordingly, LRP1 antagonizes the unfolded protein response (UPR) or ER stress pathways that ultimately lead to death if not countered [<xref rid="B50" ref-type="bibr">50</xref>].</p>
+      <p>The demonstration of potent LRP1 signaling effects on neuronal survival and process outgrowth during development may have implications for axonal plasticity and regeneration in adulthood. Indeed, studies in progress suggest that the LRP1 ligands RBD and MMP-9-PEX enhance sensory axonal sprouting and regeneration after spinal cord injury [<xref rid="B15" ref-type="bibr">15</xref>], highlighting the importance and relevance of this novel signaling mechanism in nervous system development and function.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Oppenheim</surname><given-names>RW</given-names></name>, <name><surname>Prevette</surname><given-names>D</given-names></name>, <name><surname>Yin</surname><given-names>QW</given-names></name>, <name><surname>Collins</surname><given-names>F</given-names></name>, <name><surname>MacDonald</surname><given-names>J</given-names></name> (<year>1991</year>) <article-title>Control of embryonic motoneuron survival in vivo by ciliary neurotrophic factor</article-title>. <source>Science</source>
+<volume>251</volume>: <fpage>1616</fpage>-<lpage>1618</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1126/science.2011743">10.1126/science.2011743</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/2011743">2011743</ext-link>.<pub-id pub-id-type="pmid">2011743</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Buchman</surname><given-names>VL</given-names></name>, <name><surname>Davies</surname><given-names>AM</given-names></name> (<year>1993</year>) <article-title>Different neurotrophins are expressed and act in a developmental sequence to promote the survival of embryonic sensory neurons</article-title>. <source>Development</source>
+<volume>118</volume>: <fpage>989</fpage>-<lpage>1001</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/8076530">8076530</ext-link>.<pub-id pub-id-type="pmid">8076530</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Davies</surname><given-names>AM</given-names></name> (<year>1994</year>) <article-title>The role of neurotrophins during successive stages of sensory neuron development</article-title>. <source>Prog Rrowth Factors Res</source>
+<volume>5</volume>: <fpage>263</fpage>-<lpage>289</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/0955-2235(94)90010-8">10.1016/0955-2235(94)90010-8</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/7888634">7888634</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wyatt</surname><given-names>S</given-names></name>, <name><surname>Davies</surname><given-names>AM</given-names></name> (<year>1993</year>) <article-title>Regulation of expression of mRNAs encoding the nerve growth factor receptors p75 and trkA in developing sensory neurons</article-title>. <source>Development</source>
+<volume>119</volume>: <fpage>635</fpage>-<lpage>648</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/8187634">8187634</ext-link>.<pub-id pub-id-type="pmid">8187634</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Herz</surname><given-names>J</given-names></name>, <name><surname>Strickland</surname><given-names>DK</given-names></name> (<year>2001</year>) <article-title>LRP: a multifunctional scavenger and signaling receptor</article-title>. <source>J Clin Invest</source>
+<volume>108</volume>: <fpage>779</fpage>-<lpage>784</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1172/JCI200113992">10.1172/JCI200113992</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11560943">11560943</ext-link>.<pub-id pub-id-type="pmid">11560943</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Strickland</surname><given-names>DK</given-names></name>, <name><surname>Gonias</surname><given-names>SL</given-names></name>, <name><surname>Argraves</surname><given-names>WS</given-names></name> (<year>2002</year>) <article-title>Diverse roles for the LDL receptor family</article-title>. <source>Trends Endocrinol Metab</source>
+<volume>13</volume>: <fpage>66</fpage>-<lpage>74</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S1043-2760(01)00526-4">10.1016/S1043-2760(01)00526-4</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11854021">11854021</ext-link>.<pub-id pub-id-type="pmid">11854021</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Campana</surname><given-names>WM</given-names></name>, <name><surname>Li</surname><given-names>X</given-names></name>, <name><surname>Dragojlovic</surname><given-names>N</given-names></name>, <name><surname>Janes</surname><given-names>J</given-names></name>, <name><surname>Gaultier</surname><given-names>A</given-names></name>
+<etal>et al.</etal> (<year>2006</year>) <article-title>The low-density lipoprotein receptor-related protein is a pro-survival receptor in Schwann cells: possible implications in peripheral nerve injury</article-title>. <source>J Neurosci</source>
+<volume>26</volume>: <fpage>11197</fpage>-<lpage>11207</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1523/JNEUROSCI.2709-06.2006">10.1523/JNEUROSCI.2709-06.2006</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17065459">17065459</ext-link>.<pub-id pub-id-type="pmid">17065459</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hu</surname><given-names>K</given-names></name>, <name><surname>Yang</surname><given-names>J</given-names></name>, <name><surname>Tanaka</surname><given-names>S</given-names></name>, <name><surname>Gonias</surname><given-names>SL</given-names></name>, <name><surname>Mars</surname><given-names>WM</given-names></name>
+<etal>et al.</etal> (<year>2006</year>) <article-title>Tissue-type plasminogen activator acts as a cytokine that triggers intracellular signal transduction and induces matrix metalloproteinase-9 gene expression</article-title>. <source>J Biol Chem</source>
+<volume>281</volume>: <fpage>2120</fpage>-<lpage>2127</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/16303771">16303771</ext-link>.<pub-id pub-id-type="pmid">16303771</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hayashi</surname><given-names>H</given-names></name>, <name><surname>Campenot</surname><given-names>RB</given-names></name>, <name><surname>Vance</surname><given-names>DE</given-names></name>, <name><surname>Vance</surname><given-names>JE</given-names></name> (<year>2007</year>) <article-title>Apolipoprotein E-containing lipoproteins protect neurons from apoptosis via a signaling pathway involving low-density lipoprotein receptor-related protein-1</article-title>. <source>J Neurosci</source>
+<volume>27</volume>: <fpage>1933</fpage>-<lpage>1941</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1523/JNEUROSCI.5471-06.2007">10.1523/JNEUROSCI.5471-06.2007</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17314289">17314289</ext-link>.<pub-id pub-id-type="pmid">17314289</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Padmasekar</surname><given-names>M</given-names></name>, <name><surname>Nandigama</surname><given-names>R</given-names></name>, <name><surname>Wartenberg</surname><given-names>M</given-names></name>, <name><surname>Schl&#xFC;ter</surname><given-names>KD</given-names></name>, <name><surname>Sauer</surname><given-names>H</given-names></name> (<year>2007</year>) <article-title>The acute phase protein alpha2-macroglobulin induces rat ventricular cardiomyocyte hypertrophy via ERK1,2 and PI3-kinase/Akt pathways</article-title>. <source>Cardio Res</source>
+<volume>75</volume>: <fpage>118</fpage>-<lpage>128</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.cardiores.2007.03.003">10.1016/j.cardiores.2007.03.003</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17412314">17412314</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mantuano</surname><given-names>E</given-names></name>, <name><surname>Mukandala</surname><given-names>G</given-names></name>, <name><surname>Li</surname><given-names>X</given-names></name>, <name><surname>Campana</surname><given-names>WM</given-names></name>, <name><surname>Gonias</surname><given-names>SL</given-names></name> (<year>2008</year>) <article-title>Molecular dissection of the human alpha2-macroglobulin subunit reveals domains with antagonistic activities in cell signaling</article-title>. <source>J Biol Chem</source>
+<volume>283</volume>: <fpage>19904</fpage>-<lpage>19911</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M801762200">10.1074/jbc.M801762200</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18499670">18499670</ext-link>.<pub-id pub-id-type="pmid">18499670</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shi</surname><given-names>Y</given-names></name>, <name><surname>Mantuano</surname><given-names>E</given-names></name>, <name><surname>Inoue</surname><given-names>G</given-names></name>, <name><surname>Campana</surname><given-names>WM</given-names></name>, <name><surname>Gonias</surname><given-names>SL</given-names></name> (<year>2009</year>) <article-title>Ligand binding to LRP1 transactivates Trk receptors by a Src family kinase-dependent pathway</article-title>. <source>Sci Signal</source>
+<volume>2</volume>: <comment>ra18&#x2013;: ra18</comment> PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/19401592">19401592</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Herz</surname><given-names>J</given-names></name>, <name><surname>Clouthier</surname><given-names>DE</given-names></name>, <name><surname>Hammer</surname><given-names>RE</given-names></name> (<year>1992</year>) <article-title>LDL receptor-related protein internalizes and degrades uPA-PAI-1 complexes and is essential for embryo implantation</article-title>. <source>Cell</source>
+<volume>71</volume>: <fpage>411</fpage>-<lpage>421</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/0092-8674(92)90511-A">10.1016/0092-8674(92)90511-A</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/1423604">1423604</ext-link>.<pub-id pub-id-type="pmid">1423604</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fuentealba</surname><given-names>RA</given-names></name>, <name><surname>Liu</surname><given-names>Q</given-names></name>, <name><surname>Kanekiyo</surname><given-names>T</given-names></name>, <name><surname>Zhang</surname><given-names>J</given-names></name>, <name><surname>Bu</surname><given-names>G</given-names></name> (<year>2009</year>) <article-title>Low density lipoprotein receptor-related protein 1 promotes anti-apoptotic signaling in neurons by activating Akt survival pathway</article-title>. <source>J Biol Chem</source>
+<volume>284</volume>: <fpage>34045</fpage>-<lpage>34053</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M109.021030">10.1074/jbc.M109.021030</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/19815552">19815552</ext-link>.<pub-id pub-id-type="pmid">19815552</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoon</surname><given-names>C</given-names></name>, <name><surname>van Niekerk</surname><given-names>E</given-names></name>, <name><surname>Henry</surname><given-names>K</given-names></name>, <name><surname>Ishikawa</surname><given-names>T</given-names></name>, <name><surname>Orita</surname><given-names>S</given-names></name>
+<etal>et al.</etal> (, Jul 25<year>2013</year>) <article-title>Low density lipoprotein receptor related protein 1 lRP1 dependent cell signaling promotes axonal regeneration</article-title>. <source>J Biol Chem</source>, <season>Jul 25</season> (epub ahead of print).</mixed-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mettenburg</surname><given-names>JM</given-names></name>, <name><surname>Webb</surname><given-names>DJ</given-names></name>, <name><surname>Gonias</surname><given-names>SL</given-names></name> (<year>2002</year>) <article-title>Distinct binding sites in the structure of alpha 2-macroglobulin mediate the interaction with beta-amyloid peptide and growth factors</article-title>. <source>J Biol Chem</source>
+<volume>277</volume>: <fpage>13338</fpage>-<lpage>13345</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M106792200">10.1074/jbc.M106792200</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11823454">11823454</ext-link>.<pub-id pub-id-type="pmid">11823454</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nielsen</surname><given-names>KL</given-names></name>, <name><surname>Holtet</surname><given-names>TL</given-names></name>, <name><surname>Etzerodt</surname><given-names>M</given-names></name>, <name><surname>Moestrup</surname><given-names>SK</given-names></name>, <name><surname>Gliemann</surname><given-names>J</given-names></name>
+<etal>et al.</etal> (<year>1996</year>) <article-title>Identification of residues in alpha-macroglobulins important for binding to the alpha2-macroglobulin receptor/Low density lipoprotein receptor-related protein</article-title>. <source>J Biol Chem</source>
+<volume>271</volume>: <fpage>12909</fpage>-<lpage>12912</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.271.22.12909">10.1074/jbc.271.22.12909</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/8662686">8662686</ext-link>.<pub-id pub-id-type="pmid">8662686</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Howard</surname><given-names>GC</given-names></name>, <name><surname>Yamaguchi</surname><given-names>Y</given-names></name>, <name><surname>Misra</surname><given-names>UK</given-names></name>, <name><surname>Gawdi</surname><given-names>G</given-names></name>, <name><surname>Nelsen</surname><given-names>A</given-names></name>
+<etal>et al.</etal> (<year>1996</year>) <article-title>Selective mutations in cloned and expressed alpha-macroglobulin receptor binding fragment alter binding to either the alpha2-macroglobulin signaling receptor or the low density lipoprotein receptor-related protein/alpha2-macroglobulin receptor</article-title>. <source>J Biol Chem</source>
+<volume>271</volume>: <fpage>14105</fpage>-<lpage>14111</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.271.24.14105">10.1074/jbc.271.24.14105</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/8662881">8662881</ext-link>.<pub-id pub-id-type="pmid">8662881</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mantuano</surname><given-names>E</given-names></name>, <name><surname>Inoue</surname><given-names>G</given-names></name>, <name><surname>Li</surname><given-names>X</given-names></name>, <name><surname>Takahashi</surname><given-names>K</given-names></name>, <name><surname>Gaultier</surname><given-names>A</given-names></name>
+<etal>et al.</etal> (<year>2008</year>) <article-title>The hemopexin domain of matrix metalloproteinase-9 activates cell signaling and promotes migration of schwann cells by binding to low-density lipoprotein receptor-related protein</article-title>. <source>J Neurosci</source>
+<volume>28</volume>: <fpage>11571</fpage>-<lpage>11582</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1523/JNEUROSCI.3053-08.2008">10.1523/JNEUROSCI.3053-08.2008</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18987193">18987193</ext-link>.<pub-id pub-id-type="pmid">18987193</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Van den Steen</surname><given-names>PE</given-names></name>, <name><surname>Van Aelst</surname><given-names>I</given-names></name>, <name><surname>Hvidberg</surname><given-names>V</given-names></name>, <name><surname>Piccard</surname><given-names>H</given-names></name>, <name><surname>Fiten</surname><given-names>P</given-names></name>
+<etal>et al.</etal> (<year>2006</year>) <article-title>The hemopexin and O-glycosylated domains tune gelatinase B/MMP-9 bioavailability via inhibition and binding to cargo receptors</article-title>. <source>J Biol Chem</source>
+<volume>281</volume>: <fpage>18626</fpage>-<lpage>18637</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M512308200">10.1074/jbc.M512308200</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/16672230">16672230</ext-link>.<pub-id pub-id-type="pmid">16672230</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Joyce</surname><given-names>N</given-names></name>, <name><surname>Annett</surname><given-names>G</given-names></name>, <name><surname>Wirthlin</surname><given-names>L</given-names></name>, <name><surname>Olson</surname><given-names>S</given-names></name>, <name><surname>Bauer</surname><given-names>G</given-names></name>
+<etal>et al.</etal> (<year>2010</year>) <article-title>Mesenchymal stem cells for the treatment of neurodegenerative disease</article-title>. <source>Regen Med</source>
+<volume>5</volume>: <fpage>933</fpage>-<lpage>946</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.2217/rme.10.72">10.2217/rme.10.72</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21082892">21082892</ext-link>.<pub-id pub-id-type="pmid">21082892</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nickols</surname><given-names>JC</given-names></name>, <name><surname>Valentine</surname><given-names>W</given-names></name>, <name><surname>Kanwal</surname><given-names>S</given-names></name>, <name><surname>Carter</surname><given-names>BD</given-names></name> (<year>2003</year>) <article-title>Activation of the transcription factor NF-kappaB in Schwann cells is required for peripheral myelin formation</article-title>. <source>Nat Neurosci</source>
+<volume>6</volume>: <fpage>161</fpage>-<lpage>167</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/nn995">10.1038/nn995</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12514737">12514737</ext-link>.<pub-id pub-id-type="pmid">12514737</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoon</surname><given-names>C</given-names></name>, <name><surname>Korade</surname><given-names>Z</given-names></name>, <name><surname>Carter</surname><given-names>BD</given-names></name> (<year>2008</year>) <article-title>Protein kinase A-induced phosphorylation of the p65 subunit of nuclear factor-kappaB promotes Schwann cell differentiation into a myelinating phenotype</article-title>. <source>J Neurosci</source>
+<volume>28</volume>: <fpage>3738</fpage>-<lpage>3746</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1523/JNEUROSCI.4439-07.2008">10.1523/JNEUROSCI.4439-07.2008</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18385332">18385332</ext-link>.<pub-id pub-id-type="pmid">18385332</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wood</surname><given-names>PM</given-names></name>, <name><surname>Bunge</surname><given-names>RP</given-names></name> (<year>1986</year>) <article-title>Myelination of cultured dorsal root ganglion neurons by oligodendrocytes obtained from adult rats</article-title>. <source>J Neurol Sci</source>
+<volume>74</volume>: <fpage>153</fpage>-<lpage>169</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/0022-510X(86)90101-2">10.1016/0022-510X(86)90101-2</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/2426414">2426414</ext-link>.<pub-id pub-id-type="pmid">2426414</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Campana</surname><given-names>WM</given-names></name>, <name><surname>Hiraiwa</surname><given-names>M</given-names></name>, <name><surname>O&#x2019;Brien</surname><given-names>JS</given-names></name> (<year>1998</year>) <article-title>Prosaptide activates the MAPK pathway by a G-protein-dependent mechanism essential for enhanced sulfatide synthesis by Schwann cells</article-title>. <source>FASEB J</source>
+<volume>12</volume>: <fpage>307</fpage>-<lpage>314</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/9506474">9506474</ext-link>.<pub-id pub-id-type="pmid">9506474</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kleitman</surname><given-names>N</given-names></name>, <name><surname>Wood</surname><given-names>P</given-names></name>, <name><surname>Johnson</surname><given-names>MI</given-names></name>, <name><surname>Bunge</surname><given-names>RP</given-names></name> (<year>1988</year>) <article-title>Schwann cell surfaces but not extracellular matrix organized by Schwann cells support neurite outgrowth from embryonic rat retina</article-title>. <source>J Neurosci</source>
+<volume>8</volume>: <fpage>653</fpage>-<lpage>663</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/3339432">3339432</ext-link>.<pub-id pub-id-type="pmid">3339432</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Orita</surname><given-names>S</given-names></name>, <name><surname>Henry</surname><given-names>KW</given-names></name>, <name><surname>Mantuano</surname><given-names>E</given-names></name>, <name><surname>Yamauchi</surname><given-names>K</given-names></name>, <name><surname>Ishikawa</surname><given-names>T</given-names></name>
+<etal>et al.</etal> (<year>2013</year>) <article-title>Schwann cell LRP1 regulates Remak bundle ultrastructure and axonal interactions to prevent neuropathic pain</article-title>. <source>J Neurosci</source>
+<volume>33</volume>: <fpage>5590</fpage>-<lpage>5602</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1523/JNEUROSCI.3342-12.2013">10.1523/JNEUROSCI.3342-12.2013</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/23536074">23536074</ext-link>.<pub-id pub-id-type="pmid">23536074</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chang</surname><given-names>JH</given-names></name>, <name><surname>Mellon</surname><given-names>E</given-names></name>, <name><surname>Schanen</surname><given-names>NC</given-names></name>, <name><surname>Twiss</surname><given-names>JL</given-names></name> (<year>2003</year>) <article-title>Persistent TrkA activity is necessary to maintain transcription in neuronally differentiated PC12 cells</article-title>. <source>J Biol Chem</source>
+<volume>278</volume>: <fpage>42877</fpage>-<lpage>42885</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M308155200">10.1074/jbc.M308155200</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12909622">12909622</ext-link>.<pub-id pub-id-type="pmid">12909622</pub-id></mixed-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Melli</surname><given-names>G</given-names></name>, <name><surname>H&#xF6;ke</surname><given-names>A</given-names></name> (<year>2009</year>) <article-title>Dorsal Root Ganglia Sensory Neuronal Cultures: a tool for drug discovery for peripheral neuropathies</article-title>. <source>Expert Opin Drugs Discov</source>
+<volume>4</volume>: <fpage>1035</fpage>-<lpage>1045</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1517/17460440903266829">10.1517/17460440903266829</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/20657751">20657751</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ernsberger</surname><given-names>U</given-names></name> (<year>2009</year>) <article-title>Role of neurotrophin signalling in the differentiation of neurons from dorsal root ganglia and sympathetic ganglia</article-title>. <source>Cell Tissue Res</source>
+<volume>336</volume>: <fpage>349</fpage>-<lpage>384</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1007/s00441-009-0784-z">10.1007/s00441-009-0784-z</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/19387688">19387688</ext-link>.<pub-id pub-id-type="pmid">19387688</pub-id></mixed-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bennett</surname><given-names>DL</given-names></name>, <name><surname>Averill</surname><given-names>S</given-names></name>, <name><surname>Clary</surname><given-names>DO</given-names></name>, <name><surname>Priestley</surname><given-names>JV</given-names></name>, <name><surname>McMahon</surname><given-names>SB</given-names></name> (<year>1996</year>) <article-title>Postnatal changes in the expression of the trkA high-affinity NGF receptor in primary sensory neurons</article-title>. <source>Eur J Neurosci</source>
+<volume>8</volume>: <fpage>2204</fpage>-<lpage>2208</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1111/j.1460-9568.1996.tb00742.x">10.1111/j.1460-9568.1996.tb00742.x</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/8921312">8921312</ext-link>.<pub-id pub-id-type="pmid">8921312</pub-id></mixed-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Benowitz</surname><given-names>LI</given-names></name>, <name><surname>Routtenberg</surname><given-names>A</given-names></name> (<year>1997</year>) <article-title>GAP-43: an intrinsic determinant of neuronal development and plasticity</article-title>. <source>Trends Neurosci</source>
+<volume>20</volume>: <fpage>84</fpage>-<lpage>91</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S0166-2236(96)10072-2">10.1016/S0166-2236(96)10072-2</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/9023877">9023877</ext-link>.<pub-id pub-id-type="pmid">9023877</pub-id></mixed-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chan</surname><given-names>JR</given-names></name>, <name><surname>Watkins</surname><given-names>TA</given-names></name>, <name><surname>Cosgaya</surname><given-names>JM</given-names></name>, <name><surname>Zhang</surname><given-names>CZ</given-names></name>, <name><surname>Chen</surname><given-names>L</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>NGF controls axonal receptivity to myelinatin by Schwann cells or Oligodendrocytes</article-title>. <source>Neuron</source>
+<volume>43</volume>: <fpage>183</fpage>-<lpage>191</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.neuron.2004.06.024">10.1016/j.neuron.2004.06.024</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15260955">15260955</ext-link>.<pub-id pub-id-type="pmid">15260955</pub-id></mixed-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Davies</surname><given-names>SJ</given-names></name>, <name><surname>Fitch</surname><given-names>MT</given-names></name>, <name><surname>Memberg</surname><given-names>SP</given-names></name>, <name><surname>Hall</surname><given-names>AK</given-names></name>, <name><surname>Raisman</surname><given-names>G</given-names></name>
+<etal>et al.</etal> (<year>1997</year>) <article-title>Regeneration of adult axons in white matter tracts of the central nervous system</article-title>. <source>Nature</source>
+<volume>390</volume>: <fpage>680</fpage>-<lpage>683</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/9414159">9414159</ext-link>.<pub-id pub-id-type="pmid">9414159</pub-id></mixed-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Levi-Montalcini</surname><given-names>R</given-names></name>, <name><surname>Cohen</surname><given-names>S</given-names></name> (<year>1956</year>) <article-title>In Vitro and in Vivo Effects of a Nerve Growth-Stimulating Agent Isolated from Snake Venom</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>42</volume>: <fpage>695</fpage>-<lpage>699</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1073/pnas.42.9.695">10.1073/pnas.42.9.695</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/16589933">16589933</ext-link>.<pub-id pub-id-type="pmid">16589933</pub-id></mixed-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chao</surname><given-names>MV</given-names></name> (<year>2003</year>) <article-title>Neurotrophins and their receptors: a convergence point for many signalling pathways</article-title>. <source>Nat Rev Neurosci</source>
+<volume>4</volume>: <fpage>299</fpage>-<lpage>309</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/nrn1078">10.1038/nrn1078</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12671646">12671646</ext-link>.<pub-id pub-id-type="pmid">12671646</pub-id></mixed-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rozakis-Adcock</surname><given-names>M</given-names></name>, <name><surname>McGlade</surname><given-names>J</given-names></name>, <name><surname>Mbamalu</surname><given-names>G</given-names></name>, <name><surname>Pelicci</surname><given-names>G</given-names></name>, <name><surname>Daly</surname><given-names>R</given-names></name>
+<etal>et al.</etal> (<year>1992</year>) <article-title>Association of the Shc and Grb2/Sem5 SH2-containing proteins is implicated in activation of the Ras pathway by tyrosine kinases</article-title>. <source>Nature</source>
+<volume>360</volume>: <fpage>689</fpage>-<lpage>692</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/360689a0">10.1038/360689a0</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/1465135">1465135</ext-link>.<pub-id pub-id-type="pmid">1465135</pub-id></mixed-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Traverse</surname><given-names>S</given-names></name>, <name><surname>Gomez</surname><given-names>N</given-names></name>, <name><surname>Paterson</surname><given-names>H</given-names></name>, <name><surname>Marshall</surname><given-names>C</given-names></name>, <name><surname>Cohen</surname><given-names>P</given-names></name> (<year>1992</year>) <article-title>Sustained activation of the mitogen-activated protein (MAP) kinase cascade may be required for differentiation of PC12 cells. Comparison of the effects of nerve growth factor and epidermal growth factor</article-title>. <source>Biochem J</source>
+<volume>288</volume>(<issue-id>2</issue-id>): <fpage>351</fpage>-<lpage>355</lpage>.<pub-id pub-id-type="pmid">1334404</pub-id></mixed-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Howe</surname><given-names>CL</given-names></name>, <name><surname>Valletta</surname><given-names>JS</given-names></name>, <name><surname>Rusnak</surname><given-names>AS</given-names></name>, <name><surname>Mobley</surname><given-names>WC</given-names></name> (<year>2001</year>) <article-title>NGF signaling from clathrin-coated vesicles: evidence that signaling endosomes serve as a platform for the Ras-MAPK pathway</article-title>. <source>Neuron</source>
+<volume>32</volume>: <fpage>801</fpage>-<lpage>814</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S0896-6273(01)00526-8">10.1016/S0896-6273(01)00526-8</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11738027">11738027</ext-link>.<pub-id pub-id-type="pmid">11738027</pub-id></mixed-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Traverse</surname><given-names>S</given-names></name>, <name><surname>Seedorf</surname><given-names>K</given-names></name>, <name><surname>Paterson</surname><given-names>H</given-names></name>, <name><surname>Marshall</surname><given-names>CJ</given-names></name>, <name><surname>Cohen</surname><given-names>P</given-names></name>
+<etal>et al.</etal> (<year>1994</year>) <article-title>EGF triggers neuronal differentiation of PC12 cells that overexpress the EGF receptor</article-title>. <source>Curr Biol CB</source>
+<volume>4</volume>: <fpage>694</fpage>-<lpage>701</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S0960-9822(00)00154-8">10.1016/S0960-9822(00)00154-8</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/7953555">7953555</ext-link>.<pub-id pub-id-type="pmid">7953555</pub-id></mixed-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Desbarats</surname><given-names>J</given-names></name>, <name><surname>Birge</surname><given-names>RB</given-names></name>, <name><surname>Mimouni-Rongy</surname><given-names>M</given-names></name>, <name><surname>Weinstein</surname><given-names>DE</given-names></name>, <name><surname>Palerme</surname><given-names>JS</given-names></name>
+<etal>et al.</etal> (<year>2003</year>) <article-title>Fas engagement induces neurite growth through ERK activation and p35 upregulation</article-title>. <source>Nat Cell Biol</source>
+<volume>5</volume>: <fpage>118</fpage>-<lpage>125</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/ncb916">10.1038/ncb916</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12545171">12545171</ext-link>.<pub-id pub-id-type="pmid">12545171</pub-id></mixed-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Heasley</surname><given-names>LE</given-names></name>, <name><surname>Johnson</surname><given-names>GL</given-names></name> (<year>1992</year>) <article-title>The beta-PDGF receptor induces neuronal differentiation of PC12 cells</article-title>. <source>Mol Biol Cell</source>
+<volume>3</volume>: <fpage>545</fpage>-<lpage>553</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1091/mbc.3.5.545">10.1091/mbc.3.5.545</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/1319243">1319243</ext-link>.<pub-id pub-id-type="pmid">1319243</pub-id></mixed-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Loukinova</surname><given-names>E</given-names></name>, <name><surname>Ranganathan</surname><given-names>S</given-names></name>, <name><surname>Kuznetsov</surname><given-names>S</given-names></name>, <name><surname>Gorlatova</surname><given-names>N</given-names></name>, <name><surname>Migliorini</surname><given-names>MM</given-names></name>
+<etal>et al.</etal> (<year>2002</year>) <article-title>Platelet-derived growth factor (PDGF)-induced tyrosine phosphorylation of the low density lipoprotein receptor-related protein (LRP). Evidence for integrated co-receptor function betwenn LRP and the PDGF</article-title>. <source>J Biol Chem</source>
+<volume>277</volume>: <fpage>15499</fpage>-<lpage>15506</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M200427200">10.1074/jbc.M200427200</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11854294">11854294</ext-link>.<pub-id pub-id-type="pmid">11854294</pub-id></mixed-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kremer</surname><given-names>NE</given-names></name>, <name><surname>D&#x2019;Arcangelo</surname><given-names>G</given-names></name>, <name><surname>Thomas</surname><given-names>SM</given-names></name>, <name><surname>DeMarco</surname><given-names>M</given-names></name>, <name><surname>Brugge</surname><given-names>JS</given-names></name>
+<etal>et al.</etal> (<year>1991</year>) <article-title>Signal transduction by nerve growth factor and fibroblast growth factor in PC12 cells requires a sequence of src and ras actions</article-title>. <source>J Cell Biol</source>
+<volume>115</volume>: <fpage>809</fpage>-<lpage>819</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1083/jcb.115.3.809">10.1083/jcb.115.3.809</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/1717492">1717492</ext-link>.<pub-id pub-id-type="pmid">1717492</pub-id></mixed-citation>
+      </ref>
+      <ref id="B45">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Geetha</surname><given-names>N</given-names></name>, <name><surname>Mihaly</surname><given-names>J</given-names></name>, <name><surname>Stockenhuber</surname><given-names>A</given-names></name>, <name><surname>Blasi</surname><given-names>F</given-names></name>, <name><surname>Uhrin</surname><given-names>P</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>Signal integration and coincidence detection in the mitogen-activated protein kinase/extracellular signal-regulated kinase (ERK) cascade: concomitant activation of receptor tyrosine kinases and of LRP-1 leads to sustained ERK phosphorylation via down-regulation of dual specificity phosphatases (DUSP1 and -6)</article-title>. <source>J Biol Chem</source>
+<volume>286</volume>: <fpage>25663</fpage>-<lpage>25674</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1074/jbc.M111.221903">10.1074/jbc.M111.221903</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21610072">21610072</ext-link>.<pub-id pub-id-type="pmid">21610072</pub-id></mixed-citation>
+      </ref>
+      <ref id="B46">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Koo</surname><given-names>PH</given-names></name>, <name><surname>Qiu</surname><given-names>WS</given-names></name> (<year>1994</year>) <article-title>Monoamine-activated alpha 2-macroglobulin binds trk receptor and inhibits nerve growth factor-stimulated trk phosphorylation and signal transduction</article-title>. <source>J Biol Chem</source>
+<volume>269</volume>: <fpage>5369</fpage>-<lpage>5376</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/7508936">7508936</ext-link>.<pub-id pub-id-type="pmid">7508936</pub-id></mixed-citation>
+      </ref>
+      <ref id="B47">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hamburger</surname><given-names>V</given-names></name>, <name><surname>Levi-Montalcini</surname><given-names>R</given-names></name> (<year>1949</year>) <article-title>Proliferation, differentiation and degeneration in the spinal ganglia of the chick embryo under normal and experimental conditions</article-title>. <source>J Exp Zool</source>
+<volume>111</volume>: <fpage>457</fpage>-<lpage>501</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/jez.1401110308">10.1002/jez.1401110308</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18142378">18142378</ext-link>.<pub-id pub-id-type="pmid">18142378</pub-id></mixed-citation>
+      </ref>
+      <ref id="B48">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Barde</surname><given-names>YA</given-names></name> (<year>1989</year>) <article-title>Trophic factors and neuronal survival</article-title>. <source>Neuron</source>
+<volume>2</volume>: <fpage>1525</fpage>-<lpage>1534</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/0896-6273(89)90040-8">10.1016/0896-6273(89)90040-8</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/2697237">2697237</ext-link>.<pub-id pub-id-type="pmid">2697237</pub-id></mixed-citation>
+      </ref>
+      <ref id="B49">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Raff</surname><given-names>MC</given-names></name> (<year>1992</year>) <article-title>Social controls on cell survival and cell death</article-title>. <source>Nature</source>
+<volume>356</volume>: <fpage>397</fpage>-<lpage>400</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/356397a0">10.1038/356397a0</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/1557121">1557121</ext-link>.<pub-id pub-id-type="pmid">1557121</pub-id></mixed-citation>
+      </ref>
+      <ref id="B50">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mantuano</surname><given-names>E</given-names></name>, <name><surname>Henry</surname><given-names>K</given-names></name>, <name><surname>Yamauchi</surname><given-names>T</given-names></name>, <name><surname>Hiramatsu</surname><given-names>N</given-names></name>, <name><surname>Yamauchi</surname><given-names>K</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>The unfolded protein response is a major mechanism by which LRP1 regulates Schwann cell survival after injury</article-title>. <source>J Neurosci</source>
+<volume>31</volume>: <fpage>13376</fpage>-<lpage>13385</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1523/JNEUROSCI.2850-11.2011">10.1523/JNEUROSCI.2850-11.2011</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21940431">21940431</ext-link>.<pub-id pub-id-type="pmid">21940431</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

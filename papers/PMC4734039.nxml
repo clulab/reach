@@ -1,0 +1,1752 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Exp Ther Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Exp Ther Med</journal-id>
+      <journal-id journal-id-type="publisher-id">ETM</journal-id>
+      <journal-title-group>
+        <journal-title>Experimental and Therapeutic Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1792-0981</issn>
+      <issn pub-type="epub">1792-1015</issn>
+      <publisher>
+        <publisher-name>D.A. Spandidos</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26893628</article-id>
+      <article-id pub-id-type="pmc">4734039</article-id>
+      <article-id pub-id-type="doi">10.3892/etm.2015.2943</article-id>
+      <article-id pub-id-type="publisher-id">ETM-0-0-2943</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Biological characterization of metanephric mesenchymal stem cells from the Beijing duck</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>CHEN</surname>
+            <given-names>JIA</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+          <xref ref-type="aff" rid="af2-etm-0-0-2943">2</xref>
+          <xref rid="fn1-etm-0-0-2943" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>PU</surname>
+            <given-names>YABIN</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+          <xref rid="fn1-etm-0-0-2943" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>SUN</surname>
+            <given-names>YUJIAO</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>ZHANG</surname>
+            <given-names>PING</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-etm-0-0-2943">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>LI</surname>
+            <given-names>QIAN</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>WANG</surname>
+            <given-names>KUNFU</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>WANG</surname>
+            <given-names>WENJIE</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>MA</surname>
+            <given-names>YUEHUI</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+          <xref rid="c1-etm-0-0-2943" ref-type="corresp"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>GUAN</surname>
+            <given-names>WEIJUN</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-etm-0-0-2943">1</xref>
+          <xref rid="c1-etm-0-0-2943" ref-type="corresp"/>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-etm-0-0-2943"><label>1</label>Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing 100193, P.R. China</aff>
+      <aff id="af2-etm-0-0-2943"><label>2</label>College of Pharmacy, University of Jiamusi, Jiamusi, Heilongjiang 154007, P.R. China</aff>
+      <author-notes>
+        <corresp id="c1-etm-0-0-2943"><italic>Correspondence to</italic>: Professor Weijun Guan or Professor Yuehui Ma, Institute of Animal Science, Chinese Academy of Agricultural Sciences, 2 Yuanmingyuan West Road, Haidian, Beijing 100193, P.R. China, E-mail: <email>weijunguan301@gmail.com</email>, E-mail: <email>yuehui_ma@hotmail.com</email></corresp>
+        <fn id="fn1-etm-0-0-2943">
+          <label>*</label>
+          <p>Contributed equally</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>2</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>16</day>
+        <month>12</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>16</day>
+        <month>12</month>
+        <year>2015</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on the
+							<pub-date pub-type="epub"/>. -->
+      <volume>11</volume>
+      <issue>2</issue>
+      <fpage>439</fpage>
+      <lpage>447</lpage>
+      <history>
+        <date date-type="received">
+          <day>25</day>
+          <month>1</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>25</day>
+          <month>9</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; Chen et al.</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <license license-type="open-access">
+          <license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs License</ext-link>, which permits use and distribution in any medium, provided the original work is properly cited, the use is non-commercial and no modifications or adaptations are made.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Mesenchymal stem cells (MSCs) possess self-proliferation and multi-directional differentiation abilities. Previous studies on MSCs have mostly focused on the bone marrow, lungs, pancreas and umbilical cord blood, with few studies on metanephric tissues in ducks. For the present study, the Beijing duck was selected as an experimental animal. Duck embryo metanephric mesenchymal stem cells (MMSCs) were studied. MMSC isolation culture, analysis of biological characteristics, induced differentiation and identification were performed in preliminary experiments. In the current study, surface antigens and gene expression patterns were detected using immunofluorescence, reverse transcription-polymerase chain reaction (RT-PCR) and flow cytometry. The induced cells, adipocytes, hepatocytes, epithelial cells and islet cells were identified by oil red O staining, periodic acid-Schiff staining, immunofluorescence and dithizone staining, respectively. RT-PCR was performed for detection of specific marker genes. The results suggested that the biological characteristics of MMSCs were similar to those of the MSCs previously analyzed. Primary MMSCs were sub-cultured to passage 21. The induced cells exhibit typical staining and immunofluorescence indicating the expression of specific genes. This demonstrates that MMSCs may be a novel alternative source of MSCs for experimental and clinical applications.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Beijing duck</kwd>
+        <kwd>metanephric mesenchymal stem cells</kwd>
+        <kwd>differentiation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>Mesenchymal stem cells (MSCs) are multipotent cells which can proliferate and differentiate into numerous cell types, including adipocytes, hepatocytes, epithelial cells and islet cells (<xref rid="b1-etm-0-0-2943" ref-type="bibr">1</xref>). With rapid cell proliferation, low immunogenicity and the potential for straightforward transfection of foreign genes, MSCs have been extensively used as seed cells for tissue engineering (<xref rid="b2-etm-0-0-2943" ref-type="bibr">2</xref>). Previously, studies have demonstrated that MSCs can be transplanted to repair damaged tissues, with the potential for more valuable therapeutic research and clinical treatments to be conducted through investigating the biological characteristics of MSCs (<xref rid="b3-etm-0-0-2943" ref-type="bibr">3</xref>).</p>
+      <p>In the current study, the expression of a number of genes and proteins, including vimentin, fibronectin, CD73, CD71, CD44, CD34, CD29, CD45, Pax2 and CD166, were investigated in Beijing duck MMSCs. CD29 is an integrin unit associated with late antigen receptors, which can form a heterodimer with surface and extracellular proteins to mediate cell-cell and cell-matrix interactions (<xref rid="b4-etm-0-0-2943" ref-type="bibr">4</xref>). CD44 is a cell surface glycoprotein, known as an adhesion molecule. It can bind to collagen type I and fibronectin, and provide growth-anchoring sites for MSCs. CD71 is a member of the transferrin receptor family that is required for the import of iron into cells and is regulated in response to intracellular iron concentrations. In the event of low cellular iron concentration, the levels of transferrin receptors increase, thus causing an increase in the uptake of iron by the cells. Therefore, the transferrin receptor maintains cellular iron homeostasis (<xref rid="b5-etm-0-0-2943" ref-type="bibr">5</xref>).</p>
+      <p>Although metanephric mesenchymal stem cells (MMSCs) from humans, rats and livestock have been obtained and characterized, there are few reports of harvesting duck MMSCs (<xref rid="b6-etm-0-0-2943" ref-type="bibr">6</xref>). The Beijing duck is a domesticated Aves Anseriformes Anatidae (from the mallard duck species, <italic>Anas platyrhynchos</italic>), with a stable hereditary character and excellent fertility. The Beijing duck embryo metanephron can be obtained in a convenient, economic way without ethical or histocompatibility problems, or immune rejection (<xref rid="b7-etm-0-0-2943" ref-type="bibr">7</xref>). MMSCs have broad preclinical application prospects, such as cell transplant or tissue engineering (<xref rid="b8-etm-0-0-2943" ref-type="bibr">8</xref>).</p>
+      <p>In the present study, the self-renewal and differentiation capabilities and gene expression patterns in Beijing duck MMSCs were analyzed through <italic>in vitro</italic> cell culture for the first time, to the best of our knowledge.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec>
+        <title/>
+        <sec>
+          <title>Experimental animals</title>
+          <p>All animal procedures were approved by the Institutional Animal Care and Use Committee of The Chinese Academy of Agricultural Sciences (Beijing, China). In total, 300 Beijing duck embryos (20 day-old) were provided by the Animal Husbandry Experimental Base Institute of Animal Sciences, Chinese Academy of Agricultural Sciences.</p>
+        </sec>
+        <sec>
+          <title>Isolation and culture of MMSCs</title>
+          <p>Enzymatic digestion was used as a stable method to harvest MMSCs from metanephric tissues. Initially, metanephros cells were collected from 20-day-old Beijing duck embryos. The duck metanephros were exposed and ureteric buds were removed subsequent to washing with phosphate-buffered saline (PBS; Sigma-Aldrich, Santa Clara, CA, USA). Tissue blocks were cut into 1-mm<sup>3</sup> pieces and digested with 0.1% collagenase type IV (Sigma-Aldrich) for 25 min at 37&#xB0;C, then neutralized with equal DMEM/F-12 containing 10% fetal bovine serum (FBS) (Gibco; Thermo Fisher Scientific, Inc., New York, NY, USA). The cell suspension was filtered through a 300 mesh stainless steel sieve and centrifuged at 250 &#xD7; g for 8 min, then added to complete medium [DMEM/F-12, 10% FBS, 10 ng/ml leukemia inhibitory factor (LIF; Peprotech, Rocky Hill, NJ, USA)] and seeded into plates, incubated at 37&#xB0;C with 5% CO<sub>2</sub> (<xref rid="b9-etm-0-0-2943" ref-type="bibr">9</xref>). The non-adherent cells and fragments were removed with PBS 24 h post-seeding. When cells reached 80% confluence, 0.125% trypsin and 0.02% EDTA (Sigma-Aldrich) were added for subculturing. Purified MMSCs were obtained after 3 passages (<xref rid="b10-etm-0-0-2943" ref-type="bibr">10</xref>).</p>
+        </sec>
+        <sec>
+          <title>MTS cell viability assay</title>
+          <p>P5 generation cells were inoculated into 96-well plates at a cell density of 1.0&#xD7;10<sup>4</sup> cells/ml. Following the treatment period, the cytotoxicity assay was performed using MTS reagent [3-(4, 5-dimethylthiazol-2-yl)-5(3-carboxymethoxyphenyl)-2-(4-sulfopheny)-2H-tetrazolium, inner salt] according to the manufacturer's protocol (Promega Corp., Beijing, China). Cell absorbance was spectrophotometrically measured using an ELx800 absorbance microplate reader (BioTek Instruments, Inc., Winooski, VT, USA) at 490 nm (<xref rid="b11-etm-0-0-2943" ref-type="bibr">11</xref>). A growth curve was produced using the average cell count data for each day of the 7-day study (<xref rid="b12-etm-0-0-2943" ref-type="bibr">12</xref>).</p>
+        </sec>
+        <sec>
+          <title>RNA extraction and reverse transcription-polymerase chain reaction (RT-PCR)</title>
+          <p>RNA was extracted from cells using TRIzol reagent (Invitrogen; Thermo Fisher Scientific, Inc., Waltham, MA, USA) and cDNA was synthesized using an RNA PCR kit (Takara Biotechnology Co., Ltd., Dalian, China) (<xref rid="b13-etm-0-0-2943" ref-type="bibr">13</xref>). The cDNA was amplified by PCR with specific primers (designed by Sangon Biotech, Shanghai, China; <xref rid="tI-etm-0-0-2943" ref-type="table">Table I</xref>), using a Platinum PCR SuperMix (Invitrogen; Thermo Fisher Scientific, Inc.) according to the manufacturer's instructions. PCR was performed in a 20 &#xB5;l solution containing 2.0 &#xB5;l 10X RT buffer, 13.4 &#xB5;l double-distilled H<sub>2</sub>O, 0.2 &#xB5;l Ex-Taq (Takara Bio Inc., Otsu, Japan), 1.0 &#xB5;l each of forward and reverse primers, 1.0 &#xB5;l template cDNA and 1.4 &#xB5;l dNTP (2.5 mM). The reaction conditions consisted of an initial denaturation step at 94&#xB0;C for 5 min, followed by 30 cycles at 94&#xB0;C for 30 sec, 55&#x2013;60&#xB0;C for 30 sec and 72&#xB0;C for 30 sec, and a final cycle at 72&#xB0;C for 10 min. The PCR products were visualized by 2.5% agarose gel electrophoresis (Gibco; Thermo Fisher Scientific, Inc.) at 140 V for 30 min (<xref rid="b14-etm-0-0-2943" ref-type="bibr">14</xref>).</p>
+        </sec>
+        <sec>
+          <title>Immunofluorescence analysis of MMSC surface antigens</title>
+          <p>Cells were fixed with 4% paraformaldehyde (Sigma-Aldrich) for 20 min at room temperature and washed three times (every 5 min), permeabilized by 0.25% Triton X-100 (Sigma-Aldrich, St. Louis, MO, USA) for 10 min, which was diluted with PBS (1:10), blocked with goat serum (OriGene Technologies, Beijing, China) for 60 min (<xref rid="b15-etm-0-0-2943" ref-type="bibr">15</xref>). The following antibodies were added: Rabbit anti-chicken antibodies against fibronectin, CD71 and CD73 (dilution, 1:100; cat. nos. bs-4859R, bs-1782R and bs-4834R, respectively; Beijing Biosynthesis Biotechnology Co. Ltd., Beijing, China), and mouse anti-chicken antibodies against CD29 and CD45 (dilution, 1:100; cat. nos. ab26841 and ab24909, respectively; Abcam, Cambridge, CA, USA). The samples were incubated with the antibodies overnight at 4&#xB0;C. The primary antibody was discarded and washed, then the fluorescein isothiocyanate (FITC)-conjugated goat anti-rabbit and goat anti-mouse secondary antibodies (dilution, 1:100; cat. no. ZF-0311; OriGene Technologies) were added. The cells were then placed in the dark for 1 h at room temperature (<xref rid="b16-etm-0-0-2943" ref-type="bibr">16</xref>). The plates were washed and nuclear staining was performed with 1 &#xB5;g/ml DAPI (Sigma-Aldrich) for 30 min (<xref rid="b17-etm-0-0-2943" ref-type="bibr">17</xref>). Immunofluorescence images were acquired using a laser-scanning confocal microscope (FV1000; Olympus Corp., Tokyo, Japan). Non-overlapping fields were observed and images were captured.</p>
+        </sec>
+        <sec>
+          <title>Flow cytometry analysis of MMSCs</title>
+          <p>The flow cytometry protocol used was similar to the immunofluorescence protocol described earlier, in terms of the cell preparation and treatment. However, the selected polyclonal antibodies used were as follows: Anti-vimentin, anti-CD44 and anti-CD71 antibodies (all rabbit anti-chicken antibodies; dilution, 1:100; cat. nos. bs-0756R, bs-2507R and bs-1782R, respectively; Beijing Biosynthesis Biotechnology Co. Ltd.). Flow cytometric analysis was performed on the mononuclear cell suspension, and 5&#xD7;10<sup>4</sup> cells were incubated with 10 &#xB5;l FITC-conjugated antibodies (<xref rid="b18-etm-0-0-2943" ref-type="bibr">18</xref>). Cells were acquired using a FACSCalibur flow cytometer and CytExpert Cell Quest software, and then analyzed with Paint-A-Gate software (BD Biosciences, San Jose, CA, USA).</p>
+        </sec>
+        <sec>
+          <title>Frozen storage and recovery</title>
+          <p>For freeze storage, 50% DMEM/F-12, 10% dimethyl sulfoxide and 40% FBS were used, and for long-term storage a liquid nitrogen tank (<xref rid="b19-etm-0-0-2943" ref-type="bibr">19</xref>) was used to preserve the genetic resources of the Beijing duck.</p>
+        </sec>
+        <sec>
+          <title>Differentiation of MMSCs</title>
+          <p>MMSCs with high reproductive ability were targeted for differentiation. When cell proliferation attained 50% confluence, cells were randomly divided into induced and control groups. The complete medium was used for the control group.</p>
+          <p>The induction medium for adipocyte differentiation consisted DMEM/F-12, 10% FBS, 10-7M dexamethasone, 8 &#xB5;g/ml insulin, 70 &#xB5;M indomethacin (Sigma-Aldrich), 0.5 mM 3-1-methyl isobutyl-xanthine (IBMX) and 1% glutamine supplement (Gibco; Thermo Fisher Scientific, Inc.) The induction was conducted for 6, 9 and 12 days. Accumulated oil droplets were detected by oil red O staining (Peprotech) (<xref rid="b20-etm-0-0-2943" ref-type="bibr">20</xref>).</p>
+          <p>Hepatocyte differentiation was induced using the following media: DMEM/F-12 containing 5% FBS, 40 nmol/ml dexamethasone, 20 ng/ml fibroblast growth factor (FGF)-4, 20 ng/ml hepatocyte growth factor (HGF), 10 ng/ml epidermal growth factor (EGF) (PeproTech), 1% insulin-transferrin-selenium-ethanolamine (ITS-X) and 1% 200 mM L-glutamine (Gibco; Thermo Fisher Scientific, Inc.) for 8, 12 and 15 days (<xref rid="b21-etm-0-0-2943" ref-type="bibr">21</xref>). Periodic acid-Schiff staining was conducted for hepatic glycogen, following the manufacturer's instructions.</p>
+          <p>For epithelial cell differentiation, cells were treated with DMEM/F-12 containing 10% FBS, 20 ng/ml EGF, 20 ng/ml bone morphogenetic protein (BMP)-7, 15 ng/ml insulin-like growth factor (IGF), 10 ng/ml LIF for 8, 10 and 12 days. Immunofluorescence analysis of polyclonal anti-CK18 and anti-CK19 antibodies (rabbit anti-chicken; dilution, 1:100; cat. nos. bs-1339R and bs-2190R, respectively; Beijing Biosynthesis Biotechnology Co. Ltd.) was performed (<xref rid="b22-etm-0-0-2943" ref-type="bibr">22</xref>).</p>
+          <p>The following pre-induction medium was used for islet differentiation: DMEM/F-12 containing 10 ng/ml bFGF, 10 ng/ml EGF, 2% B27 (Sigma-Aldrich) for 3 days, the terminal induction medium used was DMEM/F-12 containing 15 ng/ml HGF, 20 ng/ml activeA (Sigma-Aldrich), 1 mM &#x3B2;-mercaptoethanol (Sigma-Aldrich), 15 mM niacinamide (Gibco; Thermo Fisher Scientific, Inc.) and 2% B27. Dithizone staining (Peprotech) was performed to identify islet-like cells (<xref rid="b23-etm-0-0-2943" ref-type="bibr">23</xref>).</p>
+          <p>Following induction of the MMSCs, RNA extraction and RT-PCR identification were performed simultaneously, with specific marker genes used for different cell types. Gene-specific primer pairs are listed in <xref rid="tI-etm-0-0-2943" ref-type="table">Table I</xref>. GAPDH was used as the loading control.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title/>
+        <sec>
+          <title>Morphological characterization of duck MMSCs</title>
+          <p>Primary cells began to adhere to plates at 16 h and proliferate 48 h later. After 3 passages, treatment with trypsin for a set period of time resulted in a purer population of MMSCs. Cells presented a fibroblast-like morphology, with long polygonal shapes, expanding rapidly until passage 15. Subsequent to this, cells presented signs of senescence (<xref rid="f1-etm-0-0-2943" ref-type="fig">Fig. 1A&#x2013;C</xref>).</p>
+        </sec>
+        <sec>
+          <title>Growth curve</title>
+          <p>After 2 days of incubation, cellular growth follows an exponential pattern. Subsequent to day 6, growth begins to decline. Duck MMSCs follow the typical logistic growth pattern after 3 generations (<xref rid="f1-etm-0-0-2943" ref-type="fig">Fig. 1D</xref>).</p>
+        </sec>
+        <sec>
+          <title>RT-PCR and immunofluorescence detection in the MMSCs</title>
+          <p>Cells from passages 5 and 10 exhibited no variation in the expression of the following markers: Fibronectin, Pax2, CD29, CD71, CD166, CD34 and CD45. All markers were expressed, with the exception of CD34 and CD45 (<xref rid="f2-etm-0-0-2943" ref-type="fig">Fig. 2</xref>). As presented in <xref rid="f3-etm-0-0-2943" ref-type="fig">Fig. 3</xref>, the MMSC-specific antigen markers fibronectin, CD29, CD71 and CD73 were positive, whilst the hematopoietic cell marker CD45 was negative.</p>
+        </sec>
+        <sec>
+          <title>Flow cytometry analysis in the MMSCs</title>
+          <p>The positive rate of specific surface markers was 97.19% for vimentin, 97.35% for CD44 and 97.95% for CD71 (<xref rid="f4-etm-0-0-2943" ref-type="fig">Fig. 4</xref>).</p>
+        </sec>
+        <sec>
+          <title>Adipocyte differentiation of MMSCs</title>
+          <p>The control cell group gradually increased in size, with no significant change in cell morphology. Oil red O staining was negative (<xref rid="f5-etm-0-0-2943" ref-type="fig">Fig. 5A</xref>). The growth of cells in the induced group was reduced on day 3, cells stretched to a flat shape, with a small number of oil droplets. By day 9, mast cells were more apparent, with shiny fat droplets (<xref rid="f5-etm-0-0-2943" ref-type="fig">Fig. 5B</xref>). Cells were stained with 0.5% oil red O and fat droplets became more visible (<xref rid="f5-etm-0-0-2943" ref-type="fig">Fig. 5C</xref>). On day 12, large fat droplets became evident, indicating that the cells had successfully differentiated into adipocytes. As expected, the induced group expressed PPAR-&#x3B3; and LPL at days 6, 9 and 12; this was not evident in the control group (<xref rid="f5-etm-0-0-2943" ref-type="fig">Fig. 5D</xref>).</p>
+        </sec>
+        <sec>
+          <title>Hepatocyte differentiation of MMSCs</title>
+          <p>The control group exhibited no changes in morphology, and staining results were negative for the duration of the experiment (<xref rid="f6-etm-0-0-2943" ref-type="fig">Fig 6A</xref>). In the induced group, cells with polygonal shape increased in numbers on day 8 of the induction. On day 15 of the induction, the distinctive cubic hepatocyte shape became apparent (<xref rid="f6-etm-0-0-2943" ref-type="fig">Fig. 6B and C</xref>). Successful periodic acid-Schiff staining confirmed the glycogen synthesis and storage functions of the induced cells (<xref rid="f6-etm-0-0-2943" ref-type="fig">Fig. 6D</xref>). Gene expression of AFP and ALB confirmed the differentiation of MMSCs into hepatocytes in the induced group, whilst control cells did not express any hepatocyte-specific genes (<xref rid="f6-etm-0-0-2943" ref-type="fig">Fig. 6E</xref>).</p>
+        </sec>
+        <sec>
+          <title>Epithelial cell differentiation of MMSCs</title>
+          <p>On day 10, the epithelioid cells were plate-shaped and exhibited single-layer adherent growth, whilst the control cells did not differentiate (<xref rid="f7-etm-0-0-2943" ref-type="fig">Fig. 7A and B</xref>). Immunofluorescence analysis demonstrated that the induced cells were positive for CK18 and CK19 (<xref rid="f7-etm-0-0-2943" ref-type="fig">Fig. 7C&#x2013;F</xref>). Expression of E-cadherin and CK19 was also detected, by PCR analysis (<xref rid="f7-etm-0-0-2943" ref-type="fig">Fig. 7G</xref>).</p>
+        </sec>
+        <sec>
+          <title>Islet cell differentiation of MMSCs</title>
+          <p>Following pre-induction, cells expanded rapidly. The addition of the terminal medium limited cell growth and caused the formation of clusters. Control cells did not differentiate morphologically (<xref rid="f8-etm-0-0-2943" ref-type="fig">Fig. 8A</xref>). Cell clusters were observed, and stained red by dithizone (<xref rid="f8-etm-0-0-2943" ref-type="fig">Fig. 8B and C</xref>). PDX-1 and insulin were expressed in differentiated cells but not in the control group (<xref rid="f8-etm-0-0-2943" ref-type="fig">Fig. 8D</xref>).</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>In the current study, MMSCs were isolated from 20-day-old Beijing duck metanephros and assessed for their self-renewal potential, biological characteristics and differentiation abilities. The duck embryo is a classic model of vertebrate developmental biology, which has been used extensively (<xref rid="b24-etm-0-0-2943" ref-type="bibr">24</xref>). Enzymatic digestion was used as a stable method to harvest MMSCs from metanephric tissues. Cell lines exhibited typical logistic growth, with an S-shaped growth curve, in accordance with previously observed <italic>in vitro</italic> cell growth patterns (<xref rid="b25-etm-0-0-2943" ref-type="bibr">25</xref>). Due to mechanical and chemical damage caused by external conditions in subculture, cells require adaptation and recovery periods. Increasing cell passages, and external environmental effects cause cells to gradually age (<xref rid="b26-etm-0-0-2943" ref-type="bibr">26</xref>).</p>
+      <p>At present, specific surface markers of MMSCs are unknown, and MMSCs are generally identified based on the expression of certain markers that have been previously associated with MSCs. The present study used immunofluorescence, RT-PCR and flow cytometry to detect whether MMSCs possessed the surface characteristics of MSCs. MMSCs were long and fusiform, with a small number of polygonal cells. Furthermore, they exhibited growth trends similar to MSCs (<xref rid="b27-etm-0-0-2943" ref-type="bibr">27</xref>). MMSCs in the present study were indicated to have morphological characteristics comparable to MSCs. CD29 (also known as integrin &#x3B2;1) is a &#x3B2;-subunit protein and a member of the integrin family. CD29 can form a heterodimer with surface and extracellular proteins, such as CD49 and CD51, in MSCs in order to mediate the cell-cell and cell-matrix interactions. In the present study, CD29, CD71 and CD44 levels were detected as the surface markers of MMSCs using immunofluorescence and RT-PCR, which were shown to have a sensitive expression in different passages. Therefore, CD29, CD71 and CD44 may be considered as specific makers of MMSCs.</p>
+      <p>Depending on induction conditions, MMSCs are able to differentiate into various cell types. MMSCs originate from the mesoderm and are pluripotent, meaning they can differentiate into ectoderm, mesoderm and endoderm cells (<xref rid="b28-etm-0-0-2943" ref-type="bibr">28</xref>). In the present study, MMSCs were induced into adipocytes, hepatocytes, epithelial cells and islet cells. The induced cells illustrated typical staining and expressed specific marker genes.</p>
+      <p>Oil red O staining is a method used for the identification of lipid droplets in cells. IBMX increases levels of cAMP to regulate the expression of PPAR-&#x3B3;. In the present study, PPAR-&#x3B3; and LPL were expressed in the early stages of adipogenic differentiation. This suggests that MMSCs may be induced to differentiate into adipocytes under appropriate conditions and induction times.</p>
+      <p>Liver cells (hepatocytes) can produce and store glycogen, and the induced cells in the current study were identified to contain glycogen by periodic acid-Schiff staining. This indicated that these cells have a glycogen synthesis and storage function.</p>
+      <p>HGF induces mitosis and prevents apoptosis in hepatocytes, boosting glycogen formation, while FGF-4 is an important factor for hepatocyte growth and development. The present study identified positive expression of AFP and ALB, which may indicate that hepatocyte differentiation is associated with gene expression. AFP expression was higher in the early stages of differentiation, indicating that AFP may serve a regulatory role in liver-like cells during early induction processes. This raises the question whether hepatocyte differentiation is associated with gene expression to a certain degree.</p>
+      <p>EGF is able to promote mitosis and proliferation in a variety of cells, stimulating the division of keratinocytes <italic>in vitro</italic> and <italic>in vivo</italic> and promoting epithelial cell regeneration. IGF, another common growth factor, possesses various physiological functions, including the regulation of body growth and the promotion of mitosis in cell cultures. Collectively, IGF, EGF and BMP-7 can function to induce the differentiation of MMSCs to epithelial cells, in addition to inhibiting fibroblast growth and promoting epithelial cell growth and proliferation (<xref rid="b29-etm-0-0-2943" ref-type="bibr">29</xref>). Cytokeratins maintain the structural integrity of keratinized epithelium, stratified squamous epithelium, stratified epithelium, hyperplastic cutinized epithelium and simple epithelium (<xref rid="b30-etm-0-0-2943" ref-type="bibr">30</xref>).</p>
+      <p>In the present study, pancreatic islet cells were induced by adding HGF, active A and niacinamide. Active A activates &#x3B2;-cells in the pancreatic islets, while niacinamide aids the converging and expanding of islet cells (<xref rid="b31-etm-0-0-2943" ref-type="bibr">31</xref>). Dithizone staining revealed scarlet stained cell clusters, indicating that the induced cell cytoplasm possessed zinc ions, corresponding to islet cell characteristics (<xref rid="b32-etm-0-0-2943" ref-type="bibr">32</xref>). The induced cells also expressed PDX-1 and insulin. Further research should focus on improving &#x3B2;-cell induction and promoting insulin secretion, which may benefit patients with diabetes.</p>
+      <p>In conclusion, the Beijing duck embryo MMSC cultivation system was established in the present study. MMSCs were found to express MSC marker genes, which was determined using RT-PCR, immunofluorescence and flow cytometry. In addition, MMSCs were found to have a self-proliferation and multidirectional differentiation potential. MMSCs may be applicable to kidney transplantation for kidney disease treatment in the future, since they are able to repair the damage of kidney tissue and help restore the normal kidney function.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The current research was supported by the Agricultural Science and Technology Innovation Program (ASTIP; cxgc-ias-01), the National Natural Science Foundation of China (grant no. 31472099), the National Infrastructure of Animal Germplasm Resources (2014).</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-etm-0-0-2943">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Salgado</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Oliveira</surname>
+              <given-names>JT</given-names>
+            </name>
+            <name>
+              <surname>Pedro</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Reis</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult stem cells in bone and cartilage tissue engineering</article-title>
+          <source>Curr Stem Cell Res Ther</source>
+          <volume>1</volume>
+          <fpage>345</fpage>
+          <lpage>364</lpage>
+          <year>2006</year>
+          <pub-id pub-id-type="doi">10.2174/157488806778226803</pub-id>
+          <pub-id pub-id-type="pmid">18220879</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-etm-0-0-2943">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ding</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Shyu</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>SZ</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells</article-title>
+          <source>Cell Transplant</source>
+          <volume>20</volume>
+          <fpage>5</fpage>
+          <lpage>14</lpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.3727/096368910X</pub-id>
+          <pub-id pub-id-type="pmid">21396235</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-etm-0-0-2943">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tocci</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Forte</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cell: Use and perspectives</article-title>
+          <source>Hematol J</source>
+          <volume>4</volume>
+          <fpage>92</fpage>
+          <lpage>96</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1038/sj.thj.6200232</pub-id>
+          <pub-id pub-id-type="pmid">12750726</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-etm-0-0-2943">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cooper</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Viswanathan</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Establishment of a mesenchymal stem cell bank</article-title>
+          <source>Stem Cells Int</source>
+          <volume>2011</volume>
+          <fpage>905621</fpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.4061/2011/905621</pub-id>
+          <pub-id pub-id-type="pmid">21826152</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-etm-0-0-2943">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gao</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Bai</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Xiong</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Shan</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation and characterization of chicken dermis-derived mesenchymal stem/progenitor cells</article-title>
+          <source>Biomed Res Int</source>
+          <volume>2013</volume>
+          <fpage>626258</fpage>
+          <year>2013</year>
+          <pub-id pub-id-type="doi">10.1155/2013/626258</pub-id>
+          <pub-id pub-id-type="pmid">23984389</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-etm-0-0-2943">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Duffield</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Kelley</surname>
+              <given-names>VR</given-names>
+            </name>
+            <name>
+              <surname>Scadden</surname>
+              <given-names>DT</given-names>
+            </name>
+            <name>
+              <surname>Ichimura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Bonventre</surname>
+              <given-names>JV</given-names>
+            </name>
+          </person-group>
+          <article-title>Restoration of tubular epithelial cells during repair of the postischemic kidney occurs independently of bone marrow-derived stem cells</article-title>
+          <source>J Clin Invest</source>
+          <volume>115</volume>
+          <fpage>1743</fpage>
+          <lpage>1755</lpage>
+          <year>2005</year>
+          <pub-id pub-id-type="doi">10.1172/JCI22593</pub-id>
+          <pub-id pub-id-type="pmid">16007251</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-etm-0-0-2943">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brown</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Hubbard</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Tickle</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wilson</surname>
+              <given-names>SA</given-names>
+            </name>
+          </person-group>
+          <article-title>The chicken as a model for large-scale analysis of vertebrate gene function</article-title>
+          <source>Nat Rev Genet</source>
+          <volume>4</volume>
+          <fpage>87</fpage>
+          <lpage>98</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1038/nrg998</pub-id>
+          <pub-id pub-id-type="pmid">12560806</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-etm-0-0-2943">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Deans</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Moseley</surname>
+              <given-names>AB</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells: Biology and potential clinical uses</article-title>
+          <source>Exp Hematol</source>
+          <volume>28</volume>
+          <fpage>875</fpage>
+          <lpage>884</lpage>
+          <year>2000</year>
+          <pub-id pub-id-type="doi">10.1016/S0301-472X(00)00482-3</pub-id>
+          <pub-id pub-id-type="pmid">10989188</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-etm-0-0-2943">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baddoo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hill</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wilkinson</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Gaupp</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Hughes</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Kopen</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>Phinney</surname>
+              <given-names>DG</given-names>
+            </name>
+          </person-group>
+          <article-title>Characterization of mesenchymal stem cells isolated from murine bone marrow by negative selection</article-title>
+          <source>J Cell Biochem</source>
+          <volume>89</volume>
+          <fpage>1235</fpage>
+          <lpage>1249</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1002/jcb.10594</pub-id>
+          <pub-id pub-id-type="pmid">12898521</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-etm-0-0-2943">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Shi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ye</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Pan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Comparisons of rabbit bone marrow mesenchymal stem cell isolation and culture methods <italic>in vitro</italic></article-title>
+          <source>PloS One</source>
+          <volume>9</volume>
+          <fpage>e88794</fpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0088794</pub-id>
+          <pub-id pub-id-type="pmid">24558428</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-etm-0-0-2943">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fong</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Richards</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Manasi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Biswas</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Bongso</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Comparative growth behaviour and characterization of stem cells from human Wharton's jelly</article-title>
+          <source>Reprod Biomed Online</source>
+          <volume>15</volume>
+          <fpage>708</fpage>
+          <lpage>718</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.1016/S1472-6483(10)60539-1</pub-id>
+          <pub-id pub-id-type="pmid">18062871</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-etm-0-0-2943">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Colter</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Sekiya</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a subpopulation of rapidly self-renewing and multipotential adult stem cells in colonies of human marrow stromal cells</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <volume>98</volume>
+          <fpage>7841</fpage>
+          <lpage>7845</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="doi">10.1073/pnas.141221698</pub-id>
+          <pub-id pub-id-type="pmid">11427725</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-etm-0-0-2943">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>B&#xFC;hring</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Battula</surname>
+              <given-names>VL</given-names>
+            </name>
+            <name>
+              <surname>Treml</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Schewe</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kanz</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Vogel</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Novel markers for the prospective isolation of human MSC</article-title>
+          <source>Ann N Y Acad Sci</source>
+          <volume>1106</volume>
+          <fpage>262</fpage>
+          <lpage>271</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.1196/annals.1392.000</pub-id>
+          <pub-id pub-id-type="pmid">17395729</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-etm-0-0-2943">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Liao</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation and identification of mesenchymal stem cells from human fetal pancreas</article-title>
+          <source>J Lab Clin Med</source>
+          <volume>141</volume>
+          <fpage>342</fpage>
+          <lpage>349</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1016/S0022-2143(03)00022-2</pub-id>
+          <pub-id pub-id-type="pmid">12761478</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-etm-0-0-2943">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lu</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>QJ</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>ZB</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>ZS</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>YX</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Isolation and characterization of human umbilical cord mesenchymal stem cells with hematopoiesis-supportive function and other potentials</article-title>
+          <source>Haematologica</source>
+          <volume>91</volume>
+          <fpage>1017</fpage>
+          <lpage>1026</lpage>
+          <year>2006</year>
+          <pub-id pub-id-type="pmid">16870554</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-etm-0-0-2943">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huss</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Lange</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Weissinger</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Kolb</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Thalmeier</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Evidence of peripheral blood-derived, plastic-adherent CD34(&#x2212;/low) hematopoietic stem cell clones with mesenchymal stem cell characteristics</article-title>
+          <source>Stem Cells</source>
+          <volume>18</volume>
+          <fpage>252</fpage>
+          <lpage>260</lpage>
+          <year>2000</year>
+          <pub-id pub-id-type="doi">10.1634/stemcells.18-4-252</pub-id>
+          <pub-id pub-id-type="pmid">10924091</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-etm-0-0-2943">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uppalapati</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Ohta</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kawabata</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Pyle</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Becker</surname>
+              <given-names>KG</given-names>
+            </name>
+            <name>
+              <surname>Troyer</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Tamura</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification and characterization of unique tumoricidal genes in rat umbilical cord matrix stem cells</article-title>
+          <source>Mol Pharm</source>
+          <volume>8</volume>
+          <fpage>1549</fpage>
+          <lpage>1558</lpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.1021/mp2001582</pub-id>
+          <pub-id pub-id-type="pmid">21851062</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-etm-0-0-2943">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>P&#x103;unescu</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Deak</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Herman</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Siska</surname>
+              <given-names>IR</given-names>
+            </name>
+            <name>
+              <surname>T&#x103;nasie</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Bunu</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Anghel</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tatu</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Oprea</surname>
+              <given-names>TI</given-names>
+            </name>
+            <name>
+              <surname>Henschler</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>In vitro differentiation of human mesenchymal stem cells to epithelial lineage</article-title>
+          <source>J Cell Mol Med</source>
+          <volume>11</volume>
+          <fpage>502</fpage>
+          <lpage>508</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.1111/j.1582-4934.2007.00041.x</pub-id>
+          <pub-id pub-id-type="pmid">17635641</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-etm-0-0-2943">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thirumala</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Gimble</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Devireddy</surname>
+              <given-names>RV</given-names>
+            </name>
+          </person-group>
+          <article-title>Evaluation of methylcellulose and dimethyl sulfoxide as the cryoprotectants in a serum-free freezing media for cryopreservation of adipose-derived adult stem cells</article-title>
+          <source>Stem Cells Dev</source>
+          <volume>19</volume>
+          <fpage>513</fpage>
+          <lpage>522</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="doi">10.1089/scd.2009.0173</pub-id>
+          <pub-id pub-id-type="pmid">19788372</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-etm-0-0-2943">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Poloni</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Maurizi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Leoni</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Serrani</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Mancini</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Frontini</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zingaretti</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Siquini</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Sarzani</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Cinti</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Human dedifferentiated adipocytes show similar properties to bone marrow-derived mesenchymal stem cells</article-title>
+          <source>Stem Cells Dev</source>
+          <volume>30</volume>
+          <fpage>965</fpage>
+          <lpage>974</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.1002/stem.1067</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-etm-0-0-2943">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lysy</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Smets</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Najimi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sokal</surname>
+              <given-names>EM</given-names>
+            </name>
+          </person-group>
+          <article-title>Leukemia inhibitory factor contributes to hepatocyte-like differentiation of human bone marrow mesenchymal stem cells</article-title>
+          <source>Differentiation</source>
+          <volume>76</volume>
+          <fpage>1057</fpage>
+          <lpage>1067</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="doi">10.1111/j.1432-0436.2008.00287.x</pub-id>
+          <pub-id pub-id-type="pmid">18557762</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-etm-0-0-2943">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>DiRenzo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Signoretti</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Rivera-Gonzalez</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Sellers</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Loda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth factor requirements and basal phenotype of an immortalized mammary epithelial cell line</article-title>
+          <source>Cancer Res</source>
+          <volume>62</volume>
+          <fpage>89</fpage>
+          <lpage>98</lpage>
+          <year>2002</year>
+          <pub-id pub-id-type="pmid">11782364</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-etm-0-0-2943">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chao</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Chao</surname>
+              <given-names>KF</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>SH</given-names>
+            </name>
+          </person-group>
+          <article-title>Islet-like clusters derived from mesenchymal stem cells in Wharton's Jelly of the human umbilical cord for transplantation to control type 1 diabetes</article-title>
+          <source>PloS One</source>
+          <volume>3</volume>
+          <fpage>e1451</fpage>
+          <year>2008</year>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0001451</pub-id>
+          <pub-id pub-id-type="pmid">18197261</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24-etm-0-0-2943">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rao</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Mattson</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cells and aging: Expanding the possibilities</article-title>
+          <source>Mech Ageing Dev</source>
+          <volume>122</volume>
+          <fpage>713</fpage>
+          <lpage>734</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="doi">10.1016/S0047-6374(01)00224-X</pub-id>
+          <pub-id pub-id-type="pmid">11322994</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25-etm-0-0-2943">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kaufman</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Hanson</surname>
+              <given-names>ET</given-names>
+            </name>
+            <name>
+              <surname>Lewis</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Auerbach</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Thomson</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Hematopoietic colony-forming cells derived from human embryonic stem cells</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <volume>98</volume>
+          <fpage>10716</fpage>
+          <lpage>10721</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="doi">10.1073/pnas.191362598</pub-id>
+          <pub-id pub-id-type="pmid">11535826</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26-etm-0-0-2943">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Ling</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Huo</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification and characterization of side population cells from adult human dental pulp after ischemic culture</article-title>
+          <source>J Endod</source>
+          <volume>38</volume>
+          <fpage>1489</fpage>
+          <lpage>1497</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.1016/j.joen.2012.08.004</pub-id>
+          <pub-id pub-id-type="pmid">23063223</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27-etm-0-0-2943">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lindenmair</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hatlapatka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kollwig</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hennerbichler</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Gabriel</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wolbank</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Redl</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kasper</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem or stromal cells from amnion and umbilical cord tissue and their potential for clinical applications</article-title>
+          <source>Cells</source>
+          <volume>1</volume>
+          <fpage>1061</fpage>
+          <lpage>1088</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.3390/cells1041061</pub-id>
+          <pub-id pub-id-type="pmid">24710543</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28-etm-0-0-2943">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lorenz</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Sicker</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schmelzer</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Rupf</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Salvetter</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Schulz-Siegmund</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bader</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Multilineage differentiation potential of human dermal skin-derived fibroblasts</article-title>
+          <source>Exp Dermatol</source>
+          <volume>17</volume>
+          <fpage>925</fpage>
+          <lpage>932</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="doi">10.1111/j.1600-0625.2008.00724.x</pub-id>
+          <pub-id pub-id-type="pmid">18557932</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29-etm-0-0-2943">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pera</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Ikeda</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Eivers</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>De Robertis</surname>
+              <given-names>EM</given-names>
+            </name>
+          </person-group>
+          <article-title>Integration of IGF, FGF, and anti-BMP signals via Smad1 phosphorylation in neural induction</article-title>
+          <source>Genes Dev</source>
+          <volume>17</volume>
+          <fpage>3023</fpage>
+          <lpage>3028</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1101/gad.1153603</pub-id>
+          <pub-id pub-id-type="pmid">14701872</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30-etm-0-0-2943">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alkhalidi</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Alhumaidy</surname>
+              <given-names>AA</given-names>
+            </name>
+          </person-group>
+          <article-title>Cystic panfolliculoma of the scalp: Report of a very rare case and brief review</article-title>
+          <source>Indian J Pathol Microbiol</source>
+          <volume>56</volume>
+          <fpage>437</fpage>
+          <lpage>439</lpage>
+          <year>2013</year>
+          <pub-id pub-id-type="doi">10.4103/0377-4929.125363</pub-id>
+          <pub-id pub-id-type="pmid">24441242</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31-etm-0-0-2943">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Kao</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Tseng</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>Lo</surname>
+              <given-names>WL</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Ku</surname>
+              <given-names>HH</given-names>
+            </name>
+            <name>
+              <surname>Twu</surname>
+              <given-names>NF</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induction of insulin-producing cells derived from endometrial mesenchymal stem-like cells</article-title>
+          <source>J Pharmacol Exp Ther</source>
+          <volume>335</volume>
+          <fpage>817</fpage>
+          <lpage>829</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="doi">10.1124/jpet.110.169284</pub-id>
+          <pub-id pub-id-type="pmid">20855446</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32-etm-0-0-2943">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zanini</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bruno</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mandili</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Baci</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cerutti</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Cenacchi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Izzi</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Camussi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Forni</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of mesenchymal stem cells derived from pancreatic islets and bone marrow into islet-like cellphenotype</article-title>
+          <source>PLoS One</source>
+          <volume>6</volume>
+          <fpage>e28175</fpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0028175</pub-id>
+          <pub-id pub-id-type="pmid">22194812</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 1.</label>
+      <caption>
+        <p>Morphology of primary and subcultured MMSCs and growth curve. (A) Following 16 h of primary culture, MMSCs adhered to plates. Hemocytes mixed with MMSCs were present. (B) Passage 3 MMSCs exhibited polygonal and long shuttle shapes, the majority of which presented protrusions, and gradually reached confluence, with strong cell proliferation ability. (C) Passage 8 MMSCs were fibroblast-like and homogeneous. Scale bars, 100 &#xB5;m. (D) Growth curve for MMSCs. Cell proliferation processes are similar and typical of the &#x2018;S&#x2019; shape. Data are presented as the mean &#xB1; standard deviation. n=3/group. MMSCs, metanephric mesenchymal stem cells; OD, optical density.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g00"/>
+    </fig>
+    <fig id="f2-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 2.</label>
+      <caption>
+        <p>Reverse transcription-polymerase chain reaction analysis demonstrated that metanephric mesenchymal stem cells at passages 5 and 10 expressed fibronectin, Pax2, CD29, CD71 and CD166, but CD34 and CD45 were negative. GAPDH served as the internal control.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g01"/>
+    </fig>
+    <fig id="f3-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 3.</label>
+      <caption>
+        <p>Immunofluorescence identification of P5 generation cells at the same time points. (A) DAPI/without antibody, and (B) DAPI/with antibody. The results demonstrated that fibronectin, CD29, CD71 and CD73 were positive, whilst CD45 was negative. Scale bar, 50 &#xB5;m.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g02"/>
+    </fig>
+    <fig id="f4-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 4.</label>
+      <caption>
+        <p>Flow cytometry analysis. The horizontal line on each histogram indicates the percentage of positive cells for each surface protein. FITC, fluorescein isothiocyanate.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g03"/>
+    </fig>
+    <fig id="f5-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 5.</label>
+      <caption>
+        <p>Morphology and gene expression of adipocytes following differentiation of MMSCs. (A) Negative control cells cultured in complete medium presented no changes in morphology and were negative for oil red O staining throughout the experimental period. (B) Following induction for 9 days, MMSCs became oblate and formed intracellular lipid droplets. At day 12, the mast cells possessed more apparent shiny fat droplets. (C) Lipid droplets, apparent at days 9 and 12, were stained with oil red O. Scale bars, 100 &#xB5;m. (D) Expression of adipocyte-specific genes. LPL and PPAR-&#x3B3; were detected in the induced group following induction for 6, 9 or 12 days, but not expressed in the control group. GAPDH served as the internal control. MMSCs, metanephric mesenchymal stem cells; LPL, lipoprotein lipase; PPAR-&#x3B3;, peroxisome proliferator-activated receptor-&#x3B3;.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g04"/>
+    </fig>
+    <fig id="f6-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 6.</label>
+      <caption>
+        <p>Morphology of hepatocyte differentiation of metanephric mesenchymal stem cells and specific gene expression following induction for 15 days. (A) In the negative control group, cells presented no clear change in form and were negative for periodic acid-Schiff staining. Scale bar, 100 &#xB5;m. (B and C) In the induced group, the number of round cells significantly increased, presenting a polygonal shape. (B) Scale bar, 100 &#xB5;m; (C) scale bar, 50 &#xB5;m. (D) Periodic acid-Schiff staining was successful. Scale bar, 100 &#xB5;m. (E) Hepatocyte-specific genes ALB and AFP were expressed in the induced group following induction for 8, 12 or 15 days. These genes were not expressed in the control group. GAPDH served as the internal control. With the increase of induction days, gene expression strengthened gradually.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g05"/>
+    </fig>
+    <fig id="f7-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 7.</label>
+      <caption>
+        <p>Morphology and gene expression of epithelial cells following differentiation of metanephric mesenchymal stem cells. (A) The control group presented no clear change in form. Scale bar, 100 &#xB5;m. (B) In the induced group, following 10 days, epithelioid cells were plates like pebbles or paving stones, with single-layer adherent growth. Normal clear cell boundary and refraction, stereoscopic, closely linked cells. Scale bar, 100 &#xB5;m. Immunofluorescence analysis: (C) DAPI/without antibody; (D) CK18<sup>+</sup>/DAPI; (E) DAPI/without antibody; (F) CK19<sup>+</sup>/DAPI. Scale bars, 50 &#xB5;m. (G) Epithelial cell-specific genes CK19 and E-cadherin were expressed in the induced group following 8-, 10- and 12-day induction, but the control group was negative.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g06"/>
+    </fig>
+    <fig id="f8-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Figure 8.</label>
+      <caption>
+        <p>Morphology and specific gene expression of islet cells following differentiation of metanephric mesenchymal stem cells. (A) The control group presented no significant change in form. (B) Following induction for 10 days, there were several islet-like cell clusters in the induced cell plate. (C) Cell clusters were dyed scarlet by dithizone staining. Scale bars, 100 &#xB5;m. (D) Islet cell-specific genes PDX-1 and insulin were positive in the induced group, but not in the control. GAPDH served as the internal control.</p>
+      </caption>
+      <graphic xlink:href="etm-11-02-0439-g07"/>
+    </fig>
+    <table-wrap id="tI-etm-0-0-2943" orientation="portrait" position="float">
+      <label>Table I.</label>
+      <caption>
+        <p>Primer sequences for reverse transcription-polymerase chain reaction.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" valign="bottom" rowspan="1" colspan="1">Gene name</th>
+            <th align="center" valign="bottom" rowspan="1" colspan="1">Primer sequence</th>
+            <th align="center" valign="bottom" rowspan="1" colspan="1">T<sub>m</sub> (&#xB0;C)</th>
+            <th align="center" valign="bottom" rowspan="1" colspan="1">Product length (bp)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Fibronectin</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-CCTGTGTTCTGCCTTTCACC-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">251</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-GTTGTCTCTCCGTCCCTCAG-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">CD71</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-GCTCGTGTGAATCCTGAACC-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">290</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-TATTGGAGGGCTGCTGTTG-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">CD34</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-CTCAACGAGTCCAACACCTG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">60</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">338</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-CCAGAAGTGACCAAAGCAGTC-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">CD29</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-CACTCCCGTGCTGTGAATC-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">60</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">257</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-ACGCTGCTCATTTCCAACTC-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">GAPDH</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-GCACTGAACGACCATTTCG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">256</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-CAGGTGGAGGAAGAAGTTGG-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">PPAR-&#x3B3;</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-GCAGGAGATCACAGAATTTGA-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">356</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-TTGGGCTCCATAAAGTCACA-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">LPL</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-AGCTCTGAGTCTGATTGCTG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">256</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-AATGGCTGGTTGGTCTTGGT-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">AFP</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-AACGATTGCTTTCTCTCCCTTA-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">283</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-TCACTACCTTTGGTGCCTGTC-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">ALB</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-GGCAAGGAAACTGGCATAAG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">317</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-TCCACAATGGGCTTCTCAC-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">E-cadherin</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-TGCCACCAGTCAAGAAAGTG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">60</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">252</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-ACCATTATCAACAGCCACGA-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">CK19</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-ATCCTTGCTGCCACTATCG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">251</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-GCACTCATTTCCTCCTCGTG-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">CD45</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-CTCACCACACGCACTCTCAC-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">60</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">350</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-CTCTTCCCATCTTCCAGCAG-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Pax2</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-ATCTGCGACAACGACACG-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">60</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">262</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-CCTCGGACACATCTTCATCA-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">CD166</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-AAGAAGACCTGCGTAACTGGA-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">60</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">295</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-CCTGCTAATGCCACGAGAGT-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">PDX-1</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-GCTAATGAATACCGCAGACAGA-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">314</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-GAAGCAAAGGTTGGAATAGGC-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+          <tr>
+            <td align="left" valign="top" rowspan="1" colspan="1">Insulin</td>
+            <td align="left" valign="top" rowspan="1" colspan="1">F: 5&#x2032;-TGGAAGTGCGAAAGACACAC-3&#x2032;</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">58</td>
+            <td align="center" valign="top" rowspan="1" colspan="1">303</td>
+          </tr>
+          <tr>
+            <td rowspan="1" colspan="1"/>
+            <td align="left" valign="top" rowspan="1" colspan="1">R: 5&#x2032;-GGTGAAAGGCAGAACACAGG-3&#x2032;</td>
+            <td rowspan="1" colspan="1"/>
+            <td rowspan="1" colspan="1"/>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="tfn1-etm-0-0-2943">
+          <p>F, forward; R, reverse.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

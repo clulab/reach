@@ -1,0 +1,1061 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">BMC Dev Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">BMC Dev. Biol</journal-id>
+      <journal-title-group>
+        <journal-title>BMC Developmental Biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1471-213X</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27068127</article-id>
+      <article-id pub-id-type="pmc">4828805</article-id>
+      <article-id pub-id-type="publisher-id">108</article-id>
+      <article-id pub-id-type="doi">10.1186/s12861-016-0108-y</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The combined effect of <italic>PDX1,</italic> epidermal growth factor and poly-L-ornithine on human amnion epithelial cells&#x2019; differentiation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Balaji</surname>
+            <given-names>Shruti</given-names>
+          </name>
+          <address>
+            <email>p2009418@goa.bits-pilani.ac.in</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1"/>
+          <xref ref-type="aff" rid="Aff3"/>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Zhou</surname>
+            <given-names>Yu</given-names>
+          </name>
+          <address>
+            <email>yzhou@wakehealth.edu</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Ganguly</surname>
+            <given-names>Anasuya</given-names>
+          </name>
+          <address>
+            <email>ganguly@goa.bits-pilani.ac.in</email>
+          </address>
+          <xref ref-type="aff" rid="Aff3"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Opara</surname>
+            <given-names>Emmanuel C.</given-names>
+          </name>
+          <address>
+            <email>eopara@wakehealth.edu</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1"/>
+          <xref ref-type="aff" rid="Aff2"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Soker</surname>
+            <given-names>Shay</given-names>
+          </name>
+          <address>
+            <email>ssoker@wakehealth.edu</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1"/>
+          <xref ref-type="aff" rid="Aff2"/>
+        </contrib>
+        <aff id="Aff1"><label/>Wake Forest Institute for Regenerative Medicine, Winston-Salem, NC 27101 USA </aff>
+        <aff id="Aff2"><label/>Virginia Tech-Wake Forest University School of Biomedical Engineering &amp; Sciences, Wake Forest School of Medicine, Winston-Salem, NC 27157 USA </aff>
+        <aff id="Aff3"><label/>Birla Institute of Technology &amp; Science, Pilani K K Birla Goa campus, Zuari Nagar, 403726 Goa India </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>12</day>
+        <month>4</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>12</day>
+        <month>4</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>16</volume>
+      <elocation-id>8</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>22</day>
+          <month>12</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>1</day>
+          <month>4</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; Balaji et al. 2016</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <sec>
+          <title>Background</title>
+          <p>It has been suggested that the ectopic expression of PDX1, a dominant pancreatic transcription factor, plays a critical role in the developmental programming of the pancreas even from cells of unrelated tissues such as keratinocytes and amniotic fluid stem cells. In this study we have chosen to drive pancreatic development in human amnion epithelial cells by inducing endogenous <italic>PDX1</italic> expression. Further, we have investigated the role of Epidermal Growth Factor (EGF) and Poly-L-Ornithine (PLO) on this differentiation process.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>Human amnion epithelial cells expressed high levels of endogenous <italic>PDX1</italic> upon transduction with an adenoviral vector expressing murine <italic>Pdx1</italic>. Other markers of various stages of pancreatic differentiation such as <italic>NKX6.1</italic>, <italic>SOX17</italic>, <italic>RFX6</italic>, <italic>FOXA2, CFTR</italic>, <italic>NEUROD1</italic>, <italic>PAX4</italic> and <italic>PPY</italic> were also expressed upon <italic>Pdx1</italic> transduction.</p>
+          <p>Although initial expression of pancreatic progenitor markers was higher in culture conditions lacking EGF, for a sustained and increased expression EGF was required. Culture on PLO further increased the positive impact of EGF.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>Pancreatic marker expression subsequent to m<italic>Pdx1</italic> transduction suggests that this approach may facilitate the in vitro differentiation of hAECs into cells of the endocrine pancreas. This result may have important implications in diabetes therapy.</p>
+        </sec>
+        <sec>
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:10.1186/s12861-016-0108-y) contains supplementary material, which is available to authorized users.</p>
+        </sec>
+      </abstract>
+      <kwd-group xml:lang="en">
+        <title>Keywords</title>
+        <kwd>Amnion epithelial cells</kwd>
+        <kwd>Pancreas</kwd>
+        <kwd>Differentiation</kwd>
+        <kwd>PDX1</kwd>
+        <kwd>Epidermal Growth Factor</kwd>
+        <kwd>Poly-L-Ornithine</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/100000002</institution-id>
+              <institution>National Institutes of Health</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>R01DK080897</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Opara</surname>
+              <given-names>Emmanuel C.</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group>
+          <funding-source>
+            <institution>Vila Rosenfeld Diabetes Research Fund</institution>
+          </funding-source>
+        </award-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/100006222</institution-id>
+              <institution>United States - India Educational Foundation</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>1669/DPR/2012-2013</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Balaji</surname>
+              <given-names>Shruti</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+      </funding-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2016</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1">
+      <title>Background</title>
+      <p>The global incidence of diabetes is expected to cross the 300 million mark by 2030 [<xref ref-type="bibr" rid="CR1">1</xref>]. With current treatment strategies being inadequate in addressing the complications associated with the disease [<xref ref-type="bibr" rid="CR2">2</xref>], an alternative cell-based therapy approach is urgently needed. The Edmonton protocol was the first to provide a proof-of-concept of a cell-based therapy for diabetes [<xref ref-type="bibr" rid="CR3">3</xref>]. However, due to a severe shortage of donor pancreases as well as other complications associated with the procedure itself such as the need for life-long immunosuppression and failure to achieve complete insulin independence [<xref ref-type="bibr" rid="CR4">4</xref>], alternative approaches need to be examined. Multipotent cells from foetal tissue may provide one such alternative.</p>
+      <p>To date, attempts have been made to differentiate amnion epithelial cells (AECs), placenta-derived multipotent progenitor cells and amniotic fluid stem cells down the pancreatic lineage [<xref ref-type="bibr" rid="CR5">5</xref>&#x2013;<xref ref-type="bibr" rid="CR9">9</xref>]. However, multiple protocols exist for the differentiation of the same cell type. Further, the molecular basis of the differentiation process and individual media components have not yet been studied. The present study aims to bridge this gap in current research.</p>
+      <p>The pancreatic and duodenal homeobox-1 (Pdx-1) is a master regulator of pancreatic development and differentiation [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]. It is responsible for the differentiation of progenitor cells into cells of the endocrine pancreas. The complex ductal architecture of the pancreas is also established by a reiterative program of branching morphogenesis which proceeds concomitantly with peak Pdx1 transcription factor expression [<xref ref-type="bibr" rid="CR12">12</xref>]. PDX1 has been suggested to play a critical role in the developmental re-programming of the pancreas from cells of unrelated tissues such as keratinocytes and amniotic fluid stem cells [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR13">13</xref>]. Furthermore, induced PDX1 expression in human and non-human primate amniotic fluid-derived stem cells (AFSCs) cultured on PLO-coated plates, was shown to initiate pancreatic differentiation [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. PDX1 is thus, an important factor in the development of both the pancreatic islet and ductal cells.</p>
+      <p>Epidermal growth factor (EGF) is a standard component of human amnion epithelial cell growth media as it improves the growth of these cells [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>]. In the developing pancreas, EGF increases the mass of pancreatic epithelial cells whereas a lack of it promotes endocrine differentiation [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>]. When administered to adult pigs, excess of EGF leads to pancreatic duct hyperplasia [<xref ref-type="bibr" rid="CR18">18</xref>]. One aspect of this study therefore is to study the effect of EGF on hAECs that are being differentiated down the pancreatic lineage.</p>
+      <p>PLO is a synthetic amino acid chain that is positively charged and widely used as a coating to enhance cell attachment and adhesion to both plastic ware and glass surfaces. PLO has previously been used in the differentiation of embryonic stem cells into insulin-producing clusters [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR20">20</xref>].</p>
+      <p>In this study, we have used ectopic expression of m<italic>Pdx1</italic> as a potential approach for the differentiation of hAECs into pancreatic progenitors. We found that endogenous <italic>PDX1</italic> expression was induced several fold upon m<italic>Pdx1</italic> transduction. Several other genes that are expressed by pancreatic progenitor cells such as <italic>SOX17</italic>, <italic>RFX6</italic>, <italic>CFTR</italic> and <italic>FOXA2</italic> were also expressed. The presence of EGF and PLO in the culture environment potentiated this expression. A two-tailed <italic>t</italic>-test was used to determine the statistical significance of the observed changes in gene dynamics.</p>
+    </sec>
+    <sec id="Sec2">
+      <title>Results</title>
+      <p>Baseline expression of pancreatic regulatory genes in hAECs (passage 2) showed high <italic>CK19</italic> and <italic>SOX9</italic> expression (Cq &lt;25) (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1</xref>). In fact <italic>CK19</italic> expression was higher in hAECs compared to adult human islets. Moderate <italic>RFX3</italic> expression (Average Cq 27) was also observed. Expression of all other genes that were tested was either very low or absent in hAECs (Cq &#x2265;35). We therefore attempted to initiate the process of pancreatic differentiation of hAECs by transient transduction of m<italic>Pdx1</italic>, a critical factor in the development of the pancreas.<fig id="Fig1"><label>Fig. 1</label><caption><p>Comparison of average Cq values between untransduced p2 hAECs and crude human islet preparations for pancreatic progenitor-specific genes. Pancreatic progenitor-specific genes were assayed by means of qPCR for untransduced p2 hAECs (baseline gene expression) and crude human islet preparations (positive control). Error bars represent mean&#x2009;&#xB1;&#x2009;SD. It can be noted that endogenous <italic>CK19</italic> and <italic>SOX9</italic> expression is high in untransduced hAECs while expression of <italic>PDX1</italic>, <italic>RFX6, SOX17, FOXA2</italic> and <italic>NKX2.2</italic> is virtually absent (Cq&#x2009;&gt;&#x2009;35&#x2014;gene expression undetectable, Cq 30&#x2013;35&#x2014;low level of gene expression, Cq 25&#x2013;30&#x2014;high level of gene expression, Cq &lt;25&#x2014;very high level of gene expression)</p></caption><graphic xlink:href="12861_2016_108_Fig1_HTML" id="MO1"/></fig></p>
+      <sec id="Sec3">
+        <title>Effect of m<italic>Pdx1</italic> transduction</title>
+        <p>Transduction of hAECs with non-integrating, recombinant adenovirus harbouring the mouse <italic>Pdx1</italic> gene was successful. Transduction efficiency increased in a dose- and time-dependent manner from 10 to 200 multiplicity of infection (MOI) of the adenoviruses (Additional file <xref rid="MOESM1" ref-type="media">1</xref>). However, since higher concentrations of the adenoviral vector caused increased cell death over an extended culture period, we performed all subsequent experiments with 50 MOI of the virus. Transduction efficiency was 12&#xA0;% at 24&#xA0;h and 69&#xA0;% at 48&#xA0;h&#xA0;at this viral titre.</p>
+        <p>Subsequent to m<italic>Pdx1</italic> transduction, there was a dramatic increase in expression of endogenous human <italic>PDX1</italic>. At day 2, expression was almost 200-fold higher than untransduced controls (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2a</xref>). Expression increased marginally up to 7&#xA0;days post-transduction. The expression of the <italic>PDX1</italic> gene was confirmed by comparing <italic>PDX1</italic> gene expression in cells that were transduced with a control EGFP adenovirus. EGFP transduction did not cause expression of <italic>PDX1</italic> (Data not shown).<fig id="Fig2"><label>Fig. 2</label><caption><p>Effect of adenoviral transduction of human amnion epithelial cells on pancreatic marker gene expression. Fold-change expression of human pancreatic marker genes was assayed by means of qPCR&#xA0;(<bold>a</bold>) 2&#xA0;days and (<bold>b</bold>) 7&#xA0;days after m<italic>Pdx1</italic> adenoviral transduction of p2 hAECs. Fold-change is relative to untreated cells. Error bars represent mean&#x2009;&#xB1;&#x2009;SD. Only those genes with a Cq &lt;35 are represented&#xA0;here. Of the 21 genes assayed, expression of 13 genes on day 2 and 18 genes on day 7 were detected. (<bold>c</bold>) Five genes in particular- <italic>NANOG, SOX17, NGN3, NEUROD1</italic> and <italic>PAX4</italic>&#x2014;showed significant increase in expression while <italic>RFX6</italic> and <italic>RFX3</italic> showed a significant loss of expression over the 7&#xA0;day period. (* <italic>p</italic>&#x2009;&lt;&#x2009;0.05, ** <italic>p</italic>&#x2009;&lt;&#x2009;0.005, *** <italic>p</italic>&#x2009;&lt;&#x2009;0.0005; <italic>n</italic>&#x2009;=&#x2009;4)</p></caption><graphic xlink:href="12861_2016_108_Fig2_HTML" id="MO2"/></fig></p>
+        <p>Expression of <italic>PDX1</italic> in turn caused many other pancreatic marker genes to be expressed (Additional file <xref rid="MOESM2" ref-type="media">2</xref>). In particular, there was a greater than 200-fold increase in <italic>SOX17</italic> expression and a greater than 1000-fold increase in <italic>RFX6</italic> expression in m<italic>Pdx1</italic> transduced cells as compared to untransduced controls on day 2 post-transduction (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2a</xref>). Although there was a further 2-fold increase in <italic>SOX17</italic> expression, <italic>RFX6</italic> expression dropped by approximately 3-fold at the end of the culture period. <italic>RFX3</italic> expression also dropped significantly by the 7th day (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2c</xref>). Interestingly, the pancreatic endocrine progenitor markers- <italic>NGN3</italic>, <italic>NEUROD1</italic> and <italic>PAX4</italic> began to be expressed by day 7, albeit at low levels (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2b</xref>). Significant expression of markers of &#x3B2;-cell committed cells viz. <italic>NKX6.1</italic>, <italic>NKX2.2</italic> and <italic>PAX6</italic> were also observed at the 2&#xA0;day and 7&#xA0;day time points although the difference in expression of these genes between the two time points was not significant. Further, expression of adult endocrine pancreas marker genes, <italic>GCG</italic> and <italic>PPY</italic>, also began by day 7 although this seemed to be more of an effect of the adenoviral transduction itself because even EGFP expressing cells expressed these two markers.</p>
+        <p>Microscopically, it was observed that cell proliferation ceased upon transduction with m<italic>Pdx1</italic>. This was not the case with control cells transduced with EGFP (Additional file <xref rid="MOESM3" ref-type="media">3</xref>).</p>
+        <p>Expression of RFX6 and RFX3 at the protein level was confirmed by Western blot analysis (Additional file <xref rid="MOESM4" ref-type="media">4</xref>).</p>
+      </sec>
+      <sec id="Sec4">
+        <title>Effect of EGF on m<italic>Pdx1</italic> transduction</title>
+        <p>Since previous reports have suggested that an environment lacking EGF drives the pancreatic differentiation process forward, we investigated if this is indeed the case for hAECs transduced with m<italic>Pdx1</italic>.</p>
+        <p>In general it was observed that a lack of EGF in the culture medium, did not make any statistically significant difference to gene expression (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref> and Additional file <xref rid="MOESM5" ref-type="media">5</xref>) although by day 7 there seemed to be a loss of gene expression across the marker panel, including the endocrine pancreas markers. However this was observed as a less than 1-fold change in expression in 16 of 18 genes tested. Subsequent experiments therefore continued to be carried out in the presence of 10&#xA0;ng/mL EGF.<fig id="Fig3"><label>Fig. 3</label><caption><p>Effect of EGF on m<italic>Pdx1</italic> transduction. The expression of human pancreatic marker genes by m<italic>Pdx1</italic>-transduced hAECs in a culture environment lacking EGF was assayed by means of qPCR over a 7&#xA0;day period. (<bold>a</bold>) Gene expression in cells grown in the absence of EGF for 2 days (<bold>b</bold>) Gene expression in cells grown in the absence of EGF for 7 days (<bold>c</bold>) Comparison of gene expression in cells grown in the absence of EGF for 2 and 7 days. Fold change was compared to cells grown in the presence of 10 ng/mL EGF. Although it appeared that there was a loss of gene expression across the panel by the 7th day, this loss was not significant when compared to expression in cells grown in an environment containing EGF. (* <italic>p</italic>&#x2009;&lt;&#x2009;0.05, ** <italic>p</italic>&#x2009;&lt;&#x2009;0.005, *** <italic>p</italic>&#x2009;&lt;&#x2009;0.0005; <italic>n</italic>&#x2009;=&#x2009;2). Error bars represent mean&#x2009;&#xB1;&#x2009;SD</p></caption><graphic xlink:href="12861_2016_108_Fig3_HTML" id="MO3"/></fig></p>
+      </sec>
+      <sec id="Sec5">
+        <title>Combined effect of EGF and PLO on m<italic>Pdx1</italic> transduction</title>
+        <p>Pancreatic differentiation experiments with AFSCs have previously shown low level of insulin mRNA expression only in cells grown on a PLO coating [<xref ref-type="bibr" rid="CR5">5</xref>]. We wanted to check therefore if growing the adenovirally transduced hAECs on PLO-coated plates would potentiate the process of pancreatic differentiation.</p>
+        <p>It was observed that the gene expression dynamics of cells growing on PLO was more or less the same irrespective of the concentration. However culture on 0.001&#xA0;% PLO resulted in&#xA0;a statistically significant higher expression of most genes (Additional file <xref rid="MOESM6" ref-type="media">6</xref>). Specifically, expression of endogenous <italic>PDX1</italic> was higher in cells cultured on 0.001&#xA0;% PLO on both days as compared to their non-PLO counterparts as well as cells grown with a higher concentration of PLO (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4</xref>). Contrastingly, <italic>RFX3</italic> expression was higher in 0.01&#xA0;% PLO cultures on both days. Expression of other genes such as <italic>NKX6.1, NKX2.2, NEUROD1, PAX4, SOX17, PAX6, GCG</italic> and <italic>PPY</italic> varied with culture condition and day of culture although their expression was significantly higher than their non-PLO counterparts. In general, the combined effect of EGF and PLO caused an increase in expression of the early gene markers such as <italic>PAX4</italic>, <italic>PAX6</italic> and <italic>SOX17</italic>. By the 7th day, the expression of these genes fell whereas those of later genes such as <italic>NGN3</italic> and <italic>NEUROD1</italic> increased although <italic>NGN3</italic> expression was not statistically significant.<fig id="Fig4"><label>Fig. 4</label><caption><p>Combined effect of EGF and PLO on m<italic>Pdx1</italic> transduction. Two days and 7&#xA0;days after m<italic>Pdx1</italic> adenoviral transduction of p2 hAECs grown in the presence of EGF and PLO, the expression of human pancreatic marker genes was assayed by means of qPCR. Expression was compared to cells that were cultured only in the presence of EGF. mRNA expressions were normalized to endogenous <italic>GAPDH</italic> expression. Similar to transduced cells cultured with EGF alone, the 7 genes- <italic>NKX2.2, PAX6, PDX1, RFX6</italic>, <italic>SOX17, CFTR</italic> and <italic>FOXA2</italic>&#x2014;showed a dramatic and higher change in expression upon m<italic>Pdx1</italic> transduction. In most cases, expression of genes in cells grown on PLO was higher than their non-PLO counterpart. (* <italic>p</italic>&#x2009;&lt;&#x2009;0.05, ** <italic>p</italic>&#x2009;&lt;&#x2009;0.005, *** <italic>p</italic>&#x2009;&lt;&#x2009;0.0005; <italic>n</italic>&#x2009;=&#x2009;2)</p></caption><graphic xlink:href="12861_2016_108_Fig4_HTML" id="MO4"/></fig></p>
+        <p>Under the microscope it was observed that the lower concentration of PLO was less cytotoxic (Additional file <xref rid="MOESM7" ref-type="media">7</xref>).</p>
+      </sec>
+    </sec>
+    <sec id="Sec6">
+      <title>Discussion</title>
+      <p>The human amnion is a foetal membrane that surrounds the placenta and is derived from the epiblast as early as 8&#xA0;days after fertilization [<xref ref-type="bibr" rid="CR21">21</xref>]. There are 255 births worldwide every minute [<xref ref-type="bibr" rid="CR22">22</xref>]. More than half of the placentas obtained post-partum are discarded. Since the placenta and its surrounding membranes act as a maternal-foetal interface, it is quite likely that multipotent progenitor cells can be obtained from them. Several studies have in fact, shown the extraordinary differentiation potential of placenta derived multi progenitor cells and human amnion epithelial cells into cells of all three dermal lineages including the endocrine pancreas, neuronal cells etc. [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR23">23</xref>, <xref ref-type="bibr" rid="CR24">24</xref>]. The present study has added to the knowledge obtained from such studies.</p>
+      <p>The complex development of the pancreas involves a fine play between several transcription factors, chief amongst which is the transcription factor Pdx1 [<xref ref-type="bibr" rid="CR10">10</xref>&#x2013;<xref ref-type="bibr" rid="CR12">12</xref>]. In the present study, endogenous h<italic>PDX1</italic> expression was activated. This caused cells to stop proliferating and to undergo differentiation instead.</p>
+      <p>Once <italic>PDX1</italic> expression was activated, many other downstream genes involved in the pancreatic differentiation process were also activated, chief amongst which was the dramatic expression of <italic>RFX6</italic>. Although Rfx6 has been suggested to be an Ngn3-dependent transcription factor [<xref ref-type="bibr" rid="CR25">25</xref>], we observed a significant, albeit low level of <italic>NGN3</italic> expression only at the 7&#xA0;day time point by which time <italic>RFX6</italic> expression had decreased 3-fold. A significant increase in expression of other genes downstream of <italic>NGN3</italic> such as <italic>NEUROD1</italic> and <italic>PAX4</italic> were also observed at this point, although the expression of these genes was very low in terms of Cq.</p>
+      <p>General endoderm marker, <italic>SOX17</italic>, and anterior endoderm marker, <italic>FOXA2</italic>, expression were increased. It was observed that as the expression of these two genes increased over the 7&#xA0;day period, there was a corresponding loss of <italic>RFX6</italic> expression. This is consistent with Pearl et. al&#x2019;s observation in the <italic>Xenopus</italic> system where <italic>RFX6</italic> was expressed in two waves, the first of which occurs in the anterior endoderm, up stream of <italic>NGN3</italic> expression[<xref ref-type="bibr" rid="CR26">26</xref>]. However they also positioned Rfx6 up stream of Pdx1 since they observed lower gene expression of <italic>PDX1</italic> in <italic>RFX6</italic> knockouts. Our observation differed in that we did not see a loss of <italic>PDX1</italic> expression as <italic>RFX6</italic> expression reduced. In fact, <italic>PDX1</italic> expression continued to increase over the 7&#xA0;days in cultures containing EGF and 0.01&#xA0;% PLO. Corroborating evidence is provided by Suzuki et al. who observed significant loss of Rfx6 expression upon Pdx1 silencing in mouse intestinal epithelial cells but did not see any significant effect of Rfx6 silencing on Pdx1 expression [<xref ref-type="bibr" rid="CR27">27</xref>]. This suggests that some of our cells were still in the early stages of pancreatic development similar to Soyer J et al.&#x2019;s observation that <italic>Rfx6</italic> is initially expressed in the Pdx1-positive gut endoderm cells in mice and zebrafish [<xref ref-type="bibr" rid="CR25">25</xref>].</p>
+      <p>Upon the extended culture time period, the expression of the multipotent pancreatic duct-like cell markers of <italic>FOXA2</italic> and <italic>CFTR</italic> increased. While there was no significant expression of endocrine cell markers such as <italic>MAFA</italic> and <italic>INS</italic>, there was a greater than 10-fold increase in expression of the alpha cell marker, <italic>GCG</italic> and PP cell marker, <italic>PPY.</italic> EGF alone could sustain this expression over the entire duration of culture.</p>
+      <p>Since hAECs have a high endogenous <italic>CK19</italic> and <italic>SOX9</italic> expression (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1</xref>), the fold-change in mRNA expression of these two genes upon adenoviral transduction even with culture on PLO, was not significant. However, we hypothesize that the high endogenous expression of <italic>CK19</italic> and <italic>SOX9</italic>, coupled with the induced expression of <italic>PDX1</italic> and other pancreatic marker genes, lead the cells down the pancreatic lineage. Indeed, since the cells were positive for both <italic>SOX9</italic> and <italic>PDX1</italic>, markers of the posterior foregut, we hypothesize that some of the cells are similar to E10.5-11.5 mouse embryonic pancreatic epithelium [<xref ref-type="bibr" rid="CR12">12</xref>] or primary pancreatic progenitor cells [<xref ref-type="bibr" rid="CR28">28</xref>]. Interestingly, Wescott et al. observed that Pdx1<sup>hi</sup>/insulin-negative cells may represent branching epithelia [<xref ref-type="bibr" rid="CR12">12</xref>] and Cardinale V et al. identified multipotent stem/progenitors in high numbers in the hepato-pancreatic common duct [<xref ref-type="bibr" rid="CR29">29</xref>]. The cells which they identified were positive for endodermal transcription factors viz. <italic>SOX9, SOX17, FOXA2, PDX1, NGN3</italic>; stem/progenitor surface markers viz. <italic>EpCAM, NCAM, CD133, CXCR4</italic>; and sometimes weakly, adult liver, bile duct, and pancreatic genes viz. albumin, <italic>CFTR</italic> and insulin, respectively. Since we were able to observe expression of some these markers in our cells as well, it provides further evidence to the possibility of our cells representing a mixed population of cells along varying degrees of pancreatic differentiation some of which are similar to the multipotent progenitors of the pancreatic duct.</p>
+      <p>Although earlier studies have indicated that a lack of EGF in the culture environment drives the differentiation process [<xref ref-type="bibr" rid="CR16">16</xref>], there are some others which have suggested a role for EGF and its family members in establishing islet architecture [<xref ref-type="bibr" rid="CR10">10</xref>]. In the present study we found that EGF was required to sustain and in some cases even increase the expression of pancreatic marker genes. While a lack of EGF reduced the stemness of the differentiating hAECs, it also caused a significant loss of later stage pancreatic markers including the alpha cell marker, <italic>GCG</italic>.</p>
+      <p>Human and non-human primate amniotic fluid-derived stem cells (AFSCs) have previously been induced to express <italic>PDX1</italic> when cultured on PLO-coated plates. This was shown to initiate pancreatic differentiation [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>]. In this study, it was observed that while PLO itself did not initiate pancreatic differentiation, it greatly potentiated pancreatic differentiation upon m<italic>Pdx1</italic> transduction. What was interesting to observe was that in conditions where a lack of EGF resulted in a higher expression of a particular gene marker, a concentration of 0.01&#xA0;% PLO provided similar results. When EGF or a lower concentration of PLO was introduced into the culture environment, the gene expression levels fell. It seems therefore, that a delicate balance between EGF and PLO needs to be achieved in order to drive differentiation as opposed to the maintenance of cell status.</p>
+      <p>With the incidence of diabetes on the rise and current therapy still being inadequate in preventing disease progression, the bioartificial pancreas could well be the future of diabetes therapy with enormous potential for a cure. The in vivo differentiation potential of the heterogenous population of pancreatic progenitors derived from multipotent hAECs in this present study is warranted as it could suggest their future use for cellular therapy for insulin-dependent diabetes.</p>
+    </sec>
+    <sec id="Sec7">
+      <title>Conclusion</title>
+      <p>Since the presence of true pancreatic stem cells is still a matter of debate, the plasticity of other, easily available multipotent cells could be important for a cell-therapy based approach to treat insulin-dependent diabetes. We propose human amnion epithelial cells that have been engineered to over express <italic>PDX1</italic>, as potential sources of pancreatic multipotent progenitors and thus as precursors for endocrine pancreas development. This process can be further potentiated with a mix of epidermal growth factor and poly-L-ornithine in the culture environment. This has important implications in the field of diabetes therapy.</p>
+    </sec>
+    <sec id="Sec8">
+      <title>Methods</title>
+      <sec id="Sec9">
+        <title>Culture of cells</title>
+        <p>HyClone&#x2122; Dulbecco&#x2019;s Low Glucose Modified Eagles Medium (DMEM-LG, catalog # SH30021) and HyClone&#x2122; Non-Essential Amino Acids (NEAA, catalog # SH30238) were obtained from GE Healthcare Life Sciences. 100X Insulin, Transferrin, Selenite Liquid Media Supplement (ITS, catalog # I3146) was from Sigma-Aldrich, USA. Foetal Bovine Serum (FBS, catalog # 10082), Epidermal Growth Factor (EGF, Recombinant Human Protein; catalog # PHG0311) and Penicillin-Streptomycin (catalog # 15070) were obtained from Gibco&#x2122;.</p>
+        <p>Uncultured (p0) human amnion epithelial cells (hAECs) were kindly provided by Dr. Sean Murphy (WFIRM, USA). Experimental cells were cultured up to passage 2 (p2) in complete medium (DMEM-LG supplemented with 10%FBS, 1&#xA0;% NEAA, 1&#xA0;% ITS, 10&#xA0;ng/mL EGF and 1&#xA0;% penicillin-streptomycin), under standard cell culture conditions (5&#xA0;% CO<sub>2</sub>/37&#xA0;&#xB0;C). Control cells were cultured without EGF at passage 2.</p>
+        <p>Human pancreases were procured from deceased donors under an MOU with the Carolina Donor Services (CDS) for the supply of organs from individuals who had signed up to donate their organs for research. The CDS is the federally designated organ procurement organization, including hospitals and transplant centers that perform heart, lung, liver, kidney, pancreas and intestine transplantation. Donated organs are processed after obtaining authorization from the donor or their family.</p>
+        <p>Crude preparations of adult human islets from donor pancreases were made by a modified method of Ricordi C et al. [<xref ref-type="bibr" rid="CR30">30</xref>]. Isolated tissue pellet was immediately frozen without any preservation media at &#x2212;80&#xA0;&#xB0;C until use for RNA extraction. The research was approved by the Institutional Review Board committee of the Wake Forest School of Medicine (#IRB00028826).</p>
+      </sec>
+      <sec id="Sec10">
+        <title>Adenoviral transduction and study on the effect of EGF</title>
+        <p>Adenovirus expressing mouse Pdx1 (mPdx1) was a gift from Drs. Christopher Newgard and Sarah Ferber at Duke University.</p>
+        <p>To confirm adenoviral transduction by fluorescence microscopy, p0 hAECs were seeded at a density of 5,000 cells/cm<sup>2</sup> in chamber slides (1.7&#xA0;cm<sup>2</sup> per chamber) and cultured under standard conditions overnight. The next morning, the cultures were washed twice with DPBS or plain DMEM-LG and the appropriate viral titre diluted in 500&#xA0;&#x3BC;L plain DMEM-LG was added. Four titres were used&#x2014;10, 50, 100 and 200 MOI. After 6&#xA0;h under standard culture conditions, an equal volume of complete medium was added to the cultures and cells were cultured thus overnight. The next morning, virus containing media was removed and cells were washed twice with DPBS or plain DMEM-LG. Two millilitre complete medium was added to each chamber and cells were cultured under standard conditions. The cells were fixed and immunostained 24&#xA0;h and 48&#xA0;h after removal of virus-containing media. Primary antibody used for mPdx1 immunofluorescence staining was a monoclonal anti-mouse Pdx1 antibody (R&amp;D systems, USA; catalog # MAB2419). Secondary antibody was horse anti-mouse IgG-Texas red conjugated antibody (H&#x2009;+&#x2009;L; Vector Labs, USA; catalog # TI-2000). All nuclei were counter stained with DAPI (Vector Labs, USA; catalog # H-1200). Number of Texas red and DAPI stained nuclei were counted manually in two different fields. Efficiency of transduction was then estimated as:<disp-formula id="Equa"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \%\  transduction = \left( Number\  of\  Texas\  red\  stained\  nuclei/ Number\  of\  DAPI\  stained\  nuclei\right) \times 100 $$\end{document}</tex-math><mml:math id="M2"><mml:mo>%</mml:mo><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">transduction</mml:mi><mml:mspace width="0.25em"/><mml:mo>=</mml:mo><mml:mspace width="0.25em"/><mml:mfenced close=")" open="("><mml:mrow><mml:mi mathvariant="italic">Number</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">of</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">Texas</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">red</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">stained</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">nuclei</mml:mi><mml:mo stretchy="true">/</mml:mo><mml:mi mathvariant="italic">Number</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">of</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">DAPI</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">stained</mml:mi><mml:mspace width="0.25em"/><mml:mi mathvariant="italic">nuclei</mml:mi></mml:mrow></mml:mfenced><mml:mspace width="0.25em"/><mml:mo>&#xD7;</mml:mo><mml:mspace width="0.25em"/><mml:mn>100</mml:mn></mml:math><graphic xlink:href="12861_2016_108_Article_Equa.gif" position="anchor"/></alternatives></disp-formula></p>
+        <p>For RNA isolation and qPCR experiments, p2 hAECs that had achieved confluence were trypsinized, counted and plated in 6-well plates at a seeding density of 10,000 cells/cm<sup>2</sup>. Adenoviral transduction with 50 MOI of m<italic>Pdx1</italic>-adenovirus was carried out as described above. One set of cultures lacked EGF in the complete medium. Cells were cultured for a further 2&#xA0;days or 7&#xA0;days in standard culture medium before RNA was extracted from them. Cells were also observed microscopically daily in order to determine if there were any accompanying morphological changes. At the time of cell culture, cultures were performed in biological triplicates.</p>
+      </sec>
+      <sec id="Sec11">
+        <title>Adenoviral transduction and study on the combined effect of EGF and PLO</title>
+        <p>One set of plates were either coated with 0.01&#xA0;% or 0.001&#xA0;% Poly-L-Ornithine (PLO; Sigma-Aldrich, catalog # P2533) according to the CSH protocols [<xref ref-type="bibr" rid="CR31">31</xref>]. Cells were then cultured and transduced with m<italic>Pdx1</italic>-adenovirus as described above. Cells were cultured for a further 2&#xA0;days or 7&#xA0;days in standard culture medium containing 10&#xA0;ng/mL EGF. Cells were also observed microscopically daily in order to determine if there were any accompanying morphological changes. At the time of cell culture, cultures were performed in biological triplicates.</p>
+      </sec>
+      <sec id="Sec12">
+        <title>RNA extraction</title>
+        <p>At the 2&#xA0;day or 7&#xA0;day time point, RNA was isolated from the experimental and control cells using the 5 PRIME manual PerfectPure<sup>TM</sup> RNA Cultured Cell Kit (5 PRIME, Inc., USA; catalog # 2302340). Since it was found that RNA yield from cells in one well of the 6-well plate was low, RNA from 3 wells were pooled together to represent one sample.</p>
+        <p>RNA was also isolated from p2 hAECs that had been grown in the absence of adenovirus, EGF and PLO. RNA was isolated from frozen adult human islets when required.</p>
+        <p>Total RNA content was estimated using a Nanodrop 2000c (Thermo Scientific, USA).</p>
+      </sec>
+      <sec id="Sec13">
+        <title>cDNA synthesis</title>
+        <p>500&#xA0;ng of total RNA was used per 20&#xA0;&#x3BC;L reaction, to synthesise cDNA using the High-Capacity cDNA Reverse Transcription Kit (Applied Biosystems, USA; catalog # 4368813). PCR conditions were as provided by the manufacturer&#x2019;s protocol i.e. 25&#xA0;&#xB0;C for 10&#xA0;min, 37&#xA0;&#xB0;C for 2&#xA0;h and 85&#xA0;&#xB0;C for 5&#xA0;min.</p>
+      </sec>
+      <sec id="Sec14">
+        <title>Primers for qPCR</title>
+        <p>Stem cell marker: <italic>OCT4, NANOG;</italic> Early/Definitive endoderm markers: <italic>SOX17, PAX6</italic>; Anterior endoderm marker: <italic>FOXA2</italic>; Posterior foregut markers: <italic>PDX1</italic>, <italic>SOX9</italic>; Endocrine progenitor markers: <italic>NGN3, NEUROD1, NKX2.2, NKX6.1, RFX6, RFX3, PAX4</italic>; Endocrine pancreas markers: <italic>MAFA, INS, GCG, PPY</italic>; Pancreatic duct markers: <italic>FOXA2, CFTR, CK19;</italic> Housekeeping gene marker: <italic>GAPDH.</italic></p>
+        <p>The sequence of the primers that were obtained from Integrated DNA technologies (IDT, USA) and purified by standard desalting are given in Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>. The specificity of the primers for the particular target gene was evaluated <italic>in silico</italic> using the Primer BLAST tool [<xref ref-type="bibr" rid="CR32">32</xref>].<table-wrap id="Tab1"><label>Table 1</label><caption><p>Primers for genes whose expression was evaluated by the SYBR&#xAE; Green method</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Gene (GenBank ID)</th><th>F primer sequence (5&#x2032; to 3&#x2032;)</th><th>R primer sequence (5&#x2032; to 3&#x2032;)</th><th>Expected product size</th></tr></thead><tbody><tr><td>
+<italic>RFX6</italic> (306518575)</td><td>TCTCTTTGACCAGCATGTCG</td><td>CTGTGCTGCCTGAAATGGTA</td><td>104&#xA0;bp spanning region within exon 12</td></tr><tr><td>
+<italic>CFTR</italic> (306514)</td><td>CTATGACCCGGATAACAAGGAGG</td><td>CAAAAATGGCTGGGTGTAGGA</td><td>107&#xA0;bp spanning region within exon 4 of all transcript variants</td></tr><tr><td>
+<italic>CK19</italic> (239735540)</td><td>TTTGAGACGGAACAGGCTCT</td><td>CTCGGCCATGACCTCATATT</td><td>279&#xA0;bp spanning region within exon 3</td></tr><tr><td>
+<italic>SOX9</italic> (758102)</td><td>AAGCTCTGGAGACTTCTGAA</td><td>TAACGGGGCTCACGAGCGGC</td><td>271&#xA0;bp spanning exons 1 and 2 in the CDS</td></tr><tr><td>
+<italic>RFX3</italic> (Harvard PrimerBank ID 19743882c2)</td><td>CCAGGTGACTACCGTGGTCT</td><td>GCTGCTGATGAGTTGTCCTCC</td><td>88&#xA0;bp spanning region within exon 1</td></tr></tbody></table><table-wrap-foot><p>The table lists the genes (and their corresponding GenBank IDs) whose expression was evaluated by the SYBR&#xAE; Green method. The corresponding forward (F) and reverse (R) primer sequences and the region it spans in the target gene are also mentioned</p></table-wrap-foot></table-wrap></p>
+      </sec>
+      <sec id="Sec15">
+        <title>Quantitative real-time PCR (qPCR)</title>
+        <p>cDNA equivalent to 12.5&#xA0;ng of initial RNA was used per 20&#xA0;&#x3BC;L reaction for qPCR analysis. <italic>RFX6</italic>, <italic>RFX3</italic>, <italic>CFTR</italic>, <italic>CK19</italic> and <italic>SOX9</italic> expression were all estimated using the SYBR&#xAE; Green method. 250 nanomolar of each primer (forward or reverse) was used per reaction. In the case of hydrolysis probes&#xA0;(Table <xref rid="Tab2" ref-type="table">2</xref>), 1&#xA0;&#x3BC;L of the appropriate 20X TaqMan&#xAE; Hydrolysis probe mix was used per reaction. Ten microliters of the 2X SYBR&#xAE; Green PCR Master Mix (Applied Biosystems, USA; catalog # 4309159) or 2X TaqMan&#xAE; Gene Expression Master Mix (Applied Biosystems, USA; catalog # 4369016) was added to the appropriate reaction mixes and made up to 20&#xA0;&#x3BC;L with nuclease-free water. Reactions were set up in MicroAmp&#xAE; Optical 96-Well Reaction Plates (Applied Biosystems, USA; catalog # 4306737) and plates were sealed with MicroAmp&#xAE; Optical Adhesive Film (Applied Biosystems, USA; catalog # 4360954). qPCR was performed on an Applied Biosystems&#xAE; 7500 Real-time PCR system. Default PCR conditions were used (50&#xA0;&#xB0;C for 2&#xA0;min, 95&#xA0;&#xB0;C for 10&#xA0;min, 40&#xA0;cycles of 95&#xA0;&#xB0;C for 15&#xA0;s and 60&#xA0;&#xB0;C for 1&#xA0;min. Dissociation: 95&#xA0;&#xB0;C for 15&#xA0;s, 60&#xA0;&#xB0;C for 20&#xA0;s, 95&#xA0;&#xB0;C for 15&#xA0;s and 60&#xA0;&#xB0;C for 15&#xA0;s). All qPCR reactions were carried out as technical replicates. Relative gene expression was estimated manually using the ddCt method [<xref ref-type="bibr" rid="CR33">33</xref>, <xref ref-type="bibr" rid="CR34">34</xref>]. h<italic>GAPDH</italic> was used as the reference gene for all experiments. Unmanipulated p2 hAEC (untransduced; grown in the absence of EGF and PLO) gene expression was the quantification calibrator (baseline gene expression) for experiments in which the effect of m<italic>Pdx1</italic> transduction was studied. For all other experiments, m<italic>Pdx1</italic>-transduced hAECs grown in the presence of EGF was used as the quantification calibrator. All results are represented according to the MIQE guidelines [<xref ref-type="bibr" rid="CR35">35</xref>].<table-wrap id="Tab2"><label>Table 2</label><caption><p>Primers for genes whose expression was evaluated by the TaqMan&#xAE; method</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Serial no.</th><th>Gene symbol</th><th>Catalog number</th></tr></thead><tbody><tr><td>1</td><td>
+<italic>OCT4</italic>
+</td><td>Hs03005111_g1</td></tr><tr><td>2</td><td>
+<italic>NANOG</italic>
+</td><td>Hs02387400_g1</td></tr><tr><td>3</td><td>
+<italic>SOX17</italic>
+</td><td>Hs00751752_s1</td></tr><tr><td>4</td><td>
+<italic>PAX6</italic>
+</td><td>Hs01088112_m1</td></tr><tr><td>5</td><td>
+<italic>FOXA2</italic>
+</td><td>Hs00232764_m1</td></tr><tr><td>6</td><td>
+<italic>PDX1</italic>
+</td><td>Hs00426216_m1</td></tr><tr><td>7</td><td>
+<italic>NGN3</italic>
+</td><td>Hs00360700_g1</td></tr><tr><td>8</td><td>
+<italic>NEUROD1</italic>
+</td><td>Hs00159598_m1</td></tr><tr><td>9</td><td>
+<italic>NKX2.2</italic>
+</td><td>Hs00159616_m1</td></tr><tr><td>10</td><td>
+<italic>NKX6.1</italic>
+</td><td>Hs00232355_m1</td></tr><tr><td>11</td><td>
+<italic>PAX4</italic>
+</td><td>Hs00173014_m1</td></tr><tr><td>12</td><td>
+<italic>MAFA</italic>
+</td><td>Hs01651425_s1</td></tr><tr><td>13</td><td>
+<italic>INS</italic>
+</td><td>Hs00355773_m1</td></tr><tr><td>14</td><td>
+<italic>GCG</italic>
+</td><td>Hs00174967_m1</td></tr><tr><td>15</td><td>
+<italic>PPY</italic>
+</td><td>Hs00237001_m1</td></tr><tr><td>16</td><td>
+<italic>GAPDH</italic>
+</td><td>Hs99999905_m1</td></tr></tbody></table><table-wrap-foot><p>The table lists the genes which were evaluated by the TaqMan&#xAE; method. The corresponding primers were validated hydrolysis probes from Applied Biosystems, USA</p></table-wrap-foot></table-wrap></p>
+        <p>For the present study, gene expression in terms of quantification cycle (Cq) was classified as high (Cq &lt;25), medium (Cq between 25 and 30), low (Cq between 30 and 35) and no expression (Cq&#x2009;&#x2265;&#x2009;35). For each culture condition, only those genes that had a Cq &lt;35 are represented graphically.</p>
+        <p>For individual gene expression under each culture condition, the statistical significance was estimated by a two tailed <italic>t</italic>-test (assuming equal variances) in Microsoft Excel. The 2^-Cq values for each replicate were used for the calculations. Alpha was set at 0.05.</p>
+      </sec>
+    </sec>
+    <sec id="Sec16">
+      <title>Ethics approval and consent to participate</title>
+      <p>Human pancreases were procured from deceased donors under an MOU with the Carolina Donor Services (CDS) for the supply of organs from individuals who had signed up to donate their organs for research. The CDS is the federally designated organ procurement organization, including hospitals and transplant centers that perform heart, lung, liver, kidney, pancreas and intestine transplantation. Donated organs are processed after obtaining authorization from the donor or their family.</p>
+      <p>The use of human amnion epithelial cells was approved by the Institutional Review Board committee of the Wake Forest School of Medicine (#IRB00002852). The use of human islets was approved by the Institutional Review Board committee of the Wake Forest School of Medicine (#IRB00028826).</p>
+    </sec>
+    <sec id="Sec17">
+      <title>Consent for publication</title>
+      <p>Not applicable</p>
+    </sec>
+    <sec id="Sec18" sec-type="materials|methods">
+      <title>Availability of data and materials</title>
+      <p>The data sets supporting the results of this article are included as additional files.</p>
+    </sec>
+  </body>
+  <back>
+    <app-group>
+      <app id="App1">
+        <sec id="Sec19">
+          <title>Additional files</title>
+          <p>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM1_ESM.zip" id="MOESM1">
+              <label>Additional file 1: Figure S1.</label>
+              <caption>
+                <p>Comparison of transduction efficiency of various adenoviral titres. (a) hAECs were transduced with adenovirus harbouring an m<italic>Pdx1</italic> vector at various MOIs (multiplicity of infection). Cells were stained with an mPdx1-specific antibody (Texas-Red conjugate) at 24&#xA0;h and 48&#xA0;h post infection to determine the transduction efficiency. Nuclei were counter stained with DAPI (blue). (b) Calculation of transduction efficiency from two different microscopic fields of cells 24&#xA0;h after transduction with 50 MOI of the m<italic>Pdx1</italic>-harbouring adenovirus. Cells were viewed using the 10X objective of an Olympus inverted fluorescence microscope. Purple nuclei are those that are stained by both DAPI and Texas-Red conjugated secondary antibody. (ZIP 1201&#xA0;kb)</p>
+              </caption>
+            </media>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM2_ESM.xlsx" id="MOESM2">
+              <label>Additional file 2:</label>
+              <caption>
+                <p>Effect of m<italic>Pdx1</italic> transduction on p2 hAECs. The qPCR data obtained upon transducing p2 hAECs with 50MOI of the m<italic>Pdx1</italic> adenovirus is given. The statistical calculations are also included. (XLSX 67&#xA0;kb)</p>
+              </caption>
+            </media>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM3_ESM.png" id="MOESM3">
+              <label>Additional file 3: Figure S2.</label>
+              <caption>
+                <p>Microscopic comparison of <italic>EGFP</italic> and m<italic>Pdx1</italic> transduced cells. Cells that were transduced with either <italic>EGFP</italic> or m<italic>Pdx1</italic> were observed 2, 4 and 7&#xA0;days post-transduction. It was observed that while EGFP-expressing cells continued to proliferate over the 7&#xA0;day period, proliferation ceased in cells transduced with m<italic>Pdx1</italic>. Cells transduced with m<italic>Pdx1</italic> thus seemed to stop the process of proliferation and continued the process of differentiation instead. Cells were viewed using the 10X objective of an Olympus inverted fluorescence microscope. (PNG 1561&#xA0;kb)</p>
+              </caption>
+            </media>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM4_ESM.png" id="MOESM4">
+              <label>Additional file 4: Figure S4.</label>
+              <caption>
+                <p>Western blot analysis. In order to prove protein expression of some of the gene expression observed by qPCR, Western blot analysis was carried out with anti-RFX6 and anti-RFX3 antibodies. (a) Comparison of the nuclear and cytoplasmic extract of adult human islets and untransduced hAECs. The islet nuclear extract (INE) and to some extent the cytoplasmic (ICE) extract stained positive for RFX6. hAEC nuclear (AECNE) and cytoplasmic (AECCE) extract were negative for RFX6 staining. This is in corroboration with qPCR analysis from Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1</xref>. (b) Cell lysate from day 2 mPdx1 transduced cells grown in the presence of EGF were run on a 10&#xA0;% SDS-PAGE and then immunoblotted with an anti-RFX3 or anti-RFX6 antibody. RFX3 signal was stronger than RFX6 corresponding to the higher expression of the former seen even in qPCR experiments. Anti-RFX6 antibody (Rabbit polyclonal, Sigma, catalog # SAB1402062) and anti-RFX3 antibody (Mouse polyclonal, Sigma, catalog # SAB1400241) were used at 1:1000 dilutions. Corresponding secondary antibodies used were anti- rabbit IgG-HRP conjugate (Cell signaling, catalog # 7074&#xA0;s, 1:1000 dilution) and anti-mouse IgG-HRP conjugate (Cell signaling, catalog # 7076, 1:1000 dilution). The images were developed using the SuperSignal&#x2122; West Femto Maximum Sensitivity Substrate (Thermo Scientific<sup>TM</sup>, catalog # 34094). (PNG 169&#xA0;kb)</p>
+              </caption>
+            </media>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM5_ESM.xlsx" id="MOESM5">
+              <label>Additional file 5:</label>
+              <caption>
+                <p>Effect of EGF on m<italic>Pdx1</italic> transduced hAECs. The qPCR data obtained upon transducing p2 hAECs with 50MOI of the m<italic>Pdx1</italic> adenovirus is given. One set of cells were grown in the absence of EGF. The statistical calculations are also included. (XLSX 66&#xA0;kb)</p>
+              </caption>
+            </media>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM6_ESM.xlsx" id="MOESM6">
+              <label>Additional file 6:</label>
+              <caption>
+                <p>Combined effect of EGF and PLO on m<italic>Pdx1</italic> transduced hAECs. The qPCR data obtained upon transducing p2 hAECs with 50MOI of the m<italic>Pdx1</italic> adenovirus is given. One set of cells were grown in the presence of 0.01&#xA0;% PLO while another was grown in the presence of 0.001&#xA0;% PLO. All cells were grown in the presence of 10&#xA0;ng/mL EGF. The statistical calculations are also included. (XLSX 108&#xA0;kb)</p>
+              </caption>
+            </media>
+            <media position="anchor" xlink:href="12861_2016_108_MOESM7_ESM.png" id="MOESM7">
+              <label>Additional file 7: Figure S3.</label>
+              <caption>
+                <p>Microscopic observation of cells. Cells that were transduced with m<italic>Pdx1</italic> and cultured under various culture conditions were observed at the time of transduction (0th hour) and 2&#xA0;days and 7&#xA0;days post-transduction. It was observed that although all cells were equally healthy at the 0th hour, the various culture conditions caused changes in their health, although not morphology, from the 2nd day post-transduction. In general, cells started senescing by the 7th day with 0.01&#xA0;% PLO being the most cytotoxic of all culture conditions. Cells were viewed using the 10X objective of an Olympus inverted fluorescence microscope. (PNG 763&#xA0;kb)</p>
+              </caption>
+            </media>
+          </p>
+        </sec>
+      </app>
+    </app-group>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>EGF</term>
+          <def>
+            <p>epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hAECs</term>
+          <def>
+            <p>human amnion epithelial cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>Pdx1</term>
+          <def>
+            <p>pancreatic and duodenal homeobox-1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PLO</term>
+          <def>
+            <p>poly-L-ornithine</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <fn-group>
+      <fn>
+        <p>
+          <bold>Competing interests</bold>
+        </p>
+        <p>The authors declare that they have no competing interests.</p>
+      </fn>
+      <fn>
+        <p>
+          <bold>Authors&#x2019; contributions</bold>
+        </p>
+        <p>SB and YZ designed and carried out the experiments, data analysis and drafted the manuscript. AG and ECO were involved in drafting the manuscript and revising it critically. SS participated in the design and coordination of the study and helped to draft the manuscript. All authors read and approved the final manuscript.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The authors would like to thank Dr. Sean. V. Murphy (WFIRM, U.S.A) for kindly providing the human amnion epithelial cells (Approved by the Institutional Review Board of the Wake Forest School of Medicine, Winston-Salem, NC, U.S.A.; IRB#00002852); Dr. John P. McQuilling (WFIRM, U.S.A) for isolating the human islets; Drs. Christopher Newgard and Sarah Ferber (Duke University, U.S.A) for kindly providing the m<italic>Pdx1</italic>-expressing adenovirus; the Vogelstein lab (Johns Hopkins Oncology Center, U.S.A) for their submission of the pAdTrack-CMV plasmid to the Addgene repository.</p>
+      <sec id="FPar1">
+        <title>Funding</title>
+        <p>Funding in support of this work was kindly provided by the National Institutes of Health (grant # R01DK080897) and The Vila Rosenfeld Diabetes Research Fund gift to ECO. SB was supported by a Fulbright-Nehru Doctoral &amp; Professional Research grant for the duration of this work (grant # 1669/DPR/2012-2013).</p>
+      </sec>
+    </ack>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wild</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Roglic</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Sicree</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Global prevalence of diabetes: estimates for the year 2000 and projections for 2030</article-title>
+          <source>Diabetes Care</source>
+          <year>2004</year>
+          <volume>27</volume>
+          <fpage>1047</fpage>
+          <lpage>1053</lpage>
+          <pub-id pub-id-type="doi">10.2337/diacare.27.5.1047</pub-id>
+          <pub-id pub-id-type="pmid">15111519</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reichard</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Nilsson</surname>
+              <given-names>BY</given-names>
+            </name>
+            <name>
+              <surname>Rosenqvist</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>The effect of long-term intensified insulin treatment on the development of microvascular complications of diabetes mellitus</article-title>
+          <source>N Engl J Med</source>
+          <year>1993</year>
+          <volume>329</volume>
+          <fpage>304</fpage>
+          <lpage>309</lpage>
+          <pub-id pub-id-type="doi">10.1056/NEJM199307293290502</pub-id>
+          <pub-id pub-id-type="pmid">8147960</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shapiro</surname>
+              <given-names>AMJ</given-names>
+            </name>
+            <name>
+              <surname>Lakey</surname>
+              <given-names>JRT</given-names>
+            </name>
+            <name>
+              <surname>Ryan</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Korbutt</surname>
+              <given-names>GS</given-names>
+            </name>
+            <name>
+              <surname>Toth</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Warnock</surname>
+              <given-names>GL</given-names>
+            </name>
+            <name>
+              <surname>Kneteman</surname>
+              <given-names>NM</given-names>
+            </name>
+            <name>
+              <surname>Rajotte</surname>
+              <given-names>RV</given-names>
+            </name>
+          </person-group>
+          <article-title>Islet Transplantation in Seven Patients with Type 1 Diabetes Mellitus Using a Glucocorticoid-Free Immunosuppressive Regimen</article-title>
+          <source>N Engl J Med</source>
+          <year>2000</year>
+          <volume>343</volume>
+          <fpage>230</fpage>
+          <lpage>238</lpage>
+          <pub-id pub-id-type="doi">10.1056/NEJM200007273430401</pub-id>
+          <pub-id pub-id-type="pmid">10911004</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <mixed-citation publication-type="other">Shapiro AMJ, Ricordi C, Hering BJ, Auchincloss H, Lindblad R, Robertson RP, Secchi A, Brendel MD, Berney T, Brennan DC, Cagliero E, Alejandro R, Ryan EA, DiMercurio B, Morel P, Polonsky KS, Reems J-A, Bretzel RG, Bertuzzi F, Froud T, Kandaswamy R, Sutherland DER, Eisenbarth G, Segal M, Preiksaitis J, Korbutt GS, Barton FB, Viviano L, Seyfert-Margolis V, Bluestone J, et al. International Trial of the Edmonton Protocol for Islet Transplantation. N Engl J Med. 2006;355:1318&#x2013;30.</mixed-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <mixed-citation publication-type="other">Chun SY, Mack DL, Moorefield E, Oh SH, Kwon TG, Pettenati MJ, Yoo JJ, Coppi PD, Atala A, Soker S. Pdx1 and controlled culture conditions induced differentiation of human amniotic fluid-derived stem cells to insulin-producing clusters. J Tissue Eng Regen Med 2012. Epub 2012 Nov 13.</mixed-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <mixed-citation publication-type="other">Zhou Y, Mack DL, Williams JK, Mirmalek-Sani S-H, Moorefield E, Chun S-Y, Wang J, Lorenzetti D, Furth M, Atala A, Soker S. Genetic modification of primate amniotic fluid-derived stem cells produces pancreatic progenitor cells in vitro. Cells Tissues Organs. 2013;197:269&#x2013;82.</mixed-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hou</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Human amnion epithelial cells can be induced to differentiate into functional insulin-producing cells</article-title>
+          <source>Acta Biochim Biophys Sin</source>
+          <year>2008</year>
+          <volume>40</volume>
+          <fpage>830</fpage>
+          <lpage>839</lpage>
+          <pub-id pub-id-type="doi">10.1093/abbs/40.9.830</pub-id>
+          <pub-id pub-id-type="pmid">18776996</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kadam</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Muthyala</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nair</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Bhonde</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Human Placenta-Derived Mesenchymal Stem Cells and Islet-Like Cell Clusters Generated From These Cells as a Novel Source for Stem Cell Therapy in Diabetes</article-title>
+          <source>Rev Diabet Stud</source>
+          <year>2010</year>
+          <volume>7</volume>
+          <fpage>168</fpage>
+          <lpage>182</lpage>
+          <pub-id pub-id-type="doi">10.1900/RDS.2010.7.168</pub-id>
+          <pub-id pub-id-type="pmid">21060975</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <mixed-citation publication-type="other">Bhandari DR, Seo K-W, Sun B, Seo M-S, Kim H-S, Seo Y-J, Marcin J, Forraz N, Roy HL, Larry D, Colin M, Kang K-S. The simplest method for in vitro &#x3B2;-cell production from human adult stem cells. Differentiation. 2011;82:144&#x2013;52.</mixed-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gittes</surname>
+              <given-names>GK</given-names>
+            </name>
+          </person-group>
+          <article-title>Developmental biology of the pancreas: A comprehensive review</article-title>
+          <source>Dev Biol</source>
+          <year>2009</year>
+          <volume>326</volume>
+          <fpage>4</fpage>
+          <lpage>35</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2008.10.024</pub-id>
+          <pub-id pub-id-type="pmid">19013144</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Habener</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Kemp</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>MK</given-names>
+            </name>
+          </person-group>
+          <article-title>Minireview: Transcriptional Regulation in Pancreatic Development</article-title>
+          <source>Endocrinology</source>
+          <year>2005</year>
+          <volume>146</volume>
+          <fpage>1025</fpage>
+          <lpage>1034</lpage>
+          <pub-id pub-id-type="doi">10.1210/en.2004-1576</pub-id>
+          <pub-id pub-id-type="pmid">15604203</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <mixed-citation publication-type="other">Wescott MP, Rovira M, Reichert M, von Burstin J, Means A, Leach SD, Rustgi AK. Pancreatic ductal morphogenesis and the Pdx1 homeodomain transcription factor. Mol Biol Cell. 2009;20:4838&#x2013;44.</mixed-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <mixed-citation publication-type="other">Mauda-Havakuk M, Litichever N, Chernichovski E, Nakar O, Winkler E, Mazkereth R, Orenstein A, Bar-Meir E, Ravassard P, Meivar-Levy I, Ferber S. Ectopic PDX-1 Expression Directly Reprograms Human Keratinocytes along Pancreatic Insulin-Producing Cells Fate. PLoS ONE. 2011;6:e26298.</mixed-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <mixed-citation publication-type="other">Murphy S, Rosli S, Acharya R, Mathias L, Lim R, Wallace E, Jenkin G. Amnion epithelial cell isolation and characterization for clinical use. Curr Protoc Stem Cell Biol 2010. Chapter 1:Unit 1E.6. doi: 10.1002/9780470151808.sc01e06s13.</mixed-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <mixed-citation publication-type="other">Pratama G, Vaghjiani V, Tee JY, Liu YH, Chan J, Tan C, Murthi P, Gargett C, Manuelpillai U. Changes in Culture Expanded Human Amniotic Epithelial Cells: Implications for Potential Therapeutic Applications. PLoS ONE. 2011;6:e26136.</mixed-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cras-M&#xE9;neur</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Elghazi</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Czernichow</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Scharfmann</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal Growth Factor Increases Undifferentiated Pancreatic Embryonic Cells In Vitro A Balance Between Proliferation and Differentiation</article-title>
+          <source>Diabetes</source>
+          <year>2001</year>
+          <volume>50</volume>
+          <fpage>1571</fpage>
+          <lpage>1579</lpage>
+          <pub-id pub-id-type="doi">10.2337/diabetes.50.7.1571</pub-id>
+          <pub-id pub-id-type="pmid">11423478</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <mixed-citation publication-type="other">Bonfanti P, Nobecourt E, Oshima M, Albagli-Curiel O, Laurysens V, Stang&#xE9; G, Sojoodi M, Heremans Y, Heimberg H, Scharfmann R. Ex Vivo Expansion and Differentiation of Human and Mouse Fetal Pancreatic Progenitors Are Modulated by Epidermal Growth Factor. Stem Cells Dev. 2015;24:1766&#x2013;78.</mixed-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vinter-Jensen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Juhl</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Teglbjaerg</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Poulsen</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Dajani</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Nexo</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Systemic treatment with epidermal growth factor in pigs induces ductal proliferations in the pancreas</article-title>
+          <source>Gastroenterology</source>
+          <year>1997</year>
+          <volume>113</volume>
+          <fpage>1367</fpage>
+          <lpage>1374</lpage>
+          <pub-id pub-id-type="doi">10.1053/gast.1997.v113.pm9322532</pub-id>
+          <pub-id pub-id-type="pmid">9322532</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Segev</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fishman</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Ziskind</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shulman</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Itskovitz&#x2010;Eldor</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of Human Embryonic Stem Cells into Insulin&#x2010;Producing Clusters</article-title>
+          <source>STEM CELLS</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>265</fpage>
+          <lpage>274</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.22-3-265</pub-id>
+          <pub-id pub-id-type="pmid">15153604</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schroeder</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Rolletschek</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Blyszczuk</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Kania</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Wobus</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of mouse embryonic stem cells to insulin-producing cells</article-title>
+          <source>Nat Protoc</source>
+          <year>2006</year>
+          <volume>1</volume>
+          <fpage>495</fpage>
+          <lpage>507</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2006.71</pub-id>
+          <pub-id pub-id-type="pmid">17406275</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Lehmann</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Cai</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Stolz</surname>
+              <given-names>DB</given-names>
+            </name>
+            <name>
+              <surname>Strom</surname>
+              <given-names>SC</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem Cell Characteristics of Amniotic Epithelial Cells</article-title>
+          <source>Stem Cells</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <fpage>1549</fpage>
+          <lpage>1559</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2004-0357</pub-id>
+          <pub-id pub-id-type="pmid">16081662</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <mixed-citation publication-type="other">CIA world fact book. <ext-link ext-link-type="uri" xlink:href="https://www.cia.gov/library/publications/the-world-factbook/fields/2054.html">https://www.cia.gov/library/publications/the-world-factbook/fields/2054.html</ext-link>. Accessed 6 Apr 2016.</mixed-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <mixed-citation publication-type="other">Parolini O, Alviano F, Bergwerf I, Boraschi D, De Bari C, De Waele P, Dominici M, Evangelista M, Falk W, Hennerbichler S, Hess DC, Lanzoni G, Liu B, Marongiu F, McGuckin C, Mohr S, Nolli ML, Ofir R, Ponsaerts P, Romagnoli L, Solomon A, Soncini M, Strom S, Surbek D, Venkatachalam S, Wolbank S, Zeisberger S, Zeitlin A, Zisch A, Borlongan CV. Toward Cell Therapy Using Placenta-Derived Cells: Disease Mechanisms, Cell Biology, Preclinical Studies, and Regulatory Aspects at the Round Table. Stem Cells Dev. 2010;19:143&#x2013;154.</mixed-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <mixed-citation publication-type="other">Yen BL, Huang H-I, Chien C-C, Jui H-Y, Ko B-S, Yao M, Shun C-T, Yen M, Lee M-C, Chen Y-C. Isolation of Multipotent Cells from Human Term Placenta. Stem Cells. 2005;23:3&#x2013;9.</mixed-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <mixed-citation publication-type="other">Soyer J, Flasse L, Raffelsberger W, Beucher A, Orvain C, Peers B, Ravassard P, Vermot J, Voz ML, Mellitzer G, Gradwohl G. Rfx6 is an Ngn3-dependent winged helix transcription factor required for pancreatic islet cell development. Development. 2009;137:203&#x2013;12.</mixed-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pearl</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Jarikji</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Horb</surname>
+              <given-names>ME</given-names>
+            </name>
+          </person-group>
+          <article-title>Functional analysis of Rfx6 and mutant variants associated with neonatal diabetes</article-title>
+          <source>Dev Biol</source>
+          <year>2011</year>
+          <volume>351</volume>
+          <fpage>135</fpage>
+          <lpage>145</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2010.12.043</pub-id>
+          <pub-id pub-id-type="pmid">21215266</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <mixed-citation publication-type="other">Suzuki K, Harada N, Yamane S, Nakamura Y, Sasaki K, Nasteska D, Joo E, Shibue K, Harada T, Hamasaki A, Toyoda K, Nagashima K, Inagaki N. Transcriptional Regulatory Factor X6 (Rfx6) Increases Gastric Inhibitory Polypeptide (GIP) Expression in Enteroendocrine K-cells and Is Involved in GIP Hypersecretion in High Fat Diet-induced Obesity. J Biol Chem. 2012;288:1929&#x2013;38.</mixed-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lynn</surname>
+              <given-names>FC</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Wilson</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>KY</given-names>
+            </name>
+            <name>
+              <surname>Nekrep</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>German</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Sox9 coordinates a transcriptional network in pancreatic progenitor cells</article-title>
+          <source>Proc Natl Acad Sci</source>
+          <year>2007</year>
+          <volume>104</volume>
+          <fpage>10500</fpage>
+          <lpage>10505</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.0704054104</pub-id>
+          <pub-id pub-id-type="pmid">17563382</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <mixed-citation publication-type="other">Cardinale V, Wang Y, Carpino G, Cui C-B, Gatto M, Rossi M, Berloco PB, Cantafora A, Wauthier E, Furth ME, Inverardi L, Dominguez-Bendala J, Ricordi C, Gerber D, Gaudio E, Alvaro D, Reid L. Multipotent stem/progenitor cells in human biliary tree give rise to hepatocytes, cholangiocytes, and pancreatic islets. Hepatol Baltim Md. 2011;54:2159&#x2013;72.</mixed-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ricordi</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lacy</surname>
+              <given-names>PE</given-names>
+            </name>
+            <name>
+              <surname>Finke</surname>
+              <given-names>EH</given-names>
+            </name>
+            <name>
+              <surname>Olack</surname>
+              <given-names>BJ</given-names>
+            </name>
+            <name>
+              <surname>Scharp</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>Automated method for isolation of human pancreatic islets</article-title>
+          <source>Diabetes</source>
+          <year>1988</year>
+          <volume>37</volume>
+          <fpage>413</fpage>
+          <lpage>420</lpage>
+          <pub-id pub-id-type="doi">10.2337/diab.37.4.413</pub-id>
+          <pub-id pub-id-type="pmid">3288530</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <mixed-citation publication-type="other">Poly-L-ornithine-coated plates. Cold Spring Harb Protoc. 2008, 2008:doi:10.1101/pdb.rec11554.</mixed-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ye</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Coulouris</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zaretskaya</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Cutcutache</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Rozen</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Madden</surname>
+              <given-names>TL</given-names>
+            </name>
+          </person-group>
+          <article-title>Primer-BLAST: A tool to design target-specific primers for polymerase chain reaction</article-title>
+          <source>BMC Bioinformatics</source>
+          <year>2012</year>
+          <volume>13</volume>
+          <fpage>134</fpage>
+          <pub-id pub-id-type="doi">10.1186/1471-2105-13-134</pub-id>
+          <pub-id pub-id-type="pmid">22708584</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <mixed-citation publication-type="other">Real time qRT-PCR expression profiling [<ext-link ext-link-type="uri" xlink:href="http://neurite.embl.de/html/real_time_qrt-pcr_expression_p.html">http://neurite.embl.de/html/real_time_qrt-pcr_expression_p.html</ext-link>]. Accessed 6 Apr 2016.</mixed-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <mixed-citation publication-type="other">cms_040980.pdf [<ext-link ext-link-type="uri" xlink:href="http://www3.appliedbiosystems.com/cms/groups/mcb_support/documents/generaldocuments/cms_040980.pdf">http://www3.appliedbiosystems.com/cms/groups/mcb_support/documents/generaldocuments/cms_040980.pdf</ext-link>]. Accessed 6 Apr 2016.</mixed-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <mixed-citation publication-type="other">Bustin SA, Benes V, Garson JA, Hellemans J, Huggett J, Kubista M, Mueller R, Nolan T, Pfaffl MW, Shipley GL, Vandesompele J, Wittwer CT. The MIQE Guidelines: Minimum Information for Publication of Quantitative Real-Time PCR Experiments. Clin Chem. 2009;55:611&#x2013;22.</mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

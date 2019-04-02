@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9705402</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">20436</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cell Mol Life Sci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Cell. Mol. Life Sci.</journal-id>
+      <journal-title-group>
+        <journal-title>Cellular and molecular life sciences : CMLS</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1420-682X</issn>
+      <issn pub-type="epub">1420-9071</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26542799</article-id>
+      <article-id pub-id-type="pmc">4836834</article-id>
+      <article-id pub-id-type="doi">10.1007/s00018-015-2082-0</article-id>
+      <article-id pub-id-type="manuscript">NIHMS775707</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Unconventional EGF-induced ERK1/2-mediated Kv1.3 endocytosis</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mart&#xED;nez-M&#xE1;rmol</surname>
+            <given-names>Ram&#xF3;n</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Comes</surname>
+            <given-names>N&#xFA;ria</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Styrczewska</surname>
+            <given-names>Katarzyna</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>P&#xE9;rez-Verdaguer</surname>
+            <given-names>Mireia</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vicente</surname>
+            <given-names>Rub&#xE9;n</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pujadas</surname>
+            <given-names>Llu&#xED;s</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Soriano</surname>
+            <given-names>Eduardo</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sorkin</surname>
+            <given-names>Alexander</given-names>
+          </name>
+          <xref ref-type="aff" rid="A6">6</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Felipe</surname>
+            <given-names>Antonio</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A7">7</xref>
+          <email>afelipe@ub.edu</email>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Molecular Physiology Laboratory, Departament de Bioqu&#xED;mica i Biologia Molecular, Institut de Biomedicina (IBUB), Barcelona, Spain</aff>
+      <aff id="A2"><label>2</label>Departament de Biologia Celular, Universitat de Barcelona, Barcelona, Spain</aff>
+      <aff id="A3"><label>3</label>Laboratory of Molecular Physiology and Channelopathies, Departament de Ci&#xE8;ncies Experimentals i de la Salut, Universitat Pompeu Fabra, Barcelona, Spain</aff>
+      <aff id="A4"><label>4</label>Centro de Investigaci&#xF3;n Biom&#xE9;dica en Red sobre Enfermedades Neurodegenerativas (CIBERNED), ISCIII, Madrid, Spain</aff>
+      <aff id="A5"><label>5</label>Vall d&#x301;Hebron Institute of Research (VHIR) and Instituci&#xF3; Catalana de Recerca i Estudis Avan&#xE7;ats (ICREA), Barcelona, Spain</aff>
+      <aff id="A6"><label>6</label>Department of Cell Biology, University of Pittsburgh School of Medicine, Pittsburgh, PA, USA</aff>
+      <aff id="A7"><label>7</label>Departament de Bioqu&#xED;mica i Biologia Molecular, Universitat de Barcelona, Avda. Diagonal 643, 08028 Barcelona, Spain</aff>
+      <pub-date pub-type="nihms-submitted">
+        <day>12</day>
+        <month>4</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>05</day>
+        <month>11</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>4</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>5</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>73</volume>
+      <issue>7</issue>
+      <fpage>1515</fpage>
+      <lpage>1528</lpage>
+      <!--elocation-id from pubmed: 10.1007/s00018-015-2082-0-->
+      <abstract>
+        <p id="P1">The potassium channel Kv1.3 plays roles in immunity, neuronal development and sensory discrimination. Regulation of Kv1.3 by kinase signaling has been studied. In this context, EGF binds to specific receptors (EGFR) and triggers tyrosine kinase-dependent signaling, which down-regulates Kv1.3 currents. We show that Kv1.3 undergoes EGF-dependent endocytosis. This EGF-mediated mechanism is relevant because is involved in adult neural stem cell fate determination. We demonstrated that changes in Kv1.3 subcellular distribution upon EGFR activation were due to Kv1.3 clathrin-dependent endocytosis, which targets the Kv1.3 channels to the lysosomal degradative pathway. Interestingly, our results further revealed that relevant tyrosines and other interacting motifs, such as PDZ and SH3 domains, were not involved in the EGF-dependent Kv1.3 internalization. However, a new, and yet undescribed mechanism, of ERK1/2-mediated threonine phosphorylation is crucial for the EGF-mediated Kv1.3 endocytosis. Our results demonstrate that EGF triggers the down-regulation of Kv1.3 activity and its expression at the cell surface, which is important for the development and migration of adult neural progenitors.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Olfactory bulb</kwd>
+        <kwd>Sensory neurons</kwd>
+        <kwd>Map kinases</kwd>
+        <kwd>Tyrosine kinases</kwd>
+        <kwd>Endocytosis</kwd>
+        <kwd>Voltage-dependent potassium channels</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

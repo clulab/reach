@@ -1,0 +1,831 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Front Mol Neurosci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Front Mol Neurosci</journal-id>
+      <journal-id journal-id-type="publisher-id">Front. Mol. Neurosci.</journal-id>
+      <journal-title-group>
+        <journal-title>Frontiers in Molecular Neuroscience</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1662-5099</issn>
+      <publisher>
+        <publisher-name>Frontiers Media S.A.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28626389</article-id>
+      <article-id pub-id-type="pmc">5454044</article-id>
+      <article-id pub-id-type="doi">10.3389/fnmol.2017.00172</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Neuroscience</subject>
+          <subj-group>
+            <subject>Original Research</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Rac1 Guides Porf-2 to Wnt Pathway to Mediate Neural Stem Cell Proliferation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Xi-Tao</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn002">
+            <sup>&#x2020;</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Guo-Hui</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn002">
+            <sup>&#x2020;</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/293755/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Hong-Jiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sun</surname>
+            <given-names>Zhao-Liang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xu</surname>
+            <given-names>Nan-Jie</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff5">
+            <sup>5</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff6">
+            <sup>6</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn001">
+            <sup>*</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/321851/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Feng</surname>
+            <given-names>Dong-Fu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn001">
+            <sup>*</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/404001/overview"/>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+        <sup>1</sup>
+        <institution>Department of Neurosurgery, Shanghai Ninth People&#x2019;s Hospital, Shanghai Jiao Tong University School of Medicine</institution>
+        <country>Shanghai, China</country>
+      </aff>
+      <aff id="aff2">
+        <sup>2</sup>
+        <institution>Institute of Traumatic Medicine, Shanghai Jiao Tong University School of Medicine</institution>
+        <country>Shanghai, China</country>
+      </aff>
+      <aff id="aff3">
+        <sup>3</sup>
+        <institution>Department of Interventional Radiotherapy, Shanghai Ninth People&#x2019;s Hospital, Shanghai Jiao Tong University School of Medicine</institution>
+        <country>Shanghai, China</country>
+      </aff>
+      <aff id="aff4">
+        <sup>4</sup>
+        <institution>Neuroscience Division, Department of Anatomy, Histology and Embryology, Shanghai Jiao Tong University School of Medicine</institution>
+        <country>Shanghai, China</country>
+      </aff>
+      <aff id="aff5">
+        <sup>5</sup>
+        <institution>Shanghai Key Laboratory for Tumor Microenvironment and Inflammation, Department of Biochemistry and Molecular Cell Biology, Shanghai Jiao Tong University School of Medicine</institution>
+        <country>Shanghai, China</country>
+      </aff>
+      <aff id="aff6">
+        <sup>6</sup>
+        <institution>Key Laboratory of Cell Differentiation and Apoptosis of the Chinese Ministry of Education, Shanghai Jiao Tong University School of Medicine</institution>
+        <country>Shanghai, China</country>
+      </aff>
+      <author-notes>
+        <fn fn-type="edited-by">
+          <p>Edited by: <italic>Alessandro Prigione, Max Delbr&#xFC;ck Center for Molecular Medicine (HZ), Germany</italic></p>
+        </fn>
+        <fn fn-type="edited-by">
+          <p>Reviewed by: <italic>Daniele Bottai, Universit&#xE0; degli Studi di Milano, Italy; Alessandro Sessa, San Raffaele Hospital (IRCCS), Italy</italic></p>
+        </fn>
+        <corresp id="fn001">*Correspondence: <italic>Nan-Jie Xu, <email xlink:type="simple">xunanjie@shsmu.edu.cn</email> Dong-Fu Feng, <email xlink:type="simple">drneuro@163.com</email></italic></corresp>
+        <fn fn-type="other" id="fn002">
+          <p>
+            <sup>&#x2020;</sup>
+            <italic>These authors have contributed equally to this work.</italic>
+          </p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>02</day>
+        <month>6</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2017</year>
+      </pub-date>
+      <volume>10</volume>
+      <elocation-id>172</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>06</day>
+          <month>1</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>16</day>
+          <month>5</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2017 Yang, Huang, Li, Sun, Xu and Feng.</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <copyright-holder>Yang, Huang, Li, Sun, Xu and Feng</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) or licensor are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>The molecular and cellular mechanisms underlying the anti-proliferative effects of preoptic regulator factor 2 (Porf-2) on neural stem cells (NSCs) remain largely unknown. Here, we found that Porf-2 inhibits the activity of ras-related C3 botulinum toxin substrate 1 (Rac1) protein in hippocampus-derived rat NSCs. Reduced Rac1 activity impaired the nuclear translocation of &#x3B2;-catenin, ultimately causing a repression of NSCs proliferation. Porf-2 knockdown enhanced NSCs proliferation but not in the presence of small molecule inhibitors of Rac1 or Wnt. At the same time, the repression of NSCs proliferation caused by Porf-2 overexpression was counteracted by small molecule activators of Rac1 or Wnt. By using a rat optic nerve crush model, we observed that Porf-2 knockdown enhanced the recovery of visual function. In particular, optic nerve injury in rats led to increased Wnt family member 3a (Wnt3a) protein expression, which we found responsible for enhancing Porf-2 knockdown-induced NSCs proliferation. These findings suggest that Porf-2 exerts its inhibitory effect on NSCs proliferation via Rac1-Wnt/&#x3B2;-catenin pathway. Porf-2 may therefore represent and interesting target for optic nerve injury recovery and therapy.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>RhoGAPs</kwd>
+        <kwd>Porf-2</kwd>
+        <kwd>Wnt/&#x3B2;-catenin pathway</kwd>
+        <kwd>neural stem cells</kwd>
+        <kwd>optic nerve injury</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="7"/>
+        <table-count count="1"/>
+        <equation-count count="0"/>
+        <ref-count count="42"/>
+        <page-count count="18"/>
+        <word-count count="0"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>The loss of retinal ganglion cells, caused by various diseases including optic nerve injury, results in visual dysfunction and can even cause blindness (<xref rid="B3" ref-type="bibr">Berkelaar et al., 1994</xref>; <xref rid="B36" ref-type="bibr">Quigley et al., 1995</xref>; <xref rid="B5" ref-type="bibr">Bien et al., 1999</xref>). Unfortunately, the standard therapeutic strategy for the treatment of optic nerve injury is absent. Neural stem cells (NSCs) can be isolated, proliferated, genetically manipulated and differentiated and reintroduced into pathologically altered central nerve system (CNS), which have been considered a potential therapeutic approach that may restore or sustain retinal function and prevent blindness in patients with optic nerve injury (<xref rid="B32" ref-type="bibr">Nishida et al., 2000</xref>; <xref rid="B1" ref-type="bibr">Banin et al., 2006</xref>; <xref rid="B14" ref-type="bibr">Harvey et al., 2006</xref>; <xref rid="B31" ref-type="bibr">Muller et al., 2006</xref>; <xref rid="B4" ref-type="bibr">Bi et al., 2009</xref>; <xref rid="B40" ref-type="bibr">Yang et al., 2014</xref>). However, engrafted NSCs usually could differentiate into glial cells rather than neurons <italic>in vivo</italic>, limiting their therapeutic effects (<xref rid="B42" ref-type="bibr">Zhou et al., 2009</xref>). Moreover, poor survival and poor proliferation rate have also limited the practical use of NSCs-based therapy (<xref rid="B23" ref-type="bibr">Lu et al., 2008</xref>; <xref rid="B7" ref-type="bibr">Carreira et al., 2014</xref>). Therefore, identifying molecules that can inhibit NSCs proliferation and deciphering the underlying cellular and molecular mechanisms of NSCs proliferation may help in the development of NSCs-based therapies.</p>
+      <p>Preoptic regulatory factor-2 (Porf-2), also named as Cross GTPase-activating protein (CrossGAP)/Vilse, was first discovered from the preoptic area of the hypothalamus of the castrated male rat (<xref rid="B33" ref-type="bibr">Nowak, 1990</xref>). Porf-2 can strongly and specifically down-regulate the activity of Rac1 to mediate midline axon guidance and dendritic spine formation (<xref rid="B24" ref-type="bibr">Lundstrom et al., 2004</xref>; <xref rid="B15" ref-type="bibr">Hu et al., 2005</xref>; <xref rid="B22" ref-type="bibr">Lim et al., 2014</xref>). Previously, we have demonstrated the role of Porf-2 in NSCs proliferation possibly via Wnt signaling (<xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). However, whether and how Porf-2 functions through Wnt are still not fully determined. The molecular interaction or signaling pathway remains to be explored. Thus, more solid and rescue assay are needed to elucidate its function on NSCs&#x2019; behavior. In addition to its physiological role, the function of Porf-2 on pathological conditions, such as optic nerve injury-based NSCs transplantation, has not been elucidated yet, which may provide us a new insight into targeting CNS repair.</p>
+      <p>The Wnt/&#x3B2;-catenin signaling pathway takes part in the proliferation of stem/progenitor cells and neural regeneration (<xref rid="B30" ref-type="bibr">Ming and Song, 2011</xref>; <xref rid="B41" ref-type="bibr">Zhang et al., 2011</xref>; <xref rid="B11" ref-type="bibr">Faigle and Song, 2013</xref>; <xref rid="B2" ref-type="bibr">Bengoa-Vergniory et al., 2014</xref>). Nuclear localization of &#x3B2;-catenin plays a critical role in the canonical Wnt signaling (<xref rid="B17" ref-type="bibr">Inoue et al., 2006</xref>). When Wnt signaling is activated, GSK-3&#x3B2; becomes inactivated, and &#x3B2;-catenin is stabilized, accumulates in the cytosol, and is translocated into the nucleus. In the nucleus, &#x3B2;-catenin complexes with T-cell factor/lymphoid enhancer factor-1 (TCF/LEF-1) and regulates proliferation-related gene expression to induce cell proliferation (<xref rid="B38" ref-type="bibr">Tiwari et al., 2014</xref>). Rac1, a member of small Rho GTPases, acts as a binary molecular switch and transduce upstream signals to downstream effectors by alternating between the &#x201C;on&#x201D; GTP-bound and the &#x201C;off&#x201D; GDP-bound states (<xref rid="B37" ref-type="bibr">Schmitz et al., 2000</xref>), which has been demonstrated to be involved in NSCs proliferation (<xref rid="B20" ref-type="bibr">Leone et al., 2010</xref>) and control the nuclear localization of &#x3B2;-catenin during canonical Wnt signaling in mouse embryonic limb bud ectoderm (<xref rid="B39" ref-type="bibr">Wu et al., 2008</xref>).</p>
+      <p>Here, we explored the effect of rat Porf-2 on NSCs proliferation and neuronal differentiation <italic>in vitro</italic> and in the retina. We develop a novel strategy for inhibiting primary NSCs proliferation via Porf-2. By using combined signal inhibitor and activators, we elucidated the molecular and cellular mechanisms by which Porf-2 exerts its effects. We show that Porf-2 interacts directly with Rac1, regulates the nuclear localization of &#x3B2;-catenin, and mediates NSCs proliferation. Additionally, by targeting Porf-2, the NSCs proliferation is increased and the visual function recovery is significantly improved in optic nerve injury rats.</p>
+    </sec>
+    <sec>
+      <title>Experimental Procedures</title>
+      <sec>
+        <title>Isolation, Culture, and Identification of NSCs</title>
+        <p>During the experiments, animal handling was performed according to the guidelines of the Animal Care Committee of the Shanghai Jiao Tong University School of Medicine. The isolation, culture, and identification of NSCs were done according to our earlier published studies (<xref rid="B40" ref-type="bibr">Yang et al., 2014</xref>). Briefly, pregnant Sprague&#x2013;Dawley rats (Shanghai Experimental Animal Center, Shanghai, China) were deeply anesthetized with a mixture of ketamine and xylazine (3:1 ratio) and carefully dissected to get embryos (embryonic day 14). The tissues were placed to cold phosphate-buffered saline (PBS), and hippocampus were carefully dissociated. The hippocampus cells were incubated in Dulbecco&#x2019;s modified Eagle&#x2019;s medium-F12 medium supplemented with 1% N2, 2% B27 supplement, 2 mmol/l glutamine, 20 ng/ml epidermal growth factor (EGF), 20 ng/ml basic fibroblast growth factor (bFGF), 100 U/ml penicillin, and 100 &#x3BC;g/ml streptomycin. EGF and bFGF were removed from the growth medium to induce differentiation, and the medium was supplemented with 1% fetal bovine serum (FBS). A single-cell suspension was prepared from the neurospheres by trypsinization, and then the cells were ready for subsequent study.</p>
+        <p>All the methods were in accordance with the approved guidelines and all the experimental protocols were approved and monitored by the Animal Care Committee of the Shanghai Jiao Tong University School of Medicine.</p>
+      </sec>
+      <sec>
+        <title>Construction of the Recombinant Lentivirus and Lentiviral Transfection</title>
+        <p>To knock down or overexpress Porf-2, NSCs were transfected with Porf-2 shRNA lentiviruses or lentiviruses that overexpressed Porf-2, and the cells were subjected to puromycin selection. The procedure using lentiviral vectors has been approved by the Institutional Biosafety Committee of the Shanghai Jiao Tong University School of Medicine. The rat Porf-2 shRNA sequence: GCGATGGAACTCTGGTAATAA. The overexpression sequence are consistent with the cDNA of rat full-length Porf-2/Arghap39 in GenBank (NM_173122.3). Recombinant lentiviruses were produced by co-transfecting 293T cells with pHBLV-Porf-2 shRNA-U6-Zsgreen or pLenti-Porf-2-Ubc-EGFP-3FLAG expression plasmid and packaging plasmids. 293T cells were incubated in a 6-well plate with 6.25 &#xD7; 10<sup>5</sup> cells in 2 ml of culture medium per well 24 h before transfection. When the cells reached 70% confluence, 1 &#x3BC;g of pHBLV-Porf-2 shRNA-U6-Zsgreen or shRNA pHBLV-U6-Zsgreen, psPAX2, and pMD2.G mix (at a ratio of 2:1:1) and 6 &#x3BC;l of Fugene<sup>&#xAE;</sup>6 transfection reagent were added into each well for knockdown co-transfection. For overexpression, pLenti-Porf-2-Ubc-EGFP-3FLAG or pLenti-Ubc-EGFP-3FLAG, PLP1, PLP2, and PLP/VSVG mix (at a ratio of 2:1:1:1) and 6 &#x3BC;l of Fugene<sup>&#xAE;</sup>6 transfection reagent (Roche) were added. Cells were seeded at 37&#xB0;C in a 5% CO<sub>2</sub> incubator for 16&#x2013;18 h and then re-fed with viral harvest medium at 1.5 ml per well. Viral particles were harvested 42 h post-transfection by collecting the medium and filtering through a 0.45-&#x3BC;m filter. The particles were ready for immediate transduction.</p>
+        <p>Neurospheres were dissociated into single cells before transduction, subcultured into 24-well plates at a concentration of 2&#x2013;6 &#xD7; 10<sup>4</sup> cells/well, and grown in an incubator at 37&#xB0;C with 5% CO<sub>2</sub> in air for 24 h. The supernatant containing the pHBLV-Porf-2 shRNA-U6-Zsgreen or pLenti-Porf-2-Ubc-EGFP-3FLAG vector was added into the NSCs-containing wells at five times the multiplicity of infection (MOI = 5). After incubation for 8 h, the medium was replaced. Cells were observed to determine the efficiency of transfection. NSCs were infected with pHBLV-Porf-2 shRNA-U6-Zsgreen or pLenti-Ubc-EGFP-3FLAG vector using the same procedure. The surviving cells were ready for the assessment of Porf-2 expression levels and were seeded at a density of 1 &#xD7; 10<sup>5</sup> cells on PLL-coated coverslips in 24-well plates for the proliferation and differentiation of NSCs.</p>
+      </sec>
+      <sec>
+        <title>Neurosphere Growth Kinetics Assay</title>
+        <p>In order to assess the effects of Porf-2 knockdown or overexpression on cell proliferation and neurosphere formation, the neurosphere growth kinetics assay was used. In brief, a single-cell suspension was incubated in a 12-well plate at a density of 50 000 cells/well in neurobasal medium containing B-27, N-2, bFGF, and EGF. The number and size of neurospheres in all the groups were taken under an Olympus CK-40 microscope (Olympus, Tokyo, Japan) and analyzed using NIS Elements BR imaging software.</p>
+      </sec>
+      <sec>
+        <title>Treatment of NSCs with Rac1 or Wnt Pathway Activator or Inhibitor and Wnt3a Protein</title>
+        <p>After lentiviral transfection, the cultured primary hippocampal NSCs were then separately treated with fresh medium with a Rac1 activator (20 nmol/l CN04-A), Rac1 inhibitor (NSC23766, 10 mmol/l), Wnt activator (LiCl, 10 mmol/l), or &#x3B2;-catenin/TCF inhibitor (FH535), and Wnt3a (100 ng/ml) and were then incubated for 48 h. After treatment, a CCK-8 assay, EdU assay, immunocytochemistry, and Western blot analysis were performed to study NSCs proliferation and the protein levels of cyclin D1 and p21.</p>
+      </sec>
+      <sec>
+        <title>Proliferation Assay</title>
+        <p>The proliferation of NSCs was determined using a CCK-8 assay, a sensitive non-radioactive colorimetric assay (Beyotime, China). NSCs were dissociated mechanically and seeded into 96-well plates (5 &#xD7; 10<sup>3</sup> cells/well), and cells were cultured with growth medium for different periods of time (1, 2, 3, 4, 5, 6, 7, 10, or 14 days). CCK-8 solution was added to the cell culture medium to a final concentration of 10 &#x3BC;l per 100 &#x3BC;l of medium and incubated at 37&#xB0;C in 5% CO<sub>2</sub> in air. Absorbance was measured 4 h later at a wavelength of 450 nm using a microplate reader (ELx800, BioTek Instruments Inc.).</p>
+        <p>Neural stem cells proliferation was also analyzed by EdU assay. EdU was added to the cultured NSCs 4 h before cell fixation. The EdU incorporated cells were proceed for immunofluorescence. Following a 20-min fixation with 4% paraformaldehyde/4% sucrose, the cells were washed and incubated with 0.5% Triton X-100/PBS for 30 min at room temperature (RT). The cells were permeabilized using the Click-iT reaction cocktail [1x with 87.5% (v/v) Click-iT Reaction Buffer, 2% (v/v) CuSO4, 0.05% (v/v) fluorescent azide (Alexa Fluor 647), and 10% (v/v) Reaction Buffer Additive]. The cells were washed and immunocytochemistry was conducted.</p>
+        <p>The number of EdU-positive cells were quantified in 8&#x2013;10 randomly selected fields on each coverslip (for a total of 900&#x2013;1,200 cells per coverslip), and the data were presented as the percentage of the total number of live GFP<sup>+</sup> cells. At least three independent experiments was conducted for each condition.</p>
+      </sec>
+      <sec>
+        <title>Immunoprecipitation</title>
+        <p>The collected cells were lysed in lysis buffer supplemented with protease inhibitors on ice for 15 min, and centrifugated at 14,000 &#xD7;<italic>g</italic> at 4&#xB0;C for 10 min. The protein lysate was immunoprecipitated with an agarose-immobilized antibody (1 mg of porf-2 antibody as indicated or isotype control antibodies) overnight at 4&#xB0;C.</p>
+      </sec>
+      <sec>
+        <title>Rac1 Activation Assay</title>
+        <p>Rac1 activity was assessed using the Rac1 Activation Assay Kit (Millipore) according to the manufacturer&#x2019;s instructions. Briefly, cell lysates were clarified by centrifugation at 14,000 &#xD7;<italic>g</italic> at 4&#xB0;C for 10 min. Equal volumes of lysates were incubated with beads to pull down activated Rac1 proteins. After incubation at 4&#xB0;C for 1 h, the beads were washed three times with cold MLB buffer. The Rac1 proteins were eluted with sample buffer and subjected to sodium dodecyl sulfate&#x2013;polyacrylamide gel electrophoresis (SDS&#x2013;PAGE). Western blot was analyzed using anti-Rac1 antibodies (Millipore). GAPDH was used as a housekeeping gene for normalization.</p>
+      </sec>
+      <sec>
+        <title>Quantitative Real-Time PCR</title>
+        <p>Total RNA was isolated from transfected NSCs using TRIzol reagent, and genomic DNA was eliminated with RNase-free DNase. RNA pellets were re-suspended in DEPC-treated water. Quantitative real-time PCR was performed with an ABI PRISM 7700 sequence detection system (Applied Biosystems, United States). Reactions were done in duplicate with SYBR Green PCR Master mix (Applied Biosystems, United States). Forty cycles of PCR amplification were conducted according to the following program: primary extension of 94&#xB0;C for 5 min; cycling at 94&#xB0;C for 0.5 min, 55&#xB0;C for 0.5 min, and 72&#xB0;C for 0.5 min; and final extension at 72&#xB0;C for 10 min. Amplification plots and cycle threshold values from the exponential phase of the PCR were analyzed using ABI Prism SDS1.7 software (Applied Biosystems). Expression of the cellular housekeeping gene &#x3B2;-actin is though to be a control to normalize values. Relative expression was quantified using the &#x394;&#x394;Ct method. The primer sequences are listed in <bold>Table <xref ref-type="table" rid="T1">1</xref></bold>.</p>
+        <table-wrap id="T1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p>Primer sequences used for quantitative real-time PCR.</p>
+          </caption>
+          <table frame="hsides" rules="groups" cellspacing="5" cellpadding="5">
+            <thead>
+              <tr>
+                <th valign="top" align="left" rowspan="1" colspan="1">Gene name</th>
+                <th valign="top" align="left" rowspan="1" colspan="1">Forward primer</th>
+                <th valign="top" align="left" rowspan="1" colspan="1">Reverse primer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Porf-2</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CAAAGCAGCCACGCCATATC-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TAAGAGGGATCAGGGCACGA-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x3B2;-actin</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CCCGCGAGTACAACCTTCT-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CGTCATCCATGGCGAACT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">GSK-3&#x3B2;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-ATCAAGGCACATCCTTGGAC-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-ACGGCTACACAGTGCGATT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Disheveled-1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TCACGCTCAACATGGAGAGGCA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GCACGGCATCATCGTTGCTCAT3-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Frizzled-1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CATCGCGTACAATCAGACCA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GCGTCCTCCTGATTCGTG-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x3B2;-Catenin</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GACCACAAGCAGAGTGCTGA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-ACTCGGGTCTGTCAGGTGAG-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Wnt-3</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GCTACTCGGCCTCCTGCT-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GGCCAGAGACGTGTACTGCT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Wif1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-AGCCATTCCCGTCAATATCCA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-ACCTATTTCCGTAGTACCGTCT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Axin1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-AGGGCCCCCTCAAGTAGAC-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CTCCCTCCAAGATCCATACCT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Axin2</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GCAGGACCCACATCCTTCT-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-AGCCAGTCTCTTTGGCTCTTT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">CyclinD1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GCACAACGCACTTTCTTTCC-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TCCAGAAGGGCTTCAATCTG-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">LRP-5</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CATCCATGCTGTGGAGGA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TGTCTCGGGCACAAGGAT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">LRP-6</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CATGATACGAAAGGCACAAGAA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TCTGATTTGGAACCGAGCTT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Fzd-1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CATCGCGTACAATCAGACCA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GCGTCCTCCTGATTCGTG-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Fzd-6</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032; -GAAAAGCAGCGTATCGGAAG-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-GGAACGCCCTTTGGACTTAC-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">LEF1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TGGTAAACGAGTCCGAAATCA-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TGTGTTTGTCCGACCACCT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">APC</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CGTGGCCCAGTTAAAATCC-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-AAATTCCGCAAAACACTTGC-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Dkk-1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CGGGAATTACTGCAAAAACG-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CAATGATGCCTTCCTCGATT-3&#x2032;</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">p21</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-CTGCTCTCCCTTCCTCAGAC-3&#x2032;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">5&#x2032;-TGAGGTAGGACCAGGAAACC-3&#x2032;</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Western Blot</title>
+        <p>Samples were harvested at each time point into protein extraction buffer. Equal amounts of protein were denatured for 5 min at 95&#xB0;C in sample buffer and separated by SDS&#x2013;PAGE. Western blot analysis was performed using antibodies against Porf-2 (1:1,000; Millipore, United States), Wnt3a (1:500), Disheveled (1:1,000), Dkk-1 (1:1,000), Wif-1 (1:1,000), GSK-3&#x3B2; (1:1,000), p-GSK-3&#x3B2; (1:500), &#x3B2;-catenin (1:1,000), TCF (1:1,000), cyclin D1 (1:1,000), p21 (1:1,000), and &#x3B2;-actin (1:10,000) diluted in 10% horse serum in TBS-T buffer (0.2 M NaCl, 25 mM Tris, pH 7.5, and 0.5 ml/L Tween-20), followed by incubation with a horseradish peroxidase (HRP)-coupled mouse secondary antibody (1:10,000). Blots were re-probed with a &#x3B2;-actin antibody (BD Bioscience, United States). Signals were quantified with an image analyzer (UVtec, United Kingdom). Porf-2 and &#x3B2;-catenin signals were normalized by comparison with the corresponding &#x3B2;-actin signal of the samples. The data are presented as the percentages of the normalized control signal.</p>
+      </sec>
+      <sec>
+        <title>Immunocytochemistry</title>
+        <p>The specimens were performed for 30 min at RT with 4% paraformaldehyde in 0.1 M phosphate buffer (pH 7.4) and then washed three times with 0.01 M PBS (pH 7.4). Next, the specimens were incubated in 0.5% Triton X-100 for 30 min at RT and followed three times with 0.01 M PBS. Non-specific binding was blocked with 5% normal goat serum, and then the plates were done overnight at 4&#xB0;C with mouse primary antibodies. After the specimens by washed with PBS, a secondary antibody was incubated for 2 h at RT in the dark. The following antibodies were performed: anti-&#x3B2;-catenin (1:250; Millipore, United States) for nuclear localization and IgG-Cy3-linked goal anti-mouse secondary antibody (1:500; Beyotime, China). The specimens were washed again in PBS and then mounted in ProLong mounting medium (Invitrogen) containing DAPI. Preparations were photographed under a fluorescence microscope system (Leica, Wetzlar, Germany), and the captured images were done with Adobe Photoshop software.</p>
+      </sec>
+      <sec>
+        <title>Rat Optic Nerve Crush Model</title>
+        <p>Adult male Sprague&#x2013;Dawley rats weighing 200&#x2013;250 g came from by Shanghai Experimental Animal Center, Shanghai, China. The optic nerve crush was performed as described previously (<xref rid="B12" ref-type="bibr">Feng et al., 2010</xref>). In brief, a lateral canthotomy was made in the superior orbital rim, and an incision of the conjunctiva was performed lateral to the cornea. After the separation of retractor bulb muscle, the optic nerve was exposed beneath the external ocular muscle. A Yasargil aneurysm clip (catalog No. FT495T, Aesculap AG &amp; Co, Tuttlingen, Germany) was then placed 2 mm behind the posterior eye pole for 9 s.</p>
+        <p>All procedures were performed on the left eye under aseptic conditions. Twelve rats underwent unilateral sham optic nerve crush, in which the optic nerve was exposed and then the clip was placed 2 mm behind the posterior eye pole but removed immediately without closure.</p>
+      </sec>
+      <sec>
+        <title>Subretinal Transplantation</title>
+        <p>All the cultured cells are dissociated before transplantation. NSCs were engrafted into the subretinal space immediately after the optic nerve crush with a transscleral approach as previous procedure (<xref rid="B40" ref-type="bibr">Yang et al., 2014</xref>). Briefly, under ophthalmic microscopic observation, the temporal conjunctiva was dissected at the limbus. A sclerotomy was done tangentially between the two vortex veins, approximately 1 mm beyond the limbus and directed toward the posterior pole, with a 33-gauge needle. A 33-gauge blunt needle attached to a 10-&#x3BC;l syringe (Hamilton, Reno, NV, United States) was introduced tangentially through the sclerotomy site into the subretinal region, indicating retinal detachment confirmed microscopically. Subsequently, the same procedure was repeated to slowly inject a suspension of GFP-expressing cells (2 &#x3BC;l contains 2.0 &#xD7; 10<sup>5</sup> cells) (GFP-NSCs, porf-2 overexpression NSCs, porf-2 knockdown NSCs, respectively). The duration of the injection lasted approximately 30 s, and the needle remained within the subretinal space for 2&#x2013;3 min before slow withdrawn. In the control studies, 0.01 M PBS was injected into the subretinal space. At 14 days after transplantation, rats were sacrificed for assessing NSCs proliferation, and at 10 weeks after transplantation for assessing NSCs differentiation.</p>
+      </sec>
+      <sec>
+        <title>Tissue Processing and Immunohistochemistry</title>
+        <p>Rat retina sections were prelabeled <italic>in vivo</italic> (intraperitoneal) with BrdU (50 mg/kg) for the final 24 h. To assess the influence of Porf-2 on proliferation and differentiation in the host retinas, rats were sacrificed at the indicated time. At these time points, rats were anesthetized with pentobarbital sodium (200 mg/kg) and perfused transcardially with 4% paraformaldehyde. After eyes enucleated, the anterior segments and the lens were removed, and the eyecups were post-fixed (free-floating) in 4% paraformaldehyde for an additional 2 h, washed with PBS, and transferred to 30% sucrose in PBS overnight for cryosectioning. The eyecups were embedded in optimal cutting temperature compound (OCT; Miles, Elkhart, IN, United States) after eyecup alignment so that the horizontal planes were parallel to the cutting plane. Next, 20-&#x3BC;m-thick frozen sections were cut with a cryostat. The sections were mounted onto clean, subbed slides and stored at -20&#xB0;C until processing. Continuous sections including the injury site were cut for each eye.</p>
+        <p>For immunohistochemistry, retinal sections were incubated overnight at 4&#xB0;C with anti-BrdU (1:500; Sigma, United States). The sections were incubated with fluorophore-tagged secondary antibodies.</p>
+      </sec>
+      <sec>
+        <title>Cell Counts</title>
+        <p>Cell counting in the histological analysis was done as described previously (<xref rid="B40" ref-type="bibr">Yang et al., 2014</xref>). Fourteen days after transplantation, the eyes were proceeded for the analysis of proliferation, and for differentiation at 10 weeks after transplantation. Systematic random sampling was done to count the number of cells in the retina. To measure proliferated or differentiated NSCs in the injured retina, every sixth retina section (20 &#x3BC;m thickness), with a 120-&#x3BC;m intersection interval, was performed. Cell count was done in a blinded fashion under a fluorescence microscope. Double labeling of cells with GFP plus anti-BrdU or cellular differentiation markers was confirmed. The approximate number of proliferated or differentiated NSCs in each group was calculated by summing the cells in each section and then multiplying by 6.</p>
+      </sec>
+      <sec>
+        <title>F-VEP Measurement</title>
+        <p>The flash visual evoked potentials (F-VEP) were assessed according to international standards of clinical visual electrophysiology with the visual electrophysiology system (Chongqing Medical Equipment Factory, China). Briefly, the anesthetized rats were placed to the experiment station. After pupils dilated with amide tropicamide, the recording electrode was subcutaneously inserted into the skin at the occipital protuberance, and the reference electrode into the skin at the midpoint of the eyes, and the ground electrode into the skin behind the right ear. After rats were allowed to adapt to the dark for 15 min, F-VEP was recorded at 10 weeks after transplantation. Three stable waveforms were recorded for each animal for both the injured and transplanted eyes. The recorded F-VEP waveform was a relatively stable N-P-N wave, named N1, P1, and N2. The latency of the initial N1, P1, and N2 waves was recorded in milliseconds (ms), and the amplitude of N1-P1 and P1-N2 was recorded in microvolts (&#x3BC;V). The peak latencies of N1 were performed from the beginning to the peak of N1. The peak latencies of P1 were measured from the beginning to the bottom of the P1 peak, etc. The amplitude value of N1-P1 was from the N1 peak to the bottom of P1. Each index was done three times and averaged.</p>
+      </sec>
+      <sec>
+        <title>Statistical Analysis</title>
+        <p>All data are presented as the means &#xB1; SD. Significant differences among the groups were calculated with SPSS version 12.0 (Chicago, IL, United States) or GraphPad Prism version 4.0 (San Diego, CA, United States). An unpaired Student&#x2019;s <italic>t</italic>-test or one-way ANOVA followed by Fisher&#x2019;s least square difference (LSD) <italic>post hoc</italic> test was used for a statistical comparison of the mean values between two or three groups, respectively. A repeated-measures two-way ANOVA was used to compare matched data at multiple time points. <italic>P</italic>-values &lt; 0.05 were considered statistically significant.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Identification of NSCs and Stable Knockdown or Overexpression of Porf-2 in NSCs after Lentiviral Transfection</title>
+        <p>&#x3B2;-tubulin and GFAP staining of these cultures showed that cultured NSCs had a neural phenotype. The cells were positive for nestin and Porf-2 (<bold>Supplementary Figure <xref ref-type="supplementary-material" rid="SM1">S1</xref></bold>).</p>
+        <p>To investigate the biochemical mechanisms of Porf-2 functions, we generated cultured NSCs that exhibited either stable knockdown or stable overexpression of endogenous Porf-2. We observed that Porf-2 mRNA (<bold>Figure <xref ref-type="fig" rid="F1">1A</xref></bold>) and protein (<bold>Figures <xref ref-type="fig" rid="F1">1B,C</xref></bold>) expression was significantly down-regulated after the transfection of Porf-2 shRNAs compared with control cells over several passages. Additionally, after transfection of the gene encoding Porf-2, the expression of Porf-2 mRNA (<bold>Figure <xref ref-type="fig" rid="F1">1D</xref></bold>) and protein (<bold>Figures <xref ref-type="fig" rid="F1">1E,F</xref></bold>) was up-regulated compared with control cells and vector cells (transfected with empty vector). These results demonstrated that Porf-2 was down-regulated and overexpressed via lentiviral transfection in cultured primary NSCs.</p>
+        <fig id="F1" position="float">
+          <label>FIGURE 1</label>
+          <caption>
+            <p>Stable knockdown or overexpression of Porf-2 in neural stem cells (NSCs) after lentiviral transfection. <bold>(A)</bold> Real-time PCR analysis of Porf-2 mRNA expression after Porf-2 knockdown in NSCs. Scramble, cells transfected with non-targeting shRNA as a negative control; KD, cells in which Porf-2 was knocked down by Porf-2-targeted shRNA. <bold>(B)</bold> The protein level of Porf-2 was detected by immunoblot after Porf-2 knockdown in NSCs. &#x3B2;-actin was used as an internal control. <bold>(C)</bold> Quantification of the band intensity of immunoblotting in <bold>(B)</bold>. The band density was normalized to &#x3B2;-actin signal in the same sample. <bold>(D)</bold> Real-time PCR analysis of Porf-2 mRNA expression after Porf-2 overexpression in NSCs. OE, overexpression. <bold>(E)</bold> The protein level of Porf-2 was detected by immunoblot after Porf-2 overexpression. &#x3B2;-actin was used as an internal control. <bold>(F)</bold> Quantification of the band intensity of immunoblotting in <bold>(E)</bold>. The band density was normalized to &#x3B2;-actin signal in the same sample. <sup>&#x2217;</sup>
+<italic>p</italic> &lt; 0.05, <sup>&#x2217;&#x2217;</sup>
+<italic>p</italic> &lt; 0.01 compared with the control group, <italic>n</italic> = 3.</p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g001"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Effect of Porf-2 Downregulation or Overexpression on NSCs Proliferation <italic>In Vitro</italic></title>
+        <p>Neural stem cells growth and proliferation under conditions of Porf-2 knockdown or overexpression were measured by neurosphere growth kinetics assay, CCK-8 assay, and EdU assay.</p>
+        <p>In order to assess whether Porf-2 knockdown or overexpression show any effect on the number of NSCs, a neurosphere formation assay was performed. Neurospheres are free-floating spherical clusters of NSCs formed in the presence of specific mitotic growth factors. The number of clonal neurospheres <italic>in vitro</italic> is the measure of absolute putative stem cells. Gross morphology, size, and the number of neurospheres in each group were assessed (<bold>Figures <xref ref-type="fig" rid="F2">2A,B</xref></bold>). The number and size of primary clonal neurospheres in Porf-2 knockdown group significantly increased as compared to control group and Porf-2 overexpression group (<bold>Figures <xref ref-type="fig" rid="F2">2A,B</xref></bold>). Porf-2 overexpression decreased the number and size of neurospheres (<bold>Figures <xref ref-type="fig" rid="F2">2A,B</xref></bold>). These results suggest that Porf-2 knockdown increases the number of multipotent NSCs and hence neurosphere formation. In addition, the CCK-8 assay showed that Porf-2 knockdown significantly increased NSCs growth on days 4, 5, 6, 7, 10, and 14 post-transduction among the three groups (<bold>Figure <xref ref-type="fig" rid="F2">2C</xref></bold>), whereas Porf-2 overexpression led to reduced NSCs growth, indicating that Porf-2 expression negatively regulated growth.</p>
+        <fig id="F2" position="float">
+          <label>FIGURE 2</label>
+          <caption>
+            <p>Porf-2 reduces growth/proliferation of hippocampus-derived NSCs. <bold>(A)</bold> Representative images of NSC neurospheres in Control, Porf-2 KD, and Porf-2 OE groups. The red line indicated the diameter of the neurosphere. Scale bar: 100 &#x3BC;m. <bold>(B)</bold> Quantification of the area and the number of neurospheres in each group. The data was normalized to the Control group. Values are expressed as the mean &#xB1; SD (<italic>n</italic> = 3). <sup>&#x2217;</sup>
+<italic>p</italic> &lt; 0.05, <sup>&#x2217;&#x2217;</sup>
+<italic>p</italic> &lt; 0.01. <bold>(C)</bold> CCK-8 assays were performed to analyze the growth/proliferation of NSCs in different groups. Significant changes are shown as <sup>&#x2217;</sup>
+<italic>p</italic> &lt; 0.05 vs. the control group. <bold>(D)</bold> Porf-2 knockdown NSCs, Porf-2-overexpression NSCs, and GFP-NSCs were seeded into 96-well culture plates 5, 7 days after transduction. The white arrow indicates the EdU<sup>+</sup>GFP<sup>+</sup> neural stem cells. The EdU assay was performed in each group. Scale bar: 100 &#x3BC;m. <bold>(E)</bold> The relative proliferation ratios (EdU<sup>+</sup>GFP<sup>+</sup>/GFP<sup>+</sup>) were calculated and normalized to control group (GFP-NSCs). <bold>(F)</bold> CCK8 assay showed the effect of Wnt3a protein on Porf-2 knockdown and Porf-2-overexpression-NSCs proliferation. Values are expressed as mean &#xB1; SD (<italic>n</italic> = 3). <sup>&#x2217;</sup>
+<italic>p</italic> &lt; 0.05, <sup>&#x2217;&#x2217;</sup>
+<italic>p</italic> &lt; 0.01.</p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g002"/>
+        </fig>
+        <p>Moreover, we further used the EdU incorporation assay to further evaluate the effect of Porf-2 knockdown or overexpression on NSCs proliferation (<bold>Figures <xref ref-type="fig" rid="F2">2D,E</xref></bold>). On days 5 and 7 post-transduction, cells received 10 &#x3BC;M EdU for 30 min. The incorporated EdU was detected using an anti-EdU kit. The relative ratio of EdU<sup>+</sup> cells increased by approximately 50% in the Porf-2 knockdown group compared with the control group (<sup>&#x2217;&#x2217;</sup><italic>P</italic> &lt; 0.01) and decreased by 40% in the Porf-2 overexpression group compared with the control group (<bold>Figure <xref ref-type="fig" rid="F2">2E</xref></bold>). These results showed that the downregulation of Porf-2 promoted NSCs proliferation, whereas its overexpression attenuated NSCs proliferation.</p>
+      </sec>
+      <sec>
+        <title>Effect of Wnt3a Protein on Porf-2 Downregulation or Overexpression Mediated-NSCs Proliferation <italic>In Vitro</italic></title>
+        <p>In the presence of Wnt3a protein, NSCs grow faster in Porf-2 knockdown group compared with control group and Porf-2 overexpression group showed by CCK8 assay (<bold>Figure <xref ref-type="fig" rid="F2">2F</xref></bold>). Moreover, Porf-2 overexpression is enough to reverse the effect of Wnt3a on NSCs proliferation showed by Wnt3a+control group and Wnt3a+Porf-2 overexpression group (<bold>Figure <xref ref-type="fig" rid="F2">2F</xref></bold>).</p>
+      </sec>
+      <sec>
+        <title>Alteration of Rac1 Activity and the Wnt/&#x3B2;-Catenin Signaling Pathway in Porf-2 Knockdown or Overexpression NSCs</title>
+        <p>Co-immunoprecipitation experiments showed that Porf-2 and Rac1 co-immunoprecipitated; thus Porf-2 and Rac1 appear to interact directly (<bold>Figure <xref ref-type="fig" rid="F3">3A</xref></bold>). To assess the effects of Porf-2 on Rac1 activity, we constructed Porf-2 knockdown or overexpression NSCs and found that Porf-2 downregulation provoked an increase in Rac1 activity, whereas Porf-2 overexpression induced a decrease in Rac1 activity (<bold>Figures <xref ref-type="fig" rid="F3">3B,C</xref></bold>). This result indicated that Porf-2 is a negative regulator of Rac1 activity.</p>
+        <fig id="F3" position="float">
+          <label>FIGURE 3</label>
+          <caption>
+            <p>Effect of Porf-2 downregulation or overexpression on Rac1 activity and Wnt/&#x3B2;-catenin signaling pathway in NSCs. <bold>(A)</bold> Co-immunoprecipitation experiments showed that Porf-2 and Rac1 co-immunoprecipitated. <bold>(B,C)</bold> Cell lysates were processed to analyze Rac1 activation by pull-down. Effect of Porf-2 knockdown or overexpression on Rac1 activation. NSCs were transfected with knockdown, overexpression, or control vector. GAPDH was used as a housekeeping gene for normalization. <bold>(D)</bold> RT-PCR analysis was performed to determine the relative mRNA expression of Wnt/&#x3B2;-catenin pathway genes in the three groups.<italic>&#x3B2;-actin was used as a housekeeping gene for normalization. <bold>(E,F)</bold> Western blot analysis suggested that Porf-2 knockdown significantly increased the relative levels of T-cell factor (TCF) and cyclin D1 and decreased the levels of the inhibitory protein p21, whereas Porf-2 overexpression significantly decreased the relative levels of TCF and cyclin D1 and enhanced the levels of the inhibitory protein p21. <bold>(G)</bold> Immunofluorescence photomicrograph showing nuclear translocation of &#x3B2;-catenin, a key regulatory protein of the Wnt pathway (purple), with the NSCs marker nestin (red) in the three groups. The white arrows the expression of &#x3B2;-catenin in GFP<sup>+</sup> cells. Scale bar: 100 &#x3BC;m. <bold>(H)</bold> Quantify the ratio of the cell number of nuclear translocation of &#x3B2;-catenin in GFP<sup>+</sup> Nestin<sup>+</sup> cells. The ratio was normalized to control group. Quantitative analysis suggested that Porf-2 downregulation significantly increased the nuclear translocation of &#x3B2;-catenin, whereas Porf-2 overexpression significantly reduced the nuclear translocation of &#x3B2;-catenin. <bold>(I)</bold> Western blot analysis of the expression of nuclear &#x3B2;-catenin in the three groups. <bold>(J)</bold> The relative expression levels of nuclear &#x3B2;-catenin are represented by the ratio of nuclear &#x3B2;-catenin in the three groups. Values are expressed as the mean &#xB1; SD (<italic>n</italic> = 3 per group). <sup>&#x2217;</sup><italic>p</italic> &lt; 0.05, <sup>&#x2217;&#x2217;</sup><italic>p</italic> &lt; 0.01 vs. control. Scale bar = 100 &#x3BC;m.</italic></p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g003"/>
+        </fig>
+        <p>Next, we assessed the effects of Porf-2 on the levels of gene and protein expression in the Wnt/&#x3B2;-catenin pathway in Porf-2-overexpression and down-regulated NSCs. Porf-2 knockdown significantly increased the expression of genes such as nuclear transcription factor (LEF-1, TCF) and the Wnt target gene cyclin D1, and decreased expression of the proliferation-associated gene p21 (<bold>Figure <xref ref-type="fig" rid="F3">3D</xref></bold>). These effects were reversed by Porf-2 overexpression (<bold>Figure <xref ref-type="fig" rid="F3">3D</xref></bold>). The mRNA levels of Wif-1, Dkk-1, Wnt-1, Wnt-3, Disheveled, Frizzled-1, Frizzled-5, LRP-5, LRP-6, and the &#x3B2;-catenin destruction complex (&#x3B2;-catenin, Axin-1, Axin-2, APC, and GSK-3&#x3B2;) were not significantly different after Porf-2 knockdown or overexpression (<italic>P</italic> &gt; 0.05) (<bold>Figure <xref ref-type="fig" rid="F3">3D</xref></bold>). Immunoblot analysis revealed that Porf-2 knockdown significantly enhanced the protein levels of TCF, and cyclin D1 and reduced p21 levels (<bold>Figures <xref ref-type="fig" rid="F3">3E,F</xref></bold>). In contrast, Porf-2 overexpression significantly reduced the protein levels of TCF and cyclin D1 and increased p21 levels (<italic>P</italic> &lt; 0.05, <bold>Figures <xref ref-type="fig" rid="F3">3E,F</xref></bold>). Levels of Wnt-3, Dkk-1, Disheveled, and &#x3B2;-catenin were not significantly different after Porf-2 knockdown or overexpression (<italic>P</italic> &gt; 0.05, <bold>Figures <xref ref-type="fig" rid="F3">3E,F</xref></bold>).</p>
+        <p>Nuclear translocation of &#x3B2;-catenin, a key regulatory protein of the Wnt pathway, was enhanced in the Porf-2 knockdown group compared with the control group but decreased in the Porf-2 overexpression group (<bold>Figures <xref ref-type="fig" rid="F3">3G,H</xref></bold>). Western blot analysis of the expression of nuclear &#x3B2;-catenin showed that, compared with the control group, the relative expression levels of nuclear &#x3B2;-catenin were higher in the Porf-2 knockdown group but lower in the Porf-2 overexpression group (<bold>Figures <xref ref-type="fig" rid="F3">3I,J</xref></bold>).</p>
+      </sec>
+      <sec>
+        <title>Effect of Porf-2 Knockdown or Overexpression on NSCs Proliferation via the Rac1-Wnt/&#x3B2;-Catenin Pathway</title>
+        <p>Next, to study the effects of Porf-2 downregulation or overexpression on NSCs proliferation via the Rac1-Wnt/&#x3B2;-catenin pathway, NSCs cultures were treated with a Rac1 activator (CN04-A), Rac1 inhibitor (NSC23766), GSK-3&#x3B2; inhibitor (LiCl), or &#x3B2;-catenin/TCF inhibitor (FH535) (<bold>Figure <xref ref-type="fig" rid="F4">4</xref></bold>).</p>
+        <fig id="F4" position="float">
+          <label>FIGURE 4</label>
+          <caption>
+            <p>Effect of Porf-2 knockdown or overexpression on NSCs proliferation via the Rac1-Wnt/&#x3B2;-catenin pathway. <bold>(A,B)</bold> Representative photographs of proliferation of EdU-positive NSCs. Porf-2 knockdown and Porf-2-overexpression NSCs were treated with a Rac1 activator (CN04-A), Rac1 inhibitor (NSC23766), Wnt activator (LiCl), or &#x3B2;-catenin/TCF inhibitor (FH535). Scale bar: 100 &#x3BC;m. <bold>(C,D,G,H)</bold> The relative proliferation ratio of EdU-positive NSCs and CCK8 assay. The relative proliferation ratios are represented in Porf-2 knockdown and Porf-2-overexpression NSCs, which were treated with a Rac1 activator (CN04-A), Rac1 inhibitor (NSC23766), GSK-3&#x3B2; inhibitor (LiCl), or &#x3B2;-catenin/TCF inhibitor (FH535). <bold>(C,D)</bold>
+<sup>&#x2217;</sup>
+<italic>p</italic> &lt; 0.05, <sup>&#x2217;&#x2217;</sup>
+<italic>p</italic> &lt; 0.01 vs. control. # <italic>p</italic> &lt; 0.05 vs. Porf-2 KD. <bold>(G,H)</bold>
+<sup>&#x2217;</sup><italic>p</italic> &lt; 0.05 vs. control. # <italic>p</italic> &lt; 0.05 vs. Porf-2 OE. <bold>(E,F,I,J)</bold> The effect of activators or inhibitors of Rac1 or the Wnt/&#x3B2;-catenin signaling pathway on Porf-2 knockdown or overexpression NSCs growth and proliferation-associated proteins. <sup>&#x2217;&#x2217;</sup><italic>p</italic> &lt; 0.01, <sup>&#x2217;&#x2217;&#x2217;</sup><italic>p</italic> &lt; 0.001.</p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g004"/>
+        </fig>
+        <p>We confirmed that Porf-2 contains a Rac1GAP domain, which can negatively regulate the activity of Rac1 (<bold>Figures <xref ref-type="fig" rid="F3">3A,B</xref></bold>). To study the role of Rac1 in Porf-2-mediated NSCs proliferation, we first determined whether Rac1 activation and inactivation could affect NSCs proliferation with Porf-2 knockdown or overexpression utilizing a Rac1 inhibitor (NSC23766) or Rac1 activator (CN04-A).</p>
+        <p>We found that Porf-2 downregulation significantly promoted the growth and proliferation of NSCs in culture (<bold>Figures <xref ref-type="fig" rid="F2">2</xref>, <xref ref-type="fig" rid="F4">4C,D</xref></bold>), whereas Porf-2 overexpression led to reduced growth and proliferation (<bold>Figures <xref ref-type="fig" rid="F2">2</xref>, <xref ref-type="fig" rid="F4">4G,H</xref></bold>). Porf-2 knockdown NSCs were treated with the Rac1 inhibitor (NSC23766), and Porf-2-overexpression NSCs were treated with the Rac1 activator (CN04-A). The treated NSCs were evaluated using CCK-8 and EdU assays (<bold>Figure <xref ref-type="fig" rid="F4">4</xref></bold>). The growth and proliferative activities induced by Porf-2 knockdown were significantly reduced in cells treated with the Rac1 inhibitor (NSC23766) (<bold>Figures <xref ref-type="fig" rid="F4">4A,C,D</xref></bold>, #<italic>P</italic> &lt; 0.05 vs. Porf-2 KD), whereas the anti-growth and proliferative activities induced by Porf-2 overexpression were significantly reduced in cells treated with the Rac1 activator (CN04-A) (<bold>Figures <xref ref-type="fig" rid="F4">4B,G,H</xref></bold>, #<italic>P</italic> &lt; 0.05 vs. Porf-2 OE). Moreover, cyclin D1 protein levels were significantly decreased, and p21 levels increased in Porf-2 knockdown NSCs cultures treated with NSC23766 (<bold>Figures <xref ref-type="fig" rid="F4">4E,F</xref></bold>), suggesting decreased NSCs proliferation. Treatment with the Rac1 activator (CN04-A) significantly enhanced the expression of cyclin D1 and reduced the expression of p21 in Porf-2-overexpression NSCs cultures (<bold>Figures <xref ref-type="fig" rid="F4">4I,J</xref></bold>), suggesting increased NSCs proliferation. Together, Porf-2 exerted its inhibitory role of NSCs proliferation through Rac1, which is enough to reverse Porf-2&#x2019;s function.</p>
+        <p>Similarly, the role of the Wnt/&#x3B2;-catenin pathway in Porf-2 knockdown or overexpression NSCs was elucidated by the CCK-8 and EdU assay (<bold>Figure <xref ref-type="fig" rid="F4">4</xref></bold>). Interestingly, the proliferation-enhancing potential of Porf-2 downregulation was significantly blocked by Wnt pathway inhibitors, such as FH535, suggesting an alteration of the Wnt pathway due to Porf-2 knockdown (<bold>Figures <xref ref-type="fig" rid="F4">4A,C,D</xref></bold>, #<italic>p</italic> &lt; 0.05 vs. Porf-2 KD). Wnt pathway activators, such as LiCl, significantly enhanced cell proliferation and significantly reversed the inhibitory effect of Porf-2 overexpression (<bold>Figures <xref ref-type="fig" rid="F4">4B,G,H</xref></bold>, #<italic>P</italic> &lt; 0.05 vs. Porf-2 OE). These findings indicated that the Wnt/&#x3B2;-catenin pathway is involved in Porf-2-mediated alteration of NSCs proliferation. Moreover, cyclin D1 protein levels were significantly decreased and p21 levels increased in Porf-2 knockdown NSCs cultures treated with FH535, suggesting decreased NSCs proliferation (<bold>Figures <xref ref-type="fig" rid="F4">4E,F</xref></bold>). Treatment with the Wnt pathway activator LiCl significantly enhanced the expression of cyclin D1 and reduced p21 in Porf-2-overexpression NSCs cultures, suggesting increased NSCs proliferation (<bold>Figures <xref ref-type="fig" rid="F4">4I,J</xref></bold>). These results revealed that Porf-2 can regulate NSCs proliferation through the Wnt/&#x3B2;-catenin signaling.</p>
+      </sec>
+      <sec>
+        <title>Increase of Wnt3a Protein Expression after Optic Nerve Crush</title>
+        <p>To assess the expression of Wnt3a protein after optic nerve crush injury, western blot was performed. Immunofluorescence analysis revealed that the retinas from the normal control groups showed faint staining for Wnt3a along the inner border of the retina above the GCL. Compared with the normal control groups, the retinas from the operated rats exhibited an increase in Wnt3a staining (<bold>Figure <xref ref-type="fig" rid="F5">5A</xref></bold>). The Wnt3a protein levels significantly increased in the retina after optic nerve injury, compared with the normal control animals (<italic>P</italic> &lt; 0.05) (<bold>Figures <xref ref-type="fig" rid="F5">5B,C</xref></bold>).</p>
+        <fig id="F5" position="float">
+          <label>FIGURE 5</label>
+          <caption>
+            <p>BrdU incorporation and Wnt3a expression after optic nerve injury. <bold>(A)</bold> The expression of Wnt3a protein in retina after optic nerve injury. Western blot analysis of Wnt3a protein in retina. Scale bars: 50 &#x3BC;m. Significant changes are shown as <italic>p</italic> &lt; 0.05, <sup>&#x2217;</sup>: vs. the control group. GCL, ganglion cell layer; IPL, inner plexiform layer; INL, inner nuclear layer. Immunofluorescence photomicrographs show the increase of Wnt3a protein in retina after optic nerve injury (white arrow indicated the Wnt3a expression in GCL). <bold>(B)</bold> Values were normalized to &#x3B2;-actin, used as a loading control. <bold>(C)</bold> Quantification of relative protein density after normalization with &#x3B2;-actin. <bold>(D)</bold> Characterization of BrdU-labeled cells at 14 days after transplantation in the control group, in the Porf-2-overexpression group and the Porf-2 knockdown group. White arrow indicates BrdU-positive cells. NSCs were transplanted into the subretinal space immediately after the optic nerve crush. Scale bars: 100 &#x3BC;m. <bold>(E)</bold> Comparison of proliferative capacity of control, Porf-2 knockdown NSCs, and Porf-2-overexpression NSCs at 14 days after transplantation (<italic>n</italic> = 6 rats). The ratio of each lineage is indicated on the graph. <sup>&#x2217;</sup><italic>p</italic> &lt; 0.05, <sup>&#x2217;&#x2217;</sup><italic>p</italic> &lt; 0.01. Values are expressed as the mean &#xB1; SD (<italic>n</italic> = 3 cultures).</p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g005"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Effect of Porf-2 Downregulation or Overexpression on the Proliferation of NSCs <italic>In Vivo</italic></title>
+        <p>To assess the effect of Porf-2 downregulation or overexpression on NSCs proliferation at 14 days after transplantation <italic>in vivo</italic>, we transplanted Porf-2 knockout or overexpression NSCs into the subretinal space after optic nerve injury. The labeling index for GFP<sup>+</sup>/BrdU<sup>+</sup> cells was measured in retinal sections for BrdU and DAPI staining (<bold>Figures <xref ref-type="fig" rid="F5">5D,E</xref></bold>). After administration BrdU 48 h, we analyzed the percentage of BrdU<sup>+</sup> cells in 1,000 randomly selected GFP<sup>+</sup> cells under the same observation conditions. Porf-2 knockdown significantly increased the BrdU index of the retinas in comparison with control group (237.90 &#xB1; 19.33 in Porf-2 KD group vs. 116.46 &#xB1; 8.82 in control group. <sup>&#x2217;&#x2217;</sup><italic>p</italic> &lt; 0.01; <bold>Figure <xref ref-type="fig" rid="F5">5E</xref></bold>), whereas Porf-2 overexpression decreased compared to control (74.36 &#xB1; 8.05 in Porf-2 OE group vs. 116.46 &#xB1; 8.82 in control group. <sup>&#x2217;</sup><italic>P</italic> &lt; 0.05; <bold>Figure <xref ref-type="fig" rid="F5">5E</xref></bold>). Taking the <italic>in vitro</italic> data into consideration, we can conclude that Porf-2 knockdown significantly increase NSCs proliferation <italic>in vivo</italic> and <italic>in vitro</italic>. In addition, we found that no tumor-like cells aggregation at 10 week after transplantation, which destroyed the structure of retinas (data not shown).</p>
+      </sec>
+      <sec>
+        <title>Effect of Porf-2 Knockdown or Overexpression on the Neuronal and Astrocytic Differentiation of NSCs <italic>In Vitro</italic> and <italic>In Vivo</italic></title>
+        <p>After the induction of differentiation by serum starvation, 7.92 &#xB1; 2.32% of knockdown cells and 8.13 &#xB1; 1.10% of overexpression cells expressed the neuronal marker &#x3B2;-tubulin III compared with 8.33 &#xB1; 2.64% of control cells (<bold>Figures <xref ref-type="fig" rid="F6">6A,C</xref></bold>). Furthermore, 69.38 &#xB1; 3.14% of knockdown cells and 72.66 &#xB1; 8.36% of overexpression cells expressed GFAP, a marker for astrocytes, compared with 65.81 &#xB1; 5.29% of control cells (<bold>Figures <xref ref-type="fig" rid="F6">6B,D</xref></bold>). There was no significant difference in the neuronal and astrocytic differentiation of NSCs among the Porf-2 knockdown NSCs, Porf-2 overexpression NSCs and control NSCs.</p>
+        <fig id="F6" position="float">
+          <label>FIGURE 6</label>
+          <caption>
+            <p>Effect of Porf-2 knockdown or overexpression on the neuronal and astrocytic differentiation of NSCs <italic>in vitro</italic> and <italic>in vivo</italic>. <bold>(A,B)</bold> Immunocytochemical analysis of Porf-2 knockdown and Porf-2-overexpression NSCs <italic>in vitro</italic>. Expression of &#x3B2;-tubulin III or GFAP in Porf-2 knockdown cells and Porf-2-overexpression cells after the induction of differentiation by serum starvation. Scale bars: 100 &#x3BC;m. <bold>(C,D)</bold> The percentage of &#x3B2;-tubulin III or GFAP double-positive cells was calculated. <bold>(E,F)</bold> Immunocytochemical analysis of Porf-2 knockdown and Porf-2-overexpression NSCs <italic>in vivo</italic> (<italic>n</italic> = 6 rats). Expression of &#x3B2;-tubulin III or GFAP in Porf-2 knockdown cells and Porf-2-overexpression cells at 10 weeks post-transplantation. Scale bars: 50 &#x3BC;m. <bold>(G)</bold> The percentage of &#x3B2;-tubulin III or GFAP double-positive cells was calculated. <bold>(H)</bold> Comparison the number of differentiated neurons in Control, Porf-2 KD and Porf-2 OE groups at 10 week after transplantation (<italic>n</italic> = 6). The data was normalized to Control group. <sup>&#x2217;</sup><italic>p</italic> &lt; 0.05. Error bars indicate the SD of the mean.</p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g006"/>
+        </fig>
+        <p>To investigate the role of Porf-2 in the neuronal differentiation of NSCs <italic>in vivo</italic>, we transplanted Lenti-Porf-2-infected NSCs into the subretinal space of rats following optic nerve crush and examined the percentage of GFP<sup>+</sup>/&#x3B2;-tubulin III<sup>+</sup> or GFP<sup>+</sup>/GFAP<sup>+</sup> cells generated. Immunocytochemical staining (<bold>Figures <xref ref-type="fig" rid="F6">6E</xref>&#x2013;<xref ref-type="fig" rid="F6">G</xref></bold>) revealed no significant difference in the percentage of GFP<sup>+</sup>/&#x3B2;-tubulin III<sup>+</sup> cells (6.90% &#xB1; 1.52%, <italic>n</italic> = 6) in the Porf-2 knockdown (6.98% &#xB1; 1.37%, <italic>n</italic> = 6) or Porf-2 overexpression groups compared with the GFP group (7.35% &#xB1; 1.26%) (<bold>Figures <xref ref-type="fig" rid="F6">6E,G</xref></bold>). However, the number of differentiation of NSCs into neurons of Porf-2 knockdown NSCs significantly increased than control or Porf-2-overexpression NSCs at 10 week after transplantation (<bold>Figure <xref ref-type="fig" rid="F6">6H</xref></bold>). Immunocytochemical staining revealed no significant difference in the percentage of GFP<sup>+</sup>/GFAP<sup>+</sup> cells (72.12% &#xB1; 11.64%, <italic>n</italic> = 6) in the Porf-2 knockdown (70.96% &#xB1; 9.21%, <italic>n</italic> = 6) or Porf-2 overexpression groups compared with the GFP group (71.77% &#xB1; 7.93%) (<bold>Figures <xref ref-type="fig" rid="F6">6F,G</xref></bold>).</p>
+      </sec>
+      <sec>
+        <title>Effect of Porf-2 Downregulation or Overexpression on F-VEP after Transplantation</title>
+        <p>Compared with the control group (Crush + GFP-NSCs), the Porf-2 knockdown group showed significantly higher amplitudes of N1-P1 and P1-N2 in the Porf-2 knockdown group compared with the GFP-NSCs group, but lower amplitudes in Porf-2-overexpression group (<bold>Figures <xref ref-type="fig" rid="F7">7A,B</xref></bold>). The peak latencies of the N1, P1, and N2 waves is shorter in the Porf-2 knockdown group compared with the GFP-NSCs group, but longer N1, P1, and N2 waves were observed in the Porf-2-overexpression group at 10 weeks post-transplantation (<bold>Figures <xref ref-type="fig" rid="F7">7A,C</xref></bold>). The data suggested the Porf-2 knockdown NSCs transplantation may contribute to better F-VEP recovery after optic nerve injury.</p>
+        <fig id="F7" position="float">
+          <label>FIGURE 7</label>
+          <caption>
+            <p>Evaluation of the recovery of the injured optic nerve by NPN wave pattern after transplantation. <bold>(A)</bold> Representative flash visual evoked potentials (F-VEP) tracings at 10 weeks after optic nerve crush injury in Crush, Porf-2-overexpression, Porf-2 knockdown and Control (GFP-NSCs) groups. <bold>(B)</bold> Bar charts showing F-VEP latency (<italic>n</italic> = 6 rats). <bold>(C)</bold> Bar charts showing F-VEP amplitude (<italic>n</italic> = 6 rats), <sup>&#x2217;</sup><italic>p</italic> &lt; 0.05. <bold>(D)</bold> Exploration of the mechanism by which Porf-2 exerts its anti-proliferative effects on hippocampus-derived NSCs. Briefly, a direct interaction between Porf-2 and Rac1 reduces the activity of Rac1, which induces the nuclear translocation of &#x3B2;-catenin. &#x3B2;-catenin in the nucleus subsequently activates nuclear transcription factors and inactivates inhibitory factors, thereby resulting in the phosphorylation of many target proteins and finally regulating the proliferation of NSCs. P (red or purple): different sites of phosphorylation.</p>
+          </caption>
+          <graphic xlink:href="fnmol-10-00172-g007"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>Damage to the optic nerve leads to the loss of RGCs, subsequently causing reduced visual function and even blindness. NSCs pose multipotent capacity and differentiate into neurons, astrocytes, and oligodendrocytes (<xref rid="B30" ref-type="bibr">Ming and Song, 2011</xref>; <xref rid="B6" ref-type="bibr">Bond et al., 2015</xref>). Replacing injured RGCs is one of the promising approaches to the treatment of optic nerve injury, whereas a poor proliferation rate has limited the practical use of NSCs-based replacement therapy (<xref rid="B7" ref-type="bibr">Carreira et al., 2014</xref>). Numerous studies demonstrated that Wnt signaling plays a pivotal role in NSCs proliferation (<xref rid="B30" ref-type="bibr">Ming and Song, 2011</xref>; <xref rid="B11" ref-type="bibr">Faigle and Song, 2013</xref>). Previously, we also showed that overexpression of Wnt3a in NSCs induced activation of Wnt signaling and promoted proliferation both <italic>in vitro</italic> and <italic>in optic</italic> nerve injury, which suggests that targeting the Wnt3 signal may potentiate the therapeutic benefits of NSCs-based therapy in optic nerve injury (<xref rid="B40" ref-type="bibr">Yang et al., 2014</xref>). However, how the Wnt signaling exerts its role and whether the activation of Wnt signaling is regulated by other factors is unclear.</p>
+      <p>As a growth regulator, Porf-2 is expressed in rapid cell division tissue such as skin, the placental growth cone, and dividing testicular germ cells (<xref rid="B35" ref-type="bibr">Nowak and Gore, 1999</xref>). Porf-2 is most highly expressed in the hypothalamus, hippocampus, cerebral cortex, and anterior pituitary of neonatal and early postnatal rats (<xref rid="B35" ref-type="bibr">Nowak and Gore, 1999</xref>). However, the function of Porf-2 remains unknown for a long time. Recently, <xref rid="B25" ref-type="bibr">Ma and Nowak (2011)</xref> reported that Porf-2 knockdown increases proliferation and decreases drug-induced apoptosis in C17.2 cells. But there are lots of limitation and unsolved problem in this report (<xref rid="B25" ref-type="bibr">Ma and Nowak, 2011</xref>). Instead of using primary stem cell derived from the brain, an immortalized and artificially modified NSC line C17.2 was used, which have been reported to have different gene expression profiles and unique properties compared to primary NSCs (<xref rid="B27" ref-type="bibr">Martinez-Serrano and Bjorklund, 1997</xref>; <xref rid="B29" ref-type="bibr">Mi et al., 2005</xref>; <xref rid="B26" ref-type="bibr">Magnitsky et al., 2008</xref>). Furthermore, the results are based on a drug pre-treatment, but not a physiological condition (<xref rid="B25" ref-type="bibr">Ma and Nowak, 2011</xref>). Importantly, the Porf-2 described in Ma et al.&#x2019;s study is not a full-length protein but a truncated transcript (Protein molecular weight: 65 kD) (<xref rid="B25" ref-type="bibr">Ma and Nowak, 2011</xref>). Until now, this is the only report describing a truncated transcript of Porf-2 (<xref rid="B25" ref-type="bibr">Ma and Nowak, 2011</xref>) and there is no more follow-up reports to confirm that yet.</p>
+      <p>Since a truncated transcript of Porf-2 may play a different role with a full-length one due to the different amino acid sequences, domains or structures. To uncover the role of Porf-2, we have constructed a mouse full-length Porf-2 previously (Protein molecular weight: about 130 kD) (<xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). Our previous study first showed that Porf-2 played an inhibitory role in NSCs proliferation, and the GAP domain is necessary for its function (<xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). It should be noted that in our previous study, in order to fully investigate the functional domain of Porf-2, we constructed three domain deleted Porf-2 plasmids (<xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). Different to the truncated transcript of Porf-2 reported by <xref rid="B25" ref-type="bibr">Ma and Nowak (2011)</xref>, which is detected in endogenous C17.2 cell line, our truncated versions of Porf-2 are artificial mutations based on the amino acid and domain sequence of full-length Porf-2 (<xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). Moreover, we screened the possible pathway in mediating NSCs proliferation and found that Porf-2 mediated NSCs proliferation through the classical Wnt/&#x3B2;-catenin pathway (<xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). However, how Porf-2 functions through Wnt are still not fully validated. Here, we provide solid rescue assay by using Rac1 activator (CN04-A), Rac1 inhibitor (NSC23766), GSK-3&#x3B2; inhibitor (LiCl), or &#x3B2;-catenin/TCF inhibitor (FH535). Moreover, Porf-2 is expressed in the CNS in a wide range of species, including human, rat, mouse, zebrafish, and sheep (<xref rid="B34" ref-type="bibr">Nowak, 2003</xref>). We also present evidence that Porf-2 exhibits similar role in rat, suggesting its conserved function in vertebrate. In addition to physiological role, here we also show that after optic nerve injury, the Wnt signaling is activated. But the poor proliferation of NSCs in optic nerve injury may be due to the inhibitory role of Porf-2, since Porf-2 overexpression is enough to block the role of Wnt3a and Porf-2 knockdown significantly increased the NSCs proliferation in retina after optic nerve injury. This may provide us a new insight into targeting Porf-2 in CNS diseases.</p>
+      <p>To explore the effects of Porf-2 on NSCs proliferation, we established cell models in which Porf-2 was either knocked down or overexpressed by transfecting a Porf-2 shRNA or Porf-2 vector into NSCs, respectively. By using CCK-8 and EdU assays, we found that Porf-2 knockdown promoted NSCs proliferation, whereas Porf-2 overexpression decreased NSCs growth and proliferation. We microinjected Porf-2-overexpression NSCs or Porf-2 knockdown NSCs into the subretinal space after rat optic nerve crush injury, and NSCs proliferation increased with Porf-2 knockdown and decreased with Porf-2 overexpression. Moreover, transplantation of Porf-2 knockdown NSCs significantly improved visual function recovery compared with Porf-2-overexpression NSCs. Our study demonstrates the enhanced proliferative ability of Porf-2 knockdown NSCs in the injured retina, which indicates the potential advantages of combination therapies in treating CNS injury. The enhanced proliferative ability of NSCs may partially overcome the harmful factors of specific acute inflammatory activation. Importantly, the enhanced proliferative ability of NSCs could partially counteract the effects of the chronic CNS scar tissue that forms after CNS injury.</p>
+      <p>Notably, our results elucidate the underlying mechanism of the effect of Porf-2 on NSCs proliferation via the Rac1-Wnt/&#x3B2;-catenin pathway. Porf-2 downregulation activated Rac1, promoted the nuclear translocation of &#x3B2;-catenin and increased proliferation, and the effect was reversed by Porf-2 overexpression. &#x3B2;-catenin is known as the crucial effector in the Wnt signaling pathway and mediates several cellular processes, including cell proliferation (<xref rid="B13" ref-type="bibr">Gan et al., 2008</xref>). Wnt stimulation induces the &#x3B2;-catenin nuclear translocation, which triggers the transcriptional expression of target genes that function during cell proliferation. The activated Wnt pathway was assessed by immunocytochemistry to identify the subcellular localization of &#x3B2;-catenin (<xref rid="B17" ref-type="bibr">Inoue et al., 2006</xref>). &#x3B2;-catenin is a coactivator of TCF/LEF-dependent transcription. The translocation of stabilized &#x3B2;-catenin into the nucleus indicates the activation of Wnt signaling (<xref rid="B9" ref-type="bibr">Clevers and Nusse, 2012</xref>; <xref rid="B18" ref-type="bibr">Jamieson et al., 2012</xref>). In our study, Porf-2 downregulation induced the translocation of more &#x3B2;-catenin into the nucleus in NSCs than in the control group, which had more translocation than the Porf-2 overexpression group. However, we failed to find an increase in &#x3B2;-catenin protein expression in the cytosol in the Porf-2 knockdown or Porf-2 overexpression groups. In our study, GSK3&#x3B2; mRNA and protein levels did not change. The results are in good agreement with a previous study that showed that Rac1 mutation had no effect on &#x3B2;-catenin stabilization in the cytoplasm but abolished &#x3B2;-catenin nucleus accumulation (<xref rid="B39" ref-type="bibr">Wu et al., 2008</xref>). &#x3B2;-catenin in the cytosol is normally phosphorylated by GSK3&#x3B2; and is quickly degraded. Rac1 activates JNK1/2, phosphorylates &#x3B2;-catenin on Ser191 and Ser605, and subsequently induces the nuclear localization of &#x3B2;-catenin.</p>
+      <p>In the canonical Wnt signaling pathway, the &#x3B2;-catenin nuclear localization triggers the interaction with the TCF/LEF family of transcription factors, which induces the expression of Wnt pathway target genes such as cyclin-D1, suppresses p21, and enhances proliferation (<xref rid="B38" ref-type="bibr">Tiwari et al., 2014</xref>). To further clarify the role of downstream molecules of Porf-2, we used a Rac1 inhibitor and activator and a Wnt signaling pathway inhibitor and activator to treat knockdown and overexpression NSCs. We found that Porf-2 knockdown led to the activation of Rac1 and promoted the nuclear translocation of &#x3B2;-catenin in NSCs, as determined by a Rac GTPase activity assay and Western blotting. However, Porf-2 overexpression led to the inactivation of Rac1 and reduced the nuclear translocation of &#x3B2;-catenin in the Wnt pathway. The mRNA levels of the Rac1-Wnt pathway, the protein levels of cyclin D1 and activated Rac1 increased in Porf-2 knockdown NSCs, whereas decreased in Porf-2-overexpression NSCs. The CCK-8 and EdU assays showed that proliferation was reduced in Porf-2-overexpression NSCs, and this effect was reversed by an activator of Rac1 or the Wnt signaling pathway. NSCs proliferation was enhanced upon Porf-2 knockdown, which was attenuated by an inhibitor of Rac1 or the Wnt signaling pathway (NSC23766 and FH535, respectively). Western blotting revealed that Porf-2 overexpression decreased the cyclin D1 levels and increased P21 levels, which were reversed by activators of Rac1 or the Wnt signaling pathway (PDGF and LiCl, respectively). Conversely, Porf-2 knockdown increased the cyclin D1 levels and decreased P21 levels, which were attenuated by inhibitors of Rac1 or the Wnt signaling pathway. These findings reinforce the notion that the Rac1-Wnt signaling pathway is required for Porf-2 to regulate NSCs proliferation. Porf-2 knockdown significantly increased Wnt3a-induced NSCs proliferation, while Porf-2 overexpression significantly decreased Wnt3a-induced NSCs proliferation, indicating Wnt signal pathway was regulated by Porf-2. After optic nerve injury, the Wnt3a is up-regulated. In addition, we found that Porf-2 knockdown enhanced proliferation of the transplanted NSCs in retina, which may be due to the increased Wnt3a expression in retina after optic nerve injury. Thus, when optic nerve injury, the Wnt3a signaling is activated and Porf-2 plays an inhibitory role in such signaling transduction, which also explained the limited practical use of NSCs-based replacement therapy due to low proliferation rate. NSCs transplantation is reported to be a potential source of oncogenicity and tumor formation (<xref rid="B19" ref-type="bibr">Kaus et al., 2010</xref>). In the present study, we don&#x2019;t found the tumorigenicity, indicating Porf-2 knockdown induces the increase of NSC proliferative capacity may be safe. But the tumorigenicity in longer term remains to be further observed.</p>
+      <p>Increased neurogenesis by the Wnt signaling pathway can be caused by increased proliferation of neuronally committed progenitors, or enhanced neuronal cell fate instruction (<xref rid="B21" ref-type="bibr">Lie et al., 2005</xref>). However, the Wnt/&#x3B2;-catenin pathway with Porf-2 knockdown or overexpression does not influence the neuronal and astrocytic differentiation of NSCs <italic>in vitro</italic> and <italic>in vivo</italic>, which is consistent with the previous reports (<xref rid="B25" ref-type="bibr">Ma and Nowak, 2011</xref>; <xref rid="B16" ref-type="bibr">Huang et al., 2016</xref>). One potential reason is that Rac1 activity changes. Rac1 regulates the self-renewal and differentiation of neural progenitor cells (<xref rid="B8" ref-type="bibr">Chen et al., 2009</xref>). Inhibition of Rac1 enhances NSC differentiation (<xref rid="B28" ref-type="bibr">Meng et al., 2015</xref>). Rac1 is dispensable in mediating proliferation and differentiation of SVZ progenitors (<xref rid="B20" ref-type="bibr">Leone et al., 2010</xref>). Rac1 deficiency causes an proliferation-induced SVZ-specific reduction along with increased cell cycle exit and premature differentiation. In telencephalic VZ progenitors, Rac1 deletion reduced the sizes of both cerebral cortex and the striatum. Further study has suggested that this abnormality is attributed to the accelerated cell cycle exit in early corticogenesis, causing a reduction of the neural progenitor pool (<xref rid="B8" ref-type="bibr">Chen et al., 2009</xref>). We infer that Rac1 activation increases during NSCs proliferation and decreases during differentiation.</p>
+      <p>Flash visual evoked potentials were analyzed in our study, as they quantify the degree of optic nerve injury and nerve conduction. The F-VEP latency was considered as an indictor in reflecting the function of nerve conduction and axon myelin sheath integrity, and the F-VEP amplitude in reflecting receptive function of the macula lutea and the number of intact synaptic contacts (<xref rid="B10" ref-type="bibr">Costa et al., 1985</xref>). Measuring F-VEP is objective and effective in evaluating optic nerve function. In our study, the data of F-VEP waveforms indicate the significant recovery of optic nerve function after NSCs transplantation. This result provided strong evidence that NSCs transplantation is a promising strategy in treating optic nerve injury. However, questions also follow. Whether a combination of NSCs transplantation and classic therapeutic strategies, such as steroid application and surgical decompression, is more effective requires further study. Post-transplantation, the peak latencies of the N1, P1, and N2 waves decreased, and the amplitude of N1-P1 and P1-N2 increased in the Porf-2 knockdown group compared with the control. The peak latencies of the N1, P1, and N2 waves increased, and the amplitude of N1-P1 and P1-N2 decreased in the Porf-2 overexpression group compared with the control. All of these findings suggest that Porf-2 downregulation contributes to the recovery of neurological functions, and conversely, Porf-2 overexpression decreases the number of differentiated neurons and impedes the recovery of neurological functions. The recovery of neurological functions was attribute for growth factor-derived NSCs and differentiated neurons which replace lost RGCs. In our study, the percentage of differentiation of NSCs into neurons failed to differ, but the increased number of NSCs by Porf-2 knockdown contributed to the increased number of neurons.</p>
+    </sec>
+    <sec>
+      <title>Conclusion</title>
+      <p>Our results clearly suggest that Porf-2, a conserved RhoGAP, suppresses NSCs proliferation via the Rac1-Wnt/&#x3B2;-catenin pathway (summarized in <bold>Figure <xref ref-type="fig" rid="F7">7D</xref></bold>). These findings provide greater insights into the effect of Porf-2 on NSCs proliferation and improve our understanding of the molecular and cellular mechanisms of Porf-2 control of NSCs proliferation, thus potentially contributing to the development of novel therapeutic strategies for improving visual function recovery. However, the clinical effects require further in-depth study.</p>
+    </sec>
+    <sec>
+      <title>Author Contributions</title>
+      <p>X-TY and G-HH performed the experiments of morphology, histology, and biochemistry. H-JL and Z-LS have been involved in analysis and interpretation of data and in drafting and revising the manuscript critically. N-JX and D-FF designed experiments and revised the manuscript critically. All authors agree that all the questions related to the accuracy or integrity of the paper have been appropriately investigated and resolved, giving final approval of the version to be published.</p>
+    </sec>
+    <sec>
+      <title>Conflict of Interest Statement</title>
+      <p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>This work was supported by grants from the National Natural Science Foundation of China (81401587; 81171796; 31371097).</p>
+    </ack>
+    <sec sec-type="supplementary material">
+      <title>Supplementary Material</title>
+      <p>The Supplementary Material for this article can be found online at: <ext-link ext-link-type="uri" xlink:href="http://journal.frontiersin.org/article/10.3389/fnmol.2017.00172/full#supplementary-material">http://journal.frontiersin.org/article/10.3389/fnmol.2017.00172/full#supplementary-material</ext-link></p>
+      <supplementary-material content-type="local-data" id="SM1">
+        <label>FIGURE S1</label>
+        <caption>
+          <p>Identification and differentiation of NSCs. <bold>(a1&#x2013;a4)</bold> Representative phase-contrast photomicrographs of neurospheres derived from the hippocampus NSCs. <bold>(b1&#x2013;b4)</bold> Quantification of the area of neurospheres and the number of neurospheres in different groups.</p>
+        </caption>
+        <media xlink:href="Image_1.TIF">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SM2">
+        <media xlink:href="Image_1.TIF">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Banin</surname><given-names>E.</given-names></name><name><surname>Obolensky</surname><given-names>A.</given-names></name><name><surname>Idelson</surname><given-names>M.</given-names></name><name><surname>Hemo</surname><given-names>I.</given-names></name><name><surname>Reinhardtz</surname><given-names>E.</given-names></name><name><surname>Pikarsky</surname><given-names>E.</given-names></name><etal/></person-group> (<year>2006</year>). <article-title>Retinal incorporation and differentiation of neural precursors derived from human embryonic stem cells.</article-title>
+<source><italic>Stem Cells</italic></source>
+<volume>24</volume>
+<fpage>246</fpage>&#x2013;<lpage>257</lpage>. <pub-id pub-id-type="doi">10.1634/stemcells.2005-0009</pub-id><pub-id pub-id-type="pmid">16123388</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bengoa-Vergniory</surname><given-names>N.</given-names></name><name><surname>Gorrono-Etxebarria</surname><given-names>I.</given-names></name><name><surname>Gonzalez-Salazar</surname><given-names>I.</given-names></name><name><surname>Kypta</surname><given-names>R. M.</given-names></name></person-group> (<year>2014</year>). <article-title>A switch from canonical to noncanonical Wnt signaling mediates early differentiation of human neural stem cells.</article-title>
+<source><italic>Stem Cells</italic></source>
+<volume>32</volume>
+<fpage>3196</fpage>&#x2013;<lpage>3208</lpage>. <pub-id pub-id-type="doi">10.1002/stem.1807</pub-id><pub-id pub-id-type="pmid">25100239</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Berkelaar</surname><given-names>M.</given-names></name><name><surname>Clarke</surname><given-names>D. B.</given-names></name><name><surname>Wang</surname><given-names>Y. C.</given-names></name><name><surname>Bray</surname><given-names>G. M.</given-names></name><name><surname>Aguayo</surname><given-names>A. J.</given-names></name></person-group> (<year>1994</year>). <article-title>Axotomy results in delayed death and apoptosis of retinal ganglion cells in adult rats.</article-title>
+<source><italic>J. Neurosci.</italic></source>
+<volume>14</volume>
+<fpage>4368</fpage>&#x2013;<lpage>4374</lpage>.<pub-id pub-id-type="pmid">8027784</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bi</surname><given-names>Y. Y.</given-names></name><name><surname>Feng</surname><given-names>D. F.</given-names></name><name><surname>Pan</surname><given-names>D. C.</given-names></name></person-group> (<year>2009</year>). <article-title>Stem/progenitor cells: a potential source of retina-specific cells for retinal repair.</article-title>
+<source><italic>Neurosci. Res.</italic></source>
+<volume>65</volume>
+<fpage>215</fpage>&#x2013;<lpage>221</lpage>. <pub-id pub-id-type="doi">10.1016/j.neures.2009.07.008</pub-id><pub-id pub-id-type="pmid">19647023</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bien</surname><given-names>A.</given-names></name><name><surname>Seidenbecher</surname><given-names>C. I.</given-names></name><name><surname>Bockers</surname><given-names>T. M.</given-names></name><name><surname>Sabel</surname><given-names>B. A.</given-names></name><name><surname>Kreutz</surname><given-names>M. R.</given-names></name></person-group> (<year>1999</year>). <article-title>Apoptotic versus necrotic characteristics of retinal ganglion cell death after partial optic nerve injury.</article-title>
+<source><italic>J. Neurotrauma</italic></source>
+<volume>16</volume>
+<fpage>153</fpage>&#x2013;<lpage>163</lpage>. <pub-id pub-id-type="doi">10.1089/neu.1999.16.153</pub-id><pub-id pub-id-type="pmid">10098960</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bond</surname><given-names>A. M.</given-names></name><name><surname>Ming</surname><given-names>G. L.</given-names></name><name><surname>Song</surname><given-names>H.</given-names></name></person-group> (<year>2015</year>). <article-title>Adult mammalian neural stem cells and neurogenesis: five decades later.</article-title>
+<source><italic>Cell Stem Cell</italic></source>
+<volume>17</volume>
+<fpage>385</fpage>&#x2013;<lpage>395</lpage>. <pub-id pub-id-type="doi">10.1016/j.stem.2015.09.003</pub-id><pub-id pub-id-type="pmid">26431181</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Carreira</surname><given-names>B. P.</given-names></name><name><surname>Morte</surname><given-names>M. I.</given-names></name><name><surname>Santos</surname><given-names>A. I.</given-names></name><name><surname>Lourenco</surname><given-names>A. S.</given-names></name><name><surname>Ambrosio</surname><given-names>A. F.</given-names></name><name><surname>Carvalho</surname><given-names>C. M.</given-names></name><etal/></person-group> (<year>2014</year>). <article-title>Nitric oxide from inflammatory origin impairs neural stem cell proliferation by inhibiting epidermal growth factor receptor signaling.</article-title>
+<source><italic>Front. Cell. Neurosci.</italic></source>
+<volume>8</volume>:<issue>343</issue>
+<pub-id pub-id-type="doi">10.3389/fncel.2014.00343</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chen</surname><given-names>L.</given-names></name><name><surname>Melendez</surname><given-names>J.</given-names></name><name><surname>Campbell</surname><given-names>K.</given-names></name><name><surname>Kuan</surname><given-names>C. Y.</given-names></name><name><surname>Zheng</surname><given-names>Y.</given-names></name></person-group> (<year>2009</year>). <article-title>Rac1 deficiency in the forebrain results in neural progenitor reduction and microcephaly.</article-title>
+<source><italic>Dev. Biol.</italic></source>
+<volume>325</volume>
+<fpage>162</fpage>&#x2013;<lpage>170</lpage>. <pub-id pub-id-type="doi">10.1016/j.ydbio.2008.10.023</pub-id><pub-id pub-id-type="pmid">19007770</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Clevers</surname><given-names>H.</given-names></name><name><surname>Nusse</surname><given-names>R.</given-names></name></person-group> (<year>2012</year>). <article-title>Wnt/beta-catenin signaling and disease.</article-title>
+<source><italic>Cell</italic></source>
+<volume>149</volume>
+<fpage>1192</fpage>&#x2013;<lpage>1205</lpage>. <pub-id pub-id-type="doi">10.1016/j.cell.2012.05.012</pub-id><pub-id pub-id-type="pmid">22682243</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Costa</surname><given-names>E. S. I.</given-names></name><name><surname>Wang</surname><given-names>A. D.</given-names></name><name><surname>Symon</surname><given-names>L.</given-names></name></person-group> (<year>1985</year>). <article-title>The application of flash visual evoked potentials during operations on the anterior visual pathways.</article-title>
+<source><italic>Neurol. Res.</italic></source>
+<volume>7</volume>
+<fpage>11</fpage>&#x2013;<lpage>16</lpage>. <pub-id pub-id-type="doi">10.1080/01616412.1985.11739693</pub-id><pub-id pub-id-type="pmid">2860581</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Faigle</surname><given-names>R.</given-names></name><name><surname>Song</surname><given-names>H.</given-names></name></person-group> (<year>2013</year>). <article-title>Signaling mechanisms regulating adult neural stem cells and neurogenesis.</article-title>
+<source><italic>Biochim. Biophys. Acta</italic></source>
+<volume>1830</volume>
+<fpage>2435</fpage>&#x2013;<lpage>2448</lpage>. <pub-id pub-id-type="doi">10.1016/j.bbagen.2012.09.002</pub-id><pub-id pub-id-type="pmid">22982587</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Feng</surname><given-names>D. F.</given-names></name><name><surname>Chen</surname><given-names>E. T.</given-names></name><name><surname>Li</surname><given-names>X. Y.</given-names></name><name><surname>Liu</surname><given-names>Y.</given-names></name><name><surname>Wang</surname><given-names>Y.</given-names></name></person-group> (<year>2010</year>). <article-title>Standardizing optic nerve crushes with an aneurysm clip.</article-title>
+<source><italic>Neurol. Res.</italic></source>
+<volume>32</volume>
+<fpage>476</fpage>&#x2013;<lpage>481</lpage>. <pub-id pub-id-type="doi">10.1179/016164110X12556180206158</pub-id><pub-id pub-id-type="pmid">20021737</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gan</surname><given-names>X. Q.</given-names></name><name><surname>Wang</surname><given-names>J. Y.</given-names></name><name><surname>Xi</surname><given-names>Y.</given-names></name><name><surname>Wu</surname><given-names>Z. L.</given-names></name><name><surname>Li</surname><given-names>Y. P.</given-names></name><name><surname>Li</surname><given-names>L.</given-names></name></person-group> (<year>2008</year>). <article-title>Nuclear Dvl, c-Jun, beta-catenin, and TCF form a complex leading to stabilization of beta-catenin-TCF interaction.</article-title>
+<source><italic>J. Cell Biol.</italic></source>
+<volume>180</volume>
+<fpage>1087</fpage>&#x2013;<lpage>1100</lpage>. <pub-id pub-id-type="doi">10.1083/jcb.200710050</pub-id><pub-id pub-id-type="pmid">18347071</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Harvey</surname><given-names>A. R.</given-names></name><name><surname>Hu</surname><given-names>Y.</given-names></name><name><surname>Leaver</surname><given-names>S. G.</given-names></name><name><surname>Mellough</surname><given-names>C. B.</given-names></name><name><surname>Park</surname><given-names>K.</given-names></name><name><surname>Verhaagen</surname><given-names>J.</given-names></name><etal/></person-group> (<year>2006</year>). <article-title>Gene therapy and transplantation in CNS repair: the visual system.</article-title>
+<source><italic>Prog. Retin. Eye Res.</italic></source>
+<volume>25</volume>
+<fpage>449</fpage>&#x2013;<lpage>489</lpage>. <pub-id pub-id-type="doi">10.1016/j.preteyeres.2006.07.002</pub-id><pub-id pub-id-type="pmid">16963308</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names>H.</given-names></name><name><surname>Li</surname><given-names>M.</given-names></name><name><surname>Labrador</surname><given-names>J. P.</given-names></name><name><surname>McEwen</surname><given-names>J.</given-names></name><name><surname>Lai</surname><given-names>E. C.</given-names></name><name><surname>Goodman</surname><given-names>C. S.</given-names></name><etal/></person-group> (<year>2005</year>). <article-title>Cross GTPase-activating protein (CrossGAP)/Vilse links the Roundabout receptor to Rac to regulate midline repulsion.</article-title>
+<source><italic>Proc. Natl. Acad. Sci. U.S.A.</italic></source>
+<volume>102</volume>
+<fpage>4613</fpage>&#x2013;<lpage>4618</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.0409325102</pub-id><pub-id pub-id-type="pmid">15755809</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Huang</surname><given-names>G. H.</given-names></name><name><surname>Yang</surname><given-names>X. T.</given-names></name><name><surname>Chen</surname><given-names>K.</given-names></name><name><surname>Xing</surname><given-names>J.</given-names></name><name><surname>Guo</surname><given-names>L.</given-names></name><name><surname>Zhu</surname><given-names>L.</given-names></name><etal/></person-group> (<year>2016</year>). <article-title>Porf-2 inhibits neural stem cell proliferation through Wnt/beta-catenin pathway by its GAP domain.</article-title>
+<source><italic>Front. Cell. Neurosci.</italic></source>
+<volume>10</volume>:<issue>85</issue>
+<pub-id pub-id-type="doi">10.3389/fncel.2016.00085</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Inoue</surname><given-names>T.</given-names></name><name><surname>Kagawa</surname><given-names>T.</given-names></name><name><surname>Fukushima</surname><given-names>M.</given-names></name><name><surname>Shimizu</surname><given-names>T.</given-names></name><name><surname>Yoshinaga</surname><given-names>Y.</given-names></name><name><surname>Takada</surname><given-names>S.</given-names></name><etal/></person-group> (<year>2006</year>). <article-title>Activation of canonical Wnt pathway promotes proliferation of retinal stem cells derived from adult mouse ciliary margin.</article-title>
+<source><italic>Stem Cells</italic></source>
+<volume>24</volume>
+<fpage>95</fpage>&#x2013;<lpage>104</lpage>. <pub-id pub-id-type="doi">10.1634/stemcells.2005-0124</pub-id><pub-id pub-id-type="pmid">16223856</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jamieson</surname><given-names>C.</given-names></name><name><surname>Sharma</surname><given-names>M.</given-names></name><name><surname>Henderson</surname><given-names>B. R.</given-names></name></person-group> (<year>2012</year>). <article-title>Wnt signaling from membrane to nucleus: beta-catenin caught in a loop.</article-title>
+<source><italic>Int. J. Biochem. Cell Biol.</italic></source>
+<volume>44</volume>
+<fpage>847</fpage>&#x2013;<lpage>850</lpage>. <pub-id pub-id-type="doi">10.1016/j.biocel.2012.03.001</pub-id><pub-id pub-id-type="pmid">22433990</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kaus</surname><given-names>A.</given-names></name><name><surname>Widera</surname><given-names>D.</given-names></name><name><surname>Kassmer</surname><given-names>S.</given-names></name><name><surname>Peter</surname><given-names>J.</given-names></name><name><surname>Zaenker</surname><given-names>K.</given-names></name><name><surname>Kaltschmidt</surname><given-names>C.</given-names></name><etal/></person-group> (<year>2010</year>). <article-title>Neural stem cells adopt tumorigenic properties by constitutively activated NF-kappaB and subsequent VEGF up-regulation.</article-title>
+<source><italic>Stem Cells Dev.</italic></source>
+<volume>19</volume>
+<fpage>999</fpage>&#x2013;<lpage>1015</lpage>. <pub-id pub-id-type="doi">10.1089/scd.2009.0416</pub-id><pub-id pub-id-type="pmid">20184430</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Leone</surname><given-names>D. P.</given-names></name><name><surname>Srinivasan</surname><given-names>K.</given-names></name><name><surname>Brakebusch</surname><given-names>C.</given-names></name><name><surname>McConnell</surname><given-names>S. K.</given-names></name></person-group> (<year>2010</year>). <article-title>The rho GTPase Rac1 is required for proliferation and survival of progenitors in the developing forebrain.</article-title>
+<source><italic>Dev. Neurobiol.</italic></source>
+<volume>70</volume>
+<fpage>659</fpage>&#x2013;<lpage>678</lpage>. <pub-id pub-id-type="doi">10.1002/dneu.20804</pub-id><pub-id pub-id-type="pmid">20506362</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lie</surname><given-names>D. C.</given-names></name><name><surname>Colamarino</surname><given-names>S. A.</given-names></name><name><surname>Song</surname><given-names>H. J.</given-names></name><name><surname>Desire</surname><given-names>L.</given-names></name><name><surname>Mira</surname><given-names>H.</given-names></name><name><surname>Consiglio</surname><given-names>A.</given-names></name><etal/></person-group> (<year>2005</year>). <article-title>Wnt signalling regulates adult hippocampal neurogenesis.</article-title>
+<source><italic>Nature</italic></source>
+<volume>437</volume>
+<fpage>1370</fpage>&#x2013;<lpage>1375</lpage>. <pub-id pub-id-type="doi">10.1038/nature04108</pub-id><pub-id pub-id-type="pmid">16251967</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lim</surname><given-names>J.</given-names></name><name><surname>Ritt</surname><given-names>D. A.</given-names></name><name><surname>Zhou</surname><given-names>M.</given-names></name><name><surname>Morrison</surname><given-names>D. K.</given-names></name></person-group> (<year>2014</year>). <article-title>The CNK2 scaffold interacts with vilse and modulates Rac cycling during spine morphogenesis in hippocampal neurons.</article-title>
+<source><italic>Curr. Biol.</italic></source>
+<volume>24</volume>
+<fpage>786</fpage>&#x2013;<lpage>792</lpage>. <pub-id pub-id-type="doi">10.1016/j.cub.2014.02.036</pub-id><pub-id pub-id-type="pmid">24656827</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lu</surname><given-names>H.</given-names></name><name><surname>Li</surname><given-names>M.</given-names></name><name><surname>Song</surname><given-names>T.</given-names></name><name><surname>Qian</surname><given-names>Y.</given-names></name><name><surname>Xiao</surname><given-names>X.</given-names></name><name><surname>Chen</surname><given-names>X.</given-names></name><etal/></person-group> (<year>2008</year>). <article-title>Retrovirus delivered neurotrophin-3 promotes survival, proliferation and neuronal differentiation of human fetal neural stem cells in vitro.</article-title>
+<source><italic>Brain Res. Bull.</italic></source>
+<volume>77</volume>
+<fpage>158</fpage>&#x2013;<lpage>164</lpage>. <pub-id pub-id-type="doi">10.1016/j.brainresbull.2008.02.037</pub-id><pub-id pub-id-type="pmid">19875351</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lundstrom</surname><given-names>A.</given-names></name><name><surname>Gallio</surname><given-names>M.</given-names></name><name><surname>Englund</surname><given-names>C.</given-names></name><name><surname>Steneberg</surname><given-names>P.</given-names></name><name><surname>Hemphala</surname><given-names>J.</given-names></name><name><surname>Aspenstrom</surname><given-names>P.</given-names></name><etal/></person-group> (<year>2004</year>). <article-title>Vilse, a conserved Rac/Cdc42 GAP mediating Robo repulsion in tracheal cells and axons.</article-title>
+<source><italic>Genes Dev.</italic></source>
+<volume>18</volume>
+<fpage>2161</fpage>&#x2013;<lpage>2171</lpage>. <pub-id pub-id-type="doi">10.1101/gad.310204</pub-id><pub-id pub-id-type="pmid">15342493</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ma</surname><given-names>S.</given-names></name><name><surname>Nowak</surname><given-names>F. V.</given-names></name></person-group> (<year>2011</year>). <article-title>The RhoGAP domain-containing protein, Porf-2, inhibits proliferation and enhances apoptosis in neural stem cells.</article-title>
+<source><italic>Mol. Cell. Neurosci.</italic></source>
+<volume>46</volume>
+<fpage>573</fpage>&#x2013;<lpage>582</lpage>. <pub-id pub-id-type="doi">10.1016/j.mcn.2010.12.008</pub-id><pub-id pub-id-type="pmid">21185940</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Magnitsky</surname><given-names>S.</given-names></name><name><surname>Walton</surname><given-names>R. M.</given-names></name><name><surname>Wolfe</surname><given-names>J. H.</given-names></name><name><surname>Poptani</surname><given-names>H.</given-names></name></person-group> (<year>2008</year>). <article-title>Magnetic resonance imaging detects differences in migration between primary and immortalized neural stem cells.</article-title>
+<source><italic>Acad. Radiol.</italic></source>
+<volume>15</volume>
+<fpage>1269</fpage>&#x2013;<lpage>1281</lpage>. <pub-id pub-id-type="doi">10.1016/j.acra.2008.05.003</pub-id><pub-id pub-id-type="pmid">18790399</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Martinez-Serrano</surname><given-names>A.</given-names></name><name><surname>Bjorklund</surname><given-names>A.</given-names></name></person-group> (<year>1997</year>). <article-title>Immortalized neural progenitor cells for CNS gene transfer and repair.</article-title>
+<source><italic>Trends Neurosci.</italic></source>
+<volume>20</volume>
+<fpage>530</fpage>&#x2013;<lpage>538</lpage>. <pub-id pub-id-type="doi">10.1016/S0166-2236(97)01119-3</pub-id><pub-id pub-id-type="pmid">9364668</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Meng</surname><given-names>S.</given-names></name><name><surname>Su</surname><given-names>Z.</given-names></name><name><surname>Liu</surname><given-names>Z.</given-names></name><name><surname>Wang</surname><given-names>N.</given-names></name><name><surname>Wang</surname><given-names>Z.</given-names></name></person-group> (<year>2015</year>). <article-title>Rac1 contributes to cerebral ischemia reperfusion-induced injury in mice by regulation of Notch2.</article-title>
+<source><italic>Neuroscience</italic></source>
+<volume>306</volume>
+<fpage>100</fpage>&#x2013;<lpage>114</lpage>. <pub-id pub-id-type="doi">10.1016/j.neuroscience.2015.08.014</pub-id><pub-id pub-id-type="pmid">26299339</pub-id></mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mi</surname><given-names>R.</given-names></name><name><surname>Luo</surname><given-names>Y.</given-names></name><name><surname>Cai</surname><given-names>J.</given-names></name><name><surname>Limke</surname><given-names>T. L.</given-names></name><name><surname>Rao</surname><given-names>M. S.</given-names></name><name><surname>Hoke</surname><given-names>A.</given-names></name></person-group> (<year>2005</year>). <article-title>Immortalized neural stem cells differ from nonimmortalized cortical neurospheres and cerebellar granule cell progenitors.</article-title>
+<source><italic>Exp. Neurol.</italic></source>
+<volume>194</volume>
+<fpage>301</fpage>&#x2013;<lpage>319</lpage>. <pub-id pub-id-type="doi">10.1016/j.expneurol.2004.07.011</pub-id><pub-id pub-id-type="pmid">16022860</pub-id></mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ming</surname><given-names>G. L.</given-names></name><name><surname>Song</surname><given-names>H.</given-names></name></person-group> (<year>2011</year>). <article-title>Adult neurogenesis in the mammalian brain: significant answers and significant questions.</article-title>
+<source><italic>Neuron</italic></source>
+<volume>70</volume>
+<fpage>687</fpage>&#x2013;<lpage>702</lpage>. <pub-id pub-id-type="doi">10.1016/j.neuron.2011.05.001</pub-id><pub-id pub-id-type="pmid">21609825</pub-id></mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Muller</surname><given-names>F. J.</given-names></name><name><surname>Snyder</surname><given-names>E. Y.</given-names></name><name><surname>Loring</surname><given-names>J. F.</given-names></name></person-group> (<year>2006</year>). <article-title>Gene therapy: can neural stem cells deliver?</article-title>
+<source><italic>Nat. Rev. Neurosci.</italic></source>
+<volume>7</volume>
+<fpage>75</fpage>&#x2013;<lpage>84</lpage>. <pub-id pub-id-type="doi">10.1038/nrn1829</pub-id><pub-id pub-id-type="pmid">16371952</pub-id></mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nishida</surname><given-names>A.</given-names></name><name><surname>Takahashi</surname><given-names>M.</given-names></name><name><surname>Tanihara</surname><given-names>H.</given-names></name><name><surname>Nakano</surname><given-names>I.</given-names></name><name><surname>Takahashi</surname><given-names>J. B.</given-names></name><name><surname>Mizoguchi</surname><given-names>A.</given-names></name><etal/></person-group> (<year>2000</year>). <article-title>Incorporation and differentiation of hippocampus-derived neural stem cells transplanted in injured adult rat retina.</article-title>
+<source><italic>Invest. Ophthalmol. Vis. Sci.</italic></source>
+<volume>41</volume>
+<fpage>4268</fpage>&#x2013;<lpage>4274</lpage>.<pub-id pub-id-type="pmid">11095625</pub-id></mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nowak</surname><given-names>F. V.</given-names></name></person-group> (<year>1990</year>). <article-title>Cloning of two hypothalamic cDNAs encoding tissue-specific transcripts in the preoptic area and testis.</article-title>
+<source><italic>Mol. Endocrinol.</italic></source>
+<volume>4</volume>
+<fpage>1205</fpage>&#x2013;<lpage>1210</lpage>. <pub-id pub-id-type="doi">10.1210/mend-4-8-1205</pub-id><pub-id pub-id-type="pmid">2293025</pub-id></mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nowak</surname><given-names>F. V.</given-names></name></person-group> (<year>2003</year>). <article-title>Expression and characterization of the preoptic regulatory factor-1 and -2 peptides.</article-title>
+<source><italic>Regul. Pept.</italic></source>
+<volume>115</volume>
+<fpage>179</fpage>&#x2013;<lpage>185</lpage>. <pub-id pub-id-type="doi">10.1016/S0167-0115(03)00174-5</pub-id><pub-id pub-id-type="pmid">14556959</pub-id></mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nowak</surname><given-names>F. V.</given-names></name><name><surname>Gore</surname><given-names>A. C.</given-names></name></person-group> (<year>1999</year>). <article-title>Perinatal developmental changes in expression of the neuropeptide genes preoptic regulatory factor-1 and factor-2, neuropeptide Y and GnRH in rat hypothalamus.</article-title>
+<source><italic>J. Neuroendocrinol.</italic></source>
+<volume>11</volume>
+<fpage>951</fpage>&#x2013;<lpage>958</lpage>. <pub-id pub-id-type="doi">10.1046/j.1365-2826.1999.00412.x</pub-id><pub-id pub-id-type="pmid">10583730</pub-id></mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Quigley</surname><given-names>H. A.</given-names></name><name><surname>Nickells</surname><given-names>R. W.</given-names></name><name><surname>Kerrigan</surname><given-names>L. A.</given-names></name><name><surname>Pease</surname><given-names>M. E.</given-names></name><name><surname>Thibault</surname><given-names>D. J.</given-names></name><name><surname>Zack</surname><given-names>D. J.</given-names></name></person-group> (<year>1995</year>). <article-title>Retinal ganglion cell death in experimental glaucoma and after axotomy occurs by apoptosis.</article-title>
+<source><italic>Invest. Ophthalmol. Vis. Sci.</italic></source>
+<volume>36</volume>
+<fpage>774</fpage>&#x2013;<lpage>786</lpage>.<pub-id pub-id-type="pmid">7706025</pub-id></mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schmitz</surname><given-names>A. A.</given-names></name><name><surname>Govek</surname><given-names>E. E.</given-names></name><name><surname>Bottner</surname><given-names>B.</given-names></name><name><surname>Van Aelst</surname><given-names>L.</given-names></name></person-group> (<year>2000</year>). <article-title>Rho GTPases: signaling, migration, and invasion.</article-title>
+<source><italic>Exp. Cell Res.</italic></source>
+<volume>261</volume>
+<fpage>1</fpage>&#x2013;<lpage>12</lpage>. <pub-id pub-id-type="doi">10.1006/excr.2000.5049</pub-id><pub-id pub-id-type="pmid">11082269</pub-id></mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tiwari</surname><given-names>S. K.</given-names></name><name><surname>Agarwal</surname><given-names>S.</given-names></name><name><surname>Seth</surname><given-names>B.</given-names></name><name><surname>Yadav</surname><given-names>A.</given-names></name><name><surname>Nair</surname><given-names>S.</given-names></name><name><surname>Bhatnagar</surname><given-names>P.</given-names></name><etal/></person-group> (<year>2014</year>). <article-title>Curcumin-loaded nanoparticles potently induce adult neurogenesis and reverse cognitive deficits in Alzheimer&#x2019;s disease model via canonical Wnt/beta-catenin pathway.</article-title>
+<source><italic>ACS Nano</italic></source>
+<volume>8</volume>
+<fpage>76</fpage>&#x2013;<lpage>103</lpage>. <pub-id pub-id-type="doi">10.1021/nn405077y</pub-id><pub-id pub-id-type="pmid">24467380</pub-id></mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wu</surname><given-names>X.</given-names></name><name><surname>Tu</surname><given-names>X.</given-names></name><name><surname>Joeng</surname><given-names>K. S.</given-names></name><name><surname>Hilton</surname><given-names>M. J.</given-names></name><name><surname>Williams</surname><given-names>D. A.</given-names></name><name><surname>Long</surname><given-names>F.</given-names></name></person-group> (<year>2008</year>). <article-title>Rac1 activation controls nuclear localization of beta-catenin during canonical Wnt signaling.</article-title>
+<source><italic>Cell</italic></source>
+<volume>133</volume>
+<fpage>340</fpage>&#x2013;<lpage>353</lpage>. <pub-id pub-id-type="doi">10.1016/j.cell.2008.01.052</pub-id><pub-id pub-id-type="pmid">18423204</pub-id></mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yang</surname><given-names>X. T.</given-names></name><name><surname>Bi</surname><given-names>Y. Y.</given-names></name><name><surname>Chen</surname><given-names>E. T.</given-names></name><name><surname>Feng</surname><given-names>D. F.</given-names></name></person-group> (<year>2014</year>). <article-title>Overexpression of Wnt3a facilitates the proliferation and neural differentiation of neural stem cells in vitro and after transplantation into an injured rat retina.</article-title>
+<source><italic>J. Neurosci. Res.</italic></source>
+<volume>92</volume>
+<fpage>148</fpage>&#x2013;<lpage>161</lpage>. <pub-id pub-id-type="doi">10.1002/jnr.23314</pub-id><pub-id pub-id-type="pmid">24254835</pub-id></mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>L.</given-names></name><name><surname>Yang</surname><given-names>X.</given-names></name><name><surname>Yang</surname><given-names>S.</given-names></name><name><surname>Zhang</surname><given-names>J.</given-names></name></person-group> (<year>2011</year>). <article-title>The Wnt /beta-catenin signaling pathway in the adult neurogenesis.</article-title>
+<source><italic>Eur. J. Neurosci.</italic></source>
+<volume>33</volume>
+<fpage>1</fpage>&#x2013;<lpage>8</lpage>. <pub-id pub-id-type="doi">10.1111/j.1460-9568.2010.7483.x</pub-id><pub-id pub-id-type="pmid">21073552</pub-id></mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhou</surname><given-names>X. M.</given-names></name><name><surname>Sun</surname><given-names>J. B.</given-names></name><name><surname>Yuan</surname><given-names>H. P.</given-names></name><name><surname>Wu</surname><given-names>D. L.</given-names></name><name><surname>Zhou</surname><given-names>X. R.</given-names></name><name><surname>Sun</surname><given-names>D. W.</given-names></name><etal/></person-group> (<year>2009</year>). <article-title>A rat model for studying neural stem cell transplantation.</article-title>
+<source><italic>Acta Pharmacol. Sin.</italic></source>
+<volume>30</volume>
+<fpage>1496</fpage>&#x2013;<lpage>1504</lpage>. <pub-id pub-id-type="doi">10.1038/aps.2009.151</pub-id><pub-id pub-id-type="pmid">19890357</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Biol Chem</journal-id>
+      <journal-id journal-id-type="publisher-id">jbc</journal-id>
+      <journal-title>The Journal of Biological Chemistry</journal-title>
+      <issn pub-type="ppub">0021-9258</issn>
+      <issn pub-type="epub">1083-351X</issn>
+      <publisher>
+        <publisher-name>American Society for Biochemistry and Molecular Biology</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18227068</article-id>
+      <article-id pub-id-type="pmc">2447622</article-id>
+      <article-id pub-id-type="publisher-id">10930</article-id>
+      <article-id pub-id-type="doi">10.1074/jbc.M707451200</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Protein Synthesis, Post-Translational Modification, and  Degradation</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Decreasing Intracellular Superoxide Corrects Defective Ischemia-induced
+ New Vessel Formation in Diabetic
+ Mice<xref ref-type="fn" rid="fn1">*</xref></article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ceradini</surname>
+            <given-names>Daniel J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#x2021;</xref>
+          <xref ref-type="fn" rid="fn2">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yao</surname>
+            <given-names>Dachun</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#xA7;</xref>
+          <xref ref-type="fn" rid="fn2">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Grogan</surname>
+            <given-names>Raymon H.</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#x2021;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Callaghan</surname>
+            <given-names>Matthew J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#x2021;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Edelstein</surname>
+            <given-names>Diane</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#xA7;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Brownlee</surname>
+            <given-names>Michael</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#xA7;</xref>
+          <xref ref-type="corresp" rid="cor1">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gurtner</surname>
+            <given-names>Geoffrey C.</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1d00ec0N0x1eac330">&#x2021;</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="N0x1d00ec0N0x1eac330"><label>&#x2021;</label>Department of Surgery,
+ Stanford University School of Medicine, Stanford, California 94305-5148 and
+ the <label>&#xA7;</label>JDRF International Center for
+ Diabetic Complications Research, Albert Einstein College of Medicine, Bronx,
+ New York 10461-1602</aff>
+      <author-notes>
+        <fn id="fn2">
+          <label>1</label>
+          <p>Both authors contributed equally to the work.</p>
+        </fn>
+        <fn id="cor1">
+          <label>2</label>
+          <p>
+ To whom correspondence should be addressed: F-531, 1300 Morris Park Ave.,
+ Bronx NY 10461. Tel.: 718-430-3636; Fax: 718-430-8570; E-mail:
+ <email>brownlee@aecom.yu.edu</email>.
+ </p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>18</day>
+        <month>4</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>18</day>
+        <month>4</month>
+        <year>2009</year>
+      </pub-date>
+      <!-- PMC Release delay is 12 months and 0 days and was based on the copyright element. -->
+      <volume>283</volume>
+      <issue>16</issue>
+      <fpage>10930</fpage>
+      <lpage>10938</lpage>
+      <history>
+        <date date-type="received">
+          <day>5</day>
+          <month>9</month>
+          <year>2007</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>7</day>
+          <month>1</month>
+          <year>2008</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2008, The American Society for Biochemistry and
+ Molecular Biology, Inc.</copyright-statement>
+      </permissions>
+      <self-uri xlink:title="pdf" xlink:href="zbc01608010930.pdf"/>
+      <abstract>
+        <p>Tissue ischemia promotes vasculogenesis through chemokine-induced
+ recruitment of bone marrow-derived endothelial progenitor cells (EPCs).
+ Diabetes significantly impairs this process. Because hyperglycemia increases
+ reactive oxygen species in a number of cell types, and because many of the
+ defects responsible for impaired vasculogenesis involve HIF1-regulated genes,
+ we hypothesized that HIF1 function is impaired in diabetes because of reactive
+ oxygen species-induced modification of HIF1&#x3B1; by the glyoxalase 1 (GLO1)
+ substrate methylglyoxal. Decreasing superoxide in diabetic mice by either
+ transgenic expression of manganese superoxide dismutase or by administration
+ of an superoxide dismutase mimetic corrected post-ischemic defects in
+ neovascularization, oxygen delivery, and chemokine expression, and normalized
+ tissue survival. In hypoxic fibroblasts cultured in high glucose,
+ overexpression of GLO1 prevented reduced expression of both the EPC mobilizing
+ chemokine stromal cell-derived factor-1 (SDF-1) and of vascular epidermal
+ growth factor, which modulates growth and differentiation of recruited EPCs.
+ In hypoxic EPCs cultured in high glucose, overexpression of GLO1 prevented
+ reduced expression of both the SDF-1 receptor CXCR4, and endothelial
+ nitric-oxide synthase, an enzyme essential for EPC mobilization. HIF1&#x3B1;
+ modification by methylglyoxal reduced heterodimer formation and HIF1&#x3B1;
+ binding to all relevant promoters. These results provide a basis for the
+ rational design of new therapeutics to normalize impaired ischemia-induced
+ vasculogenesis in patients with diabetes.</p>
+      </abstract>
+    </article-meta>
+    <notes>
+      <fn-group>
+        <fn id="fn1">
+          <label>*</label>
+          <p>This work was supported by <grant-sponsor>NIDDK</grant-sponsor>,
+ <grant-sponsor>National Institutes of
+ Health</grant-sponsor> Grants <grant-num>R01
+ DK74153-01</grant-num> (to M. B.) and <grant-num>R01 DK74095-01</grant-num>
+ (to G. G.). The costs of publication of this article were defrayed in part by
+ the payment of page charges. This article must therefore be hereby marked
+ &#x201C;<italic>advertisement</italic>&#x201D; in accordance with 18 U.S.C. Section 1734
+ solely to indicate this fact.</p>
+        </fn>
+      </fn-group>
+    </notes>
+  </front>
+</article>
+</pmc-articleset>

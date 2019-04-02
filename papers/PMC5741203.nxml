@@ -1,0 +1,1455 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Int J Stem Cells</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Int J Stem Cells</journal-id>
+      <journal-id journal-id-type="publisher-id">IJSC</journal-id>
+      <journal-title-group>
+        <journal-title>International Journal of Stem Cells</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2005-3606</issn>
+      <issn pub-type="epub">2005-5447</issn>
+      <publisher>
+        <publisher-name>Korean Society for Stem Cell Research</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28844127</article-id>
+      <article-id pub-id-type="pmc">5741203</article-id>
+      <article-id pub-id-type="doi">10.15283/ijsc17025</article-id>
+      <article-id pub-id-type="publisher-id">ijsc-10-227</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Brief Report</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Direct Conversion of Human Umbilical Cord Blood into Induced Neural Stem Cells with SOX2 and HMGA2</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Jae-Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+          <xref rid="fn1-ijsc-10-227" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shin</surname>
+            <given-names>Ji-Hee</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+          <xref rid="fn1-ijsc-10-227" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yu</surname>
+            <given-names>Kyung-Rok</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+          <xref ref-type="aff" rid="af3-ijsc-10-227">3</xref>
+          <xref rid="fn1-ijsc-10-227" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Byung-Chul</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kang</surname>
+            <given-names>Insung</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Jin Young</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Da-Hyun</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Seo</surname>
+            <given-names>Yoojin</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-ijsc-10-227">4</xref>
+          <xref ref-type="aff" rid="af5-ijsc-10-227">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Hyung-Sik</given-names>
+          </name>
+          <xref ref-type="aff" rid="af4-ijsc-10-227">4</xref>
+          <xref ref-type="aff" rid="af5-ijsc-10-227">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Choi</surname>
+            <given-names>Soon Won</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kang</surname>
+            <given-names>Kyung-Sun</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijsc-10-227">1</xref>
+          <xref ref-type="aff" rid="af2-ijsc-10-227">2</xref>
+          <xref ref-type="corresp" rid="c1-ijsc-10-227"/>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-ijsc-10-227">
+<label>1</label>Adult Stem Cell Research Center, College of Veterinary Medicine, Seoul National University, Seoul, 
+<country>Korea</country></aff>
+      <aff id="af2-ijsc-10-227">
+<label>2</label>The Research Institute for Veterinary Science, College of Veterinary Medicine, Seoul National University, Seoul, 
+<country>Korea</country></aff>
+      <aff id="af3-ijsc-10-227">
+<label>3</label>Hematology Branch, National Heart, Lung and Blood Institute, National Institutes of Health, Bethesda, 
+<country>USA</country></aff>
+      <aff id="af4-ijsc-10-227">
+<label>4</label>School of Medicine, Pusan National University, Busan, 
+<country>Korea</country></aff>
+      <aff id="af5-ijsc-10-227">
+<label>5</label>Biomedical Research Institute, Pusan National University Hospital, Busan, 
+<country>Korea</country></aff>
+      <author-notes>
+        <corresp id="c1-ijsc-10-227">Correspondence to <bold>Kyung-Sun Kang</bold>, Adult Stem Cell Research Center, College of Veterinary Medicine, Seoul National University, 1 Gwanak-ro, Gwanak-gu, Seoul 08826, Korea, Tel: +82-2-880-1246, Fax: +82-2-876-7610, E-mail: <email>kangpub@snu.ac.kr</email></corresp>
+        <fn id="fn1-ijsc-10-227">
+          <label>*</label>
+          <p>These authors contributed equally to this work.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>10</volume>
+      <issue>2</issue>
+      <fpage>227</fpage>
+      <lpage>234</lpage>
+      <history>
+        <date date-type="accepted">
+          <day>29</day>
+          <month>7</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9;2017, Korean Society for Stem Cell Research</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <license>
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link>), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Recent advances have shown the direct reprogramming of mouse and human fibroblasts into induced neural stem cells (iNSCs) without passing through an intermediate pluripotent state. Thus, direct reprogramming strategy possibly provides a safe and homogeneous cellular platform. However, the applications of iNSCs for regenerative medicine are limited by the restricted availability of cell sources. Human umbilical cord blood (hUCB) cells hold great potential in that immunotyped hUCB units can be immediately obtained from public banks. Moreover, hUCB samples do not require invasive procedures during collection or an extensive culture period prior to reprogramming. We recently reported that somatic cells can be directly converted into iNSCs with high efficiency and a short turnaround time. Here, we describe the detailed method for the generation of iNSCs derived from hUCB (hUCB iNSCs) using the lineage-specific transcription factors SOX2 and HMGA2. The protocol for deriving iNSC-like colonies takes 1~2 weeks and establishment of homogenous hUCB iNSCs takes additional 2 weeks. Established hUCB iNSCs are clonally expandable and multipotent producing neurons and glia. Our study provides an accessible method for generating hUCB iNSCs, contributing development of <italic>in vitro</italic> neuropathological model systems.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Human umbilical cord blood</kwd>
+        <kwd>Induced neural stem cells</kwd>
+        <kwd>Reprogramming</kwd>
+        <kwd>Direct conversion</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>The advances in direct lineage conversion technology have facilitated the obtaining of diverse somatic cell types for regenerative medicine (<xref rid="b1-ijsc-10-227" ref-type="bibr">1</xref>). Bypassing the pluripotent state, this technology could resolve the limitations of directed differentiation strategies using induced pluripotent stem cells (iPSCs). Several studies have reported that direct conversions into terminally committed cells such as neurons (<xref rid="b2-ijsc-10-227" ref-type="bibr">2</xref>), hepatocytes (<xref rid="b3-ijsc-10-227" ref-type="bibr">3</xref>) and cardiomyocytes (<xref rid="b4-ijsc-10-227" ref-type="bibr">4</xref>) could complement the long-term differentiation and teratoma formation issues of iPSCs. However, these cell types inherently limit therapeutic applications because they are unable to proliferate. Thus, transdifferentiation into specific adult stem or progenitor cells has proven to be advantageous for scalability and biomedical applications. Using this strategy, hepatic stem cells (<xref rid="b5-ijsc-10-227" ref-type="bibr">5</xref>), hematopoietic progenitor cells (<xref rid="b6-ijsc-10-227" ref-type="bibr">6</xref>), oligodendrocyte progenitor cells (<xref rid="b7-ijsc-10-227" ref-type="bibr">7</xref>) and neural stem cells (<xref rid="b8-ijsc-10-227" ref-type="bibr">8</xref>, <xref rid="b9-ijsc-10-227" ref-type="bibr">9</xref>) have been successfully induced from mouse and human somatic cells.</p>
+      <p>Previous studies have revealed that induced neural stem cells show robust capacities for unlimited proliferation and tri-lineage differentiation (<xref rid="b9-ijsc-10-227" ref-type="bibr">9</xref>, <xref rid="b10-ijsc-10-227" ref-type="bibr">10</xref>). Additionally, when transplanted into mouse brain, the cells differentiated into neurons and glial cells, potentiating diverse <italic>in vivo</italic> applications. However, to date, the methods for generating iNSCs have met with limited success because of the tedious and inefficient reprogramming process required. Moreover, the starting cell sources were restricted to mouse somatic cells and human fibroblasts. Therefore, strategies for generating iNSCs from various cell sources and enhancing reprogramming efficiency are necessary.</p>
+      <p>In this context, human umbilical cord blood (hUCB) cells are an attractive alternative for use in reprogramming. The initial attempt, reported in 2009, demonstrated that hUCB cells are more amenable than other adult somatic cells for reprogramming into iPSCs (<xref rid="b11-ijsc-10-227" ref-type="bibr">11</xref>). Moreover, the main advantages of hUCB are non-invasiveness for patients during acquirement and immediate availability with worldwide public bank (<xref rid="b12-ijsc-10-227" ref-type="bibr">12</xref>). Additionally, these cells are in the immunologically na&#xEF;ve state, containing minimal genetic mutations compared with developmentally distinct cell types such as fibroblasts. Based on these characteristics, hUCB may be an attractive cell source for the generation of clinical-grade iNSCs.</p>
+      <p>Recently, Lee et al. reported that hUCB cells can be readily utilized for OCT4-mediated reprogramming into neural stem cells (<xref rid="b13-ijsc-10-227" ref-type="bibr">13</xref>). Up to date, however, the detailed method for direct generation of SOX2-mediated iNSCs with hUCB cells has not been reported. We have previously reported that somatic cells can be directly converted into iNSCs with exogenous SOX2 and HMGA2 (<xref rid="b14-ijsc-10-227" ref-type="bibr">14</xref>). Here, we presented SOX2-induced direct conversion method to reproducibly generate iNSCs from hUCB-derived CD34<sup>+</sup> cells without passing through pluripotent state. We also demonstrate that hUCB iNSCs have self-renewal and tripotent differentiation capacity.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and Methods</title>
+      <sec>
+        <title>Human Umbilical cord blood CD34+ cell isolation and cell culture</title>
+        <p>Mononuclear cells (MNCs) were harvested from hUCB using Lymphoprep (Stem Cell Technologies) density-gradient centrifugation. The isolation and research protocols were approved by the Boramae Hospital Institutional Review Board (IRB) and the IRB of Seoul National University (1109/001-006). Isolated mononuclear cells were subject to magnetic bead selection for purification of CD34<sup>+</sup> cells using a CD34 microbeads kit (Miltenyl Biotec) following the manufacturer&#x2019;s instructions. The purity of the isolated cells was assessed through flow cytometry. hUCB CD34<sup>+</sup> cells were maintained in Iscove&#x2019;s modified Dulbecco&#x2019;s medium supplemented with 10% fetal bovine serum, 50 ng/ml SCF, 100 ng/ml Flt3L, 50 ng/ml TPO and 20 ng/ml IL-6 before infection. All cytokines were purchased from R&amp;D Systems.</p>
+      </sec>
+      <sec>
+        <title>Flow cytometry analysis</title>
+        <p>The cells were washed with PBS, incubated with anti-CD34-FITC antibody (BD Biosciences) for 30 min at 4&#xB0;C. After washing, cells were resuspended in 500 <italic>&#x3BC;</italic>l of PBS and analyzed using FACSCalibur (BD Biosciences).</p>
+      </sec>
+      <sec>
+        <title>Virus infection and neural stem cell culture</title>
+        <p>Viral production and infection were performed as previously described (<xref rid="b13-ijsc-10-227" ref-type="bibr">13</xref>). The retroviral pMX-SOX2 and pMX-HMGA2 vectors were packaged in HEK293 FT cells (Invitrogen) using FuGENE 6 (Roche). hUCB CD34<sup>+</sup> cells were infected with retroviruses for 2 rounds in the hematopoietic cells growth medium. With day 0 designated as the time of first infection, the medium was changed to ReNcell NSC maintenance media (Millipore) containing 20 ng/ml bFGF and 20 ng/ml EGF on day 3. All cytokines were purchased from R&amp;D Systems. As positive control for human neural stem cells, H9 hESC-derived NSCs (H9-NSCs, Invitrogen) were cultured using the ReNcell media.</p>
+      </sec>
+      <sec>
+        <title>Immunocytochemistry</title>
+        <p>Cells were fixed in 4% paraformaldehyde (PFA, in PBS) for 20 min at room temperature, permeabilized with 0.25% Triton X-100 for 10 minutes, incubated with 5% normal goat serum for 1 hour and incubated with primary antibodies overnight at 4&#xB0;C. Subsequently, the cells were incubated with secondary Alexa 488- or 594-labeled antibodies (Invitrogen) for 1 hour at room temperature. The nuclei were counter-stained with 4&#x2032;,6-diamidino-2-phenylindole (DAPI) for 5 minutes. The images were taken using a confocal microscope (Eclipse TE200, Nikon). The details about primary antibodies are listed in <xref rid="t1-ijsc-10-227" ref-type="table">Table 1</xref>.</p>
+      </sec>
+      <sec>
+        <title>Quantitative reverse transcription-PCR (qRT-PCR)</title>
+        <p>Total RNA was extracted using TRIzol reagent according to the manufacturer&#x2019;s instructions. cDNA was synthesized by reverse transcription using the Superscript III First-Strand Synthesis System (Invitrogen). qPCR was performed using the SYBR Green PCR Master Mix (Applied Biosystems). The following primers were used: SOX2 (F: AGTCTCCAAGCGACGAAAAA, R: TTTCACGTTTGCAACTGTCC), PAX6 (F: CAGCTCGGTGGTGTCTTTG, R: AGTCGCTACTCTCGGTTTA), NESTIN (F: AACAGCGACGGAGGTCTCTA, R: TTCTCTTGTCCCGCAGACTT), GLAST (F: CTCACAGTCACCGCTGTCAT, R: ACTATCTAGCGCCGCCATTC), OLIG2 (F: CCGATGACCTTTTTCTGCCG, R: CCACTGCCTCCTAGCTTGTC), OCT4 (F: GACAGGGGGAGGGGAGGAGCTAGG, R: CTTCCCTCCAACCAGTTGCCCCAAAC), NANOG (F: AATAACCTTGGCTGCCGTCTC, R: AGCCTCCCAATCCCAAACAAT).</p>
+      </sec>
+      <sec>
+        <title>In vitro differentiation culture</title>
+        <p>For differentiation and monolayer culture, hUCB iNSCs were seeded onto poly-L-ornithine/fibronectin (PLO/FN)-coated plates. Neural differentiation medium consisted of DMEM/F12 and Neurobasal medium (1:1), 2 mM GlutaMAX, 1% Penicillin-streptomycin, 1 <italic>&#x3BC;</italic>M Retinoic acid, 20 ng/ml BDNF, 20 ng/ml GDNF, 200 <italic>&#x3BC;</italic>M Ascorbic acid, and 5 <italic>&#x3BC;</italic>M Forskolin. For oligodendrocyte differentiation, cells were cultured in induction medium #1 which consists of DMEM/F12, 1% N2, 100&#xD7; MEM-NEAA, 1 <italic>&#x3BC;</italic>M Retinoic acid, 2 <italic>&#x3BC;</italic>M purmorphamine, 2 mM GlutaMAX and 10 ng/ml bFGF for 1 week. Subsequently, induction medium #2 containing DMEM/F12, 0.5&#xD7; N2, 2% B27, 100&#xD7; MEM-NEAA, 30 ng/ml T3, 1 mM cAMP, 2 <italic>&#x3BC;</italic>M purmorphamine, 20 ng/ml PDGF, 100 ng/ml IGF, and 10 ng/ml NT3 was used for 2 weeks. For astrocyte differentiation, EGF and bFGF were removed from NSC maintenance medium and 1% FBS was added.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>Derivation of iNSC-like colonies from hUCB CD34<sup>+</sup> cells</title>
+        <p>In order to generate iNSCs from hUCB, we first attempted to isolate MNCs from hUCB (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1A</xref>). As HetaSep sediments red blood cells (RBCs) by aggregation, HetaSep solution was mixed with hUCB samples at the ratio of 1:5. Subsequently, we applied Lymphoprep density gradient method to culture MNCs. After centrifugation, MNCs in between upper plasma and bottom Lymphoprep layers were harvested (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1B</xref>). We used typical magnetic bead for positive selection of CD34<sup>+</sup> cells from MNCs and purified cells were maintained in hematopoietic stem cells growth medium for 3 days (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1C</xref>). At day 1 of derivation, the purity was approximately 85~90% (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1D</xref>). The conversion process was induced by two rounds of transduction of retroviral SOX2 and HMGA2 into hUCB CD34<sup>+</sup> cells. We supplemented cytokines (SCF, Flt3L, TPO, and IL-6) in virus-containing medium to activate the proliferation of the population of hematopoietic stem cells, as retrovirus are transduced only into dividing cells. After the transduction, cells were cultured in IMDM with the cytokines for 24 h to further stimulate the proliferation. To re-plate suspended hUCB CD34<sup>+</sup> cells on feeder cells, we inactivated STO cells with mitomycin C and seeded them on gelatin-coated plates following a conventional feeder-dependent iPSC generation protocol (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1E</xref>). After 1 day, the medium was replaced with hNSC medium and replenished every day until iNSC-like colonies appear. We have found that although colonies appear as early as in 7 days, it is better to sustain the proliferation of colonies for more than 14 days for the ease of the colony-picking step (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1F and 1G</xref>). Finally, iNSC colonies were picked in small pieces using a pasture pipette and transferred to non-coated plates for homogeneous culture of neurospheres.</p>
+      </sec>
+      <sec>
+        <title>Clonal expansion and characterization of hUCB iNSCs</title>
+        <p>In order to determine whether the hUCB iNSCs have clonal expansion properties like human neural stem cells, we attempted to sub-culture neurospheres derived from hUCB iNSC colonies. The neurospheres derived from initial iNSC-like colonies were transferred on PLO/FN-coated plates for monolayer culture (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1H</xref>). When the cells reached 80~90% confluence, they were detached using Accutase, and the neurosphere culture step was repeated at least three times for the establishment of homogeneous hUCB iNSC lines (<xref rid="f1-ijsc-10-227" ref-type="fig">Fig. 1I</xref>).</p>
+        <p>After passage 6, we briefly performed immunostaining with neural stem cell markers, PAX6 and NESTIN, for the selection of fully converted hUCB iNSCs. We have found that hUCB iNSC lines have different characteristics depending on their original colonies and that some cell lines show weak expression of neural stem cell markers. Upon passaging, immunostaining and qRT-PCR for diverse neural stem cell markers were performed, and activation of endogenous genes was confirmed before proceeding into further experiments. As shown in <xref rid="f2-ijsc-10-227" ref-type="fig">Fig. 2A</xref>, hUCB iNSCs prominently expressed neural stem cell-specific markers, including SOX2, NESTIN, and PAX6. Furthermore, hUCB iNSCs were immunoreactive for proliferation marker Ki67. qRT-PCR analysis showed that both two cell lines (hUCB iNSC #7 and hUCB iNSC #8) expressed endogenous NSC markers; <italic>SOX2</italic>, <italic>NESTIN</italic>, <italic>GLAST</italic>, <italic>BLBP</italic>, <italic>PAX6</italic>, and <italic>OLIG2</italic> (<xref rid="f2-ijsc-10-227" ref-type="fig">Fig. 2B</xref>). The expression levels of NSC markers were indistinguishable from H9-NSCs, suggesting that hUCB iNSCs were properly reprogrammed. Subsequently, we investigated whether the established hUCB iNSCs express pluripotent cell markers. qRT-PCR results showed that <italic>OCT4</italic> and <italic>NANOG</italic> were not expressed in hUCB-iNSCs, suggesting that pluripotent cells are not contained in hUCB-iNSCs (<xref rid="f2-ijsc-10-227" ref-type="fig">Fig. 2C</xref>).</p>
+      </sec>
+      <sec>
+        <title>hUCB iNSCs differentiate into tri-lineages</title>
+        <p>To verify that the hUCB iNSCs were capable of differentiating into neurons, astrocytes and oligodendrocytes <italic>in vitro</italic>, we plated the cells onto PLO/FN-coated coverslips in 24 well culture plate. Withdrawal of bFGF and EGF and change into tri-lineage differentiation medium induced the differentiation of iNSCs. Accordingly, the culturing of hUCB iNSCs in neuronal differentiation media supported the generation of neurons, which expressed neuron-specific marker Neurofilament (NF) (<xref rid="f3-ijsc-10-227" ref-type="fig">Fig. 3A</xref>). Moreover, exposure of hUCB iNSCs to astrocyte differentiation media resulted in the formation of astrocytes that expressed GFAP (<xref rid="f3-ijsc-10-227" ref-type="fig">Fig. 3B</xref>). In addition, hUCB iNSCs could differentiate into O4- and OLIG2-positive oligodendrocytes (<xref rid="f3-ijsc-10-227" ref-type="fig">Fig. 3C</xref>). Thus, hUCB iNSCs are tripotent and can generate neurons, astrocytes, and oligodendrocytes <italic>in vitro</italic>.</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Our study shows that hUCB CD34<sup>+</sup> cells can be robustly reprogrammed into iNSCs without pluripotency factors. These reprogrammed hUCB iNSCs are capable of clonal expansion and differentiation into tri-lineages.</p>
+      <p>Recently, several groups have reported methods for converting fibroblasts into iNSCs by the overexpression of pluripotency-associated factors under proper signaling environments (<xref rid="b9-ijsc-10-227" ref-type="bibr">9</xref>, <xref rid="b15-ijsc-10-227" ref-type="bibr">15</xref>). However, such methods cannot eliminate the potential for passing cells through an intermediate pluripotent state during reprogramming, raising concerns for tumorigenesis even after establishment of iNSCs (<xref rid="b16-ijsc-10-227" ref-type="bibr">16</xref>). In addition, a recent study reported that iNSCs generated using pluripotency factors show relatively high chromosomal instability (<xref rid="b17-ijsc-10-227" ref-type="bibr">17</xref>).</p>
+      <p>On the other hand, Lujan et al. reported the direct conversion into iNSCs using lineage-specific transcription factors (<xref rid="b18-ijsc-10-227" ref-type="bibr">18</xref>). In this method, expandable and multipotent iNSCs were generated from mouse somatic cells. However, this conversion method was limited by the requirement of multiple transcription factors and by very low efficiency. Subsequently, an advanced method was reported, transducing only the transcription factor SOX2 to convert mouse embryonic fibroblasts (MEFs) and human fetal foreskin fibroblasts (HFFs) into functional iNSCs (<xref rid="b10-ijsc-10-227" ref-type="bibr">10</xref>). The conversion efficiency was improved, reaching 0.96% with MEFs when cultured on glass coverslips coated with poly-L-ornithine and laminin. However, this method was limited for its application to scalable experiments because seeding cells on glass coverslips was indispensable for inducing neural morphologies. Moreover, the conversion efficiency of HFFs described in this report remains unclear. The difficulty of obtaining human fetal skin biopsies could hinder further therapeutic applications.</p>
+      <p>In comparison with the outlined reports, we have broadened the cell sources to hUCB, which requires no invasive procedure and extensive culture prior to reprogramming. Moreover, we applied direct lineage conversion method which lacks the risk of tumorigenicity and we confirmed hUCB iNSCs lack expression of pluripotent markers.</p>
+      <p>However, our technology is accompanied by a weakness in the application for cell replacement therapy. We utilized retroviral vectors, which possess drawbacks such as genomic insertion and residual expression of transgenes. Therefore, the development of safer and efficient gene delivery methods is required for further clinical application. Recently, iPSCs were successfully generated with non-integrative gene-delivery tools such as mRNAs and proteins (<xref rid="b19-ijsc-10-227" ref-type="bibr">19</xref>, <xref rid="b20-ijsc-10-227" ref-type="bibr">20</xref>). Moreover, the direct conversion of mouse somatic cells into iNSCs has been reported using cocktails of cell-permeable small molecules (<xref rid="b21-ijsc-10-227" ref-type="bibr">21</xref>). Thus, it is expected that combinations of small molecules or non-integrative gene delivery methods will be applicable for the generation of hUCB iNSCs.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>This study was supported by &#x201C;Cooperative Research Program for Agriculture Science &amp; Technology Development (Project No. PJ01100201)&#x201D; Rural Development Administration, Republic of Korea and partially supported by the Research Institute for Veterinary Science, Seoul National University (SNU, Republic of Korea).</p>
+    </ack>
+    <fn-group>
+      <fn id="fn2-ijsc-10-227" fn-type="COI-statement">
+        <p>
+          <bold>Potential conflict of interest</bold>
+        </p>
+        <p>The authors have no conflicting financial interest.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-ijsc-10-227">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Du</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Deng</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct lineage reprogramming: strategies, mechanisms, and applications</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2015</year>
+          <volume>16</volume>
+          <fpage>119</fpage>
+          <lpage>134</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2015.01.013</pub-id>
+          <pub-id pub-id-type="pmid">25658369</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-ijsc-10-227">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vierbuchen</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ostermeier</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>ZP</given-names>
+            </name>
+            <name>
+              <surname>Kokubu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>S&#xFC;dhof</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Wernig</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct conversion of fibroblasts to functional neurons by defined factors</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+          <volume>463</volume>
+          <fpage>1035</fpage>
+          <lpage>1041</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature08797</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2829121</pub-id>-->
+          <pub-id pub-id-type="pmid">20107439</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-ijsc-10-227">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ji</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Xiang</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Hui</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Induction of functional hepatocyte-like cells from mouse fibroblasts by defined factors</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>475</volume>
+          <fpage>386</fpage>
+          <lpage>389</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature10116</pub-id>
+          <pub-id pub-id-type="pmid">21562492</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-ijsc-10-227">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ieda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Delgado-Olguin</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Vedantham</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Hayashi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Bruneau</surname>
+              <given-names>BG</given-names>
+            </name>
+            <name>
+              <surname>Srivastava</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct reprogramming of fibroblasts into functional cardiomyocytes by defined factors</article-title>
+          <source>Cell</source>
+          <year>2010</year>
+          <volume>142</volume>
+          <fpage>375</fpage>
+          <lpage>386</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2010.07.002</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2919844</pub-id>-->
+          <pub-id pub-id-type="pmid">20691899</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-ijsc-10-227">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yu</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>ZY</given-names>
+            </name>
+            <name>
+              <surname>You</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>QW</given-names>
+            </name>
+            <name>
+              <surname>Xiang</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>XW</given-names>
+            </name>
+            <name>
+              <surname>Borjigin</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Zi</surname>
+              <given-names>XY</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>JX</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>WL</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>CS</given-names>
+            </name>
+            <name>
+              <surname>Wangensteen</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Shi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hui</surname>
+              <given-names>LJ</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>YP</given-names>
+            </name>
+          </person-group>
+          <article-title>Reprogramming fibroblasts into bipotential hepatic stem cells by defined factors</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2013</year>
+          <volume>13</volume>
+          <fpage>328</fpage>
+          <lpage>340</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2013.06.017</pub-id>
+          <pub-id pub-id-type="pmid">23871605</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-ijsc-10-227">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Riddell</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gazit</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Garrison</surname>
+              <given-names>BS</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Saadatpour</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mandal</surname>
+              <given-names>PK</given-names>
+            </name>
+            <name>
+              <surname>Ebina</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Volchkov</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>Orkin</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Reprogramming committed murine blood cells to induced hematopoietic stem cells with defined factors</article-title>
+          <source>Cell</source>
+          <year>2014</year>
+          <volume>157</volume>
+          <fpage>549</fpage>
+          <lpage>564</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2014.04.006</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4060823</pub-id>-->
+          <pub-id pub-id-type="pmid">24766805</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-ijsc-10-227">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Zuchero</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Ahlenius</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Marro</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ng</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Vierbuchen</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hawkins</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Geissler</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Barres</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Wernig</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of oligodendroglial cells by direct lineage conversion</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2013</year>
+          <volume>31</volume>
+          <fpage>434</fpage>
+          <lpage>439</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.2564</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3677690</pub-id>-->
+          <pub-id pub-id-type="pmid">23584610</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-ijsc-10-227">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sheng</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>XY</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>XJ</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>Q</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct reprogramming of Sertoli cells into multipotent neural stem cells by defined factors</article-title>
+          <source>Cell Res</source>
+          <year>2012</year>
+          <volume>22</volume>
+          <fpage>208</fpage>
+          <lpage>218</lpage>
+          <pub-id pub-id-type="doi">10.1038/cr.2011.175</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3351918</pub-id>-->
+          <pub-id pub-id-type="pmid">22064700</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-ijsc-10-227">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thier</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>W&#xF6;rsd&#xF6;rfer</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lakes</surname>
+              <given-names>YB</given-names>
+            </name>
+            <name>
+              <surname>Gorris</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Herms</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Opitz</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Seiferling</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Quandel</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hoffmann</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>N&#xF6;then</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Br&#xFC;stle</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Edenhofer</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct conversion of fibroblasts into stably expandable neural stem cells</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2012</year>
+          <volume>10</volume>
+          <fpage>473</fpage>
+          <lpage>479</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2012.03.003</pub-id>
+          <pub-id pub-id-type="pmid">22445518</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-ijsc-10-227">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ring</surname>
+              <given-names>KL</given-names>
+            </name>
+            <name>
+              <surname>Tong</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>Balestra</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Javier</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Andrews-Zwilling</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Kreitzer</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct reprogramming of mouse and human fibroblasts into multipotent neural stem cells with a single factor</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2012</year>
+          <volume>11</volume>
+          <fpage>100</fpage>
+          <lpage>109</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2012.05.018</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3399516</pub-id>-->
+          <pub-id pub-id-type="pmid">22683203</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-ijsc-10-227">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Giorgetti</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Montserrat</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Aasen</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Gonzalez</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Rodr&#xED;guez-Piz&#xE0;</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Vassena</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Raya</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Bou&#xE9;</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Barrero</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Corbella</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Torrabadella</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Veiga</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Izpisua Belmonte</surname>
+              <given-names>JC</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of induced pluripotent stem cells from human cord blood using OCT4 and SOX2</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2009</year>
+          <volume>5</volume>
+          <fpage>353</fpage>
+          <lpage>357</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2009.09.008</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2779776</pub-id>-->
+          <pub-id pub-id-type="pmid">19796614</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-ijsc-10-227">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ballen</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Gluckman</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Broxmeyer</surname>
+              <given-names>HE</given-names>
+            </name>
+          </person-group>
+          <article-title>Umbilical cord blood transplantation: the first 25 years and beyond</article-title>
+          <source>Blood</source>
+          <year>2013</year>
+          <volume>122</volume>
+          <fpage>491</fpage>
+          <lpage>498</lpage>
+          <pub-id pub-id-type="doi">10.1182/blood-2013-02-453175</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3952633</pub-id>-->
+          <pub-id pub-id-type="pmid">23673863</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-ijsc-10-227">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Mitchell</surname>
+              <given-names>RR</given-names>
+            </name>
+            <name>
+              <surname>McNicol</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Shapovalova</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Laronde</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tanasijevic</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Milsom</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Casado</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Fiebig-Comyn</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Collins</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Singh</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Bhatia</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Single transcription factor conversion of human blood fate to NPCs with CNS and PNS developmental capacity</article-title>
+          <source>Cell Rep</source>
+          <year>2015</year>
+          <volume>11</volume>
+          <fpage>1367</fpage>
+          <lpage>1376</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.celrep.2015.04.056</pub-id>
+          <pub-id pub-id-type="pmid">26004181</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-ijsc-10-227">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yu</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Koog</surname>
+              <given-names>MG</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Seo</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>TH</given-names>
+            </name>
+            <name>
+              <surname>Jee</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>KS</given-names>
+            </name>
+          </person-group>
+          <article-title>Rapid and Efficient Direct Conversion of Human Adult Somatic Cells into Neural Stem Cells by HMGA2/let-7b</article-title>
+          <source>Cell Rep</source>
+          <year>2015</year>
+          <volume>10</volume>
+          <fpage>441</fpage>
+          <lpage>452</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.celrep.2014.12.038</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-ijsc-10-227">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ding</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Reprogramming fibroblasts toward cardiomyocytes, neural stem cells and hepatocytes by cell activation and signaling-directed lineage conversion</article-title>
+          <source>Nat Protoc</source>
+          <year>2015</year>
+          <volume>10</volume>
+          <fpage>959</fpage>
+          <lpage>973</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2015.059</pub-id>
+          <pub-id pub-id-type="pmid">26042385</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-ijsc-10-227">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bar-Nur</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Verheul</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Sommer</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Brumbaugh</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Lipchina</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Huebner</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Mostoslavsky</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hochedlinger</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Lineage conversion induced by pluripotency factors involves transient passage through an iPSC stage</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2015</year>
+          <volume>33</volume>
+          <fpage>761</fpage>
+          <lpage>768</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.3247</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4840929</pub-id>-->
+          <pub-id pub-id-type="pmid">26098450</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-ijsc-10-227">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Weissbein</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Ben-David</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Benvenisty</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Virtual karyotyping reveals greater chromosomal stability in neural cells derived by transdifferentiation than those from stem cells</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2014</year>
+          <volume>15</volume>
+          <fpage>687</fpage>
+          <lpage>691</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2014.10.018</pub-id>
+          <pub-id pub-id-type="pmid">25479746</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-ijsc-10-227">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lujan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Chanda</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ahlenius</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>S&#xFC;dhof</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Wernig</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct conversion of mouse fibroblasts to self-renewing, tripotent neural precursor cells</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2012</year>
+          <volume>109</volume>
+          <fpage>2527</fpage>
+          <lpage>2532</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1121003109</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3289376</pub-id>-->
+          <pub-id pub-id-type="pmid">22308465</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-ijsc-10-227">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Moon</surname>
+              <given-names>JI</given-names>
+            </name>
+            <name>
+              <surname>Chung</surname>
+              <given-names>YG</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>MY</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>BS</given-names>
+            </name>
+            <name>
+              <surname>Ko</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Cha</surname>
+              <given-names>KY</given-names>
+            </name>
+            <name>
+              <surname>Lanza</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>KS</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of human induced pluripotent stem cells by direct delivery of reprogramming proteins</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>472</fpage>
+          <lpage>476</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2009.05.005</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2705327</pub-id>-->
+          <pub-id pub-id-type="pmid">19481515</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-ijsc-10-227">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mandal</surname>
+              <given-names>PK</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Reprogramming human fibroblasts to pluripotency using modified mRNA</article-title>
+          <source>Nat Protoc</source>
+          <year>2013</year>
+          <volume>8</volume>
+          <fpage>568</fpage>
+          <lpage>582</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2013.019</pub-id>
+          <pub-id pub-id-type="pmid">23429718</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-ijsc-10-227">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Cao</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ding</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Pharmacological reprogramming of fibroblasts into neural stem cells by signaling-directed transcriptional activation</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2016</year>
+          <volume>18</volume>
+          <fpage>653</fpage>
+          <lpage>667</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2016.03.020</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4864020</pub-id>-->
+          <pub-id pub-id-type="pmid">27133794</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-ijsc-10-227" orientation="portrait" position="float">
+      <label>Fig. 1</label>
+      <caption>
+        <p>Derivation of hUCB iNSCs. (A) Schematic presentation of protocols for hUCB iNSCs generation. hUCB CD34<sup>+</sup> cells are isolated and expanded with proliferation-stimulating cytokines for 2~3 d and transduced with SOX2 and HMGA2 retrovirus. Distinct iNSC colonies appear after 7~10 d and are picked for repetitive sphere culture and monolayer culture for 10~14 d. (B) Before centrifugation, the upper layer is RBCs-reduced hUCB and the bottom layer is Lymphoprep (left). After centrifugation, a thin layer containing mononuclear cells appears between upper plasma layer and bottom Lymphoprep layer (right). (C) Phase contrast images of hUCB CD34<sup>+</sup> cells cultured with cytokines at day 0 (left) and day 3 (right). Scale bars, 200 <italic>&#x3BC;</italic>m. (D) Flow cytometric analysis of hUCB CD34<sup>+</sup> cells cultured for 1 d with cytokines. The cells were 90.88% positive for CD34. (E) Representative image of hUCB CD34<sup>+</sup> cells seeded on STO feeder cells. (F, G) Example of hUCB iNSC colonies cultured in neural stem cell inductive medium for 7 d (F) and 12 d (G). (H) Morphology of neurospheres derived from initial hUCB iNSC colonies (left) and monolayer cultured hUCB iNSCs (right). (I) Morphology of homogeneous hUCB iNSCs cultured on PLO/FN-coated plates at passage 6. Scale bars in (E, F, H, I) and (G) are 250 <italic>&#x3BC;</italic>m and 100 <italic>&#x3BC;</italic>m, respectively.</p>
+      </caption>
+      <graphic xlink:href="ijsc-10-227f1"/>
+    </fig>
+    <fig id="f2-ijsc-10-227" orientation="portrait" position="float">
+      <label>Fig. 2</label>
+      <caption>
+        <p>Characterization of hUCB iNSCs. (A) Immunocytochemistry analysis of NSC-specific marker proteins in hUCB iNSCs using antibodies against SOX2, PAX6, NESTIN, HMGA2, and KI67. Nuclei were counterstained with DAPI. Scale bars, 50 <italic>&#x3BC;</italic>m. (B) Relative expression levels of the neural stem cell-specific markers were measured through qRT-PCR in two lines of hUCB iNSCs and H9-NSCs. (C) Relative expression levels of the pluripotent stem cell-specific markers were measured through qRT-PCR in human embryonic stem cell (hESC), hUCB CD34+ cells, two lines of hUCB iNSCs and H9-NSCs. Error bars denote the standard deviation of triplicate reactions.</p>
+      </caption>
+      <graphic xlink:href="ijsc-10-227f2"/>
+    </fig>
+    <fig id="f3-ijsc-10-227" orientation="portrait" position="float">
+      <label>Fig. 3</label>
+      <caption>
+        <p>In vitro differentiation of hUCB iNSCs. (A~C) Immunocytochemical analysis of hUCB iNSCs after differentiation into three major cell types: neurons (NF) (A); astrocytes (GFAP) (B); and oligodendrocytes (OLIG2 and O4) (C). Scale bars, 50 <italic>&#x3BC;</italic>m.</p>
+      </caption>
+      <graphic xlink:href="ijsc-10-227f3"/>
+    </fig>
+    <table-wrap id="t1-ijsc-10-227" orientation="portrait" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Antibodies used for immunocytochemistry</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th valign="bottom" align="center" rowspan="1" colspan="1">Primary antibody</th>
+            <th valign="bottom" align="center" rowspan="1" colspan="1">Manufacturer</th>
+            <th valign="bottom" align="center" rowspan="1" colspan="1">Cat. no.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3" valign="top" align="left" rowspan="1">Induced neural stem cells</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-SOX2</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Abcam</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">ab97959</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-PAX6</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Covance</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">PRB-278P</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-HMGA2</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Abcam</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">ab52039</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-Ki67</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Abcam</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">ab15580</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-NESTIN</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Abcam</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">ab22035</td>
+          </tr>
+          <tr>
+            <td colspan="3" valign="top" align="left" rowspan="1">Neurons</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-Neurofilament</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Cell signaling</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">#2836</td>
+          </tr>
+          <tr>
+            <td colspan="3" valign="top" align="left" rowspan="1">Astrocytes</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-GFAP</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Abcam</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">ab4648</td>
+          </tr>
+          <tr>
+            <td colspan="3" valign="top" align="left" rowspan="1">Oligodendrocytes</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-O4</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Millipore</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">mab345</td>
+          </tr>
+          <tr>
+            <td valign="top" align="left" rowspan="1" colspan="1">&#x2003;Anti-OLIG2</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">Abcam</td>
+            <td valign="top" align="left" rowspan="1" colspan="1">ab81093</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

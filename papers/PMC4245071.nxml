@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101300215</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">33297</journal-id>
+      <journal-id journal-id-type="nlm-ta">Dev Neurobiol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Dev Neurobiol</journal-id>
+      <journal-title-group>
+        <journal-title>Developmental neurobiology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1932-8451</issn>
+      <issn pub-type="epub">1932-846X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21538922</article-id>
+      <article-id pub-id-type="pmc">4245071</article-id>
+      <article-id pub-id-type="doi">10.1002/dneu.20894</article-id>
+      <article-id pub-id-type="manuscript">NIHMS643836</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Visual Circuit Assembly in <italic>Drosophila</italic></article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Melnattur</surname>
+            <given-names>Krishna V.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Chi-Hon</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Section on Neuronal Connectivity, Laboratory of Gene Regulation and Development, Eunice Kennedy Shriver National Institute of Child Health and Human Development, National Institutes of Health, Bethesda, MD 20892, USA</aff>
+      <author-notes>
+        <corresp id="FN1"><label>*</label>To whom correspondence should be addressed: Chi-Hon Lee, M.D., Ph.D., Section on Neuronal Connectivity, Laboratory of Gene Regulation and Development, Eunice Kennedy Shriver National Institute of Child Health and Human Development, National Institutes of Health, Building 18T, Room 106, Bethesda, MD 20892, USA, Tel: 301-435-1940, Fax: 301-496-4491, <email>leechih@mail.nih.gov</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>21</day>
+        <month>11</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>12</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>26</day>
+        <month>11</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>71</volume>
+      <issue>12</issue>
+      <fpage>1286</fpage>
+      <lpage>1296</lpage>
+      <!--elocation-id from pubmed: 10.1002/dneu.20894-->
+      <abstract>
+        <p id="P1">Both insect and vertebrate visual circuits are organized into orderly arrays of columnar and layered synaptic units that correspond to the array of photoreceptors in the eye. Recent genetic studies in <italic>Drosophila</italic> have yielded insights into the molecular and cellular mechanisms that pattern the layers and columns and establish specific connections within the synaptic units. A sequence of inductive events and complex cellular interactions coordinates the assembly of visual circuits. Photoreceptor-derived ligands, such as hedgehog and Jelly-Belly, induce target development and expression of specific adhesion molecules, which in turn serve as guidance cues for photoreceptor axons. Afferents are directed to specific layers by adhesive afferent-target interactions mediated by leucine-rich repeat proteins and cadherins, which are restricted spatially and/or modulated dynamically. Afferents are restricted to their topographically appropriate columns by repulsive interactions between afferents and by autocrine Activin signalling. Finally, Dscam-mediated repulsive interactions between target neuron dendrites ensure appropriate combinations of post-synaptic elements at synapses. Essentially all of these <italic>Drosophila</italic> molecules have vertebrate homologs, some of which are known to carry out analogous functions. Thus, the studies of <italic>Drosophila</italic> visual circuit development would shed light on neural circuit assembly in general.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

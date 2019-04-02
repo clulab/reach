@@ -1,0 +1,3479 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Stem Cell Res Ther</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cell Res Ther</journal-id>
+      <journal-title-group>
+        <journal-title>Stem Cell Research &amp; Therapy</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1757-6512</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27852316</article-id>
+      <article-id pub-id-type="pmc">5111269</article-id>
+      <article-id pub-id-type="publisher-id">426</article-id>
+      <article-id pub-id-type="doi">10.1186/s13287-016-0426-9</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Defined three-dimensional culture conditions mediate efficient induction of definitive endoderm lineage from human umbilical cord Wharton&#x2019;s jelly mesenchymal stem cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes" equal-contrib="yes">
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-8593-3878</contrib-id>
+          <name>
+            <surname>Al Madhoun</surname>
+            <given-names>Ashraf</given-names>
+          </name>
+          <address>
+            <phone>965-2224-2999 ext. 2805</phone>
+            <email>ashraf.madhoun@dasmaninstitute.org</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Ali</surname>
+            <given-names>Hamad</given-names>
+          </name>
+          <address>
+            <email>hamad.ali@HSC.EDU.KW</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>AlKandari</surname>
+            <given-names>Sarah</given-names>
+          </name>
+          <address>
+            <email>sarah.alkandari@dasmaninstitute.org</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Atizado</surname>
+            <given-names>Valerie Lopez</given-names>
+          </name>
+          <address>
+            <email>valerie.lopez@dasmaninstitute.org</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Akhter</surname>
+            <given-names>Nadeem</given-names>
+          </name>
+          <address>
+            <email>nadeem.akhter@dasmaninstitute.org</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Al-Mulla</surname>
+            <given-names>Fahd</given-names>
+          </name>
+          <address>
+            <email>fahd@al-mulla.org</email>
+          </address>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Atari</surname>
+            <given-names>Maher</given-names>
+          </name>
+          <address>
+            <email>matari@uic.es</email>
+          </address>
+          <xref ref-type="aff" rid="Aff4">4</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label>Research Division, Dasman Diabetes Institute, 1180 Dasman, Kuwait </aff>
+        <aff id="Aff2"><label>2</label>Department of Medical Laboratory Sciences, Faculty of Allied Health Sciences, Health Sciences Center, Kuwait University, Al-Jabriya, Kuwait </aff>
+        <aff id="Aff3"><label>3</label>Department of Pathology, Molecular Pathology Unit, Faculty of Medicine, Health Sciences Center, Kuwait University, Al-Jabriya, Kuwait </aff>
+        <aff id="Aff4"><label>4</label>UIC Regenerative Medicine Research Institute, International University of Catalonia, Barcelona, Spain </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>16</day>
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>16</day>
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>7</volume>
+      <elocation-id>165</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>21</day>
+          <month>8</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>18</day>
+          <month>10</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s). 2016</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <sec>
+          <title>Background</title>
+          <p>Wharton&#x2019;s jelly-derived mesenchymal stem cells (WJ-MSCs) are gaining increasing interest as an alternative source of stem cells for regenerative medicine applications. Definitive endoderm (DE) specification is a prerequisite for the development of vital organs such as liver and pancreas. Hence, efficient induction of the DE lineage from stem cells is crucial for subsequent generation of clinically relevant cell types. Here we present a defined 3D differentiation protocol of WJ-MSCs into DE cells.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>WJ-MSCs were cultured in suspension to generate spheroids, about 1500 cells each, for 7&#xA0;days. The serum-free differentiation media contained specific growth factors, cytokines, and small molecules that specifically regulate signaling pathways including sonic hedgehog, bone morphogenetic protein, Activin/Wnt, and Notch.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>We obtained more than 85&#xA0;% DE cells as shown with FACS analysis using antibodies directed against the DE marker CXCR4. In addition, biochemical and molecular analysis of bona-fide DE markers revealed a time-course induction of Sox17, CXCR4, and FoxA2. Focused PCR-based array also indicated a specific induction into the DE lineage.</p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>In this study, we report an efficient serum-free protocol to differentiate WJ-MSCs into DE cells utilizing 3D spheroid formation. Our approach might aid in the development of new protocols to obtain DE-derivative lineages including liver-like and pancreatic insulin-producing cells.</p>
+        </sec>
+        <sec>
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:10.1186/s13287-016-0426-9) contains supplementary material, which is available to authorized users.</p>
+        </sec>
+      </abstract>
+      <kwd-group xml:lang="en">
+        <title>Keywords</title>
+        <kwd>Wharton&#x2019;s jelly</kwd>
+        <kwd>Wharton&#x2019;s jelly-derived mesenchymal stem cells</kwd>
+        <kwd>Definitive endoderm</kwd>
+        <kwd>3D</kwd>
+        <kwd>CXCR4</kwd>
+        <kwd>Sox17</kwd>
+        <kwd>Mesenchymal stromal cells</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/501100003286</institution-id>
+              <institution>Kuwait Foundation for the Advancement of Sciences</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>RA-2013-009</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Al Madhoun</surname>
+              <given-names>Ashraf</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+      </funding-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2016</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1">
+      <title>Background</title>
+      <p>Wharton&#x2019;s jelly-derived mesenchymal stem cells (WJ-MSCs) have attracted tremendous interest in recent years as a potential stem cell source for both research and therapeutic applications because they displayed a high capacity for self-renewal, multilineage differentiation, and immune-modular properties in earlier studies [<xref ref-type="bibr" rid="CR1">1</xref>&#x2013;<xref ref-type="bibr" rid="CR3">3</xref>]. This unique type of cells residing in the gelatinous insulator of blood vessels in the umbilical cord, named Wharton&#x2019;s Jelly [<xref ref-type="bibr" rid="CR4">4</xref>], have been studied extensively in the past decade and have been differentiated in vitro into a wide spectrum of cell types representing the three germ layers [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR5">5</xref>&#x2013;<xref ref-type="bibr" rid="CR7">7</xref>].</p>
+      <p>In particular, endodermic differentiation gained growing attention in the field because its derived tissues such as pancreatic and hepatic tissues are heavily affected by diseases and pathological conditions. The potential of hepatic-like and pancreatic-like cell types from stem cells holds significant potential not only for regenerative medicine applications but also for drug testing and toxicology studies. Pluripotent stem cells (PSCs) such as embryonic stem cells (ESCs) and induced pluripotent stem cells (iPSCs) have been successfully differentiated into definitive endoderm (DE) and their derived lineages following extensive in-vitro induction protocols. These protocols have been designed to guide the cells through the developmental events by mimicking the embryonic conditions from the primitive streak stage to the DE stage and its derivative&#x2019;s lineages [<xref ref-type="bibr" rid="CR8">8</xref>&#x2013;<xref ref-type="bibr" rid="CR11">11</xref>].</p>
+      <p>The endodermal potential of WJ-MSCs has not been well established to date because only limited information has been reported on their endodermal differentiation capacity. Bhandari et al. [<xref ref-type="bibr" rid="CR7">7</xref>] reported successful differentiation of WJ-MSCs into DE, pancreatic foregut, pancreatic endoderm, and &#x3B2;-cells following a 1-week differentiation protocol. Another group managed to differentiate WJ-MSCs into insulin-producing cells in vitro [<xref ref-type="bibr" rid="CR12">12</xref>]. Other groups reported the differentiation of WJ-MSCs into insulin-producing cells with islet-like morphology, using recombinant adenovirus&#x2013;<italic>PDX1</italic> gene constructs [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>]. Despite showing positive indications toward DE differentiation, these studies reported the use of animal serum and/or genetic modifications, and resulted in low differentiation capacities. Using stem cells, adherence to clinical scale standards requires genomic modification of the free cell type, and the development of highly efficient differentiation protocols free from animal products and chemically defined with detailed acknowledgment of the small molecules used to mediate differentiation.</p>
+      <p>The ability to direct WJ-MSCs efficiently to the DE lineage is a c<bold>r</bold>ucial step toward the development of downstream endodermic cells, such as hepatic or pancreatic &#x3B2;-like cells. WJ-MSCs can overcome the limitations of PSCs such as tumorigenicity, especially when considering potential clinical applications [<xref ref-type="bibr" rid="CR15">15</xref>]. In addition, WJ-MSCs possess hypoimmunogenicity that makes this cell type a good candidate for potential allogenic therapeutic usages [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>].</p>
+      <p>In this study, we present a novel three-dimensional (3D), fully defined, serum-free, stepwise differentiation protocol to generate DE from WJ-MSCs. Our 7-day culture condition utilizes the manipulation of several signaling pathways. Initially, the activation and inhibition of RA/KGF and SHH/BMP signaling, respectively, generated mesendoderm (ME) cells. The second step utilizes T3, EGF signaling induction, and the inhibition of TGF-&#x3B2;/Notch pathways to induce the DE lineage. This approach resulted in the enrichment of cells expressing DE markers by day 7. Further, our results demonstrate that WJ-MSCs can provide an excellent platform for DE generation.</p>
+    </sec>
+    <sec id="Sec2">
+      <title>Methods</title>
+      <sec id="Sec3">
+        <title>Ethical approval and procurement of human samples</title>
+        <p>The study was approved by the Ethical Review Committee at the Dasman Diabetes Institute (protocol number: RA-2013-009) in accordance with the World Medical Association Declaration of Helsinki Ethical Principles for Medical Research Involving Human Subjects and Samples. Human umbilical cord matrix Wharton&#x2019;s jelly mesenchymal stem cells (WJ-MSCs) were purchased from ATCC (PCS-500-010). We have previously characterized WJ-MSCs and showed that the cells are self-renewable, express stemness protein markers, and have multilineage differentiation properties including adipogenesis, chondrogenesis, and osteogenesis [<xref ref-type="bibr" rid="CR1">1</xref>].</p>
+      </sec>
+      <sec id="Sec4">
+        <title>WJ-MSC culture and maintenance</title>
+        <p>WJ-MSCs were maintained in DMEM/Hams&#x2019;s F-12 (1:1 vol/vol) culture medium supplemented with 10&#xA0;% MSC-qualified FBS, penicillin (100 units/ml), and streptomycin (100&#xA0;&#x3BC;g/ml). Cell culture media and supplements were purchased from Invitrogen. Cell proliferation was monitored; upon reaching 70&#xA0;% confluence, cells were detached using 0.05&#xA0;% trypsin/0.02&#xA0;% EDTA in PBS for the experimental procedure [<xref ref-type="bibr" rid="CR1">1</xref>].</p>
+      </sec>
+      <sec id="Sec5">
+        <title>3D spheroidal colony formation and differentiation assay</title>
+        <p>Differentiation into the DE lineage was performed on WJ-MSCs (P2&#x2013;P4) in triplicate, as described by Pagliuca et al. [<xref ref-type="bibr" rid="CR18">18</xref>], with major modifications to suit the developmental stage of WJ-MSCs. For RNA extractions and the time-point differentiation profile, cells were harvested as described in the prospective study (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1a</xref>) until the end of each experiment. On the first day of differentiation, subcultured WJ-MSCs (70&#xA0;% confluent) were dissociated into single cells and resuspended in Differentiation Media A. For the generation of spheroid structures, cells (1.8&#x2009;&#xD7;&#x2009;10<sup>6</sup>) were added to a well of the eight-well AggreWell Plate (Stem Cell Technologies) and incubated at 37&#xA0;&#xB0;C in a 5&#xA0;% CO<sub>2</sub> incubator [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR20">20</xref>]. Each well contained 1200 microwells, and accordingly each individual cell cluster was generated from 1500 cells. After 24&#xA0;hours, the spheroids were harvested, washed with 1&#xD7; PBS, and resuspended in fresh Differentiation Media A. The cells were then transferred into ultra-low adherence six-well plates (Corning) at a lower density, about 300&#x2013;400 cells per well, in order to avoid spheroid fusion. On day 3, the medium was changed to Differentiation Media B and the cell clusters were incubated for an extra 4&#xA0;days with media change every 2&#xA0;days (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1a</xref>).<fig id="Fig1"><label>Fig. 1</label><caption><p>Experimental protocol and 3D colony formation. <bold>a</bold> Schematic representation of the differentiation protocol including the key manipulated signaling pathways. <bold>b</bold> Phase-contrast representative microscope images (Magnification x 200) for WJ-MSCs cultured in TC plate, AggreWell, and suspension. At days 3&#x2013;7, cells formed floating clusters in suspension, whereas the control cells were detached and released from generated clusters</p></caption><graphic xlink:href="13287_2016_426_Fig1_HTML" id="MO1"/></fig>
+</p>
+        <p>The constitution of the media used in the directed differentiation was similar to that used by Vegas et al. [<xref ref-type="bibr" rid="CR21">21</xref>] with major modifications. Differentiation Media A: MCDB131 media was supplemented with 8&#xA0;mM <sc>d</sc>-(+)-glucose, 14.6&#xA0;mM NaHCO<sub>3</sub>, 1&#xA0;% fatty acid-free BSA, 2&#xA0;mM Glutamax, 1&#xA0;% Pen/Strep (Invitrogen), 1:200 ITS-X in PBS, 250&#xA0;&#x3BC;M ascorbic acid, 50&#xA0;ng/ml KGF/FGF-7 (R&amp;D Systems), 2&#xA0;&#x3BC;M retinoic acid, 0.5&#xA0;&#x3BC;M cyclopamine-KAAD (Calbiochem), 2&#xA0;&#x3BC;M LDN193189 hydrochloride (Sigma), and 0.25&#xA0;&#x3BC;M phorbol 12,13-dibutyrate (Sigma). Differentiation Media B: MCDB131 media was supplemented with 20&#xA0;mM <sc>d</sc>-(+)-glucose, 20.9&#xA0;mM NaHCO<sub>3</sub>, 1&#xA0;% fatty acid-free BSA, 2&#xA0;mM Glutamax, 1&#xA0;% Pen/Strep, 0.5&#xD7; N<sub>2</sub> supplement, 0.5&#xD7; B27 supplement without RA, 1:200 ITS-X in PBS, 250&#xA0;&#x3BC;M ascorbic acid, 2.5&#xA0;&#x3BC;g/ml heparin, 0.5&#xA0;&#x3BC;M DAPT, 0.5&#xA0;&#x3BC;M Alk5ii, 1&#xA0;&#x3BC;M triiodiothyronine NA salt, 50&#xA0;ng/ml EGF (R&amp;D Systems), 1&#xA0;&#x3BC;M LDN193189, 5&#xA0;mM nicotine amide, 50&#xA0;ng/ml Exendin-4 (R&amp;D Systems), and 50 nM phorbol 12,13-dibutyrate.</p>
+        <sec id="Sec6">
+          <title>Immunofluorescence assay</title>
+          <p>Immunofluorescence assays were performed on sectioned cell clusters differentiated into DE at days 3 and 7 using antibodies directed against the ME marker BraT and the DE markers CXCR4, FoxA2, and Sox17. The cryosection processing procedure was adopted from Gomes et al. [<xref ref-type="bibr" rid="CR22">22</xref>] with minor modifications. The harvested cell clusters were washed with 1&#xD7; PBS and fixed in 10&#xA0;% formalin solution for 30&#xA0;min at room temperature. The EBs were then rehydrated in 1&#xD7; PBS for 15&#xA0;min, followed by 30-min sequential incubation in a serial of sucrose solutions (10, 20, and 30&#xA0;% in PBS). The sucrose solution was removed and the EBs were placed on the mold. OCT was slowly added to the mold to facilitate the assembling of cell aggregates at the center of the mold. The mounted cell cluster&#x2013;OCT blocks were frozen at &#x2013;80&#xA0;&#xB0;C for further cryosectioning using Bright OTF 5000 Cyrostat (Hacker Instruments). The sectioned spheroids were mounted onto glass slides, heat dried for 10&#xA0;min to remove the OCT, and then directly used for immunofluorescence assay. For immunostaining, the slides were washed extensively with PBS and then incubated overnight with the conjugated antibodies. The slides were washed 24&#xA0;hours later with PBS and mounting buffer containing Hoechst for nuclei stain. Preconjugated anti-CXCR4 (CD184) antibody was purchased from BD Pharmingen and used to detect the DE surface marker protein. Anti-human-Sox17 and FoxA2 (BD Pharmingen) were conjugated with Alexa Fluor 592 using APEX Antibody Labeling Kits (Invitrogen) as described by the manufacturers. Fluorescent and phase-contrast images were captured using Confocal Laser-Scanning microscope (LSM 710; Zeiss) as described previously [<xref ref-type="bibr" rid="CR23">23</xref>]. Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S1 presents the list of antibodies used in the study.</p>
+        </sec>
+        <sec id="Sec7">
+          <title>RNA extraction, cDNA synthesis, and qRT-PCR reactions</title>
+          <p>Total RNA was extracted from the cells using the Total RNA purification Kit (Norgen Biotek, Canada) in accordance with the manufacturer&#x2019;s protocol. First-strand cDNA was synthesized from 50&#x2013;100&#xA0;ng RNA by reverse transcription using the QuantiTect Reverse Transcription Kit (Qiagen Inc., USA). Quantitative real-time PCR (qRT-PCR) reactions were performed as described previously [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>]. Primer pairs with equivalent efficiencies (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S2) were selected from Primer Bank [<xref ref-type="bibr" rid="CR26">26</xref>] or were designed using primer3web (<ext-link ext-link-type="uri" xlink:href="http://primer3.ut.ee/">http://primer3.ut.ee/</ext-link>) [<xref ref-type="bibr" rid="CR27">27</xref>] and primer-BLAST tools (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/tools/primer-blast/">http://www.ncbi.nlm.nih.gov/tools/primer-blast/</ext-link>) [<xref ref-type="bibr" rid="CR28">28</xref>]. qRT-PCR was performed on the ABI7900 system (Applied Biosystems, USA) using SDS software. Relative gene expression was calculated using the comparative Ct method as described previously [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>]. Results were normalized to the Geo-mean of GAPDH, beta actin, and 18S Ct values, and averages&#x2009;&#xB1;&#x2009;SEM are shown expressed relative to control or day 0 undifferentiated cells, as indicated. In order to examine the DE specification, focused PCR-based array plates (PAHS-081y; Qiagen, Biosciences) were utilized. Using SYBR Green-based qRT-PCR technology in accordance with the manufacturer&#x2019;s protocol, quantitative analysis of gene expression from differentiated day 7 WJ-MSCs were compared with their counterpart undifferentiated cells at day 0.</p>
+        </sec>
+        <sec id="Sec8">
+          <title>Flow cytometry analysis</title>
+          <p>Flow cytometric analyses were performed as described previously [<xref ref-type="bibr" rid="CR1">1</xref>]. A small fraction of undifferentiated, day 0, and DE-derived spheroids, day 7, were washed with 1&#xD7; PBS, and then enzymatically dissociated in 1&#xA0;&#x3BC;g/ml collagenase type A in a 37&#xA0;&#xB0;C incubator. The enzyme was inactivated with culture media containing 10&#xA0;% FBS, and cells were washed with 1&#xD7; PBS and suspended in FACS buffer. Single cell suspensions were passed through 50&#x2013;70&#xA0;mm cell strainers. Single cells were incubated with fluorescent-conjugated CXCR4-PE antibody, diluted in FACS buffer (1:100) for 45&#xA0;min, and then were washed three times in FACS buffer. Flow cytometry records were assembled as described previously [<xref ref-type="bibr" rid="CR1">1</xref>] using a FACS Canto Flow Cytometer device and FACS Diva (BD Biosciences) software. The excitation and emission spectra were 530&#xA0;nm and 590&#xA0;nm, respectively. The cells were scattered at SSC vs CxCR4-PE and SSC vs FSC. The background was estimated using unstained cells with PBS or mouse IgG comparable with the isoform used with the experimental CXCR4-PE antibody.</p>
+        </sec>
+        <sec id="Sec9">
+          <title>Statistical analyses</title>
+          <p>In this study, WJ-MSC differentiation experiments with at least three independent cultures were performed. Statistical significance was estimated with a one-tailed Student&#x2019;s <italic>t</italic> test assuming equal variance and the error is SEM (<italic>P&#x2009;&lt;</italic>&#x2009;0.05) [<xref ref-type="bibr" rid="CR25">25</xref>].</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec id="Sec10">
+      <title>Results</title>
+      <sec id="Sec11">
+        <title>WJ-MSCs acquire defined spherical structures in 3D culture conditions</title>
+        <p>Studies have shown that the generation of embryonic bodies from human embryonic stem cells (hESCs) and human induced pluripotent stem cells (hiPSCs) is a convenient inductive step leading to downstream differentiation into the three germ layers depending on the cultural conditions [<xref ref-type="bibr" rid="CR31">31</xref>&#x2013;<xref ref-type="bibr" rid="CR33">33</xref>]. We tested this concept on WJ-MSCs. As we have reported previously, WJ-MSCs were grown as a flat monolayer and exhibited an elongated spindle-shape fibroblast-like morphology when cultured on polystyrene tissue culture plates (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1b</xref>) [<xref ref-type="bibr" rid="CR1">1</xref>]. Interestingly, the WJ-MSCs spontaneously generated homogeneous cell clusters upon culturing in the differentiation media using the micro-AggreWells and subsequent cultivation in low attachment plates (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1b</xref>). We also observed that the generated cell clusters are highly reliant on the initial seeded cell numbers. Our data showed that clustering of 1500 cells is sufficient to obtain spheroids with high quality and differentiation outcome (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1b</xref>, days 0 and 1; data not shown). After 24&#xA0;hours, transferring the cell clusters to low-adherence plates representing suspension cultural conditions (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1b</xref>, days 3 and 7) gave them an appearance suggesting the development of normal systematized aggregate structures. In contrast, the clustered cells, using regular growth medium containing FCS, leaned toward attachment to the bottom of the low-adherence plates, where diffusions of individual cells from the clustered EBs were observed (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1a</xref>, control day 3).</p>
+      </sec>
+      <sec id="Sec12">
+        <title>Sequential generation of ME and DE lineages</title>
+        <p>WJ-MSCs have developmental plasticity shown by their ability for multilineage differentiation [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR34">34</xref>, <xref ref-type="bibr" rid="CR35">35</xref>]. The observed low differentiation efficiency of WJ-MSC monolayer cultures is most likely due to improper generation of DE, which is an essential step toward the potential generation of specialized organs such as the digestive track, liver, and pancreas [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR36">36</xref>&#x2013;<xref ref-type="bibr" rid="CR39">39</xref>]. In order to overcome these limitations, we tested the hypothesis that mimicking embryonic developmental stages through the generation of 3D cell culture in a chemically defined serum-free media may enhance efficient DE differentiation.</p>
+        <p>In the present study, cell aggregates were generated from WJ-MSCs and their commitment capacity toward the DE lineage was monitored (Methods). Under the described differentiation conditions, qRT-PCR analyses demonstrated an induction of Brachyury T (BraT) mRNA starting from day 1 and peaking at day 3, with a 40-fold increase relative to undifferentiated cells. Similarly, the expression levels of mesenchyme homeobox 1 (Meox1) were gradually increased and peaked at day 3 of differentiation, suggesting commitments toward primitive streak and early ME lineages (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2a</xref>) [<xref ref-type="bibr" rid="CR40">40</xref>]. Notably, the gene expression profiling revealed that the DE specification is initiated at day 3 concomitant with a decline in the mesendodermal markers. The transcript levels of the early DE genes, Forkhead Box A3 and A2 (FoxA3 and FoxA2), emerged at day 3 and peaked at day 7 (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2b</xref>); whereas expression of the Sex Determining Region Y-box 17 (Sox17) gene peaked at day 5, with a 4000-fold increase in mRNA expression levels relative to undifferentiated cells. The chemokine (C-X-C motif) receptor 4 (CXCR4) and Goosecoid homeobox (GSC1) mRNAs were significantly enriched at day 7 (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2b</xref>). Interestingly, the increase in expression levels of the bona-fide DE markers ranged between 50-fold and 4000-fold relative to undifferentiated cells, suggesting that our approach using 3D and chemically defined differentiation conditions has successfully enriched the DE lineage from WJ-MSCs.<fig id="Fig2"><label>Fig. 2</label><caption><p>ME and DE lineage specifications. qRT-PCR was performed for the indicated genes on a time course during WJ-MSC differentiation into (<bold>a</bold>) ME, (<bold>b</bold>) DE, and (<bold>c</bold>) visceral endoderm. Differentiation was performed using the described experimental protocol described in Methods. Results were normalized to the Geo-mean of the housekeeping genes and expression relative to day 0. Data shown as mean&#x2009;&#xB1;&#x2009;SEM (<italic>n</italic>&#x2009;=&#x2009;4). *<italic>P</italic>&#x2009;&lt;&#x2009;0.05</p></caption><graphic xlink:href="13287_2016_426_Fig2_HTML" id="MO2"/></fig>
+</p>
+        <p>Next, we examined the developmental progression of the differentiated cells toward the formation of gut tube; accordingly, the transcript levels of the early posterior foregut markers Paired Box 9 (Pax9), Hepatic nuclear factor 1 &#x3B2; (HNF1&#x3B2;), and Paired Box 7 (Pax7) were studied. The transcripts of these genes were upregulated at day 3 and peaked at day 7, simultaneously with the DE markers. However, their expression levels were low, ranging between 10 and 15&#xA0;%, compared with that observed for the DE genes, likely due to a possible commitment of a small cell fraction toward early posterior foregut lineage and/or the existence of these genes at lower profile in DE cells (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2b</xref>) [<xref ref-type="bibr" rid="CR40">40</xref>, <xref ref-type="bibr" rid="CR41">41</xref>].</p>
+        <p>Because WJ-MSCs originate from umbilical cord tissue and in order to exclude possible generation of extra-embryonic visceral endoderm lineage, we assessed the gene expression of this particular developmental stage. qRT-PCR analysis exhibited a nonsignificant regulation in the transcripts of the visceral endodermal genes, amnion associated transmembrane protein (Amn) and alpha-fetoprotein (AFP), during the time course of differentiation (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2c</xref>). The chronological gene expression dynamics thus particularly recapitulate those in ME and DE lineage development.</p>
+        <p>Targeted microarray analysis was generated to distinguish the gene expression signature of undifferentiated versus day 7 differentiated WJ-MSCs (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>). In accordance with our previous study, downregulation of the WJ-MSC surface markers CD44 and CD73 was observed at day 7 of differentiation, supporting our previous conclusion that these two proteins are reliable stemness markers for WJ-MSCs [<xref ref-type="bibr" rid="CR1">1</xref>]. On the contrary, CD105 and CD90 were upregulated in response to DE generation (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>). Additionally, genes known to be important regulators of the ectodermal differentiation such as Pax6, MEIS1, and NCAM1 were depleted, suggesting that the cellular specification is waived from the ectoderm formation using the described protocol (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>). Remarkably, as described previously in Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref>, a nonconsistent regulation of the expression of the mesodermal genes MixL1, BraT, and Hand1 was observed, marking the initiation of DE lineage specification. This notation was further confirmed with the increase in the expression of the DE genes such as SOX17, GSC1, and GATAs, which are landmark genes for the DE lineage (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>).<fig id="Fig3"><label>Fig. 3</label><caption><p>Differential gene expression of undifferentiated and differentiated WJ-MSCs. Heatmap gene expression regulations at days 0 and 7. Alteration in WJ-MSC surface markers, loss of ectodermal markers, and upregulation of the DE markers suggest a directed differentiation toward the later lineage</p></caption><graphic xlink:href="13287_2016_426_Fig3_HTML" id="MO3"/></fig>
+</p>
+      </sec>
+      <sec id="Sec13">
+        <title>Efficient generation of DE cells from WJ-MSCs</title>
+        <p>Gene expression analysis revealed a distinct DE signature at day 7 of WJ-MSC differentiation. In order to corroborate the qRT-PCR analysis and evaluate the differentiation efficiency, we ascertained the protein expression of the DE markers by immunolocalization and flow cytometric analysis.</p>
+        <p>Immunofluorescence with anti-BraT antibodies detected its nuclear protein localization at day 3 of differentiated WJ-MSCs (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4</xref>, Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Figure S1), which was dramatically lost at day 7 (data not shown). CXCR4 protein was detected predominantly at the cell membrane of differentiated WJ-MSCs, whereas Sox17 and FoxA2 proteins were expressed at the nuclei of the generated DE cells at day 7. The chronological elevation in the expression of FoxA2 proteins at day 7 is consistent with the reduction of the ME marker BraT, and the increase of the DE markers CXCR4 and Sox17 is indicative of differentiation toward the later lineage (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4</xref>, Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Figure S1).<fig id="Fig4"><label>Fig. 4</label><caption><p>Immunofluorescence of differentiated WJ-MSCs. Confocal laser representative images for differentiated WJ-MSCs at days 3 and 7 as indicated. Immunofluorescence assays using the APEX-labeling system for conjugating primary antibodies (BraT-Alexa 488, Sox17-Alexa 594, and FoxA2-Alexa 594). CXCR4 antibodies are PE congregated. Magnification&#x2009;&#xD7;&#x2009;400</p></caption><graphic xlink:href="13287_2016_426_Fig4_HTML" id="MO4"/></fig>
+</p>
+        <p>Immunoreactivity analysis revealed a high expression of the DE surface protein CXCR4, which inspired us to investigate the differentiation efficiency using flow cytometry. The differentiation protocol resulted in an enrichment of DE; where 83&#x2009;&#xB1;&#x2009;4.4&#xA0;% of the total cell count were positive to CXCR4 protein at day 7, relative to cells treated with comparable IgG or PBS, which showed minor backgrounds for CXCR4 expression (1.1&#x2013;1.5&#xA0;%, Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). In accordance with previous studies performed on adult MSCs, undifferentiated WJ-MSCs cultured on a monolayer showed a statistically nonsignificant minor expression of CXCR4 (6.3&#x2009;&#xB1;&#x2009;4.5&#xA0;% Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>) [<xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. Adult fibroblast cells were also subjected to the same differentiation conditions. At day 7, these cells showed nonspecific expression for CXCR4 relative to IgG-treated and PBS-treated cells: 17.6&#x2009;&#xB1;&#x2009;1.8 and 9.4&#x2009;&#xB1;&#x2009;7.2, respectively (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Figure S2).<fig id="Fig5"><label>Fig. 5</label><caption><p>Flow cytometric analysis of the DE bona-fide marker CXCR4 at <bold>a</bold> day 0 and <bold>b</bold> day 7. Unlike the differentiated WJ-MSCs, the undifferentiated cells were negative to the expression of the surface protein CXCR4. Examples of flow cytometric images from a representative experiment. Data shown as mean&#x2009;&#xB1;&#x2009;SEM (<italic>n</italic>&#x2009;=&#x2009;3)</p></caption><graphic xlink:href="13287_2016_426_Fig5_HTML" id="MO5"/></fig>
+</p>
+        <p>Scatter-dot plots analysis from undifferentiated, day 0, and differentiated, day 7, WJ-MSCs were generated. Undifferentiated WJ-MSCs exhibited high forward-scatter (FSC) and moderate to high side-scatter patterns (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6</xref>, day 0), whereas at differentiation day 7 approximately 99&#xA0;% of the generated DE cells demonstrate low scatter parameters (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6</xref>), implying a small size and less granularity. These data support previous reports showing that WJ-MSCs consist of a heterogeneous population [<xref ref-type="bibr" rid="CR44">44</xref>, <xref ref-type="bibr" rid="CR45">45</xref>], and reflect efficient differentiation toward a homogeneous population of DE cells, which are characterized with small-sized cells and less granularity [<xref ref-type="bibr" rid="CR46">46</xref>]. Taking these observations together, the implemented 3D differentiation protocol using chemically defined media efficiently induced the generation of DE cells.<fig id="Fig6"><label>Fig. 6</label><caption><p>Flow cytometric side-scattered (<italic>SSC</italic>) vs forward-scattered (<italic>FSC</italic>) pattern of undifferentiated and generated DE. At day 0, a heterogeneous population of WJ-MSCs was observed, whereas the differentiated cells showed a homogeneous population characterized by small-sized cells with less granulation. Examples of flow cytometric images from a representative experiment. Data shown as mean&#x2009;&#xB1;&#x2009;SEM (<italic>n</italic>&#x2009;=&#x2009;3)</p></caption><graphic xlink:href="13287_2016_426_Fig6_HTML" id="MO6"/></fig>
+</p>
+      </sec>
+    </sec>
+    <sec id="Sec14">
+      <title>Discussion</title>
+      <p>In order to develop a protocol for stem cell differentiation toward clinically relevant cell types, the current strategy is mimicking the cell signaling events associated with the embryonic developmental process for the lineage of interest [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR47">47</xref>, <xref ref-type="bibr" rid="CR48">48</xref>]. Nevertheless, in-vitro cell differentiation does not reflect a stepwise developmental progression but gives a broad range of outcome lineages [<xref ref-type="bibr" rid="CR49">49</xref>]. Accordingly, the development of a protocol that significantly improves a targeted cell type is of particular interest. Directed differentiation methods utilize chemically well-defined small molecules, which regulate cell-signaling pathways, resulting in cellular differentiation toward a particular lineage [<xref ref-type="bibr" rid="CR25">25</xref>, <xref ref-type="bibr" rid="CR50">50</xref>, <xref ref-type="bibr" rid="CR51">51</xref>]. In addition, studies have shown that the generation of 3D spheroid structures enhances the cellular programming potential. These approaches have been successfully applied to hESCs and hiPSCs [<xref ref-type="bibr" rid="CR51">51</xref>&#x2013;<xref ref-type="bibr" rid="CR53">53</xref>], but have yet to be applied to other pluripotent cell types, including WJ-MSCs.</p>
+      <p>In this study, we implemented an optimized two-stage protocol directed to a stepwise differentiation of WJ-MSCs toward the DE cell population, the progenitor for the development of gut tube, pancreatic, and hepatic cells [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR38">38</xref>, <xref ref-type="bibr" rid="CR54">54</xref>]. For efficient differentiation, WJ-MSCs were aggregated in suspension to generate uniform clusters of differentiated cells mimicking the formation of embryonic bodies observed with ESCs or iPSCs. Initially, we applied the recently described protocol used to differentiate hESCs and hiPSCs by Pagliuca's group [<xref ref-type="bibr" rid="CR18">18</xref>]. Under 3D conditions, WJ-MSCs were cultured for 3&#xA0;days in a differentiation media supplemented with Activin and WNT3a activators, followed by 3-day incubation in a media containing retinoic acid (RA) and keratinocyte growth factor (KGF), in the presence of sonic hedgehog (SHH) and bone morphogenetic protein (BMP) inhibitors. Time-course RT-PCR analysis revealed an increase in BraT and Meox1 transcripts, the primitive streak/mesendodermal (PS/ME) markers [<xref ref-type="bibr" rid="CR55">55</xref>], following the second treatment, suggesting that Activin/Wnt signaling failed to induce PS/ME lineages in WJ-MSCs (data not shown). Accordingly, we eliminated the Activin/Wnt activator treatment step in the subsequent experiments (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1</xref>). Activin A has been defined to trigger PS/ME lineages in both ESCs and iPSCs [<xref ref-type="bibr" rid="CR41">41</xref>, <xref ref-type="bibr" rid="CR56">56</xref>&#x2013;<xref ref-type="bibr" rid="CR58">58</xref>]; however, it maintains multipotency in MSCs [<xref ref-type="bibr" rid="CR59">59</xref>]. The differences in the role of Activin A are related to the differences in stem cell origins and their developmental stages. Further, undifferentiated WJ-MSCs were reported to secrete Activin A as an immunosuppression agent reducing natural killer-mediated IFN-&#x3B3; production [<xref ref-type="bibr" rid="CR60">60</xref>, <xref ref-type="bibr" rid="CR61">61</xref>], which supports our results that Activin A signaling is not required for WJ-MSC differentiation.</p>
+      <p>Interestingly, our results revealed a combination of the RA/KGF inducers and SHH/BMP signaling inhibitors to be sufficient to enhance WJ-MSC-mediated PS/ME lineage inductions. Reports have indicated that each signaling molecule is involved in a particular lineage generation; for example, KGF induces MSC differentiation into sweat gland-like cells [<xref ref-type="bibr" rid="CR62">62</xref>]. RA and SHH molecules were reported to mediate osteogenesis and abolish adipogenesis in MSCs independently [<xref ref-type="bibr" rid="CR63">63</xref>&#x2013;<xref ref-type="bibr" rid="CR65">65</xref>]. However, synergistic RA and SHH signaling promotes the generation of sensory neurons [<xref ref-type="bibr" rid="CR66">66</xref>]. On the contrary, BMP signaling acts as an inhibitor for the early stages of human ESC-mediated DE development [<xref ref-type="bibr" rid="CR67">67</xref>, <xref ref-type="bibr" rid="CR68">68</xref>]. Consequently, cells respond differentially to multiple changes in the extracellular environment [<xref ref-type="bibr" rid="CR69">69</xref>, <xref ref-type="bibr" rid="CR70">70</xref>]. It is important to note that the differentiation protocol used in this study is serum free. Thus, no extracellular signaling molecules were involved in the generated PS/ME lineages other than the interplay between the four described signaling pathways.</p>
+      <p>WJ-MSC-mediated DE formation was enhanced by thyroid hormone, exendin-4, and EGF; inhibition of both TGF-&#x3B2; and Notch pathways was also effective to enhance the yield of this lineage. Cvoro et al. reported that during DE induction from hESCs and hiPSCs, thyroid hormone suppresses notch-signaling genes through the activation of the Kruppel-like factor KLF-9 [<xref ref-type="bibr" rid="CR71">71</xref>, <xref ref-type="bibr" rid="CR72">72</xref>]. Both exendin-4 and EGF direct the DE differentiation toward primitive gut tube endoderm, and enhance proinsulin biosynthesis and expansion of pancreatic progenitor at later stages of hESC and hiPSC differentiation [<xref ref-type="bibr" rid="CR18">18</xref>]. Recently, Nekoei et al. [<xref ref-type="bibr" rid="CR73">73</xref>] reported the generation of insulin-producing cells from WJ-MSC cultured in a serum-dependent differentiation containing exendin-4 [<xref ref-type="bibr" rid="CR24">24</xref>], yet the efficiency of insulin induction was relatively low most likely due to absence of the stepwise differentiation process. Similarly, Kadam et al. [<xref ref-type="bibr" rid="CR74">74</xref>] reported a low yield of pancreatic &#x3B2;-cell-like clusters generated from monolayer cultures of placenta-derived MSCs. Inhibition of TGF-&#x3B2; receptor ALK5 was reported to mediate human ESC differentiation into the early gut and induce Pdx1-expressing endodermal cells [<xref ref-type="bibr" rid="CR69">69</xref>, <xref ref-type="bibr" rid="CR75">75</xref>].</p>
+      <p>Unlike the traditional 2D adherent cell cultures, 3D cellular clustering provides the cells with physiological conditions similar to those occurring in embryos. Remarkably, WJ-MSCs generated stable spheroidal bodies upon culturing in AggreWell plates, which showed an improved differentiation capacity into DE lineage. In both ESCs and iPSCs this technique has been proven to efficiently mediate the differentiation toward different developmental lineages [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>], but it has not been tested in WJ-MSCs. Notably, differentiating WJ-MSCs in monolayer cultures toward insulin-producing cells resulted in the generation of cell aggregates; while remaining attached to the plate surface, cells within the cluster-like morphology showed a significant differentiation property [<xref ref-type="bibr" rid="CR73">73</xref>, <xref ref-type="bibr" rid="CR76">76</xref>].</p>
+    </sec>
+    <sec id="Sec15">
+      <title>Conclusions</title>
+      <p>We established a differentiation method that induces DE cells from WJ-MSCs with high efficiency. The 3D cultural environment and serum-free media administered with controlled extracellular signaling pathways resulted in more than 85&#xA0;% enrichment of DE cells, the progenitor germ layer for pancreatic and hepatic cells. Accordingly, in addition to their advantage over other stem cells, WJ-MSCs provide an excellent platform for DE and downstream lineage differentiation.</p>
+    </sec>
+  </body>
+  <back>
+    <app-group>
+      <app id="App1">
+        <sec id="Sec16">
+          <title>Additional file</title>
+          <p>
+<media position="anchor" xlink:href="13287_2016_426_MOESM1_ESM.pdf" id="MOESM1"><label>Additional file 1: Table S1.</label><caption><p>Presenting primary antibodies used for flow cytometry characterization of differentiated cells, Table S2 presenting oligonucleotide sequences of primers utilized for real-time qRT-PCR, Figure S1 showing immunofluorescence of the differentiated WJ-MSCs as confocal laser representative images for differentiated WJ-MSCs at days 3 and 7 as indicated, and Figure S2 showing flow cytometric analysis of the definitive endoderm bona-fide marker CXCR4 at day 7. (PDF 519&#xA0;kb)</p></caption></media>
+</p>
+        </sec>
+      </app>
+    </app-group>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>3D</term>
+          <def>
+            <p>Three-dimensional</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>AFP</term>
+          <def>
+            <p>Alpha-fetoprotein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>Amn</term>
+          <def>
+            <p>Amnion-associated transmembrane protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>BraT</term>
+          <def>
+            <p>Brachyury T</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>BSA</term>
+          <def>
+            <p>Bovine serum albumin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CXC4</term>
+          <def>
+            <p>Chemokine (C-X-C motif) receptor 4</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DE</term>
+          <def>
+            <p>Definitive endoderm</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DMEM</term>
+          <def>
+            <p>Dulbecco&#x2019;s modified Eagle medium</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF</term>
+          <def>
+            <p>Epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ESC</term>
+          <def>
+            <p>Embryonic stem cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>FACS</term>
+          <def>
+            <p>Fluorescence-activated cell sorting</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>FoxA2</term>
+          <def>
+            <p>Forkhead Box A2</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>FoxA3</term>
+          <def>
+            <p>Forkhead Box A3</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>GSC1</term>
+          <def>
+            <p>Goosecoid homeobox</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>HNF1&#x3B2;</term>
+          <def>
+            <p>Hepatic nuclear factor 1 &#x3B2;</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iPSC</term>
+          <def>
+            <p>Induced pluripotent stem cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ITS-X</term>
+          <def>
+            <p>Insulin&#x2013;transferrin&#x2013;selenium&#x2013;ethanolamine</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>KGF/FGF-7</term>
+          <def>
+            <p>Keratinocyte growth factor, fibroblast growth factor-7</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>KLF-9</term>
+          <def>
+            <p>Kruppel-like factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ME</term>
+          <def>
+            <p>Mesendoderm</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>Meox1</term>
+          <def>
+            <p>Mesenchyme homeobox 1</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NaHCO<sub>3</sub></term>
+          <def>
+            <p>Sodium bicarbonate</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>Pax7</term>
+          <def>
+            <p>Paired Box 7</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>Pax9</term>
+          <def>
+            <p>Paired Box 9</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PBS</term>
+          <def>
+            <p>Phosphate-buffered saline</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PSC</term>
+          <def>
+            <p>Pluripotent stem cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>qRT-PCR</term>
+          <def>
+            <p>Quantitative real-time polymerase chain reaction</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>Sox17</term>
+          <def>
+            <p>Sex Determining Region Y-box 17</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>WJ-MSC</term>
+          <def>
+            <p>Wharton&#x2019;s Jelly-derived mesenchymal stem cell</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The authors would like to thank the Office of Research Affairs for their kind collaboration. Sincere appreciation to Dr Abrar Al-Hasan and Dr Lena Davidsson for editing the manuscript. In addition, the authors would like to thank the administration at the Kuwait Foundation for the Advancement of Sciences (KFAS) for the financial support.</p>
+      <sec id="FPar1">
+        <title>Funding</title>
+        <p>This work was supported by the Kuwait Foundation for the Advancement of Sciences (KFAS) under projects numbers&#xA0;RA-2013-009 for AAM&#xA0;and 2012-1302-03 for HA.</p>
+      </sec>
+      <sec id="FPar2">
+        <title>Availability of supporting data</title>
+        <p>Not applicable.</p>
+      </sec>
+      <sec id="FPar3">
+        <title>Authors&#x2019; contributions</title>
+        <p>AAM was responsible for conception and design, provision of study material, collection and/or assembly of data, data analysis and interpretation, manuscript writing, and final approval of manuscript. HA was responsible for collection and/or assembly of data, data analysis and interpretation, manuscript writing, and final approval of manuscript. SA was responsible for technical support, RNA and cellular work, and revised the manuscript. VLA was responsible for technical support, immunofluorescence assays, and revised the manuscript. NA was responsible for technical support, FACS analysis, and revised the manuscript. FA-M was responsible for data analysis and interpretation, and manuscript writing. MA was responsible for data interpretation and manuscript writing. All authors read and approved the final manuscript.</p>
+      </sec>
+      <sec id="FPar4">
+        <title>Competing interests</title>
+        <p>The authors declare that they have no competing interests.</p>
+      </sec>
+      <sec id="FPar5">
+        <title>Consent for publication</title>
+        <p>Not applicable.</p>
+      </sec>
+      <sec id="FPar6">
+        <title>Ethical approval and consent to participate</title>
+        <p>The study was approved by the Ethical Review Committee at the Dasman Diabetes Institute (protocol number: RA-2013-009) in accordance with the World Medical Association Declaration of Helsinki Ethical Principles for Medical Research Involving Human Subjects and Samples. No consent was needed due to the use of a commercially available cell line.</p>
+      </sec>
+    </ack>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ali</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Al-Yatama</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>Abu-Farha</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Behbehani</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Al Madhoun</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Multi-lineage differentiation of human umbilical cord Wharton&#x2019;s Jelly mesenchymal stromal cells mediates changes in the expression profile of stemness markers</article-title>
+          <source>PLoS One</source>
+          <year>2015</year>
+          <volume>10</volume>
+          <issue>4</issue>
+          <fpage>e0122465</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0122465</pub-id>
+          <pub-id pub-id-type="pmid">25848763</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Hung</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Peng</surname>
+              <given-names>ST</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>CC</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells in the Wharton&#x2019;s jelly of the human umbilical cord</article-title>
+          <source>Stem Cells</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <issue>7</issue>
+          <fpage>1330</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2004-0013</pub-id>
+          <pub-id pub-id-type="pmid">15579650</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kalaszczynska</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Ferdyn</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Wharton&#x2019;s jelly derived mesenchymal stem cells: future of regenerative medicine? Recent findings and clinical significance</article-title>
+          <source>BioMed Res Int</source>
+          <year>2015</year>
+          <volume>2015</volume>
+          <fpage>430847</fpage>
+          <pub-id pub-id-type="doi">10.1155/2015/430847</pub-id>
+          <pub-id pub-id-type="pmid">25861624</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ali</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Al-Mulla</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Defining umbilical cord blood stem cells</article-title>
+          <source>Stem Cell Discov</source>
+          <year>2012</year>
+          <volume>02</volume>
+          <issue>1</issue>
+          <fpage>15</fpage>
+          <lpage>23</lpage>
+          <pub-id pub-id-type="doi">10.4236/scd.2012.21003</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bagher</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Azami</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ebrahimi-Barough</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mirzadeh</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Solouk</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Soleimani</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ai</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nourani</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Joghataei</surname>
+              <given-names>MT</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of Wharton&#x2019;s jelly-derived mesenchymal stem cells into motor neuron-like cells on three-dimensional collagen-grafted nanofibers</article-title>
+          <source>Mol Neurobiol</source>
+          <year>2016</year>
+          <volume>53</volume>
+          <issue>4</issue>
+          <fpage>2397</fpage>
+          <lpage>408</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12035-015-9199-x</pub-id>
+          <pub-id pub-id-type="pmid">26001761</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>ZX</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Human umbilical cord mesenchymal stem cells derived from Wharton&#x2019;s jelly differentiate into cholinergic-like neurons in vitro</article-title>
+          <source>Neurosci Lett</source>
+          <year>2013</year>
+          <volume>532</volume>
+          <fpage>59</fpage>
+          <lpage>63</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.neulet.2012.11.014</pub-id>
+          <pub-id pub-id-type="pmid">23178189</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bhandari</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Seo</surname>
+              <given-names>KW</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Seo</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Seo</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Marcin</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Forraz</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Roy</surname>
+              <given-names>HL</given-names>
+            </name>
+            <name>
+              <surname>Larry</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The simplest method for in vitro beta-cell production from human adult stem cells</article-title>
+          <source>Differentiation</source>
+          <year>2011</year>
+          <volume>82</volume>
+          <issue>3</issue>
+          <fpage>144</fpage>
+          <lpage>52</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.diff.2011.06.003</pub-id>
+          <pub-id pub-id-type="pmid">21782317</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>D&#x2019;Amour</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Agulnick</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Eliazer</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kelly</surname>
+              <given-names>OG</given-names>
+            </name>
+            <name>
+              <surname>Kroon</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Baetge</surname>
+              <given-names>EE</given-names>
+            </name>
+          </person-group>
+          <article-title>Efficient differentiation of human embryonic stem cells to definitive endoderm</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <issue>12</issue>
+          <fpage>1534</fpage>
+          <lpage>41</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1163</pub-id>
+          <pub-id pub-id-type="pmid">16258519</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gouon-Evans</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Boussemart</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gadue</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Nierhoff</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Koehler</surname>
+              <given-names>CI</given-names>
+            </name>
+            <name>
+              <surname>Kubo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shafritz</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Keller</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>BMP-4 is required for hepatic specification of mouse embryonic stem cell-derived definitive endoderm</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <issue>11</issue>
+          <fpage>1402</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1258</pub-id>
+          <pub-id pub-id-type="pmid">17086172</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Basma</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Soto-Gutierrez</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yannam</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Ito</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ellis</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Carson</surname>
+              <given-names>SD</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differentiation and transplantation of human embryonic stem cell-derived hepatocytes</article-title>
+          <source>Gastroenterology</source>
+          <year>2009</year>
+          <volume>136</volume>
+          <issue>3</issue>
+          <fpage>990</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1053/j.gastro.2008.10.047</pub-id>
+          <pub-id pub-id-type="pmid">19026649</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cheng</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Ying</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Galvao</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Mills</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Kotton</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Nostro</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>JK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Self-renewing endodermal progenitor lines generated from human pluripotent stem cells</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2012</year>
+          <volume>10</volume>
+          <issue>4</issue>
+          <fpage>371</fpage>
+          <lpage>84</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2012.02.024</pub-id>
+          <pub-id pub-id-type="pmid">22482503</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>HW</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>You</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>WZ</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>TH</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>GX</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Human umbilical cord mesenchymal stem cells derived from Wharton&#x2019;s jelly differentiate into insulin-producing cells in vitro</article-title>
+          <source>Chin Med J (Engl)</source>
+          <year>2011</year>
+          <volume>124</volume>
+          <issue>10</issue>
+          <fpage>1534</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">21740812</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of PDX1 gene-modified human umbilical cord mesenchymal stem cells into insulin-producing cells in vitro</article-title>
+          <source>Int J Mol Med</source>
+          <year>2011</year>
+          <volume>28</volume>
+          <issue>6</issue>
+          <fpage>1019</fpage>
+          <lpage>24</lpage>
+          <pub-id pub-id-type="pmid">21837359</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wu</surname>
+              <given-names>LF</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>NN</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of Wharton&#x2019;s jelly primitive stromal cells into insulin-producing cells in comparison with bone marrow mesenchymal stem cells</article-title>
+          <source>Tissue Eng Part A</source>
+          <year>2009</year>
+          <volume>15</volume>
+          <issue>10</issue>
+          <fpage>2865</fpage>
+          <lpage>73</lpage>
+          <pub-id pub-id-type="doi">10.1089/ten.tea.2008.0579</pub-id>
+          <pub-id pub-id-type="pmid">19257811</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hentze</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Soong</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>ST</given-names>
+            </name>
+            <name>
+              <surname>Phillips</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Putti</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Dunn</surname>
+              <given-names>NR</given-names>
+            </name>
+          </person-group>
+          <article-title>Teratoma formation by human embryonic stem cells: evaluation of essential parameters for future safety studies</article-title>
+          <source>Stem Cell Res</source>
+          <year>2009</year>
+          <volume>2</volume>
+          <issue>3</issue>
+          <fpage>198</fpage>
+          <lpage>210</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.scr.2009.02.002</pub-id>
+          <pub-id pub-id-type="pmid">19393593</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Batsali</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Kastrinaki</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Papadaki</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>Pontikoglou</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells derived from Wharton&#x2019;s jelly of the umbilical cord: biological properties and emerging clinical applications</article-title>
+          <source>Curr Stem Cell Res Ther</source>
+          <year>2013</year>
+          <volume>8</volume>
+          <issue>2</issue>
+          <fpage>144</fpage>
+          <lpage>55</lpage>
+          <pub-id pub-id-type="doi">10.2174/1574888X11308020005</pub-id>
+          <pub-id pub-id-type="pmid">23279098</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Weiss</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Medicetty</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Seshareddy</surname>
+              <given-names>KB</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Vanderwerff</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Troyer</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Mcintosh</surname>
+              <given-names>KR</given-names>
+            </name>
+          </person-group>
+          <article-title>Immune properties of human umbilical cord Wharton&#x2019;s jelly-derived cells</article-title>
+          <source>Stem Cells</source>
+          <year>2008</year>
+          <volume>26</volume>
+          <issue>11</issue>
+          <fpage>2865</fpage>
+          <lpage>74</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2007-1028</pub-id>
+          <pub-id pub-id-type="pmid">18703664</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pagliuca</surname>
+              <given-names>FW</given-names>
+            </name>
+            <name>
+              <surname>Millman</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Gurtler</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Segel</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Van Dervort</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ryu</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Peterson</surname>
+              <given-names>QP</given-names>
+            </name>
+            <name>
+              <surname>Greiner</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Melton</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of functional human pancreatic beta cells in vitro</article-title>
+          <source>Cell</source>
+          <year>2014</year>
+          <volume>159</volume>
+          <issue>2</issue>
+          <fpage>428</fpage>
+          <lpage>39</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2014.09.040</pub-id>
+          <pub-id pub-id-type="pmid">25303535</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stover</surname>
+              <given-names>AE</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>PH</given-names>
+            </name>
+          </person-group>
+          <article-title>The generation of embryoid bodies from feeder-based or feeder-free human pluripotent stem cell cultures</article-title>
+          <source>Methods Mol Biol</source>
+          <year>2011</year>
+          <volume>767</volume>
+          <fpage>391</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-1-61779-201-4_28</pub-id>
+          <pub-id pub-id-type="pmid">21822890</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stover</surname>
+              <given-names>AE</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>PH</given-names>
+            </name>
+          </person-group>
+          <article-title>Adaptation of human pluripotent stem cells to feeder-free conditions in chemically defined medium with enzymatic single-cell passaging</article-title>
+          <source>Methods Mol Biol</source>
+          <year>2011</year>
+          <volume>767</volume>
+          <fpage>137</fpage>
+          <lpage>46</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-1-61779-201-4_10</pub-id>
+          <pub-id pub-id-type="pmid">21822872</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vegas</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Veiseh</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Gurtler</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Millman</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Pagliuca</surname>
+              <given-names>FW</given-names>
+            </name>
+            <name>
+              <surname>Bader</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Doloff</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Olejnik</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Long-term glycemic control using polymer-encapsulated human stem cell-derived beta cells in immune-competent mice</article-title>
+          <source>Nat Med</source>
+          <year>2016</year>
+          <volume>22</volume>
+          <issue>3</issue>
+          <fpage>306</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="doi">10.1038/nm.4030</pub-id>
+          <pub-id pub-id-type="pmid">26808346</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <mixed-citation publication-type="other">Gomes IC, Acquarone M, Maciel Rde M, Erlich RB, Rehen SK. Analysis of pluripotent stem cells by using cryosections of embryoid bodies. J Vis Exp. 2010;(46):2344.</mixed-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <mixed-citation publication-type="other">Khadir A, Tiss A, Abubaker J, Abu-Farha M, Al-Khairi I, Cherian P, John J, Kavalakatt S, Warsame S, Al-Madhoun A et al. MAP kinase phosphatase DUSP1 is overexpressed in human obese and modulated by physical activity. Am J Physiol Endocrinol Metab. 2014;308(1):E71&#x2013;83.</mixed-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Al Madhoun</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Mehta</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Figeys</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Wiper-Bergeron</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Skerjanc</surname>
+              <given-names>IS</given-names>
+            </name>
+          </person-group>
+          <article-title>Skeletal myosin light chain kinase regulates skeletal myogenesis by phosphorylation of MEF2C</article-title>
+          <source>Embo J</source>
+          <year>2011</year>
+          <volume>30</volume>
+          <issue>12</issue>
+          <fpage>2477</fpage>
+          <lpage>89</lpage>
+          <pub-id pub-id-type="doi">10.1038/emboj.2011.153</pub-id>
+          <pub-id pub-id-type="pmid">21556048</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Al Madhoun</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Voronova</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ryan</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Zakariyah</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>McIntire</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Gibson</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Shelton</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ruel</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Skerjanc</surname>
+              <given-names>IS</given-names>
+            </name>
+          </person-group>
+          <article-title>Testosterone enhances cardiomyogenesis in stem cells and recruits the androgen receptor to the MEF2C and HCN4 genes</article-title>
+          <source>J Mol Cell Cardiol</source>
+          <year>2013</year>
+          <volume>60</volume>
+          <fpage>164</fpage>
+          <lpage>71</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.yjmcc.2013.04.003</pub-id>
+          <pub-id pub-id-type="pmid">23598283</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <mixed-citation publication-type="other">Wang XW, Seed B. A PCR primer bank for quantitative gene expression analysis. Nucleic Acids Res. 2003;31(24):e154&#x2013;61.</mixed-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Untergasser</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Cutcutache</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Koressaar</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ye</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Faircloth</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Remm</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Rozen</surname>
+              <given-names>SG</given-names>
+            </name>
+          </person-group>
+          <article-title>Primer3&#x2014;new capabilities and interfaces</article-title>
+          <source>Nucleic Acids Res</source>
+          <year>2012</year>
+          <volume>40</volume>
+          <issue>15</issue>
+          <fpage>e115</fpage>
+          <pub-id pub-id-type="doi">10.1093/nar/gks596</pub-id>
+          <pub-id pub-id-type="pmid">22730293</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ye</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Coulouris</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zaretskaya</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Cutcutache</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Rozen</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Madden</surname>
+              <given-names>TL</given-names>
+            </name>
+          </person-group>
+          <article-title>Primer-BLAST: a tool to design target-specific primers for polymerase chain reaction</article-title>
+          <source>BMC Bioinformatics</source>
+          <year>2012</year>
+          <volume>13</volume>
+          <fpage>134</fpage>
+          <pub-id pub-id-type="doi">10.1186/1471-2105-13-134</pub-id>
+          <pub-id pub-id-type="pmid">22708584</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Voronova</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Coyne</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Al Madhoun</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Fair</surname>
+              <given-names>JV</given-names>
+            </name>
+            <name>
+              <surname>Bosiljcic</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>St-Louis</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Thurig</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wallace</surname>
+              <given-names>VA</given-names>
+            </name>
+            <name>
+              <surname>Wiper-Bergeron</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Hedgehog signaling regulates MyoD expression and activity</article-title>
+          <source>J Biol Chem</source>
+          <year>2013</year>
+          <volume>288</volume>
+          <issue>6</issue>
+          <fpage>4389</fpage>
+          <lpage>404</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M112.400184</pub-id>
+          <pub-id pub-id-type="pmid">23266826</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <mixed-citation publication-type="other">Voronova A, Fischer A, Ryan T, Al Madhoun A, Skerjanc IS. Ascl1/Mash1 is a novel target of Gli2 during Gli2-induced neurogenesis in P19 EC cells. PLoS One. 2011;6(4):e19174&#x2013;86.</mixed-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pettinato</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Wen</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Formation of well-defined embryoid bodies from dissociated human induced pluripotent stem cells using microfabricated cell-repellent microwell arrays</article-title>
+          <source>Sci Rep</source>
+          <year>2014</year>
+          <volume>4</volume>
+          <fpage>7402</fpage>
+          <pub-id pub-id-type="doi">10.1038/srep07402</pub-id>
+          <pub-id pub-id-type="pmid">25492588</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schwanke</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Merkert</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kempf</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hartung</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Jara-Avaca</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Templin</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Gohring</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Haverich</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Zweigerdt</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Fast and efficient multitransgenic modification of human pluripotent stem cells</article-title>
+          <source>Hum Gene Ther Methods</source>
+          <year>2014</year>
+          <volume>25</volume>
+          <issue>2</issue>
+          <fpage>136</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="doi">10.1089/hgtb.2012.248</pub-id>
+          <pub-id pub-id-type="pmid">24483184</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kempf</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Olmer</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kropp</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Ruckert</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Jara-Avaca</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Robles-Diaz</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Franke</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Elliott</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Wojciechowski</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Fischer</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Controlling expansion and cardiomyogenic differentiation of human pluripotent stem cells in scalable suspension culture</article-title>
+          <source>Stem Cell Rep</source>
+          <year>2014</year>
+          <volume>3</volume>
+          <issue>6</issue>
+          <fpage>1132</fpage>
+          <lpage>46</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2014.09.017</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <mixed-citation publication-type="other">Ullah I, Subbarao RB, Rho GJ. Human mesenchymal stem cells&#x2014;current trends and future prospective. Biosci Rep. 2015;35(2):e00191&#x2013;208.</mixed-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mennan</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wright</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Bhattacharjee</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Balain</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Richardson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Roberts</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation and characterisation of mesenchymal stem cells from different regions of the human umbilical cord</article-title>
+          <source>Biomed Res Int</source>
+          <year>2013</year>
+          <volume>2013</volume>
+          <fpage>916136</fpage>
+          <pub-id pub-id-type="doi">10.1155/2013/916136</pub-id>
+          <pub-id pub-id-type="pmid">23984420</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Prasajak</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Leeanansaksiri</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Developing a new two-step protocol to generate functional hepatocytes from Wharton&#x2019;s jelly-derived mesenchymal stem cells under hypoxic condition</article-title>
+          <source>Stem Cells Int</source>
+          <year>2013</year>
+          <volume>2013</volume>
+          <fpage>762196</fpage>
+          <pub-id pub-id-type="doi">10.1155/2013/762196</pub-id>
+          <pub-id pub-id-type="pmid">23818908</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takeuchi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nakatsuji</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Suemori</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Endodermal differentiation of human pluripotent stem cells to insulin-producing cells in 3D culture</article-title>
+          <source>Sci Rep</source>
+          <year>2014</year>
+          <volume>4</volume>
+          <fpage>4488</fpage>
+          <pub-id pub-id-type="pmid">24671046</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jaremko</surname>
+              <given-names>KL</given-names>
+            </name>
+            <name>
+              <surname>Marikawa</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of developmental competence and commitment towards the definitive endoderm lineage in human embryonic stem cells</article-title>
+          <source>Stem Cell Res</source>
+          <year>2013</year>
+          <volume>10</volume>
+          <issue>3</issue>
+          <fpage>489</fpage>
+          <lpage>502</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.scr.2012.04.002</pub-id>
+          <pub-id pub-id-type="pmid">22613812</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bone</surname>
+              <given-names>HK</given-names>
+            </name>
+            <name>
+              <surname>Nelson</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Goldring</surname>
+              <given-names>CE</given-names>
+            </name>
+            <name>
+              <surname>Tosh</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Welham</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel chemically directed route for the generation of definitive endoderm from human embryonic stem cells based on inhibition of GSK-3</article-title>
+          <source>J Cell Sci</source>
+          <year>2011</year>
+          <volume>124</volume>
+          <issue>Pt 12</issue>
+          <fpage>1992</fpage>
+          <lpage>2000</lpage>
+          <pub-id pub-id-type="doi">10.1242/jcs.081679</pub-id>
+          <pub-id pub-id-type="pmid">21610099</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>McKnight</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Rodriguez</surname>
+              <given-names>RT</given-names>
+            </name>
+            <name>
+              <surname>Sugiyama</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Gu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Ghodasara</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Qu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SK</given-names>
+            </name>
+          </person-group>
+          <article-title>A molecular signature for purified definitive endoderm guides differentiation and isolation of endoderm from mouse and human embryonic stem cells</article-title>
+          <source>Stem Cells Dev</source>
+          <year>2012</year>
+          <volume>21</volume>
+          <issue>12</issue>
+          <fpage>2273</fpage>
+          <lpage>87</lpage>
+          <pub-id pub-id-type="doi">10.1089/scd.2011.0416</pub-id>
+          <pub-id pub-id-type="pmid">22236333</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wei</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hou</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Insulin-producing cells derived from human embryonic stem cells: comparison of definitive endoderm- and nestin-positive progenitor-based differentiation strategies</article-title>
+          <source>PLoS One</source>
+          <year>2013</year>
+          <volume>8</volume>
+          <issue>8</issue>
+          <fpage>e72513</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0072513</pub-id>
+          <pub-id pub-id-type="pmid">23951327</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Potapova</surname>
+              <given-names>IA</given-names>
+            </name>
+            <name>
+              <surname>Gaudette</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Brink</surname>
+              <given-names>PR</given-names>
+            </name>
+            <name>
+              <surname>Robinson</surname>
+              <given-names>RB</given-names>
+            </name>
+            <name>
+              <surname>Rosen</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Doronin</surname>
+              <given-names>SV</given-names>
+            </name>
+          </person-group>
+          <article-title>Mesenchymal stem cells support migration, extracellular matrix invasion, proliferation, and survival of endothelial cells in vitro</article-title>
+          <source>Stem Cells</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <issue>7</issue>
+          <fpage>1761</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2007-0022</pub-id>
+          <pub-id pub-id-type="pmid">17395769</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Potapova</surname>
+              <given-names>IA</given-names>
+            </name>
+            <name>
+              <surname>Brink</surname>
+              <given-names>PR</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name>
+              <surname>Doronin</surname>
+              <given-names>SV</given-names>
+            </name>
+          </person-group>
+          <article-title>Culturing of human mesenchymal stem cells as three-dimensional aggregates induces functional expression of CXCR4 that regulates adhesion to endothelial cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2008</year>
+          <volume>283</volume>
+          <issue>19</issue>
+          <fpage>13100</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M800184200</pub-id>
+          <pub-id pub-id-type="pmid">18334485</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Maslova</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Novak</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kruzliak</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Umbilical cord tissue-derived cells as therapeutic agents</article-title>
+          <source>Stem Cells Int</source>
+          <year>2015</year>
+          <volume>2015</volume>
+          <fpage>150609</fpage>
+          <pub-id pub-id-type="doi">10.1155/2015/150609</pub-id>
+          <pub-id pub-id-type="pmid">26246808</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Doi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kitajima</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Yan</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Tateishi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ono</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Urata</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Goto</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Masuzaki</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Potency of umbilical cord blood- and Wharton&#x2019;s jelly-derived mesenchymal stem cells for scarless wound healing</article-title>
+          <source>Sci Rep</source>
+          <year>2016</year>
+          <volume>6</volume>
+          <fpage>18844</fpage>
+          <pub-id pub-id-type="doi">10.1038/srep18844</pub-id>
+          <pub-id pub-id-type="pmid">26728342</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gadue</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Gouon-Evans</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Wandzioch</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Zaret</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Grompe</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Streeter</surname>
+              <given-names>PR</given-names>
+            </name>
+            <name>
+              <surname>Keller</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of monoclonal antibodies specific for cell surface molecules expressed on early mouse endoderm</article-title>
+          <source>Stem Cells</source>
+          <year>2009</year>
+          <volume>27</volume>
+          <issue>9</issue>
+          <fpage>2103</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.147</pub-id>
+          <pub-id pub-id-type="pmid">19522011</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hannan</surname>
+              <given-names>NR</given-names>
+            </name>
+            <name>
+              <surname>Segeritz</surname>
+              <given-names>CP</given-names>
+            </name>
+            <name>
+              <surname>Touboul</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Vallier</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Production of hepatocyte-like cells from human pluripotent stem cells</article-title>
+          <source>Nat Protoc</source>
+          <year>2013</year>
+          <volume>8</volume>
+          <issue>2</issue>
+          <fpage>430</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2012.153</pub-id>
+          <pub-id pub-id-type="pmid">23424751</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>PT</given-names>
+            </name>
+            <name>
+              <surname>Ong</surname>
+              <given-names>CJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of definitive endoderm from mouse embryonic stem cells</article-title>
+          <source>Results Probl Cell Differ</source>
+          <year>2012</year>
+          <volume>55</volume>
+          <fpage>303</fpage>
+          <lpage>19</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-3-642-30406-4_17</pub-id>
+          <pub-id pub-id-type="pmid">22918814</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <mixed-citation publication-type="other">Livigni A, Villegas SN, Oikonomopoulou I, Rahman A, Morrison GM, Brickman JM. Differentiation of embryonic stem cells into anterior definitive endoderm. Curr Protoc Stem Cell Biol. 2009;Chapter 1:Unit 1G 3.</mixed-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lian</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wilson</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hazeltine</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>Azarin</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Raval</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kamp</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Palecek</surname>
+              <given-names>SP</given-names>
+            </name>
+          </person-group>
+          <article-title>Robust cardiomyocyte differentiation from human pluripotent stem cells via temporal modulation of canonical Wnt signaling</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2012</year>
+          <volume>109</volume>
+          <issue>27</issue>
+          <fpage>E1848</fpage>
+          <lpage>57</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1200250109</pub-id>
+          <pub-id pub-id-type="pmid">22645348</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burridge</surname>
+              <given-names>PW</given-names>
+            </name>
+            <name>
+              <surname>Matsa</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Shukla</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>ZC</given-names>
+            </name>
+            <name>
+              <surname>Churko</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Ebert</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Lan</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Diecke</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Huber</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Mordwinkin</surname>
+              <given-names>NM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Chemically defined generation of human cardiomyocytes</article-title>
+          <source>Nat Methods</source>
+          <year>2014</year>
+          <volume>11</volume>
+          <issue>8</issue>
+          <fpage>855</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="doi">10.1038/nmeth.2999</pub-id>
+          <pub-id pub-id-type="pmid">24930130</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moon</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Bae</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Do</surname>
+              <given-names>JT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The use of aggregates of purified cardiomyocytes derived from human ESCs for functional engraftment after myocardial infarction</article-title>
+          <source>Biomaterials</source>
+          <year>2013</year>
+          <volume>34</volume>
+          <issue>16</issue>
+          <fpage>4013</fpage>
+          <lpage>26</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2013.02.022</pub-id>
+          <pub-id pub-id-type="pmid">23465823</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burridge</surname>
+              <given-names>PW</given-names>
+            </name>
+            <name>
+              <surname>Metzler</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Nakayama</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Abilez</surname>
+              <given-names>OJ</given-names>
+            </name>
+            <name>
+              <surname>Simmons</surname>
+              <given-names>CS</given-names>
+            </name>
+            <name>
+              <surname>Bruce</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Matsuura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Butte</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multi-cellular interactions sustain long-term contractility of human pluripotent stem cell-derived cardiomyocytes</article-title>
+          <source>Am J Transl Res</source>
+          <year>2014</year>
+          <volume>6</volume>
+          <issue>6</issue>
+          <fpage>724</fpage>
+          <lpage>35</lpage>
+          <pub-id pub-id-type="pmid">25628783</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jaafarpour</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Soleimani</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hosseinkhani</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Karimi</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Yaghmaei</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Mobarra</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Geramizadeh</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of definitive endoderm from human induced pluripotent stem cells on hMSCs feeder in a defined medium</article-title>
+          <source>Avicenna J Med Biotechnol</source>
+          <year>2016</year>
+          <volume>8</volume>
+          <issue>1</issue>
+          <fpage>2</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">26855729</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mahmood</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Aldahmash</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Induction of primitive streak and mesendoderm formation in monolayer hESC culture by activation of TGF-beta signaling pathway by Activin B</article-title>
+          <source>Saudi J Biol Sci</source>
+          <year>2015</year>
+          <volume>22</volume>
+          <issue>6</issue>
+          <fpage>692</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.sjbs.2015.03.002</pub-id>
+          <pub-id pub-id-type="pmid">26586995</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ou-Yang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>XY</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>GX</given-names>
+            </name>
+          </person-group>
+          <article-title>Human feeder cells support establishment and definitive endoderm differentiation of human embryonic stem cells</article-title>
+          <source>Stem Cells Dev</source>
+          <year>2008</year>
+          <volume>17</volume>
+          <issue>4</issue>
+          <fpage>737</fpage>
+          <lpage>49</lpage>
+          <pub-id pub-id-type="doi">10.1089/scd.2007.0186</pub-id>
+          <pub-id pub-id-type="pmid">18788933</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Katsirntaki</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Mauritz</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of murine embryonic stem cells (mESCs) and murine induced pluripotent stem cells (miPSCs) into Clara cells via enhanced definitive endoderm formation</article-title>
+          <source>J Stem Cells Regen Med</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <issue>2</issue>
+          <fpage>94</fpage>
+          <pub-id pub-id-type="pmid">24693111</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Naujok</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Diekmann</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Lenzen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>The generation of definitive endoderm from human embryonic stem cells is initially independent from activin A but requires canonical Wnt-signaling</article-title>
+          <source>Stem Cell Rev</source>
+          <year>2014</year>
+          <volume>10</volume>
+          <issue>4</issue>
+          <fpage>480</fpage>
+          <lpage>93</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12015-014-9509-0</pub-id>
+          <pub-id pub-id-type="pmid">24913278</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Djouad</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Bobick</surname>
+              <given-names>BE</given-names>
+            </name>
+            <name>
+              <surname>Janjanin</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>GT</given-names>
+            </name>
+            <name>
+              <surname>Tuan</surname>
+              <given-names>RS</given-names>
+            </name>
+          </person-group>
+          <article-title>Activin A expression regulates multipotency of mesenchymal progenitor cells</article-title>
+          <source>Stem Cell Res Ther</source>
+          <year>2010</year>
+          <volume>1</volume>
+          <issue>2</issue>
+          <fpage>11</fpage>
+          <pub-id pub-id-type="doi">10.1186/scrt11</pub-id>
+          <pub-id pub-id-type="pmid">20637060</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chatterjee</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Marquardt</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Tufa</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Beauclair</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>HZ</given-names>
+            </name>
+            <name>
+              <surname>Hatlapatka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hass</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kasper</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>von Kaisenberg</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Schmidt</surname>
+              <given-names>RE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Role of gamma-secretase in human umbilical-cord derived mesenchymal stem cell mediated suppression of NK cell cytotoxicity</article-title>
+          <source>Cell Commun Signal</source>
+          <year>2014</year>
+          <volume>12</volume>
+          <fpage>63</fpage>
+          <pub-id pub-id-type="doi">10.1186/s12964-014-0063-9</pub-id>
+          <pub-id pub-id-type="pmid">25266361</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chatterjee</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Marquardt</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Tufa</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Hatlapatka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hass</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kasper</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>von Kaisenberg</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Schmidt</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Jacobs</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Human umbilical cord-derived mesenchymal stem cells utilize Activin-A to suppress interferon-gamma production by natural killer cells</article-title>
+          <source>Front Immunol</source>
+          <year>2014</year>
+          <volume>5</volume>
+          <fpage>662</fpage>
+          <pub-id pub-id-type="pmid">25584044</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of keratinocyte growth factor in the differentiation of sweat gland-like cells from human umbilical cord-derived mesenchymal stem cells</article-title>
+          <source>Stem Cells Transl Med</source>
+          <year>2016</year>
+          <volume>5</volume>
+          <issue>1</issue>
+          <fpage>106</fpage>
+          <lpage>16</lpage>
+          <pub-id pub-id-type="doi">10.5966/sctm.2015-0081</pub-id>
+          <pub-id pub-id-type="pmid">26574554</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>WK</given-names>
+            </name>
+            <name>
+              <surname>Meliton</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Bourquard</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Hahn</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Parhami</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Hedgehog signaling and osteogenic differentiation in multipotent bone marrow stromal cells are inhibited by oxidative stress</article-title>
+          <source>J Cell Biochem</source>
+          <year>2010</year>
+          <volume>111</volume>
+          <issue>5</issue>
+          <fpage>1199</fpage>
+          <lpage>209</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.22846</pub-id>
+          <pub-id pub-id-type="pmid">20717924</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spinella-Jaegle</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Rawadi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Kawai</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Gallea</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Faucheu</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mollat</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Courtois</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Bergaud</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Ramez</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Blanchet</surname>
+              <given-names>AM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Sonic hedgehog increases the commitment of pluripotent mesenchymal cells into the osteoblastic lineage and abolishes adipocytic differentiation</article-title>
+          <source>J Cell Sci</source>
+          <year>2001</year>
+          <volume>114</volume>
+          <issue>Pt 11</issue>
+          <fpage>2085</fpage>
+          <lpage>94</lpage>
+          <pub-id pub-id-type="pmid">11493644</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hisada</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hata</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ichida</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Matsubara</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Orimo</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nakano</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yatani</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nishimura</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yoneda</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Retinoic acid regulates commitment of undifferentiated mesenchymal stem cells into osteoblasts and adipocytes</article-title>
+          <source>J Bone Miner Metab</source>
+          <year>2013</year>
+          <volume>31</volume>
+          <issue>1</issue>
+          <fpage>53</fpage>
+          <lpage>63</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00774-012-0385-x</pub-id>
+          <pub-id pub-id-type="pmid">23014973</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kondo</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Yoder</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Romand</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Hashino</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Sonic hedgehog and retinoic acid synergistically promote sensory fate specification from bone marrow-derived pluripotent stem cells</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2005</year>
+          <volume>102</volume>
+          <issue>13</issue>
+          <fpage>4789</fpage>
+          <lpage>94</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.0408239102</pub-id>
+          <pub-id pub-id-type="pmid">15778294</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vallier</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Touboul</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bilican</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Alexander</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Cedervall</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Chandran</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ahrlund-Richter</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Signaling pathways controlling pluripotency and early cell fate decisions of human induced pluripotent stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2009</year>
+          <volume>27</volume>
+          <issue>11</issue>
+          <fpage>2655</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.199</pub-id>
+          <pub-id pub-id-type="pmid">19688839</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vallier</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Touboul</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Chng</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Brimpari</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hannan</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Millan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Smithers</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>Trotter</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Rugg-Gunn</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Early cell fate decisions of human embryonic stem cells and mouse epiblast stem cells are controlled by the same signalling pathways</article-title>
+          <source>PLoS One</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <issue>6</issue>
+          <fpage>e6082</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0006082</pub-id>
+          <pub-id pub-id-type="pmid">19564924</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kumar</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Alarfaj</surname>
+              <given-names>AA</given-names>
+            </name>
+            <name>
+              <surname>Munusamy</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Singh</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Peng</surname>
+              <given-names>IC</given-names>
+            </name>
+            <name>
+              <surname>Priya</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Hamat</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Higuchi</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Recent developments in beta-cell differentiation of pluripotent stem cells induced by small and large molecules</article-title>
+          <source>Int J Mol Sci</source>
+          <year>2014</year>
+          <volume>15</volume>
+          <issue>12</issue>
+          <fpage>23418</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="doi">10.3390/ijms151223418</pub-id>
+          <pub-id pub-id-type="pmid">25526563</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR70">
+        <label>70.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Browning</surname>
+              <given-names>VL</given-names>
+            </name>
+            <name>
+              <surname>Odorico</surname>
+              <given-names>JS</given-names>
+            </name>
+          </person-group>
+          <article-title>Activin, BMP and FGF pathways cooperate to promote endoderm and pancreatic lineage cell differentiation from human embryonic stem cells</article-title>
+          <source>Mech Dev</source>
+          <year>2011</year>
+          <volume>128</volume>
+          <issue>7-10</issue>
+          <fpage>412</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.mod.2011.08.001</pub-id>
+          <pub-id pub-id-type="pmid">21855631</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR71">
+        <label>71.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cvoro</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Devito</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Milton</surname>
+              <given-names>FA</given-names>
+            </name>
+            <name>
+              <surname>Noli</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Filippi</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Sakai</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Suh</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Sieglaff</surname>
+              <given-names>HD</given-names>
+            </name>
+            <name>
+              <surname>Dhawan</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A thyroid hormone receptor/KLF9 axis in human hepatocytes and pluripotent stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2015</year>
+          <volume>33</volume>
+          <issue>2</issue>
+          <fpage>416</fpage>
+          <lpage>28</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.1875</pub-id>
+          <pub-id pub-id-type="pmid">25330987</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR72">
+        <label>72.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ying</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Guerrero-Cazares</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Quinones-Hinojosa</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Vescovi</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Eberhart</surname>
+              <given-names>CG</given-names>
+            </name>
+            <name>
+              <surname>Xia</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Laterra</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Kruppel-like family of transcription factor 9, a differentiation-associated transcription factor, suppresses Notch1 signaling and inhibits glioblastoma-initiating stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2011</year>
+          <volume>29</volume>
+          <issue>1</issue>
+          <fpage>20</fpage>
+          <lpage>31</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.561</pub-id>
+          <pub-id pub-id-type="pmid">21280156</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR73">
+        <label>73.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nekoei</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Azarpira</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Sadeghi</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Kamalifar</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>In vitro differentiation of human umbilical cord Wharton&#x2019;s jelly mesenchymal stromal cells to insulin producing clusters</article-title>
+          <source>World J Clin Cases</source>
+          <year>2015</year>
+          <volume>3</volume>
+          <issue>7</issue>
+          <fpage>640</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">26244156</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR74">
+        <label>74.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kadam</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Muthyala</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nair</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Bhonde</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Human placenta-derived mesenchymal stem cells and islet-like cell clusters generated from these cells as a novel source for stem cell therapy in diabetes</article-title>
+          <source>Rev Diabet Stud</source>
+          <year>2010</year>
+          <volume>7</volume>
+          <issue>2</issue>
+          <fpage>168</fpage>
+          <lpage>82</lpage>
+          <pub-id pub-id-type="doi">10.1900/RDS.2010.7.168</pub-id>
+          <pub-id pub-id-type="pmid">21060975</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR75">
+        <label>75.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Attali</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Stetsyuk</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Basmaciogullari</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Aiello</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Zanta-Boussif</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Duvillie</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Scharfmann</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Control of beta-cell differentiation by the pancreatic mesenchyme</article-title>
+          <source>Diabetes</source>
+          <year>2007</year>
+          <volume>56</volume>
+          <issue>5</issue>
+          <fpage>1248</fpage>
+          <lpage>58</lpage>
+          <pub-id pub-id-type="doi">10.2337/db06-1307</pub-id>
+          <pub-id pub-id-type="pmid">17322477</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR76">
+        <label>76.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chao</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Chao</surname>
+              <given-names>KF</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>SH</given-names>
+            </name>
+          </person-group>
+          <article-title>Islet-like clusters derived from mesenchymal stem cells in Wharton&#x2019;s Jelly of the human umbilical cord for transplantation to control type 1 diabetes</article-title>
+          <source>PLoS One</source>
+          <year>2008</year>
+          <volume>3</volume>
+          <issue>1</issue>
+          <fpage>e1451</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0001451</pub-id>
+          <pub-id pub-id-type="pmid">18197261</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

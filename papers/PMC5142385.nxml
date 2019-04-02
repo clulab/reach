@@ -1,0 +1,4000 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Biomater Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomater Res</journal-id>
+      <journal-title-group>
+        <journal-title>Biomaterials Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2055-7124</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27980804</article-id>
+      <article-id pub-id-type="pmc">5142385</article-id>
+      <article-id pub-id-type="publisher-id">86</article-id>
+      <article-id pub-id-type="doi">10.1186/s40824-016-0086-y</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Direct reprogramming and biomaterials for controlling cell fate</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Eunsol</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Tae</surname>
+            <given-names>Giyoong</given-names>
+          </name>
+          <address>
+            <phone>82-62-715-2305</phone>
+            <email>gytae@gist.ac.kr</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <aff id="Aff1">School of Materials Science and Engineering, Gwangju Institute of Science and Technology, Gwangju, 61005 Republic of Korea </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>7</day>
+        <month>12</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>7</day>
+        <month>12</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>20</volume>
+      <elocation-id>39</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>1</day>
+          <month>10</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>26</day>
+          <month>11</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s). 2016</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p>Direct reprogramming which changes the fate of matured cell is a very useful technique with a great interest recently. This approach can eliminate the drawbacks of direct usage of stem cells and allow the patient specific treatment in regenerative medicine. Overexpression of diverse factors such as general reprogramming factors or lineage specific transcription factors can change the fate of already differentiated cells. On the other hand, biomaterials can provide physical and topographical cues or biochemical cues on cells, which can dictate or significantly affect the differentiation of stem cells. The role of biomaterials on direct reprogramming has not been elucidated much, but will be potentially significant to improve the efficiency or specificity of direct reprogramming. In this review, the strategies for general direct reprogramming and biomaterials-guided stem cell differentiation are summarized with the addition of the up-to-date progress on biomaterials for direct reprogramming.</p>
+      </abstract>
+      <kwd-group xml:lang="en">
+        <title>Keywords</title>
+        <kwd>Direct reprogramming</kwd>
+        <kwd>Stem cell</kwd>
+        <kwd>Surface</kwd>
+        <kwd>Growth factors</kwd>
+        <kwd>ECM</kwd>
+        <kwd>Gene delivery</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/501100003725</institution-id>
+              <institution>National Research Foundation of Korea</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>2016R1A2B2008838</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Tae</surname>
+              <given-names>Giyoong</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+      </funding-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2016</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1" sec-type="introduction">
+      <title>Background</title>
+      <p>Regenerative medicine has been getting the spotlight in the medical science as a solution of intractable diseases. Especially stem cell therapy has great potential to cure many injuries and diseases. Stem cells have the ability to continuously divide and differentiate into various kinds of cells or tissues [<xref ref-type="bibr" rid="CR1">1</xref>]. The main types of stem cells are embryonic stem cell (ESC), adult stem cell (ASC), and induced pluripotent stem cell (iPSC). ESC is derived from the inner cell mass of a blastocyst. It has pluripotency to be expanded unlimitedly and can differentiate to all three germ layers. But it is hard to get ESC and furthermore there is a severe ethical issue [<xref ref-type="bibr" rid="CR2">2</xref>]. On the other hand, ASC, also called somatic stem cell, comes from the body after embryonic development, such as bone marrow, umbilical cord, adipose tissue, and blood cell. The source of ASC is more affordable than ESC, and ASC have less ethical issues compared to ESC [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. However, ASC is multipotent, not pluripotent, so the differentiation ability is less than ESC [<xref ref-type="bibr" rid="CR5">5</xref>]. For overcoming the limitation of ESC and ASC, iPSC has been developed. iPSC is reprogrammed human cell by some defined factors to generate the patient-specific pluripotent cell lines [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR7">7</xref>]. Yamanaka showed that iPSC can be generated using only four transcription factors, Oct4, Sox2, Klf4, and c-Myc [<xref ref-type="bibr" rid="CR7">7</xref>]. iPSC can be obtained easily and has pluripotency to differentiate into any one of three germ layers, meaning that iPSC is a powerful regenerative medicine tool right away. However, iPSC also has several obstacles for practical applications. First of all, iPSC is not safe for clinical applications in its current state [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. Commonly, viral vector systems are used to generate iPSC, which might integrate into the host DNAs. More importantly, iPSC has risk to form tumors when transplanted in vivo because of the use of oncogene in the reprogramming process. Also, the efficiency of generating iPSC has been too low yet.</p>
+      <p>Direct reprogramming is a new approach to overcome diverse problems of stem cell therapies. Direct reprogramming means that reprogramming the somatic cell into a desired patient specific cell directly without passing through the pluripotent stem cell stage [<xref ref-type="bibr" rid="CR10">10</xref>]. This method has a low risk about epigenetic remodeling and tumor formation. Also, it is more efficient and can be accomplished in an economy of time. In this review, direct reprogramming into various cell lineages will be introduced. Also biomaterials for affecting stem cell differentiation will be presented, and finally biomaterials to increase the efficiency of direct reprogramming will be introduced. Generally, direct reprogramming is also called transdifferentiation. Direct reprogramming and transdifferentiation are usually used as the same meaning, but exactly, direct reprogramming means the changing fate of somatic cell without dedifferentiation process and transdifferentiation means that less differentiated cell of certain lineage differentiates into other cell of similar lineage [<xref ref-type="bibr" rid="CR11">11</xref>]. Here, the term &#x2018;direct reprogramming&#x2019; will be used as the same meaning with transdifferentiation.</p>
+      <sec id="Sec2">
+        <title>Direct reprogramming</title>
+        <p>The general strategy for direct reprogramming uses transcription factors depending on the lineage of target. Most common cell source is the fibroblast from mouse or human. Here, recent examples of direct reprogramming will be discussed according to the final target cell type: Neural cells, cardiomyocytes and hepatocytes.</p>
+        <sec id="Sec3">
+          <title>Direct reprogramming to neural cells</title>
+          <p>Neurodegenerative disorders, such as Alzheimers disease, Parkinsons&#x2019;s disease and Huntingtons&#x2019; disease, have high lethality but there is no obvious cause and no effective medical treatment. Common symptoms of neurodegenerative disorders are continuously dying neural cells through necrosis or apoptosis, so cell regeneration of neural cells are necessary to cure those diseases. Thus, direct reprogramming approach can provide powerful regenerative therapies for neurodegenerative disorders [<xref ref-type="bibr" rid="CR12">12</xref>].</p>
+          <p>A progenitor cell is undifferentiated state into mature functional cell, so it can differentiate into some types of mature cell but not all types of cell because it is not a stem cell. Different from direct reprogrammed neurons, direct reprogrammed neural progenitors can expand in vitro and possess the ability to differentiate into multiple neuronal subtypes. Mouse embryonic fibroblast can be reprogrammed to diverse neural progenitor cells. First, induced neural progenitor cells (iNPCs) are generated using forced expression of Yamanaka factors (Oct4, Sox2, Klf4, c-Myc) [<xref ref-type="bibr" rid="CR13">13</xref>]. Although using the same factors which made iPSC, this group manipulated the specific signals affecting cell fates. This research also provided the possibilities of various applications with subtle signal changing because they used general reprogramming factors, not lineage specific transcription factors. Functional midbrain dopaminergic induced neuronal progenitors (iDPs) could be reprogrammed from mouse embryonic fibroblast or adult tail-tip fibroblast using 4 Yamanaka factors, Shh, and FGF8 [<xref ref-type="bibr" rid="CR14">14</xref>]. Morphogen for midbrain development promoted the reprogramming and inhibiting JAK-STAT pathway which enhanced the efficiency of the reprogramming process. Induced oligodendrocyte precursor cells (iOPCs) were generated from mouse and rat fibroblast using transcription factors Sox10, Olig2, Zfp536 [<xref ref-type="bibr" rid="CR15">15</xref>]. iOPCs could differentiate into astrocytes and myelinating oligodendrocytes. Although the differentiation efficiency of iOPCs was lower than that of neonatal OPCs, iOPCs are valuable because primary human tissues are limited. There are similar researches using human fibroblast. S Andrew et al. [<xref ref-type="bibr" rid="CR16">16</xref>] made human induced neural progenitor cells (hiNPs) with miR-9/9, miR-124, and Neurod2 from human neonatal foreskin and adult dermal fibroblast. Micro RNAs, miR-9/8, and miR-124 regulated the neuronal differentiation and SWI/SNF-like BAF chromatin-remodeling complex, important for neuronal function, so they could control the neuronal fate. Additional Ascl1 and Myt1l increased the reprogramming efficiency. C Maucksch et al. [<xref ref-type="bibr" rid="CR17">17</xref>] also generated hiNPs from adult dermal fibroblast using Sox2, Pax6, and recombinant protein transduction. Shh helped the regulation of neuronal differentiation from iNPs into functional and fully matured neurons. Overall, it took less time to convert neural precursor cells to functional neurons than iPSCs. However, iNPs required additional steps for redifferentiation into functional neurons unlike induced neurons. And, the multipotency of iNPs can be a strength but also be a weakness because the higher multipotency might have a risk going to pluripotency stage than functional cell, and a lower efficiency to be mature cell.</p>
+          <p>There also exist some known transcription factors which are specifically dominant in functional neurons, but not progenitor cells. Recent researches showed the overexpression of these transcription factors can induce the specific functional cell types. Direct reprogramming with neural-specific transcription factors could do interlineage reprogramming not only fate switching within the major lineage. Vierbuchen et al. [<xref ref-type="bibr" rid="CR18">18</xref>] cloned 19 genes that are definitely expressed in neural tissues for screening the neural fate inducing factors. They found the three gene combination of Ascl1, Brn2 and Myt1l. The genes were sufficient to reprogram mouse embryonic dermal and postnatal tail-tip fibroblast into induced neurons (iNs). Although Ascl1 alone could induce neural functions like action potential, but coinfection of Brn2 and Myt1l was necessary for neural conversion and maturation. Similarly, the same three gene combination has been used in other groups [<xref ref-type="bibr" rid="CR19">19</xref>&#x2013;<xref ref-type="bibr" rid="CR21">21</xref>]. To solve the problem of heterogeneous population of iNs, other researchers used lineage-specific factors for generating functional neurons. One group changed mouse embryonic and adult tail-tip fibroblast into induced motor neurons (iMNs) with Ascl, Brn2, Myt1l, Lhx3, Hb9, Isl1, and Ngn2. Addition of motor neuron specific factors to basic neural fate inducing factors efficiently induced motor neurons [<xref ref-type="bibr" rid="CR22">22</xref>]. iMNs present motor neuron characteristics such as electrophysiological actor or forming functional synapses with muscle. Ectopic expression of Ascl1, Nurr1, Lmx1a could change mouse prenatal and adult tail-tip fibroblast to induced dopaminergic neurons (iDAs) [<xref ref-type="bibr" rid="CR23">23</xref>]. This genetic reprogramming removed the major gene expression of the original cells, and expressed the induced target cell related gene. The strengths of this iDAs are rapid processing and maintenance. The reprogramming was achieved only in 6&#xA0;days after expression of the factors and it remained a stable neuronal state over time.</p>
+          <p>There are other reports using human fibroblast. Human fetal limb and postnatal foreskin were changed to human induced neurons (hiNs) using Ascl1, Brn2, Myt1l and NeuroD1 factors [<xref ref-type="bibr" rid="CR24">24</xref>]. Without NeuroD1, basic helix-loop-helix transcription factor, hiNs became functionally immature. Compared to mouse iNs, hiNs needed a long time to develop the synaptic activities. Instead of Ascl1, miR-124 with Myt1l and Brn2 also could generate hiN from human adult dermal fibroblasts [<xref ref-type="bibr" rid="CR25">25</xref>]. miR-124 is a microRNA, most abundant in the mammalian CNS and upregulated in neurons. miR-124 helped the reprogramming to neurons by inhibiting the nonneuronal gene expression post transcriptionally. Human induced motor neurons (hiMNs) could be generated with the combination of Ascl1, Brn2, Myt1l, Lhx3, Hb9, Isl1, Ngn2, and Neurod1 [<xref ref-type="bibr" rid="CR22">22</xref>]. Also human induced dopaminergic neurons (hiDAs) from human prenatal lung and adult skin cell could be generated by Ascl1, Nurr1, and Lmx1a [<xref ref-type="bibr" rid="CR23">23</xref>]. The other combination for hiDAs is Mash1, Ngn2, Sox2, Nurr1, and Pitx3. Using this combination, human fetal lung fibroblast changed into hiDAs [<xref ref-type="bibr" rid="CR26">26</xref>]. Exogenous expression of the five transcription factors significantly influenced on their endogenous counterparts. When hiDAs were injected into the rat model of Parkinson&#x2019;s disease, the rotational behavior was stabilized distinctly. Also in vivo transplanted hiDAs are less likely to form tumors, although lentiviral vector may have integrated into the genome and block tumor suppressor genes.</p>
+          <p>Direct reprogramming does not rely on pluripotent stage, which is prone to tumors in their undifferentiated state. So, it can overcome the weakness of stem cell therapies. Also the source for direct reprogramming is sufficient in humans including patients&#x2019; themselves. Therefore, direct reprogramming is very promising for neurodegenerative diseases (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption><p>Direct reprogramming into neural cells</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Species</th><th colspan="2">Starting cells</th><th>Target cells</th><th>Reprogramming factors</th><th>Gene delivery</th><th>Efficiency (%)</th><th>Reference</th></tr></thead><tbody><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic, adult (tail-tip)</td><td>iNPC</td><td>Oct4, Sox2, Klf4, c-Myc</td><td>Lentivirus</td><td>0.7</td><td>[<xref ref-type="bibr" rid="CR13">13</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic</td><td>iDP</td><td>Oct4, Sox2, Klf4, c-Myc, SHH, FGF8</td><td>Lentivirus</td><td>26</td><td>[<xref ref-type="bibr" rid="CR14">14</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic</td><td>iOPC</td><td>Sox10, Olig2, Zfp536</td><td>Lentivirus</td><td>25</td><td>[<xref ref-type="bibr" rid="CR15">15</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>neonatal (skin), adult (dermal)</td><td>hiNP</td><td>NeuD2, MiR-9, 124, Ascl1, Myt1l</td><td>Lentivirus</td><td>5</td><td>[<xref ref-type="bibr" rid="CR16">16</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>adult (dermal)</td><td>hiNP</td><td>Sox2, Pax6</td><td>Nonviral plasmid or Recombinant protein</td><td>0.05</td><td>[<xref ref-type="bibr" rid="CR17">17</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic, postnatal (tail-tip)</td><td>iN</td><td>Ascl1, Brn2, Myt1l</td><td>Lentivirus</td><td>19.5</td><td>[<xref ref-type="bibr" rid="CR18">18</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic</td><td>iN</td><td>Brn2, Ascl1, Myt1l</td><td>pmax vector</td><td>7.6</td><td>[<xref ref-type="bibr" rid="CR19">19</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic</td><td>iN</td><td>Ascl1, Brn2, Myt1l</td><td>Lentivirus</td><td>11.6~16.1</td><td>[<xref ref-type="bibr" rid="CR20">20</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic, adult (tail-tip)</td><td>iMN</td><td>Ascl1, Brn2, Mytl1, Lhx3, Hb9, Isl1, Ngn2</td><td>Retrovirus</td><td>5~10</td><td>[<xref ref-type="bibr" rid="CR22">22</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>prenatal, adult (tail-tip)</td><td>iDA</td><td>Ascl1, Nurr1, Lmx1a</td><td>Lentivirus</td><td>18</td><td>[<xref ref-type="bibr" rid="CR23">23</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>fetal (limb), postnatal (skin)</td><td>hiN</td><td>Brn2, Ascl1, Myt1l, NeuroD1</td><td>Lentivirus</td><td>17~21</td><td>[<xref ref-type="bibr" rid="CR24">24</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>adult (dermal)</td><td>hiN</td><td>MiR-124, Myt1l, Brn2</td><td>Lentivirus</td><td>1.5~2.9</td><td>[<xref ref-type="bibr" rid="CR25">25</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>embryonic</td><td>iMN</td><td>Ascl1, Brn2, Mytl1, Lhx3, Hb9, Isl1, Ngn2, NeuroD1</td><td>Retrovirus</td><td>-</td><td>[<xref ref-type="bibr" rid="CR22">22</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>prenatal (lung), adult (skin)</td><td>hiDA</td><td>Ascl1, Nurr1, Lmx1a</td><td>Lentivirus</td><td>3~6</td><td>[<xref ref-type="bibr" rid="CR23">23</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>fetal (lung)</td><td>hiDA</td><td>Mash1, Ngn2, Sox2, Nurr1, Pitx3</td><td>Lentivirus</td><td>1~2</td><td>[<xref ref-type="bibr" rid="CR26">26</xref>]</td></tr></tbody></table></table-wrap>
+</p>
+        </sec>
+        <sec id="Sec4">
+          <title>Direct reprogramming to cardiomyocytes</title>
+          <p>Heart disease is caused by not only atherosclerosis and hypertension but also daily eating and life habits, so it usually occurs more in older ages [<xref ref-type="bibr" rid="CR27">27</xref>]. But, there is also a congenital heart malformation due to the improper development of cardiomyocytes during embryogenesis. If heart disease occurs, the treatment is not easy because the postnatal cardiomyocytes do not have regenerative capacity. So, there exist many articles regarding stem cell based heart disease therapies. However, stem cell-derived cardiomyocytes have many problems such as functional heterogeneity, maturity, potential tumorigenicity, low survival, retention of delivered cells, and insufficient stem cell source [<xref ref-type="bibr" rid="CR28">28</xref>]. Direct reprogramming could provide better solution. The heart is composed of cardiomyocytes, vascular cells, and cardiac fibroblasts. Among them, cardiac fibroblasts occupy over 50% [<xref ref-type="bibr" rid="CR29">29</xref>]. Cardiac fibroblasts support the cardiac structure, secrete signals and form scar formation upon cardiac damages. Direct reprogramming from cardiac fibroblasts to cardiomyocytes have been tried.</p>
+          <p>M Ieda et al. [<xref ref-type="bibr" rid="CR30">30</xref>] induced cardiomyocyte-like cells (iCMs) from mouse neonatal cardiac and tail-tip dermal fibroblasts. They used three developmental cardiac transcription factors, Gata4, Mef2c, and Tbx5. This combination generated iCMs rapidly and efficiently within 7&#xA0;days after transduction although full maturation required more times. iCMs showed spontaneous contraction activity. But, they indicated that the oscillation frequency of tail-tip fibroblast derived iCMs was lower than that of cardiac fibroblast derived iCMs. The other group used the same Gata4, Mef2c, and Tbx5 factors, but mouse adult cardiac fibroblast was used as starting cells [<xref ref-type="bibr" rid="CR31">31</xref>]. They confirmed the reprogrammed hearts showing good sarcromere formation and contractile potential. Also iCMs could couple with viable endogenous cardiomyocytes electrically. In vivo test showed iCMs injected mouse had functional improvement for all parameters. Additional Thymosin &#x3B2;4 with the combination improved cardiac function and decreased scar size in vivo. K song et al. [<xref ref-type="bibr" rid="CR32">32</xref>] reprogrammed mouse adult cardiac and tail-tip fibroblast into iCMs using Gata4, Mef2c, Tbx5, and Hand2. Previous researches showed the efficiency of reprogramming using adult fibroblast was lower than using neonatal fibroblast. But this group improved the efficiency up to the quadruple using additional Hand2. It was a very valuable result because cardiac fibroblast is the most prevalent cell type in adult hearts. iCMs of this group showed a similar calcium transient pattern to neonatal ventricular cardiomyocytes than adults and it could couple with surrounding myocytes through gap junction. The heart post myocardial infarction reduction was also confirmed in vivo. There have been some researches using mouse embryonic fibroblast. One group reprogrammed iCMs from mouse embryo mesoderm using Gata4, Tbx5, and Baf60c [<xref ref-type="bibr" rid="CR33">33</xref>]. Baf50c with Gata4 could initiate the ectopic cardiac gene expression. Another group, who started reprogramming from embryonic fibroblast, interestingly used Yamanaka factors. Ectopic expression of Oct4, Sox2, Klf4, and c-Myc could make cardiomyocytes [<xref ref-type="bibr" rid="CR34">34</xref>]. In spite of using the same factors, they grew cells in feeder cell with LIF-removed cardioinductive media. Then, early cardiac programmed cell was made. Of course, an early cardiac programmed cell needs cytokine and chemically defined media for terminal differentiation. It takes 3&#xA0;weeks to make iPSC using Yamanaka factor, but it took only 12&#xA0;days for direct reprogramming to cardiomyocyte using Yamanaka factor. Another promising alternative strategy is using microRNA. Jayawardena et al. [<xref ref-type="bibr" rid="CR35">35</xref>] induced iCMs from mouse neonatal and adult cardiac fibroblast using a combination of miRNAs, mirR-1, 133, 208, and 499. Small size single miRNA can target multiple gene expression pathways simultaneously. Using miRNAs increased the reprogramming efficiency and homogeneity of resulting cells because miRNA could pack multiple transcripts in the same delivery vectors.</p>
+          <p>There are some researches using human fibroblasts to make cardiomyocytes. One group induced cardiomyocytes (hiCMs) from human fetal heart and neonatal skin fibroblast by using Gata4, Mef2c, Tbx5, Essrg, and Mesp1 [<xref ref-type="bibr" rid="CR36">36</xref>]. Additional Myocardin and Zfpm2 enhanced the reprogram efficiency, sacromere formation, calcium transients, and action potential. And, hiCMs reprogramming efficiency could be improved by TGF-&#x3B2; signaling. Other research used miRNAs for hiCMs. They made hiCMs from human neonatal foreskin and adult cardiac, dermal fibroblast with Gata4, Hand2, Tbx5, myocardin, miR-1, and miR-133 [<xref ref-type="bibr" rid="CR37">37</xref>]. Cardiac transcription factors were used equally with mouse cells, but human cells were more resistant to the artificial processing. Moreover, adult had more stable epigenetic programs and resistance than neonatal. Therefore, additional regulatory factors were necessary and so they chose miRNAs.</p>
+          <p>In summary, for inducing cardiomyocytes from fibroblast, cardiac transcription factors are needed. Among them, the main factors are Gata4, Tbx5, and Mef2c. Gata4 binds to its target site in the genome, so it plays as a pioneer. Tbx5 is essential for heart beating function. Mef2c is important in cardiac morphogenesis and myogenesis [<xref ref-type="bibr" rid="CR38">38</xref>]. Further study is necessary for clinical application because hiCMs are still functionally immature and reprogramming efficiency varies. However, it is a very attractive strategy for curing both congenital and acquired heart diseases and improving the quality of life.</p>
+        </sec>
+        <sec id="Sec5">
+          <title>Direct reprogramming to hepatocytes</title>
+          <p>Hepatocyte is a main cell type in the liver. The liver regulates lots of physiological processes in our body. Liver diseases, such as liver metabolic diseases or acute liver failure, are very severe death causing problems [<xref ref-type="bibr" rid="CR39">39</xref>]. For the treatment of liver diseases, liver transplantation is the golden standard. But, due to the limited supply of liver donation, hepatocytes transplantation can be an alternative.</p>
+          <p>Sekiya et al. [<xref ref-type="bibr" rid="CR40">40</xref>] screened hepatic fate inducing factors and found that Hnf4a, Foxa1, Foxa2, or Foxa3 can reprogram mouse fibroblast into hepatocyte-like cells (iHeps). Foxa2 was used for embryonic fibroblast, and Foxa3 was used for adult dermal skin fibroblast. The characteristics of iHeps such as gene expression or morphology and hepatic functions are similar to that of mature hepatocytes. When iHeps were transplanted into the mouse liver, they could repair hepatic defects. Another method for inducing functional iHeps is an ectopic expression of Gata4, Hnf1a, Foxa3, and inactivation of p19Arf [<xref ref-type="bibr" rid="CR41">41</xref>]. This combination could make iHeps from mouse adult tail-tip fibroblast. Gata4 and Foxa3 acted as chromatin modification, and then Hnf1a stabilized the induced hepatic gene expression. p19Arf is an important component of the cellular senescence pathway and it inhibits iPSC reprogramming. So the inhibition of p19Arf could overcome the proliferative limitation.</p>
+          <p>Recently, the similar researches using human cell were studied. Huang et al. [<xref ref-type="bibr" rid="CR42">42</xref>] generated human induced hepatocytes (hiHeps) from human fetal limb and adult dermal fibroblast with expression of Foxa3, Hnf1a, and Hnf4a. This hiHeps had mature hepatic functions like biliary excretion of drug compound or CYP enzyme activities. Compared to fetal limb derived hiHeps, adult dermal derived hiHeps showed a low hepatic conversion rate. Another group used human newborn fibroblast to make hiHeps with Oct4, Sox2, and Klf in medium containing established growth factors and small molecule CHIR [<xref ref-type="bibr" rid="CR43">43</xref>]. The factors they used are some of Yamanaka factors, but it did not undergo the pluripotent state. Strictly speaking, it is not a definite direct reprogramming strategy because they induced multipotent progenitor (iMPC) and then redifferentiated into hepatocytes.</p>
+          <p>Overall, the engraftment efficiency of iHeps does not reach to that of adult hepatocytes and it takes a long time for post-transplant maturation. The level of direct reprogramming to hepatocytes is not suitable for clinical application yet. However, patient derived hiHeps could be used in regenerative medicine and disease modeling in liver diseases in near future [<xref ref-type="bibr" rid="CR44">44</xref>] (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>).<table-wrap id="Tab2"><label>Table 2</label><caption><p>Direct reprogramming into cardiomyocytes &amp; hepatocytes</p></caption><table frame="hsides" rules="groups"><thead><tr><th>Species</th><th colspan="2">Starting cells</th><th>Target cells</th><th>Reprogramming factors</th><th>Gene delivery</th><th>Efficiency (%)</th><th>Reference</th></tr></thead><tbody><tr><td>Mouse</td><td>Fibroblast</td><td>neonatal (cardiac)</td><td>iCM</td><td>Gata4, Mef2c, Tbx5</td><td>Retrovirus</td><td>10~15</td><td>[<xref ref-type="bibr" rid="CR30">30</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>adult (cardiac)</td><td>iCM</td><td>Gata4, Mef2c, Tbx5</td><td>Retrovirus</td><td>12</td><td>[<xref ref-type="bibr" rid="CR31">31</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>adult (cardiac, tail-tip)</td><td>iCM</td><td>Gata4, Mef2c, tbx5, Hand2</td><td>Retrovirus</td><td>9.2</td><td>[<xref ref-type="bibr" rid="CR32">32</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic</td><td>iCM</td><td>Gata4, Tbx5, Baf60c</td><td>CMV promoter</td><td>&lt;10</td><td>[<xref ref-type="bibr" rid="CR33">33</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic</td><td>iCM</td><td>Oct4, Sox2, Klf4, c-Myc</td><td>Retrovirus</td><td>-</td><td>[<xref ref-type="bibr" rid="CR34">34</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>neonatal, Adult (cardiac, tail-tip)</td><td>iCM</td><td>miR-1,133,208,499</td><td>Lentivirus</td><td>1.5~7.8</td><td>[<xref ref-type="bibr" rid="CR35">35</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>fetal (heart), neonatal (skin)</td><td>hiCM</td><td>Gata4, Mef2c, Tbx5, Esrrg, Mesp1</td><td>Retrovirus</td><td>13</td><td>[<xref ref-type="bibr" rid="CR36">36</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>neonatal (foreskin), adult (cardiac, dermal)</td><td>hiCM</td><td>Gata4, Hand2, Tbx5, Myocardin, miR-1,133</td><td>Retrovirus</td><td>12~19</td><td>[<xref ref-type="bibr" rid="CR37">37</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>embryonic, adult (skin)</td><td>iHep</td><td>Hnf4a, Foxa1, Foxa2 or foxa3</td><td>Retrovirus</td><td>0.3</td><td>[<xref ref-type="bibr" rid="CR40">40</xref>]</td></tr><tr><td>Mouse</td><td>Fibroblast</td><td>adult (tail-tip)</td><td>iHep</td><td>Gata4, Hnf1a, Foxa3, inactivation of p19Arf</td><td>Lentivirus</td><td>20</td><td>[<xref ref-type="bibr" rid="CR41">41</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>fetal (limb), adult (dermal)</td><td>hiHep</td><td>Foxa3, Hnf1a, Hnf4a</td><td>Lentivirus</td><td>10</td><td>[<xref ref-type="bibr" rid="CR42">42</xref>]</td></tr><tr><td>Human</td><td>Fibroblast</td><td>newborn</td><td>hiHep</td><td>Oct4, Sox2, Klf4</td><td>Retrovirus</td><td>-</td><td>[<xref ref-type="bibr" rid="CR43">43</xref>]</td></tr></tbody></table></table-wrap>
+</p>
+        </sec>
+      </sec>
+      <sec id="Sec6">
+        <title>Biomaterials strategies for effective cell fate change</title>
+        <p>Biomaterials are synthetic or natural materials that can contact and integrate with biological system, but should not be harmful to the patient when performing intended functions [<xref ref-type="bibr" rid="CR45">45</xref>]. A proper regulation of cell fate including stem cell or reprogramming of mature cell is the key issue in regenerative cell therapy. If reprogramming of cell is not controlled sufficiently, the therapy might cause teratoma, not treatment. There are numerous biomaterials for determining cell fate or helping the reprogramming process. Biomaterials can provide microenvironments mimicking a specific cell niche, allowing cells to differentiate into desired cell types [<xref ref-type="bibr" rid="CR46">46</xref>]. The artificial stem cell niche can provide homing signals for attracting and localizing stem cells [<xref ref-type="bibr" rid="CR47">47</xref>]. It may work similarly in direct reprogramming [<xref ref-type="bibr" rid="CR48">48</xref>]. Classification of these biomaterials is not simple because one biomaterial can play multiple roles. Biomaterials can be classified in terms of physical properties such as surface, mechanical, electrical, and morphological properties. They can be classified in terms of the source such as natural, polymer, ceramic, and metals, or in terms of just shape such as 2D or 3D materials. In this review, we will describe the functions of biomaterials in terms of physical aspects, biochemical properties, and gene delivery&#xA0;(Fig. <xref rid="Fig1" ref-type="fig">1</xref>).<fig id="Fig1"><label>Fig. 1</label><caption><p>Classification of biomaterials strategies for cell fate</p></caption><graphic xlink:href="40824_2016_86_Fig1_HTML" id="MO1"/></fig>
+</p>
+        <p>Biomaterials which regulate the stem cell fate can work in direct reprogramming also in the same principle. So, here some examples of biomaterials for stem cell differentiation and further recent researches about biomaterials for direct reprogramming will be described.</p>
+        <sec id="Sec7">
+          <title>Physical aspects</title>
+          <p>Physical properties of biomaterials for cell reprogramming include mechanical strength (modulus) and surface topographies. First, the matrix elasticity of microenvironment can regulate the cell fate. Generally, stiffer substrates induce stiffer cells and softer substrates induce softer cells [<xref ref-type="bibr" rid="CR49">49</xref>]. In the same vein, soft matrix can stimulate the differentiation of mesenchymal stem cell into neural like cells. Moderate elasticity favors myogenic differentiation, and rigid matrix promotes osteogenic differentiation [<xref ref-type="bibr" rid="CR50">50</xref>]. A pioneering work of Engler A et al. [<xref ref-type="bibr" rid="CR51">51</xref>] demonstrated the whole range differentiation of human mesenchymal stem cell by modulating the matrix elasticity, including neurogenic differentiation from elastic modulus in 0.1&#x2013;1 kPa (brain), myogenic differentiation from elastic modulus in 8&#x2013;17 kPa (muscle), and osteogenic differentiation from elastic modulus in 25&#x2013;40 kPa (osteoids). Cell morphology also changed accordingly. So, the matrix properties can be a potent differentiation cue for mesenchymal stem cells [<xref ref-type="bibr" rid="CR52">52</xref>, <xref ref-type="bibr" rid="CR53">53</xref>]. Similarly, physical signals like stiffness at the interface between cell and substrate can be a potent regulator for cell fate change. Soft hydrogel played an important role in making iPSCs via activation of mesenchymal to epithelial transition [<xref ref-type="bibr" rid="CR54">54</xref>].</p>
+          <p>Fiber diameter of substrates also could influence on cell fate change [<xref ref-type="bibr" rid="CR55">55</xref>, <xref ref-type="bibr" rid="CR56">56</xref>]. The fiber diameter of laminin coated electrospun polyethersulfone mesh could regulate the neural stem cell differentiation and proliferation. Generally, as the fiber diameter decreased, the neural stem cell proliferation rate increased. Cell morphology in small fiber showed stretched and multi directional shape, whereas the large fiber showed extended form along a single axis due to the size restriction. Although the main signals such as retinoic acid, fetal bovine serum, growth factor, etc. were necessary for differentiation or proliferation, the fiber diameter could increase or decrease the efficiency distinctly. Similarly, the pores of scaffold are also important cue. Levenger et al. [<xref ref-type="bibr" rid="CR57">57</xref>] made 3D porous biodegradable polymer scaffolds which could influence the cell orientation, spreading and tissue structures. 3D scaffolds itself could allow the reconstruction and mimicking the complexity of the stem cell niche. In addition, this group made pores in scaffold to promote cell differentiation and homogeneity. Poly(lactic-co-glycolic acid) (PLGA) for degradability and poly(L-lactic acid) (PLLA) for mechanical stiffness were blended, and 250&#x2013;500&#xA0;&#x3BC;m pores were made. This scaffold helped the embryonic stem cell differentiation into desired cell with each suitable growth factor such as TGF-&#x3B2; for cartilage, Activin-A for liver like cells, and RA for neuroectodermal like structures. Another group made macroporous alginate scaffolds bearing cell adhesion peptide RGD and heparin binding peptide [<xref ref-type="bibr" rid="CR58">58</xref>]. Combination of these peptides could provide different signaling processes in ECM-cell interactions and appropriate niche for cardiac stem cell behaviors.</p>
+          <p>Using a topographically patterned substrate without using potentially harmful chemicals for determining the lineage of stem cell is a safe and promising technique [<xref ref-type="bibr" rid="CR59">59</xref>]. Surface topography with micropatterned nanoridge induced mesenchymal stem cell to acquire neuronal characteristics [<xref ref-type="bibr" rid="CR60">60</xref>]. Compared to fibroblast like morphology of cells in smooth surface, stem cells became elongated morphology in ridge patterned hydrogenated amorphous carbon film. In other case, pattern of fibronectin on a coverslip generated by microcontact printing changed the differentiation tendency in accordance with the position [<xref ref-type="bibr" rid="CR61">61</xref>]. Without pattern, human mesenchymal stem cell tends to differentiate into the osteogenic lineage at the edge, and the cells in the center tends to differentiate into adipocytes. However, cells cultured on the patterned coverslip changed the location of osteogenic versus adipogenic differentiation. Nanotopography also induced the changes in stem cell behaviors. Human mesenchymal stem cell on nanopatterned substrate showed lower integrin expression and FAK expression levels than unpatterned substrate in the cases of both soft (PDMS) and stiff (tissue culture polystyrene (TCPS)) substrate [<xref ref-type="bibr" rid="CR62">62</xref>], meaning that nanotopographical cue has a more significant influence than the substrate stiffness on stem cell behaviors. Also, human mesenchymal stem cells on PDMS with nanograting were differentiated into neuronal like cells [<xref ref-type="bibr" rid="CR63">63</xref>], proving that nanotopography can make stem cells to differentiate into specific, non-default pathways. In other study, hydrogen terminated ultra nanocrystalline diamond films could promote neural stem cell extension and protrusion [<xref ref-type="bibr" rid="CR64">64</xref>]. There are some reports of using substrate topography in direct reprogramming. Direct reprogramming occurs in conjunction with significant changes on epigenome including the histone modification [<xref ref-type="bibr" rid="CR65">65</xref>]. Leong et al. [<xref ref-type="bibr" rid="CR20">20</xref>] reported the effect of substrate topography on direct reprogramming from fibroblasts to induced neurons. They demonstrated that cell-topography interactions can strongly influence the gene expression, neurite branching and outgrowth, and this shape and function determine the function of cells. In the course of neuronal induction, the cytoskeleton rearrangement is a crucial step. This cytoskeleton rearrangement responded to the substrate topography and substrate stiffness [<xref ref-type="bibr" rid="CR66">66</xref>]. In other case, microtopography on cell adhesive substrate induced the change of cell morphology responsible for the modulation of epigenetic state [<xref ref-type="bibr" rid="CR67">67</xref>]. Related to this result, micro- or nano-scale topography on PDMS induced pronounced changes in histone acetylation and methylation patterns and significantly promoted a mesenchymal to epithelial transition in adult fibroblasts [<xref ref-type="bibr" rid="CR68">68</xref>, <xref ref-type="bibr" rid="CR69">69</xref>]. Specifically, the flat, microgrooved, and nanogrooved substates worked differently in terms of cell alignment. One group compared this by manufacturing the patterns using UV-assisted capillary force lithography and analyzed the direct reprogramming of somatic fibroblasts to neurons [<xref ref-type="bibr" rid="CR70">70</xref>]. These passive topographical cues could offer a simple and effective possibility to enhance the efficiency of cell reprogramming.</p>
+          <p>Microparticle is another example of biomaterials working as a physical means. Microparticles have been widely used for encapsulation and releasing diverse molecules in biomaterial experiments [<xref ref-type="bibr" rid="CR71">71</xref>, <xref ref-type="bibr" rid="CR72">72</xref>]. M Andres et al. [<xref ref-type="bibr" rid="CR73">73</xref>] made various kinds of microparticles using various materials such as PLGA, agarose, and gelatin. These microparticles were stably integrated within aggregates of embryonic stem cells in a dose dependent manner. The presence of microparticles within stem cell aggregates could make stem cells to adopt specific differentiated phenotypes according to fabricated biomaterials. But, the efficiency of simple mixing of microparticles and stem cells was very low, so the forced aggregation was necessary. In almost all cases, maximal production of desired differentiated cells was shown when physical cue and chemical stimulus were applied together. Also, specific ligand-receptor interactions of growth factor or matrix molecules were more important than physical cues for regulating cells. However, physical properties of cell culture environments could also serve as a key factor in determining the cellular function and fate [<xref ref-type="bibr" rid="CR49">49</xref>].</p>
+        </sec>
+        <sec id="Sec8">
+          <title>Biochemical aspects</title>
+          <p>Biochemical cues such as extracellular matrix (ECM) molecules, growth factors, and other signaling are essential to control the fate of cells. Especially, ECM components and structures regulate cell fate through integrin mediated activation and downstream signaling events [<xref ref-type="bibr" rid="CR74">74</xref>]. Collagen, laminin, fibronectin, and matrigel are major ECM components. 3D collagen gel was used for CNS stem cell differentiation into functional neuronal circuits [<xref ref-type="bibr" rid="CR75">75</xref>]. Because neuronal stem cells are anchorage dependent and attach to a solid surface, those solid polymer scaffolds are critical for neural tissue engineering. However, neural cells do not adhere to synthetic hydrogel, so the modification of hydrogel with ECM proteins such as collagen is necessary to provide relevant recognition and biological cell adhesion. In contrast, stem cells entrapped in biologically derived collagen hydrogel could rapidly expand in serum free medium containing bFGF, and showed the development to neurons, astrocytes, and oligodendrocytes. S Battista et al. [<xref ref-type="bibr" rid="CR76">76</xref>] studied the effect of matrix composition of 3D constructs on embryonic stem cell differentiation. They made semi interpenetrating polymer networks, composed of diverse concentration of collagen, fibronectin, and laminin. In different compositions, embryonic body development and formation were different depending on the collagen concentrations. A high concentration of collagen inhibited cellular apoptosis so disrupted the embryonic body formation, and fibronectin accelerated the endothelial cell differentiation and vascularization. Laminin stimulated cardiomyocyte differentiation from embryonic stem cells. Collagen based hydrogel could also be applied in direct reprogramming. Endothelial progenitor cells were reprogrammed to smooth muscle cells, and this induced smooth muscle cell assembled blood vessel structure in a 3D dense collagen gel [<xref ref-type="bibr" rid="CR77">77</xref>].</p>
+          <p>Fibrin is a large non globular protein formed by polymerization of fibrinogen and thrombin [<xref ref-type="bibr" rid="CR78">78</xref>]. An ideal scaffold should have a relevant cell adhesion site and signals for promoting cellular differentiation. fibrin scaffolds with various concentrations of fibrinogen, thrombin, and aprotinin were characterized to make proper environments for neurogenesis [<xref ref-type="bibr" rid="CR79">79</xref>]. They found out fibrinogen concentration is more important than thrombin concentration and higher thrombin concentration inhibits cell migration inside the fibrin scaffold. Also, when cell seeding density was high, more cell growth and differentiation were observed. Additional aprotinin could control the rate of gel degradation, so the optimal concentration of aprotinin was different depending on other compositions. Another group used fibrin gel for embryonic stem cell culture [<xref ref-type="bibr" rid="CR80">80</xref>]. To retard the degradation of fibrin gel, fibrin gel was modified with poly(ethylene glycol) (PEG) as a secondary crosslinking method. This PEGylated fibrin culture increased the efficiency of cell expansion and modulated the differentiation of embryonic stem cells. PEG based hydrogel itself also has a potential for effective cell fate reprogramming. PEG prevents unwanted adsorption of proteins, which can induce altering cell signaling [<xref ref-type="bibr" rid="CR81">81</xref>]. This property of PEG could potentially provide better environment for cell reprogramming, and it nearly doubled efficiency of making cardiomyocyte-like cells from fibroblasts [<xref ref-type="bibr" rid="CR82">82</xref>]. This result suggests the future direction for developing a fully synthetic reprogramming microenvironment by adding some adhesion molecules or peptide to PEG based hydrogel. In this vein, one group successfully induced vessel like structures using human umbilical cord blood derived endothelial progenitor cells (EPCs) which can be easily isolated from the peripheral blood of adult or umbilical cord blood [<xref ref-type="bibr" rid="CR83">83</xref>]. They designed PEG conjugated to bioactive peptides that provide cell adhesive and proteolytically degradable cues [<xref ref-type="bibr" rid="CR84">84</xref>]. Combining the differentiation potential of EPCs and the characteristics of PEG hydrogel created the endogenous matrices like environments and formed 3D microvessel networks without supplemental angiogenic growth factors. Some group showed the affinity and density of ligand-receptor interactions at the biomaterial interface can be modified to direct cell fates [<xref ref-type="bibr" rid="CR85">85</xref>]. Fibronectin coated or cycRGD presenting monolayer promoted osteogenesis. A high density linRGD stimulated myogenesis whereas a low density linRGD surface promoted neurogenesis. Also, high affinity ligands enhanced osteogenesis while low affinity ligands primarily enhanced myogenesis at a high density and neurogenesis at a low density. In this way, regulating affinity and density of ligand could direct certain stem cell differentiation. Furthermore, matrigel also useful as a cell culture scaffold because it presents appropriate extracellular biochemical cues for stem cell differentiation [<xref ref-type="bibr" rid="CR57">57</xref>, <xref ref-type="bibr" rid="CR86">86</xref>].</p>
+          <p>Growth factor is an important biochemical cue, too. None of the growth factors can directly change cell fate exclusively to one cell type, but each growth factor can induce some lineage of cell fate. For example, Activin-A or TGF&#x3B2;1 mainly induces mesodermal cells, bFGF, BMP-4, EGF, or retinoic acid induces ectodermal and mesodermal differentiation, whereas NGF and HGF allow all three embryonic germ layer differentiations [<xref ref-type="bibr" rid="CR87">87</xref>]. Willerth et al. [<xref ref-type="bibr" rid="CR88">88</xref>] applied combination of growth factors on 3D fibrin culture to determine their effects on embryonic stem cell differentiation. They used five different growth factors and found out the optimal concentration of each factors for inducing neurons and oligodendrocytes. The notch signaling pathway is also a key regulator of epithelial differentiation. Jagged-1 which is notch ligand on the biomaterial surface could regulate the stem cell differentiation [<xref ref-type="bibr" rid="CR89">89</xref>]. Polystyrene or poly(hydroxyethyl methacrylate, HEMA) bound notch ligand could upregulate both epithelial differentiation and tight clustering. But, the presence of Jagged-1 as a soluble form could not act as an antagonist. So, it must be present as a bound form on other biomaterial surfaces. Other recent research suggested notch signaling biomaterials function in a time specific activation tunable manner [<xref ref-type="bibr" rid="CR90">90</xref>]. This notch activation on embryonic stem cell promoted the ectodermal gene expression, and oriented Jagged-1 surface induced cardiac differentiation from cardiovascular progenitor cells.</p>
+          <p>Recent studies reported that, instead of using the transcription factors in direct reprogramming, the use of a cocktail of small chemical molecules only could change the cell fate. Small molecules are cell permeable, non-immunogenic, and cost-effective [<xref ref-type="bibr" rid="CR91">91</xref>]. Once small molecules for direct reprogramming are selected throughout the screening, the addition of the cocktail of small molecules to the cell culture medium simply induced the change of cell fate. For examples, Forskolin, ISX9, CHIR99021, and SB431542 could induce functional neurons from mouse fibroblasts [<xref ref-type="bibr" rid="CR92">92</xref>]. Nan et al. [<xref ref-type="bibr" rid="CR93">93</xref>] chemically induced functional cardiomyocytes from human fibroblasts by a combination of nine compounds.</p>
+          <p>Although the categories were divided into physical and biochemical aspects in this article, the combination of physical and biochemical cues such as regulating both matrix stiffness and protein concentration on substrate together [<xref ref-type="bibr" rid="CR94">94</xref>, <xref ref-type="bibr" rid="CR95">95</xref>] in stem cell studies is an effective and necessary strategy to change the fate of matured cells more efficiently.</p>
+        </sec>
+        <sec id="Sec9">
+          <title>Biomaterials for gene delivery</title>
+          <p>Gene delivery is a widely used technique in cell related research. It is an essential process for artificial changing of cell fate or regulation of stem cell differentiation. Before the development of new method of gene delivery, viral vector had usually been used. But, this viral vector has safety problems because viral vector may interfere with the host sequence randomly. Therefore, the development of safe gene delivery methods was necessary.</p>
+          <p>First alternative method developed was using nanoparticles for gene delivery. For example, stimuli responsive Hyaluronic acid (HA) -ss- Polyethylenimine (PEI) nanoparticles were developed as a non-viral gene vector [<xref ref-type="bibr" rid="CR96">96</xref>]. Positively charged PEI can form nanocomplex with the negative charge of DNA, and release it in the endosome, but limited by its cytotoxicity. Many tissues have HA receptors, and HA has polyanionic characteristic that prevents the non-specific interaction between serum and PEI, so HA can provide the stability and specificity of the particle. Disulfide bond can give the enhanced release of DNA release in the endosome. Similarly, Zhao et al. [<xref ref-type="bibr" rid="CR97">97</xref>] made Chitosan (CS) -ss-PEI nanoparticles for mediating osteogenic differentiation. In other case, magnetic nanoparticles based vector system were applied for safe and efficient gene delivery [<xref ref-type="bibr" rid="CR98">98</xref>]. Magnetic nanoparticles covered by a biocompatible surface coating were functionalized for delivery of therapeutic biomolecules such as DNA, siRNA, or shRNA. Similarly, a micro/nanochannel array based electroporation system was suggested [<xref ref-type="bibr" rid="CR99">99</xref>&#x2013;<xref ref-type="bibr" rid="CR101">101</xref>]. This is a single cell transfection system which can deliver charged agents directly into the cytosol electophoreitcally, so it is possible to control the precise dosage. All of these transient gene expression using non-viral vector can prevent the problems with overexpression of genes and interference of viral vectors.</p>
+          <p>Other safe replacement method of viral vector mediated gene delivery is using protein itself. But half-life of protein is short, so it requires a large dose and high cost. For example, D Kim et al. [<xref ref-type="bibr" rid="CR102">102</xref>] used reprogramming proteins fused with a cell penetrating peptide (CPP). This method can avoid the genetic integration and immunogenic problems, but the efficiency was not good. Generally, the efficiency of protein delivery into the cell is very low because protein is macromolecule and hard to penetrate cell membranes. Thus, there is a strong need for biomaterials to increase the efficiency of intracellular delivery of proteins. Qutachi et al. [<xref ref-type="bibr" rid="CR103">103</xref>] delivered proteins into embryoinic body using PLGA microparticles to control the differentiation of embryonic stem cells. Also, Bian et al. [<xref ref-type="bibr" rid="CR104">104</xref>] made nanoparticles, which can load growth factor proteins and combine with hydrogel scaffolds. They could induce chondrogenic lineage from mesenchymal stem cell by the protein loaded microsphere scaffolds.</p>
+          <p>Lastly, 3D sphere culture is a promising method for the safe and efficient gene deliver. Neural crest associated cells were induced by culturing fibroblasts with a single factor FOXD3 without viral vector on the chitosan substrate instead of TCPS [<xref ref-type="bibr" rid="CR105">105</xref>]. Then, the cells grew in a spheroid shape and held together the plasmid. Actually, the result showed a quite low transduction efficiency, but a high viability (~100%) after transfection. Similarly, 3D sphere induced neural progenitor like cells from fibroblast were reported [<xref ref-type="bibr" rid="CR106">106</xref>, <xref ref-type="bibr" rid="CR107">107</xref>]. Although the repeated transduction is necessary due to the low transduction efficiency, it can be free form the potential risk of viral vector such as gene disruption, instability, and tumor formation [<xref ref-type="bibr" rid="CR108">108</xref>].</p>
+          <p>Still, there is no perfect biomaterial which fulfills all requirements such as biocompatibility, biodegradability, and high efficiency. However, one can select among available materials and develop new materials for each purpose based on previous studies.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec id="Sec10">
+      <title>Conclusions</title>
+      <p>In summary, direct reprogramming is a promising medical technique for degenerative disease, incurable disease, disease modeling, and drug development. Moreover, biomaterials have the potential to empower this technique to be more effective and stable. However, there are lots of problems to overcome furthermore. In the aspect of direct reprogramming, the way of interlinage conversion is not established yet. Also, the safety is not proved in longer term clinical trials, and the efficiency of direct reprogramming is still too low to produce enough amount of cells for clinical treatment. Heterogeneity and immaturity of conversed cells also should be improved. In the aspect of biomaterials, a fully synthetic reprogramming microenvironment needs to be developed for quality control and dealing with immunogenic problems. Also, there is no clear evidence or report that biomaterials can greatly improve the efficiency of direct reprogramming so far. Overall, the more effective combination of biochemical cue and physical cues for each direct reprogramming process must be set into shape. And, the issues of time consuming, low efficiency, and treatment convenience should be considered together for clinical application.</p>
+    </sec>
+  </body>
+  <back>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>ACS</term>
+          <def>
+            <p>Adult stem cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CPP</term>
+          <def>
+            <p>Cell penetrating peptide</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CS</term>
+          <def>
+            <p>Chitosan</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ECM</term>
+          <def>
+            <p>Extracellular matrix</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EPCs</term>
+          <def>
+            <p>Endothelial progenitor cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ESC</term>
+          <def>
+            <p>Embryonic stem cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>HA</term>
+          <def>
+            <p>Hyaluronic acid</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>HEMA</term>
+          <def>
+            <p>Poly(hydroxyethyl methacrylate)</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hiCMs</term>
+          <def>
+            <p>Human induced cardiomyocytes</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hiDAs</term>
+          <def>
+            <p>Human induced dopaminergic neurons</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hiHeps</term>
+          <def>
+            <p>Human induced hepatocytes</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hiMNs</term>
+          <def>
+            <p>Human induced motor neurons</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hiNPs</term>
+          <def>
+            <p>Human induced neural progenitor cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hiNs</term>
+          <def>
+            <p>Human induced neurons</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iCMs</term>
+          <def>
+            <p>Induced cardiomyocyte-like cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iDAs</term>
+          <def>
+            <p>Induced dopaminergic neurons</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iDPs</term>
+          <def>
+            <p>Dopaminergic induced neuronal progenitors</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iHeps</term>
+          <def>
+            <p>Induced hepatocyte-like cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iMNs</term>
+          <def>
+            <p>Induced motor neurons</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iMPCs</term>
+          <def>
+            <p>Induced multipotent progenitors</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iNPCs</term>
+          <def>
+            <p>Induced neural progenitor cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iNs</term>
+          <def>
+            <p>Induced neruons</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iOPCs</term>
+          <def>
+            <p>Induced oligodendrocyte precursor cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iPSC</term>
+          <def>
+            <p>Induced pluripotent stem cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PDMS</term>
+          <def>
+            <p>Polydimethylsiloxane</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PEG</term>
+          <def>
+            <p>Poly(ethylene glycol)</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PEI</term>
+          <def>
+            <p>Polyethylenimine</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PLGA</term>
+          <def>
+            <p>Poly(lactic-co-glycolic acid)</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PLLA</term>
+          <def>
+            <p>Poly(L-lactic acid)</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TCPS</term>
+          <def>
+            <p>Tissue culture polystyrene</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>No.</p>
+      <sec id="FPar1">
+        <title>Funding</title>
+        <p>National Research Foundation of Korea (NRF) by MEST of Korea (2016R1A2B2008838).</p>
+      </sec>
+      <sec id="FPar2">
+        <title>Availability of data and materials</title>
+        <p>No original data are reported in this article.</p>
+      </sec>
+      <sec id="FPar3">
+        <title>Authors&#x2019; contributions</title>
+        <p>EK surveyed the literature and summarized the related info. GT analyzed and organized. Both authors read and approved the final manuscript.</p>
+      </sec>
+      <sec id="FPar4">
+        <title>Competing interests</title>
+        <p>The authors declare that they have no competing interests.</p>
+      </sec>
+      <sec id="FPar5">
+        <title>Consent for publication</title>
+        <p>Not applicable.</p>
+      </sec>
+      <sec id="FPar6">
+        <title>Ethics approval and consent to participate</title>
+        <p>Not applicable.</p>
+      </sec>
+    </ack>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>SU</given-names>
+            </name>
+            <name>
+              <surname>de Vellis</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell-based cell therapy in neurological diseases: a review</article-title>
+          <source>J Neurosci Res</source>
+          <year>2009</year>
+          <volume>87</volume>
+          <fpage>2183</fpage>
+          <lpage>2200</lpage>
+          <pub-id pub-id-type="doi">10.1002/jnr.22054</pub-id>
+          <pub-id pub-id-type="pmid">19301431</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rippon</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Bishop</surname>
+              <given-names>AE</given-names>
+            </name>
+          </person-group>
+          <article-title>Embryonic stem cells</article-title>
+          <source>Cell Prolif</source>
+          <year>2004</year>
+          <volume>37</volume>
+          <fpage>23</fpage>
+          <lpage>34</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2184.2004.00298.x</pub-id>
+          <pub-id pub-id-type="pmid">14871235</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ramos-Z&#xFA;&#xF1;iga</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Gonz&#xE1;lez-P&#xE9;rez</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Mac&#xED;as-Ornelas</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Capilla-Gonz&#xE1;lez</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Qui&#xF1;ones-Hinojosa</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethical implications in the use of embryonic and adult neural stem cells</article-title>
+          <source>Stem Cells Int</source>
+          <year>2012</year>
+          <volume>2012</volume>
+          <fpage>1</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="doi">10.1155/2012/470949</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lo</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Parham</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Ethical issues in stem cell research</article-title>
+          <source>Endocr Rev</source>
+          <year>2009</year>
+          <volume>30</volume>
+          <fpage>204</fpage>
+          <lpage>213</lpage>
+          <pub-id pub-id-type="doi">10.1210/er.2008-0031</pub-id>
+          <pub-id pub-id-type="pmid">19366754</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gnecchi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ni</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Dzau</surname>
+              <given-names>VJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Paracrine mechanisms in adult stem cell signaling and therapy</article-title>
+          <source>Circ Res</source>
+          <year>2008</year>
+          <volume>103</volume>
+          <fpage>1204</fpage>
+          <lpage>1219</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.108.176826</pub-id>
+          <pub-id pub-id-type="pmid">19028920</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Vodyanik</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Smuga-Otto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Antosiewicz-Bourget</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Frane</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Tian</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induced pluripotent stem cell lines derived from human somatic cells</article-title>
+          <source>Science</source>
+          <year>2007</year>
+          <volume>318</volume>
+          <fpage>1917</fpage>
+          <lpage>1920</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1151526</pub-id>
+          <pub-id pub-id-type="pmid">18029452</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Okita</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ichisaka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yamanaka</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of germline-competent induced pluripotent stem cells</article-title>
+          <source>Nature</source>
+          <year>2007</year>
+          <volume>448</volume>
+          <fpage>313</fpage>
+          <lpage>317</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature05934</pub-id>
+          <pub-id pub-id-type="pmid">17554338</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ben-David</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Benvenisty</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>The tumorigenicity of human embryonic and induced pluripotent stem cells</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2011</year>
+          <volume>11</volume>
+          <fpage>268</fpage>
+          <lpage>277</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrc3034</pub-id>
+          <pub-id pub-id-type="pmid">21390058</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jung</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Bauer</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Nolta</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Concise review: induced pluripotent stem cell-derived mesenchymal stem cells: progress toward safe clinical products</article-title>
+          <source>Stem Cells</source>
+          <year>2012</year>
+          <volume>30</volume>
+          <fpage>42</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.727</pub-id>
+          <pub-id pub-id-type="pmid">21898694</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Du</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Deng</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct lineage reprogramming: strategies, mechanisms, and applications</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2015</year>
+          <volume>16</volume>
+          <fpage>119</fpage>
+          <lpage>134</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2015.01.013</pub-id>
+          <pub-id pub-id-type="pmid">25658369</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Margariti</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kelaini</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cochrane</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct reprogramming of adult cells: avoiding the pluripotent state</article-title>
+          <source>Stem Cells Cloning Adv Appl</source>
+          <year>2014</year>
+          <volume>7</volume>
+          <fpage>19</fpage>
+          <pub-id pub-id-type="doi">10.2147/SCCAA.S38006</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ambasudhan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Ding</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct lineage reprogramming to neural cells</article-title>
+          <source>Curr Opin Neurobiol</source>
+          <year>2012</year>
+          <volume>22</volume>
+          <fpage>778</fpage>
+          <lpage>784</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.conb.2012.05.001</pub-id>
+          <pub-id pub-id-type="pmid">22652035</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Efe</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Talantova</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of mouse fibroblasts to neural progenitors</article-title>
+          <source>Proc Natl Acad Sci</source>
+          <year>2011</year>
+          <volume>108</volume>
+          <fpage>7838</fpage>
+          <lpage>7843</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1103113108</pub-id>
+          <pub-id pub-id-type="pmid">21521790</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>H-S</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Jo</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Jeon</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>YS</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct lineage reprogramming of mouse fibroblasts to functional midbrain dopaminergic neuronal progenitors</article-title>
+          <source>Stem Cell Res</source>
+          <year>2014</year>
+          <volume>12</volume>
+          <fpage>60</fpage>
+          <lpage>68</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.scr.2013.09.007</pub-id>
+          <pub-id pub-id-type="pmid">24145188</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Zuchero</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Ahlenius</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Marro</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ng</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Vierbuchen</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of oligodendroglial cells by direct lineage conversion</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2013</year>
+          <volume>31</volume>
+          <fpage>434</fpage>
+          <lpage>439</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.2564</pub-id>
+          <pub-id pub-id-type="pmid">23584610</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>AX</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Shcheglovitov</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Portmann</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MicroRNA-mediated conversion of human fibroblasts to neurons</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>476</volume>
+          <fpage>228</fpage>
+          <lpage>231</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature10323</pub-id>
+          <pub-id pub-id-type="pmid">21753754</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Maucksch</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Firmin</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Butler-Munro</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Montgomery</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Dottori</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Connor</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Non-viral generation of neural precursor-like cells from adult human fibroblasts</article-title>
+          <source>J Stem Cells Regen Med</source>
+          <year>2012</year>
+          <volume>8</volume>
+          <fpage>162</fpage>
+          <lpage>170</lpage>
+          <pub-id pub-id-type="pmid">24693194</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vierbuchen</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ostermeier</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>ZP</given-names>
+            </name>
+            <name>
+              <surname>Kokubu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>S&#xFC;dhof</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Wernig</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct conversion of fibroblasts to functional neurons by defined factors</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+          <volume>463</volume>
+          <fpage>1035</fpage>
+          <lpage>1041</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature08797</pub-id>
+          <pub-id pub-id-type="pmid">20107439</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Adler</surname>
+              <given-names>AF</given-names>
+            </name>
+            <name>
+              <surname>Grigsby</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Kulangara</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Yasuda</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Leong</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>Nonviral direct conversion of primary mouse embryonic fibroblasts to neuronal cells</article-title>
+          <source>Mol Ther Nucleic Acids</source>
+          <year>2012</year>
+          <volume>1</volume>
+          <fpage>e32</fpage>
+          <pub-id pub-id-type="doi">10.1038/mtna.2012.25</pub-id>
+          <pub-id pub-id-type="pmid">23344148</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kulangara</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Adler</surname>
+              <given-names>AF</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Chellappan</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hammett</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Yasuda</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The effect of substrate topography on direct reprogramming of fibroblasts to induced neurons</article-title>
+          <source>Biomaterials</source>
+          <year>2014</year>
+          <volume>35</volume>
+          <fpage>5327</fpage>
+          <lpage>5336</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2014.03.034</pub-id>
+          <pub-id pub-id-type="pmid">24709523</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Marro</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>ZP</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Tsai</surname>
+              <given-names>M-C</given-names>
+            </name>
+            <name>
+              <surname>Qu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>HY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct lineage conversion of terminally differentiated hepatocytes to functional neurons</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2011</year>
+          <volume>9</volume>
+          <fpage>374</fpage>
+          <lpage>382</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2011.09.002</pub-id>
+          <pub-id pub-id-type="pmid">21962918</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Son</surname>
+              <given-names>EY</given-names>
+            </name>
+            <name>
+              <surname>Ichida</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Wainger</surname>
+              <given-names>BJ</given-names>
+            </name>
+            <name>
+              <surname>Toma</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Rafuse</surname>
+              <given-names>VF</given-names>
+            </name>
+            <name>
+              <surname>Woolf</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Conversion of mouse and human fibroblasts into functional spinal motor neurons</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2011</year>
+          <volume>9</volume>
+          <fpage>205</fpage>
+          <lpage>218</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2011.07.014</pub-id>
+          <pub-id pub-id-type="pmid">21852222</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Caiazzo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Dell&#x2019;Anno</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Dvoretskova</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Lazarevic</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Taverna</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Leo</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct generation of functional dopaminergic neurons from mouse and human fibroblasts</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>476</volume>
+          <fpage>224</fpage>
+          <lpage>227</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature10284</pub-id>
+          <pub-id pub-id-type="pmid">21725324</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <mixed-citation publication-type="other">Pang ZP, Yang N, Vierbuchen T, Ostermeier A, Fuentes DR, Yang TQ, et al. Induction of human neuronal cells by defined transcription factors. Nature. 2011;476:220&#x2013;23.</mixed-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ambasudhan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Talantova</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Coleman</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lipton</surname>
+              <given-names>SA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of adult human fibroblasts to functional neurons under defined conditions</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2011</year>
+          <volume>9</volume>
+          <fpage>113</fpage>
+          <lpage>118</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2011.07.002</pub-id>
+          <pub-id pub-id-type="pmid">21802386</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Stubblefield</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Blanchard</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Richards</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Larson</surname>
+              <given-names>GA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of human fibroblasts into dopaminergic neuron-like cells</article-title>
+          <source>Cell Res</source>
+          <year>2012</year>
+          <volume>22</volume>
+          <fpage>321</fpage>
+          <lpage>332</lpage>
+          <pub-id pub-id-type="doi">10.1038/cr.2011.181</pub-id>
+          <pub-id pub-id-type="pmid">22105488</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <mixed-citation publication-type="other">Dantas AP, Jim&#xE9;nez-Altay&#xF3; F, Vila E. Vascular aging: facts and factors. Front Physiol. 2012;3:325.</mixed-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Macia</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Boyden</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell therapy is proarrhythmic</article-title>
+          <source>Circulation</source>
+          <year>2009</year>
+          <volume>119</volume>
+          <fpage>1814</fpage>
+          <lpage>1823</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.108.779900</pub-id>
+          <pub-id pub-id-type="pmid">19349334</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Snider</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Standley</surname>
+              <given-names>KN</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Azhar</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Doetschman</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Conway</surname>
+              <given-names>SJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Origin of cardiac fibroblasts and the role of periostin</article-title>
+          <source>Circ Res</source>
+          <year>2009</year>
+          <volume>105</volume>
+          <fpage>934</fpage>
+          <lpage>947</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.109.201400</pub-id>
+          <pub-id pub-id-type="pmid">19893021</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ieda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>J-D</given-names>
+            </name>
+            <name>
+              <surname>Delgado-Olguin</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Vedantham</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Hayashi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Bruneau</surname>
+              <given-names>BG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of fibroblasts into functional cardiomyocytes by defined factors</article-title>
+          <source>Cell</source>
+          <year>2010</year>
+          <volume>142</volume>
+          <fpage>375</fpage>
+          <lpage>386</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2010.07.002</pub-id>
+          <pub-id pub-id-type="pmid">20691899</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Qian</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Spencer</surname>
+              <given-names>CI</given-names>
+            </name>
+            <name>
+              <surname>Foley</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Vedantham</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>In vivo reprogramming of murine cardiac fibroblasts into induced cardiomyocytes</article-title>
+          <source>Nature</source>
+          <year>2012</year>
+          <volume>485</volume>
+          <fpage>593</fpage>
+          <lpage>598</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature11044</pub-id>
+          <pub-id pub-id-type="pmid">22522929</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Song</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nam</surname>
+              <given-names>Y-J</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Qi</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Tan</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>GN</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Heart repair by reprogramming non-myocytes with cardiac transcription factors</article-title>
+          <source>Nature</source>
+          <year>2012</year>
+          <volume>485</volume>
+          <fpage>599</fpage>
+          <lpage>604</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature11139</pub-id>
+          <pub-id pub-id-type="pmid">22660318</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takeuchi</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Bruneau</surname>
+              <given-names>BG</given-names>
+            </name>
+          </person-group>
+          <article-title>Directed transdifferentiation of mouse mesoderm to heart tissue by defined factors</article-title>
+          <source>Nature</source>
+          <year>2009</year>
+          <volume>459</volume>
+          <fpage>708</fpage>
+          <lpage>711</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature08039</pub-id>
+          <pub-id pub-id-type="pmid">19396158</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Efe</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Hilcove</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ouyang</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Conversion of mouse fibroblasts into cardiomyocytes using a direct reprogramming strategy</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2011</year>
+          <volume>13</volume>
+          <fpage>215</fpage>
+          <lpage>222</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb2164</pub-id>
+          <pub-id pub-id-type="pmid">21278734</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jayawardena</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Egemnazarov</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Finch</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Payne</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Pandya</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MicroRNA-mediated in vitro and in vivo direct reprogramming of cardiac fibroblasts to cardiomyocytes</article-title>
+          <source>Circ Res</source>
+          <year>2012</year>
+          <volume>110</volume>
+          <fpage>1465</fpage>
+          <lpage>1473</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.112.269035</pub-id>
+          <pub-id pub-id-type="pmid">22539765</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fu</surname>
+              <given-names>J-D</given-names>
+            </name>
+            <name>
+              <surname>Stone</surname>
+              <given-names>NR</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Spencer</surname>
+              <given-names>CI</given-names>
+            </name>
+            <name>
+              <surname>Qian</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Hayashi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of human fibroblasts toward a cardiomyocyte-like state</article-title>
+          <source>Stem Cell Rep</source>
+          <year>2013</year>
+          <volume>1</volume>
+          <fpage>235</fpage>
+          <lpage>247</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2013.07.005</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nam</surname>
+              <given-names>Y-J</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Daniel</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Lambeth</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Reprogramming of human fibroblasts toward a cardiac fate</article-title>
+          <source>Proc Natl Acad Sci</source>
+          <year>2013</year>
+          <volume>110</volume>
+          <fpage>5588</fpage>
+          <lpage>5593</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1301019110</pub-id>
+          <pub-id pub-id-type="pmid">23487791</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vierbuchen</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Wernig</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct lineage conversions: unnatural but useful?</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2011</year>
+          <volume>29</volume>
+          <fpage>892</fpage>
+          <lpage>907</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.1946</pub-id>
+          <pub-id pub-id-type="pmid">21997635</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hengstler</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Brulport</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schormann</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Bauer</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hermes</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nussler</surname>
+              <given-names>AK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of human hepatocytes by stem cell technology: definition of the hepatocyte</article-title>
+          <source>Expert Opin Drug Metab Toxicol</source>
+          <year>2005</year>
+          <volume>1</volume>
+          <fpage>61</fpage>
+          <lpage>74</lpage>
+          <pub-id pub-id-type="doi">10.1517/17425255.1.1.61</pub-id>
+          <pub-id pub-id-type="pmid">16922653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sekiya</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Direct conversion of mouse fibroblasts to hepatocyte-like cells by defined factors</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>475</volume>
+          <fpage>390</fpage>
+          <lpage>393</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature10263</pub-id>
+          <pub-id pub-id-type="pmid">21716291</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ji</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Xiang</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induction of functional hepatocyte-like cells from mouse fibroblasts by defined factors</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>475</volume>
+          <fpage>386</fpage>
+          <lpage>389</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature10116</pub-id>
+          <pub-id pub-id-type="pmid">21562492</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Yao</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of human fibroblasts to functional and expandable hepatocytes</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2014</year>
+          <volume>14</volume>
+          <fpage>370</fpage>
+          <lpage>384</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2014.01.003</pub-id>
+          <pub-id pub-id-type="pmid">24582927</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Rezvani</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Harbell</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mattis</surname>
+              <given-names>AN</given-names>
+            </name>
+            <name>
+              <surname>Wolfe</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Benet</surname>
+              <given-names>LZ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mouse liver repopulation with hepatocytes generated from human fibroblasts</article-title>
+          <source>Nature</source>
+          <year>2014</year>
+          <volume>508</volume>
+          <fpage>93</fpage>
+          <lpage>97</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature13020</pub-id>
+          <pub-id pub-id-type="pmid">24572354</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Castell</surname>
+              <given-names>JV</given-names>
+            </name>
+            <name>
+              <surname>Jover</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Martnez-Jimnez</surname>
+              <given-names>CP</given-names>
+            </name>
+            <name>
+              <surname>Gmez-Lechn</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Hepatocyte cell lines: their use, scope and limitations in drug metabolism studies</article-title>
+          <source>Expert Opin Drug Metab Toxicol</source>
+          <year>2006</year>
+          <volume>2</volume>
+          <fpage>183</fpage>
+          <lpage>212</lpage>
+          <pub-id pub-id-type="doi">10.1517/17425255.2.2.183</pub-id>
+          <pub-id pub-id-type="pmid">16866607</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Langer</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Tirrell</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Designing materials for biology and medicine</article-title>
+          <source>Nature</source>
+          <year>2004</year>
+          <volume>428</volume>
+          <fpage>487</fpage>
+          <lpage>492</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature02388</pub-id>
+          <pub-id pub-id-type="pmid">15057821</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kumari</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yadav</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Yadav</surname>
+              <given-names>SC</given-names>
+            </name>
+          </person-group>
+          <article-title>Biodegradable polymeric nanoparticles based drug delivery systems</article-title>
+          <source>Colloids Surf B: Biointerfaces</source>
+          <year>2010</year>
+          <volume>75</volume>
+          <fpage>1</fpage>
+          <lpage>18</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.colsurfb.2009.09.001</pub-id>
+          <pub-id pub-id-type="pmid">19782542</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Martino</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>D&#x2019;Angelo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Armentano</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Kenny</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Orlacchio</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cell-biomaterial interactions for regenerative medicine</article-title>
+          <source>Biotechnol Adv</source>
+          <year>2012</year>
+          <volume>30</volume>
+          <fpage>338</fpage>
+          <lpage>351</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biotechadv.2011.06.015</pub-id>
+          <pub-id pub-id-type="pmid">21740963</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jopling</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Boue</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Belmonte</surname>
+              <given-names>JCI</given-names>
+            </name>
+          </person-group>
+          <article-title>Dedifferentiation, transdifferentiation and reprogramming: three routes to regeneration</article-title>
+          <source>Nat Rev Mol Cell Biol</source>
+          <year>2011</year>
+          <volume>12</volume>
+          <fpage>79</fpage>
+          <lpage>89</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrm3043</pub-id>
+          <pub-id pub-id-type="pmid">21252997</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Guilak</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Estes</surname>
+              <given-names>BT</given-names>
+            </name>
+            <name>
+              <surname>Gimble</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Liedtke</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>CS</given-names>
+            </name>
+          </person-group>
+          <article-title>Control of stem cell fate by physical interactions with the extracellular matrix</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2009</year>
+          <volume>5</volume>
+          <fpage>17</fpage>
+          <lpage>26</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2009.06.016</pub-id>
+          <pub-id pub-id-type="pmid">19570510</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gibson</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Patel</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Nagpal</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Perrimon</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>The emergence of geometric order in proliferating metazoan epithelia</article-title>
+          <source>Nature</source>
+          <year>2006</year>
+          <volume>442</volume>
+          <fpage>1038</fpage>
+          <lpage>1041</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature05014</pub-id>
+          <pub-id pub-id-type="pmid">16900102</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Engler</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Sen</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sweeney</surname>
+              <given-names>HL</given-names>
+            </name>
+            <name>
+              <surname>Discher</surname>
+              <given-names>DE</given-names>
+            </name>
+          </person-group>
+          <article-title>Matrix elasticity directs stem cell lineage specification</article-title>
+          <source>Cell</source>
+          <year>2006</year>
+          <volume>126</volume>
+          <fpage>677</fpage>
+          <lpage>689</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2006.06.044</pub-id>
+          <pub-id pub-id-type="pmid">16923388</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Discher</surname>
+              <given-names>DE</given-names>
+            </name>
+            <name>
+              <surname>Mooney</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Zandstra</surname>
+              <given-names>PW</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth factors, matrices, and forces combine and control stem cells</article-title>
+          <source>Science</source>
+          <year>2009</year>
+          <volume>324</volume>
+          <fpage>1673</fpage>
+          <lpage>1677</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1171643</pub-id>
+          <pub-id pub-id-type="pmid">19556500</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Engler</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Sweeney</surname>
+              <given-names>HL</given-names>
+            </name>
+            <name>
+              <surname>Discher</surname>
+              <given-names>DE</given-names>
+            </name>
+            <name>
+              <surname>Schwarzbauer</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Extracellular matrix elasticity directs stem cell differentiation</article-title>
+          <source>J Musculoskelet Neuronal Interact</source>
+          <year>2007</year>
+          <volume>7</volume>
+          <fpage>335</fpage>
+          <pub-id pub-id-type="pmid">18094500</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Choi</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>K-S</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>J-H</given-names>
+            </name>
+            <name>
+              <surname>Ko</surname>
+              <given-names>K-W</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>J-S</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>DK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Stiffness of hydrogels regulates cellular reprogramming efficiency through mesenchymal-to-epithelial transition and stemness markers: stiffness of hydrogels regulates cellular reprogramming efficiency</article-title>
+          <source>Macromol Biosci</source>
+          <year>2016</year>
+          <volume>16</volume>
+          <fpage>199</fpage>
+          <lpage>206</lpage>
+          <pub-id pub-id-type="doi">10.1002/mabi.201500273</pub-id>
+          <pub-id pub-id-type="pmid">26439948</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Christopherson</surname>
+              <given-names>GT</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>H-Q</given-names>
+            </name>
+          </person-group>
+          <article-title>The influence of fiber diameter of electrospun substrates on neural stem cell differentiation and proliferation</article-title>
+          <source>Biomaterials</source>
+          <year>2009</year>
+          <volume>30</volume>
+          <fpage>556</fpage>
+          <lpage>564</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2008.10.004</pub-id>
+          <pub-id pub-id-type="pmid">18977025</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lim</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>H-Q</given-names>
+            </name>
+          </person-group>
+          <article-title>Electrospun scaffolds for stem cell engineering</article-title>
+          <source>Adv Drug Deliv Rev</source>
+          <year>2009</year>
+          <volume>61</volume>
+          <fpage>1084</fpage>
+          <lpage>1096</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.addr.2009.07.011</pub-id>
+          <pub-id pub-id-type="pmid">19647024</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Levenberg</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>NF</given-names>
+            </name>
+            <name>
+              <surname>Lavik</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Rogers</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Itskovitz-Eldor</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Langer</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of human embryonic stem cells on three-dimensional polymer scaffolds</article-title>
+          <source>Proc Natl Acad Sci</source>
+          <year>2003</year>
+          <volume>100</volume>
+          <fpage>12741</fpage>
+          <lpage>12746</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1735463100</pub-id>
+          <pub-id pub-id-type="pmid">14561891</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sapir</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kryukov</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Integration of multiple cell-matrix interactions into alginate scaffolds for promoting cardiac tissue regeneration</article-title>
+          <source>Biomaterials</source>
+          <year>2011</year>
+          <volume>32</volume>
+          <fpage>1838</fpage>
+          <lpage>1847</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2010.11.008</pub-id>
+          <pub-id pub-id-type="pmid">21112626</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McNamara</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>McMurray</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Biggs</surname>
+              <given-names>MJP</given-names>
+            </name>
+            <name>
+              <surname>Kantawong</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Oreffo</surname>
+              <given-names>ROC</given-names>
+            </name>
+            <name>
+              <surname>Dalby</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Nanotopographical control of stem cell differentiation</article-title>
+          <source>J Tissue Eng</source>
+          <year>2010</year>
+          <volume>1</volume>
+          <fpage>120623</fpage>
+          <pub-id pub-id-type="doi">10.4061/2010/120623</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>D&#x2019;angelo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Armentano</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Mattioli</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Crispoltoni</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Tiribuzi</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Cerulli</surname>
+              <given-names>GG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Micropatterned hydrogenated amorphous carbon guides mesenchymal stem cells towards neuronal differentiation</article-title>
+          <source>Eur Cell Mater</source>
+          <year>2010</year>
+          <volume>20</volume>
+          <fpage>231</fpage>
+          <lpage>244</lpage>
+          <pub-id pub-id-type="doi">10.22203/eCM.v020a19</pub-id>
+          <pub-id pub-id-type="pmid">20925022</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ruiz</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>CS</given-names>
+            </name>
+          </person-group>
+          <article-title>Emergence of patterned stem cell differentiation within multicellular structures</article-title>
+          <source>Stem Cells</source>
+          <year>2008</year>
+          <volume>26</volume>
+          <fpage>2921</fpage>
+          <lpage>2927</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2008-0432</pub-id>
+          <pub-id pub-id-type="pmid">18703661</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yim</surname>
+              <given-names>EKF</given-names>
+            </name>
+            <name>
+              <surname>Darling</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Kulangara</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Guilak</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Leong</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>Nanotopography-induced changes in focal adhesions, cytoskeletal organization, and mechanical properties of human mesenchymal stem cells</article-title>
+          <source>Biomaterials</source>
+          <year>2010</year>
+          <volume>31</volume>
+          <fpage>1299</fpage>
+          <lpage>1306</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2009.10.037</pub-id>
+          <pub-id pub-id-type="pmid">19879643</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yim</surname>
+              <given-names>EK</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Leong</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>Synthetic nanostructures inducing differentiation of human mesenchymal stem cells into neuronal lineage</article-title>
+          <source>Exp Cell Res</source>
+          <year>2007</year>
+          <volume>313</volume>
+          <fpage>1820</fpage>
+          <lpage>1829</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.yexcr.2007.02.031</pub-id>
+          <pub-id pub-id-type="pmid">17428465</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>Y-C</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>D-C</given-names>
+            </name>
+            <name>
+              <surname>Tsai</surname>
+              <given-names>T-Y</given-names>
+            </name>
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>C-Y</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>J-W</given-names>
+            </name>
+            <name>
+              <surname>Kao</surname>
+              <given-names>C-Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induction and regulation of differentiation in neural stem cells on ultra-nanocrystalline diamond films</article-title>
+          <source>Biomaterials</source>
+          <year>2010</year>
+          <volume>31</volume>
+          <fpage>5575</fpage>
+          <lpage>5587</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2010.03.061</pub-id>
+          <pub-id pub-id-type="pmid">20427083</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Biel</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wascholowski</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Giannis</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Epigenetics&#x2014;an epicenter of gene regulation: histones and histone-modifying enzymes</article-title>
+          <source>Angew Chem Int Ed</source>
+          <year>2005</year>
+          <volume>44</volume>
+          <fpage>3186</fpage>
+          <lpage>3216</lpage>
+          <pub-id pub-id-type="doi">10.1002/anie.200461346</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frey</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Tsai</surname>
+              <given-names>IY</given-names>
+            </name>
+            <name>
+              <surname>Russell</surname>
+              <given-names>TP</given-names>
+            </name>
+            <name>
+              <surname>Hanks</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Cellular responses to substrate topography: role of myosin II and focal adhesion kinase</article-title>
+          <source>Biophys J</source>
+          <year>2006</year>
+          <volume>90</volume>
+          <fpage>3774</fpage>
+          <lpage>3782</lpage>
+          <pub-id pub-id-type="doi">10.1529/biophysj.105.074526</pub-id>
+          <pub-id pub-id-type="pmid">16500965</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Andersson</surname>
+              <given-names>A-S</given-names>
+            </name>
+            <name>
+              <surname>B&#xE4;ckhed</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>von Euler</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Richter-Dahlfors</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Sutherland</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kasemo</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Nanoscale features influence epithelial cell morphology and cytokine production</article-title>
+          <source>Biomaterials</source>
+          <year>2003</year>
+          <volume>24</volume>
+          <fpage>3427</fpage>
+          <lpage>3436</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0142-9612(03)00208-4</pub-id>
+          <pub-id pub-id-type="pmid">12809771</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Downing</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Soto</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Morez</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Houssin</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Fritz</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Biophysical regulation of epigenetic state and cell reprogramming</article-title>
+          <source>Nat Mater</source>
+          <year>2013</year>
+          <volume>12</volume>
+          <fpage>1154</fpage>
+          <lpage>1162</lpage>
+          <pub-id pub-id-type="doi">10.1038/nmat3777</pub-id>
+          <pub-id pub-id-type="pmid">24141451</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sia</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Srivastava</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of biophysical cues on reprogramming to cardiomyocytes</article-title>
+          <source>Biomaterials</source>
+          <year>2016</year>
+          <volume>103</volume>
+          <fpage>1</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2016.06.034</pub-id>
+          <pub-id pub-id-type="pmid">27376554</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR70">
+        <label>70.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Noh</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Jeon</surname>
+              <given-names>NL</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>B-S</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Nanogrooved substrate promotes direct lineage reprogramming of fibroblasts to functional induced dopaminergic neurons</article-title>
+          <source>Biomaterials</source>
+          <year>2015</year>
+          <volume>45</volume>
+          <fpage>36</fpage>
+          <lpage>45</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2014.12.049</pub-id>
+          <pub-id pub-id-type="pmid">25662493</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR71">
+        <label>71.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Griebenow</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hsieh</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Klibanov</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Langera</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>FTIR characterization of the secondary structure of proteins encapsulated within PLGA microspheres</article-title>
+          <source>J Controlled Release</source>
+          <year>1999</year>
+          <volume>58</volume>
+          <fpage>357</fpage>
+          <lpage>366</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0168-3659(98)00192-8</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR72">
+        <label>72.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moribe</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nomizu</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Izukura</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Tozuka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sakurai</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Physicochemical, morphological and therapeutic evaluation of agarose hydrogel particles as a reservoir for basic fibroblast growth factor</article-title>
+          <source>Pharm Dev Technol</source>
+          <year>2008</year>
+          <volume>13</volume>
+          <fpage>541</fpage>
+          <lpage>547</lpage>
+          <pub-id pub-id-type="doi">10.1080/10837450802309661</pub-id>
+          <pub-id pub-id-type="pmid">18756387</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR73">
+        <label>73.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bratt-Leal</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Carpenedo</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Ungrin</surname>
+              <given-names>MD</given-names>
+            </name>
+            <name>
+              <surname>Zandstra</surname>
+              <given-names>PW</given-names>
+            </name>
+            <name>
+              <surname>McDevitt</surname>
+              <given-names>TC</given-names>
+            </name>
+          </person-group>
+          <article-title>Incorporation of biomaterials in multicellular aggregates modulates pluripotent stem cell differentiation</article-title>
+          <source>Biomaterials</source>
+          <year>2011</year>
+          <volume>32</volume>
+          <fpage>48</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2010.08.113</pub-id>
+          <pub-id pub-id-type="pmid">20864164</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR74">
+        <label>74.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dickinson</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>Kusuma</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Gerecht</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Reconstructing the differentiation niche of embryonic stem cells using biomaterials</article-title>
+          <source>Macromol Biosci</source>
+          <year>2011</year>
+          <volume>11</volume>
+          <fpage>36</fpage>
+          <lpage>49</lpage>
+          <pub-id pub-id-type="doi">10.1002/mabi.201000245</pub-id>
+          <pub-id pub-id-type="pmid">20967797</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR75">
+        <label>75.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Fitzgerald</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Q-Y</given-names>
+            </name>
+            <name>
+              <surname>O&#x2019;Shaughnessy</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Maric</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>CNS stem and progenitor cell differentiation into functional neuronal circuits in three-dimensional collagen gels</article-title>
+          <source>Exp Neurol</source>
+          <year>2004</year>
+          <volume>190</volume>
+          <fpage>276</fpage>
+          <lpage>288</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.expneurol.2003.10.016</pub-id>
+          <pub-id pub-id-type="pmid">15530869</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR76">
+        <label>76.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Battista</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Guarnieri</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Borselli</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Zeppetelli</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Borzacchiello</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mayol</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The effect of matrix composition of 3D constructs on embryonic stem cell differentiation</article-title>
+          <source>Biomaterials</source>
+          <year>2005</year>
+          <volume>26</volume>
+          <fpage>6194</fpage>
+          <lpage>6207</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2005.04.003</pub-id>
+          <pub-id pub-id-type="pmid">15921736</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR77">
+        <label>77.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ji</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Atchison</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Chakraborty</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Truskey</surname>
+              <given-names>GA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transdifferentiation of human endothelial progenitors into smooth muscle cells</article-title>
+          <source>Biomaterials</source>
+          <year>2016</year>
+          <volume>85</volume>
+          <fpage>180</fpage>
+          <lpage>194</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2016.01.066</pub-id>
+          <pub-id pub-id-type="pmid">26874281</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR78">
+        <label>78.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Donzelli</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Salvad&#xE8;</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mimo</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Vigan&#xF2;</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Morrone</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Papagna</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mesenchymal stem cells cultured on a collagen scaffold: In vitro osteogenic differentiation</article-title>
+          <source>Arch Oral Biol</source>
+          <year>2007</year>
+          <volume>52</volume>
+          <fpage>64</fpage>
+          <lpage>73</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.archoralbio.2006.07.007</pub-id>
+          <pub-id pub-id-type="pmid">17049335</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR79">
+        <label>79.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Willerth</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Arendas</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Gottlieb</surname>
+              <given-names>DI</given-names>
+            </name>
+            <name>
+              <surname>Sakiyama-Elbert</surname>
+              <given-names>SE</given-names>
+            </name>
+          </person-group>
+          <article-title>Optimization of fibrin scaffolds for differentiation of murine embryonic stem cells into neural lineage cells</article-title>
+          <source>Biomaterials</source>
+          <year>2006</year>
+          <volume>27</volume>
+          <fpage>5990</fpage>
+          <lpage>6003</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2006.07.036</pub-id>
+          <pub-id pub-id-type="pmid">16919326</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR80">
+        <label>80.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Collins</surname>
+              <given-names>SF</given-names>
+            </name>
+            <name>
+              <surname>Suggs</surname>
+              <given-names>LJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Three-dimensional culture for expansion and differentiation of mouse embryonic stem cells</article-title>
+          <source>Biomaterials</source>
+          <year>2006</year>
+          <volume>27</volume>
+          <fpage>6004</fpage>
+          <lpage>6014</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2006.06.016</pub-id>
+          <pub-id pub-id-type="pmid">16860386</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR81">
+        <label>81.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lin</surname>
+              <given-names>C-C</given-names>
+            </name>
+            <name>
+              <surname>Anseth</surname>
+              <given-names>KS</given-names>
+            </name>
+          </person-group>
+          <article-title>PEG hydrogels for the controlled release of biomolecules in regenerative medicine</article-title>
+          <source>Pharm Res</source>
+          <year>2009</year>
+          <volume>26</volume>
+          <fpage>631</fpage>
+          <lpage>643</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11095-008-9801-2</pub-id>
+          <pub-id pub-id-type="pmid">19089601</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR82">
+        <label>82.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smith</surname>
+              <given-names>AW</given-names>
+            </name>
+            <name>
+              <surname>Hoyne</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>PK</given-names>
+            </name>
+            <name>
+              <surname>McCreedy</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Aly</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Efimov</surname>
+              <given-names>IR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct reprogramming of mouse fibroblasts to cardiomyocyte-like cells using Yamanaka factors on engineered poly(ethylene glycol) (PEG) hydrogels</article-title>
+          <source>Biomaterials</source>
+          <year>2013</year>
+          <volume>34</volume>
+          <fpage>6559</fpage>
+          <lpage>6571</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2013.05.050</pub-id>
+          <pub-id pub-id-type="pmid">23773820</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR83">
+        <label>83.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ingram</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a novel hierarchy of endothelial progenitor cells using human peripheral and umbilical cord blood</article-title>
+          <source>Blood</source>
+          <year>2004</year>
+          <volume>104</volume>
+          <fpage>2752</fpage>
+          <lpage>2760</lpage>
+          <pub-id pub-id-type="doi">10.1182/blood-2004-04-1396</pub-id>
+          <pub-id pub-id-type="pmid">15226175</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR84">
+        <label>84.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Peters</surname>
+              <given-names>EB</given-names>
+            </name>
+            <name>
+              <surname>Christoforou</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Leong</surname>
+              <given-names>KW</given-names>
+            </name>
+            <name>
+              <surname>Truskey</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <article-title>Poly(ethylene glycol) hydrogel scaffolds containing cell-adhesive and protease-sensitive peptides support microvessel formation by endothelial progenitor cells</article-title>
+          <source>Cell Mol Bioeng</source>
+          <year>2016</year>
+          <volume>9</volume>
+          <fpage>38</fpage>
+          <lpage>54</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12195-015-0423-6</pub-id>
+          <pub-id pub-id-type="pmid">27042236</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR85">
+        <label>85.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kilian</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Mrksich</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Directing stem cell fate by controlling the affinity and density of ligand-receptor interactions at the biomaterials interface</article-title>
+          <source>Angew Chem</source>
+          <year>2012</year>
+          <volume>124</volume>
+          <fpage>4975</fpage>
+          <lpage>4979</lpage>
+          <pub-id pub-id-type="doi">10.1002/ange.201108746</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR86">
+        <label>86.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wichterle</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Lieberam</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Porter</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Jessell</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>Directed differentiation of embryonic stem cells into motor neurons</article-title>
+          <source>Cell</source>
+          <year>2002</year>
+          <volume>110</volume>
+          <fpage>385</fpage>
+          <lpage>397</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0092-8674(02)00835-8</pub-id>
+          <pub-id pub-id-type="pmid">12176325</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR87">
+        <label>87.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schuldiner</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yanuka</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Itskovitz-Eldor</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Melton</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Benvenisty</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of eight growth factors on the differentiation of cells derived from human embryonic stem cells</article-title>
+          <source>Proc Natl Acad Sci</source>
+          <year>2000</year>
+          <volume>97</volume>
+          <fpage>11307</fpage>
+          <lpage>11312</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.97.21.11307</pub-id>
+          <pub-id pub-id-type="pmid">11027332</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR88">
+        <label>88.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Willerth</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Faxel</surname>
+              <given-names>TE</given-names>
+            </name>
+            <name>
+              <surname>Gottlieb</surname>
+              <given-names>DI</given-names>
+            </name>
+            <name>
+              <surname>Sakiyama-Elbert</surname>
+              <given-names>SE</given-names>
+            </name>
+          </person-group>
+          <article-title>The effects of soluble growth factors on embryonic stem cell differentiation inside of fibrin scaffolds</article-title>
+          <source>Stem Cells</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>2235</fpage>
+          <lpage>2244</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2007-0111</pub-id>
+          <pub-id pub-id-type="pmid">17585170</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR89">
+        <label>89.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beckstead</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Santosa</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Giachelli</surname>
+              <given-names>CM</given-names>
+            </name>
+          </person-group>
+          <article-title>Mimicking cell&#x2013;cell interactions at the biomaterial&#x2013;cell interface for control of stem cell differentiation</article-title>
+          <source>J Biomed Mater Res A</source>
+          <year>2006</year>
+          <volume>79A</volume>
+          <fpage>94</fpage>
+          <lpage>103</lpage>
+          <pub-id pub-id-type="doi">10.1002/jbm.a.30760</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR90">
+        <label>90.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tung</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Paige</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Ratner</surname>
+              <given-names>BD</given-names>
+            </name>
+            <name>
+              <surname>Murry</surname>
+              <given-names>CE</given-names>
+            </name>
+            <name>
+              <surname>Giachelli</surname>
+              <given-names>CM</given-names>
+            </name>
+          </person-group>
+          <article-title>Engineered biomaterials control differentiation and proliferation of human-embryonic-stem-cell-derived cardiomyocytes via timed notch activation</article-title>
+          <source>Stem Cell Rep</source>
+          <year>2014</year>
+          <volume>2</volume>
+          <fpage>271</fpage>
+          <lpage>281</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2014.01.011</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR91">
+        <label>91.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hou</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pluripotent stem cells induced from mouse somatic cells by small-molecule compounds</article-title>
+          <source>Science</source>
+          <year>2013</year>
+          <volume>341</volume>
+          <fpage>651</fpage>
+          <lpage>654</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1239278</pub-id>
+          <pub-id pub-id-type="pmid">23868920</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR92">
+        <label>92.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zuo</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Jing</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Small-molecule-driven direct reprogramming of mouse fibroblasts into functional neurons</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2015</year>
+          <volume>17</volume>
+          <fpage>195</fpage>
+          <lpage>203</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2015.06.003</pub-id>
+          <pub-id pub-id-type="pmid">26253201</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR93">
+        <label>93.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cao</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Spencer</surname>
+              <given-names>CI</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>J-D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Conversion of human fibroblasts into functional cardiomyocytes by small molecules</article-title>
+          <source>Science</source>
+          <year>2016</year>
+          <volume>352</volume>
+          <fpage>1216</fpage>
+          <lpage>1220</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.aaf1502</pub-id>
+          <pub-id pub-id-type="pmid">27127239</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR94">
+        <label>94.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jain</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ford</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Rajagopalan</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Opposing rigidity-protein gradients reverse fibroblast durotaxis</article-title>
+          <source>ACS Biomater Sci Eng</source>
+          <year>2015</year>
+          <volume>1</volume>
+          <fpage>621</fpage>
+          <lpage>631</lpage>
+          <pub-id pub-id-type="doi">10.1021/acsbiomaterials.5b00229</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR95">
+        <label>95.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wen</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Vincent</surname>
+              <given-names>LG</given-names>
+            </name>
+            <name>
+              <surname>Fuhrmann</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Hribar</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Taylor-Weiner</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interplay of matrix stiffness and protein tethering in stem cell differentiation</article-title>
+          <source>Nat Mater</source>
+          <year>2014</year>
+          <volume>13</volume>
+          <fpage>979</fpage>
+          <lpage>987</lpage>
+          <pub-id pub-id-type="doi">10.1038/nmat4051</pub-id>
+          <pub-id pub-id-type="pmid">25108614</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR96">
+        <label>96.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yeh</surname>
+              <given-names>P-H</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>J-S</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>H-C</given-names>
+            </name>
+            <name>
+              <surname>Hwang</surname>
+              <given-names>L-H</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>T-W</given-names>
+            </name>
+          </person-group>
+          <article-title>Stimuli-responsive HA-PEI nanoparticles encapsulating endostatin plasmid for stem cell gene therapy</article-title>
+          <source>RSC Adv</source>
+          <year>2013</year>
+          <volume>3</volume>
+          <fpage>12922</fpage>
+          <pub-id pub-id-type="doi">10.1039/c3ra40880a</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR97">
+        <label>97.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Pan</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Lv</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Leung</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Enhanced gene delivery by chitosan-disulfide-conjugated LMW-PEI for facilitating osteogenic differentiation</article-title>
+          <source>Acta Biomater</source>
+          <year>2013</year>
+          <volume>9</volume>
+          <fpage>6694</fpage>
+          <lpage>6703</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.actbio.2013.01.039</pub-id>
+          <pub-id pub-id-type="pmid">23395816</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR98">
+        <label>98.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pickard</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Barraud</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Chari</surname>
+              <given-names>DM</given-names>
+            </name>
+          </person-group>
+          <article-title>The transfection of multipotent neural precursor/stem cell transplant populations with magnetic nanoparticles</article-title>
+          <source>Biomaterials</source>
+          <year>2011</year>
+          <volume>32</volume>
+          <fpage>2274</fpage>
+          <lpage>2284</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2010.12.007</pub-id>
+          <pub-id pub-id-type="pmid">21193228</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR99">
+        <label>99.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gallego-Perez</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Otero</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Czeisler</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ortiz</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Gygli</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Deterministic transfection drives efficient nonviral reprogramming and uncovers reprogramming barriers</article-title>
+          <source>Nanomedicine Nanotechnol Biol Med</source>
+          <year>2016</year>
+          <volume>12</volume>
+          <fpage>399</fpage>
+          <lpage>409</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.nano.2015.11.015</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR100">
+        <label>100.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boukany</surname>
+              <given-names>PE</given-names>
+            </name>
+            <name>
+              <surname>Morss</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Liao</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Henslee</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Nanochannel electroporation delivers precise amounts of biomolecules into living cells</article-title>
+          <source>Nat Nanotechnol</source>
+          <year>2011</year>
+          <volume>6</volume>
+          <fpage>747</fpage>
+          <lpage>754</lpage>
+          <pub-id pub-id-type="doi">10.1038/nnano.2011.164</pub-id>
+          <pub-id pub-id-type="pmid">22002097</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR101">
+        <label>101.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gao</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Hinkle</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Design of a microchannel-nanochannel-microchannel array based nanoelectroporation system for precise gene transfection</article-title>
+          <source>Small</source>
+          <year>2014</year>
+          <volume>10</volume>
+          <fpage>1015</fpage>
+          <lpage>1023</lpage>
+          <pub-id pub-id-type="doi">10.1002/smll.201300116</pub-id>
+          <pub-id pub-id-type="pmid">24173879</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR102">
+        <label>102.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>C-H</given-names>
+            </name>
+            <name>
+              <surname>Moon</surname>
+              <given-names>J-I</given-names>
+            </name>
+            <name>
+              <surname>Chung</surname>
+              <given-names>Y-G</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>M-Y</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>B-S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of human induced pluripotent stem cells by direct delivery of reprogramming proteins</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>472</fpage>
+          <lpage>476</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2009.05.005</pub-id>
+          <pub-id pub-id-type="pmid">19481515</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR103">
+        <label>103.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Qutachi</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Shakesheff</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Buttery</surname>
+              <given-names>LDK</given-names>
+            </name>
+          </person-group>
+          <article-title>Delivery of definable number of drug or growth factor loaded poly(dl-lactic acid-co-glycolic acid) microparticles within human embryonic stem cell derived aggregates</article-title>
+          <source>J Controlled Release</source>
+          <year>2013</year>
+          <volume>168</volume>
+          <fpage>18</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jconrel.2013.02.029</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR104">
+        <label>104.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bian</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zhai</surname>
+              <given-names>DY</given-names>
+            </name>
+            <name>
+              <surname>Tous</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Rai</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Mauck</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Burdick</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Enhanced MSC chondrogenesis following delivery of TGF-&#x3B2;3 from alginate microspheres within hyaluronic acid hydrogels in vitro and in vivo</article-title>
+          <source>Biomaterials</source>
+          <year>2011</year>
+          <volume>32</volume>
+          <fpage>6425</fpage>
+          <lpage>6434</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2011.05.033</pub-id>
+          <pub-id pub-id-type="pmid">21652067</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR105">
+        <label>105.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tseng</surname>
+              <given-names>T-C</given-names>
+            </name>
+            <name>
+              <surname>Hsieh</surname>
+              <given-names>F-Y</given-names>
+            </name>
+            <name>
+              <surname>Dai</surname>
+              <given-names>N-T</given-names>
+            </name>
+            <name>
+              <surname>Hsu</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Substrate-mediated reprogramming of human fibroblasts into neural crest stem-like cells and their applications in neural repair</article-title>
+          <source>Biomaterials</source>
+          <year>2016</year>
+          <volume>102</volume>
+          <fpage>148</fpage>
+          <lpage>161</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2016.06.020</pub-id>
+          <pub-id pub-id-type="pmid">27341268</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR106">
+        <label>106.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Su</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Xiao</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Direct conversion of fibroblasts into neural progenitor-like cells by forced growth into 3D spheres on low attachment surfaces</article-title>
+          <source>Biomaterials</source>
+          <year>2013</year>
+          <volume>34</volume>
+          <fpage>5897</fpage>
+          <lpage>5906</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.biomaterials.2013.04.040</pub-id>
+          <pub-id pub-id-type="pmid">23680365</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR107">
+        <label>107.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mirakhori</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Zeynali</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Rassouli</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Shahbazi</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Hashemizadeh</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kiani</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Induction of neural progenitor-like cells from human fibroblasts via a genetic material-free approach</article-title>
+          <source>PLoS One</source>
+          <year>2015</year>
+          <volume>10</volume>
+          <fpage>e0135479</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0135479</pub-id>
+          <pub-id pub-id-type="pmid">26266943</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR108">
+        <label>108.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Seifinejad</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tabebordbar</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Baharvand</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Boyer</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Hosseini Salekdeh</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Progress and promise towards safe induced pluripotent stem cells for therapy</article-title>
+          <source>Stem Cell Rev Rep</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <fpage>297</fpage>
+          <lpage>306</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12015-010-9121-x</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

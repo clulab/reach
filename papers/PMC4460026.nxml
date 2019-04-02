@@ -1,0 +1,1148 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, CA USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26053266</article-id>
+      <article-id pub-id-type="pmc">4460026</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0129605</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-14-41914</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The Effect of Quercetin on the Osteogenesic Differentiation and Angiogenic Factor Expression of Bone Marrow-Derived Mesenchymal Stem Cells</article-title>
+        <alt-title alt-title-type="running-head">Quercetin and Bone Marrow-Derived Mesenchymal Stem Cells</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhou</surname>
+            <given-names>Yuning</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Yuqiong</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff003">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jiang</surname>
+            <given-names>Xinquan</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff003">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Xiuli</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff003">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xia</surname>
+            <given-names>Lunguo</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff004">
+<sup>4</sup>
+</xref>
+          <xref rid="cor001" ref-type="corresp">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lin</surname>
+            <given-names>Kaili</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff005">
+<sup>5</sup>
+</xref>
+          <xref ref-type="aff" rid="aff006">
+<sup>6</sup>
+</xref>
+          <xref rid="cor001" ref-type="corresp">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xu</surname>
+            <given-names>Yuanjin</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+          <xref rid="cor001" ref-type="corresp">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff001">
+<label>1</label>
+<addr-line>Department of Oral Surgery, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai Key Laboratory of Stomatology and Shanghai Research Institute of Stomatology, Shanghai, China</addr-line>
+</aff>
+      <aff id="aff002">
+<label>2</label>
+<addr-line>Department of Prosthodontics, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China</addr-line>
+</aff>
+      <aff id="aff003">
+<label>3</label>
+<addr-line>Oral Bioengineering Lab, Shanghai Research Institute of Stomatology, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China</addr-line>
+</aff>
+      <aff id="aff004">
+<label>4</label>
+<addr-line>Center of Craniofacial Orthodontics, Department of Oral and Cranio-maxillofacial Science, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China</addr-line>
+</aff>
+      <aff id="aff005">
+<label>5</label>
+<addr-line>Biomaterials &amp; Tissue Engineering Research Center, Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China</addr-line>
+</aff>
+      <aff id="aff006">
+<label>6</label>
+<addr-line>Laboratory of Oral Biomedical Science and Translational Medicine, School of Stomatology, Tongji University, Shanghai, China</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Kerkis</surname>
+            <given-names>Irina</given-names>
+          </name>
+          <role>Academic Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Instituto Butantan, BRAZIL</addr-line>
+</aff>
+      <author-notes>
+        <fn fn-type="COI-statement" id="coi001">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con" id="contrib001">
+          <p>Conceived and designed the experiments: YX LX KL. Performed the experiments: YZ YW XZ. Analyzed the data: YZ LX. Contributed reagents/materials/analysis tools: KL YX XJ. Wrote the paper: YZ LX KL YX.</p>
+        </fn>
+        <corresp id="cor001">* E-mail: <email>xialunguo@hotmail.com</email> (LX); <email>lklecnu@aliyun.com</email> (KL); <email>xuyuanjin@hotmail.com</email> (YX)</corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>8</day>
+        <month>6</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2015</year>
+      </pub-date>
+      <volume>10</volume>
+      <issue>6</issue>
+      <elocation-id>e0129605</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>17</day>
+          <month>9</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>11</day>
+          <month>5</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2015 Zhou et al</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <copyright-holder>Zhou et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:type="simple" xlink:href="pone.0129605.pdf"/>
+      <abstract>
+        <p>Bone marrow-derived mesenchymal stem cells (BMSCs) are widely used in regenerative medicine in light of their ability to differentiate along the chondrogenic and osteogenic lineages. As a type of traditional Chinese medicine, quercetin has been preliminarily reported to promote osteogenic differentiation in osteoblasts. In the present study, the effects of quercetin on the proliferation, viability, cellular morphology, osteogenic differentiation and angiogenic factor secretion of rat BMSCs (rBMSCs) were examined by MTT assay, fluorescence activated cell sorter (FACS) analysis, real-time quantitative PCR (RT-PCR) analysis, alkaline phosphatase (ALP) activity and calcium deposition assays, and Enzyme-linked immunosorbent assay (ELISA). Moreover, whether mitogen-activated protein kinase (MAPK) signaling pathways were involved in these processes was also explored. The results showed that quercetin significantly enhanced the cell proliferation, osteogenic differentiation and angiogenic factor secretion of rBMSCs in a dose-dependent manner, with a concentration of 2 &#x3BC;M achieving the greatest stimulatory effect. Moreover, the activation of the extracellular signal-regulated protein kinases (ERK) and p38 pathways was observed in quercetin-treated rBMSCs. Furthermore, these induction effects could be repressed by either the ERK inhibitor PD98059 or the p38 inhibitor SB202190, respectively. These data indicated that quercetin could promote the proliferation, osteogenic differentiation and angiogenic factor secretion of rBMSCs in vitro, partially through the ERK and p38 signaling pathways.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work was funded by National Natural Science Foundation of China (81171458, 81470713 and 81400554), Specialized Research Fund for the Doctoral Program of Higher Education (20110073110076), Science and Technology Committee of Shanghai Municipality (14140904100, 14YF1402400 and 12nm0501600), Medicine and Engineering Cross Project of Shanghai Jiao Tong University (YG2012SM29).</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="7"/>
+        <table-count count="0"/>
+        <page-count count="21"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>All relevant data are within the paper and its Supporting Information files.</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>All relevant data are within the paper and its Supporting Information files.</p>
+    </notes>
+  </front>
+  <body>
+    <sec sec-type="intro" id="sec001">
+      <title>Introduction</title>
+      <p>Mesenchymal stem cells (MSCs) are important members of the stem cells family [<xref rid="pone.0129605.ref001" ref-type="bibr">1</xref>]. MSCs are ideal stem cells for tissue regeneration due to their excellent capacities for proliferation and differentiation. After being induced in vitro or in vivo, MSCs can be differentiated into several types of tussues such as fat, muscle, bone, cartilage, tendon, ligament, nerve and liver tissue [<xref rid="pone.0129605.ref002" ref-type="bibr">2</xref>, <xref rid="pone.0129605.ref003" ref-type="bibr">3</xref>]. As a type of MSCs, bone marrow-derived mesenchymal stem cells (BMSCs) are widely used in studies of bone regeneration due to their properties of multipotency and active proliferation [<xref rid="pone.0129605.ref004" ref-type="bibr">4</xref>, <xref rid="pone.0129605.ref005" ref-type="bibr">5</xref>]. More importantly, using appropriate methods, BMSCs can also be induced to secrete angiogenic factors, and these factors can then effect on resident vascular endothelial cells to promote blood vessel formation in vivo. The regeneration of bone defects specifically consists of a series of complex processes that are regulated by a variety of cytokines and biological signals. In a bone defect, angiogenesis occurs earlier than osteogenesis; since bone regeneration cannot successfully occur without a blood supply reaching the bone defect, angiogenesis is important for bone regeneration in vivo [<xref rid="pone.0129605.ref006" ref-type="bibr">6</xref>&#x2013;<xref rid="pone.0129605.ref010" ref-type="bibr">10</xref>]. It is reported that angiogenesis is the foundational step in bone regeneration, specifically in calvarial and limb bone defects [<xref rid="pone.0129605.ref011" ref-type="bibr">11</xref>&#x2013;<xref rid="pone.0129605.ref013" ref-type="bibr">13</xref>]. It is shown that angiogenesis occurs before osteogenesis in the healing of bone defects. In particular, angiogenesis provides the blood supply, which benefits the subsequent progression of osteogenesis [<xref rid="pone.0129605.ref011" ref-type="bibr">11</xref>]. A previous study in a rabbit calvarial defect model further revealed that there was intimate spatial and temporal correlation between newly formed blood vessels and extra skeletal bone formation [<xref rid="pone.0129605.ref012" ref-type="bibr">12</xref>]. In these two processes, angiogenesis occurs before osteogenesis in bone healing; then, both angiogenesis and osteogenesis participate in the bone regeneration and promote the effects of each other [<xref rid="pone.0129605.ref013" ref-type="bibr">13</xref>]. As shown in previous studies, many approaches have been applied to stimulate angiogenesis in the process of bone healing, including the combination with endothelial cells, the application of vascular growth factors, vascular remodeling by microsurgery and gene transfection techniques [<xref rid="pone.0129605.ref014" ref-type="bibr">14</xref>&#x2013;<xref rid="pone.0129605.ref017" ref-type="bibr">17</xref>]. Therefore, the most ideal induction method would simultaneously promote the osteogenic differentiation of BMSCs and enhance the expression of angiogenic factors.</p>
+      <p>Interestingly, Chinese medicine, which could promote the secretion of osteogenic factors such as collagen type 1 (COL1), bone morphogenetic protein 2 (BMP-2), osteocalcin (OCN) and osteopontin (OPN), and the gene expression of BMP-4, runt-related transcription factor 2 (Runx2), OCN and OPN, has been increasingly applied in osteogenic induction research [<xref rid="pone.0129605.ref018" ref-type="bibr">18</xref>&#x2013;<xref rid="pone.0129605.ref020" ref-type="bibr">20</xref>]. Quercetin is a type of bioflavonoid; bioflavonoids comprise numerous natural compounds, such as catechin, quercetin and rutin, among others. Quercetin is abundant in Ginkgo biloba extracts and in the flowers and leaves of many plants and fruits [<xref rid="pone.0129605.ref021" ref-type="bibr">21</xref>]. As a traditional Chinese medicine, quercetin has been extensively studied due to its potential pharmacological properties and beneficial health effects [<xref rid="pone.0129605.ref022" ref-type="bibr">22</xref>, <xref rid="pone.0129605.ref023" ref-type="bibr">23</xref>], and it was firstly used as a Chinese medicine for the treatment of scurvy and heart disease [<xref rid="pone.0129605.ref024" ref-type="bibr">24</xref>, <xref rid="pone.0129605.ref025" ref-type="bibr">25</xref>]. Recent studies have reported that quercetin could enhance the osteogenic differentiation of adipose-derived stem cells (ASCs) and osteoblastic MC3T3-E1 cells and inhibit osteoclastogenesis in RAW 264.7 cells [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>&#x2013;<xref rid="pone.0129605.ref028" ref-type="bibr">28</xref>]. Moreover, it has been reported that quercetin could stimulate Osterix (Osx), Runx2, BMP-2, OPN, OCN, COL1 and ALP gene expression in ASCs [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0129605.ref027" ref-type="bibr">27</xref>], and increase bone sialoprotein (BSP) and OCN gene expression in osteoblastic MC3T3-E1 cells [<xref rid="pone.0129605.ref028" ref-type="bibr">28</xref>]. Based on these previous studies, the present study intended to evaluate the osteogenic differentiation of BMSCs as well as the expression of angiogenic factors by these cells in response to treatment with the traditional Chinese medicine quercetin.</p>
+      <p>It is well known that mitogen-activated protein kinase (MAPK) signaling pathways are involved in cell survival, proliferation and differentiation [<xref rid="pone.0129605.ref029" ref-type="bibr">29</xref>, <xref rid="pone.0129605.ref030" ref-type="bibr">30</xref>], and comprise the extracellular signal-regulated protein kinases (ERK), p38 and c-Jun N-terminal kinase (JNK) signaling pathways. A previous study has demonstrated that these three signaling pathways are specifically involved in the osteogenic differentiation of stem cells [<xref rid="pone.0129605.ref031" ref-type="bibr">31</xref>]. It has also been shown that the ERK signaling pathway can stimulate the osteogenic differentiation of osteoblasts [<xref rid="pone.0129605.ref032" ref-type="bibr">32</xref>] and that the JNK and p38 signaling pathways can promote the synthesis of extracellular matrix and calcium salt deposits. Previous studies have additionally shown that the ERK signaling pathway is involved in the drug effects of quercetin on MG-63 human osteoblasts and human ASCs [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0129605.ref033" ref-type="bibr">33</xref>]. However, it remains to be evaluated whether ERK activation is achieved through the effects of quercetin, which include cell proliferation, osteogenic differentiation and angiogenic factor expression, on BMSCs. Moreover, it should be confirmed whether the other two signaling pathways (p38 and JNK) are also involved in these processes.</p>
+      <p>In the present study, our hypothesis is that quercetin can induce the osteogenic differentiation of BMSCs as well as the expression of angiogenic factors in a dose-dependent manner and that these effects may be related to MAPK signaling pathways. To assess our hypothesis, quercetin was applied to rBMSCs at different concentrations, and the effects of quercetin on the proliferation and osteogenic differentiation of rBMSCs as well as the expression of angiogenic factors, were systematically investigated. Moreover, the mechanisms involved, including the ERK, JNK and p38 MAPK signaling pathways, were explored.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="sec002">
+      <title>Materials and Methods</title>
+      <sec id="sec003">
+        <title>Ethics statement</title>
+        <p>All animal experiments were approved by the Ethical Committees for Animal Research of Shanghai Ninth People&#x2019;s Hospital Affiliated to Shanghai Jiao Tong University, School of Medicine (Protocol Number: HKDL[2013]50).</p>
+      </sec>
+      <sec id="sec004">
+        <title>Isolation and culture of rBMSCs</title>
+        <p>In the present study, rBMSCs were isolated from 4-week-old male SD rats weighing 50 &#xB1; 5 g. A total of 20 rats were used for the in vitro research in the present study. The rats were sacrificed using an overdose of chloral hydrate, and then both ends of the femurs were cut off at the metaphyses. The marrow was flushed out with 10 mL Dulbecco&#x2019;s modified Eagle&#x2019;s medium (DMEM; Gibco, USA) supplemented with 10% fetal bovine serum (FBS; Gibco, USA) and antibiotics (penicillin 100 U/mL, streptomycin 100 U/mL) using a 22-gauge needle [<xref rid="pone.0129605.ref034" ref-type="bibr">34</xref>]. The primary cells were then cultured in an incubator at 37&#xB0;C and 5% CO<sub>2</sub> for 4 days and the medium was renewed every 2 days. When 90% confluence was reached, the rBMSCs were washed with phosphate-buffered saline (PBS) and passaged using 0.25% trypsin/ethylenediaminetetraacetic acid (trypsin/EDTA). In the present study, the cells from passages 1 to 3 were used for subsequent experiments.</p>
+      </sec>
+      <sec id="sec005">
+        <title>Quercetin treatment and MTT assay</title>
+        <p>Quercetin (C<sub>15</sub>H<sub>10</sub>O<sub>7</sub>, CAS No.: 117-39-5, Sigma, USA) was dissolved in dimethylsulfoxide (DMSO; Sigma, USA) to obtain a 20 mM stock solution, which was then diluted in the medium to desired concentrations. The MTT assay was used to test the effect of quercetin on cell proliferation. Briefly, the cells were seeded in 96-well plates at a density of 5&#xD7;10<sup>3</sup> cells/well and cultured in DMEM (Gibco, USA) supplemented with 10% FBS (Gibco, USA) and antibiotics (penicillin 100 U/mL, streptomycin 100 U/mL). After being cultured for 24 hours, the cells were treated with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) and cultured for 12 hours, 1, 4 and 7 days, respectively. At each time point, the cells were washed twice with PBS, and then 200 &#x3BC;L DMEM supplemented with 20 &#x3BC;L 5 mg/mL MTT (Amresco, USA) solution was added and incubated at 37&#xB0;C for 4 hours. Subsequently, the medium was replaced with 200 &#x3BC;L DMSO and vibrated for 10 min to dissolve the MTT formazan crystals. Finally, the absorbance was measured at 490 nm using an ELx Ultra Microplate Reader (BioTek, USA). Meanwhile, a standard curve for the MTT assay was generated; the cells were seeded in 96-well plates at different densities of 5&#xD7;10<sup>3</sup>, 1&#xD7;10<sup>4</sup>, 1.5&#xD7;10<sup>4</sup>, 2&#xD7;10<sup>4</sup> and 2.5&#xD7;10<sup>4</sup> cells/well and cultured in the DMEM medium, respectively, after which the cell number was quantified according to a cell standard curve [<xref rid="pone.0129605.ref035" ref-type="bibr">35</xref>]. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec006">
+        <title>Cell viability analysis</title>
+        <p>The rBMSCs from passage 1 were seeded in 6-well plates at a density of 1&#xD7;10<sup>5</sup> cells/well and cultured in DMEM medium with different concentrations of quercetin at 0, 1, 2, 5 and 10 &#x3BC;M. Cell viability analysis was then performed at 24 hours. The cells were washed twice in PBS and dissociated with 0.25% trypsin/EDTA, after which the cells were collected and stained using an Annexin V-FITC Apoptosis Detection Kit (Beyotime, Shanghai, China) according to the manufacturer&#x2019;s protocol, and finally analyzed using a fluorescence activated cell sorter (FACS) flow cytometer (Becton&#x2013;Dickinson, Franklin Lakes, NJ, USA). All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec007">
+        <title>ALP staining and quantitative analysis</title>
+        <p>rBMSCs were seeded in 6-well plates at a density of 1&#xD7;10<sup>5</sup> cells/well and cultured in DMEM with quercetin at different concentrations, as described above. ALP staining was performed at day 10. Briefly, the cells were treated with BCIP/NBT solution (Beyotime, Shanghai, China) in the dark, and areas stained purple were regarded as positive [<xref rid="pone.0129605.ref036" ref-type="bibr">36</xref>]. Moreover, at days 4, 7 and 10, ALP activity was quantitated following the manufacturer&#x2019;s instructions (Beyotime, China). Briefly, the cells were washed twice with PBS; 400 &#x3BC;L lysis buffer was added and incubated at 37&#xB0;C for 4 hours, and the samples were then vibrated for 30 min. Next, each sample was respectively mixed with p-nitrophenyl phosphate disodium (p-NPP) and substrate buffer, vibrated for 10 min and incubated at 37&#xB0;C for 15 min. The reaction was stopped by the addition of stop buffer to the reaction mixture. ALP activity was quantified by reading the absorbance at 405 nm (BioTek, USA) and calculated according to a standard products. The total protein content in aliquots of the same samples was measured by the Bradford method using the Bio-Rad protein assay kit (Bio-Rad, USA); the absorbance was measured at 630 nm, and protein concentrations were calculated according to a series of BSA (Sigma, USA) standards [<xref rid="pone.0129605.ref037" ref-type="bibr">37</xref>]. ALP activity was normalized to the total cellular protein concentration. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec008">
+        <title>Calcium deposition assay</title>
+        <p>rBMSCs were seeded in 24-well plates at a density of 2.5&#xD7;10<sup>4</sup> cells/well and cultured in both basal DMEM medium and osteogenic medium with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M), as previously described. Alizarin red-S (ARS) staining was performed at day 28. Briefly, the cells were washed three times in PBS and fixed in 75% ethanol for 30 min. The cells were then stained with ARS solution (40 mM, pH 8.8) for 30 min at 37&#xB0;C. Moreover, calcium concentration analysis was performed using a calcium colorimetric assay kit (Sigma, USA) according to the manufacturer&#x2019;s instruction, at days 21 and 28. The calcium concentration was determined using a standard curve and was further normalized to the total cellular protein content, as described above. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec009">
+        <title>Real-time quantitative PCR (RT-PCR) analysis</title>
+        <p>Total cellular RNA was isolated from cells cultured with different concentrations of quercetin for 1, 3, 6, 12 and 24 hours, as previously described. At each time point, the cells were washed twice with PBS, and RNA was extracted using TRIzol reagent (Invitrogen, Carlsbad, CA, USA). The RNA was first separated into an aqueous phase by adding chloroform and was then precipitated with isopropanol. The RNA precipitate was rinsed with 70% ethanol and treated with the RNase inhibitor diethyl pyrocarbonate (DEPC, Sigma) and was finally solubilized in sterile DEPC water. Complementary DNA (cDNA) was then synthesized using a Prime-Script RT reagent kit (Takara Bio, Japan) according to manufacturer&#x2019;s recommendations. Highly purified gene-specific primers for Runx2, COL1, BSP, BMP-2, OPN, OCN, VEGF, angiogenin-1 (ANG-1) and the housekeeping gene glyceraldehyde-3-phosphate dehydrogenase (GAPDH) were commercially synthesized (Shengong, China). Quantification of the cDNA of bone marker genes was performed with a Bio-Rad My<sup>iQ</sup> single-color real-time PCR system. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec010">
+        <title>Enzyme-linked immunosorbent assay (ELISA)</title>
+        <p>To analyze the angiogenic protein expression of cells cultured in DMEM with quercetin at 0 &#x3BC;M (control group) and 2 &#x3BC;M (experimental group) concentrations, the VEGF content was measured at days 4, 7 and 10. A VEGF ELISA Kit (Bender, USA) was used to measure the VEGF content according to the manufacturer&#x2019;s instructions. The VEGF concentration was specifically measured using a standard curve and was further normalized to the total cellular protein content, as described above. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec011">
+        <title>Western blotting analysis</title>
+        <p>For western blotting, rBMSCs were seeded in 6-well plates at a density of 1&#xD7;10<sup>5</sup> cells/well and cultured in DMEM with 2 &#x3BC;M quercetin for 0, 30, 60, 90, 120 and 150 min. The cells were then collected and lysed with a protein extraction reagent containing protease inhibitor cocktail, phosphatase inhibitor cocktail and phenylmethanesulfonyl fluoride (PMSF) (Kangchen, China). Equal amounts of protein samples were separated on duplicate 8% SDS-PAGE gels and transferred to polyvinylidene difluoride (PVDF) membranes (Millipore, USA). The membranes were blocked with 5% skim milk and incubated with the appropriate primary antibodies, including rabbit anti-rat ERK, p38, JNK, phosphorylated-ERK (p-ERK), phosphorylated-p38 (p-p38) and phosphorylated-JNK (p-JNK) (dilution, 1:1000; CST, USA), and mouse anti-rat actin (dilution, 1:5000; Sigma, USA). The membranes were then washed three times with PBS containing 0.1% tween-20 detergent and incubated for 2 hours with horseradish peroxidase (HRP)-conjugated goat anti-rabbit and rabbit anti-mouse secondary antibodies (Beyotime, China). Finally, the protein bands were visualized using ECL plus reagent (Amersham Pharmacia Biotech, USA) on a UVItec ALLIANCE 4.7 gel-imaging system. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec012">
+        <title>ERK and p38 inhibitor treatment analysis</title>
+        <p>To identify whether ERK and p38 signaling pathways activation was involved in the observed stimulation of osteogenic differentiation as well as the expression of angiogenic factors by quercetin, quercetin-treated rBMSCs (2 &#x3BC;M) were cultured in the DMEM medium containing either the ERK signaling pathway inhibitor PD98059 (CST, USA) or the p38 signaling pathway inhibitor SB202190 (CST, USA) at a final concentration of 10 &#x3BC;M, respectively. Meanwhile, quercetin-treated rBMSCs cultured without ERK and p38 inhibitors were used as the control group. After being cultured for 150 min, protein was extracted from each group, and western blotting for actin, ERK, p-ERK, p-38 and p-p38 protein levels was performed. Additionally, the gray value of each band was measured using ImageLab software version 4.1 (Bio-Rad). Equal loading of sample controls were used, and the linear range of each protein and the saturation point of the gel for each particular protein was determined. The quantitative assay was then performed according to the linear range [<xref rid="pone.0129605.ref038" ref-type="bibr">38</xref>]. More importantly, the ALP staining at 10 days and real-time PCR analysis for Runx2, Col I, BSP, BMP-2, OPN, OCN, VEGF and ANG-1 expression at 24 hours were respectively performed as previously described. All experiments were performed in triplicate.</p>
+      </sec>
+      <sec id="sec013">
+        <title>Statistical analysis</title>
+        <p>All measurements were presented as the mean &#xB1; SD. Differences between groups were analyzed by one-way analysis of variance based on the results of the normal distribution and equal variance assumption test [<xref rid="pone.0129605.ref039" ref-type="bibr">39</xref>]. The statistical analyses were conducted using SAS 8.0 software (SAS Inc., USA). A difference was considered statistically significant at a p-value &lt; 0.05 (*<sup>&#x25B2;</sup> p &lt; 0.05).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="sec014">
+      <title>Results</title>
+      <sec id="sec015">
+        <title>MTT and cell viability analysis</title>
+        <p>The MTT assay was performed to compare the proliferation of rBMSCs after being cultured in DMEM medium with different concentrations of quercetin for 12 hours, 1, 4 and 7 days (<xref rid="pone.0129605.g001" ref-type="fig">Fig 1A</xref>). Clearly, the cell number increased with increasing culture time, and there were no significant differences between the groups after 12 hours of culture. However, the cell proliferation of the rBMSCs significantly increased in the quercetin-treated groups compared with the respective 0 &#x3BC;M groups at days 1, 4 and 7. Moreover, a significant difference was also observed between the 2 &#x3BC;M group and the other quercetin groups at days 1, 4 and 7 (p &lt; 0.05). Additionally, to explore whether the quercetin treatment induced any cell death, the cell viability analysis was performed after 24 hours. As shown in <xref rid="pone.0129605.g001" ref-type="fig">Fig 1B</xref>, the lower-left corner represents the normal living cells, and the upper-left, lower-right and upper-right corners represent detection error, early apoptotic cells, necrotic and late apoptotic cells, respectively. However, no significant differences were observed between the groups (<xref rid="pone.0129605.g001" ref-type="fig">Fig 1C</xref> and <xref rid="pone.0129605.s002" ref-type="supplementary-material">S2 Fig</xref>). Moreover, the cell viability was also measured by trypan blue staining at 24 hours. And the result showed that there were no significant differences observed between the groups (<xref rid="pone.0129605.s001" ref-type="supplementary-material">S1 Fig</xref>). The cellular morphology was detected at 6 and 24 hours by the actin assay. It can be seen that there were no obvious morphological differences between the groups (<xref rid="pone.0129605.s003" ref-type="supplementary-material">S3 Fig</xref>).</p>
+        <fig id="pone.0129605.g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g001</object-id>
+          <label>Fig 1</label>
+          <caption>
+            <title>The MTT assay and the cell viability assay.</title>
+            <p>(A) The effect of quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) on the proliferation of rBMSCs; (B) The cell viability assay analysed by FACS flow cytometer, the lower-left corner represented as the normal living cells, while the upper-left, lower-right and upper-right corners represented as the detection error, early apoptotic cells, necrotic and late apoptotic cells, respectively; (C) Quantitative analysis of the percentage of normal living cells of rBMSCs cultured with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) at 24 hours, the 0 &#x3BC;M group was treated as the control group (0). *p &lt; 0.05 indicates the quercetin-treated groups vs the control group; &#x25B2;p &lt; 0.05 indicates the 2 &#x3BC;M group vs the other quercetin groups.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g001"/>
+        </fig>
+      </sec>
+      <sec id="sec016">
+        <title>ALP activity and calcium deposition assays</title>
+        <p>The ALP activity of rBMSCs cultured with different concentrations of quercetin was examined. As shown in <xref rid="pone.0129605.g002" ref-type="fig">Fig 2A</xref>, ALP staining in the 2 &#x3BC;M, 5 &#x3BC;M and 10 &#x3BC;M quercetin-treated groups were more intense than that in the 0 &#x3BC;M group at day 10. The results of quantitative analysis revealed that the ALP activity in all groups apparently increased over time throughout the assay period and that the ALP activity was highest value at day 10 for the cells cultured with 2 &#x3BC;M quercetin possessed with a statistically significant difference (p &lt; 0.05, <xref rid="pone.0129605.g002" ref-type="fig">Fig 2B</xref>). For ARS staining, as shown in <xref rid="pone.0129605.g003" ref-type="fig">Fig 3A and 3B</xref>, staining in the quercetin-treated groups, especially in the 2 &#x3BC;M group, was more intense than in the 0 &#x3BC;M group both in DMEM medium and osteogenic medium at day 28. In addition, the results of the calcium concentration analysis showed that the calcium concentration in quercetin-treated groups, especially in the 2 &#x3BC;M group, was significantly higher than that in the 0 &#x3BC;M group both in DMEM medium and osteogenic medium (p &lt; 0.05, <xref rid="pone.0129605.g003" ref-type="fig">Fig 3C and 3D</xref>).</p>
+        <fig id="pone.0129605.g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g002</object-id>
+          <label>Fig 2</label>
+          <caption>
+            <title>The ALP activity analysis.</title>
+            <p>(A) ALP staining of rBMSCs cultured in DMEM with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) for 10 days; (B) Quantitative analysis of ALP activity of rBMSCs cultured in DMEM with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) for 4, 7 and 10 days. *p &lt; 0.05 indicates quercetin-treated groups vs the control group; <sup>&#x25B2;</sup>p &lt; 0.05 indicates the 2 &#x3BC;M group vs the other quercetin groups.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g002"/>
+        </fig>
+        <fig id="pone.0129605.g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g003</object-id>
+          <label>Fig 3</label>
+          <caption>
+            <title>The calcium deposition analysis.</title>
+            <p>(A-B) ARS staining of rBMSCs cultured in DMEM medium (A) and osteogenic medium (B) with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) for 28 days; (C-D) Calcium concentration analysis of rBMSCs cultured in DMEM medium (C) and osteogenic medium (D) with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) for 21 and 28 days. *p &lt; 0.05 indicates the quercetin-treated groups vs the control group; &#x25B2;p &lt; 0.05 indicates the 2 &#x3BC;M group vs the other quercetin groups.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g003"/>
+        </fig>
+      </sec>
+      <sec id="sec017">
+        <title>RT-PCR for osteogenic and angiogenic genes</title>
+        <p>Runx2, COL1, BSP, BMP-2, OPN, OCN, VEGF and ANG-1 gene expression was examined by RT-PCR after rBMSCs were cultured in DMEM with different concentrations of quercetin (0, 1, 2, 5 and 10 &#x3BC;M) for 1, 3, 6, 12 and 24 hours (<xref rid="pone.0129605.g004" ref-type="fig">Fig 4</xref>). The expression of Runx2 in the quercetin-treated groups peaked at 3 hours; the increasing trend slowed down at 6 and 12 hours. Additionally, the expression of COL1 in the quercetin-treated groups was higher than that in the 0 &#x3BC;M group at each time point and was highest at 24 hours. Meanwhile, the expression of BSP in the quercetin-treated groups was significantly increased before 24 hours compared with that in the 0 &#x3BC;M group. The expression of BMP-2 in the quercetin-treated groups was higher than that in the 0 &#x3BC;M group at 3, 6 and 24 hours, whereas the expression of OPN in the quercetin-treated groups was remarkably higher than that in the 0 &#x3BC;M group at 1, 3 and 6 hours and peaked at 6 hours. Moreover, the expression of OCN in the quercetin-treated groups was significantly increased after 1 hour compared with that in the 0 &#x3BC;M group and peaked at 12 hours. Interestingly, the expression of VEGF in the quercetin-treated groups was remarkably increased at 3 and 24 hours compared with that in the 0 &#x3BC;M group. Moreover, the expression of ANG-1 in the quercetin-treated groups was significantly higher than that in the 0 &#x3BC;M group at 1, 3, 12 and 24 hours. Importantly, this stimulatory effect was achieved in a dose-dependent manner, whereas the concentration of 2 &#x3BC;M achieved the highest stimulatory effect. Moreover, a PT-PCR analysis was performed at 1 week and the results showed that 2 &#x3BC;M quercetin group can significantly stimulate the expression of Runx2, BMP-2, OPN, OCN and VEGF than the other groups (p &lt; 0.05, <xref rid="pone.0129605.s004" ref-type="supplementary-material">S4 Fig</xref>). Therefore, the concentration of 2 &#x3BC;M was chosen as the optimum drug concentration for the following studies.</p>
+        <fig id="pone.0129605.g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g004</object-id>
+          <label>Fig 4</label>
+          <caption>
+            <title>Osteogenic and angiogenic gene expression analysis.</title>
+            <p>The osteogenic and angiogenic genes expression of rBMSCs cultured in DMEM (0 &#x3BC;M) and quercetin-treated groups (1, 2, 5 and 10 &#x3BC;M) for 1, 3, 6, 12, 24 hours. (A) Runx2; (B) COL1; (C) BSP; (D) BMP-2; (E) OPN; (F) OCN; (G) VEGF; (H) ANG-1. *p &lt; 0.05 indicates the quercetin-treated groups vs the control group; <sup>&#x25B2;</sup>p &lt; 0.05 indicates the 2 &#x3BC;M group vs the other quercetin groups.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g004"/>
+        </fig>
+      </sec>
+      <sec id="sec018">
+        <title>VEGF protein content</title>
+        <p>The amount of VEGF protein released from rBMSCs cultured in DMEM with 0 &#x3BC;M and 2 &#x3BC;M quercetin was measured by ELISA on days 4, 7 and 10. The results showed that the quercetin significantly increased the VEGF protein level on days 4 and 10 (p &lt; 0.05, <xref rid="pone.0129605.g005" ref-type="fig">Fig 5</xref>).</p>
+        <fig id="pone.0129605.g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g005</object-id>
+          <label>Fig 5</label>
+          <caption>
+            <title>VEGF protein content test by ELISA assay.</title>
+            <p>The protein level of VEGF in the DMEM medium group (0 &#x3BC;M, control group) and quercetin-treated group with the optimum concentration (2 &#x3BC;M) at days 4, 7 and 10. *p &lt; 0.05 indicates the 2 &#x3BC;M quercetin-treated group vs the control group.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g005"/>
+        </fig>
+      </sec>
+      <sec id="sec019">
+        <title>Western blotting analysis of MAPK signaling pathways</title>
+        <p>Western blotting analysis was performed to measure the protein levels of p-ERK, p-p38, p-JNK, ERK, p38, JNK and actin in the total protein extracted from rBMSCs treated with 2 &#x3BC;M quercetin for 0, 30, 60, 90, 120 and 150 min. As shown in <xref rid="pone.0129605.g006" ref-type="fig">Fig 6</xref>, quercetin could activate the ERK and p38 signaling pathways, and remarkable phosphorylation of ERK and p38 was observed at 120 min; however, no significant activation of the JNK signaling pathway was observed.</p>
+        <fig id="pone.0129605.g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g006</object-id>
+          <label>Fig 6</label>
+          <caption>
+            <title>Analysis of phosphorylation level of ERK, p38 and JNK in quercetin-treated rBMSCs by western blotting.</title>
+            <p>(A) Western blotting for the protein levels of ERK, p38 and JNK signaling pathways in the cells cultured with 2 &#x3BC;M quercetin for 0, 30, 60, 90, 120 and 150 min; (B) The ratios of p-ERK/ERK, p-p38/p38 and p-JNK/JNK were calculated based on the relative band densities, respectively. *p &lt; 0.05 indicates the quercetin-treated groups vs the 0 min group; <sup>&#x25B2;</sup>p &lt; 0.05 indicates the 120 min group vs the other groups.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g006"/>
+        </fig>
+      </sec>
+      <sec id="sec020">
+        <title>Inhibition of the ERK and p38 signaling pathways</title>
+        <p>To assess the roles of the ERK and p38 signaling pathways in the process of the stimulatory effect of quercetin, the ERK signaling pathway inhibitor PD98059 (10 &#x3BC;M) and the p38 signaling pathway inhibitor SB202190 (10 &#x3BC;M) were used on the cells treated with quercetin. The result showed that phosphorylation of ERK and p38 was depressed by the inhibitors of PD98059 and SB202190, correspondingly; moreover, the inhibitor SB202190 could also inhibit phosphorylation of ERK signaling pathway in the present study (<xref rid="pone.0129605.g007" ref-type="fig">Fig 7A and 7B</xref>). Moreover, Runx2, COL1, BSP, BMP-2, OPN, OCN, VEGF and ANG-1 gene expression in quercetin-treated cells cultured with PD98059 or SB202190 was also significantly repressed compared with that of cells treated with quercetin alone (<xref rid="pone.0129605.g007" ref-type="fig">Fig 7C</xref>). Furthermore, ALP staining was also obviously weakened under treatment with PD98059 and SB202190 (<xref rid="pone.0129605.g007" ref-type="fig">Fig 7D</xref>). Analysis of these results demonstrated that the ERK and p38 signaling pathways played an important role in the process of enhanced effect of quercetin on rBMSCs.</p>
+        <fig id="pone.0129605.g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129605.g007</object-id>
+          <label>Fig 7</label>
+          <caption>
+            <title>Signaling pathways inhibition analysis.</title>
+            <p>(A) Western blotting for the protein levels of the ERK and p38 signaling pathways in cells in the 2 &#x3BC;M quercetin-treated group (Quer), the inhibitor PD98059 group and inhibitor SB202190 group at 150 min; (B) The ratios of p-ERK/ERK and p-p38/p38 were calculated based on the relative linear ranges, respectively; (C) RT-qPCR analysis of osteogenic and angiogenic genes at 24 hours after the rBMSCs were cultured with 2 &#x3BC;M quercetin and the ERK signaling pathway inhibitor PD98059 (10 &#x3BC;M), or the p38 signaling pathway inhibitor SB202190 (10 &#x3BC;M), respectively; (D) ALP staining of quercetin-treated rBMSCs cultured with the ERK signaling pathway inhibitor PD98059 (10 &#x3BC;M) or the p38 signaling pathway inhibitor SB202190 (10 &#x3BC;M) at day 10. The cells cultured in 2 &#x3BC;M quercetin without inhibitors were set as the control group, which is labeled as &#x201C;Quer&#x201D;. *p &lt; 0.05 indicates the inhibitor PD98059 or the inhibitor SB202190 group vs the quercetin group.</p>
+          </caption>
+          <graphic xlink:href="pone.0129605.g007"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="conclusions" id="sec021">
+      <title>Discussion</title>
+      <p>BMSCs have been widely used for bone regeneration for a long time [<xref rid="pone.0129605.ref036" ref-type="bibr">36</xref>]. Sources of BMSCs are widespread, and these cells are easy to obtain and can undergo multipotential differentiation [<xref rid="pone.0129605.ref040" ref-type="bibr">40</xref>]. Thus, BMSCs are one of the most commonly used types of seed cells for bone tissue engineering. Under certain conditions, BMSCs can differentiate into osteogenic cells and stably express an osteoblastic phenotype; moreover, their osteogenic activities can continue after implantation [<xref rid="pone.0129605.ref041" ref-type="bibr">41</xref>]. Due to the limited availability of human MSC tissue sources, rat MSCs were chosen in the present study; however, the use of these cells limits the clinical relevance of the results, which means the findings should be validated by using human primary MSCs in our future work on quercetin.</p>
+      <p>Interestingly, using a specific certain induction method, BMSCs could secrete angiogenic factors, which facilitate the function of angiogenesis. It is well known that angiogenesis is important for subsequent bone regeneration in vivo. Previous studies have shown that the survival of seed cells in vivo relies on the blood supplying of oxygen and nutrients and that a lack of oxygen and nutrition can cause the rapid necrosis or apoptosis of cells within 3 days [<xref rid="pone.0129605.ref042" ref-type="bibr">42</xref>]. Therefore, the present study aimed to identify an ideal induction method to promote the osteogenic differentiation of BMSCs and the secretion of angiogenic factors by these cells.</p>
+      <p>As a traditional Chinese medicine, quercetin is commonly used to treat scurvy and heart disease [<xref rid="pone.0129605.ref024" ref-type="bibr">24</xref>, <xref rid="pone.0129605.ref025" ref-type="bibr">25</xref>]. Moreover, recent studies have shown that quercetin can promote osteogenic differentiation [<xref rid="pone.0129605.ref029" ref-type="bibr">29</xref>]. According to previous studies, quercetin could obviously promote the osteogenic differentiation of human ASCs at a concentration of 2 &#x3BC;M, whereas a concentration of 5 &#x3BC;M was optimal for osteoblast-like cells [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0129605.ref027" ref-type="bibr">27</xref>]. These findings indicate that the optimal quercetin concentration may be cell type dependent. Therefore, based on previous studies, the concentrations of 1, 2, 5 and 10 &#x3BC;M were selected in the present study. Analysis of the in vitro results suggested that quercetin could enhance the osteogenic differentiation of rBMSCs as well as the expression of angiogenic factors in a dose-dependent manner and that a concentration of 2 &#x3BC;M could achieve the greatest stimulatory effect.</p>
+      <p>Previous studies showed that quercetin could stimulate the osteogenic differentiation of ASCs and osteoblastic cells but that there was no positive effect on cell proliferation [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>&#x2013;<xref rid="pone.0129605.ref028" ref-type="bibr">28</xref>]. In the present study, the effect of quercetin on the proliferation and osteogenic differentiation of BMSCs was comprehensively studied. In contrast to previous studies, our results indicated that quercetin could enhance the proliferation of rBMSCs at days 1, 4 and 7 in a dose-dependent manner, whereas a concentration of 2 &#x3BC;M could achieve the greatest effect; furthermore, quercetin did not affect cell viability or cellular morphology. Following quercetin treatment, ALP activity and calcium deposition assays and osteogenic gene expression analysis were performed. ALP, an early marker of osteogenic differentiation, is positively correlated with cell differentiation and maturation [<xref rid="pone.0129605.ref043" ref-type="bibr">43</xref>, <xref rid="pone.0129605.ref044" ref-type="bibr">44</xref>], whereas calcium deposition is a later marker of osteogenic differentiation [<xref rid="pone.0129605.ref045" ref-type="bibr">45</xref>]. It is well known that Runx2 and COL1 are considered as early markers of osteogenic differentiation [<xref rid="pone.0129605.ref046" ref-type="bibr">46</xref>], whereas BSP, BMP-2 and OCN are middle and late markers [<xref rid="pone.0129605.ref047" ref-type="bibr">47</xref>&#x2013;<xref rid="pone.0129605.ref049" ref-type="bibr">49</xref>]. OPN appears during early proliferation and later differentiation [<xref rid="pone.0129605.ref050" ref-type="bibr">50</xref>, <xref rid="pone.0129605.ref051" ref-type="bibr">51</xref>]. It has been reported that Runx2 is involved in the regulation of gene expression during the process of osteogenic differentiation, which plays an important role in the maturation and stabilization of osteoblasts [<xref rid="pone.0129605.ref052" ref-type="bibr">52</xref>]. COL1 provides a basic framework for mineralized inorganic material deposition and plays a decisive role in the biomechanical strength properties of bone tissue [<xref rid="pone.0129605.ref053" ref-type="bibr">53</xref>]. BSP plays a key role in the initiation processes of bone matrix mineralization and mineralized cell adhesion matrix formation [<xref rid="pone.0129605.ref054" ref-type="bibr">54</xref>]. Moreover, BMP-2 can promote the proliferation and osteogenic differentiation of BMSCs and can also inhibit the differentiation of BMSCs into other cell types, such as adipose and skeletal muscle cells [<xref rid="pone.0129605.ref055" ref-type="bibr">55</xref>, <xref rid="pone.0129605.ref056" ref-type="bibr">56</xref>]. As a bone matrix component, OCN is one of the main indicators of the phase of osteoblast differentiation involving mineralization, whereas OPN is related to the phase of osteoblasts maturation between adhesion prior to mineralization and matrix synthesis [<xref rid="pone.0129605.ref057" ref-type="bibr">57</xref>, <xref rid="pone.0129605.ref058" ref-type="bibr">58</xref>]. In the present study, as an early marker of osteogenic differentiation, the expression of Runx2 in the 2 &#x3BC;M group increased at 1 hour and peaked at 3 hours; this increase in expression of Runx2 then slowed down at 6 and 12 hours. In accordance with reports indicating that Runx2 can stimulate OPN, OCN and BSP gene expression [<xref rid="pone.0129605.ref059" ref-type="bibr">59</xref>], OPN, OCN and BSP gene expression in the 2 &#x3BC;M group peaked at 6 and 12 hours, respectively, in the present study. Moreover, it has also been suggested that the enhanced gene expression of these osteogenic genes could consequently increase Runx2 gene expression [<xref rid="pone.0129605.ref060" ref-type="bibr">60</xref>]. In the present study, Runx2 gene expression in the 2 &#x3BC;M group was significantly different from that in the other groups at 24 hours, possibly due to the stimulatory effects of OPN, OCN and BSP. However, in the present study, quercetin could enhance ALP activity and the above osteogenic genes, especially the middle and late markers (BSP, BMP-2, OPN and OCN), in a dose-dependent manner; this stimulatory effect was most obvious at the concentration of 2 &#x3BC;M. These results indicated that quercetin could not only promote the proliferation of rBMSCs but also enhance osteogenic differentiation at various stages, especially at the middle and late stages; additionally, the concentration of 2 &#x3BC;M was found to be the optimum concentration. However, previous studies have shown that the cellular morphology is one of aspects, which can influence the osteogenic differentiation of MSCs [<xref rid="pone.0129605.ref061" ref-type="bibr">61</xref>&#x2013;<xref rid="pone.0129605.ref063" ref-type="bibr">63</xref>]; the other studies also showed that some transcription factors (TFs) and Chinese medicine, such as zinc fingers and homeoboxes 3 (ZHX3), Runx2 and Tinospora cordifolia, could promote the osteogenic differentiation of MSCs by regulating the gene expression and secretion of osteogenic markers without significant effect on the cellular morphology [<xref rid="pone.0129605.ref064" ref-type="bibr">64</xref>&#x2013;<xref rid="pone.0129605.ref066" ref-type="bibr">66</xref>]. Present study also showed that quercetin could stimulate the osteogenic differentiation of rBMSCs by promoting the gene expression and secretion of osteogenic markers without obvious effect on the cellular morphology.</p>
+      <p>Most previous studies regarding quercetin have focused on osteogenic differentiation; however, the effect of quercetin on the expression of angiogenic factors was not evaluated [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0129605.ref027" ref-type="bibr">27</xref>]. The present study also analyzed the effect of quercetin on the expression of angiogenic factors by BMSCs. As a key angiogenic factor, VEGF can simultaneously promote osteogenesis and angiogenesis [<xref rid="pone.0129605.ref067" ref-type="bibr">67</xref>, <xref rid="pone.0129605.ref068" ref-type="bibr">68</xref>], and can specifically affect vascular endothelial cells by inducing cell proliferation, migration and angiogenesis [<xref rid="pone.0129605.ref069" ref-type="bibr">69</xref>, <xref rid="pone.0129605.ref070" ref-type="bibr">70</xref>]. <underline>As a</underline> paracrine <underline>angiogenic factor, VEGF could also</underline> increase the permeability of small veins and venules and promote the accumulation of cytoplasmic calcium, as well as induce angiogenesis [<xref rid="pone.0129605.ref071" ref-type="bibr">71</xref>]. A previous study also showed that VEGF could stimulate the proliferation and osteogenesis of BMSCs and indirectly promote the proliferation and differentiation of osteoblasts by stimulating endothelial cells to secrete osteoanabolic growth factors [<xref rid="pone.0129605.ref072" ref-type="bibr">72</xref>&#x2013;<xref rid="pone.0129605.ref074" ref-type="bibr">74</xref>]. <underline>Acting</underline> as another important angiogenic factor, ANG-1 can stimulate angiogenesis by reducing the VEGF-mediated vascular permeability to a certain extent [<xref rid="pone.0129605.ref075" ref-type="bibr">75</xref>]. Additionally, ANG-1 can promote the differentiation, bone matrix deposition and mineralization of osteoblasts [<xref rid="pone.0129605.ref076" ref-type="bibr">76</xref>]. Although previous studies showed that quercetin could inhibit the angiogenic gene expression of tumor cells [<xref rid="pone.0129605.ref077" ref-type="bibr">77</xref>, <xref rid="pone.0129605.ref078" ref-type="bibr">78</xref>], in the present study, the results of RT-PCR and ELISA analyses showed higher VEGF gene and protein levels in rBMSCs treated with quercetin. Moreover, the results of RT-PCR showed that quercetin could stimulate the gene expression of ANG-1. All of these data indicate that quercetin could enhance angiogenic factor expression of rBMSCs, which could in turn promote angiogenesis and osteogenesis in vivo.</p>
+      <p>However, previous research has mostly focused on the secretion of angiogenic factors by undifferentiated bone marrow derived MSCs such as mesenchymal progenitor cells, marrow-derived stromal cells and multipotent stromal cells [<xref rid="pone.0129605.ref079" ref-type="bibr">79</xref>&#x2013;<xref rid="pone.0129605.ref081" ref-type="bibr">81</xref>]; moreover, recent studies reported that the osteogenically differentiated MSCs that cultured in osteogenic induction medium could lead cells antiangiogenic and reduce the secretion of angiogenic factors like VEGF and platelet-derived growth factor-AA (PDGF-AA) [<xref rid="pone.0129605.ref082" ref-type="bibr">82</xref>, <xref rid="pone.0129605.ref083" ref-type="bibr">83</xref>]. However, many studies reported that some growth factors such as BMP-2 [<xref rid="pone.0129605.ref084" ref-type="bibr">84</xref>, <xref rid="pone.0129605.ref085" ref-type="bibr">85</xref>], BMP-9 [<xref rid="pone.0129605.ref086" ref-type="bibr">86</xref>], epidermal growth factor (EGF) [<xref rid="pone.0129605.ref087" ref-type="bibr">87</xref>], growth and differentiation factor-5 (GDF-5) [<xref rid="pone.0129605.ref088" ref-type="bibr">88</xref>] and basic fibroblast growth factor (bFGF) [<xref rid="pone.0129605.ref084" ref-type="bibr">84</xref>, <xref rid="pone.0129605.ref089" ref-type="bibr">89</xref>, <xref rid="pone.0129605.ref090" ref-type="bibr">90</xref>], could promote osteogenic differentiation of MSCs as well as secretion of angiogenic factors by inducing both osteogenic and angiogenic signaling pathways without osteogenic induction medium. In the present study, it has been firstly observed that as a kind of Chinese medicine, quercetin could not only promote osteogenic differentiation of rBMSCs, but also enhance the secretion of angiogenic factors in a dose-dependent manner, while the concentration of 2 &#x3BC;M could achieve the greatest effect. Recent studies also reported that quercetin could stimulate the induction and functions of immune cells and enhance the functions of the immune system [<xref rid="pone.0129605.ref091" ref-type="bibr">91</xref>, <xref rid="pone.0129605.ref092" ref-type="bibr">92</xref>]. However, whether quercetin can affect the immunogenic status of BMSCs has remained largely unknown. Indeed, the immunogenicity of MSCs is the one of the important topics in bone regeneration and will be assessed in our future studies.</p>
+      <p>Previous studies showed that quercetin could promote the osteogenic differentiation of MG-63 human osteoblasts through the ERK signaling pathway [<xref rid="pone.0129605.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0129605.ref033" ref-type="bibr">33</xref>]; however, it has remained largely unknown whether the p38 and JNK signaling pathways, the other two important pathways in MAPK signaling, are involved in this process. It is well known that the ERK, p38 and JNK pathways are crucial for the regulation of cell proliferation, osteoblast differentiation and skeletal development [<xref rid="pone.0129605.ref093" ref-type="bibr">93</xref>, <xref rid="pone.0129605.ref094" ref-type="bibr">94</xref>]. In particular, the ERK signaling pathway can be activated in cells throughout the developmental phase, which can promote immediate early gene expression, reinforce matrix mineralization and promote osteogenic differentiation [<xref rid="pone.0129605.ref095" ref-type="bibr">95</xref>]. The p38 signaling pathway plays an important role in cell growth, survival and differentiation [<xref rid="pone.0129605.ref096" ref-type="bibr">96</xref>]. The JNK signaling pathway has been reported to potentially enhance OCN mRNA level and to be involved in BMP-2-induced osteoblastic cell differentiation [<xref rid="pone.0129605.ref097" ref-type="bibr">97</xref>, <xref rid="pone.0129605.ref098" ref-type="bibr">98</xref>]. Our present findings showed that quercetin could activate the ERK and p38 signaling pathways, resulting in higher p-ERK and p-p38 protein levels at 120 min. However, quercetin did not lead to significant activation of the JNK signaling pathway. Furthermore, to demonstrate whether the stimulatory effect of quercetin on the proliferation and differentiation of rBMSCs is dependent on the ERK and p38 signaling pathways, the specific ERK and p38 inhibitors PD98059 and SB202190 were applied to quercetin-treated rBMSCs, respectively. The results showed that pretreatment with PD98059 and SB202190 blocked quercetin-induced ERK and p38 phosphorylation, respectively. Moreover, quercetin-stimulated ALP activity and the expression of osteogenic genes (Runx2, COL1, BSP, BMP-2, OPN and OCN) and angiogenic genes (VEGF and ANG-1) could be repressed by either PD98059, or SB202190, respectively. Moreover, the inhibitor SB202190 could also inhibit phosphorylation of the ERK signaling pathway in the present study. Previous study also reported that the p38 inhibitor was found to abrogate TNF-alpha-induced ERK phosphorylation in human proximal tubular epithelial cells [<xref rid="pone.0129605.ref099" ref-type="bibr">99</xref>]. It has been suggested that there are several points shared between the ERK and the p38 signaling pathways, leading to cross-talk between these two pathways [<xref rid="pone.0129605.ref100" ref-type="bibr">100</xref>, <xref rid="pone.0129605.ref101" ref-type="bibr">101</xref>]. Therefore, p38 may also regulate ERK phosphorylation in the context of the effects of quercetin, although this concept requires further evaluation in our future studies. All of these data indicated that quercetin stimulated the proliferation, osteogenic differentiation and angiogenic factor expression of rBMSCs, partially through the ERK and p38 signaling pathways.</p>
+      <p>In conclusion, quercetin could promote the cell proliferation, osteogenic differentiation and angiogenic factor expression of rBMSCs in a dose-dependent manner, and a concentration of 2 &#x3BC;M quercetin achieved the greatest stimulatory effect. Furthermore, the ERK and the p38 signaling pathways might play an important role in this process. It is suggested that quercetin may represent a drug that can be potentially applied for bone regeneration.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="sec022">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0129605.s001">
+        <label>S1 Fig</label>
+        <caption>
+          <title>Typan blue staining for cell viability.</title>
+          <p>The effect of quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) on the cell viability of rBMSCs at 24 hours. The 0 &#x3BC;M group was treated as the control group (0).</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0129605.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0129605.s002">
+        <label>S2 Fig</label>
+        <caption>
+          <title>FACS flow cytometer for cell apoptosis.</title>
+          <p>Quantitative analysis of the percentages of early apoptotic cells (A) and necrotic/late apoptotic cells (B) of rBMSCs cultured with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) at 24 hours. The 0 &#x3BC;M group was treated as the control group (0).</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0129605.s002.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0129605.s003">
+        <label>S3 Fig</label>
+        <caption>
+          <title>Cellular morphology.</title>
+          <p>The cellular morphology detected by actin cytoskeletal staining showing at 6 and 24 hours.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0129605.s003.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0129605.s004">
+        <label>S4 Fig</label>
+        <caption>
+          <title>Gene expression of rBMSCs treated with different concentrations of quercetin at day 7.</title>
+          <p>The osteogenic and angiogenic genes expression of BMSCs cultured in DMEM medium with quercetin at different concentrations (0, 1, 2, 5 and 10 &#x3BC;M) for 7 days. *p &lt; 0.05 indicates the quercetin-treated groups vs the control group (0 &#x3BC;M); &#x25B2;p &lt; 0.05 indicates the 2 &#x3BC;M group vs the other quercetin groups.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0129605.s004.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0129605.s005">
+        <label>S1 Table</label>
+        <caption>
+          <title>Primer sequences for real-time quantitative RT-PCR.</title>
+          <p>(DOC)</p>
+        </caption>
+        <media xlink:href="pone.0129605.s005.doc">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0129605.ref001">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Caplan</surname><given-names>AI</given-names></name> (<year>1991</year>) <article-title>Mesenchymal stem cells</article-title>. <source>J Orthop Res</source>
+<volume>9</volume>: <fpage>641</fpage>&#x2013;<lpage>650</lpage>.
+<pub-id pub-id-type="pmid">1870029</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref002">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bruder</surname><given-names>SP</given-names></name>, <name><surname>Fink</surname><given-names>DJ</given-names></name>, <name><surname>Caplan</surname><given-names>AI</given-names></name> (<year>1994</year>) <article-title>Mesenchymal stem cells in bone development, bone repair, and skeletal regeneration therapy</article-title>. <source>J Cell Biochem</source>
+<volume>20</volume>: <fpage>283</fpage>&#x2013;<lpage>294</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref003">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Krane</surname><given-names>SM</given-names></name> (<year>2005</year>) <article-title>Identifying genes that regulate bone remodeling as potential therapeutic targets</article-title>. <source>J Exp Med</source>
+<volume>201</volume>: <fpage>841</fpage>&#x2013;<lpage>843</lpage>.
+<pub-id pub-id-type="pmid">15781576</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref004">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Maniatopoulos</surname><given-names>C</given-names></name>, <name><surname>Sodek</surname><given-names>J</given-names></name>, <name><surname>Melcher</surname><given-names>A</given-names></name> (<year>1988</year>) <article-title>Bone formation in vitro by stromal cells obtained from bone marrow of young adult rats</article-title>. <source>Cell Tissue Res</source>
+<volume>254</volume>: <fpage>317</fpage>&#x2013;<lpage>330</lpage>.
+<pub-id pub-id-type="pmid">3197089</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref005">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kim</surname><given-names>KI</given-names></name>, <name><surname>Park</surname><given-names>S</given-names></name>, <name><surname>Im</surname><given-names>GI</given-names></name> (<year>2014</year>) <article-title>Osteogenic differentiation and angiogenesis with cocultured adipose-derived stromal cells and bone marrow stromal cells</article-title>. <source>Biomaterials</source>
+<volume>35</volume>: <fpage>4792</fpage>&#x2013;<lpage>4804</lpage>. <pub-id pub-id-type="doi">10.1016/j.biomaterials.2014.02.048</pub-id>
+<pub-id pub-id-type="pmid">24655782</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref006">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Winet</surname><given-names>H</given-names></name> (<year>1996</year>) <article-title>The role of microvasculature in normal and perturbed bone healing as revealed by intravital microscopy</article-title>. <source>Bone</source>
+<volume>19</volume>
+<issue>1 Suppl</issue>: <fpage>39S</fpage>&#x2013;<lpage>57S</lpage>.
+<pub-id pub-id-type="pmid">8830997</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref007">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Schmid</surname><given-names>J</given-names></name>, <name><surname>Wallkamm</surname><given-names>B</given-names></name>, <name><surname>H&#xE4;mmerle</surname><given-names>CH</given-names></name>, <name><surname>Gogolewski</surname><given-names>S</given-names></name>, <name><surname>Lang</surname><given-names>NP</given-names></name> (<year>1997</year>) <article-title>The significance of angiogenesis in guided bone regeneration. A case report of a rabbit experiment</article-title>. <source>Clin Oral Implants Res</source>
+<volume>8</volume>: <fpage>244</fpage>&#x2013;<lpage>248</lpage>.
+<pub-id pub-id-type="pmid">9586469</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref008">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Glowacki</surname><given-names>J</given-names></name> (<year>1998</year>) <article-title>Angiogenesis in fracture repair</article-title>. <source>Clin Orthop Relat Res</source>
+<volume>355</volume>
+<issue>Suppl</issue>: <fpage>S82</fpage>&#x2013;<lpage>89</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref009">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mayr-Wohlfart</surname><given-names>U</given-names></name>, <name><surname>Waltenberger</surname><given-names>J</given-names></name>, <name><surname>Hausser</surname><given-names>H</given-names></name>, <name><surname>Kessler</surname><given-names>S</given-names></name>, <name><surname>G&#xFC;nther</surname><given-names>KP</given-names></name>, <name><surname>Dehio</surname><given-names>C</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>Vascuslar endothelial growth fator stimulates chemotactic migration of primary human osteoblasts</article-title>. <source>Bone</source>
+<volume>30</volume>: <fpage>472</fpage>&#x2013;<lpage>477</lpage>.
+<pub-id pub-id-type="pmid">11882460</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref010">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Peng</surname><given-names>H</given-names></name>, <name><surname>Wright</surname><given-names>V</given-names></name>, <name><surname>Usas</surname><given-names>A</given-names></name>, <name><surname>Gearhart</surname><given-names>B</given-names></name>, <name><surname>Shen</surname><given-names>HC</given-names></name>, <name><surname>Cummins</surname><given-names>J</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>Synergistic enhancement of bone formation and healing by stem cell expressed VEGF and bone morphogenetic protein-4</article-title>. <source>J Clin Invest</source>
+<volume>110</volume>: <fpage>751</fpage>&#x2013;<lpage>759</lpage>.
+<pub-id pub-id-type="pmid">12235106</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref011">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Winet</surname><given-names>H</given-names></name> (<year>1996</year>) <article-title>The role of microvasculature in normal and perturbed bone healing as revealed by intravital microscopy</article-title>. <source>Bone</source>
+<volume>19</volume>
+<issue>1 Suppl</issue>: <fpage>39S</fpage>&#x2013;<lpage>57S</lpage>.
+<pub-id pub-id-type="pmid">8830997</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref012">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Schmid</surname><given-names>J</given-names></name>, <name><surname>Wallkamm</surname><given-names>B</given-names></name>, <name><surname>H&#xE4;mmerle</surname><given-names>CH</given-names></name>, <name><surname>Gogolewski</surname><given-names>S</given-names></name>, <name><surname>Lang</surname><given-names>NP</given-names></name> (<year>1997</year>) <article-title>The significance of angiogenesis in guided bone regeneration. A case report of a rabbit experiment</article-title>. <source>Clin Oral Implants Res</source>
+<volume>8</volume>: <fpage>244</fpage>&#x2013;<lpage>248</lpage>.
+<pub-id pub-id-type="pmid">9586469</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref013">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Glowacki</surname><given-names>J</given-names></name> (<year>1998</year>) <article-title>Angiogenesis in fracture repair</article-title>. <source>Clin Orthop Relat Res</source>
+<volume>355</volume>
+<issue>Suppl</issue>: <fpage>S82</fpage>&#x2013;<lpage>89</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref014">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wenger</surname><given-names>A</given-names></name>, <name><surname>Kowalewski</surname><given-names>N</given-names></name>, <name><surname>Stahl</surname><given-names>A</given-names></name>, <name><surname>Mehlhorn</surname><given-names>AT</given-names></name>, <name><surname>Schmal</surname><given-names>H</given-names></name>, <name><surname>Stark</surname><given-names>GB</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Development and characterization of a spheroidal coculture model of endothelial cells and fibroblasts for improving angiogenesis in tissue engineering</article-title>. <source>Cells Tissues Organs</source>
+<volume>181</volume>: <fpage>80</fpage>&#x2013;<lpage>88</lpage>.
+<pub-id pub-id-type="pmid">16534202</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref015">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jansen</surname><given-names>RG</given-names></name>, <name><surname>van Kuppevelt</surname><given-names>TH</given-names></name>, <name><surname>Daamen</surname><given-names>WF</given-names></name>, <name><surname>Kuijpers-Jagtman</surname><given-names>AM</given-names></name>, <name><surname>Von den Hoff</surname><given-names>JW</given-names></name> (<year>2009</year>) <article-title>FGF-2-loaded collagen scaffolds attract cells and blood vessels in rat oral mucosa</article-title>. <source>J Oral Pathol Med</source>
+<volume>38</volume>: <fpage>630</fpage>&#x2013;<lpage>638</lpage>. <pub-id pub-id-type="doi">10.1111/j.1600-0714.2009.00763.x</pub-id>
+<pub-id pub-id-type="pmid">19473448</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref016">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Neumann</surname><given-names>T</given-names></name>, <name><surname>Nicholson</surname><given-names>BS</given-names></name>, <name><surname>Sanders</surname><given-names>JE</given-names></name> (<year>2003</year>) <article-title>Tissue engineering of perfused microvessels</article-title>. <source>Microvasc Res</source>
+<volume>66</volume>: <fpage>59</fpage>&#x2013;<lpage>67</lpage>.
+<pub-id pub-id-type="pmid">12826075</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref017">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wang</surname><given-names>XT</given-names></name>, <name><surname>Liu</surname><given-names>PY</given-names></name>, <name><surname>Tang</surname><given-names>JB</given-names></name> (<year>2006</year>) <article-title>PDGF gene therapy enhances expression of VEGF nad bFGF genes and activates the NFkB gene in signal pathways in ischemic flaps</article-title>. <source>Plast Reconstr Surg</source>
+<volume>117</volume>: <fpage>129</fpage>&#x2013;<lpage>137</lpage>.
+<pub-id pub-id-type="pmid">16404259</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref018">
+        <label>18</label>
+        <mixed-citation publication-type="other">Zhai YK, Pan YL, Niu YB, Li CR, Wu XL, Fan WT, et al. (2014) The importance of the prenyl group in the activities of osthole in enhancing bone formation and inhibiting bone resorption in vitro. Int J Endocrinol <pub-id pub-id-type="doi">10.1155/2014/921954</pub-id>
+</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref019">
+        <label>19</label>
+        <mixed-citation publication-type="journal">Liu M, Li Y, Yang ST (2014) Effects of naringin on the proliferation and osteogenic differentiation of human amniotic fluid-derived stem cells. J Tissue Eng Regen Med <pub-id pub-id-type="doi">10.1002/term.1911</pub-id>
+</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref020">
+        <label>20</label>
+        <mixed-citation publication-type="other">Wu Y, Xia L, Zhou Y, Xu Y, Jiang X (2015) Icariin induces osteogenic differentiation of bone mesenchymal stem cells in a MAPK-dependent manner. Cell Prolif <pub-id pub-id-type="doi">10.1111/cpr.12185</pub-id>
+</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref021">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>K&#xFC;hnau</surname><given-names>J</given-names></name> (<year>1976</year>) <article-title>The flavonoids, a class of semi-essential food components: their role in human nutrition</article-title>. <source>World Rev. Nutr. Diet</source>
+<volume>24</volume>: <fpage>117</fpage>&#x2013;<lpage>191</lpage>.
+<pub-id pub-id-type="pmid">790781</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref022">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wu</surname><given-names>BY</given-names></name>, <name><surname>Yu</surname><given-names>AC</given-names></name> (<year>2000</year>) <article-title>Quercetin inhibits c-fos, heat shock protein, and glial fibrillary acidic protein expression in injured astrocytes</article-title>. <source>J Neurosci Res</source>
+<volume>62</volume>: <fpage>730</fpage>&#x2013;<lpage>736</lpage>.
+<pub-id pub-id-type="pmid">11104512</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref023">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Utesch</surname><given-names>D</given-names></name>, <name><surname>Feige</surname><given-names>K</given-names></name>, <name><surname>Dasenbrock</surname><given-names>J</given-names></name>, <name><surname>Broschard</surname><given-names>TH</given-names></name>, <name><surname>Harwood</surname><given-names>M</given-names></name>, <name><surname>Danielewska-Nikiel</surname><given-names>B</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Evaluation of the potential in vivo genotoxicity of quercetin</article-title>. <source>Mutat Res</source>
+<volume>654</volume>: <fpage>38</fpage>&#x2013;<lpage>44</lpage>. <pub-id pub-id-type="doi">10.1016/j.mrgentox.2008.04.008</pub-id>
+<pub-id pub-id-type="pmid">18556240</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref024">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>AMBROSE</surname><given-names>AM</given-names></name>, <name><surname>DeEDS</surname><given-names>F</given-names></name> (<year>1949</year>) <article-title>The value of rutin and quercetin in scurvy</article-title>. <source>J Nutr</source>
+<volume>38</volume>: <fpage>305</fpage>&#x2013;<lpage>317</lpage>.
+<pub-id pub-id-type="pmid">18134235</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref025">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>ZEMANKOVA-KUNZOVA</surname><given-names>H</given-names></name> (<year>1949</year>) <article-title>Effect of rutin and quercetin on heart</article-title>. <source>Lek List</source>
+<volume>4</volume>: <fpage>401</fpage>&#x2013;<lpage>405</lpage>.
+<pub-id pub-id-type="pmid">18140710</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref026">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kim</surname><given-names>YJ</given-names></name>, <name><surname>Bae</surname><given-names>YC</given-names></name>, <name><surname>Suh</surname><given-names>KT</given-names></name>, <name><surname>Jung</surname><given-names>JS</given-names></name> (<year>2006</year>) <article-title>Quercetin, a flavonoid, inhibits proliferation and increases osteogenic differentiation in human adipose stromal cells</article-title>. <source>Biochem Pharmacol</source>
+<volume>72</volume>: <fpage>1268</fpage>&#x2013;<lpage>1278</lpage>.
+<pub-id pub-id-type="pmid">16996034</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref027">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhou</surname><given-names>C</given-names></name>, <name><surname>Lin</surname><given-names>Y</given-names></name> (<year>2014</year>) <article-title>Osteogenic differentiation of adipose-derived stem cells promoted by quercetin</article-title>. <source>Cell Prolif</source>
+<volume>47</volume>: <fpage>124</fpage>&#x2013;<lpage>132</lpage>. <pub-id pub-id-type="doi">10.1111/cpr.12097</pub-id>
+<pub-id pub-id-type="pmid">24617900</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref028">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Satu&#xE9;</surname><given-names>M</given-names></name>, <name><surname>Arriero</surname><given-names>Mdel M</given-names></name>, <name><surname>Monjo</surname><given-names>M</given-names></name>, <name><surname>Ramis</surname><given-names>JM</given-names></name> (<year>2013</year>) <article-title>Quercitrin and taxifolin stimulate osteoblast differentiation in MC3T3-E1 cells and inhibit osteoclastogenesis in RAW 264.7 cells</article-title>. <source>Biochem Pharmacol</source>
+<volume>86</volume>: <fpage>1476</fpage>&#x2013;<lpage>1486</lpage>. <pub-id pub-id-type="doi">10.1016/j.bcp.2013.09.009</pub-id>
+<pub-id pub-id-type="pmid">24060614</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref029">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Johnson</surname><given-names>GL</given-names></name>, <name><surname>Vaillancourt</surname><given-names>RR</given-names></name> (<year>1994</year>) <article-title>Sequential protein kinase reactions controlling cell growth and differentiation</article-title>. <source>Curr Opin Cell Biol</source>
+<volume>6</volume>: <fpage>230</fpage>&#x2013;<lpage>238</lpage>.
+<pub-id pub-id-type="pmid">8024815</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref030">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Seger</surname><given-names>R</given-names></name>, <name><surname>Krebs</surname><given-names>EG</given-names></name> (<year>1995</year>) <article-title>The MAPK signaling cascade</article-title>. <source>FASEB J</source>
+<volume>9</volume>: <fpage>726</fpage>&#x2013;<lpage>735</lpage>.
+<pub-id pub-id-type="pmid">7601337</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref031">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jaiswal</surname><given-names>RK</given-names></name>, <name><surname>Jaiswal</surname><given-names>N</given-names></name>, <name><surname>Bruder</surname><given-names>SP</given-names></name>, <name><surname>Mbalaviele</surname><given-names>G</given-names></name>, <name><surname>Marshak</surname><given-names>DR</given-names></name>, <name><surname>Pittenger</surname><given-names>MF</given-names></name> (<year>2000</year>) <article-title>Adult human mesenchymal stem cell differentiation to the osteogenic or adipogenic lineage is regulated by mitogen-activated protein kinase</article-title>. <source>J Biol Chem</source>
+<volume>275</volume>: <fpage>9645</fpage>&#x2013;<lpage>9652</lpage>.
+<pub-id pub-id-type="pmid">10734116</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref032">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wanachewin</surname><given-names>O</given-names></name>, <name><surname>Boonmaleerat</surname><given-names>K</given-names></name>, <name><surname>Pothacharoen</surname><given-names>P</given-names></name>, <name><surname>Reutrakul</surname><given-names>V</given-names></name>, <name><surname>Kongtawelert</surname><given-names>P</given-names></name> (<year>2012</year>) <article-title>Sesamin stimulates osteoblast differentiation through p38 and ERK1/2 MAPK signaling pathways</article-title>. <source>BMC Complement Altern Med</source>
+<volume>12</volume>: <fpage>71</fpage>&#x2013;<lpage>79</lpage>. <pub-id pub-id-type="doi">10.1186/1472-6882-12-71</pub-id>
+<pub-id pub-id-type="pmid">22646286</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref033">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Prouillet</surname><given-names>C</given-names></name>, <name><surname>Mazi&#xE8;re</surname><given-names>JC</given-names></name>, <name><surname>Mazi&#xE8;re</surname><given-names>C</given-names></name>, <name><surname>Wattel</surname><given-names>A</given-names></name>, <name><surname>Brazier</surname><given-names>M</given-names></name>, <name><surname>Kamel</surname><given-names>S</given-names></name> (<year>2004</year>) <article-title>Stimulatory effect of naturally occurring flavonols quercetin and kaempferol on alkaline phosphatase activity in MG-63 human osteoblasts through ERK and estrogen receptor pathway</article-title>. <source>Biochem Pharmacol</source>
+<volume>67</volume>: <fpage>1307</fpage>&#x2013;<lpage>1313</lpage>.
+<pub-id pub-id-type="pmid">15013846</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref034">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jiang</surname><given-names>X</given-names></name>, <name><surname>Zhao</surname><given-names>J</given-names></name>, <name><surname>Wang</surname><given-names>S</given-names></name>, <name><surname>Sun</surname><given-names>X</given-names></name>, <name><surname>Zhang</surname><given-names>X</given-names></name>, <name><surname>Chen</surname><given-names>J</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Mandibular repair in rats with premineralized silk scaffolds and BMP-2-modified bMSCs</article-title>. <source>Biomaterials</source>
+<volume>30</volume>: <fpage>4522</fpage>&#x2013;<lpage>4532</lpage>. <pub-id pub-id-type="doi">10.1016/j.biomaterials.2009.05.021</pub-id>
+<pub-id pub-id-type="pmid">19501905</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref035">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhang</surname><given-names>Z</given-names></name>, <name><surname>Cao</surname><given-names>X</given-names></name>, <name><surname>Xiong</surname><given-names>N</given-names></name>, <name><surname>Wang</surname><given-names>H</given-names></name>, <name><surname>Huang</surname><given-names>J</given-names></name>, <name><surname>Sun</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>DNA polymerase-beta is required for 1-methy1-4-phenylpryridinium-induced apoptotic death in neurons</article-title>. <source>Apoptosis</source>
+<volume>15</volume>: <fpage>105</fpage>&#x2013;<lpage>115</lpage>. <pub-id pub-id-type="doi">10.1007/s10495-009-0425-8</pub-id>
+<pub-id pub-id-type="pmid">19937276</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref036">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhao</surname><given-names>Y</given-names></name>, <name><surname>Zhang</surname><given-names>S</given-names></name>, <name><surname>Zeng</surname><given-names>D</given-names></name>, <name><surname>Xia</surname><given-names>L</given-names></name>, <name><surname>Lamichhane</surname><given-names>A</given-names></name>, <name><surname>Jiang</surname><given-names>X</given-names></name>, <etal>et al</etal> (<year>2014</year>) <article-title>rhPDGF-BB Promotes Proliferation and Osteogenic Differentiation of Bone Marrow Stromal Cells from Streptozotocin-Induced Diabetic Rats through ERK Pathway</article-title>. <source>Biomed Res Int</source>
+<volume>2014</volume>: <fpage>637415</fpage>
+<pub-id pub-id-type="doi">10.1155/2014/637415</pub-id>
+<pub-id pub-id-type="pmid">24605332</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref037">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lin</surname><given-names>K</given-names></name>, <name><surname>Xia</surname><given-names>L</given-names></name>, <name><surname>Li</surname><given-names>H</given-names></name>, <name><surname>Jiang</surname><given-names>X</given-names></name>, <name><surname>Pan</surname><given-names>H</given-names></name>, <name><surname>Xu</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>Enhanced osteoporotic bone regeneration by strontium-substituted calcium silicate bioactive ceramics</article-title>. <source>Biomaterials</source>
+<volume>34</volume>: <fpage>10028</fpage>&#x2013;<lpage>10042</lpage>. <pub-id pub-id-type="doi">10.1016/j.biomaterials.2013.09.056</pub-id>
+<pub-id pub-id-type="pmid">24095251</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref038">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Taylor</surname><given-names>SC</given-names></name>, <name><surname>Berkelman</surname><given-names>T</given-names></name>, <name><surname>Yadav</surname><given-names>G</given-names></name>, <name><surname>Hammond</surname><given-names>M</given-names></name> (<year>2013</year>) <article-title>A defined methodology for reliable quantification of western blot data</article-title>. <source>Molecular Biotechnology</source>
+<volume>55</volume>: <fpage>217</fpage>&#x2013;<lpage>226</lpage>. <pub-id pub-id-type="doi">10.1007/s12033-013-9672-6</pub-id>
+<pub-id pub-id-type="pmid">23709336</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref039">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cancedda</surname><given-names>R</given-names></name>, <name><surname>Mastrogiacomo</surname><given-names>M</given-names></name>, <name><surname>Bianchi</surname><given-names>G</given-names></name>, <name><surname>Derubeis</surname><given-names>A</given-names></name>, <name><surname>Muraglia</surname><given-names>A</given-names></name>, <name><surname>Quarto</surname><given-names>R</given-names></name> (<year>2003</year>) <article-title>Bone marrow stromal cells and their use in regenerating bone</article-title>. <source>Novartis Found Symp</source>
+<volume>249</volume>: <fpage>133</fpage>&#x2013;<lpage>143</lpage>.
+<pub-id pub-id-type="pmid">12708654</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref040">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pittenger</surname><given-names>MF</given-names></name>, <name><surname>Mackay</surname><given-names>AM</given-names></name>, <name><surname>Beck</surname><given-names>SC</given-names></name>, <name><surname>Jaiswal</surname><given-names>RK</given-names></name>, <name><surname>Douglas</surname><given-names>R</given-names></name>, <name><surname>Mosca</surname><given-names>JD</given-names></name>, <etal>et al</etal> (<year>1999</year>) <article-title>Multili neage potential of adult human mesenchymal stem cells</article-title>. <source>Science</source>
+<volume>284</volume>: <fpage>143</fpage>&#x2013;<lpage>147</lpage>.
+<pub-id pub-id-type="pmid">10102814</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref041">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kuznetsov</surname><given-names>SA</given-names></name>, <name><surname>Mankani</surname><given-names>MH</given-names></name>, <name><surname>Robey</surname><given-names>PG</given-names></name> (<year>2000</year>) <article-title>Effect of serum on human bone marrow stromal cells: ex vivo expansion and in vivo bone formation</article-title>. <source>Transplantation</source>
+<volume>70</volume>: <fpage>1780</fpage>&#x2013;<lpage>1787</lpage>.
+<pub-id pub-id-type="pmid">11152111</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref042">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rabie</surname><given-names>AB</given-names></name>, <name><surname>Shum</surname><given-names>L</given-names></name>,<name><surname>Chayanupatkul</surname><given-names>A</given-names></name> (<year>2002</year>) <article-title>VEGF and bone formation in the glenoid fossa during forword mandibular positioning</article-title>. <source>Am J Orthodonot Dentofac Orthoped</source>
+<volume>122</volume>: <fpage>202</fpage>&#x2013;<lpage>209</lpage>.
+<pub-id pub-id-type="pmid">12165776</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref043">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sharma</surname><given-names>U</given-names></name>, <name><surname>Pal</surname><given-names>D</given-names></name>, <name><surname>Prasad</surname><given-names>R</given-names></name> (<year>2014</year>) <article-title>Alkaline phosphatase: an overview</article-title>. <source>Indian J Clin Biochem</source>
+<volume>29</volume>: <fpage>269</fpage>&#x2013;<lpage>278</lpage>. <pub-id pub-id-type="doi">10.1007/s12291-013-0408-y</pub-id>
+<pub-id pub-id-type="pmid">24966474</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref044">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Roschger</surname><given-names>A</given-names></name>, <name><surname>Roschger</surname><given-names>P</given-names></name>, <name><surname>Keplingter</surname><given-names>P</given-names></name>, <name><surname>Klaushofer</surname><given-names>K</given-names></name>, <name><surname>Abdullah</surname><given-names>S</given-names></name>, <name><surname>Kneissel</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2014</year>) <article-title>Effect of Sclerostin Antibody Treatment in a Mouse Model of Severe Osteogenesis Imperfecta</article-title>. <source>Bone</source>
+<volume>66</volume>: <fpage>182</fpage>&#x2013;<lpage>188</lpage>. <pub-id pub-id-type="doi">10.1016/j.bone.2014.06.015</pub-id>
+<pub-id pub-id-type="pmid">24953712</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref045">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zou</surname><given-names>D</given-names></name>, <name><surname>Han</surname><given-names>W</given-names></name>, <name><surname>You</surname><given-names>S</given-names></name>, <name><surname>Ye</surname><given-names>D</given-names></name>, <name><surname>Wang</surname><given-names>L</given-names></name>, <name><surname>Wang</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>In vitro study of enhanced osteogenesis induced by HIF-1&#x3B1;-transduced bone marrow stem cells</article-title>. <source>Cell Prolif</source>
+<volume>44</volume>: <fpage>234</fpage>&#x2013;<lpage>43</lpage>. <pub-id pub-id-type="doi">10.1111/j.1365-2184.2011.00747.x</pub-id>
+<pub-id pub-id-type="pmid">21535264</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref046">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Komori</surname><given-names>T</given-names></name> (<year>2010</year>) <article-title>Regulation of osteoblast differentiation by Runx2</article-title>. <source>Adv Exp Med Biol</source>
+<volume>658</volume>: <fpage>43</fpage>&#x2013;<lpage>49</lpage>. <pub-id pub-id-type="doi">10.1007/978-1-4419-1050-9_5</pub-id>
+<pub-id pub-id-type="pmid">19950014</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref047">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Komori</surname><given-names>T</given-names></name> (<year>2010</year>) <article-title>Regulation of osteoblast differentiation by Runx2</article-title>. <source>Adv Exp Med Biol</source>
+<volume>658</volume>: <fpage>43</fpage>&#x2013;<lpage>49</lpage>. <pub-id pub-id-type="doi">10.1007/978-1-4419-1050-9_5</pub-id>
+<pub-id pub-id-type="pmid">19950014</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref048">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Xia</surname><given-names>L</given-names></name>, <name><surname>Xu</surname><given-names>Y</given-names></name>, <name><surname>Chang</surname><given-names>Q</given-names></name>, <name><surname>Sun</surname><given-names>X</given-names></name>, <name><surname>Zeng</surname><given-names>D</given-names></name>, <name><surname>Zhang</surname><given-names>W</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Maxillary sinus floor elevation using BMP-2 and Nell-1 gene-modified bone marrow stromal cells and TCP in rabbits</article-title>. <source>Calicif Tissue Int</source>
+<volume>89</volume>: <fpage>53</fpage>&#x2013;<lpage>64</lpage>. <pub-id pub-id-type="doi">10.1007/s00223-011-9493-1</pub-id>
+<pub-id pub-id-type="pmid">21584647</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref049">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lee</surname><given-names>JH</given-names></name>, <name><surname>Park</surname><given-names>JH</given-names></name>, <name><surname>El-Fiqi</surname><given-names>A</given-names></name>, <name><surname>Kim</surname><given-names>JH</given-names></name>, <name><surname>Yun</surname><given-names>YR</given-names></name>, <name><surname>Jang</surname><given-names>JH</given-names></name>, <etal>et al</etal> (<year>2014</year>) <article-title>Biointerface control of electrospun fiber scaffolds for bone regeneration: engineered protein link to mineralized surface</article-title>. <source>Acta Biomater</source>
+<volume>10</volume>: <fpage>2750</fpage>&#x2013;<lpage>2761</lpage>. <pub-id pub-id-type="doi">10.1016/j.actbio.2014.01.021</pub-id>
+<pub-id pub-id-type="pmid">24468581</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref050">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Huang</surname><given-names>W</given-names></name>, <name><surname>Yang</surname><given-names>SY</given-names></name>, <name><surname>Shao</surname><given-names>JZ</given-names></name>, <name><surname>Li</surname><given-names>YP</given-names></name> (<year>2013</year>) <article-title>Signaling and transcriptional regulation in osteoblast commitment and differentiation</article-title>. <source>Front Biosci</source>
+<volume>12</volume>: <fpage>3068</fpage>&#x2013;<lpage>3092</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref051">
+        <label>51</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wu</surname><given-names>C</given-names></name>, <name><surname>Zhou</surname><given-names>Y</given-names></name>, <name><surname>Chang</surname><given-names>J</given-names></name>, <name><surname>Xiao</surname><given-names>Y</given-names></name> (<year>2013</year>) <article-title>Delivery of dimethyloxallyl glycine in mesoporous bioactive glass scaffolds to improve angiogenesis and osteogenesis of human bone marrow stromal cells</article-title>. <source>Acta Biomater</source>
+<volume>9</volume>: <fpage>9159</fpage>&#x2013;<lpage>9168</lpage>. <pub-id pub-id-type="doi">10.1016/j.actbio.2013.06.026</pub-id>
+<pub-id pub-id-type="pmid">23811216</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref052">
+        <label>52</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Komori</surname><given-names>T</given-names></name> (<year>2010</year>) <article-title>Regulation of osteoblast differentiation by Runx2</article-title>. <source>Adv Exp Med Biol</source>
+<volume>658</volume>: <fpage>43</fpage>&#x2013;<lpage>49</lpage>. <pub-id pub-id-type="doi">10.1007/978-1-4419-1050-9_5</pub-id>
+<pub-id pub-id-type="pmid">19950014</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref053">
+        <label>53</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hemprich</surname><given-names>A</given-names></name>, <name><surname>Hidding</surname><given-names>J</given-names></name>, <name><surname>Lehmann</surname><given-names>R</given-names></name> (<year>1989</year>) <article-title>Bone regeneration after filling of extensive cysts by means of bone collagen type 1</article-title>. <source>Stomatol DDR</source>
+<volume>39</volume>: <fpage>391</fpage>&#x2013;<lpage>395</lpage>.
+<pub-id pub-id-type="pmid">2626770</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref054">
+        <label>54</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kruger</surname><given-names>TE</given-names></name>, <name><surname>Miller</surname><given-names>AH</given-names></name>, <name><surname>Wang</surname><given-names>J</given-names></name> (<year>2013</year>) <article-title>Collagen scaffolds in bone sialoprotein-med iated bone regeneration</article-title>. <source>Scientific World Journal</source>
+<volume>2013</volume>: <fpage>812718</fpage>
+<pub-id pub-id-type="doi">10.1155/2013/812718</pub-id>
+<pub-id pub-id-type="pmid">23653530</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref055">
+        <label>55</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Riew</surname><given-names>KD</given-names></name>, <name><surname>Wright</surname><given-names>NM</given-names></name>, <name><surname>Cheng</surname><given-names>S</given-names></name>, <name><surname>Avioli</surname><given-names>LV</given-names></name>, <name><surname>Lou</surname><given-names>J</given-names></name> (<year>1998</year>) <article-title>Induction of bone formation using a recombinant adenoviral vector carrying the human BMP-2 gene in a rabbit spinal fusion model</article-title>. <source>Calcif Tisssue Int</source>
+<volume>63</volume>: <fpage>357</fpage>&#x2013;<lpage>360</lpage>.
+<pub-id pub-id-type="pmid">9744997</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref056">
+        <label>56</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lieberman</surname><given-names>JR</given-names></name>, <name><surname>Daluiski</surname><given-names>A</given-names></name>, <name><surname>Stevenson</surname><given-names>S</given-names></name>, <name><surname>Wu</surname><given-names>L</given-names></name>, <name><surname>McAllister</surname><given-names>P</given-names></name>, <name><surname>Lee</surname><given-names>YP</given-names></name>, <etal>et al</etal> (<year>1999</year>) <article-title>The effect of regional gene therapy with bone morphogenetic protein-2-producing bone marrow cells on the repair of segmental femoral defects in rats</article-title>. <source>Bone Joint Surg Am</source>
+<volume>81</volume>: <fpage>905</fpage>&#x2013;<lpage>917</lpage>.
+<pub-id pub-id-type="pmid">10428121</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref057">
+        <label>57</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ducy</surname><given-names>P</given-names></name>, <name><surname>Desbois</surname><given-names>C</given-names></name>, <name><surname>Boyce</surname><given-names>B</given-names></name>, <name><surname>Pinero</surname><given-names>G</given-names></name>, <name><surname>Story</surname><given-names>B</given-names></name>, <name><surname>Dunstan</surname><given-names>C</given-names></name>, <etal>et al</etal> (<year>1996</year>) <article-title>Increased bone formation in osteocalcin-deficient mice</article-title>. <source>Nature</source>
+<volume>382</volume>: <fpage>448</fpage>&#x2013;<lpage>452</lpage>.
+<pub-id pub-id-type="pmid">8684484</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref058">
+        <label>58</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nakase</surname><given-names>T</given-names></name>, <name><surname>Sugimoto</surname><given-names>M</given-names></name>, <name><surname>Sato</surname><given-names>M</given-names></name>, <name><surname>Kaneko</surname><given-names>M</given-names></name>, <name><surname>Tomita</surname><given-names>T</given-names></name>, <name><surname>Sugamoto</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>1998</year>) <article-title>Switch of osteo nectin and osteopontin mRNA expression in the process of cartilage-to-bone transition during fracture repair</article-title>. <source>Acta Histochem</source>
+<volume>100</volume>: <fpage>287</fpage>&#x2013;<lpage>295</lpage>.
+<pub-id pub-id-type="pmid">9717566</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref059">
+        <label>59</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ducy</surname><given-names>P</given-names></name>, <name><surname>Starbuck</surname><given-names>M</given-names></name>, <name><surname>Priemel</surname><given-names>M</given-names></name>, <name><surname>Shen</surname><given-names>J</given-names></name>, <name><surname>Pinero</surname><given-names>G</given-names></name>, <name><surname>Geoffroy</surname><given-names>V</given-names></name>, <etal>et al</etal> (<year>1999</year>) <article-title>A Cbfa1-dependent genetic pathway controls bone formation beyond embryonic development</article-title>. <source>Genes Dev</source>
+<volume>13</volume>: <fpage>1025</fpage>&#x2013;<lpage>1036</lpage>.
+<pub-id pub-id-type="pmid">10215629</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref060">
+        <label>60</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Siddiqui</surname><given-names>S</given-names></name>, <name><surname>Arshad</surname><given-names>M</given-names></name> (<year>2014</year>) <article-title>Osteogenic potential of punica granatum through matrix mineralization, cell cucle progression and runx2 gene expression in primary rat osteoblasts</article-title>. <source>Daru</source>
+<volume>22</volume>: <fpage>72</fpage>
+<pub-id pub-id-type="doi">10.1186/s40199-014-0072-7</pub-id>
+<pub-id pub-id-type="pmid">25409708</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref061">
+        <label>61</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kelly</surname><given-names>DJ</given-names></name>, <name><surname>Jacobs</surname><given-names>CR</given-names></name> (<year>2010</year>) <article-title>The role of mechanical signals in regulating chondrogenesis and osteogenesis of mesenchymal stem cells</article-title>. <source>Birth Defects Res C Embryo Today</source>
+<volume>90</volume>: <fpage>75</fpage>&#x2013;<lpage>85</lpage>. <pub-id pub-id-type="doi">10.1002/bdrc.20173</pub-id>
+<pub-id pub-id-type="pmid">20301221</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref062">
+        <label>62</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kino-Oka</surname><given-names>M</given-names></name>, <name><surname>Maeda</surname><given-names>Y</given-names></name>, <name><surname>Sato</surname><given-names>Y</given-names></name>, <name><surname>Maruyama</surname><given-names>N</given-names></name>, <name><surname>Takezawa</surname><given-names>Y</given-names></name>, <name><surname>Khoshfetrat</surname><given-names>AB</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Morphological evaluation of chondrogenic potency in passaged cell populations</article-title>. <source>J Biosci Bioeng</source>
+<volume>107</volume>: <fpage>544</fpage>&#x2013;<lpage>551</lpage>. <pub-id pub-id-type="doi">10.1016/j.jbiosc.2008.12.018</pub-id>
+<pub-id pub-id-type="pmid">19393556</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref063">
+        <label>63</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Matsuoka</surname><given-names>F</given-names></name>, <name><surname>Takeuchi</surname><given-names>I</given-names></name>, <name><surname>Agata</surname><given-names>H</given-names></name>, <name><surname>Kagami</surname><given-names>H</given-names></name>, <name><surname>Shiono</surname><given-names>H</given-names></name>, <name><surname>Kiyota</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>Morphology-based prediction of osteogenic differentiation potential of human mesenchymal stem cells</article-title>. <source>PLoS One</source>
+<volume>8</volume>: <fpage>e55082</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0055082</pub-id>
+<pub-id pub-id-type="pmid">23437049</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref064">
+        <label>64</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Suehiro</surname><given-names>F</given-names></name>, <name><surname>Nishimura</surname><given-names>M</given-names></name>, <name><surname>Kawamoto</surname><given-names>T</given-names></name>, <name><surname>Kanawa</surname><given-names>M</given-names></name>, <name><surname>Yoshizawa</surname><given-names>Y</given-names></name>, <name><surname>Murata</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Impact of zinc fingers and homeoboxes 3 on the regulation of mesenchymal stem cell osteogenic differentiation</article-title>. <source>Stem Cells Dev</source>
+<volume>20</volume>: <fpage>1539</fpage>&#x2013;<lpage>1547</lpage>. <pub-id pub-id-type="doi">10.1089/scd.2010.0279</pub-id>
+<pub-id pub-id-type="pmid">21174497</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref065">
+        <label>65</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Li</surname><given-names>ZH</given-names></name>, <name><surname>Liao</surname><given-names>W</given-names></name>, <name><surname>Zhao</surname><given-names>Q</given-names></name>, <name><surname>Huan</surname><given-names>T</given-names></name>, <name><surname>Feng</surname><given-names>P</given-names></name>, <name><surname>Wei</surname><given-names>X</given-names></name>, <etal>et al</etal> (<year>2014</year>) <article-title>Effect of Cbf&#x3B1;1 on osteogenic differentiation of mesenchymal stem cells under hypoxia condition</article-title>. <source>Int J Clin Exp Med</source>
+<volume>7</volume>: <fpage>540</fpage>&#x2013;<lpage>548</lpage>.
+<pub-id pub-id-type="pmid">24753746</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref066">
+        <label>66</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Abiramasundari</surname><given-names>G</given-names></name>, <name><surname>Sumalatha</surname><given-names>KR</given-names></name>, <name><surname>Sreepriya</surname><given-names>M</given-names></name> (<year>2012</year>) <article-title>Effects of Tinospora cordifolia (Menispermaceae) on the proliferation, osteogenic differentiation and mineralization of osteoblast model systems in vitro</article-title>. <source>J Ethnopharmacol</source>
+<volume>141</volume>: <fpage>474</fpage>&#x2013;<lpage>480</lpage>. <pub-id pub-id-type="doi">10.1016/j.jep.2012.03.015</pub-id>
+<pub-id pub-id-type="pmid">22449439</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref067">
+        <label>67</label>
+        <mixed-citation publication-type="other">Clark D, Wang X, Chang S, Czajka-Jakubowska A, Clarkson BH, Liu J (2014) VEGF promotes osteogenic differentiation of ASCs on ordered fluorapatite surfaces. J Biomed Mater Res A <pub-id pub-id-type="doi">10.1002/jbm.a.35215</pub-id>
+</mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref068">
+        <label>68</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lin</surname><given-names>Z</given-names></name>, <name><surname>Wang</surname><given-names>JS</given-names></name>, <name><surname>Lin</surname><given-names>L</given-names></name>, <name><surname>Zhang</surname><given-names>J</given-names></name>, <name><surname>Liu</surname><given-names>Y</given-names></name>, <name><surname>Shuai</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2014</year>) <article-title>Effects of BMP2 and VEGF165 on the osteogenic differentiation of rat bone marrow-derived mesenchymal stem cells</article-title>. <source>Exp Ther Med</source>
+<volume>7</volume>: <fpage>625</fpage>&#x2013;<lpage>629</lpage>.
+<pub-id pub-id-type="pmid">24520257</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref069">
+        <label>69</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bikfalvi</surname><given-names>A</given-names></name>, <name><surname>Sauzeau</surname><given-names>C</given-names></name>, <name><surname>Moukadiri</surname><given-names>H</given-names></name>, <name><surname>Maclouf</surname><given-names>J</given-names></name>, <name><surname>Busso</surname><given-names>N</given-names></name>, <name><surname>Bryckaert</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>1991</year>) <article-title>Interaction of vasculotropin/vascular endothelial cell growth factor with human umbilical vein endothelial cells: binding, internalization, degradation, and biological effects</article-title>. <source>J Cell Physiol</source>
+<volume>149</volume>: <fpage>50</fpage>&#x2013;<lpage>59</lpage>.
+<pub-id pub-id-type="pmid">1719003</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref070">
+        <label>70</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ferrara</surname><given-names>N</given-names></name>, <name><surname>Bunting</surname><given-names>S</given-names></name> (<year>1996</year>) <article-title>Vascular endothelial growth factor, a specific regulator of angiogenesis</article-title>. <source>Curr Opin Nephrol Hypertens</source>
+<volume>5</volume>: <fpage>35</fpage>&#x2013;<lpage>44</lpage>.
+<pub-id pub-id-type="pmid">8834160</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref071">
+        <label>71</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dvorak</surname><given-names>HF</given-names></name>, <name><surname>Sioussat</surname><given-names>TM</given-names></name>, <name><surname>Brown</surname><given-names>LF</given-names></name>, <name><surname>Berse</surname><given-names>B</given-names></name>, <name><surname>Nagy</surname><given-names>JA</given-names></name>, <name><surname>Sotrel</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>1991</year>) <article-title>Distribution of vascular permeability factor (vascular endothelial growth factor) in tumors: concentration in tumor blood vessels</article-title>. <source>J Exp Med</source>
+<volume>174</volume>: <fpage>1275</fpage>&#x2013;<lpage>1278</lpage>.
+<pub-id pub-id-type="pmid">1940805</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref072">
+        <label>72</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wang</surname><given-names>DS</given-names></name>, <name><surname>Miura</surname><given-names>M</given-names></name>, <name><surname>Demura</surname><given-names>H</given-names></name>, <name><surname>Sato</surname><given-names>K</given-names></name> (<year>1997</year>) <article-title>Anabolic effects of 1,25-dihydroxy vitamin D3 on osteoblasts are enhanced by vascular endothelial growth factor produced by osteoblasts and by growth factors produced by endothelial cells</article-title>. <source>Endocrinology</source>
+<volume>138</volume>: <fpage>2953</fpage>&#x2013;<lpage>2962</lpage>.
+<pub-id pub-id-type="pmid">9202240</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref073">
+        <label>73</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Murphy</surname><given-names>WL</given-names></name>, <name><surname>Peters</surname><given-names>MC</given-names></name>, <name><surname>Kohn</surname><given-names>DH</given-names></name>, <name><surname>Mooney</surname><given-names>DJ</given-names></name> (<year>2000</year>) <article-title>Sustained release of vascular endothelial growth factor from mineralized poly (lactide-co-glycolide) scaffolds for tissue engineering</article-title>. <source>Biomaterials</source>
+<volume>21</volume>: <fpage>2521</fpage>&#x2013;<lpage>2527</lpage>.
+<pub-id pub-id-type="pmid">11071602</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref074">
+        <label>74</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhang</surname><given-names>LF</given-names></name>, <name><surname>Qi</surname><given-names>J</given-names></name>, <name><surname>Zuo</surname><given-names>G</given-names></name>, <name><surname>Jia</surname><given-names>P</given-names></name>, <name><surname>Shen</surname><given-names>X</given-names></name>, <name><surname>Shao</surname><given-names>J</given-names></name>, <etal>et al</etal> (<year>2014</year>) <article-title>Osteoblast-secreted factors promote proliferation and osteogenic differentiation of bone marrow stromal cells viaVEGF/heme-oxygenase-1 pathway</article-title>. <source>PLoS One</source>
+<volume>9</volume>: <fpage>e99946</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0099946</pub-id>
+<pub-id pub-id-type="pmid">24940620</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref075">
+        <label>75</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fukuhara</surname><given-names>S</given-names></name>, <name><surname>Sako</surname><given-names>K</given-names></name>, <name><surname>Noda</surname><given-names>K</given-names></name>, <name><surname>Zhang</surname><given-names>J</given-names></name>, <name><surname>Minami</surname><given-names>M</given-names></name>, <name><surname>Mochizuki</surname><given-names>N</given-names></name> (<year>2010</year>) <article-title>Angiopoietin-1/Tie 2 receptor signaling in vascular quiescence and angiogenesis</article-title>. <source>Histol Histopathol</source>
+<volume>25</volume>: <fpage>387</fpage>&#x2013;<lpage>396</lpage>.
+<pub-id pub-id-type="pmid">20054809</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref076">
+        <label>76</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Feric</surname><given-names>N</given-names></name>, <name><surname>Cheng</surname><given-names>CC</given-names></name>, <name><surname>Goh</surname><given-names>MC</given-names></name>, <name><surname>Dudnyk</surname><given-names>V</given-names></name>, <name><surname>Di Tizio</surname><given-names>V</given-names></name>, <name><surname>Radisic</surname><given-names>M</given-names></name> (<year>2014</year>) <article-title>Angiopoietin-1 peptide QHREDGS promotes osteoblast differentiation, bone matrix deposition and mineralization on biomedical materials</article-title>. <source>Biomater Sci</source>
+<volume>2</volume>: <fpage>1384</fpage>&#x2013;<lpage>1398</lpage>.
+<pub-id pub-id-type="pmid">25485104</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref077">
+        <label>77</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Oh</surname><given-names>SJ</given-names></name>, <name><surname>Kim</surname><given-names>O</given-names></name>, <name><surname>Lee</surname><given-names>JS</given-names></name>, <name><surname>Kim</surname><given-names>JA</given-names></name>, <name><surname>Kim</surname><given-names>MR</given-names></name>, <name><surname>Choi</surname><given-names>HS</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Inhibition of angiogenesis by quercetin in tamoxifen-resistant breast cancer cells</article-title>. <source>Food Chem Toxicol</source>
+<volume>48</volume>: <fpage>3227</fpage>&#x2013;<lpage>3234</lpage>. <pub-id pub-id-type="doi">10.1016/j.fct.2010.08.028</pub-id>
+<pub-id pub-id-type="pmid">20804812</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref078">
+        <label>78</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Anand</surname><given-names>K</given-names></name>, <name><surname>Asthana</surname><given-names>P</given-names></name>, <name><surname>Kumar</surname><given-names>A</given-names></name>, <name><surname>Ambasta</surname><given-names>RK</given-names></name>, <name><surname>Kumar</surname><given-names>P</given-names></name> (<year>2011</year>) <article-title>Quercetin mediated reduction of angiogenic markers and chaperones in DLA-induced solid tumours</article-title>. <source>Asian Pac J Cancer Prev</source>
+<volume>12</volume>: <fpage>2829</fpage>&#x2013;<lpage>2835</lpage>.
+<pub-id pub-id-type="pmid">22393949</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref079">
+        <label>79</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Haynesworth</surname><given-names>SE</given-names></name>, <name><surname>Baber</surname><given-names>MA</given-names></name>, <name><surname>Caplan</surname><given-names>AI</given-names></name> (<year>1996</year>) <article-title>Cytokine expression by human marrow-derived mesenchymal progenitor cells in vitro: effects of dexamethasone and IL-1 alpha</article-title>. <source>J Cell Physiol</source>
+<volume>166</volume>: <fpage>585</fpage>&#x2013;<lpage>592</lpage>.
+<pub-id pub-id-type="pmid">8600162</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref080">
+        <label>80</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kinnaird</surname><given-names>T</given-names></name>, <name><surname>Stabile</surname><given-names>E</given-names></name>, <name><surname>Burnett</surname><given-names>MS</given-names></name>, <name><surname>Lee</surname><given-names>CW</given-names></name>, <name><surname>Barr</surname><given-names>S</given-names></name>, <name><surname>Fuchs</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>Marrow-derived stromal cells express genes encoding a broad spectrum of arteriogenic cytokines and promote in vitro and in vivo arteriogenesis through paracrine mechanisms</article-title>. <source>Circ Res</source>
+<volume>94</volume>: <fpage>678</fpage>&#x2013;<lpage>685</lpage>.
+<pub-id pub-id-type="pmid">14739163</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref081">
+        <label>81</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hung</surname><given-names>SC</given-names></name>, <name><surname>Pochampally</surname><given-names>RR</given-names></name>, <name><surname>Chen</surname><given-names>SC</given-names></name>, <name><surname>Hsu</surname><given-names>SC</given-names></name>, <name><surname>Prockop</surname><given-names>DJ</given-names></name> (<year>2007</year>) <article-title>Angiogenic effects of human multipotent stromal cell conditioned medium activate the PI3K-Akt pathway in hypoxic endothelial cells to inhibit apoptosis, increase survival, and stimulate angiogenesis</article-title>. <source>Stem Cells</source>
+<volume>25</volume>: <fpage>2363</fpage>&#x2013;<lpage>2370</lpage>.
+<pub-id pub-id-type="pmid">17540857</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref082">
+        <label>82</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bara</surname><given-names>JJ</given-names></name>, <name><surname>McCarthy</surname><given-names>HE</given-names></name>, <name><surname>Humphrey</surname><given-names>E</given-names></name>, <name><surname>Johnson</surname><given-names>WE</given-names></name>, <name><surname>Roberts</surname><given-names>S</given-names></name> (<year>2014</year>) <article-title>Bone marrow-derived mesenchymal stem cells become antiangiogenic when chondrogenically or osteogenically differentiated: implications for bone and cartilage tissue engineering</article-title>. <source>Tissue Eng Part A</source>
+<volume>20</volume>: <fpage>147</fpage>&#x2013;<lpage>159</lpage>. <pub-id pub-id-type="doi">10.1089/ten.TEA.2013.0196</pub-id>
+<pub-id pub-id-type="pmid">23895198</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref083">
+        <label>83</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hoch</surname><given-names>AI</given-names></name>, <name><surname>Binder</surname><given-names>BY</given-names></name>, <name><surname>Genetos</surname><given-names>DC</given-names></name>, <name><surname>Leach</surname><given-names>JK</given-names></name> (<year>2012</year>) <article-title>Differentiation-dependent secretion of proangiogenic factors by mesenchymal stem cells</article-title>. <source>PLoS One</source>
+<volume>7</volume>: <fpage>e35579</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0035579</pub-id>
+<pub-id pub-id-type="pmid">22536411</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref084">
+        <label>84</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hanada</surname><given-names>K</given-names></name>, <name><surname>Dennis</surname><given-names>JE</given-names></name>, <name><surname>Caplan</surname><given-names>AI</given-names></name> (<year>1997</year>) <article-title>Stimulatory effects of basic fibroblast growth factor and bone morphogenetic protein-2 on osteogenic differentiation of rat bone marrow-derived mesenchymal stem cells</article-title>. <source>J Bone Miner Res</source>
+<volume>12</volume>: <fpage>1606</fpage>&#x2013;<lpage>1614</lpage>.
+<pub-id pub-id-type="pmid">9333121</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref085">
+        <label>85</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Marrony</surname><given-names>S</given-names></name>, <name><surname>Bassilana</surname><given-names>F</given-names></name>, <name><surname>Seuwen</surname><given-names>K</given-names></name>, <name><surname>Keller</surname><given-names>H</given-names></name> (<year>2003</year>) <article-title>Bone morphogenetic protein 2 induces placental growth factor in mesenchymal stem cells</article-title>. <source>Bone</source>
+<volume>33</volume>: <fpage>426</fpage>&#x2013;<lpage>433</lpage>.
+<pub-id pub-id-type="pmid">13678785</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref086">
+        <label>86</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hu</surname><given-names>N</given-names></name>, <name><surname>Jiang</surname><given-names>D</given-names></name>, <name><surname>Huang</surname><given-names>E</given-names></name>, <name><surname>Liu</surname><given-names>X</given-names></name>, <name><surname>Li</surname><given-names>R</given-names></name>, <name><surname>Liang</surname><given-names>X</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>BMP9-regulated angiogenic signaling plays an important role in the osteogenic the osteogenic differentiation of mesenchymal progenitor cells</article-title>. <source>J Cell Sci</source>
+<volume>126</volume>: <fpage>532</fpage>&#x2013;<lpage>541</lpage>. <pub-id pub-id-type="doi">10.1242/jcs.114231</pub-id>
+<pub-id pub-id-type="pmid">23203800</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref087">
+        <label>87</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tamama</surname><given-names>K</given-names></name>, <name><surname>Kawasaki</surname><given-names>H</given-names></name>, <name><surname>Wells</surname><given-names>A</given-names></name> (<year>2010</year>) <article-title>Epidermal growth factor (EGF) treatment on multipotential stromal cells (MSCs). Possible enhancement of therapeutic potential of MSC</article-title>. <source>J Biomed Biotechnol</source>
+<volume>2010</volume>: <fpage>795385</fpage>
+<pub-id pub-id-type="doi">10.1155/2010/795385</pub-id>
+<pub-id pub-id-type="pmid">20182548</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref088">
+        <label>88</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zeng</surname><given-names>Q</given-names></name>, <name><surname>Li</surname><given-names>X</given-names></name>, <name><surname>Beck</surname><given-names>G</given-names></name>, <name><surname>Balian</surname><given-names>G</given-names></name>, <name><surname>Shen</surname><given-names>FH</given-names></name> (<year>2007</year>) <article-title>Growth and differentiation factor-5 (GDF-5) stimulates osteogenic differentiation and increases vascular endothelial growth factor (VEGF) levels in fat-derived stromal cells in vitro</article-title>. <source>Bone</source>
+<volume>40</volume>: <fpage>374</fpage>&#x2013;<lpage>381</lpage>.
+<pub-id pub-id-type="pmid">17070126</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref089">
+        <label>89</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bai</surname><given-names>Y</given-names></name>, <name><surname>Li</surname><given-names>P</given-names></name>, <name><surname>Yin</surname><given-names>G</given-names></name>, <name><surname>Huang</surname><given-names>Z</given-names></name>, <name><surname>Liao</surname><given-names>X</given-names></name>, <name><surname>Chen</surname><given-names>X</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>BMP-2, VEGF and bFGF synergistically promote the osteogenic differentiation of rat bone marrow-derived mesenchymal stem cells</article-title>. <source>Biotechnol Lett</source>
+<volume>35</volume>: <fpage>301</fpage>&#x2013;<lpage>308</lpage>. <pub-id pub-id-type="doi">10.1007/s10529-012-1084-3</pub-id>
+<pub-id pub-id-type="pmid">23143174</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref090">
+        <label>90</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>M</given-names></name>, <name><surname>Song</surname><given-names>K</given-names></name>, <name><surname>Rao</surname><given-names>N</given-names></name>, <name><surname>Huang</surname><given-names>M</given-names></name>, <name><surname>Huang</surname><given-names>Z</given-names></name>, <name><surname>Cao</surname><given-names>Y</given-names></name> (<year>2011</year>) <article-title>Roles of exogenously regulated bFGF expression in angiogenesis and bone regeneration in rat calvarial defects</article-title>. <source>Int J Mol Med</source>
+<volume>27</volume>: <fpage>545</fpage>&#x2013;<lpage>53</lpage>. <pub-id pub-id-type="doi">10.3892/ijmm.2011.619</pub-id>
+<pub-id pub-id-type="pmid">21327326</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref091">
+        <label>91</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Peluso</surname><given-names>I</given-names></name>, <name><surname>Miglio</surname><given-names>C</given-names></name>, <name><surname>Morabito</surname><given-names>G</given-names></name>, <name><surname>Ioannone</surname><given-names>F</given-names></name>, <name><surname>Serafini</surname><given-names>M</given-names></name> (<year>2014</year>) <article-title>Flavonoids and immune function in human: a systematic review</article-title>. <source>Crit Rev Food Sci Nutr</source>
+<volume>55</volume>: <fpage>383</fpage>&#x2013;<lpage>395</lpage>. <pub-id pub-id-type="doi">10.1080/10408398.2012.656770</pub-id>
+<pub-id pub-id-type="pmid">24915384</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref092">
+        <label>92</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Miles</surname><given-names>SL</given-names></name>, <name><surname>McFarland</surname><given-names>M</given-names></name>, <name><surname>Niles</surname><given-names>RM</given-names></name> (<year>2014</year>) <article-title>Molecular and physiological actions of quercetin: need for clinical trials to assess its benefits in human disease</article-title>. <source>Nutr Rev</source>
+<volume>72</volume>: <fpage>720</fpage>&#x2013;<lpage>734</lpage>. <pub-id pub-id-type="doi">10.1111/nure.12152</pub-id>
+<pub-id pub-id-type="pmid">25323953</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref093">
+        <label>93</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ge</surname><given-names>C</given-names></name>, <name><surname>Xiao</surname><given-names>G</given-names></name>, <name><surname>Jiang</surname><given-names>D</given-names></name>, <name><surname>Franceschi</surname><given-names>RT</given-names></name> (<year>2007</year>) <article-title>Critical role of the extracellular signal-regulated kinase-MAPK pathway in osteoblast differentiation and skeletal development</article-title>. <source>Journal of Cell Biology</source>
+<volume>176</volume>: <fpage>709</fpage>&#x2013;<lpage>718</lpage>.
+<pub-id pub-id-type="pmid">17325210</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref094">
+        <label>94</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Xiao</surname><given-names>G</given-names></name>, <name><surname>Jiang</surname><given-names>D</given-names></name>, <name><surname>Thomas</surname><given-names>P</given-names></name>, <name><surname>Benson</surname><given-names>MD</given-names></name>, <name><surname>Guan</surname><given-names>K</given-names></name>, <name><surname>Karsenty</surname><given-names>G</given-names></name>, <etal>et al</etal> (<year>2000</year>) <article-title>MAPK pathways activate and phosphorylate the osteoblast-specific transcription factor, Cbfa1</article-title>. <source>The Journal of Biological Chemistry</source>
+<volume>275</volume>: <fpage>4453</fpage>&#x2013;<lpage>4459</lpage>.
+<pub-id pub-id-type="pmid">10660618</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref095">
+        <label>95</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jadlowiec</surname><given-names>J</given-names></name>, <name><surname>Koch</surname><given-names>H</given-names></name>, <name><surname>Zhang</surname><given-names>X</given-names></name>, <name><surname>Campbell</surname><given-names>PG</given-names></name>, <name><surname>Seyedain</surname><given-names>M</given-names></name>, <name><surname>Sfeir</surname><given-names>C</given-names></name> (<year>2004</year>) <article-title>Phoshpoph oryn regulates the gene expression and differentiation of NIH3T3, MC3T3-E1, and human mesenchymal stem cells via the integrin/MAPK signaling pathway</article-title>. <source>J Biol Chem</source>
+<volume>279</volume>: <fpage>53323</fpage>&#x2013;<lpage>53330</lpage>.
+<pub-id pub-id-type="pmid">15371433</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref096">
+        <label>96</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hu</surname><given-names>Y</given-names></name>, <name><surname>Chan</surname><given-names>E</given-names></name>, <name><surname>Wang</surname><given-names>SX</given-names></name>, <name><surname>Li</surname><given-names>B</given-names></name> (<year>2003</year>) <article-title>Activation of p38 mitogen-activated protein kinase is required for osteoblast differentiation</article-title>. <source>Endocrinology</source>
+<volume>144</volume>: <fpage>2068</fpage>&#x2013;<lpage>2074</lpage>.
+<pub-id pub-id-type="pmid">12697715</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref097">
+        <label>97</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Suzuki</surname><given-names>A</given-names></name>, <name><surname>Ghayor</surname><given-names>C</given-names></name>, <name><surname>Guicheux</surname><given-names>J</given-names></name>, <name><surname>Magne</surname><given-names>D</given-names></name>, <name><surname>Quillard</surname><given-names>S</given-names></name>, <name><surname>Kakita</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Enhanced expression of the inorganic phosphate transporter Pit-1 is involved in BMP-2-induced matrix mineralization in osteoblast-like cells</article-title>. <source>J Bone Miner Res</source>
+<volume>21</volume>: <fpage>674</fpage>&#x2013;<lpage>683</lpage>.
+<pub-id pub-id-type="pmid">16734382</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref098">
+        <label>98</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Guicheux</surname><given-names>J</given-names></name>, <name><surname>Lemonnier</surname><given-names>J</given-names></name>, <name><surname>Ghayor</surname><given-names>C</given-names></name>, <name><surname>Suzuki</surname><given-names>A</given-names></name>, <name><surname>Palmer</surname><given-names>G</given-names></name>, <name><surname>Caverzasio</surname><given-names>J</given-names></name> (<year>2003</year>) <article-title>Activation of p38 mitogen-activated protein kinase and c-Jun-NH2- terminal kinase by BMP-2 and their implication in the stimulation of osteoblastic cell differentiation</article-title>. <source>J Bone Miner Res</source>
+<volume>18</volume>: <fpage>2060</fpage>&#x2013;<lpage>2068</lpage>.
+<pub-id pub-id-type="pmid">14606520</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref099">
+        <label>99</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ho</surname><given-names>AW</given-names></name>, <name><surname>Wong</surname><given-names>CK</given-names></name>, <name><surname>Lam</surname><given-names>CW</given-names></name> (<year>2008</year>) <article-title>Tumor necrosis factor-alpha up-regulates the expression of CCL2 and adhesion molecules of human proximal tubular epithelial cells through MAPK signaling pathways</article-title>. <source>Immunobiology</source>
+<volume>213</volume>: <fpage>533</fpage>&#x2013;<lpage>544</lpage>. <pub-id pub-id-type="doi">10.1016/j.imbio.2008.01.003</pub-id>
+<pub-id pub-id-type="pmid">18656701</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref100">
+        <label>100</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ko</surname><given-names>J</given-names></name>, <name><surname>Yun</surname><given-names>CY</given-names></name>, <name><surname>Lee</surname><given-names>JS</given-names></name>, <name><surname>Kim</surname><given-names>JH</given-names></name>, <name><surname>Kim</surname><given-names>IS</given-names></name> (<year>2007</year>) <article-title>p38 MAPK and ERK activation by 9-cis-retinoic acid induces chemokine receptors CCR1 and CCR2 expression in human monocytic THP-1 cells</article-title>. <source>Exp Mol Med</source>
+<volume>39</volume>: <fpage>129</fpage>&#x2013;<lpage>138</lpage>.
+<pub-id pub-id-type="pmid">17464174</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129605.ref101">
+        <label>101</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bavaria</surname><given-names>MN</given-names></name>1, <name><surname>Jin</surname><given-names>S</given-names></name>, <name><surname>Ray</surname><given-names>RM</given-names></name>, <name><surname>Johnson</surname><given-names>LR</given-names></name> (<year>2014</year>) <article-title>The mechanism by which MEK/ERK regulates JNK and p38 activity in polyamine depleted IEC-6 cells during apoptosis</article-title>. <source>Apoptosis</source>
+<volume>19</volume>: <fpage>467</fpage>&#x2013;<lpage>479</lpage>. <pub-id pub-id-type="doi">10.1007/s10495-013-0944-1</pub-id>
+<pub-id pub-id-type="pmid">24253595</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

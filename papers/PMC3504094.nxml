@@ -1,0 +1,690 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23185433</article-id>
+      <article-id pub-id-type="pmc">3504094</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-12-22158</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0049766</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Anatomy and Physiology</subject>
+            <subj-group>
+              <subject>Endocrine System</subject>
+              <subj-group>
+                <subject>Endocrine Physiology</subject>
+                <subj-group>
+                  <subject>Epidermal Growth Factor</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Cytochemistry</subject>
+              <subj-group>
+                <subject>Extracellular Matrix</subject>
+                <subj-group>
+                  <subject>Extracellular Matrix Adhesions</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Developmental Biology</subject>
+            <subj-group>
+              <subject>Molecular Development</subject>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Molecular cell biology</subject>
+            <subj-group>
+              <subject>Extracellular Matrix</subject>
+              <subj-group>
+                <subject>Extracellular Matrix Adhesions</subject>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Signal transduction</subject>
+              <subj-group>
+                <subject>Signaling in cellular processes</subject>
+                <subj-group>
+                  <subject>GTPase signaling</subject>
+                </subj-group>
+              </subj-group>
+              <subj-group>
+                <subject>Signaling in Selected Disciplines</subject>
+                <subj-group>
+                  <subject>Developmental Signaling</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Anatomy and Physiology</subject>
+            <subj-group>
+              <subject>Endocrine System</subject>
+              <subj-group>
+                <subject>Endocrine Physiology</subject>
+                <subj-group>
+                  <subject>Epidermal Growth Factor</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Endocrinology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Epidermal Growth Factor</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Oncology</subject>
+            <subj-group>
+              <subject>Basic Cancer Research</subject>
+              <subj-group>
+                <subject>Metastasis</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Hypoxia Activated EGFR Signaling Induces Epithelial to Mesenchymal Transition (EMT)</article-title>
+        <alt-title alt-title-type="running-head">Hypoxia Induced EMT</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Misra</surname>
+            <given-names>Ashish</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+          <xref ref-type="author-notes" rid="fn1">
+<sup>&#xA4;</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Pandey</surname>
+            <given-names>Chhiti</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sze</surname>
+            <given-names>Siu Kwan</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Thanabalu</surname>
+            <given-names>Thirumaran</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<addr-line>School of Biological Sciences, Nanyang Technological University, Singapore, Singapore</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Wei Ning</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Nanyang Technological University, Singapore</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>sksze@ntu.edu.sg</email> (SKS); <email>thirumaran@ntu.edu.sg</email> (TT)</corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: SKS TT. Performed the experiments: AM CP. Analyzed the data: AM CP SKS TT. Contributed reagents/materials/analysis tools: SKS TT. Wrote the paper: SKS TT.</p>
+        </fn>
+        <fn id="fn1" fn-type="current-aff">
+          <label>&#xA4;</label>
+          <p>Current address: Division of Cardiology, Department of Medicine, Yale University School of Medicine, New Haven, Connecticut, United States of America</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>21</day>
+        <month>11</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>11</issue>
+      <elocation-id>e49766</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>7</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>15</day>
+          <month>10</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Misra et al</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <copyright-holder>Misra et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Metastasis is a multi-step process which requires the conversion of polarized epithelial cells to mesenchymal cells, Epithelial&#x2013;Mesenchymal Transition (EMT). EMT is essential during embryonic morphogenesis and has been implicated in the progression of primary tumors towards metastasis. Hypoxia is known to induce EMT; however the molecular mechanism is still poorly understood. Using the A431 epithelial cancer cell line, we show that cells grown under hypoxic conditions migrated faster than cells grown under normal oxygen environment. Cells grown under hypoxia showed reduced adhesion to the extracellular matrix (ECM) probably due to reduced number of Vinculin patches. Growth under hypoxic conditions also led to down regulation of E-cadherin and up regulation of vimentin expression. The increased motility of cells grown under hypoxia could be due to redistribution of Rac1 to the plasma membrane as opposed to increased expression of Rac1. EGF (Epidermal Growth Factor) is a known inducer of EMT and growth of A431 cells in the absence of oxygen led to increased expression of EGFR (EGF Receptor). Treatment of A431 cells with EGF led to reduced cell adhesion to ECM, increased cell motility and other EMT characteristics. Furthermore, this transition was blocked by the monoclonal antibody Cetuximab. Cetuximab also blocked the hypoxia-induced EMT suggesting that cell growth under hypoxic conditions led to activation of EGFR signaling and induction of EMT phenotype.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work was partially supported by grants from the ARC tier 1 grant (RG28/05 &amp; RG52/10 to TT), the Ministry of Education (ARC: T206B3211 to SKS), and the Agency for Science, Technology and Research (BMRC: 08/1/22/19/575 to SKS). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="13"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Cancer will overtake heart disease as the world's top killer by 2010 (World Health Organization) and the majority of human tumors arise from epithelial tissues (carcinomas) <xref rid="pone.0049766-Grooteclaes1" ref-type="bibr">[1]</xref>. The ability of cancer to spread, or metastasize, is responsible for the majority of deaths associated with cancer <xref rid="pone.0049766-Yu1" ref-type="bibr">[2]</xref>. For cancer cells to metastasize, they must detach from the primary tumor, invade and migrate into surrounding connective tissue, blood and lymphatic vessels <xref rid="pone.0049766-Chambers1" ref-type="bibr">[3]</xref>. Invasion of cancer cells is induced by the chemo-attractants secreted by other cell types <xref rid="pone.0049766-Condeelis1" ref-type="bibr">[4]</xref>, <xref rid="pone.0049766-Wyckoff1" ref-type="bibr">[5]</xref>. Epithelial cells are polarized cells and cellular transitions are crucial during the developmental stages of multicellular organisms which is apparent during gastrulation when the process of EMT transforms polarized epithelial cells into migratory mesenchymal cells <xref rid="pone.0049766-Chaffer1" ref-type="bibr">[6]</xref>. The transition to mesenchymal cells gives rise to a morphology that is suitable for migration <xref rid="pone.0049766-SanzMoreno1" ref-type="bibr">[7]</xref>. Mesenchymal cells can also revert back to epithelial cells by MET (Mesenchymal-Epithelial Transition) <xref rid="pone.0049766-Chaffer1" ref-type="bibr">[6]</xref>. It is now widely established that EMT is exploited during disease states such as metastasis <xref rid="pone.0049766-Das1" ref-type="bibr">[8]</xref>.</p>
+      <p>During EMT, epithelial cells detach from their neighbors, the underlying basement membrane, become more motile and migratory <xref rid="pone.0049766-Thiery1" ref-type="bibr">[9]</xref>, <xref rid="pone.0049766-Radisky1" ref-type="bibr">[10]</xref>. The loss of epithelial phenotype and gain of mesenchyme-like phenotype are critical steps in the conversion of malignant carcinoma to invasive carcinoma and metastasis. The importance of EMT in metastasis has led to intensive investigations into the molecular mechanism in the activation of the EMT pathway which is characterized by the loss of cell-cell adhesion, repression of E-Cadherin and increased cell motility <xref rid="pone.0049766-Behrens1" ref-type="bibr">[11]</xref>, <xref rid="pone.0049766-Park1" ref-type="bibr">[12]</xref>. In cultured cells, EMT can be induced either by physiological (eg. growth factors) or by environmental factors (eg. hypoxia) <xref rid="pone.0049766-Thiery1" ref-type="bibr">[9]</xref>.</p>
+      <p>Oxygen supply is crucial for the growth of cells and is often diminished in solid tumors, especially at the centre of the tumor mass, as tumor cells grow faster than the endothelial cells that are crucial for the formation of blood vessels <xref rid="pone.0049766-Folkman1" ref-type="bibr">[13]</xref>. Normal tissues typically have median [O<sub>2</sub>] in the range of 40&#x2013;60 mm Hg due to an efficient network of capillaries, while solid tumors have a median [O<sub>2</sub>] value of 10 mm Hg <xref rid="pone.0049766-Brown1" ref-type="bibr">[14]</xref>, <xref rid="pone.0049766-Cho1" ref-type="bibr">[15]</xref>. Although hypoxia kills most normal and cancer cells, it also provides a strong selective pressure for the survival of the most aggressive and metastatic cells <xref rid="pone.0049766-Yan1" ref-type="bibr">[16]</xref>. Thus, hypoxia in solid tumors leads to resistance to many anticancer drugs and, importantly, may accelerate malignant progression by increasing metastasis <xref rid="pone.0049766-Hockel1" ref-type="bibr">[17]</xref>, <xref rid="pone.0049766-Chan1" ref-type="bibr">[18]</xref>.</p>
+      <p>Recently, we observed that A431 epithelial carcinoma cells grown under hypoxic conditions exhibited increased invasiveness and secreted factors with increased chorioallantoic membrane angiogenic activity <xref rid="pone.0049766-Park1" ref-type="bibr">[12]</xref>. To further understand the molecular mechanism underlying the conversion of epithelial to mesenchymal phenotypes under hypoxia, we grew the A431 cells under hypoxic conditions and characterized the molecular mechanism involved in EMT. The cells grown under hypoxic conditions lost cell-cell adhesion mediated by E-Cadherin due to down-regulation of E-Cadherin and activation of Snail <xref rid="pone.0049766-Park1" ref-type="bibr">[12]</xref>. The cells grown under hypoxic conditions were also more motile compared to cells grown under normal O<sub>2</sub> concentrations. The increased motility is consistent with the reduced cell-ECM (Fibronectin or Collagen-I) adhesion observed. Hypoxic conditions also led to increased membrane localization of Rac1, a small molecular GTPase known to promote cell motility; however there was no increase in the expression of Rac1 suggesting that the hypoxic conditions enhanced the localization of Rac1 to the plasma membrane. Hypoxia also caused upregulation of EGFR expression and treatment of A431 cells with EGF produced phenotypic changes similar to the cells grown under hypoxic conditions. The drug Cetuximab (mono clonal antibody against the extracellular domain of EGFR) blocked EGF- and hypoxia-induced phenotypic changes. Thus our data suggests that epithelial cells grown under hypoxic conditions undergo EMT through activation of the EGFR signaling pathway.</p>
+      <fig id="pone-0049766-g001" orientation="portrait" position="float">
+        <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g001</object-id>
+        <label>Figure 1</label>
+        <caption>
+          <title>Oxygen deprivation leads to loss of Cell-Cell Adhesion.</title>
+          <p>A) E-cadherin co-localized with the actin cytoskeleton in cells grown under normoxia conditions. A431 cells were grown in normoxia (Nx), hypoxia (Hx) or hypoxia+normoxia (Hx+Nx). The cells were fixed, permeabilized and probed with anti-E-cadherin followed by labeled secondary antibody (Green). The actin cytoskeleton was visualized using Alexa568-Phalloidin (Red). B) Expression of E-cadherin was reduced in cells grown under hypoxic conditions. Cell lysate from A431 cells grown under normoxia (Nx), hypoxia (Hx), hypoxia followed by normoxia (Hx+Nx) or hypoxia+Cetuximab (Hx+D) were analyzed by immunoblotting with either anti-E-cadherin or anti-GAPDH (loading control) primary antibody. C) Expression of vimentin was increased in cells grown under hypoxic conditions. Cell lysate from A431 cells grown in panel B were analyzed by immunoblotting with either anti-vimentin or anti-GAPDH primary antibody.</p>
+        </caption>
+        <graphic xlink:href="pone.0049766.g001"/>
+      </fig>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Cell Culture</title>
+        <p>A431 cell lines (ATCC: CRL-1555) were maintained in culture DMEM supplemented with 10% FBS at 37&#xB0;C in a 5% CO<sub>2</sub> environment. For growth under normoxia (Nx) cells were kept in 21% O<sub>2</sub>/5% CO<sub>2</sub> for 72 h and for growth under hypoxia (Hx) conditions cells were kept under 95% N<sub>2</sub>/5% CO<sub>2</sub> in the Modular Incubator Chamber (5352414 Billups-rethenberg). For hypoxia/reoxygenation (Hx/Nx) conditions, cells were grown under hypoxia conditions for 72 h followed 24 h under 21% O<sub>2</sub>/5% CO<sub>2</sub>. The cells were treated for 72 h with EGF (50 ng/ml) <xref rid="pone.0049766-Park1" ref-type="bibr">[12]</xref> and to block EMT with Cetuximab the cells were incubated with cetuximab (50 &#xB5;g/ml) for the duration of hypoxic or EGF treatment.</p>
+        <fig id="pone-0049766-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Growth under hypoxic conditions led to increased cell motility and re-localization of Rac1.</title>
+            <p>A) Cells grown under hypoxic conditions displayed increased cell motility. (I) A431 cells grown under normoxia, hypoxia or hypoxia+normoxia were seeded in a 6 well dish and allowed to form a monolayer. A wound was generated and imaged at 0 h and at 16 h. (II) The width of the scratch was quantified at 10 points along the scratch and averaged. The experiment was repeated three times. B) Rac1 re-localized to the plasma membrane under hypoxic condition. A431 cells grown in normoxia, hypoxia or hypoxia+normoxia conditions were probed with anti-Rac1 followed by labeled secondary antibody (Green). The actin cytoskeleton was visualized using Alexa568-Phalloidin (Red). C) Hypoxia does not lead to increased expression of Rac1. Cell lysate from A431 cells grown under normoxia (Nx), hypoxia (Hx), hypoxia followed by normoxia (Hx+Nx) or hypoxia+Cetuximab (Hx+D) were analyzed by immunoblotting with anti-Rac1 or anti-GAPDH primary antibody.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g002"/>
+        </fig>
+      </sec>
+      <sec id="s2b">
+        <title>Cell Binding Assay</title>
+        <p>Cells were trypsinized, allowed to recover for half an hour and labeled with Calcein AM for 30 min at 37&#xB0;C. Cells were then washed and re-suspended in serum-free DMEM. 2&#xD7;10<sup>5</sup> cells were added into each well and incubated for 25 min. Total fluorescence in each well was read in a fluorescence reader with absorption/emission wavelengths as 494/517 nm. The non-adherent cells were washed off and the fluorescence recorded (bound). The percentage of bound cells was calculated using bound fluorescence and total fluorescence <xref rid="pone.0049766-Ksiazek1" ref-type="bibr">[19]</xref>.</p>
+        <fig id="pone-0049766-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Hypoxia caused reduced cell-ECM adhesion and spreading.</title>
+            <p>A) Cell-ECM adhesion is diminished in cells grown under hypoxic conditions. A431 cells were grown in normoxia, hypoxia or hypoxia+normoxia. The cells were analyzed for their cell adhesion properties as described in the <xref ref-type="sec" rid="s2">Materials and Methods</xref>. B) Growth under hypoxic conditions led to decreased spreading on collagen-I. (I) A431 cells were grown in normoxia, hypoxia or hypoxia+normoxia conditions. The cells were trypsinized and plated onto coverslips coated with collagen-I. The morphology of the cells was recorded at various time intervals. (II) The surface area of the cells was measured and plotted. C) Growth under hypoxic conditions led to decreased spreading on fibronectin. (I) A431 cells were grown in normoxia, hypoxia or hypoxia+normoxia conditions. The cells were trypsinized and plated onto coverslips coated with fibronectin. The morphology of the cells was recorded at various time intervals. (II) The surface area was measured and plotted.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g003"/>
+        </fig>
+      </sec>
+      <sec id="s2c">
+        <title>Cell Spreading Assay</title>
+        <p>Cells were seeded on ECM protein coated 96-well plates at a density of 2&#xD7;10<sup>5</sup>cells/ml and incubated at 37&#xB0;C in a humidified incubator containing 5% CO<sub>2</sub>. Samples were viewed at 10 min, 30 min, and 60 min time intervals. The assays were performed in triplicate and the error bars represent the S.D. of 3 independent experiments. Total 90 cells were quantified for surface area for each well. The mean surface area and number of cells were calculated by using MetaMorph software.</p>
+        <fig id="pone-0049766-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Hypoxia caused redistribution of vinculin and paxillin.</title>
+            <p>A) Hypoxia led to reduction of vinculin patches. A431 cells were grown in normoxia, hypoxia or hypoxia+normoxia conditions and probed with anti-vinculin primary antibodies followed by labeled secondary antibodies (Green). The actin cytoskeleton was visualized using Alexa568-Phalloidin (Red). B) Hypoxia led to an increase in paxillin patches. A431 cells grown under normoxia, hypoxia or hypoxia+normoxia conditions were fixed, permeabilized and probed with anti-Paxillin followed by labeled secondary antibody (Green). The actin cytoskeleton was visualized using Alexa568-Phalloidin (Red). C) Hypoxia does not alter the expression of vinculin or paxillin. Cell lysate from A431 cells grown under normoxia (Nx), hypoxia (Hx), hypoxia followed by normoxia (Hx+Nx) or hypoxia+Cetuximab (Hx+D) were analyzed by immunoblotting with anti-paxillin or anti-GAPDH primary antibody.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g004"/>
+        </fig>
+      </sec>
+      <sec id="s2d">
+        <title>Scratch Assay</title>
+        <p>Cells were grown in DMEM under appropriate conditions till a monolayer was formed. A wound was generated by creating a scratch using a sterile 200 &#xB5;l pipette tip. Images were acquired immediately after the scratch at 0 h and after 16 h incubation at 37&#xB0;C.</p>
+        <fig id="pone-0049766-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>Hypoxia induced increased expression of EGFR and N-WASP.</title>
+            <p>A) A431 cells were grown under the following conditions; normoxia (Nx), hypoxia (Hx), hypoxia+normoxia (Hx+Nx), normoxia+EGF (Nx+E), normoxia+EGF+Cetuximab (Nx+E+D) or hypoxia+Cetuximab (Hx+D). Cell lysate was prepared and analyzed by immunoblotting with anti-EGFR (extracellular or intracellular) primary antibodies or anti-GAPDH primary antibody. B) The A431 cell lysate prepared as described in panel A was analyzed by immunoblotting with anti-N-WASP primary antibodies or anti-GAPDH primary antibody.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g005"/>
+        </fig>
+      </sec>
+      <sec id="s2e">
+        <title>Immunoblotting</title>
+        <p>Cells were lysed using RIPA lysis buffer, the resulting lysate (30 &#xB5;g of protein) was boiled in a SDS-PAGE sample buffer for 5 mins, resolved on a 10% SDS-PAGE gel and transferred onto nitrocellulose membrane. The membrane was probed with appropriate primary antibody and secondary antibody conjugated with horse radish peroxidase (HRP). Extra-cellular domain Anti-EGFR, mAb, MA1-37605, Intra-cellular rabbit mAb MA1-25877 (Thermo Scientific).</p>
+        <fig id="pone-0049766-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>EGF treatment led to loss of E-cadherin expression and increased expression of Vimentin.</title>
+            <p>A) EGF treatment leads to loss of cell-cell contacts. A431 cells were grown in normoxia (Nx), normoxia+EGF (Nx+E) or normoxia+EGF+Cetuximab (Nx+E+D). The cells were fixed, permeabilized and probed with anti-E-cadherin followed by labeled secondary antibodies. The actin cytoskeleton was visualized using Alexa568-Phalloidin. B) Cetuximab blocked the EGF induced alteration of vimentin and E-cadherin expression. Cell lysate from A431 cells grown as in panel A were analyzed by immunoblotting with anti-vimentin, anti-E-cadherin or anti-GAPDH primary antibody.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g006"/>
+        </fig>
+        <fig id="pone-0049766-g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>EGF treatment reduced cell-ECM adhesion.</title>
+            <p>A) Cell-ECM adhesion is diminished in cells treated with EGF. A431 cells were grown under normoxia (Nx), normoxia+EGF (Nx+E) or normoxia+EGF+Cetuximab (Nx+E+D). The cells were used to carry out cell adhesion assay as described in the <xref ref-type="sec" rid="s2">Materials and Methods</xref>. B) EGF treatment led to loss of vinculin patches. A431 cells were grown as in Panel A and probed with anti-vinculin antibody followed by Alexa488 secondary antibody. The actin cytoskeleton was visualized using Alexa568-Phalloidin. C) EGF treatment does not alter the expression of vinculin. A431 cells were grown under normoxia, normoxia+EGF or normoxia+EGF+Cetuximab. Cell lysate were analyzed by immunoblotting with anti-vinculin or anti-GAPDH primary antibodies.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g007"/>
+        </fig>
+      </sec>
+      <sec id="s2f">
+        <title>Immunofluorescence</title>
+        <p>Cells grown on coverslips were fixed with 4% formaldehyde in PBS for 15 minutes, permeabilized with 0.4% Triton X-100 in PBS for 30 min and blocked with 1% BSA in PBS for 30 min. The cells were incubated with appropriate Mouse antibodies diluted (1&#x2236;50) in blocking solution and incubated for 1 hr. The cells were washed with PBS and incubated with Alexa488-conjugated goat anti-mouse antibody for 1 hr. The cells were washed with PBS and stained with Alexa568-Phalloidin. Fluorescent images were taken with Olympus microscope fitted with Photo metrics Cool Snap HQ2 camera.</p>
+        <fig id="pone-0049766-g008" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g008</object-id>
+          <label>Figure 8</label>
+          <caption>
+            <title>Cetuximab blocked hypoxia-induced EMT.</title>
+            <p>A) Cetuximab blocked hypoxia-induced loss of cell-cell contacts. A431 cells were grown under normoxia, hypoxia or hypoxia+Cetuximab. The cells were fixed, permeabilized and probed with anti-E-cadherin primary antibodies followed by labeled secondary antibodies. The actin cytoskeleton was visualized using Alexa568-Phalloidin. B) Cetuximab blocked hypoxia-induced expression of vimentin. A431 cells were grown under normoxia, hypoxia or hypoxia+Cetuximab. The cells were fixed, permeabilized and probed with anti-vimentin primary antibodies followed by labeled secondary antibodies.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g008"/>
+        </fig>
+        <fig id="pone-0049766-g009" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0049766.g009</object-id>
+          <label>Figure 9</label>
+          <caption>
+            <title>Cetuximab blocked hypoxia-induced redistribution of vinculin and paxillin.</title>
+            <p>A431 cells were grown under normoxia, hypoxia or hypoxia plus Cetuximab conditions and probed with either anti-vinculin (A) or anti-paxillin (B) followed by labeled secondary antibodies. The actin cytoskeleton was visualized using Alexa568-Phalloidin.</p>
+          </caption>
+          <graphic xlink:href="pone.0049766.g009"/>
+        </fig>
+      </sec>
+      <sec id="s2g">
+        <title>Statistical Analysis</title>
+        <p>Statistical significance analysis was performed using one-way Anova or student t-test and P&lt;0.05 was considered statistically significant. Values presented in bar charts represent mean&#xB1;S.D of at least three independent experiments.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>Growth Under Hypoxia Conditions Lead to Loss of Cell-cell Contact</title>
+        <p>E-cadherin, a transmembrane adhesion molecule which localizes predominantly at the apical and lateral membrane junction mediates cell-cell adhesion <xref rid="pone.0049766-Obrink1" ref-type="bibr">[20]</xref>. The extra-cellular domains of E-cadherin molecules on adjacent cells bind through homotypic interactions while the intracellular domains bind to the actin cytoskeleton through the adaptor proteins such as &#x3B1;-catenin and &#x3B2;-catenin <xref rid="pone.0049766-Knudsen1" ref-type="bibr">[21]</xref>. Thus E-cadherins are essential for the formation of epithelial sheets in metazoan. Cell migration is central to development and tissue remodeling and has a major role in cancer and metastasis <xref rid="pone.0049766-Simpson1" ref-type="bibr">[22]</xref>. The loss of cell-cell adhesion formed by E-cadherin is one of the hallmarks of EMT and is an essential step in metastasis. In order to elucidate the molecular mechanisms involved in hypoxia-induced EMT, we grew A431 cells under normoxic conditions (21% O<sub>2</sub>, 5% CO<sub>2</sub>) or under hypoxia conditions (95% N<sub>2</sub>, 5% CO<sub>2</sub>) for 3 days and analyzed the expression of E-cadherin by both western blot and localization by immunofluorescence. The cells grown under normoxia conditions formed sheet-like structures with E-cadherin localized at the cell boundary while the cells grown under hypoxia conditions did not form sheet-like structures (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1A</xref>). E-cadherin in the cells grown under normoxia conditions co-localized with the actin cytoskeleton (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1A</xref>). Lack of E-cadherin at the cell boundary in cells grown under hypoxic conditions was due to reduced expression of E-Cadherin as shown by western blot analysis (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1B</xref>). The expression of E-cadherin was restored when the cells grown in hypoxia conditions were then grown under normoxia conditions (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1B</xref>). We also analyzed the expression of Vimentin, a mesenchymal marker and found that cells grown under normoxia conditions did not express Vimentin, while cells grown in hypoxia conditions expressed high levels of Vimentin (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1C</xref>). The cells grown in hypoxia conditions, upon returning to normal oxygen levels, lost the expression of Vimentin (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1C</xref>). This suggests that epithelial cells grown under normoxic conditions express E-cadherin but do not express Vimentin while growing the cells under hypoxic conditions led to down regulation of E-cadherin and up regulation of Vimentin expression and this was a reversible process as returning the epithelial cells grown in hypoxic conditions to normoxic conditions led to up regulation of E-cadherin expression and down regulation of Vimentin expression (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1B, C</xref>).</p>
+      </sec>
+      <sec id="s3b">
+        <title>Growth Under Hypoxia Conditions Led to Increased Cell Motility</title>
+        <p>Metastasis involves the migration of cells away from the primary tumor site to secondary organs and establishment of secondary tumors, thus cell migration has a major role in cancer metastasis <xref rid="pone.0049766-Simpson1" ref-type="bibr">[22]</xref>. We therefore analyzed the cell migration characteristics of epithelial cells grown under normoxic and hypoxic conditions. Cells grown under normoxia as well as hypoxia for 3 days were seeded in 6 wells culture plate and allowed to grow to confluence under the same growth conditions. A scratch was made in the middle of the culture well using a yellow micropipette tip and images were acquired before incubating the cells for 16 hours at 37&#xB0;C. The image of the scratch was also acquired after 16 hours (<xref ref-type="fig" rid="pone-0049766-g002">Fig. 2A</xref>) which showed that cells grown under hypoxic conditions filled the scratch more efficiently than the cells grown under normoxia or cells grown under hypoxia followed by growth under normoxia conditions (Hx+Nx). This suggests that growth under hypoxia leads to increased cell motility.</p>
+        <p>Rac1 (Ras-related C3 botulinum toxin substrate 1), is a small GTPase involved in signal transduction and has been shown to be involved in the regulation of many cellular processes including cell-cell adhesion and cell motility <xref rid="pone.0049766-Ridley1" ref-type="bibr">[23]</xref>. Thus, we analyzed the expression and localization of Rac1 in cells grown in hypoxia conditions. Immunostaining for Rac1 in cells grown under normoxia conditions did not show any predominant localization of Rac1 as it was distributed throughout the cell (<xref ref-type="fig" rid="pone-0049766-g002">Fig. 2B</xref>). However, cells grown under hypoxic conditions showed a predominant plasma membrane localization of Rac1 which partially co-localized with the actin cytoskeleton (<xref ref-type="fig" rid="pone-0049766-g002">Fig. 2B</xref>). This suggests that growth under hypoxic conditions led to localization of Rac1 to the plasma membrane. Rac1 was expressed at comparable levels in both the cells grown under normoxic and hypoxic conditions (<xref ref-type="fig" rid="pone-0049766-g002">Fig. 2C</xref>), suggesting that Rac1 expression is not altered by growth in hypoxia. Thus, the predominant plasma membrane localization of Rac1 is due to relocalization of Rac1. At the plasma membrane, Rac1 is known to function as a molecular switch and regulate the activity of proteins such as WAVE2 which activate the Arp2/3 complex and promote cell motility <xref rid="pone.0049766-Steffen1" ref-type="bibr">[24]</xref>.</p>
+      </sec>
+      <sec id="s3c">
+        <title>Hypoxia Leads to Reduced Cell-ecm Adhesion and Spreading</title>
+        <p>We have previously found a correlation between increased motility and reduced cell-ecm adhesion <xref rid="pone.0049766-Misra1" ref-type="bibr">[25]</xref>. Thus, we analyzed the cell-ecm adhesion properties of A431 cells grown under normoxia and hypoxia conditions using fibronectin and collagen-I as substrate. Cells grown under normoxia conditions were found to adhere to both fibronectin and collagen-I at comparable levels but did not adhere to BSA (<xref ref-type="fig" rid="pone-0049766-g003">Fig. 3A</xref>) while cells grown under hypoxia conditions exhibited a reduced adhesion to both fibronectin and collagen-I suggesting that hypoxia affected the cell-ecm adhesion properties of the cells (<xref ref-type="fig" rid="pone-0049766-g003">Fig. 3A</xref>). We also analyzed the spreading ability of cells grown under normoxia and hypoxia conditions using fibronectin or collagen-I coated wells (<xref ref-type="fig" rid="pone-0049766-g003">Fig. 3B, C</xref>). The images showed that cells grown under hypoxia took a longer time to spread compared to cells grown under normoxia conditions. The hypoxia-induced reduction in cell-ecm adhesion was a reversible process as cells grown in hypoxia conditions, when returned to normoxic conditions, exhibited normal cell-ECM adhesion and spreading.</p>
+      </sec>
+      <sec id="s3d">
+        <title>Hypoxia Led to Redistribution of Vinculin and Paxillin</title>
+        <p>Epithelial cells are held in place by both cell-cell and cell-ECM adhesion. While the cell-cell adhesion is mediated by E-cadherin, cell-ECM contacts are mediated through integrin-ECM binding at focal adhesion sites made up of at least 50 different proteins including vinculin and paxillin <xref rid="pone.0049766-Alvarez1" ref-type="bibr">[26]</xref>. We have previously found that cells with increased motility had reduced vinculin patches <xref rid="pone.0049766-Misra1" ref-type="bibr">[25]</xref>, <xref rid="pone.0049766-Ridley2" ref-type="bibr">[27]</xref>. In cells grown under normoxic conditions, well defined vinculin patches were seen in the cell periphery and these patches co-localized partially with the actin cytoskeleton (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4A</xref>). Growth of the cells under hypoxic conditions led to the loss of the vinculin patches from the cell periphery and this was not due to reduced expression of vinculin (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4C</xref>). The loss of vinculin patches was a reversible process as growing the cells in normal conditions after growth in hypoxia resulted in the reappearance of vinculin patches (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4A</xref>). The localization of paxillin was opposite to that of vinculin, paxillin patches were not visible when the cells were grown under normoxic conditions (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4B</xref>) and this was not due to lack of expression of Paxillin (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4C</xref>). Growth of A431 cells under hypoxic conditions resulted in well defined paxillin patches at the cell periphery (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4B</xref>) which was not due to increased expression. The paxillin patches were drastically reduced when the cells grown in hypoxia conditions were re-grown under normoxic conditions. Thus, our results suggest that cells grown under normoxic conditions are less motile probably due to the presence of well defined vinculin patches which help to anchor the cells while cells grown under hypoxic conditions are highly motile due a to reduced number of vinculin patches.</p>
+      </sec>
+      <sec id="s3e">
+        <title>Hypoxia Induces Increased Expression of EGFR</title>
+        <p>Over expression of EGFR and altered EGF signaling are common features in a variety of human cancers <xref rid="pone.0049766-Salomon1" ref-type="bibr">[28]</xref>, <xref rid="pone.0049766-Takeuchi1" ref-type="bibr">[29]</xref>. A431 cells are known to be sensitive to EGF probably due to the high level of expression of EGFR <xref rid="pone.0049766-Merlino1" ref-type="bibr">[30]</xref> and it has been suggested that hypoxia induced translational upregulation of EGFR <xref rid="pone.0049766-Franovic1" ref-type="bibr">[31]</xref>. EGF has been identified as a novel EMT inducer in human breast cancer <xref rid="pone.0049766-Thomson1" ref-type="bibr">[32]</xref>. Thus we analyzed the expression of EGFR in cells grown under various growth conditions using two antibodies specific for the intracellular domain and extracellular domain of EGFR (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5A</xref>). Cells grown under normal oxygen conditions expressed very low levels of EGFR and this expression was enhanced by growth of the cells under hypoxic conditions (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5A</xref>). EGFR has been shown to associate with N-WASP a known effector of Rac1 <xref rid="pone.0049766-Tomasevic1" ref-type="bibr">[33]</xref>. Thus we analyzed the expression of N-WASP (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5B</xref>) and found that the expression of N-WASP is upregulated under Hypoxic conditions. This suggests that the enhanced membrane localization of Rac1 (<xref ref-type="fig" rid="pone-0049766-g002">Fig. 2B</xref>) coupled with increased N-WASP expression may lead to the increased cell motility under EMT.</p>
+      </sec>
+      <sec id="s3f">
+        <title>EGF Stimulation Leads to Loss of Cell-cell Contacts and Decreased Cell-ECM Adhesion</title>
+        <p>EGF is known to promote EMT <xref rid="pone.0049766-Thomson1" ref-type="bibr">[32]</xref>. We therefore analyzed the effect of EGF treatment on A431 cells. Growth of A431 cells under normoxic conditions with 50 ng/ml of EGF (Nx+E) led to the loss of cell-cell contacts as displayed by the loss of E-cadherin at the cell boundaries, and this was due to loss of E-cadherin expression (<xref ref-type="fig" rid="pone-0049766-g006">Fig. 6A, B</xref>). Treatment of A431 cells with EGF also led to increased expression of vimentin (<xref ref-type="fig" rid="pone-0049766-g006">Fig. 6B</xref>). We determined the cell-ECM adhesion characteristics of EGF-treated A431 cells as described in the <xref ref-type="sec" rid="s2">Material and Methods</xref>. The untreated cells adhered to both fibronectin and collagen-I, while the EGF-treated cells displayed a reduced cell-ECM adhesion (<xref ref-type="fig" rid="pone-0049766-g007">Fig. 7A</xref>). We also analyzed the focal adhesion complex by staining for vinculin. While the untreated cells were found to have well defined vinculin patches, the EGF-treated cells showed a vinculin staining pattern (<xref ref-type="fig" rid="pone-0049766-g007">Fig. 7B</xref>) similar to that found in cells grown under hypoxia conditions (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4A</xref>) and this is not due to changes in the expression of vinculin (<xref ref-type="fig" rid="pone-0049766-g007">Fig. 7C</xref>). We tested the specificity of the EGF treatment using the drug Cetuximab. Cetuximab is a human-mouse chimeric monoclonal antibody that acts as EGFR inhibitor <xref rid="pone.0049766-Goldstein1" ref-type="bibr">[34]</xref>. It binds to the extracellular domain of EGFR and prevents activation of EGF signaling pathway. Treatment of A431 cells with Cetuximab abolished the effects of EGF (<xref ref-type="fig" rid="pone-0049766-g006">Fig. 6</xref> and <xref ref-type="fig" rid="pone-0049766-g007">7</xref>). The cells treated with the drug alone had no effect in terms of vinculin staining or cell-ECM adhesion (data not shown).</p>
+      </sec>
+      <sec id="s3g">
+        <title>Cetuximab Blocked HYPOXIA Induced EMT</title>
+        <p>Hypoxia induced the upregulation of EGFR expression (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5</xref>), thus we analyzed the effect of Cetuximab on the hypoxia-induced EGFR expression. Cetuximab abolished EGF-induced expression of EGFR as well as the hypoxia-induced expression of EGFR (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5</xref>). We subsequently analyzed the effect of Cetuximab on the other hypoxia-induced phenotypes. A431 cells grown under hypoxia conditions in the presence of Cetuximab still expressed E-cadherin (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1B</xref>) and the E-cadherin was localized in the cell boundary and co-localized partially with the actin cytoskeleton (<xref ref-type="fig" rid="pone-0049766-g008">Fig. 8A</xref>). A431 cells grown under hypoxia in the presence of Cetuximab did not express Vimentin (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1C</xref>, <xref ref-type="fig" rid="pone-0049766-g008">Fig. 8B</xref>). Hypoxia did not affect the expression of vinculin or paxillin (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4C</xref>) but affected the distribution of vinculin and paxillin patches (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4A, B</xref>). Addition of Cetuximab during growth in hypoxia abolished the re-distribution of vinculin and paxillin (<xref ref-type="fig" rid="pone-0049766-g009">Fig. 9A, B</xref>). Thus, Cetuximab blocked all the changes induced by hypoxia suggesting that the hypoxia-induced phenotypes are mediated through increased expression of EGFR and the activation of EGFR signaling.</p>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>Metastasis is a multistep process which involves destruction of the basement membrane and local invasion at the primary site, intravasation and survival in the circulatory system, extravasation into distant sites and survival plus proliferation at the secondary site <xref rid="pone.0049766-Pantel1" ref-type="bibr">[35]</xref>. Most human cancers originate from epithelial cells <xref rid="pone.0049766-Grooteclaes1" ref-type="bibr">[1]</xref>, which undergo EMT before metastasis <xref rid="pone.0049766-Thiery1" ref-type="bibr">[9]</xref>. EMT involves a number of molecular changes; loss of cell-cell contact, remodeling of the actin cytoskeleton, loss of polarity, induction of mesenchymal-specific gene expression and migration through the basement membrane. Thus, EMT does not denote a single molecular event, but a number of events which change the epithelial cells to be more like mesenchymal cells <xref rid="pone.0049766-Grunert1" ref-type="bibr">[36]</xref>. It is now well established that EMT plays a significant role in metastasis <xref rid="pone.0049766-Rastaldi1" ref-type="bibr">[37]</xref> and renal fibrosis <xref rid="pone.0049766-Cano1" ref-type="bibr">[38]</xref>.</p>
+      <p>Growth of solid tumors is limited by the availability of oxygen which is in turn limited by the extent of vascularization. It has been suggested that hypoxia develops within 100&#x2013;200 &#xB5;m from blood vessels <xref rid="pone.0049766-OReilly1" ref-type="bibr">[39]</xref>. While most cancer cells die due to poor adaptation to hypoxia, some cancer cells may undergo adaptations which include changes in signaling and gene expression which promote cell survival and metastasis <xref rid="pone.0049766-Zhou1" ref-type="bibr">[40]</xref>. Thus, it is crucial to characterize the effects of hypoxia on cell physiology. Characterization of the molecular mechanisms involved in the adaptive mechanisms employed by cancer cells under hypoxia will lead to the identification of molecules which may be targeted to control the effects of hypoxia on metastasis.</p>
+      <p>In this study, we have shown that hypoxia induces cellular transitions in A431 cells. A431 cells grown under hypoxia failed to form an epithelial sheet, unlike cells grown under normal O<sub>2</sub> tension (<xref ref-type="fig" rid="pone-0049766-g001">Fig. 1A</xref>). This is probably due to the down regulation of E-cadherin expression in cells grown under hypoxia. Cells grown under hypoxia adhered poorly to ECM proteins collagen-I and fibronectin compared to the controls grown under normal oxygen tension (<xref ref-type="fig" rid="pone-0049766-g003">Fig. 3A</xref>). Similarly the cells grown in hypoxia spread slowly on surfaces coated with ECM proteins suggesting differences in the adhesion characteristics of cells induced by hypoxia. Cells grown under hypoxia showed increased motility as well (<xref ref-type="fig" rid="pone-0049766-g002">Fig. 2A</xref>), probably due to poor cell-ECM adhesion. The two focal adhesion proteins vinculin and paxillin also showed differences in their localization patterns (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4</xref>). Cells grown under normal conditions had well defined vinculin patches which co-localized with the actin cytoskeleton, while cells grown under hypoxia had very small vinculin patches (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4A</xref>). Paxillin staining showed the opposite phenomenon, cells grown under normal conditions had very small paxillin patches while cells grown under hypoxia had well defined patches at the cell periphery (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4B</xref>). Vinculin<sup>&#x2212;/&#x2212;</sup> fibroblast do assemble focal adhesions, however they spread slowly on surfaces coated with ECM proteins and migrate faster in a wound healing assay compared to the Vinculin<sup>+/+</sup> fibroblast <xref rid="pone.0049766-Saunders1" ref-type="bibr">[41]</xref>. This suggests that though hypoxia does not affect the expression of vinculin (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4C</xref>) it affects the recruitment of vinculin to patches leading to poor adhesion, spreading and increased motility. This is consistent with our previous finding that loss of N-WASP leads to reduced Vinculin patches, reduced adhesion and increased cell motility <xref rid="pone.0049766-Misra1" ref-type="bibr">[25]</xref>. Paxillin expression is elevated in metastatic cells and knocking down paxillin expression lead to reduced cell motility <xref rid="pone.0049766-Azuma1" ref-type="bibr">[42]</xref>. Thus, hypoxia leads to the formation of prominent paxillin patches probably due to increased recruitment of paxillin rather than increased expression (<xref ref-type="fig" rid="pone-0049766-g004">Fig. 4C</xref>). Hypoxia also induced recruitment to the plasma membrane of Rac1, a protein which promotes cell motility <xref rid="pone.0049766-Ridley1" ref-type="bibr">[23]</xref>. At the plasma membrane, Rac1 is known to function as a molecular switch and regulate the activity of proteins such as WAVE2 and N-WASP which activate the Arp2/3 complex and promote cell motility <xref rid="pone.0049766-Steffen1" ref-type="bibr">[24]</xref>, <xref rid="pone.0049766-Tomasevic1" ref-type="bibr">[33]</xref>. Hypoxia was also found to upregulate N-WASP expression (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5B</xref>) and N-WASP has been shown to be activated by EGFR <xref rid="pone.0049766-Sturge1" ref-type="bibr">[43]</xref> and Rac1 <xref rid="pone.0049766-Tomasevic1" ref-type="bibr">[33]</xref>.</p>
+      <p>Hypoxia leads to increased expression of EGFR (<xref ref-type="fig" rid="pone-0049766-g005">Fig. 5A</xref>) and addition of EGF results in increased expression of EGFR and phenotypes similar to that induced by hypoxia, loss of E-cadherin expression, increased expression of vimentin, and poor adhesion (<xref ref-type="fig" rid="pone-0049766-g006">Fig. 6</xref> and <xref ref-type="fig" rid="pone-0049766-g007">7</xref>). EGF promotes cell proliferation <xref rid="pone.0049766-Kawamoto1" ref-type="bibr">[44]</xref>, cell differentiation <xref rid="pone.0049766-Konger1" ref-type="bibr">[45]</xref> as well as cell motility <xref rid="pone.0049766-Xie1" ref-type="bibr">[46]</xref>, <xref rid="pone.0049766-Wells1" ref-type="bibr">[47]</xref>. The EGF-induced EMT phenotypes were abolished by Cetuximab, a monoclonal antibody which blocks EGF signaling by binding to EGFR. Cetuximab also blocked the hypoxia-induced EMT suggesting that hypoxia promotes EMT by upregulating EGF signaling through increased expression of EGFR. A recent study has implicated PI3 kinase/Akt signaling in hypoxia-induced EMT in hepatocellular carcinoma cells <xref rid="pone.0049766-Yan1" ref-type="bibr">[16]</xref> and EGFR is required for the Akt activation <xref rid="pone.0049766-Murillo1" ref-type="bibr">[48]</xref>.</p>
+      <p>We have shown that hypoxia induces EMT by upregulating EGF signaling which leads to alteration in the expression of genes E-cadherin (reduced expression) and vimentin (increased expression). Hypoxia also altered the localization of cell-ECM adhesion proteins (vinculin, paxillin) as well as increased localization of Rac1 to the plasma membrane leading to changes in the cell-ECM adhesion and increased cell motility characteristics of EMT.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We would like to thank Dr. M. Featherstone for critical reading of the manuscript.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0049766-Grooteclaes1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Grooteclaes</surname><given-names>M</given-names></name>, <name><surname>Deveraux</surname><given-names>Q</given-names></name>, <name><surname>Hildebrand</surname><given-names>J</given-names></name>, <name><surname>Zhang</surname><given-names>Q</given-names></name>, <name><surname>Goodman</surname><given-names>RH</given-names></name>, <etal>et al</etal> (<year>2003</year>) <article-title>C-terminal-binding protein corepresses epithelial and proapoptotic gene expression programs</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>100</volume>: <fpage>4568</fpage>&#x2013;<lpage>4573</lpage>.<pub-id pub-id-type="pmid">12676992</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Yu1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yu</surname><given-names>Y</given-names></name>, <name><surname>Davicioni</surname><given-names>E</given-names></name>, <name><surname>Triche</surname><given-names>TJ</given-names></name>, <name><surname>Merlino</surname><given-names>G</given-names></name> (<year>2006</year>) <article-title>The homeoprotein six1 transcriptionally activates multiple protumorigenic genes but requires ezrin to promote metastasis</article-title>. <source>Cancer Res</source>
+<volume>66</volume>: <fpage>1982</fpage>&#x2013;<lpage>1989</lpage>.<pub-id pub-id-type="pmid">16488997</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Chambers1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chambers</surname><given-names>AF</given-names></name>, <name><surname>Groom</surname><given-names>AC</given-names></name>, <name><surname>MacDonald</surname><given-names>IC</given-names></name> (<year>2002</year>) <article-title>Dissemination and growth of cancer cells in metastatic sites</article-title>. <source>Nat Rev Cancer</source>
+<volume>2</volume>: <fpage>563</fpage>&#x2013;<lpage>572</lpage>.<pub-id pub-id-type="pmid">12154349</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Condeelis1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Condeelis</surname><given-names>J</given-names></name>, <name><surname>Segall</surname><given-names>JE</given-names></name> (<year>2003</year>) <article-title>Intravital imaging of cell movement in tumours</article-title>. <source>Nat Rev Cancer</source>
+<volume>3</volume>: <fpage>921</fpage>&#x2013;<lpage>930</lpage>.<pub-id pub-id-type="pmid">14737122</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Wyckoff1">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wyckoff</surname><given-names>J</given-names></name>, <name><surname>Wang</surname><given-names>W</given-names></name>, <name><surname>Lin</surname><given-names>EY</given-names></name>, <name><surname>Wang</surname><given-names>Y</given-names></name>, <name><surname>Pixley</surname><given-names>F</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>A paracrine loop between tumor cells and macrophages is required for tumor cell migration in mammary tumors</article-title>. <source>Cancer Res</source>
+<volume>64</volume>: <fpage>7022</fpage>&#x2013;<lpage>7029</lpage>.<pub-id pub-id-type="pmid">15466195</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Chaffer1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chaffer</surname><given-names>CL</given-names></name>, <name><surname>Thompson</surname><given-names>EW</given-names></name>, <name><surname>Williams</surname><given-names>ED</given-names></name> (<year>2007</year>) <article-title>Mesenchymal to epithelial transition in development and disease</article-title>. <source>Cells Tissues Organs</source>
+<volume>185</volume>: <fpage>7</fpage>&#x2013;<lpage>19</lpage>.<pub-id pub-id-type="pmid">17587803</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-SanzMoreno1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sanz-Moreno</surname><given-names>V</given-names></name>, <name><surname>Gadea</surname><given-names>G</given-names></name>, <name><surname>Ahn</surname><given-names>J</given-names></name>, <name><surname>Paterson</surname><given-names>H</given-names></name>, <name><surname>Marra</surname><given-names>P</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Rac activation and inactivation control plasticity of tumor cell movement</article-title>. <source>Cell</source>
+<volume>135</volume>: <fpage>510</fpage>&#x2013;<lpage>523</lpage>.<pub-id pub-id-type="pmid">18984162</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Das1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Das</surname><given-names>S</given-names></name>, <name><surname>Becker</surname><given-names>BN</given-names></name>, <name><surname>Hoffmann</surname><given-names>FM</given-names></name>, <name><surname>Mertz</surname><given-names>JE</given-names></name> (<year>2009</year>) <article-title>Complete reversal of epithelial to mesenchymal transition requires inhibition of both ZEB expression and the Rho pathway</article-title>. <source>BMC Cell Biol</source>
+<volume>10</volume>: <fpage>94</fpage>.<pub-id pub-id-type="pmid">20025777</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Thiery1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Thiery</surname><given-names>JP</given-names></name> (<year>2002</year>) <article-title>Epithelial-mesenchymal transitions in tumour progression</article-title>. <source>Nat Rev Cancer</source>
+<volume>2</volume>: <fpage>442</fpage>&#x2013;<lpage>454</lpage>.<pub-id pub-id-type="pmid">12189386</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Radisky1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Radisky</surname><given-names>DC</given-names></name> (<year>2005</year>) <article-title>Epithelial-mesenchymal transition</article-title>. <source>J Cell Sci</source>
+<volume>118</volume>: <fpage>4325</fpage>&#x2013;<lpage>4326</lpage>.<pub-id pub-id-type="pmid">16179603</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Behrens1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Behrens</surname><given-names>J</given-names></name>, <name><surname>Mareel</surname><given-names>MM</given-names></name>, <name><surname>Van Roy</surname><given-names>FM</given-names></name>, <name><surname>Birchmeier</surname><given-names>W</given-names></name> (<year>1989</year>) <article-title>Dissecting tumor cell invasion: epithelial cells acquire invasive properties after the loss of uvomorulin-mediated cell-cell adhesion</article-title>. <source>J Cell Biol</source>
+<volume>108</volume>: <fpage>2435</fpage>&#x2013;<lpage>2447</lpage>.<pub-id pub-id-type="pmid">2661563</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Park1">
+        <label>12</label>
+        <mixed-citation publication-type="other">Park JE, Tan HS, Datta A, Lai RC, Zhang H, <etal>et al</etal>. (2010) Hypoxia modulates tumor microenvironment to enhance angiogenic and metastastic potential by secretion of proteins and exosomes. Mol Cell Proteomics.</mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Folkman1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Folkman</surname><given-names>J</given-names></name> (<year>1990</year>) <article-title>What is the evidence that tumors are angiogenesis dependent</article-title>? <source>J Natl Cancer Inst</source>
+<volume>82</volume>: <fpage>4</fpage>&#x2013;<lpage>6</lpage>.<pub-id pub-id-type="pmid">1688381</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Brown1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Brown</surname><given-names>JM</given-names></name> (<year>1999</year>) <article-title>The hypoxic cell: a target for selective cancer therapy&#x2013;eighteenth Bruce F. Cain Memorial Award lecture</article-title>. <source>Cancer Res</source>
+<volume>59</volume>: <fpage>5863</fpage>&#x2013;<lpage>5870</lpage>.<pub-id pub-id-type="pmid">10606224</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Cho1">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cho</surname><given-names>WK</given-names></name>, <name><surname>Seong</surname><given-names>YR</given-names></name>, <name><surname>Lee</surname><given-names>YH</given-names></name>, <name><surname>Kim</surname><given-names>MJ</given-names></name>, <name><surname>Hwang</surname><given-names>KS</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>Oncolytic effects of adenovirus mutant capable of replicating in hypoxic and normoxic regions of solid tumor</article-title>. <source>Mol Ther</source>
+<volume>10</volume>: <fpage>938</fpage>&#x2013;<lpage>949</lpage>.<pub-id pub-id-type="pmid">15509511</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Yan1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yan</surname><given-names>W</given-names></name>, <name><surname>Fu</surname><given-names>Y</given-names></name>, <name><surname>Tian</surname><given-names>D</given-names></name>, <name><surname>Liao</surname><given-names>J</given-names></name>, <name><surname>Liu</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>PI3 kinase/Akt signaling mediates epithelial-mesenchymal transition in hypoxic hepatocellular carcinoma cells</article-title>. <source>Biochem Biophys Res Commun</source>
+<volume>382</volume>: <fpage>631</fpage>&#x2013;<lpage>636</lpage>.<pub-id pub-id-type="pmid">19303863</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Hockel1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hockel</surname><given-names>M</given-names></name>, <name><surname>Vaupel</surname><given-names>P</given-names></name> (<year>2001</year>) <article-title>Tumor hypoxia: definitions and current clinical, biologic, and molecular aspects</article-title>. <source>J Natl Cancer Inst</source>
+<volume>93</volume>: <fpage>266</fpage>&#x2013;<lpage>276</lpage>.<pub-id pub-id-type="pmid">11181773</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Chan1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chan</surname><given-names>DA</given-names></name>, <name><surname>Krieg</surname><given-names>AJ</given-names></name>, <name><surname>Turcotte</surname><given-names>S</given-names></name>, <name><surname>Giaccia</surname><given-names>AJ</given-names></name> (<year>2007</year>) <article-title>HIF gene expression in cancer therapy</article-title>. <source>Methods Enzymol</source>
+<volume>435</volume>: <fpage>323</fpage>&#x2013;<lpage>345</lpage>.<pub-id pub-id-type="pmid">17998061</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Ksiazek1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ksiazek</surname><given-names>K</given-names></name>, <name><surname>Mikula-Pietrasik</surname><given-names>J</given-names></name>, <name><surname>Korybalska</surname><given-names>K</given-names></name>, <name><surname>Dworacki</surname><given-names>G</given-names></name>, <name><surname>Jorres</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Senescent peritoneal mesothelial cells promote ovarian cancer cell adhesion: the role of oxidative stress-induced fibronectin</article-title>. <source>Am J Pathol</source>
+<volume>174</volume>: <fpage>1230</fpage>&#x2013;<lpage>1240</lpage>.<pub-id pub-id-type="pmid">19246646</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Obrink1">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Obrink</surname><given-names>B</given-names></name> (<year>1986</year>) <article-title>Epithelial cell adhesion molecules</article-title>. <source>Exp Cell Res</source>
+<volume>163</volume>: <fpage>1</fpage>&#x2013;<lpage>21</lpage>.<pub-id pub-id-type="pmid">2935416</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Knudsen1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Knudsen</surname><given-names>KA</given-names></name>, <name><surname>Soler</surname><given-names>AP</given-names></name>, <name><surname>Johnson</surname><given-names>KR</given-names></name>, <name><surname>Wheelock</surname><given-names>MJ</given-names></name> (<year>1995</year>) <article-title>Interaction of alpha-actinin with the cadherin/catenin cell-cell adhesion complex via alpha-catenin</article-title>. <source>J Cell Biol</source>
+<volume>130</volume>: <fpage>67</fpage>&#x2013;<lpage>77</lpage>.<pub-id pub-id-type="pmid">7790378</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Simpson1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Simpson</surname><given-names>KJ</given-names></name>, <name><surname>Selfors</surname><given-names>LM</given-names></name>, <name><surname>Bui</surname><given-names>J</given-names></name>, <name><surname>Reynolds</surname><given-names>A</given-names></name>, <name><surname>Leake</surname><given-names>D</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Identification of genes that regulate epithelial cell migration using an siRNA screening approach</article-title>. <source>Nat Cell Biol</source>
+<volume>10</volume>: <fpage>1027</fpage>&#x2013;<lpage>1038</lpage>.<pub-id pub-id-type="pmid">19160483</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Ridley1">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ridley</surname><given-names>AJ</given-names></name> (<year>2006</year>) <article-title>Rho GTPases and actin dynamics in membrane protrusions and vesicle trafficking</article-title>. <source>Trends Cell Biol</source>
+<volume>16</volume>: <fpage>522</fpage>&#x2013;<lpage>529</lpage>.<pub-id pub-id-type="pmid">16949823</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Steffen1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Steffen</surname><given-names>A</given-names></name>, <name><surname>Rottner</surname><given-names>K</given-names></name>, <name><surname>Ehinger</surname><given-names>J</given-names></name>, <name><surname>Innocenti</surname><given-names>M</given-names></name>, <name><surname>Scita</surname><given-names>G</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>Sra-1 and Nap1 link Rac to actin assembly driving lamellipodia formation</article-title>. <source>Embo J</source>
+<volume>23</volume>: <fpage>749</fpage>&#x2013;<lpage>759</lpage>.<pub-id pub-id-type="pmid">14765121</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Misra1">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Misra</surname><given-names>A</given-names></name>, <name><surname>Lim</surname><given-names>RP</given-names></name>, <name><surname>Wu</surname><given-names>Z</given-names></name>, <name><surname>Thanabalu</surname><given-names>T</given-names></name> (<year>2007</year>) <article-title>N-WASP plays a critical role in fibroblast adhesion and spreading</article-title>. <source>Biochem Biophys Res Commun</source>
+<volume>364</volume>: <fpage>908</fpage>&#x2013;<lpage>912</lpage>.<pub-id pub-id-type="pmid">17963692</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Alvarez1">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Alvarez</surname><given-names>CE</given-names></name>, <name><surname>Sutcliffe</surname><given-names>JG</given-names></name>, <name><surname>Thomas</surname><given-names>EA</given-names></name> (<year>2002</year>) <article-title>Novel isoform of insulin receptor substrate p53/p58 is generated by alternative splicing in the CRIB/SH3-binding region</article-title>. <source>J Biol Chem</source>
+<volume>277</volume>: <fpage>24728</fpage>&#x2013;<lpage>24734</lpage>.<pub-id pub-id-type="pmid">12006592</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Ridley2">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ridley</surname><given-names>AJ</given-names></name>, <name><surname>Schwartz</surname><given-names>MA</given-names></name>, <name><surname>Burridge</surname><given-names>K</given-names></name>, <name><surname>Firtel</surname><given-names>RA</given-names></name>, <name><surname>Ginsberg</surname><given-names>MH</given-names></name>, <etal>et al</etal> (<year>2003</year>) <article-title>Cell migration: integrating signals from front to back</article-title>. <source>Science</source>
+<volume>302</volume>: <fpage>1704</fpage>&#x2013;<lpage>1709</lpage>.<pub-id pub-id-type="pmid">14657486</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Salomon1">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Salomon</surname><given-names>DS</given-names></name>, <name><surname>Brandt</surname><given-names>R</given-names></name>, <name><surname>Ciardiello</surname><given-names>F</given-names></name>, <name><surname>Normanno</surname><given-names>N</given-names></name> (<year>1995</year>) <article-title>Epidermal growth factor-related peptides and their receptors in human malignancies</article-title>. <source>Crit Rev Oncol Hematol</source>
+<volume>19</volume>: <fpage>183</fpage>&#x2013;<lpage>232</lpage>.<pub-id pub-id-type="pmid">7612182</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Takeuchi1">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Takeuchi</surname><given-names>K</given-names></name>, <name><surname>Ito</surname><given-names>F</given-names></name> (<year>2010</year>) <article-title>EGF receptor in relation to tumor development: molecular basis of responsiveness of cancer cells to EGFR-targeting tyrosine kinase inhibitors</article-title>. <source>Febs J</source>
+<volume>277</volume>: <fpage>316</fpage>&#x2013;<lpage>326</lpage>.<pub-id pub-id-type="pmid">19922467</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Merlino1">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Merlino</surname><given-names>GT</given-names></name>, <name><surname>Xu</surname><given-names>YH</given-names></name>, <name><surname>Ishii</surname><given-names>S</given-names></name>, <name><surname>Clark</surname><given-names>AJ</given-names></name>, <name><surname>Semba</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>1984</year>) <article-title>Amplification and enhanced expression of the epidermal growth factor receptor gene in A431 human carcinoma cells</article-title>. <source>Science</source>
+<volume>224</volume>: <fpage>417</fpage>&#x2013;<lpage>419</lpage>.<pub-id pub-id-type="pmid">6200934</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Franovic1">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Franovic</surname><given-names>A</given-names></name>, <name><surname>Gunaratnam</surname><given-names>L</given-names></name>, <name><surname>Smith</surname><given-names>K</given-names></name>, <name><surname>Robert</surname><given-names>I</given-names></name>, <name><surname>Patten</surname><given-names>D</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Translational up-regulation of the EGFR by tumor hypoxia provides a nonmutational explanation for its overexpression in human cancer</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>104</volume>: <fpage>13092</fpage>&#x2013;<lpage>13097</lpage>.<pub-id pub-id-type="pmid">17670948</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Thomson1">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Thomson</surname><given-names>S</given-names></name>, <name><surname>Buck</surname><given-names>E</given-names></name>, <name><surname>Petti</surname><given-names>F</given-names></name>, <name><surname>Griffin</surname><given-names>G</given-names></name>, <name><surname>Brown</surname><given-names>E</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Epithelial to mesenchymal transition is a determinant of sensitivity of non-small-cell lung carcinoma cell lines and xenografts to epidermal growth factor receptor inhibition</article-title>. <source>Cancer Res</source>
+<volume>65</volume>: <fpage>9455</fpage>&#x2013;<lpage>9462</lpage>.<pub-id pub-id-type="pmid">16230409</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Tomasevic1">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tomasevic</surname><given-names>N</given-names></name>, <name><surname>Jia</surname><given-names>Z</given-names></name>, <name><surname>Russell</surname><given-names>A</given-names></name>, <name><surname>Fujii</surname><given-names>T</given-names></name>, <name><surname>Hartman</surname><given-names>JJ</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Differential regulation of WASP and N-WASP by Cdc42, Rac1, Nck, and PI(4,5)P2</article-title>. <source>Biochemistry</source>
+<volume>46</volume>: <fpage>3494</fpage>&#x2013;<lpage>3502</lpage>.<pub-id pub-id-type="pmid">17302440</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Goldstein1">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Goldstein</surname><given-names>NI</given-names></name>, <name><surname>Prewett</surname><given-names>M</given-names></name>, <name><surname>Zuklys</surname><given-names>K</given-names></name>, <name><surname>Rockwell</surname><given-names>P</given-names></name>, <name><surname>Mendelsohn</surname><given-names>J</given-names></name> (<year>1995</year>) <article-title>Biological efficacy of a chimeric antibody to the epidermal growth factor receptor in a human tumor xenograft model</article-title>. <source>Clin Cancer Res</source>
+<volume>1</volume>: <fpage>1311</fpage>&#x2013;<lpage>1318</lpage>.<pub-id pub-id-type="pmid">9815926</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Pantel1">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pantel</surname><given-names>K</given-names></name>, <name><surname>Brakenhoff</surname><given-names>RH</given-names></name> (<year>2004</year>) <article-title>Dissecting the metastatic cascade</article-title>. <source>Nat Rev Cancer</source>
+<volume>4</volume>: <fpage>448</fpage>&#x2013;<lpage>456</lpage>.<pub-id pub-id-type="pmid">15170447</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Grunert1">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Grunert</surname><given-names>S</given-names></name>, <name><surname>Jechlinger</surname><given-names>M</given-names></name>, <name><surname>Beug</surname><given-names>H</given-names></name> (<year>2003</year>) <article-title>Diverse cellular and molecular mechanisms contribute to epithelial plasticity and metastasis</article-title>. <source>Nat Rev Mol Cell Biol</source>
+<volume>4</volume>: <fpage>657</fpage>&#x2013;<lpage>665</lpage>.<pub-id pub-id-type="pmid">12923528</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Rastaldi1">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rastaldi</surname><given-names>MP</given-names></name>, <name><surname>Ferrario</surname><given-names>F</given-names></name>, <name><surname>Giardino</surname><given-names>L</given-names></name>, <name><surname>Dell'Antonio</surname><given-names>G</given-names></name>, <name><surname>Grillo</surname><given-names>C</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>Epithelial-mesenchymal transition of tubular epithelial cells in human renal biopsies</article-title>. <source>Kidney Int</source>
+<volume>62</volume>: <fpage>137</fpage>&#x2013;<lpage>146</lpage>.<pub-id pub-id-type="pmid">12081572</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Cano1">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cano</surname><given-names>A</given-names></name>, <name><surname>Perez-Moreno</surname><given-names>MA</given-names></name>, <name><surname>Rodrigo</surname><given-names>I</given-names></name>, <name><surname>Locascio</surname><given-names>A</given-names></name>, <name><surname>Blanco</surname><given-names>MJ</given-names></name>, <etal>et al</etal> (<year>2000</year>) <article-title>The transcription factor snail controls epithelial-mesenchymal transitions by repressing E-cadherin expression</article-title>. <source>Nat Cell Biol</source>
+<volume>2</volume>: <fpage>76</fpage>&#x2013;<lpage>83</lpage>.<pub-id pub-id-type="pmid">10655586</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-OReilly1">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>O'Reilly</surname><given-names>MS</given-names></name>, <name><surname>Holmgren</surname><given-names>L</given-names></name>, <name><surname>Chen</surname><given-names>C</given-names></name>, <name><surname>Folkman</surname><given-names>J</given-names></name> (<year>1996</year>) <article-title>Angiostatin induces and sustains dormancy of human primary tumors in mice</article-title>. <source>Nat Med</source>
+<volume>2</volume>: <fpage>689</fpage>&#x2013;<lpage>692</lpage>.<pub-id pub-id-type="pmid">8640562</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Zhou1">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhou</surname><given-names>J</given-names></name>, <name><surname>Schmid</surname><given-names>T</given-names></name>, <name><surname>Schnitzer</surname><given-names>S</given-names></name>, <name><surname>Brune</surname><given-names>B</given-names></name> (<year>2006</year>) <article-title>Tumor hypoxia and cancer progression</article-title>. <source>Cancer Lett</source>
+<volume>237</volume>: <fpage>10</fpage>&#x2013;<lpage>21</lpage>.<pub-id pub-id-type="pmid">16002209</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Saunders1">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Saunders</surname><given-names>RM</given-names></name>, <name><surname>Holt</surname><given-names>MR</given-names></name>, <name><surname>Jennings</surname><given-names>L</given-names></name>, <name><surname>Sutton</surname><given-names>DH</given-names></name>, <name><surname>Barsukov</surname><given-names>IL</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Role of vinculin in regulating focal adhesion turnover</article-title>. <source>Eur J Cell Biol</source>
+<volume>85</volume>: <fpage>487</fpage>&#x2013;<lpage>500</lpage>.<pub-id pub-id-type="pmid">16584805</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Azuma1">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Azuma</surname><given-names>K</given-names></name>, <name><surname>Tanaka</surname><given-names>M</given-names></name>, <name><surname>Uekita</surname><given-names>T</given-names></name>, <name><surname>Inoue</surname><given-names>S</given-names></name>, <name><surname>Yokota</surname><given-names>J</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Tyrosine phosphorylation of paxillin affects the metastatic potential of human osteosarcoma</article-title>. <source>Oncogene</source>
+<volume>24</volume>: <fpage>4754</fpage>&#x2013;<lpage>4764</lpage>.<pub-id pub-id-type="pmid">15870699</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Sturge1">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sturge</surname><given-names>J</given-names></name>, <name><surname>Hamelin</surname><given-names>J</given-names></name>, <name><surname>Jones</surname><given-names>GE</given-names></name> (<year>2002</year>) <article-title>N-WASP activation by a beta1-integrin-dependent mechanism supports PI3K-independent chemotaxis stimulated by urokinase-type plasminogen activator</article-title>. <source>J Cell Sci</source>
+<volume>115</volume>: <fpage>699</fpage>&#x2013;<lpage>711</lpage>.<pub-id pub-id-type="pmid">11865026</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Kawamoto1">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kawamoto</surname><given-names>T</given-names></name>, <name><surname>Sato</surname><given-names>JD</given-names></name>, <name><surname>Le</surname><given-names>A</given-names></name>, <name><surname>Polikoff</surname><given-names>J</given-names></name>, <name><surname>Sato</surname><given-names>GH</given-names></name>, <etal>et al</etal> (<year>1983</year>) <article-title>Growth stimulation of A431 cells by epidermal growth factor: identification of high-affinity receptors for epidermal growth factor by an anti-receptor monoclonal antibody</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>80</volume>: <fpage>1337</fpage>&#x2013;<lpage>1341</lpage>.<pub-id pub-id-type="pmid">6298788</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Konger1">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Konger</surname><given-names>RL</given-names></name>, <name><surname>Chan</surname><given-names>TC</given-names></name> (<year>1993</year>) <article-title>Epidermal growth factor induces terminal differentiation in human epidermoid carcinoma cells</article-title>. <source>J Cell Physiol</source>
+<volume>156</volume>: <fpage>515</fpage>&#x2013;<lpage>521</lpage>.<pub-id pub-id-type="pmid">8103053</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Xie1">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Xie</surname><given-names>H</given-names></name>, <name><surname>Pallero</surname><given-names>MA</given-names></name>, <name><surname>Gupta</surname><given-names>K</given-names></name>, <name><surname>Chang</surname><given-names>P</given-names></name>, <name><surname>Ware</surname><given-names>MF</given-names></name>, <etal>et al</etal> (<year>1998</year>) <article-title>EGF receptor regulation of cell motility: EGF induces disassembly of focal adhesions independently of the motility-associated PLCgamma signaling pathway</article-title>. <source>J Cell Sci 111 (Pt</source>
+<volume>5)</volume>: <fpage>615</fpage>&#x2013;<lpage>624</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Wells1">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wells</surname><given-names>A</given-names></name>, <name><surname>Gupta</surname><given-names>K</given-names></name>, <name><surname>Chang</surname><given-names>P</given-names></name>, <name><surname>Swindle</surname><given-names>S</given-names></name>, <name><surname>Glading</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>1998</year>) <article-title>Epidermal growth factor receptor-mediated motility in fibroblasts</article-title>. <source>Microsc Res Tech</source>
+<volume>43</volume>: <fpage>395</fpage>&#x2013;<lpage>411</lpage>.<pub-id pub-id-type="pmid">9858337</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0049766-Murillo1">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Murillo</surname><given-names>MM</given-names></name>, <name><surname>del Castillo</surname><given-names>G</given-names></name>, <name><surname>Sanchez</surname><given-names>A</given-names></name>, <name><surname>Fernandez</surname><given-names>M</given-names></name>, <name><surname>Fabregat</surname><given-names>I</given-names></name> (<year>2005</year>) <article-title>Involvement of EGF receptor and c-Src in the survival signals induced by TGF-beta1 in hepatocytes</article-title>. <source>Oncogene</source>
+<volume>24</volume>: <fpage>4580</fpage>&#x2013;<lpage>4587</lpage>.<pub-id pub-id-type="pmid">15856020</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
