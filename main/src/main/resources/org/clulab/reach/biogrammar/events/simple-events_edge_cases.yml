@@ -1,0 +1,13 @@
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
+
+  - name: ${ eventName }_token_of
+    priority: ${ priority }
+    type: token
+    example: "Insulin stimulated tyrosine phosphorylation of IRS and Akt phosphorylation."
+    label: ${ label }
+    action: ${ actionFlow }
+    pattern: |
+      @site:Site? (?<trigger> "${NominalTriggerLemma}") of @theme:BioChemicalEntity
+
