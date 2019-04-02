@@ -2,6 +2,7 @@ vars: org/clulab/reach/biogrammar/vars.yml
 
 rules:
 
+  ##helps with the incorrect parse that causes IRS-1 to be attached to phosphorylation 2 instead of phosphorylation1
   - name: ${ eventName }_token_of
     priority: ${ priority }
     type: token
