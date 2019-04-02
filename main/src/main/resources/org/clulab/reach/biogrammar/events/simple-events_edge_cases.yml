@@ -9,5 +9,5 @@ rules:
     label: ${ label }
     action: ${ actionFlow }
     pattern: |
-      @site:Site? (?<trigger> "${NominalTriggerLemma}") of @theme:BioChemicalEntity
+      @site:Site? (?<trigger> "${nominalTriggerLemma}") of @theme:BioChemicalEntity
 
