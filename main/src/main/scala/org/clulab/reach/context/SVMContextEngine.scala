@@ -7,9 +7,7 @@ import _root_.org.ml4ai.data.utils._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 
-// This script currently tests papers in the activation version of polarity mismatch.
-// I have added the inhibition papers to a directory called papers2. Please rename the directory to papers when you want to run reach on inhibition
-// Note that Reach MUST have a directory called papers, so whichever papers are in it will be parsed by the system.
+// This script currently tests papers in the inhibition examples
 import scala.collection.immutable
 class SVMContextEngine extends ContextEngine with LazyLogging {
 
