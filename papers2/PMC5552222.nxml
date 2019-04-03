@@ -1,0 +1,973 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, CA USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28797129</article-id>
+      <article-id pub-id-type="pmc">5552222</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0182716</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-16-16992</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Endocrinology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Growth Factors</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Growth Factors</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Endocrine Physiology</subject>
+              <subj-group>
+                <subject>Growth Factors</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Physiological Processes</subject>
+              <subj-group>
+                <subject>Bone Remodeling</subject>
+                <subj-group>
+                  <subject>Ossification</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Physiology</subject>
+            <subj-group>
+              <subject>Physiological Processes</subject>
+              <subj-group>
+                <subject>Bone Remodeling</subject>
+                <subj-group>
+                  <subject>Ossification</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Developmental Biology</subject>
+            <subj-group>
+              <subject>Cell Differentiation</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Developmental Biology</subject>
+            <subj-group>
+              <subject>Cell Differentiation</subject>
+              <subj-group>
+                <subject>Osteoblast Differentiation</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cellular Types</subject>
+              <subj-group>
+                <subject>Animal Cells</subject>
+                <subj-group>
+                  <subject>Connective Tissue Cells</subject>
+                  <subj-group>
+                    <subject>Osteoblasts</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Biological Tissue</subject>
+              <subj-group>
+                <subject>Connective Tissue</subject>
+                <subj-group>
+                  <subject>Connective Tissue Cells</subject>
+                  <subj-group>
+                    <subject>Osteoblasts</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Biological Tissue</subject>
+              <subj-group>
+                <subject>Connective Tissue</subject>
+                <subj-group>
+                  <subject>Connective Tissue Cells</subject>
+                  <subj-group>
+                    <subject>Osteoblasts</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Research and Analysis Methods</subject>
+          <subj-group>
+            <subject>Specimen Preparation and Treatment</subject>
+            <subj-group>
+              <subject>Staining</subject>
+              <subj-group>
+                <subject>Group-Specific Staining</subject>
+                <subj-group>
+                  <subject>Alizarin Staining</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cellular Types</subject>
+              <subj-group>
+                <subject>Animal Cells</subject>
+                <subj-group>
+                  <subject>Connective Tissue Cells</subject>
+                  <subj-group>
+                    <subject>Osteoblasts</subject>
+                    <subj-group>
+                      <subject>Osteocytes</subject>
+                    </subj-group>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Biological Tissue</subject>
+              <subj-group>
+                <subject>Connective Tissue</subject>
+                <subj-group>
+                  <subject>Connective Tissue Cells</subject>
+                  <subj-group>
+                    <subject>Osteoblasts</subject>
+                    <subj-group>
+                      <subject>Osteocytes</subject>
+                    </subj-group>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+            <subj-group>
+              <subject>Biological Tissue</subject>
+              <subj-group>
+                <subject>Connective Tissue</subject>
+                <subj-group>
+                  <subject>Connective Tissue Cells</subject>
+                  <subj-group>
+                    <subject>Osteoblasts</subject>
+                    <subj-group>
+                      <subject>Osteocytes</subject>
+                    </subj-group>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Molecular Biology</subject>
+            <subj-group>
+              <subject>Molecular Biology Techniques</subject>
+              <subj-group>
+                <subject>Marker Genes</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Research and Analysis Methods</subject>
+          <subj-group>
+            <subject>Molecular Biology Techniques</subject>
+            <subj-group>
+              <subject>Marker Genes</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Differential effects of amnion and chorion membrane extracts on osteoblast-like cells due to the different growth factor composition of the extracts</article-title>
+        <alt-title alt-title-type="running-head">Chorion membrane extract promotes osteogenesis</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Go</surname>
+            <given-names>Yoon Young</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Conceptualization</role>
+          <role content-type="http://credit.casrai.org/">Investigation</role>
+          <role content-type="http://credit.casrai.org/">Project administration</role>
+          <role content-type="http://credit.casrai.org/">Validation</role>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; original draft</role>
+          <role content-type="http://credit.casrai.org/">Writing &#x2013; review &amp; editing</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Sung Eun</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Data curation</role>
+          <role content-type="http://credit.casrai.org/">Methodology</role>
+          <xref ref-type="aff" rid="aff002">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cho</surname>
+            <given-names>Geum Joon</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Resources</role>
+          <xref ref-type="aff" rid="aff003">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chae</surname>
+            <given-names>Sung-Won</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Resources</role>
+          <role content-type="http://credit.casrai.org/">Supervision</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Song</surname>
+            <given-names>Jae-Jun</given-names>
+          </name>
+          <role content-type="http://credit.casrai.org/">Conceptualization</role>
+          <role content-type="http://credit.casrai.org/">Funding acquisition</role>
+          <role content-type="http://credit.casrai.org/">Investigation</role>
+          <role content-type="http://credit.casrai.org/">Supervision</role>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="corresp" rid="cor001">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff001"><label>1</label>
+<addr-line>Department of Otorhinolaryngology-Head and Neck Surgery, Korea University College of Medicine, Seoul, Korea</addr-line></aff>
+      <aff id="aff002"><label>2</label>
+<addr-line>Department of Orthopedic Surgery and Rare Diseases Institute, Korea University College of Medicine, Seoul, Korea</addr-line></aff>
+      <aff id="aff003"><label>3</label>
+<addr-line>Department of Obstetrics and Gynecology, Korea University College of Medicine, Seoul, Korea</addr-line></aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>van Wijnen</surname>
+            <given-names>Andre</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+        <addr-line>University of Massachusetts Medical School, UNITED STATES</addr-line>
+      </aff>
+      <author-notes>
+        <fn fn-type="COI-statement" id="coi001">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <corresp id="cor001">* E-mail: <email>jjsong23@gmail.com</email></corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>10</day>
+        <month>8</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2017</year>
+      </pub-date>
+      <volume>12</volume>
+      <issue>8</issue>
+      <elocation-id>e0182716</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>13</day>
+          <month>5</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>24</day>
+          <month>7</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2017 Go et al</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <copyright-holder>Go et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:href="pone.0182716.pdf"/>
+      <abstract>
+        <p>Human amniotic membrane extracts contain numerous growth factors and bioactive substances. However, osteogenic effects of amnion and chorion membrane extracts (AME and CME, respectively) on osteoblasts are unclear. In this study, we explored the ability of AME and CME to promote the osteogenic differentiation of osteoblast-like MG-63 cells. MG-63 cells were cultured in osteogenic induction medium (OIM) with or without exogenous AME and CME. CME enhanced the osteogenic differentiation of MG-63 cells compared with AME, as indicated by increased mineralization; alkaline phosphatase activity; and mRNA expression of osteogenic marker genes encoding integrin-binding sialoprotein (<italic>IBSP)</italic>, <italic>RUNX2</italic>, <italic>OSTERIX</italic>, and osteocalcin (<italic>OCN)</italic>. Interestingly, AME and CME contained different combinations of osteogenesis-related growth factors, including basic fibroblast growth factor (bFGF), transforming growth factor beta-1 (TGF&#x3B2;-1), and epidermal growth factor (EGF), which differentially regulated the osteogenic differentiation of MG-63 cells. bFGF and TGF&#x3B2;-1 present in CME positively regulated the osteogenic differentiation of MG-63 cells, whereas EGF present in AME negatively regulated the differentiation of MG-63 cells. Moreover, exogenous treatment of EGF antagonized CME-induced mineralization of extracellular matrix on MG-63 cells. We compared the osteogenic efficacy of CME with that of BMP2, bFGF, and TGF&#x3B2;-1 alone or their combinations. We observed that CME greatly enhanced osteogenesis by providing a conductive environment for the differentiation of MG-63 cells. Together, our results indicated that human AME and CME exerted differential effects on osteogenesis because of the presence of different compositions of growth factors. In addition, our results highlighted a new possible strategy of using CME as a biocompatible therapeutic material for bone regeneration.</p>
+      </abstract>
+      <funding-group>
+        <award-group id="award001">
+          <funding-source>
+            <institution>Korean Health Technology Research and Development Project, Ministry of Health and Welfare</institution>
+          </funding-source>
+          <award-id>HI15C2835</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Song</surname>
+              <given-names>Jae-Jun</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <funding-statement>This work was supported by Korean Health Technology Research and Development Project, Ministry of Health and Welfare (HI15C2835), Republic of Korea.</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="10"/>
+        <table-count count="0"/>
+        <page-count count="20"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>All relevant data are within the paper and its supporting information files.</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>All relevant data are within the paper and its supporting information files.</p>
+    </notes>
+  </front>
+  <body>
+    <sec sec-type="intro" id="sec001">
+      <title>Introduction</title>
+      <p>Osteogenesis is a sequential process involving the proliferation and differentiation of osteogenic cells, activation of osteogenesis-specific genes, and maturation and mineralization of extracellular matrix (ECM) [<xref rid="pone.0182716.ref001" ref-type="bibr">1</xref>, <xref rid="pone.0182716.ref002" ref-type="bibr">2</xref>]. During bone formation, osteoblasts, the major bone-forming cells, synthesize bone matrix proteins, including alkaline phosphatase (ALP), osteocalcin (OCN), and type I collagen, and subsequently produce a calcium- and phosphate-based mineral that is deposited into the ECM to form a strong, mineralized tissue [<xref rid="pone.0182716.ref003" ref-type="bibr">3</xref>, <xref rid="pone.0182716.ref004" ref-type="bibr">4</xref>]. Osteoblast differentiation is tightly controlled by specific extracellular regulatory proteins such as growth factors, hormones, vitamins, and cytokines [<xref rid="pone.0182716.ref005" ref-type="bibr">5</xref>]. Growth factors and cytokines modulate cell fate, including proliferation, differentiation, survival, and migration. Particularly, growth factors play an important role in bone regeneration and remodeling and several growth factors have been used in clinical therapies for treating bone defects[<xref rid="pone.0182716.ref006" ref-type="bibr">6</xref>, <xref rid="pone.0182716.ref007" ref-type="bibr">7</xref>], However, use of growth factors in clinical therapies is impeded by problems such as low yield of recombinant growth factors and poor efficacy and stability [<xref rid="pone.0182716.ref008" ref-type="bibr">8</xref>].</p>
+      <p>The human amniotic sac is derived from the placenta, which is composed of conjoined amnion (inner) and chorion (outer) membranes (AM and CM, respectively). In addition to its unique properties, the human amniotic sac contains numerous growth factors and cytokines, indicating that it is an ideal biomaterial for various therapeutic applications, including wound healing. Further, use of the human amniotic membrane in clinical therapy is associated with minimum inflammation, angiogenesis, and microbial infection [<xref rid="pone.0182716.ref009" ref-type="bibr">9</xref>&#x2013;<xref rid="pone.0182716.ref011" ref-type="bibr">11</xref>]. We previously demonstrated the potential of human amniotic membrane extracts to promote the osteogenic differentiation of osteoblast-like MG-63 cells [<xref rid="pone.0182716.ref012" ref-type="bibr">12</xref>]. Moreover, the extracts prepared from amnion/chorion membrane have showed greater effect on osteogenesis of MG-63 cells than the extracts from a single layer of the amnion membrane. This may be because of the different growth factors present in AM and CM.</p>
+      <p>Important regulatory growth factors involved in osteogenesis include bone morphogenetic proteins (BMP2 and BMP4), basic fibroblast growth factor (bFGF), transforming growth factor beta-1 (TGF&#x3B2;-1), and epidermal growth factor (EGF) [<xref rid="pone.0182716.ref013" ref-type="bibr">13</xref>&#x2013;<xref rid="pone.0182716.ref016" ref-type="bibr">16</xref>]. Recently, Rui-Dong and Li showed that the combination of BMP9 and TGF&#x3B2;-1 promoted the osteogenic differentiation of mesenchymal stem cells, suggesting that these growth factors exerted a synergistic effect on osteogenesis in a dose-dependent manner [<xref rid="pone.0182716.ref017" ref-type="bibr">17</xref>]. This finding also suggested that a crosstalk between BMP9 and TGF&#x3B2;-1 signaling pathways promoted osteogenesis [<xref rid="pone.0182716.ref017" ref-type="bibr">17</xref>, <xref rid="pone.0182716.ref018" ref-type="bibr">18</xref>]. Furthermore, several studies have indicated that many osteogenesis-related growth factors, which are inter-connected, temporally participate in the regulation of osteogenesis [<xref rid="pone.0182716.ref019" ref-type="bibr">19</xref>, <xref rid="pone.0182716.ref020" ref-type="bibr">20</xref>].</p>
+      <p>Based on these findings, we hypothesized that AME and CME contain different compositions of growth factors, which may affect the overall osteogenic differentiation of MG-63 cells. Thus, the present study (1) investigated whether AME and CME exerted differential effects on osteogenesis, (2) analyzed the composition of osteogenesis-related growth factors in human AME and CME, and (3) determined the role of these growth factors in the osteogenic differentiation of MG-63 cells.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="sec002">
+      <title>Materials and methods</title>
+      <sec id="sec003">
+        <title>Reagents and chemicals</title>
+        <p>Dulbecco's modified Eagle's medium (DMEM) was purchased from Lonza (Walkersville, MD, USA). Penicillin G&#x2013;streptomycin sulfate and fetal bovine serum (FBS) were purchased from Gibco (Grand Island, NY, USA). Recombinant human bFGF, TGF&#x3B2;-1, EGF, and BMP2 were purchased from Peprotech (Rocky Hill, NJ, USA), and inhibitors of FGF (SU5402), TGF&#x3B2;-1 (SB505124), and EGF (PD153035) were purchased from Santa Cruz Biotechnology (Dallas, Texas, USA). These inhibitors were prepared in dimethyl sulfoxide (DMSO) and were used in growth factor inhibition assay.</p>
+      </sec>
+      <sec id="sec004">
+        <title>Preparation of human AME and CME</title>
+        <p>Human amniotic membrane matrixes were obtained from 3 donors who had undergone a caesarian section, with an approval from the Institutional Review Board (KUGH14239-002) of Korea University Guro Hospital (Seoul, Korea) for the purpose of this research. Donors with gestational diabetes, preeclampsia, or infectious diseases (specifically HIV 1&#x2013;2, HBV, and HCV) were excluded. Written informed consent was obtained from each donor after explaining the purpose of this study.</p>
+        <p>To prepare AME and CME, AM was separated from amniotic membrane tissue. The remaining tissue was used as CM. AM and CM were washed 3 times with PBS containing antibiotics (100 U/mL penicillin and 100 U/mL streptomycin) to remove blood clots, were sliced into small pieces, frozen in liquid nitrogen, and finely ground by using a mortar and pestle. The ground membranes were mixed with PBS at 1:1 ratio of weight (g):volume (mL), were homogenized on ice for 1 h, and were centrifuged. After centrifugation, supernatants were filtered through a 0.22-&#x3BC;m pore size membrane. Concentrations of proteins in the supernatants were determined by performing DC protein assay (Bio-Rad, Hercules, CA, USA), and the supernatants were stored at -80&#xB0;C until further use.</p>
+      </sec>
+      <sec id="sec005">
+        <title>Cell culture and in vitro osteogenic differentiation</title>
+        <p>MG-63 cells were cultured in DMEM supplemented with 10% FBS, 100 U/mL penicillin and 100 U/mL streptomycin. Human bone marrow derived mesenchymal stem cells (hMSCs)) were purchased from Lonza (Lonza, Walkersville, MD, USA) and maintained in DMEM supplemented with 10% FBS, 1% NEAA, 0.1% &#x3B2;-mercaptoethanol, 100 U/mL penicillin and 100 U/mL streptomycin, 5 mM L-glutamine (Gibco). MG-63 cells and hMSCs were maintained in a humidified atmosphere of 5% CO<sub>2</sub> at 37&#xB0;C.</p>
+        <p>For <italic>in vitro</italic> osteogenic differentiation, the cells were seeded in 24-well plates (density, 1 &#xD7; 10<sup>5</sup> cells/well). On reaching 90% confluency, their growth medium was replaced with osteogenic induction medium (OIM) containing DMEM supplemented with 10% FBS, 10 nM dexamethasone (Sigma, St. Louis, MO, USA), 0.2 mM ascorbic acid (Sigma), 10 mM &#x3B2;-glycerol phosphate (Sigma), and antibiotics (100 U/mL penicillin and 100 U/mL streptomycin) (Gibco). Thereafter, the medium was changed every 3 days.</p>
+      </sec>
+      <sec id="sec006">
+        <title>ALP activity</title>
+        <p>At 3 or 7 day after culture, MG-63 cells were washed with PBS and lysed in lysis buffer containing 0.5% Triton X-100. Concentrations of proteins in the cell lysates were determined using Bradford protein assay kit (Bio-Rad). Samples containing equal concentrations of proteins were used to determine ALP activity. ALP activity was measured using colorimetricSensoLyte<sup>&#xAE;</sup><italic>p</italic>NPP Alkaline Phosphatase Assay Kit (Anaspec, Fremont, CA, USA), according to the supplier&#x2019;s protocol, and by reading the absorbance at 405 nm with a microplate reader.</p>
+      </sec>
+      <sec id="sec007">
+        <title>RNA isolation and real-time PCR</title>
+        <p>Total RNA was isolated using TRIzol reagent (Invitrogen, Carlsbad, CA, USA), according to the manufacturer's instructions. Next, 1 &#x3BC;g RNA was reverse transcribed in a 20-&#x3BC;L reaction mixture by using PrimeScript&#x2122; 1<sup>st</sup> strand cDNA Synthesis Kit (Takara Bio, Tokyo, Japan), and quantitative polymerase chain reaction (RT-PCR) was performed using ABI Prism 7300 Detection System (Applied Biosystems, Foster City, CA, USA). Each 20 &#x3BC;L reaction mixture contained 10 &#x3BC;L 2&#xD7; LightCycler 480 SYBR Green I Master Mix (Roche, Penzberg, Germany), 1 &#x3BC;L 5 pmol sense and antisense primers, 0.4 &#x3BC;L 50&#xD7; Roxy dye (Applied Biosystems), and 1 &#x3BC;L cDNA. Amplification was performed using 40&#x2013;45 cycles of denaturation at 95&#xB0;C for 15 s and annealing at 60&#xB0;C for 1 min. Relative mRNA expression was analyzed using 2<sup>(-&#x394;&#x394;Ct)</sup> method and was normalized with that of the gene encoding glyceraldehyde-3-phosphate dehydrogenase (<italic>GAPDH</italic>). Specific primers used for PCR are listed in <xref ref-type="supplementary-material" rid="pone.0182716.s005">S1 Table</xref>.</p>
+      </sec>
+      <sec id="sec008">
+        <title>Calcium assay and Alizarin red S staining</title>
+        <p>Calcium assay and Alizarin red S staining were performed to determine ECM mineralization, as described previously [<xref rid="pone.0182716.ref021" ref-type="bibr">21</xref>, <xref rid="pone.0182716.ref022" ref-type="bibr">22</xref>]. For the calcium assay, MG-63 cells were washed with PBS and were decalcified using 0.6 N HCl. Calcium concentration in the supernatant was measured using QuantiChrom&#x2122; Calcium Assay Kit (DICA-500; BioAssay Systems, Hayward, CA, USA), according to the manufacturer's instructions. The degree of mineralization was evaluated by measuring the absorbance at 612 nm with a microplate reader.</p>
+        <p>For Alizarin red S staining, MG-63 cells were washed with PBS and were fixed in 4% paraformaldehyde for 20 min. The cells were then washed twice with distilled water and were stained with Alizarin red S solution (Millipore, Darmstadt, Germany) for 20 min at room temperature. Finally, the cells were washed 3 times with 1 mL distilled water, and color change was evaluated using photographs. ECM mineralization was quantified by adding 1 mL 100 mM cetylpyridinium chloride (Sigma) to each well and by measuring optical density at 570 nm. Values were normalized by protein concentration.</p>
+      </sec>
+      <sec id="sec009">
+        <title>ELISA</title>
+        <p>Concentrations of BMP2, EGF, bFGF, and TGF&#x3B2;-1 in AME and CME were quantified using respective Quantikine<sup>&#xAE;</sup> ELISA immunoassay kits (R&amp;D system, Minneapolis, MN, USA). Briefly, microplate wells were pre-coated with monoclonal antibodies against human BMP2, EGF, bFGF, or TGF&#x3B2;-1. Next, standards and samples were added to the microplate wells to allow growth factors to bind to the immobilized antibodies. Unbound proteins were removed by washing with wash solution, and enzyme-linked polyclonal antibodies against BMP2, EGF, bFGF, or TGF&#x3B2;-1 were added to the microplate wells. Unbound antibodies were removed by washing, and a substrate solution was added to the microplate wells for color development. Concentrations of BMP2, EGF, bFGF, and TGF&#x3B2;-1 in AME and CME were determined by measuring optical density at 450 nm with a microplate reader.</p>
+      </sec>
+      <sec id="sec010">
+        <title>Statistical analysis</title>
+        <p>Each experiment was performed using 2&#x2013;3 extracts from each of the 3 donors. One-way ANOVA and Student's t-test were used to determine statistical differences among the experimental groups, with *<italic>p</italic>&lt;0.05, **<italic>p</italic>&lt;0.01, and <sup>#</sup><italic>p</italic>&lt;0.001 being considered statistically significant. All the assays were performed at least in triplicate, and representative data were expressed as mean &#xB1; standard deviation (SD).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="sec011">
+      <title>Results</title>
+      <sec id="sec012">
+        <title>Exogenous AME or CME alter the morphology of MG-63 cells during osteogenesis</title>
+        <p>Our previous studies suggested the potential ability of human amniotic membrane extracts on osteogenic differentiation of osteoblasts [<xref rid="pone.0182716.ref012" ref-type="bibr">12</xref>]. However, it was unclear which membrane stimulated the osteogenic differentiation of osteoblasts between AM and CM. Therefore, we separated AM and CM and prepared 2 extracts (AME and CME) in the present study (<xref ref-type="supplementary-material" rid="pone.0182716.s001">S1A and S1B Fig</xref>). To evaluate osteogenesis-related morphological changes induced by AME or CME, we cultured human osteoblast-like MG-63 cells in OIM and treated them with AME or CME in a dose-dependent manner. As expected, treatment with AME or CME induced differential morphological changes in MG-63 cells compared with those in untreated cells cultured in only growth medium (GM) or only OIM for 7 days (<xref ref-type="fig" rid="pone.0182716.g001">Fig 1A</xref>, right square images). While cells cultured in only OIM showed initiation of osteogenic differentiation compared with cells cultured in only GM, cells cultured in OIM containing CME showed more obvious evidence of osteogenesis than only OIM condition (<xref ref-type="fig" rid="pone.0182716.g001">Fig 1A</xref>, left square image). However, no detectable evidence of mineralized nodule formation was observed in cells cultured in OIM containing AME; however, these cells showed excessive cell migration and accumulation (<xref ref-type="fig" rid="pone.0182716.g001">Fig 1A</xref>, left square image).</p>
+        <fig id="pone.0182716.g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g001</object-id>
+          <label>Fig 1</label>
+          <caption>
+            <title>Differential effects of human amniotic membrane extract according to membrane composition during osteogenesis of MG-63 cells.</title>
+            <p>(A) Confluent MG-63 cells cultured in OIM were treated with various concentrations (200&#x2013;800 &#x3BC;g/mL) of both AME and CME. Morphological changes in the treated cells after 7 days of treatment were examined under a light microscope. Scale bars represent 100 &#x3BC;m. (B) MG-63 cells were cultured in OIM with or without 100 &#x3BC;g/mL AME, ACME, and CME. ALP activity was measured at day 3 and 7. Data are presented as the mean &#xB1; SD of multiple repeated experiments; *<italic>p</italic>&lt; 0.05 versus OIM, indicates statistical significance. (C) MG-63 cells were cultured in OIM and AME, ACME, or CME was added in a dose-dependent manner. After 7 days, Calcium concentration was measured spectrophotometrically by using phenolsulfonephthalein dye as a substrate for free calcium. Relative calcium concentration was normalized to microgram of protein from each sample. Data are presented as the mean &#xB1; SD of multiple repeated experiments; **<italic>p</italic>&lt; 0.01 and <sup>#</sup><italic>p</italic>&lt; 0.001 versus OIM, indicates statistical significance.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g001"/>
+        </fig>
+      </sec>
+      <sec id="sec013">
+        <title>Potential of CME for promoting osteogenic differentiation</title>
+        <p>Next, we examined whether AME and CME differentially promoted the osteogenic differentiation of MG-63 cells. To measure ALP activity, MG-63 cells were cultured in OIM with or without AME, ACME (amnion/chorion membrane extracts) or CME for 3 or 7 days, respectively. On day 7, ALP activity was slightly different in cells treated with AME, ACME and CME at the concentration of 100 &#x3BC;g/mL compared with that in cells cultured in only OIM (<xref ref-type="fig" rid="pone.0182716.g001">Fig 1B</xref>) while a much higher concentration (200 and 400 &#x3BC;g/mL) was clearly determine the significantly higher effect of CME on ALP activity than AME (<xref ref-type="fig" rid="pone.0182716.g002">Fig 2A</xref>). In addition, CME has potential ability for promoting osteogenic differentiation when we compared the result of AME and ACME. Calcium concentration also significantly increased by approximately 25 folds in cells treated with 800 &#x3BC;g/mL CME (<xref ref-type="fig" rid="pone.0182716.g001">Fig 1C</xref> and <xref ref-type="fig" rid="pone.0182716.g002">Fig 2B</xref>). In contrast, calcium concentration in cells treated with the same concentration of AME was only 2- to 3-fold higher than that in cells cultured in only OIM (<xref ref-type="fig" rid="pone.0182716.g001">Fig 1C</xref> and <xref ref-type="fig" rid="pone.0182716.g002">Fig 2B</xref>). CME treatment also significantly upregulated the expression of osteogenic marker genes encoding <italic>RUNX2</italic> (8.939 fold), <italic>OSTERIX</italic> (1.607 fold), and <italic>IBSP</italic> (6.101 fold, <italic>p =</italic> 0.0292) on day 7 and the gene encoding <italic>OCN</italic> (3.907 fold, <italic>p =</italic> 0.0053) on day 24 (<xref ref-type="fig" rid="pone.0182716.g002">Fig 2C</xref>). Although AME treatment upregulated the expression of these osteogenic marker genes, the upregulation was not significant. Alizarin red S staining showed a strong increase in the mineralization of MG-63 cells treated with 400 &#x3BC;g/mL CME compared with that of cells cultured in only OIM (<xref ref-type="fig" rid="pone.0182716.g002">Fig 2D</xref>). These results suggested that CME but not AME markedly stimulated the ALP activity, expression of osteogenic marker genes, and mineralization of MG-63 cells during osteogenesis.</p>
+        <fig id="pone.0182716.g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g002</object-id>
+          <label>Fig 2</label>
+          <caption>
+            <title>Potent ability of CME to promote the osteogenic differentiation of MG-63 cells.</title>
+            <p>(A) ALP activity of MG-63 cells cultured in OIM with or without AME or CME (200&#x2013;400 &#x3BC;g/mL) for 3 or 7 days was measured. *<italic>p</italic>&lt; 0.05 and <sup>#</sup><italic>p</italic>&lt; 0.001 versus OIM of day 7. (B) MG-63 cells were cultured in OIM, and AME or CME was added in a dose-dependent manner. Calcium concentration after 7 days was measured. *<italic>p</italic>&lt; 0.05 and **<italic>p</italic>&lt; 0.01 versus OIM. (C) MG-63 cells were cultured in OIM with or without 200 &#x3BC;g/mL of AME or CME to evaluate the expression of osteogenic marker genes by quantitative real-time RT-PCR. The mRNA levels of 3 genes encoding <italic>RUNX2</italic>, <italic>OSTERIX</italic>, and <italic>IBSP</italic> were determined on days 3 and 7. Expression of the gene encoding <italic>OCN</italic>, which is expressed by osteoblasts in the late stage of osteogenic differentiation, was analyzed on day 24. Results of gene expression were normalized with those obtained for <italic>GAPDH</italic> and were presented as fold change. *<italic>p</italic>&lt; 0.05, **<italic>p</italic>&lt; 0.01, and <sup>#</sup><italic>p</italic>&lt; 0.001, Student&#x2019;s t-test. (D) MG-63 cells grown in OIM and treated with 400 &#x3BC;g/mL CME were cultured for 9 days and were stained with Alizarin red S. Control cells were cultured in only OIM. Scale bars represent 500 &#x3BC;m. Data are presented as the mean &#xB1; SD of multiple repeated experiments.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g002"/>
+        </fig>
+      </sec>
+      <sec id="sec014">
+        <title>Effect of suramin sodium on the inhibition of the osteogenic differentiation of CME-treated MG-63 cells</title>
+        <p>To determine whether growth factors present in CME enhanced the osteogenesis of MG-63 cells, we examined the inhibitory effect of suramin sodium, which is known to block the interaction of various growth factors such as bFGF, PDGF, EGF, and TGF&#x3B2;-1 with their respective surface receptors [<xref rid="pone.0182716.ref023" ref-type="bibr">23</xref>&#x2013;<xref rid="pone.0182716.ref025" ref-type="bibr">25</xref>],on MG-63 cells cultured in OIM supplemented with CME. Expectedly, dose-dependent pretreatment of suramin sodium in CME-treated MG-63 cells gradually impaired their mineralization, as indicated by Alizarin red S staining (<xref ref-type="fig" rid="pone.0182716.g003">Fig 3A</xref>) and decrease in the mRNA levels of genes encoding <italic>ALP</italic> and <italic>IBSP</italic> during the early stage of osteogenic differentiation (<xref ref-type="fig" rid="pone.0182716.g003">Fig 3B</xref>). Suramin sodium did not affect the osteogenic differentiation of MG-63 cells cultured in only OIM (<xref ref-type="supplementary-material" rid="pone.0182716.s003">S3A Fig</xref>). These results suggested that growth factors present in CME were involved in promoting the osteogenesis of MG-63 cells.</p>
+        <fig id="pone.0182716.g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g003</object-id>
+          <label>Fig 3</label>
+          <caption>
+            <title>Suramin sodium inhibited the effectiveness of CME in promoting the osteogenic differentiation of MG-63 cells.</title>
+            <p>(A) MG-63 cells were seeded in GM. On the next day, GM was replaced with OIM containing various concentrations of suramin sodium (0&#x2013;50 &#x3BC;g/mL). After 1 h, the cells were treated with 400 &#x3BC;g/mL CME. After 9 days, mineralization of MG-63 cells was determined by performing Alizarin red S staining. (B) MG-63 cells were pretreated with suramin sodium (0&#x2013;100 &#x3BC;g/mL) for 1 h, followed by treatment with 200 &#x3BC;g/mL CME. Expression of genes encoding <italic>ALP</italic> and <italic>IBSP</italic> was determined by quantitative real-time RT-PCR on day 4. *<italic>p</italic>&lt; 0.05, **<italic>p</italic>&lt; 0.01, and <sup>#</sup><italic>p</italic>&lt; 0.001 versus only CME. Data are presented as the mean &#xB1; SD of multiple repeated experiments.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g003"/>
+        </fig>
+      </sec>
+      <sec id="sec015">
+        <title>Concentrations of osteogenesis-related growth factors in AME and CME</title>
+        <p>It has been known that bFGF, EGF and TGF&#x3B2;-1 are involved in the proliferation and differentiation of osteogenic-lineage cells. However, the stage of osteogenesis in which these growth factors act on is still unclear [<xref rid="pone.0182716.ref006" ref-type="bibr">6</xref>, <xref rid="pone.0182716.ref014" ref-type="bibr">14</xref>, <xref rid="pone.0182716.ref016" ref-type="bibr">16</xref>, <xref rid="pone.0182716.ref017" ref-type="bibr">17</xref>, <xref rid="pone.0182716.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0182716.ref027" ref-type="bibr">27</xref>]. We next evaluated the concentrations of osteogenesis-related growth factors, including bFGF, TGF&#x3B2;-1, BMP2, and EGF, in AME and CME by performing ELISA. Results presented in <xref ref-type="fig" rid="pone.0182716.g003">Fig 3</xref> indicated that the concentrations of bFGF and TGF&#x3B2;-1 were comparable between AME and CME even though AME contained higher concentrations of TGF&#x3B2;-1 than CME. Interestingly, BMP2, which is currently used to stimulate bone regeneration [<xref rid="pone.0182716.ref028" ref-type="bibr">28</xref>], was not present in both the extracts while EGF was present only in AME (<xref ref-type="fig" rid="pone.0182716.g004">Fig 4</xref>).</p>
+        <fig id="pone.0182716.g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g004</object-id>
+          <label>Fig 4</label>
+          <caption>
+            <title>Concentrations of different osteogenesis-related growth factors in AME and CME.</title>
+            <p>(A) A table showing the relative concentrations of growth factors in AME and CME (picogram of growth factor/milligram of AME or CME). (B) Histograms showing the distribution of growth factor concentrations in the two membrane extracts from the 3 donors. Data are presented as the mean &#xB1; SD of 2 repeated experiments; *<italic>p</italic>&lt; 0.05, Student&#x2019;s t-test, indicates statistical significance.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g004"/>
+        </fig>
+      </sec>
+      <sec id="sec016">
+        <title>Inhibitory effect of SU5402 and SB505124 on the osteogenic differentiation of CME-treated MG-63 cells</title>
+        <p>To investigate whether bFGF and TGF&#x3B2;-1 present in CME positively regulated osteogenesis, we used SU5402 and SB505124, respectively, to inhibit these growth factors. Results presented in <xref ref-type="fig" rid="pone.0182716.g004">Fig 4</xref> indicate that CME-induced ECM mineralization was completely abolished after treatment with SU5402 and SB505124 alone or their combination (<xref ref-type="fig" rid="pone.0182716.g005">Fig 5A</xref>). Calcium assay also showed that continuous treatment of CME-treated MG-63 cells with bFGF and TGF&#x3B2;-1 inhibitors suppressed calcium deposition during osteogenic differentiation (<xref ref-type="fig" rid="pone.0182716.g005">Fig 5B</xref>), which was consistent with the results of Alizarin red S staining. Calcium deposition was more effectively inhibited by SB505124 than by SU5402; moreover, stable suppression of calcium deposition was observed in cells treated with a combination of SU5402 and SB505124 (<xref ref-type="fig" rid="pone.0182716.g005">Fig 5B</xref>). SU5402 and SB505124 did not affect the osteogenic differentiation of MG-63 cells at the same experimental condition (<xref ref-type="supplementary-material" rid="pone.0182716.s003">S3B and S3C Fig</xref>). We considered that MG-63 cells cultured for 4 days were in between the early and middle stages of osteogenic differentiation because these cells rapidly reached the late stage of osteogenic differentiation about 10 days of culturing in OIM supplemented with 200 &#x3BC;g/mL CME. Therefore, quantitative real-time RT-PCR analysis performed to evaluate the expression of early osteogenic marker genes such as those encoding <italic>ALP</italic> and <italic>IBSP</italic> on day 4. The mRNA levels of these genes was elevated in cells treated with CME but was dramatically decreased in cells treated with SU5402 and SB505124 (<xref ref-type="fig" rid="pone.0182716.g005">Fig 5C</xref>). These results clearly indicated that bFGF and TGF&#x3B2;-1 present in CME positively regulated the expression of osteogenic marker genes and mineralization of the ECM during osteogenesis.</p>
+        <fig id="pone.0182716.g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g005</object-id>
+          <label>Fig 5</label>
+          <caption>
+            <title>SU5402 and SB505124 inhibited the effect of CME on the osteogenic differentiation of MG-63 cells.</title>
+            <p>(A) MG-63 cells were cultured in OIM supplemented with DMSO (0.1% v/v) and were pretreated with various concentrations of SU5402 (0.1&#x2013;1 &#x3BC;M) or SB505124 (0.5&#x2013;1 &#x3BC;M) for 1 h, followed by treatment with 400 &#x3BC;g/mL CME. After 9 days, mineralization was determined by performing Alizarin red S staining. Alizarin red S stain was extracted using 10% cetylpyridinium chloride, and absorbance was measured at 570 nm. (B) For the calcium assay, the cells were pretreated with DMSO (0.1% v/v) and various concentrations of SU5402 (0.1&#x2013;1 &#x3BC;M) or SB505124 (0.5&#x2013;1 &#x3BC;M) alone or their combination for 1 h, followed by treatment with 200 &#x3BC;&#x3BC;g/mL CME. Calcium assay was performed after 9 days. (C) Expression of genes encoding <italic>ALP</italic> and <italic>IBSP</italic> was determined on day 4 by performing quantitative real-time RT-PCR under the experimental condition described in (A): SU5402: FGF specific inhibitor, SB505124: TGF&#x3B2;-1 specific inhibitor, SU+SB: SU5402+SB505124. Data are presented as the mean &#xB1; SD of multiple repeated experiments; *<italic>p</italic>&lt; 0.05, **<italic>p</italic>&lt; 0.01, and <sup>#</sup><italic>p</italic>&lt; 0.001 versus only CME, indicate statistical significance.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g005"/>
+        </fig>
+      </sec>
+      <sec id="sec017">
+        <title>Stimulatory effect of PD153035 on the osteogenic differentiation of AME-treated MG-63 cells</title>
+        <p>Next, we determined the effect of EGF present in AME on the osteogenesis of MG-63 cells. MG-63 cells cultured in OIM were pretreated with EGF-specific inhibitor PD153035, followed by treatment with the 200 &#x3BC;g/mL of AME. We observed that inhibition of EGF present in AME markedly increased calcium concentration (<xref ref-type="fig" rid="pone.0182716.g006">Fig 6A</xref>). Treatment with a high concentration of AME (400 &#x3BC;g/mL) did not affect calcium deposition on day 7 compared with that in untreated cells. In contrast, treatment with PD153035 dramatically increased the mineralization of MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g006">Fig 6B</xref>) under the same experimental condition. Moreover, mRNA levels of osteogenic marker genes were significantly increased in PD153035-pretreated MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g006">Fig 6C</xref>). PD153035 did not affect the osteogenesis of MG-63 cells, which were confirmed by calcium assay (<xref ref-type="supplementary-material" rid="pone.0182716.s003">S3D Fig</xref>). These results suggested that EGF present in AME inhibited the osteogenesis of MG-63 cells.</p>
+        <fig id="pone.0182716.g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g006</object-id>
+          <label>Fig 6</label>
+          <caption>
+            <title>Stimulatory effect of PD153035 on the osteogenic differentiation of AME-treated MG-63 cells.</title>
+            <p>(A) MG-63 cells were pretreated with DMSO (0.1% v/v) and PD153035 (5&#x2013;20 &#x3BC;M) for 1 h. Next, the cells were treated with 200 &#x3BC;g/mL AME for 7 days. Calcium concentration was determined by performing the calcium assay. Data are represented as mean &#xB1; SD. **<italic>p</italic>&lt; 0.01 and <sup>#</sup><italic>p</italic>&lt; 0.001 versus only AME. (B) MG-63cells were pretreated with DMSO (0.1% v/v) and PD153035 (10 &#x3BC;M) for 1 h. The cells were then treated with different concentrations (100&#x2013;400 &#x3BC;g/mL) of AME and were cultured for 7 days. Calcium concentration was determined by performing the calcium assay. Data are represented as mean &#xB1; SD. *<italic>p</italic>&lt; 0.05, **<italic>p</italic>&lt; 0.01, and <sup>#</sup><italic>p</italic>&lt; 0.001 versus only AME. (C) Expression of genes encoding <italic>RUNX2</italic>, <italic>OSTERIX</italic>, <italic>ALP</italic>, and <italic>IBSP</italic> in cells pretreated with DMSO (0.1% v/v) and PD153035 (10 &#x3BC;M) for 1 h and treated with 100&#x2013;200 &#x3BC;g/mL AME was determined after 4 days by performing quantitative real-time RT-PCR: PD: PD153035, EGF specific inhibitor. *<italic>p</italic>&lt; 0.05 and **<italic>p</italic>&lt; 0.01, Student&#x2019;s t-test. Data are presented as the mean &#xB1; SD of multiple repeated experiments.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g006"/>
+        </fig>
+      </sec>
+      <sec id="sec018">
+        <title>EGF strongly suppressed the osteogenic effects of CME</title>
+        <p>Results presented in <xref ref-type="fig" rid="pone.0182716.g004">Fig 4</xref> indicated that AME contained various growth factors such as EGF, bFGF, and TGF&#x3B2;-1. However, AME treatment showed less stimulation of mineralization on MG-63 cells compared with CME treatment. CME contained appropriate concentrations of bFGF and TGF&#x3B2;-1 but lacked EGF. Next, the effect of EGF concentration (0.1&#x2013;100 ng/mL) on osteogenic differentiation was examined in the presence of 400 &#x3BC;g/mL CME. <xref ref-type="fig" rid="pone.0182716.g007">Fig 7A</xref> shows that the stimulatory effect of CME was significantly inhibited by EGF at concentrations as low as 1 ng/mL. <xref ref-type="fig" rid="pone.0182716.g007">Fig 7B</xref> similarly shows that 10 ng/mL EGF inhibited the formation of mineralized nodules in MG-63 cell culture. We observed that 10 ng/mL EGF completely inhibited CME-induced mineralization by MG-63 cells at CME concentrations ranging from 400&#x2013;800 &#x3BC;g/mL (<xref ref-type="fig" rid="pone.0182716.g007">Fig 7C</xref>). Taken together, these data suggested that exogenous EGF treatment strongly suppressed calcium formation and ECM mineralization during the osteogenesis of CME-treated MG-63 cells.</p>
+        <fig id="pone.0182716.g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g007</object-id>
+          <label>Fig 7</label>
+          <caption>
+            <title>EGF strongly suppressed the osteogenic effects of CME.</title>
+            <p>(A) MG-63 cells were cultured in OIM with CME (400 &#x3BC;g/mL) and various concentrations of EGF (0.1&#x2013;100 ng/mL). Calcium assay was performed after 7 days. *<italic>p</italic>&lt; 0.05, **<italic>p</italic>&lt; 0.01, and <sup>#</sup><italic>p</italic>&lt; 0.001 versus only CME. (B) MG-63 cells were cultured in OIM containing different concentrations of CME (100&#x2013;800 &#x3BC;&#x3BC;g/mL) in the presence or absence of EGF (100 ng/mL). Mineralization rate was determined by performing Alizarin red S staining. **<italic>p</italic>&lt; 0.01, Student&#x2019;s t-test. (C) MG-63 cells were cultured in OIM containing 400 &#x3BC;g/mL CME with or without EGF (10 ng/mL). After 9 days, the cells were stained with Alizarin red S to determine mineralization. Scale bars represent 500 &#x3BC;m. Data are represented as mean &#xB1; SD of multiple repeated experiments.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g007"/>
+        </fig>
+      </sec>
+      <sec id="sec019">
+        <title>Strong effects of CME on human MSCs during osteogenesis</title>
+        <p>Next, we asked if CME could stimulate human mesenchymal stem cells (hMSCs) which are used as standard cell types for therapy. The morphological change, ALP activity, calcium contents and mineralization of hMSCs were significantly promoted under the OIM condition with CME (<xref ref-type="fig" rid="pone.0182716.g008">Fig 8</xref>). But most important of all, ALP activity of hMSCs has already stimulated in response to CME treatment with a peak level detected at day 3 (<xref ref-type="fig" rid="pone.0182716.g008">Fig 8B</xref>) compared with ALP activity of MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g002">Fig 2A</xref>), suggesting the strong efficacy of CME on the osteogenesis of hMSCs. Taken together, these results provide clear evidence that CME could be a biocompatible therapeutic material for bone regeneration as a strong stimulator of osteogenesis on hMSCs.</p>
+        <fig id="pone.0182716.g008" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g008</object-id>
+          <label>Fig 8</label>
+          <caption>
+            <title>Strong effects of CME on human MSCs during osteogenesis.</title>
+            <p>(A) Morphological changes in response to treatment with CME (200 and 400 &#x3BC;g/mL) were examined at day 7 under a light microscope. Scale bars represent 500 &#x3BC;&#x3BC;m. (B) ALP activity of hMSCs cultured in OIM with or without CME was measured at day 7. *<italic>p</italic>&lt; 0.01, Student&#x2019;s t-test. (C) Confluent hMSCs cultured in OIM were treated with various concentration of CME (100&#x2013;400 &#x3BC;&#x3BC;g/mL). Calcium concentration was determined by performing the calcium assay at day 7. **<italic>p</italic>&lt; 0.01 versus only OIM. (D) Mineralization rate was determined by performing Alizarin red S staining. Scale bars represent 500 &#x3BC;m. Data are presented as the mean &#xB1; SD of multiple repeated experiments; *<italic>p</italic>&lt; 0.01 and **<italic>p</italic>&lt; 0.001 versus OIM, indicates statistical significance.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g008"/>
+        </fig>
+      </sec>
+      <sec id="sec020">
+        <title>Comparison of osteogenic effect of growth factors with that of CME</title>
+        <p>To compare the osteogenic effect of several bone-specific growth factors and CME, we selected growth factors, bFGF, TGF&#x3B2;-1, EGF and BMP2 which are involved in differentiation of osteoblasts [<xref rid="pone.0182716.ref029" ref-type="bibr">29</xref>] and then tested on MG-63 cells and hMSCs with CME. In <xref ref-type="fig" rid="pone.0182716.g009">Fig 9A</xref>, bone-related growth factors alone or their combination did not affect calcium formation of MG-63 cells at day 9. The ALP activity of hMSCs was slightly increased in treated with bFGF and decreased in treated with TGF&#x3B2;-1 at day 7 after the induction of osteogenesis (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9B</xref>). However, CME remarkably stimulated the differentiation and mineralization compared with both MG-63 cells and hMSCs (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9A and 9B</xref>). Especially, BMP2 are known to highly induce the osteogenic differentiation of osteoblasts [<xref rid="pone.0182716.ref030" ref-type="bibr">30</xref>&#x2013;<xref rid="pone.0182716.ref033" ref-type="bibr">33</xref>] but low concentration or the short period treatment did not exert osteogenesis in our study. To further confirm the comparison of osteogenic effect between growth factors and CME, we treated high concentration of recombinant BMP2, bFGF, and TGF&#x3B2;-1 alone or their combinations and CME underlying the osteogenic condition. Analysis after 18 days of treatment with the growth factors or CME showed that treatment with high concentration of BMP2 (500 ng/mL) increased the mineralization of MG-63 cells, as confirmed by Alizarin red S staining (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9C</xref>). In contrast, no mineralization was detected in cells treated with high concentrations (500 ng/mL) of bFGF and TGF&#x3B2;&#x3B2;-1, indicating that these growth factors did not exert osteogenic effect independently (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9C</xref> and <xref ref-type="supplementary-material" rid="pone.0182716.s004">S4 Fig</xref>). Surprisingly, treatment with low concentration (100 &#x3BC;g/mL) of CME strongly induced the osteogenic differentiation of MG-63 cells under the same experimental condition. Treatment with exogenous bFGF + TGF&#x3B2;-1 and bFGF + TGF&#x3B2;-1+ BMP2 did not exert any synergistic effect on the osteogenic differentiation of MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9C</xref> and <xref ref-type="supplementary-material" rid="pone.0182716.s004">S4 Fig</xref>). Interestingly, the osteogenic effect of BMP2 was abolished when it was administered in combination with bFGF + TGF&#x3B2;-1 (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9C</xref> and <xref ref-type="supplementary-material" rid="pone.0182716.s004">S4 Fig</xref>), implying that this was not an optimal combination for promoting the osteogenesis of MG-63 cells.</p>
+        <fig id="pone.0182716.g009" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g009</object-id>
+          <label>Fig 9</label>
+          <caption>
+            <title>Comparison of the osteogenic effect of different growth factors with that of CME.</title>
+            <p>(A) MG-63 cells grown in OIM with or without various concentrations (1, 5 and 20 ng/mL) of bFGF, TGF &#x3B2;-1, EGF alone or their combination and CME (100&#x2013;800 &#x3BC;g/mL). On day 9, Calcium concentration was compared by performing the calcium assay: F+T: bFGF + TGF&#x3B2;-1, F+T+E: bFGF + TGF&#x3B2;-1+ EGF. (B) MG-63 cells were cultured in OIM with or without high concentration of BMP2 (50&#x2013;500 ng/mL), bFGF (50&#x2013;500 ng/mL), and TGF&#x3B2;-1 (50&#x2013;500 ng/mL) alone or their combinations (bFGF + TGF&#x3B2;-1 and bFGF + TGF&#x3B2;-1+ BMP2) and CME (100&#x2013;800 &#x3BC;g/mL). The cells were treated with the indicated concentrations of the growth factors and CME every 2&#x2013;3 days and were cultured for 18 days. ECM mineralization was determined by performing Alizarin red S staining and by measuring the absorbance of solubilized Alizarin red S at 570 nm: F+T: bFGF + TGF&#x3B2;-1, F+T+B: bFGF + TGF&#x3B2;-1+ BMP2. Scale bars represent 100 &#x3BC;m. (C) Human MSCs were cultured in OIM with or without various concentrations (1 and 10 ng/mL) of bFGF, TGF&#x3B2;-1, BMP2 and CME (100&#x2013;400 &#x3BC;g/mL). ALP activity was measured at day 7. Data are presented as the mean &#xB1; SD of multiple repeated experiments; **<italic>p</italic>&lt; 0.01 and <sup>#</sup><italic>p</italic>&lt; 0.001 versus OIM, indicates statistical significance.</p>
+          </caption>
+          <graphic xlink:href="pone.0182716.g009"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="conclusions" id="sec021">
+      <title>Discussion</title>
+      <p>The human amniotic membrane has been used as a natural scaffold in tissue engineering since the early 20<sup>th</sup> century [<xref rid="pone.0182716.ref034" ref-type="bibr">34</xref>]. AM is a strong, flexible, and translucent biomaterial scaffold containing various growth factors and cytokines that confer it with unique anti-scarring and anti-inflammatory properties [<xref rid="pone.0182716.ref035" ref-type="bibr">35</xref>]. The natural AM is modified by decellularization to obtain an acellular AM matrix for clinical use. Decellularization involves the removal of epithelial cells from the surface of AM by physiological or chemical methods to eliminate immunogenicity [<xref rid="pone.0182716.ref036" ref-type="bibr">36</xref>, <xref rid="pone.0182716.ref037" ref-type="bibr">37</xref>]. Koizumi et al. reported that the most growth factors present on the epithelium of AM are lost during decellularization [<xref rid="pone.0182716.ref038" ref-type="bibr">38</xref>]. Although human CM contains more growth factors and cytokines than those present on an equal surface area of AM, CM has not been used as a scaffold because it is structurally difficult to operate during decellularization compared with AM. In this study we prepared human amniotic membrane matrix-extract and evaluated the osteogenic differentiation of osteoblast-like cells. The AM matrix-extract is easy to use and storage in clinical setting and the procedure mentioned in this study did not affect the growth factors present in intact amnion and chorion membranes. Moreover, we also evaluated the less studies human CM extract&#x2019;s effect on the osteogenic differentiation of osteoblasts.</p>
+      <p>Bone regeneration is a multistep process characterized by cell migration, coupling, proliferation and differentiation and involves several cells types such as osteoblasts, osteoclasts, endothelial cells and pericytes [<xref rid="pone.0182716.ref006" ref-type="bibr">6</xref>]. BMPs are the most investigated growth factors involved in bone regeneration. BMPs diversely affect osteoblast lineage cells and stimulate the proliferation and differentiation of mesenchymal progenitors, preosteoblasts, and osteoblasts [<xref rid="pone.0182716.ref039" ref-type="bibr">39</xref>, <xref rid="pone.0182716.ref040" ref-type="bibr">40</xref>]. Particularly, BMP2 recruits bone-lining cells at defected regions and enhances their differentiation by modulating angiogenesis [<xref rid="pone.0182716.ref041" ref-type="bibr">41</xref>, <xref rid="pone.0182716.ref042" ref-type="bibr">42</xref>]. Since its FDA approval in 2002, recombinant human BMP2 (rhBMP2) has been used for treating patients with various bone defects [<xref rid="pone.0182716.ref039" ref-type="bibr">39</xref>]. Interestingly, CME did not contain BMP2, as determined by ELISA (<xref ref-type="fig" rid="pone.0182716.g004">Fig 4</xref>). However, osteogenic effect of CME showed more promising results than BMP2 in the present study (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9</xref>). Treatment with 200&#x2013;400 &#x3BC;g/mL CME might provide an appropriate environment for the differentiation of MG-63 cells, which reached the late stage of osteogenesis on day 7 and 9 after treatment (<xref ref-type="fig" rid="pone.0182716.g002">Fig 2</xref>). These results indicate that CME constituents promote the osteogenesis of MG-63 cells. A further study is needed to identify the exact component.</p>
+      <p>With BMP2, growth factors such as bFGF, TGF&#x3B2;-1 and EGF play important roles in bone regeneration by promoting osteoblast proliferation and differentiation. In our study, treatment with high BMP2 doses induced ECM mineralization after 18 days; however, the combination of BMP2 + FGF2 + TGF&#x3B2;-1 did not promote the late-stage differentiation of MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9</xref> and <xref ref-type="supplementary-material" rid="pone.0182716.s004">S4 Fig</xref>). However, Alizarin red S staining demonstrated the significant efficacy of CME in promoting the mineralization of MG-63 cells compared with that of growth factors alone and/or their combinations (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9</xref>). These results indicated that CME possess potential for bone formation even in the absence of BMP2. In addition, interplay among different growth factors may influence stimulatory or inhibitory effects of osteoblasts which may differ among the combination and ratio of growth factors.</p>
+      <p>In previous study, we optimized the in vitro dose of BMP2 as 500 ng/mL for enhancing osteogenesis on MG-63 cells at 20 days after the treatment in OIM. Therefore, here we used 500 ng/mL BMP2 as the highest concentration in single growth factor treatment for increasing mineralized nodule formation on MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9</xref>). Previous studies reported much lower concentration of growth factors for in vitro osteogenic differentiation on human and mouse MSCs [<xref rid="pone.0182716.ref007" ref-type="bibr">7</xref>, <xref rid="pone.0182716.ref043" ref-type="bibr">43</xref>]. The optimum dosage of growth factors for in vitro osteogenesis may vary by the cell type used in the experimental system. For example, in our study lower concentration of bFGF have shown an increased ALP activity hMSCs at day 7, however, no effect on MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g009">Fig 9</xref>). The reason could be the different ability of cells as an osteoblast on in vitro osteogenic differentiation. In addition, the promoting effect of growth factors on osteogenesis may differ by the period of in vitro ostoegenesis. Many studies commonly used low growth factor doses and long culture period for in vitro differentiation of osteoblasts. Here, in order to detect the stimulatory effect of CME on osteogenesis during short differentiation period, we treated high concentration of growth factors and compared the efficacy of osteogenesis. Our results showed that CME significantly promoted mineralization and calcium accumulation only at 7 and 9 days after osteogenic induction while high doses of growth factors could not enhance the osteogenesis of MG 63 cells. Therefore, the potential ability of CME for osteogenesis was much better than several bone-specific growth factors, even if high concentration of growth factors were used under the same experimental condition and period.</p>
+      <p>Growth factors are known to be involved in proliferation and differentiation of osteo-progenitor cells. Previous data showed that osteogenesis of rat MSCs was promoted by adding bFGF in the earlier stages followed by the treatment of BMP2 at the later stage [<xref rid="pone.0182716.ref007" ref-type="bibr">7</xref>]. They determined the temporal and synergistic effect of bFGF and BMP2 on osteogenesis and explained the reason; the treatment of bFGF at the early stage increased the total number of cells, which may also increase the BMP2 receptors on the cell surfaces to enhance the binding potential with added BMP2 at the late stage. In this study, our main focus was to study the differentiation effects of growth factors on osteogenesis of MG-63 cells, rather than the proliferation effects. We constantly applied growth factors to study the osteogenic effects on MG63 cells and compared with CME. The temporal and multiple combination of growth factors for osteogenesis will consider in our future experiments. Furthermore, the optimal time for growth factor addition and dosages during osteogenesis further needs to study to understand the natural spatiotemporal process of bone regeneration. Altogether, our results showed that CME is a complete natural solution that is easier to apply to enhance osteogenesis than selectively addition of bone-specific growth factors during differentiation of osteoblasts.</p>
+      <p>Recent studies have suggested that continuous treatment with rhBMP2 leads to adverse such as carcinogenesis and excessive bone regeneration [<xref rid="pone.0182716.ref039" ref-type="bibr">39</xref>, <xref rid="pone.0182716.ref044" ref-type="bibr">44</xref>, <xref rid="pone.0182716.ref045" ref-type="bibr">45</xref>]. Therefore, CME might be an excellent alternative to BMP2 for bone regeneration because it is easy to obtain, is more safe and biocompatible for <italic>in vivo</italic> application, and promote the osteogenic differentiation of osteoblasts.</p>
+      <p>The bFGF has biological activities including proliferation, migration, angiogenesis, and bone differentiation. However, the osteogenic effects of bFGF on osteoblasts are controversial. Dombrowski et al. have shown that blocking of FGF signaling using the chemical inhibitor SU5402 increases mineralization of rat bone marrow stem cells (rMSCs) in OIM for 21 days [<xref rid="pone.0182716.ref046" ref-type="bibr">46</xref>]. However, we cultured MG-63 cells in OIM with SU5402 for only 9 days. No detectable change of mineralization was observed during 9 days on MG-63 cells cultured in OIM containing SU5402 (<xref ref-type="supplementary-material" rid="pone.0182716.s003">S3 Fig</xref>). Collectively, it implies that FGF signaling does not affect osteogenic differentiation at the early stage of osteogenesis whereas this specific signaling has negative effect on the late stage of osteogenic differentiation, suggesting the continuous activation of FGF signaling may be unnecessary for osteogenic differentiation in <italic>in vitro</italic> system. In addition, a new fining recently supported by Kim et al., identified DJ-1 protein which is a novel osteogenic factor to promote the osteogenesis of MSCs through the activation of FGF signaling [<xref rid="pone.0182716.ref047" ref-type="bibr">47</xref>]. We have shown the inhibitory effect of SU5402 on the osteogenic differentiation of CME-treated MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g005">Fig 5</xref>), indicating that CME may contain an osteogenic stimulator to enhance mineralization of osteoblast-like cells via FGF signaling like DJ-1.</p>
+      <p>In the present study, we evaluated the effects of CME on the differentiation of osteoblast-like MG-63 cells and hMSCs. The effect of CME on other bone lineage cells and different types of osteoblasts <italic>in vitro</italic> and <italic>in vivo</italic> needs to be evaluated along with the mechanism underlying the stimulation of osteogenesis by CME.</p>
+    </sec>
+    <sec sec-type="conclusions" id="sec022">
+      <title>Conclusion</title>
+      <p>Both AME and CME enhanced the osteogenesis of MG-63 cells; however, CME was more effective in promoting osteogenesis than AME. We found that bFGF and TGF&#x3B2;-1 present in both the extracts positively regulated the osteogenic differentiation of MG-63 cells while EGF present in AME negatively regulated the osteogenic differentiation of MG-63 cells (<xref ref-type="fig" rid="pone.0182716.g010">Fig 10</xref>). Based on their growth factor composition, AME and CME exerted differential effects on the expression of osteogenic marker genes, which in turn affected the mineralization of MG-63 cells during osteogenesis (<xref ref-type="fig" rid="pone.0182716.g010">Fig 10</xref>). Moreover, our results clearly indicated the excellent capacity of CME in promoting bone regeneration compared with that bFGF, TGF&#x3B2;-1, and BMP2 alone or in combination. Therefore, we suggest two possible translational approaches to various bone disease such as osteoporosis and osteopetrosis. The first strategy is a combination treatment of CME with stem cells which may use in bone defect to promote bone growth and healing. On the other hand, AME may provide a new therapeutic strategy to modulate the bone density or calcification during bone regeneration by modifying osteogenic efficacy of AME using EGFR inhibitors.</p>
+      <fig id="pone.0182716.g010" orientation="portrait" position="float">
+        <object-id pub-id-type="doi">10.1371/journal.pone.0182716.g010</object-id>
+        <label>Fig 10</label>
+        <caption>
+          <title>Proposed mechanisms underlying the effect of growth factors present in AME and CME on the osteogenic differentiation of MG-63 cells.</title>
+          <p>(A) Of the several growth factors present in CME, bFGF and TGF&#x3B2;-1 positively regulated the expression of osteogenic marker genes, which subsequently promoted ECM mineralization during the osteogenic differentiation of MG-63 cells. (B) AME contained high concentrations of EGF along with bFGF and TGF&#x3B2;-1. bFGF and TGF&#x3B2;-1 upregulated the expression of osteogenic marker genes, which positively affect to the formation of mineralization, like CME. In contrast, activation of EGF signaling in AME-treated MG-63 cells decreased the expression of osteogenic marker genes, thus preventing these cells from entering the late stage of osteogenic differentiation, which is characterized by ECM mineralization.</p>
+        </caption>
+        <graphic xlink:href="pone.0182716.g010"/>
+      </fig>
+      <p>The exact regulatory mechanisms underlying the mineralization of osteoblasts induced by growth factors and proteins in the human amniotic membrane are unclear. However, our findings clearly indicate the potential of CME in promoting the osteogenic differentiation of osteoblast-like cells and human bone marrow derived MSCs, suggesting that it can be used as a novel therapeutic biomaterial for bone regeneration.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="sec023">
+      <title>Supporting information</title>
+      <supplementary-material content-type="local-data" id="pone.0182716.s001">
+        <label>S1 Fig</label>
+        <caption>
+          <title>Image of human amniotic membranes and extracts.</title>
+          <p>(A) Representative images showed amnion, chorion, and conjoined amnion/chorion membrane. (B) AME and CME were prepared as described in Material and Method section shown here.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0182716.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0182716.s002">
+        <label>S2 Fig</label>
+        <caption>
+          <title>Osteogenesis of MG-63 cells.</title>
+          <p>(A) Expression profiles of ALP activity were determined during MG-63 osteogenesis. GM: growth medium and OIM: Osteogenesis Induction Medium. (B) Calcium contents of MG-63 cells during osteogenesis were analyzed by performing the calcium assay at day 7 after the induction. (C) The mRNA levels of osteogenic markers, <italic>ALP</italic>, <italic>IBSP</italic>, <italic>RUNX2</italic>, <italic>OSTERIX</italic> and <italic>OCN</italic> were examined by quantitative RT-PCR about 4 days after the induction of osteogenesis. *<italic>p</italic>&lt; 0.01 and **<italic>p</italic>&lt; 0.001, Student&#x2019;s t-test. Data are presented as the mean &#xB1; SD of multiple repeated experiments.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0182716.s002.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0182716.s003">
+        <label>S3 Fig</label>
+        <caption>
+          <title>Suramin sodium, SU5402, and SB505124 did not affect the osteogenesis of MG-63 cells.</title>
+          <p>The experiment performed without CME treatment at the same condition described (A) in <xref ref-type="fig" rid="pone.0182716.g002">Fig 2A</xref>, (B) in <xref ref-type="fig" rid="pone.0182716.g004">Fig 4A</xref>, (C) in <xref ref-type="fig" rid="pone.0182716.g004">Fig 4B</xref>, and (D) in <xref ref-type="fig" rid="pone.0182716.g005">Fig 5A</xref>, respectively. Data are presented as the mean &#xB1; SD of multiple repeated experiments.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0182716.s003.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0182716.s004">
+        <label>S4 Fig</label>
+        <caption>
+          <title>Recombinant human growth factors did not induce the mineralization of MG-63 cells.</title>
+          <p>The experimental condition described in <xref ref-type="fig" rid="pone.0182716.g007">Fig 7</xref>. Microscope images showed MG-63 cells cultured in OIM with bFGF (500 ng/mL), TGF&#x3B2;-1 (500 ng/mL), CME (100 &#x3BC;g/mL), bFGF + TGF&#x3B2;-1 (500 ng/mL of each growth factor), and bFGF + TGF&#x3B2;&#x3B2;-1 + BMP2 (500 ng/mL of each growth factor). Scale bars represent 500 &#x3BC;m.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0182716.s004.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0182716.s005">
+        <label>S1 Table</label>
+        <caption>
+          <title>List of primers and product sizes for quantitative real-time RT-PCR.</title>
+          <p>(DOCX)</p>
+        </caption>
+        <media xlink:href="pone.0182716.s005.docx">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0182716.ref001">
+        <label>1</label>
+        <mixed-citation publication-type="journal"><name><surname>Karsenty</surname><given-names>G</given-names></name>, <name><surname>Wagner</surname><given-names>EF</given-names></name>: <article-title>Reaching a Genetic and Molecular Understanding of Skeletal Development</article-title>. <source>Developmental Cell</source>
+<year>2002</year>, <volume>2</volume>(<issue>4</issue>):<fpage>389</fpage>&#x2013;<lpage>406</lpage>. <pub-id pub-id-type="pmid">11970890</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref002">
+        <label>2</label>
+        <mixed-citation publication-type="journal"><name><surname>Blair</surname><given-names>HC</given-names></name>, <name><surname>Sun</surname><given-names>LI</given-names></name>, <name><surname>Kohanski</surname><given-names>RA</given-names></name>: <article-title>Balanced Regulation of Proliferation, Growth, Differentiation, and Degradation in Skeletal Cells</article-title>. <source>Annals of the New York Academy of Sciences</source>
+<year>2007</year>, <volume>1116</volume>(<issue>1</issue>):<fpage>165</fpage>&#x2013;<lpage>173</lpage>.<pub-id pub-id-type="pmid">17646258</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref003">
+        <label>3</label>
+        <mixed-citation publication-type="journal"><name><surname>Blair</surname><given-names>HC</given-names></name>, <name><surname>Zaidi</surname><given-names>M</given-names></name>, <name><surname>Huang</surname><given-names>CLH</given-names></name>, <name><surname>Sun</surname><given-names>L</given-names></name>: <article-title>The Developmental Basis of Skeletal Cell Differentiation and the Molecular Basis of Major Skeletal Defects</article-title>. <source>Biological Reviews</source>
+<year>2008</year>, <volume>83</volume>(<issue>4</issue>):<fpage>401</fpage>&#x2013;<lpage>415</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/j.1469-185X.2008.00048.x">10.1111/j.1469-185X.2008.00048.x</ext-link></comment>
+<pub-id pub-id-type="pmid">18710437</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref004">
+        <label>4</label>
+        <mixed-citation publication-type="journal"><name><surname>Pittenger</surname><given-names>MF</given-names></name>, <name><surname>Mackay</surname><given-names>AM</given-names></name>, <name><surname>Beck</surname><given-names>SC</given-names></name>, <name><surname>Jaiswal</surname><given-names>RK</given-names></name>, <name><surname>Douglas</surname><given-names>R</given-names></name>, <name><surname>Mosca</surname><given-names>JD</given-names></name>
+<etal>et al</etal>: <article-title>Multilineage Potential of Adult Human Mesenchymal Stem Cells</article-title>. <source>Science</source>
+<year>1999</year>, <volume>284</volume>(<issue>5411</issue>):<fpage>143</fpage>&#x2013;<lpage>147</lpage>. <pub-id pub-id-type="pmid">10102814</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref005">
+        <label>5</label>
+        <mixed-citation publication-type="journal"><name><surname>Ducy</surname><given-names>P</given-names></name>, <name><surname>Schinke</surname><given-names>T</given-names></name>, <name><surname>Karsenty</surname><given-names>G</given-names></name>: <article-title>The Osteoblast: A Sophisticated Fibroblast under Central Surveillance</article-title>. <source>Science</source>
+<year>2000</year>, <volume>289</volume>(<issue>5484</issue>):<fpage>1501</fpage>&#x2013;<lpage>1504</lpage>. <pub-id pub-id-type="pmid">10968779</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref006">
+        <label>6</label>
+        <mixed-citation publication-type="journal"><name><surname>Long</surname><given-names>F</given-names></name>: <article-title>Building strong bones: molecular regulation of the osteoblast lineage</article-title>. <source>Nat Rev Mol Cell Biol</source>
+<year>2012</year>, <volume>13</volume>(<issue>1</issue>):<fpage>27</fpage>&#x2013;<lpage>38</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref007">
+        <label>7</label>
+        <mixed-citation publication-type="journal"><name><surname>Huang</surname><given-names>Z</given-names></name>, <name><surname>Ren</surname><given-names>PG</given-names></name>, <name><surname>Ma</surname><given-names>T</given-names></name>, <name><surname>Smith</surname><given-names>RL</given-names></name>, <name><surname>Goodman</surname><given-names>SB</given-names></name>: <article-title>Modulating osteogenesis of mesenchymal stem cells by modifying growth factor availability</article-title>. <source>Cytokine</source>
+<year>2010</year>, <volume>51</volume>(<issue>3</issue>):<fpage>305</fpage>&#x2013;<lpage>310</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cyto.2010.06.002">10.1016/j.cyto.2010.06.002</ext-link></comment>
+<pub-id pub-id-type="pmid">20580248</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref008">
+        <label>8</label>
+        <mixed-citation publication-type="journal"><name><surname>Mitchell</surname><given-names>AC</given-names></name>, <name><surname>Briquez</surname><given-names>PS</given-names></name>, <name><surname>Hubbell</surname><given-names>JA</given-names></name>, <name><surname>Cochran</surname><given-names>JR</given-names></name>: <article-title>Engineering growth factors for regenerative medicine applications</article-title>. <source>Acta Biomaterialia</source>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref009">
+        <label>9</label>
+        <mixed-citation publication-type="journal"><name><surname>Kang</surname><given-names>M</given-names></name>, <name><surname>Choi</surname><given-names>S</given-names></name>, <name><surname>Cho Lee</surname><given-names>A-R</given-names></name>: <article-title>Effect of freeze dried bovine amniotic membrane extract on full thickness wound healing</article-title>. <source>Arch Pharm Res</source>
+<year>2013</year>, <volume>36</volume>(<issue>4</issue>):<fpage>472</fpage>&#x2013;<lpage>478</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s12272-013-0079-5">10.1007/s12272-013-0079-5</ext-link></comment>
+<pub-id pub-id-type="pmid">23512774</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref010">
+        <label>10</label>
+        <mixed-citation publication-type="journal"><name><surname>Hao</surname><given-names>Y</given-names></name>, <name><surname>Ma</surname><given-names>DH-K</given-names></name>, <name><surname>Hwang</surname><given-names>DG</given-names></name>, <name><surname>Kim</surname><given-names>W-S</given-names></name>, <name><surname>Zhang</surname><given-names>F</given-names></name>: <article-title>Identification of Antiangiogenic and Antiinflammatory Proteins in Human Amniotic Membrane</article-title>. <source>Cornea</source>
+<year>2000</year>, <volume>19</volume>(<issue>3</issue>):<fpage>348</fpage>&#x2013;<lpage>352</lpage>. <pub-id pub-id-type="pmid">10832697</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref011">
+        <label>11</label>
+        <mixed-citation publication-type="journal"><name><surname>Sangwan</surname><given-names>VS</given-names></name>, <name><surname>Basu</surname><given-names>S</given-names></name>: <article-title>Antimicrobial properties of amniotic membrane</article-title>. <source>British Journal of Ophthalmology</source>
+<year>2011</year>, <volume>95</volume>(<issue>1</issue>):<fpage>1</fpage>&#x2013;<lpage>2</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/bjo.2010.184259">10.1136/bjo.2010.184259</ext-link></comment>
+<pub-id pub-id-type="pmid">21163818</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref012">
+        <label>12</label>
+        <mixed-citation publication-type="journal"><name><surname>Go</surname><given-names>YY</given-names></name>, <name><surname>Kim</surname><given-names>SE</given-names></name>, <name><surname>Cho</surname><given-names>GJ</given-names></name>, <name><surname>Chae</surname><given-names>SW</given-names></name>, <name><surname>Song</surname><given-names>JJ</given-names></name>: <article-title>Promotion of osteogenic differentiation by amnion/chorion membrane extracts</article-title>. <source>Journal of applied biomaterials &amp; functional materials</source>
+<year>2016</year>, <volume>14</volume>(<issue>2</issue>):<fpage>e171</fpage>&#x2013;<lpage>180</lpage>.<pub-id pub-id-type="pmid">27056480</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref013">
+        <label>13</label>
+        <mixed-citation publication-type="journal"><name><surname>Luu</surname><given-names>HH</given-names></name>, <name><surname>Song</surname><given-names>W-X</given-names></name>, <name><surname>Luo</surname><given-names>X</given-names></name>, <name><surname>Manning</surname><given-names>D</given-names></name>, <name><surname>Luo</surname><given-names>J</given-names></name>, <name><surname>Deng</surname><given-names>Z-L</given-names></name>
+<etal>et al</etal>: <article-title>Distinct roles of bone morphogenetic proteins in osteogenic differentiation of mesenchymal stem cells</article-title>. <source>Journal of Orthopaedic Research</source>
+<year>2007</year>, <volume>25</volume>(<issue>5</issue>):<fpage>665</fpage>&#x2013;<lpage>677</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/jor.20359">10.1002/jor.20359</ext-link></comment>
+<pub-id pub-id-type="pmid">17290432</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref014">
+        <label>14</label>
+        <mixed-citation publication-type="journal"><name><surname>Miraoui</surname><given-names>H</given-names></name>, <name><surname>Oudina</surname><given-names>K</given-names></name>, <name><surname>Petite</surname><given-names>H</given-names></name>, <name><surname>Tanimoto</surname><given-names>Y</given-names></name>, <name><surname>Moriyama</surname><given-names>K</given-names></name>, <name><surname>Marie</surname><given-names>PJ</given-names></name>: <article-title>Fibroblast Growth Factor Receptor 2 Promotes Osteogenic Differentiation in Mesenchymal Cells via ERK1/2 and Protein Kinase C Signaling</article-title>. <source>Journal of Biological Chemistry</source>
+<year>2009</year>, <volume>284</volume>(<issue>8</issue>):<fpage>4897</fpage>&#x2013;<lpage>4904</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1074/jbc.M805432200">10.1074/jbc.M805432200</ext-link></comment>
+<pub-id pub-id-type="pmid">19117954</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref015">
+        <label>15</label>
+        <mixed-citation publication-type="journal"><name><surname>Ozkan</surname><given-names>K</given-names></name>, <name><surname>Eralp</surname><given-names>L</given-names></name>, <name><surname>Kocaoglu</surname><given-names>M</given-names></name>, <name><surname>Ahishali</surname><given-names>B</given-names></name>, <name><surname>Bilgic</surname><given-names>B</given-names></name>, <name><surname>Mutlu</surname><given-names>Z</given-names></name>
+<etal>et al</etal>: <article-title>The effect of transforming growth factor &#x3B2;1 (TGF-&#x3B2;1) on the regenerate bone in distraction osteogenesis</article-title>. <source>Growth Factors</source>
+<year>2007</year>, <volume>25</volume>(<issue>2</issue>):<fpage>101</fpage>&#x2013;<lpage>107</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1080/08977190701352594">10.1080/08977190701352594</ext-link></comment>
+<pub-id pub-id-type="pmid">17891595</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref016">
+        <label>16</label>
+        <mixed-citation publication-type="journal"><name><surname>Tamama</surname><given-names>K</given-names></name>, <name><surname>Kawasaki</surname><given-names>H</given-names></name>, <name><surname>Wells</surname><given-names>A</given-names></name>: <article-title>Epidermal Growth Factor (EGF) Treatment on Multipotential Stromal Cells (MSCs). Possible Enhancement of Therapeutic Potential of MSC</article-title>. <source>Journal of Biomedicine and Biotechnology</source>
+<year>2010</year>, <volume>2010</volume>:<issue>10</issue>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref017">
+        <label>17</label>
+        <mixed-citation publication-type="journal"><name><surname>Li</surname><given-names>RD</given-names></name>, <name><surname>Deng</surname><given-names>ZL</given-names></name>, <name><surname>Hu</surname><given-names>N</given-names></name>, <name><surname>Liang</surname><given-names>X</given-names></name>, <name><surname>Liu</surname><given-names>B</given-names></name>, <name><surname>Luo</surname><given-names>J</given-names></name>
+<etal>et al</etal>: <article-title>Biphasic effects of TGFbeta1 on BMP9-induced osteogenic differentiation of mesenchymal stem cells</article-title>. <source>BMB reports</source>
+<year>2012</year>, <volume>45</volume>(<issue>9</issue>):<fpage>509</fpage>&#x2013;<lpage>514</lpage>. <pub-id pub-id-type="pmid">23010171</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref018">
+        <label>18</label>
+        <mixed-citation publication-type="journal"><name><surname>Li</surname><given-names>XL</given-names></name>, <name><surname>Liu</surname><given-names>YB</given-names></name>, <name><surname>Ma</surname><given-names>EG</given-names></name>, <name><surname>Shen</surname><given-names>WX</given-names></name>, <name><surname>Li</surname><given-names>H</given-names></name>, <name><surname>Zhang</surname><given-names>YN</given-names></name>: <article-title>Synergistic effect of BMP9 and TGF-beta in the proliferation and differentiation of osteoblasts</article-title>. <source>Genetics and molecular research: GMR</source>
+<year>2015</year>, <volume>14</volume>(<issue>3</issue>):<fpage>7605</fpage>&#x2013;<lpage>7615</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4238/2015.July.13.4">10.4238/2015.July.13.4</ext-link></comment>
+<pub-id pub-id-type="pmid">26214439</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref019">
+        <label>19</label>
+        <mixed-citation publication-type="journal"><name><surname>Gurkan</surname><given-names>UA</given-names></name>, <name><surname>Gargac</surname><given-names>J</given-names></name>, <name><surname>Akkus</surname><given-names>O</given-names></name>: <article-title>The sequential production profiles of growth factors and their relations to bone volume in ossifying bone marrow explants</article-title>. <source>Tissue engineering Part A</source>
+<year>2010</year>, <volume>16</volume>(<issue>7</issue>):<fpage>2295</fpage>&#x2013;<lpage>2306</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/ten.TEA.2009.0565">10.1089/ten.TEA.2009.0565</ext-link></comment>
+<pub-id pub-id-type="pmid">20184436</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref020">
+        <label>20</label>
+        <mixed-citation publication-type="journal"><name><surname>Compton</surname><given-names>J</given-names></name>, <name><surname>Fragomen</surname><given-names>A</given-names></name>, <name><surname>Rozbruch</surname><given-names>SR</given-names></name>: <article-title>Skeletal Repair in Distraction Osteogenesis: Mechanisms and Enhancements</article-title>. <source>JBJS Reviews</source>
+<year>2015</year>, <volume>3</volume>(<issue>8</issue>).</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref021">
+        <label>21</label>
+        <mixed-citation publication-type="journal"><name><surname>Yun</surname><given-names>Y-P</given-names></name>, <name><surname>Lee</surname><given-names>S-Y</given-names></name>, <name><surname>Kim</surname><given-names>H-J</given-names></name>, <name><surname>Song</surname><given-names>J-J</given-names></name>, <name><surname>Kim</surname><given-names>S</given-names></name>: <article-title>Improvement of osteoblast functions by sustained release of bone morphogenetic protein-2 (BMP-2) from heparin-coated chitosan scaffold</article-title>. <source>Tissue Eng Regen Med</source>
+<year>2013</year>, <volume>10</volume>(<issue>4</issue>):<fpage>183</fpage>&#x2013;<lpage>191</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref022">
+        <label>22</label>
+        <mixed-citation publication-type="journal"><name><surname>Salem</surname><given-names>O</given-names></name>, <name><surname>Wang</surname><given-names>H</given-names></name>, <name><surname>Alaseem</surname><given-names>A</given-names></name>, <name><surname>Ciobanu</surname><given-names>O</given-names></name>, <name><surname>Hadjab</surname><given-names>I</given-names></name>, <name><surname>Gawri</surname><given-names>R</given-names></name>
+<etal>et al</etal>: <article-title>Naproxen affects osteogenesis of human mesenchymal stem cells via regulation of Indian hedgehog signaling molecules</article-title>. <source>Arthritis Research &amp; Therapy</source>
+<year>2014</year>, <volume>16</volume>(<issue>4</issue>):<fpage>R152</fpage>.<pub-id pub-id-type="pmid">25034046</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref023">
+        <label>23</label>
+        <mixed-citation publication-type="journal"><name><surname>Song</surname><given-names>S</given-names></name>, <name><surname>Wientjes</surname><given-names>MG</given-names></name>, <name><surname>Gan</surname><given-names>Y</given-names></name>, <name><surname>Au</surname><given-names>JL</given-names></name>: <article-title>Fibroblast growth factors: an epigenetic mechanism of broad spectrum resistance to anticancer drugs</article-title>. <source>Proceedings of the National Academy of Sciences of the United States of America</source>
+<year>2000</year>, <volume>97</volume>(<issue>15</issue>):<fpage>8658</fpage>&#x2013;<lpage>8663</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1073/pnas.140210697">10.1073/pnas.140210697</ext-link></comment>
+<pub-id pub-id-type="pmid">10890892</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref024">
+        <label>24</label>
+        <mixed-citation publication-type="journal"><name><surname>Coffey</surname><given-names>RJ</given-names><suffix>Jr.</suffix></name>, <name><surname>Leof</surname><given-names>EB</given-names></name>, <name><surname>Shipley</surname><given-names>GD</given-names></name>, <name><surname>Moses</surname><given-names>HL</given-names></name>: <article-title>Suramin inhibition of growth factor receptor binding and mitogenicity in AKR-2B cells</article-title>. <source>J Cell Physiol</source>
+<year>1987</year>, <volume>132</volume>(<issue>1</issue>):<fpage>143</fpage>&#x2013;<lpage>148</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/jcp.1041320120">10.1002/jcp.1041320120</ext-link></comment>
+<pub-id pub-id-type="pmid">3496343</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref025">
+        <label>25</label>
+        <mixed-citation publication-type="journal"><name><surname>Kloen</surname><given-names>P</given-names></name>, <name><surname>Jennings</surname><given-names>CL</given-names></name>, <name><surname>Gebhardt</surname><given-names>MC</given-names></name>, <name><surname>Springfield</surname><given-names>DS</given-names></name>, <name><surname>Mankin</surname><given-names>HJ</given-names></name>: <article-title>Suramin inhibits growth and transforming growth factor-&#x3B2;1 (TGF-&#x3B2;1) binding in osteosarcoma cell lines</article-title>. <source>European Journal of Cancer</source>
+<year>1994</year>, <volume>30</volume>(<issue>5</issue>):<fpage>678</fpage>&#x2013;<lpage>682</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref026">
+        <label>26</label>
+        <mixed-citation publication-type="journal"><name><surname>Lu</surname><given-names>J</given-names></name>, <name><surname>Dai</surname><given-names>J</given-names></name>, <name><surname>Wang</surname><given-names>X</given-names></name>, <name><surname>Zhang</surname><given-names>M</given-names></name>, <name><surname>Zhang</surname><given-names>P</given-names></name>, <name><surname>Sun</surname><given-names>HAO</given-names></name>
+<etal>et al</etal>: <article-title>Effect of fibroblast growth factor 9 on the osteogenic differentiation of bone marrow stromal stem cells and dental pulp stem cells</article-title>. <source>Molecular Medicine Reports</source>
+<year>2015</year>, <volume>11</volume>(<issue>3</issue>):<fpage>1661</fpage>&#x2013;<lpage>1668</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3892/mmr.2014.2998">10.3892/mmr.2014.2998</ext-link></comment>
+<pub-id pub-id-type="pmid">25435023</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref027">
+        <label>27</label>
+        <mixed-citation publication-type="journal"><name><surname>Suzuki</surname><given-names>E</given-names></name>, <name><surname>Ochiai-Shino</surname><given-names>H</given-names></name>, <name><surname>Aoki</surname><given-names>H</given-names></name>, <name><surname>Onodera</surname><given-names>S</given-names></name>, <name><surname>Saito</surname><given-names>A</given-names></name>, <name><surname>Saito</surname><given-names>A</given-names></name>
+<etal>et al</etal>: <article-title>Akt Activation is Required for TGF-&#x3B2;1-Induced Osteoblast Differentiation of MC3T3-E1 Pre-Osteoblasts</article-title>. <source>PLoS ONE</source>
+<year>2014</year>, <volume>9</volume>(<issue>12</issue>):<fpage>e112566</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0112566">10.1371/journal.pone.0112566</ext-link></comment>
+<pub-id pub-id-type="pmid">25470129</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref028">
+        <label>28</label>
+        <mixed-citation publication-type="journal"><name><surname>Khan</surname><given-names>SN</given-names></name>, <name><surname>Lane</surname><given-names>JM</given-names></name>: <article-title>The use of recombinant human bone morphogenetic protein-2 (rhBMP-2) in orthopaedic applications</article-title>. <source>Expert opinion on biological therapy</source>
+<year>2004</year>, <volume>4</volume>(<issue>5</issue>):<fpage>741</fpage>&#x2013;<lpage>748</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1517/14712598.4.5.741">10.1517/14712598.4.5.741</ext-link></comment>
+<pub-id pub-id-type="pmid">15155165</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref029">
+        <label>29</label>
+        <mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>K</given-names></name>, <name><surname>Silva</surname><given-names>EA</given-names></name>, <name><surname>Mooney</surname><given-names>DJ</given-names></name>: <article-title>Growth factor delivery-based tissue engineering: general approaches and a review of recent developments</article-title>. <source>Journal of the Royal Society</source>, <source>Interface</source>
+<year>2011</year>, <volume>8</volume>(<issue>55</issue>):<fpage>153</fpage>&#x2013;<lpage>170</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref030">
+        <label>30</label>
+        <mixed-citation publication-type="journal"><article-title>Recombinant human bone morphogenetic protein-2 stimulates osteoblastic maturation and inhibits myogenic differentiation in vitro</article-title>. <source>The Journal of Cell Biology</source>
+<year>1991</year>, <volume>113</volume>(<issue>3</issue>):<fpage>681</fpage>&#x2013;<lpage>687</lpage>. <pub-id pub-id-type="pmid">1849907</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref031">
+        <label>31</label>
+        <mixed-citation publication-type="journal"><name><surname>Wu</surname><given-names>L-A</given-names></name>, <name><surname>Wang</surname><given-names>F</given-names></name>, <name><surname>Donly</surname><given-names>KJ</given-names></name>, <name><surname>Baker</surname><given-names>A</given-names></name>, <name><surname>Wan</surname><given-names>C</given-names></name>, <name><surname>Luo</surname><given-names>D</given-names></name>
+<etal>et al</etal>: <article-title>Establishment of Immortalized BMP2/4 Double Knock-Out Osteoblastic Cells is Essential for Study of Osteoblast Growth, Differentiation and Osteogenesis</article-title>. <source>Journal of Cellular Physiology</source>
+<year>2015</year>(<issue>9999</issue>):<fpage>1</fpage>&#x2013;<lpage>10</lpage>.<pub-id pub-id-type="pmid">24909308</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref032">
+        <label>32</label>
+        <mixed-citation publication-type="journal"><name><surname>Takuwa</surname><given-names>Y</given-names></name>, <name><surname>Ohse</surname><given-names>C</given-names></name>, <name><surname>Wang</surname><given-names>EA</given-names></name>, <name><surname>Wozney</surname><given-names>JM</given-names></name>, <name><surname>Yamashita</surname><given-names>K</given-names></name>: <article-title>Bone morphogenetic protein-2 stimulates alkaline phosphatase activity and collagen synthesis in cultured osteoblastic cells, MC3T3-E1</article-title>. <source>Biochemical and Biophysical Research Communications</source>
+<year>1991</year>, <volume>174</volume>(<issue>1</issue>):<fpage>96</fpage>&#x2013;<lpage>101</lpage>. <pub-id pub-id-type="pmid">1989624</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref033">
+        <label>33</label>
+        <mixed-citation publication-type="journal"><name><surname>Sakou</surname><given-names>T</given-names></name>: <article-title>Bone Morphogenetic Proteins: From Basic Studies to Clinical Approaches</article-title>. <source>Bone</source>
+<year>1998</year>, <volume>22</volume>(<issue>6</issue>):<fpage>591</fpage>&#x2013;<lpage>603</lpage>. <pub-id pub-id-type="pmid">9626397</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref034">
+        <label>34</label>
+        <mixed-citation publication-type="journal"><name><surname>Sorsby</surname><given-names>A</given-names></name>, <name><surname>Haythorne</surname><given-names>J</given-names></name>, <name><surname>Reed</surname><given-names>H</given-names></name>: <article-title>FURTHER EXPERIENCE WITH AMNIOTIC MEMBRANE GRAFTS IN CAUSTIC BURNS OF THE EYE</article-title>. <source>The British Journal of Ophthalmology</source>
+<year>1947</year>, <volume>31</volume>(<issue>7</issue>):<fpage>409</fpage>&#x2013;<lpage>418</lpage>. <pub-id pub-id-type="pmid">18170361</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref035">
+        <label>35</label>
+        <mixed-citation publication-type="journal"><name><surname>Dua</surname><given-names>HS</given-names></name>, <name><surname>Rahman</surname><given-names>I</given-names></name>, <name><surname>Miri</surname><given-names>A</given-names></name>, <name><surname>Said</surname><given-names>DG</given-names></name>: <article-title>Variations in amniotic membrane: relevance for clinical applications</article-title>. <source>British Journal of Ophthalmology</source>
+<year>2010</year>, <volume>94</volume>(<issue>8</issue>):<fpage>963</fpage>&#x2013;<lpage>964</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/bjo.2009.157941">10.1136/bjo.2009.157941</ext-link></comment>
+<pub-id pub-id-type="pmid">20679087</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref036">
+        <label>36</label>
+        <mixed-citation publication-type="journal"><name><surname>Gholipourmalekabadi</surname><given-names>M</given-names></name>, <name><surname>Bandehpour</surname><given-names>M</given-names></name>, <name><surname>Mozafari</surname><given-names>M</given-names></name>, <name><surname>Hashemi</surname><given-names>A</given-names></name>, <name><surname>Ghanbarian</surname><given-names>H</given-names></name>, <name><surname>Sameni</surname><given-names>M</given-names></name>
+<etal>et al</etal>: <article-title>Decellularized human amniotic membrane: more is needed for an efficient dressing for protection of burns against antibiotic-resistant bacteria isolated from burn patients</article-title>. <source>Burns</source>
+<year>2015</year>, <volume>41</volume>(<issue>7</issue>):<fpage>1488</fpage>&#x2013;<lpage>1497</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.burns.2015.04.015">10.1016/j.burns.2015.04.015</ext-link></comment>
+<pub-id pub-id-type="pmid">26048133</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref037">
+        <label>37</label>
+        <mixed-citation publication-type="journal"><name><surname>Rennie</surname><given-names>K</given-names></name>, <name><surname>Gruslin</surname><given-names>A</given-names></name>, <name><surname>Hengstschl&#xE4;ger</surname><given-names>M</given-names></name>, <name><surname>Pei</surname><given-names>D</given-names></name>, <name><surname>Cai</surname><given-names>J</given-names></name>, <name><surname>Nikaido</surname><given-names>T</given-names></name>
+<etal>et al</etal>: <article-title>Applications of Amniotic Membrane and Fluid in Stem Cell Biology and Regenerative Medicine</article-title>. <source>Stem Cells International</source>
+<year>2012</year>, <volume>2012</volume>:<fpage>721538</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1155/2012/721538">10.1155/2012/721538</ext-link></comment>
+<pub-id pub-id-type="pmid">23093978</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref038">
+        <label>38</label>
+        <mixed-citation publication-type="journal"><name><surname>Koizumi</surname><given-names>NJ</given-names></name>, <name><surname>Inatomi</surname><given-names>TJ</given-names></name>, <name><surname>Sotozono</surname><given-names>CJ</given-names></name>, <name><surname>Fullwood</surname><given-names>NJ</given-names></name>, <name><surname>Quantock</surname><given-names>AJ</given-names></name>, <name><surname>Kinoshita</surname><given-names>S</given-names></name>: <article-title>Growth factor mRNA and protein in preserved human amniotic membrane</article-title>. <source>Current eye research</source>
+<year>2000</year>, <volume>20</volume>(<issue>3</issue>):<fpage>173</fpage>&#x2013;<lpage>177</lpage>. <pub-id pub-id-type="pmid">10694891</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref039">
+        <label>39</label>
+        <mixed-citation publication-type="journal"><name><surname>Carreira</surname><given-names>AC</given-names></name>, <name><surname>Lojudice</surname><given-names>FH</given-names></name>, <name><surname>Halcsik</surname><given-names>E</given-names></name>, <name><surname>Navarro</surname><given-names>RD</given-names></name>, <name><surname>Sogayar</surname><given-names>MC</given-names></name>, <name><surname>Granjeiro</surname><given-names>JM</given-names></name>: <article-title>Bone Morphogenetic Proteins: Facts, Challenges, and Future Perspectives</article-title>. <source>Journal of Dental Research</source>
+<year>2014</year>, <volume>93</volume>(<issue>4</issue>):<fpage>335</fpage>&#x2013;<lpage>345</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1177/0022034513518561">10.1177/0022034513518561</ext-link></comment>
+<pub-id pub-id-type="pmid">24389809</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref040">
+        <label>40</label>
+        <mixed-citation publication-type="journal"><name><surname>Garrison</surname><given-names>KR</given-names></name>, <name><surname>Shemilt</surname><given-names>I</given-names></name>, <name><surname>Donell</surname><given-names>S</given-names></name>, <name><surname>Ryder</surname><given-names>JJ</given-names></name>, <name><surname>Mugford</surname><given-names>M</given-names></name>, <name><surname>Harvey</surname><given-names>I</given-names></name>
+<etal>et al</etal>: <article-title>Bone morphogenetic protein (BMP) for fracture healing in adults</article-title>. <source>The Cochrane database of systematic reviews</source>
+<year>2010</year>(<issue>6</issue>):<fpage>Cd006950</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/14651858.CD006950.pub2">10.1002/14651858.CD006950.pub2</ext-link></comment>
+<pub-id pub-id-type="pmid">20556771</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref041">
+        <label>41</label>
+        <mixed-citation publication-type="journal"><name><surname>Peng</surname><given-names>H</given-names></name>, <name><surname>Usas</surname><given-names>A</given-names></name>, <name><surname>Olshanski</surname><given-names>A</given-names></name>, <name><surname>Ho</surname><given-names>AM</given-names></name>, <name><surname>Gearhart</surname><given-names>B</given-names></name>, <name><surname>Cooper</surname><given-names>GM</given-names></name>
+<etal>et al</etal>: <article-title>VEGF Improves, Whereas sFlt1 Inhibits, BMP2-Induced Bone Formation and Bone Healing Through Modulation of Angiogenesis</article-title>. <source>Journal of Bone and Mineral Research</source>
+<volume>2005</volume>, <volume>20</volume>(<issue>11</issue>):<fpage>2017</fpage>&#x2013;<lpage>2027</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref042">
+        <label>42</label>
+        <mixed-citation publication-type="journal"><name><surname>Choi</surname><given-names>H</given-names></name>, <name><surname>Jeong</surname><given-names>B-C</given-names></name>, <name><surname>Hur</surname><given-names>S-W</given-names></name>, <name><surname>Kim</surname><given-names>J-W</given-names></name>, <name><surname>Lee</surname><given-names>K-B</given-names></name>, <name><surname>Koh</surname><given-names>J-T</given-names></name>: <article-title>The Angiopoietin-1 Variant COMP-Ang1 Enhances BMP2-Induced Bone Regeneration with Recruiting Pericytes in Critical Sized Calvarial Defects</article-title>. <source>PLoS ONE</source>
+<year>2015</year>, <volume>10</volume>(<issue>10</issue>):<fpage>e0140502</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0140502">10.1371/journal.pone.0140502</ext-link></comment>
+<pub-id pub-id-type="pmid">26465321</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref043">
+        <label>43</label>
+        <mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>JH</given-names></name>, <name><surname>Jang</surname><given-names>SJ</given-names></name>, <name><surname>Baek</surname><given-names>HR</given-names></name>, <name><surname>Lee</surname><given-names>KM</given-names></name>, <name><surname>Chang</surname><given-names>BS</given-names></name>, <name><surname>Lee</surname><given-names>CK</given-names></name>: <article-title>Synergistic induction of early stage of bone formation by combination of recombinant human bone morphogenetic protein-2 and epidermal growth factor</article-title>. <source>Journal of tissue engineering and regenerative medicine</source>
+<year>2015</year>, <volume>9</volume>(<issue>4</issue>):<fpage>447</fpage>&#x2013;<lpage>459</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/term.1900">10.1002/term.1900</ext-link></comment>
+<pub-id pub-id-type="pmid">24764222</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref044">
+        <label>44</label>
+        <mixed-citation publication-type="journal"><name><surname>Carragee</surname><given-names>EJ</given-names></name>, <name><surname>Hurwitz</surname><given-names>EL</given-names></name>, <name><surname>Weiner</surname><given-names>BK</given-names></name>: <article-title>A critical review of recombinant human bone morphogenetic protein-2 trials in spinal surgery: emerging safety concerns and lessons learned</article-title>. <source>The Spine Journal</source>
+<year>2011</year>, <volume>11</volume>(<issue>6</issue>):<fpage>471</fpage>&#x2013;<lpage>491</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.spinee.2011.04.023">10.1016/j.spinee.2011.04.023</ext-link></comment>
+<pub-id pub-id-type="pmid">21729796</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref045">
+        <label>45</label>
+        <mixed-citation publication-type="journal"><name><surname>Lad</surname><given-names>SP</given-names></name>, <name><surname>Bagley</surname><given-names>JH</given-names></name>, <name><surname>Karikari</surname><given-names>IO</given-names></name>, <name><surname>Babu</surname><given-names>R</given-names></name>, <name><surname>Ugiliweneza</surname><given-names>B</given-names></name>, <name><surname>Kong</surname><given-names>M</given-names></name>
+<etal>et al</etal>: <article-title>Cancer After Spinal Fusion: The Role of Bone Morphogenetic Protein</article-title>. <source>Neurosurgery</source>
+<year>2013</year>, <volume>73</volume>(<issue>3</issue>):<fpage>440</fpage>&#x2013;<lpage>449</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1227/NEU.0000000000000018">10.1227/NEU.0000000000000018</ext-link></comment>
+<pub-id pub-id-type="pmid">23756740</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref046">
+        <label>46</label>
+        <mixed-citation publication-type="journal"><name><surname>Dombrowski</surname><given-names>C</given-names></name>, <name><surname>Song</surname><given-names>SJ</given-names></name>, <name><surname>Chuan</surname><given-names>P</given-names></name>, <name><surname>Lim</surname><given-names>X</given-names></name>, <name><surname>Susanto</surname><given-names>E</given-names></name>, <name><surname>Sawyer</surname><given-names>AA</given-names></name>
+<etal>et al</etal>: <article-title>Heparan sulfate mediates the proliferation and differentiation of rat mesenchymal stem cells</article-title>. <source>Stem cells and development</source>
+<year>2009</year>, <volume>18</volume>(<issue>4</issue>):<fpage>661</fpage>&#x2013;<lpage>670</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/scd.2008.0157">10.1089/scd.2008.0157</ext-link></comment>
+<pub-id pub-id-type="pmid">18690792</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0182716.ref047">
+        <label>47</label>
+        <mixed-citation publication-type="journal"><name><surname>Kim</surname><given-names>JM</given-names></name>, <name><surname>Shin</surname><given-names>HI</given-names></name>, <name><surname>Cha</surname><given-names>SS</given-names></name>, <name><surname>Lee</surname><given-names>CS</given-names></name>, <name><surname>Hong</surname><given-names>BS</given-names></name>, <name><surname>Lim</surname><given-names>S</given-names></name>
+<etal>et al</etal>: <article-title>DJ-1 promotes angiogenesis and osteogenesis by activating FGF receptor-1 signaling</article-title>. <source>Nature communications</source>
+<year>2012</year>, <volume>3</volume>:<fpage>1296</fpage>
+<comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/ncomms2313">10.1038/ncomms2313</ext-link></comment>
+<pub-id pub-id-type="pmid">23250426</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

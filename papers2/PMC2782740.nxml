@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">100966035</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">22040</journal-id>
+      <journal-id journal-id-type="nlm-ta">Trends Mol Med</journal-id>
+      <journal-title>Trends in molecular medicine</journal-title>
+      <issn pub-type="ppub">1471-4914</issn>
+      <issn pub-type="epub">1471-499X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19889578</article-id>
+      <article-id pub-id-type="pmc">2782740</article-id>
+      <article-id pub-id-type="doi">10.1016/j.molmed.2009.09.003</article-id>
+      <article-id pub-id-type="manuscript">NIHMS158864</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Brain cancer propagating cells: biology, genetics and targeted therapies</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hadjipanayis</surname>
+            <given-names>Costas G.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+          <xref rid="A3" ref-type="aff">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Van Meir</surname>
+            <given-names>Erwin G.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+          <xref rid="A2" ref-type="aff">2</xref>
+          <xref rid="A3" ref-type="aff">3</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label> Laboratory of Molecular Neuro-Oncology, Department of Neurosurgery, Emory University, School of Medicine, Atlanta, GA. 30322, USA</aff>
+      <aff id="A2"><label>2</label> Department of Hematology and Medical Oncology, Emory University, School of Medicine, Atlanta, GA. 30322, USA</aff>
+      <aff id="A3"><label>3</label> Winship Cancer Institute, Emory University, School of Medicine, Atlanta, GA. 30322, USA</aff>
+      <author-notes>
+        <corresp id="FN1">Corresponding authors: Hadjipanayis, C.G. (<email>chadjip@emory.edu</email>); Van Meir, E.G. (<email>evanmei@emory.edu</email>)</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>13</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>2</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>2</day>
+        <month>5</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>15</volume>
+      <issue>11</issue>
+      <fpage>519</fpage>
+      <lpage>530</lpage>
+      <abstract>
+        <p id="P1">Cancer propagating cells (CPCs) within primary central nervous system (CNS) tumors (glioblastoma multiforme (GBM), medulloblastoma (MB) and ependymoma) might be integral to tumor development and perpetuation. These cells, also known as brain cancer propagating cells (BCPCs), have the ability to self-renew and proliferate. BCPCs can initiate new tumors in mice with high efficiency and these exhibit many features that are characteristic of patient's brain tumors. Accumulating evidence suggests that BCPCs might originate from the transformation of neural stem cells (NSCs) and their progenitors. Furthermore, recent studies have shown that NSC surface markers also define BCPCs. Ultimately, treatments that include specific targeting of BCPCs might potentially be more effective at treating the entire tumor mass, translating to improved patient survival and quality of life.</p>
+      </abstract>
+      <contract-num rid="NS1">K08 NS053454-04
+				||NS</contract-num>
+      <contract-num rid="NS1">K08 NS053454-03
+				||NS</contract-num>
+      <contract-num rid="NS1">K08 NS053454-02
+				||NS</contract-num>
+      <contract-num rid="NS1">K08 NS053454-01A1
+				||NS</contract-num>
+      <contract-sponsor id="NS1">National Institute of Neurological Disorders and Stroke : NINDS</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

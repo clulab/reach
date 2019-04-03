@@ -1,0 +1,2415 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Biol Eng</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J Biol Eng</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of Biological Engineering</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1754-1611</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28680477</article-id>
+      <article-id pub-id-type="pmc">5494890</article-id>
+      <article-id pub-id-type="publisher-id">66</article-id>
+      <article-id pub-id-type="doi">10.1186/s13036-017-0066-3</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Human pluripotent stem cell differentiation to functional pancreatic cells for diabetes therapies: Innovations, challenges and future directions</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jacobson</surname>
+            <given-names>Elena F.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Tzanakakis</surname>
+            <given-names>Emmanuel S.</given-names>
+          </name>
+          <address>
+            <phone>+1-617-627-0831</phone>
+            <email>Emmanuel.Tzanakakis@tufts.edu</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 1936 7531</institution-id><institution-id institution-id-type="GRID">grid.429997.8</institution-id><institution>Department of Chemical and Biological Engineering, </institution><institution>Tufts University, </institution></institution-wrap>4 Colby St., Room 276A, Medford, MA 02155 USA </aff>
+        <aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0000 8934 4045</institution-id><institution-id institution-id-type="GRID">grid.67033.31</institution-id><institution>Tufts Clinical and Translational Science Institute, </institution><institution>Tufts Medical Center, </institution></institution-wrap>Boston, MA 02111 USA </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>3</day>
+        <month>7</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>3</day>
+        <month>7</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2017</year>
+      </pub-date>
+      <volume>11</volume>
+      <elocation-id>21</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>11</day>
+          <month>1</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>2</day>
+          <month>6</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s). 2017</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p id="Par1">Recent advances in the expansion and directed pancreatogenic differentiation of human pluripotent stem cells (hPSCs) have intensified efforts to generate functional pancreatic islet cells, especially insulin-secreting &#x3B2;-cells, for cell therapies against diabetes. However, the consistent generation of glucose-responsive insulin-releasing cells remains challenging. In this article, we first present basic concepts of pancreatic organogenesis, which frequently serves as a basis for engineering differentiation regimens. Next, past and current efforts are critically discussed for the conversion of hPSCs along pancreatic cell lineages, including endocrine &#x3B2;-cells and &#x3B1;-cells, as well as exocrine cells with emphasis placed on the later stages of commitment. Finally, major challenges and future directions are examined, such as the identification of factors for in vivo maturation, large-scale culture and post processing systems, cell loss during differentiation, culture economics, efficiency, and efficacy and exosomes and miRNAs in pancreatic differentiation.</p>
+        <sec>
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:10.1186/s13036-017-0066-3) contains supplementary material, which is available to authorized users.</p>
+        </sec>
+      </abstract>
+      <kwd-group xml:lang="en">
+        <title>Keywords</title>
+        <kwd>Pluripotent stem cells</kwd>
+        <kwd>Embryonic stem cells</kwd>
+        <kwd>Induced pluripotent stem cells</kwd>
+        <kwd>Pancreatic differentiation</kwd>
+        <kwd>Endocrine cells</kwd>
+        <kwd>Exocrine cells</kwd>
+        <kwd>Pancreas</kwd>
+        <kwd>Pancreatic &#x3B2;-cells</kwd>
+        <kwd>Diabetes</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/100000001</institution-id>
+              <institution>National Science Foundation</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>CBET-1547785</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Tzanakakis</surname>
+              <given-names>Emmanuel S.</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/100000005</institution-id>
+              <institution>U.S. Department of Defense</institution>
+            </institution-wrap>
+          </funding-source>
+        </award-group>
+      </funding-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2017</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1">
+      <title>Background</title>
+      <p id="Par2">Diabetes mellitus refers to a group of chronic metabolic disorders characterized by hyperglycemia due to autoimmune destruction of insulin-producing beta(&#x3B2;)-cells (type 1 diabetes; T1D) or to extensive &#x3B2;-cell exhaustion and depletion often exacerbated by insulin resistance (type 2 diabetes; T2D). Almost 9% of the population in the US and worldwide (ages 20&#x2013;79) have diabetes and diabetes-associated healthcare costs are among the highest for major maladies [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>]. All T1D and many T2D patients require insulin administration to control their blood glucose. Insulin injections result in suboptimal glucose control because of the multifactorial nature of glucose homeostasis, which is affected by diet, physical activity and metabolic patterns. This makes proper hormone dosage and its timing challenging [<xref ref-type="bibr" rid="CR3">3</xref>]. Whole pancreas or pancreatic islet (~6&#x2013;10&#xA0;&#xD7;&#xA0;10<sup>5</sup> islets or ~10<sup>9</sup> &#x3B2;-cells [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR5">5</xref>]) transplantation has the potential to restore normoglycemia [<xref ref-type="bibr" rid="CR6">6</xref>] without the use of exogenous insulin. This approach, however, is severely limited by the shortage of donor tissue and the requirement for immunosuppression to prevent rejection of the transplanted islets.</p>
+      <p id="Par3">Human pluripotent stem cells (hPSCs; including embryonic (hESCs) and induced pluripotent stem cells (hiPSCs)) can serve as a renewable source of differentiated cells and tissues due to their capacity for extensive expansion and commitment to various somatic cell fates. In particular, recent advances in directing hPSCs to pancreatic cell phenotypes, especially insulin-producing &#x3B2;-cells, have sparked hope for cell therapies for diabetes [<xref ref-type="bibr" rid="CR7">7</xref>&#x2013;<xref ref-type="bibr" rid="CR9">9</xref>]. Various other cell types, including progenitor cells (e.g., mesenchymal stem cells (MSCs) and umbilical cord cells [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]) and fibroblasts [<xref ref-type="bibr" rid="CR12">12</xref>], have been reported to yield islet cells. However, this review will be limited to studies using hPSCs as starting materials for producing pancreatic cells.</p>
+      <p id="Par4">Challenges in coaxing hPSCs to mature functional &#x3B2;-cells that mimic the properties of native islet cells have hampered progress over the past decade. We will review the basic concepts of pancreatic organogenesis, which has served as the basis for designing differentiation strategies. Then we will highlight and discuss recent studies demonstrating the pancreatogenic specification of hPSCs. Finally, we will examine challenges and future directions in the field like identification of factors for in vivo maturation, large-scale culture and post processing systems, cell loss during differentiation, culture economics, efficiency, and efficacy and exosomes and miRNAs in pancreatic differentiation.</p>
+      <sec id="Sec2">
+        <title>Pancreas development</title>
+        <p id="Par5">There are several excellent reviews on pancreas development informed primarily by studies on animal models [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>] rather than on human embryonic pancreatic tissue [<xref ref-type="bibr" rid="CR15">15</xref>]. Here, we provide a simplified description of the formation of pancreas in vivo with emphasis on major instructive signals directing cell specification. Protocols for the conversion of hPSCs to pancreatic cells in vitro recapitulate aspects of these signaling events (Fig. <xref rid="Fig1" ref-type="fig">1</xref>). Definitive endoderm (DE) and mesoderm arise from the epiblast during gastrulation. The DE then folds to form the primitive gut tube segmented into foregut, midgut and hindgut in an anterior-posterior orientation, surrounded by mesenchyme and the notochord. While the midgut and hindgut regions give rise to the small intestine and colon, the foregut is the source of cells for multiple tissues and organs of the respiratory and digestive tract, such as the lung, esophagus, thyroid, stomach, liver and pancreas. Signals, including fibroblast growth factor (FGF) 4 and retinoic acid (RA), mediate the commitment of foregut endoderm to pancreatic anlage [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>].<fig id="Fig1"><label>Fig. 1</label><caption><p>Pancreatic differentiation of stem cells: A schematic is shown depicting various lineages of pluripotent stem cell differentiation toward pancreatic cell progeny. Differentiation cues and signaling pathways are shown (<italic>black fonts</italic>) as well as markers (<italic>colored fonts</italic>) for various cell types. SHH: sonic hedgehog, RA: retinoic acid, FGF7: fibroblast growth factor-7 (also known as keratinocyte growth factor (KGF)), FGF10: fibroblast growth factor-10, GLP-1: glucagon-like peptide-1, BMP: bone morphogenetic protein</p></caption><graphic xlink:href="13036_2017_66_Fig1_HTML" id="MO1"/></fig>
+</p>
+        <p id="Par6">Pancreatic development at this point occurs at two distinct areas, the ventral and dorsal anlagen, which later fuse into a single organ. Despite differences in the specification programs of these areas, the notochord secretes activin and FGF2, which repress sonic hedgehog (Shh) signaling in the patterning of the pancreatic endoderm as shown in chick embryos, leading to the appearance of PDX1 positive (PDX1<sup>+</sup>) epithelium [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>]. Expansion of these precursor cells is mediated by mesenchymal factors. The epidermal growth factor (EGF) stimulates the proliferation of early pancreatic progenitor cells but inhibits endocrine differentiation. Similarly, FGF ligands targeting the FGF receptor 2B (FGF1, FGF7 and FGF10) most likely have a role consistent with that of FGF10 in mice, acting as mitogens of progenitor cells in the developing pancreas [<xref ref-type="bibr" rid="CR20">20</xref>]. WNT signaling also appears to promote the proliferation of human pancreatic progenitors [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>] similar to its role in mice [<xref ref-type="bibr" rid="CR23">23</xref>]. The roles of Notch, RA and bone morphogenetic protein (BMP) signaling during human pancreas development are less well understood. In particular, Notch signaling is activated by the mesenchymal FGF10 and influences the expansion of undifferentiated pancreatic progenitor cells expressing <italic>Pdx1</italic>, <italic>Nkx6&#x2013;1</italic> and p48/<italic>Ptf1a</italic> as experiments in mice have shown [<xref ref-type="bibr" rid="CR24">24</xref>]. These cells give rise to the endocrine and exocrine compartments of the pancreas.</p>
+        <p id="Par7">The acinar and ductal cells comprising the exocrine tissue are specified by Wnt-activating ligands and mesenchymal release of FGF10, FGF7, laminin-1 and follistatin, in addition to Notch signals. Acinar differentiation is regulated by a set of transcription factors including Ptf1a and Mist1 [<xref ref-type="bibr" rid="CR25">25</xref>]. Ptf1a forms a complex with Tcf12 and Rbpjl, which allows the expression of genes for the secretory enzymes present in the mature acini [<xref ref-type="bibr" rid="CR26">26</xref>]. Acinar cells secrete digestive enzymes such as trypsin, chymotrypsin, lipase, amylase and carboxypeptidase A1 (CPA1) [<xref ref-type="bibr" rid="CR27">27</xref>]. Ductal cell-specific transcription factors are not as well-known but HNF1B and HNF6 are thought to be active in this cell type. Ductal cells form tubular networks, secrete bicarbonate and mucins and are ciliated and polarized [<xref ref-type="bibr" rid="CR26">26</xref>]. They express cytokeratin-19 (KRT19), cystic fibrosis transmembrane receptor (CFTR), carbonic anhydrase II (CA2) and <italic>Dolichos biflorus</italic> agglutinin (DBA) lectin.</p>
+        <p id="Par8">Expression of the transcription factor neurogenin 3 (NGN3) increases concomitantly with the emergence of human fetal &#x3B2;-cells whereas SOX9 is absent in endocrine cells [<xref ref-type="bibr" rid="CR28">28</xref>] (but not in acinar cells). The expression of NGN3 in human fetuses is transient and peaks toward the end of the first trimester and becomes undetectable after week 35 [<xref ref-type="bibr" rid="CR29">29</xref>]. Other transcription factors, such as PDX1, NKX6&#x2013;1, PAX6, NEUROD1 and NKX2&#x2013;2, are also displayed by endocrine cells starting at 8&#xA0;weeks post-conception [<xref ref-type="bibr" rid="CR15">15</xref>]. It should be noted that NKX2&#x2013;2 is not detected before endocrine progeny becomes apparent [<xref ref-type="bibr" rid="CR28">28</xref>] in contrast to its broad expression in the murine pancreatic bud until E13, when it becomes restricted to NGN3-expressing progenitor cells [<xref ref-type="bibr" rid="CR30">30</xref>]. Epithelial progenitor cells migrate into the mesenchyme and form islets consisting of alpha (&#x3B1;), &#x3B2;, delta (&#x3B4;), pancreatic polypeptide (PP) and epsilon (&#x3B5;) cells, which produce glucagon (<italic>GCG</italic>), insulin (<italic>INS</italic>), somatostatin (<italic>SST</italic>), PP (<italic>PPY</italic>) and ghrelin (<italic>GHRL</italic>), respectively (genes encoding the corresponding hormones are noted).</p>
+        <p id="Par9">Much of what is known about pancreatic development is derived from animal studies. As many studies have shown however, there are important differences between pancreatic development in animals and humans. Thus, better understanding of human pancreas formation in vivo will be essential for developing efficient methods of in vitro pancreatogenic differentiation of hPSCs to functional islet cells.</p>
+      </sec>
+      <sec id="Sec3">
+        <title>In vitro differentiation of hPSCs to pancreatic endocrine cell progeny</title>
+        <p id="Par10">The production of insulin-producing cells resembling native &#x3B2;-cells from hPSCs has been the primary focus of research in the field. However, this does not lessen the importance of the other endocrine cell types (principally &#x3B1;-cells), which function in an integrated manner with &#x3B2;-cells within native islets to maintain blood glucose homeostasis. Therefore, the generation of &#x3B2;-cells is reviewed first, followed by reports on the generation of glucagon-producing &#x3B1;-cells.</p>
+      </sec>
+      <sec id="Sec4">
+        <title>Derivation of &#x3B2;-cell-like cells</title>
+        <p id="Par11">Early work on pancreatogenic differentiation was performed with mouse ESCs (mESCs) and relied on the use of agents such as serum, dimethyl sulfoxide (DMSO) and nicotinamide, which have pleiotropic effects [<xref ref-type="bibr" rid="CR31">31</xref>&#x2013;<xref ref-type="bibr" rid="CR33">33</xref>]. These methods were also applied to subsequent work with hESCs [<xref ref-type="bibr" rid="CR34">34</xref>], but the low efficiency of differentiation and the challenges in the characterization of the cell progeny prompted researchers to consider methods mimicking aspects of pancreas development. Using a 5-step process, D&#x2019;Amour et al. [<xref ref-type="bibr" rid="CR35">35</xref>] differentiated hESCs in succession to cells expressing markers of DE, primitive gut tube, posterior foregut, pancreatic endoderm and endocrine precursors and finally to hormone-expressing endocrine cells (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S1). While some of the resulting cells expressed insulin, most of the cells were multihormonal co-expressing combinations of INS, GCG and SST. An average of 7% of the cells were INS<sup>+</sup> and 13% were SYP<sup>+</sup> (synaptophysin) at day 16 of differentiation as assessed by flow cytometry. Compared to primary adult human islets, the final population of differentiated hPSCs displayed substantially higher levels of proinsulin. A 2- to 6-fold increase in C-peptide was seen in response to KCl and a 30&#x2013;300% increase in C-peptide release was measured over basal levels in 10% of the cells when exposed to glucose. The insulin content of the INS<sup>+</sup> cells ranged from 14 to 208&#xA0;pmol/&#x3BC;g DNA, which is comparable to that of primary adult human islets (58&#x2013;310&#xA0;pmol/&#x3BC;g DNA). Treatment with tolbutamide led to a 3- to 7-fold increase in C-peptide release, suggesting the existence of functional K<sup>+</sup>
+<sub>ATP</sub> channels in these cells. Electron micrographs revealed the presence of secretory granules with a mixture of morphologies including some with clear halos surrounding dense cores, which is the phenotype of human &#x3B2;-cells insulin secretory granules [<xref ref-type="bibr" rid="CR35">35</xref>]. A modified version of this protocol was developed in our laboratory for hPSC differentiation toward islet cells (Fig. <xref rid="Fig2" ref-type="fig">2</xref>
+<bold>)</bold> [<xref ref-type="bibr" rid="CR36">36</xref>]<bold>.</bold>
+<fig id="Fig2"><label>Fig. 2</label><caption><p>Pancreatic differentiation [<xref ref-type="bibr" rid="CR36">36</xref>] of hPSCs (H9 hESCs) modified from Kroon et al. [<xref ref-type="bibr" rid="CR41">41</xref>]. The factors used for differentiation are shown in red font (CYC: KAAD-cyclopamine, IGF2: insulin-like growth factor 2). Islet-like clusters were infected with a recombinant adenovirus carrying a bicistronic cassette with the green fluorescent protein (GFP) under the cytomegalovirus (CMV) promoter and the DsRed reporter under the rat insulin promoter. Immunostainings for specific markers at each stage are shown</p></caption><graphic xlink:href="13036_2017_66_Fig2_HTML" id="MO2"/></fig>
+</p>
+        <p id="Par12">Despite the vast improvements in producing pancreatic progeny from hPSCs with this protocol, the C-peptide released in response to glucose was minimal, the quantity of proinsulin in the cells was too high, many of the cells were polyhormonal and the overall differentiation efficiency was low. The marginal C-peptide release in response to glucose and the high content of proinsulin suggests problems with the cells&#x2019; glucose sensing, processing and insulin secretion circuitries. Of note, the fetal pancreas responds to tolbutamide but not glucose [<xref ref-type="bibr" rid="CR37">37</xref>]. Moreover, polyhormonal cells (e.g. GCG<sup>+</sup>/INS<sup>+</sup>) are detected in human fetal pancreas but their numbers are reduced from the start of endocrine differentiation and are almost undetectable in the adult pancreas [<xref ref-type="bibr" rid="CR38">38</xref>, <xref ref-type="bibr" rid="CR39">39</xref>]. These findings prompted the authors to hypothesize that the differentiated hPSCs resemble immature fetal endocrine cells. The nature and potential of these multihormonal cells remain unclear, but direct lineage tracing in the mouse showed that mature &#x3B1;- and &#x3B2;-cells result from independent lineages that never co-express INS and GCG [<xref ref-type="bibr" rid="CR40">40</xref>]<bold>.</bold>
+</p>
+        <p id="Par13">From a practical standpoint, the low efficiency (~7% INS<sup>+</sup> cells) and the use of a single hESC line (CyT203, Table <xref rid="Tab1" ref-type="table">1</xref>) indicate that additional differentiation factors and cell line-specific optimization would be necessary. The same group published a subsequent study in which pancreatic endoderm and endocrine precursors derived from hESCs were implanted into the epididymal fat pads of severe combined immunodeficient (SCID) mice. This effectively promoted cell maturation in vivo [<xref ref-type="bibr" rid="CR41">41</xref>]. Very low serum levels of human C-peptide were detected in response to glucose administration as early as day 30 post-implantation and after 3&#xA0;months. In addition, fasting glucose-stimulated serum levels of human C-peptide were similar to those in mice implanted with 3-5&#xA0;&#xD7;&#xA0;10<sup>3</sup> adult human pancreatic islets. Explanted hESC-derived cells post in vivo maturation exhibited a mature phenotype with independent expression of INS, GCG, SST, PPY and GHRL and the transcription factor MAFA was expressed in INS<sup>+</sup> but not GCG<sup>+</sup> cells. There was also co-localization of the prohormone-processing enzyme, proprotein convertase subtilisin/kexin type 1 (PCSK1), in INS<sup>+</sup> but not GCG<sup>+</sup> cells and the expression of PCSK2 in both cell types. Furthermore, the hESC-derived endocrine cells rescued mice from streptozotocin (STZ)-induced diabetes. The experiments however, were conducted with two hESC lines (CyT49 and CyT203) with notable differences among the committed progeny, indicating that optimization would be required for each hPSC line.<table-wrap id="Tab1"><label>Table 1</label><caption><p>Cell lines used for in vitro differentiation</p></caption><table frame="hsides" rules="groups"><thead><tr><th colspan="2"/><th>Reference</th></tr></thead><tbody><tr><td rowspan="5">hESC line/s</td><td>HUES8</td><td>[<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR53">53</xref>]</td></tr><tr><td>H1</td><td>[<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR53">53</xref>]</td></tr><tr><td>hES-3</td><td>[<xref ref-type="bibr" rid="CR58">58</xref>]</td></tr><tr><td>MEL1</td><td>[<xref ref-type="bibr" rid="CR59">59</xref>]</td></tr><tr><td>CyT203<sup>a</sup>, CyT25, CyT49, BG01, BG02, BG03</td><td>[<xref ref-type="bibr" rid="CR35">35</xref>]</td></tr><tr><td rowspan="2">hiPSC line/s</td><td>hiPSC-1, hiPSC-2</td><td>[<xref ref-type="bibr" rid="CR8">8</xref>]</td></tr><tr><td>Gibco Human Episomal iPSC</td><td>[<xref ref-type="bibr" rid="CR53">53</xref>]</td></tr></tbody></table><table-wrap-foot><p>
+<sup>a</sup>System optimized for these cells</p></table-wrap-foot></table-wrap>
+</p>
+        <p id="Par14">In a recent report [<xref ref-type="bibr" rid="CR8">8</xref>], the Melton group described the generation of glucose-responsive cells from hPSCs following a similar approach of coaxing cells through different stages mimicking pancreas development (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S1). Cells were coaxed to NKX6&#x2013;1<sup>+</sup>/PDX1<sup>+</sup> cells by employing previously published protocols [<xref ref-type="bibr" rid="CR41">41</xref>, <xref ref-type="bibr" rid="CR42">42</xref>] and implanted in mice, resulting in functional &#x3B2;-cells and polyhormonal cells after 3&#x2013;4&#xA0;months.</p>
+        <p id="Par15">This prompted an investigation into ways to promote further the in vitro maturation of hPSC-derived NKX6&#x2013;1<sup>+</sup>/PDX1<sup>+</sup> cells. As a result, cells were treated with factors including: betacellulin (a growth-promoting factor), triiodothyronine (T3, which is known to promote liver maturity although there is no evidence about its effect on pancreas development), XXI (a &#x3B3;-secretase inhibitor for Notch signaling), a transforming growth factor-&#x3B2; (TGF-&#x3B2;) type I receptor kinase (ALK5) inhibitor (AXL) and N-acetyl cysteine promoting the production and nuclear localization of MAFA. From NKX6&#x2013;1<sup>+</sup>/PDX1<sup>+</sup> cells, &#x3B2;-cell-like cells (termed SC-&#x3B2; cells, ~33% NKX6&#x2013;1<sup>+</sup>/C-peptide<sup>+</sup>) emerged in 2&#x2013;3&#xA0;weeks. Non-NKX6&#x2013;1<sup>+</sup>/C-peptide<sup>+</sup> cells in the final population were &#x3B1;-cells, &#x3B4;-cells and PDX1<sup>+</sup> pancreatic progenitors that had not differentiated into endocrine cells. SC-&#x3B2; cells responded to 2&#x2013;3 successive glucose challenges in vitro by releasing insulin with a comparable stimulation index (ratio of insulin secretion at 20&#xA0;mM to 2&#xA0;mM glucose) to that of primary human adult islets, i.e. 2.2&#xA0;&#xB1;&#xA0;0.3 vs. 2.1&#xA0;&#xB1;&#xA0;0.9, respectively. Perifusion analysis was not reported but the SC-&#x3B2; cells secreted insulin in response to 20&#xA0;mM glucose (1.6&#xA0;&#xB1;&#xA0;0.2 vs. 3.6&#xA0;&#xB1;&#xA0;0.7 &#x3BC;IU/10<sup>3</sup> cells) and their total insulin content was similar to that of human adult islets (240&#xA0;&#xB1;&#xA0;50 &#x3BC;IU vs. 200&#xA0;&#xB1;&#xA0;40 &#x3BC;IU/10<sup>3</sup> cells). Of note, 7.7&#xA0;&#xB1;&#xA0;0.7% and 4.7&#xA0;&#xB1;&#xA0;0.1% of C-peptide<sup>+</sup> cells co-expressed GCG and SST, respectively.</p>
+        <p id="Par16">More importantly, increased human insulin was observed in the blood stream of mice challenged with glucose after only 2&#xA0;weeks post-implantation of the SC-&#x3B2; cells, most likely due to the additional maturation achieved with this protocol in vitro. This is a significantly shorter time frame than in previous studies [<xref ref-type="bibr" rid="CR41">41</xref>, <xref ref-type="bibr" rid="CR42">42</xref>] and comparable to that seen in experiments involving the transplantation of human primary islets in rodents. Furthermore, implanted SC-&#x3B2; cells retrieved after 2&#xA0;weeks were still monohormonal and transplantation of SC-&#x3B2; cells into a mouse model of hyperglycemia (NRG-Akita) restored normoglycemia for longer than 4&#xA0;months.</p>
+        <p id="Par17">In addition to the in vitro maturation, another important advancement was the differentiation of hPSCs (HUES8 hESCs and hiPSC-1 and hiPSC-2 hiPSCs) in aggregate cell cultures in 500-mL spinner flasks. While the yield of differentiated cells over the initial cell number was not reported and cells were not maintained under xeno-free conditions, the work illustrated the feasibility for the scalable production of &#x3B2;-cells [<xref ref-type="bibr" rid="CR8">8</xref>]. Moreover, &#x3B2;-cells were produced with this protocol using hiPSCs from T1D patients, which demonstrated that these T1D SC-&#x3B2; cells function the same&#xA0;as normal SC-&#x3B2; cells [<xref ref-type="bibr" rid="CR43">43</xref>].</p>
+        <p id="Par18">Similar to the aforementioned report, Kieffer and colleagues devised a 7-stage protocol for driving the fate of hPSCs to pancreatic endocrine cells [<xref ref-type="bibr" rid="CR9">9</xref>]. Cells differentiating to pancreatic endoderm progeny expressing PDX1/NKX6&#x2013;1 (stages 1&#x2013;4) were grown in a planar culture and then they were plated as clusters onto filter inserts (air-liquid interface (ALI) culture) for the remaining stages (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S1). In comparison to cells differentiated in two dimensional (2D) cultures, cells in ALI cultures exhibited upregulated <italic>NGN3, INS</italic> and <italic>GCG</italic> transcripts with almost 50% of cells being INS<sup>+</sup> at stage 7. The majority of these cells co-expressed PDX1, NKX6&#x2013;1 and MAFA. From a function standpoint, insulin release by stage 7 cells subjected to perifusion was delayed, gradual and low in comparison to human islets. Only a third of the cells responded to a glucagon-like peptide-1 (GLP-1) analog, displaying Ca<sup>2+</sup> influx and an increase in intracellular Ca<sup>2+</sup> after incubation with KCl. These data suggest that some of the differentiated cells have functioning incretin signaling pathways and voltage-gated Ca<sup>2+</sup> channels. However, Ca<sup>2+</sup> kinetics were slow in response to glucose exposure, pointing to deficiencies in glucose sensing/metabolism, insulin secretion machinery and/or the functionality of K<sup>+</sup>
+<sub>ATP</sub> channels.</p>
+        <p id="Par19">Problems in insulin secretion may be related to an insufficient quantity of easily releasable membrane-docked insulin vesicles or defective vesicle trafficking and exocytosis. The amount of membrane-docked insulin vesicles can be quantified by imaging, while experiments with K<sup>+</sup>
+<sub>ATP</sub> channel blockers (e.g. tolbutamide) can be performed to address whether K<sup>+</sup>
+<sub>ATP</sub> channels are functional. Unlike the generation of SC-&#x3B2; cells in stirred suspension cultures, it is unclear if ALI cultures are also scalable. Stage-7 cells also expressed MAFA at a significantly lower level compared to human islet cells. Nonetheless, the expression of MAFB was comparable between stage-7 cells and human islets. It is still debatable whether the expression of MAFA or MAFB is a representative metric of the state of hPSC-derived &#x3B2;-cell maturation. MAFA regulates &#x3B2;-cell maturation in rodents by regulating genes related to insulin synthesis, secretion and glucose sensing [<xref ref-type="bibr" rid="CR44">44</xref>&#x2013;<xref ref-type="bibr" rid="CR46">46</xref>], while a recent study on human pancreatic cells has shown that MAFB (expressed both in &#x3B1;- and &#x3B2;-cells) remains unchanged with age [<xref ref-type="bibr" rid="CR47">47</xref>].</p>
+        <p id="Par20">It should be noted that hESC-derived glucose responsive &#x3B2;-cell-like cells in the aforementioned studies share many attributes with human adult &#x3B2;-cells [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>], but there are also considerable subpopulations of C-peptide<sup>+</sup> cells expressing multiple hormones and lacking NKX6&#x2013;1 expression. These cells most likely result from precocious endocrine differentiation of early PDX1<sup>+</sup> cells which do not express NKX6&#x2013;1 [<xref ref-type="bibr" rid="CR48">48</xref>]. Such premature induction toward endocrine cell fates gives rise to polyhormonal cells and can be avoided by leaving out BMP inhibitors (e.g. noggin) during in vitro differentiation. Highly efficient generation of PDX1<sup>+</sup>/NKX6&#x2013;1<sup>+</sup> cells was demonstrated by using WNT3a/activin A (days 0&#x2013;3) and KGF/TGF-&#x3B2; type I receptor kinase inhibitor IV (days 3&#x2013;5), RA (days 5&#x2013;7) and EGF/KGF (days 7&#x2013;9) on hESC clusters (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S1), whereas the inclusion of noggin led to the premature emergence of NGN3<sup>+</sup> cells. Further differentiation of these NGN3-expressing cells yielded endocrine cells which were co-positive for C-peptide and glucagon. In contrast, PDX1<sup>+</sup>/NKX6&#x2013;1<sup>+</sup> cells maintained in basal medium without additional growth factors proceeded to become C-peptide<sup>+</sup> cells (23% at day 19), expressing &#x3B2;-cell transcription factors (PDX1, NKX6&#x2013;1, NKX2&#x2013;2, ISL1, PAX6, NEUROD1) and chromogranin A with only 3.2% of all differentiated cells being GCG<sup>+</sup>. The C-peptide<sup>+</sup> cells had minimal proliferative capacity, expressed MAFA, MAFB and genes relevant to glucose metabolism (GCK), insulin processing (PC1/3) and membrane polarization (KIR6.2, SUR1). Transplantation of PDX1<sup>+</sup>/NKX6-1<sup>+</sup> cells into STZ-treated diabetic mice resulted in significant reduction of blood glucose levels.</p>
+        <p id="Par21">Most reports on pancreatogenic differentiation of hPSCs rely on trial-and-error experiments and the knowledge drawn from embryonic development of model organisms to select factors for coaxing hPSCs along pancreatic endoderm and islet cell fates. Recently, clustered regularly interspaced short palindromic repeats/Cas9 (CRISPR/Cas9) technology was utilized to knockout hPSC&#xA0;genes in a doxycycline-inducible manner [<xref ref-type="bibr" rid="CR49">49</xref>] in an effort to dissect the action of specific genes during specification to pancreatic islet cells. <italic>PDX1</italic>, <italic>RFX6</italic> and <italic>NGN3</italic> knockouts had fewer INS<sup>+</sup> or GCG<sup>+</sup> cells as determined by immunocytochemistry and flow cytometry analysis, indicating that these genes are necessary for pancreatic endocrine differentiation. In contrast, knocking out <italic>HES1</italic> led to an increase of endocrine cells suggesting that HES1 expression inhibits pancreatic endocrine differentiation. In <italic>ARX</italic> mutants, the cells were not GCG<sup>+</sup> (assessed by quantitative polymerase chain reaction (qPCR) analysis and immunostaining) and there was a 30% decrease in the number of INS<sup>+</sup> cells as determined by flow cytometry<bold>, which means</bold>
+<bold><italic>ARX</italic></bold> aids in specifying GCG- and INS-expressing cells. At the pancreatic progenitor stage, mutants of <italic>PTF1A</italic>, <italic>GLIS3</italic>, <italic>MNX1</italic>, <italic>NGN3</italic>, <italic>ARX</italic> and <italic>HES1</italic> formed PDX1<sup>+</sup> cells normally, while the RFX6 knockouts had a 40% decrease of PDX1<sup>+</sup> cells suggesting that RFX6 is a regulator of PDX1 expression [<xref ref-type="bibr" rid="CR49">49</xref>].</p>
+      </sec>
+      <sec id="Sec5">
+        <title>Derivation of &#x3B1;-like cells</title>
+        <p id="Par22">In addition to the production of insulin-secreting &#x3B2;-cells, reports are available on the derivation of other endocrine cell types, mainly &#x3B1;-cells, from hPSCs. Supraphysiological &#x3B1;-cell function and hyperglucagonemia are contributors to hyperglycemia in diabetic patients, stimulating glucose production in the liver [<xref ref-type="bibr" rid="CR50">50</xref>]. The release of glucagon by &#x3B1;-cells is partly regulated by neighboring &#x3B2;-cell insulin secretion, which becomes aberrant in T2D. Thus, the in vitro generation of &#x3B1;-cells can serve as a resource for studies on glucagon-producing pancreatic cells in normal and diabetic states. Recent reports have also shown that &#x3B1;-cells can be converted into &#x3B2;-cells in mice following ablation of the existing &#x3B2;-cells [<xref ref-type="bibr" rid="CR51">51</xref>] or ectopic expression of <italic>pax4</italic> [<xref ref-type="bibr" rid="CR52">52</xref>], suggesting that stem cell-derived &#x3B1;-cells may act as a starting point for the generation of functional &#x3B2;-cells.</p>
+        <p id="Par23">Human ESCs have been coaxed into &#x3B1;-cells using a 4-week, 6-stage regimen (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S1) [<xref ref-type="bibr" rid="CR53">53</xref>]. Initially, cells were induced to an anterior primitive streak cell fate, followed by endocrine precursors and pancreatic endocrine phenotypes with cells forming spontaneously clusters that contained &#x3B1;-cells. The final population featured 99.3% SYP<sup>+</sup> and 65.3% GCG<sup>+</sup>/INS<sup>+</sup> cells as determined by flow cytometry vs. 61% and 4% found in human islets, respectively. Approximately 65% GCG<sup>+</sup> cells (4.3% INS<sup>+</sup>/GCG<sup>+</sup>) were produced with extended culture of the clusters while the levels of SYP<sup>+</sup> cells remained around 75%. Cells also stained positive for the transcription factor ARX, which contributes to &#x3B1;-cell development [<xref ref-type="bibr" rid="CR54">54</xref>]. Also, the cells exhibited a 10-fold higher glucagon content vs. human islets. Conversely, the insulin content was 10 times less than in human islets and the cells exhibited very low insulin secretion in vitro in response to KCl and arginine, but not to glucose. Basal secretion of glucagon at low glucose was variable but on average&#xA0;~&#xA0;4-fold higher than that of native islets. Incubation with arginine, KCl and carbachol (an acetylcholine analog) triggered the release of glucagon whereas octreotide (an octapeptide analog of somatostatin) and high glucose had the opposite effect, in line with their physiological roles.</p>
+        <p id="Par24">The hESC-derived &#x3B1;-cells were transplanted to normoglycemic mice to assess glucagon secretion in vivo. Animals receiving the cells (Tx group) exhibited a significant increase in glucagon after intraperitoneal administration of arginine. When the mice were subjected to an oral glucose challenge, approximately 2.5&#xA0;months after implantation, there were no differences in insulin secretion and glucose clearance between the control and Tx groups. Yet, the Tx group displayed chronic hyperglucagonemia and mild glucagon resistance. Removal and examination of the engrafted cells 4&#xA0;months post-transplantation revealed that the cells maintained the expression of glucagon and other &#x3B1;-cell markers (ARX) but there was downregulated or undetectable expression of &#x3B2;-cell genes, such as <italic>INS</italic>, <italic>MAFA</italic> and <italic>NKX6&#x2013;1</italic>. Additionally, the &#x3B1;-cell clusters did not revert to a different lineage fate upon implantation in STZ-treated mice, suggesting a robust in vitro commitment.</p>
+        <p id="Par25">While more than half of the differentiated cells displayed &#x3B1;-cell markers, we surmise that these cells are not mature given that, upon transplantation in mice, GLP-1 plasma levels were increased in response to arginine administration. The presence of GLP-1 is noteworthy because it has&#xA0;previously been shown that prohormone convertase 1/3 (PC1/3), which converts proglucagon to GLP-1 and GLP-2 instead of glucagon, is expressed in immature rather than mature &#x3B1;-cells [<xref ref-type="bibr" rid="CR55">55</xref>]. In addition, the&#xA0;peak in vivo glucagon levels after implantation increased about 4-fold from day 9 to 62, suggesting that further in vivo maturation of these cells is required. Therefore, similar to the derivation&#xA0;of insulin-producing cells from hPSCs, the in vitro maturation of &#x3B1;-cells is a major challenge to be tackled.</p>
+        <p id="Par26">Overall, vast improvements in the in vitro differentiation of hPSCs to pancreatic endocrine cell progeny have been made in recent years. For both &#x3B2;- and &#x3B1;-cells the main difficulty at present is their in vitro maturation into cells that exhibit physiologically relevant hormone release profiles. Recent findings however have brought us closer to achieving the goal of in vitro maturation of hPSC-derived cells to functional endocrine cells.</p>
+      </sec>
+      <sec id="Sec6">
+        <title>hPSC differentiation to pancreatic exocrine cells</title>
+        <p id="Par27">While the connection between diabetes and the functions of the endocrine pancreas is well-established, the role of the exocrine compartment in the context of the disease is still unclear. A considerable fraction of patients with diabetes mellitus exhibit pancreatic exocrine insufficiency including altered exocrine morphology and function and increased inflammation [<xref ref-type="bibr" rid="CR56">56</xref>, <xref ref-type="bibr" rid="CR57">57</xref>]. Hence, engineered exocrine pancreatic tissue equivalents can serve as in vitro models to study the physiology of the exocrine compartment in diabetes and potentially to reconstitute the function of exocrine cells damaged by the disease.</p>
+        <p id="Par28">Protocols for specifying hPSCs to pancreatic exocrine cells are underdeveloped and are characterized by lower differentiation efficiency than those for the generation of endocrine &#x3B2;-cells. Takizawa-Shirasawa et al. [<xref ref-type="bibr" rid="CR58">58</xref>] demonstrated the conversion of hESCs in 15&#xA0;days to pancreatic exocrine cells generating 12.2&#xA0;&#xB1;&#xA0;6.1% amylase<sup>+</sup> and carboxypeptidase A<sup>+</sup> cells (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S2).</p>
+        <p id="Par29">Recently, the differentiation of hPSCs toward exocrine cell fates was demonstrated in organoid cultures [<xref ref-type="bibr" rid="CR59">59</xref>]. Three-dimensional organotypic culture methods have been developed for the differentiation of stem cells and the formation of miniature organ-like structures (organoids), featuring ultrastructural and functional similarities to their native tissue counterparts. Various organoid models have been reported, including brain [<xref ref-type="bibr" rid="CR60">60</xref>, <xref ref-type="bibr" rid="CR61">61</xref>], kidney [<xref ref-type="bibr" rid="CR62">62</xref>, <xref ref-type="bibr" rid="CR63">63</xref>], intestine [<xref ref-type="bibr" rid="CR64">64</xref>, <xref ref-type="bibr" rid="CR65">65</xref>] and liver organoids [<xref ref-type="bibr" rid="CR66">66</xref>, <xref ref-type="bibr" rid="CR67">67</xref>]. Even primary human pancreatic cells embedded in Matrigel or rat tail collagen proliferate and form cysts displaying ductal cell markers and structures reminiscent of endocrine islets [<xref ref-type="bibr" rid="CR68">68</xref>]. Notably, undifferentiated hPSCs also form structures containing cysts or lumens when seeded in Matrigel gel [<xref ref-type="bibr" rid="CR69">69</xref>].</p>
+        <p id="Par30">For exocrine differentiation in organoid cultures, hPSCs were first converted in monolayer cultures to NKX6&#x2013;1<sup>+</sup>/PDX1<sup>+</sup> progenitors before being placed on a Matrigel bed with differentiation media that contained 5% Matrigel&#xA0;for self-assembly into organoids with differentiation media that contained 5% Matrigel (Fig. <xref rid="Fig3" ref-type="fig">3</xref>, Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Table S3) [<xref ref-type="bibr" rid="CR59">59</xref>]. About 10&#x2013;20% of the differentiated cells formed polarized organoids. The differentiation resulted in ductal and acinar cell populations. Organoids comprised one layer of polarized epithelia surrounding a hollow central lumen and most organoids were clonally derived. Progenitor organoids proliferated in culture for 12&#xA0;days reaching diameters of 30&#x2013;200&#xA0;&#x3BC;m and day 16 organoids could be serially passaged. Cells were ~70% PDX1<sup>+</sup>, ~90% SOX9<sup>+</sup> and ~77% NKX6&#x2013;1<sup>+</sup>, while all the cells expressed the ductal marker KRT19. Starting on day 6, cells displayed low NGN3 expression and a 3.5-fold increase in SOX9 indicative of exocrine specification. However, ductal (CA2 and CFTR) and acinar (carboxyl ester lipase (CEL), pancreatic lipase (PNLIP) and serine peptidase inhibitor, Kazal type 1 (SPINK)) cell markers were either undetectable or at lower levels in organoids compared to adult pancreatic tissues, indicating that the organoid cells were mainly progenitor cells. These organoids gave rise to 10&#x2013;15% CA2<sup>+</sup> ductal and 0.5&#x2013;1% CPA1<sup>+</sup> acinar organoids. The reported fractions of exocrine cells in the organoids were very low in comparison to those achieved in the previously mentioned monolayer cultures. Further work is warranted for enhancing the efficiency of exocrine differentiation.<fig id="Fig3"><label>Fig. 3</label><caption><p>Schematic of the protocol for the creation of 3D organoid-like structures from NKX6.1<sup>+</sup>/PDX1<sup>+</sup> containing pancreatic progenitors differentiated from hESCs</p></caption><graphic xlink:href="13036_2017_66_Fig3_HTML" id="MO3"/></fig>
+</p>
+        <p id="Par31">As a side note, the formation of organoids by cells from human pancreatic ductal adenocarcinoma (PDAC) biopsies was also demonstrated in the same report. Tumor organoids maintained some characteristics of the original PDAC making this system useful for studying pancreatic cancer and screening pertinent drugs for personalized therapeutic regimens [<xref ref-type="bibr" rid="CR59">59</xref>, <xref ref-type="bibr" rid="CR70">70</xref>]. Furthermore, others have demonstrated the generation of acinar and ductal cells in organoids of hPSCs derived from cystic fibrosis patients as an in vitro model of the disease [<xref ref-type="bibr" rid="CR71">71</xref>].</p>
+        <p id="Par32">The efficiency of hPSC differentiation to exocrine cells is low compared to that toward endocrine cells. This is probably due to the emphasis placed predominantly on the derivation of insulin-producing cells. However, exocrine cells may be beneficial for in vitro models of diabetes, as mentioned previously. The organoid-like structures that contain some exocrine cells provide an interesting model [<xref ref-type="bibr" rid="CR59">59</xref>], which recapitulates 3D architecture that is similar to in vivo pancreatic development. With further work, this model could potentially provide a way for more efficient generation of exocrine cells.</p>
+      </sec>
+      <sec id="Sec7">
+        <title>Challenges and future directions</title>
+        <sec id="Sec8">
+          <title>Protocol optimization and identification of factors for in vivo maturation of hPSC-derived pancreatic cell progeny</title>
+          <p id="Par33">Despite significant recent advances in the differentiation of hPSCs into pancreatic cells, several challenges remain to obtain functional human pancreatic &#x2013; particularly insulin-producing &#x2013; cells performing on par with native cells. The variability noted in different reports in the specification outcomes across various hPSC lines (Table <xref rid="Tab1" ref-type="table">1</xref>) points to the need for protocol adaptation and optimization, generally hindering direct translation to multiple lines. In addition, glucose-stimulated insulin secretion (GSIS) of many stem cell-derived pancreatic cells differs significantly from that of primary human islets. Furthermore, evidence of hPSC-derived islet performance under sequential glucose challenges is limited and the kinetics of GSIS are typically slow. More importantly, the underlying causes of these discrepancies between native islet cells and hPSC-derived cells are unclear. For instance, differences in glucose metabolism and deficiencies in hormone exocytosis and membrane docking of insulin granules have been suggested as potential culprits [<xref ref-type="bibr" rid="CR9">9</xref>]. Yet, pancreatic progenitors from cultured hPSCs become glucose-responsive after implantation in mice illustrating the need for additional factors to drive the maturation of these cells in vitro.</p>
+          <p id="Par34">In addition, no factors which promote the in vivo maturation of the hESC-derived pancreatic progeny have been identified [<xref ref-type="bibr" rid="CR35">35</xref>]. This issue was explored by grafting hESC-derived pancreatic progenitor cells in immunodeficient rats and mice [<xref ref-type="bibr" rid="CR72">72</xref>]. Although human C-peptide levels were higher in mice than rats, only rats had glucose-responsive human C-peptide secretion by weeks 19&#x2013;21 and the cell grafts in rats had higher levels of mature &#x3B2;-cell genes with lower levels of <italic>NGN3</italic>, <italic>GCG</italic> and <italic>ARX</italic> than cells in mouse grafts. Compared to mouse grafts, rat grafts had a higher density and distribution of red blood cells and rats had lower levels of circulating human vascular endothelial growth factor C (VEGF-C) and basic FGF (bFGF). Thus, maturation of the transplanted cells may be facilitated by the inclusion of red blood cells and prevented by the presence of VEGF-C and bFGF. Rat grafts were also supported by a compact collagen network, which was looser in mice. The denser collagen network may promote cell maturation, which is in agreement with the findings that collagen IV-modified poly (lactide-co-glycolide) (PLG) scaffolds improve the GSIS of isolated mouse islets in comparison to serum-modified PLG scaffolds [<xref ref-type="bibr" rid="CR73">73</xref>].</p>
+        </sec>
+        <sec id="Sec9">
+          <title>Large-scale culture systems</title>
+          <p id="Par35">While work on the latter stages (maturation) of the hPSC differentiation to insulin-producing &#x3B2;-cells is ongoing, there is a glaring need for scalable bioprocesses for the generation of clinical grade &#x3B2;-cells for diabetes therapies. It is estimated that a dose of ~10<sup>9</sup> &#x3B2;-cells is necessary for envisioned cell therapy protocols [<xref ref-type="bibr" rid="CR4">4</xref>]. Whether the cells will be produced in a scale-out (multiple small batches each for a single patient) or scale-up (a large batch servicing multiple patients) fashion is debatable. Nonetheless, given that monolayer methods have inherent shortcomings for growing large amounts of cells, three dimensional (3D) systems are an appealing option for the expansion of hPSCs and their specification to pancreatic cells [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR74">74</xref>].</p>
+          <p id="Par36">Pancreatogenic differentiation has been demonstrated in shaker and spinner flasks, but these modalities lack automation for monitoring and controlling culture conditions. For example, while hPSCs are subjected to differentiation as aggregates in spinner flasks or rotary cultures over a few weeks (e.g. toward insulin-producing cells [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR75">75</xref>]), cluster size increases due to cell proliferation, which is slower than self-renewing of hPSCs but nonetheless significant. As a result, mass transfer limitations, cell necrosis and aberrant differentiation can be exacerbated, especially when process monitoring and control are lacking. This hinders the downstream separation of the desired cell population(s). Frequent dissociation of the clusters is laborious, increases the risk for contamination, may decrease cell viability and has unexplored ramifications for cell specification and function.</p>
+          <p id="Par37">Spinner flasks represent simplified versions of fully automated stirred suspension bioreactors, which are the workhorse of the biopharmaceutical industry for cell cultivation. Bioreactor systems, allowing the continuous monitoring and control of critical parameters such as pH, dissolved oxygen (DO), concentration of nutrients and metabolites, and feeding, can ensure the reproducibility and control of the expansion and directed differentiation. However, the dynamic bioreactor milieu is markedly different from the environment in static cultures and its effect(s) on the pancreatic specification of hPSCs has yet to be determined. To that end, application of the quality-by-design (QbD) framework that is routinely employed in pharmaceutical development [<xref ref-type="bibr" rid="CR76">76</xref>, <xref ref-type="bibr" rid="CR77">77</xref>], can expedite the development of bioreactor processes for the production of stem cell therapeutics.</p>
+        </sec>
+        <sec id="Sec10">
+          <title>Large-scale postprocessing: Cell sorting</title>
+          <p id="Par38">The production of medically relevant quantities of cells secreting insulin in response to glucose also hinges on technologies for the efficient and rapid separation of the desired cells from the usually heterogeneous populations of differentiated hPSCs. Fluorescence activated cell sorting (FACS) is customarily used in a laboratory setting for cell separation based on the expression of specific surface antigens [<xref ref-type="bibr" rid="CR78">78</xref>&#x2013;<xref ref-type="bibr" rid="CR80">80</xref>] or fluorescent reporters [<xref ref-type="bibr" rid="CR81">81</xref>] (after genetic manipulation of the cells). Alternatively, magnetic-activated cell sorting (MACS) can be used to obtain enriched cell populations. However, sorting rates typically do not exceed 25&#xA0;&#xD7;&#xA0;10<sup>3</sup> events/s (translating, practically, to a lower cell/s rate) and the post-sorting cell viability is less than 100%. Given that only a fraction of the differentiated cell ensemble exhibits appropriate markers, the time needed for isolating ~10<sup>9</sup> &#x3B2;-cell-like cells per patient would be impractically long. In addition, this process might reduce cell viability and impair function because conventional cell sorting requires dispersing the aggregates, employed in most differentiation protocols, into single cells. If the phenotypic composition of the clusters is known and does not pose problems for downstream applications, large particle cytometry, which has been successfully applied for sorting 35&#x2013;100&#xA0;&#xD7;&#xA0;10<sup>3</sup> human islets/h [<xref ref-type="bibr" rid="CR82">82</xref>], could be utilized to process hPSC-derived islet clusters.</p>
+          <p id="Par39">Sorting methods are based on the presence (positive selection) or absence (negative selection) of specific cell markers, but this does not guarantee that the selected cells exhibit desirable metabolic or functional attributes. For example, hPSC populations undergoing differentiation to heart cells can be incubated with lactate, which is utilized selectively by the cardiomyocytes, causing the elimination of undesired cells [<xref ref-type="bibr" rid="CR83">83</xref>]. To our knowledge there is currently no such metabolism-based strategy for &#x3B2;-cell enrichment of stem cells undergoing pancreatogenic specification. hPSC-derived &#x3B2;-cell-like cells should display mechanisms of glucose sensing, insulin synthesis and bi-phasic secretion [<xref ref-type="bibr" rid="CR84">84</xref>] akin to those in native &#x3B2;-cells. Methods for in vitro and in vivo assessment of insulin (and C-peptide) release after treatment with secretagogues are well-developed [<xref ref-type="bibr" rid="CR85">85</xref>], but their results are an average insulin secretion rate that does not distinguish among individual cells or clusters based on their secretory capacity. In principle, this heterogeneity in hPSC-derived insulin-producing cells is mirrored in native &#x3B2;-cells [<xref ref-type="bibr" rid="CR86">86</xref>], but GSIS of the former is typically significantly lower than that of the latter. Therefore, the question remains of how the ranges of GSIS rates for the hPSC-derived cells compare to those for human islets. Knowing the answer would facilitate not only the optimization of the differentiation protocols but also the selection of cells with high insulin production to maximize the ratio of secreted hormone over the number of cells needed for diabetes correction. Thus, novel technologies are needed for the rapid discrimination and harvest of medically relevant quantities of individual hPSC-derived &#x3B2;-cell-like cells or clusters with GSIS comparable to human pancreatic islet cells.</p>
+        </sec>
+        <sec id="Sec11">
+          <title>Cell loss during differentiation</title>
+          <p id="Par40">Despite the significant progress in differentiation protocols, there are still substantial cell losses throughout commitment, for example at the onset of differentiation, or due to apoptosis, shear (in stirred suspension), cluster dissociation during culture (e.g., for re-seeding), and accumulation of metabolites. Such losses adversely affect the overall economics of the bioprocess, especially considering the high cost of xeno-free media, supplements and possibly scaffolds. This problem may be alleviated with the inclusion of molecules that limit cell apoptosis and sustain viability and proliferation (e.g. Z-VAD-FMK [<xref ref-type="bibr" rid="CR87">87</xref>, <xref ref-type="bibr" rid="CR88">88</xref>], brain-derived neurotrophic factor (BDNF) and neurotrophin-3 and &#x2212;4 [<xref ref-type="bibr" rid="CR89">89</xref>]).</p>
+          <p id="Par41">The diminished proliferative capacity of cells as differentiation progresses further compounds the reduction in the yield of hPSC-derived pancreatic cells. A possible solution to this is the establishment of self-renewing endodermal progenitor (EP) lines. For example, Cheng et al. [<xref ref-type="bibr" rid="CR90">90</xref>] reported that after 3&#x2013;4&#xA0;weeks of hESC differentiation to hepatic cells, a subpopulation (EP cells) persisted morphologically resembling the undifferentiated ESC colonies. These cells expressed SOX17 and HNF4A but not NANOG and POU5F1. A fraction of EP cells co-expressed CXCR4/CD117/FOXA1/SOX17 and propagated extensively (&gt;10<sup>16</sup> expansion was demonstrated over 24 passages) forming endodermal tissues without tumorigenicity. The authors presented the derivation of EP cells from another hESC line and two hiPSC lines in a serum-free protocol under hypoxia and in a shorter time (5&#xA0;days of endoderm differentiation). However, it is still unclear if hPSCs are predisposed to an EP cell fate or if the appearance of this population can be solely attributed to idiosyncrasies of the culture protocol.</p>
+        </sec>
+        <sec id="Sec12">
+          <title>Culture economics, efficiency, and efficacy</title>
+          <p id="Par42">Improving the differentiation efficiency requires the presentation of physiologically relevant cues to cells, not only at specific concentrations, but also at precise times. However, biological ligands (e.g., activin, Wnt3a, FGFs etc.) are expensive and have variable activity depending on lot and storage length and have a&#xA0;short half-life in culture, making them unsuitable for large-scale production of pancreatic cells from hPSCs. To that end, small molecules with similar bioactivity to recombinant cytokines, longer half-lives, and consistent activity (e.g., SANT1 [<xref ref-type="bibr" rid="CR91">91</xref>], LDN193189 [<xref ref-type="bibr" rid="CR92">92</xref>]) can be used for making defined and xeno-free media for stem cell bioprocesses. These small molecules are less expensive and more stable, reducing the cost of culture and&#xA0;making it more applicable for large-scale culture. As the examples suggest, some of these small molecules exist, but ideally more should be developed to replace all the biological ligands needed for differentiation.</p>
+          <p id="Par43">Considering the advantages of small molecules over growth factors and cytokines as differentiation agents, substantial effort has been focused on the discovery of new molecules for converting hPSCs to pancreatic cells. Advances in high-throughput screening methodologies have made the discovery of new molecules as differentiation stimuli possible. For example, Chen et al. reported the screening of ~5000 chemical compounds leading to the identification of (&#x2212;)-indolactam V as an agent augmenting 10 times (vs. controls) the expression of PDX1 in hESC-derived DE cells [<xref ref-type="bibr" rid="CR93">93</xref>]. Similarly, kinase inhibitors were screened by qPCR for the upregulation of endocrine marker expression in differentiating hPSCs [<xref ref-type="bibr" rid="CR53">53</xref>].</p>
+          <p id="Par44">A significant aspect of the in vivo differentiation process is the 3D architecture of the forming tissues. To that end, pancreatic organoids mimic ultrastructural attributes of the native organ compartments [<xref ref-type="bibr" rid="CR70">70</xref>]. Organoid culture capitalizes on the cells&#x2019; ability to self-organize into luminal structures in conjunction with paracrine signaling. Huang et al. demonstrated the cultivation of hPSC-derived organoids displaying tight junctions (ZO-1 expression), a polarized epithelial (MUC1 expression) layer, basement membrane secretion (human collagen IV and laminin-&#x3B1;5), and hollow central lumen and apical microvilli [<xref ref-type="bibr" rid="CR59">59</xref>]. These findings are in line with those reported for organoids in another study describing a hollow central lumen, polarized cell epithelial (apical marker ZO1 and basal marker laminin-&#x3B1;5 staining) and microvilli [<xref ref-type="bibr" rid="CR71">71</xref>]. Of note, the pancreatic acini feature microvilli and a bud-like structure surrounding a lumen [<xref ref-type="bibr" rid="CR14">14</xref>], which is similar to the hollow lumen of the organoids bordered by cells. Whether hPSC organoid cultures can be employed for the efficient generation of tissue equivalents of the pancreas as shown for other organs (e.g. retina [<xref ref-type="bibr" rid="CR94">94</xref>], intestine [<xref ref-type="bibr" rid="CR95">95</xref>], kidney [<xref ref-type="bibr" rid="CR96">96</xref>], brain [<xref ref-type="bibr" rid="CR60">60</xref>]) remains an open question, especially given that the production of pancreatic endocrine organoids has yet to be reported.</p>
+        </sec>
+        <sec id="Sec13">
+          <title>Exosomes and miRNAs in pancreatic differentiation</title>
+          <p id="Par45">Significant effort is also devoted to the discovery of factors beyond the traditional soluble cues for pancreatogenic differentiation. To this end, exosomes transferring information among cells in the form of proteins, DNA and RNA, including microRNA (miRNA), may participate in the process of hPSC fate specification. Probing the cargo of exosomes produced during hPSC differentiation to pancreatic cell progeny may reveal clues about pathways engaged in the transition of hPSCs toward islet cells and their maturation. It is expected that with ongoing refinements in exosome isolation, more miRNA and other moieties may be revealed as potentially useful in augmenting the differentiation of hPSCs to pancreatic progeny. MiRNAs, whether in exosomes or natively expressed in cells, may also influence differentiation. For instance, hPSCs overexpressing miRNA-186 and miRNA-375 display pancreatic cell-specific transcription factors and genes, such as <italic>INS</italic>, <italic>NGN3</italic>, <italic>GLUT2</italic>, <italic>PAX4</italic>, <italic>PAX6</italic>, <italic>NKX6&#x2013;1</italic>, <italic>PDX1</italic> and <italic>GCG</italic> [<xref ref-type="bibr" rid="CR97">97</xref>]. Morphologically the cells resemble islet cells, staining positive for insulin, NGN3 and zinc-containing granules (dithizone), and they secrete insulin in response to glucose. Hence, the efforts to convert hPSCs to pancreatic endocrine cells may benefit from strategies capitalizing on the increasing knowledge about the roles of exosomes and/or miRNAs on stem cell commitment.</p>
+          <p id="Par46">It should be noted that the immunoprofile of the stem cell-derived pancreatic progeny should be scrutinized. This is essential when considering the use of these cells for patients with T1D, given the autoimmune nature of T1D, where direct implantation of islet cells generated from patient-specific iPSCs could be problematic. To that end, modulation of the immunoreactivity of stem cell-derived pancreatic cells may require their genetic manipulation, posing significant hurdles for their clinical use. However, there is a long history of developing biomaterials for islet encapsulation, offering protection from the host&#x2019;s immune system [<xref ref-type="bibr" rid="CR98">98</xref>], and various such designs have been used successfully in clinical trials involving islet transplantation [<xref ref-type="bibr" rid="CR99">99</xref>, <xref ref-type="bibr" rid="CR100">100</xref>].</p>
+          <p id="Par47">While several challenges and possible future directions were presented here, this is by no means an exhaustive list. Nonetheless, this discussion provides a perspective on where the the research&#xA0;is headed on the differentiation of hPSCs to functional pancreatic cells for diabetes therapies.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec id="Sec14">
+      <title>Conclusions</title>
+      <p id="Par48">The field of directing the fate of human stem cells to pancreatic cells and especially to insulin-secreting&#xA0;&#x3B2;-cells has come a long way in the last decade. Thus far, several laboratories have demonstrated the conversion of hPSCs to cells producing insulin, although there are still differences relative to human &#x3B2;-cells, most notably the immature phenotype of the hPSC-derived endocrine cells. As a result, a significant effort is placed on the maturation of the islet (and exocrine) cells from stem cells. Equally important however, is the effort to tackle issues surrounding the scalable generation and selection, identification of factors for in vivo maturation, culture economics, efficiency, and efficacy and exosomes and miRNAs in pancreatic differentiation. Furthermore, overcoming problems with&#xA0;functional evaluation of endocrine cells that can be used to manage diabetes and possibly other maladies, such as chronic pancreatitis and pancreatic cancer. Overall, there is still work to be done in creating fully functional pancreatic tissues from hPSCs in vitro, but given the current pace of progress, stem cell-based cellular therapeutics for diabetes may be available sooner than expected.</p>
+    </sec>
+  </body>
+  <back>
+    <app-group>
+      <app id="App1">
+        <sec id="Sec15">
+          <title>Additional file</title>
+          <p id="Par55">
+<media position="anchor" xlink:href="13036_2017_66_MOESM1_ESM.docx" id="MOESM1"><label>Additional file 1: Table S1.</label><caption><p> hPSCs endocrine differentiation protocols. <bold>Table S2.</bold> hPSCs exocrine differentiation protocols. <bold>Table S3.</bold> hPSCs pancreatic organoid culture. (DOCX 50 kb)</p></caption></media>
+</p>
+        </sec>
+      </app>
+    </app-group>
+    <fn-group>
+      <fn>
+        <p>
+          <bold>Electronic supplementary material</bold>
+        </p>
+        <p>The online version of this article (doi:10.1186/s13036-017-0066-3) contains supplementary material, which is available to authorized users.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>We express our appreciation to present and past members of the Tzanakakis laboratory for discussions and comments during the preparation of this manuscript.</p>
+      <sec id="FPar1">
+        <title>Availability of data and materials</title>
+        <p id="Par49">Not applicable.</p>
+      </sec>
+      <sec id="FPar2">
+        <title>Funding</title>
+        <p id="Par50">Funding support has been provided by the National Science Foundation (CBET-1547785) to EST and by the DoD, Air Force Office of Scientific Research, National Defense Science and Engineering Graduate (NDSEG) Fellowship, 32 CFR 168a to EJ.</p>
+      </sec>
+      <sec id="FPar3">
+        <title>Authors&#x2019; contributions</title>
+        <p id="Par51">EJ conducted experimental procedures. EST directed the studies for which experimental results are shown. EJ and EST were major contributors in writing the manuscript. All authors read and approved the final manuscript.</p>
+      </sec>
+      <sec id="FPar4">
+        <title>Competing interests</title>
+        <p id="Par52">The authors declare that they have no competing interests.</p>
+      </sec>
+      <sec id="FPar5">
+        <title>Consent for publication</title>
+        <p id="Par53">Not applicable.</p>
+      </sec>
+      <sec id="FPar6">
+        <title>Ethics approval and consent to participate</title>
+        <p id="Par54">Not applicable.</p>
+      </sec>
+    </ack>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <mixed-citation publication-type="other">Prevention, Centers for Disease Control and Prevention, Diabetes: At a glance 2016. Atlanta: Department of Health and Human Services; 2016.</mixed-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>da Rocha Fernandes</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>IDF Diabetes Atlas estimates of 2014 global health expenditures on diabetes</article-title>
+          <source>Diabetes Res Clin Pract</source>
+          <year>2016</year>
+          <volume>117</volume>
+          <fpage>48</fpage>
+          <lpage>54</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.diabres.2016.04.016</pub-id>
+          <pub-id pub-id-type="pmid">27329022</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>American Diabetes</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Insulin administration</article-title>
+          <source>Diabetes Care</source>
+          <year>2004</year>
+          <volume>27</volume>
+          <issue>Suppl 1</issue>
+          <fpage>S106</fpage>
+          <lpage>S109</lpage>
+          <pub-id pub-id-type="pmid">14693942</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lock</surname>
+              <given-names>LT</given-names>
+            </name>
+            <name>
+              <surname>Tzanakakis</surname>
+              <given-names>ES</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem/Progenitor Cell Sources of Insulin-Producing Cells for the Treatment of Diabetes</article-title>
+          <source>Tissue Eng</source>
+          <year>2007</year>
+          <volume>13</volume>
+          <issue>7</issue>
+          <fpage>1399</fpage>
+          <lpage>1412</lpage>
+          <pub-id pub-id-type="doi">10.1089/ten.2007.0047</pub-id>
+          <pub-id pub-id-type="pmid">17550339</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shapiro</surname>
+              <given-names>AM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Islet transplantation in seven patients with type 1 diabetes mellitus using a glucocorticoid-free immunosuppressive regimen</article-title>
+          <source>N Engl J Med</source>
+          <year>2000</year>
+          <volume>343</volume>
+          <issue>4</issue>
+          <fpage>230</fpage>
+          <lpage>238</lpage>
+          <pub-id pub-id-type="doi">10.1056/NEJM200007273430401</pub-id>
+          <pub-id pub-id-type="pmid">10911004</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ryan</surname>
+              <given-names>EA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Five-year follow-up after clinical islet transplantation</article-title>
+          <source>Diabetes</source>
+          <year>2005</year>
+          <volume>54</volume>
+          <issue>7</issue>
+          <fpage>2060</fpage>
+          <lpage>2069</lpage>
+          <pub-id pub-id-type="doi">10.2337/diabetes.54.7.2060</pub-id>
+          <pub-id pub-id-type="pmid">15983207</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nostro</surname>
+              <given-names>MC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Stage-specific signaling through TGFbeta family members and WNT regulates patterning and pancreatic specification of human pluripotent stem cells</article-title>
+          <source>Development</source>
+          <year>2011</year>
+          <volume>138</volume>
+          <issue>5</issue>
+          <fpage>861</fpage>
+          <lpage>871</lpage>
+          <pub-id pub-id-type="doi">10.1242/dev.055236</pub-id>
+          <pub-id pub-id-type="pmid">21270052</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pagliuca</surname>
+              <given-names>FW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of functional human pancreatic beta cells in vitro</article-title>
+          <source>Cell</source>
+          <year>2014</year>
+          <volume>159</volume>
+          <issue>2</issue>
+          <fpage>428</fpage>
+          <lpage>439</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2014.09.040</pub-id>
+          <pub-id pub-id-type="pmid">25303535</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rezania</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Reversal of diabetes with insulin-producing cells derived in vitro from human pluripotent stem cells</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2014</year>
+          <volume>32</volume>
+          <issue>11</issue>
+          <fpage>1121</fpage>
+          <lpage>1133</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.3033</pub-id>
+          <pub-id pub-id-type="pmid">25211370</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zanini</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differentiation of mesenchymal stem cells derived from pancreatic islets and bone marrow into islet-like cell phenotype</article-title>
+          <source>PLoS One</source>
+          <year>2011</year>
+          <volume>6</volume>
+          <issue>12</issue>
+          <fpage>e28175</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0028175</pub-id>
+          <pub-id pub-id-type="pmid">22194812</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kadam</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Govindasamy</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Bhonde</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of functional islets from human umbilical cord and placenta derived mesenchymal stem cells</article-title>
+          <source>Methods Mol Biol</source>
+          <year>2012</year>
+          <volume>879</volume>
+          <fpage>291</fpage>
+          <lpage>313</lpage>
+          <pub-id pub-id-type="doi">10.1007/978-1-61779-815-3_17</pub-id>
+          <pub-id pub-id-type="pmid">22610566</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhu</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human pancreatic beta-like cells converted from fibroblasts</article-title>
+          <source>Nat Commun</source>
+          <year>2016</year>
+          <volume>7</volume>
+          <fpage>10080</fpage>
+          <pub-id pub-id-type="doi">10.1038/ncomms10080</pub-id>
+          <pub-id pub-id-type="pmid">26733021</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nair</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hebrok</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Islet formation in mice and men: lessons for the generation of functional insulin-producing beta-cells from human pluripotent stem cells</article-title>
+          <source>Curr Opin Genet Dev</source>
+          <year>2015</year>
+          <volume>32</volume>
+          <fpage>171</fpage>
+          <lpage>180</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.gde.2015.03.004</pub-id>
+          <pub-id pub-id-type="pmid">25909383</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Edlund</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Pancreatic organogenesis--developmental mechanisms and implications for therapy</article-title>
+          <source>Nat Rev Genet</source>
+          <year>2002</year>
+          <volume>3</volume>
+          <issue>7</issue>
+          <fpage>524</fpage>
+          <lpage>532</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrg841</pub-id>
+          <pub-id pub-id-type="pmid">12094230</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jennings</surname>
+              <given-names>RE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human pancreas development</article-title>
+          <source>Development</source>
+          <year>2015</year>
+          <volume>142</volume>
+          <issue>18</issue>
+          <fpage>3126</fpage>
+          <lpage>3137</lpage>
+          <pub-id pub-id-type="doi">10.1242/dev.120063</pub-id>
+          <pub-id pub-id-type="pmid">26395141</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wells</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Melton</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Early mouse endoderm is patterned by soluble factors from adjacent germ layers</article-title>
+          <source>Development</source>
+          <year>2000</year>
+          <volume>127</volume>
+          <issue>8</issue>
+          <fpage>1563</fpage>
+          <lpage>1572</lpage>
+          <pub-id pub-id-type="pmid">10725233</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Martin</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Dorsal pancreas agenesis in retinoic acid-deficient Raldh2 mutant mice</article-title>
+          <source>Dev Biol</source>
+          <year>2005</year>
+          <volume>284</volume>
+          <issue>2</issue>
+          <fpage>399</fpage>
+          <lpage>411</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2005.05.035</pub-id>
+          <pub-id pub-id-type="pmid">16026781</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hebrok</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Melton</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Notochord repression of endodermal Sonic hedgehog permits pancreas development</article-title>
+          <source>Genes Dev</source>
+          <year>1998</year>
+          <volume>12</volume>
+          <issue>11</issue>
+          <fpage>1705</fpage>
+          <lpage>1713</lpage>
+          <pub-id pub-id-type="doi">10.1101/gad.12.11.1705</pub-id>
+          <pub-id pub-id-type="pmid">9620856</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hebrok</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Regulation of pancreas development by hedgehog signaling</article-title>
+          <source>Development</source>
+          <year>2000</year>
+          <volume>127</volume>
+          <issue>22</issue>
+          <fpage>4905</fpage>
+          <lpage>4913</lpage>
+          <pub-id pub-id-type="pmid">11044404</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ye</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Duvillie</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Scharfmann</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast growth factors 7 and 10 are expressed in the human embryonic pancreatic mesenchyme and promote the proliferation of embryonic pancreatic epithelial cells</article-title>
+          <source>Diabetologia</source>
+          <year>2005</year>
+          <volume>48</volume>
+          <issue>2</issue>
+          <fpage>277</fpage>
+          <lpage>281</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00125-004-1638-6</pub-id>
+          <pub-id pub-id-type="pmid">15690149</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bonfanti</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ex Vivo Expansion and Differentiation of Human and Mouse Fetal Pancreatic Progenitors Are Modulated by Epidermal Growth Factor</article-title>
+          <source>Stem Cells Dev</source>
+          <year>2015</year>
+          <volume>24</volume>
+          <issue>15</issue>
+          <fpage>1766</fpage>
+          <lpage>1778</lpage>
+          <pub-id pub-id-type="doi">10.1089/scd.2014.0550</pub-id>
+          <pub-id pub-id-type="pmid">25925840</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cebola</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>TEAD and YAP regulate the enhancer network of human embryonic pancreatic progenitors</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2015</year>
+          <volume>17</volume>
+          <issue>5</issue>
+          <fpage>615</fpage>
+          <lpage>626</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb3160</pub-id>
+          <pub-id pub-id-type="pmid">25915126</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodriguez-Seguel</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mutually exclusive signaling signatures define the hepatic and pancreatic progenitor cell lineage divergence</article-title>
+          <source>Genes Dev</source>
+          <year>2013</year>
+          <volume>27</volume>
+          <issue>17</issue>
+          <fpage>1932</fpage>
+          <lpage>1946</lpage>
+          <pub-id pub-id-type="doi">10.1101/gad.220244.113</pub-id>
+          <pub-id pub-id-type="pmid">24013505</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miralles</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interplay between FGF10 and Notch signalling is required for the self-renewal of pancreatic progenitors</article-title>
+          <source>Int J Dev Biol</source>
+          <year>2006</year>
+          <volume>50</volume>
+          <issue>1</issue>
+          <fpage>17</fpage>
+          <lpage>26</lpage>
+          <pub-id pub-id-type="doi">10.1387/ijdb.052080fm</pub-id>
+          <pub-id pub-id-type="pmid">16323074</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reichert</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Rustgi</surname>
+              <given-names>AK</given-names>
+            </name>
+          </person-group>
+          <article-title>Pancreatic ductal cells in development, regeneration, and neoplasia</article-title>
+          <source>J Clin Invest</source>
+          <year>2011</year>
+          <volume>121</volume>
+          <issue>12</issue>
+          <fpage>4572</fpage>
+          <lpage>4578</lpage>
+          <pub-id pub-id-type="doi">10.1172/JCI57131</pub-id>
+          <pub-id pub-id-type="pmid">22133881</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Benitez</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Goodyer</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SK</given-names>
+            </name>
+          </person-group>
+          <article-title>Deconstructing pancreas developmental biology</article-title>
+          <source>Cold Spring Harb Perspect Biol</source>
+          <year>2012</year>
+          <volume>4</volume>
+          <fpage>6</fpage>
+          <pub-id pub-id-type="doi">10.1101/cshperspect.a012401</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pandol</surname>
+              <given-names>SJ</given-names>
+            </name>
+          </person-group>
+          <source>The Exocrine Pancreas</source>
+          <year>2010</year>
+          <publisher-loc>San Rafael</publisher-loc>
+          <publisher-name>Morgan &amp; Claypool Life Sciences</publisher-name>
+        </element-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jennings</surname>
+              <given-names>RE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Development of the human pancreas from foregut to endocrine commitment</article-title>
+          <source>Diabetes</source>
+          <year>2013</year>
+          <volume>62</volume>
+          <issue>10</issue>
+          <fpage>3514</fpage>
+          <lpage>3522</lpage>
+          <pub-id pub-id-type="doi">10.2337/db12-1479</pub-id>
+          <pub-id pub-id-type="pmid">23630303</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Salisbury</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The window period of NEUROGENIN3 during human gestation</article-title>
+          <source>Islets</source>
+          <year>2014</year>
+          <volume>6</volume>
+          <issue>3</issue>
+          <fpage>e954436</fpage>
+          <pub-id pub-id-type="doi">10.4161/19382014.2014.954436</pub-id>
+          <pub-id pub-id-type="pmid">25322831</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wilson</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Scheel</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>German</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Gene expression cascades in pancreatic development</article-title>
+          <source>Mech Dev</source>
+          <year>2003</year>
+          <volume>120</volume>
+          <issue>1</issue>
+          <fpage>65</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0925-4773(02)00333-7</pub-id>
+          <pub-id pub-id-type="pmid">12490297</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lumelsky</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differentiation of embryonic stem cells to insulin-secreting structures similar to pancreatic islets</article-title>
+          <source>Science</source>
+          <year>2001</year>
+          <volume>292</volume>
+          <issue>5520</issue>
+          <fpage>1389</fpage>
+          <lpage>1394</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1058866</pub-id>
+          <pub-id pub-id-type="pmid">11326082</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kahan</surname>
+              <given-names>BW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pancreatic precursors and differentiated islet cell types from murine embryonic stem cells: an in vitro model to study islet differentiation</article-title>
+          <source>Diabetes</source>
+          <year>2003</year>
+          <volume>52</volume>
+          <issue>8</issue>
+          <fpage>2016</fpage>
+          <lpage>2024</lpage>
+          <pub-id pub-id-type="doi">10.2337/diabetes.52.8.2016</pub-id>
+          <pub-id pub-id-type="pmid">12882918</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Soria</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Insulin-secreting cells derived from embryonic stem cells normalize glycemia in streptozotocin-induced diabetic mice</article-title>
+          <source>Diabetes</source>
+          <year>2000</year>
+          <volume>49</volume>
+          <issue>2</issue>
+          <fpage>157</fpage>
+          <lpage>162</lpage>
+          <pub-id pub-id-type="doi">10.2337/diabetes.49.2.157</pub-id>
+          <pub-id pub-id-type="pmid">10868930</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Endoderm and pancreatic islet lineage differentiation from human embryonic stem cells</article-title>
+          <source>Cloning Stem Cells</source>
+          <year>2006</year>
+          <volume>8</volume>
+          <issue>2</issue>
+          <fpage>96</fpage>
+          <lpage>107</lpage>
+          <pub-id pub-id-type="doi">10.1089/clo.2006.8.96</pub-id>
+          <pub-id pub-id-type="pmid">16776601</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>D'Amour</surname>
+              <given-names>KA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Production of pancreatic hormone-expressing endocrine cells from human embryonic stem cells</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <issue>11</issue>
+          <fpage>1392</fpage>
+          <lpage>1401</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1259</pub-id>
+          <pub-id pub-id-type="pmid">17053790</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lock</surname>
+              <given-names>LT</given-names>
+            </name>
+          </person-group>
+          <source>Expansion and directed differentiation of human pluripotent stem cells to insulin-producing cells in a stirred-suspension microcarrier system</source>
+          <year>2011</year>
+          <publisher-loc>New York</publisher-loc>
+          <publisher-name>State University of New York at Buffalo</publisher-name>
+          <fpage>158</fpage>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rorsman</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Failure of glucose to elicit a normal secretory response in fetal pancreatic beta cells results from glucose insensitivity of the ATP-regulated K+ channels.pdf</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1989</year>
+          <volume>86</volume>
+          <issue>12</issue>
+          <fpage>4505</fpage>
+          <lpage>4509</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.86.12.4505</pub-id>
+          <pub-id pub-id-type="pmid">2543980</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jeon</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Endocrine cell clustering during human pancreas development</article-title>
+          <source>J Histochem Cytochem</source>
+          <year>2009</year>
+          <volume>57</volume>
+          <issue>9</issue>
+          <fpage>811</fpage>
+          <lpage>824</lpage>
+          <pub-id pub-id-type="doi">10.1369/jhc.2009.953307</pub-id>
+          <pub-id pub-id-type="pmid">19365093</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Riedel</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Immunohistochemical characterisation of cells co-producing insulin and glucagon in the developing human pancreas</article-title>
+          <source>Diabetologia</source>
+          <year>2012</year>
+          <volume>55</volume>
+          <issue>2</issue>
+          <fpage>372</fpage>
+          <lpage>381</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00125-011-2344-9</pub-id>
+          <pub-id pub-id-type="pmid">22038519</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Herrera</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Nepote</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Delacour</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Pancreatic Cell Lineage Analyses in Mice</article-title>
+          <source>Endocrine</source>
+          <year>2002</year>
+          <volume>19</volume>
+          <issue>3</issue>
+          <fpage>267</fpage>
+          <lpage>277</lpage>
+          <pub-id pub-id-type="doi">10.1385/ENDO:19:3:267</pub-id>
+          <pub-id pub-id-type="pmid">12624426</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kroon</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pancreatic endoderm derived from human embryonic stem cells generates glucose-responsive insulin-secreting cells in vivo</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2008</year>
+          <volume>26</volume>
+          <issue>4</issue>
+          <fpage>443</fpage>
+          <lpage>452</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1393</pub-id>
+          <pub-id pub-id-type="pmid">18288110</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rezania</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Maturation of human embryonic stem cell-derived pancreatic progenitors into functional islets capable of treating pre-existing diabetes in mice</article-title>
+          <source>Diabetes</source>
+          <year>2012</year>
+          <volume>61</volume>
+          <issue>8</issue>
+          <fpage>2016</fpage>
+          <lpage>2029</lpage>
+          <pub-id pub-id-type="doi">10.2337/db11-1711</pub-id>
+          <pub-id pub-id-type="pmid">22740171</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Millman</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of stem cell-derived beta-cells from patients with type 1 diabetes</article-title>
+          <source>Nat Commun</source>
+          <year>2016</year>
+          <volume>7</volume>
+          <fpage>11463</fpage>
+          <pub-id pub-id-type="doi">10.1038/ncomms11463</pub-id>
+          <pub-id pub-id-type="pmid">27163171</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Artner</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MafA and MafB regulate genes critical to beta-cells in a unique temporal manner</article-title>
+          <source>Diabetes</source>
+          <year>2010</year>
+          <volume>59</volume>
+          <issue>10</issue>
+          <fpage>2530</fpage>
+          <lpage>2539</lpage>
+          <pub-id pub-id-type="doi">10.2337/db10-0190</pub-id>
+          <pub-id pub-id-type="pmid">20627934</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nishimura</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A switch from MafB to MafA expression accompanies differentiation to pancreatic beta-cells</article-title>
+          <source>Dev Biol</source>
+          <year>2006</year>
+          <volume>293</volume>
+          <issue>2</issue>
+          <fpage>526</fpage>
+          <lpage>539</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2006.02.028</pub-id>
+          <pub-id pub-id-type="pmid">16580660</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aguayo-Mazzucato</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mafa expression enhances glucose-responsive insulin secretion in neonatal rat beta cells</article-title>
+          <source>Diabetologia</source>
+          <year>2011</year>
+          <volume>54</volume>
+          <issue>3</issue>
+          <fpage>583</fpage>
+          <lpage>593</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00125-010-2026-z</pub-id>
+          <pub-id pub-id-type="pmid">21190012</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arda</surname>
+              <given-names>HE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Age-Dependent Pancreatic Gene Regulation Reveals Mechanisms Governing Human beta Cell Function</article-title>
+          <source>Cell Metab</source>
+          <year>2016</year>
+          <volume>23</volume>
+          <issue>5</issue>
+          <fpage>909</fpage>
+          <lpage>920</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cmet.2016.04.002</pub-id>
+          <pub-id pub-id-type="pmid">27133132</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Russ</surname>
+              <given-names>HA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Controlled induction of human pancreatic progenitors produces functional beta-like cells in vitro</article-title>
+          <source>EMBO J</source>
+          <year>2015</year>
+          <volume>34</volume>
+          <issue>13</issue>
+          <fpage>1759</fpage>
+          <lpage>1772</lpage>
+          <pub-id pub-id-type="doi">10.15252/embj.201591058</pub-id>
+          <pub-id pub-id-type="pmid">25908839</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genome Editing of Lineage Determinants in Human Pluripotent Stem Cells Reveals Mechanisms of Pancreatic Development and Diabetes</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2016</year>
+          <volume>18</volume>
+          <issue>6</issue>
+          <fpage>755</fpage>
+          <lpage>768</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2016.03.015</pub-id>
+          <pub-id pub-id-type="pmid">27133796</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Unger</surname>
+              <given-names>RH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Studies of pancreatic alpha cell function in normal and diabetic subjects</article-title>
+          <source>J Clin Invest</source>
+          <year>1970</year>
+          <volume>49</volume>
+          <issue>4</issue>
+          <fpage>837</fpage>
+          <lpage>848</lpage>
+          <pub-id pub-id-type="doi">10.1172/JCI106297</pub-id>
+          <pub-id pub-id-type="pmid">4986215</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thorel</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Conversion of adult pancreatic alpha-cells to beta-cells after extreme beta-cell loss</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+          <volume>464</volume>
+          <issue>7292</issue>
+          <fpage>1149</fpage>
+          <lpage>1154</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature08894</pub-id>
+          <pub-id pub-id-type="pmid">20364121</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Collombat</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The ectopic expression of Pax4 in the mouse pancreas converts progenitor cells into alpha and subsequently beta cells</article-title>
+          <source>Cell</source>
+          <year>2009</year>
+          <volume>138</volume>
+          <issue>3</issue>
+          <fpage>449</fpage>
+          <lpage>462</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2009.05.035</pub-id>
+          <pub-id pub-id-type="pmid">19665969</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rezania</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Production of functional glucagon-secreting alpha-cells from human embryonic stem cells</article-title>
+          <source>Diabetes</source>
+          <year>2011</year>
+          <volume>60</volume>
+          <issue>1</issue>
+          <fpage>239</fpage>
+          <lpage>247</lpage>
+          <pub-id pub-id-type="doi">10.2337/db10-0573</pub-id>
+          <pub-id pub-id-type="pmid">20971966</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Itoh</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Partial loss of pancreas endocrine and exocrine cells of human ARX-null mutation: consideration of pancreas differentiation</article-title>
+          <source>Differentiation</source>
+          <year>2010</year>
+          <volume>80</volume>
+          <issue>2&#x2013;3</issue>
+          <fpage>118</fpage>
+          <lpage>122</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.diff.2010.05.003</pub-id>
+          <pub-id pub-id-type="pmid">20538404</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wilson</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Kalamaras</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>German</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression pattern of IAPP and prohormone convertase 1/3 reveals a distinctive set of endocrine cells in the embryonic pancreas</article-title>
+          <source>Mech Dev</source>
+          <year>2002</year>
+          <volume>115</volume>
+          <issue>1&#x2013;2</issue>
+          <fpage>171</fpage>
+          <lpage>176</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0925-4773(02)00118-1</pub-id>
+          <pub-id pub-id-type="pmid">12049785</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lankisch</surname>
+              <given-names>PG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Exocrine pancreatic function in insulin-dependent diabetes mellitus</article-title>
+          <source>Digestion</source>
+          <year>1982</year>
+          <volume>25</volume>
+          <issue>3</issue>
+          <fpage>211</fpage>
+          <lpage>216</lpage>
+          <pub-id pub-id-type="doi">10.1159/000198833</pub-id>
+          <pub-id pub-id-type="pmid">6186557</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Campbell-Thompson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Rodriguez-Calvo</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Battaglia</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Abnormalities of the Exocrine Pancreas in Type 1 Diabetes</article-title>
+          <source>Curr Diab Rep</source>
+          <year>2015</year>
+          <volume>15</volume>
+          <issue>10</issue>
+          <fpage>79</fpage>
+          <pub-id pub-id-type="doi">10.1007/s11892-015-0653-y</pub-id>
+          <pub-id pub-id-type="pmid">26318606</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takizawa-Shirasawa</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>FGF7 and cell density are required for final differentiation of pancreatic amylase-positive cells from human ES cells</article-title>
+          <source>Cell Tissue Res</source>
+          <year>2013</year>
+          <volume>354</volume>
+          <issue>3</issue>
+          <fpage>751</fpage>
+          <lpage>759</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00441-013-1695-6</pub-id>
+          <pub-id pub-id-type="pmid">23996199</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ductal pancreatic cancer modeling and drug screening using human pluripotent stem cell- and patient-derived tumor organoids</article-title>
+          <source>Nat Med</source>
+          <year>2015</year>
+          <volume>21</volume>
+          <issue>11</issue>
+          <fpage>1364</fpage>
+          <lpage>1371</lpage>
+          <pub-id pub-id-type="doi">10.1038/nm.3973</pub-id>
+          <pub-id pub-id-type="pmid">26501191</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lancaster</surname>
+              <given-names>MA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cerebral organoids model human brain development and microcephaly</article-title>
+          <source>Nature</source>
+          <year>2013</year>
+          <volume>501</volume>
+          <issue>7467</issue>
+          <fpage>373</fpage>
+          <lpage>379</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature12517</pub-id>
+          <pub-id pub-id-type="pmid">23995685</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pasca</surname>
+              <given-names>AM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Functional cortical neurons and astrocytes from human pluripotent stem cells in 3D culture</article-title>
+          <source>Nat Methods</source>
+          <year>2015</year>
+          <volume>12</volume>
+          <issue>7</issue>
+          <fpage>671</fpage>
+          <lpage>678</lpage>
+          <pub-id pub-id-type="doi">10.1038/nmeth.3415</pub-id>
+          <pub-id pub-id-type="pmid">26005811</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takasato</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Directing human embryonic stem cell differentiation towards a renal lineage generates a self-organizing kidney</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2014</year>
+          <volume>16</volume>
+          <issue>1</issue>
+          <fpage>118</fpage>
+          <lpage>126</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb2894</pub-id>
+          <pub-id pub-id-type="pmid">24335651</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morizane</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Nephron organoids derived from human pluripotent stem cells model kidney development and injury</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2015</year>
+          <volume>33</volume>
+          <issue>11</issue>
+          <fpage>1193</fpage>
+          <lpage>1200</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.3392</pub-id>
+          <pub-id pub-id-type="pmid">26458176</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spence</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Directed differentiation of human pluripotent stem cells into intestinal tissue in vitro</article-title>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>470</volume>
+          <issue>7332</issue>
+          <fpage>105</fpage>
+          <lpage>109</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature09691</pub-id>
+          <pub-id pub-id-type="pmid">21151107</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fordham</surname>
+              <given-names>RP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transplantation of expanded fetal intestinal progenitors contributes to colon regeneration after injury</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2013</year>
+          <volume>13</volume>
+          <issue>6</issue>
+          <fpage>734</fpage>
+          <lpage>744</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2013.09.015</pub-id>
+          <pub-id pub-id-type="pmid">24139758</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takebe</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Vascularized and functional human liver from an iPSC-derived organ bud transplant</article-title>
+          <source>Nature</source>
+          <year>2013</year>
+          <volume>499</volume>
+          <issue>7459</issue>
+          <fpage>481</fpage>
+          <lpage>484</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature12271</pub-id>
+          <pub-id pub-id-type="pmid">23823721</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huch</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>In vitro expansion of single Lgr5+ liver stem cells induced by Wnt-driven regeneration</article-title>
+          <source>Nature</source>
+          <year>2013</year>
+          <volume>494</volume>
+          <issue>7436</issue>
+          <fpage>247</fpage>
+          <lpage>250</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature11826</pub-id>
+          <pub-id pub-id-type="pmid">23354049</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kerr-Conte</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ductal cyst formation in collagen-embedded adult human islet preparations. A means to the reproduction of nesidioblastosis in vitro</article-title>
+          <source>Diabetes</source>
+          <year>1996</year>
+          <volume>45</volume>
+          <issue>8</issue>
+          <fpage>1108</fpage>
+          <lpage>1114</lpage>
+          <pub-id pub-id-type="doi">10.2337/diab.45.8.1108</pub-id>
+          <pub-id pub-id-type="pmid">8690159</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Taniguchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Lumen Formation Is an Intrinsic Property of Isolated Human Pluripotent Stem Cells</article-title>
+          <source>Stem Cell Rep</source>
+          <year>2015</year>
+          <volume>5</volume>
+          <issue>6</issue>
+          <fpage>954</fpage>
+          <lpage>962</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2015.10.015</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR70">
+        <label>70.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baker</surname>
+              <given-names>LA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Modeling pancreatic cancer with organoids</article-title>
+          <source>Trends Cancer</source>
+          <year>2016</year>
+          <volume>2</volume>
+          <issue>4</issue>
+          <fpage>176</fpage>
+          <lpage>190</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.trecan.2016.03.004</pub-id>
+          <pub-id pub-id-type="pmid">27135056</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR71">
+        <label>71.</label>
+        <mixed-citation publication-type="other">Hohwieler M, et al., Human pluripotent stem cell-derived acinar/ductal organoids generate human pancreas upon orthotopic transplantation and allow disease modelling. Gut. 2017;66(3):473&#x2013;86. doi:10.1136/gutjnl-2016-312423. Epub 2016 Sep 15.</mixed-citation>
+      </ref>
+      <ref id="CR72">
+        <label>72.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bruin</surname>
+              <given-names>JE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Accelerated Maturation of Human Stem Cell-Derived Pancreatic Progenitor Cells into Insulin-Secreting Cells in Immunodeficient Rats Relative to Mice</article-title>
+          <source>Stem Cell Rep</source>
+          <year>2015</year>
+          <volume>5</volume>
+          <issue>6</issue>
+          <fpage>1081</fpage>
+          <lpage>1096</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2015.10.013</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR73">
+        <label>73.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yap</surname>
+              <given-names>WT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Collagen IV-modified scaffolds improve islet survival and function and reduce time to euglycemia</article-title>
+          <source>s Eng Part A</source>
+          <year>2013</year>
+          <volume>19</volume>
+          <issue>21&#x2013;22</issue>
+          <fpage>2361</fpage>
+          <lpage>2372</lpage>
+          <pub-id pub-id-type="doi">10.1089/ten.tea.2013.0033</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR74">
+        <label>74.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lock</surname>
+              <given-names>LT</given-names>
+            </name>
+            <name>
+              <surname>Tzanakakis</surname>
+              <given-names>ES</given-names>
+            </name>
+          </person-group>
+          <article-title>Expansion and differentiation of human embryonic stem cells to endoderm progeny in a microcarrier stirred-suspension culture</article-title>
+          <source>Tissue Eng Part A</source>
+          <year>2009</year>
+          <volume>15</volume>
+          <issue>8</issue>
+          <fpage>2051</fpage>
+          <lpage>2063</lpage>
+          <pub-id pub-id-type="doi">10.1089/ten.tea.2008.0455</pub-id>
+          <pub-id pub-id-type="pmid">19196140</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR75">
+        <label>75.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schulz</surname>
+              <given-names>TC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A scalable system for production of functional pancreatic progenitors from human embryonic stem cells</article-title>
+          <source>PLoS One</source>
+          <year>2012</year>
+          <volume>7</volume>
+          <issue>5</issue>
+          <fpage>e37004</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0037004</pub-id>
+          <pub-id pub-id-type="pmid">22623968</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR76">
+        <label>76.</label>
+        <mixed-citation publication-type="other">Administration, F.a.D., Guidance for Industry - Q8(R2) Pharmaceutical Development U.S.D.o.H.a.H. Services and F.a.D. Administration. Editors. 2009. p. 29. <ext-link ext-link-type="uri" xlink:href="https://www.fda.gov/downloads/drugs/guidances/ucm073507.pdf">https://www.fda.gov/downloads/drugs/guidances/ucm073507.pdf</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="CR77">
+        <label>77.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rathore</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Winkle</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Quality by design for biopharmaceuticals</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2009</year>
+          <volume>27</volume>
+          <issue>1</issue>
+          <fpage>26</fpage>
+          <lpage>34</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt0109-26</pub-id>
+          <pub-id pub-id-type="pmid">19131992</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR78">
+        <label>78.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kelly</surname>
+              <given-names>OG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cell-surface markers for the isolation of pancreatic cell types derived from human embryonic stem cells</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2011</year>
+          <volume>29</volume>
+          <issue>8</issue>
+          <fpage>750</fpage>
+          <lpage>756</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt.1931</pub-id>
+          <pub-id pub-id-type="pmid">21804561</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR79">
+        <label>79.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Segev</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The expression of the class 1 glucose transporter isoforms in human embryonic stem cells, and the potential use of GLUT2 as a marker for pancreatic progenitor enrichment</article-title>
+          <source>Stem Cells Dev</source>
+          <year>2012</year>
+          <volume>21</volume>
+          <issue>10</issue>
+          <fpage>1653</fpage>
+          <lpage>1661</lpage>
+          <pub-id pub-id-type="doi">10.1089/scd.2011.0682</pub-id>
+          <pub-id pub-id-type="pmid">22221271</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR80">
+        <label>80.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hald</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pancreatic islet and progenitor cell surface markers with cell sorting potential</article-title>
+          <source>Diabetologia</source>
+          <year>2012</year>
+          <volume>55</volume>
+          <issue>1</issue>
+          <fpage>154</fpage>
+          <lpage>165</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00125-011-2295-1</pub-id>
+          <pub-id pub-id-type="pmid">21947380</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR81">
+        <label>81.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Micallef</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>INS(GFP/w) human embryonic stem cells facilitate isolation of in vitro derived insulin-producing cells</article-title>
+          <source>Diabetologia</source>
+          <year>2012</year>
+          <volume>55</volume>
+          <issue>3</issue>
+          <fpage>694</fpage>
+          <lpage>706</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00125-011-2379-y</pub-id>
+          <pub-id pub-id-type="pmid">22120512</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR82">
+        <label>82.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Steffen</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Functional assessment of automatically sorted pancreatic islets using large particle flow cytometry</article-title>
+          <source>Islets</source>
+          <year>2011</year>
+          <volume>3</volume>
+          <issue>5</issue>
+          <fpage>267</fpage>
+          <lpage>270</lpage>
+          <pub-id pub-id-type="doi">10.4161/isl.3.5.15939</pub-id>
+          <pub-id pub-id-type="pmid">21799307</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR83">
+        <label>83.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hemmi</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A massive suspension culture system with metabolic purification for human pluripotent stem cell-derived cardiomyocytes</article-title>
+          <source>Stem Cells Transl Med</source>
+          <year>2014</year>
+          <volume>3</volume>
+          <issue>12</issue>
+          <fpage>1473</fpage>
+          <lpage>1483</lpage>
+          <pub-id pub-id-type="doi">10.5966/sctm.2014-0072</pub-id>
+          <pub-id pub-id-type="pmid">25355733</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR84">
+        <label>84.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Straub</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Sharp</surname>
+              <given-names>GW</given-names>
+            </name>
+          </person-group>
+          <article-title>Glucose-stimulated signaling pathways in biphasic insulin secretion</article-title>
+          <source>Diabetes Metab Res Rev</source>
+          <year>2002</year>
+          <volume>18</volume>
+          <issue>6</issue>
+          <fpage>451</fpage>
+          <lpage>463</lpage>
+          <pub-id pub-id-type="doi">10.1002/dmrr.329</pub-id>
+          <pub-id pub-id-type="pmid">12469359</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR85">
+        <label>85.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ayala</surname>
+              <given-names>JE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Standard operating procedures for describing and performing metabolic tests of glucose homeostasis in mice</article-title>
+          <source>Dis Model Mech</source>
+          <year>2010</year>
+          <volume>3</volume>
+          <issue>9&#x2013;10</issue>
+          <fpage>525</fpage>
+          <lpage>534</lpage>
+          <pub-id pub-id-type="doi">10.1242/dmm.006239</pub-id>
+          <pub-id pub-id-type="pmid">20713647</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR86">
+        <label>86.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pipeleers</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Physiologic relevance of heterogeneity in the pancreatic beta-cell population</article-title>
+          <source>Diabetologia</source>
+          <year>1994</year>
+          <volume>37</volume>
+          <issue>Suppl 2</issue>
+          <fpage>S57</fpage>
+          <lpage>S64</lpage>
+          <pub-id pub-id-type="doi">10.1007/BF00400827</pub-id>
+          <pub-id pub-id-type="pmid">7821741</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR87">
+        <label>87.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>V</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Kale</surname>
+              <given-names>VP</given-names>
+            </name>
+            <name>
+              <surname>Limaye</surname>
+              <given-names>LS</given-names>
+            </name>
+          </person-group>
+          <article-title>Expansion of cord blood CD34 cells in presence of zVADfmk and zLLYfmk improved their in vitro functionality and in vivo engraftment in NOD/SCID mouse</article-title>
+          <source>PLoS One</source>
+          <year>2010</year>
+          <volume>5</volume>
+          <issue>8</issue>
+          <fpage>e12221</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0012221</pub-id>
+          <pub-id pub-id-type="pmid">20808921</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR88">
+        <label>88.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibition of caspase-mediated anoikis is critical for basic fibroblast growth factor-sustained culture of human pluripotent stem cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2009</year>
+          <volume>284</volume>
+          <issue>49</issue>
+          <fpage>34054</fpage>
+          <lpage>34064</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M109.052290</pub-id>
+          <pub-id pub-id-type="pmid">19828453</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR89">
+        <label>89.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pyle</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Lock</surname>
+              <given-names>LF</given-names>
+            </name>
+            <name>
+              <surname>Donovan</surname>
+              <given-names>PJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotrophins mediate human embryonic stem cell survival</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <issue>3</issue>
+          <fpage>344</fpage>
+          <lpage>350</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1189</pub-id>
+          <pub-id pub-id-type="pmid">16444268</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR90">
+        <label>90.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cheng</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Self-renewing endodermal progenitor lines generated from human pluripotent stem cells</article-title>
+          <source>Cell Stem Cell</source>
+          <year>2012</year>
+          <volume>10</volume>
+          <issue>4</issue>
+          <fpage>371</fpage>
+          <lpage>384</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stem.2012.02.024</pub-id>
+          <pub-id pub-id-type="pmid">22482503</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR91">
+        <label>91.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>JK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Small molecule modulation of Smoothened activity</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2002</year>
+          <volume>99</volume>
+          <issue>22</issue>
+          <fpage>14071</fpage>
+          <lpage>14076</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.182542899</pub-id>
+          <pub-id pub-id-type="pmid">12391318</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR92">
+        <label>92.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cuny</surname>
+              <given-names>GD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Structure-activity relationship study of bone morphogenetic protein (BMP) signaling inhibitors</article-title>
+          <source>Bioorg Med Chem Lett</source>
+          <year>2008</year>
+          <volume>18</volume>
+          <issue>15</issue>
+          <fpage>4388</fpage>
+          <lpage>4392</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bmcl.2008.06.052</pub-id>
+          <pub-id pub-id-type="pmid">18621530</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR93">
+        <label>93.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A small molecule that directs differentiation of human ESCs into the pancreatic lineage</article-title>
+          <source>Nat Chem Biol</source>
+          <year>2009</year>
+          <volume>5</volume>
+          <issue>4</issue>
+          <fpage>258</fpage>
+          <lpage>265</lpage>
+          <pub-id pub-id-type="doi">10.1038/nchembio.154</pub-id>
+          <pub-id pub-id-type="pmid">19287398</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR94">
+        <label>94.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reichman</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of Storable Retinal Organoids and Retinal Pigmented Epithelium from Adherent Human iPS Cells in Xeno-Free and Feeder-Free Conditions</article-title>
+          <source>Stem Cells</source>
+          <year>2017</year>
+          <volume>35</volume>
+          <issue>5</issue>
+          <fpage>1176</fpage>
+          <lpage>1188</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.2586</pub-id>
+          <pub-id pub-id-type="pmid">28220575</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR95">
+        <label>95.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sato</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Clevers</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Growing self-organizing mini-guts from a single intestinal stem cell: mechanism and applications</article-title>
+          <source>Science</source>
+          <year>2013</year>
+          <volume>340</volume>
+          <issue>6137</issue>
+          <fpage>1190</fpage>
+          <lpage>1194</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1234852</pub-id>
+          <pub-id pub-id-type="pmid">23744940</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR96">
+        <label>96.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takasato</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation of kidney organoids from human pluripotent stem cells</article-title>
+          <source>Nat Protoc</source>
+          <year>2016</year>
+          <volume>11</volume>
+          <issue>9</issue>
+          <fpage>1681</fpage>
+          <lpage>1692</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2016.098</pub-id>
+          <pub-id pub-id-type="pmid">27560173</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR97">
+        <label>97.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaer</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Azarpira</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Karimi</surname>
+              <given-names>MH</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation of human induced pluripotent stem cells into insulin-like cell clusters with miR-186 and miR-375 by using chemical transfection</article-title>
+          <source>Appl Biochem Biotechnol</source>
+          <year>2014</year>
+          <volume>174</volume>
+          <issue>1</issue>
+          <fpage>242</fpage>
+          <lpage>258</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12010-014-1045-5</pub-id>
+          <pub-id pub-id-type="pmid">25059983</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR98">
+        <label>98.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gates</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Lazarus</surname>
+              <given-names>NR</given-names>
+            </name>
+          </person-group>
+          <article-title>Reversal of streptozotocin-induced diabetes in rats by intraperitoneal implantation of encapsulated neonatal rabbit pancreatic tissue</article-title>
+          <source>Lancet</source>
+          <year>1977</year>
+          <volume>2</volume>
+          <issue>8051</issue>
+          <fpage>1257</fpage>
+          <lpage>1259</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0140-6736(77)92664-2</pub-id>
+          <pub-id pub-id-type="pmid">73954</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR99">
+        <label>99.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Calafiore</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Standard technical procedures for microencapsulation of human islets for graft into nonimmunosuppressed patients with type 1 diabetes mellitus</article-title>
+          <source>Transplant Proc</source>
+          <year>2006</year>
+          <volume>38</volume>
+          <issue>4</issue>
+          <fpage>1156</fpage>
+          <lpage>1157</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.transproceed.2006.03.014</pub-id>
+          <pub-id pub-id-type="pmid">16757293</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR100">
+        <label>100.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Elliott</surname>
+              <given-names>RB</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>No evidence of infection with porcine endogenous retrovirus in recipients of encapsulated porcine islet xenografts</article-title>
+          <source>Cell Transplant</source>
+          <year>2000</year>
+          <volume>9</volume>
+          <issue>6</issue>
+          <fpage>895</fpage>
+          <lpage>901</lpage>
+          <pub-id pub-id-type="doi">10.1177/096368970000900616</pub-id>
+          <pub-id pub-id-type="pmid">11202575</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

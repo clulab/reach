@@ -1,0 +1,1471 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">17460755</article-id>
+      <article-id pub-id-type="pmc">1849968</article-id>
+      <article-id pub-id-type="publisher-id">06-PONE-RA-00505R1</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0000388</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline">
+          <subject>Neuroscience/Neurodevelopment</subject>
+          <subject>Neuroscience/Neuronal and Glial Cell Biology</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Enriched Monolayer Precursor Cell Cultures from Micro-Dissected Adult Mouse Dentate Gyrus Yield Functional Granule Cell-Like Neurons</article-title>
+        <alt-title alt-title-type="running-head">Granule Cells In Vitro</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Babu</surname>
+            <given-names>Harish</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cheung</surname>
+            <given-names>Giselle</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kettenmann</surname>
+            <given-names>Helmut</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Palmer</surname>
+            <given-names>Theo D.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kempermann</surname>
+            <given-names>Gerd</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="n101">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Max Delbr&#xFC;ck Center for Molecular Medicine (MDC) Berlin-Buch, Berlin, Germany</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>VolkswagenStiftung Research Group, Department of Experimental Neurology, Charit&#xE9; University Medicine Berlin, Berlin, Germany</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Department of Neurosurgery, Stanford University, Palo Alto, United States of America</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Chan-Ling</surname>
+            <given-names>Tailoi</given-names>
+          </name>
+          <role>Academic Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">University of Sydney, Australia</aff>
+      <author-notes>
+        <corresp id="n101">* To whom correspondence should be addressed. E-mail: <email>gerd.kempermann@mdc-berlin.de</email></corresp>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: GK HB. Performed the experiments: HB GC. Analyzed the data: HK TP HB GC. Contributed reagents/materials/analysis tools: HK TP. Wrote the paper: HB.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2007</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>25</day>
+        <month>4</month>
+        <year>2007</year>
+      </pub-date>
+      <volume>2</volume>
+      <issue>4</issue>
+      <elocation-id>e388</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>19</day>
+          <month>12</month>
+          <year>2006</year>
+        </date>
+        <date date-type="accepted">
+          <day>27</day>
+          <month>3</month>
+          <year>2007</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Babu et al.</copyright-statement>
+        <copyright-year>2007</copyright-year>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>Stem cell cultures are key tools of basic and applied research in Regenerative Medicine. In the adult mammalian brain, lifelong neurogenesis originating from local precursor cells occurs in the neurogenic regions of the hippocampal dentate gyrus. Despite widespread interest in adult hippocampal neurogenesis and the use of mouse models to study it, no protocol existed for adult murine long-term precursor cell cultures with hippocampus-specific differentiation potential.</p>
+        </sec>
+        <sec>
+          <title>Methodology/Principal Findings</title>
+          <p>We describe a new strategy to obtain serum-free monolayer cultures of neural precursor cells from microdissected dentate gyrus of adult mice. Neurons generated from these adherent hippocampal precursor cell cultures expressed the characteristic markers like transcription factor Prox1 and showed the TTX-sensitive sodium currents of mature granule cells in vivo. Similar to granule cells in vivo, treatment with kainic acid or brain derived neurotrophic factor (BDNF) elicited the expression of GABAergic markers, further supporting the correspondence between the in vitro and in vivo phenotype. When plated as single cells (in individual wells) or at lowest density for two to three consecutive generations, a subset of the cells showed self-renewal and gave rise to cells with properties of neurons, astrocytes and oligodendrocytes. The precursor cell fate was sensitive to culture conditions with their phenotype highly influenced by factors within the media (sonic hedgehog, BMP, LIF) and externally applied growth factors (EGF, FGF2, BDNF, and NT3).</p>
+        </sec>
+        <sec>
+          <title>Conclusions/Significance</title>
+          <p>We report the conditions required to generate adult murine dentate gyrus precursor cell cultures and to analyze functional properties of precursor cells and their differentiated granule cell-like progeny in vitro.</p>
+        </sec>
+      </abstract>
+      <counts>
+        <page-count count="12"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Despite the fact that the majority of studies on adult neurogenesis and adult neural precursor cells are done in mice, no protocol for long-term monolayer stem cell cultures from the adult murine dentate gyrus has been reported. Precursor cells of the adult dentate gyrus proliferate in the subgranular zone (SGZ) and generate granule cells that are added to the adjacent granule cell layer <xref rid="pone.0000388-Gage1" ref-type="bibr">[1]</xref>, <xref rid="pone.0000388-Kempermann1" ref-type="bibr">[2]</xref>. The precursor cells are found within a highly specific stem cell niche. Neuronal development from these precursor cells is regulated in an activity-dependent way and multiple regulatory mechanisms reach the developing cells. Neuronal development in the adult means the realization of the genetic potential of the precursor cells in close guiding interaction with the local permissive microenvironment. As yet it remains unknown how far the in vivo neurogenic niche could be recapitulated ex vivo.</p>
+      <p>Monolayer cultures have been established only for rats and cultures from mouse hippocampus have only been maintained as so-called neurosphere cultures derived from the entire hippocampal formation <xref rid="pone.0000388-Palmer1" ref-type="bibr">[3]</xref>, <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>, <xref rid="pone.0000388-Bull1" ref-type="bibr">[5]</xref>. Consequently, information about stem cells in the adult mouse dentate gyrus has been either inferred from experiment in rats or from mouse neurosphere studies that have not assessed how well the model system produced cells that mirrored the in vivo situation. Such validation would be important for using precursor cells from the adult hippocampus as relevant model system for cell-based plasticity in the adult hippocampus and also for the future application of stem cells in replacing damaged or lost neurons in the adult and aging brain <xref rid="pone.0000388-Lindvall1" ref-type="bibr">[6]</xref>. To realize the potential of stem cell therapy, it is vital that the exact phenotype of the neurons that should be replaced can be generated. Dentate gyrus granule cells might not be the prime targets for ex vivo cell replacement therapy but using hippocampal precursor cell cultures as valid model system for the regulatory mechanisms of cellular plasticity in the adult brain requires that the cultures yield cells with properties truly reflecting the neuronal phenotype of granule cells in vivo.</p>
+      <p>Neurospheres, which are the most widely used form of culturing mouse neural precursor cells, have limitations because they are heterogeneous <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref>. Cells at the core of the sphere differentiate and each neurosphere might actually contain only very few precursor cells which become diluted with each ensuing passage <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref>. Functional studies requiring real-time resolution on a single cell level are limited, if not impossible, in the multicellular clusters. Adherent monolayer cultures better reveal the morphology of individual cells and fully expose cells to a controlled extracellular environment. Monolayer cultures were originally described for hippocampal stem cells from adult rats or from cells isolated from whole mouse brains but have not yet been adapted for adult mouse hippocampus or subdissected hippocampal dentate gyrus <xref rid="pone.0000388-Gage2" ref-type="bibr">[8]</xref>, <xref rid="pone.0000388-Palmer2" ref-type="bibr">[9]</xref>, <xref rid="pone.0000388-Ray1" ref-type="bibr">[10]</xref>. Furthermore, it has been disputed whether stem cells in the strict sense of the definition exist in the adult hippocampus <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>, <xref rid="pone.0000388-Bull1" ref-type="bibr">[5]</xref>. An adequate hippocampal stem cell culture model would have to meet two key requirements: the culture would have to build on a reliable expanding precursor cell population with known &#x201C;stemness&#x201D; properties and generate the appropriate neuronal phenotype of dentate gyrus granule cells. Here we have developed a murine monolayer stem cell culture system to directly test this hypothesis.</p>
+      <p>We use the following nomenclature: &#x201C;stem cells&#x201D; are cells with demonstrated self-renewal (the ability to generate additional stem cells) and multipotency (the ability to generate neurons, oligodendrocytes and astrocytes); progenitor cells are the progeny of stem cells with limited self-renewal and lineage restriction. &#x201C;Precursor cells&#x201D; serves an umbrella term encompassing stem and progenitor cells as well as cells with undetermined but assumed degrees of stemness.</p>
+      <p>We report that adult neural precursor cell culture can be established from microdissected dentate gyrus and can be propagated for many passages to provide an inexhaustible source of hippocampal precursor cells ex vivo. The neurons that could be derived from these precursors cells showed many properties of dentate gyrus granule cells. The proliferating precursor cells in contrast revealed features of radial glia. The precursor cells showed features of self renewal when plated as single cells and under differentiation conditions generated cells with in vitro properties of neurons and glia.</p>
+    </sec>
+    <sec id="s2">
+      <title>Results</title>
+      <sec id="s2a">
+        <title>Isolation and characterization of proliferating precursor cells from micro-dissected adult murine dentate gyrus</title>
+        <p>Dissection of the entire hippocampus to initiate hippocampal precursor cell cultures had previously led to controversy because corpus callosum and the subventricular zone (SVZ) of the lateral ventricles are potential sources of contamination with other stem cells <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>. We therefore used standardized microdissection procedures to separate the dentate gyrus from other hippocampal regions along the hippocampal fissure (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1a&#x2013;c</xref>). The brains were sliced using a vibratome and the dentate gyrus dissected from the rest of the hippocampus and the adjacent tissue under a microscope. Particular care was taken to avoid any contamination by tissue from the SVZ of the lateral ventricles and also the 3<sup>rd</sup> ventricle. Within each slice, a cut was placed between the dentate gyrus and the ventricular wall. The thickness of the slice of only 300 &#xB5;m allowed to place this cut without the danger of contamination due to the curved morphology of the ventricle and the dentate gyrus in deeper layers below the visible superficial plane. In any case, the 3<sup>rd</sup> ventricle contains nestin-positive cells but, in contrast to the SVZ of the lateral ventricles, only very few proliferating cells <xref rid="pone.0000388-Ernst1" ref-type="bibr">[11]</xref>. Possibly, 3<sup>rd</sup> ventricle precursor cells give rise to hypothalamic cells <xref rid="pone.0000388-Markakis1" ref-type="bibr">[12]</xref>, <xref rid="pone.0000388-Kokoeva1" ref-type="bibr">[13]</xref>, <xref rid="pone.0000388-Xu1" ref-type="bibr">[14]</xref>.</p>
+        <fig id="pone-0000388-g001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <p>Isolation of endogenous precursor cells from the adult mouse dentate gyrus. A; Coronal 300 &#xB5;m vibratome section through the brain of a Nestin-GFP transgenic mouse. B; As a second step, the dentate gyrus was isolated from the rest of the tissue by microdissection. The dissected dentate gyrus is shown at the top. C; The dissected dentate gyrus, as depicted in B, was further trimmed by placing two cuts that separate the dentate gyrus from ventricular tissue (of the 3<sup>rd</sup> ventricle) and area CA3 (see also D). Nestin-GFP expression in the subgranular zone is seen with high concentration at the medial tip of the granule cell layer. D; Schematic drawing depicting the dissected region that was used for isolation of the precursor cells. The localization of the potentially contaminating ventricular areas is highlighted in red. The dashed lines indicate the cuts described in C. E; The tissue was homogenized and separated on a Percoll density gradient. Proliferating precursors were present in the region with density&gt;1.053 gm/ml (&gt;22% Percoll). The Erythrocytes were enriched in the region with density&gt;1.075 gm/ml (&gt;65% Percoll). F; phase contrast image of mouse precursor cells grown as adherent cultures. Note the phase bright appearance that is characteristic of proliferating precursor cells. G; Incubation with BrdU (20 &#xB5;M) revealed that isolated nestin-expressing cells were proliferating. Nestin (Green), BrdU (Red).</p>
+          </caption>
+          <graphic xlink:href="pone.0000388.g001"/>
+        </fig>
+        <p>In addition, we used mice expressing green fluorescent protein (GFP) under the neural enhancer element of the nestin promoter <xref rid="pone.0000388-Yamaguchi1" ref-type="bibr">[15]</xref> (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1a</xref>). Within the dissected area, GFP-expressing cells were present only in the region between hilus and granule cells layer or SGZ (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1c</xref>). Thus, if analyzed immediately after isolation, any nestin-GFP expressing cells in the cultures could only originate from this region. We also took care to include the tip of the dentate gyrus, the area of the hippocampus with the highest density of proliferating cells.</p>
+        <p>The tissue was homogenized and digested with papain. We carried out a series of continuous and step Percoll gradients to isolate the proliferating progenitor from other cells in the homogenate. Proliferating precursor cells have a high density, allowing these less buoyant cells to be separated from the non-proliferating cells on continuous density gradients spanning between 1.053&#x2013;1.075 g/ml and on centrifugation at&gt;10,000&#xD7;g. Centrifugation yielded three visible cell layers (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1e</xref>). The uppermost layer (1.053 g/ml) was composed of cell debris, myelin and differentiated cells. The lowermost layer (&gt;1.075 gm/ml) contained erythrocytes. The middle layer was collected and used to initiate cultures (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1e</xref>).</p>
+        <p>Immunohistochemistry for nestin, glial fibrillary acidic protein (GFAP) and polysialylated neural cell adhesion molecule (PSA-NCAM), markers of hippocampal precursor cells in vivo <xref rid="pone.0000388-Filippov1" ref-type="bibr">[16]</xref>, <xref rid="pone.0000388-Fukuda1" ref-type="bibr">[17]</xref>, did not reveal putative precursor cells below 1.053 g/ml. The fraction&gt;1.075 gm/ml contained cells expressing nestin and PSA-NCAM. Of all the nucleated cells recovered from&gt;1.053 g/ml 23.5&#xB1;1.7% were nestin-positive (mean&#xB1;s.e.m.), 42.9&#xB1;4.6% were positive for GFAP, and 28.0&#xB1;6.00% of the nestin-positive cells were PSA-NCAM-positive.</p>
+        <p>Cells were cultured on poly-D-lysine and laminin-coated surfaces in defined medium with mitogens fibroblast growth factor (FGF2) and epidermal growth factor (EGF). After a few days, the cells began to proliferate and populate the culture dish (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1f</xref>). Upon passaging the cells did not persist in FGF2 alone, but required both EGF and FGF2 for continued proliferation.</p>
+        <p>Cells were passaged every 5&#x2013;6 days, when the cells reached 80&#x2013;90% confluency. We found that cell growth and survival in culture were generally highly dependent on cell density. Optimal growth required that cultures maintained a minimum density at plating. Failure to passage the cells in a timely manner (despite medium change) resulted in massive cell death, suggesting that higher cell densities negatively affected stem cell survival even in the presence of trophic support. In addition to the macroscopic observation that the cells were increasing in numbers, we examined whether the cells were indeed proliferating. We incubated the cells with permanent S-phase marker bromodeoxyuridine (BrdU) and subsequent immunohistochemical detection of BrdU. This revealed that up to 95% of the cells were in cell cycle (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1g</xref>). BrdU-positive cells had the spindle shaped morphologies characteristic of precursor cells (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1g</xref>), whereas BrdU-negative cells showed flat morphologies resembling mature astrocytes. Almost all BrdU-positive cells were also nestin-positive.</p>
+        <p>The cells could be passaged up to 65 times, beyond which no attempts were undertaken. Proliferating cells could be frozen down in 10% DMSO in proliferation medium and be recovered by rapidly bringing them to 37&#xB0;C and plating in fresh medium (not shown).</p>
+      </sec>
+      <sec id="s2b">
+        <title>Proliferating precursor cells exhibit radial glia-like properties and differentiate into neurons</title>
+        <p>Precursors cells in the adult SGZ show features of radial glia <xref rid="pone.0000388-Seri1" ref-type="bibr">[18]</xref>, <xref rid="pone.0000388-Steiner1" ref-type="bibr">[19]</xref>. We thus examined whether precursor cells from the adult dentate gyrus had radial glia-like features in culture. We detected features of radial glia indicated by immunoreactions with antibodies against RC2 antigen <xref rid="pone.0000388-Misson1" ref-type="bibr">[20]</xref> and brain lipid binding protein (BLBP; <xref ref-type="fig" rid="pone-0000388-g002">Fig. 2a&#x2013;d</xref>;). The cells also showed immunoreaction with antibodies against GLAST and Sox2 (<xref ref-type="fig" rid="pone-0000388-g002">Fig 2e&#x2013;g</xref>). In addition, the cells expressed mRNA of nestin, GFAP, Sox2, Pax6, and vimentin (<xref ref-type="fig" rid="pone-0000388-g002">Fig 2h</xref>). This set of markers is diagnostic for radial glia. BLBP and Sox-2 are also expressed by proliferating cells in the SGZ <xref rid="pone.0000388-Steiner1" ref-type="bibr">[19]</xref>. The expression of markers that are also expressed by radial glia is obviously not yet identical to being radial glia (hence our designation as radial glia-like) but the bottom line remains that ex vivo the precursor cells maintained characteristic features of their presumed in vivo counterparts.</p>
+        <fig id="pone-0000388-g002" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <p>Proliferating cells in culture showed features of radial glia and upon differentiation generated neurons and astroglial cells. A&#x2013;D; Proliferating cultures expressed Nestin (A), RC2 (B), BLBP (C) D; Overlay of the three markers Nestin (green), RC2 (red) and BLBP (blue). E&#x2013;G; Precursor cells also immunostained for GLAST (E) and Sox2 (F), overlay of GLAST and Sox2 (G). H; RT-PCR analysis of mRNA from precursor cells further corroborated the suggestive radial glia-like phenotype: Nestin, GFAP, Vimentin, BLBP, Pax6, Sox2. I,J; Under differentiation conditions precursor cells generated neurons and astroglia (bIII-tubulin (green) GFAP (blue) and NG2 (oligodendrocyte precursors). K,L; Addition of BrdU before the transfer to differentiation conditions revealed BrdU (green) in neurons expressing Map2ab (red), confirming that the neuron-like cells originated from a proliferating precursor cell.</p>
+          </caption>
+          <graphic xlink:href="pone.0000388.g002"/>
+        </fig>
+        <p>In the course of the differentiation process, the undifferentiated precursor cells started as polygonal to spindle-shaped cells, subsequently acquiring bipolar morphologies. At 10&#x2013;14 days, the neurons began to develop multiple elaborate processes that were positive for &#x3B2;-III-tubulin and typical for mature neurons (<xref ref-type="fig" rid="pone-0000388-g002">Fig. 2i,j</xref>). BrdU incubation and subsequent differentiation yielded neurons positive for microtubule associated protein 2ab (Map2ab) and BrdU-labeled nucleus (<xref ref-type="fig" rid="pone-0000388-g002">Fig. 2k,l</xref>). This indicated that proliferating precursor cells had been induced to differentiate into neurons. Cells lacking neuronal markers were strongly positive for GFAP and morphologically resembled protoplasmic or type-II astrocytes (<xref ref-type="fig" rid="pone-0000388-g002">Fig. 2j</xref>).</p>
+        <p>Quantitatively, the generation of neurons was dependent on both cell density and the presence of external soluble factors. We empirically found that the best density for neuronal lineage commitment was 1-2&#xD7;10<sup>4</sup> cells/cm<sup>2</sup>. The proportion of cells adopting neuronal fates (0.8&#x2013;1%) was far below the rate seen in the neurogenic area of the dentate gyrus in vivo, where about 80% of the new cells are neurons <xref rid="pone.0000388-Kempermann2" ref-type="bibr">[21]</xref> but is consistent with the level of in vitro neurogenesis from adult neural stem cells in prior reports <xref rid="pone.0000388-Palmer3" ref-type="bibr">[22]</xref>
+</p>
+        <p>Further studies are needed to ascertain the combinatorial patterns of stimulation that direct neural precursor cells to a particular lineage. For example, the influences of endothelial cells or astrocytes provide important neurogenic cues but the exact signaling molecules that promote neurogenesis in this context are still not well defined <xref rid="pone.0000388-Palmer4" ref-type="bibr">[23]</xref>, <xref rid="pone.0000388-Louissaint1" ref-type="bibr">[24]</xref>, <xref rid="pone.0000388-Shen1" ref-type="bibr">[25]</xref>.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Adult-derived hippocampal precursor cells differentiate into neurons with granule cell-like properties</title>
+        <p>We next asked, if the new neurons generated in vitro would reveal characteristics of their in vivo counterpart, the granule cells of the dentate gyrus. In addition to pan-neuronal marker NeuN (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3d</xref>), the differentiated neurons in culture expressed transcription factor Prox1, calcium-binding protein calbindin and synaptic vesicle protein synaptoporin, three markers characteristic of granule neurons in vivo (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3a, b, and c</xref>) <xref rid="pone.0000388-Singec1" ref-type="bibr">[26]</xref>, <xref rid="pone.0000388-Brandt1" ref-type="bibr">[27]</xref>. Prox-1 is a transcription factor specifically expressed by dentate gyrus granule cells <xref rid="pone.0000388-Brandt1" ref-type="bibr">[27]</xref>. RT-PCR revealed that NeuroD1 and Vesicular Glutamate Transporter 1 (VGLUT1) <xref rid="pone.0000388-Takamori1" ref-type="bibr">[28]</xref> were up-regulated during differentiation (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3e</xref>), whereas nestin mRNA, indicative of the precursor cell stage, was down-regulated. Proliferating cells showed no or undetectable levels of NeuroD1 and VGLUT1.</p>
+        <fig id="pone-0000388-g003" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <p>Differentiated neurons originating from hippocampal precursor cells showed features of dentate gyrus granule cells. After differentiation the cells were fixed and stained for markers characteristic of dentate gyrus granule cells. A; &#x3B2;-III-tubulin (green), Prox1(red). B; &#x3B2;-III-tubulin (green), Calbindin (Red). C; &#x3B2;-III-tubulin (Green), Synaptoporin (Red). D; &#x3B2;-III-tubulin (Green), NeuN (Red). E; Differentiation led to up-regulation of molecular neuronal markers and down-regultion of precursor cell markers. Proliferating cultures (day 0) were allowed to differentiate and mRNA was extracted after different times. Differentiation led to up-regulation of NeuroD1, mash1, VGLUT1 transcripts, whereas Nestin was down-regulated. F; Up-regulation of GAD67 by differentiated neurons. Neurons differentiated for 10&#x2013;12 days were washed once with medium and subjected to a 2.5 h stimulation of kainate (KA, 10 &#xB5;M) or rhBDNF (100 ng/ml) in fresh medium and subsequently fixed and evaluated. GAD67 (red) was upregulated in &#x3B2;-III-tubulin-positive cells (green), a property associated with granule neurons in vivo. The images were captured with identical laser settings at the confocal microscope. G; Electrical properties of cultured dentate gyrus precursor cells and differentiated neurons. Membrane properties of cultured dentate gyrus precursor cells and neurons derived from them were measured while voltage-clamped to &#x2212;60mV. G, H, J, K; Typical membrane currents recorded by series of depolarizing and hyperpolarizing voltage steps ranging from &#x2212;120 to+80mV, with 10-mV increments (only first 7 voltage steps are shown). G; On depolarizing steps in voltage-clamps, cells showed typical features of precursor cells with outward rectifying Potassium channels. H; differentiated neurons showed properties consistent with sodium currents. I; In current-clamp, single action potentials were elicited in differentiated neurons by injecting current pulses in 20mV-increments for 100 ms. K; Current voltage curves of the fast inward currents recorded from differentiated neurons with and without TTX were constructed. Mean&#xB1;SEM values averaged from day 28 old cultures are shown (&#x2022;; n&#x200A;=&#x200A;11). Such currents were completely blocked by 1 &#xB5;M TTX (n&#x200A;=&#x200A;3).</p>
+          </caption>
+          <graphic xlink:href="pone.0000388.g003"/>
+        </fig>
+        <p>To further confirm the regional identity of the neurons generated form these precursors we exploited the ability of dentate granule neurons to express GABA along with glutamate after excitation <xref rid="pone.0000388-Sandler1" ref-type="bibr">[29]</xref>, <xref rid="pone.0000388-Gutierrez1" ref-type="bibr">[30]</xref>. Dentate granule cells are unique neurons in that they can release both glutamate and GABA as neurotransmitters, most evidently in the hyperexcitability during seizures. We treated differentiated neurons from precursor cells with 10 &#xB5;M kainic acid for 3 h and then stained with an antibody specific to GAD67, the key enzyme of GABA synthesis and responsible for GABA induction in mature granule neurons. As expected there was an up-regulation of GAD67 after kainate treatment (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3f</xref>), thus reproducing another granule cell characteristic in vitro. Addition of 100 ng/ml recombinant brain derived neurotrophic factor (BDNF), which also induces the GABAergic phenotype in granule cells in vivo <xref rid="pone.0000388-Gutierrez1" ref-type="bibr">[30]</xref>, led to a similar upregulation of GAD67 (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3f</xref>).</p>
+        <p>To unambiguously assess neuronal identity of the differentiated cells we undertook an electrophysiological characterization. Whole cell patch clamp recording revealed that proliferating cells had patterns of membrane properties resembling the related precursor cells from dentate gyrus in vivo with outward rectifying potassium channels (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3g</xref>) <xref rid="pone.0000388-Filippov1" ref-type="bibr">[16]</xref>, <xref rid="pone.0000388-Wang1" ref-type="bibr">[31]</xref>. By 4&#x2013;5 days into differentiation, the outward current persisted and the cells showed only minimal inward current. In contrast, by 20&#x2013;30 days there was a prominent inward current although the outward currents persisted. The resting membrane potential of the neurons was &#x2212;59&#xB1;4 mV. In voltage clamp mode depolarization steps elicited initial spikes of inward current in 11 out of 20 cells. Tetrodotoxin (TTX) blocked these currents suggesting that they originated from voltage-gated sodium channels (<xref ref-type="fig" rid="pone-0000388-g003">Fig. 3</xref> h&#x2013;j). In current clamp mode the injection of currents evoked action potentials (<xref ref-type="table" rid="pone-0000388-t001">Table 1</xref>). Similar to newborn granule cells in vivo, the neurons differentiated from precursor cells in vitro generated only single action potentials, when injected with currents in the current clamp mode <xref rid="pone.0000388-SchmidtHieber1" ref-type="bibr">[32]</xref>.</p>
+        <table-wrap id="pone-0000388-t001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>Electrophysiological characterization of neurons differentiated from adult dentate gyrus precursor cells.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0000388-t001-1" xlink:href="pone.0000388.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Age</td>
+                  <td align="left" rowspan="1" colspan="1">n</td>
+                  <td align="left" rowspan="1" colspan="1">Input Resistance (M&#x2126;)</td>
+                  <td align="left" rowspan="1" colspan="1">Resting membrane potential (mV)</td>
+                  <td align="left" rowspan="1" colspan="1">Na current Amplitude (pA)</td>
+                  <td align="left" rowspan="1" colspan="1">AP width (ms)</td>
+                  <td align="left" rowspan="1" colspan="1">AP threshold (mV)</td>
+                  <td align="left" rowspan="1" colspan="1">AP Amplitude (mV)</td>
+                  <td align="left" rowspan="1" colspan="1">AP peak (mV)</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">DIV 3</td>
+                  <td align="left" rowspan="1" colspan="1">9/9</td>
+                  <td align="left" rowspan="1" colspan="1">555&#xB1;110</td>
+                  <td align="left" rowspan="1" colspan="1">&#x2212;64&#xB1;4</td>
+                  <td align="left" rowspan="1" colspan="1">n/a</td>
+                  <td align="left" rowspan="1" colspan="1">n/a</td>
+                  <td align="left" rowspan="1" colspan="1">n/a</td>
+                  <td align="left" rowspan="1" colspan="1">n/a</td>
+                  <td align="left" rowspan="1" colspan="1">n/a</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">DIV 28</td>
+                  <td align="left" rowspan="1" colspan="1">11/15</td>
+                  <td align="left" rowspan="1" colspan="1">894&#xB1;202</td>
+                  <td align="left" rowspan="1" colspan="1">&#x2212;59&#xB1;4</td>
+                  <td align="left" rowspan="1" colspan="1">400&#xB1;72</td>
+                  <td align="left" rowspan="1" colspan="1">3.8&#xB1;0.3</td>
+                  <td align="left" rowspan="1" colspan="1">&#x2212;24&#xB1;1</td>
+                  <td align="left" rowspan="1" colspan="1">37&#xB1;2</td>
+                  <td align="left" rowspan="1" colspan="1">13&#xB1;2</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+      </sec>
+      <sec id="s2d">
+        <title>Exogenous factors influence the neuronal differentiation potential of neural precursor cells</title>
+        <p>Under proliferation conditions, cell density was significantly greater with EGF or FGF2 alone than without any growth factors, suggesting that both factors exerted a pro-proliferative effect, with EGF being more potent than FGF2 (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4b</xref>). We found a strong difference in neuronal differentiation between simultaneous withdrawal of EGF and FGF2 compared to sequential growth factor withdrawal. When a low concentration of FGF2 (5 ng/ml) was added to the growth factor-withdrawn precursor cells, a greater number of neurons was generated compared to a low concentration of re-added EGF (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4a</xref>). This result is similar to an earlier study suggesting a neurogenic role of FGF2 on rat hippocampal precursor cells <xref rid="pone.0000388-Palmer2" ref-type="bibr">[9]</xref>. Cell density with EGF or FGF2 alone, however, was significantly greater than without any growth factors, suggesting that both the growth factors had a pro-proliferative effect (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4b</xref>). Prolonged neural differentiation in the presence of low FGF2 (5 ng/ml) resulted in a higher cell density in the culture but led to a decrease in the number of cells that differentiated into neurons (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4c</xref>). When precursor cells were differentiated in the presence of EGF alone, the cells showed morphological features of glial cells. Taken together with the previous result that EGF together with FGF2 was required for maintaining precursor cell renewal, the most parsimonious conclusion from this finding is that EGF promotes the self renewal of precursor cells and favors glial differentiation, whereas FGF2 predominantly maintains their neurogenic potential.</p>
+        <fig id="pone-0000388-g004" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <p>Effect of media and growth factors on precursor cells. A; FGF2 increased neuronal differentiation compared to EGF. Precursor cells differentiated in the presence of re-introduced EGF and FGF were stained with &#x3B2;-III-tubulin four days after differentiation. B; Both FGF2 and EGF increased cell survival in the cultured compared to control. C; FGF showed a differential effect on &#x3B2;-III-tubulin-positive neuronal differentiation depending on the duration of the treatment. Short-term treatment led to increased numbers of &#x3B2;-III-tubulin positive neurons from precursor cells, whereas prolonged FGF led to a decrease. D, E; Serum increased neuronal differentiation in a dose-dependent manner. There was also a general increase in survival with increasing concentrations of B27 supplement. F, G; B27 and N2 had complementary effects on precursor cells. B27 increased the survival of the precursor cells, whereas N2 increased neural differentiation. H; Insulin alone was not sufficient to explain the effects of B27 or N2. I; Various neurotrophic factors had pronounced and differential effects on the precursor cells. BDNF, NT-3, Shh, VEGF, ECGF caused an increase in &#x3B2;-III-tubulin positive neurons. LIF and BMP showed potent pro-gliogenic effects. *, p&lt;0.05; **, p&lt;0.005; ***, p&lt;0.0005</p>
+          </caption>
+          <graphic xlink:href="pone.0000388.g004"/>
+        </fig>
+        <p>We also noted differential effects of different commercially available supplements used with the culture medium. B27 did not alter neuronal differentiation (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4d</xref>) but consistently produced an increase in cell survival (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4e</xref>). N2 produced a slightly higher neural differentiation but led to decrease in the survival of cells (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4f</xref>). We thus chose B27 for all further experiments. Because one of the principle protein components in both B27 and N2 is insulin, we examined the role of insulin in neuronal differentiation in our cultures. We found that the effects of N2 and B27 could only partially be recapitulated by insulin alone (INS) (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4h</xref>), suggesting that additional factors are responsible for the net effects of N2 and B27 (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4f</xref>). As the added concentration of insulin (20 &#xB5;g/ml) has been reported to induce the activation of the receptor for insulin-like growth factor (IGF), insulin signaling could be one primary mechanism of regulating neuronal differentiation <xref rid="pone.0000388-Arsenijevic1" ref-type="bibr">[33]</xref>.</p>
+        <p>Several growth and trophic factors besides EGF and FGF2 reportedly influence the differentiation of fetal or immortalized precursor cell cultures <xref rid="pone.0000388-Mehler1" ref-type="bibr">[34]</xref>, <xref rid="pone.0000388-Johe1" ref-type="bibr">[35]</xref>. To test for their effectiveness in our model we grew hippocampal precursor cells under adherent conditions and added different exogenous trophic factors while withdrawing EGF and FGF2.</p>
+        <p>Neurotrophins have a broad range of effects on neuronal maturation and survival and act through tyrosine kinase receptors (Trk). BDNF, which has been linked to structural plasticity and regulation of adult neurogenesis in vivo <xref rid="pone.0000388-Poo1" ref-type="bibr">[36]</xref>, <xref rid="pone.0000388-Sairanen1" ref-type="bibr">[37]</xref>, caused a robust increase in neuronal differentiation in our culture system (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4i</xref>). The neurotrophic factor neurotrophin 3 (NT3) is expressed at high levels in the dentate gyrus <xref rid="pone.0000388-Friedman1" ref-type="bibr">[38]</xref>. NT3 was the only growth factor that showed a high association with adult hippocampal neurogenesis in a screen for genes associated with adult neurogenesis in a set of recombinant inbred strains of mice <xref rid="pone.0000388-Kempermann3" ref-type="bibr">[39]</xref>. In the present study, addition of NT3 significantly raised the differentiation of neurons by about 40% (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4 i</xref>). Addition of the paracrine factor sonic hedgehog (Shh) that plays numerous roles in controlling stem cell activity in the developing brain <xref rid="pone.0000388-Machold1" ref-type="bibr">[40]</xref> and induces neuronal differentiation in cells derived from adult rat hippocampal cells <xref rid="pone.0000388-Lai1" ref-type="bibr">[41]</xref>, <xref rid="pone.0000388-Machold1" ref-type="bibr">[40]</xref>, <xref rid="pone.0000388-Ahn1" ref-type="bibr">[42]</xref>, increased neuronal differentiation by about 80% (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4 i</xref>).</p>
+        <p>Bone morphogenic protein 2 (BMP2) and leukemia inhibiting factor (LIF), in contrast, showed a significant reduction in cells that differentiated into neurons (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4i</xref>). These data are consistent with the fact that BMP2 and LIF are potent anti-neurogenic in several stem cells culture conditions and induce astrocytic differentiation <xref rid="pone.0000388-Adachi1" ref-type="bibr">[43]</xref>. There effects had not yet been tested on adult hippocampal precursor cells.</p>
+        <p>In the intact adult dentate gyrus in vivo, endothelial cells are in close proximity to the precursor cells <xref rid="pone.0000388-Palmer4" ref-type="bibr">[23]</xref>, <xref rid="pone.0000388-Louissaint1" ref-type="bibr">[24]</xref>, <xref rid="pone.0000388-Shen1" ref-type="bibr">[25]</xref>. Fetal stem cells, when cultured together with endothelial cells, derived more neurons than when cultured alone <xref rid="pone.0000388-Shen1" ref-type="bibr">[25]</xref>. In addition, vascular endothelial growth factor (VEGF) has shown a strong regulatory effect on adult hippocampal neurogenesis in vivo <xref rid="pone.0000388-Schanzer1" ref-type="bibr">[44]</xref>. When we added two endothelia derived factors, VEGF or endothelial cell growth factor (ECGF), we found a robust increase in neuronal differentiaton (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4i</xref>).</p>
+      </sec>
+      <sec id="s2e">
+        <title>Single-cell analysis of precursor cells reveals self-renewing properties and multipotency</title>
+        <p>As key criterion of stemness, we studied the potential for self-renewal <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref>. Self-renewal is defined operationally as the ability of individual cells to maintain precursor cells properties after division. Daughter cells of precursor cells should show the same precursor cell properties than the mother cell. As studying self renewal is technically challenging under adherent conditions, we made use of the colony-forming capabilities of the detached precursor cells <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref>. At 10&#x2013;14 days after isolation, the cells were trypsinized, diluted and plated at a density of 1000 cells per well (24-well plate) as previously defined to provide optimal clonal growth <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>. If there were indeed stem cells among the isolated cells, the single cells should be able to self renew and give rise to secondary colonies with some of the cells within the spheres again showing stem cells properties (tertiary colonies). These colonies resemble &#x201C;neurospheres&#x201D; and behave similar. The term &#x201C;neurosphere,&#x201D; however, is now widely used as standing for an entire paradigm in neural precursor cell biology <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref>, which is different from the monolayer protocol, and not just the description for the floating aggregates that form from putative precursor cells in vitro. We hence chose the term &#x201C;sphere-like colony&#x201D; here to avoid misunderstandings, especially in sentences that juxtapose the two paradigms. We neither intend to introduce yet another nomenclature nor to load established nomenclatures with unjustified meanings.</p>
+        <p>The plated single cells began to proliferate and formed sphere-like colonies after 6 days. We scored for the number of sphere-like colonly obtained per number of precursor cells plated. After 10 days we found that 17.5&#xB1;2.1% of the cells plated at &#x201C;clonal density&#x201D; gave rise to sphere-like colonies (<xref ref-type="fig" rid="pone-0000388-g005">Fig. 5a</xref>). This rate similar to the self renewal reported for precursor cells obtained from rat hippocampus <xref rid="pone.0000388-Palmer1" ref-type="bibr">[3]</xref>. Recent studies have suggested that even at low densities, putatively clonal neurospheres tend to fuse and give rise to chimeras <xref rid="pone.0000388-Jessberger1" ref-type="bibr">[45]</xref>, <xref rid="pone.0000388-Singec2" ref-type="bibr">[46]</xref>. To unambiguously assess whether our precursor cells indeed had the ability to self-renew, we aspirated single cells under the microscope and placed them into individual wells of a multiwell plate. Formation of sphere-like colonies was assessed 6 days later and we found that 15.6% of the wells contained sphere-like colonies. Such colonies were subjected to the assay for multipotency in order to demonstrate the three-lineage differentiation potential of the individual cells (see below). Because single cells had been plated the different lineages could not originate from separate precursor cells present in the culture. To demonstrate &#x201C;self-renewal&#x201D; of the cells that constitute these secondary colonies it has additionally to be shown that these same colonies contain cells that upon individualization would again give rise to proliferating cells with multi-lineage potential.</p>
+        <fig id="pone-0000388-g005" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <p>Precursor cells from dentate gyrus showed self renewal when plated in very low, so-called &#x201C;clonal density&#x201D; or one-per-well, suggestive of the presence of cells with stemness properties. A; Individual neural precursor cells proliferated and gave rise to neurosphere-like colonies. B; Single sphere-like colonies in proliferation conditions contained a mixture of cells at different stages of development and differentiation. Larger clusters showed a differentiated core that lacked nestin expression (Green) but was positive for astrocytic marker GFAP (Blue). Neuronal differentiation as judged by the Doublecortin (Red). In small spheres, Nestin was also found in the center of the agglomerate. C; Upon transfer into differentiation conditions, the cells differentiated into the three neural lineages: neurons (&#x3B2;-III-tubulin, Red), astrocytes (GFAP, Blue), oligodendrocytes (CNPase; Green). D; Under differentiation conditions, single-cell derived sphere-like colonies up-regulated both neuronal and glial genes (RT-PCR for NeuroD and GFAP).</p>
+          </caption>
+          <graphic xlink:href="pone.0000388.g005"/>
+        </fig>
+        <p>To assess whether secondary colonies indeed contained self-renewing precursor cells, single secondary clusters were dispersed to obtain single cell suspensions and were plated again as described above. The plated cells again generated tertiary sphere-like colonies that showed no overt difference from the secondary colonies. After 10 to 14 days, &#x223C;10% of the plated primary cells had generated tertiary clusters. Thus, under the assumptions and conditions of this assay, precursor cells from the adult murine dentate gyrus fulfilled the criteria of self-renewal.</p>
+        <p>We had done the above studies in C57Bl/6 mice, whereas other reports on murine neural precursor cells had used CD1 mice <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>. We wondered whether strain-related differences might contribute to the reported differences in stem cells characteristics. When we repeated our experiments with dentate gyrus precursor cells from out-bred strain CD1 we obtained identical results (data not shown).</p>
+        <p>We compared self-renewal in fresh with passaged cultures. Self-renewal could be successfully demonstrated at the 20<sup>th</sup>, 40<sup>th</sup>, and 60<sup>th</sup> passage. Irrespective of the passage number the precursor cells showed immunoreactions for nestin and BrdU. These results suggested that over successive passages precursor cells from the adult dentate gyrus could self-renew.</p>
+        <p>We next assessed whether cells contained within the neurosphere-like clusters were capable of generating differentiated cells of the three neural lineages: neurons, astrocytes, and oligodendrocytes. Differentiation of the clones was studied by transferring individual clusters onto laminin-coated surface, and allowing them to differentiate for one week. Differentiation was induced by withdrawing the mitogens and adding fetal bovine serum and retinoic acid. At the time of plating, the core of the clusters was largely composed of differentiated cells, many of which stained for GFAP or doublecortin (DCX)&#x2013;a marker associated with migratory neuroblasts in vivo (<xref ref-type="fig" rid="pone-0000388-g005">Fig. 5b</xref>) <xref rid="pone.0000388-Kempermann4" ref-type="bibr">[47]</xref>. A total of 15 neurospheres were fixed and stained. Optical sections were analyzed under the confocal microscope to reveal the core and the periphery of the cluster. We found that the larger the size of the sphere, the less nestin expression was seen within the core. One week after plating, the spheres had flattened and showed cell morphologies suggestive of differentiation. Immunocytochemistry revealed that 75% of the secondary sphere-like colonies generated neurons (&#x3B2;-III-tubulin), astrocytes (GFAP) and oligodendrocytes (CNPase; <xref ref-type="fig" rid="pone-0000388-g005">Fig. 5c</xref>). We performed the same assay for the differentiation of tertiary spheres that had been generated from secondary sphere-like colonies. The tertiary colonies, too, generated neurons, astrocytes and oligodendrocytes.</p>
+        <p>Differentiating cultures up-regulated mRNA for NeuroD1, a key transcription factor in the neuronal lineage (<xref ref-type="fig" rid="pone-0000388-g005">Fig. 5d</xref>) and also expressed mRNA for GFAP. As with the self-renewing precursor cell populations, tri-lineage potential at the 20<sup>th</sup>, 40<sup>th</sup>, and 60<sup>th</sup> passage could be observed as judged by the immunostaining for &#x3B2;-III-tubulin (neurons), GFAP (astrocytes) and CNPase (Oligodendrocytes). Again, roughly three quarters of the colonies showed the three-lineage potential and thus no appreciable decrease in neuronal differentiation with passage number.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Discussion</title>
+      <p>We have demonstrated here that neural precursor cells with certain stemness properties could be isolated and propagated from the adult murine hippocampus and that the progeny of these cells generated neurons with phenotypes very similar to granule cells in vivo.</p>
+      <p>We describe an optimized method to reliably obtain monolayer cultures of neural precursor cells from the microdissected dentate gyrus of adult mice. The buoyancy enrichment method used in our protocol allowed us to normalize the initial plating density of the immature cell populations and thus to overcome a density dependent growth limitation that might have affected the outcome in previous studies <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>, <xref rid="pone.0000388-Bull1" ref-type="bibr">[5]</xref>. Such density dependent gradient enrichment has been used before to separate non dividing cells from the precursor cells contained in tissue from rats and humans <xref rid="pone.0000388-Palmer2" ref-type="bibr">[9]</xref>, <xref rid="pone.0000388-Barami1" ref-type="bibr">[48]</xref>. In contrast to previously described protocols, following buoyancy enrichment the neural precursor cells were maintained in a serum free environment with EGF and FGF2 as growth factors <xref rid="pone.0000388-Palmer2" ref-type="bibr">[9]</xref>, <xref rid="pone.0000388-Barami1" ref-type="bibr">[48]</xref>. The constituents of the B27 (or N2) media supplements provided the necessary factors for long-term maintenance. Precursor cells from rat hippocampus have been propagated with FGF2 alone, but mouse cells have resisted this technique. Addition of EGF was essential for long term propagation of mouse dentate gyrus precursor cells under adherent conditions.</p>
+      <p>EGF has also been used to grow precursor cells as neurospheres, a widely used strategy to culture precursor cells from the adult brain, originally described by Reynolds and Weiss in 1992 <xref rid="pone.0000388-Reynolds2" ref-type="bibr">[49]</xref>. One potential problem is that neurosphere cultures tend to generate differentiated cells in their core. Consequently, the interaction between differentiating cells and precursor cells may expose the stem cells to paracrine factors that promote differentiation <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref>. The adherent culture system overcomes these problems by allowing the cells to remain more isolated and to be continuously nurtured by the growth factors in the medium, thereby maintaining a higher degree of homogeneity. This greater homogeneity does not imply that in monolayer cultures all cells would be identical or all cells would be precursor cells. Spontaneous differentiation, however, could be minimized.</p>
+      <p>Studies in the developing telencephalon have suggested that radial glia can function as stem cells that generate cortical neurons <xref rid="pone.0000388-Malatesta1" ref-type="bibr">[50]</xref>, <xref rid="pone.0000388-Noctor1" ref-type="bibr">[51]</xref>, <xref rid="pone.0000388-Noctor2" ref-type="bibr">[52]</xref>, <xref rid="pone.0000388-Malatesta2" ref-type="bibr">[53]</xref>. Similarly, a subset of proliferating cells in the SGZ of the adult dentate gyrus have an antigenic and morphological profile similar to radial glia. It was found that these cells, too, act as the local precursor cells in vivo <xref rid="pone.0000388-Seki1" ref-type="bibr">[54]</xref>, <xref rid="pone.0000388-Steiner1" ref-type="bibr">[19]</xref>. Our present data suggest that cells with radial glia-like properties can also be isolated from the adult dentate gyrus. We have previously reported that the population of transient amplifying progenitor cells in vivo (type-2 cells) retains some antigenic features of radial glia cells, although they do not show a radial morphology <xref rid="pone.0000388-Steiner1" ref-type="bibr">[19]</xref>. We do not claim that our culture protocol specifically allows the propagation of hippocampal radial glia. But our results indicate that dentate gyrus precursor cells ex vivo retain properties of their putative in vivo counterparts.</p>
+      <p>Many studies interested in neural precursor cells have taken a bio-engineering approach and focused on strategies to derive dopaminergic or serotonergic neurons for transplantation. These phenotypes, however, lie outside the physiologic range of dentate gyrus precursor cells. To us it seems necessary to first understand the intrinsic potential of the precursor cells before attempting to divert their developmental path.</p>
+      <p>The mechanisms of regional specification of hippocampal precursor cells has not been analyzed in greater detail, except for a few reports that aimed at delineating broader differences between precursor cells in the SGZ and the SVZ <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>, <xref rid="pone.0000388-Bull1" ref-type="bibr">[5]</xref>. The molecular program underlying granule cell development is not yet fully understood. With Prox1, however, one highly specific transcription factor for granule cell differentiation is known <xref rid="pone.0000388-Li1" ref-type="bibr">[55]</xref>. We here could show that the differentiating neurons in our cultures expressed Prox1.</p>
+      <p>There has been some controversy regarding the presence or absence of neural &#x201C;stem cells&#x201D; (in the stricter sense of the definition) in the SGZ in contrast to the SVZ <xref rid="pone.0000388-Palmer1" ref-type="bibr">[3]</xref>, <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>, <xref rid="pone.0000388-Bull1" ref-type="bibr">[5]</xref>. We cannot finally settle this issue. Our dissection protocol, however, certainly minimized any risk for contamination with cells from the SVZ of the lateral ventricles (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1</xref>). Admittedly, to avoid contamination with cells from the walls of the 3<sup>rd</sup> ventricle is much more difficult but was painfully attempted by using thin tissue sections and placing a clear cut between the ventricular wall and the granule cell layer (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1d</xref>). Given the very low proliferative activity in the ventricular wall of the 3<sup>rd</sup> ventricle <xref rid="pone.0000388-Ernst1" ref-type="bibr">[11]</xref> the risk of mistaking 3<sup>rd</sup> ventricle precursor cells as hippocampal was further diminished.</p>
+      <p>In summary, based on our present data we propose that with regard to the existence of precursor cells the differences between dentate gyrus and SVZ are not qualitative but rather quantitative. Previous data from rat models and our experience in the present set of experiments indicate that the abundance of stem-like cells in the dentate gyrus is significantly lower than in the SVZ <xref rid="pone.0000388-Palmer3" ref-type="bibr">[22]</xref>. The cellular density of the neurogenic zone is more compact in the SGZ than in the SVZ. The SVZ is flanked by the ventricular lumen, whereas the SGZ is surrounded by tissue with an extensive neuropil. Hence any enzymatic digestion of the SGZ leads to damage of cellular processes, which might explain the reduced recovery of surviving cells from the SGZ. In addition, our dissection method included the medial tip of the dentate gyrus, which was excluded in an earlier study that could not detect cells with stem cell-like properties in the SGZ. The tip area contains the highest density of proliferating precursor cells in vivo <xref rid="pone.0000388-Tashiro1" ref-type="bibr">[56]</xref>. Again, we use the term &#x201C;stem-like cells&#x201D; here in order to relate our data to the published discussion, which spoke plainly of &#x201C;stem cells&#x201D;. We suggest that the hippocampal precursor cells in our cultures showed more stemness properties than stated by these previous publications. At the same time the definition of &#x201C;stem cells&#x201D; remains notoriously difficult. To avoid misunderstandings we prefer the more generic term &#x201C;precursor cells&#x201D;.</p>
+      <p>Our protocol is based on established methods <xref rid="pone.0000388-Palmer3" ref-type="bibr">[22]</xref>, <xref rid="pone.0000388-Palmer1" ref-type="bibr">[3]</xref>, <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>, <xref rid="pone.0000388-Reynolds1" ref-type="bibr">[7]</xref> but substantial modifications to the available rat protocols had to be introduced (<xref ref-type="table" rid="pone-0000388-t002">Table 2</xref>). These modifications combined the gradient enrichment procedure originally described for rat hippocampal precursor cells with the addition of both EGF and FGF2, the use of B27 as the serum supplement, the control of appropriate plating densities, and the optional use of additional exogenous factors for the trophic support of the cultured cells. EGF and FGF2 together with B27 serum supplement suppressed differentiation and maintained the precursor cells at a stem cell stage. We noted that EGF is mandatory for maintaining stemness properties of precursor cells isolated form the adult murine dentate gyrus. This is in agreement with previous studies in vivo that suggested an increase in proliferation after infusion of EGF <xref rid="pone.0000388-Kuhn1" ref-type="bibr">[57]</xref> compared to FGF2. In that study neuronal differentiation was more pronounced after infusion of FGF2 than of EGF. Similarly we found that EGF had a potent pro-proliferative effect on the precursor cells in vitro, whereas FGF maintained their neurogenic potential.</p>
+      <table-wrap id="pone-0000388-t002" position="float">
+        <object-id pub-id-type="doi">10.1371/journal.pone.0000388.t002</object-id>
+        <label>Table 2</label>
+        <caption>
+          <title>Comparison of precursor cell culture protocols from the adult hippocampus</title>
+        </caption>
+        <alternatives>
+          <graphic id="pone-0000388-t002-2" xlink:href="pone.0000388.t002"/>
+          <table frame="hsides" rules="groups">
+            <colgroup span="1">
+              <col align="left" span="1"/>
+              <col align="center" span="1"/>
+              <col align="center" span="1"/>
+              <col align="center" span="1"/>
+              <col align="center" span="1"/>
+              <col align="center" span="1"/>
+              <col align="center" span="1"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <td align="left" rowspan="1" colspan="1"/>
+                <td align="left" rowspan="1" colspan="1">Present study</td>
+                <td align="left" rowspan="1" colspan="1">Palmer et al., 1997 <xref rid="pone.0000388-Palmer1" ref-type="bibr">[3]</xref>
+</td>
+                <td align="left" rowspan="1" colspan="1">Palmer et al., 1999 <xref rid="pone.0000388-Palmer2" ref-type="bibr">[9]</xref>
+</td>
+                <td align="left" rowspan="1" colspan="1">Seaberg et al., 2002 <xref rid="pone.0000388-Seaberg1" ref-type="bibr">[4]</xref>
+</td>
+                <td align="left" rowspan="1" colspan="1">Roy et al., 2000 <xref rid="pone.0000388-Roy1" ref-type="bibr">[63]</xref>
+</td>
+                <td align="left" rowspan="1" colspan="1">Bull et al., 2005 <xref rid="pone.0000388-Bull1" ref-type="bibr">[5]</xref>
+</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Species</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">Mouse</td>
+                <td align="left" rowspan="1" colspan="1">Rat</td>
+                <td align="left" rowspan="1" colspan="1">Rat</td>
+                <td align="left" rowspan="1" colspan="1">Mouse</td>
+                <td align="left" rowspan="1" colspan="1">Human</td>
+                <td align="left" rowspan="1" colspan="1">Mouse</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Type</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">Monolayer</td>
+                <td align="left" rowspan="1" colspan="1">Monolayer</td>
+                <td align="left" rowspan="1" colspan="1">Monolayer</td>
+                <td align="left" rowspan="1" colspan="1">Neurospheres</td>
+                <td align="left" rowspan="1" colspan="1">Monolayer</td>
+                <td align="left" rowspan="1" colspan="1">Neurospheres</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Region</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">Subdissected dentate gyrus, including tip</td>
+                <td align="left" rowspan="1" colspan="1">Hippocampus</td>
+                <td align="left" rowspan="1" colspan="1">Hippocampus</td>
+                <td align="left" rowspan="1" colspan="1">Subdissected dentate gyrus, excluding tip</td>
+                <td align="left" rowspan="1" colspan="1">Dentate Gyrus</td>
+                <td align="left" rowspan="1" colspan="1">Dentate Gyrus</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Enrichment proc.</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">Percoll</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">Percoll</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">Promoter based FACS</td>
+                <td align="left" rowspan="1" colspan="1">Promoter based FACS</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Plating density</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">10<sup>4</sup> cells/cm<sup>2</sup>
+</td>
+                <td align="left" rowspan="1" colspan="1">No information</td>
+                <td align="left" rowspan="1" colspan="1">No information</td>
+                <td align="left" rowspan="1" colspan="1">20cells/&#xB5;l</td>
+                <td align="left" rowspan="1" colspan="1">0.1ml/35mm dish of 10<sup>7</sup>cells/ml of cell suspension</td>
+                <td align="left" rowspan="1" colspan="1">7000cells/cm<sup>2</sup>
+</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Media</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">Neurobasal</td>
+                <td align="left" rowspan="1" colspan="1">DMEM-F12</td>
+                <td align="left" rowspan="1" colspan="1">DMEM-F12</td>
+                <td align="left" rowspan="1" colspan="1">DMEM-F12</td>
+                <td align="left" rowspan="1" colspan="1">DMEM-F12</td>
+                <td align="left" rowspan="1" colspan="1">NeuroCult</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Supplement</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">B27</td>
+                <td align="left" rowspan="1" colspan="1">N2</td>
+                <td align="left" rowspan="1" colspan="1">N2</td>
+                <td align="left" rowspan="1" colspan="1">N2/B27</td>
+                <td align="left" rowspan="1" colspan="1">N2, Platelet-depleted Bovine Serum</td>
+                <td align="left" rowspan="1" colspan="1">NeuroCult NSC supplement with 2% BSA</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Growth factor</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">EGF, FGF2</td>
+                <td align="left" rowspan="1" colspan="1">FGF2</td>
+                <td align="left" rowspan="1" colspan="1">FGF2</td>
+                <td align="left" rowspan="1" colspan="1">EGF, FGF2, Heparin</td>
+                <td align="left" rowspan="1" colspan="1">FGF2</td>
+                <td align="left" rowspan="1" colspan="1">EGF, FGF2, Heparin, BDNF</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Coating</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">PDL, Laminin</td>
+                <td align="left" rowspan="1" colspan="1">Polyornithine, Laminin</td>
+                <td align="left" rowspan="1" colspan="1">Polyornithine, Laminin</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">Laminin</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Test for stemness</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">17.5&#xB1;2.1%</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">21%</td>
+                <td align="left" rowspan="1" colspan="1">0.54&#xB1;0.1 per 10,000 cells</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">0</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Max. passage no.</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">60</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">3</td>
+              </tr>
+              <tr>
+                <td align="left" rowspan="1" colspan="1">
+<bold>Functional assay</bold>
+</td>
+                <td align="left" rowspan="1" colspan="1">Electrophysiology, GAD induction</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+                <td align="left" rowspan="1" colspan="1">Electrophysiology</td>
+                <td align="left" rowspan="1" colspan="1">&#x2013;</td>
+              </tr>
+            </tbody>
+          </table>
+        </alternatives>
+      </table-wrap>
+      <p>Precursor cells in the adult SGZ are located in a privileged niche with a distinct cellular composition that controls stem cell activity <xref rid="pone.0000388-Song1" ref-type="bibr">[58]</xref>, <xref rid="pone.0000388-Shen1" ref-type="bibr">[25]</xref>. The mediating niche factors have been of intense research activity. Some of these molecules have been previously implicated in decisive developmental patterning of the nervous system. The precursor cells were highly susceptible to the presence of EGF. Among all factors studied here EGF produced the most potent effect on proliferation. Morphogen Shh strongly increased neural differentiation from the precursor cells. Other reports had found similar effects both in vitro and in vivo <xref rid="pone.0000388-Lai1" ref-type="bibr">[41]</xref>, <xref rid="pone.0000388-Machold1" ref-type="bibr">[40]</xref>, <xref rid="pone.0000388-Ahn1" ref-type="bibr">[42]</xref>. Factors released by endothelial cells such as VEGF biased the precursor cells to acquire a neuronal phenotype, whereas BMPs and LIF were pro-gliogenic in our culture system and reduced neuronal differentiation (<xref ref-type="fig" rid="pone-0000388-g004">Fig. 4i</xref>). BMPs have previously been shown to produce a gliogenic niche for the SVZ precursor cells <xref rid="pone.0000388-Lim1" ref-type="bibr">[59]</xref>. The result that multiple factors differentially regulate precursor cell differentiation suggests that these factors might work in concert to guide neurogenesis from the precursors cells stage to final functional integration in vivo.</p>
+      <p>That our cell culture protocol can mimic a sufficient number of in vivo parameters is also underscored by the fact that the differentiated neurons fulfilled the key criteria of neuronal functionality: they generated sodium currents and fired action potentials. We noticed that during maturation the inward currents increased, whereas the outward currents (possibly K<sup>+</sup>) showed little change. This suggests that outwards currents may be required in the transition from immature to mature stages. The hyperpolarizing currents may prevent potentially damaging massive Ca<sup>2+</sup>entry from sustained depolarization.</p>
+      <p>Besides growth factor effects on functional maturation it is likely that precursor cells are driven towards differentiation by the neurons that make synaptic contact with them. This effect might again be based on the secretion of soluble factors or on direct effects of neurotransmitters. For example, GABAergic input is one of the earliest input received by the newborn neurons <xref rid="pone.0000388-Wang1" ref-type="bibr">[31]</xref>, <xref rid="pone.0000388-Thallmair1" ref-type="bibr">[60]</xref>. GABA has excitatory effects on the immature cells and promotes further differentiation <xref rid="pone.0000388-Tozuka1" ref-type="bibr">[61]</xref>, <xref rid="pone.0000388-Thallmair1" ref-type="bibr">[60]</xref>. In addition, some of the factors with pro-neurogenic effects (such as NT-3 and Shh) can be secreted by GABAergic interneurons <xref rid="pone.0000388-Traiffort1" ref-type="bibr">[62]</xref>. This suggests that GABA might play a key role in regulating adult hippocampal neurogenesis by controlling levels of network activity and the release of morphogens in the vicinity of precursor cells. Our cell culture also responded to neurotrophic factors in a way predictable from the in vivo situation, including the characteristic induction of a GABA-like phenotype in granule cells in response to BDNF.</p>
+      <p>We here report a modified method to isolate and propagate neural precursor cells from adult murine dentate gyrus as adherent monolayer culture system. Mouse dentate gyrus precursor cells had the capability to self-renew in a single-cell assay and differentiate into neurons, astrocytes and oligodendrocytes. The precursor cells expanded in vitro showed plasticity towards acquisition of neuronal phenotypes depending on the culture conditions. In many regards the neurons derived in our cultures corresponded to their in vivo counterpart, the granule cells of the dentate gyrus. These precursor cells culture from which granule cells can be generated will provide a useful research platform to study the regulatory mechanisms of adult hippocampal neurogenesis in mice.</p>
+    </sec>
+    <sec id="s4">
+      <title>Materials and Methods</title>
+      <sec id="s4a">
+        <title>Tissue Dissection</title>
+        <p>All institutional regulation regarding animal ethics was followed. Adult female animals (C57Bl/6 or CD1) were killed by an overdose of ketamine and decapitated. The brains were removed from the skull and were placed in cold artificial CSF (aCSF) that was constantly bubbled with 95%O<sub>2</sub>/5% CO<sub>2</sub>. The aCSF consisted of the following ingredients (in mM): NaCl, 124; KCl, 2.5; NaH<sub>2</sub>PO<sub>4</sub>, 1.25; CaCl<sub>2</sub>, 1; MgCl<sub>2</sub>, 1; NaHCO<sub>3</sub>, 25; D-Glucose, 10. The brains were sliced coronally (300 &#xB5;m) using a vibratome and the coronal slices with the hippocampus and the dentate gyrus collected and placed in cold aCSF. The slices were then moved under a dissecting microscope to dissect out the dentate gyrus and free it from the hippocampus and the surrounding ventricular tissue (<xref ref-type="fig" rid="pone-0000388-g001">Fig. 1</xref>). This was done by drawing a wedge along the hippocampal fissure separating the dentate gyrus from the rest of the hippocampus. A cut was then place between the dentate gyrus and the ventricular surface on one side and the CA3 region on the other. The dissected dentate gyrus was kept in aCSF till further procedures were carried out. The dissected dentate gyri from 4&#x2013;5 animals per preparation were pooled.</p>
+      </sec>
+      <sec id="s4b">
+        <title>Tissue digestion</title>
+        <p>The pooled tissue was dissociated by digestion with a mixture of Papain (Worthington), Dispase (Roche) and Deoxyribonuclease (Worthington) for 30 to 40 min. The enzymes were removed by washing twice in Phosphate Buffered Saline (PBS). The cell mixture was passed through a 40 &#xB5;m cell strainer (Becton Dickinson) to obtain a single-cell suspension. To assess precursor cells enrichment, cell mixture underwent centrifugation at 20,000&#xD7;g for 30 min in a continuous Percoll gradient. The stock of isotonic Percoll (Amersham) was prepared by diluting nine parts of Percoll with one part 10X PBS. After gradient separation the cells were washed and transferred to proliferation medium. Based on the sedimentation of the mouse cells in the continuous gradient we determined that precursor cells could be selectively enriched in the cell pellet formed in a solution of 22% Percoll following low speed centrifugation (500&#x2013;1000&#xD7;g, 10 minutes, room temperature). A common and simple procedure now used in our laboratory is to enrich a tissue preparation for precursor cells using an initial low-speed separation in 20&#x2013;35% Percoll (empirically determined for each strain and species). The precursor cells and erythrocytes in the pellet are collected and then resuspended in a mixture of 65&#x2013;70% Percoll (also empirically determined). The erythrocyte pellet is discarded and floating precursor cells are rinsed free plated into growth medium.</p>
+      </sec>
+      <sec id="s4c">
+        <title>Cell culture</title>
+        <p>The surface of the culture dishes (polystyrene Petri dishes and culture flasks, or glass coverslips in multiwell plates; Nunc) was first coated with 10 &#xB5;g/ml Poly-Lysine (Sigma) overnight at room temperature. After several rinses in water, the surfaces were then coated with 5 &#xB5;g/ml Laminin (Tebu-bio&amp;Roche) at 37&#xB0;C overnight. The plates or coverslips were stored at &#x2212;20&#xB0;C.</p>
+        <p>After removing excess coating solution, cells were plated directly onto the surface. The cultures were maintained in proliferation medium consisting of Neurobasal (Invitrogen), B27 or N2 supplement (Invitrogen), 2 mM Glutamax (Invitrogen), Pen-Strep (Sigma), 20 ng/ml human Fibroblast Growth Factor-2 (FGF2), and 20 ng/ml human Epidermal Growth Factor (EGF) (both from R&amp;D or Pepro Tech). The medium was replaced with fresh medium the next day. Subsequently, the cultures were fed with new medium every two or three days by replacing 75% of the medium. We maintained a cell density of 10<sup>4 </sup>cells/cm<sup>2</sup>. To induce and maintain differentiation the growth medium was replaced with either growth medium free of mitogens FGF2 and EGF, with or without 0.5 &#xB5;M retinoic acid (Sigma), or with 0.5% fetal bovine serum and human Brain Derived Neurotrophic Factor (BDNF; 100 ng/ml). Recombinant human Insulin (Sigma) was used at a concentration of 20 &#xB5;g/ml.</p>
+      </sec>
+      <sec id="s4d">
+        <title>Test for self-renewal and multipotency</title>
+        <p>For self renewal experiments, cells were trypsinized, triturated, centrifuged and resuspended in medium. Cells were then either plated at a very low density of (often referred to as &#x201C;clonal density&#x201D;) or individually aspirated under microscopic control and seeded in separate wells of a microtiter plate. The presence of only single cells per well was confirmed under the microscope 24 h later. In either case, the cells were plated in conditioned medium together with fresh medium in 1&#x2236;1 ratio with 20 ng/ml of both EGF and FGF2. The conditioned medium was prepared from medium incubated for 48 hrs in proliferating precursor cells. The media was centrifuged and the supernatant preserved at 4&#xB0;C when used on the same or the next day or at &#x2212;80&#xB0;C for long term storage.</p>
+      </sec>
+      <sec id="s4e">
+        <title>Immunocytochemistry</title>
+        <p>Cultures were fixed with cooled 4% Paraformaldehyde in 0.1M phosphate buffer (pH 7.4) for 20&#x2013;30 minutes. After washes with Tris buffered saline (TBS) cells were blocked with 3% Donkey serum (Chemicon) containing 0.2% Triton X-100. Primary antibodies were diluted in blocking buffer and the cells were incubated overnight. After washes with TBS, secondary antibody was diluted in TBS and the cells were incubated for 2 h at room temperature.</p>
+        <p>The following primary antibody and dilutions were used. Monoclonal: anti-Nestin 1&#x2236;400 (BD pharmingen); anti-RC2 1&#x2236;50 (DHSB Iowa); anti-&#x3B2;-III-tubulin 1&#x2236;1000 (Promega); anti-GAD67 1&#x2236;1000 (Chemicon); anti-NeuN 1&#x2236;100 (Chemicon); anti-Map2ab 1&#x2236;500 (Sigma); anti-CNPase 1&#x2236;100; rat anti-BrdU 1&#x2236;500 (Acccurate). Polyclonal: rabbit anti-&#x3B2;-III-tubulin (TuJ1) 1&#x2236;1000 (Covance); guinea pig anti-GFAP 1&#x2236;1000 (Advanced Immunochemistry); goat anti-Calbindin 1&#x2236;250 (SWANT); rabbit anti-Prox-1 1&#x2236;5000 (Chemicon); rabbit anti-Synaptoporin 1&#x2236;200 (Chemicon); rabbit anti-BLBP 1&#x2236;2000 (kind gift of Nathaniel Heintz, Rockefeller University); Goat anti-DCX 1&#x2236;300 (Santa Cruz). Fluorescence-coupled secondary antibodies were raised in donkey (Dianova) and used at 1&#x2236;250.</p>
+        <p>A Leica TCS/SP2 confocal microscope (Leica, Bensheim) was used to evaluate fluorescent stainings using appropriate excitation beams and emission filters. All analyses were done in sequential scanning mode to avoid channel bleeding and the detection of spurious double-labeling. Counting was done with a Zeiss Axioplan2 epifluorescence microscope with appropriate filters.</p>
+      </sec>
+      <sec id="s4f">
+        <title>Induction of GABA phenotype</title>
+        <p>Proliferating precursor cells were plated at 1&#x2013;2&#xD7;10<sup>4</sup> cells/cm<sup>2</sup>. The cells were withdrawn from the proliferation medium and allowed to differentiate for two to three weeks. On the day of the experiment, 10 &#xB5;M Kainic acid (KA) (Sigma) or 100 ng/ml of BDNF (Peprotech) was added directly to the medium and the cultures were left in the incubator for 30 min. The medium was removed and the cultures were washed twice with fresh medium. They were then incubated in fresh medium for three hours. Cells were fixed and underwent immunocytochemical procedures as described above, except that 0.25% Triton X-100 was added to the blocking solution and avoided thereafter.</p>
+      </sec>
+      <sec id="s4g">
+        <title>RT-PCR</title>
+        <p>Precursor cells were cultured as adherent cultures and differentiated for 5&#x2013;8 days. RNA was extracted with RNAeasy kit (Quiagen). After spectrophotometric quantification, RNA from each time point was reverse-transcribed in a final volume of 50 &#xB5;l. 1 &#xB5;g of the RNA was mixed with 1 &#xB5;g of Random Primers (Invitrogen) at 70&#xB0;C for 10 min. Samples were cooled on ice and 5X RT-Buffer, 0.1M DTT, and dNTPs were added. After addition of reverse transcriptase the reaction mixture was incubated for 90 minutes at 42&#xB0;C followed by 70&#xB0;C for 10 minutes. Two &#xB5;l of the reaction mixture was used for the PCR reaction. The annealing time was 57&#xB0;C for all primers. The PCR protocol consisted of the following reaction cycles: initial denaturing at 95&#xB0;C for 10 minutes followed by 40 cycles of 45s at 95&#xB0;C for, 45s at 57&#xB0;C, and 1 min at 72&#xB0;C. The reaction was concluded by a final extension of 10 minutes at 72&#xB0;C. Products were run on 1% agarose gels and analyzed. Equal volume of cDNA was added for comparison. The primers are listed in <xref ref-type="table" rid="pone-0000388-t003">Table 3</xref>.</p>
+        <table-wrap id="pone-0000388-t003" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0000388.t003</object-id>
+          <label>Table 3</label>
+          <caption>
+            <title>PCR primer sequences</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0000388-t003-3" xlink:href="pone.0000388.t003"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Nestin</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;AGGTTTGAAGACGCAGAGGA&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;TTCGAGAGATTCGAGGGAGA&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">GFAP</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;CACGAACGAGTCCCTAGAGC&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;TCACATCACCACGTCCTTGT&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Pax6</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;ACAGAGTTCTTCGCAACCTGGCTA&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;ACTGGTACTGAAGCTGCTGCTGAT&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">BLBP</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;TTCGGTTGGATGGAGACAAGCTCA&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;GCTTCATTAGCTGGCTAACTCTGGGA&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Vimentin</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;AGATGGCTCGTCACCTTCGTGAAT&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;TCCTTCTTGCTGGTACTGCACTGT&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">NeuroD1</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;ATTGCGTTGCCTTAGCACTT&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;TGCATTTCGGTTTTCATCCT&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Sox2</td>
+                  <td align="left" rowspan="1" colspan="1">forward</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;CTCTGCACATGAAGGAGCAC&#x2013;3&#x2032;</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">reverse</td>
+                  <td align="left" rowspan="1" colspan="1">5&#x2032;&#x2013;ATGTAGGTCTGCGAGCTGGT&#x2013;3&#x2032;</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+      </sec>
+      <sec id="s4h">
+        <title>Electrophysiology</title>
+        <p>Patch electrodes with a resistance of 4-7M&#x3A9; were pulled from borosilicate capillaries using a laser-based pipette puller (Sutter Instrument, Novato, USA). The extracellular solution (pH 7.3) consisted of : 5mM Hepes, 150mM NaCl, 5.4mM KCl, 1mM MgCl<sub>2</sub>, 2mM CaCl<sub>2</sub>, 10mM D-Glucose. All experiments were carried out at Room Temperature. The pipette solution consisted of 130mM KCl, 2mM MgCl<sub>2</sub>, 0.5mM CaCl<sub>2</sub>, 2mM Na-ATP, 5mM EGTA, 10mM Hepes. The pH was adjusted to 7.3 with KOH. Whole cell voltage clamped recordings were obtained using as EPC 9/2 patch clamp amplifier together with TIDA software (HEKA Germany).</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Ruth Zarmstoff, Irene Thun, and Ulrike Ziegler for technical assistance.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding: </bold>The work was supported by grants from Volkswagenstiftung, Thyssen Stiftung, and Deutsche Forschungsgemeinschaft (DFG).</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0000388-Gage1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2000</year>
+<article-title>Mammalian neural stem cells.</article-title>
+<source>Science</source>
+<volume>287</volume>
+<issue>5457</issue>
+<fpage>1433</fpage>
+<lpage>1438</lpage>
+<pub-id pub-id-type="pmid">10688783</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Kempermann1">
+        <label>2</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Jessberger</surname><given-names>S</given-names></name><name><surname>Steiner</surname><given-names>B</given-names></name><name><surname>Kronenberg</surname><given-names>G</given-names></name></person-group>
+<year>2004</year>
+<article-title>Milestones of neuronal development in the adult hippocampus.</article-title>
+<source>Trends Neurosci</source>
+<volume>27</volume>
+<issue>8</issue>
+<fpage>447</fpage>
+<lpage>452</lpage>
+<pub-id pub-id-type="pmid">15271491</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Palmer1">
+        <label>3</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Palmer</surname><given-names>TD</given-names></name><name><surname>Takahashi</surname><given-names>J</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>1997</year>
+<article-title>The adult rat hippocampus contains primordial neural stem cells.</article-title>
+<source>Mol Cell Neurosci</source>
+<volume>8</volume>
+<issue>6</issue>
+<fpage>389</fpage>
+<lpage>404</lpage>
+<pub-id pub-id-type="pmid">9143557</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Seaberg1">
+        <label>4</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Seaberg</surname><given-names>RM</given-names></name><name><surname>van der Kooy</surname><given-names>D</given-names></name></person-group>
+<year>2002</year>
+<article-title>Adult rodent neurogenic regions: the ventricular subependyma contains neural stem cells, but the dentate gyrus contains restricted progenitors.</article-title>
+<source>J Neurosci</source>
+<volume>22</volume>
+<issue>5</issue>
+<fpage>1784</fpage>
+<lpage>1793</lpage>
+<pub-id pub-id-type="pmid">11880507</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Bull1">
+        <label>5</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bull</surname><given-names>ND</given-names></name><name><surname>Bartlett</surname><given-names>PF</given-names></name></person-group>
+<year>2005</year>
+<article-title>The adult mouse hippocampal progenitor is neurogenic but not a stem cell.</article-title>
+<source>J Neurosci</source>
+<volume>25</volume>
+<issue>47</issue>
+<fpage>10815</fpage>
+<lpage>10821</lpage>
+<pub-id pub-id-type="pmid">16306394</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Lindvall1">
+        <label>6</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lindvall</surname><given-names>O</given-names></name><name><surname>Kokaia</surname><given-names>Z</given-names></name></person-group>
+<year>2006</year>
+<article-title>Stem cells for the treatment of neurological disorders.</article-title>
+<source>Nature</source>
+<volume>441</volume>
+<issue>7097</issue>
+<fpage>1094</fpage>
+<lpage>1096</lpage>
+<pub-id pub-id-type="pmid">16810245</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Reynolds1">
+        <label>7</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Reynolds</surname><given-names>BA</given-names></name><name><surname>Rietze</surname><given-names>RL</given-names></name></person-group>
+<year>2005</year>
+<article-title>Neural stem cells and neurospheres&#x2013;re-evaluating the relationship.</article-title>
+<source>Nat Methods</source>
+<volume>2</volume>
+<issue>5</issue>
+<fpage>333</fpage>
+<lpage>336</lpage>
+<pub-id pub-id-type="pmid">15846359</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Gage2">
+        <label>8</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gage</surname><given-names>FH</given-names></name><name><surname>Ray</surname><given-names>J</given-names></name><name><surname>Fisher</surname><given-names>LJ</given-names></name></person-group>
+<year>1995</year>
+<article-title>Isolation, characterization, and use of stem cells from the CNS.</article-title>
+<source>Annu Rev Neurosci</source>
+<volume>18</volume>
+<fpage>159</fpage>
+<lpage>192</lpage>
+<pub-id pub-id-type="pmid">7605059</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Palmer2">
+        <label>9</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Palmer</surname><given-names>TD</given-names></name><name><surname>Markakis</surname><given-names>EA</given-names></name><name><surname>Willhoite</surname><given-names>AR</given-names></name><name><surname>Safar</surname><given-names>F</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>1999</year>
+<article-title>Fibroblast growth factor-2 activates a latent neurogenic program in neural stem cells from diverse regions of the adult CNS.</article-title>
+<source>J Neurosci</source>
+<volume>19</volume>
+<issue>19</issue>
+<fpage>8487</fpage>
+<lpage>8497</lpage>
+<pub-id pub-id-type="pmid">10493749</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Ray1">
+        <label>10</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ray</surname><given-names>J</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2006</year>
+<article-title>Differential properties of adult rat and mouse brain-derived neural stem/progenitor cells.</article-title>
+<source>Mol Cell Neurosci</source>
+<volume>31</volume>
+<issue>3</issue>
+<fpage>560</fpage>
+<lpage>573</lpage>
+<pub-id pub-id-type="pmid">16426857</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Ernst1">
+        <label>11</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ernst</surname><given-names>C</given-names></name><name><surname>Christie</surname><given-names>BR</given-names></name></person-group>
+<year>2005</year>
+<article-title>Nestin-expressing cells and their relationship to mitotically active cells in the subventricular zones of the adult rat.</article-title>
+<source>Eur J Neurosci</source>
+<volume>22</volume>
+<issue>12</issue>
+<fpage>3059</fpage>
+<lpage>3066</lpage>
+<pub-id pub-id-type="pmid">16367772</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Markakis1">
+        <label>12</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Markakis</surname><given-names>EA</given-names></name><name><surname>Palmer</surname><given-names>TD</given-names></name><name><surname>Randolph-Moore</surname><given-names>L</given-names></name><name><surname>Rakic</surname><given-names>P</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2004</year>
+<article-title>Novel neuronal phenotypes from neural progenitor cells.</article-title>
+<source>J Neurosci</source>
+<volume>24</volume>
+<issue>12</issue>
+<fpage>2886</fpage>
+<lpage>2897</lpage>
+<pub-id pub-id-type="pmid">15044527</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Kokoeva1">
+        <label>13</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kokoeva</surname><given-names>MV</given-names></name><name><surname>Yin</surname><given-names>H</given-names></name><name><surname>Flier</surname><given-names>JS</given-names></name></person-group>
+<year>2005</year>
+<article-title>Neurogenesis in the hypothalamus of adult mice: potential role in energy balance.</article-title>
+<source>Science</source>
+<volume>310</volume>
+<issue>5748</issue>
+<fpage>679</fpage>
+<lpage>683</lpage>
+<pub-id pub-id-type="pmid">16254185</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Xu1">
+        <label>14</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Xu</surname><given-names>Y</given-names></name><name><surname>Tamamaki</surname><given-names>N</given-names></name><name><surname>Noda</surname><given-names>T</given-names></name><name><surname>Kimura</surname><given-names>K</given-names></name><name><surname>Itokazu</surname><given-names>Y</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Neurogenesis in the ependymal layer of the adult rat 3rd ventricle.</article-title>
+<source>Exp Neurol</source>
+<volume>192</volume>
+<issue>2</issue>
+<fpage>251</fpage>
+<lpage>264</lpage>
+<pub-id pub-id-type="pmid">15755543</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Yamaguchi1">
+        <label>15</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yamaguchi</surname><given-names>M</given-names></name><name><surname>Saito</surname><given-names>H</given-names></name><name><surname>Suzuki</surname><given-names>M</given-names></name><name><surname>Mori</surname><given-names>K</given-names></name></person-group>
+<year>2000</year>
+<article-title>Visualization of neurogenesis in the central nervous system using nestin promoter-GFP transgenic mice.</article-title>
+<source>Neuroreport</source>
+<volume>11</volume>
+<issue>9</issue>
+<fpage>1991</fpage>
+<lpage>1996</lpage>
+<pub-id pub-id-type="pmid">10884058</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Filippov1">
+        <label>16</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Filippov</surname><given-names>V</given-names></name><name><surname>Kronenberg</surname><given-names>G</given-names></name><name><surname>Pivneva</surname><given-names>T</given-names></name><name><surname>Reuter</surname><given-names>K</given-names></name><name><surname>Steiner</surname><given-names>B</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Subpopulation of nestin-expressing progenitor cells in the adult murine hippocampus shows electrophysiological and morphological characteristics of astrocytes.</article-title>
+<source>Mol Cell Neurosci</source>
+<volume>23</volume>
+<issue>3</issue>
+<fpage>373</fpage>
+<lpage>382</lpage>
+<pub-id pub-id-type="pmid">12837622</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Fukuda1">
+        <label>17</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Fukuda</surname><given-names>S</given-names></name><name><surname>Kato</surname><given-names>F</given-names></name><name><surname>Tozuka</surname><given-names>Y</given-names></name><name><surname>Yamaguchi</surname><given-names>M</given-names></name><name><surname>Miyamoto</surname><given-names>Y</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Two distinct subpopulations of nestin-positive cells in adult mouse dentate gyrus.</article-title>
+<source>J Neurosci</source>
+<volume>23</volume>
+<issue>28</issue>
+<fpage>9357</fpage>
+<lpage>9366</lpage>
+<pub-id pub-id-type="pmid">14561863</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Seri1">
+        <label>18</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Seri</surname><given-names>B</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>JM</given-names></name><name><surname>Collado-Morente</surname><given-names>L</given-names></name><name><surname>McEwen</surname><given-names>BS</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A</given-names></name></person-group>
+<year>2004</year>
+<article-title>Cell types, lineage, and architecture of the germinal zone in the adult dentate gyrus.</article-title>
+<source>J Comp Neurol</source>
+<volume>478</volume>
+<issue>4</issue>
+<fpage>359</fpage>
+<lpage>378</lpage>
+<pub-id pub-id-type="pmid">15384070</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Steiner1">
+        <label>19</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Steiner</surname><given-names>B</given-names></name><name><surname>Klempin</surname><given-names>F</given-names></name><name><surname>Wang</surname><given-names>L</given-names></name><name><surname>Kott</surname><given-names>M</given-names></name><name><surname>Kettenmann</surname><given-names>H</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>Type-2 cells as link between glial and neuronal lineage in adult hippocampal neurogenesis.</article-title>
+<source>Glia</source>
+<volume>54</volume>
+<issue>8</issue>
+<fpage>805</fpage>
+<lpage>814</lpage>
+<pub-id pub-id-type="pmid">16958090</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Misson1">
+        <label>20</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Misson</surname><given-names>JP</given-names></name><name><surname>Edwards</surname><given-names>MA</given-names></name><name><surname>Yamamoto</surname><given-names>M</given-names></name><name><surname>Caviness</surname><given-names>VS</given-names><suffix>Jr</suffix></name></person-group>
+<year>1988</year>
+<article-title>Identification of radial glial cells within the developing murine central nervous system: studies based upon a new immunohistochemical marker.</article-title>
+<source>Brain Res Dev Brain Res</source>
+<volume>44</volume>
+<issue>1</issue>
+<fpage>95</fpage>
+<lpage>108</lpage>
+<pub-id pub-id-type="pmid">3069243</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Kempermann2">
+        <label>21</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Kuhn</surname><given-names>HG</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>1997</year>
+<article-title>More hippocampal neurons in adult mice living in an enriched environment.</article-title>
+<source>Nature</source>
+<volume>386</volume>
+<issue>6624</issue>
+<fpage>493</fpage>
+<lpage>495</lpage>
+<pub-id pub-id-type="pmid">9087407</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Palmer3">
+        <label>22</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Palmer</surname><given-names>TD</given-names></name><name><surname>Ray</surname><given-names>J</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>1995</year>
+<article-title>FGF-2-responsive neuronal progenitors reside in proliferative and quiescent regions of the adult rodent brain.</article-title>
+<source>Mol Cell Neurosci</source>
+<volume>6</volume>
+<issue>5</issue>
+<fpage>474</fpage>
+<lpage>486</lpage>
+<pub-id pub-id-type="pmid">8581317</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Palmer4">
+        <label>23</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Palmer</surname><given-names>TD</given-names></name><name><surname>Willhoite</surname><given-names>AR</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2000</year>
+<article-title>Vascular niche for adult hippocampal neurogenesis.</article-title>
+<source>J Comp Neurol</source>
+<volume>425</volume>
+<issue>4</issue>
+<fpage>479</fpage>
+<lpage>494</lpage>
+<pub-id pub-id-type="pmid">10975875</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Louissaint1">
+        <label>24</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Louissaint</surname><given-names>A</given-names><suffix>Jr</suffix></name><name><surname>Rao</surname><given-names>S</given-names></name><name><surname>Leventhal</surname><given-names>C</given-names></name><name><surname>Goldman</surname><given-names>SA</given-names></name></person-group>
+<year>2002</year>
+<article-title>Coordinated interaction of neurogenesis and angiogenesis in the adult songbird brain.</article-title>
+<source>Neuron</source>
+<volume>34</volume>
+<issue>6</issue>
+<fpage>945</fpage>
+<lpage>960</lpage>
+<pub-id pub-id-type="pmid">12086642</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Shen1">
+        <label>25</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Shen</surname><given-names>Q</given-names></name><name><surname>Goderie</surname><given-names>SK</given-names></name><name><surname>Jin</surname><given-names>L</given-names></name><name><surname>Karanth</surname><given-names>N</given-names></name><name><surname>Sun</surname><given-names>Y</given-names></name><etal/></person-group>
+<year>2004</year>
+<article-title>Endothelial cells stimulate self-renewal and expand neurogenesis of neural stem cells.</article-title>
+<source>Science</source>
+<volume>304</volume>
+<issue>5675</issue>
+<fpage>1338</fpage>
+<lpage>1340</lpage>
+<pub-id pub-id-type="pmid">15060285</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Singec1">
+        <label>26</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Singec</surname><given-names>I</given-names></name><name><surname>Knoth</surname><given-names>R</given-names></name><name><surname>Ditter</surname><given-names>M</given-names></name><name><surname>Hagemeyer</surname><given-names>CE</given-names></name><name><surname>Rosenbrock</surname><given-names>H</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Synaptic vesicle protein synaptoporin is differently expressed by subpopulations of mouse hippocampal neurons.</article-title>
+<source>J Comp Neurol</source>
+<volume>452</volume>
+<issue>2</issue>
+<fpage>139</fpage>
+<lpage>153</lpage>
+<pub-id pub-id-type="pmid">12271488</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Brandt1">
+        <label>27</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Brandt</surname><given-names>MD</given-names></name><name><surname>Jessberger</surname><given-names>S</given-names></name><name><surname>Steiner</surname><given-names>B</given-names></name><name><surname>Kronenberg</surname><given-names>G</given-names></name><name><surname>Reuter</surname><given-names>K</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Transient calretinin expression defines early postmitotic step of neuronal differentiation in adult hippocampal neurogenesis of mice.</article-title>
+<source>Mol Cell Neurosci</source>
+<volume>24</volume>
+<issue>3</issue>
+<fpage>603</fpage>
+<lpage>613</lpage>
+<pub-id pub-id-type="pmid">14664811</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Takamori1">
+        <label>28</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Takamori</surname><given-names>S</given-names></name><name><surname>Rhee</surname><given-names>JS</given-names></name><name><surname>Rosenmund</surname><given-names>C</given-names></name><name><surname>Jahn</surname><given-names>R</given-names></name></person-group>
+<year>2000</year>
+<article-title>Identification of a vesicular glutamate transporter that defines a glutamatergic phenotype in neurons.</article-title>
+<source>Nature</source>
+<volume>407</volume>
+<issue>6801</issue>
+<fpage>189</fpage>
+<lpage>194</lpage>
+<pub-id pub-id-type="pmid">11001057</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Sandler1">
+        <label>29</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sandler</surname><given-names>R</given-names></name><name><surname>Smith</surname><given-names>AD</given-names></name></person-group>
+<year>1991</year>
+<article-title>Coexistence of GABA and glutamate in mossy fiber terminals of the primate hippocampus: an ultrastructural study.</article-title>
+<source>J Comp Neurol</source>
+<volume>303</volume>
+<issue>2</issue>
+<fpage>177</fpage>
+<lpage>192</lpage>
+<pub-id pub-id-type="pmid">1672874</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Gutierrez1">
+        <label>30</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gutierrez</surname><given-names>R</given-names></name></person-group>
+<year>2005</year>
+<article-title>The dual glutamatergic-GABAergic phenotype of hippocampal granule cells.</article-title>
+<source>Trends Neurosci</source>
+<volume>28</volume>
+<issue>6</issue>
+<fpage>297</fpage>
+<lpage>303</lpage>
+<pub-id pub-id-type="pmid">15927685</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Wang1">
+        <label>31</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wang</surname><given-names>LP</given-names></name><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Kettenmann</surname><given-names>H</given-names></name></person-group>
+<year>2005</year>
+<article-title>A subpopulation of precursor cells in the mouse dentate gyrus receives synaptic GABAergic input.</article-title>
+<source>Mol Cell Neurosci</source>
+<volume>29</volume>
+<issue>2</issue>
+<fpage>181</fpage>
+<lpage>189</lpage>
+<pub-id pub-id-type="pmid">15911343</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-SchmidtHieber1">
+        <label>32</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Schmidt-Hieber</surname><given-names>C</given-names></name><name><surname>Jonas</surname><given-names>P</given-names></name><name><surname>Bischofberger</surname><given-names>J</given-names></name></person-group>
+<year>2004</year>
+<article-title>Enhanced synaptic plasticity in newly generated granule cells of the adult hippocampus.</article-title>
+<source>Nature</source>
+<volume>429</volume>
+<issue>6988</issue>
+<fpage>184</fpage>
+<lpage>187</lpage>
+<pub-id pub-id-type="pmid">15107864</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Arsenijevic1">
+        <label>33</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Arsenijevic</surname><given-names>Y</given-names></name><name><surname>Weiss</surname><given-names>S</given-names></name></person-group>
+<year>1998</year>
+<article-title>Insulin-like growth factor-I is a differentiation factor for postmitotic CNS stem cell-derived neuronal precursors: distinct actions from those of brain-derived neurotrophic factor.</article-title>
+<source>J Neurosci</source>
+<volume>18</volume>
+<issue>6</issue>
+<fpage>2118</fpage>
+<lpage>2128</lpage>
+<pub-id pub-id-type="pmid">9482798</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Mehler1">
+        <label>34</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Mehler</surname><given-names>MF</given-names></name><name><surname>Rozental</surname><given-names>R</given-names></name><name><surname>Dougherty</surname><given-names>M</given-names></name><name><surname>Spray</surname><given-names>DC</given-names></name><name><surname>Kessler</surname><given-names>JA</given-names></name></person-group>
+<year>1993</year>
+<article-title>Cytokine regulation of neuronal differentiation of hippocampal progenitor cells.</article-title>
+<source>Nature</source>
+<volume>362</volume>
+<issue>6415</issue>
+<fpage>62</fpage>
+<lpage>65</lpage>
+<pub-id pub-id-type="pmid">8383296</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Johe1">
+        <label>35</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Johe</surname><given-names>KK</given-names></name><name><surname>Hazel</surname><given-names>TG</given-names></name><name><surname>Muller</surname><given-names>T</given-names></name><name><surname>Dugich-Djordjevic</surname><given-names>MM</given-names></name><name><surname>McKay</surname><given-names>RD</given-names></name></person-group>
+<year>1996</year>
+<article-title>Single factors direct the differentiation of stem cells from the fetal and adult central nervous system.</article-title>
+<source>Genes Dev</source>
+<volume>10</volume>
+<issue>24</issue>
+<fpage>3129</fpage>
+<lpage>3140</lpage>
+<pub-id pub-id-type="pmid">8985182</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Poo1">
+        <label>36</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Poo</surname><given-names>MM</given-names></name></person-group>
+<year>2001</year>
+<article-title>Neurotrophins as synaptic modulators.</article-title>
+<source>Nat Rev Neurosci</source>
+<volume>2</volume>
+<issue>1</issue>
+<fpage>24</fpage>
+<lpage>32</lpage>
+<pub-id pub-id-type="pmid">11253356</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Sairanen1">
+        <label>37</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sairanen</surname><given-names>M</given-names></name><name><surname>Lucas</surname><given-names>G</given-names></name><name><surname>Ernfors</surname><given-names>P</given-names></name><name><surname>Castren</surname><given-names>M</given-names></name><name><surname>Castren</surname><given-names>E</given-names></name></person-group>
+<year>2005</year>
+<article-title>Brain-derived neurotrophic factor and antidepressant drugs have different but coordinated effects on neuronal turnover, proliferation, and survival in the adult dentate gyrus.</article-title>
+<source>J Neurosci</source>
+<volume>25</volume>
+<issue>5</issue>
+<fpage>1089</fpage>
+<lpage>1094</lpage>
+<pub-id pub-id-type="pmid">15689544</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Friedman1">
+        <label>38</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Friedman</surname><given-names>WJ</given-names></name><name><surname>Black</surname><given-names>IB</given-names></name><name><surname>Kaplan</surname><given-names>DR</given-names></name></person-group>
+<year>1998</year>
+<article-title>Distribution of the neurotrophins brain-derived neurotrophic factor, neurotrophin-3, and neurotrophin-4/5 in the postnatal rat brain: an immunocytochemical study.</article-title>
+<source>Neuroscience</source>
+<volume>84</volume>
+<issue>1</issue>
+<fpage>101</fpage>
+<lpage>114</lpage>
+<pub-id pub-id-type="pmid">9522366</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Kempermann3">
+        <label>39</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Chesler</surname><given-names>EJ</given-names></name><name><surname>Lu</surname><given-names>L</given-names></name><name><surname>Williams</surname><given-names>RW</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2006</year>
+<article-title>Natural variation and genetic covariance in adult hippocampal neurogenesis.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>103</volume>
+<issue>3</issue>
+<fpage>780</fpage>
+<lpage>785</lpage>
+<pub-id pub-id-type="pmid">16407118</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Machold1">
+        <label>40</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Machold</surname><given-names>R</given-names></name><name><surname>Hayashi</surname><given-names>S</given-names></name><name><surname>Rutlin</surname><given-names>M</given-names></name><name><surname>Muzumdar</surname><given-names>MD</given-names></name><name><surname>Nery</surname><given-names>S</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Sonic hedgehog is required for progenitor cell maintenance in telencephalic stem cell niches.</article-title>
+<source>Neuron</source>
+<volume>39</volume>
+<issue>6</issue>
+<fpage>937</fpage>
+<lpage>950</lpage>
+<pub-id pub-id-type="pmid">12971894</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Lai1">
+        <label>41</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lai</surname><given-names>K</given-names></name><name><surname>Kaspar</surname><given-names>BK</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name><name><surname>Schaffer</surname><given-names>DV</given-names></name></person-group>
+<year>2003</year>
+<article-title>Sonic hedgehog regulates adult neural progenitor proliferation in vitro and in vivo.</article-title>
+<source>Nat Neurosci</source>
+<volume>6</volume>
+<issue>1</issue>
+<fpage>21</fpage>
+<lpage>27</lpage>
+<pub-id pub-id-type="pmid">12469128</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Ahn1">
+        <label>42</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ahn</surname><given-names>S</given-names></name><name><surname>Joyner</surname><given-names>AL</given-names></name></person-group>
+<year>2005</year>
+<article-title>In vivo analysis of quiescent adult neural stem cells responding to Sonic hedgehog.</article-title>
+<source>Nature</source>
+<volume>437</volume>
+<issue>7060</issue>
+<fpage>894</fpage>
+<lpage>897</lpage>
+<pub-id pub-id-type="pmid">16208373</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Adachi1">
+        <label>43</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Adachi</surname><given-names>T</given-names></name><name><surname>Takanaga</surname><given-names>H</given-names></name><name><surname>Kunimoto</surname><given-names>M</given-names></name><name><surname>Asou</surname><given-names>H</given-names></name></person-group>
+<year>2005</year>
+<article-title>Influence of LIF and BMP-2 on differentiation and development of glial cells in primary cultures of embryonic rat cerebral hemisphere.</article-title>
+<source>J Neurosci Res</source>
+<volume>79</volume>
+<issue>5</issue>
+<fpage>608</fpage>
+<lpage>615</lpage>
+<pub-id pub-id-type="pmid">15678513</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Schanzer1">
+        <label>44</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Schanzer</surname><given-names>A</given-names></name><name><surname>Wachs</surname><given-names>FP</given-names></name><name><surname>Wilhelm</surname><given-names>D</given-names></name><name><surname>Acker</surname><given-names>T</given-names></name><name><surname>Cooper-Kuhn</surname><given-names>C</given-names></name><etal/></person-group>
+<year>2004</year>
+<article-title>Direct stimulation of adult neural stem cells in vitro and neurogenesis in vivo by vascular endothelial growth factor.</article-title>
+<source>Brain Pathol</source>
+<volume>14</volume>
+<issue>3</issue>
+<fpage>237</fpage>
+<lpage>248</lpage>
+<pub-id pub-id-type="pmid">15446578</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Jessberger1">
+        <label>45</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jessberger</surname><given-names>S</given-names></name><name><surname>Clemenson</surname><given-names>GD</given-names><suffix>Jr</suffix></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2006</year>
+<article-title>Spontaneous Fusion and Non-clonal Growth of Adult Neural Stem Cells.</article-title>
+<source>Stem Cells</source>
+</element-citation>
+      </ref>
+      <ref id="pone.0000388-Singec2">
+        <label>46</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Singec</surname><given-names>I</given-names></name><name><surname>Knoth</surname><given-names>R</given-names></name><name><surname>Meyer</surname><given-names>RP</given-names></name><name><surname>Maciaczyk</surname><given-names>J</given-names></name><name><surname>Volk</surname><given-names>B</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>Defining the actual sensitivity and specificity of the neurosphere assay in stem cell biology.</article-title>
+<source>Nat Methods</source>
+<volume>3</volume>
+<issue>10</issue>
+<fpage>801</fpage>
+<lpage>806</lpage>
+<pub-id pub-id-type="pmid">16990812</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Kempermann4">
+        <label>47</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Gast</surname><given-names>D</given-names></name><name><surname>Kronenberg</surname><given-names>G</given-names></name><name><surname>Yamaguchi</surname><given-names>M</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2003</year>
+<article-title>Early determination and long-term persistence of adult-generated new neurons in the hippocampus of mice.</article-title>
+<source>Development</source>
+<volume>130</volume>
+<issue>2</issue>
+<fpage>391</fpage>
+<lpage>399</lpage>
+<pub-id pub-id-type="pmid">12466205</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Barami1">
+        <label>48</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Barami</surname><given-names>K</given-names></name><name><surname>Grever</surname><given-names>WE</given-names></name><name><surname>Diaz</surname><given-names>FG</given-names></name><name><surname>Lyman</surname><given-names>WD</given-names></name></person-group>
+<year>2001</year>
+<article-title>An efficient method for the culturing and generation of neurons and astrocytes from second trimester human central nervous system tissue.</article-title>
+<source>Neurol Res</source>
+<volume>23</volume>
+<issue>4</issue>
+<fpage>321</fpage>
+<lpage>326</lpage>
+<pub-id pub-id-type="pmid">11428508</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Reynolds2">
+        <label>49</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Reynolds</surname><given-names>BA</given-names></name><name><surname>Weiss</surname><given-names>S</given-names></name></person-group>
+<year>1992</year>
+<article-title>Generation of neurons and astrocytes from isolated cells of the adult mammalian central nervous system.</article-title>
+<source>Science</source>
+<volume>255</volume>
+<issue>5052</issue>
+<fpage>1707</fpage>
+<lpage>1710</lpage>
+<pub-id pub-id-type="pmid">1553558</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Malatesta1">
+        <label>50</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Malatesta</surname><given-names>P</given-names></name><name><surname>Hartfuss</surname><given-names>E</given-names></name><name><surname>Gotz</surname><given-names>M</given-names></name></person-group>
+<year>2000</year>
+<article-title>Isolation of radial glial cells by fluorescent-activated cell sorting reveals a neuronal lineage.</article-title>
+<source>Development</source>
+<volume>127</volume>
+<issue>24</issue>
+<fpage>5253</fpage>
+<lpage>5263</lpage>
+<pub-id pub-id-type="pmid">11076748</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Noctor1">
+        <label>51</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Noctor</surname><given-names>SC</given-names></name><name><surname>Flint</surname><given-names>AC</given-names></name><name><surname>Weissman</surname><given-names>TA</given-names></name><name><surname>Dammerman</surname><given-names>RS</given-names></name><name><surname>Kriegstein</surname><given-names>AR</given-names></name></person-group>
+<year>2001</year>
+<article-title>Neurons derived from radial glial cells establish radial units in neocortex.</article-title>
+<source>Nature</source>
+<volume>409</volume>
+<issue>6821</issue>
+<fpage>714</fpage>
+<lpage>720</lpage>
+<pub-id pub-id-type="pmid">11217860</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Noctor2">
+        <label>52</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Noctor</surname><given-names>SC</given-names></name><name><surname>Flint</surname><given-names>AC</given-names></name><name><surname>Weissman</surname><given-names>TA</given-names></name><name><surname>Wong</surname><given-names>WS</given-names></name><name><surname>Clinton</surname><given-names>BK</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Dividing precursor cells of the embryonic cortical ventricular zone have morphological and molecular characteristics of radial glia.</article-title>
+<source>J Neurosci</source>
+<volume>22</volume>
+<issue>8</issue>
+<fpage>3161</fpage>
+<lpage>3173</lpage>
+<pub-id pub-id-type="pmid">11943818</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Malatesta2">
+        <label>53</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Malatesta</surname><given-names>P</given-names></name><name><surname>Hack</surname><given-names>MA</given-names></name><name><surname>Hartfuss</surname><given-names>E</given-names></name><name><surname>Kettenmann</surname><given-names>H</given-names></name><name><surname>Klinkert</surname><given-names>W</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Neuronal or glial progeny: regional differences in radial glia fate.</article-title>
+<source>Neuron</source>
+<volume>37</volume>
+<issue>5</issue>
+<fpage>751</fpage>
+<lpage>764</lpage>
+<pub-id pub-id-type="pmid">12628166</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Seki1">
+        <label>54</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Seki</surname><given-names>T</given-names></name><name><surname>Arai</surname><given-names>Y</given-names></name></person-group>
+<year>1999</year>
+<article-title>Temporal and spacial relationships between PSA-NCAM-expressing, newly generated granule cells, and radial glia-like cells in the adult dentate gyrus.</article-title>
+<source>J Comp Neurol</source>
+<volume>410</volume>
+<issue>3</issue>
+<fpage>503</fpage>
+<lpage>513</lpage>
+<pub-id pub-id-type="pmid">10404415</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Li1">
+        <label>55</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Li</surname><given-names>G</given-names></name><name><surname>Pleasure</surname><given-names>SJ</given-names></name></person-group>
+<year>2005</year>
+<article-title>Morphogenesis of the dentate gyrus: what we are learning from mouse mutants.</article-title>
+<source>Dev Neurosci</source>
+<volume>27</volume>
+<issue>2&#x2013;4</issue>
+<fpage>93</fpage>
+<lpage>99</lpage>
+<pub-id pub-id-type="pmid">16046842</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Tashiro1">
+        <label>56</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tashiro</surname><given-names>A</given-names></name><name><surname>Sandler</surname><given-names>VM</given-names></name><name><surname>Toni</surname><given-names>N</given-names></name><name><surname>Zhao</surname><given-names>C</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2006</year>
+<article-title>NMDA-receptor-mediated, cell-specific integration of new neurons in adult dentate gyrus.</article-title>
+<source>Nature</source>
+<volume>442</volume>
+<issue>7105</issue>
+<fpage>929</fpage>
+<lpage>933</lpage>
+<pub-id pub-id-type="pmid">16906136</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Kuhn1">
+        <label>57</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kuhn</surname><given-names>HG</given-names></name><name><surname>Winkler</surname><given-names>J</given-names></name><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Thal</surname><given-names>LJ</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>1997</year>
+<article-title>Epidermal growth factor and fibroblast growth factor-2 have different effects on neural progenitors in the adult rat brain.</article-title>
+<source>J Neurosci</source>
+<volume>17</volume>
+<issue>15</issue>
+<fpage>5820</fpage>
+<lpage>5829</lpage>
+<pub-id pub-id-type="pmid">9221780</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Song1">
+        <label>58</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Song</surname><given-names>H</given-names></name><name><surname>Stevens</surname><given-names>CF</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2002</year>
+<article-title>Astroglia induce neurogenesis from adult neural stem cells.</article-title>
+<source>Nature</source>
+<volume>417</volume>
+<issue>6884</issue>
+<fpage>39</fpage>
+<lpage>44</lpage>
+<pub-id pub-id-type="pmid">11986659</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Lim1">
+        <label>59</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lim</surname><given-names>DA</given-names></name><name><surname>Tramontin</surname><given-names>AD</given-names></name><name><surname>Trevejo</surname><given-names>JM</given-names></name><name><surname>Herrera</surname><given-names>DG</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>JM</given-names></name><etal/></person-group>
+<year>2000</year>
+<article-title>Noggin antagonizes BMP signaling to create a niche for adult neurogenesis.</article-title>
+<source>Neuron</source>
+<volume>28</volume>
+<issue>3</issue>
+<fpage>713</fpage>
+<lpage>726</lpage>
+<pub-id pub-id-type="pmid">11163261</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Thallmair1">
+        <label>60</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Thallmair</surname><given-names>M</given-names></name><name><surname>Ray</surname><given-names>J</given-names></name><name><surname>Stallcup</surname><given-names>WB</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>2006</year>
+<article-title>Functional and morphological effects of NG2 proteoglycan deletion on hippocampal neurogenesis.</article-title>
+<source>Exp Neurol</source>
+</element-citation>
+      </ref>
+      <ref id="pone.0000388-Tozuka1">
+        <label>61</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tozuka</surname><given-names>Y</given-names></name><name><surname>Fukuda</surname><given-names>S</given-names></name><name><surname>Namba</surname><given-names>T</given-names></name><name><surname>Seki</surname><given-names>T</given-names></name><name><surname>Hisatsune</surname><given-names>T</given-names></name></person-group>
+<year>2005</year>
+<article-title>GABAergic excitation promotes neuronal differentiation in adult hippocampal progenitor cells.</article-title>
+<source>Neuron</source>
+<volume>47</volume>
+<issue>6</issue>
+<fpage>803</fpage>
+<lpage>815</lpage>
+<pub-id pub-id-type="pmid">16157276</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Traiffort1">
+        <label>62</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Traiffort</surname><given-names>E</given-names></name><name><surname>Charytoniuk</surname><given-names>D</given-names></name><name><surname>Watroba</surname><given-names>L</given-names></name><name><surname>Faure</surname><given-names>H</given-names></name><name><surname>Sales</surname><given-names>N</given-names></name><etal/></person-group>
+<year>1999</year>
+<article-title>Discrete localizations of hedgehog signalling components in the developing and adult rat nervous system.</article-title>
+<source>Eur J Neurosci</source>
+<volume>11</volume>
+<issue>9</issue>
+<fpage>3199</fpage>
+<lpage>3214</lpage>
+<pub-id pub-id-type="pmid">10510184</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0000388-Roy1">
+        <label>63</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Roy</surname><given-names>NS</given-names></name><name><surname>Wang</surname><given-names>S</given-names></name><name><surname>Jiang</surname><given-names>L</given-names></name><name><surname>Kang</surname><given-names>J</given-names></name><name><surname>Benraiss</surname><given-names>A</given-names></name><etal/></person-group>
+<year>2000</year>
+<article-title>In vitro neurogenesis by progenitor cells isolated from the adult human hippocampus.</article-title>
+<source>Nat Med</source>
+<volume>6</volume>
+<issue>3</issue>
+<fpage>271</fpage>
+<lpage>277</lpage>
+<pub-id pub-id-type="pmid">10700228</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

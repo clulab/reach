@@ -1,0 +1,1871 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Int J Mol Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Int. J. Mol. Med</journal-id>
+      <journal-id journal-id-type="publisher-id">IJMM</journal-id>
+      <journal-title-group>
+        <journal-title>International Journal of Molecular Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1107-3756</issn>
+      <issn pub-type="epub">1791-244X</issn>
+      <publisher>
+        <publisher-name>D.A. Spandidos</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28259960</article-id>
+      <article-id pub-id-type="pmc">5360431</article-id>
+      <article-id pub-id-type="doi">10.3892/ijmm.2017.2896</article-id>
+      <article-id pub-id-type="publisher-id">ijmm-39-04-0799</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>ROCK/actin/MRTF signaling promotes the fibrogenic phenotype of fibroblast-like synoviocytes derived from the temporomandibular joint</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yokota</surname>
+            <given-names>Seiji</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijmm-39-04-0799">1</xref>
+          <xref ref-type="aff" rid="af2-ijmm-39-04-0799">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chosa</surname>
+            <given-names>Naoyuki</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijmm-39-04-0799">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kyakumoto</surname>
+            <given-names>Seiko</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijmm-39-04-0799">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kimura</surname>
+            <given-names>Hitomichi</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ijmm-39-04-0799">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ibi</surname>
+            <given-names>Miho</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijmm-39-04-0799">1</xref>
+          <xref ref-type="aff" rid="af3-ijmm-39-04-0799">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kamo</surname>
+            <given-names>Masaharu</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijmm-39-04-0799">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Satoh</surname>
+            <given-names>Kazuro</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ijmm-39-04-0799">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ishisaki</surname>
+            <given-names>Akira</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijmm-39-04-0799">1</xref>
+          <xref ref-type="corresp" rid="c1-ijmm-39-04-0799"/>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-ijmm-39-04-0799"><label>1</label>Division of Cellular Biosignal Sciences, Department of Biochemistry, Iwate Medical University, Iwate 028-3694</aff>
+      <aff id="af2-ijmm-39-04-0799"><label>2</label>Division of Orthodontics, Department of Developmental Oral Health Science, Iwate Medical University, Iwate 020-8505</aff>
+      <aff id="af3-ijmm-39-04-0799"><label>3</label>Department of Molecular and Cellular Pharmacology, Iwate Medical University School of Pharmaceutical Sciences, Iwate 028-3694, Japan</aff>
+      <author-notes>
+        <corresp id="c1-ijmm-39-04-0799">Correspondence to: Professor Akira Ishisaki, Division of Cellular Biosignal Sciences, Department of Biochemistry, Iwate Medical University, 2-1-1 Nishitokuta, Yahaba-cho, Shiwa-gun, Iwate 028-3694, Japan, E-mail: <email>aishisa@iwate-med.ac.jp</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>4</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>17</day>
+        <month>2</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>17</day>
+        <month>2</month>
+        <year>2017</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on the <pub-date pub-type="epub"/>. -->
+      <volume>39</volume>
+      <issue>4</issue>
+      <fpage>799</fpage>
+      <lpage>808</lpage>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>10</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>30</day>
+          <month>1</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; Yokota et al.</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <license license-type="open-access">
+          <license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs License</ext-link>, which permits use and distribution in any medium, provided the original work is properly cited, the use is non-commercial and no modifications or adaptations are made.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Malocclusion caused by abnormal jaw development or muscle overuse during mastication results in abnormal mechanical stress to the tissues surrounding the temporomandibular joint (TMJ). Excessive mechanical stress against soft and hard tissues around the TMJ is involved in the pathogenesis of inflammatory diseases, including osteoarthritis (OA). OA-related fibrosis is a possible cause of joint stiffness in OA. However, cellular and molecular mechanisms underlying fibrosis around the TMJ remain to be clarified. Here, we established a cell line of fibroblast-like synoviocytes (FLSs) derived from the mouse TMJ. Then, we examined whether the Rho-associated coiled-coil forming kinase (ROCK)/actin/myocardin-related transcription factor (MRTF) gene regulatory axis positively regulates the myofibroblast (MF) differentiation status of FLSs. We found that i) FLSs extensively expressed the MF markers &#x3B1;-smooth muscle actin (&#x3B1;-SMA) and type I collagen; and ii) an inhibitor against the actin-polymerizing agent ROCK, Y-27632; iii) an actin-depolymerizing agent cytochalasin B; iv) an inhibitor of the MRTF/serum response factor-regulated transcription, CCG-100602, clearly suppressed the mRNA levels of &#x3B1;-SMA and type I collagen in FLSs; and v) an MF differentiation attenuator fibroblast growth factor-1 suppressed filamentous actin formation and clearly suppressed the mRNA levels of &#x3B1;-SMA and type I collagen in FLSs. These results strongly suggest that the ROCK/actin/MRTF axis promotes the fibrogenic activity of synoviocytes around the TMJ. Our findings partially clarify the molecular mechanisms underlying the emergence of TMJ-OA and may aid in identifying drug targets for treating this condition at the molecular level.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>actin</kwd>
+        <kwd>myocardin-related transcription factor</kwd>
+        <kwd>fibroblast-like synoviocytes</kwd>
+        <kwd>temporomandibular joint</kwd>
+        <kwd>myofibroblast differentiation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>The temporomandibular joint (TMJ) is a synovial joint that participates in very complicated movement. Excessive mechanical stress caused by severe malocclusion, jaw asymmetry, and muscle overuse during mastication against the TMJ contribute to osteoarthritis (OA) pathogenesis (<xref rid="b1-ijmm-39-04-0799" ref-type="bibr">1</xref>&#x2013;<xref rid="b3-ijmm-39-04-0799" ref-type="bibr">3</xref>). Patients suffering from TMJ-OA show various symptoms such as cartilage degeneration, bone spur formation, and fibrosis accompanied by chronic inflammation in the synovial tissue, resulting in TMJ pain and stiffness (<xref rid="b1-ijmm-39-04-0799" ref-type="bibr">1</xref>,<xref rid="b4-ijmm-39-04-0799" ref-type="bibr">4</xref>,<xref rid="b5-ijmm-39-04-0799" ref-type="bibr">5</xref>).</p>
+      <p>The pathogenesis of fibrosis results from excess connective tissue deposition, which causes failure of various organs including scleroderma (<xref rid="b6-ijmm-39-04-0799" ref-type="bibr">6</xref>). A typical characteristic of fibrosis is the transition of fibroblasts into myofibroblasts (MFs) (<xref rid="b7-ijmm-39-04-0799" ref-type="bibr">7</xref>&#x2013;<xref rid="b9-ijmm-39-04-0799" ref-type="bibr">9</xref>). MFs vigorously secrete large amounts of extracellular matrix (ECM) proteins such as type I collagen, fibronectin, tenascin C, and metalloproteinases, resulting in fibrosis (<xref rid="b10-ijmm-39-04-0799" ref-type="bibr">10</xref>). MFs are also recognized as smooth muscle cell (SMC)-like contractile cells (<xref rid="b9-ijmm-39-04-0799" ref-type="bibr">9</xref>): MFs vigorously express contractile proteins such as &#x3B1;-smooth muscle actin (&#x3B1;-SMA) and SM22, resulting in enhanced MF migratory activity and the progression of wound healing, especially wound closure (<xref rid="b10-ijmm-39-04-0799" ref-type="bibr">10</xref>). Thus, MFs play important roles in the progression of wound healing. However, abnormally elevated fibrogenic activity of MFs causes pathological organ fibrosis and excessive scar formation (<xref rid="b11-ijmm-39-04-0799" ref-type="bibr">11</xref>). &#x3B1;-SMA expression has been identified in fibroblastic cells in fibrosis lesions (<xref rid="b12-ijmm-39-04-0799" ref-type="bibr">12</xref>). Transforming growth factor-&#x3B2; (TGF-&#x3B2;) is a key inducer of fibrosis in various organs in humans (<xref rid="b6-ijmm-39-04-0799" ref-type="bibr">6</xref>). Fahlgren <italic>et al</italic> previously reported that TGF-&#x3B2;1 secretion into synovial fluid was increased in patients suffering from OA in the knee (<xref rid="b13-ijmm-39-04-0799" ref-type="bibr">13</xref>). Another study found that TGF-&#x3B2;1 induced osteophyte formation at characteristic OA sites in an experimental model of mouse OA (<xref rid="b14-ijmm-39-04-0799" ref-type="bibr">14</xref>). In addition, TGF-&#x3B2; is well known to be a potent inducer of MF differentiation in cells derived from mesenchymal origin, which are typically characterized by the expression of &#x3B1;-SMA and type I collagen (<xref rid="b15-ijmm-39-04-0799" ref-type="bibr">15</xref>).</p>
+      <p>The fibroblast growth factor (FGF) family consists of 18 members including FGF-1 to -10 and FGF-16 to -23 which are classified into 6 subfamilies (<xref rid="b16-ijmm-39-04-0799" ref-type="bibr">16</xref>). It is generally known that FGF-11 to -15 are homologs of the FGF family, but do not activate any FGF receptors (FGFRs). Therefore, FGF-11 to -15 are not recognized as members of the FGF family. FGF family proteins affect various cellular responses such as cell growth, migration, differentiation, and apoptosis (<xref rid="b16-ijmm-39-04-0799" ref-type="bibr">16</xref>). These FGF ligands specifically bind to FGFRs, consisting of FGFR1-4, which belong to the receptor tyrosine kinase (RTK) family (<xref rid="b17-ijmm-39-04-0799" ref-type="bibr">17</xref>). FGF-1 binds to FGFR1-4 (<xref rid="b18-ijmm-39-04-0799" ref-type="bibr">18</xref>) to activate various intracellular signaling molecules including mitogen-activated protein kinases (MAPKs) and phosphoinositide 3-kinase (PI3K)/Akt (<xref rid="b19-ijmm-39-04-0799" ref-type="bibr">19</xref>). Shimbori <italic>et al</italic> demonstrated that FGF-1 attenuates TGF-&#x3B2;1-induced lung fibrosis by inhibiting TGF-&#x3B2;1-induced MF differentiation of lung fibroblasts (<xref rid="b20-ijmm-39-04-0799" ref-type="bibr">20</xref>). In addition, Maltseva <italic>et al</italic> reported that FGF-1 and FGF-2 reversed TGF-&#x3B2;1-induced MF differentiation of corneal fibroblastic cells (<xref rid="b21-ijmm-39-04-0799" ref-type="bibr">21</xref>). Takahashi <italic>et al</italic> also reported that FGF-1 suppressed the expression of SMC differentiation markers including &#x3B1;-SMA in periodontal ligament (PDL)-derived endothelial progenitor cells in a MAPK/extracellular signal-regulated kinase (ERK)-dependent manner (<xref rid="b22-ijmm-39-04-0799" ref-type="bibr">22</xref>). We previously demonstrated that epidermal growth factor (EGF) attenuates the MF differentiation of PDL-derived endothelial progenitor cells in a MAPK/ERK-dependent manner (<xref rid="b23-ijmm-39-04-0799" ref-type="bibr">23</xref>). However, it remains to be clarified whether FGF-1-induced intracellular signals affect the MF differentiation status of fibroblast-like synoviocytes (FLSs) derived from the mouse TMJ.</p>
+      <p>On the other hand, RhoA, belonging to the Rho family of GTPases, is activated by various cytokines including TGF-&#x3B2; (<xref rid="b24-ijmm-39-04-0799" ref-type="bibr">24</xref>). Activated RhoA sequentially activates Rho-associated coiled-coil forming kinase (ROCK) to promote actin dynamics and cytoskeletal reorganization by incorporating globular actin (G-actin) into growing filamentous actin (F-actin) stress fibers. Myocardin-related transcription factor (MRTF) is a key molecule for promoting gene expression of MF differentiation markers including &#x3B1;-SMA and type I collagen in cooperation with serum response factor (SRF). MRTFs bind to G-actin and are sequestered in the cytoplasm. F-actin stress fiber formation allows the MRTFs to be released from G-actin, allowing MRTFs to enter the nucleus and promote the expression of MF differentiation markers (<xref rid="b11-ijmm-39-04-0799" ref-type="bibr">11</xref>).</p>
+      <p>Thus, TGF-&#x3B2; induces myofibroblastic differentiation of fibroblasts through RhoA/ROCK/actin/MRTF signaling. However, it remains to be clarified how this pathway affects the status of myofibroblastic characters of synoviocytes derived from the TMJ. Here, we established a FLS cell line derived from the mouse TMJ. Then, we examined the effects of i) the MF differentiation-inducer TGF-&#x3B2;1; ii) the MF differentiation-attenuator FGF-1; iii) an inhibitor of the actin-polymerizing agent ROCK, Y-27632; iv) the actin-depolymerizing agent, cytochalasin B (CytB); and v) an inhibitor of MRTF/SRF-regulated transcription, CCG-100602, on the MF differentiation status of FLSs.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <sec>
+        <title>Reagents</title>
+        <p>Recombinant human TGF-&#x3B2;1 and recombinant mouse FGF-1 were purchased from PeproTech Inc. (Rocky Hill, NJ, USA). The ROCK inhibitor Y-27632, the actin-depolymerizing agent CytB, and the FGFR1 inhibitor SU-5402 were purchased from Wako Pure Chemical Industries Ltd. (Osaka, Japan). The inhibitor of MRTF/SRF-regulated transcription CCG-100602 was purchased from Cayman Chemical Inc. (Ann Arbor, MI, USA).</p>
+      </sec>
+      <sec>
+        <title>Establishment of an FLS cell line and cell culture</title>
+        <p>To prepare FLSs derived from the mouse TMJ, TMJ synovial tissue was obtained from seven 8-week-old female mice (C57BL/6J) got from got from CLEA Japan, Inc. (Tokyo, Japan). Then, the tissue was rinsed once in Nutrient Mixture F-12 Ham (Ham's F-12; Sigma, St. Louis, Mo, USA) medium supplemented with kanamycin (100 <italic>&#xB5;</italic>g/ml). The tissue was then immersed in digestion solution composed of 20 ml of Ham's F-12 containing 2 mg/ml collagenases consisting of class I and class II collagenases (Collagenase NB4; Wako, Tokyo, Japan), at 37&#xB0;C for 30 min with continuous vigorous rocking. The solution was centrifuged to collect the digested tissue released from synovial tissue of TMJ. The released tissue was then treated with 0.1% trypsin (Difco Laboratories Inc., Detroit, MI, USA) in phosphate-buffered saline (PBS) at 37&#xB0;C for 10 min with continuous vigorous rocking. The solution was then centrifuged to collect the cells released from the tissue. The isolated cells were maintained in growth medium, Ham's F-12 supplemented with 10% fetal bovine serum (FBS) and penicillin-streptomycin (Invitrogen Life Technologies, Carlsbad, CA, USA), for the subsequent plasmid transfection. To establish a FLS cell line, FLSs were transfected with pBABE-puro-simian virus 40 large T antigen (SV40LT) expression plasmid (no. 13970) obtained from Addgene, Inc. (Cambridge, MA, USA) with Lipofectamine LTX reagent (Thermo Fisher Scientific Inc., Waltham, MA, USA) according to the manufacturer's protocol. The transfected FLSs were selected with 2 <italic>&#xB5;</italic>g/ml puromycin (Clontech Laboratories, Mountain View, CA, USA). After 14 days, SV40LT-transfected cells were maintained in serial culture with Ham's F-12 supplemented with 2 mM glutamine, 10% FBS, and penicillin-streptomycin (Invitrogen Life Technologies), but without puromycin. Then, the SV40LT-transfected cells were subcultured at a 1:4 ratio when the cells reached subconfluency. For the following experiments, the cells at 50 passages (immortalized FLSs) were used unless otherwise indicated. Apart from the immortalized FLSs, primary FLS cultures were maintained in the previously mentioned growth medium. NIH3T3 mouse embryonic fibroblasts and RAW264.7 mouse monocytes/macrophages were obtained from Riken Cell Bank (Tsukuba Science City, Japan) and maintained in a growth medium consisting of minimum essential medium Eagle's &#x3B1;-modification (&#x3B1;-MEM) (Wako Pure Chemical Industries Ltd.) supplemented with 10% FBS and penicillin-streptomycin (Invitrogen Life Technologies).</p>
+      </sec>
+      <sec>
+        <title>Mice</title>
+        <p>This study was approved by the Ethics Committee for Animal Research of Iwate Medical University (approval no. 27-001). Breeding and care of mice, and all animal experiments were carried out in accordance with the Guidelines for the Animal Experiments of Iwate Medical University and Act on Welfare and Managements of Animals of Japan.</p>
+      </sec>
+      <sec>
+        <title>Cell viability assay</title>
+        <p>The status of cell viability was evaluated using an alamarBlue<sup>&#xAE;</sup> assay (AbDSerotec, Oxon, UK) according to the manufacturer's protocol. This assay reagent includes an indicator that fluoresces and undergoes a colorimetric change when reduced by mitochondrial respiration, which is proportional to the number of living cells. For the viability assay, the cells were seeded into 96-well plates at a density of 1.0&#xD7;10<sup>4</sup> cells per well and cultured for 24 h in a medium containing 10% FBS. Then, the cells were subsequently treated with Y-27632 (10 <italic>&#xB5;</italic>M), CytB (5 <italic>&#xB5;</italic>M), CCG-100602 (10 <italic>&#xB5;</italic>M), or FGF-1 (10 ng/ml) in medium containing 10% FBS for the indicated times. For FGF-1 stimulation, some cells were pre-treated with SU-5402 30 min before FGF-1 administration. Then, the medium was replaced with Ham's F-12 containing 10% alamarBlue solution to evaluate cell viability, and the cells were cultured for an additional 4.5 h. The absorbance (Abs) for each well was measured using an ELISA plate reader (Tosoh Corp., Tokyo, Japan). The data were shown as values of Abs570-Abs600. Each experiment was repeated 3 times, with 8-wells dedicated for each time point.</p>
+      </sec>
+      <sec>
+        <title>RNA isolation and RT-qPCR</title>
+        <p>Total RNA was isolated from FLSs, NIH3T3 cells and RAW264.7 cells with Isogen reagent (Nippon Gene, Toyama, Japan) according to the manufacturer's protocol. First-strand cDNA was synthesized from total RNA using the PrimeScript RT reagent kit (Takara Bio, Inc., Shiga, Japan). PCR was subsequently performed on a Thermal Cycler Dice Real Time System (Takara Bio, Inc.) using SYBR Premix Ex Taq II (Takara Bio, Inc.) with specific oligonucleotide primers [mouse &#x3B1;-SMA, 5&#x2032;-CAGATGTGGATCAGCAAACAGGA-3&#x2032; (forward) and 5&#x2032;-GACTTAGAAGCATTTGCGGTGGA-3&#x2032; (reverse); mouse &#x3B1;1 chain of collagen type I (colI&#x3B1;1), 5&#x2032;-GACATGTTCAGCTTTGTGGACCTC-3&#x2032; (forward) and 5&#x2032;-GGGACCCTTAGGCCATTGTGTA-3&#x2032; (reverse); mouse vimentin, 5&#x2032;-ACCGCTTTGCCAACTACAT-3&#x2032; (forward) and 5&#x2032;-TTGTCCCGCTCCACCTC-3&#x2032; (reverse); mouse CD45, 5&#x2032;-GAACATGCTGCCAATGGTTCT-3&#x2032; (forward) and 5&#x2032;-TGTCCCACATGACTCCTTTCC-3&#x2032; (reverse); mouse FGFR1-IIIb, 5&#x2032;-TAACCGAAGGCAACCTCTGCTC-3&#x2032; (forward) and 5&#x2032;-TGGTACCAGGCAGGTATTTGGTC-3&#x2032; (reverse); mouse FGFR2-IIIc, 5&#x2032;-TGTTTCAACTCTGCTGTCCGATG-3&#x2032; (forward) and 5&#x2032;-ATCTTGGGATGAGGATGCTGGTA-3&#x2032; (reverse); mouse FGFR3-IIIb, 5&#x2032;-CTTCCAGGGACCATTGTGGAG-3&#x2032; (forward); 5&#x2032;-AGAGGTTTGCCACACAGAGCAG-3&#x2032; (reverse); mouse FGFR4, 5&#x2032;-CGAGGCATGCAGTATCTGG-3&#x2032; (forward) and 5&#x2032;-CAAAGTCAGCGATCTTCATCACA-3&#x2032; (reverse); and mouse GAPDH, 5&#x2032;-TGTGTCCGTCGTGGATCTGA-3&#x2032; (forward) and 5&#x2032;-TTGCTGTTGAAGTCGCAGGAG-3&#x2032; (reverse)]. mRNA levels of &#x3B1;-SMA, colI&#x3B1;1, vimentin, FGFR1-IIIb, FGFR2-IIIc, FGFR3-IIIb, FGFR4 and CD45 were normalized to the level of GAPDH, and the relative expression levels were shown as the fold increase or decrease relative to the control.</p>
+      </sec>
+      <sec>
+        <title>Western blot analysis</title>
+        <p>Cells were lysed in RIPA buffer (Sigma) [50 mM Tris-HCl (pH 7.2), 150 mM NaCl, 1% NP-40, 0.5% sodium deoxycholate and 0.1% SDS] or lysis buffer [20 mM HEPES (pH 7.5), 150 mM NaCl, 1 mM EDTA, 1% Triton X-100] containing protease and phosphatase inhibitor cocktails (Sigma). The protein content of the samples was measured using BCA reagent (Pierce Biotechnology, Inc., Rockford, IL, USA). Samples containing equal amounts of protein were separated on 10% SDS-polyacrylamide gel and transferred onto polyvinylidene difluoride membranes (Millipore Corp., Bedford, MA, USA). After blocking with 1% BSA or 1% skim milk in T-TBS [50 mM Tris-HCl (pH 7.2), 150 mM NaCl and 0.05% Tween-20], membranes were incubated with the appropriate primary antibody, including anti-Smad2/3 purified mouse monoclonal antibody (1:1,000; 610842; BD Biosciences Transduction Laboratories, Franklin Lakes, NJ, USA) or anti-phospho-Smad2/3 rabbit polyclonal antibody (1:1,000; Cell Signaling Technology, Inc., Beverly, MA, USA). The blots were then incubated with the appropriate alkaline phosphatase-conjugated secondary antibody and signals were detected using an alkaline phosphatase substrate kit (BCIP/NBT substrate kit; Vector Laboratories Inc., Burlingame, CA, USA).</p>
+      </sec>
+      <sec>
+        <title>Immunofluorescence analysis of cultured cells</title>
+        <p>For immunofluorescence analysis of cultured cells, FLSs and NIH3T3 cells were subcultured on non-coated 8-well glass culture slides (Thermo Fisher Scientific Inc.) at a density of 2&#xD7;10<sup>4</sup> cells/well, and maintained in Ham's F-12 supplemented with 2 mM glutamine and 10% FBS. Cells were cultured with or without Y-27632 (10 <italic>&#xB5;</italic>M), CytB (5 <italic>&#xB5;</italic>M), CCG-100602 (10 <italic>&#xB5;</italic>M) or FGF-1 (10 ng/ml) for the indicated times. Then, the cells were fixed in 4% paraformaldehyde (Nacalai Tesque, Inc., Kyoto, Japan) for 15 min and permeabilized with Triton X-100 (Sigma). After background reduction with normal goat serum, the cells were incubated with anti-MKL1/MRTF-A rabbit polyclonal antibody (1:200; no. 14760; Cell Signaling Technology, Inc.) or anti-SV40LT mouse monoclonal antibody (1:100; ab16879; Abcam, Cambridge, UK) at room temperature for 1 h. After washing with PBS to remove the excess primary antibody, the cells were incubated with Alexa Fluor 568-conjugated goat anti-rabbit IgG or Alexa Fluor 568-conjugated goat anti-mouse IgG as appropriate (1:400; A-11011, and A-11031, respectively; Molecular Probes, Leiden, The Netherlands). After washing with PBS to remove the excess secondary antibody, the cells were stained with Alexa Fluor 488-conjugated phalloidin (1:1,000; Thermo Fisher Scientific Inc.), which specifically detects F-actin. After washing with PBS to remove excess phalloidin, nuclei were stained with the DAPI-containing mounting medium, DAPI Fluoromount-G (SouthernBiotech Inc., Birmingham, AL, USA). Then, the fluorescent signal was detected using an Olympus IX70 fluorescence microscope with the LCPIanFI 20 objective lens (Olympus Corp., Tokyo, Japan).</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>The data are presented as the means &#xB1; SD (n=3, or n=8). The data were statistically analyzed by Student's t-test, and P&lt;0.01 and P&lt;0.05 are indicative of statistical significant results. The results shown in all experiments are representative of at least three independent experiments.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>Primary and immortalized synoviocytes derived from TMJ synovial tissue exhibit myofibroblastic characteristics</title>
+        <p>We first attempted to culture FLSs as a primary culture as described in Materials and methods. However, as shown in <xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1A</xref>, primary cultures of FLS did not divide after 7 passages (28 divisions). To examine the various characteristics of FLSs from TMJ synovial tissue, such as growth, differentiation and metabolism, we immortalized FLSs by overexpressing SV40LT. SL40LT overcomes cellular senescence in fibroblastic cells (<xref rid="b25-ijmm-39-04-0799" ref-type="bibr">25</xref>). After transfection of the SV40LT expression plasmid, we obtained one clonal FLS population that was resistant to antibiotic selection. The SV40LT-transfected FLSs exhibited an elongated fibroblastic appearance (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1B</xref>), similar to the appearance of FLSs in primary culture (data not shown). To analyze the growth of the SV40LT-overexpressing FLSs, subculturing and passaging were performed as described in Materials and methods. SV40LT expression (red) was detected in the nuclei of the SV40LT-transfectants using immunofluorescence analysis as described in Materials and methods (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1C</xref>, upper left panel). Cumulative doubling times were plotted against cumulative culture days (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1A</xref>). After SV40LT overexpression in FLSs, the cellular life span was elongated compared to that of the primary FLS cultures, and immortalized cells exhibited stable proliferative activity by successful passaging at 3&#x2013;4 day intervals for more than 120 days. We named the established FLS cell line FLS1, and used this name hereafter. Next, we compared characteristics of the FLS1 cells with primary FLS cultures, mouse NIH3T3 embryonic fibroblasts as a standard fibroblast control, and mouse monocyte/macrophage RAW264.7 cells as a negative fibroblast control. As shown in <xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1D</xref>, the mesenchymal cell marker vimentin was strongly expressed in the primary FLSs, moderately expressed in the FLS1 cells and NIH3T3 cells, and weakly expressed in the RAW264.7 cells. MF marker &#x3B1;-SMA was vigorously expressed in the primarily cultured FLSs and FLS1 cells, and was not detected in the NIH3T3 and RAW264.7 cells (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1E</xref>). MF marker colI&#x3B1;1 was vigorously expressed in the primarily cultured FLSs and FLS1 cells, very weakly expressed in the NIH3T3 cells, and was not detected in the RAW264.7 cells (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1F</xref>). Thus, the FLS1 cells more potently expressed &#x3B1;-SMA and colI&#x3B1;1 mRNA than did the standard NIH3T3 fibroblasts. On the other hand, FLS1 and NIH3T3 cells did not express the leukocyte marker CD45 although primary FLSs slightly expressed CD45, suggesting that the primary FLS cultures contained a leukocyte fraction (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1G</xref>). Intriguingly, immunofluorescence analysis also revealed that the FLS1 cells vigorously formed F-actin (green) (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1H</xref>, left panel), but NIH3T3 cells did not (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1H</xref>, right panel), suggesting that ROCK/actin/MRTF-mediated signaling for promoting MF marker gene expression may be constitutively activated in the FLS1 cells.</p>
+        <p>These results indicated that immortalized FLSs derived from mouse TMJ synovial tissue, FLS1 cells, showed myofibroblastic characteristics, similar to primary FLS cultures.</p>
+      </sec>
+      <sec>
+        <title>ROCK inhibition downregulates mRNA levels of MF markers in FLS1 cells</title>
+        <p>We first evaluated the effect of the MF inducer TGF-&#x3B2;1 on the status of MF marker expression in FLS1 cells. Unexpectedly, TGF-&#x3B2;1 (10 ng/ml) did not affect the expression of MF markers &#x3B1;-SMA or colI&#x3B1;1 in the FLS1 cells 24 h after TGF-&#x3B2;1 administration (data not shown). We evaluated the effect of inhibiting the actin-polymerizing agent ROCK on MF marker expression in the FLS1 cells using Y-27632. As shown in <xref rid="f2-ijmm-39-04-0799" ref-type="fig">Fig. 2A</xref>, the mRNA levels of &#x3B1;-SMA and colI&#x3B1;1 were significantly decreased to 28.2 and 70.9% of the controls, respectively, 6 h after the administration of Y-27632 (10 <italic>&#xB5;</italic>M). In addition, immunofluorescence analysis revealed that Y-27632 (10 <italic>&#xB5;</italic>M) inhibited F-actin formation (green) in the FLS1 cells 6 h after administration (<xref rid="f2-ijmm-39-04-0799" ref-type="fig">Fig. 2B</xref>). We also found that Y-27632 (10 <italic>&#xB5;</italic>M) did not affect FLS1 cell viability 6 h after administration (data not shown).</p>
+      </sec>
+      <sec>
+        <title>Actin-depolymerization downregulates mRNA levels of MF differentiation markers in FLS1 cells</title>
+        <p>Treatment with the actin-depolymerizing agent CytB (5 <italic>&#xB5;</italic>M) significantly decreased mRNA levels of &#x3B1;-SMA and colI&#x3B1;1 in the FLS1 cells to 57.8 and 42.3% of the controls, respectively, 6 h after administration (<xref rid="f3-ijmm-39-04-0799" ref-type="fig">Fig. 3A</xref>). In addition, immunofluorescence analysis revealed that CytB (5 <italic>&#xB5;</italic>M) treatment inhibited F-actin formation (green) in the FLS1 cells 6 h after administration (<xref rid="f3-ijmm-39-04-0799" ref-type="fig">Fig. 3B</xref>). CytB (5 <italic>&#xB5;</italic>M) also decreased FLS1 cell viability to 76.1% of the control 6 h after administration (<xref rid="f3-ijmm-39-04-0799" ref-type="fig">Fig. 3C</xref>).</p>
+      </sec>
+      <sec>
+        <title>Inhibition of MRTF/SRF-regulated transcription downregulates mRNA levels of MF differentiation markers in FLSs</title>
+        <p>CCG-100602 is a compound related to CCG-1423 that blocks the serum-induced nuclear import of MRTF-A, and possesses a similar biological activity to CCG-1423 (<xref rid="b26-ijmm-39-04-0799" ref-type="bibr">26</xref>). As shown in <xref rid="f4-ijmm-39-04-0799" ref-type="fig">Fig. 4A</xref>, mRNA levels of &#x3B1;-SMA and colI&#x3B1;1 were significantly decreased to 36.3 and 38.6% of the control, respectively, 24 h after CCG-100602 (10 <italic>&#xB5;</italic>M) administration. In addition, immu-nofluorescence analysis showed that CCG-100602 (10 <italic>&#xB5;</italic>M) did not inhibit F-actin formation (<xref rid="f4-ijmm-39-04-0799" ref-type="fig">Fig. 4B</xref> upper and lower central panels, green), but inhibited the MRTF-A nuclear localization (<xref rid="f4-ijmm-39-04-0799" ref-type="fig">Fig. 4B</xref> upper and lower left panels, red) in the FLS1 cells 24 h after administration. CCG-100602 treatment did not affect FLS1 cell viability 24 h after administration (data not shown).</p>
+      </sec>
+      <sec>
+        <title>MF differentiation attenuator FGF-1 downregulates mRNA expression levels of MF differentiation markers in FLSs</title>
+        <p>As shown in <xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>, mRNA expression levels of &#x3B1;-SMA and colI&#x3B1;1 were significantly decreased to 42.6 and 37.3% of the control, respectively, 24 h after FGF-1 (10 ng/ml) administration. The FGF-1-induced decrease in the mRNA level of &#x3B1;-SMA was almost completely rescued by the FGFR1 inhibitor SU-5402 (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>, left graph). On the other hand, SU-5402 significantly but not completely rescued the FGF-1-induced decrease in the mRNA level of colI&#x3B1;1 (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>, right graph). In addition, immunofluorescence analysis revealed that FGF-1 (10 ng/ml) treatment inhibited F-actin formation in the FLS1 cells 24 h after administration (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5B</xref> right panel, green). FLS1 cell viability was significantly increased to 111.0% of the control 24 h after FGF-1 (10 ng/ml) administration (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5C</xref>). In addition, the FGFR1 inhibitor SU-5402 abrogated the FGF-1-induced increase in FLS1 cell viability.</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Synovial cell lines were established and are valuable for investigating various synovial cell functions <italic>in vitro</italic>. Some synovial cell lines (<xref rid="b27-ijmm-39-04-0799" ref-type="bibr">27</xref>&#x2013;<xref rid="b29-ijmm-39-04-0799" ref-type="bibr">29</xref>) have been utilized for investigating cellular and molecular mechanisms underlying the emergence of rheumatoid arthritis (RA) and OA (<xref rid="b30-ijmm-39-04-0799" ref-type="bibr">30</xref>&#x2013;<xref rid="b32-ijmm-39-04-0799" ref-type="bibr">32</xref>). However, synovial cell lines derived from the TMJ are difficult to find; we found only one study stating that fibroblast-like cells derived from baboon TMJs were successfully immortalized by the ectopic expression of human telomerase reverse transcriptase (hTERT) (<xref rid="b33-ijmm-39-04-0799" ref-type="bibr">33</xref>). It is well known that mammalian primary cells possess finite proliferative activity in culture, and accordingly, mouse primary FLS cultures derived from TMJs did not divide after 7 passages (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1A</xref>). Here, we successfully obtained the immortalized mouse FLS cell line, FLS1, by ectopic expression of SV40LT. Miyazawa <italic>et al</italic> previously established the immortalized human rheumatoid FLS cell line MH7A by ectopic expression of SV40LT (<xref rid="b27-ijmm-39-04-0799" ref-type="bibr">27</xref>). They demonstrated that their MH7A cells retained the response to stimulation with the inflammatory cytokine interleukin-1 (IL-1), suggesting that this cell line did not lose the characteristics of rheumatoid FLS even after ectopic SV40LT expression. We demonstrated that FLS1 cells expressed the mesenchymal marker vimentin (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1D</xref>), and more vigorously expressed the MF markers &#x3B1;-SMA and colI&#x3B1;1 than control NIH3T3 fibroblasts (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1E and F</xref>), suggesting that FLS1 cells retained their myofibroblastic characteristics.</p>
+      <p>As described above, TGF-&#x3B2;1 is well-known as a potent inducer of MF differentiation in cells derived from mesenchymal origin (<xref rid="b9-ijmm-39-04-0799" ref-type="bibr">9</xref>). We evaluated the effect of TGF-&#x3B2;1 on the expression of MF markers &#x3B1;-SMA and colI&#x3B1;1 and found that TGF-&#x3B2;1 did not affect the expression of these markers (data not shown). These results indicated that the FLS1 cells retained the characteristics of differentiated MFs that vigorously express &#x3B1;-SMA and colI&#x3B1;1 even when these cells were not stimulated with TGF-&#x3B2;1. We previously reported that TGF-&#x3B2;1 promoted &#x3B1;-SMA expression in PDL-derived fibroblastic cells in a Smad2-dependent manner (<xref rid="b34-ijmm-39-04-0799" ref-type="bibr">34</xref>). Therefore, we also evaluated the effect of TGF-&#x3B2;1 on Smad2 phosphorylation in FLS1 cells using western blot analysis. We found that TGF-&#x3B2;1 treatment (10 ng/ml) did not induce Smad2/3 phosphorylation in FLS1 cells, suggesting that FLS1 cells were not responsive to TGF-&#x3B2;1 stimulation (data not shown).</p>
+      <p>TGF-&#x3B2;1 activates the ROCK/actin/MRTF-A signal transduction pathway, which results in the expression of &#x3B1;-SMA in cardiac fibroblasts (<xref rid="b11-ijmm-39-04-0799" ref-type="bibr">11</xref>). Although FLS1 cells did not exhibit increased &#x3B1;-SMA mRNA expression after TGF-&#x3B2;1 stimulation as described above, ROCK/actin/MRTF-mediated signaling seemed to be activated in FLS1 cells even when the cells were not stimulated with TGF-&#x3B2;1 (<xref rid="f1-ijmm-39-04-0799" ref-type="fig">Fig. 1H</xref>, left panel). Therefore, we investigated whether ROCK-mediated signal positively regulated the MF differentiation status of FLS1 cells. Treatment with the ROCK inhibitor Y-27632 inhibited F-actin formation (<xref rid="f2-ijmm-39-04-0799" ref-type="fig">Fig. 2B</xref>), and significantly decreased mRNA expression of MF markers &#x3B1;-SMA and colI&#x3B1;1 (<xref rid="f2-ijmm-39-04-0799" ref-type="fig">Fig. 2A</xref>). These results indicated that ROCK inhibition attenuated the incorporation of G-actin into growing F-actin stress fibers in FLS1 cells, possibly resulting in the sequestration of MRTF-A on G-actin in the cytoplasm. As a consequence, the sequestered MRTF-A cannot enter the nucleus, attenuating the transcription of MF marker gene expression. Importantly, Y-27632 treatment did not affect FLS1 cell viability (data not shown), indicating that the Y-27632-induced downregulation of MF marker expression in FLS1 cells was not related to cytotoxicity. These results strongly suggest that Y-27632 may be a good candidate as an anti-fibrosis drug around the TMJ. Honjo <italic>et al</italic> previously reported that Y-27632 was effective in preventing fibro-proliferation and scar formation in a rabbit model of glaucoma surgery (<xref rid="b35-ijmm-39-04-0799" ref-type="bibr">35</xref>), suggesting a medical application of this ROCK inhibitor for preventing abnormal fibrogenesis.</p>
+      <p>We also evaluated the effects of the actin-depolymerizing agent CytB on MF differentiation status in FLS1 cells. We demonstrated that CytB treatment attenuated the incorporation of G-actin into growing F-actin stress fibers in FLS1 cells as expected (<xref rid="f3-ijmm-39-04-0799" ref-type="fig">Fig. 3B</xref>), resulting in downregulated &#x3B1;-SMA and col1&#x3B1;I mRNA levels (<xref rid="f3-ijmm-39-04-0799" ref-type="fig">Fig. 3A</xref>). These results indicated that CytB-induced actin depolymerization may increase the G-actin/F-actin ratio in the cytoplasm, resulting in decreased MRTF-A nuclear entry. As a result, &#x3B1;-SMA and colI&#x3B1;1 mRNA levels were suppressed in the FLS1 cells. On the other hand, CytB significantly decreased FLS1 cell viability to 76.1% of the control (<xref rid="f3-ijmm-39-04-0799" ref-type="fig">Fig. 3C</xref>), suggesting that CytB-mediated cytotoxicity might secondarily and non-specifically decrease &#x3B1;-SMA and colI&#x3B1;1 expression. Patel <italic>et al</italic> previously demonstrated that the actin depolymerizing agents CytB, latrunculin and Y-27632 decreased &#x3B1;-SMA promoter activity and MF differentiation in human and rat mesangial cells (<xref rid="b36-ijmm-39-04-0799" ref-type="bibr">36</xref>), which is consistent with our results.</p>
+      <p>We also demonstrated that the MRTF-A inhibitor CCG-100602 attenuated MRTF-A nuclear translocation (<xref rid="f4-ijmm-39-04-0799" ref-type="fig">Fig. 4B</xref>, red), but did not affect F-actin formation (<xref rid="f4-ijmm-39-04-0799" ref-type="fig">Fig. 4B</xref>, green) in the FLS1 cells. As a result, CCG-100602 treatment resulted in decreased mRNA levels of &#x3B1;-SMA and colI&#x3B1;1 (<xref rid="f4-ijmm-39-04-0799" ref-type="fig">Fig. 4A</xref>). Johnson <italic>et al</italic> reported that CCG-100602 inhibited MRTF-A nuclear translocation and suppressed TGF-&#x3B2;-induced expression of MF markers in human colonic fibroblasts (<xref rid="b37-ijmm-39-04-0799" ref-type="bibr">37</xref>). Importantly, CCG-100602 treatment did not affect FLS1 cell viability (data not shown), indicating that CCG-100602-induced downregulation of MF marker expression in FLS1 cells was not related to cytotoxicity. These results strongly suggest that CCG-100602 can be utilized as a drug to prevent fibrosis around the TMJ.</p>
+      <p>FGF-1 suppressed F-actin formation (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5B</xref>), and decreased mRNA levels of &#x3B1;-SMA and colI&#x3B1;1 (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>), suggesting that FGF-1 may reverse MF differentiation of FLS1 cells by disrupting ROCK/actin/MRTF-A-mediated signaling. Importantly, FGF-1 did not decrease FLS1 cell viability (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5C</xref>), indicating that the FGF-1-induced downregulation of MF marker expression in FLS1 cells was not related to cytotoxicity. Interestingly, FGF-1 treatment actually increased FLS1 cell viability (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5C</xref>), suggesting that FGF-1 may not be an anti-fibrosis drug around the TMJ in itself: FGF-1 reverses MF differentiation of FLS1 cells, but increases the population of pre-MFs that retain the ability to differentiate into mature MFs. In addition, as shown in <xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A and C</xref>, the FGFR1 inhibitor SU-5402 suppressed not only the FGF-1-induced inhibition of mRNA expression of MF markers &#x3B1;-SMA and colI&#x3B1;1 but also the FGF-1-induced promotion of cell viability of FLS1 cells. These results indicated that FGF-1 not only suppressed mRNA expression of MF markers in FLS1 cells, but also promoted cell viability of the cells through FGFR1-mediated signal transduction pathway. We also found that FLS1 cells expressed mRNA of FGFR1-4 (data not shown). As shown in <xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>, the FGF-1-induced decrease in the mRNA level of &#x3B1;-SMA was almost completely rescued by the FGFR1 inhibitor SU-5402 (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>, left graph). In contrast, SU-5402 significantly but not completely rescued the FGF-1-induced decrease in the mRNA level of colI&#x3B1;1 (<xref rid="f5-ijmm-39-04-0799" ref-type="fig">Fig. 5A</xref>, right graph), implicating that FGF-1 might activate cellular signalling for the dedifferentiation of the cells partially through FGFR2-4. On the other hand, FGF-2 treatment was found to suppress the TGF-&#x3B2;-induced expression of &#x3B1;-SMA in human airway SMCs (<xref rid="b38-ijmm-39-04-0799" ref-type="bibr">38</xref>), and in mouse pluripotent 10T1/2 cells (<xref rid="b39-ijmm-39-04-0799" ref-type="bibr">39</xref>) in an ERK-dependent manner. However, it remains to be clarified which intracellular signals downstream of FGF-1 negatively regulate ROCK/actin/MRTF-A axis-mediated signal transduction in FLS1 cells. In addition, elucidating the molecular mechanisms underlying the FGF-1-induced suppression of MF marker expression in FLS1 cells may enable researchers to find other drug targets in addition to the ROCK/actin/MRTF-A axis in the future.</p>
+      <p>Taken together, these results strongly suggest that the ROCK/actin/MRTF gene regulatory axis promotes the fibrogenic activity of synoviocytes around the TMJ. Our findings partly clarified the molecular mechanisms underlying the emergence of TMJ-OA, and further investigation is warranted to identify drug targets for treating this condition at the molecular level.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>The present study was supported in part by JSPS KAKENHI grant nos. 26670852 and 16H05534 to A.I.; 25463053 and 16K11654 to N.C.; 26462823 to S.K.; 15K20606 to H.K.; 22592076 to M.K.; and a Grant-in-Aid for Strategic Medical Science Research Centre from the Ministry of Education, Culture, Sports, Science and Technology of Japan, 2010&#x2013;2014.</p>
+    </ack>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term id="G1">TMJ</term>
+          <def>
+            <p>temporomandibular joint</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G2">OA</term>
+          <def>
+            <p>osteoarthritis</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G3">MFs</term>
+          <def>
+            <p>myofibroblasts</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G4">ECM</term>
+          <def>
+            <p>extracellular matrix</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G5">&#x3B1;-SMA</term>
+          <def>
+            <p>&#x3B1;-smooth muscle actin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G6">TGF-&#x3B2;</term>
+          <def>
+            <p>transforming growth factor-&#x3B2;</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G7">FGF</term>
+          <def>
+            <p>fibroblast growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G8">FGFRs</term>
+          <def>
+            <p>FGF receptors</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G9">RTK</term>
+          <def>
+            <p>receptor tyrosine kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G10">MAPKs</term>
+          <def>
+            <p>mitogen-activated protein kinases</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G11">PI3K</term>
+          <def>
+            <p>phosphoinositide 3-kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G12">SMC</term>
+          <def>
+            <p>smooth muscle cell</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G13">PDL</term>
+          <def>
+            <p>periodontal ligament</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G14">ERK</term>
+          <def>
+            <p>extracellular signal-regulated kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G15">EGF</term>
+          <def>
+            <p>epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G16">FLSs</term>
+          <def>
+            <p>fibroblast-like synoviocytes</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G17">ROCK</term>
+          <def>
+            <p>Rho-associated coiled-coil forming kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G18">MRTF</term>
+          <def>
+            <p>myocardin-related transcription factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G19">SRF</term>
+          <def>
+            <p>serum response factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G20">G-actin</term>
+          <def>
+            <p>globular actin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G21">F-actin</term>
+          <def>
+            <p>filamentous actin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G22">CytB</term>
+          <def>
+            <p>cytochalasin B</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G23">Ham's F-12</term>
+          <def>
+            <p>Nutrient Mixture F-12 Ham</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G24">PBS</term>
+          <def>
+            <p>phosphate-buffered saline</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G25">FBS</term>
+          <def>
+            <p>fetal bovine serum</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G26">SV40LT</term>
+          <def>
+            <p>simian virus 40 large T antigen</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G27">&#x3B1;-MEM</term>
+          <def>
+            <p>minimum essential medium Eagle's &#x3B1;-modification</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G28">colI&#x3B1;1</term>
+          <def>
+            <p>&#x3B1;1 chain of collagen type I</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G29">RA</term>
+          <def>
+            <p>rheumatoid arthritis</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G30">hTERT</term>
+          <def>
+            <p>human telomerase reverse transcriptase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G31">IL-1</term>
+          <def>
+            <p>interleukin-1</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-ijmm-39-04-0799">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Detamore</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Mercuri</surname>
+              <given-names>LG</given-names>
+            </name>
+          </person-group>
+          <article-title>Degenerative disorders of the temporomandibular joint: Etiology, diagnosis, and treatment</article-title>
+          <source>J Dent Res</source>
+          <volume>87</volume>
+          <fpage>296</fpage>
+          <lpage>307</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="doi">10.1177/154405910808700406</pub-id>
+          <pub-id pub-id-type="pmid">18362309</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-ijmm-39-04-0799">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Ioi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Goto</surname>
+              <given-names>TK</given-names>
+            </name>
+            <name>
+              <surname>Hara</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nakata</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nakasima</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Counts</surname>
+              <given-names>AL</given-names>
+            </name>
+          </person-group>
+          <article-title>Relationship between the unilateral TMJ osteoarthritis/osteoarthrosis, mandibular asymmetry and the EMG activity of the masticatory muscles: A retrospective study</article-title>
+          <source>J Oral Rehabil</source>
+          <volume>37</volume>
+          <fpage>85</fpage>
+          <lpage>92</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2842.2009.02026.x</pub-id>
+          <pub-id pub-id-type="pmid">20002534</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-ijmm-39-04-0799">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krisjane</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Urtane</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Krumina</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Neimane</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Ragovska</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>The prevalence of TMJ osteoarthritis in asymptomatic patients with dentofacial deformities: A cone-beam CT study</article-title>
+          <source>Int J Oral Maxillofac Surg</source>
+          <volume>41</volume>
+          <fpage>690</fpage>
+          <lpage>695</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.1016/j.ijom.2012.03.006</pub-id>
+          <pub-id pub-id-type="pmid">22464854</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-ijmm-39-04-0799">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hill</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Hunter</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Niu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Clancy</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Guermazi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Genant</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Gale</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Grainger</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Conaghan</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Felson</surname>
+              <given-names>DT</given-names>
+            </name>
+          </person-group>
+          <article-title>Synovitis detected on magnetic resonance imaging and its relation to pain and cartilage loss in knee osteoarthritis</article-title>
+          <source>Ann Rheum Dis</source>
+          <volume>66</volume>
+          <fpage>1599</fpage>
+          <lpage>1603</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.1136/ard.2006.067470</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2095318</pub-id>-->
+          <pub-id pub-id-type="pmid">17491096</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-ijmm-39-04-0799">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>XD</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>JN</given-names>
+            </name>
+            <name>
+              <surname>Gan</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YH</given-names>
+            </name>
+          </person-group>
+          <article-title>Current understanding of pathogenesis and treatment of TMJ osteoarthritis</article-title>
+          <source>J Dent Res</source>
+          <volume>94</volume>
+          <fpage>666</fpage>
+          <lpage>673</lpage>
+          <year>2015</year>
+          <pub-id pub-id-type="doi">10.1177/0022034515574770</pub-id>
+          <pub-id pub-id-type="pmid">25744069</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-ijmm-39-04-0799">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krieg</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Abraham</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Lafyatis</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibrosis in connective tissue disease: The role of the myofibroblast and fibroblast-epithelial cell interactions</article-title>
+          <source>Arthritis Res Ther</source>
+          <volume>9</volume>
+          <issue>Suppl 2</issue>
+          <fpage>S4</fpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.1186/ar2188</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2072888</pub-id>-->
+          <pub-id pub-id-type="pmid">17767742</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-ijmm-39-04-0799">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hill</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Olson</surname>
+              <given-names>EN</given-names>
+            </name>
+          </person-group>
+          <article-title>Cardiac plasticity</article-title>
+          <source>N Engl J Med</source>
+          <volume>358</volume>
+          <fpage>1370</fpage>
+          <lpage>1380</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="doi">10.1056/NEJMra072139</pub-id>
+          <pub-id pub-id-type="pmid">18367740</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-ijmm-39-04-0799">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kehat</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Molkentin</surname>
+              <given-names>JD</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular pathways underlying cardiac remodeling during pathophysiological stimulation</article-title>
+          <source>Circulation</source>
+          <volume>122</volume>
+          <fpage>2727</fpage>
+          <lpage>2735</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.110.942268</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3076218</pub-id>-->
+          <pub-id pub-id-type="pmid">21173361</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-ijmm-39-04-0799">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tomasek</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Gabbiani</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hinz</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Chaponnier</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>RA</given-names>
+            </name>
+          </person-group>
+          <article-title>Myofibroblasts and mechano-regulation of connective tissue remodelling</article-title>
+          <source>Nat Rev Mol Cell Biol</source>
+          <volume>3</volume>
+          <fpage>349</fpage>
+          <lpage>363</lpage>
+          <year>2002</year>
+          <pub-id pub-id-type="doi">10.1038/nrm809</pub-id>
+          <pub-id pub-id-type="pmid">11988769</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-ijmm-39-04-0799">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Desmouli&#xE8;re</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Geinoz</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gabbiani</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Gabbiani</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Transforming growth factor-beta 1 induces alpha-smooth muscle actin expression in granulation tissue myofibroblasts and in quiescent and growing cultured fibroblasts</article-title>
+          <source>J Cell Biol</source>
+          <volume>122</volume>
+          <fpage>103</fpage>
+          <lpage>111</lpage>
+          <year>1993</year>
+          <pub-id pub-id-type="doi">10.1083/jcb.122.1.103</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2119614</pub-id>-->
+          <pub-id pub-id-type="pmid">8314838</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-ijmm-39-04-0799">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Small</surname>
+              <given-names>EM</given-names>
+            </name>
+          </person-group>
+          <article-title>The actin-MRTF-SRF gene regulatory axis and myofibroblast differentiation</article-title>
+          <source>J Cardiovasc Transl Res</source>
+          <volume>5</volume>
+          <fpage>794</fpage>
+          <lpage>804</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.1007/s12265-012-9397-0</pub-id>
+          <pub-id pub-id-type="pmid">22898751</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-ijmm-39-04-0799">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hinz</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Phan</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Thannickal</surname>
+              <given-names>VJ</given-names>
+            </name>
+            <name>
+              <surname>Galli</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Bochaton-Piallat</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Gabbiani</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>The myofibroblast: One function, multiple origins</article-title>
+          <source>Am J Pathol</source>
+          <volume>170</volume>
+          <fpage>1807</fpage>
+          <lpage>1816</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.2353/ajpath.2007.070112</pub-id>
+          <!--<pub-id pub-id-type="pmcid">1899462</pub-id>-->
+          <pub-id pub-id-type="pmid">17525249</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-ijmm-39-04-0799">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fahlgren</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Andersson</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Messner</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>TGF-beta1 as a prognostic factor in the process of early osteoarthrosis in the rabbit knee</article-title>
+          <source>Osteoarthritis Cartilage</source>
+          <volume>9</volume>
+          <fpage>195</fpage>
+          <lpage>202</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="doi">10.1053/joca.2000.0376</pub-id>
+          <pub-id pub-id-type="pmid">11300742</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-ijmm-39-04-0799">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van den Berg</surname>
+              <given-names>WB</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth factors in experimental osteoarthritis: Transforming growth factor beta pathogenic?</article-title>
+          <source>J Rheumatol Suppl</source>
+          <volume>43</volume>
+          <fpage>143</fpage>
+          <lpage>145</lpage>
+          <year>1995</year>
+          <pub-id pub-id-type="pmid">7752121</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-ijmm-39-04-0799">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sandbo</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Dulin</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Actin cytoskeleton in myofibroblast differentiation: Ultrastructure defining form and driving function</article-title>
+          <source>Transl Res</source>
+          <volume>158</volume>
+          <fpage>181</fpage>
+          <lpage>196</lpage>
+          <year>2011</year>
+          <pub-id pub-id-type="doi">10.1016/j.trsl.2011.05.004</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3324184</pub-id>-->
+          <pub-id pub-id-type="pmid">21925115</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-ijmm-39-04-0799">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beenken</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mohammadi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>The FGF family: Biology, pathophysiology and therapy</article-title>
+          <source>Nat Rev Drug Discov</source>
+          <volume>8</volume>
+          <fpage>235</fpage>
+          <lpage>253</lpage>
+          <year>2009</year>
+          <pub-id pub-id-type="doi">10.1038/nrd2792</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3684054</pub-id>-->
+          <pub-id pub-id-type="pmid">19247306</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-ijmm-39-04-0799">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Zhuang</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of receptor tyrosine kinase signaling in renal fibrosis</article-title>
+          <source>Int J Mol Sci</source>
+          <volume>17</volume>
+          <fpage>972</fpage>
+          <year>2016</year>
+          <pub-id pub-id-type="doi">10.3390/ijms17060972</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4926504</pub-id>-->
+        </element-citation>
+      </ref>
+      <ref id="b18-ijmm-39-04-0799">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ornitz</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Colvin</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>McEwen</surname>
+              <given-names>DG</given-names>
+            </name>
+            <name>
+              <surname>MacArthur</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Coulier</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Gao</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Goldfarb</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Receptor specificity of the fibroblast growth factor family</article-title>
+          <source>J Biol Chem</source>
+          <volume>271</volume>
+          <fpage>15292</fpage>
+          <lpage>15297</lpage>
+          <year>1996</year>
+          <pub-id pub-id-type="doi">10.1074/jbc.271.25.15292</pub-id>
+          <pub-id pub-id-type="pmid">8663044</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-ijmm-39-04-0799">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raju</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Palapetta</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Sandhya</surname>
+              <given-names>VK</given-names>
+            </name>
+            <name>
+              <surname>Sahu</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Alipoor</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Balakrishnan</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Advani</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>George</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kini</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Geetha</surname>
+              <given-names>NP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A network map of FGF-1/FGFR signaling system</article-title>
+          <source>J Signal Transduct</source>
+          <volume>2014</volume>
+          <fpage>962962</fpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1155/2014/962962</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4009234</pub-id>-->
+          <pub-id pub-id-type="pmid">24829797</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-ijmm-39-04-0799">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shimbori</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bellaye</surname>
+              <given-names>PS</given-names>
+            </name>
+            <name>
+              <surname>Xia</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gauldie</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ask</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ramos</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Becerril</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Pardo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Selman</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kolb</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast growth factor-1 attenuates TGF-&#x3B2;1-induced lung fibrosis</article-title>
+          <source>J Pathol</source>
+          <volume>240</volume>
+          <fpage>197</fpage>
+          <lpage>210</lpage>
+          <year>2016</year>
+          <pub-id pub-id-type="doi">10.1002/path.4768</pub-id>
+          <pub-id pub-id-type="pmid">27425145</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-ijmm-39-04-0799">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Maltseva</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Folger</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Zekaria</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Petridou</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Masur</surname>
+              <given-names>SK</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast growth factor reversal of the corneal myofibroblast phenotype</article-title>
+          <source>Invest Ophthalmol Vis Sci</source>
+          <volume>42</volume>
+          <fpage>2490</fpage>
+          <lpage>2495</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="pmid">11581188</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-ijmm-39-04-0799">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Okubo</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chosa</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Ibi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kamo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mizuki</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ishisaki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kyakumoto</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast growth factor-1-induced ERK1/2 signaling reciprocally regulates proliferation and smooth muscle cell differentiation of ligament-derived endothelial progenitor cell-like cells</article-title>
+          <source>Int J Mol Med</source>
+          <volume>29</volume>
+          <fpage>357</fpage>
+          <lpage>364</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="pmid">22108586</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-ijmm-39-04-0799">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kimura</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Okubo</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chosa</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kyakumoto</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kamo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Miura</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ishisaki</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF positively regulates the proliferation and migration, and negatively regulates the myofibroblast differentiation of periodontal ligament-derived endothelial progenitor cells through MEK/ERK- and JNK-dependent signals</article-title>
+          <source>Cell Physiol Biochem</source>
+          <volume>32</volume>
+          <fpage>899</fpage>
+          <lpage>914</lpage>
+          <year>2013</year>
+          <pub-id pub-id-type="doi">10.1159/000354493</pub-id>
+          <pub-id pub-id-type="pmid">24217646</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24-ijmm-39-04-0799">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davis</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Molkentin</surname>
+              <given-names>JD</given-names>
+            </name>
+          </person-group>
+          <article-title>Myofibroblasts: Trust your heart and let fate decide</article-title>
+          <source>J Mol Cell Cardiol</source>
+          <volume>70</volume>
+          <fpage>9</fpage>
+          <lpage>18</lpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1016/j.yjmcc.2013.10.019</pub-id>
+          <pub-id pub-id-type="pmid">24189039</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25-ijmm-39-04-0799">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ozer</surname>
+              <given-names>HL</given-names>
+            </name>
+            <name>
+              <surname>Banga</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Dasgupta</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Houghton</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hubbard</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Jha</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Lenahan</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Pardinas</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>SV40-mediated immortalization of human fibroblasts</article-title>
+          <source>Exp Gerontol</source>
+          <volume>31</volume>
+          <fpage>303</fpage>
+          <lpage>310</lpage>
+          <year>1996</year>
+          <pub-id pub-id-type="doi">10.1016/0531-5565(95)00024-0</pub-id>
+          <pub-id pub-id-type="pmid">8706800</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26-ijmm-39-04-0799">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hayashi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Watanabe</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Nakagawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Minami</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Morita</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>RPEL proteins are the molecular targets for CCG-1423, an inhibitor of Rho signaling</article-title>
+          <source>PLoS One</source>
+          <volume>9</volume>
+          <fpage>e89016</fpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0089016</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3928398</pub-id>-->
+          <pub-id pub-id-type="pmid">24558465</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27-ijmm-39-04-0799">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miyazawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Okudaira</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Establishment and characterization of a novel human rheumatoid fibroblast-like synoviocyte line, MH7A, immortalized with SV40 T antigen</article-title>
+          <source>J Biochem</source>
+          <volume>124</volume>
+          <fpage>1153</fpage>
+          <lpage>1162</lpage>
+          <year>1998</year>
+          <pub-id pub-id-type="doi">10.1093/oxfordjournals.jbchem.a022233</pub-id>
+          <pub-id pub-id-type="pmid">9832620</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28-ijmm-39-04-0799">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamazaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yokoyama</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Akatsu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tukiyama</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Tokiwa</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Phenotypic characterization of a human synovial sarcoma cell line, SW982, and its response to dexamethasone</article-title>
+          <source>In Vitro Cell Dev Biol Anim</source>
+          <volume>39</volume>
+          <fpage>337</fpage>
+          <lpage>339</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1290/1543-706X(2003)039&lt;0337:PCOAHS&gt;2.0.CO;2</pub-id>
+          <pub-id pub-id-type="pmid">15038780</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29-ijmm-39-04-0799">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Georgescu</surname>
+              <given-names>HI</given-names>
+            </name>
+            <name>
+              <surname>Mendelow</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Evans</surname>
+              <given-names>CH</given-names>
+            </name>
+          </person-group>
+          <article-title>HIG-82: An established cell line from rabbit periarticular soft tissue, which retains the 'activatable' phenotype</article-title>
+          <source>In Vitro Cell Dev Biol</source>
+          <volume>24</volume>
+          <fpage>1015</fpage>
+          <lpage>1022</lpage>
+          <year>1988</year>
+          <pub-id pub-id-type="doi">10.1007/BF02620875</pub-id>
+          <pub-id pub-id-type="pmid">2846503</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30-ijmm-39-04-0799">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakayama</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Yaguchi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yoshiya</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nishizaki</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Resveratrol induces apoptosis MH7A human rheumatoid arthritis synovial cells in a sirtuin 1-dependent manner</article-title>
+          <source>Rheumatol Int</source>
+          <volume>32</volume>
+          <fpage>151</fpage>
+          <lpage>157</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.1007/s00296-010-1598-8</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3253293</pub-id>-->
+          <pub-id pub-id-type="pmid">20697895</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31-ijmm-39-04-0799">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sommerfelt</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Feuerherm</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Skuland</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Johansen</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Cytosolic phospholipase A2 modulates TLR2 signaling in synoviocytes</article-title>
+          <source>PLoS One</source>
+          <volume>10</volume>
+          <fpage>e0119088</fpage>
+          <year>2015</year>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0119088</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4404349</pub-id>-->
+          <pub-id pub-id-type="pmid">25893499</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32-ijmm-39-04-0799">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hsu</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>FJ</given-names>
+            </name>
+            <name>
+              <surname>Chuang</surname>
+              <given-names>YW</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>CZ</given-names>
+            </name>
+            <name>
+              <surname>Yeh</surname>
+              <given-names>RH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Folate deficiency triggered apoptosis of synoviocytes: Role of overproduction of reactive oxygen species generated via NADPH oxidase/mitochondrial complex II and calcium perturbation</article-title>
+          <source>PLoS One</source>
+          <volume>11</volume>
+          <fpage>e0146440</fpage>
+          <year>2016</year>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0146440</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4714898</pub-id>-->
+          <pub-id pub-id-type="pmid">26771387</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b33-ijmm-39-04-0799">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McDaniel</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Akula Suresh Babu</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Navarro</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>LeBaron</surname>
+              <given-names>RG</given-names>
+            </name>
+          </person-group>
+          <article-title>Transcriptional regulation of proteoglycan 4 by 17&#x3B2;-estradiol in immortalized baboon temporomandibular joint disc cells</article-title>
+          <source>Eur J Oral Sci</source>
+          <volume>122</volume>
+          <fpage>100</fpage>
+          <lpage>108</lpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1111/eos.12119</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4323157</pub-id>-->
+          <pub-id pub-id-type="pmid">24621258</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34-ijmm-39-04-0799">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Okubo</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chosa</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Hasegawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ibi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kamo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kyakumoto</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ishisaki</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>TGF-&#x3B2;-operated growth inhibition and translineage commitment into smooth muscle cells of periodontal ligament-derived endothelial progenitor cells through Smad- and P38 MAPK-dependent signals</article-title>
+          <source>Int J Biol Sci</source>
+          <volume>8</volume>
+          <fpage>1062</fpage>
+          <lpage>1074</lpage>
+          <year>2012</year>
+          <pub-id pub-id-type="doi">10.7150/ijbs.4488</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3432854</pub-id>-->
+          <pub-id pub-id-type="pmid">22949889</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35-ijmm-39-04-0799">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Honjo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tanihara</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kameda</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kawaji</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yoshimura</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Araie</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Potential role of Rho-associated protein kinase inhibitor Y-27632 in glaucoma filtration surgery</article-title>
+          <source>Invest Ophthalmol Vis Sci</source>
+          <volume>48</volume>
+          <fpage>5549</fpage>
+          <lpage>5557</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="doi">10.1167/iovs.07-0878</pub-id>
+          <pub-id pub-id-type="pmid">18055804</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b36-ijmm-39-04-0799">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Patel</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Harding</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Haney</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>Glass</surname>
+              <given-names>WF</given-names>
+              <suffix>II</suffix>
+            </name>
+          </person-group>
+          <article-title>Regulation of the mesangial cell myofibroblast phenotype by actin polymerization</article-title>
+          <source>J Cell Physiol</source>
+          <volume>195</volume>
+          <fpage>435</fpage>
+          <lpage>445</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="doi">10.1002/jcp.10267</pub-id>
+          <pub-id pub-id-type="pmid">12704653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b37-ijmm-39-04-0799">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Johnson</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Rodansky</surname>
+              <given-names>ES</given-names>
+            </name>
+            <name>
+              <surname>Haak</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Larsen</surname>
+              <given-names>SD</given-names>
+            </name>
+            <name>
+              <surname>Neubig</surname>
+              <given-names>RR</given-names>
+            </name>
+            <name>
+              <surname>Higgins</surname>
+              <given-names>PD</given-names>
+            </name>
+          </person-group>
+          <article-title>Novel Rho/MRTF/SRF inhibitors block matrix-stiffness and TGF-&#x3B2;-induced fibrogenesis in human colonic myofibroblasts</article-title>
+          <source>Inflamm Bowel Dis</source>
+          <volume>20</volume>
+          <fpage>154</fpage>
+          <lpage>165</lpage>
+          <year>2014</year>
+          <pub-id pub-id-type="doi">10.1097/01.MIB.0000437615.98881.31</pub-id>
+          <pub-id pub-id-type="pmid">24280883</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b38-ijmm-39-04-0799">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schuliga</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Javeed</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Xia</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Qin</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>PV</given-names>
+            </name>
+            <name>
+              <surname>Camoretti-Mercado</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Stewart</surname>
+              <given-names>AG</given-names>
+            </name>
+          </person-group>
+          <article-title>Transforming growth factor-&#x3B2;-induced differentiation of airway smooth muscle cells is inhibited by fibroblast growth factor-2</article-title>
+          <source>Am J Respir Cell Mol Biol</source>
+          <volume>48</volume>
+          <fpage>346</fpage>
+          <lpage>353</lpage>
+          <year>2013</year>
+          <pub-id pub-id-type="doi">10.1165/rcmb.2012-0151OC</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3604085</pub-id>-->
+          <pub-id pub-id-type="pmid">23239497</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b39-ijmm-39-04-0799">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kawai-Kowase</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Oyama</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kanai</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Doi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kurabayashi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Basic fibroblast growth factor antagonizes transforming growth factor-beta1-induced smooth muscle gene expression through extracellular signal-regulated kinase 1/2 signaling pathway activation</article-title>
+          <source>Arterioscler Thromb Vasc Biol</source>
+          <volume>24</volume>
+          <fpage>1384</fpage>
+          <lpage>1390</lpage>
+          <year>2004</year>
+          <pub-id pub-id-type="doi">10.1161/01.ATV.0000136548.17816.07</pub-id>
+          <pub-id pub-id-type="pmid">15217807</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-ijmm-39-04-0799" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Primary and immortalized synoviocytes derived from temporomandibular joint synovial tissue exhibit myofibroblastic characteristics. After antibiotic selection, one SV40LT-overexpressing fibroblast-like synoviocyte (FLS) cell line was cloned and an FLS cell line was established. (A) Constant proliferative activity was observed in the SV40LT-transfected cells. Cumulative doubling times were plotted against cumulative culture days (open squares, SV40LT-transfected cells; closed circles, primary FLSs). A cross represents the proliferation limit of the primary FLSs. (B) Morphological characteristics of SV40LT-transfected FLSs on plastic culture plates was viewed by phase-contrast microscopy (scale bar, 50 <italic>&#xB5;</italic>m). (C) Expression of SV40LT (red) in the SV40LT-transfected FLSs was evaluated at the protein level using immunofluorescent analysis (upper left panel, with the primary antibody against SV40LT, and the fluorescent secondary antibody; lower left panel, without primary antibody against SV40LT but with the fluorescent secondary antibody). Filamentous actin (green) was stained with phalloidin, and nuclei (blue) were labeled with DAPI (scale bar, 50 <italic>&#xB5;</italic>m). (D-G) The relative expression of mesenchymal, myofibroblast (MF), and leukocyte markers were evaluated using RT-qPCR (D, mesenchymal cell marker vimentin; E and F, MF markers &#x3B1;-smooth muscle actin (&#x3B1;-SMA) and &#x3B1;1 chain of collagen type I (colI&#x3B1;1), respectively; and G, leukocyte marker CD45). Data represent the means &#xB1; SD (n=3). <sup>*</sup>P&lt;0.01, and <sup>**</sup>P&lt;0.05 are indicative of statistical significance. (H) F-actin formation was examined using immunofluorescence analysis. FLS1 cells (left panel), and NIH3T3 cells (right panel) were stained with phalloidin (green) and DAPI (blue) (scale bar, 50 <italic>&#xB5;</italic>m).</p>
+      </caption>
+      <graphic xlink:href="IJMM-39-04-0799-g00"/>
+      <graphic xlink:href="IJMM-39-04-0799-g01"/>
+    </fig>
+    <fig id="f2-ijmm-39-04-0799" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Rho-associated coiled-coil forming kinase (ROCK) inhibition downregulates mRNA expression of myofibroblast (MF) markers in FLS1 cells. (A) FLS1 cells were cultured with or without the ROCK inhibitor Y-27632 (10 <italic>&#xB5;</italic>M) for 6 h. Then, the relative expression levels of MF markers &#x3B1;-smooth muscle actin (&#x3B1;-SMA; left graph of A), and &#x3B1;1 chain of collagen type I (colI&#x3B1;1; right graph of A) were evaluated using RT-qPCR. Data represent the means &#xB1; SD (n=3). <sup>*</sup>P&lt;0.01 and <sup>**</sup>P&lt;0.05 are indicative of statistical significance. (B) FLS1 cells were cultured with or without Y-27632 (10 <italic>&#xB5;</italic>M) for 6 h. Levels of filamentous actin (green) in FLS1 cells were evaluated using immunofluorescence analysis. Nuclei were stained with DAPI (blue) (scale bar, 50 <italic>&#xB5;</italic>m). FLS, fibroblast-like synoviocytes.</p>
+      </caption>
+      <graphic xlink:href="IJMM-39-04-0799-g02"/>
+    </fig>
+    <fig id="f3-ijmm-39-04-0799" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Actin-depolymerizing agent cytochalasin B (CytB) downregulates mRNA levels of myofibroblast (MF) differentiation markers in FLS1 cells. (A) FLS1 cells were cultured with or without the actin-depolymerizing agent CytB (5 <italic>&#xB5;</italic>M) for 6 h. Then, the relative expression levels of MF markers &#x3B1;-smooth muscle actin (&#x3B1;-SMA; left graph of A), and &#x3B1;1 chain of collagen type I (colI&#x3B1;1; right graph of A) were evaluated using RT-qPCR. Data represent the means &#xB1; SD (n=3). <sup>*</sup>P&lt;0.01 is indicative of statistical significance. (B) FLS1 cells were cultured with or without CytB (5 <italic>&#xB5;</italic>M) for 6 h. Levels of filamentous actin (green) were evaluated using immunofluorescence analysis. Nuclei were stained with DAPI (blue) (scale bar, 50 <italic>&#xB5;</italic>m). (C) FLS1 cells were cultured with or without CytB (5 <italic>&#xB5;</italic>M) for 6 h. Then, the cell viability was evaluated using an alamarBlue assay. Data represent the means &#xB1; SD (n=8). <sup>**</sup>P&lt;0.01 is indicative of statistical significance. FLS, fibroblast-like synoviocytes.</p>
+      </caption>
+      <graphic xlink:href="IJMM-39-04-0799-g03"/>
+    </fig>
+    <fig id="f4-ijmm-39-04-0799" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Inhibitor of myocardin-related transcription factor (MRTF)/serum response factor-regulated transcription CCG-100602 downregulates mRNA levels of myofibroblast (MF) differentiation markers in FLS1 cells. (A) FLS1 cells were cultured with or without the MRTF-A inhibitor CCG-100602 (10 <italic>&#xB5;</italic>M) for 24 h. Then, the relative expression levels of the MF markers &#x3B1;-smooth muscle actin (&#x3B1;-SMA; left graph of A) and &#x3B1;1 chain of collagen type I (colI&#x3B1;1; right graph of A) were evaluated using RT-qPCR. Data represent the means &#xB1; SD (n=3). <sup>*</sup>P&lt;0.01 is indicative of statistical significance. (B) FLS1 cells were cultured with or without CCG-100602 (10 <italic>&#xB5;</italic>M) for 24 h. Levels of filamentous actin (F-actin; green, upper and lower central panels) and MRTF-A (red, upper and lower left panels) in FLS1 cells were evaluated using immunofluorescence analysis. Nuclei were stained with DAPI (blue, upper and lower central panels) (scale bar, 50 <italic>&#xB5;</italic>m). FLS, fibroblast-like synoviocytes.</p>
+      </caption>
+      <graphic xlink:href="IJMM-39-04-0799-g04"/>
+    </fig>
+    <fig id="f5-ijmm-39-04-0799" orientation="portrait" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>Myofibroblast (MF) differentiation attenuator fibroblast growth factor (FGF)-1 downregulates mRNA levels of MF differentiation markers in FLS1 cells. (A) FLS1 cells were cultured with or without the MF differentiation attenuator FGF-1 (10 ng/ml) for 24 h. Some cells were pre-treated with SU-5402 (5 <italic>&#xB5;</italic>M) 30 min before FGF-1 stimulation. Then, the relative expression levels of MF markers &#x3B1;-smooth muscle actin (&#x3B1;-SMA; left graph of A), and &#x3B1;1 chain of collagen type I (colI&#x3B1;1; right graph of A) were evaluated using RT-qPCR. Data represent the mean &#xB1; SD (n=3). <sup>*</sup>P&lt;0.01, and <sup>**</sup>P&lt;0.05 are indicative of statistical significance. (B) FLS1 cells were cultured with or without FGF-1 (10 ng/ml) for 24 h. Level of filamentous actin (green) in FLS1 cells was evaluated using immunofluorescence analysis. Nuclei were stained with DAPI (blue) (scale bar, 50 <italic>&#xB5;</italic>m). (C) Some cells were pre-treated with SU-5402 (5 <italic>&#xB5;</italic>M) 30 min before FGF-1 stimulation. Cell viability was evaluated using an alamarBlue assay. Data represent the mean &#xB1; SD (n=8). <sup>*</sup>P&lt;0.01 is indicative of statistical significance. FLS, fibroblast-like synoviocyte.</p>
+      </caption>
+      <graphic xlink:href="IJMM-39-04-0799-g05"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

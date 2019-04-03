@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101257113</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">34616</journal-id>
+      <journal-id journal-id-type="nlm-ta">Curr Protoc Microbiol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Curr Protoc Microbiol</journal-id>
+      <journal-title-group>
+        <journal-title>Current protocols in microbiology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1934-8525</issn>
+      <issn pub-type="epub">1934-8533</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25082004</article-id>
+      <article-id pub-id-type="pmc">4221589</article-id>
+      <article-id pub-id-type="doi">10.1002/9780471729259.mc14b03s34</article-id>
+      <article-id pub-id-type="manuscript">NIHMS619717</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Using organotypic (raft) epithelial tissue cultures for the biosynthesis and isolation of infectious human papillomaviruses</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ozbun</surname>
+            <given-names>Michelle A.</given-names>
+          </name>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Patterson</surname>
+            <given-names>Nicole A.</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">Department of Molecular Genetics &amp; Microbiology, The University of New Mexico School of Medicine, The UNM Cancer Center, Albuquerque, New Mexico</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1"><label>*</label>Phone +1 505 272 4950; FAX: +1 505 272 6029</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>2</day>
+        <month>9</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>01</day>
+        <month>8</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>8</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>34</volume>
+      <fpage>14B.3.1</fpage>
+      <lpage>14B.3.18</lpage>
+      <!--elocation-id from pubmed: 10.1002/9780471729259.mc14b03s34-->
+      <abstract>
+        <p id="P1">Papillomaviruses have a strict tropism for epithelial cells and they are fully reliant on cellular differentiation for completion of their life cycles, resulting in the production of progeny virions. Thus, a permissive environment for full viral replication <italic>in vitro</italic> wherein virion morphogenesis occurs under cooperative viral and cellular cues requires the cultivation of epithelium. Presented in the first section of this unit is a protocol for growing differentiating epithelial tissues, whose structure and function mimics many important morphological and biochemical aspects of normal skin. The technique, pioneered by Asslineau and Pruni&#xE9;ras (<xref rid="R1" ref-type="bibr">Asselineau and Prunieras 1984</xref>) and modified by Kopan <italic>et al.</italic> (<xref rid="R7" ref-type="bibr">Kopan et al. 1987</xref>), involves growing epidermal cells atop a dermal equivalent consisting of live fibroblasts and a collagen lattice. Epithelial stratification and differentiation ensues when the keratinocyte-dermal equivalent is placed at the air-liquid interface. The apparent floating nature of the cell-matrix in this method led to the nickname &#x201C;raft&#x201D; cultures. The general technique can be applied to normal low passage keratinocytes, to cells stably transfected with papillomavirus genes or genomes, as well as keratinocytes established from neoplastic lesions. However, infectious papillomavirus particles have only been isolated from organotypic epithelial cultures initiated with cells that maintain oncogenic human papillomavirus genomes in an extrachomosomal replicative form. The second section of this unit is dedicated to a virion isolation method that minimizes aerosol and skin exposure to these human carcinogens. Although the focus of the protocols is on the growth of tissues that yields infectious papillomavirus progeny, this culture system facilitates the investigation of these fastidious viruses during their complex replicative cycles, and raft tissues can be manipulated and harvested at any point during the process. Importantly, a single step virus growth cycle is achieved in this process, as it is unlikely that progeny virions are released to initiate subsequent rounds of infection.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>papillomavirus</kwd>
+        <kwd>organotypic epithelial tissue culture</kwd>
+        <kwd>air-liquid interface</kwd>
+        <kwd>keratinocyte</kwd>
+        <kwd>virion isolation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

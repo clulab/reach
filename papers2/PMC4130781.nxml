@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8904683</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1769</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cell Signal</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Cell. Signal.</journal-id>
+      <journal-title-group>
+        <journal-title>Cellular signalling</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0898-6568</issn>
+      <issn pub-type="epub">1873-3913</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24905473</article-id>
+      <article-id pub-id-type="pmc">4130781</article-id>
+      <article-id pub-id-type="doi">10.1016/j.cellsig.2014.05.018</article-id>
+      <article-id pub-id-type="manuscript">NIHMS617989</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Epidermal Growth Factor Inhibits Transforming Growth Factor-&#x3B2;-Induced Fibrogenic Differentiation Marker Expression through ERK Activation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Xiaoying</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="corresp" rid="CR1">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hubchak</surname>
+            <given-names>Susan C.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Browne</surname>
+            <given-names>James A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Schnaper</surname>
+            <given-names>H. William</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>Division of Kidney Diseases, Department of Pediatrics, Northwestern University Feinberg School of Medicine, Chicago, Illinois, 60611.</aff>
+      <author-notes>
+        <corresp id="CR1"><label>b</label>Address for correspondence: Xiaoying Liu, Department of Pediatrics, Feinberg School of Medicine, Northwestern University, 310 E Superior St, Morton 4&#x2013;685, Chicago, Illinois 60611, USA. <email>xiaoying-liu@northwestern.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>5</day>
+        <month>8</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>03</day>
+        <month>6</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>10</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>10</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>26</volume>
+      <issue>10</issue>
+      <fpage>2276</fpage>
+      <lpage>2283</lpage>
+      <!--elocation-id from pubmed: 10.1016/j.cellsig.2014.05.018-->
+      <permissions>
+        <copyright-statement>&#xA9; 2014 Elsevier Inc. All rights reserved.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">Transforming growth factor-&#x3B2; (TGF-&#x3B2;) signaling plays an important and complex role in renal fibrogenesis. The seemingly simple TGF-&#x3B2;/Smad cascade is intensively regulated at several levels, including crosstalk with other signaling pathways. Epidermal growth factor (EGF) is a potent mitogen for epithelial cells and is elevated in diseased kidneys. In this study, we examined its effect on TGF-&#x3B2;-induced fibrotic changes in human proximal tubular epithelial cells. Simultaneous treatment with EGF specifically inhibited basal and yTGF-&#x3B2;-induced type-I collagen and &#x3B1;-smooth muscle actin (&#x3B1;SMA) expression at both mRNA and protein levels. These effects were prevented by inhibition of either the EGF receptor kinase or its downstream MEK kinase but not by blockade of either the JNK or PI3K pathway. Overexpression of a constitutively active MEK1 construct mimicked the inhibitory effect of EGF. Further, EGF suppressed Smad transcriptional activities, as shown by reduced activation of ARE-luc and SBE-luc. Both reductions were prevented by MEK inhibition. However, EGF did not block Smad2 or Smad3 phosphorylation by TGF-&#x3B2;, or Smad2/3 nuclear import. Finally EGF induced the phosphorylation and expression of TGIF, a known TGF-&#x3B2;/Smad repressor. Both the phosphorylation and the induction were blocked by a MEK inhibitor. Overexpression of TGIF abolished TGF-&#x3B2;-induced &#x3B1;SMA promoter activity. Together these results suggest that EGF inhibits two TGF-&#x3B2;-stimulated markers of EMT through EGF receptor tyrosine kinase and downstream ERK activation, but not through PI3K or JNK. The inhibition results from effector mechanisms downstream of Smads, and most likely involves the transcriptional repressor, TGIF.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>TGF-&#x3B2;</kwd>
+        <kwd>EGF</kwd>
+        <kwd>EMT</kwd>
+        <kwd>fibrosis</kwd>
+        <kwd>ERK</kwd>
+        <kwd>Smad2/3</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

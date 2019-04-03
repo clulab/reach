@@ -1,0 +1,878 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26983599</article-id>
+      <article-id pub-id-type="pmc">4794806</article-id>
+      <article-id pub-id-type="pii">srep23074</article-id>
+      <article-id pub-id-type="doi">10.1038/srep23074</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Metabolic role of dipeptidyl peptidase 4 (DPP4) in primary human (pre)adipocytes</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zille&#xDF;en</surname>
+            <given-names>Pia</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Celner</surname>
+            <given-names>Jennifer</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kretschmann</surname>
+            <given-names>Anita</given-names>
+          </name>
+          <xref ref-type="aff" rid="a2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pfeifer</surname>
+            <given-names>Alexander</given-names>
+          </name>
+          <xref ref-type="aff" rid="a2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rack&#xE9;</surname>
+            <given-names>Kurt</given-names>
+          </name>
+          <xref ref-type="aff" rid="a2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mayer</surname>
+            <given-names>Peter</given-names>
+          </name>
+          <xref ref-type="corresp" rid="c1">a</xref>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <aff id="a1"><label>1</label><institution>Federal Institute for Drugs and Medical Devices (BfArM)</institution>, 53175 Bonn, <country>Germany</country></aff>
+        <aff id="a2"><label>2</label><institution>Institute for Pharmacology and Toxicology, University of Bonn</institution>, 53105 Bonn, <country>Germany</country></aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1">
+          <label>a</label>
+          <email>peter.mayer@bfarm.de</email>
+        </corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>17</day>
+        <month>03</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>6</volume>
+      <elocation-id>23074</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>27</day>
+          <month>11</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>25</day>
+          <month>02</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2016, Macmillan Publishers Limited</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <copyright-holder>Macmillan Publishers Limited</copyright-holder>
+        <license xmlns:xlink="http://www.w3.org/1999/xlink" license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <!--author-paid-->
+          <license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Dipeptidyl peptidase 4 (DPP4) is the target of the gliptins, a recent class of oral antidiabetics. DPP4 (also called CD26) was previously characterized in immune cells but also has important metabolic functions which are not yet fully understood. Thus, we investigated the function of DPP4 in human white preadipocytes and adipocytes. We found that both cell types express DPP4 in high amounts; DPP4 release markedly increased during differentiation. In preadipocytes, lentiviral DPP4 knockdown caused significant changes in gene expression as determined by whole-genome DNA-array analysis. Metabolic genes were increased, e.g. PDK4 18-fold and PPAR&#x3B3;C1&#x3B1; (=PGC1&#x3B1;) 6-fold, and proliferation-related genes were decreased (e.g. FGF7 5-fold). These effects, contributing to differentiation, were not inhibited by the PPAR&#x3B3; antagonist T0070907. Vice versa, the PPAR&#x3B3; agonist pioglitazone induced a different set of genes (mainly FABP4). DPP4 knockdown also affected growth factor signaling and, accordingly, retarded preadipocyte proliferation. In particular, basal and insulin-induced ERK activation (but not Akt activation) was markedly diminished (by around 60%). This indicates that DPP4 knockdown contributes to adipocyte maturation by mimicking growth factor withdrawal, an early step in fat cell differentiation. In mature adipocytes, DPP4 becomes liberated so that adipose tissue may constitute a relevant source of circulating DPP4.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <p>Diabetes mellitus is a major health problem in the 21<sup>st</sup> century world-wide and hence, there is a growing line of antidiabetic drugs and therapies<xref ref-type="bibr" rid="b1">1</xref><xref ref-type="bibr" rid="b2">2</xref>. Gliptins, small molecular inhibitors of the peptidase DPP4 (dipeptidyl peptidase 4), were developed recently as a new class of antidiabetic drugs. DPP4 degrades incretin peptides (e.g. GLP1) and is widely known for its regulatory effect in glucose metabolism<xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b4">4</xref>. Findings in DPP4 knockout mice revealed that absence of this enzyme improves glycemic control and leads to reduced fat mass<xref ref-type="bibr" rid="b5">5</xref><xref ref-type="bibr" rid="b6">6</xref>. This made DPP4 inhibitors promising candidates for treating human Type 2 diabetes. Inhibition of the enzymatic activity of DPP4 prevents the rapid cleavage of incretins and as a consequence, higher endogenous incretin levels are obtained which enhance the glucose-induced insulin secretion. This so-called incretin-like effect is responsible for approximately 60% of postprandial insulin secretion<xref ref-type="bibr" rid="b7">7</xref>. DPP4 is a ubiquitous glycoprotein and occurs as a cell membrane bound protein as well as in a soluble, extracellular form<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b9">9</xref>. It is well established that DPP4 has multiple functions<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b10">10</xref>, which raises concerns of unexpected off-target effects of gliptins. Changes in the peptidase activity or enzyme concentration were described to be associated among others with obesity, diabetes and neurologic and inflammatory diseases<xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref>. Beside of cleaving several substrates (e.g. chemokines, neuropeptides, growth factors<xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref><xref ref-type="bibr" rid="b13">13</xref>), there is evidence of non-enzymatic functions by interaction with ADA (adenosine deaminase) and other matrix proteins or by immunological mechanisms<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref>. In addition, DPP4 was originally identified as CD26 antigen on lymphocytes so that an immunological role of this gene product was assumed<xref ref-type="bibr" rid="b16">16</xref>. Therefore, concerns about potential unintended immunosuppressive effects were expressed. Meanwhile, DPP4 is discussed as a potential link between obesity and the metabolic syndrome or insulin resistance<xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b19">19</xref>. DPP4 was suggested to be a new adipokine, involving the adipose tissue as a possible source for the circulating DPP4 activity in the plasma, which is relevant for GLP1 degradation, suggesting that DPP4/CD26 could play a major role in metabolism.</p>
+    <p>The adipose tissue as a major endocrine and energy storage organ plays an important role in metabolic systems and insulin action<xref ref-type="bibr" rid="b20">20</xref><xref ref-type="bibr" rid="b21">21</xref><xref ref-type="bibr" rid="b22">22</xref> and is already a target for another class of antidiabetics, the glitazones. The latter, being PPAR&#x3B3;-agonists, lead to enhanced insulin sensitivity, accompanied by an increased differentiation and fat accumulation. However, the role of DPP4 in human adipose tissue is currently unclear. Furthermore, recent animal studies with DPP4 inhibitors support the notion that DPP4 may play a functional role within adipose tissue, because DPP4 inhibition has been seen to prevent adipose tissue inflammation and development of glucose intolerance in high fat diet induced obesity in mice<xref ref-type="bibr" rid="b23">23</xref>. Based on these considerations, we aimed to gain more insight in the role of DPP4 in primary cultured human white preadipocytes and adipocytes.</p>
+    <sec disp-level="1">
+      <title>Results</title>
+      <sec disp-level="2">
+        <title>Expression and release of DPP4 in human white (pre)adipocytes</title>
+        <p>In order to examine the role of DPP4 in the human adipose tissue, we first measured the expression of this enzyme in primary human white adipocytes at mRNA and protein level during differentiation. Mature adipocytes were obtained by <italic>in-vitro</italic> differentiation of primary cultured preadipocytes, following the protocol described in the Methods section. DPP4 mRNA was expressed in preadipocytes (i.e. Day 0 of differentiation) and mature adipocytes (up to Day 21 of differentiation) at comparable levels (<xref ref-type="fig" rid="f1">Fig. 1A</xref>). There was a brief dip in DPP4 expression at Days 3 to 9 of differentiation (Day 0, switch to differentiation medium) but there were no major long-term changes.</p>
+        <p>Comparison of DPP4 expression level in preadipocytes and adipocytes with various other human tissues (<xref ref-type="fig" rid="f1">Fig. 1B</xref>) revealed that preadipocytes and mature adipocytes express 4<sup>th</sup> and 6<sup>th</sup> highest level of DPP4, respectively (highlighted in <xref ref-type="fig" rid="f1">Fig. 1B</xref>).</p>
+        <p>DPP4 protein weakly increased with differentiation as revealed by Western blotting and consecutive densitometric quantification (<xref ref-type="fig" rid="f1">Fig. 1C</xref>), but statistical significance was not reached.</p>
+        <p>In order to test whether (pre)adipocytes could be a source of soluble DPP4, we analyzed cell culture supernatants, collected at different time points of differentiation, by ELISA (<xref ref-type="fig" rid="f1">Fig. 1D</xref>). Preadipocytes liberated DPP4 to a low extent only (around 1&#x2009;ng/ml), but DPP4 release markedly increased during differentiation. Mature adipocytes released up to 11-times more DPP4 than non-differentiated cells. A linear regression analysis revealed statistical significance. It should be noted that DPP4 is not stored in vesicles before release (instead, the extracellular part of this membrane protein is cleaved off) so that cellular DPP4 content does not need to increase when liberation of DPP4 increases.</p>
+        <p>In a next step, we questioned which events could influence DPP4 release. Cellular triglyceride content was a candidate because triglyceride storage and liberation is a prominent function of adipocytes. In order to change the triglyceride content of the cultured adipocytes, we induced lipolysis by treatment with the cAMP-mimetics forskolin (10&#x2009;&#x3BC;M) or DBcAMP (100&#x2009;&#x3BC;M) for 24&#x2009;h (<xref ref-type="fig" rid="f1">Fig. 1E</xref>). Triglyceride degradation was verified by measuring the increase of glycerol content in the cell culture supernatants. DPP4 release was measured by ELISA 24&#x2009;h after induction of lipolysis. Leptin secretion was also determined for comparison. It turned out that leptin secretion was significantly reduced following lipolysis whereas no influence on DPP4 release was detected (<xref ref-type="fig" rid="f1">Fig. 1E</xref>).</p>
+        <p>For further characterization, we determined the intracellular localization of DPP4 protein in preadipocytes. Western blotting following cell fractionation revealed a strong DPP4 signal in the membrane fraction (<xref ref-type="fig" rid="f1">Fig. 1F</xref>). The cytosolic fraction showed several weak bands, probably due to unspecific binding of the antibody. No signal could be detected in the nucleus and in the cytoskeleton. In accordance with this observation, detection of DPP4 protein in preadipocytes by immunofluorescence with z-stack analysis (<xref ref-type="fig" rid="f1">Fig. 1G</xref>) revealed DPP4 (green signal) localization primarily in the outer cell regions, i.e. in a typical appearance of membrane proteins.</p>
+        <p>Taken together, DPP4 is expressed in preadipocytes and adipocytes, is located primarily in the cell membrane from which it becomes increasingly released during maturation.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Gene expression profile after DPP4 knockdown</title>
+        <p>As described above, DPP4 was highly expressed in preadipocytes but was hardly released from these cells. This implies a different function of DPP4 in preadipocytes as compared to mature adipocytes. For closer investigation, we produced preadipocytes with a stable knockdown of DPP4 expression, achieved by lentiviral shRNA (see Methods section). Successful lentiviral transduction was verified with a GFP construct (<xref ref-type="supplementary-material" rid="S1">Supplementary Figure S1A</xref>). Unspecific effects of the lentiviral vector were excluded by using a non-targeting shRNA (&#x201C;sh-control&#x201D; or &#x201C;SHc&#x201D;) as negative control in each experiment. Furthermore, two other independent shRNA constructs, also directed against DPP4, were tested and found to induce the same set of genes (<xref ref-type="supplementary-material" rid="S1">Supplementary Figure S1B</xref>). Knockdown of DPP4 was verified at mRNA (<xref ref-type="fig" rid="f2">Fig. 2A</xref>) and protein level (<xref ref-type="fig" rid="f2">Fig. 2B</xref>).</p>
+        <p>No clear hints were available what the function of DPP4 in preadipocytes could be so that we started our study with a screen for changes in gene expression using a whole genome oligo microarray (Agilent). A heat map of four replicate experiments visualizing genes that were altered at least 5-fold is shown in <xref ref-type="fig" rid="f2">Fig. 2C</xref>. Salient genes, altered at least two-fold and forming functional clusters are listed in <xref ref-type="table" rid="t1">Table 1</xref>. The most pronounced changes were found in genes involved in lipid metabolism (with an up-regulation in most cases) and in some proliferation related genes (down-regulated in most cases) as summarized in <xref ref-type="table" rid="t1">Table 1</xref>. For example, a 5- to 24-fold up-regulation of FABP4, PDK4 and PPAR&#x3B3;C1&#x3B1; was observed.</p>
+        <p>The transcription factor C/EBP&#x3B5;, a relative of C/EBP&#x3B1; and C/EBP&#x3B2;, was induced 20-fold. C/EBP&#x3B1; and C/EBP&#x3B2; are known to be involved in adipocyte differentiation. C/EBP&#x3B5; was initially detected in lymphoid and myeloid cells based on its structural similarity to C/EBP&#x3B1; and C/EBP&#x3B2;<xref ref-type="bibr" rid="b24">24</xref>, and is assumed to regulate their differentiation<xref ref-type="bibr" rid="b25">25</xref>. The function of C/EBP&#x3B5; in preadipocytes is unknown but, due to its structural similarity, C/EBP&#x3B5; could mimic the effects of C/EBP&#x3B1; and/or C/EBP&#x3B2;. Other transcription factors were also increased, such as members of the KLF family (e.g. KLF15, &#x2212;5, &#x2212;2). Among the genes induced or suppressed at least twofold, four functional clusters became obvious (<xref ref-type="table" rid="t1">Table 1</xref>), namely lipid metabolism, proliferation, structural genes including cell-cell contact and cell migration.</p>
+        <p>Representative metabolic and proliferative genes were selected for further investigation by quantitative PCR. We studied the time course of expression and the interaction with other agents known to be involved in adipocyte differentiation. The time course of PPAR&#x3B3;C1&#x3B1; and PDK4 expression after knockdown is shown in <xref ref-type="fig" rid="f2">Fig. 2D</xref>. A marked increased in expression was already detected on Day 3 (4-fold for PPAR&#x3B3;C1&#x3B1; and 5-fold for PDK4), and expression further increased up to 27-fold for PPAR&#x3B3;C1&#x3B1; and 116-fold for PDK4 on Day 12. Thus, the effect was persistent over time. Although these experiments showed that the changes in gene expression are stronger at Day 12 after infection than at Day 3, most experiments were performed at Day 3 or Day 4 after infection to avoid the need of puromycin selection (see Methods section), which could introduce unspecific effects.</p>
+        <p>The gene PPAR&#x3B3;C1&#x3B1;, also known as PGC1&#x3B1;, is a transcription regulator and appears to have a crucial role in cellular energy metabolism, in particular in mitochondrial biogenesis<xref ref-type="bibr" rid="b26">26</xref>. Therefore we confirmed its up-regulation also on the protein level by Western blotting (<xref ref-type="fig" rid="f2">Fig. 2E</xref>).</p>
+        <p>DPP4 is a multifunctional protein which actions beyond peptidase activity. Thus, we tested whether the observed effects by the knockdown could be due to the peptidase activity. The latter can be inhibited by sitagliptin (10&#x2009;&#x3BC;M). No effect of sitagliptin on the expression of the genes responsive to DPP4 knockdown was observed (not shown). This indicates that a non-peptidase function of DPP4 is responsible for the observed regulation of gene expression.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Comparison of DPP4 knockdown with PPAR&#x3B3; effects</title>
+        <p>The alterations in gene expression induced by DPP4 knockdown imply that the latter contributes to the differentiation of the preadipocytes as outlined above. A well-established inducer of adipocyte differentiation is the transcription factor PPAR&#x3B3;<xref ref-type="bibr" rid="b27">27</xref>. Therefore, we asked whether the effects of DPP4 knockdown described above could be mediated by PPAR&#x3B3;. We compared the effects of DPP4 knockdown with the effects of treatment with the PPAR&#x3B3; agonist pioglitazone (100&#x2009;&#x3BC;M for 72&#x2009;h, <xref ref-type="fig" rid="f3">Fig. 3A</xref>). The sets of genes that were induced by DPP4 knockdown and pioglitazone treatment, respectively, were similar since both sets were indicative for adipocyte differentiation. However, there were marked differences. A main feature of the pioglitazone effect was the strong induction of FABP4. With DPP4 knockdown, FABP4 induction was much weaker. In contrast, DPP4 knockdown strongly and consistently induced PPAR&#x3B3;C1&#x3B1; and APOE which were hardly affected by pioglitazone (<xref ref-type="fig" rid="f3">Fig. 3A</xref>). Furthermore, expression of the growth factor FGF7 was suppressed by DPP4 knockdown but was not affected by pioglitazone. For further confirmation of independent actions of DPP4 and PPAR&#x3B3;, we employed the PPAR&#x3B3; antagonist T0070907 (10&#x2009;&#x3BC;M). The changes in gene expression were similar with DPP4 knockdown alone and with DPP4 knockdown plus T0070907 (<xref ref-type="fig" rid="f3">Fig. 3A</xref>). Thus, T0070907 did not alter the gene expression induced by DPP4 knockdown.</p>
+        <p>A further difference between the action of DPP4 knockdown and PPAR&#x3B3; activation was revealed by determining lipid accumulation. Lipid droplets (marked by arrows in the figure) were observed after pioglitazone stimulation but not after DPP4 knockdown (<xref ref-type="fig" rid="f3">Fig. 3B</xref>).</p>
+        <p>T0070907 alone had no major effects on the DPP4 knockdown expression profile except for some up-regulation of PDK4 (<xref ref-type="fig" rid="f3">Fig. 3C</xref>, right group of bars). In order to confirm that T0070907 had no unspecific effects (i.e. actions beyond PPAR&#x3B3; inhibition) we compared the effect of T0070907 on gene expression with the effect of PPAR&#x3B3; knockdown (<xref ref-type="fig" rid="f3">Fig. 3C</xref>, mid group of bars). Overall, the pattern was similar except for an up-regulation of PLIN1 by PPAR&#x3B3; knockdown but not by T0070907 treatment.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Effect of DPP4 knockdown in later stages of differentiation</title>
+        <p>DPP4 knockdown elicited changes in gene expression in preadipocytes. Thus, we investigated the effect of DPP4 knockdown also in later stages of adipocyte maturation. Preadipocytes stably transduced with DPP4 shRNA were differentiated according to the standard protocol (see Methods section), and the expression of the genes of interest was studied by RT-PCR at Days 0, 6 and 12 of differentiation (<xref ref-type="fig" rid="f4">Fig. 4</xref>). For comparison, the differentiation protocol was also performed with cells expressing non-target control shRNA.</p>
+        <p>Compared to Day 0 of differentiation, the effect of DPP4 knockdown diminished during differentiation despite DPP4 mRNA remained suppressed. At Day 0 of differentiation (i.e. before switching the cells to differentiation medium), the expression rates of the genes shown were higher (or lower in case of FGF7) in DPP4 knockdown cells compared to sh-control cells. The differentiation process caused an increase of the metabolic genes (FABP4, PDK4, PPAR&#x3B3;C1&#x3B1;, PLIN1 and APOE). This effect was more pronounced in the sh-control cells so that after differentiation (Day 12) the expression levels of these metabolic genes were virtually identical in the DPP4 knockdown and in the sh-control cells (<xref ref-type="fig" rid="f4">Fig. 4</xref>). The growth factor FGF7 was decreased in preadipocytes in response DPP4 knockdown, but also for this gene the expression levels became similar in DPP4 knockdown and sh-control cells after differentiation (<xref ref-type="fig" rid="f4">Fig. 4</xref>).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Effect of DPP4 knockdown on intracellular signaling</title>
+        <p>For closer investigation of the mechanisms by which DPP4 knockdown exerts the described effects on gene expression, we studied the activation of protein kinase signaling pathways (<xref ref-type="fig" rid="f5">Fig. 5</xref>). Growth factor withdrawal is the first step of adipocyte differentiation <italic>in vitro</italic>, and it was reported that <italic>in vivo</italic> an autocrine EGF-related growth factor, Pref-1, prevents differentiation via activation of ERK<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b29">29</xref>. In cultured preadipocytes we observed a basal activity of the ERK pathway, measured as phosphorylated ERK (pERK) by Western blotting. Preadipocytes express insulin receptors (<xref ref-type="fig" rid="f5">Fig. 5A</xref>); insulin receptor expression was not influenced by DPP4 knockdown. ERK phosphorylation was markedly enhanced by stimulation with insulin (100&#x2009;nM for 10&#x2009;min). After knockdown of DPP4, insulin-induced ERK phosphorylation was significantly weaker (<xref ref-type="fig" rid="f5">Fig. 5A</xref>; densitometric quantification in <xref ref-type="fig" rid="f5">Fig. 5B</xref>). In contrast, activation of the pAkt pathway by insulin was not diminished after DPP4 knockdown (<xref ref-type="fig" rid="f5">Fig. 5A,B</xref>). Thus, DPP4 knockdown selectively attenuated the growth factor-like signaling of insulin.</p>
+        <p>In line with the described effects on growth factor signaling, DPP4 knockdown prevented further proliferation of the preadipocytes as measured by cell counting over time (<xref ref-type="fig" rid="f5">Fig. 5C</xref>).</p>
+        <p>Taken together, DPP4 knockdown in preadipocytes diminished the ability of insulin and probably other growth factors to activate the ERK signaling pathway. This mimics growth factor withdrawal, leads to growth arrest and could thereby contribute to initiate the first step of differentiation.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Discussion</title>
+      <p>The various functions of DPP4 have been widely discussed, among others in the fields of immunology, (neuro-)endocrinology and glucose homeostasis<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b10">10</xref>. However, the role of DPP4 in human adipose tissue is still unclear. Our results now revealed a strong expression of this gene in human white preadipocytes and adipocytes and revealed a possible contribution of DPP4 to the adipocyte differentiation process. Furthermore, mature adipocytes were identified as a potential source of circulating DPP4.</p>
+      <p>Adipocyte maturation is a complex process and involves several different mediators and signaling pathways<xref ref-type="bibr" rid="b30">30</xref><xref ref-type="bibr" rid="b31">31</xref><xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b33">33</xref>. Among these are the two master regulators PPAR&#x3B3; and the C/EBP family<xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b34">34</xref>. Our knockdown experiments revealed changes in the expression of functional gene clusters indicative for adipocyte differentiation.</p>
+      <p>Investigation of signaling pathways identified a potential mechanism by which DPP4 knockdown could contribute to differentiation. It became obvious that basal and insulin-induced ERK phosphorylation was attenuated. In contrast, activation of the Akt pathway by insulin was not affected, arguing for a selective action of DPP4 on growth factor signaling via ERK.</p>
+      <p>It should be noted that insulin probably has a dual role in respect to adipocyte differentiation<xref ref-type="bibr" rid="b32">32</xref>. On one hand, insulin promotes differentiation and is a component of the differentiation medium. For this effect activation of the pAkt signaling pathway appears to be relevant. On the other hand, by activation of ERK insulin behaves like a growth factor and may thereby counteract the onset of differentiation. The role of ERK in adipocyte differentiation is not fully clear<xref ref-type="bibr" rid="b32">32</xref>, but in the case of the EGF-related growth factor Pref-1, which acts on preadipocytes in an autocrine way, it was clearly shown that ERK activation by Pref-1 prevents differentiation<xref ref-type="bibr" rid="b28">28</xref><xref ref-type="bibr" rid="b29">29</xref>.</p>
+      <p>The effects of DPP4 knock-down were not influenced by inhibition of PPAR&#x3B3;, an important player in adipocyte maturation but acting at a later stage of this process. Accordingly, the set of genes induced by DPP4 knockdown differed from the set induced by PPAR&#x3B3;. The action of DPP4 at an early step in the differentiation process also explains why DPP4 knockdown, in contrast to PPAR&#x3B3; activation, did not promote triglyceride accumulation because the latter most likely is a late event in adipocyte maturation.</p>
+      <p>Beside of metabolic genes, genes encoding extracellular matrix proteins and proteins being involved in cell-cell interaction and migration were altered by DPP4 knockdown. A link between the extracellular matrix composition and the differentiation competence involving the action of matrix metalloproteinases (MMPs) was described already<xref ref-type="bibr" rid="b33">33</xref>. Moreover, a role for DPP4 in the modulation of the extracellular matrix could be shown in different studies<xref ref-type="bibr" rid="b35">35</xref>.</p>
+      <p>In accordance with our findings, a recent publication by Han <italic>et al</italic>.<xref ref-type="bibr" rid="b36">36</xref> identified other members of the DPP4 family, DPP8 and DPP9, as players in adipocyte differentiation. This group used a permanent mouse cell line (3T3-L1), and in contrast to the effects of DPP4 observed in our work, blocking or knockdown of DPP8 and DPP9 inhibited differentiation with involvement of PPAR&#x3B3;.</p>
+      <p>One strongly induced gene in response to DPP4 knockdown was PPA&#x3A1;&#x3B3;C1&#x3B1;. This gene, also known as PGC1&#x3B1;, is related to mitochondrial function and it is necessary for brown fat development<xref ref-type="bibr" rid="b26">26</xref><xref ref-type="bibr" rid="b37">37</xref>. It acts as a master regulator of mitochondrial biogenesis in mammals and therefore participates in energy balance. However, other genes characteristic for brown or &#x201C;beige&#x201D; fat cells, such as UCP1<xref ref-type="bibr" rid="b37">37</xref><xref ref-type="bibr" rid="b38">38</xref>, were not increased.</p>
+      <p>In line with previous studies, we detected increased DPP4 protein expression and release in a maturation-dependent way<xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b39">39</xref>. This was also observed during monocyte differentiation to dendritic cells<xref ref-type="bibr" rid="b14">14</xref>. However, in our study adipocyte maturation predominantly affected DPP4 liberation; DPP4 expression changed only to a minor extent. This is in contrast to findings by Das <italic>et al</italic>.<xref ref-type="bibr" rid="b39">39</xref> in the mouse cell line 3T3-L1 where a strong increase in DPP4 protein expression during adipocyte differentiation was observed. We could hardly measure a DPP4 release in the supernatants from preadipocytes but observed a marked increase during adipogenesis, pointing to DPP4 release as an important function of mature adipocytes. This is in line with the recently recognized role of the adipose tissue as an endocrine organ<xref ref-type="bibr" rid="b21">21</xref>. The mechanism underlying increasing DPP4 release during maturation is not clear, and as it is not yet established which factors trigger DPP4 release. Another prominent adipokine, leptin, becomes released in dependence of the adipocyte triglyceride content. No such dependency was observed for DPP4.</p>
+      <p>Taken together, DPP4 was found to be highly expressed in adipose cells, and its knockdown contributes to differentiation of human preadipocytes, obviously at an early stage and in a PPAR&#x3B3;-independent way. In preadipocytes DPP4 appears to play a different role than in mature adipocytes where it becomes released and thereby can influence glucose metabolism via incretin (e.g. GLP1) cleavage.</p>
+    </sec>
+    <sec disp-level="1">
+      <title>Methods</title>
+      <sec disp-level="2">
+        <title>Cell culture</title>
+        <p>Primary human preadipocytes from subcutaneous adipose tissue were commercially obtained from PromoCell (Heidelberg, Germany) and Zen-Bio (Durham, NC, USA). They were cultured according to the manufacturer&#x2019;s protocol and using media obtained from PromoCell. Differentiation was induced at confluent stages (Day 0) by a medium containing d-biotin (8&#x2009;&#x3BC;g/ml), dexamethasone (400&#x2009;ng/ml), 3-isobutyl-1-methylxanthin (44&#x2009;&#x3BC;g/ml), insulin (0.5&#x2009;&#x3BC;g/ml), L-thyroxine (9&#x2009;ng/ml) and pioglitazone (4&#x2009;&#x3BC;g/ml) for 3 days, followed by cultivation in d-biotin (8&#x2009;&#x3BC;g/ml), dexamethasone (400&#x2009;ng/ml), insulin (0.5&#x2009;&#x3BC;g/ml), 3% FCS and pioglitazone (4&#x2009;&#x3BC;g/ml) until termination of the experiment. Cells from 5 female subjects (aged 28&#x2013;58) were used for the experiments, with at least two different donors for key experiments.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Lentiviral knockdown</title>
+        <p>Stable knockdown (KD) of the DPP4 or PPAR&#x3B3; expression was achieved by lentiviral shRNA constructs directed against DPP4 or PPAR&#x3B3;. Lentiviral plasmid vectors containing the shRNA constructs (pLKO.1-U6-sh-NM935-PGK-Puro, pLKO.1-U6-sh-NM712-PGK-Puro and the controls pLKO.1-U6-sh-ctl-PGK-Puro und pLKO.1-CMV-GFP-PGK-Puro) were obtained from Sigma Life Science (St. Louis, MO, USA). Generation of lentiviral particles was performed as described previously<xref ref-type="bibr" rid="b40">40</xref>. In brief, human embryonic kidney (HEK293T, ATCC, Wesel, Germany) packaging cells were seeded in Dulbecco&#x2019;s Modified Eagle Medium (DMEM; Gibco, Darmstadt, Germany) on Poly-L-lysin coated 150&#x2009;mm<sup>2</sup> dishes.</p>
+        <p>For transduction, human primary preadipocytes were seeded with a confluence of 30&#x2013;40%. Within 24&#x2009;h, cell medium was renewed containing polybrene (3&#x2009;&#x3BC;g/ml, Santa Cruz Biotechnology, Santa Cruz, CA, USA) and 150&#x2009;ng (per 6 well) or 20&#x2013;35&#x2009;ng reverse transcriptase (per 24 well) virus particles. The GFP expression vector pLKO.1-CMV-GFP-PGK-Puro was used to optimize the transduction protocol, and pLKO.1-U6-sh-ctl-PGK-Puro (&#x201C;sh-control&#x201D; or &#x201C;SHc&#x201D; for short) was included in each experiment to correct for effects due to the infection process itself. In order to avoid overgrowth by residual untransduced cells in longer-term experiments (&gt;4 days), a selection step with 5&#x2009;&#x3BC;g/ml puromycin for 72&#x2009;hours (Santa Cruz Biotechnology, Santa Cruz, CA, USA) was performed starting 3 days after infection.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>RNA Extraction and Real-Time PCR</title>
+        <p>Cells were harvested with lysis buffer from the RNeasy Total RNA Extraction Kit (Qiagen, Hilden, Germany), and RNA was isolated according to the manufacturer&#x2019;s protocol. Complementary DNA was synthesized using Reverse Transcriptase Kit (Roche, Mannheim, Germany). Real-Time PCR reactions were performed with the LightCycler SYBR Green Master mix (Roche, Mannheim, Germany) on a Roche LightCycler 480 instrument with denaturation for 10&#x2009;s at 95&#x2009;&#xB0;C and annealing/extension for 105&#x2009;s at 72&#x2009;&#xB0;C. The nucleotide sequences of the PCR primers used are given in <xref ref-type="table" rid="t2">Table 2</xref>. The expression levels of the target mRNAs were determined by the crossing point (CP) method. The results were corrected for primer efficiency and normalized to the housekeeping gene glyceraldehyde-3-phosphate dehydrogenase (GAPDH).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>DNA Array Hybridization</title>
+        <p>Cells were harvested with lysis buffer as described above to extract total RNA. Quality of RNA was controlled by the Agilent 2100 Bioanalyzer platform (Agilent Technologies, Santa Clara, CA, USA); RNA Integrity Number (RIN) was between 9.8 and 10. Amplification and labelling (Cy3 and Cy5) were performed using the Low RNA Input Linear Amp Kit (Agilent Technologies, Santa Clara, CA, USA). Hybridization was conducted on Agilent Whole Genome Oligo (60-mer) 4&#x2009;&#xD7;&#x2009;44K microarrays with the Agilent Gene Expression Hybridization Kit. Agilent&#x2019;s feature extraction Software was used to determine spot intensities and Cy5/Cy3 ratios after background subtraction with ratios displaying the expression level in KD compared to control in a logarithmic scale. Mean fold changes were calculated from four replicate measurements. The heat map was created by Gene Spring Software (Agilent Technologies, Santa Clara, CA, USA).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Western blotting</title>
+        <p>Cells were cultured in a 6-well dish and harvested for the experiments or, for signaling experiments, incubated in a serum-free basal medium for 24&#x2009;h. For analyzing signaling pathways, the latter were activated by treatment with 100&#x2009;nM insulin (Sigma-Aldrich, Steinheim, Germany) for 10&#x2009;min. After washing the cells with ice-cold PBS, cellular proteins were extracted with either RIPA lysis buffer (Cell Signaling Technology, Danvers, MA, USA) containing Protease Inhibitor Cocktail (Roche, Mannheim, Germany) and PMSF (Sigma-Aldrich, Steinheim, Germany) for standard Western blotting and signaling experiments or with lysis buffer from Qiagen (Hilden, Germany) for protein fractionation. The latter was performed according to the Qproteome Cell Compartment KIT protocol. For SDS-PAGE, 10&#x2013;30&#x2009;&#x3BC;g protein were loaded on a gradient 4&#x2013;15% polyacrylamide gel in a reducing buffer (Roth, Karlsruhe, Germany). Separated proteins were transferred to a PVDF membrane (Bio-Rad, Munich, Germany) in a tank blotting apparatus (Bio-Rad, Munich, Germany). Blots were blocked in tris-buffered saline containing 0,1% Tween and 5% dried milk protein and incubated over night with anti-DPP4 (1:1000; Abnova, Taipei, Taiwan), anti-PGC1&#x3B1; (1:1000; Cell Signaling Technology, Danvers, MA, USA) or an antibody against the insulin receptor &#x3B2; subunit (CT-3, 1:300, Santa Cruz Biotechnology, Santa Cruz, CA, USA) followed by anti-&#x3B1;-actinin (1:1000; Santa Cruz Biotechnology, Santa Cruz, CA, USA) antibody overnight at 4&#x2009;&#xB0;C. HRP-coupled secondary antibodies were from Cell Signaling Technology (Danvers, MA, USA); chemiluminescence signals were detected by chemiluminescent reagent (ECL; Thermo Scientific, Rockford, IL, USA). For signaling experiments, the phosphoproteins were detected by anti-pAkt (Ser473; 1:1000; Cell Signaling Technology, Danvers, MA, USA) or by anti-pERK (Thr202/Tyr204; 1:500; Cell Signaling Technology, Danvers, MA, USA) and secondary anti-mouse antibodies (Dianova, Hamburg, Germany). Furthermore, antibodies against total Akt (1:1000; Cell Signaling Technology, Danvers, MA, USA) or ERK (1:1000; Cell Signaling Technology, Danvers, MA, USA) with secondary anti-rabbit IgG antibodies were used. Quantification of the ECL-developed bands was performed by densitometric analysis with ImageJ software. The optical density was normalized to the loading control.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Elisa</title>
+        <p>Release of DPP4 or leptin from human primary adipocytes were detected in the cell culture supernatants by ELISA (R&amp;D Systems, Wiesbaden, Germany). Cells were cultured in either growth or differentiation media. After renewal of media, cells were further incubated for 24&#x2009;h and finally, cell supernatants were collected for analysis. The assays were performed according to the manufacturer&#x2019;s protocol and measured in a microplate reader (Dynex, Chantilly, VA, USA) against a standard curve.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Oil Red O Staining</title>
+        <p>Preadipocytes were treated with either 10&#x2009;&#x3BC;M pioglitazone for 10 days or lentiviral particles according to our standard protocol (see respective subsection). For Oil Red O staining, cells were washed in phosphate buffered saline (PBS) and fixed with 4% paraformaldehyde at 4&#x2009;&#xB0;C for 1&#x2009;h. Subsequently, cells were washed again and incubated with 3&#x2009;mg/ml Oil Red O solution (Sigma, Steinheim, Germany) for 1&#x2009;h at room temperature. Finally, the staining solution was replaced by aqua dest., and evaluation of the lipid droplets was done by light microscopy (Leica Microsystems, Wetzlar, Germany).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Immunofluorescence</title>
+        <p>For detection of DPP4 by immunofluorescence, human preadipocytes were seeded on poly-L-lysin coated cover slips. Cells were washed in PBS and fixed with 4% paraformaldehyde at 4&#x2009;&#xB0;C for 1&#x2009;h. Blocking was done in a 0,1% BSA solution (Sigma-Aldrich, Steinheim, Germany) for 1&#x2009;h. The incubation with primary antibody anti-DPP4 (Abnova, Taipei, Taiwan) was performed in a 1:50 dilution overnight. Secondary antibody (Life Technologies, Darmstadt, Germany) was incubated in a 1:200 dilution for 90&#x2009;min. in the dark. Cells were counterstained with Texas Red Phalloidin (Life Technologies, Darmstadt, Germany) and the fluorescence signals were visualized on a laserscanning microscope (Zeiss, Jena, Germany) in a z-stack analysis.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Lipolysis</title>
+        <p>Mature adipocytes were washed in PBS and incubated in serum free medium for 24&#x2009;h. Then medium containing 10&#x2009;&#x3BC;M forskolin (Sigma-Aldrich, Steinheim, Germany) or vehicle DMSO was added. After 24&#x2009;h, cell culture supernatants were collected for analysis of leptin and DPP4 by ELISA. For confirmation of lipolysis, free glycerol was determined in the supernatant. To this end, free glycerol reagent (Sigma-Aldrich, Steinheim, Germany) was added to the supernatants and incubated for 3&#x2009;h at room temperature in the dark. Finally, absorption at 540&#x2009;nm was measured in an ELISA reader. A standard curve was obtained with ascending dilutions of glycerol in assay buffer.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Statistical analysis</title>
+        <p>All data are represented as means&#x2009;&#xB1;&#x2009;SEM. Determination of significant differences was done by Student <italic>t</italic> test, linear regression analysis or between groups by ANOVA followed by Dunnett post-test. Samples were normalized against controls by inclusion of a baseline correction. Statistical analyses were performed by Graph Pad Prism Software (Graph Pad Software, La Jolla, CA, USA).</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Additional Information</title>
+      <p><bold>How to cite this article</bold>: Zille&#xDF;en, P. <italic>et al</italic>. Metabolic role of dipeptidyl peptidase 4 (DPP4) in primary human (pre)adipocytes. <italic>Sci. Rep.</italic>
+<bold>6</bold>, 23074; doi: 10.1038/srep23074 (2016).</p>
+      <p><bold>Accession codes</bold>: Gene chip data shown in <xref ref-type="fig" rid="f2">Fig. 2C</xref> were submitted to GEO database; the accession number is GSE75328.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="S1">
+      <title>Supplementary Material</title>
+      <supplementary-material id="d33e24" content-type="local-data">
+        <caption>
+          <title>Supplementary Information</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep23074-s1.doc"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>This work was supported by the Federal Institute for Drugs and Medical Devices (BfArM), Germany.</p>
+    </ack>
+    <ref-list>
+      <ref id="b1">
+        <mixed-citation publication-type="journal"><name><surname>Nicholson</surname><given-names>G.</given-names></name> &amp; <name><surname>Hall</surname><given-names>G. M.</given-names></name>
+<article-title>Diabetes mellitus: New drugs for a new epidemic</article-title>. <source>Br J Anaesth.</source>
+<volume>107</volume>, <fpage>65</fpage>&#x2013;<lpage>73</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21610015</pub-id></mixed-citation>
+      </ref>
+      <ref id="b2">
+        <mixed-citation publication-type="journal"><name><surname>Deacon</surname><given-names>C. F.</given-names></name>
+<article-title>Dipeptidyl peptidase-4 inhibitors in the treatment of type 2 diabetes: A comparative review</article-title>. <source>Diabetes, Obes. Metab.</source>
+<volume>13</volume>, <fpage>7</fpage>&#x2013;<lpage>18</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21114598</pub-id></mixed-citation>
+      </ref>
+      <ref id="b3">
+        <mixed-citation publication-type="journal"><name><surname>Drucker</surname><given-names>D. J.</given-names></name> &amp; <name><surname>Nauck</surname><given-names>M.</given-names></name>
+<article-title>The incretin system: glucagon-like peptide-1 receptor agonists and dipeptidyl peptidase-4 inhibitors in type 2 diabetes</article-title>. <source>Lancet</source>
+<volume>368</volume>, <fpage>1696</fpage>&#x2013;<lpage>705</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">17098089</pub-id></mixed-citation>
+      </ref>
+      <ref id="b4">
+        <mixed-citation publication-type="journal"><name><surname>Drucker</surname><given-names>D. J.</given-names></name>
+<article-title>Dipeptidyl Peptidase-4 Inhibition and the Treatment of Type 2 Diabetes</article-title>. <source>Diabetes Care</source>
+<volume>30</volume>, <fpage>1335</fpage>&#x2013;<lpage>1343</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17337495</pub-id></mixed-citation>
+      </ref>
+      <ref id="b5">
+        <mixed-citation publication-type="journal"><name><surname>Marguet</surname><given-names>D.</given-names></name>
+<etal/>. <article-title>Enhanced insulin secretion and improved glucose tolerance in mice lacking CD26</article-title>. <source>Proc. Natl. Acad. Sci. USA</source>
+<volume>97</volume>, <fpage>6874</fpage>&#x2013;<lpage>6979</lpage> (<year>2000</year>).<pub-id pub-id-type="pmid">10823914</pub-id></mixed-citation>
+      </ref>
+      <ref id="b6">
+        <mixed-citation publication-type="journal"><name><surname>Conarello</surname><given-names>S. L.</given-names></name>
+<etal/>. <article-title>Mice lacking dipeptidyl peptidase IV are protected against obesity and insulin resistance</article-title>. <source>Proc. Natl. Acad. Sci. USA</source>
+<volume>100</volume>, <fpage>6825</fpage>&#x2013;<lpage>6830</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12748388</pub-id></mixed-citation>
+      </ref>
+      <ref id="b7">
+        <mixed-citation publication-type="journal"><name><surname>Kazafeos</surname><given-names>K.</given-names></name>
+<article-title>Incretin effect: GLP-1, GIP, DPP4</article-title>. <source>Diabetes Res. Clin. Pract.</source>
+<volume>93</volume> (SUPPL. 1), <fpage>S32</fpage>&#x2013;<lpage>S36</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21864749</pub-id></mixed-citation>
+      </ref>
+      <ref id="b8">
+        <mixed-citation publication-type="journal"><name><surname>Lambeir</surname><given-names>A. M.</given-names></name>, <name><surname>Durinx</surname><given-names>C.</given-names></name>, <name><surname>Scharp&#xE9;</surname><given-names>S.</given-names></name> &amp; <name><surname>De Meester</surname><given-names>I.</given-names></name>
+<article-title>Dipeptidyl-peptidase IV from bench to bedside: an update on structural properties, functions, and clinical aspects of the enzyme DPP IV</article-title>. <source>Crit. Rev. Clin. Lab. Sci.</source>
+<volume>40</volume>, <fpage>209</fpage>&#x2013;<lpage>294</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12892317</pub-id></mixed-citation>
+      </ref>
+      <ref id="b9">
+        <mixed-citation publication-type="journal"><name><surname>Yazbeck</surname><given-names>R.</given-names></name>, <name><surname>Howarth</surname><given-names>G. S.</given-names></name> &amp; <name><surname>Abbott</surname><given-names>C.</given-names></name>
+<article-title>Dipeptidyl peptidase inhibitors, an emerging drug class for inflammatory disease?</article-title>
+<source>Trends Pharmacol. Sci.</source>
+<volume>30</volume>, <fpage>600</fpage>&#x2013;<lpage>607</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19837468</pub-id></mixed-citation>
+      </ref>
+      <ref id="b10">
+        <mixed-citation publication-type="journal"><name><surname>Gorrell</surname><given-names>M. D.</given-names></name>
+<article-title>Dipeptidyl peptidase IV and related enzymes in cell biology and liver disorders</article-title>. <source>Clin. Sci. (Lond.)</source>
+<volume>108</volume>, <fpage>277</fpage>&#x2013;<lpage>292</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15584901</pub-id></mixed-citation>
+      </ref>
+      <ref id="b11">
+        <mixed-citation publication-type="journal"><name><surname>Kaji</surname><given-names>K.</given-names></name>
+<etal/>. <article-title>Dipeptidyl peptidase-4 inhibitor attenuates hepatic fibrosis via suppression of activated hepatic stellate cell in rats</article-title>. <source>J. Gastroenterol.</source>
+<volume>49</volume>, <fpage>481</fpage>&#x2013;<lpage>491</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">23475323</pub-id></mixed-citation>
+      </ref>
+      <ref id="b12">
+        <mixed-citation publication-type="journal"><name><surname>Gorrell</surname><given-names>M. D.</given-names></name>, <name><surname>Gysbers</surname><given-names>V.</given-names></name> &amp; <name><surname>McCaughan</surname><given-names>G. W.</given-names></name>
+<article-title>CD26: A multifunctional integral membrane and secreted protein of activated lymphocytes</article-title>. <source>Scand. J. Immunol.</source>
+<volume>54</volume>, <fpage>249</fpage>&#x2013;<lpage>264</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11555388</pub-id></mixed-citation>
+      </ref>
+      <ref id="b13">
+        <mixed-citation publication-type="journal"><name><surname>Ussher</surname><given-names>J. R.</given-names></name> &amp; <name><surname>Drucker</surname><given-names>D. J.</given-names></name>
+<article-title>Cardiovascular biology of the incretin system</article-title>. <source>Endocr. Rev.</source>
+<volume>33</volume>, <fpage>187</fpage>&#x2013;<lpage>215</lpage> (<year>2012</year>).<pub-id pub-id-type="pmid">22323472</pub-id></mixed-citation>
+      </ref>
+      <ref id="b14">
+        <mixed-citation publication-type="journal"><name><surname>Zhong</surname><given-names>J.</given-names></name>
+<etal/>. <article-title>A potential role for dendritic cell/macrophage-expressing DPP4 in obesity-induced visceral inflammation</article-title>. <source>Diabetes</source>
+<volume>62</volume>, <fpage>149</fpage>&#x2013;<lpage>157</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">22936179</pub-id></mixed-citation>
+      </ref>
+      <ref id="b15">
+        <mixed-citation publication-type="journal"><name><surname>Zhong</surname><given-names>J.</given-names></name>, <name><surname>Rao</surname><given-names>X.</given-names></name> &amp; <name><surname>Rajagopalan</surname><given-names>S.</given-names></name>
+<article-title>An emerging role of dipeptidyl peptidase 4 (DPP4) beyond glucose control: Potential implications in cardiovascular disease</article-title>. <source>Atherosclerosis</source>
+<volume>226</volume>, <fpage>305</fpage>&#x2013;<lpage>314</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23083681</pub-id></mixed-citation>
+      </ref>
+      <ref id="b16">
+        <mixed-citation publication-type="journal"><name><surname>Fleischer</surname><given-names>B.</given-names></name>
+<article-title>CD26: A surface protease involved in T-cell activation</article-title>. <source>Immunol. Today</source>
+<volume>15</volume>, <fpage>180</fpage>&#x2013;<lpage>184</lpage> (<year>1994</year>).<pub-id pub-id-type="pmid">7911022</pub-id></mixed-citation>
+      </ref>
+      <ref id="b17">
+        <mixed-citation publication-type="journal"><name><surname>Sell</surname><given-names>H.</given-names></name>
+<etal/>. <article-title>Adipose dipeptidyl peptidase-4 and obesity: Correlation with insulin resistance and depot-specific release from adipose tissue <italic>in vivo</italic> and <italic>in vitro</italic></article-title>. <source>Diabetes Care</source>
+<volume>36</volume>, <fpage>4083</fpage>&#x2013;<lpage>4090</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">24130353</pub-id></mixed-citation>
+      </ref>
+      <ref id="b18">
+        <mixed-citation publication-type="journal"><name><surname>Lamers</surname><given-names>D.</given-names></name>
+<etal/>. <article-title>Dipeptidyl peptidase 4 is a novel adipokine potentially linking obesity to the metabolic syndrome</article-title>. <source>Diabetes</source>
+<volume>60</volume>, <fpage>1917</fpage>&#x2013;<lpage>1925</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21593202</pub-id></mixed-citation>
+      </ref>
+      <ref id="b19">
+        <mixed-citation publication-type="journal"><name><surname>Dunmore</surname><given-names>S. J.</given-names></name> &amp; <name><surname>Brown</surname><given-names>J. E.</given-names></name>
+<article-title>The role of adipokines in &#x3B2;-cell failure of type 2 diabetes</article-title>. <source>J. Endocrinol.</source>
+<volume>216</volume>, <fpage>T37</fpage>&#x2013;<lpage>T45</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">22991412</pub-id></mixed-citation>
+      </ref>
+      <ref id="b20">
+        <mixed-citation publication-type="journal"><name><surname>Scherer</surname><given-names>P. E.</given-names></name>
+<article-title>Adipose tissue: From lipid storage compartment to endocrine organ</article-title>. <source>Diabetes</source>
+<volume>55</volume>, <fpage>1537</fpage>&#x2013;<lpage>1545</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16731815</pub-id></mixed-citation>
+      </ref>
+      <ref id="b21">
+        <mixed-citation publication-type="journal"><name><surname>Romacho</surname><given-names>T.</given-names></name>, <name><surname>Elsen</surname><given-names>M.</given-names></name>, <name><surname>R&#xF6;hrborn</surname><given-names>D.</given-names></name> &amp; <name><surname>Eckel</surname><given-names>J.</given-names></name>
+<article-title>Adipose tissue and its role in organ crosstalk</article-title>. <source>Acta Physiol.</source>
+<volume>210</volume>, <fpage>733</fpage>&#x2013;<lpage>753</lpage> (<year>2014</year>).</mixed-citation>
+      </ref>
+      <ref id="b22">
+        <mixed-citation publication-type="journal"><name><surname>Rosen</surname><given-names>E. D.</given-names></name> &amp; <name><surname>Spiegelman</surname><given-names>B. M.</given-names></name>
+<article-title>Adipocytes as regulators of energy balance and glucose homeostasis</article-title>. <source>Nature</source>
+<volume>444</volume>, <fpage>847</fpage>&#x2013;<lpage>853</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">17167472</pub-id></mixed-citation>
+      </ref>
+      <ref id="b23">
+        <mixed-citation publication-type="journal"><name><surname>Dobrian</surname><given-names>A. D.</given-names></name>
+<etal/>. <article-title>Dipeptidyl peptidase IV inhibitor sitagliptin reduces local inflammation in adipose tissue and in pancreatic islets of obese mice</article-title>. <source>Am J Physiol Endocrinol Metab</source>
+<volume>300</volume>, <fpage>E410</fpage>&#x2013;<lpage>21</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21081706</pub-id></mixed-citation>
+      </ref>
+      <ref id="b24">
+        <mixed-citation publication-type="journal"><name><surname>Antonson</surname><given-names>P.</given-names></name>, <name><surname>Stellan</surname><given-names>B.</given-names></name>, <name><surname>Yamanaka</surname><given-names>R.</given-names></name> &amp; <name><surname>Xanthopoulos</surname><given-names>K. G.</given-names></name>
+<article-title>A novel human CCAAT/enhancer binding protein gene, C/EBP-epsilon, is expressed in cells of lymphoid and myeloid lineages and is localized on chromosome 14q11.2 close to the T-cell receptor alpha/delta locus</article-title>. <source>Genomics</source>
+<volume>35</volume>, <fpage>30</fpage>&#x2013;<lpage>38</lpage> (<year>1996</year>)<pub-id pub-id-type="pmid">8661101</pub-id></mixed-citation>
+      </ref>
+      <ref id="b25">
+        <mixed-citation publication-type="journal"><name><surname>Yamanaka</surname><given-names>R.</given-names></name>
+<etal/>. <article-title>CCAAT/enhancer binding protein epsilon is preferentially up-regulated during granulocytic differentiation and its functional versatility is determined by alternative use of promoters and differential splicing</article-title>. <source>Proc. Natl. Acad. Sci. USA</source>
+<volume>94</volume>, <fpage>6462</fpage>&#x2013;<lpage>6467</lpage> (<year>1997</year>)<pub-id pub-id-type="pmid">9177240</pub-id></mixed-citation>
+      </ref>
+      <ref id="b26">
+        <mixed-citation publication-type="journal"><name><surname>Puigserver</surname><given-names>P.</given-names></name> &amp; <name><surname>Spiegelman</surname><given-names>B. M.</given-names></name>
+<article-title>Peroxisome proliferator-activated receptor-&#x3B3; coactivator 1&#x3B1; (PGC-1&#x3B1;): Transcriptional coactivator and metabolic regulator</article-title>. <source>Endocr. Rev.</source>
+<volume>24</volume>, <fpage>78</fpage>&#x2013;<lpage>90</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12588810</pub-id></mixed-citation>
+      </ref>
+      <ref id="b27">
+        <mixed-citation publication-type="journal"><name><surname>Tontonoz</surname><given-names>P.</given-names></name> &amp; <name><surname>Spiegelman</surname><given-names>B. M.</given-names></name>
+<article-title>Fat and beyond: the diverse biology of PPARgamma</article-title>. <source>Annu. Rev. Biochem.</source>
+<volume>77</volume>, <fpage>289</fpage>&#x2013;<lpage>312</lpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18518822</pub-id></mixed-citation>
+      </ref>
+      <ref id="b28">
+        <mixed-citation publication-type="journal"><name><surname>Kim</surname><given-names>K. A.</given-names></name>, <name><surname>Kim</surname><given-names>J. H.</given-names></name>, <name><surname>Wang</surname><given-names>Y.</given-names></name> &amp; <name><surname>Sul</surname><given-names>H. S.</given-names></name>
+<article-title>Pref-1 (Preadipocyte Factor 1) Activates the MEK/Extracellular Signal-Regulated Kinase Pathway to Inhibit Adipocyte Differentiation</article-title>. <source>Mol. Cell. Biol.</source>
+<volume>27</volume>, <fpage>3480</fpage>&#x2013;<lpage>3492</lpage> (<year>2007</year>).</mixed-citation>
+      </ref>
+      <ref id="b29">
+        <mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>Y.</given-names></name>, <name><surname>Zhao</surname><given-names>L.</given-names></name>, <name><surname>Smas</surname><given-names>C.</given-names></name> &amp; <name><surname>Sul</surname><given-names>H. S.</given-names></name>
+<article-title>Pref-1 Interacts with Fibronectin to Inhibit Adipocyte Differentiation</article-title>. <source>Mol. Cell. Biol.</source>
+<volume>30</volume>, <fpage>2294</fpage>&#x2013;<lpage>2308</lpage> (<year>2010</year>).</mixed-citation>
+      </ref>
+      <ref id="b30">
+        <mixed-citation publication-type="journal"><name><surname>Farmer</surname><given-names>S. R.</given-names></name>
+<article-title>Transcriptional control of adipocyte formation</article-title>. <source>Cell Metab.</source>
+<volume>4</volume>, <fpage>263</fpage>&#x2013;<lpage>73</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">17011499</pub-id></mixed-citation>
+      </ref>
+      <ref id="b31">
+        <mixed-citation publication-type="journal"><name><surname>Mayer</surname><given-names>P.</given-names></name>, <name><surname>Haas</surname><given-names>B.</given-names></name>, <name><surname>Celner</surname><given-names>J.</given-names></name>, <name><surname>Enzmann</surname><given-names>H.</given-names></name> &amp; <name><surname>Pfeifer</surname><given-names>A.</given-names></name>
+<article-title>Glitazone-like action of glimepiride and glibenclamide in primary human adipocytes</article-title>. <source>Diabetes Obes. Metab.</source>
+<volume>13</volume>, <fpage>791</fpage>&#x2013;<lpage>799</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21477042</pub-id></mixed-citation>
+      </ref>
+      <ref id="b32">
+        <mixed-citation publication-type="journal"><name><surname>Rosen</surname><given-names>E. D.</given-names></name> &amp; <name><surname>MacDougald</surname><given-names>O. A.</given-names></name>
+<article-title>Adipocyte differentiation from the inside out</article-title>. <source>Nat. Rev. Mol. Cell. Biol.</source>
+<volume>7</volume>, <fpage>885</fpage>&#x2013;<lpage>896</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">17139329</pub-id></mixed-citation>
+      </ref>
+      <ref id="b33">
+        <mixed-citation publication-type="journal"><name><surname>Cristancho</surname><given-names>A. G.</given-names></name> &amp; <name><surname>Lazar</surname><given-names>M. A.</given-names></name>
+<article-title>Forming functional fat: a growing understanding of adipocyte differentiation</article-title>. <source>Nat. Rev. Mol. Cell. Biol.</source>
+<volume>12</volume>, <fpage>722</fpage>&#x2013;<lpage>734</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">21952300</pub-id></mixed-citation>
+      </ref>
+      <ref id="b34">
+        <mixed-citation publication-type="journal"><name><surname>Lefterova</surname><given-names>M. I.</given-names></name> &amp; <name><surname>Lazar</surname><given-names>M. A.</given-names></name>
+<article-title>New developments in adipogenesis</article-title>. <source>Trends Endocrinol. Metab.</source>
+<volume>20</volume>, <fpage>107</fpage>&#x2013;<lpage>114</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19269847</pub-id></mixed-citation>
+      </ref>
+      <ref id="b35">
+        <mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>X. M.</given-names></name>, <name><surname>Yu</surname><given-names>D. M. T.</given-names></name>, <name><surname>McCaughan</surname><given-names>G. W.</given-names></name> &amp; <name><surname>Gorrell</surname><given-names>M. D.</given-names></name>
+<article-title>Extra-enzymatic roles of DPIV and FAP in cell adhesion and migration on collagen and fibronectin</article-title>. <source>Adv. Exp. Med. Biol.</source>
+<volume>575</volume>, <fpage>213</fpage>&#x2013;<lpage>222</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16700525</pub-id></mixed-citation>
+      </ref>
+      <ref id="b36">
+        <mixed-citation publication-type="journal"><name><surname>Han</surname><given-names>R.</given-names></name>, <name><surname>Wang</surname><given-names>X.</given-names></name>, <name><surname>Bachovchin</surname><given-names>W.</given-names></name>, <name><surname>Zukowska</surname><given-names>Z.</given-names></name> &amp; <name><surname>Osborn</surname><given-names>J. W.</given-names></name>
+<article-title>Inhibition of dipeptidyl peptidase 8/9 impairs preadipocyte differentiation</article-title>. <source>Sci, Rep</source>. <volume>5</volume>, <fpage>12348</fpage> (<year>2015</year>).<pub-id pub-id-type="pmid">26242871</pub-id></mixed-citation>
+      </ref>
+      <ref id="b37">
+        <mixed-citation publication-type="journal"><name><surname>Harms</surname><given-names>M.</given-names></name> &amp; <name><surname>Seale</surname><given-names>P.</given-names></name>
+<article-title>Brown and beige fat: development, function and therapeutic potential</article-title>. <source>Nat. Med.</source>
+<volume>19</volume>, <fpage>1252</fpage>&#x2013;<lpage>1263</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">24100998</pub-id></mixed-citation>
+      </ref>
+      <ref id="b38">
+        <mixed-citation publication-type="journal"><name><surname>Wu</surname><given-names>J.</given-names></name>, <name><surname>Cohen</surname><given-names>P.</given-names></name> &amp; <name><surname>Spiegelman</surname><given-names>B. M.</given-names></name>
+<article-title>Adaptive thermogenesis in adipocytes: Is beige the new brown?</article-title>
+<source>Genes Dev.</source>
+<volume>27</volume>, <fpage>234</fpage>&#x2013;<lpage>250</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23388824</pub-id></mixed-citation>
+      </ref>
+      <ref id="b39">
+        <mixed-citation publication-type="journal"><name><surname>Das</surname><given-names>S. S.</given-names></name>
+<etal/>. <article-title>Regulation of dipeptidyl peptidase 4 production in adipocytes by glucose</article-title>. <source>Diabetes, Metab. Syndr. Obes. Targets Ther.</source>
+<volume>7</volume>, <fpage>185</fpage>&#x2013;<lpage>194</lpage> (<year>2014</year>).</mixed-citation>
+      </ref>
+      <ref id="b40">
+        <mixed-citation publication-type="journal"><name><surname>Pfeifer</surname><given-names>A.</given-names></name> &amp; <name><surname>Hofmann</surname><given-names>A.</given-names></name>
+<article-title>Lentiviral transgenesis</article-title>. <source>Methods Mol. Biol.</source>
+<volume>530</volume>, <fpage>391</fpage>&#x2013;<lpage>405</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19266335</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn>
+        <p><bold>Author Contributions</bold> P.Z., P.M., A.P. and K.R. conceived the experiments, P.Z. and J.C. conducted the experiments, A.K. constructed the lentiviral particles, P.Z. and P.M. analyzed the results. All authors reviewed the manuscript.</p>
+      </fn>
+    </fn-group>
+  </back>
+  <floats-group>
+    <fig id="f1">
+      <label>Figure 1</label>
+      <caption>
+        <title>DPP4 expression, release and localization in human white (pre)adipocytes.</title>
+        <p>Part (<bold>A</bold>) Time course of DPP4 expression was measured by RT PCR during differentiation. CP values were normalized to the housekeeping gene GAPDH, and are presented relative to Day 0. The left y-axis shows the original &#x394;CP values, and the calculated fold change vs. Day 0 is displayed on the right y-axis. Data are displayed as mean values&#x2009;&#xB1;&#x2009;SEM, n&#x2009;=&#x2009;4. Part (<bold>B</bold>) DPP4 expression was measured by Real Time PCR in different human tissues (RNA Panel from Clontech, Mountain View, CA, USA), normalized to the housekeeping gene GAPDH, and is presented as mean fold change values&#x2009;+&#x2009;SEM, n&#x2009;&#x2265;&#x2009;2, in a logarithmic scale. Part (<bold>C</bold>) DPP4 protein levels during differentiation were analyzed by Western blotting followed by densitometric quantification. The upper panel shows a representative blot, which was cropped for clarity. The full gel is shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Figure S2A</xref>. For quantification, at least three blots per time point were used. Densitometric data were normalized to &#x3B1;-actinin and are displayed relative to Day 0 in the lower panel as mean values&#x2009;+&#x2009;SEM. Part (<bold>D</bold>) DPP4 release during differentiation was assessed by ELISA. Data are represented relative to Day 0 as mean values&#x2009;&#xB1;&#x2009;SEM (full line), n&#x2009;=&#x2009;5. Statistical evaluation was done by regression analysis, **p&#x2009;&lt;&#x2009;0.01. The regression line is shown dashed. Part (<bold>E</bold>) Effect of lipolysis, induced by forskolin (10&#x2009;&#x3BC;M, &#x201C;F&#x201D;) or DBcAMP (100&#x2009;&#x3BC;M, &#x201C;cAMP&#x201D;) on the liberation of DPP4 and leptin into the cell culture supernatants over 24&#x2009;hours. Data are presented relative to untreated control as mean values&#x2009;&#xB1;&#x2009;SEM, n&#x2009;&#x2265;&#x2009;4. Statistical analysis was done by one sample t test; **p&#x2009;&lt;&#x2009;0.01&#x2009;vs. control. Part (<bold>F</bold>) Presence of DPP4 in different cell fractions as indicated was analyzed by Western blotting after cell fractionation; the blot was cropped for clarity; the whole gel is shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Figure S2B</xref>. Part (<bold>G</bold>) Microscopic images (40x) showing immunofluorescence staining of DPP4 (green) to determine its subcellular localization. The cytoskeleton (F-actin) is labeled in red.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep23074-f1"/>
+    </fig>
+    <fig id="f2">
+      <label>Figure 2</label>
+      <caption>
+        <title>Lentiviral knockdown of DPP4 in human preadipocytes.</title>
+        <p>Human preadipocytes were stably transduced with shRNA constructs directed against DPP4 mRNA by lentiviral vectors. Unspecific, non-target shRNA was used as a negative control (labeled &#x201C;SHc&#x201D; in the figure). Knockdown (KD) of DPP4 expression was confirmed on mRNA Part (<bold>A</bold>) and protein Part (<bold>B</bold>) level by quantitative Real Time PCR and Western blotting, respectively. The picture of the Western blot was cropped for clarity. The entire lanes are shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Figure S2C</xref>. PCR data are presented as mean &#x2206;CP values (normalized to GAPDH, relative to SHc)&#x2009;&#xB1;&#x2009;SEM (left y-axis) and calculated fold change values vs. control (right y-axis), n&#x2009;&#x2265;&#x2009;5. Statistical analysis was done by one-way ANOVA with Dunnett post-test; **p&#x2009;&lt;&#x2009;0.01&#x2009;vs. negative control. Part (<bold>C</bold>) At least 5-fold changes in gene expression resulting from DPP4 knockdown, measured by whole genome DNA array hybridization, are visualized in a heat plot. Hybridization was performed in two-color mode; each line represents the difference between a DPP4 knockdown and sh-control sample. The four lines represent four biological replicates. Up-regulated genes in DPP4 knockdown compared to control are marked in green, down-regulated genes in red. The color intensity indicates the expression level of the respective gene. Part (<bold>D</bold>) Changes in the expression of two representative genes (PPAR&#x3B3;C1&#x3B1; and PDK4) over time after infection were followed by quantitative PCR. Data represent mean &#x2206;CP values (vs. GAPDH)&#x2009;&#xB1;&#x2009;SEM (left y-axis) and calculated fold change values vs. control (SHc at Day 0) on the right y-axis, n&#x2009;&#x2265;&#x2009;3. Statistical analysis was done by <italic>t</italic> test; *p&#x2009;&lt;&#x2009;0.05; **p&#x2009;&lt;&#x2009;0.01&#x2009;vs. control. Part (<bold>E</bold>) shows a Western blot confirming the up-regulation of PPAR&#x3B3;1C&#x3B1; on protein level when DPP4 is suppressed. The blot was cropped for clarity. The entire lanes are shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Figure S2D</xref>. The results for DPP4, PPAR&#x3B3;1C&#x3B1; and the loading control &#x3B1;-actinin from cells infected with sh-control vector (&#x201C;SHc&#x201D;) and sh-DPP4 vector (&#x201C;DPP4 KD&#x201D;), respectively, are shown as indicated in the figure.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep23074-f2"/>
+    </fig>
+    <fig id="f3">
+      <label>Figure 3</label>
+      <caption>
+        <title>Effects of DPP4 knockdown compared to the effects of pioglitazone.</title>
+        <p>Part (<bold>A</bold>) Human preadipocytes were stable transduced by lentiviral shRNA constructs against DPP4 or were incubated with a PPAR&#x3B3; agonist (pioglitazone, 10&#x2009;&#x3BC;M) for 3 days. Incubation of DPP4 knockdown cells with a PPAR&#x3B3; inhibitor (T0070907, 10&#x2009;&#x3BC;M) is shown on the right. Expression of representative genes was analyzed by quantitative Real Time PCR. Values were normalized to the housekeeping gene GAPDH, and are presented relative to control cells infected with non-targeting shRNA. The left y-axis shows the original &#x394;CP values, and the calculated fold change vs. Day 0 is displayed on the right y-axis. Part (<bold>B</bold>) shows Oil Red O staining of lipids (red) in human preadipocytes after DPP4 knockdown (&#x201C;DPP4 KD&#x201D;, mid panel) or after treatment with pioglitazone (10&#x2009;&#x3BC;M, right panel) for 10 days. Exemplary lipid vacuoles are marked by arrows. Control cells treated with non-targeting shRNA are shown in the left panel. Part (<bold>C</bold>) Gene expression was measured by RT PCR in human preadipocytes after lentiviral transduction with a shRNA construct against PPAR&#x3B3; (&#x201C;PPAR&#x3B3; KD&#x201D;) or after treatment with the PPAR&#x3B3; inhibitor T0070907. Representation of data is the same as in Part (<bold>A</bold>). In Parts (<bold>A</bold>) and (<bold>C</bold>), bars represent mean values + SEM, n&#x2009;&#x2265;&#x2009;4, Statistical analysis was done by one-way ANOVA with Dunnett post-test; *p&#x2009;&lt;&#x2009;0.05; **p&#x2009;&lt;&#x2009;0.01; ***p&#x2009;&lt;&#x2009;0.001&#x2009;vs. control.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep23074-f3"/>
+    </fig>
+    <fig id="f4">
+      <label>Figure 4</label>
+      <caption>
+        <title>Effect of DPP4 knockdown during differentiation.</title>
+        <p>Human preadipocytes were stable transduced by lentiviral shRNA constructs against DPP4; infected cells were selected with puromycin and differentiated for up to 12 days. Gene expression was measured by Real Time PCR and was normalized to the housekeeping gene GAPDH. Full lines represent the time course of gene expression during differentiation in DPP4 knockdown (&#x201C;DPP4 KD&#x201D;) cells, broken lines refer to cells transduced with non-targeting shRNA (sh-control, &#x201C;SHc&#x201D;). Data are displayed as mean &#x2206;CP values&#x2009;&#xB1;&#x2009;SEM (left y-axis). For better understanding, calculated values of fold change vs. control (SHc at Day 0) are indicated on the right y-axis. Statistical analysis (n&#x2009;&#x2265;&#x2009;3) was done by <italic>t</italic> test; *p&#x2009;&lt;&#x2009;0.05; ***p&#x2009;&lt;&#x2009;0.001&#x2009;vs. control.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep23074-f4"/>
+    </fig>
+    <fig id="f5">
+      <label>Figure 5</label>
+      <caption>
+        <title>Effect of DPP4 knockdown on ERK and Akt activity.</title>
+        <p>Human preadipocytes were transduced by lentiviral shRNA directed against DPP4 (labeled &#x201C;DPP4-KD&#x201D; in the figure) or, as control, by non-targeting shRNA (labeled &#x201C;SHc&#x201D; in the figure. Part (<bold>A</bold>) Activation of signaling pathways was analyzed by Western blotting with antibodies directed against the phosphorylated (active) form of the respective signaling protein, pERK (phospho-Extracellular-signal Regulated Kinase) or pAkt (phospho-Akt1). The effect of DPP4 knockdown on insulin (ins) signaling via the pAkt and the pERK pathway is shown. The insulin concentration used was 100&#x2009;nM, incubation time was 10&#x2009;min. Detection of &#x3B1;-actinin served as loading control. Insulin receptor expression was also detected in the preadipocytes (lower panel of Part A) and was not affected by treatment. The blots were cropped for clarity. Uncropped pictures are shown in <xref ref-type="supplementary-material" rid="S1">Supplementary Figure S3</xref>. The densitometric quantification of the phosphoproteins is shown in Part (<bold>B</bold>). Statistical analysis was done by one-way ANOVA with Dunnett post-test; *p&#x2009;&lt;&#x2009;0.05; **p&#x2009;&lt;&#x2009;0.01&#x2009;vs. insulin-treated sh-control (SHc). Part (<bold>C</bold>) Proliferation of the preadipocytes after DPP4 knockdown vs. SHc was assessed by cell counting at various time points as indicated.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep23074-f5"/>
+    </fig>
+    <table-wrap position="float" id="t1">
+      <label>Table 1</label>
+      <caption>
+        <title>Effects of DPP4 gene expression knockdown in human primary preadipocytes.</title>
+      </caption>
+      <table frame="hsides" rules="groups" border="1">
+        <colgroup>
+          <col align="left"/>
+          <col align="center"/>
+          <col align="center"/>
+          <col align="center"/>
+          <col align="left"/>
+        </colgroup>
+        <thead valign="bottom">
+          <tr>
+            <th align="left" valign="top" charoff="50">Abbreviation, accession</th>
+            <th align="center" valign="top" charoff="50">Gene</th>
+            <th align="center" valign="top" charoff="50">log(ratio) mean, SEM</th>
+            <th align="center" valign="top" charoff="50">Mean fold change</th>
+            <th align="left" valign="top" charoff="50">Description</th>
+          </tr>
+        </thead>
+        <tbody valign="top">
+          <tr>
+            <td align="left" valign="top" charoff="50">
+              <bold>A. Lipid metabolism</bold>
+            </td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="left" valign="top" charoff="50">&#xA0;</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PLIN5 NM_001013706</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens lipid storage droplet protein 5</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,41 &#xB1; 0,06</td>
+            <td align="center" valign="top" charoff="50">25,43</td>
+            <td align="left" valign="top" charoff="50">coats lipid droplets</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PDK4 NM_002612</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens pyruvate dehydrogenase kinase</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,37 &#xB1; 0,08</td>
+            <td align="center" valign="top" charoff="50">23,48</td>
+            <td align="left" valign="top" charoff="50">involved in glucose metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">CEBPE NM_001805</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens CCAAT/enhancer binding protein</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,31 &#xB1; 0,33</td>
+            <td align="center" valign="top" charoff="50">20,25</td>
+            <td align="left" valign="top" charoff="50">transcription factor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PLIN NM_002666</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens perilipin</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,15 &#xB1; 0,21</td>
+            <td align="center" valign="top" charoff="50">14,20</td>
+            <td align="left" valign="top" charoff="50">coats lipid droplets</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FABP4 NM_001442</td>
+            <td align="center" valign="top" charoff="50">fatty acid binding protein 4</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,15 &#xB1; 0,12</td>
+            <td align="center" valign="top" charoff="50">14,19</td>
+            <td align="left" valign="top" charoff="50">maybe involved in fatty acid metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ACSM5 NM_017888</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens acyl-CoA synthetase medium-chain family member 5</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,11 &#xB1; 0,02</td>
+            <td align="center" valign="top" charoff="50">12,85</td>
+            <td align="left" valign="top" charoff="50">involved in fatty acid metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">APOE NM_000041</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens apolipoprotein E</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,10 &#xB1; 0,07</td>
+            <td align="center" valign="top" charoff="50">12,66</td>
+            <td align="left" valign="top" charoff="50">involved in fatty acid metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">KLF15 NM_014079</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens Kruppel-like factor 15</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">0,75 &#xB1; 0.09</td>
+            <td align="center" valign="top" charoff="50">5.65</td>
+            <td align="left" valign="top" charoff="50">transcription factor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PPARGC1A NM_013261</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens peroxisome proliferator-activated receptor gamma</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">0,70 &#xB1; 0,09</td>
+            <td align="center" valign="top" charoff="50">4,99</td>
+            <td align="left" valign="top" charoff="50">involved in energy metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">KLF2 NM_016270</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens Kruppel-like factor 2</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,70 &#xB1; 0.04</td>
+            <td align="center" valign="top" charoff="50">&#x2212;5.01</td>
+            <td align="left" valign="top" charoff="50">transcription factor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FADS1 NM_013402</td>
+            <td align="center" valign="top" charoff="50">fatty acid desaturase 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;1,03 &#xB1; 0,02</td>
+            <td align="center" valign="top" charoff="50">&#x2212;10,83</td>
+            <td align="left" valign="top" charoff="50">involved in fatty acid metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FADS2 NM_004265</td>
+            <td align="center" valign="top" charoff="50">fatty acid desaturase 2</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;1,14 &#xB1; 0,05</td>
+            <td align="center" valign="top" charoff="50">&#x2212;13,87</td>
+            <td align="left" valign="top" charoff="50">involved in fatty acid metabolism</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">
+              <bold>B. Proliferation</bold>
+            </td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="left" valign="top" charoff="50">&#xA0;</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FGFR1 NM_023110</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens fibroblast growth factor receptor 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,31 &#xB1; 0,06</td>
+            <td align="center" valign="top" charoff="50">&#x2212;2,06</td>
+            <td align="left" valign="top" charoff="50">growth factor receptor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">TIMP1 NM_003254</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens TIMP metallopeptidase inhibitor 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,57 &#xB1; 0,03</td>
+            <td align="center" valign="top" charoff="50">&#x2212;3,70</td>
+            <td align="left" valign="top" charoff="50">involved in cell proliferation, inhibitors of the matrix metalloproteinases</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">CAPNS1 NM_001749</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens calpain, small subunit 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,59 &#xB1; 0,04</td>
+            <td align="center" valign="top" charoff="50">&#x2212;3,91</td>
+            <td align="left" valign="top" charoff="50">involved in proliferation and adhesion</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FGF7 NM_002009</td>
+            <td align="center" valign="top" charoff="50">fibroblast growth factor 7 (keratinocyte growth factor)</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,78 &#xB1; 0,07</td>
+            <td align="center" valign="top" charoff="50">&#x2212;6,02</td>
+            <td align="left" valign="top" charoff="50">growth factor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PDGFRL NM_006207</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens platelet-derived growth factor receptor-like</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,94 &#xB1; 0,02</td>
+            <td align="center" valign="top" charoff="50">&#x2212;8,66</td>
+            <td align="left" valign="top" charoff="50">growth factor receptor-like</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">SULF1 NM_015170</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens sulfatase 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">-1,67 &#xB1; 0,02</td>
+            <td align="center" valign="top" charoff="50">-47,18</td>
+            <td align="left" valign="top" charoff="50">coreceptor for growth factors and cytokines</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">
+              <bold>C. Structural genes / cell-cell contact</bold>
+            </td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="left" valign="top" charoff="50">&#xA0;</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">HPSE NM_006665</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens heparanase</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,35 &#xB1; 0,02</td>
+            <td align="center" valign="top" charoff="50">22,32</td>
+            <td align="left" valign="top" charoff="50">component of the membrane and extracellular matrix</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">HAS1 NM_001523</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens hyaluronan synthase 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,22 &#xB1; 0,11</td>
+            <td align="center" valign="top" charoff="50">16,57</td>
+            <td align="left" valign="top" charoff="50">component of the extracellular matrix</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ITGB3 NM_000212</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens integrin, beta 3</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">0,36 &#xB1; 0,04</td>
+            <td align="center" valign="top" charoff="50">2,30</td>
+            <td align="left" valign="top" charoff="50">involved in cell adhesion</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">COL4A1 NM_001845</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens collagen, type IV, alpha 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">0,32 &#xB1; 0,08</td>
+            <td align="center" valign="top" charoff="50">2,07</td>
+            <td align="left" valign="top" charoff="50">component of the membrane</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">COL13A1 NM_080801</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens collagen, type XIII, alpha 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,37 &#xB1; 0,10</td>
+            <td align="center" valign="top" charoff="50">&#x2212;2,36</td>
+            <td align="left" valign="top" charoff="50">component of the membrane</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">COL1A1 NM_000088</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens collagen, type I, alpha 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,45 &#xB1; 0,10</td>
+            <td align="center" valign="top" charoff="50">&#x2212;2,82</td>
+            <td align="left" valign="top" charoff="50">component of connective tissue</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">RAC1 NM_018890</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens ras-related C3 botulinum toxin substrate 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">-0,61 &#xB1; 0,04</td>
+            <td align="center" valign="top" charoff="50">&#x2212;4,11</td>
+            <td align="left" valign="top" charoff="50">maybe involved in cell growth, cytoskeletal reorganization</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">KRT19 NM_002276</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens keratin 19</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,72 &#xB1; 0,03</td>
+            <td align="center" valign="top" charoff="50">&#x2212;5,21</td>
+            <td align="left" valign="top" charoff="50">involved in structural integrity</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">SPARC NM_003118</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens secreted protein</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;1,11 &#xB1; 0,06</td>
+            <td align="center" valign="top" charoff="50">&#x2212;12,92</td>
+            <td align="left" valign="top" charoff="50">involved in extracellular matrix synthesis</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">
+              <bold>D. Cell migration</bold>
+            </td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+            <td align="left" valign="top" charoff="50">&#xA0;</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">RARRES2 NM_002889</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens retinoic acid receptor responder 2</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">1,44 &#xB1; 0,07</td>
+            <td align="center" valign="top" charoff="50">27,39</td>
+            <td align="left" valign="top" charoff="50">chemotactic protein</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ANGPT1 NM_001146</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens angiopoietin 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">0,42 &#xB1; 0,06</td>
+            <td align="center" valign="top" charoff="50">2,65</td>
+            <td align="left" valign="top" charoff="50">involved in vascular development and angiogenesis</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ILK NM_001014795</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens integrin-linked kinase (ILK)</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,53 &#xB1; 0,05</td>
+            <td align="center" valign="top" charoff="50">&#x2212;3,37</td>
+            <td align="left" valign="top" charoff="50">involved in integrin-mediated signal transduction</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">VEGFB NM_003377</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens vascular endothelial growth factor B</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,54 &#xB1; 0,06</td>
+            <td align="center" valign="top" charoff="50">&#x2212;3,49</td>
+            <td align="left" valign="top" charoff="50">vascular endothelial growth factor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PDGFRA NM_006206</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens platelet-derived growth factor receptor, alpha polypeptide</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;0,98 &#xB1; 0,03</td>
+            <td align="center" valign="top" charoff="50">&#x2212;9,57</td>
+            <td align="left" valign="top" charoff="50">cell surface receptor</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ACVRL1 NM_000020</td>
+            <td align="center" valign="top" charoff="50">Homo sapiens activin A receptor type II-like 1</td>
+            <td align="char" valign="top" char="&#xB1;" charoff="50">&#x2212;1,37 &#xB1; 0,01</td>
+            <td align="center" valign="top" charoff="50">&#x2212;23,27</td>
+            <td align="left" valign="top" charoff="50">cell-surface receptor</td>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="t1-fn1">
+          <p>Whole genome oligo microarray (Agilent) analysis was used to investigate changes in the expression profile of human primary preadipocytes transduced with shRNA against DPP4. Functional clusters of the most strongly altered genes are displayed, with the data represent the log (ratio) and mean fold change&#x2009;&#xB1;&#x2009;SEM of the gene expression after knockdown of DPP4&#x2009;vs. control. Mean data result of 4 replicate measurements.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+    <table-wrap position="float" id="t2">
+      <label>Table 2</label>
+      <caption>
+        <title>Nucleotide sequences of the PCR primers used.</title>
+      </caption>
+      <table frame="hsides" rules="groups" border="1">
+        <colgroup>
+          <col align="left"/>
+          <col align="center"/>
+          <col align="left"/>
+          <col align="left"/>
+        </colgroup>
+        <thead valign="bottom">
+          <tr>
+            <th align="left" valign="top" charoff="50">Abbreviation</th>
+            <th align="center" valign="top" charoff="50">Accession number</th>
+            <th align="left" valign="top" charoff="50">Upstream primer</th>
+            <th align="left" valign="top" charoff="50">Downstream primer</th>
+          </tr>
+        </thead>
+        <tbody valign="top">
+          <tr>
+            <td align="left" valign="top" charoff="50">GAPDH</td>
+            <td align="center" valign="top" charoff="50">NM_002046</td>
+            <td align="left" valign="top" charoff="50">TCCTGTTCGACAGTCAGCCGCAT</td>
+            <td align="left" valign="top" charoff="50">TGAAGACGCCAGTGGACTCCACG</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">DPP4</td>
+            <td align="center" valign="top" charoff="50">NM_001935</td>
+            <td align="left" valign="top" charoff="50">CTCCAGAAGACAACCTTGACCATTACAGAA</td>
+            <td align="left" valign="top" charoff="50">TCATCATCATCTTGACAGTGCAGTTTTGAG</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FABP4</td>
+            <td align="center" valign="top" charoff="50">NM_001442</td>
+            <td align="left" valign="top" charoff="50">TCATACTGGGCCAGGAATTTGACGA</td>
+            <td align="left" valign="top" charoff="50">ATGCGAACTTCAGTCCAGGTCAACG</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ACSM5</td>
+            <td align="center" valign="top" charoff="50">NM_017888</td>
+            <td align="left" valign="top" charoff="50">TGGAGCTTTGAGGAGCTGGGGAAG</td>
+            <td align="left" valign="top" charoff="50">CCGGTGGTTCCGCTGGTAAAGTAGA</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">APOE</td>
+            <td align="center" valign="top" charoff="50">NM_000041</td>
+            <td align="left" valign="top" charoff="50">CAGGCAGGAAGATGAAGGTTCTGTGG</td>
+            <td align="left" valign="top" charoff="50">CGCCACCGGGGTCAGTTGTT</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PPAR&#x3B3;C1&#x3B1;</td>
+            <td align="center" valign="top" charoff="50">NM_013261</td>
+            <td align="left" valign="top" charoff="50">AGGGACGTCTTTGTGGCTTTTGCTG</td>
+            <td align="left" valign="top" charoff="50">ATGGCGTGGGACATGTGCAACC</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PDK4</td>
+            <td align="center" valign="top" charoff="50">NM_002612</td>
+            <td align="left" valign="top" charoff="50">TCACAGACAGGAAACCCAAGCCACA</td>
+            <td align="left" valign="top" charoff="50">CCGTAACCAAAACCAGCCAAAGGAG</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PLIN1</td>
+            <td align="center" valign="top" charoff="50">NM_002666</td>
+            <td align="left" valign="top" charoff="50">GCCTTGGGCAGCATTGAGAAGGT</td>
+            <td align="left" valign="top" charoff="50">CCTCTCCCTCCGTGTCTGTCTGGT</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">SULF1</td>
+            <td align="center" valign="top" charoff="50">NM_015170</td>
+            <td align="left" valign="top" charoff="50">AGCGTGGAAGGACCATAAGGCATACA</td>
+            <td align="left" valign="top" charoff="50">TCCAAAAAGCCAGTAGCAAACTCACAGAA</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">PDGFRL</td>
+            <td align="center" valign="top" charoff="50">NM_006207</td>
+            <td align="left" valign="top" charoff="50">AAGGTCTGGCTGCTGCTTGGTCTTC</td>
+            <td align="left" valign="top" charoff="50">ACCTGTGTCTGCCGAGGTGGAGTT</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">FGF7</td>
+            <td align="center" valign="top" charoff="50">NM_002009</td>
+            <td align="left" valign="top" charoff="50">AACTGTTCCAGCCCTGAGCGACAC</td>
+            <td align="left" valign="top" charoff="50">GCAACAAACATTTCCCCTCCGTTG</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,2929 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Mol Vis</journal-id>
+      <journal-id journal-id-type="publisher-id">MV</journal-id>
+      <journal-title-group>
+        <journal-title>Molecular Vision</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1090-0535</issn>
+      <publisher>
+        <publisher-name>Molecular Vision</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21203407</article-id>
+      <article-id pub-id-type="pmc">3012652</article-id>
+      <article-id pub-id-type="publisher-id">306</article-id>
+      <article-id pub-id-type="publisher-id">2010MOLVIS0377</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Effects of glial cell line-derived neurotrophic factor on cultured murine retinal progenitor cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Jinmei</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Jing</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gu</surname>
+            <given-names>Ping</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Klassen</surname>
+            <given-names>Henry</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <aff id="aff1"><label>1</label>Gavin Herbert Eye Institute and Stem Cell Research Center, University of California, Irvine, CA</aff>
+        <aff id="aff2"><label>2</label>Department of Ophthalmology, Shanghai Ninth People's Hospital, School of Medicine, Shanghai Jiaotong University, Shanghai, China</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1">Correspondence to: Henry Klassen, Sue &amp; Bill Gross Hall - a CIRM Institute, 845 Health Sciences Road, Room 2035, University of California-Irvine, Irvine, CA 92697-1705; Phone: +1 (949) 824-7750; FAX: +1 714-456-5073; email: <email xlink:href="hklassen@uci.edu">hklassen@uci.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>31</day>
+        <month>12</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>16</volume>
+      <fpage>2850</fpage>
+      <lpage>2866</lpage>
+      <history>
+        <date date-type="received">
+          <day>07</day>
+          <month>9</month>
+          <year>2010</year>
+        </date>
+        <date date-type="accepted">
+          <day>16</day>
+          <month>12</month>
+          <year>2010</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2010 Molecular Vision.</copyright-statement>
+        <copyright-year>2010</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open-access article distributed under the terms of the
+        Creative Commons Attribution License, which permits unrestricted use,
+        distribution, and reproduction in any medium, provided the original
+        work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Purpose</title>
+          <p>Glial cell line-derived neurotrophic factor (GDNF) is neuroprotective of retinal neurons, and transduced retinal progenitor cells (RPCs) can deliver this cytokine for the treatment of retinal diseases, yet the potential effects of GDNF on RPCs have received little attention.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>Murine RPCs were assessed under multiple conditions in the presence or absence of epidermal growth factor (EGF, 20 ng/ml) and/or GDNF (10 ng/ml) using a variety of techniques, including live-cell imaging, caspase-3 activity assay, whole genome microarray, quantitative polymerase chain reaction (qPCR), and western blotting.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>Live monitoring revealed that formation of initial aggregates resulted largely from the collision and adherence of dissociated RPCs, as opposed to clonal proliferation. Spheres enlarged in size and number, with more reaching the threshold criteria for cross-sectional areas in the EGF+GDNF condition. Proliferation was measurably augmented in association with EGF+GDNF, and <italic>K<sub>i</sub>-67</italic> expression was modestly increased (1.07 fold), as were hairy and enhancer of split 5 (<italic>Hes5</italic>), mammalian achaete-scute homolog 1 (<italic>Mash1</italic>), and <italic>Vimentin</italic>. However, global gene expression did not reveal a notable treatment-related response, and the expression of the majority of progenitor and lineage markers examined remained stable. GDNF reduced RPC apoptosis, compared to complete growth-factor withdrawal, although it could not by itself sustain mitotic activity.</p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>These data support the feasibility of developing GDNF-transduced RPCs as potential therapeutic agents for use in retinal diseases.</p>
+        </sec>
+      </abstract>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>GalleyStatus</meta-name>
+          <meta-value>Export to XML</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>corr-author</meta-name>
+          <meta-value>Klassen</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>The neural retina is subject to a range of degenerative conditions, including those like retinitis pigmentosa and age-related macular degeneration that involve photoreceptor loss. Similar to other compartments of the central nervous system, the mammalian retina lacks the capacity to regenerate following injury, and there are at present no restorative therapies available for diseases involving photoreceptor loss. Retinal progenitor cells (RPCs) actively generate the mature neurons and M&#xFC;ller glia of the neural retina during eye development. A large body of evidence has now shown that RPCs can be isolated, expanded [<xref ref-type="bibr" rid="r1">1</xref>-<xref ref-type="bibr" rid="r4">4</xref>], and transplanted in various animal models [<xref ref-type="bibr" rid="r1">1</xref>,<xref ref-type="bibr" rid="r5">5</xref>-<xref ref-type="bibr" rid="r9">9</xref>]. The transplantation of RPCs to the abnormal retina has become an important strategy in retinal regeneration research.</p>
+      <p>Studies on avian and mammalian embryos have identified factors that influence the behavior of RPCs during normal retinal development and in response to injury. Particular interest has been directed toward the subset of factors with demonstrated neuroprotective efficacy because of their potential clinical relevance. One important effective molecule known to rescue retinal neurons, including photoreceptors, in multiple animal models is the glial cell line-derived neurotrophic factor (GDNF) [<xref ref-type="bibr" rid="r10">10</xref>-<xref ref-type="bibr" rid="r12">12</xref>]. GDNF is a distant member of the transforming growth factor-&#x3B2; family of growth factors and a member of the GDNF family, which also includes neurturin, persephin, and artemin [<xref ref-type="bibr" rid="r13">13</xref>]. GDNF was originally purified and characterized in 1993 and found to be a survival factor for embryonic dopaminergic midbrain neurons in culture [<xref ref-type="bibr" rid="r14">14</xref>]. It later became clear that GDNF also acts as a potent neurotrophic factor in a variety of other contexts. GDNF is widely distributed in the developing central nervous system and has been confirmed to subserve pivotal roles in many additional tissues, including the peripheral nervous system, inner ear, embryonic kidney, gastrointestinal tract, skeletal muscle [<xref ref-type="bibr" rid="r15">15</xref>-<xref ref-type="bibr" rid="r17">17</xref>] and spermatogonial <ext-link ext-link-type="uri" xlink:href="javascript:if(window.name=='')%20%7b%7b%20window.location.href='./nil';%20%7d%7d%20else%20%7b%7b%20NPEml('MeSH',1074);%20%7d%7d">stem cells</ext-link> [<xref ref-type="bibr" rid="r18">18</xref>].</p>
+      <p>In the past few years, the potential of GDNF as a therapeutic agent for the treatment of neurodegenerative conditions such as Parkinson disease, which is characterized by dopaminergic cell loss, has been actively explored [<xref ref-type="bibr" rid="r19">19</xref>,<xref ref-type="bibr" rid="r20">20</xref>]. In the eye, it has been shown that both GDNF and its receptors are synthesized in the retina [<xref ref-type="bibr" rid="r15">15</xref>,<xref ref-type="bibr" rid="r21">21</xref>], thereby suggesting that this factor has an innate neurotrophic role in this tissue. Several lines of work, using recombinant protein, knockout, or overexpression methods, have implicated GDNF in the regulation of cell-cycle progression, specifically in terms of promoting neuroblast proliferation at early stages of development, as well as promoting the survival and differentiation of retinal photoreceptors [<xref ref-type="bibr" rid="r22">22</xref>,<xref ref-type="bibr" rid="r23">23</xref>]. In addition to these roles, GDNF may also delay the onset of apoptosis and participate in the regulation of cellular migration, although in this regard the literature is more variable. For instance, Clarkson and colleagues [<xref ref-type="bibr" rid="r24">24</xref>] showed that GDNF had no discernable effect on apoptosis in astrocytes derived from the embryonic mesencephalon or from the neonatal cortex. Iwashita and colleagues [<xref ref-type="bibr" rid="r25">25</xref>] also showed that GDNF did not affect the survival or proliferation of neural crest stem cells. Together, these results indicate that although the neurotrophic role is well established, the effects of GDNF do not entirely generalize across cell types or developmental stages.</p>
+      <p>GDNF has shown considerable potential as a novel therapeutic agent for the treatment of neurodegenerative diseases, including those of the retina; however, a significant challenge to implementation has been the need for sustained local delivery over lengthy time periods. An attractive strategy for neutrophic factor delivery that has been considered is the transplantation of stem or progenitor cells that have been genetically modified to overexpress the particular gene of interest [<xref ref-type="bibr" rid="r26">26</xref>,<xref ref-type="bibr" rid="r27">27</xref>]. When contemplating such a strategy, it is important to consider the impact of the delivered factor on the behavior of the cell used for delivery. In addition, it is of interest to know how the factor might influence tissue-specific stem cells residing within the recipient host tissue. At present, little is known regarding the influence of GDNF on cultured RPCs. Here we investigate the influence of GDNF on a previously characterized and transplantable population of mitotically active progenitor cells derived from the immature murine retina.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Isolation and culture of late retinal progenitor cells</title>
+        <p>RPCs were previously isolated from the neural retina of postnatal day 1GFP transgenic mice [<xref ref-type="bibr" rid="r28">28</xref>]. Briefly, retinas were harvested from newborn GFP transgenic C57BL/6 mice (gift from Masaru Okabe, University of Osaka, Osaka, Japan) [<xref ref-type="bibr" rid="r29">29</xref>] and subjected to several cycles of collagenase digestion to dissociate the tissue. Cells were then forced through a nylon mesh of 100&#xA0;&#xB5;m pore size, centrifuged, and resuspended in standard culture medium, containing Dulbecco&#x2019;s modified Eagle&#x2019;s medium/Ham&#x2019;s F12 1:1 (Omega Scientific, Tarzana, CA) supplemented containing 1% (by vol.) N2 neural supplement (Gibco, Invitrogen, Carlsbad, CA), 2&#xA0;mM L-glutamine (Sigma Aldrich, St. Louis, MO), 2,000 U nystatin (Gibco), 50&#xA0;mg/ml penicillin-streptomycin (Sigma), and 20 ng/ml recombinant human epidermal growth factor (EGF; Invitrogen, Carlsbad, CA). GFP+ neurospheres appeared within the first 2 to 3 days. Culture media were changed every 2 days, and proliferating cells were passaged at regular intervals of 4&#x2013;5 days. These cells were immunoreactive for nestin (a marker for neural progenitor cells) and <italic>K<sub>i</sub>-67</italic> (a marker for cell proliferation).</p>
+      </sec>
+      <sec>
+        <title>Treatment conditions</title>
+        <p>To first determine the optimal concentration of GDNF for use in the present study, we tested the effects of four different concentrations of GDNF (2.5, 5, 10, and 20 ng/ml) on the gene expression profile of genetically modified RPCs. Cells were treated with GDNF for 5 days, RNA was extracted, and a quantitative PCR (qPCR) assay was performed. The progenitor markers remained at similar levels to those of untreated controls under the different concentrations of GDNF examined (<xref ref-type="fig" rid="f1">Figure 1</xref>). Given this general equivalence, combined with our interest in looking for a possible physiologic (as opposed to toxic) influence, we chose 10 ng/ml for use in our system.</p>
+        <fig id="f1" fig-type="figure" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>Gene expression profile of retinal progenitor cell progenitor markers under different concentrations of glial cell line-derived neurotrophic factor treatment. Cultured genetically modified (GFP+) RPCs were treated with 2.5, 5, 10, and 20 ng/ml of glial cell line-derived neurotrophic factor (GDNF) for 5 days, then RNA was isolated, and quantitative polymerase chain reaction (qPCR) assay was performed. The progenitor markers in those samples remained at similar levels under different concentrations of GDNF. In each gene column, the five bars from left to right represent cells in epidermal growth factor (EGF) alone (dark red), in EGF+2.5 ng/ml GDNF (dark green), in EGF+5 ng/ml GDNF (blue), in EGF+10 ng/ml GDNF (red), and in EGF+20 ng/ml GDNF (green).</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f1"/>
+        </fig>
+        <p>RPCs were cultured in standard base media with the only difference being the presence or absence of EGF (20 ng/ml) and/or 10 ng/ml recombinant human GDNF (<ext-link ext-link-type="uri" xlink:href="http://products.invitrogen.com/ivgn/product/PHC7045?ICID=search-phc7045">PHC7045</ext-link>; Biosource, Invitrogen) as follows:</p>
+        <p>1) No recombinant factors (nonmitogenic conditions, negative control),</p>
+        <p>2) EGF alone (proliferation conditions, positive control, i.e., identical to &#x201C;standard medium&#x201D;),</p>
+        <p>3) GDNF alone, or</p>
+        <p>4) EGF+GDNF together.</p>
+      </sec>
+      <sec>
+        <title>Morphometry</title>
+        <p>Cellular morphology was recorded on treatment day 1, 3, and 5 using a microscope-mounted camera and imaging system. In addition, cellular proliferation and sphere formation were also recorded and quantified every 45 min using an IncuCyte live-cell imaging system (Essen Instruments, Ann Arbor, MI) located within the incubator.</p>
+      </sec>
+      <sec>
+        <title>Cell viability</title>
+        <p>RPCs were cultured under four different conditions consisting of the base medium and either no added growth factors, EGF alone, GDNF alone, or EGF+GDNF, for 5 days. Cell viability was measured using a Cell Counting Kit-8 assay (Dojindo, Kumamoto, Japan). In brief, cells were suspended at a final concentration of 1&#xD7;10<sup>4</sup> cells/well and cultured in 96-well, flat-bottomed microplates. At the end of each treatment day, 10&#xA0;&#x3BC;l WST-8 [2-(2-methoxy-4-nitrophenyl)-3-(4-nitrophenyl)-5-(2,4-disulfophenyl)-2H-tetrazolium, monosodium salt] was added to each well. The plates were incubated for an additional 4 h at 37&#xA0;&#xB0;C to convert WST-8 into formazan. The absorbance was then measured at 450 nm with a spectrophotometer. Cell viability is in direct proportion to the absorbance at 450 nm; therefore, viability was expressed as the A<sub>450</sub> value. All experiments were performed in 96-well plates (ten wells/condition).</p>
+        <p>In addition, growth of RPCs in medium with EGF alone, or with EGF and GDNF, was assessed over a one-month time course. Cells were passaged before reaching confluence. At each passage, the cell number was counted using a hemocytometer, and a population doubling level (PDL) was determined as current PDL=Log(final harvest cell number/initial seeded cell number)&#xD7;3.33.</p>
+      </sec>
+      <sec>
+        <title>Caspase-3 activity assay</title>
+        <p>After 24 h culture, RPCs exposed to the four different conditions mentioned above were collected and washed in cold phosphate buffered saline (PBS; 2.68 mM KCI, 1.47 mM KH<sub>2</sub>PO<sub>4</sub>, 135.60 mM NaCl, 8.10 mM Na<sub>2</sub>HPO<sub>4</sub>). Cell pellets were resuspended in 100 &#x3BC;l lysis buffer. After 20 min incubation on ice, each cell lysate was spun at 18,000&#xD7; g at 4 &#xB0;C for 15 min. The supernatant was collected and 5 &#x3BC;l of cell lysate from each condition was diluted to 100 &#x3BC;l in the assay buffer consisting of 20 mM Hepes at pH 7.4, 0.1% CHAPS, 5 mM dithiothreitol, and 2 mM EDTA, supplemented with 2 mM of the caspase-3 substrate Ac-DEVD-pNA. The enzymatic activity was determined spectrophotometrically at 405 nm (molar absorptivity of p-nitroaniline, &#x3B5;<sup>mM</sup>=10.5 at 405 nm). Caspase-3 activity was determined as &#xB5;mol pNA released per minute per milligram of protein.</p>
+      </sec>
+      <sec>
+        <title>RNA isolation</title>
+        <p>RPCs were grown in culture media that contained EGF or EGF+GDNF for 5 days. Total RNA was extracted from each sample using the RNeasy Mini Kit (Cat. No. 74104; Qiagen, Valencia, CA). After RNA isolation, samples were treated by DNaseI (Macherey-Nagel, D&#xFC;ren, Germany) to digest and eliminate any contaminating genomic DNA. RNA concentration was measured for each sample at a wavelength of 260 nm (A<sub>260</sub>), and the purity of extracted total RNA was determined by the A<sub>260</sub>/A<sub>280</sub> ratio. Quantitative reverse-transcriptase PCR analyses and microarray analysis were only performed on samples with A<sub>260</sub>/A<sub>280</sub> ratios between 1.9 and 2.1.</p>
+      </sec>
+      <sec>
+        <title>Microarray processing and analysis</title>
+        <p>After RNA isolation (two treatments, with three samples per treatment), 1&#xA0;&#x3BC;g total RNA from each sample was used to prepare material for hybridization with each of the six Affymetrix mouse gene 1.0 ST arrays at the UCI Genomics High-Throughput Facility at the University of California, Irvine, as recommended by the manufacturer (Affymetrix Genechip Whole Transcript Sense Target Labeling Assay Manual; Affymetrix, Inc., Santa Clara, CA). The integrity and concentration of total RNA were measured, followed by hybridization, scanning, and generation of raw expression data, which were subsequently normalized using a standard technique by the same facility, as follows.</p>
+        <p>All starting total RNA samples were quality assessed before beginning the target preparation/processing steps by running out a small amount of each sample (typically 25&#x2013;250 ng/well) onto a RNA 6000 Nano LabChip that was evaluated on an Agilent Bioanalyzer 2100 (Agilent Technologies, Palo Alto, CA). Single-stranded, then double-stranded, cDNA was synthesized from the poly(A)<sup>+</sup>mRNA present in the isolated total RNA (typically 100 ng total RNA starting material for each sample reaction) using the GeneChip WT cDNA Synthesis Kit (Affymetrix, Inc., Santa Clara, CA) and random hexamers tagged with a T7 promoter sequence. The double-stranded cDNA was then used as a template to generate many copies of antisense cRNA from an in vitro transcription reaction for 16 h in the presence of T7 RNA polymerase using the Affymetrix Genechip WT cDNA Amplification Kit. Ten micrograms of cRNA were input into the second-cycle cDNA reaction with random hexamers that were used to reverse-transcribe the cRNA from the first cycle to produce single-stranded DNA in the sense orientation.</p>
+        <p>The single-stranded DNA sample was fragmented (WT Terminal Labeling Kit, Affymetrix) to an average strand length of 60 bases (range 40&#x2013;70 bp) following prescribed protocols (Affymetrix GeneChip WT Sense Target Labeling Assay Manual). The fragmented single-stranded DNA was subsequently labeled with recombinant terminal deoxynucleotidyl transferase and the Affymetrix proprietary DNA Labeling Reagent, which is covalently linked to biotin. Following the recommended procedure, 0.54&#xA0;&#x3BC;g of this fragmented single-stranded target cDNA was hybridized at 45&#xA0;&#xB0;C with rotation for 17 h (Affymetrix GeneChip Hybridization Oven 640) to probe sets present on an Affymetrix mouse-gene 1.0 ST array. The GeneChip arrays were washed and then stained (streptavidin-phycoerythrin) on an Affymetrix Fluidics Station 450 (Fluidics protocol FS450_007). Arrays were scanned using the GeneChip Scanner 3000 7G and GeneChip Operating Software v1.4 to produce CEL intensity files.</p>
+        <p>Normalization was performed using the probe logarithmic intensity error (<ext-link ext-link-type="uri" xlink:href="http://www.affymetrix.com/support/technical/technotes/plier_technote.pdf">PLIER</ext-link>) estimation method, which includes a quantile normalization protocol within the associated software algorithm. Briefly, the probe cell intensity files (*.CEL) generated above were analyzed using Affymetrix Expression Console software v1.1 using the PLIER algorithm to generate probe-level summarization files (*.CHP). The algorithm used was from PLIER v2.0 (quantification scale: linear; quantification type: signal and detection p value; background: PM-GCBG; normalization method: sketch-quantile).</p>
+        <p>Statistical analysis was subsequently conducted using JMP Genomic 3 software (SAS Institute Inc.) The raw data were log-2 transformed and imported into the software for analysis. The strategy used was to compare the gene expression profile of the control group (EGF alone) with the experimental group (EGF+GDNF). Data from the arrays were analyzed by the clustering of differences between treatments and identification of significant changes. Changes were considered statistically significant if the difference in expression between the groups had a p value less than 0.05.</p>
+      </sec>
+      <sec>
+        <title>Reverse transcription and quantitative PCR</title>
+        <p>To further assess expression changes, transcription levels of selected genes were examined by performing semiquantitative real-time PCR using an Applied Biosystems 7500 Fast Real-Time PCR Detection System (Applied Biosystems, Foster, CA). Two micrograms of total RNA in a 20&#xA0;&#x3BC;l reaction volume were reverse-transcribed using an Omniscript cDNA Synthesis Kit (Qiagen). Oligonucleotide primer sequences (<xref ref-type="table" rid="t1">Table 1</xref>) were designed using <ext-link ext-link-type="uri" xlink:href="http://frodo.wi.mit.edu/cgi-bin/">Primer 3 software</ext-link>. The primers were synthesized commercially (Invitrogen) and qPCR was performed in 20&#xA0;&#x3BC;l total volume containing 10&#xA0;&#x3BC;l of 2&#xD7; Power SYBR Green PCR Master Mix (Applied Biosystems), 10&#xA0;&#x3BC;l of cDNA, and 300 nM of gene-specific primers. Cycling parameters for qPCR were as follows: initial denaturation at 95&#xA0;&#xB0;C for 10 min, followed by 40 cycles of 15 s at 95&#xA0;&#xB0;C and of 1 min at 60&#xA0;&#xB0;C. To normalize template input, the &#x3B2;-actin transcript level was measured for each sample (endogenous control). The efficiency of the PCR reaction was measured with primers using serial dilution of cDNA (1:1, 1:5, 1:25, 1:125, 1:625, and 1:3,125). The relative expression of the gene of interest, (Etarget) &#x394;Ct target (control-treated)/(Eref)&#x394;Ct ref (control-treated) [<xref ref-type="bibr" rid="r30">30</xref>], was then evaluated by the Pfaffl method [<xref ref-type="bibr" rid="r30">30</xref>]. The value obtained for crossing threshold (Ct) represents the number of PCR cycles at which an increase in fluorescence signal (and therefore cDNA) can be detected above the background. The increase is exponential for the particular gene. Data are expressed as fold-change relative to untreated controls, after normalizing to &#x3B2;-actin (our choice from among a set of &#x201C;house-keeping&#x201D; genes).</p>
+        <table-wrap id="t1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <title>Primers used for quantitative RT&#x2013;PCR.</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="62" span="1"/>
+            <col width="94" span="1"/>
+            <col width="141" span="1"/>
+            <col width="147" span="1"/>
+            <col width="99" span="1"/>
+            <col width="83" span="1"/>
+            <thead>
+              <tr>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Genes</bold>
+                </th>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Accession number</bold>
+                </th>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Forward (5&#x2032;-3&#x2032;)</bold>
+                </th>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Reverse (5&#x2032;-3&#x2032;)</bold>
+                </th>
+                <th valign="top" align="center" scope="col" rowspan="1" colspan="1">
+                  <bold>Annealing temperature (&#xB0;C)</bold>
+                </th>
+                <th valign="top" align="center" scope="col" rowspan="1" colspan="1">
+                  <bold>Product size (base pairs)</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Nestin</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/50363231">NM_016701</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aactggcacctcaagatgt<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tcaagggtattaggcaagggg<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">235<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Vimentin</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/227430362">NM_011701</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tggttgacacccactcaaaa<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gcttttggggtgtcagttgt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">269<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Sox2</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/127140985">NM_011443</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cacaactcggagatcagcaa<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ctccgggaagcgtgtactta<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">190<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Hes1</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/31560817">NM_008235</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cccacctctctcttctgacg<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aggcgcaatccaatatgaac<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">185<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Hes5</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/145966833">NM_010419</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">caccgggggttctatgatatt<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">caggctgagtgctttcctatg<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">180<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Pax6</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/146134521">NM_013627</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">agtgaatgggcggagttatg<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">acttggacgggaactgacac<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">132<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Chx10</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/31982857">NM_007701</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">caatgctgtggcttgcttta<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cttgagagccactgggctac<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">157<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Notch1</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/224967064">NM_008714</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">acccactctgtctcccacac<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gcttccttgctaccacaagc<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">123<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Mash1</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/141802882">NM_008553</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tctcctgggaatggactttg<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ggttggctgtctggtttgtt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">142<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>K<sub>i</sub>-67</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/1177527">X82786</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cagtactcggaatgcagcaa<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cagtcttcaggggctctgtc<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">170<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>&#x3B2;3-tubulin</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/31982671">NM_023279</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cgagacctactgcatcgaca<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cattgagctgaccagggaat<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">152<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>DCX</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/46575787">NM_010025</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tgtaaactaaaacaaagacccgaag<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aagtacctcacaagtcaaagaatgg<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">187<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Map2</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/90186269">NM_001039934</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">agaaaatggaagaaggaatgactg<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">acatggatcatctggtaccttttt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">112<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Recoverin</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/162951841">NM_009038</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">atggggaatagcaagagcgg<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gagtccgggaaaaacttggaata<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">179<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Rhodopsin</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/21717804">NM_145383</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tcaccaccaccctctacaca<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tgatccaggtgaagaccaca<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">216<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>PKC-&#x3B1;</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/164663790">NM_011101</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cccattccagaaggagatga<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ttcctgtcagcaagcatcac<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">212<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>CRALBP</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/291045201">NM_020599</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">agggtctttgttcacggagat<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tgccactagagcgttcctaaa<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">297<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>GFAP</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/196115301">NM_010277</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">agaaaaccgcatcaccattc<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tcacatcaccacgtccttgt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">184<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>&#x3B2;-actin</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/145966868">NM_007393</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">agccatgtacgtagccatcc<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ctctcagctgtggtggtgaa<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">152<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>c-myc</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/100913213">NM_010849</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gctgtagtaattccagcgagaga<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aagttccagtgagaagtgtctgc<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">239<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Nanog</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/153791181">NM_028016</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ttggttggtgtcttgctcttt<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">caggaagacccacactcatgt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">196<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>SDF1</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/270309137">NM_021704</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gtattgtagctttccggtgtcag<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aggaggtttacagcatgaaacaa<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">120<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>CXCR4</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/116268122">NM_009911</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ctgtgtgatggtttgtttggtt<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ttctaccaccatttcaggcttt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">101<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Annexin V</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/218156335">NM_009673</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">tgctcaggagtttaagactctgttt<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">taatctcggtcaatactttctcgtc<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">182<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Caspase 1</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/86198304">NM_009807</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">acacgtcttgccctcattatct<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gcagcaaattctttcacctctt<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">176<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>Caspase 3</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/118129865">NM_009810</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aaggagcagctttgtgtgtgt<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cgcctctgaagaagctagtca<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">107<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>P4HB</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/118130201">NM_011032</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gcagcagaggctattgatgac<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">atcttcggagctgtctgttca<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">221<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>FSP1</italic>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/239985466">NM_011311</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">acttccaggagtactgtgtcttcc<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">aaactacaccccaacacttcatct<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">128<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>KLF4</italic>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/171543887">NM_010637</ext-link>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ctgaacagcagggactgtca</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">gtgtgggtggctgttctttt</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">60</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">218</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Western blotting</title>
+        <p>Samples for protein analyses were homogenized in CelLytic M (C2978; Sigma), and proteins were measured using the Bio-Rad detergent-compatible protein assay (500&#x2013;0006; Bio-Rad). Proteins (50&#xA0;&#xB5;g) were electrophorised using a 3%&#x2013;8% Tris-acetate gel (EA0375BOX; Invitrogen) for 70 min at 150 V and then transferred from the gel to a polyvinyldifluoride membrane using an iBot Gel Transfer Device (IB1001; Invitrogen). Western blotting was then performed using the WesternBreeze Chromogenic Western Blot Immunodetection Kit (WB7103, Invitrogen) according to the manufacturer&#x2019;s protocol. After blockade of nonspecific binding sites using Blocker/Diluent solutions provided, the polyvinylfluoride membranes were incubated for 2 h at room temperature with mouse primary antibodies directed against either <italic>K<sub>i</sub>-67</italic> (556003, 1:200; BD), nestin (611658, 1:200; BD), or &#x3B2;-actin (A5441, 1:200; Sigma). This was followed by washing and 1 h incubation with an alkaline phosphatase-conjugated antimouse IgG secondary antibody provided in the kit. Immunoblots were developed using chromogenic substrate for 10 min. The reactive bands were scanned and quantified by densitometry using UN-SCAN-IT Gel 6.1 (Silk Scientific, Inc. Orem, UT) The density of product from the EGF treatment group was defined as 1, and the data from the EGF+GDNF condition was expressed as the fold-change of this value.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>The results represent the average of three experiments (&#xB1;SE). Except where specifically indicated, each experiment was performed in triplicate. For cell viability and caspase-3 activity studies, ten fields per sample were analyzed for each condition. Statistical significance was determined by Student&#x2019;s two-tailed <italic>t</italic>-test.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>RPC morphology and sphere formation</title>
+        <p>RPCs were subjected to different treatment conditions for up to 5 days. As a result, the morphology of RPCs clearly differed in response to the presence or absence of EGF (<xref ref-type="fig" rid="f2">Figure 2</xref>). There was increased extension of processes in response to the absence of EGF (<xref ref-type="fig" rid="f2">Figure 2A-F</xref>), whereas the appearance of undifferentiated RPCs cultured in either EGF alone or EGF+GDNF remained stable throughout the treatment period. Undifferentiated RPCs either adhered to the surface of the uncoated flasks or were observed floating in the culture medium, either as single cells or spheres of different sizes. From day 3, short processes with few, if any, branches extended from some of the adherent cells (<xref ref-type="fig" rid="f2">Figure 2H,K</xref>). No obvious morphological differences were observed in response to the presence of 10 ng/ml GDNF (GDNF alone) when compared to culture conditions without EGF (no recombinant factors; <xref ref-type="fig" rid="f2">Figure 2D-F</xref>). However, in the presence of GDNF (EGF+GDNF), more and larger spheres were observed, as compared to EGF alone (<xref ref-type="fig" rid="f2">Figure 2I,L</xref>).</p>
+        <fig id="f2" fig-type="figure" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p>Changes in retinal progenitor cell morphology under different culture conditions. Retinal progenitor cell s were cultured in the same serum-free base media, but under four different treatment conditions defined by the presence or absence of added growth factors, as follows: 1) no growth factor (<bold>A</bold>-<bold>C</bold>), 2) glial cell line-derived neurotrophic factor (GDNF) alone (<bold>D</bold>-<bold>F</bold>), 3) epidermal growth factor (EGF) alone (<bold>G</bold>-<bold>I</bold>), and 4) EGF+GDNF (<bold>J</bold>-<bold>L</bold>). In each case, EGF was used at a final concentration of 20 ng/ml and GDNF at 10 ng/ml. The morphology of cells in each condition was assessed on day 1, 3, and 5. Increased extension of processes appeared in the &#x201C;no growth factor&#x201D; group (<bold>A</bold>-<bold>C</bold>; <bold>D</bold>-<bold>F</bold>), with similar changes observed in the &#x201C;GDNF alone&#x201D; group (<bold>A</bold>-<bold>C</bold>; <bold>D</bold>-<bold>F</bold>). Cells grown in EGF+GDNF appeared to form more and larger spherical cellular aggregates (spheres) over the course of 5 days. Magnification was &#xD7;100. Scale bars: 100 &#x3BC;m.</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f2"/>
+        </fig>
+        <p>The proliferation of RPCs and formation of spherical cellular aggregates (spheres) were also monitored via the IncuCyte system over the five-day time course, allowing comparison of EGF and EGF+GDNF conditions. By way of the acquired video, dissociated RPCs were seen to exhibit a strong propensity to aggregate in culture, with the formation of spheres being evident as early as 5.5 h after seeding. Aggregates started with the movement of suspended single RPCs within the culture medium and adherence to other cells, as opposed to cell division and clonal expansion (see <xref ref-type="supplementary-material" rid="SD1">Appendix 1</xref>, <xref ref-type="fig" rid="f3">Figure 3</xref>). Over time, the spheres enlarged and their movement lessened, consistent with an increased contribution of cell proliferation to sphere formation. The number of spheres with a cross-sectional area of &gt;870&#xA0;&#xB5;m<sup>2</sup> increased in both treatment conditions, beginning on day 0 and continuing to day 5, at which time greater numbers of spheres had reached threshold criteria in the GDNF-supplemented medium (p&lt;0.05). In addition, more spheres had attained higher categories of cross-sectional area in this treatment condition as well, consistent with increased cellular proliferation (<xref ref-type="fig" rid="f4">Figure 4</xref>).</p>
+        <fig id="f3" fig-type="figure" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p>Still frames taken at the following time points in culture: <bold>A</bold>. Day 0, 3:45 h; <bold>B</bold>. Day 1, 11:15 h; <bold>C</bold>. Day 3, 17:03 h; <bold>D</bold>. Day 5, 14:03 h. These images highlight the basic findings of the time-lapse experiment, namely, the simultaneous enlargement of focal aggregates (proto-spheres) together with the progressive decrease in the overall number of aggregation centers. In the video this can be seen to largely correspond to the adherence of cells and cellular clusters over time.</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f3"/>
+        </fig>
+        <fig id="f4" fig-type="figure" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p>Quantitative analysis of sphere formation under different culture conditions. The left panel shows phase (<bold>A</bold>) and fluorescent (<bold>B</bold>) photomicrographs of murine retinal progenitor cells (RPCs). Examples of object thresholding and quantification using image analysis software are shown (<bold>C</bold>-<bold>F</bold>), with white indicating selected objects and red indicating rejected objects. Specifically, a given microscopic field is thresholded to select all spheres (<bold>C</bold>), small spheres (<bold>D</bold>), middle-sized spheres (<bold>E</bold>), and large spheres (<bold>F</bold>; none present in this image). The scale bar is 400 &#xB5;m. Right panel: RPCs were cultured in medium containing epidermal growth factor (EGF) or EGF + glial cell line-derived neurotrophic factor (GDNF) for 5 days. Number and cross-sectional area of spherical cellular aggregates (spheres) larger than 870 &#xB5;m<sup>2</sup> are shown for each time point. Spheres meeting threshold criteria increased in number along the time course in both conditions. Significantly greater numbers and larger area of the spheres were found in the EGF+GDNF condition, compared to EGF at day 5, with the earlier trend seen at day 1 and day 3 not reaching statistical significance by the criterion used. Data represent the mean of six samples from same plating (*p&lt;0.05). x-axis shows different medium conditions at day 1, 3, and 5; y-axis shows the number of spheres. Different shading within the histogram shows sphere area (&#xB5;m<sup>2</sup>). Black is for small spheres, light gray for middle-sized, and dark gray for large. Standard deviation was used to generate the error bars, which reflect the sphere numbers.</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f4"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Cell viability and proliferation</title>
+        <p>Murine RPCs exhibited exponential growth in the presence of EGF alone, as well as with EGF+GDNF, but diminished asymptotically in the absence of both factors, or with GDNF alone. Cell viability was compared for the EGF alone versus the EGF+GDNF conditions using the cell-counting kit. By this method, the number of RPCs increased from day 1 to 4, although there was no difference between conditions. By day 5, however, there were significantly more viable cells in the EGF+GDNF compared to those in EGF alone (<xref ref-type="fig" rid="f5">Figure 5A</xref>). Moreover, the growth over a one-month period confirmed that the addition of GDNF to a standard EGF-containing proliferation medium provides sustained augmentation of RPC numbers (<xref ref-type="fig" rid="f5">Figure 5B</xref>).</p>
+        <fig id="f5" fig-type="figure" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p>Viability of murine retinal progenitor cells (RPCs) in different culture media. <bold>A</bold>: Murine RPCs exhibited exponential growth in the presence of epidermal growth factor (EGF) alone (20 ng/ml), as well as with EGF+Glial cell line-derived neurotrophic factor (GDNF; 20 and 10 ng/ml, respectively), but diminished from day 1 in the absence of both factors, or with GDNF alone. A difference in the surviving cell number between the EGF-containing groups was observed, with the addition of GDNF to the medium conferring a statistically significant advantage over EGF alone at day 5. This effect was not evident at earlier time points. The y-axis shows absorbance at 450 nm. All experiments were performed in 96-well plates (ten wells/condition). Error bars show standard deviation (SD), <italic>*</italic> indicates p&lt;0.03. <bold>B</bold>: Growth of RPCs over a one-month period in EGF or EGF+GDNF was monitored by manual cell counts (with a hemocytometer). The growth curves thus obtained confirmed that the addition of GDNF (10 ng/ml) to standard EGF-containing medium does not impair the proliferation of murine RPCs and in fact provides a detectible advantage.</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f5"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Caspase-3 activity</title>
+        <p>We determined the level of caspase-3 activity under conditions with or without EGF or GDNF after 24 h treatment. Caspase-3 activity levels with no growth factors, as well as with GDNF alone, were substantially elevated compared to conditions that included EGF (p&lt;0.05), and activity was significantly higher in the no-growth-factor condition than in GDNF alone (p&lt;0.05). Between EGF and EGF+GDNF, no difference was observed (<xref ref-type="fig" rid="f6">Figure 6</xref>).</p>
+        <fig id="f6" fig-type="figure" position="float">
+          <label>Figure 6</label>
+          <caption>
+            <p>Change in caspase-3 activity. Cells were compared in terms of caspase activity under the same treatment conditions used previously, i.e., no growth factor, glial cell line-derived neurotrophic factor (GDNF), epidermal growth factor (EGF) and EGF+GDNF for 24 h. Experiments were performed in triplicate. Caspase-3 activity was evaluated spectrophotometrically at 405 nm in whole-cell lysates and calculated by construction of a para-nitroaniline calibration curve (data not shown). The y-axis represents percentages of caspase-3 activity related to EGF medium (control; n=10). Data are expressed as the mean&#xB1;SD (p&gt;0.05 versus EGF; p&lt;0.05 versus EGF; p&lt;0.05 versus no growth factor).</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f6"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Microarray screening for GDNF-induced changes in gene expression</title>
+        <p>The signal levels of individual cDNA from the experimental (EGF+GDNF) and control (EGF) groups were compared after hybridization on a mouse whole-genome, gene-level microarray that consisted of over 28,853 genes. The fold change and p value of each of the genes were calculated, and log<sub>2</sub> (fold change) and &#x2212;log<sub>10</sub> (p value) were transformed. Genes with a p value of &lt;0.05 and an absolute fold change value of &gt;1 were arbitrarily defined as upregulated in GDNF-treated cells, whereas those with a p value &lt;0.05 and an absolute fold change value of &lt;1 were defined as downregulated. The distribution analysis was done as a quality control step. The overlayed kernel density estimates (<xref ref-type="fig" rid="f7">Figure 7A</xref>) derived from the distribution analysis showed the raw univariate distributions for all arrays, and allowed the visualization of sources of variation attributed to technical procedures. The distributions for these arrays were very similar, indicating that this represented a high-quality data set requiring little if any normalization for further analysis. Principle component analysis revealed a broad degree of overlap in expression patterns between the two treatment conditions, with little suggestion of a treatment effect (<xref ref-type="fig" rid="f7">Figure 7C</xref>). However, ANOVA analysis showed that of the approximately 25,189 genes that were expressed in the cultures treated with EGF+GDNF, 5,250 of these were associated with the presence of GDNF (<xref ref-type="fig" rid="f7">Figure 7B</xref>). A total of 3,865 genes were upregulated and 1,385 genes down regulated following the addition of GDNF to EGF-containing standard medium. In this case, changes in 24 genes were detected in the EGF+GDNF condition (<xref ref-type="table" rid="t2">Table 2</xref>). Among those were 16 known and eight predicted genes, the latter not yet associated with any biologic functions (data not shown). Of the 16 known genes, six were olfactory receptors with three being upregulated and three down-regulated. There were two genes with possible associations to photoreceptor cilia, namely myosin IXa and a dynein (Dnahc7a); however, changes were slight and in opposite directions.</p>
+        <fig id="f7" fig-type="figure" position="float">
+          <label>Figure 7</label>
+          <caption>
+            <p>Overlayed kernel density estimates, principle component analysis, and volcano plot. <bold>A</bold>: Overlayed kernel density estimates show the raw univariate distributions for all arrays. The distributions for these arrays are very similar, indicating that this is a high-quality data set that should require little if any normalization for further analysis. <bold>B</bold>: Volcano plot from ANOVA analysis of the differential expression under epidermal growth factor (EGF) and EGF+glial cell line-derived neurotrophic factor (GDNF) conditions reveals differentially expressed genes. The fold change values between two conditions (log<sub>10</sub> transformed) were plotted on the x-axis and were compared to the negative log<sub>10</sub> transformed p values on the y-axis. Genes with a transformed p value of at least 0.05 and a transformed fold change of at least two in the upper left and upper right of the volcano plot are highlighted in red. Among these genes, eight are predicted genes and the other 16 are listed in <xref ref-type="table" rid="t2">Table 2</xref>. Histograms along the borders were generated via all detected genes. The dotted straight horizontal line represents the value 1.3 [-log<sub>10</sub> (p value=0.05)], and the genes above that line are significantly different in expression level between the two conditions. The pale green bars in the histograms along the borders show numbers of all genes, and the dark green bars inside represent genes with a p value of &lt;0.05. <bold>C</bold>: Principle component analysis (PCA) of gene expression signals reveals a broad degree of overlap in expression patterns between the two treatment conditions, with little suggestion of a treatment effect. Blue indicates data from retinal progenitor cells (RPCs) cultured in standard, epidermal growth factor-based medium (SM), while red indicates data from standard medium supplemented with GDNF. Individual microarrays (3 each condition) are indicated as small orbs and the general data distribution for each condition as an elliptical field of the corresponding color.</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f7"/>
+        </fig>
+        <table-wrap id="t2" position="float">
+          <label>Table 2</label>
+          <caption>
+            <title>Genes detected by microarray screening as exhibiting significant changes in expression level following treatment of murine retinal progenitor cells (RPCs) with glial cell line-derived neurotrophic factor (GDNF).</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="63" span="1"/>
+            <col width="93" span="1"/>
+            <col width="128" span="1"/>
+            <col width="189" span="1"/>
+            <col width="63" span="1"/>
+            <col width="67" span="1"/>
+            <thead>
+              <tr>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Gene symbol*</bold>
+                </th>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Gene accession</bold>
+                </th>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Gene description</bold>
+                </th>
+                <th valign="top" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>GO_Biological_Process_Term</bold>
+                </th>
+                <th valign="top" align="center" scope="col" rowspan="1" colspan="1">
+                  <bold>log2 (fold change)&#xA7;</bold>
+                </th>
+                <th valign="top" align="center" scope="col" rowspan="1" colspan="1">
+                  <bold>-log10 (p-value)#</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Olfr988<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/58372139">NM_001011534</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">olfactory receptor 988<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">signal transduction;G-protein coupled receptor protein signaling pathway; sensory perception of smell<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.6<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.32<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Olfr444<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/33238921">NM_146656</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">olfactory receptor 444<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">signal transduction;G-protein coupled receptor protein signaling pathway; sensory perception of smell<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">&#x2212;2.39<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.62<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Tex12<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/148747126">NM_025687</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">testis expressed gene 12<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x2014;<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.04<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.33<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Dnahc7a<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/149233980">XM_001473948</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">dynein, axonemal, heavy chain 7A<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">biological_process<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.73<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.63<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Olfr1290<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/145699130">NM_146262</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">olfactory receptor 1290<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">signal transduction ;G-protein coupled receptor protein signaling pathway; sensory perception of smell<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">&#x2212;1.45<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.58<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Olfr860<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/257196198">NM_146528</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">olfactory receptor 860<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">signal transduction;G-protein coupled receptor protein signaling pathway; sensory perception of smell<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">&#x2212;1.43<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.92<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Ear1<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/33636772">NM_007894</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">eosinophil-associated, RNase A family, member 1<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x2014;<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">&#x2212;1.22<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.56<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Olfr486<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/33239117">NM_146496</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">olfactory receptor 486<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">signal transduction;G-protein coupled receptor protein signaling pathway; sensory perception of smell; response to stimulus<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.19<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.63<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">BC021785<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ENSMUST00000095749<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cDNA sequence BC021785<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">carbohydrate transport<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.18<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.19<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Vmn2r23<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/157277999">NM_001104638</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">vomeronasal 2, receptor 23<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x2014;<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.16<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.94<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">H2-M10.5<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/114842390">NM_177637</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">histocompatibility 2, M region locus 10.5<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x2014;<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.16<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.52<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Olfr1221<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/289629313">NM_146902</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">olfactory receptor 1221<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">signal transduction;G-protein coupled receptor protein signaling pathway; sensory perception of smell<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.15<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.34<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Dsg1b<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/32129200">NM_181682</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">desmoglein 1 beta<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">cell adhesion;homophilic cell adhesion<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.13<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.17<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Mafg<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/26338657">AK047224</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">v-maf musculoaponeurotic fibrosarcoma oncogene family, protein G (avian)<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">in utero embryonic development; transcription; regulation of transcription, DNA-dependent;adult behavior;regulation of cell proliferation;regulation of epidermal cell differentiation<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">&#x2212;1.11<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">2.02<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Fcrls<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">
+                  <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/nuccore/148747157">NM_030707</ext-link>
+                  <hr/>
+                </td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Fc receptor-like S, scavenger receptor<hr/></td>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x2014;<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.02<hr/></td>
+                <td valign="top" align="center" rowspan="1" colspan="1">3.79<hr/></td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" rowspan="1" colspan="1">Myo9a</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">ENSMUST00000085572</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">myosin IXa</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">&#x2014;</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">&#x2212;1</td>
+                <td valign="top" align="center" rowspan="1" colspan="1">1.47</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>A combination of <italic>p</italic>-value&lt;0.05 [equals that &#x2013;log<sub>10</sub>(<italic>p</italic>-value)&gt;1.3] and absolute value of fold change&#x2265;2 [equals the absolute value of log<sub>2</sub>(fold change)&#x2265;1] were applied. Totally 24 genes were detected and eight of them are predicted genes for which no biologic functions are known so far (data not shown). *: Gene symbol (Gene name; Affymetrix probe set identification) <bold>&#xA7;</bold>: log<sub>2</sub>(fold change), &#x201C;#&#x201D;: &#x201C;minus values represent the genes that were down regulated in epidermal growth factor (EGF)+ Glial cell line-derived neurotrophic factor (GDNF) compare EGF. Condition of GDNF #: -log<sub>10</sub>(p-value), p-value, log<sub>10</sub> transformed.</p>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Effect of GDNF on RPC gene expression determined by qPCR</title>
+        <p>In addition to checking for global changes, the potential influence of GDNF on a specific subset of genes with known associations to RPCs was also evaluated using quantitative PCR. Following treatment of RPCs with GDNF for up to 5 days, expression of most progenitor-associated markers remained effectively stable (<xref ref-type="fig" rid="f8">Figure 8</xref>). At baseline, in the presence of EGF, cultured RPCs expressed the progenitor markers <italic>Nestin</italic>, <italic>K<sub>i</sub>-67</italic>, ceh-10 homeo domain containing homolog (<italic>C. elegans</italic>) [<italic>Chx10</italic>], sex determining region Y-box 2 <italic>(Sox2)</italic>, v-myc myelocytomatosis viral oncogene homolog (avian) [<italic>C-myc</italic>], and <italic>Vimentin</italic>. This pattern was sustained in the EGF+GDNF condition. Similarly, the expression levels of precursor and lineage-related markers including &#x3B2;III-tubulin, microtubule-associated protein 2 (<italic>MAP2</italic>), doublecortin (<italic>DCX</italic>), cellular retinaldehyde binding protein (<italic>CRALBP</italic>), protein kinase C, alpha (<italic>PKC-&#x3B1;)</italic>, and <italic>Recoverin</italic>. These were relatively unaffected by the addition of GDNF to the EGF-based proliferation medium (<xref ref-type="fig" rid="f1">Figure 1</xref>). Of the above markers, a subset exhibited marginally increased expression, namely, Hes5 (1.03-fold), <italic>K<sub>i</sub>-67</italic> (1.07-fold), <italic>Mash 1</italic> (1.12-fold) and <italic>Vimentin</italic> (1.20-fold; <xref ref-type="fig" rid="f8">Figure 8</xref>). Of these, the microarrays showed no significant difference for <italic>Hes5</italic>, <italic>K<sub>i</sub>-67</italic>, or <italic>Vimentin</italic> (<italic>Mash 1</italic> was not included; <xref ref-type="table" rid="t3">Table 3</xref>). Taking the comparison further, the qPCR data did not confirm the marginal changes seen with the microarrays for <italic>Nanog</italic>, <italic>Notch1</italic>, or <italic>GFAP</italic>.</p>
+        <fig id="f8" fig-type="figure" position="float">
+          <label>Figure 8</label>
+          <caption>
+            <p>Effect of the glial cell line-derived neurotrophic factor (GDNF) on gene expression profile of retinal progenitor cell (RPCs) evaluated by qPCR. After 5 days of culturing in either the epidermal growth factor (EGF) alone or in EGF+GDNF conditions, the expression of the selected progenitor through retinal and apoptosis markers was evaluated by quantitative reverse-transcription PCR. For each gene, expression levels in the EGF-alone condition (black) were set to 1.0, and the relative expression in the EGF+GDNF condition (gray) was expressed proportionately. Expression levels of the progenitor markers <italic>Nestin</italic>, <italic>Sox2</italic>, <italic>K<sub>i</sub>-67</italic>, <italic>Chx10</italic>, <italic>C-myc</italic>, and <italic>Vimentin</italic> were sustained with the addition of GDNF, suggesting that the progenitor phenotype is not negated by exposure to this cytokine. Similarly, expression levels of the precursor and lineage-related markers <italic>CRALBP</italic>, <italic>PKC-&#x3B1;</italic>, <italic>&#x3B2;III-Tubulin</italic>, <italic>MAP2</italic>, <italic>DCX</italic>, and <italic>Recoverin</italic> were not significantly affected by the addition of GDNF to EGF-based proliferation medium. However, there were small but statistically significant increases in the expression of <italic>Vimentin</italic> (1.20 fold), <italic>Mash 1</italic> (1.12 fold), <italic>K<sub>i</sub>-67</italic> (1.07 fold), and <italic>Hes5</italic> (1.03 fold) versus the same gene under EGF-alone conditions (*p&lt;0.05). The x-axis shows different genes; the y-axis shows ratios of mRNA expression levels for the treatment groups.</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f8"/>
+        </fig>
+        <table-wrap id="t3" position="float">
+          <label>Table 3</label>
+          <caption>
+            <title>Expression of selected genes of retinal progenitor cell (mRPC) in epidermal growth factor (EGF) and EGF+ Glial cell line-derived neurotrophic factor (GDNF) conditions.</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="62" span="1"/>
+            <col width="205" span="1"/>
+            <col width="193" span="1"/>
+            <col width="165" span="1"/>
+            <thead>
+              <tr>
+                <th valign="bottom" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Genes</bold>
+                </th>
+                <th valign="bottom" align="left" scope="col" rowspan="1" colspan="1">
+                  <bold>Description</bold>
+                </th>
+                <th valign="bottom" align="center" scope="col" rowspan="1" colspan="1">
+                  <bold>Microarray</bold>
+                </th>
+                <th valign="bottom" align="center" scope="col" rowspan="1" colspan="1">
+                  <bold>RT&#x2013;PCR</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">
+                  <italic>K<sub>i</sub>-67</italic>
+                </td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Cell cycle protein, proliferation marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">Upregulation (<italic>fold</italic> change 1.07)</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Nestin</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Intermediate filament</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Sox2</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Transcription factor</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Hes1</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Transcription factor</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Hes5</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Progenitor marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">Upregulation (<italic>fold</italic> change 1.03)</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Notch1</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Progenitor marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">Down regulation# (<italic>fold</italic> change 0.98)</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Pax6</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Paired box</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">CXCR4</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">chemokine (C-X-C motif) receptor 4</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">DCX</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Doublecortin,neuroblast marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Vimentin</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Intermediate filament</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">Upregulation (<italic>fold</italic> change 1.20)</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">GFAP</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Intermediate filament</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">Upregulation (<italic>fold</italic> change 1.10)</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">PKC-&#x3B1;</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Bipolar neurons marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Recoverin</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Phototransduction-related protein</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Rhodopsin</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Rod photoreceptors marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">&#x3B2;3-tubulin</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Microtubule protein</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Caspase 1</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Apoptosis marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Caspase 3</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Apoptosis marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Annexin A5</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Apoptosis marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">KLF4</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Kruppel-like factor 4, induced pluripotent stem cells marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">Nanog</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">Nanog homeobox</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">Upregulation** (<italic>fold</italic> change 1.05)</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N*</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">P4HB</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">prolyl 4-hydroxylase, beta polypeptide, Fibroblast Marker</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="left" scope="row" rowspan="1" colspan="1">GDNF</td>
+                <td valign="bottom" align="left" rowspan="1" colspan="1">glial cell line derived neurotrophic factor</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+                <td valign="bottom" align="center" rowspan="1" colspan="1">N</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>* N: No statistically significant difference was found between EGF and EGF+GDNF conditions. ** Upregulation: The expression of genes was upregulated in EGF+GDNF comparing EGF. # Down regulation: The expression of genes was down regulated in EGF+GDNF comparing EGF.</p>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Western blot analysis</title>
+        <p>PCR detects changes in mRNA expression; however, the extent to which these changes are reflected at the level of proteins is also of interest. Western blotting was employed for this purpose on samples from the EGF alone and the EGF+GDNF treatment groups. Nestin was used as a marker of neural progenitor cells and K<sub>i</sub>-67 as a marker of cell proliferation.</p>
+        <p>Anti-nestin identified two bands with the anticipated molecular weight, approximately 220&#xA0;kDa and 200&#xA0;kDa, with &#x3B2;-actin labeling used as the loading control. The upper band of nestin (approximately 220&#xA0;kDa) was strongly labeled in both the EGF and EGF+GDNF conditions and the lower band (approximately 200&#xA0;kDa) was little changed in the EGF+GDNF condition, compared with EGF alone. Overall, no significant difference between treatment conditions was detected by quantification of the entire blot-lane intensity. Two bands were detected by K<sub>i</sub>-67 antibody, approximately 395&#xA0;kDa and 345&#xA0;kDa. Quantification analysis showed that the intensity of the entire blot lane was increased in the EGF+GDNF condition by 1.189&#xB1;0.0095-fold (<xref ref-type="fig" rid="f9">Figure 9</xref>). These results at the protein level were consistent with the mRNA results for <italic>Nestin</italic> and <italic>K<sub>i</sub>-67</italic>, as determined by qPCR (<xref ref-type="fig" rid="f8">Figure 8</xref>), namely, that the total <italic>Nestin</italic> mRNA did not change in response to EGF+GDNF treatment over 5 days, whereas <italic>K<sub>i</sub>-67</italic> was slightly upregulated (<xref ref-type="fig" rid="f9">Figure 9</xref>).</p>
+        <fig id="f9" fig-type="figure" position="float">
+          <label>Figure 9</label>
+          <caption>
+            <p>Western blot analysis of retinal progenitor cell (RPCs) cultured with either epidermal growth factor (EGF) or EGF+GDNF for 5 days. <bold>A</bold>: Anti-nestin identified two distinct protein bands with anticipated molecular weights of approximately 220&#xA0;kDa and approximately 200&#xA0;kDa. Two bands were also identified by anti-K<sub>i</sub>-67 with molecular weights approximately 395&#xA0;kDa and approximately 345&#xA0;kDa consistent with the molecular weights of alternatively spliced K<sub>i</sub>-67 isoforms [<xref ref-type="bibr" rid="r31">31</xref>]. Lane a: nestin in EGF; lane b: nestin in EGF+GDNF; lane c: K<sub>i</sub>-67 in EGF; lane d: K<sub>i</sub>-67 in EGF+GDNF. &#x3B2;-actin was used as the loading control (lower panels). B: Quantitative analysis showed no significant difference in nestin expression between treatment conditions. For K<sub>i</sub>-67, there was a statistically significant increase in total protein expression for the EGF+GDNF condition of 1.18&#xB1;0.009 fold (*p&lt;0.02).</p>
+          </caption>
+          <graphic xlink:href="mv-v16-2850-f9"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Cytokines and stem cells are both powerful biologic agents and feature in many regenerative strategies currently being investigated. While these two categories of agents have evident therapeutic potential in their own right, the possibility that complementary or synergistic effects could be achieved using a combinatorial approach is also worthy of attention. Of particular interest in the setting of retinal degeneration is the use of tissue-specific progenitors, namely RPCs, to deliver neurotrophic factors with known neuroprotective activity, a notable example being GDNF. It has been established that cultured central nervous system progenitor cells can be transduced to express a variety of transgenes [<xref ref-type="bibr" rid="r31">31</xref>-<xref ref-type="bibr" rid="r33">33</xref>], including GDNF [<xref ref-type="bibr" rid="r27">27</xref>,<xref ref-type="bibr" rid="r34">34</xref>]. Because the role of GDNF can differ between cell types and developmental stages, it is important to understand the effect of this factor not only on the retina, but also on potential donor cells such as RPCs. Here, we have shown that exogenous GDNF has several subtle yet discernable influences on cultured murine RPCs, including augmentation of EGF-induced proliferation as well as a modest reduction in apoptosis when EGF is withdrawn.</p>
+      <p>A growing body of work has shown that growth factors, alone or in combination, exert important effects on cellular behavior, particularly during development. For example, Zheng and colleagues [<xref ref-type="bibr" rid="r35">35</xref>] have shown that EGF, fibroblast growth factor, and hepatocyte growth factor all induce changes in fetal liver hepatocytes in vitro, and that different combinations of these growth factors show various effects on the proliferation and differentiation of the cells. Salient to the current report, Ahmad and colleagues have shown that retinal progenitors proliferate and remain undifferentiated in vitro in the presence of epidermal growth factor (EGF), and display properties similar to stem cells [<xref ref-type="bibr" rid="r36">36</xref>], as have we, having tested the same murine RPCs here [<xref ref-type="bibr" rid="r3">3</xref>]. Ahmad and colleagues [<xref ref-type="bibr" rid="r37">37</xref>] have also shown that EGF can mediate suppression of retinal rod photoreceptor differentiation. Although the influence of EGF and ciliary neurotrophic factor (CNTF) on RPCs has been reported, the influence of GDNF has not, to our knowledge, been previously investigated. The relative lack of response of murine RPCs to GDNF found in the present study is in contrast to what we have previously shown for other treatment conditions, namely serum as well as a different cytokine, CNTF [<xref ref-type="bibr" rid="r38">38</xref>]. Both serum and CNTF had notable differentiating influences on murine RPCs, whereas the present study indicates that GDNF does not, under comparable conditions. In the presence of EGF, exposure to GDNF appears to be compatible with maintaining the undifferentiated state of these cells.</p>
+      <p>GDNF has emerged as a particularly important cytokine by virtue of its powerful neuroprotective influence, as demonstrated in multiple models of neurodegeneration [<xref ref-type="bibr" rid="r39">39</xref>,<xref ref-type="bibr" rid="r40">40</xref>]. However, despite significant progress in the understanding of the GDNF signaling pathways and receptor interactions, the exact cellular mechanisms responsible for these neuroprotective effects are not yet fully understood. Furthermore, despite therapeutic promise in the clinical treatment of retinal and other diseases, this growth factor has yet to be validated in the treatment of patients. A major challenge to the use of cytokines is their rapid breakdown in vivo by endogenous proteases. Cell-based delivery of these molecules is attractive for this reason, and the present findings have implications for the development of GDNF-overexpressing RPCs.</p>
+      <p>In terms of the effects reported in the present study, a proliferative influence has been described previously, and it has been reported that GDNF is able to improve the survival and differentiation, both in vivo and in vitro, of a variety of brain neurons [<xref ref-type="bibr" rid="r41">41</xref>,<xref ref-type="bibr" rid="r42">42</xref>], as well as being essential for the proliferation of enteric precursor cells [<xref ref-type="bibr" rid="r43">43</xref>]. Similarly, GDNF has been found to stimulate proliferation during renal development [<xref ref-type="bibr" rid="r44">44</xref>]. Beyond this, a regulatory mitogenic effect has been demonstrated for rat glioma cells by adding exogenous GDNF or using antisense oligonucleotides for the suppression of endogenous GDNF. Moreover, a similar proliferative effect of GDNF has been established in photoreceptor-enriched rat monolayer cultures [<xref ref-type="bibr" rid="r45">45</xref>]. Our current data extend these findings to the in vitro behavior of RPCs, a cell type of great developmental significance in the retina. It remains possible that different, and potentially deleterious, effects could be produced by exposure of RPCs to GDNF at substantially higher concentrations, as might occur with very high overexpression of an otherwise therapeutic transgene.</p>
+      <p>Of importance to the development of GDNF-overexpressing RPCs, neither augmentation of proliferation nor reduction in apoptosis pose an impediment to the expansion of these cells in culture. This allays one potential concern that arises when contemplating the genetic modification of a proliferative cell type for cytokine delivery. In other words, it is important that a constitutively expressed therapeutic transgene not impede the proliferative ability of the carrier cell, thereby necessitating repeated re-derivation and genetic modification. For instance, CNTF has demonstrated potential as a neurotrophic agent, however, the known differentiating influence of this factor on RPCs could pose a hindrance to the use of this candidate transgene. It is also important that the potential therapeutic molecule not induce undesirable changes in the phenotypic status of the cell used for delivery. In this context, it is reassuring that the global gene expression of murine RPCs was not substantially altered by exposure to GDNF.</p>
+      <sec>
+        <title>Conclusions</title>
+        <p>This study shows that GDNF is not a potent inducer of RPC differentiation. Its results support the use of these cells for GDNF delivery to the diseased retina. Because the expression profile of cultured RPCs is not markedly altered by exposure to GDNF, it may be the case that transduced RPCs will retain their ability to repopulate local retinal populations following transplantation.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <caption>
+          <title>Supporting Movie</title>
+        </caption>
+        <media xlink:href="mv-v16-2850-app-1.mov" xlink:type="simple" id="d32e2226" position="anchor" mimetype="video" mime-subtype="quicktime"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>The authors are grateful to Dr. Michael J. Young and his laboratory for providing the murine retinal progenitor cells, as well as to J. Denis Heck, Ph.D. and Seung-Ah Chung, SRA of the UCI Genomics High-Throughput Facility for sharing their analytical expertise. The authors thank the Lincy Foundation, the <ext-link ext-link-type="uri" xlink:href="http://www.andreifoundation.com/">Andrei Olenicoff Memorial Foundation</ext-link>, the Polly and Michael Smith Foundation, and the Discovery Eye Foundation for financial support. This work was also supported in part by a Challenge Grant from RPB.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="r1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kiilgaard</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Zahir</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ziaeian</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kirov</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Scherfig</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Warfvinge</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Progenitor cells from the porcine neural retina express photoreceptor markers after transplantation to the subretinal space of allorecipients.</article-title>
+          <source>Stem Cells</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>1222</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="pmid">17218397</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r2">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ziaeian</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kirov</surname>
+              <given-names>II</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>PH</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation of retinal progenitor cells from post-mortem human tissue and comparison with autologous brain progenitors.</article-title>
+          <source>J Neurosci Res</source>
+          <year>2004</year>
+          <volume>77</volume>
+          <fpage>334</fpage>
+          <lpage>43</lpage>
+          <pub-id pub-id-type="pmid">15248289</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r3">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Klassen</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Ng</surname>
+              <given-names>TF</given-names>
+            </name>
+            <name>
+              <surname>Kurimoto</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kirov</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Shatos</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Coffey</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Multipotent retinal progenitors express developmental markers, differentiate into retinal neurons, and preserve light-mediated behavior.</article-title>
+          <source>Invest Ophthalmol Vis Sci</source>
+          <year>2004</year>
+          <volume>45</volume>
+          <fpage>4167</fpage>
+          <lpage>73</lpage>
+          <pub-id pub-id-type="pmid">15505071</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r4">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nissen</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation, culture and identification of rat retinal progenitor cells in vitro.</article-title>
+          <source>Zhonghua Yan Ke Za Zhi</source>
+          <year>2006</year>
+          <volume>42</volume>
+          <fpage>104</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="pmid">16643723</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r5">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aftab</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Tucker</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Miljan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Sinden</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth kinetics and transplantation of human retinal progenitor cells.</article-title>
+          <source>Exp Eye Res</source>
+          <year>2009</year>
+          <volume>89</volume>
+          <fpage>301</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="pmid">19524569</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r6">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Warfvinge</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Kiilgaard</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Shamie</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Samuel</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Scherfig</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Prather</surname>
+              <given-names>RS</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation of progenitor cells from GFP-transgenic pigs and transplantation to the retina of allorecipients.</article-title>
+          <source>Cloning Stem Cells</source>
+          <year>2008</year>
+          <volume>10</volume>
+          <fpage>391</fpage>
+          <lpage>402</lpage>
+          <pub-id pub-id-type="pmid">18729769</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r7">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Tucker</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Perez</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>CNS progenitor cells promote a permissive environment for neurite outgrowth via a matrix metalloproteinase-2-dependent mechanism.</article-title>
+          <source>J Neurosci</source>
+          <year>2007</year>
+          <volume>27</volume>
+          <fpage>4499</fpage>
+          <lpage>506</lpage>
+          <pub-id pub-id-type="pmid">17460063</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r8">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Qiu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Seiler</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>BB</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Radosevich</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sadda</surname>
+              <given-names>SR</given-names>
+            </name>
+          </person-group>
+          <article-title>Revisiting nestin expression in retinal progenitor cells in vitro and after transplantation in vivo.</article-title>
+          <source>Exp Eye Res</source>
+          <year>2007</year>
+          <volume>84</volume>
+          <fpage>1047</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="pmid">17451684</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r9">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Warfvinge</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kiilgaard</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zamiri</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Scherfig</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Streilein</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Prause</surname>
+              <given-names>JU</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Retinal progenitor cell xenografts to the pig retina: immunological reactions.</article-title>
+          <source>Cell Transplant</source>
+          <year>2006</year>
+          <volume>15</volume>
+          <fpage>603</fpage>
+          <lpage>12</lpage>
+          <pub-id pub-id-type="pmid">17176612</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r10">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kyhn</surname>
+              <given-names>MV</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Johansson</surname>
+              <given-names>UE</given-names>
+            </name>
+            <name>
+              <surname>Warfvinge</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Lavik</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kiilgaard</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Prause</surname>
+              <given-names>JU</given-names>
+            </name>
+            <name>
+              <surname>Scherfig</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>la Cour</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Delayed administration of glial cell line-derived neurotrophic factor (GDNF) protects retinal ganglion cells in a pig model of acute retinal ischemia.</article-title>
+          <source>Exp Eye Res</source>
+          <year>2009</year>
+          <volume>89</volume>
+          <fpage>1012</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="pmid">19735654</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r11">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hauck</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Kinkl</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Deeg</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Swiatek-de Lange</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schoffmann</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ueffing</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF family ligands trigger indirect neuroprotective signaling in retinal glial cells.</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2006</year>
+          <volume>26</volume>
+          <fpage>2746</fpage>
+          <lpage>57</lpage>
+          <pub-id pub-id-type="pmid">16537917</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r12">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ward</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Khoobehi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lavik</surname>
+              <given-names>EB</given-names>
+            </name>
+            <name>
+              <surname>Langer</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Neuroprotection of retinal ganglion cells in DBA/2J mice with GDNF-loaded biodegradable microspheres.</article-title>
+          <source>J Pharm Sci</source>
+          <year>2007</year>
+          <volume>96</volume>
+          <fpage>558</fpage>
+          <lpage>68</lpage>
+          <pub-id pub-id-type="pmid">17177208</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r13">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baloh</surname>
+              <given-names>RH</given-names>
+            </name>
+            <name>
+              <surname>Enomoto</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>EM</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <name>
+              <surname>Milbrandt</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>The GDNF family ligands and receptors - implications for neural development.</article-title>
+          <source>Curr Opin Neurobiol</source>
+          <year>2000</year>
+          <volume>10</volume>
+          <fpage>103</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="pmid">10679429</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r14">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lin</surname>
+              <given-names>LF</given-names>
+            </name>
+            <name>
+              <surname>Doherty</surname>
+              <given-names>DH</given-names>
+            </name>
+            <name>
+              <surname>Lile</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Bektesh</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Collins</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF: a glial cell line-derived neurotrophic factor for midbrain dopaminergic neurons.</article-title>
+          <source>Science</source>
+          <year>1993</year>
+          <volume>260</volume>
+          <fpage>1130</fpage>
+          <lpage>2</lpage>
+          <pub-id pub-id-type="pmid">8493557</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r15">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nosrat</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Tomac</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lindqvist</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Lindskog</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Humpel</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Str&#xF6;mberg</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Ebendal</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hoffer</surname>
+              <given-names>BJ</given-names>
+            </name>
+            <name>
+              <surname>Olson</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Cellular expression of GDNF mRNA suggests multiple functions inside and outside the nervous system.</article-title>
+          <source>Cell Tissue Res</source>
+          <year>1996</year>
+          <volume>286</volume>
+          <fpage>191</fpage>
+          <lpage>207</lpage>
+          <pub-id pub-id-type="pmid">8854888</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r16">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Airaksinen</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Saarma</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>The GDNF family: signalling, biological functions and therapeutic value.</article-title>
+          <source>Nat Rev Neurosci</source>
+          <year>2002</year>
+          <volume>3</volume>
+          <fpage>383</fpage>
+          <lpage>94</lpage>
+          <pub-id pub-id-type="pmid">11988777</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r17">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Henderson</surname>
+              <given-names>CE</given-names>
+            </name>
+            <name>
+              <surname>Phillips</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Pollock</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Davies</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Lemeulle</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Armanini</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Simmons</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Moffet</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Vandlen</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Simpson</surname>
+              <given-names>LC</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF: a potent survival factor for motoneurons present in peripheral nerve and muscle.</article-title>
+          <source>Science</source>
+          <year>1994</year>
+          <volume>266</volume>
+          <fpage>1062</fpage>
+          <lpage>4</lpage>
+          <pub-id pub-id-type="pmid">7973664</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r18">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>He</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kokkinaki</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Golestaneh</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Hofmann</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Dym</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Gdnf upregulates c-Fos transcription via the Ras/Erk1/2 pathway to promote mouse spermatogonial stem cell proliferation.</article-title>
+          <source>Stem Cells</source>
+          <year>2008</year>
+          <volume>26</volume>
+          <fpage>266</fpage>
+          <lpage>78</lpage>
+          <pub-id pub-id-type="pmid">17962702</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r19">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eslamboli</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Georgievska</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Ridley</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Baker</surname>
+              <given-names>HF</given-names>
+            </name>
+            <name>
+              <surname>Muzyczka</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Burger</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mandel</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Annett</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Kirik</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Continuous low-level glial cell line-derived neurotrophic factor delivery using recombinant adeno-associated viral vectors provides neuroprotection and induces behavioral recovery in a primate model of Parkinson's disease.</article-title>
+          <source>J Neurosci</source>
+          <year>2005</year>
+          <volume>25</volume>
+          <fpage>769</fpage>
+          <lpage>77</lpage>
+          <pub-id pub-id-type="pmid">15673656</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r20">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Georgievska</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kirik</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Rosenblad</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lundberg</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bjorklund</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Neuroprotection in the rat Parkinson model by intrastriatal GDNF gene transfer using a lentiviral vector.</article-title>
+          <source>Neuroreport</source>
+          <year>2002</year>
+          <volume>13</volume>
+          <fpage>75</fpage>
+          <lpage>82</lpage>
+          <pub-id pub-id-type="pmid">11924898</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r21">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jing</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wen</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Holst</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Fang</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tamir</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Antonio</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Cupples</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Louis</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Altrock</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Fox</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF-induced activation of the ret protein tyrosine kinase is mediated by GDNFR-alpha, a novel receptor for GDNF.</article-title>
+          <source>Cell</source>
+          <year>1996</year>
+          <volume>85</volume>
+          <fpage>1113</fpage>
+          <lpage>24</lpage>
+          <pub-id pub-id-type="pmid">8674117</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r22">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Insua</surname>
+              <given-names>MF</given-names>
+            </name>
+            <name>
+              <surname>Garelli</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rotstein</surname>
+              <given-names>NP</given-names>
+            </name>
+            <name>
+              <surname>German</surname>
+              <given-names>OL</given-names>
+            </name>
+            <name>
+              <surname>Arias</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Politi</surname>
+              <given-names>LE</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell cycle regulation in retinal progenitors by glia-derived neurotrophic factor and docosahexaenoic acid.</article-title>
+          <source>Invest Ophthalmol Vis Sci</source>
+          <year>2003</year>
+          <volume>44</volume>
+          <fpage>2235</fpage>
+          <lpage>44</lpage>
+          <pub-id pub-id-type="pmid">12714666</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r23">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frasson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Picaud</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>L&#xE9;veillard</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Simonutti</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mohand-Said</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Dreyfus</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hicks</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Sabel</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Glial cell line-derived neurotrophic factor induces histologic and functional protection of rod photoreceptors in the rd/rd mouse.</article-title>
+          <source>Invest Ophthalmol Vis Sci</source>
+          <year>1999</year>
+          <volume>40</volume>
+          <fpage>2724</fpage>
+          <lpage>34</lpage>
+          <pub-id pub-id-type="pmid">10509671</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r24">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Clarkson</surname>
+              <given-names>ED</given-names>
+            </name>
+            <name>
+              <surname>Zawada</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Freed</surname>
+              <given-names>CR</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF reduces apoptosis in dopaminergic neurons in vitro.</article-title>
+          <source>Neuroreport</source>
+          <year>1995</year>
+          <volume>7</volume>
+          <fpage>145</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">8742438</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r25">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Iwashita</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kruger</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Pardal</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kiel</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Morrison</surname>
+              <given-names>SJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Hirschsprung disease is linked to defects in neural crest stem cell function.</article-title>
+          <source>Science</source>
+          <year>2003</year>
+          <volume>301</volume>
+          <fpage>972</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">12920301</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r26">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gamm</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Girman</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Holmes</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Bischoff</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Shearer</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Sauv&#xE9;</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Capowski</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+            <name>
+              <surname>Lund</surname>
+              <given-names>RD</given-names>
+            </name>
+          </person-group>
+          <article-title>Protection of visual functions by human neural progenitors in a rat model of retinal disease.</article-title>
+          <source>PLoS ONE</source>
+          <year>2007</year>
+          <volume>2</volume>
+          <fpage>e338</fpage>
+          <pub-id pub-id-type="pmid">17396165</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r27">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ostenfeld</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Tai</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Deglon</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Aebischer</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurospheres modified to produce glial cell line-derived neurotrophic factor increase the survival of transplanted dopamine neurons.</article-title>
+          <source>J Neurosci Res</source>
+          <year>2002</year>
+          <volume>69</volume>
+          <fpage>955</fpage>
+          <lpage>65</lpage>
+          <pub-id pub-id-type="pmid">12205689</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r28">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zahir</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tomita</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Sorbitol causes preferential selection of Muller glial precursors from late retinal progenitor cells in vitro.</article-title>
+          <source>Mol Vis</source>
+          <year>2006</year>
+          <volume>12</volume>
+          <fpage>1606</fpage>
+          <lpage>14</lpage>
+          <pub-id pub-id-type="pmid">17200660</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r29">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Okabe</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ikawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kominami</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nakanishi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nishimune</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>'Green mice' as a source of ubiquitous green cells.</article-title>
+          <source>FEBS Lett</source>
+          <year>1997</year>
+          <volume>407</volume>
+          <fpage>313</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">9175875</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r30">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pfaffl</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>A new mathematical model for relative quantification in real-time RT-PCR.</article-title>
+          <source>Nucleic Acids Res</source>
+          <year>2001</year>
+          <volume>29</volume>
+          <fpage>e45</fpage>
+          <pub-id pub-id-type="pmid">11328886</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r31">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Ziaeian</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Nethercott</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Bragadottir</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Tullis</surname>
+              <given-names>GE</given-names>
+            </name>
+            <name>
+              <surname>Warfvinge</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Narfstrom</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Neural precursors isolated from the developing cat brain show retinal integration following transplantation to the retina of the dystrophic cat.</article-title>
+          <source>Vet Ophthalmol</source>
+          <year>2007</year>
+          <volume>10</volume>
+          <fpage>245</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="pmid">17565557</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r32">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Flax</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Aurora</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Simonin</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Wills</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Billinghurst</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Jendoubi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sidman</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Wolfe</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SU</given-names>
+            </name>
+            <name>
+              <surname>Snyder</surname>
+              <given-names>EY</given-names>
+            </name>
+          </person-group>
+          <article-title>Engraftable human neural stem cells respond to developmental cues, replace neurons, and express foreign genes.</article-title>
+          <source>Nat Biotechnol</source>
+          <year>1998</year>
+          <volume>16</volume>
+          <fpage>1033</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">9831031</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r33">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Ray</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Whiteley</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <article-title>Neuronal differentiation and morphological integration of hippocampal progenitor cells transplanted to the retina of immature and mature dystrophic rats.</article-title>
+          <source>Mol Cell Neurosci</source>
+          <year>2000</year>
+          <volume>16</volume>
+          <fpage>197</fpage>
+          <lpage>205</lpage>
+          <pub-id pub-id-type="pmid">10995547</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r34">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Capowski</surname>
+              <given-names>EE</given-names>
+            </name>
+            <name>
+              <surname>Schneider</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Ebert</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Seehus</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Szulc</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zufferey</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Aebischer</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+          </person-group>
+          <article-title>Lentiviral vector-mediated genetic modification of human neural progenitor cells for ex vivo gene therapy.</article-title>
+          <source>J Neurosci Methods</source>
+          <year>2007</year>
+          <volume>163</volume>
+          <fpage>338</fpage>
+          <lpage>49</lpage>
+          <pub-id pub-id-type="pmid">17397931</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r35">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zheng</surname>
+              <given-names>YW</given-names>
+            </name>
+            <name>
+              <surname>Taniguchi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Takada</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Fukunaga</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Seino</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yuzawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Otsuka</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fukao</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nakauchi</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of combined growth factors on clonal growth and albumin secretion of murine fetal hepatocytes in low density culture.</article-title>
+          <source>Transplant Proc</source>
+          <year>2000</year>
+          <volume>32</volume>
+          <fpage>2372</fpage>
+          <lpage>3</lpage>
+          <pub-id pub-id-type="pmid">11120205</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r36">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ahmad</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Dooley</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Thoreson</surname>
+              <given-names>WB</given-names>
+            </name>
+            <name>
+              <surname>Rogers</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Afiat</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>In vitro analysis of a mammalian retinal progenitor that gives rise to neurons and glia.</article-title>
+          <source>Brain Res</source>
+          <year>1999</year>
+          <volume>831</volume>
+          <fpage>1</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="pmid">10411978</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r37">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ahmad</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Dooley</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Afiat</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of Mash1 in EGF-mediated regulation of differentiation in the vertebrate retina.</article-title>
+          <source>Dev Biol</source>
+          <year>1998</year>
+          <volume>194</volume>
+          <fpage>86</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="pmid">9473334</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r38">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gu</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Sequential changes in the gene expression profile of murine retinal progenitor cells during the induction of differentiation.</article-title>
+          <source>Mol Vis</source>
+          <year>2009</year>
+          <volume>15</volume>
+          <fpage>2111</fpage>
+          <lpage>22</lpage>
+          <pub-id pub-id-type="pmid">19862338</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r39">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arenas</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Trupp</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Akerud</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Ibanez</surname>
+              <given-names>CF</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF prevents degeneration and promotes the phenotype of brain noradrenergic neurons in vivo.</article-title>
+          <source>Neuron</source>
+          <year>1995</year>
+          <volume>15</volume>
+          <fpage>1465</fpage>
+          <lpage>73</lpage>
+          <pub-id pub-id-type="pmid">8845169</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r40">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Granholm</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Reyland</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Albeck</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Sanders</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gerhardt</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hoernig</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Shen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Westphal</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hoffer</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Glial cell line-derived neurotrophic factor is essential for postnatal survival of midbrain dopamine neurons.</article-title>
+          <source>J Neurosci</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>3182</fpage>
+          <lpage>90</lpage>
+          <pub-id pub-id-type="pmid">10777782</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r41">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Consales</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Volpicelli</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Greco</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Leone</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Colucci-D'Amato</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Perrone-Capano</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>di Porzio</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF signaling in embryonic midbrain neurons in vitro.</article-title>
+          <source>Brain Res</source>
+          <year>2007</year>
+          <volume>1159</volume>
+          <fpage>28</fpage>
+          <lpage>39</lpage>
+          <pub-id pub-id-type="pmid">17574220</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r42">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sun</surname>
+              <given-names>ZH</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>YL</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Zuo</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Xie</surname>
+              <given-names>ZP</given-names>
+            </name>
+          </person-group>
+          <article-title>GDNF augments survival and differentiation of TH-positive neurons in neural progenitor cells.</article-title>
+          <source>Cell Biol Int</source>
+          <year>2004</year>
+          <volume>28</volume>
+          <fpage>323</fpage>
+          <lpage>5</lpage>
+          <pub-id pub-id-type="pmid">15109990</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r43">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ngan</surname>
+              <given-names>ES</given-names>
+            </name>
+            <name>
+              <surname>Shum</surname>
+              <given-names>CK</given-names>
+            </name>
+            <name>
+              <surname>Poon</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Sham</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Garcia-Barcelo</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Lui</surname>
+              <given-names>VC</given-names>
+            </name>
+            <name>
+              <surname>Tam</surname>
+              <given-names>PK</given-names>
+            </name>
+          </person-group>
+          <article-title>Prokineticin-1 (Prok-1) works coordinately with glial cell line-derived neurotrophic factor (GDNF) to mediate proliferation and differentiation of enteric neural crest cells.</article-title>
+          <source>Biochim Biophys Acta</source>
+          <year>2008</year>
+          <volume>1783</volume>
+          <fpage>467</fpage>
+          <lpage>78</lpage>
+          <pub-id pub-id-type="pmid">18006159</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r44">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yosypiv</surname>
+              <given-names>IV</given-names>
+            </name>
+            <name>
+              <surname>Boh</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>Spera</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>El-Dahr</surname>
+              <given-names>SS</given-names>
+            </name>
+          </person-group>
+          <article-title>Downregulation of Spry-1, an inhibitor of GDNF/Ret, causes angiotensin II-induced ureteric bud branching.</article-title>
+          <source>Kidney Int</source>
+          <year>2008</year>
+          <volume>74</volume>
+          <fpage>1287</fpage>
+          <lpage>93</lpage>
+          <pub-id pub-id-type="pmid">18650792</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="r45">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Politi</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>Rotstein</surname>
+              <given-names>NP</given-names>
+            </name>
+            <name>
+              <surname>Carri</surname>
+              <given-names>NG</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of GDNF on neuroblast proliferation and photoreceptor survival: additive protection with docosahexaenoic acid.</article-title>
+          <source>Invest Ophthalmol Vis Sci</source>
+          <year>2001</year>
+          <volume>42</volume>
+          <fpage>3008</fpage>
+          <lpage>15</lpage>
+          <pub-id pub-id-type="pmid">11687549</pub-id>
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

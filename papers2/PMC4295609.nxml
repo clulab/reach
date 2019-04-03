@@ -1,0 +1,1475 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Mult Scler Int</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Mult Scler Int</journal-id>
+      <journal-id journal-id-type="publisher-id">MSI</journal-id>
+      <journal-title-group>
+        <journal-title>Multiple Sclerosis International</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2090-2654</issn>
+      <issn pub-type="epub">2090-2662</issn>
+      <publisher>
+        <publisher-name>Hindawi Publishing Corporation</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25610650</article-id>
+      <article-id pub-id-type="pmc">4295609</article-id>
+      <article-id pub-id-type="doi">10.1155/2014/926134</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Treatment with Anti-EGF Ab Ameliorates Experimental Autoimmune Encephalomyelitis <italic>via</italic> Induction of Neurogenesis and Oligodendrogenesis</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Amir-Levy</surname>
+            <given-names>Yifat</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mausner-Fainberg</surname>
+            <given-names>Karin</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Karni</surname>
+            <given-names>Arnon</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1"/>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="I1">Neuroimmunology Laboratory, Department of Neurology, Tel Aviv Sourasky Medical Center, Sackler Faculty of Medicine, Tel Aviv University, 6 Weizmann Street, Tel Aviv 64239, Israel</aff>
+      <author-notes>
+        <corresp id="cor1">*Arnon Karni: <email>arnonk@tlvmc.gov.il</email></corresp>
+        <fn fn-type="other">
+          <p>Academic Editor: Gianvito Martino</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>30</day>
+        <month>12</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>2014</volume>
+      <elocation-id>926134</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>10</month>
+          <year>2014</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>11</day>
+          <month>12</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>12</day>
+          <month>12</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Yifat Amir-Levy et al.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license xlink:href="https://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>
+<italic>Background</italic>. The neural stem cells (NSCs) migrate to the damaged sites in multiple sclerosis (MS) and in experimental autoimmune encephalomyelitis (EAE). However, the differentiation into neurons or oligodendrocytes is blocked. Epidermal growth factor (EGF) stimulates NSC proliferation and mobilization to demyelinated lesions but also induces astrogenesis and glial scar. <italic>Objective</italic>. To examine the clinical and histopathological effects of EGF neutralization on EAE. <italic>Methods</italic>. EAE-induced SJL mice were intravenously treated with either anti-EGF neutralizing antibody (Ab) or isotype control or PBS. On day 9 after immunization, 3 mice of each group were daily treated for 9 days with BrdU and then sacrificed for immunohistochemical analysis. <italic>Results</italic>. Treatment with anti-EGF Ab significantly ameliorated EAE symptoms during the second relapse. Anti-EGF Ab induced a shift from BrdU<sup>+</sup>GFAP<sup>+</sup> NSCs to BrdU<sup>+</sup>DCX<sup>+</sup> neuroblasts in the subventricular zone (SVZ), increased BrdU<sup>+</sup>NeuN<sup>+</sup> neurons in the granular cell layer of the dentate gyrus, and increased BrdU<sup>+</sup>O4<sup>+</sup> oligodendrocytes in the SVZ. There was no change in the inflammatory infiltrates in response to anti-EGF Ab. <italic>Conclusions</italic>. Therapy with anti-EGF Ab ameliorates EAE via induction of neurogenesis and oligodendrogenesis. No immunosuppressive effect was found. Further investigation is needed to support these notions of beneficial effect of anti-EGF Ab in MS.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>1. Introduction</title>
+      <p>The recognition that there is neurodegeneration manifested by demyelination, oligodendrocytes apoptosis, axonal transection, and neuronal loss in multiple sclerosis (MS) [<xref rid="B1" ref-type="bibr">1</xref>&#x2013;<xref rid="B4" ref-type="bibr">4</xref>] has led to attempts to promote neurogenesis and oligodendrogenesis in models of MS [<xref rid="B5" ref-type="bibr">5</xref>, <xref rid="B6" ref-type="bibr">6</xref>]. A proliferation of subventricular zone- (SVZ-) derived progenitor cells and their migration to white matter lesions was found in experimental autoimmune encephalomyelitis (EAE) [<xref rid="B7" ref-type="bibr">7</xref>]. Moreover, one postmortem study showed that cellular density and proliferation were enhanced in the SVZ of patients with MS compared to nonneurological controls [<xref rid="B8" ref-type="bibr">8</xref>], suggesting that progenitor cells possess the potential of repopulating sites of injury. Indeed, both neuronal progenitor cells (NPCs) and oligodendrocytes progenitor cells (OPCs) derived from neuroproliferative niches have been observed in MS lesions [<xref rid="B9" ref-type="bibr">9</xref>&#x2013;<xref rid="B11" ref-type="bibr">11</xref>]. However, the differentiation of these precursor cells into functionally active neurons and oligodendrocytes was demonstrated to be mostly blocked, leading to regeneration failure [<xref rid="B12" ref-type="bibr">12</xref>, <xref rid="B13" ref-type="bibr">13</xref>]. Instead, the sites of lesions are repopulated by reactive astrocytes (RAs) in a process of astrogliosis which forms glial scars. These RAs create a physical barrier and secrete molecules that inhibit the regeneration of NPCs and OPCs [<xref rid="B14" ref-type="bibr">14</xref>, <xref rid="B15" ref-type="bibr">15</xref>].</p>
+      <p>Transit-amplifying cells, or type C cells, which comprise the intermediate stage between the neural stem cells (NSCs) and neuroblasts located in the SVZ, are known to express epidermal growth factor receptors (EGFRs) [<xref rid="B16" ref-type="bibr">16</xref>], suggesting that EGF plays a role in adult NSC proliferation and maturation. Indeed, EGF reportedly induced adult NSCs proliferation both<italic> in vitro</italic> and<italic> in vivo</italic> and was shown to induce the proliferation of NSCs in cultures of embryonic and adult mouse striatum, which gave rise to spheres of undifferentiated cells [<xref rid="B17" ref-type="bibr">17</xref>, <xref rid="B18" ref-type="bibr">18</xref>]. Moreover, infusion of EGF into the lateral ventricle of adult rats led to a dramatic amplification of endogenous SVZ precursor cells, but it had no proliferative effect on hippocampal progenitor cells [<xref rid="B19" ref-type="bibr">19</xref>]. Several studies have demonstrated that EGF induces astrogenesis at the expense of neurogenesis. Infusion of EGF into the murine brain increased the number of astrocytes at the expense of neurons in the olfactory bulb and the dentate gyrus of the hippocampus [<xref rid="B19" ref-type="bibr">19</xref>]. In animal model in which demyelinating lesions were induced by lysolecithin, an intranasal heparin-binding EGF administration induced a significant increase in SVZ cell proliferation and mobilization toward the lesions, concomitant with a shift of SVZ-derived progenitor cell differentiation toward the astrocytic lineage [<xref rid="B20" ref-type="bibr">20</xref>]. Furthermore, the addition of EGF to cultured SVZ-derived type B NSCs induced their differentiation into highly migratory Olig2 +/NG2 cells, but these cells differentiated into S100<italic>&#x3B2;</italic>
+<sup>+</sup>/O4<sup>+</sup> oligodendrocytes only after EGF withdrawal [<xref rid="B21" ref-type="bibr">21</xref>]. EGFR was also found to play a role in nerve growth inhibitory signaling in the CNS via a transactivating mechanism and signaling cascade involving the Nogo receptor (NgR) [<xref rid="B22" ref-type="bibr">22</xref>, <xref rid="B23" ref-type="bibr">23</xref>], suggesting that blocking EGFR signaling may induce nerve regeneration. Indeed, both PD168393 (4-[3(bromophenyl)-amino]-6-acrylamidoquinazoline), an irreversible EGFR inhibitor, and AG1478 [4-(3-chloroanilino)-6,7-dimethoxyquinazoline], a reversible EGFR inhibitor, were shown to promote neurite outgrowth from cerebellar granule cells and from dorsal root ganglion neurons [<xref rid="B23" ref-type="bibr">23</xref>].</p>
+      <p>We have recently demonstrated that peripheral blood mononuclear cells (PBMCs) of patients with relapsing-remitting MS (RR-MS) secrete higher levels of EGF compared to matched healthy controls, indicating a potential effect of immune cells on the insufficient neuronal and oligodendroglial regeneration in MS. Furthermore, incubation of PC-12 cells in the presence of supernatants from RR-MS patients PBMCs, which were previously treated with anti-EGF neutralizing antibody (Ab), significantly elevated neuronal survival and neurite formation compared to isotype control (IC) treatment [<xref rid="B24" ref-type="bibr">24</xref>]. Taken together, these findings suggest that although EGF plays a pivotal role in NSC amplification, its signaling should be inhibited in order to allow the desired maturation of NSCs towards a neuronal and oligodendroglial lineage. We therefore examined the effect of systemic blockade of EGF signaling via treatment with anti-EGF neutralizing Ab on relapsing-EAE symptoms and on neurogenesis and oligodendrogenesis processes in neuroproliferative niches.</p>
+    </sec>
+    <sec id="sec2">
+      <title>2. Materials and Methods</title>
+      <sec id="sec2.1">
+        <title>2.1. Induction of Relapsing-EAE and Treatment with Neutralizing Anti-EGF Ab</title>
+        <p>EAE was induced in 36 SJL female mice (6- to 8-week-old) by subcutaneous immunization (day 0) with 100&#x2009;<italic>&#x3BC;</italic>g/mouse proteolipid protein peptide (PLP<sub>139-151</sub>, synthesized by BioSight Ltd.) in 0.1&#x2009;mL PBS. The peptide was emulsified in an equal volume of complete Freund's adjuvant (CFA, from DIFCO) containing 500&#x2009;<italic>&#x3BC;</italic>g<italic> Mycobacterium tuberculosis</italic> H37RA (MT, from DIFCO). The mice also received an intraperitoneal injection of 300&#x2009;ng pertussis toxin (PTX, from Sigma-Aldrich) in 0.2&#x2009;mL PBS. A second injection of PTX (300&#x2009;ng/mouse) was given 48&#x2009;h later. The mice were randomly divided into 3 groups (<italic>n</italic> = 12 each). On day 9 after immunization, one group of the EAE-induced mice was intravenously injected with a single dose of 60&#x2009;<italic>&#x3BC;</italic>g/mouse of anti-human EGF antigen affinity-purified polyclonal antibody (AF236 from R&amp;D systems), another group was intravenously injected with 60&#x2009;<italic>&#x3BC;</italic>g/mouse of the corresponding IC (normal goat IgG control, AB-108-C from R&amp;D systems), and the third group was intravenously injected with PBS alone (vehicle) and it served as negative controls. In order to detect<italic> de novo</italic> neural cells in the neuroproliferative niches, 3 mice of each group were also daily intraperitoneally injected with 1&#x2009;mg/mouse 5-bromo-2&#x2032;-deoxyuridine (BrdU, Sigma-Aldrich), starting from treatment on day 9 for the following 9 days and they were sacrificed on day 18 after immunization for immunohistochemical analysis of brain sections. The animals were monitored until day 48 after induction for symptoms of EAE and scored as follows: 0 = no disease, 1 = tail paralysis, 2 = hind limb weakness, 3 = hind limb paralysis, 4 = hind limb plus forelimb paralysis, and 5 = moribund. The scorer was unaware of the type of therapy allocation since the type of therapy was coded and not posted on the cages. All procedures involving animals were performed according to the guidelines of the Animal Ethical Committee of our institute.</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>2.2. Immunohistochemistry</title>
+        <p>The mice were sacrificed (transcardially punctured and saline-perfused) and their brains were rapidly excised and frozen at &#x2212;80&#xB0;C. Coronal serial 10 <italic>&#x3BC;</italic>m sections were collected at &#x2212;20&#xB0;C and were kept frozen (&#x2212;80&#xB0;C) until the histological examination was performed. Sections were fixed in 4% paraformaldehyde (PFA, Bar-Naor, Ltd., Israel) for 15&#x2009;min at room temperature (RT), denatured in 2&#x2009;N HCl in distilled water at 37&#xB0;C for 30&#x2009;min, preincubated in blocking solution which contained 0.2% Triton X-100 (Sigma-Aldrich), 1% bovine serum albumin (BSA, Sigma-Aldrich), and 3% horse serum (Gibco USA) for 1&#x2009;h, and then incubated overnight at 4&#xB0;C with primary Abs, followed by incubation with a secondary Ab for 1&#x2009;h at RT. The primary Ab rat anti-BrdU (1&#x2009;:&#x2009;200, AbD Serotec, USA) and the secondary Ab Alexa Fluor 594 donkey anti-rat IgG (1&#x2009;:&#x2009;200, Molecular Probes) were used to detect BrdU-incorporated cells. To detect specific cell types, sections were costained with one of the following primary Abs: rabbit anti-doublecortin (DCX, 4604, 1&#x2009;:&#x2009;400, Cell Signaling), mouse anti-neuronal-specific nuclear protein (NeuN, MAB377, 1&#x2009;:&#x2009;100, Millipore USA), mouse anti-oligodendrocyte marker O4 (MAB345, 1&#x2009;:&#x2009;100, Millipore), and rabbit anti-glial fibrillary acidic protein (GFAP, G9269-80, 1&#x2009;:&#x2009;100, Sigma-Aldrich). The second Ab step was performed by labeling with Alexa Fluor 488-conjugated IgG to mouse or rabbit (1&#x2009;:&#x2009;200, Molecular Probes, USA). Control slides were incubated with secondary Ab alone. Stained sections were examined and photographed by LSM 700 confocal microscope (Zeiss). Digital images were collected, and the percentage of double-positive cells were quantified using<italic> ZEN 2011</italic> software on 3 sections from each mouse (3 mice from each group, total <italic>n</italic> = 9). Inflammatory infiltrates were detected by hematoxylin and eosin staining using a hematoxylin and eosin stain kit (HAE-1-1FU from ScyTek laboratories Inc.) and photographed by a light microscope.</p>
+      </sec>
+      <sec id="sec2.3">
+        <title>2.3. Statistics</title>
+        <p>Comparisons between groups were made using the Mann-Whitney <italic>U</italic> statistics. The null hypothesis asserted that the medians of the two groups of samples were identical. The <italic>U</italic> values were calculated for the two groups and for the conditions that refute the null hypothesis when <italic>P</italic> &#x2264; 0.05 or <italic>P</italic> &#x2264; 0.01. The results are presented as mean &#xB1; standard error of the mean (S.E.M).</p>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>3. Results</title>
+      <sec id="sec3.1">
+        <title>3.1. Treatment with Anti-EGF Ab Ameliorates EAE</title>
+        <p>Relapsing EAE-induced mice were treated intravenously with either 60&#x2009;<italic>&#x3BC;</italic>g/mouse of anti-human EGF, with 60&#x2009;<italic>&#x3BC;</italic>g/mouse of the corresponding IC, or with PBS (vehicle) alone on day 9 after immunization (<italic>n</italic> = 12 in each group). All the animals in all the groups had EAE (100% incidence): 100% of the animals in the IC- and PBS-treated group and 90% of the animals in the anti-EGF Ab-treated groups had a second relapse during a follow-up of 48 days. As demonstrated in <xref ref-type="fig" rid="fig1">Figure 1</xref>, clinical symptoms started to appear on day 9 after immunization in all groups. A reduced EAE score in response to treatment with anti-EGF Ab was observed throughout the whole experimental period. Comparison of the average scores of each group at 23 time points between day 9 and day 48 after induction revealed that the scores were lower in the group of anti-EGF Ab-treated mice compared with the IC-treated group. Specifically, the <italic>U</italic>-value was 37 which was lower than the critical <italic>U</italic> = 45 at <italic>P</italic> &#x2264; 0.01. Therefore, the difference between the groups was significant at <italic>P</italic> &#x2264; 0.01. No significant differences were found between the IC- and PBS-treated groups. The maximal scores ranged between 1 and 3 (average 1.71 &#xB1; 0.29) in the anti-EGF-treated group, between 2 and 4 (average 2.4 &#xB1; 0.28) in the IC-treated group, and between 1 and 3 (average 2.0 &#xB1; 0.14) in the PBS-treated group. These differences did not reach a level of significance. The cumulative scores on day 48 of follow-up in each of the mice of the anti-EGF-treated group ranged between 1 and 24.5 (average 10.95 &#xB1; 2.12), and they were significantly lower than the scores of the IC-treated mice (range 16&#x2013;53.5, average 25.50 &#xB1; 3.74) (<italic>P</italic> &#x2264; 0.01) and the scores of the PBS-treated mice (range 12&#x2013;31, average 20.75 &#xB1; 1.54) (<italic>P</italic> &#x2264; 0.01). No significant differences were found between the IC- and PBS-treated groups.</p>
+        <p>A significant effect was mainly observed during the second relapse. A significant reduction in disease severity between days 25 and 36 was detected in the anti-EGF Ab-treated mice compared to the IC-treated mice and to the PBS-treated mice (average 77.4 &#xB1; 4.6% and 69.2 &#xB1; 4.9%, resp.). The clinical scores on day 25 were lower in the anti-EGF Ab-treated groups (0.20 &#xB1; 0.13) compared to the IC-treated group (1.10 &#xB1; 0.35, <italic>P</italic> &#x2264; 0.05) and compared to the PBS-treated group (0.60 &#xB1; 0.09, <italic>P</italic> &#x2264; 0.05). Similarly, the clinical scores on day 29 were lower in the anti-EGF Ab-treated groups (0.15 &#xB1; 0.11) compared to the IC-treated group (1.55 &#xB1; 0.28, <italic>P</italic> &#x2264; 0.01) and compared to the PBS-treated group (0.96 &#xB1; 0.15, <italic>P</italic> &#x2264; 0.01). The same applied to the clinical scores on day 36: the anti-EGF Ab-treated groups scored 0.65 &#xB1; 0.28, the IC-treated group scored 1.65 &#xB1; 0.23 (<italic>P</italic> &#x2264; 0.05), and the PBS-treated group scored 1.32 &#xB1; 0.18 (<italic>P</italic> &#x2264; 0.05). Moreover, the average day of onset of the second relapse was delayed in the anti-EGF Ab-treated mice (day 33.11 &#xB1; 2.08) compared to the IC-treated mice (day 25.90 &#xB1; 1.38, <italic>P</italic> &#x2264; 0.01) and compared to the PBS-treated mice (25.77 &#xB1; 1.50, <italic>P</italic> &#x2264; 0.01). Similarly, the maximal average score of the second relapse was delayed in the anti-EGF Ab-treated mice (day 41.10 &#xB1; 1.77) compared to the IC-treated mice (day 36.30 &#xB1; 1.77, <italic>P</italic> &#x2264; 0.05) and the PBS-treated mice (day 34.38 &#xB1; 1.42, <italic>P</italic> &#x2264; 0.05). Examination of the number of mice with an EAE score &#x2265;2 demonstrated lower cases with such scores in the group of anti-EGF treatment during both relapses. At the peak of the first relapse, there were only 4 mice with severe scores in the anti-EGF Ab-treated group compared to 8 and 9 mice in the IC and PBS groups, respectively. The maximal number of animals with severe EAE during the second relapse was 3 in the anti-EGF Ab-treated group, compared to 6 in both the IC- and PBS-treated groups.</p>
+      </sec>
+      <sec id="sec3.2">
+        <title>3.2. Treatment with Anti-EGF Ab Promotes NSCs Shift to Neuroblasts in the SVZ</title>
+        <p>In order to examine the effect of treatment with anti-EGF Ab on the extent of neurogenesis and oligodendrogenesis in EAE-induced mice, we intraperitoneally injected 3 mice in the anti-EGF Ab-treated group and 3 mice in the IC-treated group with 1&#x2009;mg/mouse BrdU, every day for 9 days starting from day 9 after immunization. These mice were sacrificed on day 18 after immunization for immunohistochemical analysis of brain sections.</p>
+        <p>As demonstrated in Figures <xref ref-type="fig" rid="fig2">2(a)</xref>, <xref ref-type="fig" rid="fig2">2(b)</xref>, and <xref ref-type="fig" rid="fig2">2(c)</xref>, the percentage of BrdU<sup>+</sup>GFAP<sup>+</sup> NSCs in the SVZ were lower in the anti-EGF Ab-treated group compared to the IC-treated group (1.1% &#xB1; 0.1 versus 2.4% &#xB1; 0.2, <italic>P</italic> = 0.04, resp.). We also detected a substantial elevation in the percentage of proliferating neuroblasts expressing doublecortin (%BrdU<sup>+</sup>DCX<sup>+</sup>) in the SVZ in response to EGF blockade (16.1 &#xB1; 0.1% in the anti-EGF group versus 2.2 &#xB1; 0.7% in the IC group, <italic>P</italic> = 0.006, Figures <xref ref-type="fig" rid="fig2">2(d)</xref>, <xref ref-type="fig" rid="fig2">2(e)</xref>, and <xref ref-type="fig" rid="fig2">2(f)</xref>), suggesting that the EGF blockade promoted the differentiation of SVZ NSCs to DCX<sup>+</sup> neuroblasts. Interestingly, we did not detect any group differences in the numbers of BrdU<sup>+</sup>GFAP<sup>+</sup> or of BrdU<sup>+</sup>DCX<sup>+</sup> in the hippocampus subgranular zone (SGZ) of the dentate gyrus (data not shown).</p>
+      </sec>
+      <sec id="sec3.3">
+        <title>3.3. Treatment with Anti-EGF Ab Increases the Numbers of<italic> De Novo</italic> Mature Neurons in the Granular Cell Layer of the Dentate Gyrus</title>
+        <p>We next examined the effect of anti-EGF Ab treatment on the number of BrdU<sup>+</sup>NeuN<sup>+</sup> mature neurons in the neuroproliferative niches. We detected a significant increase in the percentage of newborn cells expressing a neuronal nuclear (NeuN) marker, that is, %BrdU<sup>+</sup>NeuN<sup>+</sup> cells, in the GCL of the dentate gyrus in response to treatment with anti-EGF Ab (0.5 &#xB1; 0.06% in anti-EGF group versus 0.2% &#xB1; 0.01 in the IC group, <italic>P</italic> = 0.02, Figures <xref ref-type="fig" rid="fig3">3(a)</xref>, <xref ref-type="fig" rid="fig3">3(b)</xref>, and <xref ref-type="fig" rid="fig3">3(c)</xref>), suggesting that an EGF signaling blockade induced neuroblast differentiation into mature neurons within the GCL of the dentate gyrus at this time point of intervention.</p>
+      </sec>
+      <sec id="sec3.4">
+        <title>3.4. Anti-EGF Ab Therapy Promotes Oligodendrogenesis in the SVZ</title>
+        <p>In order to examine the effect of anti-EGF Ab treatment on the extent of oligodendrogenesis within the neuroproliferative niches, we compared BrdU<sup>+</sup>O4<sup>+</sup> cells in the SVZ and the SGZ of the anti-EGF Ab- and IC-treated groups. Although we observed a slight trend towards increased numbers of BrdU<sup>+</sup>O4<sup>+</sup> cells in the SGZ of anti-EGF Ab-treated EAE mice, this trend did not reach a level of significance (0.6 &#xB1; 0.1 in the anti-EGF Ab-treated group versus 0.4% &#xB1; 0.02 in the IC-treated group, <italic>P</italic> = NS, Figures <xref ref-type="fig" rid="fig4">4(a)</xref>, <xref ref-type="fig" rid="fig4">4(b)</xref>, and <xref ref-type="fig" rid="fig4">4(c)</xref>). However, therapy with anti-EGF Ab led to a significant induction in %BrdU<sup>+</sup>O4<sup>+</sup> cells within the SVZ (1.9 &#xB1; 0.1% in the anti-EGF Ab-treated group versus 0.4% &#xB1; 0.01 in the IC-treated group, <italic>P</italic> = 0.01, Figures <xref ref-type="fig" rid="fig4">4(d)</xref>, <xref ref-type="fig" rid="fig4">4(e)</xref>, and <xref ref-type="fig" rid="fig4">4(f)</xref>).</p>
+      </sec>
+      <sec id="sec3.5">
+        <title>3.5. No Decrease in Inflammatory Infiltrates in the Brains of Anti-EGF Ab-Treated Mice</title>
+        <p>Finally, we sought to examine whether the beneficial clinical effect of treatment with anti-EGF Ab may also be mediated via the suppression of immune responses. Towards this end, we examined inflammatory infiltrates in the mouse brains by hematoxylin and eosin staining on day 18 after immunization and detected infiltrates in the cortex and striatum of vehicle-treated EAE and in the cortex and fimbria of IC-treated EAE mice (Figures <xref ref-type="fig" rid="fig5">5(a)</xref> and <xref ref-type="fig" rid="fig5">5(b)</xref>). Inflammatory infiltrates were also detected in the cortex and fimbria of anti-EGF Ab-treated EAE mice (<xref ref-type="fig" rid="fig5">Figure 5(c)</xref>), suggesting that the EGF blockade did not suppress immune activity in the setting of relapsing EAE.</p>
+      </sec>
+    </sec>
+    <sec id="sec4">
+      <title>4. Discussion</title>
+      <p>Our objective was to study the effect of EGF blockade as a therapy to promote neurogenesis and oligodendrogenesis in an animal model of MS. Our results demonstrated that a single intravenous administration of 60&#x2009;<italic>&#x3BC;</italic>g/mouse anti-EGF Ab on day 9 after induction of EAE significantly ameliorated relapsing-EAE severity during the second relapse and delayed its onset.</p>
+      <p>Accumulating evidence suggests that EGF plays a dual role in the context of CNS injury in general and in MS/EAE in particular. In addition to basic fibroblast growth factor, it is well known to participate in SVZ-derived NSC amplification [<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B20" ref-type="bibr">20</xref>]. Moreover, EGF induced SVZ precursor migration to the surrounding parenchyma, mainly striatum, in physiological conditions [<xref rid="B19" ref-type="bibr">19</xref>], whereas heparin-binding EGF induced SVZ precursor mobilization specifically to the demyelinating lesions in the corpus callosum that had been induced by lysolecithin [<xref rid="B20" ref-type="bibr">20</xref>]. Taking into consideration our previous findings on the enhanced secretion of EGF from peripheral immune cells of patients with relapsing-remitting MS [<xref rid="B24" ref-type="bibr">24</xref>] and the existence of CNS-infiltrating immune cells (mainly CD45<sup>+</sup> cells) in the SVZ of EAE-induced mice already on day 3 after immunization [<xref rid="B25" ref-type="bibr">25</xref>], it can be assumed that the immune system contributes to the increased EGF levels within the SVZ and the consequent SVZ-derived NSC amplification and mobilization. Indeed, increase of BrdU<sup>+</sup> proliferating cells within the SVZ of EAE-induced mice can be detected as early as day 7 after immunization [<xref rid="B25" ref-type="bibr">25</xref>]. In order to allow this initial SVZ-derived NSC amplification, we chose to add the anti-EGF neutralizing Ab on day 9 after immunization, the time between the initial proliferation of NSCs and the appearance of EAE symptoms on days 10&#x2013;12 after immunization.</p>
+      <p>At later stages, EGF was shown to play a pivotal role in astrogenesis processes at the expense of oligodendrogenesis and neurogenesis. Chronical infusion of EGF for 2 weeks into the lateral ventricle of adult rats was found to reduce the total number of newborn neurons reaching the olfactory bulb and to substantially enhance the generation of astrocytes in both the olfactory bulb and the hippocampus [<xref rid="B19" ref-type="bibr">19</xref>]. Moreover, EGFR expression was upregulated in both reactive astrocytes and scar astrocytes in chronic MS lesions, suggesting that EGF signaling is associated with astrogliosis and glial scar formation [<xref rid="B26" ref-type="bibr">26</xref>].</p>
+      <p>GFAP is generally regarded as being a marker of mature astrocytes and of slowly proliferating type B cells of the SVZ [<xref rid="B27" ref-type="bibr">27</xref>, <xref rid="B28" ref-type="bibr">28</xref>] and as the corresponding type 1 cells of the SGZ [<xref rid="B29" ref-type="bibr">29</xref>]. DCX, which encodes a microtubule-associated protein, is expressed by type A migrating neuroblasts of the SVZ [<xref rid="B30" ref-type="bibr">30</xref>, <xref rid="B31" ref-type="bibr">31</xref>] and by type 2 cells of the SGZ [<xref rid="B32" ref-type="bibr">32</xref>]. We found that therapy with anti-EGF Ab led to a 2.1-fold decrease in the level of BrdU<sup>+</sup>GFAP<sup>+</sup> NSCs, concomitant with a 7.3-fold increase in the number of BrdU<sup>+</sup>DCX<sup>+</sup> neuroblasts within the SVZ, suggesting that an EGF blockade induced type C differentiation into type A neuroblasts. We did not detect this effect of anti-EGF Ab in the SGZ. This finding may be supported by a previous observation that EGF infusion did not alter the total number of newborn cells in the hilus and granular cell layer (GCL) at the end of EGF for at least 4 weeks [<xref rid="B19" ref-type="bibr">19</xref>].</p>
+      <p>We used the NeuN marker in order to detect mature neurons. NeuN-positive cells can be detected in the GCL since NSCs in the SGZ migrate into the GCL of the dentate gyrus where they acquire a mature phenotype [<xref rid="B33" ref-type="bibr">33</xref>]. Indeed, we detected a 2.5-fold increase in %BrdU<sup>+</sup>NeuN<sup>+</sup> in the GCL of anti-EGF Ab-treated mice, suggesting that an EGF blockade augments the hippocampal neuroblast differentiation into mature neurons. These findings may correlate with the previously reported shift in response to EGF infusion between S100<italic>&#x3B2;</italic> astrocytes and NeuN neurons in the GCL (from 1% astrocytes and 92% neurons to 39% astrocytes and 52% neurons) [<xref rid="B19" ref-type="bibr">19</xref>].</p>
+      <p>Oligodendrocyte marker O4 is an antigen on the surface of both late progenitor cells and mature oligodendrocytes [<xref rid="B34" ref-type="bibr">34</xref>]. It can be detected in oligodendrocytes progenitor cells of the SGZ and in mature oligodendrocytes in the hilus adjacent to the SGZ, which are considered to be differentiated from SGZ progenitor cells [<xref rid="B35" ref-type="bibr">35</xref>]. Some type B cells in the SVZ and a small subpopulation of actively dividing type C cells were found to express oligodendrocyte lineage transcription factor 2, indicating that oligodendrocytes differentiation may also occur in the SVZ [<xref rid="B7" ref-type="bibr">7</xref>]. We observed a significant 4.7-fold increase in the number of<italic> de novo</italic> O4<sup>+</sup> oligodendrocytes in the SVZ, but not in the SGZ, in response to EGF neutralization. This finding suggests that an EGF blockade induces oligodendrogenesis in addition to neurogenesis, similar to the results of an earlier<italic> in vitro</italic> study, which demonstrated that EGF should be eliminated in order to allow the differentiation of EGF-stimulated cells derived from the SVZ into O4<sup>+</sup> oligodendrocytes [<xref rid="B21" ref-type="bibr">21</xref>]. The differences in the effect of anti-EGF Ab on the SVZ and SGZ in our study raise the possibility of different degrees of penetration of this therapy into various stem cell niches, and that possibility warrants further exploration.</p>
+      <p>Finally, we sought to examine whether the beneficial effect of EGF neutralization may be mediated<italic> via</italic> immunosuppression mechanism. Functional EGF receptors (EGFR, ErbB1/HER-1) were previously reported to be expressed by peripheral blood monocytes and monocyte-derived macrophages [<xref rid="B36" ref-type="bibr">36</xref>], but we did not detect altered numbers of inflammatory infiltrate foci in the anti-EGF Ab-treated mice, suggesting that the beneficial effect of an EGF blockade is probably not mediated<italic> via</italic> restriction of the immune response.</p>
+      <p>Taken together, our results suggest a therapeutic potential for EGF blockade with anti-EGF Ab in EAE<italic> via</italic> induction of neurogenesis and oligodendrogenesis processes at the expense of astrogenesis. Further studies on the effect of EGF blockade on EAE are needed in order to replicate our observations and to extend the evidence on the effect of this therapy on spinal cord pathology, on the various NSC niches, and on immune activity. Our study raises the possibility that combined treatment of anti-EGF Ab with immunomodulatory therapy may have an additive/synergistic effect. Our findings are compatible with previous reports which demonstrated improved functional outcome in response to inhibition of EGFR in experimental spinal cord injury [<xref rid="B37" ref-type="bibr">37</xref>, <xref rid="B38" ref-type="bibr">38</xref>].</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgment</title>
+      <p>Esther Eshkol, the institutional medical and scientific copyeditor, is thanked for editorial assistance.</p>
+    </ack>
+    <sec sec-type="conflict">
+      <title>Conflict of Interests</title>
+      <p>The authors declare that there is no conflict of interests regarding the publication of this paper.</p>
+    </sec>
+    <sec>
+      <title>Authors' Contribution</title>
+      <p>Yifat Amir Levy and Karin Mausner Fainberg contributed equally to the paper.</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ferguson</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Matyszak</surname>
+              <given-names>M. K.</given-names>
+            </name>
+            <name>
+              <surname>Esiri</surname>
+              <given-names>M. M.</given-names>
+            </name>
+            <name>
+              <surname>Perry</surname>
+              <given-names>V. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Axonal damage in acute multiple sclerosis lesions</article-title>
+          <source>
+            <italic>Brain</italic>
+          </source>
+          <year>1997</year>
+          <volume>120</volume>
+          <issue>3</issue>
+          <fpage>393</fpage>
+          <lpage>399</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0031002545</pub-id>
+          <pub-id pub-id-type="doi">10.1093/brain/120.3.393</pub-id>
+          <pub-id pub-id-type="pmid">9126051</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barnett</surname>
+              <given-names>M. H.</given-names>
+            </name>
+            <name>
+              <surname>Prineas</surname>
+              <given-names>J. W.</given-names>
+            </name>
+          </person-group>
+          <article-title>Relapsing and remitting multiple sclerosis: pathology of the newly forming lesion</article-title>
+          <source>
+            <italic>Annals of Neurology</italic>
+          </source>
+          <year>2004</year>
+          <volume>55</volume>
+          <issue>4</issue>
+          <fpage>458</fpage>
+          <lpage>468</lpage>
+          <pub-id pub-id-type="other">2-s2.0-1642281535</pub-id>
+          <pub-id pub-id-type="doi">10.1002/ana.20016</pub-id>
+          <pub-id pub-id-type="pmid">15048884</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matute</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>P&#xE9;rez-Cerd&#xE1;</surname>
+              <given-names>F.</given-names>
+            </name>
+          </person-group>
+          <article-title>Multiple sclerosis: novel perspectives on newly forming lesions</article-title>
+          <source>
+            <italic>Trends in Neurosciences</italic>
+          </source>
+          <year>2005</year>
+          <volume>28</volume>
+          <issue>4</issue>
+          <fpage>173</fpage>
+          <lpage>175</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.tins.2005.01.006</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-15944376943</pub-id>
+          <pub-id pub-id-type="pmid">15808350</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Trapp</surname>
+              <given-names>B. D.</given-names>
+            </name>
+            <name>
+              <surname>Nave</surname>
+              <given-names>K.-A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Multiple sclerosis: an immune or neurodegenerative disorder?</article-title>
+          <source>
+            <italic>Annual Review of Neuroscience</italic>
+          </source>
+          <year>2008</year>
+          <volume>31</volume>
+          <fpage>247</fpage>
+          <lpage>269</lpage>
+          <pub-id pub-id-type="doi">10.1146/annurev.neuro.30.051606.094313</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-48249139449</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lie</surname>
+              <given-names>D. C.</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Colamarino</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Ming</surname>
+              <given-names>G.-L.</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>F. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurogenesis in the adult brain: new strategies for central nervous system diseases</article-title>
+          <source>
+            <italic>Annual Review of Pharmacology and Toxicology</italic>
+          </source>
+          <year>2004</year>
+          <volume>44</volume>
+          <fpage>399</fpage>
+          <lpage>421</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0346868807</pub-id>
+          <pub-id pub-id-type="doi">10.1146/annurev.pharmtox.44.101802.121631</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arnon</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Aharoni</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurogenesis and neuroprotection in the CNS&#x2014;fundamental elements in the effect of glatiramer acetate on treatment of autoimmune neurological disorders</article-title>
+          <source>
+            <italic>Molecular Neurobiology</italic>
+          </source>
+          <year>2007</year>
+          <volume>36</volume>
+          <issue>3</issue>
+          <fpage>245</fpage>
+          <lpage>253</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12035-007-8002-z</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-38449106357</pub-id>
+          <pub-id pub-id-type="pmid">17955199</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Picard-Riera</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Decker</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Delarasse</surname>
+              <given-names>C.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Experimental autoimmune encephalomyelitis mobilizes neural progenitors from the subventricular zone to undergo oligodendrogenesis in adult mice</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>2002</year>
+          <volume>99</volume>
+          <issue>20</issue>
+          <fpage>13211</fpage>
+          <lpage>13216</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0036789957</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.192314199</pub-id>
+          <pub-id pub-id-type="pmid">12235363</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nait-Oumesmar</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Picard-Ri&#xE9;ra</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Kerninon</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Baron-Van Evercooren</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of SVZ-derived neural precursors in demyelinating diseases: from animal models to multiple sclerosis</article-title>
+          <source>
+            <italic>Journal of the Neurological Sciences</italic>
+          </source>
+          <year>2008</year>
+          <volume>265</volume>
+          <issue>1-2</issue>
+          <fpage>26</fpage>
+          <lpage>31</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jns.2007.09.032</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-38049061646</pub-id>
+          <pub-id pub-id-type="pmid">17961598</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wolswijk</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Chronic stage multiple sclerosis lesions contain a relatively quiescent population of oligodendrocyte precursor cells</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>1998</year>
+          <volume>18</volume>
+          <issue>2</issue>
+          <fpage>601</fpage>
+          <lpage>609</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0031962240</pub-id>
+          <pub-id pub-id-type="pmid">9425002</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chang</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Tourtellotte</surname>
+              <given-names>W. W.</given-names>
+            </name>
+            <name>
+              <surname>Rudick</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Trapp</surname>
+              <given-names>B. D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Premyelinating oligodendrocytes in chronic lesions of multiple sclerosis</article-title>
+          <source>
+            <italic>The New England Journal of Medicine</italic>
+          </source>
+          <year>2002</year>
+          <volume>346</volume>
+          <issue>3</issue>
+          <fpage>165</fpage>
+          <lpage>173</lpage>
+          <pub-id pub-id-type="doi">10.1056/nejmoa010994</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0037122960</pub-id>
+          <pub-id pub-id-type="pmid">11796850</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Snethen</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Love</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Scolding</surname>
+              <given-names>N. J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Disease-responsive neural precursor cells are present in multiple sclerosis lesions</article-title>
+          <source>
+            <italic>Regenerative Medicine</italic>
+          </source>
+          <year>2008</year>
+          <volume>3</volume>
+          <issue>6</issue>
+          <fpage>835</fpage>
+          <lpage>847</lpage>
+          <pub-id pub-id-type="doi">10.2217/17460751.3.6.835</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-58149136155</pub-id>
+          <pub-id pub-id-type="pmid">18947307</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kotter</surname>
+              <given-names>M. R.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>W.-W.</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Franklin</surname>
+              <given-names>R. J. M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Myelin impairs CNS remyelination by inhibiting oligodendrocyte precursor cell differentiation</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>2006</year>
+          <volume>26</volume>
+          <issue>1</issue>
+          <fpage>328</fpage>
+          <lpage>332</lpage>
+          <pub-id pub-id-type="other">2-s2.0-30644476095</pub-id>
+          <pub-id pub-id-type="doi">10.1523/jneurosci.2615-05.2006</pub-id>
+          <pub-id pub-id-type="pmid">16399703</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuhlmann</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Miron</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Cuo</surname>
+              <given-names>Q.</given-names>
+            </name>
+            <name>
+              <surname>Wegner</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Antel</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Br&#xFC;ck</surname>
+              <given-names>W.</given-names>
+            </name>
+          </person-group>
+          <article-title>Differentiation block of oligodendroglial progenitor cells as a cause for remyelination failure in chronic multiple sclerosis</article-title>
+          <source>
+            <italic>Brain</italic>
+          </source>
+          <year>2008</year>
+          <volume>131</volume>
+          <issue>7</issue>
+          <fpage>1749</fpage>
+          <lpage>1758</lpage>
+          <pub-id pub-id-type="doi">10.1093/brain/awn096</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-46849098585</pub-id>
+          <pub-id pub-id-type="pmid">18515322</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Silver</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>J. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Regeneration beyond the glial scar</article-title>
+          <source>
+            <italic>Nature Reviews Neuroscience</italic>
+          </source>
+          <year>2004</year>
+          <volume>5</volume>
+          <issue>2</issue>
+          <fpage>146</fpage>
+          <lpage>156</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrn1326</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0742288565</pub-id>
+          <pub-id pub-id-type="pmid">14735117</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yiu</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>Z.</given-names>
+            </name>
+          </person-group>
+          <article-title>Glial inhibition of CNS axon regeneration</article-title>
+          <source>
+            <italic>Nature Reviews Neuroscience</italic>
+          </source>
+          <year>2006</year>
+          <volume>7</volume>
+          <issue>8</issue>
+          <fpage>617</fpage>
+          <lpage>627</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrn1956</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-33746308062</pub-id>
+          <pub-id pub-id-type="pmid">16858390</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Machold</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Hayashi</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Rutlin</surname>
+              <given-names>M.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Sonic hedgehog is required for progenitor cell maintenance in telencephalic stem cell niches</article-title>
+          <source>
+            <italic>Neuron</italic>
+          </source>
+          <year>2003</year>
+          <volume>39</volume>
+          <fpage>937</fpage>
+          <lpage>950</lpage>
+          <pub-id pub-id-type="doi">10.1016/s0896-6273(03)00561-0</pub-id>
+          <pub-id pub-id-type="pmid">12971894</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Anchan</surname>
+              <given-names>R. M.</given-names>
+            </name>
+            <name>
+              <surname>Reh</surname>
+              <given-names>T. A.</given-names>
+            </name>
+            <name>
+              <surname>Angello</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Balliet</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF and TGF-<italic>&#x3B1;</italic> stimulate retinal neuroepithelial cell proliferation in vitro</article-title>
+          <source>
+            <italic>Neuron</italic>
+          </source>
+          <year>1991</year>
+          <volume>6</volume>
+          <issue>6</issue>
+          <fpage>923</fpage>
+          <lpage>936</lpage>
+          <pub-id pub-id-type="doi">10.1016/0896-6273(91)90233-p</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0025823975</pub-id>
+          <pub-id pub-id-type="pmid">1711348</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vescovi</surname>
+              <given-names>A. L.</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>B. A.</given-names>
+            </name>
+            <name>
+              <surname>Fraser</surname>
+              <given-names>D. D.</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>bFGF regulates the proliferative fate of unipotent (neuronal) and bipotent (neuronal/astroglial) EGF-generated CNS progenitor cells</article-title>
+          <source>
+            <italic>Neuron</italic>
+          </source>
+          <year>1993</year>
+          <volume>11</volume>
+          <issue>5</issue>
+          <fpage>951</fpage>
+          <lpage>966</lpage>
+          <pub-id pub-id-type="doi">10.1016/0896-6273(93)90124-A</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0027491410</pub-id>
+          <pub-id pub-id-type="pmid">8240816</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuhn</surname>
+              <given-names>H. G.</given-names>
+            </name>
+            <name>
+              <surname>Winkler</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Kempermann</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Thal</surname>
+              <given-names>L. J.</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>F. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor and fibroblast growth factor-2 have different effects on neural progenitors in the adult rat brain</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>1997</year>
+          <volume>17</volume>
+          <issue>15</issue>
+          <fpage>5820</fpage>
+          <lpage>5829</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0030809453</pub-id>
+          <pub-id pub-id-type="pmid">9221780</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cantarella</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Cayre</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Magalon</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Durbec</surname>
+              <given-names>P.</given-names>
+            </name>
+          </person-group>
+          <article-title>Intranasal HB-EGF administration favors adult SVZ cell mobilization to demyelinated lesions in mouse corpus callosum</article-title>
+          <source>
+            <italic>Developmental Neurobiology</italic>
+          </source>
+          <year>2008</year>
+          <volume>68</volume>
+          <issue>2</issue>
+          <fpage>223</fpage>
+          <lpage>236</lpage>
+          <pub-id pub-id-type="doi">10.1002/dneu.20588</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-38849176789</pub-id>
+          <pub-id pub-id-type="pmid">18000828</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gonzalez-Perez</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Qui&#xF1;ones-Hinojosa</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Dose-dependent effect of EGF on migration and differentiation of adult subventricular zone astrocytes</article-title>
+          <source>
+            <italic>GLIA</italic>
+          </source>
+          <year>2010</year>
+          <volume>58</volume>
+          <issue>8</issue>
+          <fpage>975</fpage>
+          <lpage>983</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.20979</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-77952578317</pub-id>
+          <pub-id pub-id-type="pmid">20187143</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schwab</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Tuli</surname>
+              <given-names>S. K.</given-names>
+            </name>
+            <name>
+              <surname>Failli</surname>
+              <given-names>V.</given-names>
+            </name>
+          </person-group>
+          <article-title>The Nogo receptor complex: confining molecules to molecular mechanisms</article-title>
+          <source>
+            <italic>Trends in Molecular Medicine</italic>
+          </source>
+          <year>2006</year>
+          <volume>12</volume>
+          <issue>7</issue>
+          <fpage>293</fpage>
+          <lpage>297</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.molmed.2006.05.001</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-33746220096</pub-id>
+          <pub-id pub-id-type="pmid">16723274</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Koprivica</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>K.-S.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>J. B.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGFR activation mediates inhibition of axon regeneration by myelin and chondroitin sulfate proteoglycans</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>2005</year>
+          <volume>310</volume>
+          <issue>5745</issue>
+          <fpage>106</fpage>
+          <lpage>110</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1115462</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-26444459836</pub-id>
+          <pub-id pub-id-type="pmid">16210539</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Levy</surname>
+              <given-names>Y. A.</given-names>
+            </name>
+            <name>
+              <surname>Fainberg</surname>
+              <given-names>K. M.</given-names>
+            </name>
+            <name>
+              <surname>Amidror</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Regev</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Auriel</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Karni</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>High and dysregulated secretion of epidermal growth factor from immune cells of patients with relapsing-remitting multiple sclerosis</article-title>
+          <source>
+            <italic>Journal of Neuroimmunology</italic>
+          </source>
+          <year>2013</year>
+          <volume>257</volume>
+          <issue>1-2</issue>
+          <fpage>82</fpage>
+          <lpage>89</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jneuroim.2013.01.012</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-84875814032</pub-id>
+          <pub-id pub-id-type="pmid">23466131</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tepav&#x10D;evi&#x107;</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Lazarini</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Alfaro-Cervello</surname>
+              <given-names>C.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inflammation-induced subventricular zone dysfunction leads to olfactory deficits in a targeted mouse model of multiple sclerosis</article-title>
+          <source>
+            <italic>Journal of Clinical Investigation</italic>
+          </source>
+          <year>2011</year>
+          <volume>121</volume>
+          <issue>12</issue>
+          <fpage>4722</fpage>
+          <lpage>4734</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84055217299</pub-id>
+          <pub-id pub-id-type="doi">10.1172/JCI59145</pub-id>
+          <pub-id pub-id-type="pmid">22056384</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holley</surname>
+              <given-names>J. E.</given-names>
+            </name>
+            <name>
+              <surname>Gveric</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Newcombe</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Cuzner</surname>
+              <given-names>M. L.</given-names>
+            </name>
+            <name>
+              <surname>Gutowski</surname>
+              <given-names>N. J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Astrocyte characterization in the multiple sclerosis glial scar</article-title>
+          <source>
+            <italic>Neuropathology and Applied Neurobiology</italic>
+          </source>
+          <year>2003</year>
+          <volume>29</volume>
+          <issue>5</issue>
+          <fpage>434</fpage>
+          <lpage>444</lpage>
+          <pub-id pub-id-type="doi">10.1046/j.1365-2990.2003.00491.x</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0141636589</pub-id>
+          <pub-id pub-id-type="pmid">14507335</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Seri</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Doetsch</surname>
+              <given-names>F.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of neural stem cells in the adult vertebrate brain</article-title>
+          <source>
+            <italic>Brain Research Bulletin</italic>
+          </source>
+          <year>2002</year>
+          <volume>57</volume>
+          <issue>6</issue>
+          <fpage>751</fpage>
+          <lpage>758</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0361-9230(01)00770-5</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0036096542</pub-id>
+          <pub-id pub-id-type="pmid">12031271</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garc&#xED;a-Verdugo</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Doetsch</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Wichterle</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Lim</surname>
+              <given-names>D. A.</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Architecture and cell types of the adult subventricular zone: in search of the stem cells</article-title>
+          <source>
+            <italic>Journal of Neurobiology</italic>
+          </source>
+          <year>1998</year>
+          <volume>36</volume>
+          <issue>2</issue>
+          <fpage>234</fpage>
+          <lpage>248</lpage>
+          <pub-id pub-id-type="doi">10.1002/(sici)1097-4695(199808)36:260;234::aid-neu1062;3.0.co;2-e</pub-id>
+          <pub-id pub-id-type="pmid">9712307</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Seri</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Garc&#xED;a-Verdugo</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>McEwen</surname>
+              <given-names>B. S.</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Astrocytes give rise to new neurons in the adult mammalian hippocampus</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>2001</year>
+          <volume>21</volume>
+          <issue>18</issue>
+          <fpage>7153</fpage>
+          <lpage>7160</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0035884948</pub-id>
+          <pub-id pub-id-type="pmid">11549726</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gleeson</surname>
+              <given-names>J. G.</given-names>
+            </name>
+            <name>
+              <surname>Peter T</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Flanagan</surname>
+              <given-names>L. A.</given-names>
+            </name>
+            <name>
+              <surname>Walsh</surname>
+              <given-names>C. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Doublecortin is a microtubule-associated protein and is expressed widely by migrating neurons</article-title>
+          <source>
+            <italic>Neuron</italic>
+          </source>
+          <year>1999</year>
+          <volume>23</volume>
+          <issue>2</issue>
+          <fpage>257</fpage>
+          <lpage>271</lpage>
+          <pub-id pub-id-type="doi">10.1016/s0896-6273(00)80778-3</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0033152450</pub-id>
+          <pub-id pub-id-type="pmid">10399933</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Francis</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Koulakoff</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Boucher</surname>
+              <given-names>D.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Doublecortin is a developmentally regulated, microtubule-associated protein expressed in migrating and differentiating neurons</article-title>
+          <source>
+            <italic>Neuron</italic>
+          </source>
+          <year>1999</year>
+          <volume>23</volume>
+          <issue>2</issue>
+          <fpage>247</fpage>
+          <lpage>256</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0896-6273(00)80777-1</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0033153135</pub-id>
+          <pub-id pub-id-type="pmid">10399932</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fukuda</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Tozuka</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Yamaguchi</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Miyamoto</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Hisatsune</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Two distinct subpopulations of nestin -positive cells in adult mouse dentate gyrus</article-title>
+          <source>
+            <italic>Journal of Neuroscience</italic>
+          </source>
+          <year>2003</year>
+          <volume>23</volume>
+          <issue>28</issue>
+          <fpage>9357</fpage>
+          <lpage>9366</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0142188646</pub-id>
+          <pub-id pub-id-type="pmid">14561863</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuhn</surname>
+              <given-names>H. G.</given-names>
+            </name>
+            <name>
+              <surname>Dickinson-Anson</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>F. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurogenesis in the dentate gyrus of the adult rat: age-related decrease of neuronal progenitor proliferation</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>1996</year>
+          <volume>16</volume>
+          <issue>6</issue>
+          <fpage>2027</fpage>
+          <lpage>2033</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0029863342</pub-id>
+          <pub-id pub-id-type="pmid">8604047</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nielsen</surname>
+              <given-names>J. A.</given-names>
+            </name>
+            <name>
+              <surname>Maric</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Lau</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Barker</surname>
+              <given-names>J. L.</given-names>
+            </name>
+            <name>
+              <surname>Hudson</surname>
+              <given-names>L. D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a novel oligodendrocyte cell adhesion protein using gene expression profiling</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>2006</year>
+          <volume>26</volume>
+          <issue>39</issue>
+          <fpage>9881</fpage>
+          <lpage>9891</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33749170319</pub-id>
+          <pub-id pub-id-type="doi">10.1523/jneurosci.2246-06.2006</pub-id>
+          <pub-id pub-id-type="pmid">17005852</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Matsumoto</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Itoh</surname>
+              <given-names>K.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Target cells of apoptosis in the adult murine dentate gyrus and O4 immunoreactivity after ionizing radiation</article-title>
+          <source>
+            <italic>Neuroscience Letters</italic>
+          </source>
+          <year>2000</year>
+          <volume>279</volume>
+          <issue>1</issue>
+          <fpage>57</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="doi">10.1016/s0304-3940(99)00910-6</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0033982253</pub-id>
+          <pub-id pub-id-type="pmid">10670787</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lamb</surname>
+              <given-names>D. J.</given-names>
+            </name>
+            <name>
+              <surname>Modjtahedi</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Plant</surname>
+              <given-names>N. J.</given-names>
+            </name>
+            <name>
+              <surname>Ferns</surname>
+              <given-names>G. A. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF mediates monocyte chemotaxis and macrophage proliferation and EGF receptor is expressed in atherosclerotic plaques</article-title>
+          <source>
+            <italic>Atherosclerosis</italic>
+          </source>
+          <year>2004</year>
+          <volume>176</volume>
+          <issue>1</issue>
+          <fpage>21</fpage>
+          <lpage>26</lpage>
+          <pub-id pub-id-type="other">2-s2.0-4043157671</pub-id>
+          <pub-id pub-id-type="doi">10.1016/j.atherosclerosis.2004.04.012</pub-id>
+          <pub-id pub-id-type="pmid">15306170</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>Z.-W.</given-names>
+            </name>
+            <name>
+              <surname>Tang</surname>
+              <given-names>R.-H.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>J.-P.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibiting epidermal growth factor receptor attenuates reactive astrogliosis and improves functional outcome after spinal cord injury in rats</article-title>
+          <source>
+            <italic>Neurochemistry International</italic>
+          </source>
+          <year>2011</year>
+          <volume>58</volume>
+          <issue>7</issue>
+          <fpage>812</fpage>
+          <lpage>819</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.neuint.2011.03.007</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-79955659951</pub-id>
+          <pub-id pub-id-type="pmid">21402118</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Erschbamer</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Pernold</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Olson</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibiting epidermal growth factor receptor improves structural, locomotor, sensory, and bladder recovery from experimental spinal cord injury</article-title>
+          <source>
+            <italic>The Journal of Neuroscience</italic>
+          </source>
+          <year>2007</year>
+          <volume>27</volume>
+          <issue>24</issue>
+          <fpage>6428</fpage>
+          <lpage>6435</lpage>
+          <pub-id pub-id-type="doi">10.1523/jneurosci.1037-07.2007</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-34250371737</pub-id>
+          <pub-id pub-id-type="pmid">17567803</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="fig1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Treatment with anti-EGF Ab ameliorated EAE severity and delayed the onset of the second relapse. Relapsing experimental autoimmune encephalomyelitis (EAE) was induced in 36 SJL female mice that were subcutaneously injected with PLP<sub>139-151</sub> peptide on day 0 in Freund's adjuvant and were injected intraperitoneally with 300&#x2009;ng pertussis toxin on day 0 and 48 hours after induction of EAE. The mice were divided in 3 groups (<italic>n</italic> = 12 each). On day 9 after induction, the mice were intravenously injected with either 60&#x2009;<italic>&#x3BC;</italic>g/mouse anti-human EGF Ab or PBS alone (the vehicle) or with 60&#x2009;<italic>&#x3BC;</italic>g/mouse normal goat IgG and they served as controls (<italic>n</italic> = 12 in each group). A therapy with anti-EGF Ab significantly ameliorated EAE severity during the second relapse and postponed its onset, an effect that was significant between days 25 and 36 after induction.</p>
+      </caption>
+      <graphic xlink:href="MSI2014-926134.001"/>
+    </fig>
+    <fig id="fig2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Reduced numbers of NSCs and increased numbers of neuroblasts in the SVZ in response to therapy with anti-EGF Ab. Immunohistochemical labeling of BrdU<sup>+</sup>GFAP<sup>+</sup> cells and BrdU<sup>+</sup>DCX<sup>+</sup> cells in the SVZ of IC-treated mice (a and d, resp.) and of anti-EGF Ab-treated mice (b and e, resp.) on day 18 after immunization. Quantification of %BrdU<sup>+</sup>GFAP<sup>+</sup> cells (c) and of %BrdU<sup>+</sup>DCX<sup>+</sup> cells (f) revealed reduced numbers of BrdU<sup>+</sup>GFAP<sup>+</sup> cells and increased numbers of BrdU<sup>+</sup>DCX<sup>+</sup> cells in the SVZ of anti-EGF Ab-treated EAE mice compared to IC-treated mice. Images were obtained using a confocal microscopy, coronal sections. Quantification was performed using<italic> ZEN 2011</italic> software on 3 sections from each mouse (3 mice from each group, total <italic>n</italic> = 9).<italic> LV</italic>, lateral ventricle,<italic> SVZ</italic>, subventricular zone. Scale bar: 100&#x2009;<italic>&#x3BC;</italic>m.</p>
+      </caption>
+      <graphic xlink:href="MSI2014-926134.002"/>
+    </fig>
+    <fig id="fig3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Elevated numbers of<italic> de novo</italic> mature neurons in the GCL of anti-EGF Ab-treated EAE mice. Immunohistochemical labeling of BrdU<sup>+</sup>NeuN<sup>+</sup> cells in the GCL of IC-treated mice (a) and of anti-EGF Ab-treated mice (b) on day 18 after immunization. Quantification of %BrdU<sup>+</sup>NeuN<sup>+</sup> cells (c) revealed increased numbers of BrdU<sup>+</sup>NeuN<sup>+</sup> in the GCL of anti-EGF Ab-treated EAE mice compared to IC-treated mice. Images were obtained using a confocal microscopy, coronal sections. Quantification was performed using<italic> ZEN 2011</italic> software on 3 sections from each mouse (3 mice from each group, total <italic>n</italic> = 9).<italic> GCL</italic>, granular cell layer. Scale bar: 10&#x2009;<italic>&#x3BC;</italic>m (magnification = &#xD7;63).</p>
+      </caption>
+      <graphic xlink:href="MSI2014-926134.003"/>
+    </fig>
+    <fig id="fig4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Increased numbers of<italic> de novo</italic> oligodendrocytes in the SVZ in response to therapy with anti-EGF Ab. Immunohistochemical labeling of BrdU<sup>+</sup>O4<sup>+</sup> cells in the SGZ and SVZ of IC-treated mice (a and d, resp.) and of anti-EGF Ab-treated mice (b and e, resp.) on day 18 after immunization. Quantification of %BrdU<sup>+</sup>O4<sup>+</sup> cells in the SGZ and in the SVZ (c and f, correspondingly) revealed a nonsignificant trend for induction of BrdU<sup>+</sup>O4<sup>+</sup> in the SGZ, along with a significant induction in BrdU<sup>+</sup>O4<sup>+</sup> cells in the SVZ. Images were obtained using a confocal microscopy, coronal sections. Quantification was performed using<italic> ZEN 2011</italic> software on 3 sections from each mouse (3 mice from each group, total <italic>n</italic> = 9).<italic> DG</italic>, dentate gyrus,<italic> LV</italic>, lateral ventricle,<italic> SVZ</italic>, subventricular zone, and<italic> cc</italic>, corpus callosum. Scale bar: 10&#x2009;<italic>&#x3BC;</italic>m (magnification = &#xD7;63).</p>
+      </caption>
+      <graphic xlink:href="MSI2014-926134.004"/>
+    </fig>
+    <fig id="fig5" orientation="portrait" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>Treatment with anti-EGF Ab did not affect inflammatory cell infiltration into the CNS. Estimation of inflammatory infiltrates on day 18 after immunization by hematoxylin and eosin staining. Infiltrates (arrows) were detected in the cortex and striatum of vehicle-treated EAE mice (a and b), in the cortex and fimbria of IC-treated EAE mice (c and d), and in the cortex and fimbria of anti-EGF Ab-treated EAE mice (e and f). Images were obtained by a light microscope.<italic> Ctx</italic>, cortex,<italic> cc</italic>, corpus callosum,<italic> St</italic>, striatum,<italic> fi</italic>, fimbria, and<italic> LV</italic>, lateral ventricle. Scale bar: 50&#x2009;<italic>&#x3BC;</italic>m.</p>
+      </caption>
+      <graphic xlink:href="MSI2014-926134.005"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>
