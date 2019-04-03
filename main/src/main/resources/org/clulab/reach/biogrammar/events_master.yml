@@ -163,6 +163,124 @@ rules:
       priority: "7"
 
 
+  ###############################################################################
+  #
+  # Simple events, edge cases (must have priority simple-event - 1)
+  #
+  ###############################################################################
+
+  # Phosphorylations
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Phosphorylation"
+      actionFlow: "mkBioMention"
+      label: "Phosphorylation"
+      verbalTriggerLemma: "phosphorylate"
+      nominalTriggerLemma: "phosphorylation"
+      triggerPrefix: "!word=/(?i)^(de|auto)/"
+      priority: "6"
+
+  # AutoPhosphorylations
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "AutoPhosphorylation"
+      actionFlow: "handleAutoEvent"
+      label: "AutoPhosphorylation"
+      verbalTriggerLemma: "auto-?phosphorylate"
+      baseVerbalTriggerLemma: "phosphorylate"
+      nominalTriggerLemma: "auto-?phosphorylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Ubiquitination
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Ubiquitination"
+      actionFlow: "mkUbiquitination"
+      label: "Ubiquitination"
+      verbalTriggerLemma: "ubiquit(in|yl)ate"
+      nominalTriggerLemma: "ubiquit(in|yl)ation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Hydroxylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Hydroxylation"
+      actionFlow: "mkBioMention"
+      label: "Hydroxylation"
+      verbalTriggerLemma: "hydroxylate"
+      nominalTriggerLemma: "hydroxylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Sumoylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Sumoylation"
+      actionFlow: "mkBioMention"
+      label: "Sumoylation"
+      verbalTriggerLemma: "sumoylate"
+      nominalTriggerLemma: "sumoylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Glycosylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Glycosylation"
+      actionFlow: "mkBioMention"
+      label: "Glycosylation"
+      verbalTriggerLemma: "glycosylate"
+      nominalTriggerLemma: "glycosylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Acetylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Acetylation"
+      actionFlow: "mkBioMention"
+      label: "Acetylation"
+      verbalTriggerLemma: "acetylate"
+      nominalTriggerLemma: "acetylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Farnesylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Farnesylation"
+      actionFlow: "mkBioMention"
+      label: "Farnesylation"
+      verbalTriggerLemma: "farnesylate"
+      nominalTriggerLemma: "farnesylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Ribosylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Ribosylation"
+      actionFlow: "mkBioMention"
+      label: "Ribosylation"
+      verbalTriggerLemma: "ribosylate"
+      nominalTriggerLemma: "ribosylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+  # Methylation
+  - import: org/clulab/reach/biogrammar/events/simple-events_edge_cases.yml
+    vars:
+      eventName: "Methylation"
+      actionFlow: "mkBioMention"
+      label: "Methylation"
+      verbalTriggerLemma: "methylate"
+      nominalTriggerLemma: "methylation"
+      triggerPrefix: "!word=/(?i)^de/"
+      priority: "6"
+
+
   #
   # "Reverse" Simple Events:
   #
