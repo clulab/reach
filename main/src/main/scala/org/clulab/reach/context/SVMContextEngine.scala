@@ -114,6 +114,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
         for((evt, valueList) <- predictions.toSeq) {
           for(((e, c), truth) <- valueList) {
+            println(evt + " : evt id from key")
+            println(e + " evt id from value")
             val intTruth = truth match {
               case true => 1
               case false => 0
