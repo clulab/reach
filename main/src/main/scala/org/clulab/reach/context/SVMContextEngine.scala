@@ -65,6 +65,27 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
+
+        // we will now compare the predictions of the SVM on the live Reach code with the old version of Reach. For this, we will compare only those rows that have the same (ctxId, evtId) pair
+        // as the old data i.e. from groupedFeatures. This will give us an estimation of how well our SVM engine performs.
+        // We will perform set operations on (ctxid, evtid) and extract those rows whose ID pair match the intersection of old and new data
+        val (_,oldDataSet) = AggregatedRow.fromFile(groupedFeaturesPath)
+        val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
+        oldDataSet.map(o => {
+          val evt = o.EvtID
+          val ctxId = o.CtxID
+          val intId = o.label match{
+            case Some(t) => if (t == true) 1 else 0
+            case _ => 0
+          }
+          val tup =(evt,ctxId, intId)
+          oldDataIDPairs += tup
+        })
+
+
+
+
+
         // Run the classifier for each pair and store the predictions
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
           aggregatedFeatures mapValues {a =>
@@ -88,6 +109,25 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 (ctxId, prediction)
             }
           }
+
+
+        val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
+        for((evt, valueList) <- predictions.toSeq) {
+          for(((e, c), truth) <- valueList) {
+            val intTruth = truth match {
+              case true => 1
+              case false => 0
+          }
+            val tup = (evt,c,intTruth)
+            newPredTup += tup
+        }}
+
+        val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
+        for((k,v) <- result) {
+          logger.info(k + v)
+        }
+
+
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
           mention match {
@@ -223,6 +263,32 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val newAggRow = AggregatedRow(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
+
+
+  private def compareCommonPairs(oldData: Array[(String,String,Int)], newData: Array[(String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
+    val oldKeys = oldData.map(s =>(s._1, s._2))
+    val newKeys = newData.map(n => (n._1, n._2))
+    val intersect = oldKeys.toSet.intersect(newKeys.toSet)
+    val oldPrediction = collection.mutable.ListBuffer[Int]()
+    val newPrediction = collection.mutable.ListBuffer[Int]()
+    for((evt, ctx, label) <- oldData) {
+      val tup = (evt,ctx)
+      if(intersect.contains(tup))
+        oldPrediction += label
+    }
+
+    for((evt, ctx, label) <- newData) {
+      val tup = (evt,ctx)
+      if(intersect.contains(tup))
+        newPrediction += label
+    }
+
+    val name = "Comparing predictions of SVM on new data with old data"
+    CodeUtils.scoreMaker(name, oldPrediction.toArray, newPrediction.toArray)
+  }
+
+
+
 
 
 
