@@ -1,0 +1,1140 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19915674</article-id>
+      <article-id pub-id-type="pmc">2773002</article-id>
+      <article-id pub-id-type="publisher-id">09-PONE-RA-11168R1</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0007819</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline">
+          <subject>Biochemistry</subject>
+          <subject>Cell Biology</subject>
+          <subject>Oncology</subject>
+          <subject>Biochemistry/Chemical Biology of the Cell</subject>
+          <subject>Biochemistry/Drug Discovery</subject>
+          <subject>Cell Biology/Cell Growth and Division</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Differential Role of Human Choline Kinase &#x3B1; and &#x3B2; Enzymes in Lipid Metabolism: Implications in Cancer Onset and Treatment</article-title>
+        <alt-title alt-title-type="running-head">ChoK&#x3B1; and &#x3B2; in Carcinogenesis</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gallego-Ortega</surname>
+            <given-names>David</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ramirez de Molina</surname>
+            <given-names>Ana</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ramos</surname>
+            <given-names>Maria Angeles</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Valdes-Mora</surname>
+            <given-names>Fatima</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Barderas</surname>
+            <given-names>Maria Gonzalez</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sarmentero-Estrada</surname>
+            <given-names>Jacinto</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lacal</surname>
+            <given-names>Juan Carlos</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Translational Oncology Unit, CSIC-UAM-La Paz, Instituto de Investigaciones Biom&#xE9;dicas, Madrid, Spain</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>TCD Pharma, Centro Nacional de Biotecnolog&#xED;a, Madrid, Spain</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Department of Vascular Physiopathology, Hospital Nacional de Paraplejicos, SESCAM, Toledo, Spain</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Rutherford</surname>
+            <given-names>Suzannah</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">Fred Hutchinson Cancer Research Center, United States of America</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>jclacal@cnb.csic.es</email></corresp>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: DGO ARdM JCL. Performed the experiments: DGO MAR FVM JSE. Analyzed the data: DGO ARdM. Contributed reagents/materials/analysis tools: MGB. Wrote the paper: DGO JCL.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>12</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>4</volume>
+      <issue>11</issue>
+      <elocation-id>e7819</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>22</day>
+          <month>6</month>
+          <year>2009</year>
+        </date>
+        <date date-type="accepted">
+          <day>7</day>
+          <month>10</month>
+          <year>2009</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Gallego-Ortega et al.</copyright-statement>
+        <copyright-year>2009</copyright-year>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>The Kennedy pathway generates phosphocoline and phosphoethanolamine through its two branches. Choline Kinase (ChoK) is the first enzyme of the Kennedy branch of synthesis of phosphocholine, the major component of the plasma membrane. ChoK family of proteins is composed by ChoK&#x3B1; and ChoK&#x3B2; isoforms, the first one with two different variants of splicing. Recently ChoK&#x3B1; has been implicated in the carcinogenic process, since it is over-expressed in a variety of human cancers. However, no evidence for a role of ChoK&#x3B2; in carcinogenesis has been reported.</p>
+        </sec>
+        <sec>
+          <title>Methodology/Principal Findings</title>
+          <p>Here we compare the <italic>in vitro</italic> and <italic>in vivo</italic> properties of ChoK&#x3B1;1 and ChoK&#x3B2; in lipid metabolism, and their potential role in carcinogenesis. Both ChoK&#x3B1;1 and ChoK&#x3B2; showed choline and ethanolamine kinase activities when assayed in cell extracts, though with different affinity for their substrates. However, they behave differentially when overexpressed in whole cells. Whereas ChoK&#x3B2; display an ethanolamine kinase role, ChoK&#x3B1;1 present a dual choline/ethanolamine kinase role, suggesting the involvement of each ChoK isoform in distinct biochemical pathways under <italic>in vivo</italic> conditions. In addition, while overexpression of ChoK&#x3B1;1 is oncogenic when overexpressed in HEK293T or MDCK cells, ChoK&#x3B2; overexpression is not sufficient to induce <italic>in vitro</italic> cell transformation nor <italic>in vivo</italic> tumor growth. Furthermore, a significant upregulation of ChoK&#x3B1;1 mRNA levels in a panel of breast and lung cancer cell lines was found, but no changes in ChoK&#x3B2; mRNA levels were observed. Finally, MN58b, a previously described potent inhibitor of ChoK with <italic>in vivo</italic> antitumoral activity, shows more than 20-fold higher efficiency towards ChoK&#x3B1;1 than ChoK&#x3B2;.</p>
+        </sec>
+        <sec>
+          <title>Conclusion/Significance</title>
+          <p>This study represents the first evidence of the distinct metabolic role of ChoK&#x3B1; and ChoK&#x3B2; isoforms, suggesting different physiological roles and implications in human carcinogenesis. These findings constitute a step forward in the design of an antitumoral strategy based on ChoK inhibition.</p>
+        </sec>
+      </abstract>
+      <counts>
+        <page-count count="11"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Human choline kinase alpha (ChoK&#x3B1;) and beta (ChoK&#x3B2;) are members of the choline kinase family. In mammals this family is encoded by two separate genes, <italic>CHKA</italic> and <italic>CHKB</italic>, resulting in three different proteins with a choline/ethanolamine kinase (ChoK/EtnK) domain: ChoK&#x3B1;1 (NP_001268), ChoK&#x3B1;2 (NP_997634) and ChoK&#x3B2;1 (NP_005189) <xref rid="pone.0007819-Aoyama1" ref-type="bibr">[1]</xref>. ChoK&#x3B1;1 differs from ChoK&#x3B1;2 in only an extra stretch of 18 amino acids, while ChoK&#x3B2; differs from ChoK&#x3B1;1 and ChoK&#x3B1;2 in approximately 40%. The presence of the ChoK/EtnK domain confers the capacity to catalyze the phosphorylation of choline (Cho) to phosphocholine (PCho) <xref rid="pone.0007819-Aoyama1" ref-type="bibr">[1]</xref>. This constitutes the first step in the biosynthesis pathway of phosphatidylcholine (PC) <xref rid="pone.0007819-Lacal1" ref-type="bibr">[2]</xref>. PC is the major phospholipid in eukaryotic membranes and plays a critical role in membrane structure and also in cell signalling <xref rid="pone.0007819-Lacal1" ref-type="bibr">[2]</xref>. ChoK enzymes could be implicated also in the synthesis of phosphatidylethanolamine (PE), using as substrate ethanolamine to render phosphoethanolamine (PEtn) <xref rid="pone.0007819-Aoyama1" ref-type="bibr">[1]</xref>, <xref rid="pone.0007819-Uchida1" ref-type="bibr">[3]</xref>&#x2013;<xref rid="pone.0007819-Aoyama2" ref-type="bibr">[5]</xref>.</p>
+      <p>Previous studies suggest that ChoK acts as a dimeric protein <xref rid="pone.0007819-Malito1" ref-type="bibr">[6]</xref>, <xref rid="pone.0007819-Zhou1" ref-type="bibr">[7]</xref> and the proportion of the different homo- or hetero- dimer population has been proposed to be tissue-specific <xref rid="pone.0007819-Aoyama3" ref-type="bibr">[8]</xref>. Furthermore, the combination between choline kinase isoforms results in a different level of ChoK activity <italic>in vitro</italic> under cell-free systems conditions. Thus, the &#x3B1;/&#x3B1; homodimer is the most active choline kinase form, the &#x3B2;/&#x3B2; homodimer the less active, and the &#x3B1;/&#x3B2; heterodimer has an intermediate phenotype <xref rid="pone.0007819-Aoyama3" ref-type="bibr">[8]</xref>.</p>
+      <p>The specific phospholipase D-driven hydrolysis of PC generates choline and signal transduction metabolites such as PA (phosphatidic acid), and its derivatives LPA (lysophosphatidic acid) and DAG (diacylglycerol), that are important in mitogenesis and cellular transformation <xref rid="pone.0007819-Carnero1" ref-type="bibr">[9]</xref>&#x2013;<xref rid="pone.0007819-RodriguezGonzalez1" ref-type="bibr">[11]</xref>. Choline gets further converted by ChoK into PCho, an stable metabolite able to induce mitogenesis in murine fibroblasts <xref rid="pone.0007819-Cuadrado1" ref-type="bibr">[12]</xref>. In addition, several oncogenes such as <italic>RAS</italic> or <italic>RHOA</italic> increase ChoK&#x3B1; activity resulting in higher intracellular levels of PCho <xref rid="pone.0007819-RamirezdeMolina1" ref-type="bibr">[13]</xref>&#x2013;<xref rid="pone.0007819-Lacal2" ref-type="bibr">[16]</xref>. Magnetic resonance spectroscopy (MRS) studies have revealed abnormal phospholipid metabolism in cancer cells <xref rid="pone.0007819-Griffin1" ref-type="bibr">[17]</xref>, <xref rid="pone.0007819-Negendank1" ref-type="bibr">[18]</xref>. Furthermore, high levels of PCho have been found in tumoral cells as well as in tumour samples of cancer patients compared with the normal counterparts in breast, prostate, brain and ovarian cancer <xref rid="pone.0007819-Aboagye1" ref-type="bibr">[19]</xref>&#x2013;<xref rid="pone.0007819-Spadaro1" ref-type="bibr">[25]</xref>. The increase in phosphoethanolamine has been also reported in transformed cells or tumor samples using MRS, although it contributes to a much lesser extent, compared with the increase of PCho, to the phosphomonoester peak <xref rid="pone.0007819-Bell1" ref-type="bibr">[26]</xref>.</p>
+      <p>The implication of ChoK&#x3B1; in cell growth, proliferation, initiation and progression of cancer is well documented. ChoK&#x3B1; is overexpressed in some of the most common cancers, such as breast, lung, colorectal, prostate <xref rid="pone.0007819-RamirezdeMolina3" ref-type="bibr">[27]</xref>&#x2013;<xref rid="pone.0007819-RamirezdeMolina6" ref-type="bibr">[30]</xref> and bladder (unpublished observations). Furthermore, it has oncogenic activity when overexpressed in human cells <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>. Increased ChoK&#x3B1; mRNA levels have been recently described as an independent prognostic marker in non small cell lung cancer patients <xref rid="pone.0007819-RamirezdeMolina6" ref-type="bibr">[30]</xref>. Also, human breast cancer cell lines show upregulation of ChoK&#x3B1; but not ChoK&#x3B2;, when compared with normal mammary epithelial cells <xref rid="pone.0007819-Eliyahu1" ref-type="bibr">[21]</xref>. In that sense, it has been recently reported that in the prostate tumor mouse model (TRAMP), using IHQ immunodetection of ChoK&#x3B2;, a low level expression of ChoK&#x3B2; was found in tumoral samples compared with wild type tissues <xref rid="pone.0007819-Teichert1" ref-type="bibr">[31]</xref>.</p>
+      <p>The implication of members of the Rho GTPase family in cancer onset and progression has been extensively described <xref rid="pone.0007819-GomezdelPulgar1" ref-type="bibr">[32]</xref>&#x2013;<xref rid="pone.0007819-Aznar2" ref-type="bibr">[35]</xref>. Evidence that ChoK is involved in malignant transformation along with Ras and RhoA has been provided <xref rid="pone.0007819-HernandezAlcoceba1" ref-type="bibr">[14]</xref>, <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, <xref rid="pone.0007819-RamirezdeMolina7" ref-type="bibr">[36]</xref>. Moreover, the activity of ChoK&#x3B1; is modulated by known effectors of both Ras and RhoA <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, <xref rid="pone.0007819-RamirezdeMolina5" ref-type="bibr">[29]</xref>.</p>
+      <p>Pharmacological inhibition of ChoK&#x3B1; has been proposed as a novel antitumoral strategy <xref rid="pone.0007819-Lacal1" ref-type="bibr">[2]</xref>. A strong support to this strategy is based on the use of MN58b, a well-characterized ChoK&#x3B1; inhibitor, which displays a potent antiproliferative effect in several tumoral cell lines in vitro, and a strong reduction of tumor growth in nude mice xenografts <xref rid="pone.0007819-HernandezAlcoceba1" ref-type="bibr">[14]</xref>, <xref rid="pone.0007819-HernandezAlcoceba2" ref-type="bibr">[37]</xref>&#x2013;<xref rid="pone.0007819-RodriguezGonzalez4" ref-type="bibr">[40]</xref>.</p>
+      <p>We have compared the biochemical and biological properties of ChoK&#x3B1; and ChoK&#x3B2;, and demonstrate that besides their homology, the latter is not able to induce cell transformation in HEK293T or MDCK cells. Moreover, we suggest differential behaviour between &#x3B1; and &#x3B2; isoforms in phospholipids metabolism. Finally, the antitumoral properties of MN58b can be attributed to its specific inhibition of ChoK&#x3B1;. The implications of these findings are discussed.</p>
+    </sec>
+    <sec id="s2">
+      <title>Results</title>
+      <sec id="s2a">
+        <title>Characterization of enzymatic properties of ChoK&#x3B1;1 and ChoK&#x3B2; isoforms</title>
+        <p>The activity of both choline kinase isoforms, ChoK&#x3B1;1 and ChoK&#x3B2;, has been described previously in different mammalian tissues, however their choline kinase and/or ethanolamine kinase activities are not fully characterized <xref rid="pone.0007819-Aoyama1" ref-type="bibr">[1]</xref>, <xref rid="pone.0007819-Porter1" ref-type="bibr">[4]</xref>, <xref rid="pone.0007819-Ishidate1" ref-type="bibr">[41]</xref>&#x2013;<xref rid="pone.0007819-Uchida2" ref-type="bibr">[43]</xref>. Thus, we first carried out a comparative analysis of the <italic>in vitro</italic> kinase activity of the two human ChoK&#x3B1;1 and ChoK&#x3B2; isoforms, regarding their ability to phosphorylate choline and ethanolamine. HEK293T cells were transfected with appropriate expression vectors carrying the human CHKA or CHKB genes or an empty vector, and tested for ChoK and EtnK activity. Expression levels achieved were checked by Western Blot (<xref ref-type="fig" rid="pone-0007819-g001">Figure 1a</xref>), and the relative enzymatic activity from cell extracts estimated. Both ChoK&#x3B1;1 and ChoK&#x3B2; displayed choline and ethanolamine kinase activities under these experimental conditions, but the rate of conversion was apparently different (<xref ref-type="fig" rid="pone-0007819-g001">Figure 1b</xref>).</p>
+        <fig id="pone-0007819-g001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Characterization of choline and ethanolamine kinase activity of ChoK&#x3B1;1 and Chok&#x3B2;1 in HEK293T cells.</title>
+            <p>HEK293T cells were transfected with eukaryotic expression vectors of human ChoK&#x3B1;1 and ChoK&#x3B2;1 gene. pCDNA3b empty vector was used as control. <bold>A)</bold> Overexpression of ChoK&#x3B1;1 and ChoK&#x3B2;1 in HEK293T cells detected by Western Blot. GAPDH detection was used as control of expression level. <bold>B, C)</bold> In vitro ChoK (B) and EtnK (C) activity of choline kinase &#x3B1;1 and &#x3B2;1 isoforms in cell-free extracts of HEK293T transfected cells. Percentage of conversion of <sup>14</sup>C-choline or <sup>14</sup>C-ethanolamine to the phosphorylated product is represented. The experiment was performed in duplicate samples, repeated 4 times, and mean&#xB1;SEM values from all experiments estimated.</p>
+          </caption>
+          <graphic xlink:href="pone.0007819.g001"/>
+        </fig>
+        <p>We further analyze ChoK and EtnK kinetic activities for ChoK&#x3B1;1 and ChoK&#x3B2; isoforms using the recombinant enzymes. DH5&#x3B1; <italic>Escherichia coli</italic> were transformed with the gene encoding for human ChoK&#x3B1;1 or ChoK&#x3B2; and an enzymatic <italic>in vitro</italic> assay for either ChoK or EtnK activities performed. Michaelis constants (Km) for each isoform for the different substrates were obtained (<xref ref-type="table" rid="pone-0007819-t001">Table 1</xref>). ChoK&#x3B2; showed a Km for choline 2.8 times higher than ChoK&#x3B1;1. By contrast, the Km of ChoK&#x3B2; for ethanolamine was lower than ChoK&#x3B1;1. These results suggest that in cell-free systems choline is a better substrate for ChoK&#x3B1;1 (2.85 fold) than ChoK&#x3B2;, whereas ethanolamine is a better substrate for ChoK&#x3B2; (5.83 fold) than ChoK&#x3B1;1.</p>
+        <table-wrap id="pone-0007819-t001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>Michaelis constant (Km) of ChoK&#x3B1; and &#x3B2; isoforms for choline and ethanolamine.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0007819-t001-1" xlink:href="pone.0007819.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Substrate</td>
+                  <td align="left" rowspan="1" colspan="1">Isoform</td>
+                  <td align="left" rowspan="1" colspan="1">Km<xref ref-type="table-fn" rid="nt101">1</xref>
+</td>
+                  <td align="left" rowspan="1" colspan="1">SEM</td>
+                  <td align="left" rowspan="1" colspan="1">FOLD<xref ref-type="table-fn" rid="nt102">2</xref>
+</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Choline</td>
+                  <td align="left" rowspan="1" colspan="1">ChoK&#x3B1;</td>
+                  <td align="left" rowspan="1" colspan="1">0.20</td>
+                  <td align="left" rowspan="1" colspan="1">0.04</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">ChoK&#x3B2;</td>
+                  <td align="left" rowspan="1" colspan="1">0.57</td>
+                  <td align="left" rowspan="1" colspan="1">0.08</td>
+                  <td align="left" rowspan="1" colspan="1">2.85</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Ethanolamine</td>
+                  <td align="left" rowspan="1" colspan="1">ChoK&#x3B1;</td>
+                  <td align="left" rowspan="1" colspan="1">12.01</td>
+                  <td align="left" rowspan="1" colspan="1">2.14</td>
+                  <td align="left" rowspan="1" colspan="1">5.83</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">ChoK&#x3B2;</td>
+                  <td align="left" rowspan="1" colspan="1">2.01</td>
+                  <td align="left" rowspan="1" colspan="1">0.42</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+          <table-wrap-foot>
+            <fn id="nt101">
+              <label>1</label>
+              <p>Data are represented in milliMolar.</p>
+            </fn>
+            <fn id="nt102">
+              <label>2</label>
+              <p>Referenced to the lowest Km.</p>
+            </fn>
+            <fn id="nt103">
+              <label/>
+              <p>Km of the different isoforms of ChoK for each substrate is indicated in each case. The results were obtained from four independent experiments using the logarithmic Michaelis-Menten formula as described in <xref ref-type="sec" rid="s4">Material and Methods</xref>.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec id="s2b">
+        <title>ChoK isoforms are differentially regulated by Ras and Rho GTPases</title>
+        <p>Since Ras and RhoA GTPases are upstream regulators of ChoK&#x3B1;1 <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, <xref rid="pone.0007819-RamirezdeMolina4" ref-type="bibr">[28]</xref>, some of the most studied proteins of the small GTPase family including H-Ras, and the Rho-family members RhoA and Cdc42 were tested as potential upstream modulators of ChoK&#x3B2;. To that end, an <italic>in vitro</italic> ChoK and EtnK activity assay was performed in HEK293T cells transfected with the constitutive active mutants of each GTPase (<xref ref-type="fig" rid="pone-0007819-g002">Fig. 2a</xref>) and either ChoK&#x3B1;1 and ChoK&#x3B2;. As shown in <xref ref-type="fig" rid="pone-0007819-g002">Figure 2</xref>, none of the GTPases tested were able to significantly increase choline or ethanolamine kinase activity of ChoK&#x3B2;. By contrast, under similar conditions, Ras and RhoA were able to induce a statistically significant change in the activation of both ChoK and EtnK activities of ChoK&#x3B1;1 (<xref ref-type="fig" rid="pone-0007819-g002">Fig. 2b and 2c</xref>).</p>
+        <fig id="pone-0007819-g002" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Differential activation of choline kinase &#x3B1;1 and &#x3B2;1 isoforms by Ras and Rho GTPases.</title>
+            <p>Choline kinase isoforms were expressed alone or in combination with the indicated Ras and Rho GTPases and the <italic>in vitro</italic> ChoK activity determined. <bold>A)</bold> Analysis of ectopic expression by Western Blot in HEK293T transfected cell extracts of ChoK&#x3B1;1 (52 KDa), ChoK&#x3B2;1(45 KDa), RhoA-QL(22 KDa), Cdc42-QL(25 KDa) and H-rasV12 (23 KDa). Empty vectors were used as controls for the endogenous levels, and GAPDH as loading control. <bold>B)</bold> and <bold>C)</bold>
+<italic>In vitro</italic> choline kinase activity of ChoK&#x3B1;1 or ChoK&#x3B2;1 in the presence of enhanced expression of constitutive active forms of RhoA, Cdc42 or H-Ras. <bold>D)</bold> and <bold>E)</bold>
+<italic>In vitro</italic> ethanolamine kinase activity of ChoK&#x3B1; or ChoK&#x3B2; in the presence of each indicated constitutive active form of GTPase. The results are represented as fold induction of conversion to the corresponding phosphorylated metabolite determined as total cpm/&#xB5;g of whole cellular extract, and normalized to the empty vector transfected cells as control. Data shown represent the mean values&#xB1;SEM of 3 independent experiments, each one performed with duplicate samples. Statistical significance (p&#x2264;0.05) is marked by an asterisk comparing to the activity achieved when ChoK&#x3B1;1 or ChoK&#x3B2;1, where appropriate, are transfected alone.</p>
+          </caption>
+          <graphic xlink:href="pone.0007819.g002"/>
+        </fig>
+      </sec>
+      <sec id="s2c">
+        <title>Differential role between ChoK isoforms in cell transformation and tumorigenesis</title>
+        <p>The implication of ChoK&#x3B1;1 in cell transformation and human carcinogenesis has been extensively studied, and it has been shown to display oncogenic activity <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, <xref rid="pone.0007819-RamirezdeMolina7" ref-type="bibr">[36]</xref>. Due to its extensive homology, we investigated if ChoK&#x3B2; could induce cellular transformation when overexpressed in non-tumorigenic cells. First, the ability of ChoK&#x3B2;-transfected cells to promote anchorage independent cell growth was determined using the cell line HEK293T. As previously reported, ChoK&#x3B1;1 induced a significant increase in the number of soft agar colonies <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>. By contrast, under similar conditions, ChoK&#x3B2; overexpression had no significant effect on the number nor the size of the colonies when compared to those generated by control, empty vector transfected HEK293T cells (<xref ref-type="fig" rid="pone-0007819-g003">Fig. 3</xref>). These results were confirmed using another non-tumorigenic cell line from a different species such as MDCK, obtaining similar results despite of the lower level of overexpression of both ChoK isoforms compared to the HEK293T cells. The differential level of expression obtained was due to the rather different efficiency in transfection for each cell lines (data not shown).</p>
+        <fig id="pone-0007819-g003" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Anchorage independent cell growth of ChoK&#x3B1;1- and &#x3B2;1-overexpressing cells.</title>
+            <p>
+<bold>A)</bold> and <bold>B)</bold>
+<italic>In vitro</italic> ChoK activity of cell-free extracts from transfected cells at the moment of plating, determined as conversion of <sup>14</sup>C-labeled choline to PCho. <bold>C)</bold> Photographs of a representative experiment of the soft agar assay. A total of 10<sup>5</sup> cells were plated per 60-mm dish, and the number of colonies quantified after 5-8 weeks of incubation. <bold>D)</bold> and <bold>E)</bold> Computer based automatic quantification of the number of colonies, mean values&#xB1;SEM is represented. The assay was performed 3 independent times with triplicate samples obtaining similar results. Statistical significance (p&#x2264;0.05) is marked by an asterisk.</p>
+          </caption>
+          <graphic xlink:href="pone.0007819.g003"/>
+        </fig>
+        <p>The ability of ChoK&#x3B2; to induce tumour growth was also investigated. Both ChoK&#x3B1;1- and ChoK&#x3B2;-transfected HEK293T or MDCK cells were subcutaneously inoculated into athymic mice. As shown in <xref ref-type="fig" rid="pone-0007819-g004">Fig. 4</xref>, the overexpression of ChoK&#x3B1;1 was sufficient to induce tumour growth in immunosuppressed mice in the both cell systems analyzed. By contrast, cells overexpressing ChoK&#x3B2; were not able to induce tumor growth under similar conditions. As indicated above, comparison in tumor growth rates between both cell lines is related to the diverse efficiency of transfection, much higher in HEK293T (aproxm. 80&#x2013;90%) than MDCK (aproxm. 15&#x2013;20%). These results are in keeping with those obtained in the soft-agar experiments, and strongly indicate that overexpression of ChoK&#x3B2; is not sufficient to induce tumor growth under conditions where ChoK&#x3B1;1 does.</p>
+        <fig id="pone-0007819-g004" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Overexpression of ChoK&#x3B2;1 is not sufficient to induce tumor growth in athymic nude mice.</title>
+            <p>Xenografts were established by s.c. injection of transfected HEK293T or MDCK cells in athymic nu/nu nude mice. <bold>A)</bold> and <bold>B)</bold> Western Blot analysis of ectopic expression of choline kinase isoforms in transfected HEK293T or MDCK cells, respectively, before mice inoculation. <bold>C)</bold> and <bold>D)</bold> Analysis of choline kinase activity in ChoK&#x3B1;1 or &#x3B2;1 transfected HEK293T or MDCK cells-free extracts before mice inoculation. <bold>E)</bold> and <bold>F)</bold> Volume of tumors generated by subcutaneous injection of 10<sup>6</sup> transfected cells. Tumoral volume was calculated according to the formula: <italic>Vol&#x200A;=&#x200A;[D * d<sup>2</sup>]/2</italic>, where D and d are major and minor tumor diameters respectively. The data from HEK293T represents mean values&#xB1;SEM from two independent experiments (n<sub>1</sub>&#x200A;=&#x200A;12; n<sub>2</sub>&#x200A;=&#x200A;16), the MDCK experiment correspond to an equivalent experiment with n&#x200A;=&#x200A;12.</p>
+          </caption>
+          <graphic xlink:href="pone.0007819.g004"/>
+        </fig>
+      </sec>
+      <sec id="s2d">
+        <title>ChoK&#x3B2; isoform shows preferential EtnK activity <italic>in vivo</italic>
+</title>
+        <p>We next investigated if there was any difference in the enzymatic activity of both ChoK isoforms under <italic>in vivo</italic> conditions that could explain their differential biological activity. Thus, the activity of ChoK&#x3B1;1 and ChoK&#x3B2; as ChoK and/or EtnK in a whole-cell system was tested. Intracellular lipids of human HEK293T overexpressing ChoK&#x3B1;1, ChoK&#x3B2; or transfected with an empty vector, were extracted an analyzed. Both, the insoluble lipid fraction containing the hydrophobic lipids and total protein content were used as loading control obtaining similar results. As shown in <xref ref-type="fig" rid="pone-0007819-g005">Figure 5A</xref>, the intracellular phosphoethanolamine levels were increased to a similar extent in ChoK&#x3B1;1&#x2212; or ChoK&#x3B2;-transfected cells. However, the intracellular phosphocholine levels of ChoK&#x3B2;-transfected cells were not significantly different to that of control cells, while ChoK&#x3B1;1-transfected cells showed an increased intracellular PCho levels (<xref ref-type="fig" rid="pone-0007819-g005">Figure 5B</xref>). Similar results were obtained using epithelial cells of different origins: human breast adenocarcinoma cells SK-Br-3 (<xref ref-type="fig" rid="pone-0007819-g005">Fig. 5C, D</xref>) or the human Non Small Cell Lung Cancer (NSCLC) cell line H1299 (<xref ref-type="fig" rid="pone-0007819-g005">Fig. 5E, F</xref>). In addition, in all cell lines analyzed, protein expression was also determined by Western Blot analysis (<xref ref-type="fig" rid="pone-0007819-g005">Fig. 5G</xref>).</p>
+        <fig id="pone-0007819-g005" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>Intracellular phosphocholine and phospoethanolamine levels after ChoK&#x3B1;1 or ChoK&#x3B2;1 transfection in human cells.</title>
+            <p>HEK293T, SK-Br-3 or H1299 cells were transfected with eukaryotic expression vectors of human ChoK&#x3B1;1 and ChoK&#x3B2;1 gene or pCDNA3b empty vector used as control. <bold>A), C)</bold> and <bold>E)</bold> Intracellular EtnK activity of choline kinase &#x3B1;1 and &#x3B2;1 isoforms in whole cells in HEK293T, H1299 and SK-Br-3 cells respectively. <bold>B), D)</bold> and <bold>F)</bold> Intracellular ChoK activity of ChoK&#x3B1; and ChoK&#x3B2; isoforms in whole cells in HEK293T, H1299 and SK-Br-3 cells respectively. The amount of <sup>14</sup>C-PCho and <sup>14</sup>C-PEtn were extracted and quantified as described in <xref ref-type="sec" rid="s4">Materials and Methods</xref>. The experiment was performed in triplicate samples, repeated 3 times, and mean values&#xB1;SEM from all experiments estimated. Statistical significance (p&#x2264;0.05) is marked by an asterisk. A typical radio-labelling experiment results in about 70% of radioactive compound incorporation into the cells. <bold>G)</bold> Representative Western Blot of ectopic ChoK&#x3B1;1 or ChoK&#x3B2;1 expression in each cell line. Baseline values chosen as 1-fold in the graphs for each cell line represent: HEK293T cells (PCho: 1153 cpm; PEtn: 1231 cpm); H1299 cells (PCho: 22821 cpm; PEtn: 13339 cpm), and SK-Br-3 cells (PCho: 18620 cpm, PEtn: 3151 cpm).</p>
+          </caption>
+          <graphic xlink:href="pone.0007819.g005"/>
+        </fig>
+        <p>Thus, the differential enzymatic activity of ChoK&#x3B1;1 and ChoK&#x3B2; found in HEK293T is not cell line specific. These results indicate that ChoK&#x3B1;1 but not ChoK&#x3B2;, is able to induce increased intracellular levels of PCho under <italic>in vivo</italic> conditions. However, under the same conditions both enzymes are able to generate phophorylethanolamine. Thus, even though ChoK&#x3B2; displays both ChoK and EtnK activity under <italic>in vitro</italic> conditions, it shows preferential EtnK activity <italic>in vivo</italic>.</p>
+      </sec>
+      <sec id="s2e">
+        <title>Increased levels of ChoK&#x3B1; mRNA but not ChoK&#x3B2; in tumor-derived cell lines</title>
+        <p>In order to further investigate the relevance of each ChoK isoenzyme in tumorogenesis, we determined the levels of both ChoK&#x3B1; and ChoK&#x3B2; mRNA in a panel of human tumour-derived cell lines by quantitative PCR technology. A panel of breast and lung cancer cell lines were compared with the primary, senescent, non-tumoral cell line HMEC (Human Mammary Epithelial Cells) or the immortalized, non-tumorogenic MCF10A cells as control breast cell lines, and primary Bronchial Epithelial Cells (BEC) as control lung cell line. All tumoral cell lines tested significantly overexpress ChoK&#x3B1; mRNA compared with the normal cell lines, whereas no changes were found for ChoK&#x3B2; mRNA levels (<xref ref-type="fig" rid="pone-0007819-g006">Fig. 6</xref>). These results indicate that ChoK&#x3B2; is not specifically upregulated in breast or lung cancer cells, suggesting that high levels of ChoK&#x3B2; are not required for the promotion of cancer.</p>
+        <fig id="pone-0007819-g006" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0007819.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Comparative expression of ChoK&#x3B1;1 and ChoK&#x3B2;1 mRNA in a panel of cancer cell lines.</title>
+            <p>Q-PCR was performed to determine the level of expression of mRNA in non-tumorogenic mammary cell lines (HMEC, MCF10A), breast cancer cell lines (MDA-MB435, MDA-MB468, T47D, MCF7), non-tumorogenic lung cells (BEC) and lung cancer cell lines (H510, H82). The data were normalized with the endogenous 18S ribosomal RNA. For the comparison between tumoral and non-tumoral cell lines, the 2<sup>&#x2212;&#x394;&#x394;Ct</sup> method was applied and log<sub>10</sub> RQ is represented. Note that the data are referred to the Human Mammary Epithelial Cells (HMEC) mRNA levels in breast cell lines and no significant difference in the level of both ChoK isoforms mRNA was found with the normal MCF10A cell line. The reference for lung cancer cells was the primary Bronchial Epithelial Cells (BEC).</p>
+          </caption>
+          <graphic xlink:href="pone.0007819.g006"/>
+        </fig>
+      </sec>
+      <sec id="s2f">
+        <title>MN58b is a specific inhibitor of ChoK&#x3B1; isoform</title>
+        <p>The implication of ChoK&#x3B1; in human carcinogenesis has been used for the design of specific inhibitors of this enzyme as a novel anticancer strategy <xref rid="pone.0007819-Lacal1" ref-type="bibr">[2]</xref>, <xref rid="pone.0007819-HernandezAlcoceba1" ref-type="bibr">[14]</xref>, <xref rid="pone.0007819-HernandezAlcoceba2" ref-type="bibr">[37]</xref>. MN58b is the leading compound to support this novel strategy since it has shown a potent antitumoral activity under <italic>in vivo</italic> conditions versus human colon, lung, breast and bladder tumor models <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, <xref rid="pone.0007819-HernandezAlcoceba2" ref-type="bibr">[37]</xref>.</p>
+        <p>The primary structure of mammalian ChoK&#x3B2; displays an overall 60% homology with that of ChoK&#x3B1;1 <xref rid="pone.0007819-Aoyama1" ref-type="bibr">[1]</xref>. The higher degree of homology lies within the choline/ethanolamine kinase domain. This homology could make it susceptible to a similar inhibition for both ChoK&#x3B1;1 and ChoK&#x3B2; with the same inhibitors. Thus, we have investigated the specificity of MN58b towards these two ChoK isoenzymes in order to verify if its antitumoral effect is specifically related to the inhibition of the alpha isoform, that is the one implicated in tumor progression, or the drug similarly affects both isoforms. Using the human ChoK&#x3B1;1 and ChoK&#x3B2; recombinant proteins, we performed an <italic>in vitro</italic> ChoK activity inhibition assay using increasing MN58b concentrations, determining the IC<sub>50</sub> for each enzyme. As expected, despite the high similarity displayed between ChoK isoforms, MN58b showed a much higher specificity against ChoK&#x3B1;1 (IC<sub>50</sub>&#x200A;=&#x200A;5 &#xB5;M) than against ChoK&#x3B2; (IC<sub>50</sub>&#x200A;=&#x200A;107.5 &#xB5;M). Thus, MN58b is 21.5 times more potent against ChoK&#x3B1;1 than ChoK&#x3B2; isoform.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Discussion</title>
+      <p>The family of human choline/ethanolamine kinases comprises two genes, <italic>CHKA</italic> and <italic>CHKB</italic> that codify for three enzymes, ChoK&#x3B1;1 (52 kDa), ChoK&#x3B1;2 (50 kDa) and ChoK&#x3B2;1 (45 kDa). ChoK&#x3B1;1 and ChoK&#x3B1;2 are almost identical, except for a stretch of 18 extra amino acids in ChoK&#x3B1;1, as they result from differential splicing from the same gene, <italic>CHKA</italic>. While the implication of ChoK&#x3B1;1 in the regulation of cell growth and cancer has been extensively demonstrated <xref rid="pone.0007819-RamirezdeMolina1" ref-type="bibr">[13]</xref>, <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, <xref rid="pone.0007819-RamirezdeMolina3" ref-type="bibr">[27]</xref>, <xref rid="pone.0007819-RamirezdeMolina4" ref-type="bibr">[28]</xref>, <xref rid="pone.0007819-HernandezAlcoceba2" ref-type="bibr">[37]</xref>, <xref rid="pone.0007819-RodriguezGonzalez2" ref-type="bibr">[38]</xref>, <xref rid="pone.0007819-RamirezdeMolina8" ref-type="bibr">[44]</xref>, preliminary evidence suggest that ChoK&#x3B2; may not be involved in carcinogenesis since it is not overexpressed in breast cancer cell lines <xref rid="pone.0007819-Eliyahu1" ref-type="bibr">[21]</xref> nor in the TRAMP mouse prostate cancer model <xref rid="pone.0007819-Teichert1" ref-type="bibr">[31]</xref>.</p>
+      <p>A distinct human gene family has been described that codifies for EtnK activity <xref rid="pone.0007819-Lykidis1" ref-type="bibr">[45]</xref>, suggesting that EtnK1 is the main enzyme involved in PE homeostasis. The ChoK/EtnK domain confers to ChoK&#x3B1; and ChoK&#x3B2; the ability to function as both ChoK and EtnK activity under cell-free conditions <xref rid="pone.0007819-Aoyama1" ref-type="bibr">[1]</xref>, <xref rid="pone.0007819-Uchida1" ref-type="bibr">[3]</xref>&#x2013;<xref rid="pone.0007819-Aoyama2" ref-type="bibr">[5]</xref>, but it is still unknown if these previously characterized enzymes showed any selectivity to each branch of the Kennedy pathway in the <italic>de novo</italic> synthesis of PC or PE. It has been recently described the different specificity towards Cho and Etn of the two isoforms of Cho/EtnK of <italic>Tripanosoma brucei</italic>. Whereas <italic>Tb</italic>Cho/Etn1 displays only EtnK activity, <italic>Tb</italic>Cho/Etn2 displays both ChoK and EtnK activities <italic>in vitro</italic>
+<xref rid="pone.0007819-Gibellini1" ref-type="bibr">[46]</xref>. These results are in keeping with those described for murine EtnK1 that is Etn specific and EtnK2 that displays a dual ChoK/EtnK function <xref rid="pone.0007819-Lykidis1" ref-type="bibr">[45]</xref>, <xref rid="pone.0007819-Weinhold1" ref-type="bibr">[47]</xref>. On the other hand, whereas murine Pcyt1&#x3B1; and Pcyt1&#x3B2; are involved in PC biosynthesis, Pcyt2 is focused to PE only <xref rid="pone.0007819-Tijburg1" ref-type="bibr">[48]</xref>.</p>
+      <p>However, it is not yet fully understood which ChoK isoform, if any, contributes <italic>in vivo</italic> in each pathway to maintain the normal homeostasis of both PC and PE in biological membranes. The results shown here confirm that both enzymes have the ability to phosphorylate choline and ethanolamine under cell-free conditions, either as recombinant proteins produced in <italic>E. coli</italic>, or in cell extracts from mammalian cells. However, we found that under whole cell conditions ChoK&#x3B1;1 has the ability to function as both ChoK and EtnK, but ChoK&#x3B2; only affects the production of PEtn. These findings of different roles for &#x3B1; and &#x3B2; isoforms are in keeping with the information from the recently generated Knock Out (KO) mice for ChoK&#x3B1; and ChoK&#x3B2; genes <xref rid="pone.0007819-Sher1" ref-type="bibr">[49]</xref>, <xref rid="pone.0007819-Wu1" ref-type="bibr">[50]</xref>. Thus, ChoK&#x3B2; KO mice (<italic>rmd</italic> mice) are viable, but develop a rostrocaudal muscular dystrophy, while normal PC lipid levels are found in most tissues analyzed except in hindlimb skeletal muscle <xref rid="pone.0007819-Sher1" ref-type="bibr">[49]</xref>. Therefore, ChoK&#x3B1; is sufficient to maintain normal PC levels in most tissues. By contrast, the lack of ChoK&#x3B1; results in embryonic lethality, and ChoK&#x3B1;<sup>+/&#x2212;</sup> heterozygous mice display an accumulation of Cho and a reduction in PCho in liver and testis, suggesting that there is no ChoK&#x3B2; compensation for PC biosynthesis <italic>in vivo</italic>. These results suggest different roles <italic>in vivo</italic> for both ChoK&#x3B1; and ChoK&#x3B2; isoforms. Furthermore, the attenuated levels in PE found in ChoK&#x3B1;<sup>+/&#x2212;</sup> heterozygous mice suggest the involvement of ChoK&#x3B1; not only in the biosynthesis of PC but also in the PE pathway. This is also consistent with the fact that in ChoK&#x3B2; KO mice, PE levels are unaffected, indicating that PE homeostasis is fully maintained with the EtnK1 and ChoK&#x3B1; proteins intact.</p>
+      <p>The group of Ishidate has provided valuable information about the <italic>in vitro</italic> activity of ChoK from different mouse tissues, and they have postulated that the most active form for choline kinase activity is the &#x3B1;/&#x3B1; homodimer followed by &#x3B1;/&#x3B2; heterodimers, being the &#x3B2;/&#x3B2; homodimer the least active form <xref rid="pone.0007819-Aoyama3" ref-type="bibr">[8]</xref>. The <italic>in vivo</italic> results shown here are partially in keeping with this hypothesis. The <italic>in vivo</italic> activity of ChoK&#x3B2; is focused in PE biosynthesis and displays higher Km for choline than ChoK&#x3B1;, this could be the reason why &#x3B2;/&#x3B2; dimers show low ChoK activity. When ChoK&#x3B2; was overexpressed we observed an increase in the intracellular levels of PEtn but not of PCho. However no differences were found between both isoforms for the generation of PEtn, since both display similar EtnK activity.</p>
+      <p>PCho has been proposed to promote mitogenesis in mammalian cells <xref rid="pone.0007819-Cuadrado1" ref-type="bibr">[12]</xref>. In keeping with this, magnetic resonance spectroscopy techniques have revealed higher levels of phosphomonoesthers in tumoral samples when compared to their normal counterparts <xref rid="pone.0007819-Aboagye1" ref-type="bibr">[19]</xref>&#x2013;<xref rid="pone.0007819-Iorio1" ref-type="bibr">[24]</xref>. Moreover, overexpression of ChoK&#x3B1;1 is oncogenic <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, and enhanced ChoK&#x3B1; activity is a frequent feature in tumoral samples compared to normal tissues <xref rid="pone.0007819-RamirezdeMolina3" ref-type="bibr">[27]</xref>, <xref rid="pone.0007819-RamirezdeMolina4" ref-type="bibr">[28]</xref>. Taken together all these results strongly indicate that ChoK&#x3B1;1 activity and PCho levels have a strong implication in cancer. Furthermore, overexpression of ChoK&#x3B1;1 results in an increase in EtnK activity and PEtn levels. However the latter effect by itself is not sufficient to induce cell transformation, since overexpression of ChoK&#x3B2; does not induce enhanced colony formation in soft-agar or tumor growth in nude mice. These results are consistent with the hypothesis that it is the production of PCho what is linked to cell proliferation and transformation mediated by ChoK, and that the production of PEtn may not be sufficient or relevant in this process.</p>
+      <p>The above results suggest that the two ChoK isoforms investigated, besides their similarity in their primary sequences, are implicated in different metabolic pathways. Thus while ChoK&#x3B1;1 impinges into both PC and PE synthesis, ChoK&#x3B2; affects only PE synthesis. Furthermore, the transformation capacity seems to be exclusive to the ChoK&#x3B1; isoform. However, since in the human HEK293T, Sk-Br-3 and H1299 cell lines, ChoK&#x3B1;1 overexpression produces elevated levels of both PCho and PEtn, while similar ChoK&#x3B2; overexpression results only in higher levels of PEtn but normal levels of PCho, we can not rule out the possibility that cell transformation requires both ChoK and EtnK activities.</p>
+      <p>Consistent with the idea that links oncogenic activity to the function of ChoK&#x3B1;, but not ChoK&#x3B2;, the antiproliferative and antitumoral activity of MN58b was only associated to the activity of ChoK&#x3B1;. Furthermore, as previously reported, the <italic>in vivo</italic> treatment with MN58b results in a specific decrease of PCho levels in the tumours but no significant effect on the levels of PEtn <xref rid="pone.0007819-AlSaffar1" ref-type="bibr">[51]</xref>. Previous results from our group have demonstrated that MN58b also inhibits choline transport <xref rid="pone.0007819-RodriguezGonzalez2" ref-type="bibr">[38]</xref>. However this effect has a little influence in the antiproliferative and antitumoral activity of the drug since HC-3, a much more potent inhibitor of choline transporters, is far less potent as an antiproliferative agent than MN58b <xref rid="pone.0007819-Lacal1" ref-type="bibr">[2]</xref>. Furthermore, MN58b has a differential effect on either normal or tumor cells, a strong demonstration of a differential activity due to ChoK inhibition <xref rid="pone.0007819-RodriguezGonzalez2" ref-type="bibr">[38]</xref>&#x2013;<xref rid="pone.0007819-RodriguezGonzalez4" ref-type="bibr">[40]</xref>. These results are also in keeping with the observation that ChoK&#x3B1; but not ChoK&#x3B2; is a downstream target of oncogenic molecules such as Ras and RhoA. Thus, while Ras activates ChoK&#x3B1; through Ral-GDS and PI3K <xref rid="pone.0007819-RamirezdeMolina5" ref-type="bibr">[29]</xref>, and RhoA activates ChoK&#x3B1; through ROCK <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, none of these oncogenic GTPases affect ChoK&#x3B2; activity under similar conditions. Again, these results indicate that although both ChoK enzymes are able to phosphorylate both choline and ethanolamine under cell-free systems conditions, they display different affinities for these substrates, and in whole-cell assays conditions they are governed by distinct regulatory pathways.</p>
+      <p>Finally, the involvement of ChoK&#x3B2; in breast and lung cancer has been studied, ChoK&#x3B1; and &#x3B2; mRNA levels were determined by Q-PCR. All tumour-derived cell lines assayed significantly overexpress ChoK&#x3B1; mRNA, while no changes were found in the expression of ChoK&#x3B2;. Similar results have been recently reported, using semi-quantitative PCR in breast cancer cell lines <xref rid="pone.0007819-Eliyahu1" ref-type="bibr">[21]</xref>. In addition, it has been recently described that elevated mRNA levels of ChoK&#x3B1; is a poor prognostic factor in lung cancer <xref rid="pone.0007819-RamirezdeMolina6" ref-type="bibr">[30]</xref>. These results suggest that ChoK&#x3B1; but not ChoK&#x3B2; is playing a crucial role in human carcinogenesis.</p>
+      <p>The results shown here suggest that ChoK&#x3B2; and its produced metabolites are not implicated in human cell transformation. Therefore, all the efforts aimed at dilucidating the involvement of ChoK activity in the diagnosis, prognosis and treatment of cancer have to be focused in the ChoK&#x3B1; isoform. In keeping with this, recently the use of specific monoclonal anti-ChoK&#x3B1; antibodies has been proposed as a diagnostic tool in human cancer <xref rid="pone.0007819-GallegoOrtega1" ref-type="bibr">[52]</xref>. Furthermore, the newly designed antitumoral agents are expected to be more specific and hence less toxic than the actual drugs used in conventional chemotherapy. Due to the high structural homology displayed by both choline kinase proteins, the search for new anticancer agents based on their ability to interfere with ChoK activity, must exhibit stronger antiproliferative activity based on their specificity towards the ChoK&#x3B1; isoform.</p>
+      <p>The lack of specific inhibition of ChoK&#x3B2; by these newly designed compounds represents a new feature to take into account for the chemical improvement of ChoK&#x3B1; inhibitors with potential antitumoral activity. Furthermore, non-specific drugs affecting ChoK&#x3B2; may result in a muscular disease produced by the lack of cell membrane lipid reparation in muscle tissue.</p>
+      <p>In addition, it has been recently demonstrated using a genetic approach that the specific inhibition of ChoK&#x3B1; by shRNA displays antiproliferative and antitumoral activity The high specificity of this technology provides definitive evidence of an antitumoral strategy based on ChoK&#x3B1; inhibition, supporting previous results with the pharmacological inhibitors. <xref rid="pone.0007819-BanezCoronel1" ref-type="bibr">[53]</xref>&#x2013;<xref rid="pone.0007819-Krishnamachary1" ref-type="bibr">[55]</xref>
+</p>
+      <p>Thus, despite the high homology and similar activity displayed under cell-free conditions, ChoK&#x3B1;1 and ChoK&#x3B2; isoforms show a different substrate ability and behave very differently under <italic>in vivo</italic> conditions, suggesting that in human cells, ChoK&#x3B2; behaves as an EtnK and its overexpression is not able to induce higher intracellular levels of PCho. As a consequence, ChoK&#x3B2; has no effect on cell proliferation and does not contribute to oncogenic transformation. Finally, ChoK&#x3B1; but not ChoK&#x3B2;, should be used as the molecular target for the design of anticancer drugs aiming at interfering with choline kinase acitivity.</p>
+    </sec>
+    <sec id="s4">
+      <title>Materials and Methods</title>
+      <sec id="s4a">
+        <title>Ethics statement</title>
+        <p>All animals were handled in strict accordance with good animal practice as defined by the Guidelines of the Spanish Government (RD 223/1988, March 14<sup>th</sup> and RD 1201/2005 October 10<sup>th</sup>). The animal work has been conducted under the permission and supervision of the <italic>Consejo Superior de Investigaciones Cientificas (CSIC)</italic> Ethic Committee as approved in the context of the appropriate Research Project.</p>
+      </sec>
+      <sec id="s4b">
+        <title>Cell cultures and transfections</title>
+        <p>Cells were maintained under standard culture conditions of humidity (95%), temperature (37&#xB0;C) and CO<sub>2</sub> (5%). Human Embryonic Kidney (HEK293T), human breast adenocarcinoma (SK-Br-3) and Canine Kidney Madin-Darby (MDCK) cells were maintained in DMEM supplemented with 10% FBS, human non-small cell lung cancer cells H1299 were maintained in RPMI with 10% FBS. HEK293T transfections were performed using calcium phosphate as previously described <xref rid="pone.0007819-Montaner1" ref-type="bibr">[56]</xref>. MDCK, SK-Br-3 and H1299 cells were transfected using lipofectamine reagent (Invitrogen, CA) following manufacturers recommendations. Eukaryotic expression vectors encoding for human ChoK&#x3B1;1 and &#x3B2;1 isoforms were pCDNA3b (Invitrogen, CA) and pLPneo (BD Biosciences Clontech, CA) respectively, both empty vectors were used as controls but only pCDNA3b is usually represented (data not shown). Constitutively activated expression pCDNA3b derivative vectors encoding for RhoA (QL), Rac1 (QL) and Cdc42 (QL) have been previously described <xref rid="pone.0007819-Montaner2" ref-type="bibr">[57]</xref>. Expression vector encoding to the constitutive active form of H-Ras (V12) have been previously described <xref rid="pone.0007819-RamirezdeMolina5" ref-type="bibr">[29]</xref>.</p>
+      </sec>
+      <sec id="s4c">
+        <title>Choline kinase <italic>in vitro</italic> activity assays</title>
+        <p>Eukaryotic cell extracts activity assays were carried out as previously described <xref rid="pone.0007819-HernandezAlcoceba1" ref-type="bibr">[14]</xref>. Cell extracts were incubated for 30 min at 37&#xB0;C in a buffer containing 100 mM Tris pH 8, 10 mM MgCl<sub>2</sub> and 10 mM ATP and 200 &#xB5;M (55 mCi/nmol, 2 &#xB5;Ci/ml) of [<italic>methyl</italic>-<sup>14</sup>C] choline chloride (Amersham Biosciences, UK) for ChoK assay or 2-[<sup>14</sup>C]-ethan-1-ol-2-amine hydrochloride for EtnK assay (Amersham Biosciences).</p>
+        <p>For Michaelis-Menten kinetics assay, extracts of <italic>E. coli</italic> expressing human ChoK&#x3B1;1 or ChoK&#x3B2;1 were used. A time course reaction was performed for each substrate, the reaction was stopped each 2 minutes and a logarithmic scale was represented to obtain the Km. Specific ChoK inhibitor MN58b was kindly provided by TCD Pharma SL (Madrid, Spain).</p>
+      </sec>
+      <sec id="s4d">
+        <title>Analysis of phosphocholine and phosphoethanolamine production in whole cells</title>
+        <p>HEK293T, SK-Br-3 and H1299 cells were transfected as described above. After transfection, cells were labelled to equilibrium adding 1 &#xB5;Ci/ml [<italic>methyl</italic>-<sup>14</sup>C] choline chloride or 1 &#xB5;Ci/ml 2-[<sup>14</sup>C]-ethan-1-ol-2-amine hydrochloride to the culture media for 24 h. Samples were resolved and quantified as previously described <xref rid="pone.0007819-HernandezAlcoceba2" ref-type="bibr">[37]</xref>. Briefly, cells were rinsed with PBS and fixed with 16% ice-cold trichloroacetic acid (TCA). TCA-soluble material containing choline and phosphocholine was washed three times with four volumes of diethyleter, dryed under vacuum and resuspended in water. Samples were resolved by Thin Layer Chromatography (TLC) on 60&#xC5; Silica gel plates (Whatman, NJ), using as liquid phase 0,9% NaCl: methanol: ammonium hydroxide (50&#x2236;70&#x2236;5; v/v/v). Radioactivity was automatically quantified by an electronic radiography system (Instantimager, CT). TCA insoluble material containing hydrophobic lipids was used as a loading control. The insoluble fraction was dissolved in 0,25N sodium hydroxide and total lipids were analyzed by scintillation counting.</p>
+      </sec>
+      <sec id="s4e">
+        <title>Anti-choline kinase &#x3B2;1 serum</title>
+        <p>Human ChoK&#x3B2;1 gene was cloned into a prokaryotic expression vector (pGEX-4T3) (GE healthcare, UK) and expressed in DH5&#x3B1; <italic>Escherichia coli</italic>. Recombinant ChoK&#x3B2;1 was then purified by the GST system (Amersham Bioscience) following manufacturer's recommendations. Purified ChoK&#x3B2;1 was mixed (1&#x2236;1; v/v) with Freund's complete Adjuvant (Sigma-Aldrich, MO) and then injected i.m. into white rabbits (80 &#xB5;g/rabbit). Booster injections were given every 2 weeks (60 &#xB5;g/rabbit) and the sample resuspended with Freund's incomplete Adjuvant (Sigma-Aldrich) (1&#x2236;1; v/v).</p>
+      </sec>
+      <sec id="s4f">
+        <title>Analysis of protein expression by Western blot</title>
+        <p>Equal amounts of cell lysates were resolved by electrophoresis in a 10% SDS-PAGE. ChoK&#x3B1; expression levels were detected using monoclonal antibody AD3 as previously described <xref rid="pone.0007819-GallegoOrtega1" ref-type="bibr">[52]</xref>. ChoK&#x3B2;1 was detected using the polyclonal antiserum described above as primary antibody at a standard dilution of 1/5000. GTPases antibodies: RhoA (Santa Cruz Biotechnology, Germany), Rac1 (Upstate, NY), pan-Ras (Santa Cruz Biotechnology), Cdc42 (BD Biosciences, transduction labs) and GAPDH antibody (Chemicon International, CA) were used following manufacturers recommendations. HRP-conjugated secondary antibodies were from Santa Cruz Biotechnology. The specific binding was detected using the chemioluminiscence detection kit ECL (Amersham Bioscience) following the manufacturer indications.</p>
+      </sec>
+      <sec id="s4g">
+        <title>Soft agar anchorage-independent growth and <italic>in vivo</italic> tumorigenic assays</title>
+        <p>Anchorage-independent growth assays were performed at 5&#x2013;6 weeks of incubation in HEK293T and 6&#x2013;10 weeks in MDCK, as previously described <xref rid="pone.0007819-RamirezdeMolina2" ref-type="bibr">[15]</xref>, plating 10<sup>5</sup> cells per 60-mm dish. Crystal violet staining was performed to enhance colony contrast. The number of colonies was automatically quantified by computer based image software (Image J). For the <italic>in vivo</italic> assays, cells were injected (10<sup>6</sup> cells per mouse flank) s.c. in <italic>nu/nu</italic> athymic mice. Mice were kept under standard laboratory conditions according to the guidelines of Spanish Government.</p>
+      </sec>
+      <sec id="s4h">
+        <title>Quantitative PCR</title>
+        <p>ChoK&#x3B1;1 or &#x3B2;1 mRNA levels were quantified by real-time reverse transcriptase PCR. The RNA was extracted from the cell lines using QIAshredder following the RNeasy Mini kit (Qiagen, Inc.) according to the manufacturer's instructions. The amount of 0.9 &#xB5;g of total RNA, in a final concentration of 10 ng/&#xB5;l per reaction, was retro transcribed by High-Capacity cDNA Archive Kit (Applied Biosystems) to the cDNA preparation. The reverse transcription conditions were 25&#xB0;C for 10 min and 37&#xB0;C for 2 h. Then, each cDNA sample was analyzed in triplicate using the ABI PRISM 7700 Sequence Detector (PE Applied Biosystems). Real-time PCR was carried out using Taqman Universal PCR Master Mix (Applied Biosystems), containing ROX to normalize emissions. Primers used for amplification of ChoK&#x3B1;, ChoK&#x3B2; and 18S ribosomal RNA were purchased from Applied Biosystems as Taqman Gene Expression Assays (ChoK&#x3B1;1 ID: Hs00608045_m1, ChoK&#x3B2;1 ID: Hs01925200_s1 and 18S ribosomal RNA ID: Hs99999901_s1). For thermal cycling, the following conditions were applied: 10 min at 95&#xB0;C and 40 cycles of 15 sec at 95&#xB0;C and 1 min at 60&#xB0;C. The data are presented as Log<sub>10</sub> RQ (Relative Quantity).</p>
+      </sec>
+      <sec id="s4i">
+        <title>Statistical analysis</title>
+        <p>Mean comparisons of ChoK activity or in-cell PCho increase between different groups were performed. Continuous variables with normal distribution were compared by T-test and non-normal distribution variables were compared by means of the Kruskal Wallis and Mann-Whitney U tests. Statistical significance was defined as p&#x2264;0.05. The statistical analyses were performed using SPSS software, version 13.0 (Inc, Chicago, Illinois). The method used to analyze data from real-time PCR experiments was 2<sup>&#x2212;&#x394;&#x394;Ct</sup> method <xref rid="pone.0007819-Livak1" ref-type="bibr">[58]</xref>, comparing the relative gene expression between normal and tumoral cell lines normalized to 18S ribosomal RNA as endogenous reference gene.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Dr. Leonardo Brizuela and Dr. Jaehong Park for kindly providing the human ChoK&#x3B2; gene and Elena Bogonez ( Centro de Investigaciones Biologicas, Madrid) for her technical advices in Km determination. DGO is a fellow from Comunidad de Madrid/FPI 2004.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding: </bold>This work has been supported by grants to JCL from Comunidad de Madrid (GR-SAL-0821-2004), Ministerio de Ciencia e Innovaci&#xF3;n (SAF2008-03750, RD06/0020/0016), Fundaci&#xF3;n Mutua Madrile&#xF1;a, and by a grant to ARM from Fundaci&#xF3;n Mutua Madrile&#xF1;a. DGO was a fellow from Comunidad de Madrid. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0007819-Aoyama1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aoyama</surname><given-names>C</given-names></name><name><surname>Liao</surname><given-names>H</given-names></name><name><surname>Ishidate</surname><given-names>K</given-names></name></person-group>
+<year>2004</year>
+<article-title>Structure and function of choline kinase isoforms in mammalian cells.</article-title>
+<source>Prog Lipid Res</source>
+<volume>43</volume>
+<fpage>266</fpage>
+<lpage>281</lpage>
+<pub-id pub-id-type="pmid">15003397</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Lacal1">
+        <label>2</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2001</year>
+<article-title>Choline kinase: a novel target for antitumor drugs.</article-title>
+<source>IDrugs</source>
+<volume>4</volume>
+<fpage>419</fpage>
+<lpage>426</lpage>
+<pub-id pub-id-type="pmid">16015482</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Uchida1">
+        <label>3</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Uchida</surname><given-names>T</given-names></name><name><surname>Yamashita</surname><given-names>S</given-names></name></person-group>
+<year>1992</year>
+<article-title>Molecular cloning, characterization, and expression in Escherichia coli of a cDNA encoding mammalian choline kinase.</article-title>
+<source>J Biol Chem</source>
+<volume>267</volume>
+<fpage>10156</fpage>
+<lpage>10162</lpage>
+<pub-id pub-id-type="pmid">1577786</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Porter1">
+        <label>4</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Porter</surname><given-names>TJ</given-names></name><name><surname>Kent</surname><given-names>C</given-names></name></person-group>
+<year>1990</year>
+<article-title>Purification and characterization of choline/ethanolamine kinase from rat liver.</article-title>
+<source>J Biol Chem</source>
+<volume>265</volume>
+<fpage>414</fpage>
+<lpage>422</lpage>
+<pub-id pub-id-type="pmid">2152925</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Aoyama2">
+        <label>5</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aoyama</surname><given-names>C</given-names></name><name><surname>Nakashima</surname><given-names>K</given-names></name><name><surname>Ishidate</surname><given-names>K</given-names></name></person-group>
+<year>1998</year>
+<article-title>Molecular cloning of mouse choline kinase and choline/ethanolamine kinase: their sequence comparison to the respective rat homologs.</article-title>
+<source>Biochim Biophys Acta</source>
+<volume>1393</volume>
+<fpage>179</fpage>
+<lpage>185</lpage>
+<pub-id pub-id-type="pmid">9714798</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Malito1">
+        <label>6</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Malito</surname><given-names>E</given-names></name><name><surname>Sekulic</surname><given-names>N</given-names></name><name><surname>Too</surname><given-names>WC</given-names></name><name><surname>Konrad</surname><given-names>M</given-names></name><name><surname>Lavie</surname><given-names>A</given-names></name></person-group>
+<year>2006</year>
+<article-title>Elucidation of human choline kinase crystal structures in complex with the products ADP or phosphocholine.</article-title>
+<source>J Mol Biol</source>
+<volume>364</volume>
+<fpage>136</fpage>
+<lpage>151</lpage>
+<pub-id pub-id-type="pmid">17007874</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Zhou1">
+        <label>7</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhou</surname><given-names>J</given-names></name><name><surname>Liu</surname><given-names>CY</given-names></name><name><surname>Back</surname><given-names>SH</given-names></name><name><surname>Clark</surname><given-names>RL</given-names></name><name><surname>Peisach</surname><given-names>D</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>The crystal structure of human IRE1 luminal domain reveals a conserved dimerization interface required for activation of the unfolded protein response.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>103</volume>
+<fpage>14343</fpage>
+<lpage>14348</lpage>
+<pub-id pub-id-type="pmid">16973740</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Aoyama3">
+        <label>8</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aoyama</surname><given-names>C</given-names></name><name><surname>Ohtani</surname><given-names>A</given-names></name><name><surname>Ishidate</surname><given-names>K</given-names></name></person-group>
+<year>2002</year>
+<article-title>Expression and characterization of the active molecular forms of choline/ethanolamine kinase-alpha and -beta in mouse tissues, including carbon tetrachloride-induced liver.</article-title>
+<source>Biochem J</source>
+<volume>363</volume>
+<fpage>777</fpage>
+<lpage>784</lpage>
+<pub-id pub-id-type="pmid">11964179</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Carnero1">
+        <label>9</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Carnero</surname><given-names>A</given-names></name><name><surname>Cuadrado</surname><given-names>A</given-names></name><name><surname>del Peso</surname><given-names>L</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>1994</year>
+<article-title>Activation of type D phospholipase by serum stimulation and ras-induced transformation in NIH3T3 cells.</article-title>
+<source>Oncogene</source>
+<volume>9</volume>
+<fpage>1387</fpage>
+<lpage>1395</lpage>
+<pub-id pub-id-type="pmid">8152799</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Carnero2">
+        <label>10</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Carnero</surname><given-names>A</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>1993</year>
+<article-title>Phospholipase-induced maturation of Xenopus laevis oocytes: mitogenic activity of generated metabolites.</article-title>
+<source>J Cell Biochem</source>
+<volume>52</volume>
+<fpage>440</fpage>
+<lpage>448</lpage>
+<pub-id pub-id-type="pmid">8227176</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RodriguezGonzalez1">
+        <label>11</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Benitez-Rajal</surname><given-names>J</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2003</year>
+<article-title>Phospholipase D and choline kinase: their role in cancer development and their potential as drug targets.</article-title>
+<source>Prog Cell Cycle Res</source>
+<volume>5</volume>
+<fpage>191</fpage>
+<lpage>201</lpage>
+<pub-id pub-id-type="pmid">14593713</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Cuadrado1">
+        <label>12</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cuadrado</surname><given-names>A</given-names></name><name><surname>Carnero</surname><given-names>A</given-names></name><name><surname>Dolfi</surname><given-names>F</given-names></name><name><surname>Jimenez</surname><given-names>B</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>1993</year>
+<article-title>Phosphorylcholine: a novel second messenger essential for mitogenic activity of growth factors.</article-title>
+<source>Oncogene</source>
+<volume>8</volume>
+<fpage>2959</fpage>
+<lpage>2968</lpage>
+<pub-id pub-id-type="pmid">8414498</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina1">
+        <label>13</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Banez-Coronel</surname><given-names>M</given-names></name><name><surname>Gutierrez</surname><given-names>R</given-names></name><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Olmeda</surname><given-names>D</given-names></name><etal/></person-group>
+<year>2004</year>
+<article-title>Choline kinase activation is a critical requirement for the proliferation of primary human mammary epithelial cells and breast tumor progression.</article-title>
+<source>Cancer Res</source>
+<volume>64</volume>
+<fpage>6732</fpage>
+<lpage>6739</lpage>
+<pub-id pub-id-type="pmid">15374991</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-HernandezAlcoceba1">
+        <label>14</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hernandez-Alcoceba</surname><given-names>R</given-names></name><name><surname>Saniger</surname><given-names>L</given-names></name><name><surname>Campos</surname><given-names>J</given-names></name><name><surname>Nunez</surname><given-names>MC</given-names></name><name><surname>Khaless</surname><given-names>F</given-names></name><etal/></person-group>
+<year>1997</year>
+<article-title>Choline kinase inhibitors as a novel approach for antiproliferative drug design.</article-title>
+<source>Oncogene</source>
+<volume>15</volume>
+<fpage>2289</fpage>
+<lpage>2301</lpage>
+<pub-id pub-id-type="pmid">9393874</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina2">
+        <label>15</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Gallego-Ortega</surname><given-names>D</given-names></name><name><surname>Sarmentero</surname><given-names>J</given-names></name><name><surname>Banez-Coronel</surname><given-names>M</given-names></name><name><surname>Martin-Cantalejo</surname><given-names>Y</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Choline kinase is a novel oncogene that potentiates RhoA-induced carcinogenesis.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>5647</fpage>
+<lpage>5653</lpage>
+<pub-id pub-id-type="pmid">15994937</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Lacal2">
+        <label>16</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lacal</surname><given-names>JC</given-names></name><name><surname>Moscat</surname><given-names>J</given-names></name><name><surname>Aaronson</surname><given-names>SA</given-names></name></person-group>
+<year>1987</year>
+<article-title>Novel source of 1,2-diacylglycerol elevated in cells transformed by Ha-ras oncogene.</article-title>
+<source>Nature</source>
+<volume>330</volume>
+<fpage>269</fpage>
+<lpage>272</lpage>
+<pub-id pub-id-type="pmid">3313065</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Griffin1">
+        <label>17</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Griffin</surname><given-names>JL</given-names></name><name><surname>Shockcor</surname><given-names>JP</given-names></name></person-group>
+<year>2004</year>
+<article-title>Metabolic profiles of cancer cells.</article-title>
+<source>Nat Rev Cancer</source>
+<volume>4</volume>
+<fpage>551</fpage>
+<lpage>561</lpage>
+<pub-id pub-id-type="pmid">15229480</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Negendank1">
+        <label>18</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Negendank</surname><given-names>W</given-names></name></person-group>
+<year>1992</year>
+<article-title>Studies of human tumors by MRS: a review.</article-title>
+<source>NMR Biomed</source>
+<volume>5</volume>
+<fpage>303</fpage>
+<lpage>324</lpage>
+<pub-id pub-id-type="pmid">1333263</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Aboagye1">
+        <label>19</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aboagye</surname><given-names>EO</given-names></name><name><surname>Bhujwalla</surname><given-names>ZM</given-names></name></person-group>
+<year>1999</year>
+<article-title>Malignant transformation alters membrane choline phospholipid metabolism of human mammary epithelial cells.</article-title>
+<source>Cancer Res</source>
+<volume>59</volume>
+<fpage>80</fpage>
+<lpage>84</lpage>
+<pub-id pub-id-type="pmid">9892190</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Cheng1">
+        <label>20</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cheng</surname><given-names>LL</given-names></name><name><surname>Burns</surname><given-names>MA</given-names></name><name><surname>Taylor</surname><given-names>JL</given-names></name><name><surname>He</surname><given-names>W</given-names></name><name><surname>Halpern</surname><given-names>EF</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Metabolic characterization of human prostate cancer with tissue magnetic resonance spectroscopy.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>3030</fpage>
+<lpage>3034</lpage>
+<pub-id pub-id-type="pmid">15833828</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Eliyahu1">
+        <label>21</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Eliyahu</surname><given-names>G</given-names></name><name><surname>Kreizman</surname><given-names>T</given-names></name><name><surname>Degani</surname><given-names>H</given-names></name></person-group>
+<year>2007</year>
+<article-title>Phosphocholine as a biomarker of breast cancer: molecular and biochemical studies.</article-title>
+<source>Int J Cancer</source>
+<volume>120</volume>
+<fpage>1721</fpage>
+<lpage>1730</lpage>
+<pub-id pub-id-type="pmid">17236204</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Glunde1">
+        <label>22</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Glunde</surname><given-names>K</given-names></name><name><surname>Serkova</surname><given-names>NJ</given-names></name></person-group>
+<year>2006</year>
+<article-title>Therapeutic targets and biomarkers identified in cancer choline phospholipid metabolism.</article-title>
+<source>Pharmacogenomics</source>
+<volume>7</volume>
+<fpage>1109</fpage>
+<lpage>1123</lpage>
+<pub-id pub-id-type="pmid">17054420</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Kurhanewicz1">
+        <label>23</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kurhanewicz</surname><given-names>J</given-names></name><name><surname>Vigneron</surname><given-names>DB</given-names></name><name><surname>Nelson</surname><given-names>SJ</given-names></name></person-group>
+<year>2000</year>
+<article-title>Three-dimensional magnetic resonance spectroscopic imaging of brain and prostate cancer.</article-title>
+<source>Neoplasia</source>
+<volume>2</volume>
+<fpage>166</fpage>
+<lpage>189</lpage>
+<pub-id pub-id-type="pmid">10933075</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Iorio1">
+        <label>24</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Iorio</surname><given-names>E</given-names></name><name><surname>Mezzanzanica</surname><given-names>D</given-names></name><name><surname>Alberti</surname><given-names>P</given-names></name><name><surname>Spadaro</surname><given-names>F</given-names></name><name><surname>Ramoni</surname><given-names>C</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Alterations of choline phospholipid metabolism in ovarian tumor progression.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>9369</fpage>
+<lpage>9376</lpage>
+<pub-id pub-id-type="pmid">16230400</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Spadaro1">
+        <label>25</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Spadaro</surname><given-names>F</given-names></name><name><surname>Ramoni</surname><given-names>C</given-names></name><name><surname>Mezzanzanica</surname><given-names>D</given-names></name><name><surname>Miotti</surname><given-names>S</given-names></name><name><surname>Alberti</surname><given-names>P</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Phosphatidylcholine-specific phospholipase C activation in epithelial ovarian cancer cells.</article-title>
+<source>Cancer Res</source>
+<volume>68</volume>
+<fpage>6541</fpage>
+<lpage>6549</lpage>
+<pub-id pub-id-type="pmid">18701477</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Bell1">
+        <label>26</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bell</surname><given-names>JD</given-names></name><name><surname>Bhakoo</surname><given-names>KK</given-names></name></person-group>
+<year>1998</year>
+<article-title>Metabolic changes underlying 31P MR spectral alterations in human hepatic tumours.</article-title>
+<source>NMR Biomed</source>
+<volume>11</volume>
+<fpage>354</fpage>
+<lpage>359</lpage>
+<pub-id pub-id-type="pmid">9859941</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina3">
+        <label>27</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Gutierrez</surname><given-names>R</given-names></name><name><surname>Ramos</surname><given-names>MA</given-names></name><name><surname>Silva</surname><given-names>JM</given-names></name><name><surname>Silva</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Increased choline kinase activity in human breast carcinomas: clinical evidence for a potential novel antitumor strategy.</article-title>
+<source>Oncogene</source>
+<volume>21</volume>
+<fpage>4317</fpage>
+<lpage>4322</lpage>
+<pub-id pub-id-type="pmid">12082619</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina4">
+        <label>28</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Gutierrez</surname><given-names>R</given-names></name><name><surname>Martinez-Pineiro</surname><given-names>L</given-names></name><name><surname>Sanchez</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Overexpression of choline kinase is a frequent feature in human tumor-derived cell lines and in lung, prostate, and colorectal human cancers.</article-title>
+<source>Biochem Biophys Res Commun</source>
+<volume>296</volume>
+<fpage>580</fpage>
+<lpage>583</lpage>
+<pub-id pub-id-type="pmid">12176020</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina5">
+        <label>29</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Penalva</surname><given-names>V</given-names></name><name><surname>Lucas</surname><given-names>L</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2002</year>
+<article-title>Regulation of choline kinase activity by Ras proteins involves Ral-GDS and PI3K.</article-title>
+<source>Oncogene</source>
+<volume>21</volume>
+<fpage>937</fpage>
+<lpage>946</lpage>
+<pub-id pub-id-type="pmid">11840339</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina6">
+        <label>30</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Sarmentero-Estrada</surname><given-names>J</given-names></name><name><surname>Belda-Iniesta</surname><given-names>C</given-names></name><name><surname>Taron</surname><given-names>M</given-names></name><name><surname>Ramirez de Molina</surname><given-names>V</given-names></name><etal/></person-group>
+<year>2007</year>
+<article-title>Expression of choline kinase alpha to predict outcome in patients with early-stage non-small-cell lung cancer: a retrospective study.</article-title>
+<source>Lancet Oncol</source>
+<volume>8</volume>
+<fpage>889</fpage>
+<lpage>897</lpage>
+<pub-id pub-id-type="pmid">17851129</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Teichert1">
+        <label>31</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Teichert</surname><given-names>F</given-names></name><name><surname>Verschoyle</surname><given-names>RD</given-names></name><name><surname>Greaves</surname><given-names>P</given-names></name><name><surname>Edwards</surname><given-names>RE</given-names></name><name><surname>Teahan</surname><given-names>O</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Metabolic profiling of transgenic adenocarcinoma of mouse prostate (TRAMP) Tissue by (1)H-NMR analysis: evidence for unusual phospholipid metabolism.</article-title>
+<source>Prostate</source>
+<volume>68</volume>
+<fpage>1035</fpage>
+<lpage>1047</lpage>
+<pub-id pub-id-type="pmid">18459103</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-GomezdelPulgar1">
+        <label>32</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gomez del Pulgar</surname><given-names>T</given-names></name><name><surname>Benitah</surname><given-names>SA</given-names></name><name><surname>Valeron</surname><given-names>PF</given-names></name><name><surname>Espina</surname><given-names>C</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2005</year>
+<article-title>Rho GTPase expression in tumourigenesis: evidence for a significant link.</article-title>
+<source>Bioessays</source>
+<volume>27</volume>
+<fpage>602</fpage>
+<lpage>613</lpage>
+<pub-id pub-id-type="pmid">15892119</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Boettner1">
+        <label>33</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Boettner</surname><given-names>B</given-names></name><name><surname>Van Aelst</surname><given-names>L</given-names></name></person-group>
+<year>2002</year>
+<article-title>The role of Rho GTPases in disease development.</article-title>
+<source>Gene</source>
+<volume>286</volume>
+<fpage>155</fpage>
+<lpage>174</lpage>
+<pub-id pub-id-type="pmid">11943472</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Aznar1">
+        <label>34</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aznar</surname><given-names>S</given-names></name><name><surname>Fernandez-Valeron</surname><given-names>P</given-names></name><name><surname>Espina</surname><given-names>C</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2004</year>
+<article-title>Rho GTPases: potential candidates for anticancer therapy.</article-title>
+<source>Cancer Lett</source>
+<volume>206</volume>
+<fpage>181</fpage>
+<lpage>191</lpage>
+<pub-id pub-id-type="pmid">15013523</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Aznar2">
+        <label>35</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aznar</surname><given-names>S</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2001</year>
+<article-title>Searching new targets for anticancer drug design: the families of Ras and Rho GTPases and their effectors.</article-title>
+<source>Prog Nucleic Acid Res Mol Biol</source>
+<volume>67</volume>
+<fpage>193</fpage>
+<lpage>234</lpage>
+<pub-id pub-id-type="pmid">11525383</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina7">
+        <label>36</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2004</year>
+<article-title>From Ras signalling to ChoK inhibitors: a further advance in anticancer drug design.</article-title>
+<source>Cancer Lett</source>
+<volume>206</volume>
+<fpage>137</fpage>
+<lpage>148</lpage>
+<pub-id pub-id-type="pmid">15013519</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-HernandezAlcoceba2">
+        <label>37</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hernandez-Alcoceba</surname><given-names>R</given-names></name><name><surname>Fernandez</surname><given-names>F</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>1999</year>
+<article-title>In vivo antitumor activity of choline kinase inhibitors: a novel target for anticancer drug discovery.</article-title>
+<source>Cancer Res</source>
+<volume>59</volume>
+<fpage>3112</fpage>
+<lpage>3118</lpage>
+<pub-id pub-id-type="pmid">10397253</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RodriguezGonzalez2">
+        <label>38</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>de Molina</surname><given-names>AR</given-names></name><name><surname>Fernandez</surname><given-names>F</given-names></name><name><surname>Ramos</surname><given-names>MA</given-names></name><name><surname>Nunez Mdel</surname><given-names>C</given-names></name><etal/></person-group>
+<year>2003</year>
+<article-title>Inhibition of choline kinase as a specific cytotoxic strategy in oncogene-transformed cells.</article-title>
+<source>Oncogene</source>
+<volume>22</volume>
+<fpage>8803</fpage>
+<lpage>8812</lpage>
+<pub-id pub-id-type="pmid">14654777</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RodriguezGonzalez3">
+        <label>39</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Banez-Coronel</surname><given-names>M</given-names></name><name><surname>Megias</surname><given-names>D</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2005</year>
+<article-title>Inhibition of choline kinase renders a highly selective cytotoxic effect in tumour cells through a mitochondrial independent mechanism.</article-title>
+<source>Int J Oncol</source>
+<volume>26</volume>
+<fpage>999</fpage>
+<lpage>1008</lpage>
+<pub-id pub-id-type="pmid">15753995</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RodriguezGonzalez4">
+        <label>40</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Fernandez</surname><given-names>F</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2004</year>
+<article-title>Choline kinase inhibition induces the increase in ceramides resulting in a highly specific and selective cytotoxic antitumoral strategy as a potential mechanism of action.</article-title>
+<source>Oncogene</source>
+<volume>23</volume>
+<fpage>8247</fpage>
+<lpage>8259</lpage>
+<pub-id pub-id-type="pmid">15378008</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Ishidate1">
+        <label>41</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ishidate</surname><given-names>K</given-names></name><name><surname>Furusawa</surname><given-names>K</given-names></name><name><surname>Nakazawa</surname><given-names>Y</given-names></name></person-group>
+<year>1985</year>
+<article-title>Complete co-purification of choline kinase and ethanolamine kinase from rat kidney and immunological evidence for both kinase activities residing on the same enzyme protein(s) in rat tissues.</article-title>
+<source>Biochim Biophys Acta</source>
+<volume>836</volume>
+<fpage>119</fpage>
+<lpage>124</lpage>
+<pub-id pub-id-type="pmid">2992596</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Ishidate2">
+        <label>42</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ishidate</surname><given-names>K</given-names></name><name><surname>Nakagomi</surname><given-names>K</given-names></name><name><surname>Nakazawa</surname><given-names>Y</given-names></name></person-group>
+<year>1984</year>
+<article-title>Complete purification of choline kinase from rat kidney and preparation of rabbit antibody against rat kidney choline kinase.</article-title>
+<source>J Biol Chem</source>
+<volume>259</volume>
+<fpage>14706</fpage>
+<lpage>14710</lpage>
+<pub-id pub-id-type="pmid">6094572</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Uchida2">
+        <label>43</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Uchida</surname><given-names>T</given-names></name><name><surname>Yamashita</surname><given-names>S</given-names></name></person-group>
+<year>1990</year>
+<article-title>Purification and properties of choline kinase from rat brain.</article-title>
+<source>Biochim Biophys Acta</source>
+<volume>1043</volume>
+<fpage>281</fpage>
+<lpage>288</lpage>
+<pub-id pub-id-type="pmid">2157491</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-RamirezdeMolina8">
+        <label>44</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Penalva</surname><given-names>V</given-names></name><name><surname>Lucas</surname><given-names>L</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>2001</year>
+<article-title>Inhibition of ChoK is an efficient antitumor strategy for Harvey-, Kirsten-, and N-ras-transformed cells.</article-title>
+<source>Biochem Biophys Res Commun</source>
+<volume>285</volume>
+<fpage>873</fpage>
+<lpage>879</lpage>
+<pub-id pub-id-type="pmid">11467831</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Lykidis1">
+        <label>45</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lykidis</surname><given-names>A</given-names></name><name><surname>Wang</surname><given-names>J</given-names></name><name><surname>Karim</surname><given-names>MA</given-names></name><name><surname>Jackowski</surname><given-names>S</given-names></name></person-group>
+<year>2001</year>
+<article-title>Overexpression of a mammalian ethanolamine-specific kinase accelerates the CDP-ethanolamine pathway.</article-title>
+<source>J Biol Chem</source>
+<volume>276</volume>
+<fpage>2174</fpage>
+<lpage>2179</lpage>
+<pub-id pub-id-type="pmid">11044454</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Gibellini1">
+        <label>46</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gibellini</surname><given-names>F</given-names></name><name><surname>Hunter</surname><given-names>WN</given-names></name><name><surname>Smith</surname><given-names>TK</given-names></name></person-group>
+<year>2008</year>
+<article-title>Biochemical characterisation of the initial steps of the kennedy pathway in Trypanosoma brucei - the ethanolamine and choline kinases.</article-title>
+<source>Biochem J</source>
+</element-citation>
+      </ref>
+      <ref id="pone.0007819-Weinhold1">
+        <label>47</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Weinhold</surname><given-names>PA</given-names></name><name><surname>Rethy</surname><given-names>VB</given-names></name></person-group>
+<year>1974</year>
+<article-title>The separation, purification, and characterization of ethanolamine kinase and choline kinase from rat liver.</article-title>
+<source>Biochemistry</source>
+<volume>13</volume>
+<fpage>5135</fpage>
+<lpage>5141</lpage>
+<pub-id pub-id-type="pmid">4373031</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Tijburg1">
+        <label>48</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tijburg</surname><given-names>LB</given-names></name><name><surname>Geelen</surname><given-names>MJ</given-names></name><name><surname>van Golde</surname><given-names>LM</given-names></name></person-group>
+<year>1989</year>
+<article-title>Regulation of the biosynthesis of triacylglycerol, phosphatidylcholine and phosphatidylethanolamine in the liver.</article-title>
+<source>Biochim Biophys Acta</source>
+<volume>1004</volume>
+<fpage>1</fpage>
+<lpage>19</lpage>
+<pub-id pub-id-type="pmid">2663077</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Sher1">
+        <label>49</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sher</surname><given-names>RB</given-names></name><name><surname>Aoyama</surname><given-names>C</given-names></name><name><surname>Huebsch</surname><given-names>KA</given-names></name><name><surname>Ji</surname><given-names>S</given-names></name><name><surname>Kerner</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>A rostrocaudal muscular dystrophy caused by a defect in choline kinase beta, the first enzyme in phosphatidylcholine biosynthesis.</article-title>
+<source>J Biol Chem</source>
+<volume>281</volume>
+<fpage>4938</fpage>
+<lpage>4948</lpage>
+<pub-id pub-id-type="pmid">16371353</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Wu1">
+        <label>50</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wu</surname><given-names>G</given-names></name><name><surname>Aoyama</surname><given-names>C</given-names></name><name><surname>Young</surname><given-names>SG</given-names></name><name><surname>Vance</surname><given-names>DE</given-names></name></person-group>
+<year>2007</year>
+<article-title>Early embryonic lethality caused by disruption of the gene for choline kinase alpha, the first enzyme in phosphatidylcholine biosynthesis.</article-title>
+<source>J Biol Chem</source>
+</element-citation>
+      </ref>
+      <ref id="pone.0007819-AlSaffar1">
+        <label>51</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Al-Saffar</surname><given-names>NM</given-names></name><name><surname>Troy</surname><given-names>H</given-names></name><name><surname>Ramirez de Molina</surname><given-names>A</given-names></name><name><surname>Jackson</surname><given-names>LE</given-names></name><name><surname>Madhu</surname><given-names>B</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>Noninvasive magnetic resonance spectroscopic pharmacodynamic markers of the choline kinase inhibitor MN58b in human carcinoma models.</article-title>
+<source>Cancer Res</source>
+<volume>66</volume>
+<fpage>427</fpage>
+<lpage>434</lpage>
+<pub-id pub-id-type="pmid">16397258</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-GallegoOrtega1">
+        <label>52</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gallego-Ortega</surname><given-names>D</given-names></name><name><surname>Ramirez De Molina</surname><given-names>A</given-names></name><name><surname>Gutierrez</surname><given-names>R</given-names></name><name><surname>Ramos</surname><given-names>MA</given-names></name><name><surname>Sarmentero</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2006</year>
+<article-title>Generation and characterization of monoclonal antibodies against choline kinase alpha and their potential use as diagnostic tools in cancer.</article-title>
+<source>Int J Oncol</source>
+<volume>29</volume>
+<fpage>335</fpage>
+<lpage>340</lpage>
+<pub-id pub-id-type="pmid">16820874</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-BanezCoronel1">
+        <label>53</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Banez-Coronel</surname><given-names>M</given-names></name><name><surname>de Molina</surname><given-names>AR</given-names></name><name><surname>Rodriguez-Gonzalez</surname><given-names>A</given-names></name><name><surname>Sarmentero</surname><given-names>J</given-names></name><name><surname>Ramos</surname><given-names>MA</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Choline kinase alpha depletion selectively kills tumoral cells.</article-title>
+<source>Curr Cancer Drug Targets</source>
+<volume>8</volume>
+<fpage>709</fpage>
+<lpage>719</lpage>
+<pub-id pub-id-type="pmid">19075594</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Glunde2">
+        <label>54</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Glunde</surname><given-names>K</given-names></name><name><surname>Raman</surname><given-names>V</given-names></name><name><surname>Mori</surname><given-names>N</given-names></name><name><surname>Bhujwalla</surname><given-names>ZM</given-names></name></person-group>
+<year>2005</year>
+<article-title>RNA interference-mediated choline kinase suppression in breast cancer cells induces differentiation and reduces proliferation.</article-title>
+<source>Cancer Res</source>
+<volume>65</volume>
+<fpage>11034</fpage>
+<lpage>11043</lpage>
+<pub-id pub-id-type="pmid">16322253</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Krishnamachary1">
+        <label>55</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Krishnamachary</surname><given-names>B</given-names></name><name><surname>Glunde</surname><given-names>K</given-names></name><name><surname>Wildes</surname><given-names>F</given-names></name><name><surname>Mori</surname><given-names>N</given-names></name><name><surname>Takagi</surname><given-names>T</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>Noninvasive detection of lentiviral-mediated choline kinase targeting in a human breast cancer xenograft.</article-title>
+<source>Cancer Res</source>
+<volume>69</volume>
+<fpage>3464</fpage>
+<lpage>3471</lpage>
+<pub-id pub-id-type="pmid">19336572</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Montaner1">
+        <label>56</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Montaner</surname><given-names>S</given-names></name><name><surname>Perona</surname><given-names>R</given-names></name><name><surname>Saniger</surname><given-names>L</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>1999</year>
+<article-title>Activation of serum response factor by RhoA is mediated by the nuclear factor-kappaB and C/EBP transcription factors.</article-title>
+<source>J Biol Chem</source>
+<volume>274</volume>
+<fpage>8506</fpage>
+<lpage>8515</lpage>
+<pub-id pub-id-type="pmid">10085083</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Montaner2">
+        <label>57</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Montaner</surname><given-names>S</given-names></name><name><surname>Perona</surname><given-names>R</given-names></name><name><surname>Saniger</surname><given-names>L</given-names></name><name><surname>Lacal</surname><given-names>JC</given-names></name></person-group>
+<year>1998</year>
+<article-title>Multiple signalling pathways lead to the activation of the nuclear factor kappaB by the Rho family of GTPases.</article-title>
+<source>J Biol Chem</source>
+<volume>273</volume>
+<fpage>12779</fpage>
+<lpage>12785</lpage>
+<pub-id pub-id-type="pmid">9582304</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0007819-Livak1">
+        <label>58</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Livak</surname><given-names>KJ</given-names></name><name><surname>Schmittgen</surname><given-names>TD</given-names></name></person-group>
+<year>2001</year>
+<article-title>Analysis of relative gene expression data using real-time quantitative PCR and the 2(-Delta Delta C(T)) Method.</article-title>
+<source>Methods</source>
+<volume>25</volume>
+<fpage>402</fpage>
+<lpage>408</lpage>
+<pub-id pub-id-type="pmid">11846609</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

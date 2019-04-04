@@ -1,0 +1,529 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101186374</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">31761</journal-id>
+      <journal-id journal-id-type="nlm-ta">Nat Struct Mol Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Nat. Struct. Mol. Biol.</journal-id>
+      <journal-title-group>
+        <journal-title>Nature structural &amp; molecular biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1545-9993</issn>
+      <issn pub-type="epub">1545-9985</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22728658</article-id>
+      <article-id pub-id-type="pmc">3392545</article-id>
+      <article-id pub-id-type="doi">10.1038/nsmb.2331</article-id>
+      <article-id pub-id-type="manuscript">NIHMS379464</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Structure of STING bound to c-di-GMP Reveals the Mechanism of Cyclic Dinucleotide Recognition by the Immune System</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shu</surname>
+            <given-names>Chang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yi</surname>
+            <given-names>Guanghui</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Watts</surname>
+            <given-names>Tylan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kao</surname>
+            <given-names>C. Cheng</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Pingwei</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="corresp" rid="CR1">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biochemistry and Biophysics Texas A&amp;M University College Station, TX 77843-2128, USA</aff>
+      <aff id="A2"><label>2</label>Department of Molecular and Cellular Biochemistry Indiana University Bloomington, IN 47405, USA</aff>
+      <author-notes>
+        <corresp id="CR1"><label>*</label>Corresponding Author <email>pingwei@tamu.edu</email>, Telephone: 979-845-1469, Fax: 979-845-9274</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>5</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>24</day>
+        <month>6</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <month>7</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>1</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>19</volume>
+      <issue>7</issue>
+      <fpage>722</fpage>
+      <lpage>724</lpage>
+      <!--elocation-id from pubmed: 10.1038/nsmb.2331-->
+      <permissions>
+        <license>
+          <license-p>Users may view, print, copy, download and text and data- mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:
+<uri xlink:type="simple" xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">http://www.nature.com/authors/editorial_policies/license.html#terms</uri></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p id="P1">STING, stimulator of interferon genes, is an innate immune sensor of cyclic dinucleotides that regulates the induction of type I interferons. STING C-terminal domain forms a V-shaped dimer and binds a c-di-GMP molecule at the dimer interface through direct and solvent-mediated hydrogen bonds. The guanine bases of c-di-GMP stack against the phenolic rings of a conserved tyrosine residue. Mutations at the c-di-GMP binding surface reduce nucleotide binding and affect signaling.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <p id="P2">Nucleic acids from bacteria or viruses induce potent immune responses in infected cells<sup><xref rid="R1" ref-type="bibr">1</xref>,<xref rid="R2" ref-type="bibr">2</xref></sup>. Cyclic dinucleotides such as cyclic di-guanine monophosphate (c-di-GMP) and cyclic diadenosine monophosphate (c-di-AMP) are immune stimulators that regulate the induction of type I interferons (IFN-&#x3B1; and &#x3B2;)<sup><xref rid="R3" ref-type="bibr">3</xref>&#x2013;<xref rid="R5" ref-type="bibr">5</xref></sup>. These special nucleotides are secondary messenger molecules that regulate bacterial motility, biofilm formation, and virulence gene expression<sup><xref rid="R6" ref-type="bibr">6</xref>,<xref rid="R7" ref-type="bibr">7</xref></sup>. STING, a protein localized on the endoplasmic reticulum membrane, is an innate immune sensor of cyclic dinucleotides<sup><xref rid="R8" ref-type="bibr">8</xref></sup>. STING also plays critical roles in the innate immune response towards microbial DNA and RNA<sup><xref rid="R9" ref-type="bibr">9</xref>,<xref rid="R10" ref-type="bibr">10</xref></sup>. Two putative DNA sensors, IFI16 and DDX41, stimulate the induction of type I IFNs in a STING-dependent manner<sup><xref rid="R11" ref-type="bibr">11</xref>,<xref rid="R12" ref-type="bibr">12</xref></sup>. Stimulation of cells by dsDNA induces the recruitment of protein kinase TBK1 and transcription factor IRF3 to STING<sup><xref rid="R13" ref-type="bibr">13</xref></sup>. The proximity of TBK1 and IRF3 facilitates IRF3 phosphorylation, leading to its dimerization and translocation to the nucleus to activate IFN-&#x3B2; gene transcription. The molecular structure of the STING bound to a cyclic dinucleotide will help to understand the mechanism of STING activation.</p>
+    <p id="P3">We have conducted systematic screening of mouse and human STING constructs and identified a fragment of human STING C-terminal domain (CTD) containing residues 155 to 341, which is soluble and can be crystallized. Gel filtration chromatography showed that the STING CTD forms a dimer in solution (<xref ref-type="fig" rid="F1">Fig. 1a</xref>). Isothermal titration calorimetry (ITC) showed that STING CTD binds c-di-GMP with an affinity (<italic>K</italic><sub>d</sub>) of ~ 5 &#x3BC;M (<xref ref-type="fig" rid="F1">Fig. 1b</xref>). Two STING molecules bind one c-di-GMP, indicating a STING dimer shares one c-di-GMP binding site. The binding interaction is enthalpy driven (&#x394;H= &#x2212;14.5 kcal mol<sup>&#x2212;1</sup>, &#x394;S= &#x2212;24.3 cal mol<sup>&#x2212;1</sup> K<sup>&#x2212;1</sup>). A slightly larger STING construct containing residues 155 to 379 has a similar affinity (<italic>K</italic><sub>d</sub> ~2.4 &#x3BC;M) for c-di-GMP, demonstrating that truncation of the 38 C-terminal residues does not affect cdi-GMP binding.</p>
+    <p id="P4">To elucidate the structural basis of cyclic dinucleotide recognition by STING, we have determined the 1.5 &#xC5; resolution structure of human STING CTD bound to c-di-GMP (<xref ref-type="fig" rid="F1">Fig. 1d</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Table 1</xref>). The crystallographic asymmetric unit contains a STING dimer in complex with a c-di-GMP molecule (<xref ref-type="fig" rid="F1">Fig. 1d</xref>). The STING dimer has a V-shaped structure and the c-di-GMP binding site is located at the bottom of the V of the dimer interface (<xref ref-type="fig" rid="F1">Fig. 1d</xref>). The c-di-GMP also adopts a V-shaped conformation (<xref ref-type="fig" rid="F1">Fig. 1d</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 1a</xref>) and contacts the STING dimer through stacking of both guanine bases against the phenolic rings of Tyr167 (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 1b</xref>). Residues 228 through 236 in the loop connecting strands &#x3B2;3 and &#x3B2;4 of STING are not well-defined in the electron density map, likely due to the flexibility of this loop. This loop harbors a potential TRAF2 binding motif PQQTGD<sup><xref rid="R14" ref-type="bibr">14</xref></sup>, and may play a role in signaling by STING.</p>
+    <p id="P5">STING CTD exhibits a novel &#x3B1;/&#x3B2; type fold (<xref ref-type="fig" rid="F1">Fig. 1d</xref>) with some structural similarity to the Ras family small G-proteins<sup><xref rid="R15" ref-type="bibr">15</xref></sup>. STING CTD contains a central five-stranded &#x3B2;-sheet sandwiched between four &#x3B1;-helices (<xref ref-type="fig" rid="F1">Fig. 1d</xref>). The first &#x3B1;-helix of STING containing residues 155 to 174 is rich in hydrophobic residues and was previously predicted as a transmembrane helix<sup><xref rid="R16" ref-type="bibr">16</xref></sup>. This helix is long and bent in the middle at residues Gly166 and Pro173 (<xref ref-type="fig" rid="F1">Fig. 1d</xref>). Helices &#x3B1;1 and &#x3B1;2 mediate the dimer formation and harbor key residues for c-di-GMP binding. Truncation of helix &#x3B1;1 makes the protein insoluble, indicating that helix &#x3B1;1 is an integral part of STING nucleotide binding domain and is required for proper folding of the protein.</p>
+    <p id="P6">The total buried surface area between the c-di-GMP and STING is ~1,100 &#xC5;<sup>2</sup>. The interaction between c-di-GMP and STING is mediated by direct and solvent-mediated hydrogen bonds (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). The interactions between the two STING molecules and the c-di-GMP are similar, therefore only half of the c-di-GMP interactions with STING will be described. The guanine base of c-di-GMP forms only one direct hydrogen bond with the hydroxyl group of Thr263 (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). It also forms two solvent-mediated hydrogen bonds with the backbone amine and carbonyl of Ser241 (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). In addition, the guanine forms a solvent-mediated hydrogen bond with the sidechain hydroxyl of Tyr163 and the carbonyl of Tyr261 (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). Glu260 plays a critical role in forming the c-di-GMP binding site by interacting with the sidechain of Tyr167 through direct hydrogen bonds so that the phenolic ring of Tyr167 can be positioned properly to stack against the guanine base (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). The sidechain of Asn242 forms a network of hydrogen bonds with Glu260, Tyr167, and Arg178. These interactions are important to orient Ser241 and Tyr167 to interact with the guanine base. The 2&#x2032; hydroxyl of the ribose interacts directly with the hydroxyl of Thr263 (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). The hydroxyl of Thr267 forms two solvent mediated-hydrogen bonds with the ribose and the phosphate group (<xref ref-type="fig" rid="F2">Fig. 2a</xref>). In addition, the phosphate group interacts with the backbone carbonyl of Gly166 through a solvent-mediated hydrogen bond. A number of other residues of STING are also critical for c-di-GMP binding. For example, Pro264 is critical in the formation of the binding surface by positioning Thr263 and Thr267 properly to interact with c-di-GMP. Gly166 is also critical for c-di-GMP binding by allowing the nucleotide to approach its binding surface closely, which is critical for the stacking of the guanine ring on the phenolic ring of Tyr167. Although Ser162 does not interact with c-di-GMP directly, together with Thr267 and several ordered solvent molecules, they form a large flat hydrophilic cushion to accommodate the ribose and phosphate ring of c-di-GMP.</p>
+    <p id="P7">The total buried surface area at the STING dimer interface is ~1,550 &#xC5;<sup>2</sup>. The two monomers interact with each other through extensive hydrophobic interactions involving residues Val155, Leu157, Trp161, Ile165 in helix &#x3B1;1 and Ala270, Met271, Ala277 near the linker region between helices &#x3B1;2 and &#x3B1;3 (<xref ref-type="fig" rid="F2">Fig. 2b</xref>). In addition, there are two direct hydrogen bonds between the sidechain phenolic groups of Tyr164 and Tyr274 (<xref ref-type="fig" rid="F2">Fig. 2b</xref>). Residues at the N-terminus of helix &#x3B1;1 are critical for the formation of the dimer, explaining why truncation of this helix resulted in insoluble protein.</p>
+    <p id="P8">Two calcium ions are observed between two crystallographic symmetry-related STING dimers (<xref ref-type="fig" rid="F2">Fig. 2c</xref>). The calcium-binding site is located at the loop between strand &#x3B2;1 and &#x3B2;2 and the loop between strand &#x3B2;5 and helix &#x3B1;4 (<xref ref-type="fig" rid="F2">Fig. 2c</xref>). The sidechains of Glu316 and Asp320 from one STING molecule, the carbonyl of Ala318 and the sidechain Asp205 from a symmetry-related STING molecule and two water molecules coordinate with each of the calcium ions in octahedral geometry (<xref ref-type="fig" rid="F2">Fig. 2d</xref>). Mutations of mouse STING at Glu315, which corresponds to the calcium ligand Glu316 in human STING, to either alanine, asparagine, or glutamine, made mouse STING hyperactive and spontaneously induced IFN expression even at low levels of transfection<sup><xref rid="R8" ref-type="bibr">8</xref></sup>. These mutants also failed to respond to c-di-GMP. Mutation of another calcium ligand Asp204 to alanine also increased mouse STING signaling although it failed to respond to c-di-GMP<sup><xref rid="R8" ref-type="bibr">8</xref></sup>. These results indicate that calcium play a critical role in regulating STING function.</p>
+    <p id="P9">To investigate the potential conformational change induced by c-di-GMP binding, we have determined the structure of ligand-free STING CTD at 1.9 &#xC5; resolution. Superposition of the ligand free STING structure over the c-di-GMP complex structure showed minor differences between the two structures (rmsd of ~0.5 &#xC5;, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 2</xref>). Since ligand-free STING crystallized in nearly the same unit cell as the c-di-GMP complex, it is likely that crystal packing contributes to the similar structures. These results suggest that the c-di-GMP binding site of STING is likely preformed and the dimer is rigid.</p>
+    <p id="P10">Based on the structure of STING bound to c-di-GMP, we designed eleven mutants of human STING and studied their binding with c-di-GMP by gel filtration chromatography and ITC. Three of the eleven mutants, Y163A, Y167A, and I200N, failed to express as soluble proteins. Mutations G166S or S162A reduced c-di-GMP binding slightly (<xref ref-type="fig" rid="F3">Fig. 3a and b</xref>). The replacement of Tyr240 by serine or Thr263 by alanine reduced the c-di-GMP binding affinities to 17 and 10 &#x3BC;M, respectively (<xref ref-type="fig" rid="F3">Fig. 3b</xref>). Mutants N242A and E260A have severely reduced c-di-GMP binding (<xref ref-type="fig" rid="F3">Fig. 3a</xref>). The affinities of these two mutants were reduced to 28 and 52 &#x3BC;M, respectively (<xref ref-type="fig" rid="F3">Fig. 3b</xref>). Mutations of T263A and Pro264A also reduced c-di-GMP binding (<xref ref-type="fig" rid="F3">Fig. 3a and b</xref>). In addition, mutation T267A reduced c-di-GMP binding affinity by nearly 7 fold (<italic>K</italic><sub>d</sub> of ~31 &#x3BC;M, <xref ref-type="fig" rid="F3">Fig. 3b</xref>).</p>
+    <p id="P11">Since human STING is not sensitive to c-di-GMP when expressed in HEK293T cells, we established an IFN-&#x3B2; luciferase reporter assay for the mouse STING that responds to c-di-GMP (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 3a</xref>). Mutations in mouse STING that correspond to the human STING residues involved in c-di-GMP binding were examined using the assay (<xref ref-type="fig" rid="F3">Fig. 3c</xref>). Consistent with previous studies<sup><xref rid="R8" ref-type="bibr">8</xref></sup>, mutant I199N did not express well and failed to respond to c-di-GMP (<xref ref-type="fig" rid="F3">Fig. 3c</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 3b</xref>). Although the remaining six mutants expressed normally (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 3b</xref>), mutants Y239S and E259A also failed to respond to c-di-GMP (<xref ref-type="fig" rid="F3">Fig. 3c</xref>). In addition, mutant T262A exhibited reduced response to c-di-GMP (<xref ref-type="fig" rid="F3">Fig. 3c</xref>). Interestingly, mutations N241A, P263A and T266A enabled the mouse STING to be hyperactive even in the absence of c-di-GMP (<xref ref-type="fig" rid="F3">Fig. 3c</xref>), but only mutant P263A retained some response to c-di-GMP.</p>
+    <p id="P12">STING is potently phosphorylated by TBK1 at the C-terminus (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4a</xref>). Phosphorylation of STING truncated after residue 341 is significantly reduced (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4a</xref>). Time course of the phosphorylation experiments showed that STING dephosphorylates after 30 minutes at the ATP concentration of 1 mM (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4b</xref>) and that phosphatase inhibitors reduced the dephosphorylation of STING (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4c</xref>). Phosphorylation assays with 5 mM ATP resulted in persistent phosphorylation of STING (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 4b</xref>). We also tested the effects of STING and c-di-GMP on IRF3 activation by TBK1 using purified proteins. The rates of TBK1-dependent phosphorylation and dimerization of IRF3 were not affected by human STING (containing residues 155 to 379) or human STING in complex with c-di-GMP (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 5a</xref>). Similar results were observed with the mouse STING (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 5b</xref>).</p>
+    <p id="P13">The high-resolution structure of STING bound to c-di-GMP provides a detailed picture of how the protein recognizes the cyclic dinucleotide. However, it is still not clear how c-di-GMP activates the TBK1/IRF3 signaling pathway. Although STING can recruit TBK1 and IRF3 through its C-terminal region and may facilitate the TBK1-dependent phosphorylation of IRF3 in cells stimulated with DNA<sup><xref rid="R13" ref-type="bibr">13</xref></sup>, whether a similar mechanism is employed by c-di-GMP to activate IRF3 awaits further analysis. Our <italic>in vitro</italic> assays showed STING is phosphorylated by TBK1. However, STING C-terminal domain alone or in combination with c-di-GMP failed to stimulate the TBK1-dependent phosphorylation and dimerization of IRF3. These results suggest that other proteins or membrane localization of STING are likely needed for the activation of IRF3 by c-di-GMP. Indeed, the inclusion of cell lysate from DNA stimulated cells resulted in IRF3 phosphorylation by TBK1 in the presence of STING<sup><xref rid="R13" ref-type="bibr">13</xref></sup>. Affinity purification of proteins associated with STING <italic>in vivo</italic> may reveal additional factors necessary for cyclic dinucleotide sensing. Biochemical and structural characterization of these proteins will provide additional insight into the roles of STING in innate immune responses to nucleic acids.</p>
+    <sec sec-type="supplementary-material" id="SM">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <label>1</label>
+        <media xlink:href="NIHMS379464-supplement-1.pdf" mimetype="application" mime-subtype="pdf" orientation="portrait" xlink:type="simple" id="d37e416" position="anchor"/>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SD2">
+        <label>2</label>
+        <media xlink:href="NIHMS379464-supplement-2.pdf" mimetype="application" mime-subtype="pdf" orientation="portrait" xlink:type="simple" id="d37e420" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack id="S1">
+      <title>Acknowledgements</title>
+      <p>The diffraction data of the Se-Met crystals were collected at beamline 11.1 at the Stanford Synchrotron Radiation Lightsource (SSRL). The ITC binding studies were conducted in Dr. Tadhg Begley's lab. This research is supported by the National Institute of Health (Grants AI087741 to P.L. and AI073335 to C. K.).</p>
+    </ack>
+    <fn-group>
+      <fn id="FN1">
+        <p id="P14"><bold>Note added in proof:</bold> While this manuscript was under review, similar structures of STING and its complex with c-di-GMP (PDB codes: 4EF5 and 4EF4) were published online<sup><xref rid="R17" ref-type="bibr">17</xref></sup>.</p>
+        <p id="P15"><bold>Accession codes:</bold> Coordinates and structure factors of STING bound to c-di-GMP and ligand free STING have been deposited with PDB under the accession codes: 4EMU and 4EMT.</p>
+      </fn>
+      <fn id="FN2">
+        <p id="P16"><bold>Author Contributions</bold> C. S. crystallized the protein and conducted the binding and kinase assays. P. L. determined the structures. G. Y. conducted the IFN-&#x3B2; reporter assays. T. W. helped with the data collection. P.L., C. K., C. S., and T. W. wrote the paper.</p>
+      </fn>
+      <fn id="FN3">
+        <p id="P17"><bold>Competing Financial Interests</bold> The authors declare no competing financial interests.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Keating</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Baran</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bowie</surname>
+              <given-names>AG</given-names>
+            </name>
+          </person-group>
+          <source>Trends Immunol</source>
+          <year>2011</year>
+          <volume>32</volume>
+          <fpage>574</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="pmid">21940216</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kato</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Takahasi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fujita</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <source>Immunol Rev</source>
+          <year>2011</year>
+          <volume>243</volume>
+          <fpage>91</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">21884169</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McWhirter</surname>
+              <given-names>SM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>J Exp Med</source>
+          <year>2009</year>
+          <volume>206</volume>
+          <fpage>1899</fpage>
+          <lpage>911</lpage>
+          <pub-id pub-id-type="pmid">19652017</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woodward</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Iavarone</surname>
+              <given-names>AT</given-names>
+            </name>
+            <name>
+              <surname>Portnoy</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <source>Science</source>
+          <year>2010</year>
+          <volume>328</volume>
+          <fpage>1703</fpage>
+          <lpage>5</lpage>
+          <pub-id pub-id-type="pmid">20508090</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Karaolis</surname>
+              <given-names>DK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>J Immunol</source>
+          <year>2007</year>
+          <volume>178</volume>
+          <fpage>2171</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="pmid">17277122</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sondermann</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Shikuma</surname>
+              <given-names>NJ</given-names>
+            </name>
+            <name>
+              <surname>Yildiz</surname>
+            </name>
+          </person-group>
+          <source>Curr Opin Microbiol</source>
+          <year>2012</year>
+          <volume>15</volume>
+          <fpage>140</fpage>
+          <lpage>146</lpage>
+          <pub-id pub-id-type="pmid">22226607</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pesavento</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hengge</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <source>Curr Opin Microbiol</source>
+          <year>2009</year>
+          <volume>12</volume>
+          <fpage>170</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">19318291</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burdette</surname>
+              <given-names>DL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Nature</source>
+          <year>2011</year>
+          <volume>478</volume>
+          <fpage>515</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">21947006</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barber</surname>
+              <given-names>GN</given-names>
+            </name>
+          </person-group>
+          <source>Curr Opin Immunol</source>
+          <year>2011</year>
+          <volume>23</volume>
+          <fpage>10</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="pmid">21239155</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barber</surname>
+              <given-names>GN</given-names>
+            </name>
+          </person-group>
+          <source>Nat Immunol</source>
+          <year>2011</year>
+          <volume>12</volume>
+          <fpage>929</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="pmid">21934672</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Unterholzner</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Nat Immunol</source>
+          <year>2010</year>
+          <volume>11</volume>
+          <fpage>997</fpage>
+          <lpage>1004</lpage>
+          <pub-id pub-id-type="pmid">20890285</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Nat Immunol</source>
+          <year>2011</year>
+          <volume>12</volume>
+          <fpage>959</fpage>
+          <lpage>65</lpage>
+          <pub-id pub-id-type="pmid">21892174</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>ZJ</given-names>
+            </name>
+          </person-group>
+          <source>Sci Signal</source>
+          <year>2012</year>
+          <volume>5</volume>
+          <fpage>ra20</fpage>
+          <pub-id pub-id-type="pmid">22394562</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ye</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>YC</given-names>
+            </name>
+            <name>
+              <surname>Kreishman</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kieff</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <source>Mol Cell</source>
+          <year>1999</year>
+          <volume>4</volume>
+          <fpage>321</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="pmid">10518213</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pai</surname>
+              <given-names>EF</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Nature</source>
+          <year>1989</year>
+          <volume>341</volume>
+          <fpage>209</fpage>
+          <lpage>14</lpage>
+          <pub-id pub-id-type="pmid">2476675</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ishikawa</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Barber</surname>
+              <given-names>GN</given-names>
+            </name>
+          </person-group>
+          <source>Nature</source>
+          <year>2008</year>
+          <volume>455</volume>
+          <fpage>674</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">18724357</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ouyang</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <source>Immunity</source>
+          <year>2012</year>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>STING forms a dimer and binds c-di-GMP at the dimer interface. (a) C-di-GMP binding studies of human STING CTD (residues 149&#x2013;341) by gel filtration chromatography. (b) C-di-GMP binding studies of STING CTD (residues 149 to 341) by ITC. (c) C-di-GMP binding studies of STING (residues 155 to 379) by ITC. (d) Structure of human STING CTD bound to c-di-GMP. STING is shown by the red and cyan ribbon representation. C-di-GMP is shown by the yellow ball and stick model.</p>
+      </caption>
+      <graphic xlink:href="nihms-379464-f0001"/>
+    </fig>
+    <fig id="F2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Structural basis of c-di-GMP recognition and the dimer interface of STING. (a) Stereo close up of the c-di-GMP binding site of STING. Residues of STING are shown by the gray ball and stick models. C-di-GMP is shown by the cyan ball and stick model. Solvent molecules mediating hydrogen bonds between STING and c-di-GMP are shown by the red spheres. (b). Stereo close up view of the STING dimer interface. Residues at the dimer interface are shown by the gray and green stick models. (c) The Ca<sup>2+</sup> binding sites between two STING dimers. Ca<sup>2+</sup> ions are shown by the gray spheres and Ca<sup>2+</sup> ligands are shown as gray sticks. Solvent molecules are shown by the red spheres. (d) Close up of the Ca<sup>2+</sup> binding sites. Residues from one STING are shown by the gray ball and stick models. Residues from a symmetry-related STING are shown by the purple ball and stick models. Ca<sup>2+</sup> are shown by the yellow spheres. Solvent molecules coordinating with the Ca<sup>2+</sup> are shown by the blue spheres.</p>
+      </caption>
+      <graphic xlink:href="nihms-379464-f0002"/>
+    </fig>
+    <fig id="F3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Mutations at the nucleotide binding surface reduce c-di-GMP binding and affect STING signaling. (a) C-di-GMP binding studies of wild-type and mutants of STING CTD by gel filtration chromatography. The inset shows a close up of the unbound c-di-GMP peaks. (b) C-di-GMP binding studies of STING mutants by ITC. (c) IFN-&#x3B2; luciferase assays show that mutations at the c-di-GMP binding surface affect signaling of mouse STING expressed in HEK293T cells. Residues Ile199, Tyr239, Asn241, Glu259, Thr262, Pro263, and Thr266 of mouse STING correspond to residues Ile200, Tyr240, Asn242, Glu260, Thr263, Pro264, and Thr267 of human STING. The error bars show standard deviations of signals from three independent transfections.</p>
+      </caption>
+      <graphic xlink:href="nihms-379464-f0003"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

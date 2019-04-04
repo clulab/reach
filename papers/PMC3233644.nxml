@@ -1,0 +1,1057 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9502015</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">8791</journal-id>
+      <journal-id journal-id-type="nlm-ta">Nat Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Nat. Med.</journal-id>
+      <journal-title-group>
+        <journal-title>Nature medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1078-8956</issn>
+      <issn pub-type="epub">1546-170X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22081024</article-id>
+      <article-id pub-id-type="pmc">3233644</article-id>
+      <article-id pub-id-type="doi">10.1038/nm.2464</article-id>
+      <article-id pub-id-type="manuscript">NIHMS317227</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>A MEK-independent role for CRAF in mitosis and tumor progression</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mielgo</surname>
+            <given-names>Ainhoa</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Seguin</surname>
+            <given-names>Laetitia</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Miller</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Camargo</surname>
+            <given-names>Maria Fernanda</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Anand</surname>
+            <given-names>Sudarshan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Franovic</surname>
+            <given-names>Aleksandra</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Weis</surname>
+            <given-names>Sara M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Advani</surname>
+            <given-names>Sunil J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Murphy</surname>
+            <given-names>Eric A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cheresh</surname>
+            <given-names>David A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Pathology, Moores UCSD Cancer Center, University of California, San Diego, La Jolla, California, U. S. A</aff>
+      <aff id="A2"><label>2</label>Department of Radiation Oncology, Moores UCSD Cancer Center, University of California, San Diego, La Jolla, California, U. S. A</aff>
+      <author-notes>
+        <corresp id="FN1">Correspondence should be addressed to D.A.C. (<email>dcheresh@ucsd.edu</email>)</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>9</day>
+        <month>8</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>13</day>
+        <month>11</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <month>12</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>6</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>17</volume>
+      <issue>12</issue>
+      <fpage>1641</fpage>
+      <lpage>1645</lpage>
+      <!--elocation-id from pubmed: 10.1038/nm.2464-->
+      <permissions>
+        <license>
+          <license-p>Users may view, print, copy, download and text and data- mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use: 
+<uri xlink:type="simple" xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">http://www.nature.com/authors/editorial_policies/license.html#terms</uri></license-p>
+        </license>
+      </permissions>
+    </article-meta>
+  </front>
+  <body>
+    <p id="P1">RAF kinases regulate cell proliferation and survival and can be dysregulated in tumors<sup><xref rid="R1" ref-type="bibr">1</xref>,<xref rid="R2" ref-type="bibr">2</xref></sup>. A role for RAF in cell proliferation has been linked to its ability to activate MEK and ERK. Here, we identify a MEK-independent role for RAF in tumor growth. Specifically, in mitotic cells, CRAF becomes phosphorylated on serine 338 and localizes to the mitotic spindle of proliferating tumor cells <italic>in vitro</italic> and in murine tumor models or biopsies from cancer patients. Treatment of tumors with allosteric, but not ATP-competitive RAF inhibitors prevents CRAF phosphorylation on serine 338, localization to the mitotic spindle and causes cell cycle arrest at pro-metaphase. Furthermore, we identify phospho-S338 CRAF as a potential biomarker for tumor progression and a surrogate marker for allosteric RAF blockade. Mechanistically, CRAF, but not BRAF associates with Aurora-A and Polo-like kinase 1 at the centrosomes and spindle poles during G2/Mitosis. Indeed, allosteric or genetic inhibition of phospho-S338 CRAF impairs Plk1 activation and accumulation at kinetochores causing pro-metaphase arrest, while a phospho-mimetic S338D CRAF mutant potentiates Plk1 activation, mitosis and tumor progression in mice. These findings reveal a previously undefined role for RAF in tumor progression beyond the RAF-MEK-ERK paradigm, opening new avenues for targeting RAF in oncology.</p>
+    <p id="P2">ATP-competitive RAF inhibitors have shown clinical activity in cancers with activating RAF mutations<sup><xref rid="R3" ref-type="bibr">3</xref>&#x2013;<xref rid="R8" ref-type="bibr">8</xref></sup>. However, in RAS driven tumors, these agents surprisingly promote CRAF serine 338 phosphorylation and tumor progression<sup><xref rid="R9" ref-type="bibr">9</xref>&#x2013;<xref rid="R11" ref-type="bibr">11</xref></sup>. We described an allosteric inhibitor of RAF (compound 6, referred to here as KG5) that does not compete for ATP but inhibits phospho-S338 CRAF and tumor growth<sup><xref rid="R12" ref-type="bibr">12</xref></sup>.</p>
+    <p id="P3">KG5 exerted broad growth inhibitory activity against the NCI-60 panel (<xref rid="SD1" ref-type="supplementary-material">Supplementary Table 1</xref>) suggesting that KG5 influences a general mechanism that is independent of RAS or RAF activation status. Tumor cells exposed to KG5 appeared rounded and arrested in mitosis, whereas cells treated with ATP-competitive RAF or MEK inhibitors maintained adhesion and mitosis (<xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 1a and 2</xref>). KG5 inhibited phospho-S338 CRAF causing mitotic arrest at pro-metaphase followed by cell death in multiple tumor cell lines (<xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 1a, b, d, e, 2 and 3</xref>), mimicking the effects of paclitaxel. As for most kinase-targeted drugs, KG5 inhibits other targets (c-Kit, Flt-3 and PDGFR) that might contribute to the anti-proliferative effects observed. To address this, we evaluated KG1, a structural analogue of KG5 that inhibits the same targets except RAF<sup><xref rid="R12" ref-type="bibr">12</xref></sup>. KG1 did not inhibit cell proliferation, indicating the effects of KG5 are due to RAF inhibition (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 1a</xref>).</p>
+    <p id="P4">Phosphorylation of CRAF on serine 338 has been linked to cancer progression<sup><xref rid="R9" ref-type="bibr">9</xref>&#x2013;<xref rid="R11" ref-type="bibr">11</xref>,<xref rid="R13" ref-type="bibr">13</xref>&#x2013;<xref rid="R15" ref-type="bibr">15</xref></sup>. To determine whether KG5 could suppress this activity <italic>in vivo</italic>, we analyzed orthotopic breast and brain tumor tissues for phospho-S338 CRAF before or after systemic delivery of the drug. A single KG5 treatment led to a qualitative decrease in phospho-S338 CRAF and an accumulation of cells at pro-metaphase (<xref rid="F1" ref-type="fig">Fig. 1e</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 4b</xref>). Importantly, while ectopic expression of active MEK failed to rescue the effects of KG5 on cell proliferation, cells expressing a phospho-mimetic S338D CRAF mutant showed resistance to KG5 (<xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 1c, e</xref>) suggesting CRAF S338 plays a MEK-independent role in cell proliferation that can be reversed by an allosteric inhibitor.</p>
+    <p id="P5">We next examined mouse embryonic fibroblasts (MEFs) derived from CRAF knockout embryos (<italic>Craf</italic><sup>&#x2212;/&#x2212;</sup>)<sup><xref rid="R16" ref-type="bibr">16</xref></sup>. Asynchronized <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs showed a significant increase in the number of cells in G2/M and pro-metaphase, compared to wildtype (WT) MEFs (<xref rid="F1" ref-type="fig">Fig. 1a</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 5a</xref>). Following synchronization, <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs accumulated in pro-metaphase with a dramatic delay in mitotic progression (<xref rid="F1" ref-type="fig">Figs. 1b, c</xref>). Depletion of CRAF in tumor cells, similarly led to an accumulation of cells in G2/M (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 5e</xref>). Importantly, expression of kinase dead (K375M), phospho-mimetic S338D or WT CRAF rescued this mitotic defect, whereas a non-phosphorylatable (S338A) CRAF mutant, failed to do so (<xref rid="F1" ref-type="fig">Fig. 1d</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 5b&#x2013;d</xref>), even though this mutant maintains kinase activity and can dimerize with BRAF (data not shown). Accordingly, XPA-1 human pancreatic cancer cells expressing WT CRAF completed mitosis in twenty minutes whereas cells expressing CRAF S338A did so in 120 minutes (<xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 5f, g</xref>) providing genetic evidence to support a kinase-independent role for phospho-S338 CRAF in mitosis.</p>
+    <p id="P6">Furthermore, phospho-S338 CRAF was strongly increased in mitosis where it co-precipitated with &#x3B3;-tubulin (<xref rid="F2" ref-type="fig">Figs. 2a and 2c</xref>) and localized in G2/M to the centrosomes/mitotic spindle poles of tumor cells <italic>in vitro</italic> (<xref rid="F2" ref-type="fig">Fig. 2b</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 6</xref>), or breast cancer tissues from mice or patients (<xref rid="F2" ref-type="fig">Fig. 2d</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 7b</xref>). Importantly, KG5, but not ATP-competitive RAF inhibitors, prevented this localization (<xref rid="F2" ref-type="fig">Fig. 2e</xref>). Moreover, in cells treated with the microtubule stabilizing agent paclitaxel, CRAF remained localized to the mitotic spindle suggesting that KG5 and paclitaxel arrest cells at pro-metaphase via distinct mechanisms (<xref rid="F2" ref-type="fig">Fig. 2e</xref>).</p>
+    <p id="P7">Previous studies have revealed that CRAF and BRAF can form heterodimers<sup><xref rid="R17" ref-type="bibr">17</xref></sup> and that BRAF can play a role in mitosis<sup><xref rid="R18" ref-type="bibr">18</xref>&#x2013;<xref rid="R22" ref-type="bibr">22</xref></sup>. Interestingly, while BRAF/CRAF heterodimers could readily be detected in asynchronized cells we could not detect such heterodimers in mitotic cells (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 8c</xref>). In fact, phospho-S338 CRAF localized to the spindle pole in cells lacking BRAF (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 7a</xref>). These results suggest that the role that CRAF plays in mitosis is distinct from that of BRAF.</p>
+    <p id="P8">Mitosis is regulated by various mitotic kinases such as Aurora kinases, Plk1, and CDK1<sup><xref rid="R23" ref-type="bibr">23</xref>&#x2013;<xref rid="R25" ref-type="bibr">25</xref></sup>. Plk1 becomes activated by Aurora-A in G2, localizes to centrosomes, spindle poles and accumulates at kinetochores at pro-metaphase<sup><xref rid="R26" ref-type="bibr">26</xref>&#x2013;<xref rid="R28" ref-type="bibr">28</xref></sup> (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 10</xref>). Accordingly, tumor cells expressing oncogenic RAS are particularly dependent on Plk1 activity for mitotic progression and survival<sup><xref rid="R29" ref-type="bibr">29</xref>,<xref rid="R30" ref-type="bibr">30</xref></sup>, and inhibition or depletion of Plk1 causes cell cycle delay/arrest at pro-metaphase<sup><xref rid="R27" ref-type="bibr">27</xref>,<xref rid="R31" ref-type="bibr">31</xref>&#x2013;<xref rid="R34" ref-type="bibr">34</xref></sup>. Interestingly, both Aurora-A and Plk1 co-precipitated with CRAF but not BRAF (<xref rid="F3" ref-type="fig">Figs. 3a, c</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 8c and e</xref>) and CRAF co-localized with Aurora-A and Plk1 at the centrosomes in G2 and spindle poles in mitotic tumor cells (<xref rid="F3" ref-type="fig">Fig. 3b</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 8b</xref>). Interestingly, CRAF, but not BRAF, co-precipitated with Plk1 (<xref rid="F3" ref-type="fig">Fig. 3c</xref>) and this could be detected in cells expressing WT or kinase dead (K375M) CRAF (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 8d</xref>). However, this complex was minimally detected in cells expressing the S338A RAF mutant (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 8a</xref>) suggesting that the interaction between CRAF and Plk1 requires serine 338 phosphorylation but not kinase activity. Thus, CRAF may serve as a scaffold bringing Aurora-A and Plk1 into a functional mitotic complex.</p>
+    <p id="P9">To determine whether the kinetics of CRAF serine 338 phosphorylation during cell cycle progression correlated with Plk1 activation, we analyzed CRAF (S338) and Plk1 (T210) phosphorylation throughout the cell cycle from G1-M. Interestingly, phospho-S338 CRAF levels were increased in G1, as expected, but showed a second wave of phosphorylation at G2/M beginning immediately prior to Plk1 phosphorylation (<xref rid="F3" ref-type="fig">Fig. 3d</xref>), consistent with the notion that CRAF phosphorylation on serine 338 precedes Plk1 activation. To further explore a role for CRAF in Plk1 activation, lysates from WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs were subjected to immunoblotting for phospho-Plk1 or evaluated for Plk1 enzymatic activity (<xref rid="F3" ref-type="fig">Fig. 3e</xref> and <xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 9a</xref>). Indeed, <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs demonstrated minimal Plk1 activity compared to WT MEFs. Furthermore, tumor cells arrested in pro-metaphase with KG5 showed decreased Plk1 activity compared to cells arrested with nocodazole or paclitaxel (<xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 9b, c</xref>). While treatment of cells with KG5 had no effect on Plk1 localization to the spindle pole, it prevented the subsequent accumulation of active Plk1 at the kinetochores (<xref rid="SD1" ref-type="supplementary-material">Supplementary Figs. 9d, e</xref>) and similar findings were observed in <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs (<xref rid="F3" ref-type="fig">Fig. 3f</xref>). These findings were substantiated since an active form of Plk1 was able to rescue the G2/M delay caused by CRAF depletion (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 11</xref>). Together, these results indicate that CRAF potentiates Plk1 or Aurora-A activation leading to accumulation of active Plk1 at the kinetochores. This process facilitates mitotic progression through pro-metaphase and can be blocked by inhibition of phospho-S338 CRAF via allosteric RAF blockade.</p>
+    <p id="P10">To investigate the impact of the CRAF/Plk1 signaling module in tumor progression, we evaluated the tumor growth capacity of human colon carcinoma and glioblastoma cells stably expressing the phospho-mimetic S338D CRAF mutant. HCT-116 colon cells expressing the S338D CRAF mutant showed accelerated mitosis and a significant increase in tumor growth relative to cells expressing WT CRAF and this was associated with increased phospho-Plk1 but not phospho-MEK expression in these tumors (<xref rid="F4" ref-type="fig">Figs. 4a&#x2013;e</xref>). Similarly, U-87 glioblastoma cells expressing S338D CRAF produced a significant increase in brain tumor growth relative to cells expressing WT CRAF (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 12</xref>). Furthermore, cells expressing a double mutant S338D kinase dead (S338D/K375M) also showed increase Plk1 activity and tumor growth in mice but failed to activate MEK (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 13</xref>). These results demonstrate that phospho-S338 CRAF is an important mediator of tumor progression based on its capacity to promote mitosis in a manner that is independent of active MEK.</p>
+    <p id="P11">While RAF is an essential component of the canonical MAPK signaling pathway various reports reveal that RAF exerts kinase independent functions<sup><xref rid="R16" ref-type="bibr">16</xref>,<xref rid="R35" ref-type="bibr">35</xref>&#x2013;<xref rid="R37" ref-type="bibr">37</xref></sup>. We previously showed that CRAF, independent of its kinase activity, could translocate to the mitochondria and protect cells from apoptosis by inhibiting the pro-apoptotic protein ASK1<sup><xref rid="R13" ref-type="bibr">13</xref>,<xref rid="R14" ref-type="bibr">14</xref></sup>. Here, we reveal a kinase independent function of CRAF in cell proliferation and demonstrate that phospho-S338 CRAF localizes to centrosomes/mitotic spindle poles in G2/M, where it interacts with Aurora-A and Plk1, promotes Plk1 activation and thereby mitotic and tumor progression (<xref rid="SD1" ref-type="supplementary-material">Supplementary Fig. 14</xref>). Whether CRAF interaction with Aurora-A and Plk1 is direct or indirect still needs to be determined. However, these data support the conclusion that CRAF may act as an adaptor protein to promote Aurora-A or Plk1 activation facilitating mitosis and tumor progression. While our findings may be relevant to all cells undergoing mitosis, targeting this pathway with allosteric RAF inhibitors, like KG5, might be particularly effective during angiogenesis<sup><xref rid="R12" ref-type="bibr">12</xref></sup> and tumor growth, processes characterized by highly proliferative cells. Finally, our studies reveal that allosteric inhibitors designed to block phospho-S338 CRAF and its function in mitosis represent a new therapeutic approach to inhibit the growth of a wide range of cancers.</p>
+    <sec sec-type="methods" id="S1">
+      <title>Methods</title>
+      <p id="P12">Methods and any associated references are available in the online version of the paper at <ext-link ext-link-type="uri" xlink:href="http://www.nature.com/naturemedicine/">http://www.nature.com/naturemedicine/</ext-link>.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="S2">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <label>1</label>
+        <media xlink:href="NIHMS317227-supplement-1.pdf" mimetype="application" mime-subtype="pdf" orientation="portrait" xlink:type="simple" id="d37e483" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack id="S3">
+      <p>We thank K. Elliott and J. Lesperance for their assistance with the mouse experiments and immunohistochemistry, and M. Schmid, M. Kaulich and J. Desgrosellier for discussions. We thank K. Lee (NIH-NCI) and R. Erikson (Harvard) for providing Plk1 constructs. D.A.C. was supported by CA78045, CA119335, CA95262, and CA104898 from the US National Institutes of Health.</p>
+    </ack>
+    <fn-group>
+      <fn id="FN2">
+        <p>Note: <xref rid="SD1" ref-type="supplementary-material">Supplementary information</xref> is available on the Nature Medicine website.</p>
+      </fn>
+      <fn id="FN3" fn-type="con">
+        <p>
+          <bold>Author contributions</bold>
+        </p>
+        <p>A.M., and D.A.C designed the studies; E.A.M. designed and provided KG5; A.M., L.S., M.H., MF.C., S.A., A.F., and S.J.A. performed experiments; A.M., L.S., M.H., MF.C., S.A., A.F., S.J.A. and S.M.W. analyzed data; A.M. and D.A.C. wrote the manuscript; D.A.C. supervised the project.</p>
+      </fn>
+      <fn id="FN4" fn-type="conflict">
+        <p>
+          <bold>Competing financial interests</bold>
+        </p>
+        <p>The authors declare no competing financial interests. Published online at <ext-link ext-link-type="uri" xlink:href="http://www.nature.com/naturemedicine/">http://www.nature.com/naturemedicine/</ext-link>.</p>
+        <p>Reprints and permissions information is available online at <ext-link ext-link-type="uri" xlink:href="http://npg.nature.com/reprintsandpermissions/">http://npg.nature.com/reprintsandpermissions/</ext-link>.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wellbrock</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Karasarides</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Marais</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>The RAF proteins take centre stage</article-title>
+          <source>Nat Rev Mol Cell Biol</source>
+          <volume>5</volume>
+          <fpage>875</fpage>
+          <lpage>885</lpage>
+          <year>2004</year>
+          <pub-id pub-id-type="pmid">15520807</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dhillon</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Hagan</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Rath</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Kolch</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>MAP kinase signalling pathways in cancer</article-title>
+          <source>Oncogene</source>
+          <volume>26</volume>
+          <fpage>3279</fpage>
+          <lpage>3290</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="pmid">17496922</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bollag</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Clinical efficacy of a RAF inhibitor needs broad target blockade in BRAF-mutant melanoma</article-title>
+          <source>Nature</source>
+          <volume>467</volume>
+          <fpage>596</fpage>
+          <lpage>599</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20823850</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Flaherty</surname>
+              <given-names>KT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibition of mutated, activated BRAF in metastatic melanoma</article-title>
+          <source>N Engl J Med</source>
+          <volume>363</volume>
+          <fpage>809</fpage>
+          <lpage>819</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20818844</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Joseph</surname>
+              <given-names>EW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The RAF inhibitor PLX4032 inhibits ERK signaling and tumor cell proliferation in a V600E BRAF-selective manner</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <volume>107</volume>
+          <fpage>14903</fpage>
+          <lpage>14908</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20668238</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>King</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Demonstration of a genetic therapeutic index for tumors expressing oncogenic BRAF by the kinase inhibitor SB-590885</article-title>
+          <source>Cancer Res</source>
+          <volume>66</volume>
+          <fpage>11100</fpage>
+          <lpage>11105</lpage>
+          <year>2006</year>
+          <pub-id pub-id-type="pmid">17145850</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsai</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Discovery of a selective inhibitor of oncogenic B-Raf kinase with potent antimelanoma activity</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <volume>105</volume>
+          <fpage>3041</fpage>
+          <lpage>3046</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18287029</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>RG7204 (PLX4032), a selective BRAFV600E inhibitor, displays potent antitumor activity in preclinical melanoma models</article-title>
+          <source>Cancer Res</source>
+          <volume>70</volume>
+          <fpage>5518</fpage>
+          <lpage>5527</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20551065</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hatzivassiliou</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>RAF inhibitors prime wild-type RAF to activate the MAPK pathway and enhance growth</article-title>
+          <source>Nature</source>
+          <volume>464</volume>
+          <fpage>431</fpage>
+          <lpage>435</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20130576</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Heidorn</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Kinase-dead BRAF and oncogenic RAS cooperate to drive tumor progression through CRAF</article-title>
+          <source>Cell</source>
+          <volume>140</volume>
+          <fpage>209</fpage>
+          <lpage>221</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20141835</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Poulikakos</surname>
+              <given-names>PI</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bollag</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Shokat</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Rosen</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>RAF inhibitors transactivate RAF dimers and ERK signalling in cells with wild-type BRAF</article-title>
+          <source>Nature</source>
+          <volume>464</volume>
+          <fpage>427</fpage>
+          <lpage>430</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20179705</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Murphy</surname>
+              <given-names>EA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Disruption of angiogenesis and tumor growth with an orally active drug that stabilizes the inactive state of PDGFRbeta/B-RAF</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <volume>107</volume>
+          <fpage>4299</fpage>
+          <lpage>4304</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20154271</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alavi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hood</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Frausto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Stupack</surname>
+              <given-names>DG</given-names>
+            </name>
+            <name>
+              <surname>Cheresh</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of Raf in vascular protection from distinct apoptotic stimuli</article-title>
+          <source>Science</source>
+          <volume>301</volume>
+          <fpage>94</fpage>
+          <lpage>96</lpage>
+          <year>2003</year>
+          <pub-id pub-id-type="pmid">12843393</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alavi</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Acevedo</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Min</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Cheresh</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemoresistance of endothelial cells induced by basic fibroblast growth factor depends on Raf-1-mediated inhibition of the proapoptotic kinase, ASK1</article-title>
+          <source>Cancer Res</source>
+          <volume>67</volume>
+          <fpage>2766</fpage>
+          <lpage>2772</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="pmid">17363598</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McGlynn</surname>
+              <given-names>LM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ras/Raf-1/MAPK pathway mediates response to tamoxifen but not chemotherapy in breast cancer patients</article-title>
+          <source>Clin Cancer Res</source>
+          <volume>15</volume>
+          <fpage>1487</fpage>
+          <lpage>1495</lpage>
+          <year>2009</year>
+          <pub-id pub-id-type="pmid">19228750</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mikula</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Embryonic lethality and fetal liver apoptosis in mice lacking the c-raf-1 gene</article-title>
+          <source>Embo J</source>
+          <volume>20</volume>
+          <fpage>1952</fpage>
+          <lpage>1962</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="pmid">11296228</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Weber</surname>
+              <given-names>CK</given-names>
+            </name>
+            <name>
+              <surname>Slupsky</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Kalmes</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>Rapp</surname>
+              <given-names>UR</given-names>
+            </name>
+          </person-group>
+          <article-title>Active Ras induces heterodimerization of cRaf and BRaf</article-title>
+          <source>Cancer Res</source>
+          <volume>61</volume>
+          <fpage>3595</fpage>
+          <lpage>3598</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="pmid">11325826</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Borysov</surname>
+              <given-names>SI</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>AW</given-names>
+            </name>
+            <name>
+              <surname>Guadagno</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>B-Raf is critical for MAPK activation during mitosis and is regulated in an M phase-dependent manner in Xenopus egg extracts</article-title>
+          <source>J Biol Chem</source>
+          <volume>281</volume>
+          <fpage>22586</fpage>
+          <lpage>22596</lpage>
+          <year>2006</year>
+          <pub-id pub-id-type="pmid">16762920</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Borysov</surname>
+              <given-names>SI</given-names>
+            </name>
+            <name>
+              <surname>Guadagno</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel role for Cdk1/cyclin B in regulating B-raf activation at mitosis</article-title>
+          <source>Mol Biol Cell</source>
+          <volume>19</volume>
+          <fpage>2907</fpage>
+          <lpage>2915</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18434602</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Borysova</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>Cui</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Snyder</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Guadagno</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>Knockdown of B-Raf impairs spindle formation and the mitotic checkpoint in human somatic cells</article-title>
+          <source>Cell Cycle</source>
+          <volume>7</volume>
+          <fpage>2894</fpage>
+          <lpage>2901</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18787396</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cui</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Borysova</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>JO</given-names>
+            </name>
+            <name>
+              <surname>Guadagno</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>Oncogenic B-Raf(V600E) induces spindle abnormalities, supernumerary centrosomes, and aneuploidy in human melanocytic cells</article-title>
+          <source>Cancer Res</source>
+          <volume>70</volume>
+          <fpage>675</fpage>
+          <lpage>684</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20068179</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cui</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Guadagno</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>B-Raf(V600E) signaling deregulates the mitotic spindle checkpoint through stabilizing Mps1 levels in melanoma cells</article-title>
+          <source>Oncogene</source>
+          <volume>27</volume>
+          <fpage>3122</fpage>
+          <lpage>3133</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18071315</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Malumbres</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Barbacid</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell cycle kinases in cancer</article-title>
+          <source>Curr Opin Genet Dev</source>
+          <volume>17</volume>
+          <fpage>60</fpage>
+          <lpage>65</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="pmid">17208431</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nigg</surname>
+              <given-names>EA</given-names>
+            </name>
+          </person-group>
+          <article-title>Mitotic kinases as regulators of cell division and its checkpoints</article-title>
+          <source>Nat Rev Mol Cell Biol</source>
+          <volume>2</volume>
+          <fpage>21</fpage>
+          <lpage>32</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="pmid">11413462</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Taylor</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Peters</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Polo and Aurora kinases: lessons derived from chemical biology</article-title>
+          <source>Curr Opin Cell Biol</source>
+          <volume>20</volume>
+          <fpage>77</fpage>
+          <lpage>84</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18249108</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Macurek</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Polo-like kinase-1 is activated by aurora A to promote checkpoint recovery</article-title>
+          <source>Nature</source>
+          <volume>455</volume>
+          <fpage>119</fpage>
+          <lpage>123</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18615013</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Petronczki</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lenart</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Peters</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Polo on the Rise-from Mitotic Entry to Cytokinesis with Plk1</article-title>
+          <source>Dev Cell</source>
+          <volume>14</volume>
+          <fpage>646</fpage>
+          <lpage>659</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18477449</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Seki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Coppinger</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Jang</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Yates</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Fang</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Bora and the kinase Aurora a cooperatively activate the kinase Plk1 and control mitotic entry</article-title>
+          <source>Science</source>
+          <volume>320</volume>
+          <fpage>1655</fpage>
+          <lpage>1658</lpage>
+          <year>2008</year>
+          <pub-id pub-id-type="pmid">18566290</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Knauf</surname>
+              <given-names>JA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Oncogenic RAS induces accelerated transition through G2/M and promotes defects in the G2 DNA damage and mitotic spindle checkpoints</article-title>
+          <source>J Biol Chem</source>
+          <volume>281</volume>
+          <fpage>3800</fpage>
+          <lpage>3809</lpage>
+          <year>2006</year>
+          <pub-id pub-id-type="pmid">16316983</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A genome-wide RNAi screen identifies multiple synthetic lethal interactions with the Ras oncogene</article-title>
+          <source>Cell</source>
+          <volume>137</volume>
+          <fpage>835</fpage>
+          <lpage>848</lpage>
+          <year>2009</year>
+          <pub-id pub-id-type="pmid">19490893</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McInnes</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibitors of Polo-like kinase reveal roles in spindle-pole maintenance</article-title>
+          <source>Nat Chem Biol</source>
+          <volume>2</volume>
+          <fpage>608</fpage>
+          <lpage>617</lpage>
+          <year>2006</year>
+          <pub-id pub-id-type="pmid">17028581</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Santamaria</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Use of the novel Plk1 inhibitor ZK-thiazolidinone to elucidate functions of Plk1 in early and late stages of mitosis</article-title>
+          <source>Mol Biol Cell</source>
+          <volume>18</volume>
+          <fpage>4024</fpage>
+          <lpage>4036</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="pmid">17671160</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Steegmaier</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BI 2536, a potent and selective inhibitor of polo-like kinase 1, inhibits tumor growth in vivo</article-title>
+          <source>Curr Biol</source>
+          <volume>17</volume>
+          <fpage>316</fpage>
+          <lpage>322</lpage>
+          <year>2007</year>
+          <pub-id pub-id-type="pmid">17291758</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Strebhardt</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Multifaceted polo-like kinases: drug targets and antitargets for cancer therapy</article-title>
+          <source>Nat Rev Drug Discov</source>
+          <volume>9</volume>
+          <fpage>643</fpage>
+          <lpage>660</lpage>
+          <year>2010</year>
+          <pub-id pub-id-type="pmid">20671765</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huser</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MEK kinase activity is not necessary for Raf-1 function</article-title>
+          <source>Embo J</source>
+          <volume>20</volume>
+          <fpage>1940</fpage>
+          <lpage>1951</lpage>
+          <year>2001</year>
+          <pub-id pub-id-type="pmid">11296227</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hindley</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kolch</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Extracellular signal regulated kinase (ERK)/mitogen activated protein kinase (MAPK)-independent functions of Raf kinases</article-title>
+          <source>J Cell Sci</source>
+          <volume>115</volume>
+          <fpage>1575</fpage>
+          <lpage>1581</lpage>
+          <year>2002</year>
+          <pub-id pub-id-type="pmid">11950876</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kamata</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BRAF Inactivation Drives Aneuploidy by Deregulating CRAF</article-title>
+          <source>Cancer Res</source>
+          <year>2010</year>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <title>CRAF is required for mitotic progression</title>
+        <p>(<bold>a</bold>) Cell cycle analysis of WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs. <bold>Left graph,</bold> Cells in G2/M were quantified by flow cytometry. <bold>Right graph,</bold> Cells at pro-metaphase were quantified using confocal microscopy. Error bars represent s.d. (<italic>n</italic> = 4); * <italic>P</italic> = 0.0079 (left graph) and <italic>P</italic> = 0.0055 (right graph) using a Mann Whitney U test. (<bold>b</bold>) WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs were synchronized at pro-metaphase with a thymidine-nocodazole block and subsequently released from the blockade and allowed to progress through mitosis. Quantification of cells in G2/M was performed by flow cytometry. Error bars represent s.d. (<italic>n</italic> = 3). (<bold>c</bold>) Confocal microscopy images of WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> cells progressing through mitosis at 0, 60 and 360 min after release from pro-metaphase blockade. Cells were stained for &#x3B1;-tubulin (in red) and DNA (TOPRO-3 in blue). Scale bar, 10 &#x3BC;m. (<bold>d</bold>) WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs were transfected with vector control, WT CRAF, kinase dead (K375M) CRAF, phospho-mimetic (S338D) CRAF or non-phosphorylatable (S338A) CRAF mutants. Cell cycle analysis and quantification of cells in G2/M was performed by flow cytometry. Error bars represent s.d. (<italic>n</italic> = 3); * <italic>P</italic> = 0.0084 using a Mann Whitney U test. (<bold>e</bold>) Immunohistochemical staining of phospho-S338 CRAF and phospho-histone H3 (mitotic marker) in orthotopic breast and tumor xenografts untreated or treated systemically with 50 mg kg<sup>&#x2212;1</sup> KG5 for 3 d. Scale bar, 50 &#x3BC;m. Circles indicate cells in pro-metaphase. <bold>Right,</bold> Quantification of cells in pro-metaphase. Error bars represent s.d. (<italic>n</italic> = 12); * <italic>P</italic> = 0.006 using Student&#x2019;s t-test.</p>
+      </caption>
+      <graphic xlink:href="nihms317227f1"/>
+    </fig>
+    <fig id="F2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <title>Phospho-serine 338 CRAF is upregulated in mitosis and localizes to mitotic spindles in human cell lines and tumor biopsies</title>
+        <p>(<bold>a</bold>) Immunoblot analysis of human colon carcinoma HCT-116 cells asynchronized and synchronized at pro-metaphase. pS338 refers to phospho-S338 CRAF, pMEK refers to phospho-MEK and pHH3 refers to phospho-histone H3. Data are representative of three independent experiments. (<bold>b</bold>) Confocal microscopy images of human pancreatic XPA-1 and glioblastoma U251 cells during mitosis, stained for phospho-S338 CRAF (in green), &#x3B1;-tubulin (in red) and DNA (TOPRO-3 in blue). Scale bar, 10 &#x3BC;m. White arrows indicate localization of phospho-S338 CRAF at the mitotic spindle. (<bold>c</bold>) Immunoblot analysis of &#x3B3;-tubulin immunoprecipitates from human colon carcinoma HCT-116 cells asynchronized and synchronized at pro-metaphase. Data are representative of three independent experiments. (<bold>d</bold>) Immunohistochemical staining of phospho-S338 CRAF in tumor biopsies from breast cancer patients. Scale bar, 10 &#x3BC;m. (<bold>e</bold>) Confocal microscopy images of XPA-1 cells treated with KG5, sorafenib, ZM336372, L779450 or paclitaxel and stained for CRAF (in green), &#x3B3;-tubulin (in red) and DNA (TOPRO-3 in blue). Scale bar, 10 &#x3BC;m. White arrows indicate localization of CRAF at the spindle pole. White circle indicates the absence of CRAF at the spindle pole.</p>
+      </caption>
+      <graphic xlink:href="nihms317227f2"/>
+    </fig>
+    <fig id="F3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <title>CRAF interacts with Plk1 and promotes its activation and accumulation to the kinetochores at pro-metaphase</title>
+        <p>(<bold>a</bold>) Immunoblot analysis of CRAF immunoprecipitates from HCT-116 asynchronized and synchronized at pro-metaphase cells. Data are representative of three independent experiments. (<bold>b</bold>) Confocal microscopy images of HCT-116 cells synchronized at G2 and pro-metaphase (as described in Methods) and stained for CRAF (in green), phospho-T210 Plk1 (in red) and DNA (TOPRO-3 in blue). White arrows indicate co-localization of CRAF with phospho-Plk1 at the centrosomes and mitotic spindle poles. (<bold>c</bold>) Immunoblot analysis of Plk1 immunoprecipitates from WT, <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> and <italic>Braf</italic><sup>&#x2212;/&#x2212;</sup> MEFs. Data are representative of three independent experiments. (<bold>d</bold>) Immunoblot analysis from G1-M, of phospho-S338 CRAF, total CRAF, phospho-T210 Plk1, total Plk1, cyclin B and tubulin of HCT-116 cells synchronized at the G1/S boundary. Cells were synchronized at the G1/S boundary by a double thymidine block as described in Methods. Data are representative of two independent experiments. (<bold>e</bold>) Immunoblot analysis of asynchronous and mitotic WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs. (<bold>f</bold>) Confocal microscopy images of WT and <italic>Craf</italic><sup>&#x2212;/&#x2212;</sup> MEFs at pro-metaphase. Cells were stained for &#x3B1;-tubulin (in green), phospho-T210 Plk1 (in red) and DNA (TOPRO-3 in blue). Thick white arrows indicate localization of phospho-Plk1 at the mitotic spindle pole and narrow white arrows indicate localization of phospho-Plk1 at the kinetochores. Scale bar, 10 &#x3BC;m.</p>
+      </caption>
+      <graphic xlink:href="nihms317227f3"/>
+    </fig>
+    <fig id="F4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <title>Phospho-mimetic CRAF S338D mutation drives tumor growth and activates Plk1 <italic>in vivo</italic></title>
+        <p>(<bold>a</bold>) HCT-116 human colon carcinoma cells ectopically expressing either WT RAF or S338D mutant CRAF were arrested in pro-metaphase as described in Methods, and subsequently allowed to progress through mitosis. Cells were stained for &#x3B1;-tubulin (in red) and DNA (TOPRO-3 in blue) at 0, 10, 20, 40, 60 and 120 min after release from pro-metaphase blockade and mitotic progression was analyzed by confocal microscopy. Scale bar, 10 &#x3BC;m. Data are representative of three independent experiments. (<bold>b</bold>) Plk1 kinase activity assay performed in HCT-116 cells expressing WT CRAF or a phospho-mimetic S338D CRAF mutant. Error bars represent s.d. (<italic>n</italic> = 3); * <italic>P</italic> = 0.011 using a Mann Whitney U test. (<bold>c</bold>) HCT-116 cells expressing WT or S338D CRAF Flag tagged were injected subcutaneously in the flank of immune-compromised nude mice. Tumor images, average weights &#xB1; s.e. and tumor size measurements are shown (<italic>n</italic> = 20). (<bold>d</bold>) Immunohistochemical staining of phospho-Plk1 and phospho-MEK in mouse tissues from tumors expressing WT or S338D CRAF. Scale bar, 100 &#x3BC;m. (<bold>e</bold>) Immunoblot analysis of phospho-T210 Plk1, Plk1, phospho-MEK, MEK and FLAG in tumor lysates from HCT-116 cells expressing WT or S338D CRAF. Data are representative of five independent experiments.</p>
+      </caption>
+      <graphic xlink:href="nihms317227f4"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

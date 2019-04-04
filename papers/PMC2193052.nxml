@@ -1,0 +1,677 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Exp Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Exp. Med</journal-id>
+      <journal-title-group>
+        <journal-title>The Journal of Experimental Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0022-1007</issn>
+      <issn pub-type="epub">1540-9538</issn>
+      <publisher>
+        <publisher-name>The Rockefeller University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">10224278</article-id>
+      <article-id pub-id-type="pmc">2193052</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Grf40, A Novel Grb2 Family Member, Is Involved in T Cell Signaling through Interaction with SLP-76 and LAT </article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Asada</surname>
+            <given-names>Hiroshi</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">&#x2021;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ishii</surname>
+            <given-names>Naoto</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sasaki</surname>
+            <given-names>Yoshiteru</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Endo</surname>
+            <given-names>Kazuhiro</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kasai</surname>
+            <given-names>Hirotake</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tanaka</surname>
+            <given-names>Nobuyuki</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takeshita</surname>
+            <given-names>Toshikazu</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tsuchiya</surname>
+            <given-names>Shigeru</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">&#x2021;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Konno</surname>
+            <given-names>Tasuke</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">&#xA7;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sugamura</surname>
+            <given-names>Kazuo</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">*</xref>
+          <xref ref-type="aff" rid="N0x1c22da0N0x1df5960">&#x2016;</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="N0x1c22da0N0x1df5960">From the <label>*</label>Department of Microbiology and Immunology, &#x2009;Tohoku University School of Medicine, Sendai 980-8575, Japan; the <label>&#x2021;</label>Department of Pediatric Oncology, Institute of Development, Aging and Cancer, &#x2009;Tohoku University, Sendai 980-8575, Japan; the <label>&#xA7;</label>Research Institute, Miyagi Cancer Center, Natori 981-1293, Japan; and <label>&#x2016;</label>Core Research for Evolutional Science and Technology (CREST), Japan Science and Technology Corporation, Tokyo 101-0062, &#x2009;Japan</aff>
+      <author-notes>
+        <fn>
+          <p>Address correspondence to Kazuo Sugamura, Department of Microbiology and Immunology, Tohoku University School of Medicine, 2-1 Seiryo-machi, Aoba-ku, Sendai 980-8575, Japan. Phone: 81-22-717-8096; Fax: 81-22-717-8097; E-mail: <email>sugamura@mail.cc.tohoku.ac.jp</email>
+</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>3</day>
+        <month>5</month>
+        <year>1999</year>
+      </pub-date>
+      <volume>189</volume>
+      <issue>9</issue>
+      <fpage>1383</fpage>
+      <lpage>1390</lpage>
+      <history>
+        <date date-type="received">
+          <day>19</day>
+          <month>10</month>
+          <year>1998</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>1</day>
+          <month>3</month>
+          <year>1999</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-year>1999</copyright-year>
+        <license license-type="openaccess">
+          <license-p>This article is distributed under the terms of an Attribution&#x2013;Noncommercial&#x2013;Share Alike&#x2013;No Mirror Sites license for the first six months after the publication date (see <ext-link ext-link-type="uri" xlink:href="http://www.rupress.org/terms">http://www.rupress.org/terms</ext-link>). After six months it is available under a Creative Commons License (Attribution&#x2013;Noncommercial&#x2013;Share Alike 4.0 Unported license, as described at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-sa/4.0/">http://creativecommons.org/licenses/by-nc-sa/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>We molecularly cloned a new Grb2 family member, named Grf40, containing the common SH3-SH2-SH3 motif. Expression of Grf40 is predominant in hematopoietic cells, particularly T cells. Grf40 binds to the SH2 domain&#x2013;containing leukocyte protein of 76 kD (SLP-76) via its SH3 domain more tightly than Grb2. Incidentally, Grf40 binds to linker for activation of T cells (LAT) possibly via its SH2 domain. Overexpression of wild-type Grf40 in Jurkat cells induced a significant increase of SLP-76&#x2013;dependent interleukin (IL)-2 promoter and nuclear factor of activated T cell (NF-AT) activation upon T cell receptor (TCR) stimulation, whereas the COOH-terminal SH3-deleted Grf40 mutant lacked any recognizable increase in IL-2 promoter activity. Furthermore, the SH2-deleted Grf40 mutant led to a marked inhibition of these regulatory activities, the effect of which is apparently stronger than that of the SH2-deleted Grb2 mutant. Our data suggest that Grf40 is an adaptor molecule involved in TCR-mediated signaling through a more efficient interaction than Grb2 with SLP-76 and LAT.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Grb2 family</kwd>
+        <kwd>SLP-76</kwd>
+        <kwd>T cell receptor signaling</kwd>
+        <kwd>nuclear factor of activated T cells</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>Stimulation of the TCR initiates activation of cytoplasmic protein tyrosine kinases (PTKs)<sup>1</sup> that trigger downstream signaling pathways including calcium- and Ras- dependent events, which ultimately converge upon the nucleus to stimulate the transcription of genes required for proliferation and effector functions of T cells (<xref rid="B1" ref-type="bibr">1</xref>&#x2013;<xref rid="B4" ref-type="bibr">4</xref>). Phospholipase C&#x3B3;1, recruited to the plasma membrane after PTK activation, is thought to introduce the calcium-dependent pathway into the TCR-mediated signaling events (<xref rid="B5" ref-type="bibr">5</xref>, <xref rid="B6" ref-type="bibr">6</xref>). On the other hand, the pathway for Ras activation after PTK activation in T cells is still controversial. Grb2, an adaptor protein containing an SH3-SH2-SH3 motif, forms a complex with Sos, a guanine nucleotide exchange factor, via its NH<sub>2</sub>-terminal SH3 domain after TCR ligation (<xref rid="B7" ref-type="bibr">7</xref>&#x2013;<xref rid="B9" ref-type="bibr">9</xref>). Hence, the Grb2&#x2013;Sos complex is thought to contribute to Ras activation in T cells, although there has been no empirical evidence for this notion.</p>
+    <p>The COOH-terminal SH3 domain of Grb2 has been shown to bind to the SH2 domain&#x2013;containing leukocyte protein of 76 kD (SLP-76), a hematopoietic cell&#x2013;specific adaptor protein, which is tyrosine phosphorylated rapidly after TCR stimulation (<xref rid="B10" ref-type="bibr">10</xref>&#x2013;<xref rid="B12" ref-type="bibr">12</xref>). Mice targeted for SLP-76 gene engendered defects of double-positive T cells in the thymus and of peripheral T cells as a consequence of impaired pre-TCR signaling (<xref rid="B13" ref-type="bibr">13</xref>). Furthermore, Jurkat subline J14 cells lacking expression of SLP-76 exhibited defects of both the calcium- and Ras-dependent pathways in TCR-mediated signaling. The defect of the calcium-dependent pathway in this system is ascribed to the fact that tyrosine phosphorylation and activation of phospholipase C&#x3B3;1 are significantly suppressed in J14 cells (<xref rid="B14" ref-type="bibr">14</xref>). Although the precise function of SLP-76 in Ras activation is still obscure, it is of interest that deletion of the Grb2-binding site of SLP-76 eliminates the ability of SLP-76 to increase IL-2 promoter activity upon stimulation with the TCR (<xref rid="B15" ref-type="bibr">15</xref>, <xref rid="B16" ref-type="bibr">16</xref>). In addition, SLP-76 also binds to Vav, a member of the guanine nucleotide exchange factor family, and cotransfection with SLP-76 and Vav into Jurkat cells induced a synergistic increase of nuclear factor of activated T cell (NF-AT) activation upon TCR stimulation (<xref rid="B17" ref-type="bibr">17</xref>). These observations suggest that SLP-76 is an indispensable mediator of TCR signaling. On the other hand, the SH2 domain of Grb2 has been shown to bind to linker for activation of T cells (LAT), a ZAP-70 tyrosine kinase substrate, upon TCR stimulation, and the LAT mutant, lacking an interaction site for the SH2 domain, has a dominant-negative effect on TCR-stimulated signaling (<xref rid="B18" ref-type="bibr">18</xref>). Hence Grb2, an adaptor protein, has been considered to be implicated in TCR-mediated signaling. We here provide evidence that a new Grb2 family member, named Grf40, is involved in TCR-mediated signaling through its more efficient interaction than Grb2 with SLP-76 and LAT.</p>
+    <sec sec-type="materials|methods">
+      <title>Materials and Methods</title>
+      <sec disp-level="3">
+        <title>Cloning of the cDNA.</title>
+        <p>Grf40 cDNA fragments were isolated by a yeast two-hybrid screen of a human PHA-PBL cDNA library (<named-content content-type="company" xlink:href="clontech">Clontech</named-content>). The bait plasmid was constructed by insertion of a cDNA fragment encoding the full-length human AMSH protein (our unpublished protocol) in pAS2-1 (<named-content content-type="company" xlink:href="clontech">Clontech</named-content>). The bait plasmid was transformed into the yeast strain CG1945 (<named-content content-type="company" xlink:href="clontech">Clontech</named-content>), followed by transformation with the human PHA-PBL cDNA library. The transformed strains were selected on dropout plates (Trp<sup>&#x2212;</sup>, Leu<sup>&#x2212;</sup>, His<sup>&#x2212;</sup>) with 5 mM 3-aminotriazole. Positive colonies were subsequently tested for the expression of lacZ. One clone was determined to contain a homologous sequence to Grb2 (<xref rid="B7" ref-type="bibr">7</xref>). To obtain the full-length cDNA, the 800-bp fragment of the above clone was used as a probe for screening a &#x3BB;gt11 oligo(dT)-primed cDNA library of PHA-PBL. The sequences of 10 clones were identical, and two of them contained an open reading frame coding for 330 amino acids. This sequence contains an in-frame stop codon at 114 bp upstream of the first methionine codon, and the sequence around the first methionine (nucleotides 193&#x2013;195) matches the favorable Kozak consensus sequence. A full-length cDNA encoding Grf40 was thus isolated.</p>
+      </sec>
+      <sec disp-level="3">
+        <title>Plasmid Construction.</title>
+        <p>Grf40 cDNA was generated by PCR using the above full-length cDNA clone as a template and subcloned into Myc-Tag-pcDNA3.1(+) to generate the plasmid sequence (EQKLISEEDL). pMycGrf40-dSH3N, pMycGrf40-dSH2, pMycGrf40-dSH3C, and pMycGrf40-dSH3NC are Myc-tagged Grf40 mutants deleted of the SH3 domain of the NH<sub>2</sub> terminus (amino acid position Met<sup>1</sup>&#x2013;Pro<sup>56</sup>), deleted of the SH2 domain (amino acid position Lys<sup>57</sup>&#x2013;Thr<sup>149</sup>), of the SH3 domain of the COOH terminus (amino acid position Ala<sup>278</sup>&#x2013;Arg<sup>330</sup>), and of the SH3 domains of the NH<sub>2</sub> and COOH termini (amino acid positions Met<sup>1</sup>&#x2013;Pro<sup>56</sup> and Ala<sup>278</sup>&#x2013;Arg<sup>330</sup>), respectively. pMycGrb2 and pMycGrb2-dSH2 are expression plasmids for the Myc-tagged wild-type Grb2 and Grb2 mutant deleted of the SH2 domain (amino acid position Trp<sup>60</sup>&#x2013;Glu<sup>152</sup>), respectively. SLP-76 cDNA was generated by PCR and subcloned into pFLAG-CMV-2 (<named-content content-type="company" xlink:href="kodak">Eastman Kodak Co.</named-content>) to generate the plasmid pFlagSLP, possessing an NH<sub>2</sub>-terminal Flag epitope tag (DYKDDDDK). pFlagSLP-157-533, pFlagSLP-217-533, pFlagSLP-241-533, and pFlagSLP-281-533 are expression plasmids for Flag-tagged SLP-76 mutants deleted of amino acid positions Met<sup>1</sup>&#x2013;Leu<sup>156</sup>, Met<sup>1</sup>&#x2013;His<sup>216</sup>, Met<sup>1</sup>&#x2013;Lys<sup>240</sup>, and Met<sup>1</sup>&#x2013;Pro<sup>280</sup>, respectively. pCX-SLP76 is an expression plasmid for the wild-type SLP-76 cloned into the pCXN2 vector (<xref rid="B19" ref-type="bibr">19</xref>). Luciferase reporter constructs were as follows: pNFATLuc was constructed by insertion of three tandem copies of the NF-AT binding region (&#x2212;286 to &#x2212;249 of human IL-2) linked to the human IL-2 promoter (&#x2212;64 to +47) into the pGL3-basic vector (<named-content content-type="company" xlink:href="promega">Promega</named-content>) (<xref rid="B20" ref-type="bibr">20</xref>); pIL2Luc was constructed by insertion of the human IL-2 promoter (&#x2212;541 to +57) into the pGL3-basic vector (<xref rid="B21" ref-type="bibr">21</xref>). pENL is a &#x3B2;-galactosidase expression plasmid (<xref rid="B22" ref-type="bibr">22</xref>). All constructs were sequenced for verification with a DNA sequencer (model 377; Applied Biosystems, Inc.).</p>
+      </sec>
+      <sec disp-level="3">
+        <title>Cell Culture.</title>
+        <p>Cell lines used were human T cell lines, Jurkat and MOLT-4; human B cell lines, Daudi, Raji, and Ramos; a human monocytic cell line, THP-1; a human eosinophilic cell line, Eol-3; a human GM-CSF&#x2013;responsive cell line, TF-1; a human lung fibroblastic cell line, WI-26; a human epithelial cell line, HeLa; and an SV40-transformed monkey kidney cell line, COS7. TF-1 was maintained in RPMI 1640 medium supplemented with 10% FCS and recombinant GM-CSF. WI-26 and COS7 were maintained in DME supplemented with 5% FCS. Other cell lines were maintained in RPMI 1640 supplemented with 10% FCS.</p>
+      </sec>
+      <sec disp-level="3">
+        <title>Abs.</title>
+        <p>The following Abs were used in this study: anti-CD3&#x3B5; mAb OKT3 (American Type Culture Collection); antiphosphotyrosine mAb 4G10, anti-Myc polyclonal Ab and anti-LAT Ab (Upstate Biotechnology); antiphosphotyrosine mAb PY-20 (ICN Biomedicals); anti-Myc mAb (9E10) and anti-Grb2 Ab (sc-255) (<named-content content-type="company" xlink:href="sbct">Santa Cruz Biotechnology</named-content>); anti-Flag mAb (M2; <named-content content-type="company" xlink:href="kodak">Eastman Kodak Co.</named-content>). Anti-Grf40 rabbit antiserum was prepared by immunization with a peptide (Val<sup>174</sup>&#x2013;Pro<sup>194</sup>) of human Grf40. Anti&#x2013;SLP-76 rabbit antiserum was prepared by immunization with a peptide (Gly<sup>302</sup>&#x2013;Glu<sup>321</sup>) of human SLP-76. Anti-B19 human parvovirus mAb (Par1) was used as a control mAb.</p>
+      </sec>
+      <sec disp-level="3">
+        <title>Immunoprecipitation and Immunoblotting.</title>
+        <p> Immunoprecipitation and immunoblotting were carried out as described previously (<xref rid="B23" ref-type="bibr">23</xref>). In brief, cells were lysed with a cell extraction buffer (1% NP-40, 20 mM Tris-HCl [pH 7.5], 150 mM NaCl, 1 mM EDTA, 1 mM Na<sub>3</sub>VO<sub>4</sub>, 2 mM PMSF, and 20 &#x3BC;g/ml aprotinin), and immunoprecipitated with the indicated Abs or antisera. The immunoprecipitates were separated by SDS-PAGE and then transferred to polyvinylidene difluoride filters (<named-content content-type="company" xlink:href="millipore">Millipore</named-content>). After incubation in PBS containing 2% BSA and 0.1% Tween 20, the filters were probed with the indicated Abs and visualized using the ECL detection system (<named-content content-type="company" xlink:href="amersham">Amersham</named-content>
+<named-content content-type="company" xlink:href="pharmacia">Pharmacia Biotech</named-content>).</p>
+      </sec>
+      <sec disp-level="3">
+        <title>Northern Blotting.</title>
+        <p>Northern blot analyses were performed as described previously (<xref rid="B24" ref-type="bibr">24</xref>). In brief, a Multiple Tissue Northern blot containing poly(A)<sup>+</sup> RNA preparations derived from various human tissues was purchased (<named-content content-type="company" xlink:href="clontech">Clontech</named-content>). They were probed with radiolabeled cDNA fragments of Grf40 and &#x3B2;-actin. Signals were analyzed with a Bio-Image Analyzer, BAS 1500 (Fuji Film and Photo, Inc.).</p>
+      </sec>
+      <sec disp-level="3">
+        <title>Transient Transfections and Luciferase Assay.</title>
+        <p>COS7 cells were electroporated with the indicated plasmids in OPTI-MEM I (<named-content content-type="company" xlink:href="gibco">GIBCO BRL</named-content>) at a density of 6 &#xD7; 10<sup>6</sup> cells/700 &#x3BC;l/cuvette with a gene pulser (Bio-Rad Laboratories) set at 1,000 V and 200 &#x3BC;F, and then subjected to a Western blot assay 48 h after the transfection. For luciferase assays, Jurkat cells were electroporated with 2.5 &#x3BC;g of pENL and the indicated dose of pIL2Luc or pNFATLuc, along with expression plasmids for SLP-76, and Grf40 or Grb2 in OPTI-MEM I at a density of 5 &#xD7; 10<sup>6</sup> cells/400 &#x3BC;l at 200 V and 950 &#x3BC;F. The cells were cultured at 37&#xB0;C for 24 h, and then stimulated for 8 h with 10 &#x3BC;g/ml OKT3 plus 50 ng/ml PMA or with 10 &#x3BC;g/ml OKT3 alone. The cells were then lysed in 300 &#x3BC;l of PicaGene ReporterLysis Buffer (Toyo Ink) and assayed for luciferase and &#x3B2;-galactosidase activities as described previously (<xref rid="B25" ref-type="bibr">25</xref>).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results and Discussion</title>
+      <p>We previously reported a signal transducing adaptor molecule, STAM, which is associated with Janus kinase (Jak)2 and Jak3 and is involved in signal transduction mediated by IL-2 and GM-CSF (<xref rid="B26" ref-type="bibr">26</xref>). We have also recently cloned a cDNA clone encoding a novel molecule, named AMSH, which binds to STAM (our unpublished results). To address the functional significance of AMSH, we attempted to identify molecules associated with AMSH using the yeast two-hybrid assay system. One full-length cDNA clone was isolated from a human PHA-PBL cDNA library. The cDNA clone encodes a molecule homologous to Grb2, named Grf40 (for Grb2 family member of 40 kD). The nucleotide sequence of the Grf40 gene has been deposited with GenBank, and is available from EMBL/GenBank/DDBJ under accession no. <ext-link ext-link-type="gen" xlink:href="AF042380">AF042380</ext-link>. The deduced amino acid sequence of Grf40 consists of 330 amino acid residues. The schematic structure of Grf40 was compared with Grb2 (<xref rid="B7" ref-type="bibr">7</xref>) and Grap, another Grb2 family member (<xref rid="B27" ref-type="bibr">27</xref>, <xref rid="B28" ref-type="bibr">28</xref>). The NH<sub>2</sub>- and COOH-terminal SH3 domains and an intermediate SH2 domain of Grf40 are highly homologous to those of Grb2 and Grap, while a unique insert region (amino acid position Arg<sup>156</sup>&#x2013;Arg<sup>277</sup>) containing proline/ glutamine-rich sequences was seen in Grf40 but not Grb2 and Grap (Fig. <xref ref-type="fig" rid="F1">1</xref> A). These results indicate that Grf40 is a new member of the Grb2 family. </p>
+      <p>Various human cell lines were examined for expression of Grf40 by immunoblotting with anti-Grf40 Ab. Two T cell lines, MOLT-4 and Jurkat, were strongly positive for expression of the 40-kD Grf40, and two B cell lines, Daudi and Raji, were weakly positive, but the other cell lines, including a B cell line (Ramos), myeloid cell lines (THP-1, TF-1, and Eol-3), and the nonhematopoietic cell lines (HeLa and WI-26) were all negative for this expression (Fig. <xref ref-type="fig" rid="F1">1</xref> B). In contrast to Grf40, appreciable expression of Grb2 was seen in all the cell lines (Fig. <xref ref-type="fig" rid="F1">1</xref> B). Northern blot analyses on various human cell lines and tissues showed two Grf40-specific transcripts at 3.5 and 1.5 kb in Jurkat, MOLT-4, three myeloid cell lines (KU812, K562, and M-TAT) and PHA-PBL (data not shown), and in human immunotissues such as thymus, spleen, small intestine, and PBL, whereas marginal levels of the transcripts were detected in other tissues, including prostate, testis, ovary, colon, heart, brain, placenta, lung, liver, skeletal muscle, kidney, and pancreas (Fig. <xref ref-type="fig" rid="F1">1</xref> C). These results suggest that Grf40, unlike Grb2, is predominantly expressed in immunotissues and hematopoietic cells, particularly T cells.</p>
+      <p>Since Grb2 has been shown to bind to SLP-76 and LAT, which are 76- and 36/38-kD tyrosine-phosphorylated proteins essential for TCR-mediated signaling, respectively (<xref rid="B10" ref-type="bibr">10</xref>, <xref rid="B11" ref-type="bibr">11</xref>, <xref rid="B18" ref-type="bibr">18</xref>), we asked ourselves whether or not Grf40 is also associated with SLP-76 and LAT. We detected 76- and 36/38-kD tyrosine-phosphorylated proteins that coimmunoprecipitated with Grf40 in Jurkat cells after stimulation by TCR cross-linking with OKT3 (Fig. <xref ref-type="fig" rid="F2">2</xref> A). We then confirmed that the 76- and 36/38-kD tyrosine-phosphorylated proteins were SLP-76 and LAT, respectively, by stimulating Jurkat cells with OKT3. Their lysates were immunoprecipitated with anti-Grf40 Ab, and the immunoprecipitates were then immunoblotted with anti-LAT, anti&#x2013;SLP-76, or anti-Grf40 Ab. Grf40 precipitated SLP-76 irrespective of TCR stimulation, but precipitated LAT only after TCR stimulation (Fig. <xref ref-type="fig" rid="F2">2</xref> B). These results indicate the association of Grf40 with SLP-76 and LAT in Jurkat cells. To determine the association site of Grf40 for SLP-76, we carried out further coimmunoprecipitation assays between the various deletion mutants of Grf40 and SLP-76. COS7 cells were transiently transfected with Myc-tagged wild-type Grf40 and four Grf40 mutants deleted of the NH<sub>2</sub>-terminal SH3 domain (Grf40-dSH3N), the COOH-terminal SH3 domain (Grf40-dSH3C), both the NH<sub>2</sub>- and COOH-terminal SH3 domains (Grf40-dSH3NC), or the SH2 domain (Grf40-dSH2). The transfected COS7 cells were immunoprecipitated with anti&#x2013;SLP-76 Ab or anti-Myc mAb, and then immunoblotted with anti-Myc mAb or anti&#x2013;SLP-76 Ab. Wild-type Grf40 and the Grf40-dSH2 and Grf40-dSH3N mutants were coimmunoprecipitated with SLP-76, but the Grf40-dSH3C and Grf40-dSH3NC mutants were not tested (Fig. <xref ref-type="fig" rid="F2">2</xref> C). Conversely, SLP-76 was coimmunoprecipitated with Grf40-dSH2, Grf40-dSH3N, and wild-type Grf40, but not with Grf40-dSH3C and Grf40-dSH3NC mutants (data not shown). These results indicate that the COOH-terminal SH3 domain of Grf40 is an association site for SLP-76. We next determined the association site of SLP-76 for Grf40 by using various SLP-76 mutants. Flag-tagged wild-type and four mutants of SLP-76 were introduced into COS7 cells together with Myc-tagged Grf40, and then immunoprecipitated and immunoblotted with anti-Flag and anti-Myc Abs. Myc-tagged Grf40 was coimmunoprecipitated with the SLP-76 mutants consisting of and containing the amino acid position Glu<sup>217</sup>&#x2013;Pro<sup>533</sup>, but not with the SLP-76 mutant consisting of the amino acid position Pro<sup>241</sup>&#x2013;Pro<sup>533</sup>. These results indicate that the Grf40 binding site is located in the amino acid position Glu<sup>217</sup>&#x2013;Lys<sup>240</sup> of SLP-76 (Fig. <xref ref-type="fig" rid="F2">2</xref> D). This Grf40 binding site of SLP-76 almost overlaps the amino acid position Asn<sup>224</sup>&#x2013;Asp<sup>244</sup>, which has been shown to be the Grb2 binding site (<xref rid="B15" ref-type="bibr">15</xref>). On the other hand, the binding site of Grb2 for LAT has been shown to be the SH2 domain of Grb2, which is thought to bind to the phosphorylated tyrosine residue (<xref rid="B18" ref-type="bibr">18</xref>). Together with this notion, we showed that LAT is tyrosine phosphorylated and subsequently coimmunoprecipitated with Grf40 after TCR stimulation, suggesting that the SH2 domain of Grf40 is possibly the binding site for LAT. </p>
+      <p>Since the COOH-terminal SH3 domain of Grb2 has been shown to be the binding site for SLP-76 (<xref rid="B10" ref-type="bibr">10</xref>, <xref rid="B11" ref-type="bibr">11</xref>), we examined the competitive binding ability between Grf40 and Grb2 to SLP-76. COS7 cells were transiently transfected with 2.5-&#x3BC;g plasmids of Myc-tagged Grf40 and Myc-tagged Grb2 in association with different doses (0&#x2013;1.0 &#x3BC;g) of Flag-tagged SLP-76 plasmid. Their lysates were immunoprecipitated with anti-Flag mAb and then immunoblotted with anti-Myc polyclonal Ab. Coimmunoprecipitation of Myc-tagged Grf40 with SLP-76 gradually decreased upon reducing the SLP-76 plasmid dose to 0.05 &#x3BC;g, whereas the Myc-tagged Grb2 coimmunoprecipitation with SLP-76 was detectable only at a 1.0-&#x3BC;g dose of SLP-76 plasmid (Fig. <xref ref-type="fig" rid="F3">3</xref> A). Expression levels of the plasmids introduced were quantified by immunoblotting, confirming that there was no significant difference in the amounts between Myc-tagged Grf40 and Myc-tagged Grb2 (Fig. <xref ref-type="fig" rid="F3">3</xref> A). These results suggest the possibility that Grf40 associated much stronger with SLP-76 than did Grb2. To confirm this further, COS7 cells were transiently transfected with low doses of SLP-76 plasmid (0.2 &#x3BC;g) and Myc-Grf40 plasmid (2.5 &#x3BC;g) together with various doses (0&#x2013;10 &#x3BC;g) of Myc-tagged Grb2 plasmid. Their lysates were immunoprecipitated with anti-Flag mAb and then immunoblotted with anti-Myc polyclonal Ab. Even when up to 10-&#x3BC;g plasmid doses of Myc-tagged Grb2 were cotransfected, coimmunoprecipitation of Myc-tagged Grf40 with SLP-76 was still unchanged (Fig. <xref ref-type="fig" rid="F3">3</xref> B). Furthermore, although the increased expression of Myc-tagged Grb2 was dependent on its plasmid dose, which was considerably higher than that of Grf40 at a 10-&#x3BC;g plasmid dose of Myc-tagged Grb2, Myc-tagged Grb2 was not coimmunoprecipitated with SLP-76 (Fig. <xref ref-type="fig" rid="F3">3</xref> B). These results indicate that Grf40 competes with Grb2 in its binding to SLP-76, and the binding affinity of Grf40 to SLP-76 is apparently higher than that of Grb2. Since the SLP-76 mutant deleted of the Grb2 binding site, which overlaps the Grf40 binding site, failed to increase IL-2 promoter activity upon TCR stimulation (<xref rid="B15" ref-type="bibr">15</xref>, <xref rid="B16" ref-type="bibr">16</xref>), it is possible that not only Grb2 but also Grf40 plays a critical role in the SLP-76&#x2013;dependent increase in IL-2 promoter activity. </p>
+      <p>To address the functional significance of Grf40 in TCR-mediated signaling, we performed luciferase assays with reporter genes containing the IL-2 promoter and the NF-AT binding domain. Overexpression of wild-type Grf40 did not lead to either basal or TCR-mediated activation of the IL-2 promoter and NF-AT (data not shown). Since Grf40 interacts with SLP-76 in Jurkat cells, and overexpression of SLP-76 is known to augment TCR-mediated stimulation of the IL-2 promoter and NF-AT activity (<xref rid="B15" ref-type="bibr">15</xref>, <xref rid="B16" ref-type="bibr">16</xref>), we used Jurkat cells transiently transfected with SLP-76 to examine the effect of Grf40 in TCR-mediated signaling. Transfections of wild-type Grf40 and Grf40-dSH3N mutant into Jurkat cells overexpressing SLP-76 led to significant increases in IL-2 promoter activity upon stimulation with OKT3 plus PMA, whereas transfection of Grf40-dSH2 mutant induced a marked inhibition of IL-2 promoter activity compared with transfection of an empty vector (Fig. <xref ref-type="fig" rid="F4">4</xref> A). These results indicate that Grf40-dSH2 mutant has a dominant-negative effect in TCR stimulation, suggesting that the SH2 domain of Grf40 interacts with an essential molecule for TCR-mediated signaling, which is possibly LAT (<xref rid="B18" ref-type="bibr">18</xref>). Similar results were obtained in NF-AT luciferase assays with Jurkat cells stimulated with OKT3 (Fig. <xref ref-type="fig" rid="F4">4</xref> B). Furthermore, the Grf40 mutants (Grf40-dSH3C and Grf40-dSH3NC) deleted of the COOH-terminal SH3 domain, which is the binding site for SLP-76, also lost their ability to increase IL-2 promoter activity (Fig. <xref ref-type="fig" rid="F4">4</xref> A), suggesting that a Grf40&#x2013;SLP-76 complex formation is required for SLP-76&#x2013;dependent TCR stimulation. These results indicate that Grf40 is involved in signaling the stimulation of the IL-2 promoter and NF-AT activities mediated by OKT3 and PMA. </p>
+      <p>Since Grb2 has also been considered to be involved in the modulation of TCR-mediated signal transduction (<xref rid="B9" ref-type="bibr">9</xref>), we compared the functional significance of Grf40 and Grb2 in TCR-mediated stimulation of IL-2 promoter activity. Jurkat cells overexpressing SLP-76 were transfected with the wild-types and SH2 deletion mutants of Grf40 and Grb2, in association with an IL-2 promoter&#x2013;driven luciferase construct. They were stimulated with OKT3 plus PMA, and assayed for luciferase activity. An appreciable enhancement of IL-2 promoter activity was seen with wild-type Grf40, but scarcely with wild-type Grb2, whereas Grf40-dSH2 mutant showed a marked dominant-negative effect in the IL-2 luciferase assay compared with Grb2-dSH2 mutant (Fig. <xref ref-type="fig" rid="F5">5</xref> A). The plasmid dose dependency in the IL-2 luciferase assay was compared between the Grf40-dSH2 and Grb2-dSH2 mutants. The suppressive effects on the luciferase activities were significantly stronger in Grf40-dSH2 mutant than Grb2-dSH2 mutant at various plasmid doses (Fig. <xref ref-type="fig" rid="F5">5</xref> B). These results indicate that Grf40 is involved in TCR-mediated signaling more effectively than Grb2. This conclusion is in accordance with the observation of greater binding affinity of Grf40 to SLP-76 compared with Grb2. </p>
+      <p>This study showed a critical involvement of Grf40 in the SLP-76&#x2013;dependent signaling mediated by the TCR. One might consider the possibility that Grf40 mutants exert their effects in TCR-mediated signaling by altering expression levels of SLP-76. However, this possibility is negligible because the expression of pCX-SLP76 was confirmed to be unaffected by transient expression of Grf40, Grb2, and their mutants in COS7 cells (data not shown). Hence, the interaction of Grf40 with SLP-76 and LAT is thought to be critical for TCR-mediated signaling.</p>
+      <p>The NH<sub>2</sub>-terminal SH3 domain of Grb2 is known to be a binding site for Sos, a Ras guanine nucleotide exchange factor, which has been considered to be involved in Ras activation upon TCR stimulation (<xref rid="B9" ref-type="bibr">9</xref>). We confirmed the association of Grb2 with Sos in Jurkat cells; however, a complex formation between Grf40 and Sos was undetectable in these cells (data not shown). Therefore, we suspect that Grf40 does not direct the Ras activation signaling mediated by the TCR. However, Grf40 contributes to TCR-mediated activation of the IL-2 promoter and NF-AT more effectively than Grb2, suggesting the critical involvement of Grf40 in TCR-mediated signaling. In this context, it is of interest that SLP-76 associated with Grf40 also binds to Vav, a Rac/Rho guanine nucleotide exchange factor, and that the interaction between SLP-76 and Vav has been shown to participate in IL-2 gene activation upon TCR stimulation (<xref rid="B17" ref-type="bibr">17</xref>). These observations provide a model pathway in which activated ZAP-70 tyrosine kinase after TCR ligation phosphorylates LAT (<xref rid="B18" ref-type="bibr">18</xref>), which then binds to the preformed Grf40&#x2013;SLP-76 complex and recruits it to ZAP-70 (<xref rid="B29" ref-type="bibr">29</xref>), which further phosphorylates SLP-76 to be associated with Vav, leading to the downstream signaling of the TCR.</p>
+      <p>Northern blot and immunoblot analyses revealed that Grf40 is expressed predominantly in immunotissues and hematopoietic cells, particularly T cells, in contrast to Grb2. Such restricted distribution of Grf40 may reflect the more efficient involvement of Grf40 in TCR-mediated signaling compared with Grb2. Although Grap has also been shown to be specific for hematopoietic and lymphocytic cells (<xref rid="B28" ref-type="bibr">28</xref>), the functional significance of Grap is still unknown.</p>
+      <p>The genome sequence of GRB2L has been registered in GenBank/EMBL/DDBJ (under accession no. <ext-link ext-link-type="gen" xlink:href="Z82206">Z82206</ext-link>), which contains the entire sequence of Grf40. Since GRB2L has been mapped to human chromosome 22q12, Grf40 is thought to have the same chromosomal location. Furthermore, cDNA clones identical to Grf40 were reported as Grap2 (<xref rid="B30" ref-type="bibr">30</xref>), and human Gads (<xref rid="B31" ref-type="bibr">31</xref>) and their mouse homologues, named Mona (<xref rid="B32" ref-type="bibr">32</xref>) and mouse Gads (<xref rid="B33" ref-type="bibr">33</xref>), were also reported after the submission of this paper. Although the report regarding human Gads showed similar results as our study, they did not show any comparative study between Gads and Grb2. We here show evidence suggesting that Grf40 plays a more critical role in the TCR-mediated signaling than Grb2.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Dr. H. Onodera for providing Myc-Tag-pcDNA3.1(+), and Drs. S. Moffatt and L.C. Ndhlovu for critical reading of the manuscript. </p>
+      <p>This work was supported in part by Core Research for Evolutional Science and Technology (CREST) of the Japan Science and Technology Corporation; by a grant-in-aid for scientific research on priority areas from the Ministry of Education, Science, Sport, and Culture of Japan; and by a grant from special coordination funds of the Science and Technology Agency of Japan.</p>
+    </ack>
+    <glossary>
+      <title>Abbreviations used in this paper</title>
+      <def-list>
+        <def-item>
+          <term>LAT</term>
+          <def>
+            <p>linker for activation of T cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NF-AT</term>
+          <def>
+            <p>nuclear factor of activated T cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PTK</term>
+          <def>
+            <p>protein tyrosine kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>SLP-76</term>
+          <def>
+            <p>SH2 domain&#x2013;containing leukocyte protein of 76 kD</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>STAM</term>
+          <def>
+            <p>signal transducing adaptor molecule</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Weiss</surname><given-names>A</given-names></name><name><surname>Littman</surname><given-names>DR</given-names></name></person-group>
+<article-title>Signal transduction by lymphocyte antigen receptors</article-title>
+<source>Cell</source>
+<year>1994</year>
+<volume>76</volume>
+<fpage>263</fpage>
+<lpage>274</lpage>
+<pub-id pub-id-type="pmid">8293463</pub-id></element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cantrell</surname><given-names>D</given-names></name></person-group>
+<article-title>T cell antigen receptor signal transduction pathways</article-title>
+<source>Annu Rev Immunol</source>
+<year>1996</year>
+<volume>14</volume>
+<fpage>259</fpage>
+<lpage>274</lpage>
+<pub-id pub-id-type="pmid">8717515</pub-id></element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wange</surname><given-names>RL</given-names></name><name><surname>Samelson</surname><given-names>LE</given-names></name></person-group>
+<article-title>Complex complexes: signaling at the TCR</article-title>
+<source>Immunity</source>
+<year>1996</year>
+<volume>5</volume>
+<fpage>197</fpage>
+<lpage>205</lpage>
+<pub-id pub-id-type="pmid">8808675</pub-id></element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Koretzky</surname><given-names>GA</given-names></name></person-group>
+<article-title>The role of Grb2-associated proteins in T-cell activation</article-title>
+<source>Immunol Today</source>
+<year>1997</year>
+<volume>18</volume>
+<fpage>401</fpage>
+<lpage>406</lpage>
+<pub-id pub-id-type="pmid">9267083</pub-id></element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sieh</surname><given-names>M</given-names></name><name><surname>Batzer</surname><given-names>A</given-names></name><name><surname>Schlessinger</surname><given-names>J</given-names></name><name><surname>Weiss</surname><given-names>A</given-names></name></person-group>
+<article-title>GRB2 and phospholipase C-gamma 1 associate with a 36- to 38-kilodalton phosphotyrosine protein after T-cell receptor stimulation</article-title>
+<source>Mol Cell Biol</source>
+<year>1994</year>
+<volume>14</volume>
+<fpage>4435</fpage>
+<lpage>4442</lpage>
+<pub-id pub-id-type="pmid">7516467</pub-id></element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Motto</surname><given-names>DG</given-names></name><name><surname>Musci</surname><given-names>MA</given-names></name><name><surname>Ross</surname><given-names>SE</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name></person-group>
+<article-title>Tyrosine phosphorylation of Grb2-associated proteins correlates with phospholipase C gamma 1 activation in T cells</article-title>
+<source>Mol Cell Biol</source>
+<year>1996</year>
+<volume>16</volume>
+<fpage>2823</fpage>
+<lpage>2829</lpage>
+<pub-id pub-id-type="pmid">8649391</pub-id></element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lowenstein</surname><given-names>EJ</given-names></name><name><surname>Daly</surname><given-names>RJ</given-names></name><name><surname>Batzer</surname><given-names>AG</given-names></name><name><surname>Li</surname><given-names>W</given-names></name><name><surname>Margolis</surname><given-names>B</given-names></name><name><surname>Lammers</surname><given-names>R</given-names></name><name><surname>Ullrich</surname><given-names>A</given-names></name><name><surname>Skolnik</surname><given-names>EY</given-names></name><name><surname>Bar-Sagi</surname><given-names>D</given-names></name><name><surname>Schlessinger</surname><given-names>J</given-names></name></person-group>
+<article-title>The SH2 and SH3 domain-containing protein GRB2 links receptor tyrosine kinases to ras signaling</article-title>
+<source>Cell</source>
+<year>1992</year>
+<volume>70</volume>
+<fpage>431</fpage>
+<lpage>442</lpage>
+<pub-id pub-id-type="pmid">1322798</pub-id></element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Egan</surname><given-names>SE</given-names></name><name><surname>Giddings</surname><given-names>BW</given-names></name><name><surname>Brooks</surname><given-names>MW</given-names></name><name><surname>Buday</surname><given-names>L</given-names></name><name><surname>Sizeland</surname><given-names>AM</given-names></name><name><surname>Weinberg</surname><given-names>RA</given-names></name></person-group>
+<article-title>Association of Sos Ras exchange protein with Grb2 is implicated in tyrosine kinase signal transduction and transformation</article-title>
+<source>Nature</source>
+<year>1993</year>
+<volume>363</volume>
+<fpage>45</fpage>
+<lpage>51</lpage>
+<pub-id pub-id-type="pmid">8479536</pub-id></element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Buday</surname><given-names>L</given-names></name><name><surname>Egan</surname><given-names>SE</given-names></name><name><surname>Rodriguez</surname><given-names>P</given-names></name><name><surname>Viciana</surname></name><name><surname>Cantrell</surname><given-names>DA</given-names></name><name><surname>Downward</surname><given-names>J</given-names></name></person-group>
+<article-title>A complex of Grb2 adaptor protein, Sos exchange factor, and a 36-kDa membrane-bound tyrosine phosphoprotein is implicated in ras activation in T cells</article-title>
+<source>J Biol Chem</source>
+<year>1994</year>
+<volume>269</volume>
+<fpage>9019</fpage>
+<lpage>9023</lpage>
+<pub-id pub-id-type="pmid">7510700</pub-id></element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Reif</surname><given-names>K</given-names></name><name><surname>Buday</surname><given-names>L</given-names></name><name><surname>Downward</surname><given-names>J</given-names></name><name><surname>Cantrell</surname><given-names>DA</given-names></name></person-group>
+<article-title>SH3 domains of the adapter molecule Grb2 complex with two proteins in T cells: the guanine nucleotide exchange protein Sos and a 75-kDa protein that is a substrate for T cell antigen receptor-activated tyrosine kinases</article-title>
+<source>J Biol Chem</source>
+<year>1994</year>
+<volume>269</volume>
+<fpage>14081</fpage>
+<lpage>14087</lpage>
+<pub-id pub-id-type="pmid">8188688</pub-id></element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jackman</surname><given-names>JK</given-names></name><name><surname>Motto</surname><given-names>DG</given-names></name><name><surname>Sun</surname><given-names>Q</given-names></name><name><surname>Tanemoto</surname><given-names>M</given-names></name><name><surname>Turck</surname><given-names>CW</given-names></name><name><surname>Peltz</surname><given-names>GA</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name><name><surname>Findell</surname><given-names>PR</given-names></name></person-group>
+<article-title>Molecular cloning of SLP-76, a 76-kDa tyrosine phosphoprotein associated with Grb2 in T cells</article-title>
+<source>J Biol Chem</source>
+<year>1995</year>
+<volume>270</volume>
+<fpage>7029</fpage>
+<lpage>7032</lpage>
+<pub-id pub-id-type="pmid">7706237</pub-id></element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wardenburg</surname><given-names>JB</given-names></name><name><surname>Fu</surname><given-names>C</given-names></name><name><surname>Jackman</surname><given-names>JK</given-names></name><name><surname>Flotow</surname><given-names>H</given-names></name><name><surname>Wilkinson</surname><given-names>SE</given-names></name><name><surname>Williams</surname><given-names>DH</given-names></name><name><surname>Johnson</surname><given-names>R</given-names></name><name><surname>Kong</surname><given-names>G</given-names></name><name><surname>Chan</surname><given-names>AC</given-names></name><name><surname>Findell</surname><given-names>PR</given-names></name></person-group>
+<article-title>Phosphorylation of SLP-76 by the ZAP-70 protein-tyrosine kinase is required for T-cell receptor function</article-title>
+<source>J Biol Chem</source>
+<year>1996</year>
+<volume>271</volume>
+<fpage>19641</fpage>
+<lpage>19644</lpage>
+<pub-id pub-id-type="pmid">8702662</pub-id></element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Clements</surname><given-names>JL</given-names></name><name><surname>Yang</surname><given-names>B</given-names></name><name><surname>Ross-Barta</surname><given-names>SE</given-names></name><name><surname>Eliason</surname><given-names>SL</given-names></name><name><surname>Hrstka</surname><given-names>RF</given-names></name><name><surname>Williamson</surname><given-names>RA</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name></person-group>
+<article-title>Requirement for the leukocyte-specific adapter protein SLP-76 for normal T cell development</article-title>
+<source>Science</source>
+<year>1998</year>
+<volume>281</volume>
+<fpage>416</fpage>
+<lpage>419</lpage>
+<pub-id pub-id-type="pmid">9665885</pub-id></element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yablonski</surname><given-names>D</given-names></name><name><surname>Kuhne</surname><given-names>MR</given-names></name><name><surname>Kadlecek</surname><given-names>T</given-names></name><name><surname>Weiss</surname><given-names>A</given-names></name></person-group>
+<article-title>Uncoupling of nonreceptor tyrosine kinases from PLC-gamma1 in an SLP-76-deficient T cell</article-title>
+<source>Science</source>
+<year>1998</year>
+<volume>281</volume>
+<fpage>413</fpage>
+<lpage>416</lpage>
+<pub-id pub-id-type="pmid">9665884</pub-id></element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Motto</surname><given-names>DG</given-names></name><name><surname>Ross</surname><given-names>SE</given-names></name><name><surname>Wu</surname><given-names>J</given-names></name><name><surname>Hendricks-Taylor</surname><given-names>LR</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name></person-group>
+<article-title>Implication of the GRB2-associated phosphoprotein SLP-76 in T cell receptor&#x2013;mediated interleukin 2 production</article-title>
+<source>J Exp Med</source>
+<year>1996</year>
+<volume>183</volume>
+<fpage>1937</fpage>
+<lpage>1943</lpage>
+<pub-id pub-id-type="pmid">8666952</pub-id></element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Musci</surname><given-names>MA</given-names></name><name><surname>Motto</surname><given-names>DG</given-names></name><name><surname>Ross</surname><given-names>SE</given-names></name><name><surname>Fang</surname><given-names>N</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name></person-group>
+<article-title>Three domains of SLP-76 are required for its optimal function in a T cell line</article-title>
+<source>J Immunol</source>
+<year>1997</year>
+<volume>159</volume>
+<fpage>1639</fpage>
+<lpage>1647</lpage>
+<pub-id pub-id-type="pmid">9257823</pub-id></element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wu</surname><given-names>J</given-names></name><name><surname>Motto</surname><given-names>DG</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name><name><surname>Weiss</surname><given-names>A</given-names></name></person-group>
+<article-title>Vav and SLP-76 interact and functionally cooperate in IL-2 gene activation</article-title>
+<source>Immunity</source>
+<year>1996</year>
+<volume>4</volume>
+<fpage>593</fpage>
+<lpage>602</lpage>
+<pub-id pub-id-type="pmid">8673706</pub-id></element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhang</surname><given-names>W</given-names></name><name><surname>Sloan-Lancaster</surname><given-names>J</given-names></name><name><surname>Kitchen</surname><given-names>J</given-names></name><name><surname>Trible</surname><given-names>RP</given-names></name><name><surname>Samelson</surname><given-names>LE</given-names></name></person-group>
+<article-title>LAT: the ZAP-70 tyrosine kinase substrate that links T cell receptor to cellular activation</article-title>
+<source>Cell</source>
+<year>1998</year>
+<volume>92</volume>
+<fpage>83</fpage>
+<lpage>92</lpage>
+<pub-id pub-id-type="pmid">9489702</pub-id></element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Niwa</surname><given-names>H</given-names></name><name><surname>Yamamura</surname><given-names>K</given-names></name><name><surname>Miyazaki</surname><given-names>J</given-names></name></person-group>
+<article-title>Efficient selection for high-expression transfectants with a novel eukaryotic vector</article-title>
+<source>Gene</source>
+<year>1991</year>
+<volume>108</volume>
+<fpage>193</fpage>
+<lpage>199</lpage>
+<pub-id pub-id-type="pmid">1660837</pub-id></element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Northrop</surname><given-names>JP</given-names></name><name><surname>Ullman</surname><given-names>KS</given-names></name><name><surname>Crabtree</surname><given-names>GR</given-names></name></person-group>
+<article-title>Characterization of the nuclear and cytoplasmic components of the lymphoid-specific nuclear factor of activated T cells (NF-AT) complex</article-title>
+<source>J Biol Chem</source>
+<year>1993</year>
+<volume>268</volume>
+<fpage>2917</fpage>
+<lpage>2923</lpage>
+<pub-id pub-id-type="pmid">8428966</pub-id></element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lee</surname><given-names>HJ</given-names></name><name><surname>Koyano-Nakagawa</surname><given-names>N</given-names></name><name><surname>Naito</surname><given-names>Y</given-names></name><name><surname>Nishida</surname><given-names>J</given-names></name><name><surname>Arai</surname><given-names>N</given-names></name><name><surname>Arai</surname><given-names>K</given-names></name><name><surname>Yokota</surname><given-names>T</given-names></name></person-group>
+<article-title>cAMP activates the IL-5 promoter synergistically with phorbol ester through the signaling pathway involving protein kinase A in mouse thymoma line EL-4</article-title>
+<source>J Immunol</source>
+<year>1993</year>
+<volume>151</volume>
+<fpage>6135</fpage>
+<lpage>6142</lpage>
+<pub-id pub-id-type="pmid">8245456</pub-id></element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ohbo</surname><given-names>K</given-names></name><name><surname>Takasawa</surname><given-names>N</given-names></name><name><surname>Ishii</surname><given-names>N</given-names></name><name><surname>Tanaka</surname><given-names>N</given-names></name><name><surname>Nakamura</surname><given-names>M</given-names></name><name><surname>Sugamura</surname><given-names>K</given-names></name></person-group>
+<article-title>Functional analysis of the human interleukin 2 receptor gamma chain gene promoter</article-title>
+<source>J Biol Chem</source>
+<year>1995</year>
+<volume>270</volume>
+<fpage>7479</fpage>
+<lpage>7486</lpage>
+<pub-id pub-id-type="pmid">7706294</pub-id></element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Asao</surname><given-names>H</given-names></name><name><surname>Sasaki</surname><given-names>Y</given-names></name><name><surname>Arita</surname><given-names>T</given-names></name><name><surname>Tanaka</surname><given-names>N</given-names></name><name><surname>Endo</surname><given-names>K</given-names></name><name><surname>Kasai</surname><given-names>H</given-names></name><name><surname>Takeshita</surname><given-names>T</given-names></name><name><surname>Endo</surname><given-names>Y</given-names></name><name><surname>Fujita</surname><given-names>T</given-names></name><name><surname>Sugamura</surname><given-names>K</given-names></name></person-group>
+<article-title>Hrs is associated with STAM, a signal-transducing adaptor molecule. Its suppressive effect on cytokine-induced cell growth</article-title>
+<source>J Biol Chem</source>
+<year>1997</year>
+<volume>272</volume>
+<fpage>32785</fpage>
+<lpage>32791</lpage>
+<pub-id pub-id-type="pmid">9407053</pub-id></element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Asao</surname><given-names>H</given-names></name><name><surname>Takesita</surname><given-names>T</given-names></name><name><surname>Ishii</surname><given-names>N</given-names></name><name><surname>Kumaki</surname><given-names>S</given-names></name><name><surname>Nakamura</surname><given-names>M</given-names></name><name><surname>Sugamura</surname><given-names>K</given-names></name></person-group>
+<article-title>Reconstitution of functional interleukin 2 receptor complexes on fibroblastoid cells: involvement of the cytoplasmic domain of the gamma chain in two distinct signaling pathways</article-title>
+<source>Proc Natl Acad Sci USA</source>
+<year>1993</year>
+<volume>90</volume>
+<fpage>4127</fpage>
+<lpage>4131</lpage>
+<pub-id pub-id-type="pmid">7683423</pub-id></element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tanaka</surname><given-names>N</given-names></name><name><surname>Abe</surname><given-names>H</given-names></name><name><surname>Yagita</surname><given-names>H</given-names></name><name><surname>Okumura</surname><given-names>K</given-names></name><name><surname>Nakamura</surname><given-names>M</given-names></name><name><surname>Sugamura</surname><given-names>K</given-names></name></person-group>
+<article-title>Itk, a T cell-specific tyrosine kinase, is required for CD2-mediated interleukin-2 promoter activation in the human T cell line Jurkat</article-title>
+<source>Eur J Immunol</source>
+<year>1997</year>
+<volume>27</volume>
+<fpage>834</fpage>
+<lpage>841</lpage>
+<pub-id pub-id-type="pmid">9130632</pub-id></element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Takeshita</surname><given-names>T</given-names></name><name><surname>Arita</surname><given-names>T</given-names></name><name><surname>Higuchi</surname><given-names>M</given-names></name><name><surname>Asao</surname><given-names>H</given-names></name><name><surname>Endo</surname><given-names>K</given-names></name><name><surname>Kuroda</surname><given-names>H</given-names></name><name><surname>Tanaka</surname><given-names>N</given-names></name><name><surname>Murata</surname><given-names>K</given-names></name><name><surname>Ishii</surname><given-names>N</given-names></name><name><surname>Sugamura</surname><given-names>K</given-names></name></person-group>
+<article-title>STAM, signal transducing adaptor molecule, is associated with Janus kinases and involved in signaling for cell growth and c-myc induction</article-title>
+<source>Immunity</source>
+<year>1997</year>
+<volume>6</volume>
+<fpage>449</fpage>
+<lpage>457</lpage>
+<pub-id pub-id-type="pmid">9133424</pub-id></element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Feng</surname><given-names>GS</given-names></name><name><surname>Ouyang</surname><given-names>YB</given-names></name><name><surname>Hu</surname><given-names>DP</given-names></name><name><surname>Shi</surname><given-names>ZQ</given-names></name><name><surname>Gentz</surname><given-names>R</given-names></name><name><surname>Ni</surname><given-names>J</given-names></name></person-group>
+<article-title>Grap is a novel SH3-SH2-SH3 adaptor protein that couples tyrosine kinases to the Ras pathway</article-title>
+<source>J Biol Chem</source>
+<year>1996</year>
+<volume>271</volume>
+<fpage>12129</fpage>
+<lpage>12132</lpage>
+<pub-id pub-id-type="pmid">8647802</pub-id></element-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Trub</surname><given-names>T</given-names></name><name><surname>Frantz</surname><given-names>JD</given-names></name><name><surname>Miyazaki</surname><given-names>M</given-names></name><name><surname>Band</surname><given-names>H</given-names></name><name><surname>Shoelson</surname><given-names>SE</given-names></name></person-group>
+<article-title>The role of a lymphoid-restricted, Grb2-like SH3-SH2-SH3 protein in T cell receptor signaling</article-title>
+<source>J Biol Chem</source>
+<year>1997</year>
+<volume>272</volume>
+<fpage>894</fpage>
+<lpage>902</lpage>
+<pub-id pub-id-type="pmid">8995379</pub-id></element-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhang</surname><given-names>W</given-names></name><name><surname>Trible</surname><given-names>RP</given-names></name><name><surname>Samelson</surname><given-names>LE</given-names></name></person-group>
+<article-title>LAT palmitoylation: its essential role in membrane microdomain targeting and tyrosine phosphorylation during T cell activation</article-title>
+<source>Immunity</source>
+<year>1998</year>
+<volume>9</volume>
+<fpage>239</fpage>
+<lpage>246</lpage>
+<pub-id pub-id-type="pmid">9729044</pub-id></element-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Qiu</surname><given-names>M</given-names></name><name><surname>Hua</surname><given-names>S</given-names></name><name><surname>Agrawal</surname><given-names>M</given-names></name><name><surname>Li</surname><given-names>G</given-names></name><name><surname>Cai</surname><given-names>J</given-names></name><name><surname>Chan</surname><given-names>E</given-names></name><name><surname>Zhou</surname><given-names>H</given-names></name><name><surname>Luo</surname><given-names>Y</given-names></name><name><surname>Liu</surname><given-names>M</given-names></name></person-group>
+<article-title>Molecular cloning and expression of human grap-2, a novel leukocyte-specific SH2- and SH3-containing adaptor-like protein that binds to gab-1</article-title>
+<source>Biochem Biophys Res Commun</source>
+<year>1998</year>
+<volume>253</volume>
+<fpage>443</fpage>
+<lpage>447</lpage>
+<pub-id pub-id-type="pmid">9878555</pub-id></element-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liu</surname><given-names>SK</given-names></name><name><surname>Fang</surname><given-names>N</given-names></name><name><surname>Koretzky</surname><given-names>GA</given-names></name><name><surname>McGlade</surname><given-names>CJ</given-names></name></person-group>
+<article-title>The hematopoietic-specific adaptor protein Gads functions in T-cell signaling via interactions with the SLP-76 and LAT adaptors</article-title>
+<source>Curr Biol</source>
+<year>1999</year>
+<volume>9</volume>
+<fpage>67</fpage>
+<lpage>75</lpage>
+<pub-id pub-id-type="pmid">10021361</pub-id></element-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bourette</surname><given-names>RP</given-names></name><name><surname>Arnaud</surname><given-names>S</given-names></name><name><surname>Myles</surname><given-names>GM</given-names></name><name><surname>Blanchet</surname><given-names>JP</given-names></name><name><surname>Rohrschneider</surname><given-names>LR</given-names></name><name><surname>Mouchiroud</surname><given-names>G</given-names></name></person-group>
+<article-title>Mona, a novel hematopoietic-specific adaptor interacting with the macrophage colony-stimulating factor receptor, is implicated in monocyte/macrophage development</article-title>
+<source>EMBO (Eur Mol Biol Organ) J</source>
+<year>1998</year>
+<volume>17</volume>
+<fpage>7273</fpage>
+<lpage>7281</lpage>
+<pub-id pub-id-type="pmid">9857184</pub-id></element-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liu</surname><given-names>SK</given-names></name><name><surname>McGlade</surname><given-names>CJ</given-names></name></person-group>
+<article-title>Gads is a novel SH2 and SH3 domain-containing adaptor protein that binds to tyrosine-phosphorylated Shc</article-title>
+<source>Oncogene</source>
+<year>1998</year>
+<volume>17</volume>
+<fpage>3073</fpage>
+<lpage>3082</lpage>
+<pub-id pub-id-type="pmid">9872323</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Schematic structure and expression of Grf40. (A) The schematic structure of Grf40 was compared with Grb2 and Grap. The percentages of amino acid identity of the SH3 and SH2 domains of Grf40 with Grb2 and Grap were indicated in terms of their SH3 and SH2 domains. (B) 10<sup>7</sup> cells of a variety of human cell lines were immunoprecipitated (IP) and immunoblotted (IB) with anti-Grf40, anti-Grb2, or preimmune (control [Cont]) serum. (C) Northern blot analyses were performed with the various human tissues indicated. The blots were first hybridized with the Grf40 probe, then rehybridized with &#x3B2;-actin probe.</p>
+      </caption>
+      <graphic xlink:href="JEM981859.f1"/>
+    </fig>
+    <fig id="F2" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Coimmunoprecipitation of SLP-76 and LAT with Grf40 in Jurkat cells. Jurkat cells were stimulated with (+) or without (&#x2212;) OKT3 for 3 min, and their lysates were immunoprecipitated (IP) with anti-Grf40 or preimmune (control) serum. The immunoprecipitates were separated by SDS-PAGE and then immunoblotted (IB) with antiphosphotyrosine mAbs (A), and with anti&#x2013;SLP-76 antiserum or anti-LAT Ab (B). COS7 cells were transiently transfected with 10 &#x3BC;g expression plasmids for Myc-tagged wild-type Grf40 (wild) or four Myc-tagged Grf40 mutants (dSH3C, dSH2, dSH3N, and dSH3NC), together with 10 &#x3BC;g expression plasmids for SLP-76 by electroporation, and then incubated for 48 h. Their lysates were immunoprecipitated with anti&#x2013;SLP-76 or preimmune (control) serum, and then immunoblotted with anti-Myc mAb or anti&#x2013;SLP-76 antiserum (C). COS7 cells were transiently transfected with 10 &#x3BC;g expression plasmids for Flag-tagged wild-type SLP-76 (wild), four Flag-tagged SLP-76 mutants (157-533, 217-533, 241-533, and 281-533), or an empty vector (control), together with 10 &#x3BC;g expression plasmids for Myc-tagged Grf40 by electroporation, and then incubated for 48 h. Their lysates were immunoprecipitated with anti-Flag mAb, and then immunoblotted with anti-Myc or anti-Flag mAb (D).</p>
+      </caption>
+      <graphic xlink:href="JEM981859.f2"/>
+    </fig>
+    <fig id="F3" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Competitive binding ability of Grf40 and Grb2 to SLP-76. COS7 cells were transiently transfected with the indicated doses of pFlagSLP (SLP-76), 2.5 &#x3BC;g of pMycGrf40 (Grf40), and 2.5 &#x3BC;g of pMycGrb2 (Grb2) (A), or 0.2 &#x3BC;g of pFlagSLP, 2.5 &#x3BC;g of pMycGrf40, and the indicated doses of pMycGrb2 (B). The cells were incubated for 48 h, and their lysates were immunoprecipitated (IP) with anti-Flag mAb and then immunoblotted (IB) with anti-Myc polyclonal Ab or anti-Flag mAb (top and middle). The expression levels of Myc-tagged Grf40 and Myc-tagged Grb2 were quantified by immunoblotting with anti-Myc mAb (bottom).</p>
+      </caption>
+      <graphic xlink:href="JEM981859.f3"/>
+    </fig>
+    <fig id="F4" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Effects of Grf40 mutants on TCR-mediated activation of IL-2 promoter and NF-AT activities. Jurkat cells were transfected with 10 &#x3BC;g of IL-2-Luc (A) or 10 &#x3BC;g of NF-AT-Luc (B), along with 10 &#x3BC;g of SLP-76 and 10 &#x3BC;g of an empty vector (vector), Myc-tagged wild-type Grf40 (wild), or various Grf40 mutants (dSH3N, dSH3C, dSH3NC, and dSH2). The cells were left unstimulated (white bars) or were stimulated (black bars) with 10 &#x3BC;g/ml OKT3 plus 50 ng/ml PMA, and assayed for luciferase activity. Results are shown as fold induction of luciferase activity compared with the activity in unstimulated cells transfected with the empty vector (&#x223C;5,000 relative light units [RLU]). These results are representative of three comparable experiments.</p>
+      </caption>
+      <graphic xlink:href="JEM981859.f4a"/>
+      <graphic xlink:href="JEM981859.f4b"/>
+    </fig>
+    <fig id="F5" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>Comparison of blocking effects between Grf40-dSH2 and Grb2-dSH2 on TCR-mediated stimulation of IL-2 promoter activity. (A) Jurkat cells were transfected with 10 &#x3BC;g of IL-2-Luc along with 10 &#x3BC;g of SLP-76 and 10 &#x3BC;g of an empty vector (vector), Myc-tagged Grf40 wild-type, Grf40-dSH2, Grb2 wild-type, or Grb2-dSH2. The cells were left unstimulated (white bars) or were stimulated (black bars) with OKT3 plus PMA. (B) Jurkat cells were transfected with 10 &#x3BC;g of IL-2-Luc along with 10 &#x3BC;g of SLP-76 and the indicated doses of Grf40-dSH2 (squares) or Grb2-dSH2 (circles). The cells were left unstimulated (open symbols) or were stimulated (filled symbols) with OKT3 plus PMA, and assayed for luciferase activity. Luciferase activity was indicated as average fold induction &#xB1; SE from three independent experiments compared with unstimulated cells transfected with the empty vector (&#x223C;5,000 RLU).</p>
+      </caption>
+      <graphic xlink:href="JEM981859.f5a"/>
+      <graphic xlink:href="JEM981859.f5b"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,1631 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Mol Cancer</journal-id>
+      <journal-title>Molecular Cancer</journal-title>
+      <issn pub-type="epub">1476-4598</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">15140260</article-id>
+      <article-id pub-id-type="pmc">420486</article-id>
+      <article-id pub-id-type="publisher-id">1476-4598-3-15</article-id>
+      <article-id pub-id-type="doi">10.1186/1476-4598-3-15</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Phospholipase C &#x3B4;-4 overexpression upregulates ErbB1/2 expression, Erk signaling pathway, and proliferation in MCF-7 cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib id="A1" corresp="yes" contrib-type="author">
+          <name>
+            <surname>Leung</surname>
+            <given-names>David W</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>dwleung1@msn.com</email>
+        </contrib>
+        <contrib id="A2" contrib-type="author">
+          <name>
+            <surname>Tompkins</surname>
+            <given-names>Chris</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>ctompkins@acceleratorcorp.com</email>
+        </contrib>
+        <contrib id="A3" contrib-type="author">
+          <name>
+            <surname>Brewer</surname>
+            <given-names>Jim</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>jbrewer@dynamac.com</email>
+        </contrib>
+        <contrib id="A4" contrib-type="author">
+          <name>
+            <surname>Ball</surname>
+            <given-names>Alexey</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>aball@ctiseattle.com</email>
+        </contrib>
+        <contrib id="A5" contrib-type="author">
+          <name>
+            <surname>Coon</surname>
+            <given-names>Mike</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>mcoon@ctiseattle.com</email>
+        </contrib>
+        <contrib id="A6" contrib-type="author">
+          <name>
+            <surname>Morris</surname>
+            <given-names>Valerie</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>valmorr@yahoo.com</email>
+        </contrib>
+        <contrib id="A7" contrib-type="author">
+          <name>
+            <surname>Waggoner</surname>
+            <given-names>David</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>wags@u.washington.edu</email>
+        </contrib>
+        <contrib id="A8" contrib-type="author">
+          <name>
+            <surname>Singer</surname>
+            <given-names>Jack W</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>jsinger@ctiseattle.com</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Cell Therapeutics, Inc., 201 Elliott Ave., W., Seattle, WA 98119, U.S.A</aff>
+      <pub-date pub-type="collection">
+        <year>2004</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>13</day>
+        <month>5</month>
+        <year>2004</year>
+      </pub-date>
+      <volume>3</volume>
+      <fpage>15</fpage>
+      <lpage>15</lpage>
+      <ext-link ext-link-type="uri" xlink:href="http://www.molecular-cancer.com/content/3/1/15"/>
+      <history>
+        <date date-type="received">
+          <day>31</day>
+          <month>12</month>
+          <year>2003</year>
+        </date>
+        <date date-type="accepted">
+          <day>13</day>
+          <month>5</month>
+          <year>2004</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2004 Leung et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</copyright-statement>
+        <copyright-year>2004</copyright-year>
+        <copyright-holder>Leung et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</copyright-holder>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>The expression of the rodent phosphoinositide-specific phospholipase C &#x3B4;-4 (PLC&#x3B4;4) has been found to be elevated upon mitogenic stimulation and expression analysis have linked the upregulation of PLC&#x3B4;4 expression with rapid proliferation in certain rat transformed cell lines. The human homologue of PLC&#x3B4;4 has not been extensively characterized. Accordingly, we investigate the effects of overexpression of human PLC&#x3B4;4 on cell signaling and proliferation in this study.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>The cDNA for human PLC&#x3B4;4 has been isolated and expressed ectopically in breast cancer MCF-7 cells. Overexpression of PLC&#x3B4;4 selectively activates protein kinase C-&#x3C6; and upregulates the expression of epidermal growth factor receptors EGFR/erbB1 and HER2/erbB2, leading to constitutive activation of extracellular signal-regulated kinases 1 and 2 (ERK1/2) pathway in MCF-7 cells. MCF-7 cells stably expressing PLC&#x3B4;4 demonstrates several phenotypes of transformation, such as rapid proliferation in low serum, formation of colonies in soft agar, and capacity to form densely packed spheroids in low-attachment plates. The growth signaling responses induced by PLC&#x3B4;4 are not reversible by siRNA.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>Overexpression or dysregulated expression of PLC&#x3B4;4 may initiate oncogenesis in certain tissues through upregulation of ErbB expression and activation of ERK pathway. Since the growth responses induced by PLC&#x3B4;4 are not reversible, PLC&#x3B4;4 itself is not a suitable drug target, but enzymes in pathways activated by PLC&#x3B4;4 are potential therapeutic targets for oncogenic intervention.</p>
+        </sec>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Background</title>
+      <p>Phosphoinositide-specific phospholipase C (PI-PLC) plays a role in the inositol phospholipid signaling by hydrolyzing phosphatidylinositol-4,5-bisphosphate (PIP<sub>2</sub>). This reaction produces two intracellular second messengers, inositol 1,4,5-trisphosphate (IP<sub>3</sub>) and diacylglycerol (DAG), which cause the increase of intracellular calcium concentration and the activation of protein kinase C (PKC), respectively [<xref ref-type="bibr" rid="B1">1</xref>-<xref ref-type="bibr" rid="B3">3</xref>]. In addition to hydrolyzing PIP<sub>2</sub>, PI-PLC can also utilize phosphatidylinositol (PI) or PI-4-phosphate as substrates.</p>
+      <p>The PLC family in murine or human species is comprised of 11 subtypes. On the basis of their structure, they have been divided into four classes, &#x3B2; (&#x3B2;1, 2, 3 and 4), &#x3B3; (&#x3B3;1 and 2), &#x3B4; (&#x3B4;1, 3 and 4), &#x3B5;, and &#x3B6; types. Positive regulation mechanisms of PLC by association with membrane receptors are well characterized in &#x3B2;- and &#x3B3;-type isozymes [<xref ref-type="bibr" rid="B2">2</xref>]. &#x3B2;-type isozymes are activated by the G<sub>&#x3B1; </sub>or G<sub>&#x3B2;&#x3B3; </sub>subunit released from heterotrimeric G<sub>&#x3B1;&#x3B2;&#x3B3; </sub>proteins after ligand stimulation. &#x3B3;-type isozymes are activated by the phosphorylation of specific tyrosine residues through the activation of receptor or nonreceptor tyrosine kinases. &#x3B5;-type enzymes possess both PLC and ras dependent guanine nucleotide exchange (RasGEF) activity. As such, PLC&#x3B5; may mediate the effects of G protein-coupled receptors through two divergent pathways involving PI hydrolysis as well as direct activation of the Ras/MAP kinase pathway [<xref ref-type="bibr" rid="B4">4</xref>-<xref ref-type="bibr" rid="B6">6</xref>]. PLC&#x3B6;, a sperm protein that shows similarity to a truncated PLC&#x3B4; with the pleckstrin homology (PH) domain deleted, is involved in the triggering of Ca<sup>++ </sup>oscillations in eggs [<xref ref-type="bibr" rid="B7">7</xref>]; however, it remains to be documented whether PLC&#x3B6; does have PLC enzymatic activity.</p>
+      <p>The regulation of &#x3B4;-type PLC activity is less understood; however, certain isoforms of &#x3B4;-type PLC such as &#x3B4;1 can be regulated through interaction with a dual function G-protein (G<sub>h</sub>) that also has transglutaminase activity [<xref ref-type="bibr" rid="B8">8</xref>,<xref ref-type="bibr" rid="B9">9</xref>]. Another &#x3B4;-type PLC isozyme known as PLC&#x3B4;4 has been implicated to have a key role in cell proliferation, as its mRNA is expressed in higher levels in regenerating liver than in normal resting liver and in tumor cells such as hepatoma and src-transformed cells than in non-transformed cells. Western blot analysis and immunohistochemical staining showed that the murine PLC&#x3B4;4 is predominantly present in nuclei with its expression level markedly induced by serum in serum-starved murine cells, whereas the amounts of PLC&#x3B2;1, PLC&#x3B3;1, and PLC&#x3B4;1 do not change significantly after serum stimulation [<xref ref-type="bibr" rid="B10">10</xref>]. The rat PLC&#x3B4;4 level has also been found to be markedly elevated in a fast proliferating hepatoma H3924A cell line comparing to a slow growing hepatoma H7795 line; however, immunohistochemical staining and western analysis of subcellular fractions show rat PLC&#x3B4;4 is mainly expressed in the cytoplasmic fraction [<xref ref-type="bibr" rid="B11">11</xref>]. These results suggest that PLC&#x3B4;4 is expressed in response to mitogenic stimulation and plays important roles in cell growth and tumorigenesis. Splice variants of rat PLC&#x3B4;4 with enzymatic PLC activities or with dominant-negative activity [<xref ref-type="bibr" rid="B12">12</xref>,<xref ref-type="bibr" rid="B13">13</xref>], and the promoter region of murine PLC&#x3B4;4 [<xref ref-type="bibr" rid="B14">14</xref>] have also been described. Gene knockout by homologous recombination shows PLC&#x3B4;4<sup>-/- </sup>sperms are not able to initiate the acrosome reaction required for egg fertilization [<xref ref-type="bibr" rid="B15">15</xref>].</p>
+      <p>Despite the extensive characterization of the murine or rat PLC&#x3B4;4 enzyme, the effect of overexpression of the human form of PLC&#x3B4;4 in cells has not been characterized. This paper reports the molecular cloning of human PLC&#x3B4;4 and examines the signaling pathways that are affected by ectopic expression of PLC&#x3B4;4 in human breast cancer MCF-7 cells.</p>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Human PLC&#x3B4;4 expression in normal and tumor tissues</title>
+        <p>Based on sequence homology with the rat PLC&#x3B4;4, we have assembled a full-length cDNA for human PLC&#x3B4;4. More recent search of the Genbank database showed the coding region of our human PLC&#x3B4;4 cDNA matches 100% with an annotated protein product from the Mammalian Gene Collection (GenBank# BC006355), suggesting no PCR errors were introduced during the assembly of our full length clone. Alignment of the PLC&#x3B4;4 cDNA sequence with human genome <ext-link ext-link-type="uri" xlink:href="http://genome.ucsc.edu/cgi-bin/hgGateway"/> shows PLC&#x3B4;4 gene to be located at chromosome 2q35 and contains 16 exons that span about 30 kbp. In addition to the full length PLC&#x3B4;4 clone, a splice variant of PLC&#x3B4;4, PLC&#x3B4;4b, with exons 7, 8, and 9 deleted was isolated, resulting in the introduction of a premature stop codon after amino acid residue 274. Scanning of protein motifs [<xref ref-type="bibr" rid="B16">16</xref>] within the human PLC&#x3B4;4 coding sequence identified a pleckstrin homology (PH) domain, EF-hand domains, PI-PLC-X and PI-PLC-Y catalytic domains, and a C2 domain that are commonly found in PLC&#x3B4; proteins, whereas PLC&#x3B4;4b contains only the coding regions for the PH and EF-hand domains (Figure <xref ref-type="fig" rid="F1">1</xref>). Northern blot analysis of normal tissues using human PLC&#x3B4;4 cDNA as a probe shows PLC&#x3B4;4 is most highly expressed in skeletal muscle and kidney tissues, and at moderate level in intestinal tissue (Figure <xref ref-type="fig" rid="F1">1</xref>, lower left panel). To assess the relative abundance of full length PLC&#x3B4;4 and splice variant PLC&#x3B4;4b, primers located upstream and downstream of the coding region for exons 7, 8, and 9 were used to detect PCR products generated from cDNA samples derived from various normal human tissues. For all tissues where full length PLC&#x3B4;4 (800 bp product) can be detected, the splice variant PLC&#x3B4;4b (300 bp product) can also be detected readily (Figure <xref ref-type="fig" rid="F1">1</xref>, lower right panel). To test whether PLC&#x3B4;4 may be differentially expressed in certain normal vs tumor cells, we examined the expression of PLC&#x3B4;4 using Cancer Profiling Arrays (BD Clontech, Palo Alto, CA) that contain hundreds of genetically matched cDNA pairs isolated from tumor and normal tissue samples (Figure <xref ref-type="fig" rid="F2">2</xref>). Consistent with data from Northern analysis, normal tissues from kidneys show the highest expression of PLC&#x3B4;4, and the moderate expression of PLC&#x3B4;4 in normal intestinal tissues can also be extended to stomach, colon, and rectal tissues from the rest of the alimentary tract. PLC&#x3B4;4 expression is found to be downregulated in a high percentage of these tumor tissues as well as in prostate, vulva, thyroid, skin, and pancreatic tissues, whereas PLC&#x3B4;4 expression is found to be upregulated in a high percentage (&gt;25%) of breast and testicular tumor tissues and in a low percentage (&lt;5%) of lung and uterine tumor tissues, when compared to the corresponding normal tissues.</p>
+        <fig position="float" id="F1">
+          <label>Figure 1</label>
+          <caption>
+            <p><bold>Linear map of hPLC&#x3B4;4 isoforms and expression in normal tissues</bold>. The top panel depicts linear map of the full length and an alternatively spliced form of hPLC&#x3B4;4 proteins. The dotted line refers to exons deleted, the triangle refers to intron inserted, and the stop signs refer to premature stop codons introduced as a result of alternative splicing. The lower panels show Northern blot (left panel) and PCR analysis (right panel) of PLC&#x3B4;4 expression in various normal tissues.</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-1"/>
+        </fig>
+        <fig position="float" id="F2">
+          <label>Figure 2</label>
+          <caption>
+            <p><bold>Cancer Profiling Array analysis of PLC&#x3B4;4 expression using genetically matched cDNA pairs derived from tumor and normal tissue samples</bold>. Nylon membranes containing cDNA samples derived from various matched tumor and normal tissues on Cancer Profiling Array I and II (Clontech, Palo Alto, CA) were hybridized in ULTRAhyb&#x2122; (Ambion, Austin, TX) with a 2000 bp PLC&#x3B4;4 coding fragment labeled with [&#x3B1;-<sup>32</sup>P]dCTP using a Strip-Ez labeling kit (Ambion, Austin, TX). Detailed description of each sample in Cancer Profiling Array I (left panel) and Cancer Profiling Array II (right panel) can be found at <ext-link ext-link-type="uri" xlink:href="http://www.bdbiosciences.com/clontech/products/families/Disease_Profiling/index.shtml"/>.</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-2"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Generation of human PLC&#x3B4;4 overexpressing MCF-7 cells</title>
+        <p>Since profiling of tissue arrays showed PLC&#x3B4;4 to be overexpressed in breast tumor tissues (Figure <xref ref-type="fig" rid="F2">2</xref>), PLC&#x3B4;4 was ectopically expressed in a breast cancer cell line of low tumorigenicity, MCF-7, to study whether PLC&#x3B4;4 overexpression would affect any transformation phenotypes of the cells. When using PIP<sub>2 </sub>(Figure <xref ref-type="fig" rid="F3">3</xref>, panel A) as the substrate, PLC&#x3B4;4 overexpressing clones in MCF-7 cell extracts show about 3 to 5 fold increase in PLC activity when compared to cells (~25 nmol/min/mg) transfected with a control vector expressing EGFP (Clonetech, Palo Alto, CA); whereas with PI as the substrate, PLC&#x3B4;4a overexpressing clones (Figure <xref ref-type="fig" rid="F3">3</xref>, panel B) show about 20 to 50 fold increase in PLC activity when compared to untransfected MCF-7 cells (~6 nmol/min/mg) or cells transfected with a control vector. These results show the human PLC&#x3B4;4 cDNA isolated does encode an active enzyme with PLC activity. The more substantial increase in activity when using PI as opposed to using PIP<sub>2 </sub>as the substrate may be due to the preference of human PLC&#x3B4;4 for PI over PIP<sub>2 </sub>and/or the preference of the endogenous PLC isoforms present in MCF-7 for PIP<sub>2 </sub>over PI. Similar to other PLCs, PLC&#x3B4;4 can therefore use both PI and PIP<sub>2 </sub>as substrates, although the preference for PIP<sub>2 </sub>to PI may vary from one PLC isoforms to another [<xref ref-type="bibr" rid="B17">17</xref>].</p>
+        <fig position="float" id="F3">
+          <label>Figure 3</label>
+          <caption>
+            <p><bold>PLC assays in PLC&#x3B4;4 overexpressing cells and expression of GFP-PH domain/PLC&#x3B4;4 fusion protein in MCF-7 cells</bold>. Assay of enzymatic activities of PLC&#x3B4;4 overexpressing clones in MCF-7 cell extracts were carried out using PIP2 (panel A) or PI (panel B) as the substrate. EGFP refers to cells transfected with a control vector expressing EGFP (Clonetech, Palo Alto, CA); MCF-7 refers to untransfected cells; #1, 2, 4, 5, 10, and 11 refer to activities derived from total cell extracts of independent isolates of PLC&#x3B4;4 overexpressing clones. #2 nuclei refers to activities derived from nuclear extracts of PLC&#x3B4;4 overexpressing clone #2. Assays were done in triplicates with error bars indicating &#xB1; standard deviation (SD). Fusion protein comprised of the PH domain of PLC&#x3B4;4 and GFP was localized mainly in the cytoplasmic region (panel C).</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-3"/>
+        </fig>
+        <p>Since the murine PLC&#x3B4;4 has been found to be expressed predominantly in nuclei [<xref ref-type="bibr" rid="B10">10</xref>], nuclear fraction from a PLC&#x3B4;4 overexpressing clone (Sample#2, Figure <xref ref-type="fig" rid="F3">3</xref>, panel B) was prepared to examine the distribution of PLC activity in nuclear vs whole cell extracts. The nuclear extract was found to contain about 1/3 of the total PLC activity when compared to whole cell extract, suggesting that, unlike murine PLC&#x3B4;4 [<xref ref-type="bibr" rid="B10">10</xref>] but similar to rat PLC&#x3B4;4 [<xref ref-type="bibr" rid="B11">11</xref>], human PLC&#x3B4;4 is mainly found in cytoplasmic fractions. The structure of the PH domain is the major factor that determines the subcellular localization of PLC [<xref ref-type="bibr" rid="B18">18</xref>,<xref ref-type="bibr" rid="B19">19</xref>]. Consistent with cytoplasmic location based on cell fractionation data, fusion protein with green fluorescent protein (GFP) linked to the PH domain of PLC&#x3B4;4 overexpressed in cells are associated with cytoplasmic membrane structures (Figure <xref ref-type="fig" rid="F3">3</xref>, panel C). GFP fusion constructs for PH domain of PLC&#x3B2;1 have also been found in cytoplasmic membranes [<xref ref-type="bibr" rid="B19">19</xref>], whereas that of PLC&#x3B4;1 have been found mainly in plasma membranes [<xref ref-type="bibr" rid="B18">18</xref>]. Including conservative amino acid changes, the matches between the PH domains of PLC&#x3B4;1 and PLC&#x3B4;4 exceed 80%, suggesting subtle changes in the PH domain can affect protein localization.</p>
+      </sec>
+      <sec>
+        <title>PLC&#x3B4;4 selectively activates protein kinase C-&#x3C6; in MCF-7 cells</title>
+        <p>Since DAG is a key lipid second messenger generated from hydrolysis of PI or PIP<sub>2 </sub>by PLC and protein kinase C (PKC) is the major family of proteins that are activated by DAG, we examined whether PLC&#x3B4;4 overexpression would lead to activation of PKCs in MCF-7 cells. Analysis of PKC activation (Figure <xref ref-type="fig" rid="F4">4</xref>, left panel) using a phospho-PKC (pan) antibody that can detect PKC&#x3B1;, &#x3B2;I, &#x3B2;II, &#x3B4;, &#x3B5;, or &#x3B7; isoforms when a serine near the carboxy-terminus is autophosphorylated showed some or all of these PKC isoforms were already activated in cells transfected with control vector, pCivirPu, and no enhancement of overall phosphorylation was detected in cells overexpressing PLC&#x3B4;4. Similarly, no enhancement of PKC phosphorylation was observed using an antibody specific for the detection of the subset of PKC&#x3B1; or PKC&#x3B2;<sub>II </sub>when thr638 or thr641 was phosphorylated respectively. On the contrary, PKC&#x3C6; was activated in all four independent isolated lines of PLC&#x3B4;4 overexpressing cells, whereas no phosphorylation was detected in vector control cells using an antibody specific for the detection of the PKC&#x3C6; when thr538 was phosphorylated. No consistent change in phosphorylation trend was seen between PLC&#x3B4;4 overexpressing cells and control cells when using an antibody specific for the detection of the subset of PKC&#x3B6; or PKC&#x3BB; when thr410 or thr403 was phosphorylated respectively, suggesting that the two outliers, one in the PLC&#x3B4;4 overexpressing samples and one in the vector samples, may represent clonal variations. Hence PKC&#x3C6; is the isoform of PKC that shows significant accentuation of activation in PLC&#x3B4;4 overexpressing MCF-7 cells. Another method to assess PKC activation is to follow the phosphorylation of serine in PKC substrates using an antibody specific for the consensus motif of PKC substrates that detects phosphorylated serineresidues when surroundedby Arg or Lys at the -2 and +2 positions anda hydrophobic residue at the +1 position in proteins. Samples from MCF-7 transfected with vector controls (Figure <xref ref-type="fig" rid="F4">4</xref>, right panel) showed two major phosphorylated bands, whereas PLC&#x3B4;4 overexpressing cells showed a few additional weak phosphorylated bands, consistent with the data that only a limited subset of PKCs are activated with PLC&#x3B4;4 overexpression.</p>
+        <fig position="float" id="F4">
+          <label>Figure 4</label>
+          <caption>
+            <p><bold>Overexpression of PLC&#x3B4;4 selectively activates PKC-&#x3C6; in MCF-7 cells</bold>. Western blot analysis of MCF-7 cell extracts derived from independent isolates overexpressing PLC&#x3B4;4 and isolates transfected with control vectors using antibodies against various isoforms of phospho-PKC (left panel) and against the phosphorylated motif of PKC substrates (right panel). Antibodies were from Cell Signaling Technology (Beverly, MA). Blotting was done using the ECL Plus&#x2122; detection reagents from Amersham Biosciences (Piscataway, NJ).</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-4"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Constitutive activation of extracellular signal-regulated kinase (ERK) pathway in PLC&#x3B4;4 overexpressing cells</title>
+        <p>To determine whether PLC&#x3B4;4 overexpression and/or PKC&#x3C6; activation would affect signal transdutions pathways essential for cell proliferation in MCF-7 cells, phospho-specific antibodies against various key kinases were used to assess the activation of multiple pathways. Analysis of Erk1/2 or p44/42 MAPK activation (Figure <xref ref-type="fig" rid="F5">5</xref>) using an antibody specific for dually phosphorylated Erk1/2 at Thr202 and Tyr204 showed Erk1/2 was activated in all four independent isolated lines of PLC&#x3B4;4 overexpressing cells, whereas little phosphorylation was detected in vector control cells. The increase in activated Erk1/2 in PLC&#x3B4;4 overexpressing cells is due to modifications in protein phosphorylation rather than to change in Erk1/2 proteins level, as similar levels of expression were found using an antibody for the detection of total levels of endogenous Erk1/2 proteins in all samples. Similarly, kinases upstream of the Erk signaling pathway such as MAPK or Erk kinases (MEK1/2) as well as downstream of the Erk pathway such as such as the 90 kDa ribosomal S6 kinase (p90RSK) were also activated in PLC&#x3B4;4 overexpressing cells based on western blot analysis with antibodies specific for MEK1/2 when phosphorylated at Ser217/221 and for p90RSK when phosphorylated at Thr359/Ser363. On the contrary, key proteins, such as stress activated protein kinase (SAPK) or Jun-N-terminal kinase (JNK), the 38 kDa mitogen activated kinase (p38 MAPK), and Akt or protein kinase B, involved in two alternative mitogen activated protein kinases (MAPK) pathways and the phosphoinositide-3-phosphate kinase (PI3K) pathway, respectively, showed no change in activation in PLC&#x3B4;4 overexpressing cells based on western blot analysis with antibodies specific for p46 and 54 SAPK when dually phosphorylated at Thr183/Tyr185, for p38 MAPK when dually phosphorylated at Thr180/Tyr182, and for Akt when phosphorylated at Ser473. Hence PLC&#x3B4;4 overexpression selectively activates the Erk or the p44/42 MAPK pathway constitutively with minimal effects on the SAPK/JNK, the p38 MAPK, and the PI3K pathways.</p>
+        <fig position="float" id="F5">
+          <label>Figure 5</label>
+          <caption>
+            <p><bold>Overexpression of PLC&#x3B4;4 activates Erk1/2 pathway in MCF-7 cells</bold>. Western blot analysis of MCF-7 cell extracts derived from 4 independent isolates overexpressing PLC&#x3B4;4 (left 4 lanes) and 2 isolates transfected with control vectors (right 2 lanes) using antibodies against various phosphorylated forms of kinases and non-phosphorylated Erk1/2. Antibodies were from Cell Signaling Technology (Beverly, MA). Blotting was done using the ECL Plus&#x2122; detection reagents from Amersham Biosciences (Piscataway, NJ).</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-5"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Upregulation of EGFR/ErbB1 and HER2/ErbB2 in PLC&#x3B4;4 overexpressing cells</title>
+        <p>In breast cancer, the hyperactivation of the Erk pathway is often associated with the upregulation of EGFR expression and the downregulation of estrogen receptor (ER&#x3B1;) expression [<xref ref-type="bibr" rid="B20">20</xref>,<xref ref-type="bibr" rid="B21">21</xref>]. Accordingly, we examined the expression levels of EGFR and ER&#x3B1; in PLC&#x3B4;4 overexpressing MCF-7 cells. Analysis of ER&#x3B1; expression and ER&#x3B1; activation (Figure <xref ref-type="fig" rid="F6">6</xref>) using an antibody specific for ER&#x3B1; protein and an antibody specific for ER&#x3B1; phosphorylated at Ser167 showed no significant differences between PLC&#x3B4;4 overexpressing cells and vector control cells after adjusting for samples loading differences using the amount of heat shock protein 90 (Hsp90) detected as loading controls. On the contrary, analysis of EGFR/erbB1 total protein level or EGFR activation using antibodies specific for EGFR protein or for EGFR phosphorylated at Tyr992 and/or Tyr1068 showed both EGFR overall protein level and the phosphorylated forms of EGFR were substantially elevated in all four independent isolated lines of PLC&#x3B4;4 overexpressing cells, whereas little EGFR and phosphorylated EGFR were detected in all five independent isolated lines of vector control cells and in untransfected MCF-7 cells. As similar extents of elevation were found for both EGFR and the phosphorylated forms of EGFR, it is likely that PLC&#x3B4;4 overexpression upregulates EGFR at the genomic or at the transcriptional level rather than at the post-translational modification level.</p>
+        <fig position="float" id="F6">
+          <label>Figure 6</label>
+          <caption>
+            <p><bold>Overexpression of PLC&#x3B4;4 upregulates ErbB1/2 but does not affect ER-&#x3B1; in MCF-7 cells</bold>. Western blot analysis of MCF-7 cell extracts derived from 2 untransfected samples (left 2 lanes), 4 independent isolates overexpressing PLC&#x3B4;4 and 5 isolates transfected with control vectors (right 5 lanes) using antibodies against Hsp90 (Biosource International, Camarillo, CA), various non-phosphorylated and phosphorylated forms of ER-&#x3B1; and EGFR (Cell Signaling Technology, Beverly, MA), and non-phosphorylated ErbB2 (Upstate Cell Signaling Solutions, Charlottsville, VA). Blotting was done using the ECL Plus&#x2122; detection reagents from Amersham Biosciences (Piscataway, NJ).</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-6"/>
+        </fig>
+        <p>EGFR can also form heterodimers with other members of erbB receptors such as the ligand-less erbB2 to promote tumor progression [<xref ref-type="bibr" rid="B22">22</xref>]. ErbB2/HER2 is overexpressed in 20%&#x2013;30% of breast and ovarian cancer patients and is associated with aggressive tumor characteristics and poor prognosis. Analysis of erbB2 total protein level with anti-erbB2 showed erbB2 protein levels were also elevated in all four independent isolated lines of PLC&#x3B4;4 overexpressing cells, whereas little ErbB2 was detected in all five independent isolated lines of vector control cells and in untransfected MCF-7 cells.</p>
+      </sec>
+      <sec>
+        <title>PLC&#x3B4;4 overexpression enhances MCF-7 cells proliferation in low serum, colonies formation in soft agar, and spheroid density on hydrogel</title>
+        <p>To assess whether PLC&#x3B4;4 overexpression in cells would lead to certain phenotypic changes that are commonly observed in transformed cells, the growth characteristics in low serum (0.5%) of MCF-7 cell lines overexpressing PLC&#x3B4;4 and of lines transfected with vector control were compared. All three independent lines of MCF-7 cells carrying the vector overexpressing PLC&#x3B4;4 have a higher proliferation rate than that of the parental MCF-7 cell line and those of the three vector control lines (Figure <xref ref-type="fig" rid="F7">7</xref>), despite any apparent growth disadvantage of cells carrying the control vector when compared to untransfected cells.</p>
+        <fig position="float" id="F7">
+          <label>Figure 7</label>
+          <caption>
+            <p><bold>PLC&#x3B4;4 overexpressing cells enhance cell proliferation in low (0.5%) serum</bold>. 3 independent isolates overexpressing PLC&#x3B4;4 were designated as &#x3B4;4.14, &#x3B4;4.15, and &#x3B4;4.16; 3 isolates transfected with control vectors as vect.2, vect.4, and vect.5; and untransfected cells as MCF-7. Cell proliferation assays were performed using the CellTiter 96<sup>&#xAE; </sup>AQ<sub>ueous </sub>One Solution (Promega, Madison, WI) in triplicates with error bars indicating &#xB1; SD.</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-7"/>
+        </fig>
+        <p>Another common division abnormality of cancer cells is their capacity to grow with less anchorage dependency and to divide when held in suspension without attachment or with minimal attachment to a rigid surface. This can either be assayed by the propensity of a given cell line to form colonies in soft agar or to form dangling spheroids on top of Costar<sup>&#xAE; </sup>Ultra-Low Attachment Clusters plate surface made up of a neutrally charged hydrogel layer, as the presence of soft agar or hydrogel at the bottom of the culture dish eliminates or minimizes cell contact with the tissue culture plate surface conducive for cell attachment. MCF-7 cells overexpressing PLC&#x3B4;4 can form colonies in soft agar (21 &#xB1; 3 colonies at an initial plating density of 10<sup>5 </sup>cells/ml), whereas cells transfected with the control vector do not form colonies when seeded at similar densities (Figure <xref ref-type="fig" rid="F8">8</xref>). Although untransfected MCF-7 cells, vector control cells, and PLC&#x3B4;4 overexpressing cells can all form dangling spheroids on hydrogel layers, the spheroids from PLC&#x3B4;4 overexpressing cells appear to be more densely packed as evidenced by their more opaque structure under the light microscope (Figure <xref ref-type="fig" rid="F9">9</xref>). These data suggest that PLC&#x3B4;4 overexpression may contribute to a transformation phenotype by promoting both anchorage dependent and independent cell growth.</p>
+        <fig position="float" id="F8">
+          <label>Figure 8</label>
+          <caption>
+            <p><bold>PLC&#x3B4;4 overexpressing cells form colonies in soft agar</bold>. The cells were plated at 1 &#xD7; 10<sup>5 </sup>cells/ml in 6-well plates containing RPMI 1640 with 0.35% agar, 5% FBS, 10% tryptose phosphate broth, 100 nM 17-&#x3B2;-estradiol. The picture was taken on day 10 with 40&#xD7; magnification. Samples were plated on duplicate wells. The two numbers separated by a slash mark shown at the lower right-hand corner of each panel represent the total number of colonies scored in each of the two wells.</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-8"/>
+        </fig>
+        <fig position="float" id="F9">
+          <label>Figure 9</label>
+          <caption>
+            <p><bold>PLC&#x3B4;4 overexpressing cells form more densely packed spheroids</bold>. Cells were grown in Costar<sup>&#xAE; </sup>Ultra-Low Attachment Clusters Plates (Corning, Acton, MA) in RPMI supplemented with 10% FBS. The pictures were taken on day 5 with 40&#xD7; magnification.</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-9"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>The induction of growth signaling response is not reversible by siRNA specific for PLC&#x3B4;4</title>
+        <p>To test whether PLC&#x3B4;4 is a druggable cancer target of which its effects on growth signaling can be reversed by a specific inhibitor for PLC&#x3B4;4, we introduced siRNA into a cell line (PLC&#x3B4;4-16) overexpressing PLC&#x3B4;4 to see if there is any attenuation of signal responses. Western blottings show the expression levels of PLC&#x3B4;4 in the lysates of overexpressing cells were reduced almost down to those of vector control cells using any three of the siRNAs specific for PLC&#x3B4;4 (Figure <xref ref-type="fig" rid="F10">10</xref>, &#x3B4;4.1, 2 or 3), whereas scrambled siRNA or siRNA specific for lamin A/C had no effect on PLC&#x3B4;4 level. As expected, siRNAs for PLC&#x3B4;4 had little effect on total Erk1/2 and Hsp90 level and siRNA for Lamin A/C knocked down only the level of Lamin C. Unexpectedly, &#x3B2;-actin and Lamin C were elevated in PLC&#x3B4;4 overexpressing cells compared to vector control cells. Although frequently regarded as a housekeeping gene or an innocuous gene for siRNA control, respectively, &#x3B2;-actin and Lamin C can be upregulated in certain rapidly proliferating cells [<xref ref-type="bibr" rid="B23">23</xref>,<xref ref-type="bibr" rid="B24">24</xref>]. As determined previously, both ErbB1 expression level and Erk1/2 phosphorylation were elevated in PLC&#x3B4;4 overexpressing cells compared to vector control cells; however, no reduction in these two growth signaling responses could be detected in the presence of PLC&#x3B4;4 siRNAs despite &gt;80% knockdown of PLC&#x3B4;4 expression. Hence it is not possible to reverse the transformation phenotype induced by PLC&#x3B4;4 using siRNA.</p>
+        <fig position="float" id="F10">
+          <label>Figure 10</label>
+          <caption>
+            <p><bold>PLC&#x3B4;4 siRNAs knock down PLC&#x3B4;4 expression but do not affect the upregulation of EGFR and the activation of Erk1/2</bold>. SiRNAs against varaious targets were obtained from Dharmacon Research (Lafayette, CO). See Methods section for sequence specifics and siRNA transfection procedure. Anti-PLC&#x3B4;4 polyclonal antibodies raised in rabbits immunized with a synthetic peptide WEQQQTMARHLTEI corresponding to amino acids 390&#x2013;402 of human PLC&#x3B4;4 were obtained from Covance Research Products (Berkeley, CA). Antibodies against phosphorylated and non-phosphorylated Erk1/2, EGFR, and Lamin A/C were from Cell Signaling Technology (Beverly, MA). Hsp90 antibodies were from Biosource International (Camarillo, CA). &#x3B2;-actin antibodies were from Santa Cruz Biotechnology (Santa Cruz, CA). Western blot analyses were performed using the ECL Plus&#x2122; detection reagents from Amersham Biosciences (Piscataway, NJ).</p>
+          </caption>
+          <graphic xlink:href="1476-4598-3-15-10"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>The expression of the rodent phosphoinositide-specific phospholipase C &#x3B4;-4 (PLC&#x3B4;4) has been found to be elevated upon serum stimulation in Swiss 3T3 cells and Northern blot analysis have linked the upregulation of PLC&#x3B4;4 expression with rapid proliferation in hepatocytes and with oncogenic transformation in certain rodent cell lines [<xref ref-type="bibr" rid="B10">10</xref>], suggesting that PLC&#x3B4;4 may be an enzyme target for oncogenic intervention. Accordingly, we have isolated the cDNA for human PLC&#x3B4;4 to probe the expression of PLC&#x3B4;4 using northern blot and cDNA expression panel derived from normal tissues (Figure <xref ref-type="fig" rid="F1">1</xref>) and Cancer Profiling Arrays (BD Clontech, Palo Alto, CA) derived from genetically matched cDNA pairs isolated from various tumor and normal tissue samples (Figure <xref ref-type="fig" rid="F2">2</xref>). The truncated splice variant of PLC&#x3B4;4, PLC&#x3B4;4b, was found to expressed in the same tissues where full length PLC&#x3B4;4 could be detected (Figure <xref ref-type="fig" rid="F1">1</xref>, lower right panel), consistent with the recent discovery of widespread use of a mechanism that coupled alternative splicing with a premature stop codon for the downregulation of a transcript through nonsense-mediated mRNA decay [<xref ref-type="bibr" rid="B25">25</xref>]. A somewhat analogous splice variant with premature stop codon has been isolated for rat PLC&#x3B4;4 with dominant-negative activity [<xref ref-type="bibr" rid="B13">13</xref>]; however, coexpression of human PLC&#x3B4;4 along with PLC&#x3B4;4b has not led to significant reduction of PLC activity in MCF-7 cells in our hands (data not shown) possibly due to subtle differences between the human and the rat sequences. Though PLC&#x3B4;4 expression was found to be downregulated in the majority of tumor tissues, it was found to be upregulated in a high percentage (&gt;25%) of breast and testicular tumor tissues. The overexpression of PLC&#x3B4;4 in testicular tumor is of interest, as the only observed phenotype in PLC&#x3B4;4<sup>-/- </sup>mice is having defective sperms [<xref ref-type="bibr" rid="B15">15</xref>], suggesting PLC&#x3B4;4 plays an important role in testis and that deregulation of PLC&#x3B4;4 expression in testis can lead to oncogenesis. With the exceptions of a few universal tumor antigens such as telomerase, survivin, mdm2, cytochrome P450 1B1 [<xref ref-type="bibr" rid="B26">26</xref>] and sphingosine kinase 1 [<xref ref-type="bibr" rid="B27">27</xref>] that are overexpressed in most tumor tissues, the differential overexpression of PLC&#x3B4;4 in selected tumor tissues is consistent with the expression pattern of most individual oncogenes, where overexpression is only found in restricted tissues as opposed to all tumor tissues, despite the fact that various tumor tissues do share a common cluster of overexpressed genes related to cell cycling and DNA replication [<xref ref-type="bibr" rid="B28">28</xref>]. Hence experiments in addition to expression profiling are required to determine whether PLC&#x3B4;4 is a gene with oncogenic potential.</p>
+      <p>We have studied the effects of overexpression of human PLC&#x3B4;4 on cell signaling and proliferation in this study. MCF-7, a breast cancer cell line of low tumorigenicity, was chosen for ectopic expression of PLC&#x3B4;4, since profiling of tissue arrays showed PLC&#x3B4;4 can be overexpressed in breast tumor tissues (Figure <xref ref-type="fig" rid="F2">2</xref>). Constitutive overexpression of PLC&#x3B4;4 selectively activates protein kinase C-&#x3C6; (Figure <xref ref-type="fig" rid="F4">4</xref>, left panel), whereas the activation states of all other isoforms of PKC studied are not affected by PLC&#x3B4;4 overexpression based on using phospho-specific PKC isoform-specific antibodies. The data is consistent with results from another phospho-specific antibody against the consensus motif of PKC substrates, showing slight enhancement of phosphorylation of PKC substrates with PLC&#x3B4;4 overexpression (Figure <xref ref-type="fig" rid="F4">4</xref>, right panel).</p>
+      <p>Using antibodies that target signaling pathways for cell proliferation, we have found that PLC&#x3B4;4 overexpression leads to constitutive activation of extracellular signal-regulated kinases 1 and 2 (ERK1/2) pathway in MCF-7 cells (Figure <xref ref-type="fig" rid="F5">5</xref>) and of kinases both upstream and downstream of the Erk signaling pathway such as Erk kinases (MEK1/2) and the 90 kDa ribosomal S6 kinase (p90RSK), whereas key proteins involved in two alternative MAPK pathways and the PI3K pathway, such as SAPK/JNK, p38 MAPK, and Akt, respectively, showed no change in activation in PLC&#x3B4;4 overexpressing cells. PLC&#x3B4;4 overexpression also upregulates the expression of epidermal growth factor receptors EGFR/erbB1 and HER2/erbB2 in MCF-7 cells (Figure <xref ref-type="fig" rid="F6">6</xref>). Of the four ErbB isoforms, cells co-expressing ErbB1 and ErbB2 have been found to be the most aggressive in forming tumors in mice [<xref ref-type="bibr" rid="B29">29</xref>]. Though upregulation of EGFR expression is often associated with the downregulation of estrogen receptor (ER&#x3B1;) expression in breast cancer cells [<xref ref-type="bibr" rid="B20">20</xref>,<xref ref-type="bibr" rid="B21">21</xref>], no significant change was found in ER&#x3B1; expression in PLC&#x3B4;4 overexpressing MCF-7 cells (Figure <xref ref-type="fig" rid="F6">6</xref>). Since both EGFR transcription [<xref ref-type="bibr" rid="B21">21</xref>,<xref ref-type="bibr" rid="B30">30</xref>] and ErbB2 expression [<xref ref-type="bibr" rid="B31">31</xref>] have been found to be upregulated by phorbol ester, it is possible that the DAG generated from PLC&#x3B4;4 overexpression may activate selective PKCs such as PKC-&#x3C6;, leading to enhancement of EGFR and ErbB2 gene transcription and activation of the Erk signaling pathway.</p>
+      <p>We have examined several cell growth parameters to determine whether enhancement of ErbB1/2 expression and activation of Erk pathway in PLC&#x3B4;4 overexpressing MCF-7 cells can be translated into a more proliferative state of cell growth. MCF-7 cells stably expressing PLC&#x3B4;4 demonstrate several phenotypes of transformation; namely, enhanced rate of proliferation and saturating cell density in low serum (Figure <xref ref-type="fig" rid="F7">7</xref>), improved efficiency in forming colonies in soft agar (Figure <xref ref-type="fig" rid="F8">8</xref>), and capacity to form more densely packed spheroids in low-attachment plates (Figure <xref ref-type="fig" rid="F9">9</xref>). These data suggest that PLC&#x3B4;4 overexpression may contribute to a transformation phenotype by promoting both anchorage dependent and independent cell growth.</p>
+      <p>A criterion for validation and selection of new drug targets is to determine whether there is evidence of the reversal of the transformation phenotype using genetic means or drug leads. We have been able to knock down the expression of PLC&#x3B4;4 in PLC&#x3B4;4 overexpressing cells by transfecting siRNAs specific for PLC&#x3B4;4 sequences (Figure <xref ref-type="fig" rid="F10">10</xref>); however, no reduction in ErbB1 expression level and Erk1/2 phosphorylation in PLC&#x3B4;4 overexpressing cells in the presence of siRNA could be detected. The growth signaling responses induced by PLC&#x3B4;4 are hence not reversible by siRNA. The inability for siRNAs for PLC&#x3B4;4 to knock down growth signaling responses suggests PLC&#x3B4;4 may play a role in the initiation of carcinogenesis by inducing other genetic changes, as a neoplastic state can sometimes be irreversible by becoming independent of the initiating oncogenic event through induction of genome destabilization. For instance, even transient induction of <italic>MYC </italic>activity was able to sustain tumorigenesis in certain cell types [<xref ref-type="bibr" rid="B32">32</xref>]. Overexpression of ErbB2, a receptor induced by PLC&#x3B4;4 (Figure <xref ref-type="fig" rid="F6">6</xref>), has also been associated with genetic instability in cells [<xref ref-type="bibr" rid="B33">33</xref>]. These results suggest that PLC&#x3B4;4 per se may be a difficult target to be manipulated with drugs, and the sites for intervention may lie instead on other enzyme targets in pathways activated by PLC&#x3B4;4, such as the ErbB receptors and the Ras/Raf/MAP kinase cascade. The validation of some these targets has been confirmed with two approved drugs, Herceptin<sup>&#xAE; </sup>specific for ErbB2 and Iressa<sup>&#xAE; </sup>for EGFR tyrosine kinase, with numerous inhibitors for the ErbB receptor family in clinical trials [<xref ref-type="bibr" rid="B34">34</xref>], and with the studies of Raf inhibitor BAY 37-9751 and MEK inhibitor CI-1040 along the ERK pathway in clinical trials [<xref ref-type="bibr" rid="B35">35</xref>].</p>
+      <p>As activation of ErbB can activate another isoform of PLC, PLC&#x3B3; [<xref ref-type="bibr" rid="B2">2</xref>], it is also possible that activation PLC&#x3B3; may compensate for the knockdown of PLC&#x3B4;4 by siRNA and that compounds capable of inhibiting multiple isoforms of PLC may be more suitable for oncogenic intervention. A black-box approach can also be used to screen for compounds by high throughput screening that would inhibit growth signaling responses induced by PLC&#x3B4;4 with differential cytotoxcity in PLC&#x3B4;4 overexpressing MCF-7 cells versus matched vector control cells. The use of human engineered tumor cells has been successful in identifying new as well as classical genotype-selective anti-tumor compounds [<xref ref-type="bibr" rid="B36">36</xref>].</p>
+    </sec>
+    <sec>
+      <title>Conclusions</title>
+      <p>Overexpression or dysregulated expression of PLC&#x3B4;4 may initiate oncogenesis in certain tissues through upregulation of ErbB expression and activation of ERK pathway. PLC&#x3B4;4 can therefore be a useful tumor marker for breast or testicular cancer tissues. Since the growth signaling responses induced by PLC&#x3B4;4 are not reversible by siRNA, a surrogate for a PLC&#x3B4;4-specific inhibitor, PLC&#x3B4;4 itself is probably not a suitable drug target for development, but enzymes in pathways activated by PLC&#x3B4;4 are potential therapeutic targets for oncogenic intervention. Alternatively, a black-box approach can be used to screen compounds with differential cytotoxcity in PLC&#x3B4;4 overexpressing MCF-7 cells.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Isolation of human PLC&#x3B4;4 cDNA</title>
+        <p>Search of the Genbank database [<xref ref-type="bibr" rid="B37">37</xref>] of expressed sequence tag (dbEST) using the rat PLC&#x3B4;4 protein sequences [<xref ref-type="bibr" rid="B12">12</xref>] as probe identified an I.M.A.G.E. Consortium [LLNL] cDNA clone (GenBank# AI366170), pBSK-D4, isolated from a human oligodendroglioma library containing an insert of ~2500 bp with three separate stretches of sequences containing extensive homology to the rat PLC&#x3B4;4 coding sequence. These three coding regions do not share a common reading frame and is most likely derived from a spurious splice variant of human PLC&#x3B4;4 with exons deletion and intron insertion in two separate areas. This cDNA clone thus codes for a truncated PLC&#x3B4;4 containing the first 258 amino acids of full-length PLC&#x3B4;4 with another 16 amino acids and a termination codon added at the C-terminal end as a result of exons deletion.</p>
+        <p>To isolate a human PLC&#x3B4;4 cDNA encoding an active PLC enzyme, PCR primers, oD4-2f, 5'-AGACACGTCC CAGTCTGGAA CC-3', and oD4-2r, 5'-CTGCTTCCTC TTCCTCATAT TC-3' (Qiagen, Alameda, CA) with sequences, respectively, corresponding to the coding strand upstream of a Eco RI site and to the complementary strand downstream of a unique Hpa I site were used to screen cDNAs derived from various human cell lines to identify PCR products that are longer (due to insertion of additional exons) than the product (expected to be ~300 bp) when using pBSK-D4 as the template. Templates from cDNAs derived from CA-HPV-10, Capan-1, Hs.7661, MiaPaCa, A549, MDA-MB-231, Panc-1, NCI-H460, LnCaP, MCF-7, and HNMEC cells all gave PCR products of ~800 bp upon amplification. The human normal mammary epithelial cells (HNMEC) was fron Clonetics (Walkersville, MD), whereas the rest of the cell lines were from American Type Culture Collection (Manassas, VA). The ~800 bp PCR product was then cleaved with Eco RI and Hpa I to generate a ~730 bp fragment for ligating into the vector pBSK-D4 that had been cleaved with Eco RI and Hpa I for the generation of the plasmid pBSK-D43X. DNA sequence analysis shows the cDNA insert in pBSK-D43X contains an additional ~500 bp region with extensive homology to the rat PLC&#x3B4;4 sequence not found within the insert in pBSK-D4. pBSK-D43X lacked the 5'-end region of PLC&#x3B4;4 cDNA upstream of Ecor RI, as the ~840 bp Eco RI fragment that spans the Eco RI site found in the 5'-cDNA adaptor sequence and the internal Eco RI site found in the PLC&#x3B4;4 coding region was removed during preparation of the Eco RI/Hpa I pBSK-D4 vector.</p>
+        <p>Separately, PCR primers with sequences corresponding to the coding strand upstream of Hpa I of pBSK-D4, oD4-3f, 5'-CTGGTGAAGG GGAAGAAGTT A-3', and to the complementary strand downstream of Bgl II, oD4-3r, 5'-TGTCTAGACG AACGCCAAAG AT-3' were used to screen cDNAs derived from human cell lines to identify PCR products that are ~300 bp shorter (due to removal of a putative intron sequence) than the product (~1050 bp) when using pBSK-D4 as the template. A PCR product of ~700 bp was detected from cDNA template derived from CA-HPV-10 cells. The ~700 bp PCR product was then cleaved with Hpa I and Bgl II to generate a ~670 bp fragment for ligating into the vector pBSK-D43X that had been cleaved with Hpa I and Bgl II for the generation of the plasmid pBSK-D43X1. DNA sequence analysis shows the cDNA insert in pBSK-D43X contains extensive homology to the rat PLC&#x3B4;4 sequence.</p>
+      </sec>
+      <sec>
+        <title>Construction of vectors for expression of human hPLC&#x3B4;4 in mammalian cells</title>
+        <p>To assemble a full-length human PLC&#x3B4;4a cDNA for expression study, a ~600 bp Nhe I - Eco RI fragment was isolated from digestion with Nhe I + Eco RI of the ~2200 bp PCR product generated by amplification from the template pBSK-D4 using the primers oD4-1f, 5'-GTGATCTGGT GCTAGCTGGT GGAAC-3' and oD4-1r, 5'-ACACCAATGC ATTCCCGTGA AATGCCCACC-3'; and a ~1700 bp Eco RI - Nsi I fragment isolated from digestion with Eco RI + Nsi I of the ~1770 bp PCR product generated by amplification from the template pBSK-D43X1 using the primers oD4-2f and oD4-1r were combined and inserted into the pCivIrPu vector that had been cleaved with Nhe I and Nsi I via a three-part ligation for the generation of the plasmid pPuroD4F. pCivIrPu is derived from the plasmids pIRESpuro (Clonetech, Palo Alto, CA) and pCIneo (Promega, Madison, WI). Specifically, the 980 bp Spe I - Not I fragment from pCIneo was inserted into the cloning vector pSL1180 (Amersham Pharmacia, Piscataway, NJ) between the restriction sites Spe I and Not I to generate pSLCI. The 1000 bp Spe I - Nsi I fragment from pSLCI was then isolated for insertion into the vector pIRESpuro between the restriction sites Spe I and Nsi I to generate pCivIrPu.</p>
+        <p>To determine whether the human hPLC&#x3B4;4a cDNA sequence encodes a protein with phospholipase c (PLC) activity, the plasmid pPuroD4F was stably transfected into MCF-7 cells (American Type Culture Collection, Manassas, VA) to generate puromycin-resistant clones. Specifically, pPuroD4F was digested with BspH I before electroporating into these cell lines with a Cell-Porator&#x2122; (Life Technologies, Gaithersburg, MD) using conditions described previously [<xref ref-type="bibr" rid="B38">38</xref>]. After adherence of the transfected cells 48 hours later, the cells were grown in the presence of 1.0 &#x3BC;g/ml puromycin to select for cells that had incorporated the plasmid.</p>
+      </sec>
+      <sec>
+        <title>Construction of vectors for expression of GFP-PH/PLC&#x3B4;4 fusion proteins in mammalian cells</title>
+        <p>Coding region corresponding to the PH domain of PLC&#x3B4;4 splice variant were amplified with PCR primers oPHd4_1f, 5'-GCGCAGCGAA TTCATGGCGT CCCTGCTGCA AGAC-3' and o oPHd4_1r, 5'-GATCTAGTGT CGACCCAAGA TCCACCAACA GCTGGAG-3' to generate a 400 bp fragment. The fragment was then cleaved with EcoR I and Sal I to generate a 390 bp fragment for insertion between the EcoR I and Sal I sites of pEGFP-n1 (Clontech, Palo Alto, CA) for generation of pPHd4GFP, an expression plasmid for fusion protein containing the PH domain of PLC&#x3B4;4 upstream of GFP.</p>
+      </sec>
+      <sec>
+        <title>Cell culture</title>
+        <p>Cell culture reagents were from Invitrogen (Carlsbad, CA). Human tumor cell lines were from the American Type Culture Collection (Manassas, VA). MCF-7, MCF-7 cells stably overexpressing PLC&#x3B4;4, or MCF-7 cells transfected with control vector were grown in RPMI supplemented with 10% FBS. Spheroids were grown on Costar<sup>&#xAE; </sup>Ultra-Low Cluster Plates (Corning, Acton, MA) in RPMI supplemented with 10% FBS. Cell proliferation assays were performed using the CellTiter 96<sup>&#xAE; </sup>AQ<sub>ueous </sub>One Solution (Promega, Madison, WI). For colonies grow in soft agar, cells in soft agar colony assay were cultured in 6-well plates containing 10<sup>4 </sup>or 10<sup>5 </sup>cells/well in RPMI 1640 with 0.35% agar, 5% FBS, 10% tryptose phosphate broth, 100 nM 17-&#x3B2;-estradiol. The plates were incubated for 10 days, after which the cultures were inspected and photographed.</p>
+      </sec>
+      <sec>
+        <title>Antibodies</title>
+        <p>Phospho-PKC (pan), phospho-PKC&#x3B1;/&#x3B2;II (Thr638/641), phospho-PKC&#x3C6; (Thr538), phosphoPKC&#x3B6;/&#x3BB; (Thr410/403), phospho-MEK1/2 (Ser217/221), phospho-Erk1/2 (Thr202/183+Tyr204/185), total Erk1/2, phospho-p90RSK (Thr359+Ser363), phospho-SAPK p54/p46 (Thr183+Tyr185), phospho-p38 MAPK (Thr180+Tyr182), phospho-Akt (Ser473), total ER-&#x3B1;, phospho-ER-&#x3B1; (Ser167), total EGFR, phospho-EGFR (Tyr992), phospho-EGFR (Tyr1068), phospho-(Ser) PKC substrate and Lamin A/C antibodies were from Cell Signaling Technology (Beverly, MA). Hsp90 antibodies were from Biosource International (Camarillo, CA). HER-2 antibodies were from Upstate Cell Signaling Solutions (Charlottsville, VA). &#x3B2;-actin antibodies were from Santa Cruz Biotechnology (Santa Cruz, CA). Polyclonal antibodies raised in rabbits immunized with a synthetic peptide WEQQQTMARHLTEI corresponding to amino acids 390&#x2013;402 of human PLC&#x3B4;4 were obtained from Covance Research Products (Berkeley, CA). Western blot analyses were performed using the ECL Plus&#x2122; detection reagents from Amersham Biosciences (Piscataway, NJ).</p>
+      </sec>
+      <sec>
+        <title>Assay of phospholipase C activity in PLC&#x3B4;4 overexpressing cells</title>
+        <p>Puromycin-resistant clones were randomly selected to check for PLC activity in cell extracts using a assay that measures the conversion of radiolabeled PIP<sub>2 </sub>or PI to DAG and IP<sub>3 </sub>or inositol-1-phosphate (Ins(1)P). To prepare cell extracts for assay, cells from plates were scraped into PBS + protease inhibitors. These cells were sonicated 3 times for 20 seconds using a probe sonicator. Protein concentrations were determined and the lysates were used for the assays. The assay of hydrolysis of PIP<sub>2 </sub>or PI was based on methods described previously [<xref ref-type="bibr" rid="B39">39</xref>,<xref ref-type="bibr" rid="B40">40</xref>]. Specifically, each PI hydrolysis assay was in a total volumn of 200 &#x3BC;l composed of 250 &#x3BC;M PI (50 nmol), 20,000 cpm (0.030 &#x3BC;Ci) of [<sup>3</sup>H]PI, 100 mM NaCl, 1 mM EGTA, 4 mM CaCl<sub>2</sub>, 0.1 mM DTT, 50 mM HEPES buffer, pH 7.0, 1 mg/ml sodium deoxycholate. A substrate solution enough for 50 assays was prepared by drying 5 ml of 500 &#x3BC;M PI + 1.5 &#x3BC;Ci [<sup>3</sup>H]PI under N<sub>2 </sub>before resuspending in 5 ml of 2 mg/ml sodium deoxycholate by sonication. A buffer solution (10&#xD7;) was made up of 250 mM HEPES pH 7.0, 1 M NaCl, 1 mM DTT. A Ca<sup>2+</sup>/EGTA solution (4&#xD7;) was made up of 4 mM EGTA, 12 mM CaCl<sub>2</sub>, 100 mM HEPES pH 7.0 (free 3 mM Ca<sup>2+ </sup>in assay). After mixing 20 &#x3BC;l buffer solution, 50 &#x3BC;l Ca<sup>2+</sup>/EGTA, and 30 &#x3BC;l enzyme extract, the reaction was started by addition of 100 &#x3BC;l substrate solution. After incubating for 10 min at 37&#xB0;C, the reaction was terminated with 0.75 ml chloroform/methanol/HCl (100:200:0.6, by volume), followed by 0.25 ml of chloroform (water saturated) and then 0.25 ml 1 N HCL containing 5 mM EGTA. After centrifugation to separate the phases, 300 &#x3BC;l of aqueous phase was then counted in scintillation counter.</p>
+        <p>For the assay of PLC activity using PIP<sub>2 </sub>as the substrate, each PI hydrolysis assay was in a total volumn of 200 &#x3BC;l composed of 40 &#x3BC;M PI (8 nmol), 200 &#x3BC;M PE (40 nmol), 20,000 cpm (0.030 &#x3BC;Ci) of [<sup>3</sup>H]PIP<sub>2</sub>, 3 mM MgCl<sub>2</sub>, 100 mM NaCl, 1 mM EGTA, 1 mM CaCl<sub>2 </sub>(free 45 &#x3BC;M Ca<sup>2+ </sup>in assay), 0.1 mM DTT, 50 mM HEPES buffer, pH 7.0, 1 mg/ml sodium deoxycholate. A substrate solution enough for 50 assays was prepared by drying 80 &#x3BC;M PIP<sub>2 </sub>(5 ml) + 400 &#x3BC;M PE + 1.5 &#x3BC;Ci [<sup>3</sup>H]PIP<sub>2 </sub>under N<sub>2 </sub>before resuspending in 5 ml of 65 mM HEPES pH 7.0, 100 mM NaCl, 2 mg/ml sodium deoxycholate by sonication. A MgCl<sub>2 </sub>solution was made up of 12 mM MgCl<sub>2</sub>, 50 mM HEPES pH 7.0, 200 mM NaCl, 0.4 mM DTT. A Ca<sup>2+</sup>/EGTA solution was made up of 10 mM EGTA, 10 mM CaCl<sub>2</sub>, 50 mM HEPES pH 7.0. After mixing 50 &#x3BC;l MgCl<sub>2 </sub>solution, 20 &#x3BC;l Ca<sup>2+</sup>/EGTA, and 30 &#x3BC;l enzyme extract, the reaction was started by addition of 100 &#x3BC;l substrate solution. After incubating for 10 min at 37&#xB0;C, the reaction was terminated with 0.75 ml chloroform/methanol/HCl (100:200:0.6, by volume), followed by 0.25 ml of chloroform (water saturated) and then 0.25 ml 1 N HCL containing 5 mM EGTA. After centrifugation to separate phases, 300 &#x3BC;l of aqueous phase was then counted in scintillation counter.</p>
+      </sec>
+      <sec>
+        <title>Preparation of nuclear extracts</title>
+        <p>MCF-7 cells were harvested with 0.2% trypsin and washed two times with cold PBS. The cells were suspended in buffer A (10 mM Tris/HCl, pH 7.8), 1% Nonidet P-40, 10 mM &#x3B2;-mercaptoethanol, 0.5 mM PMSF, 1 &#x3BC;g/ml aprotinin and leupeptin) for 2 min on ice. An equal volume of distilled H2O was added, and the cells were allowed to swell for 2 min. The cells were sheared by ten passages through a 22-gauge needle. The nuclei were recovered by centrifugation at 400 &#xD7; <italic>g </italic>for 6 min and washed once with buffer B (10 mM Tris/HCl (pH 7.4), 2 mM MgCl<sub>2</sub>, 0.5 mM PMSF, 1 &#x3BC;g/ml aprotinin and leupeptin). These nuclei were sonicated 3 times for 20 seconds at an output of 1 using a probe sonicator prior to PI hydrolysis assay.</p>
+      </sec>
+      <sec>
+        <title>Northern blot, PCR and tissue array analysis</title>
+        <p>Northern hybridization was carried out to detect the expression of PLC&#x3B4;4 mRNA in different normal tissues. Specifically, nylon membranes containing mRNA isolated from various human tissues and tumor cell lines (Clontech, Palo Alto, CA) and cDNAs derived from various matched tumor and normal tissues on Cancer Profiling Array I and II (Clontech, Palo Alto, CA) were hybridized in ULTRAhyb&#x2122; (Ambion, Austin, TX) with PLC&#x3B4;4 (2000 bp Nhe I-Bgl II fragment from pPuroD4F) coding region cDNA fragment labeled with [&#x3B1;-<sup>32</sup>P]dCTP using a Strip-Ez labeling kit (Ambion, Austin, TX). To evaluate the relative abundance of full length PLC&#x3B4;4 and splice variant PLC&#x3B4;4b, primers, oD4_2f, 5'-AGACACGTCC CAGTCTGGAA CC-3', and oD4_2r, 5'-CTGCTTCCTC TTCCTCATAT TC-3', located upstream and downstream of the coding region for exons 7, 8, and 9 were used to detect PCR products in a Rapid-Scan&#x2122; Gene Expression Panel (OriGene, Rockville, MD) generated from cDNA samples derived from various normal human tissues. The full length PLC&#x3B4;4 would generate a 800 bp product; whereas the splice variant PLC&#x3B4;4b with exons 7, 8, and 9 deleted, a 300 bp product.</p>
+      </sec>
+      <sec>
+        <title>Preparation of siRNAs and transfections</title>
+        <p>Several siRNAs targeting PLC-&#x3B4;4 (accession number BC006355) were synthesized by Dharmacon Research (Lafayette, CO). siRNAs were annealed essentially as described [<xref ref-type="bibr" rid="B41">41</xref>]. The sense strands for each siRNA duplex were as follows. PLC-&#x3B4;4 specific siRNA #1 beginning at nt 1612, 5'-GAGCAGAACCTTCAGAATAdTdT-3', #2 beginning at nt 457, 5'-GAGCAGGGCTTCACCATTGdTdT-3', #3 beginning at nt, 765, 5'-GGAAGGAGAAGAATTCGTAdTdT-3', #4 beginning at nt 1752, 5'-GATATCATCTTTCTCTGAAdTdT-3' and "Smart Pool" siRNAs which combined the above PLC-&#x3B4;4 siRNAs #1&#x2013;4. The following siRNAs were obtained from Dharmacon Research (sense strands); Lamin A/C 5'-CUGGACUUCCAGAAGAACAdTdT-3' and Non-specific Control I 5'-NNATGAACGTGAATTGCTCAA-3'. Human MCF7-PLCd4c16 breast cancer cells were grown in RPMI1640, supplemented with 10% fetal bovine serum. Cells were seeded at 60,000 cells/well in a six-well dish. These seed density resulted in 15% confluency and was optimal for transfection efficiencies and growth by 72 hrs. Cells were transfected with 27 nM siRNA in serum free Opti-MEM I using Oligofectamine (Invitrogen, Carlsbad, California). Following 4 hr incubation with siRNAs, fetal bovine serum to 2% v/v final was added. Cells were harvested and extracts prepared for Western analysis 72 hr after transfection.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Authors' contributions</title>
+      <p>DWL conceived of the study, participated in its design and coordination, and drafted the manuscript. DWL and CT carried out the molecular cloning and expression. CT and JB carried out the signaling and cell growth studies. AB and MC carried out the siRNA studies. VM and DW carried out the biochemical assays. JS oversaw the project. All authors read and approved the final manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="B1">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rebecchi</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Pentyala</surname>
+              <given-names>SN</given-names>
+            </name>
+          </person-group>
+          <article-title>Structure, function, and control of phosphoinositide-specific phospholipase C</article-title>
+          <source>Physiol Rev</source>
+          <year>2000</year>
+          <volume>80</volume>
+          <fpage>1291</fpage>
+          <lpage>1335</lpage>
+          <pub-id pub-id-type="pmid">11015615</pub-id>
+        </citation>
+      </ref>
+      <ref id="B2">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rhee</surname>
+              <given-names>SG</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of phosphoinositide-specific phospholipase C</article-title>
+          <source>Annu Rev Biochem</source>
+          <year>2001</year>
+          <volume>70</volume>
+          <fpage>281</fpage>
+          <lpage>312</lpage>
+          <pub-id pub-id-type="pmid">11395409</pub-id>
+          <pub-id pub-id-type="doi">10.1146/annurev.biochem.70.1.281</pub-id>
+        </citation>
+      </ref>
+      <ref id="B3">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Williams</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Mammalian phosphoinositide-specific phospholipase C</article-title>
+          <source>Biochim Biophys Acta</source>
+          <year>1999</year>
+          <volume>1441</volume>
+          <fpage>255</fpage>
+          <lpage>267</lpage>
+          <pub-id pub-id-type="pmid">10570253</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1388-1981(99)00150-X</pub-id>
+        </citation>
+      </ref>
+      <ref id="B4">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lopez</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Mak</surname>
+              <given-names>EC</given-names>
+            </name>
+            <name>
+              <surname>Ding</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hamm</surname>
+              <given-names>HE</given-names>
+            </name>
+            <name>
+              <surname>Lomasney</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel bifunctional phospholipase c that is regulated by Galpha 12 and stimulates the Ras/mitogen-activated protein kinase pathway</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>2758</fpage>
+          <lpage>2765</lpage>
+          <pub-id pub-id-type="pmid">11022047</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M008119200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B5">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kelley</surname>
+              <given-names>GG</given-names>
+            </name>
+            <name>
+              <surname>Reks</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Ondrako</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Smrcka</surname>
+              <given-names>AV</given-names>
+            </name>
+          </person-group>
+          <article-title>Phospholipase C(epsilon): a novel Ras effector</article-title>
+          <source>EMBO J</source>
+          <year>2001</year>
+          <volume>20</volume>
+          <fpage>743</fpage>
+          <lpage>754</lpage>
+          <pub-id pub-id-type="pmid">11179219</pub-id>
+          <pub-id pub-id-type="doi">10.1093/emboj/20.4.743</pub-id>
+        </citation>
+      </ref>
+      <ref id="B6">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Song</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Masago</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kariyai</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yamawaki-Kataoka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Shibatohge</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Satoh</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kataoka</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of a novel human phospholipase C, PLCepsilon, through membrane targeting by Ras</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>2752</fpage>
+          <lpage>2757</lpage>
+          <pub-id pub-id-type="pmid">11022048</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M008324200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B7">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Saunders</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Larman</surname>
+              <given-names>MG</given-names>
+            </name>
+            <name>
+              <surname>Parrington</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Cox</surname>
+              <given-names>LJ</given-names>
+            </name>
+            <name>
+              <surname>Royse</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Blayney</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>Swann</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>FA</given-names>
+            </name>
+          </person-group>
+          <article-title>PLC zeta: a sperm-specific trigger of Ca(2+) oscillations in eggs and embryo development</article-title>
+          <source>Development</source>
+          <year>2002</year>
+          <volume>129</volume>
+          <fpage>3533</fpage>
+          <lpage>3544</lpage>
+          <pub-id pub-id-type="pmid">12117804</pub-id>
+        </citation>
+      </ref>
+      <ref id="B8">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baek</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Damron</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Im</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Phospholipase Cdelta1 is a guanine nucleotide exchanging factor for transglutaminase II (Galpha h) and promotes alpha 1B-adrenoreceptor-mediated GTP binding and intracellular calcium release</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>5591</fpage>
+          <lpage>5597</lpage>
+          <pub-id pub-id-type="pmid">11087745</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M008252200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B9">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Murthy</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Lomasney</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Mak</surname>
+              <given-names>EC</given-names>
+            </name>
+            <name>
+              <surname>Lorand</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Interactions of G(h)/transglutaminase with phospholipase Cdelta1 and with GTP</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1999</year>
+          <volume>96</volume>
+          <fpage>11815</fpage>
+          <lpage>11819</lpage>
+          <pub-id pub-id-type="pmid">10518533</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.96.21.11815</pub-id>
+        </citation>
+      </ref>
+      <ref id="B10">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Fukami</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Takenawa</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>A new phospholipase C delta 4 is induced at S-phase of the cell cycle and appears in the nucleus</article-title>
+          <source>J Biol Chem</source>
+          <year>1996</year>
+          <volume>271</volume>
+          <fpage>355</fpage>
+          <lpage>360</lpage>
+          <pub-id pub-id-type="pmid">8550586</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.271.1.355</pub-id>
+        </citation>
+      </ref>
+      <ref id="B11">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Santi</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Solimando</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zini</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Santi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Riccio</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Guidotti</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Inositol-specific phospholipase C in low and fast proliferating hepatoma cell lines</article-title>
+          <source>Int J Oncol</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>1147</fpage>
+          <lpage>1153</lpage>
+          <pub-id pub-id-type="pmid">12684684</pub-id>
+        </citation>
+      </ref>
+      <ref id="B12">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Rhee</surname>
+              <given-names>SG</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular cloning, splice variants, expression, and purification of phospholipase C-delta 4</article-title>
+          <source>J Biol Chem</source>
+          <year>1996</year>
+          <volume>271</volume>
+          <fpage>25</fpage>
+          <lpage>31</lpage>
+          <pub-id pub-id-type="pmid">8550568</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.271.1.25</pub-id>
+        </citation>
+      </ref>
+      <ref id="B13">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nagano</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fukami</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Minagawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Watanabe</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ozaki</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Takenawa</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel phospholipase C delta4 (PLCdelta4) splice variant as a negative regulator of PLC</article-title>
+          <source>J Biol Chem</source>
+          <year>1999</year>
+          <volume>274</volume>
+          <fpage>2872</fpage>
+          <lpage>2879</lpage>
+          <pub-id pub-id-type="pmid">9915823</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.274.5.2872</pub-id>
+        </citation>
+      </ref>
+      <ref id="B14">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fukami</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Takenaka</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nagano</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Takenawa</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth factor-induced promoter activation of murine phospholipase C delta4 gene</article-title>
+          <source>Eur J Biochem</source>
+          <year>2000</year>
+          <volume>267</volume>
+          <fpage>28</fpage>
+          <lpage>36</lpage>
+          <pub-id pub-id-type="pmid">10601847</pub-id>
+          <pub-id pub-id-type="doi">10.1046/j.1432-1327.2000.00943.x</pub-id>
+        </citation>
+      </ref>
+      <ref id="B15">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fukami</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Inoue</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kurokawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fissore</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Mikoshiba</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Takenawa</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Phospholipase Cdelta4 is required for Ca2+ mobilization essential for acrosome reaction in sperm</article-title>
+          <source>J Cell Biol</source>
+          <year>2003</year>
+          <volume>161</volume>
+          <fpage>79</fpage>
+          <lpage>88</lpage>
+          <pub-id pub-id-type="pmid">12695499</pub-id>
+          <pub-id pub-id-type="doi">10.1083/jcb.200210057</pub-id>
+        </citation>
+      </ref>
+      <ref id="B16">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yaffe</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Leparc</surname>
+              <given-names>GG</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Obata</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Volinia</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>LC</given-names>
+            </name>
+          </person-group>
+          <article-title>A motif-based profile scanning approach for genome-wide prediction of signaling pathways</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2001</year>
+          <volume>19</volume>
+          <fpage>348</fpage>
+          <lpage>353</lpage>
+          <pub-id pub-id-type="pmid">11283593</pub-id>
+          <pub-id pub-id-type="doi">10.1038/86737</pub-id>
+        </citation>
+      </ref>
+      <ref id="B17">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>CW</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>CG</given-names>
+            </name>
+            <name>
+              <surname>Rhee</surname>
+              <given-names>SG</given-names>
+            </name>
+          </person-group>
+          <article-title>Purification, molecular cloning, and sequencing of phospholipase C-beta 4</article-title>
+          <source>J Biol Chem</source>
+          <year>1993</year>
+          <volume>268</volume>
+          <fpage>21318</fpage>
+          <lpage>21327</lpage>
+          <pub-id pub-id-type="pmid">8407970</pub-id>
+        </citation>
+      </ref>
+      <ref id="B18">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Varnai</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Tuymetova</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Bondeva</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Spat</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rhee</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Hajnoczky</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Balla</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Inositol lipid binding and membrane localization of isolated pleckstrin homology (PH) domains. Studies on the PH domains of phospholipase C delta 1 and p130</article-title>
+          <source>J Biol Chem</source>
+          <year>2002</year>
+          <volume>277</volume>
+          <fpage>27412</fpage>
+          <lpage>27422</lpage>
+          <pub-id pub-id-type="pmid">12019260</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M109672200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B19">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Razzini</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Brancaccio</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lemmon</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Guarnieri</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Falasca</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of the pleckstrin homology domain in membrane targeting and activation of phospholipase Cbeta(1)</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>14873</fpage>
+          <lpage>14881</lpage>
+          <pub-id pub-id-type="pmid">10809731</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.275.20.14873</pub-id>
+        </citation>
+      </ref>
+      <ref id="B20">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oh</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Lorant</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Holloway</surname>
+              <given-names>JN</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>DL</given-names>
+            </name>
+            <name>
+              <surname>Kern</surname>
+              <given-names>FG</given-names>
+            </name>
+            <name>
+              <surname>El Ashry</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Hyperactivation of MAPK induces loss of ERalpha expression in breast cancer cells</article-title>
+          <source>Mol Endocrinol</source>
+          <year>2001</year>
+          <volume>15</volume>
+          <fpage>1344</fpage>
+          <lpage>1359</lpage>
+          <pub-id pub-id-type="pmid">11463858</pub-id>
+          <pub-id pub-id-type="doi">10.1210/me.15.8.1344</pub-id>
+        </citation>
+      </ref>
+      <ref id="B21">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>CS</given-names>
+            </name>
+            <name>
+              <surname>deFazio</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ormandy</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Sutherland</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Inverse regulation of oestrogen receptor and epidermal growth factor receptor gene expression in MCF-7 breast cancer cells treated with phorbol ester</article-title>
+          <source>J Steroid Biochem Mol Biol</source>
+          <year>1996</year>
+          <volume>58</volume>
+          <fpage>267</fpage>
+          <lpage>275</lpage>
+          <pub-id pub-id-type="pmid">8836162</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0960-0760(96)00039-8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B22">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holbro</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Civenni</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hynes</surname>
+              <given-names>NE</given-names>
+            </name>
+          </person-group>
+          <article-title>The ErbB receptors and their role in cancer progression</article-title>
+          <source>Exp Cell Res</source>
+          <year>2003</year>
+          <volume>284</volume>
+          <fpage>99</fpage>
+          <lpage>110</lpage>
+          <pub-id pub-id-type="pmid">12648469</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0014-4827(02)00099-X</pub-id>
+        </citation>
+      </ref>
+      <ref id="B23">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsuji</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kamagata</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Furuya</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Yagihashi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Morita</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Horita</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Watanabe</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Selection of an internal control gene for quantitation of mRNA in colonic tissues</article-title>
+          <source>Anticancer Res</source>
+          <year>2002</year>
+          <volume>22</volume>
+          <fpage>4173</fpage>
+          <lpage>4178</lpage>
+          <pub-id pub-id-type="pmid">12553051</pub-id>
+        </citation>
+      </ref>
+      <ref id="B24">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tilli</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Ramaekers</surname>
+              <given-names>FC</given-names>
+            </name>
+            <name>
+              <surname>Broers</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Hutchison</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>HA</given-names>
+            </name>
+          </person-group>
+          <article-title>Lamin expression in normal human skin, actinic keratosis, squamous cell carcinoma and basal cell carcinoma</article-title>
+          <source>Br J Dermatol</source>
+          <year>2003</year>
+          <volume>148</volume>
+          <fpage>102</fpage>
+          <lpage>109</lpage>
+          <pub-id pub-id-type="pmid">12534602</pub-id>
+          <pub-id pub-id-type="doi">10.1046/j.1365-2133.2003.05026.x</pub-id>
+        </citation>
+      </ref>
+      <ref id="B25">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lewis</surname>
+              <given-names>Benjamin P.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>Richard E.</given-names>
+            </name>
+            <name>
+              <surname>Brenner</surname>
+              <given-names>Steven E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Evidence for the widespread coupling of alternative splicing and nonsense-mediated mRNA decay in humans</article-title>
+          <source>PNAS</source>
+          <year>2003</year>
+          <volume>100</volume>
+          <fpage>189</fpage>
+          <lpage>192</lpage>
+          <pub-id pub-id-type="pmid">12502788</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.0136770100</pub-id>
+        </citation>
+      </ref>
+      <ref id="B26">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gordan</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Vonderheide</surname>
+              <given-names>RH</given-names>
+            </name>
+          </person-group>
+          <article-title>Universal tumor antigens as targets for immunotherapy</article-title>
+          <source>Cytotherapy</source>
+          <year>2002</year>
+          <volume>4</volume>
+          <fpage>317</fpage>
+          <lpage>327</lpage>
+          <pub-id pub-id-type="pmid">12396831</pub-id>
+          <pub-id pub-id-type="doi">10.1080/146532402760271091</pub-id>
+        </citation>
+      </ref>
+      <ref id="B27">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>French</surname>
+              <given-names>Kevin J.</given-names>
+            </name>
+            <name>
+              <surname>Schrecengost</surname>
+              <given-names>Randy S.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>Brian D.</given-names>
+            </name>
+            <name>
+              <surname>Zhuang</surname>
+              <given-names>Yan</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>Staci N.</given-names>
+            </name>
+            <name>
+              <surname>Eberly</surname>
+              <given-names>Justin L.</given-names>
+            </name>
+            <name>
+              <surname>Yun</surname>
+              <given-names>Jong K.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>Charles D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Discovery and Evaluation of Inhibitors of Human Sphingosine Kinase</article-title>
+          <source>Cancer Res</source>
+          <year>2003</year>
+          <volume>63</volume>
+          <fpage>5962</fpage>
+          <lpage>5969</lpage>
+          <pub-id pub-id-type="pmid">14522923</pub-id>
+        </citation>
+      </ref>
+      <ref id="B28">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chung</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Bernard</surname>
+              <given-names>PS</given-names>
+            </name>
+            <name>
+              <surname>Perou</surname>
+              <given-names>CM</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular portraits and the family tree of cancer</article-title>
+          <source>Nat Genet</source>
+          <year>2002</year>
+          <volume>32 Suppl</volume>
+          <fpage>533</fpage>
+          <lpage>540</lpage>
+          <pub-id pub-id-type="pmid">12454650</pub-id>
+          <pub-id pub-id-type="doi">10.1038/ng1038</pub-id>
+        </citation>
+      </ref>
+      <ref id="B29">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cohen</surname>
+              <given-names>BD</given-names>
+            </name>
+            <name>
+              <surname>Kiener</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Foy</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Fell</surname>
+              <given-names>HP</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>The relationship between human epidermal growth-like factor receptor expression and cellular transformation in NIH3T3 cells</article-title>
+          <source>J Biol Chem</source>
+          <year>1996</year>
+          <volume>271</volume>
+          <fpage>30897</fpage>
+          <lpage>30903</lpage>
+          <pub-id pub-id-type="pmid">8940074</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.271.48.30897</pub-id>
+        </citation>
+      </ref>
+      <ref id="B30">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Haley</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Waterfield</surname>
+              <given-names>MD</given-names>
+            </name>
+          </person-group>
+          <article-title>Contributory effects of de novo transcription and premature transcript termination in the regulation of human epidermal growth factor receptor proto-oncogene RNA synthesis</article-title>
+          <source>J Biol Chem</source>
+          <year>1991</year>
+          <volume>266</volume>
+          <fpage>1746</fpage>
+          <lpage>1753</lpage>
+          <pub-id pub-id-type="pmid">1988448</pub-id>
+        </citation>
+      </ref>
+      <ref id="B31">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xian</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Rosenberg</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>DiGiovanni</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of erbB2 and c-src in phorbol ester-treated mouse epidermis: possible role in mouse skin tumor promotion</article-title>
+          <source>Oncogene</source>
+          <year>1997</year>
+          <volume>14</volume>
+          <fpage>1435</fpage>
+          <lpage>1444</lpage>
+          <pub-id pub-id-type="pmid">9136987</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1200980</pub-id>
+        </citation>
+      </ref>
+      <ref id="B32">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Felsher</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Bishop</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Transient excess of MYC activity can elicit genomic instability and tumorigenesis</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1999</year>
+          <volume>96</volume>
+          <fpage>3940</fpage>
+          <lpage>3944</lpage>
+          <pub-id pub-id-type="pmid">10097142</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.96.7.3940</pub-id>
+        </citation>
+      </ref>
+      <ref id="B33">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>Shiquan</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Wenjing</given-names>
+            </name>
+            <name>
+              <surname>Jakubczak</surname>
+              <given-names>John L.</given-names>
+            </name>
+            <name>
+              <surname>Erexson</surname>
+              <given-names>Gregory L.</given-names>
+            </name>
+            <name>
+              <surname>Tindall</surname>
+              <given-names>Kenneth R.</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>Richard</given-names>
+            </name>
+            <name>
+              <surname>Muller</surname>
+              <given-names>William J.</given-names>
+            </name>
+            <name>
+              <surname>Adhya</surname>
+              <given-names>Sankar</given-names>
+            </name>
+            <name>
+              <surname>Garges</surname>
+              <given-names>Susan</given-names>
+            </name>
+            <name>
+              <surname>Merlino</surname>
+              <given-names>Glenn</given-names>
+            </name>
+          </person-group>
+          <article-title>Genetic instability favoring transversions associated with ErbB2-induced mammary tumorigenesis</article-title>
+          <source>PNAS</source>
+          <year>2002</year>
+          <volume>99</volume>
+          <fpage>3770</fpage>
+          <lpage>3775</lpage>
+          <pub-id pub-id-type="pmid">11867754</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.052710299</pub-id>
+        </citation>
+      </ref>
+      <ref id="B34">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Bono</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Rowinsky</surname>
+              <given-names>EK</given-names>
+            </name>
+          </person-group>
+          <article-title>The ErbB receptor family: a therapeutic target for cancer</article-title>
+          <source>Trends Mol Med</source>
+          <year>2002</year>
+          <volume>8</volume>
+          <fpage>S19</fpage>
+          <lpage>S26</lpage>
+          <pub-id pub-id-type="pmid">11927283</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1471-4914(02)02306-7</pub-id>
+        </citation>
+      </ref>
+      <ref id="B35">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Herrera</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Sebolt-Leopold</surname>
+              <given-names>JS</given-names>
+            </name>
+          </person-group>
+          <article-title>Unraveling the complexities of the Raf/MAP kinase pathway for pharmacological intervention</article-title>
+          <source>Trends Mol Med</source>
+          <year>2002</year>
+          <volume>8</volume>
+          <fpage>S27</fpage>
+          <lpage>S31</lpage>
+          <pub-id pub-id-type="pmid">11927284</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1471-4914(02)02307-9</pub-id>
+        </citation>
+      </ref>
+      <ref id="B36">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dolma</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lessnick</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Hahn</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Stockwell</surname>
+              <given-names>BR</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of genotype-selective antitumor agents using synthetic lethal chemical screening in engineered human tumor cells</article-title>
+          <source>Cancer Cell</source>
+          <year>2003</year>
+          <volume>3</volume>
+          <fpage>285</fpage>
+          <lpage>296</lpage>
+          <pub-id pub-id-type="pmid">12676586</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1535-6108(03)00050-3</pub-id>
+        </citation>
+      </ref>
+      <ref id="B37">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boguski</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Tolstoshev</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Bassett</surname>
+              <given-names>D.E.,Jr.</given-names>
+            </name>
+          </person-group>
+          <article-title>Gene discovery in dbEST</article-title>
+          <source>Science</source>
+          <year>1994</year>
+          <volume>265</volume>
+          <fpage>1993</fpage>
+          <lpage>1994</lpage>
+          <pub-id pub-id-type="pmid">8091218</pub-id>
+        </citation>
+      </ref>
+      <ref id="B38">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cachianes</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ho</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>RF</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>Goeddel</surname>
+              <given-names>DV</given-names>
+            </name>
+            <name>
+              <surname>Leung</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>Epstein-Barr virus-derived vectors for transient and stable expression of recombinant proteins</article-title>
+          <source>Biotechniques</source>
+          <year>1993</year>
+          <volume>15</volume>
+          <fpage>255</fpage>
+          <lpage>259</lpage>
+          <pub-id pub-id-type="pmid">8396947</pub-id>
+        </citation>
+      </ref>
+      <ref id="B39">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nozawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Banno</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Phosphatidylinositol-specific phospholipase C from human platelets</article-title>
+          <source>Methods Enzymol</source>
+          <year>1991</year>
+          <volume>197</volume>
+          <fpage>518</fpage>
+          <lpage>526</lpage>
+          <pub-id pub-id-type="pmid">1646939</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0076-6879(91)97178-2</pub-id>
+        </citation>
+      </ref>
+      <ref id="B40">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rhee</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Ryu</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>KY</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>KS</given-names>
+            </name>
+          </person-group>
+          <article-title>Assays of phosphoinositide-specific phospholipase C and purification of isozymes from bovine brains</article-title>
+          <source>Methods Enzymol</source>
+          <year>1991</year>
+          <volume>197</volume>
+          <fpage>502</fpage>
+          <lpage>511</lpage>
+          <pub-id pub-id-type="pmid">1646938</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0076-6879(91)97176-Y</pub-id>
+        </citation>
+      </ref>
+      <ref id="B41">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Elbashir</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Harborth</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lendeckel</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Yalcin</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Tuschl</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Duplexes of 21-nucleotide RNAs mediate RNA interference in cultured mammalian cells</article-title>
+          <source>Nature</source>
+          <year>2001</year>
+          <volume>411</volume>
+          <fpage>494</fpage>
+          <lpage>498</lpage>
+          <pub-id pub-id-type="pmid">11373684</pub-id>
+          <pub-id pub-id-type="doi">10.1038/35078107</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
