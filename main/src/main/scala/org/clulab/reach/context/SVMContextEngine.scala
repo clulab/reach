@@ -30,7 +30,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
-  val featSeq = bestFeatureDict("All_features")
+  val featSeq = bestFeatureDict("NonDep_Context")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
 
 
