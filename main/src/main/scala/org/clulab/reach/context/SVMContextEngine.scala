@@ -97,7 +97,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // we will now compare the predictions of the SVM on the live Reach code with the old version of Reach. For this, we will compare only those rows that have the same (ctxId, evtId) pair
         // as the old data i.e. from groupedFeatures. This will give us an estimation of how well our SVM engine performs.
         // We will perform set operations on (ctxid, evtid) and extract those rows whose ID pair match the intersection of old and new data
-       /* val (_,oldDataSet) = AggregatedRow.fromFile(groupedFeaturesPath)
+      val (_,oldDataSet) = AggregatedRow.fromFile(groupedFeaturesPath)
         val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
         oldDataSet.map(o => {
           val evt = o.EvtID
@@ -129,7 +129,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         for((k,v) <- result) {
           logger.info(k + v)
         }
-*/
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
