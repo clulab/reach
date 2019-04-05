@@ -2,8 +2,8 @@ package org.clulab.reach.context
 
 
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
-import _root_.org.ml4ai.data.classifiers.LinearSVMWrapper
-import _root_.org.ml4ai.data.utils._
+import org.ml4ai.data.classifiers.LinearSVMWrapper
+import org.ml4ai.data.utils._
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 
