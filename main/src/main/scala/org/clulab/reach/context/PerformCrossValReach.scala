@@ -11,7 +11,7 @@ object PerformCrossValReach extends App with LazyLogging {
   val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
   val foldsForSVMContextEngine = Source.fromFile(config.getString("contextEngine.params.folds"))
   val groupedPath = config.getString("contextEngine.params.groupedFeatures")
-  val (_,rows) = AggregatedRow.fromFile(groupedPath)
+  val (_,rows) = CodeUtils.loadAggregatedRowsFromFile(groupedPath)
 
   val foldsFromCSV = FoldMaker.getFoldsPerPaper(foldsForSVMContextEngine)
   val trainValCombined = CodeUtils.combineTrainVal(foldsFromCSV)

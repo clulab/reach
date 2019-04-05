@@ -38,6 +38,7 @@ libraryDependencies ++= {
     "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",
     "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test",
     "org.ml4ai" %% "scalacontext" % "0.1.0-SNAPSHOT"
+
   )
 
 }

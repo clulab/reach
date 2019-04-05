@@ -2,8 +2,8 @@ package org.clulab.reach.context
 
 
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
-import _root_.org.ml4ai.data.classifiers.LinearSVMWrapper
-import _root_.org.ml4ai.data.utils.{AggregatedRow, InputRow, CodeUtils}
+import org.ml4ai.data.classifiers.LinearSVMWrapper
+import org.ml4ai.data.utils.{AggregatedRow, InputRow, CodeUtils}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 
@@ -26,7 +26,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
-    val (_,oldDataSet) = CodeUtils.fromFile(groupedFeaturesPath)
+  val (_,oldDataSet) = CodeUtils.loadAggregatedRowsFromFile(groupedFeaturesPath)
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
