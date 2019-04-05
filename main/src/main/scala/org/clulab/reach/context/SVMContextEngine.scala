@@ -26,7 +26,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
-  val (_,oldDataSet) = AggregatedRow.fromFile(groupedFeaturesPath)
+  val (_,oldDataSet) = CodeUtils.fromFile(groupedFeaturesPath)
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
