@@ -26,6 +26,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
+  val (_,oldDataSet) = AggregatedRow.fromFile(groupedFeaturesPath)
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
@@ -97,7 +98,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // we will now compare the predictions of the SVM on the live Reach code with the old version of Reach. For this, we will compare only those rows that have the same (ctxId, evtId) pair
         // as the old data i.e. from groupedFeatures. This will give us an estimation of how well our SVM engine performs.
         // We will perform set operations on (ctxid, evtid) and extract those rows whose ID pair match the intersection of old and new data
-      val (_,oldDataSet) = AggregatedRow.fromFile(groupedFeaturesPath)
+
         val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
         oldDataSet.map(o => {
           val evt = o.EvtID
