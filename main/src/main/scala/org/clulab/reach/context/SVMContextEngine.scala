@@ -70,7 +70,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         logger.info("printing aggregatedFeature details for debugging:")
         for((k,v) <- aggregatedFeatures) {
           logger.info(k + " event ID in aggregatedFeatures")
-          logger.info(v.getClass.getSimpleName)
+          logger.info(v(0).getClass.getSimpleName)
 
         }
 
@@ -84,6 +84,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             case Some(t) => if (t == true) 1 else 0
             case _ => 0
           }
+          logger.info(evt + " : Evt ID from old data")
+          logger.info(ctxId + " : Ctx ID from old data")
           val tup =(evt,ctxId, intId)
           oldDataIDPairs += tup
         })
@@ -97,7 +99,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             logger.info(k.toString + ": Evt ID")
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
-                logger.info(ctxId._1 + " : "  +ctxId._2 + "  Is the context ID tuple in order of appearance")
+                logger.info(ctxId._1 + " : "  +ctxId._2 + "  Is the context ID tuple in order of appearance of new data in predictions loop")
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
 
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
@@ -121,9 +123,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           map.toMap
         }
 
-        val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
-        for((k,v) <- result) {
-          logger.info(k + " has scores in the following order: (train/test, Precision, recall, f1)" + v) }
+
 
 
         // Loop over all the mentions to generate the context dictionary
@@ -135,7 +135,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
-
+              val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
+              for((k,v) <- result) {
+                logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx
