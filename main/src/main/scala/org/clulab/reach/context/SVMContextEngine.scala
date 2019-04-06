@@ -264,7 +264,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       addToFeaturesArray(finalEvtPairings)
 
     }
-    val newAggRow = AggregatedRow(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
+    val newAggRow = AggregatedRow(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray, hardCodedFeatures)
     newAggRow
   }
 
