@@ -67,19 +67,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
-        logger.info("printing aggregatedFeature details for debugging:")
-        for((k,v) <- aggregatedFeatures) {
-          logger.info(k + " event ID in aggregatedFeatures")
-
-        }
-
-
-
         val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
         oldDataSet.map(o => {
           val evt = o.EvtID
           val ctxId = o.CtxID
-          val intId = o.label match{
+          val intLabel = o.label match{
             case Some(t) => if (t == true) 1 else 0
             case _ => 0
           }
@@ -90,24 +82,19 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           val tokenIntervalStart = Integer.parseInt(numArray(1))
           val tokenIntervalEnd =Integer.parseInt(numArray(2).take(numArray(2).length-1))
           val numericalId = sentInt+""+tokenIntervalStart+""+tokenIntervalEnd
-          logger.info(o.PMCID + " PMCID from old data")
-          logger.info(evt + " : Evt ID from old data")
-          logger.info(ctxId + " : Ctx ID from old data")
-          logger.info(numericalId + " : constructed event ID")
-          val tup =(numericalId,ctxId, intId)
+          val tup =(numericalId,ctxId, intLabel)
           oldDataIDPairs += tup
         })
 
 
         // Run the classifier for each pair and store the predictions
-        val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
+        val newDataIdPairs = collection.mutable.ListBuffer[(String, String, Int)]()
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
-            logger.info(k.toString + ": Evt ID")
+
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
-                logger.info(ctxId._1 + " : "  +ctxId._2 + "  Is the context ID tuple in order of appearance of new data in predictions loop")
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
 
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
@@ -120,7 +107,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 }
                 //val prediction = true
                 val tup = (k.toString,ctxId._2,predArrayIntForm(0))
-                newPredTup += tup
+                newDataIdPairs += tup
                 (ctxId, prediction)
             }
 
@@ -131,7 +118,15 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           map.toMap
         }
 
+        // oldDataIDPairs // newDataIdPairs
 
+        val oldEvtIdsOnly = oldDataIDPairs.map(_._1)
+        val newEvtIdsOnly = newDataIdPairs.map(_._1)
+        val zipped = oldEvtIdsOnly zip newEvtIdsOnly
+        for((oldEvt,newEvt) <- zipped) {
+          logger.info(oldEvt + " : Evt ID from old dataset")
+          logger.info(newEvt + " : Evt ID from new dataset")
+        }
 
 
         // Loop over all the mentions to generate the context dictionary
@@ -143,7 +138,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
-              val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
+              val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
               for((k,v) <- result) {
                 logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
               val contextMap =
