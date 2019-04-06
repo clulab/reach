@@ -69,10 +69,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
 
-
+        val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
+        oldDataSet.map(o => {
+          val evt = o.EvtID
+          val ctxId = o.CtxID
+          val intId = o.label match{
+            case Some(t) => if (t == true) 1 else 0
+            case _ => 0
+          }
+          val tup =(evt,ctxId, intId)
+          oldDataIDPairs += tup
+        })
 
 
         // Run the classifier for each pair and store the predictions
+        val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -91,6 +102,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                   }
                 }
                 //val prediction = true
+                val tup = (k.toString,ctxId._1,predArrayIntForm(0))
+                newPredTup += tup
                 (ctxId, prediction)
             }
 
@@ -100,6 +113,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           }
           map.toMap
         }
+
+        val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
+        for((k,v) <- result) {
+          logger.info(k + v)
           /*aggregatedFeatures mapValues {a =>
             // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
             // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
@@ -126,17 +143,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // as the old data i.e. from groupedFeatures. This will give us an estimation of how well our SVM engine performs.
         // We will perform set operations on (ctxid, evtid) and extract those rows whose ID pair match the intersection of old and new data
 
-        val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
-        oldDataSet.map(o => {
-          val evt = o.EvtID
-          val ctxId = o.CtxID
-          val intId = o.label match{
-            case Some(t) => if (t == true) 1 else 0
-            case _ => 0
-          }
-          val tup =(evt,ctxId, intId)
-          oldDataIDPairs += tup
-        })
+
 
 
 
