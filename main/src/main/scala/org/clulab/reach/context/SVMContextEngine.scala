@@ -269,8 +269,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
   private def compareCommonPairs(oldData: Array[(String,String,Int)], newData: Array[(String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
-    val oldKeys = oldData.map(s =>("x", s._2))
-    val newKeys = newData.map(n => ("x", n._2))
+    val oldKeys = oldData.map(s =>(s._1, "x"))
+    val newKeys = newData.map(n => (n._1, "x"))
     val intersect = oldKeys.toSet.intersect(newKeys.toSet)
     logger.info(intersect.size + " size of intersection")
     val oldPrediction = collection.mutable.ListBuffer[Int]()
