@@ -70,7 +70,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         logger.info("printing aggregatedFeature details for debugging:")
         for((k,v) <- aggregatedFeatures) {
           logger.info(k + " event ID in aggregatedFeatures")
-          logger.info(v(0).getClass.getSimpleName)
 
         }
 
