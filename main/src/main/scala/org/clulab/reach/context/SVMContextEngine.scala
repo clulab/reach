@@ -73,8 +73,34 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
         // Run the classifier for each pair and store the predictions
-        val predictions:Map[EventID, Seq[(ContextID, Boolean)]] =
-          aggregatedFeatures mapValues {a =>
+        val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
+          val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
+          for((k,a) <- aggregatedFeatures) {
+            logger.info(k.toString + ": Evt ID")
+            val x = a.map {
+              case (ctxId, aggregatedFeature) =>
+                logger.info(ctxId._1 + " : "  +ctxId._2 + "  Is the context ID tuple in order of appearance")
+                val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
+
+                logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
+                val prediction = {
+                  predArrayIntForm(0) match {
+                    case 1 => true
+                    case 0 => false
+                    case _ => false
+                  }
+                }
+                //val prediction = true
+                (ctxId, prediction)
+            }
+
+            val entry = Map(k -> x)
+            map ++= entry
+
+          }
+          map.toMap
+        }
+          /*aggregatedFeatures mapValues {a =>
             // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
             // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
             // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
@@ -94,7 +120,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 //val prediction = true
                 (ctxId, prediction)
             }
-          }
+          }*/
 
         // we will now compare the predictions of the SVM on the live Reach code with the old version of Reach. For this, we will compare only those rows that have the same (ctxId, evtId) pair
         // as the old data i.e. from groupedFeatures. This will give us an estimation of how well our SVM engine performs.
@@ -114,7 +140,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
 
-        val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
+        /*val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
         for((evt, valueList) <- predictions.toSeq) {
           for(((e, c), truth) <- valueList) {
             println(evt + " : evt id from key")
@@ -130,7 +156,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
         for((k,v) <- result) {
           logger.info(k + v)
-        }
+        }*/
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
