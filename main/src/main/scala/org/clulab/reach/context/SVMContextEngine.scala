@@ -116,7 +116,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
         for((k,v) <- result) {
-          logger.info(k + v)
+          logger.info(k + v) }
           /*aggregatedFeatures mapValues {a =>
             // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
             // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
