@@ -83,10 +83,17 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             case Some(t) => if (t == true) 1 else 0
             case _ => 0
           }
+          val numArray = evt.split("_")
+          val sentIndStr = numArray(0)
+          val sentIndS = sentIndStr.slice(sentIndStr.length-2, sentIndStr.length)
+          val sentInt = Integer.parseInt(sentIndS)
+          val tokenIntervalStart = Integer.parseInt(numArray(1))
+          val tokenIntervalEnd =Integer.parseInt(numArray(2).slice(0,2))
+          val numericalId = sentInt+""+tokenIntervalStart+""+tokenIntervalEnd
           logger.info(o.PMCID + " PMCID from old data")
           logger.info(evt + " : Evt ID from old data")
           logger.info(ctxId + " : Ctx ID from old data")
-          val tup =(evt,ctxId, intId)
+          val tup =(numericalId,ctxId, intId)
           oldDataIDPairs += tup
         })
 
