@@ -272,6 +272,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val oldKeys = oldData.map(s =>(s._1, s._2))
     val newKeys = newData.map(n => (n._1, n._2))
     val intersect = oldKeys.toSet.intersect(newKeys.toSet)
+    logger.info(intersect.size + " size of intersection")
     val oldPrediction = collection.mutable.ListBuffer[Int]()
     val newPrediction = collection.mutable.ListBuffer[Int]()
     for((evt, ctx, label) <- oldData) {
