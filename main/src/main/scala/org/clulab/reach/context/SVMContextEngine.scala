@@ -120,12 +120,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         // oldDataIDPairs // newDataIdPairs
 
-        val oldEvtIdsOnly = oldDataIDPairs.map(_._1)
-        val newEvtIdsOnly = newDataIdPairs.map(_._1)
-        val zipped = oldEvtIdsOnly zip newEvtIdsOnly
-        for((oldEvt,newEvt) <- zipped) {
-          logger.info(oldEvt + " : Evt ID from old dataset")
-          logger.info(newEvt + " : Evt ID from new dataset")
+        val oldIDsOnly = oldDataIDPairs.map(s => (s._1, s._2))
+        val newIDsOnly = newDataIdPairs.map(x => (x._1, x._2))
+        val zipped = oldIDsOnly zip newIDsOnly
+        for(((oldEvt, oldCtx),(newEvt, newCtx)) <- zipped) {
+          logger.info(oldEvt + " : Evt ID from old dataset and " + oldCtx + " : Ctx ID from old dataset")
+          logger.info(newEvt + " : Evt ID from new dataset and "+ newCtx + " : Ctx ID from old dataset")
         }
 
 
