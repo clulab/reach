@@ -84,6 +84,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             case Some(t) => if (t == true) 1 else 0
             case _ => 0
           }
+          logger.info(o.PMCID + " PMCID from old data")
           logger.info(evt + " : Evt ID from old data")
           logger.info(ctxId + " : Ctx ID from old data")
           val tup =(evt,ctxId, intId)
