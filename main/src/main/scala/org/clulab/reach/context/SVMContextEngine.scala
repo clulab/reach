@@ -93,6 +93,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           logger.info(o.PMCID + " PMCID from old data")
           logger.info(evt + " : Evt ID from old data")
           logger.info(ctxId + " : Ctx ID from old data")
+          logger.info(numericalId + " : constructed event ID")
           val tup =(numericalId,ctxId, intId)
           oldDataIDPairs += tup
         })
