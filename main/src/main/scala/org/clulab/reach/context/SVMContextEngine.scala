@@ -85,7 +85,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           }
           val numArray = evt.split("_")
           val sentIndStr = numArray(0)
-          val sentIndS = sentIndStr.slice(sentIndStr.length-2, sentIndStr.length)
+          val sentIndS = sentIndStr.slice(3, sentIndStr.length)
           val sentInt = Integer.parseInt(sentIndS)
           val tokenIntervalStart = Integer.parseInt(numArray(1))
           val tokenIntervalEnd =Integer.parseInt(numArray(2).slice(0,2))
