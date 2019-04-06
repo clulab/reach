@@ -102,7 +102,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                   }
                 }
                 //val prediction = true
-                val tup = (k.toString,ctxId._1,predArrayIntForm(0))
+                val tup = (k.toString,ctxId._2,predArrayIntForm(0))
                 newPredTup += tup
                 (ctxId, prediction)
             }
@@ -116,54 +116,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
         for((k,v) <- result) {
-          logger.info(k + v) }
-          /*aggregatedFeatures mapValues {a =>
-            // this fix is in response to Enrique's suggestion of passing each aggregatedRowNew as a sequence, i.e. Seq(aggregatedFeature)
-            // Note that the prediction will be in form of an Array[Int] with exactly one element, which can be accessed through predArrayIntForm(0)
-            // What we have obtained is now an integer form which can easily be converted to its correct boolean equivalent by type matching.
-            a.map {
-              case (ctxId, aggregatedFeature) =>
+          logger.info(k + " has scores in the following order: (train/test, Precision, recall, f1)" + v) }
 
-                val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-
-                logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
-                val prediction = {
-                  predArrayIntForm(0) match {
-                    case 1 => true
-                    case 0 => false
-                    case _ => false
-                  }
-                }
-                //val prediction = true
-                (ctxId, prediction)
-            }
-          }*/
-
-        // we will now compare the predictions of the SVM on the live Reach code with the old version of Reach. For this, we will compare only those rows that have the same (ctxId, evtId) pair
-        // as the old data i.e. from groupedFeatures. This will give us an estimation of how well our SVM engine performs.
-        // We will perform set operations on (ctxid, evtid) and extract those rows whose ID pair match the intersection of old and new data
-
-
-
-
-
-        /*val newPredTup = collection.mutable.ListBuffer[(String, String, Int)]()
-        for((evt, valueList) <- predictions.toSeq) {
-          for(((e, c), truth) <- valueList) {
-            println(evt + " : evt id from key")
-            println(e + " evt id from value")
-            val intTruth = truth match {
-              case true => 1
-              case false => 0
-          }
-            val tup = (evt,c,intTruth)
-            newPredTup += tup
-        }}
-
-        val result = compareCommonPairs(oldDataIDPairs.toArray, newPredTup.toArray)
-        for((k,v) <- result) {
-          logger.info(k + v)
-        }*/
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
