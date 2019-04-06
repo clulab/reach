@@ -67,6 +67,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
+        logger.info("printing aggregatedFeature details for debugging:")
+        for((k,v) <- aggregatedFeatures) {
+          logger.info(k + " event ID in aggregatedFeatures")
+          logger.info(v.getClass.getSimpleName)
+
+        }
+
 
 
         val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, Int)]()
