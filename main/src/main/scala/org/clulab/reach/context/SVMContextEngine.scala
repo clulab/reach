@@ -268,10 +268,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   private def compareCommonPairs(oldData: Array[(String, String,String,Int)], newData: Array[(String, String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
     val oldKeys = oldData.map(s =>(s._1, s._2, s._3))
     val newKeys = newData.map(n => (n._1, n._2, n._3))
-    val oldGroupedByPMCID = oldKeys.groupBy(_._1)
+    val oldGroupedByPMCID = oldKeys.groupBy(_._1).mapValues(x => x.map(y => (y._2,y._3)))
     val newGroupedByPMCID = newKeys.groupBy(_._1)
-    for(key <- newGroupedByPMCID.keySet) {
-      logger.info(key + " : PMCID of aggregated feature")
+    var modifiedNewKeys = collection.mutable.HashMap[String, Array[(String,String)]]()
+    for((pmcid,seq) <- newGroupedByPMCID) {
+      val split = pmcid.split("_")
+      val adjust = s"b'PMC${split(0)}'"
+      val tempo = seq.map(s => (s._2, s._3))
+      val entry = Map(adjust -> tempo)
+      modifiedNewKeys ++= entry
+    }
+
+    for((pmcid, arr) <- modifiedNewKeys) {
+      val oldCounterPart = oldGroupedByPMCID(pmcid)
+      val intersect = arr.toSet.intersect(oldCounterPart.toSet)
+      logger.info(intersect.size + " Size of coinciding context-event pairs by paper ID: " + pmcid)
     }
 
 
