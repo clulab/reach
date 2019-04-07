@@ -314,6 +314,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val folds = prepareFolds(dataSet)
     for((trainIndices, testIndices) <- folds) {
       val trainingData = trainIndices.collect{case x => dataSet(x)}
+      trainingData.map(t => println(t.label))
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
       logger.info(balancedTrainingData.size + " : size of balanced training data")
       val (trainDataSet, _) = untrainedSVMInstance.dataConverter(balancedTrainingData)
