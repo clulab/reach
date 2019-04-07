@@ -255,34 +255,29 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     }
     instances.map(s => {
-      logger.info("Inside aggregate feature function")
+      logger.info("Inside aggregate feature function for current reach")
       logger.info(s.PMCID + " : current PMCID of input row")
       logger.info(s.EvtID + " : current evt id of input row")
       logger.info(s.CtxID + " : current ctx id of input row")
     })
-    val newAggRow = AggregatedRow(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
+    val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
 
 
-  private def compareCommonPairs(oldData: Array[(String,String,Int)], newData: Array[(String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
-    val oldKeys = oldData.map(s =>(s._1, s._2))
-    val newKeys = newData.map(n => (n._1, n._2))
-    val intersect = oldKeys.toSet.intersect(newKeys.toSet)
-    logger.info(intersect.size + " size of intersection")
-    val oldPrediction = collection.mutable.ListBuffer[Int]()
-    val newPrediction = collection.mutable.ListBuffer[Int]()
-    for((evt, ctx, label) <- oldData) {
-      val tup = (evt,ctx)
-      if(intersect.contains(tup))
-        oldPrediction += label
+  private def compareCommonPairs(oldData: Array[(String, String,String,Int)], newData: Array[(String, String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
+    val oldKeys = oldData.map(s =>(s._1, s._2, s._3))
+    val newKeys = newData.map(n => (n._1, n._2, n._3))
+    val oldGroupedByPMCID = oldKeys.groupBy(_._1)
+    val newGroupedByPMCID = newKeys.groupBy(_._1)
+    for(key <- newGroupedByPMCID.keySet) {
+      logger.info(key + " : PMCID of aggregated feature")
     }
 
-    for((evt, ctx, label) <- newData) {
-      val tup = (evt,ctx)
-      if(intersect.contains(tup))
-        newPrediction += label
-    }
+
+    val oldPrediction = collection.mutable.ListBuffer[Int]()
+    val newPrediction = collection.mutable.ListBuffer[Int]()
+
 
     val name = "Comparing predictions of SVM on new data with old data"
     CodeUtils.scoreMaker(name, oldPrediction.toArray, newPrediction.toArray)
