@@ -338,7 +338,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   //   trainSlice = list.tosSet -- testSlice.toSet
 
   private def prepareFolds(data: Array[AggregatedRow]):Array[(Array[Int], Array[Int])] = {
-    val list = collection.mutable.ListBuffer[(Array[Int], Array[Int]]()
+    val list = collection.mutable.ListBuffer[(Array[Int], Array[Int])]()
     val trainIndices = collection.mutable.ListBuffer[Int]()
     val testIndices = collection.mutable.ListBuffer[Int]()
     var start = 0
