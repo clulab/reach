@@ -122,10 +122,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           map.toMap
         }
 
-        val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
-        for((k,v) <- resultsFromCrossVal) {
-          logger.info(k + " : " + v + " result of performing 5 fold cross val on new annotation")
-        }
+
 
 
         // Loop over all the mentions to generate the context dictionary
@@ -140,6 +137,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               //val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
 //              for((k,v) <- result) {
 //                logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
+              val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
+              for((k,v) <- resultsFromCrossVal) {
+                logger.info(k + " : " + v + " result of performing 5 fold cross val on new annotation")
+              }
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx
