@@ -3,9 +3,11 @@ package org.clulab.reach.context
 
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
-import org.ml4ai.data.utils.{AggregatedRow, InputRow, CodeUtils}
+import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils, InputRow}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+
+import scala.collection.mutable
 
 // This script currently tests papers in the old data
 import scala.collection.immutable
@@ -34,6 +36,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("NonDep_Context")
   val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+  val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
 
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
@@ -89,6 +92,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         // Run the classifier for each pair and store the predictions
         val newDataIdPairs = collection.mutable.ListBuffer[(String, String, String, Int)]()
+        val dataToPassForCrossVal = collection.mutable.ListBuffer[AggregatedRow]()
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -96,7 +100,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-
+                dataToPassForCrossVal += aggregatedFeature
                 logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
                 val prediction = {
                   predArrayIntForm(0) match {
@@ -118,6 +122,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           map.toMap
         }
 
+        val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
+        for((k,v) <- resultsFromCrossVal) {
+          logger.info(k + " : " + v + " result of performing 5 fold cross val on new annotation")
+        }
+
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
@@ -128,9 +137,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
-              val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
-              for((k,v) <- result) {
-                logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
+              //val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
+//              for((k,v) <- result) {
+//                logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx
@@ -293,6 +302,59 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     val name = "Comparing predictions of SVM on new data with old data"
     CodeUtils.scoreMaker(name, oldPrediction.toArray, newPrediction.toArray)
+  }
+
+
+  private def crossValOnNewPairs(dataSet: Array[AggregatedRow]): Map[String, (String, Double, Double, Double)] = {
+    val giantTruthTestLabel = new mutable.ArrayBuffer[Int]()
+    val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
+    val folds = prepareFolds(dataSet)
+    for((trainIndices, testIndices) <- folds) {
+      val trainingData = trainIndices.collect{case x => dataSet(x)}
+      val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
+      val (trainDataSet, _) = untrainedSVMInstance.dataConverter(balancedTrainingData)
+      untrainedSVMInstance.fit(trainDataSet)
+
+
+      val testingData = testIndices.collect{case trex => dataSet(trex)}
+      val testLabelsTruth = untrainedSVMInstance.createLabels(testingData)
+      giantTruthTestLabel ++= testLabelsTruth
+      val testLabelsPred = untrainedSVMInstance.predict(testingData)
+      giantPredTestLabel ++= testLabelsPred
+
+
+    }
+    val name = "Testing f1 of svm trained on new evt-ctx pairs"
+    CodeUtils.scoreMaker(name, giantTruthTestLabel.toArray, giantPredTestLabel.toArray)
+  }
+
+  // creates folds for data for 5 fold cross validation
+  // we will generate the folds by the following algorithm:
+  // start = 0
+  // for i in range(1,5): (5 is included in this range)
+  //   stop = (list.size/5) * i
+  //   testSlice = list.slice(start,stop)
+  //   start = stop + 1
+  //   trainSlice = list.tosSet -- testSlice.toSet
+
+  private def prepareFolds(data: Array[AggregatedRow]):Array[(Array[Int], Array[Int])] = {
+    val list = collection.mutable.ListBuffer[(Array[Int], Array[Int]]()
+    val trainIndices = collection.mutable.ListBuffer[Int]()
+    val testIndices = collection.mutable.ListBuffer[Int]()
+    var start = 0
+    for(i<- 1 to 5) {
+      val stop = (data.size/5)*i
+      val testSlice = data.slice(start,stop)
+      start = stop + 1
+      val testSliceIndex = testSlice.map(data.indexOf(_))
+      val trainSlice = data.toSet -- testSlice.toSet
+      val trainSliceIndex = trainSlice.map(data.indexOf(_))
+      trainIndices ++= trainSliceIndex.toArray
+      testIndices ++= testSliceIndex.toArray
+      val tup = (trainIndices.toArray, testIndices.toArray)
+      list += tup
+    }
+    list.toArray
   }
 
 
