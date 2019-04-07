@@ -308,18 +308,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
   private def crossValOnNewPairs(dataSet: Array[AggregatedRow]): Map[String, (String, Double, Double, Double)] = {
-    logger.info(dataSet.size + " : size of dataset passed for cross val")
     val giantTruthTestLabel = new mutable.ArrayBuffer[Int]()
     val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
     val folds = prepareFolds(dataSet)
     for((trainIndices, testIndices) <- folds) {
       val trainingData = trainIndices.collect{case x => dataSet(x)}
-      logger.info(trainingData.size + " : is the size of training data")
-      trainingData.map(t => println(t.label))
+      trainingData.map(trex => logger.info(trex.PMCID))
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
-      logger.info(balancedTrainingData.size + " : size of balanced training data")
       val (trainDataSet, _) = untrainedSVMInstance.dataConverter(balancedTrainingData)
-      logger.info(trainDataSet.size + " : is the size of RVF data set after data conversion")
       untrainedSVMInstance.fit(trainDataSet)
 
 
