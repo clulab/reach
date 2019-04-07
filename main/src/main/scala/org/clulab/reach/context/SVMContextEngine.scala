@@ -134,6 +134,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
+              logger.info(" In match loop. The size of the predicted pairs for given event ID is: " + contexts.size)
               //val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
 //              for((k,v) <- result) {
 //                logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
@@ -307,6 +308,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
   private def crossValOnNewPairs(dataSet: Array[AggregatedRow]): Map[String, (String, Double, Double, Double)] = {
+    logger.info(dataSet.size + " : size of dataset passed for cross val")
     val giantTruthTestLabel = new mutable.ArrayBuffer[Int]()
     val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
     val folds = prepareFolds(dataSet)
@@ -314,10 +316,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val trainingData = trainIndices.collect{case x => dataSet(x)}
       val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
       val (trainDataSet, _) = untrainedSVMInstance.dataConverter(balancedTrainingData)
+      logger.info(trainDataSet.size + " : is the size of RVF data set after data conversion")
       untrainedSVMInstance.fit(trainDataSet)
 
 
       val testingData = testIndices.collect{case trex => dataSet(trex)}
+      logger.info(trainingData.size + " : is the size of training data")
+      logger.info(testingData.size + " : is the size of testing data")
       val testLabelsTruth = untrainedSVMInstance.createLabels(testingData)
       giantTruthTestLabel ++= testLabelsTruth
       val testLabelsPred = untrainedSVMInstance.predict(testingData)
