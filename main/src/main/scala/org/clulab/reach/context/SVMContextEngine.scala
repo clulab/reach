@@ -43,7 +43,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
   override def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
 
-    logger.info("assigning respective mentions in SVMContextEngine")
     paperMentions match {
       // If we haven't run infer, don't modify the mentions
       case None => mentions
@@ -101,7 +100,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
                 dataToPassForCrossVal += aggregatedFeature
-                logger.info(s"Prediction by svm: ${predArrayIntForm(0)}")
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -136,7 +134,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val contexts = predictions(evtId)
               val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
              for((k,v) <- result) {
-             logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
+             logger.info(k + " : (train/test, Precision, recall, f1)" + v) }
 
               /*val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
               for((k,v) <- resultsFromCrossVal) {
@@ -161,7 +159,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
   // Pre-filter the context mentions
   override def infer(mentions: Seq[BioMention]): Unit = {
-    logger.info("inferring ctx-evt mention in SVMContextEngine")
     val contextMentions = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
     paperMentions = Some(contextMentions)
 
