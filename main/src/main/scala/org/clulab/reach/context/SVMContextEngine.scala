@@ -281,6 +281,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     for((pmcid, arr) <- modifiedNewKeys) {
       val oldCounterPart = oldGroupedByPMCID(pmcid)
+      logger.info(oldCounterPart.size + " : Size of old evt-ctx pairs by paper")
+      logger.info(arr.size + " : Size of new evt-ctx pairs by paper")
       val intersect = arr.toSet.intersect(oldCounterPart.toSet)
       logger.info(intersect.size + " Size of coinciding context-event pairs by paper ID: " + pmcid)
     }
