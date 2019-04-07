@@ -254,12 +254,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       addToFeaturesArray(finalEvtPairings)
 
     }
-    instances.map(s => {
-      logger.info("Inside aggregate feature function for current reach")
-      logger.info(s.PMCID + " : current PMCID of input row")
-      logger.info(s.EvtID + " : current evt id of input row")
-      logger.info(s.CtxID + " : current ctx id of input row")
-    })
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
@@ -283,8 +277,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val oldCounterPart = oldGroupedByPMCID(pmcid)
       logger.info(oldCounterPart.size + " : Size of old evt-ctx pairs by paper")
       logger.info(arr.size + " : Size of new evt-ctx pairs by paper")
-      val intersect = arr.toSet.intersect(oldCounterPart.toSet)
-      logger.info(intersect.size + " Size of coinciding context-event pairs by paper ID: " + pmcid)
+      val zip = oldCounterPart zip arr
+      for((oldK, newK) <- zip) {
+        logger.info(s"Evt ID of old data: ${oldK._1} and Ctx ID of old data: ${oldK._2}")
+        logger.info(s"Evt ID of new data: ${newK._1} and Ctx ID of new data: ${newK._2}")
+      }
+      //val intersect = arr.toSet.intersect(oldCounterPart.toSet)
+
     }
 
 
