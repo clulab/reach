@@ -118,16 +118,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           map.toMap
         }
 
-        // oldDataIDPairs // newDataIdPairs
-
-        val oldIDsOnly = oldDataIDPairs.map(s => (s._1, s._2))
-        val newIDsOnly = newDataIdPairs.map(x => (x._1, x._2))
-        val zipped = oldIDsOnly zip newIDsOnly
-        for(((oldEvt, oldCtx),(newEvt, newCtx)) <- zipped) {
-          logger.info(oldEvt + " : Evt ID from old dataset and " + oldCtx + " : Ctx ID from old dataset")
-          logger.info(newEvt + " : Evt ID from new dataset and "+ newCtx + " : Ctx ID from old dataset")
-        }
-
 
         // Loop over all the mentions to generate the context dictionary
         for(mention <- mentions) yield {
@@ -182,7 +172,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
   // the following code examines the best performing set from the ml4ai package.
   // the basic logic is that if a feature exists, it should have value 1 else 0.
-  // When we apply this logic to any Seq[InputRow] (refer to ml4ai.data.oldDataPrep for the code), we may get many rows having value 1 for the same feature.
+  // When we apply this logic to any Seq[InputRow] (refer to ml4ai.data.utils for the code), we may get many rows having value 1 for the same feature.
   // Note that this will affect the _min, _mean and _max values for every feature for that Seq[InputRow].
   // Given that the dataset on which we will test the model here is not read from file unlike ml4ai,
   // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
@@ -238,6 +228,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   private def aggregateFeatures(instances:Seq[InputRow]):AggregatedRow = {
+
     val label = None
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
@@ -263,14 +254,20 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       addToFeaturesArray(finalEvtPairings)
 
     }
+    instances.map(s => {
+      logger.info("Inside aggregate feature function")
+      logger.info(s.PMCID + " : current PMCID of input row")
+      logger.info(s.EvtID + " : current evt id of input row")
+      logger.info(s.CtxID + " : current ctx id of input row")
+    })
     val newAggRow = AggregatedRow(0, "", "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
 
 
   private def compareCommonPairs(oldData: Array[(String,String,Int)], newData: Array[(String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
-    val oldKeys = oldData.map(s =>(s._1, "x"))
-    val newKeys = newData.map(n => (n._1, "x"))
+    val oldKeys = oldData.map(s =>(s._1, s._2))
+    val newKeys = newData.map(n => (n._1, n._2))
     val intersect = oldKeys.toSet.intersect(newKeys.toSet)
     logger.info(intersect.size + " size of intersection")
     val oldPrediction = collection.mutable.ListBuffer[Int]()
