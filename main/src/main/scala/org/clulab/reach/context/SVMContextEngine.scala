@@ -134,14 +134,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
-              logger.info(" In match loop. The size of the predicted pairs for given event ID is: " + contexts.size)
-              //val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
-//              for((k,v) <- result) {
-//                logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
-              val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
+              val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
+             for((k,v) <- result) {
+             logger.info(k + " : has scores in the following order: (train/test, Precision, recall, f1)" + v) }
+
+              /*val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
               for((k,v) <- resultsFromCrossVal) {
                 logger.info(k + " : " + v + " result of performing 5 fold cross val on new annotation")
-              }
+              }*/
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx
