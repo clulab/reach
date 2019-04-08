@@ -287,6 +287,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       logger.info(arr.size + " : Size of new evt-ctx pairs by paper")
       val zip = oldCounterPart zip arr
       for((oldK, newK) <- zip) {
+        logger.info(pmcid + " : PMCID of current paper")
         logger.info(s"Evt ID of old data: ${oldK._1} and Ctx ID of old data: ${oldK._2}")
         logger.info(s"Evt ID of new data: ${newK._1} and Ctx ID of new data: ${newK._2}")
       }
