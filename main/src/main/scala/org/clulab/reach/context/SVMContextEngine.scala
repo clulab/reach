@@ -299,7 +299,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val newPrediction = collection.mutable.ListBuffer[Int]()
 
 
-    val name = "Comparing predictions of SVM on new data with old data"
+    val name = "SVM on new v/s old data"
     CodeUtils.scoreMaker(name, oldPrediction.toArray, newPrediction.toArray)
   }
 
@@ -326,7 +326,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
     }
-    val name = "Testing f1 of svm trained on new evt-ctx pairs"
+    val name = "f1 on new evt-ctx pairs"
     CodeUtils.scoreMaker(name, giantTruthTestLabel.toArray, giantPredTestLabel.toArray)
   }
 
