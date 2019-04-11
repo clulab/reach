@@ -262,6 +262,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       addToFeaturesArray(finalEvtPairings)
 
     }
+    logger.info(s"${featureSetNames.size} : Size of features after aggregation")
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
@@ -270,6 +271,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   private def compareCommonPairs(oldData: Array[(String, String,String,Int)], newData: Array[(String, String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
     val oldKeys = oldData.map(s =>(s._1, s._2, s._3))
     val newKeys = newData.map(n => (n._1, n._2, n._3))
+    // extracts ctxID-evtID pairs for a given paper
     val oldGroupedByPMCID = oldKeys.groupBy(_._1).mapValues(x => x.map(y => (y._2,y._3)))
     val newGroupedByPMCID = newKeys.groupBy(_._1)
     var modifiedNewKeys = collection.mutable.HashMap[String, Array[(String,String)]]()
@@ -339,14 +341,15 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   //   testSlice = list.slice(start,stop)
   //   start = stop + 1
   //   trainSlice = list.tosSet -- testSlice.toSet
+  // generalize to k for k-fold cross validation
 
-  private def prepareFolds(data: Array[AggregatedRow]):Array[(Array[Int], Array[Int])] = {
+  private def prepareFolds(data: Array[AggregatedRow], k:Int = 5):Array[(Array[Int], Array[Int])] = {
     val list = collection.mutable.ListBuffer[(Array[Int], Array[Int])]()
     val trainIndices = collection.mutable.ListBuffer[Int]()
     val testIndices = collection.mutable.ListBuffer[Int]()
     var start = 0
-    for(i<- 1 to 5) {
-      val stop = (data.size/5)*i
+    for(i<- 1 to k) {
+      val stop = (data.size/k)*i
       val testSlice = data.slice(start,stop)
       start = stop + 1
       val testSliceIndex = testSlice.map(data.indexOf(_))
