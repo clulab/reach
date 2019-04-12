@@ -10,6 +10,7 @@ import org.clulab.reach.PaperReader.{config, contextEngineParams, ignoreSections
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
+    println("Inside generate output class")
     val config = ConfigFactory.load()
     val currentPaperPath = config.getString("papersDir").concat("/PMC420486.nxml")
     val pathForSentences = config.getString("contextEngine.params.sentencesToFile")
