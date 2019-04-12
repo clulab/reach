@@ -51,7 +51,7 @@ object GenerateOutputFiles extends App {
             str
         })
         val string = intervalStringed.mkString(" ")
-        val toWrite = sentInd.toString.concat(string)
+        val toWrite = s"${sentInd.toString} ${string}"
         pwevent.write(toWrite)
     }
     pwevent.close()
@@ -62,13 +62,13 @@ object GenerateOutputFiles extends App {
     val sortedContextGroups = ListMap(groupsBySentIndexCtx.toSeq.sortBy(_._1):_*)
     val pwctx = new PrintWriter(pathForContextMentions)
     for((sentId, ctxGroup) <- sortedContextGroups) {
-        val ctx = ctxGroup.map(bt => (bt.foundBy, bt.tokenInterval))
+        val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval))
         val ctxMentionStr = ctx.map(c => {
-            val s = s"${c._2.start}%${c._2.end}_${c._1}"
+            val s = s"${c._2.start}%${c._2.end}%${c._1}"
             s
         })
         val mk = ctxMentionStr.mkString(" ")
-        val str = sentId.toString.concat(mk)
+        val str = s"${sentId.toString} ${mk}"
         pwctx.write(str)
     }
     pwctx.close()
