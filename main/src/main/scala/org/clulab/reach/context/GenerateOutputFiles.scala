@@ -2,16 +2,19 @@ package org.clulab.reach.context
 import org.clulab.reach.{PaperReader, ReachSystem}
 import com.typesafe.config.ConfigFactory
 import java.io._
+
 import scala.collection.immutable.ListMap
 import ai.lum.nxmlreader.NxmlReader
 import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{config, contextEngineParams, ignoreSections, nxmlReader, preproc, procAnnotator}
 import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
     val config = ConfigFactory.load()
     val currentPaperPath = config.getString("papersDir").concat("/PMC420486.nxml")
     val pathForSentences = config.getString("contextEngine.params.sentencesToFile")
     val pathForEvents = config.getString("contextEngine.params.eventIntervalsToFile")
+    val pathForContextMentions = config.getString("contextEngine.params.contextMentionIntervalsToFile")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
     lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
@@ -38,8 +41,8 @@ object GenerateOutputFiles extends App {
     // extracting mentions to write to evtIntervals.txt
     val mentions = reachSystem.extractFrom(document)
     val evtMentionsOnly  = mentions.collect{case evt:EventMention => (evt.sentence, evt.tokenInterval)}
-    val groupBySentInd = evtMentionsOnly.groupBy(_._1)
-    val sorted = ListMap(groupBySentInd.toSeq.sortBy(_._1):_*)
+    val groupBySentIndEvt = evtMentionsOnly.groupBy(_._1)
+    val sorted = ListMap(groupBySentIndEvt.toSeq.sortBy(_._1):_*)
     val pwevent = new PrintWriter(pathForEvents)
     for((sentInd, group) <- sorted) {
         val inter = group.map(_._2)
@@ -52,6 +55,26 @@ object GenerateOutputFiles extends App {
         pwevent.write(toWrite)
     }
     pwevent.close()
+
+    // extracting context mentions to write to file
+    val contextMentions = mentions filter ContextEngine.isContextMention map (_.asInstanceOf[BioTextBoundMention])
+    val groupsBySentIndexCtx = contextMentions.groupBy(_.sentence)
+    val sortedContextGroups = ListMap(groupsBySentIndexCtx.toSeq.sortBy(_._1):_*)
+    val pwctx = new PrintWriter(pathForContextMentions)
+    for((sentId, ctxGroup) <- sortedContextGroups) {
+        val ctx = ctxGroup.map(bt => (bt.foundBy, bt.tokenInterval))
+        val ctxMentionStr = ctx.map(c => {
+            val s = s"${c._2.start}%${c._2.end}_${c._1}"
+            s
+        })
+        val mk = ctxMentionStr.mkString(" ")
+        val str = sentId.toString.concat(mk)
+        pwctx.write(str)
+    }
+    pwctx.close()
+
+
+
 
 
 
