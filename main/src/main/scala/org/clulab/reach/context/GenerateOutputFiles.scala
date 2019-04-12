@@ -62,9 +62,10 @@ object GenerateOutputFiles extends App {
     val sortedContextGroups = ListMap(groupsBySentIndexCtx.toSeq.sortBy(_._1):_*)
     val pwctx = new PrintWriter(pathForContextMentions)
     for((sentId, ctxGroup) <- sortedContextGroups) {
-        val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval))
+        val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval, bt.sentenceObj))
         val ctxMentionStr = ctx.map(c => {
-            val s = s"${c._2.start}%${c._2.end}%${c._1}"
+            val trigger = c._3.words.slice(c._2.start, c._2.end+1)
+            val s = s"${c._2.start}%${c._2.end}%${trigger}%${c._1}"
             s
         })
         val mk = ctxMentionStr.mkString(" ")
