@@ -245,9 +245,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val ctxMappings = CodeUtils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
       val evtMappings = CodeUtils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
       val specificMappings = CodeUtils.aggregateInputRowFeats(in.specificFeatureNames)
-      val finalCtxPairings = CodeUtils.finalFeatValuePairing(ctxMappings)
+      val altPairingCtx = unAggregatedFeatValuePairing(ctxMappings)
+      val altPairingEvt = unAggregatedFeatValuePairing(evtMappings)
+      val altPairingSpec = unAggregatedFeatValuePairing(specificMappings)
+      /*val finalCtxPairings = CodeUtils.finalFeatValuePairing(ctxMappings)
       val finalEvtPairings = CodeUtils.finalFeatValuePairing(evtMappings)
-      val finalSpecificPairings = CodeUtils.finalFeatValuePairing(specificMappings)
+      val finalSpecificPairings = CodeUtils.finalFeatValuePairing(specificMappings)*/
 
       def addToFeaturesArray(input: Seq[((String,String,String), (Double,Double,Double))]):Unit = {
         for((nameTup, valueTup) <- input) {
@@ -257,12 +260,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           featureSetValues ++= valueList
         }
       }
-      addToFeaturesArray(finalSpecificPairings)
+
+      def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
+        for((name,value) <- input) {
+          featureSetNames += name
+          featureSetValues += value
+        }
+      }
+      /*addToFeaturesArray(finalSpecificPairings)
       addToFeaturesArray(finalCtxPairings)
-      addToFeaturesArray(finalEvtPairings)
+      addToFeaturesArray(finalEvtPairings)*/
+      addAggregatedOnce(altPairingSpec)
+      addAggregatedOnce(altPairingCtx)
+      addAggregatedOnce(altPairingEvt)
 
     }
-    logger.info(s"${featureSetNames.size} : Size of features after aggregation")
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }
@@ -361,6 +373,23 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       list += tup
     }
     list.toArray
+  }
+
+  private def unAggregatedFeatValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
+    val pairings = collection.mutable.ListBuffer[(String,Double)]()
+    for((key,value) <- aggr) {
+      val tup = key match {
+        case min:String if min.contains("_min") => (min, value._1)
+
+
+        case max:String if max.contains("_max") => (max, value._2)
+
+        case avg:String if avg.contains("_avg") => (avg, value._3/value._4)
+      }
+
+      pairings += tup
+    }
+    pairings
   }
 
 
