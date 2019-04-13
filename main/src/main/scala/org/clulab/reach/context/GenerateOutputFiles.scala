@@ -1,12 +1,12 @@
 package org.clulab.reach.context
-import org.clulab.reach.{PaperReader, ReachSystem}
+import org.clulab.reach.{ReachSystem}
 import com.typesafe.config.ConfigFactory
 import java.io._
 
 import scala.collection.immutable.ListMap
 import ai.lum.nxmlreader.NxmlReader
 import org.clulab.odin.EventMention
-import org.clulab.reach.PaperReader.{config, contextEngineParams, ignoreSections, nxmlReader, preproc, procAnnotator}
+import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
