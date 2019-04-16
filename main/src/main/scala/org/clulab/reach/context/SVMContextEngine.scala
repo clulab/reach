@@ -134,9 +134,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
-              val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
-             for((k,v) <- result) {
-             logger.info(k + " : (train/test, Precision, recall, f1)" + v) }
+              //val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
+
 
               /*val resultsFromCrossVal = crossValOnNewPairs(dataToPass.toArray)
               for((k,v) <- resultsFromCrossVal) {
@@ -261,6 +260,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       // look at the previous code again and make sure the values are the same
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
         for((name,value) <- input) {
+          logger.info(s"The feature name is: ${name}")
           featureSetNames += name
           featureSetValues += value
         }
