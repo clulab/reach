@@ -6,6 +6,8 @@ import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils, InputRow}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+
+import scala.collection.mutable.ListBuffer
 //changed ram to 62G
 import scala.collection.mutable
 
@@ -207,9 +209,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxId = ContextEngine.getContextKey(datum._2)
 
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
-    val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
-    numericFeaturesInputRow.map(h => {
-      if(featSeq.contains(h))
+    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
+    unAggregateFeatureName(numericFeaturesInputRow).map(h => {
+      if(unAggregateFeatureName(featSeq).contains(h))
         hardCodedFeatureNames += h
     })
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
@@ -252,9 +254,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val ctxMappings = CodeUtils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
       val evtMappings = CodeUtils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
       val specificMappings = CodeUtils.aggregateInputRowFeats(in.specificFeatureNames)
-      val altPairingCtx = unAggregatedFeatValuePairing(ctxMappings)
-      val altPairingEvt = unAggregatedFeatValuePairing(evtMappings)
-      val altPairingSpec = unAggregatedFeatValuePairing(specificMappings)
+      val altPairingCtx = featureValuePairing(ctxMappings)
+      val altPairingEvt = featureValuePairing(evtMappings)
+      val altPairingSpec = featureValuePairing(specificMappings)
 
       // look at the previous code again and make sure the values are the same
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
@@ -369,19 +371,15 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     list.toArray
   }
 
-  private def unAggregatedFeatValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
+  private def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
     val pairings = collection.mutable.ListBuffer[(String,Double)]()
     for((key,value) <- aggr) {
-      val tup = key match {
-        case min:String if min.contains("_min") => (min, value._1)
-
-
-        case max:String if max.contains("_max") => (max, value._2)
-
-        case avg:String if avg.contains("_avg") => (avg, value._3/value._4)
-      }
-
-      pairings += tup
+      val extendedName = CodeUtils.extendFeatureName(key)
+      val minTup = (extendedName._1, value._1)
+      val maxTup = (extendedName._2, value._2)
+      val avgTup = (extendedName._3, value._3/value._4)
+      val list = ListBuffer(minTup, maxTup, avgTup)
+      pairings ++= list
     }
     pairings
   }
@@ -417,6 +415,18 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     }
     result.toArray
+  }
+
+  private def unAggregateFeatureName(features: Seq[String]): Array[String] = {
+    val fixedFeatureNames = collection.mutable.ListBuffer[String]()
+    for(f <- features) {
+      if(f.contains("_min") || f.contains("_max") || f.contains("_avg")) {
+        val subst = f.slice(0,f.length-4)
+        fixedFeatureNames += subst
+      }
+      else fixedFeatureNames += f
+    }
+    fixedFeatureNames.toArray
   }
 
 
