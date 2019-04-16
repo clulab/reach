@@ -6,7 +6,7 @@ import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils, InputRow}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-
+//changed ram to 62G
 import scala.collection.mutable
 
 // This script currently tests papers in the old data
