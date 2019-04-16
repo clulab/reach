@@ -256,7 +256,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val altPairingEvt = unAggregatedFeatValuePairing(evtMappings)
       val altPairingSpec = unAggregatedFeatValuePairing(specificMappings)
 
-
+      // look at the previous code again and make sure the values are the same
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
         for((name,value) <- input) {
           featureSetNames += name

@@ -35,6 +35,7 @@ object GenerateOutputFiles extends App {
     val pw = new PrintWriter(pathForSentences)
     for(sen <- collectSent) {
         pw.write(sen)
+        pw.write("\n")
     }
     pw.close()
 
@@ -54,6 +55,7 @@ object GenerateOutputFiles extends App {
         val string = intervalStringed.mkString(" ")
         val toWrite = s"${sentInd.toString} ${string}"
         pwevent.write(toWrite)
+        pwevent.write("\n")
     }
     pwevent.close()
 
@@ -66,12 +68,14 @@ object GenerateOutputFiles extends App {
         val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval, bt.sentenceObj))
         val ctxMentionStr = ctx.map(c => {
             val trigger = c._3.words.slice(c._2.start, c._2.end+1)
-            val s = s"${c._2.start}%${c._2.end}%${trigger}%${c._1}"
+            val triggerWords = trigger.mkString(" ")
+            val s = s"${c._2.start}%${c._2.end}%${triggerWords}%${c._1}"
             s
         })
         val mk = ctxMentionStr.mkString(" ")
         val str = s"${sentId.toString} ${mk}"
         pwctx.write(str)
+        pwctx.write("\n")
     }
     pwctx.close()
 
