@@ -91,7 +91,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         // Run the classifier for each pair and store the predictions
         val newDataIdPairs = collection.mutable.ListBuffer[(String, String, String, Int)]()
-        val dataToPassForCrossVal = collection.mutable.ListBuffer[AggregatedRow]()
+        val dataToPass = collection.mutable.ListBuffer[AggregatedRow]()
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -99,7 +99,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                dataToPassForCrossVal += aggregatedFeature
+                dataToPass += aggregatedFeature
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -136,10 +136,17 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
              for((k,v) <- result) {
              logger.info(k + " : (train/test, Precision, recall, f1)" + v) }
 
-              /*val resultsFromCrossVal = crossValOnNewPairs(dataToPassForCrossVal.toArray)
+              /*val resultsFromCrossVal = crossValOnNewPairs(dataToPass.toArray)
               for((k,v) <- resultsFromCrossVal) {
                 logger.info(k + " : " + v + " result of performing 5 fold cross val on new annotation")
               }*/
+
+              //countSentDistValueFreq
+
+              val resultsFromValFreqCount = countSentDistValueFreq(dataToPass.toArray)
+              for((value,freq) <- resultsFromValFreqCount) {
+                logger.info(s"The value of ${value} has appeared ${freq} times in all context-event mentions")
+              }
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx
@@ -248,18 +255,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val altPairingCtx = unAggregatedFeatValuePairing(ctxMappings)
       val altPairingEvt = unAggregatedFeatValuePairing(evtMappings)
       val altPairingSpec = unAggregatedFeatValuePairing(specificMappings)
-      /*val finalCtxPairings = CodeUtils.finalFeatValuePairing(ctxMappings)
-      val finalEvtPairings = CodeUtils.finalFeatValuePairing(evtMappings)
-      val finalSpecificPairings = CodeUtils.finalFeatValuePairing(specificMappings)*/
 
-      def addToFeaturesArray(input: Seq[((String,String,String), (Double,Double,Double))]):Unit = {
-        for((nameTup, valueTup) <- input) {
-          val nameList = List(nameTup._1, nameTup._2, nameTup._3)
-          val valueList = List(valueTup._1, valueTup._2, valueTup._3)
-          featureSetNames ++= nameList
-          featureSetValues ++= valueList
-        }
-      }
 
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
         for((name,value) <- input) {
@@ -267,9 +263,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           featureSetValues += value
         }
       }
-      /*addToFeaturesArray(finalSpecificPairings)
-      addToFeaturesArray(finalCtxPairings)
-      addToFeaturesArray(finalEvtPairings)*/
+
       addAggregatedOnce(altPairingSpec)
       addAggregatedOnce(altPairingCtx)
       addAggregatedOnce(altPairingEvt)
@@ -390,6 +384,39 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       pairings += tup
     }
     pairings
+  }
+
+  // for a given value of sentenceDist_max, count the number of papers that have this value and return Array[(value, frequency)] only if that value appears in atleast 70% of all context mentions per paper
+  private def countSentDistValueFreq(seq: Array[AggregatedRow]): Array[(Double,Int)] = {
+    val map = collection.mutable.HashMap[Double, Int]()
+    val result = collection.mutable.ListBuffer[(Double, Int)]()
+    val toSearch = "sentenceDistance_max"
+    seq.map(s => {
+      val currentIndex = s.featureGroupNames.indexOf(toSearch)
+      val currentValue = s.featureGroups(currentIndex)
+      if(map.contains(currentValue)) {
+        var cur = map(currentValue)
+        cur += 1
+        val entry = Map(currentValue -> cur)
+        map ++= entry
+      }
+
+      else {
+        val tempMap = Map(currentValue -> 1)
+        map ++= tempMap
+      }
+    })
+
+    for((k,v) <- map) {
+
+      if(v.toDouble >= (0.7 * seq.size)) {
+        val tup = (k,v)
+        result += tup
+      }
+
+
+    }
+    result.toArray
   }
 
 
