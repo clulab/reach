@@ -15,6 +15,7 @@ trait PolarityClassifier {
     */
   def fit(events:Seq[BioEventMention], labels:Seq[Polarity])
 
+
   /**
     * Returns whether fit has been called before. Mostly for control
     * @return True if the parameters of the model have been fit previously
@@ -41,3 +42,4 @@ trait PolarityClassifier {
     */
   def save(modelPath:String)
 }
+

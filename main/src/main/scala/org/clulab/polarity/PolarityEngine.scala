@@ -108,4 +108,9 @@ object PolarityEngine extends LazyLogging {
       defaultEngine
     }
   }
+
+  def main(inputString:String): Int = {
+    1
+
+  }
 }
