@@ -12,7 +12,7 @@ import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
     println("Inside generate output class")
     val config = ConfigFactory.load()
-    val currentPaperPath = config.getString("papersDir").concat("/PMC420486.nxml")
+    val currentPaperPath = config.getString("papersDir").concat("/PMC3058384.nxml")
     val pathForSentences = config.getString("contextEngine.params.sentencesToFile")
     val pathForEvents = config.getString("contextEngine.params.eventIntervalsToFile")
     val pathForContextMentions = config.getString("contextEngine.params.contextMentionIntervalsToFile")
