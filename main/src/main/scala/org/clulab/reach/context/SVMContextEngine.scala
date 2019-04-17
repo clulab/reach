@@ -208,24 +208,33 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxId = ContextEngine.getContextKey(datum._2)
 
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
-    /*val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
+    val ctxDepFeatures = collection.mutable.ListBuffer[String]()
+    val evtDepFeatures = collection.mutable.ListBuffer[String]()
+    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
     unAggregateFeatureName(numericFeaturesInputRow).map(h => {
       if(unAggregateFeatureName(featSeq).contains(h))
         hardCodedFeatureNames += h
-    })*/
-    val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
+    })
+    /*val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
     numericFeaturesInputRow.map(h => {
       if(featSeq.contains(h))
         hardCodedFeatureNames += h
-    })
-    val ctxDepFeatures = collection.mutable.ListBuffer[String]()
-    val evtDepFeatures = collection.mutable.ListBuffer[String]()
-    dependencyFeatures foreach {
+    })*/
+
+    /*dependencyFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") => {
         if(featSeq.contains(evt)) evtDepFeatures += evt
       }
       case ctx:String if ctx.startsWith("ctxDepTail")=> {
         if(featSeq.contains(ctx)) ctxDepFeatures += ctx
+      }
+    }*/
+    dependencyFeatures foreach {
+      case evt:String if evt.startsWith("evtDepTail") => {
+        if(unAggregateFeatureName(featSeq).contains(evt)) evtDepFeatures += evt
+      }
+      case ctx:String if ctx.startsWith("ctxDepTail")=> {
+        if(unAggregateFeatureName(featSeq).contains(ctx)) ctxDepFeatures += ctx
       }
     }
 
@@ -261,6 +270,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val altPairingCtx = featureValuePairing(ctxMappings)
       val altPairingEvt = featureValuePairing(evtMappings)
       val altPairingSpec = featureValuePairing(specificMappings)
+
 
       // look at the previous code again and make sure the values are the same
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
