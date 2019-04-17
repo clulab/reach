@@ -208,9 +208,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxId = ContextEngine.getContextKey(datum._2)
 
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
-    val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
+    /*val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
     unAggregateFeatureName(numericFeaturesInputRow).map(h => {
       if(unAggregateFeatureName(featSeq).contains(h))
+        hardCodedFeatureNames += h
+    })*/
+    val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
+    numericFeaturesInputRow.map(h => {
+      if(featSeq.contains(h))
         hardCodedFeatureNames += h
     })
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
