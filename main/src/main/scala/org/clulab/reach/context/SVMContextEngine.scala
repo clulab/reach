@@ -134,20 +134,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
               val contexts = predictions(evtId)
-              //val result = compareCommonPairs(oldDataIDPairs.toArray, newDataIdPairs.toArray)
 
-
-              /*val resultsFromCrossVal = crossValOnNewPairs(dataToPass.toArray)
-              for((k,v) <- resultsFromCrossVal) {
-                logger.info(k + " : " + v + " result of performing 5 fold cross val on new annotation")
-              }*/
-
-              //countSentDistValueFreq
-
-              val resultsFromValFreqCount = countSentDistValueFreq(dataToPass.toArray)
-              for((value,freq) <- resultsFromValFreqCount) {
-                logger.info(s"The value of ${value} has appeared ${freq} times in all context-event mentions")
-              }
               val contextMap =
                 (contexts collect {
                   case (ctx, true) => ctx
@@ -215,20 +202,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       if(unAggregateFeatureName(featSeq).contains(h))
         hardCodedFeatureNames += h
     })
-    /*val dependencyFeatures = allFeatures.toSet -- (hardCodedFeatures.toSet ++ Seq(""))
-    numericFeaturesInputRow.map(h => {
-      if(featSeq.contains(h))
-        hardCodedFeatureNames += h
-    })*/
 
-    /*dependencyFeatures foreach {
-      case evt:String if evt.startsWith("evtDepTail") => {
-        if(featSeq.contains(evt)) evtDepFeatures += evt
-      }
-      case ctx:String if ctx.startsWith("ctxDepTail")=> {
-        if(featSeq.contains(ctx)) ctxDepFeatures += ctx
-      }
-    }*/
     dependencyFeatures foreach {
       case evt:String if evt.startsWith("evtDepTail") => {
         if(unAggregateFeatureName(featSeq).contains(evt)) evtDepFeatures += evt
@@ -275,7 +249,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       // look at the previous code again and make sure the values are the same
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
         for((name,value) <- input) {
-          logger.info(s"The feature name is: ${name}")
           featureSetNames += name
           featureSetValues += value
         }
