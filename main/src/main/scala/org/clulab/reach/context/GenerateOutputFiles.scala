@@ -13,7 +13,7 @@ object GenerateOutputFiles extends App {
     //need to figure out how annotator works
     println("Inside generate output class")
     val config = ConfigFactory.load()
-    val paper = "PMC2156142"
+    val paper = "PMC3032653"
     val currentPaperPath = config.getString("papersDir").concat(s"/${paper}.nxml")
     val pathForSentences = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/sentences.txt")
     val pathForEvents = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/event_intervals.txt")
