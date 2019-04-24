@@ -10,7 +10,6 @@ import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, prepro
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
-    // need to verify files needed by annotator
     //need to run annotator on a few of Bachman's papers
     println("Inside generate output class")
     val config = ConfigFactory.load()
