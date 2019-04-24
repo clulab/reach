@@ -1,0 +1,720 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24069372</article-id>
+      <article-id pub-id-type="pmc">3777902</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-13-00706</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0074994</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Claudin-3 Overexpression Increases the Malignant Potential of Colorectal Cancer Cells: Roles of ERK1/2 and PI3K-Akt as Modulators of EGFR signaling</article-title>
+        <alt-title alt-title-type="running-head">Claudin-3 Overexpression and Colorectal Cancer</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>de Souza</surname>
+            <given-names>Waldemir F.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fortunato-Miranda</surname>
+            <given-names>Natalia</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Robbs</surname>
+            <given-names>Bruno K.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>de Araujo</surname>
+            <given-names>Wallace M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>de-Freitas-Junior</surname>
+            <given-names>Julio C.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bastos</surname>
+            <given-names>Lilian G.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Viola</surname>
+            <given-names>Jo&#xE3;o P. B.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Morgado-D&#xED;az</surname>
+            <given-names>Jos&#xE9; A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Grupo de Biologia Estrutural, Programa de Biologia Celular, Centro de Pesquisas, Instituto Nacional de C&#xE2;ncer, Rio de Janeiro, Brazil</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Grupo de Regula&#xE7;&#xE3;o G&#xEA;nica, Programa de Biologia Celular, Centro de Pesquisas, Instituto Nacional de C&#xE2;ncer, Rio de Janeiro, Brazil</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Jung Weon</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Seoul National University, Republic of Korea</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>jmorgado@inca.gov.br</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: WFDS JAMD. Performed the experiments: WFDS NFDM BKR WMDA JCDFJ LGB. Analyzed the data: WFDS NFDM JAMD. Contributed reagents/materials/analysis tools: JAMD JPBV. Wrote the paper: WFDS JAMD.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>19</day>
+        <month>9</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>9</issue>
+      <elocation-id>e74994</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>3</day>
+          <month>1</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>9</day>
+          <month>8</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 de Souza et al</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <copyright-holder>de Souza et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>The altered expressions of claudin proteins have been reported during the tumorigenesis of colorectal cancer. However, the molecular mechanisms that regulate these events in this cancer type are poorly understood. Here, we report that epidermal growth factor (EGF) increases the expression of claudin-3 in human colorectal adenocarcinoma HT-29 cells. This increase was related to increased cell migration and the formation of anchorage-dependent and anchorage-independent colonies. We further showed that the ERK1/2 and PI3K-Akt pathways were involved in the regulation of these effects because specific pharmacological inhibition blocked these events. Genetic manipulation of claudin-1 and claudin-3 in HT-29 cells showed that the overexpression of claudin-1 resulted in decreased cell migration; however, migration was not altered in cells that overexpressed claudin-3. Furthermore, the overexpression of claudin-3, but not that of claudin-1, increased the tight junction-related paracellular flux of macromolecules. Additionally, an increased formation of anchorage-dependent and anchorage-independent colonies were observed in cells that overexpressed claudin-3, while no such changes were observed when claudin-1 was overexpressed. Finally, claudin-3 silencing alone despite induce increase proliferation, and the formation of anchoragedependent and -independent colonies, it was able to prevent the EGF-induced increased malignant potential. In conclusion, our results show a novel role for claudin-3 overexpression in promoting the malignant potential of colorectal cancer cells, which is potentially regulated by the EGF-activated ERK1/2 and PI3K-Akt pathways.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This study was sponsored by Conselho Nacional de Desenvolvimento Cientifico e Tecnologico (CNPq), Coordena&#xE7;&#xE3;o de Aperfei&#xE7;&#xF5;amento de Pessoal de N&#xED;vel Superior (CAPES), Minist&#xE9;rio da Sa&#xFA;de - Brasil, Funda&#xE7;&#xE3;o Carlos Chagas Filho de Amparo &#xE1; Pesquisa do Estado de Rio de Janeiro (FAPERJ) and Instituto nacional de Ci&#xEA;ncia e Tecnologia em C&#xE2;ncer (573806/2008-0 and 170.026/2008). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="13"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Tight junctions (TJs) are important structural components of the apical junctional complex in the epithelium, where they regulate various intracellular processes such as the establishment of apical-basal polarity and the flow of substances across the intercellular space <xref rid="pone.0074994-Cereijido1" ref-type="bibr">[1]</xref>. Claudins are the main proteins that regulate the functions of TJs and are classified as a family of tetraspan integral membrane proteins, which currently comprises 27 members <xref rid="pone.0074994-Mineta1" ref-type="bibr">[2]</xref>. A myriad of diseases, including cancer, have been associated with alterations in the expression, stability and subcellular localization of claudin family members <xref rid="pone.0074994-Takizawa1" ref-type="bibr">[3]</xref>, <xref rid="pone.0074994-Ikari1" ref-type="bibr">[4]</xref>, <xref rid="pone.0074994-Asaka1" ref-type="bibr">[5]</xref>, <xref rid="pone.0074994-Yoon1" ref-type="bibr">[6]</xref>. However, the precise molecular mechanisms that regulate the expression and function of these proteins, particularly in colorectal cancer, are poorly understood.</p>
+      <p>The epidermal growth factor receptor (EGFR) is dimerized and activated by its extracellular ligand, EGF, which triggers a signaling cascade that leads to the activation of cytoplasmic pathways such as MAPK and PI3K-Akt <xref rid="pone.0074994-Lafky1" ref-type="bibr">[7]</xref>, <xref rid="pone.0074994-Vivekanand1" ref-type="bibr">[8]</xref>; these pathways are known to modulate proliferation, differentiation and resistance to cell death <xref rid="pone.0074994-Ciardiello1" ref-type="bibr">[9]</xref>, <xref rid="pone.0074994-deArajo1" ref-type="bibr">[10]</xref>. Studies have shown that these pathways are involved in events related to the carcinogenic processes in mouse epidermal and human gastric cancer cells <xref rid="pone.0074994-Ma1" ref-type="bibr">[11]</xref>, <xref rid="pone.0074994-Yoon2" ref-type="bibr">[12]</xref>, as well as in the increased migratory and invasive potential during the epithelial-mesenchymal transition in human ovarian cells <xref rid="pone.0074994-Ahmed1" ref-type="bibr">[13]</xref>. EGF-mediated signaling pathways are also known to play important roles in the organization of TJs, in which they regulate the expression and localization of claudin proteins. For instance, EGF was reported to induce the upregulation of claudins 1, 3 and 4, and the EGF-induced downregulation of claudin-2 increases the force of the intercellular barrier, as determined by an increased transepithelial electrical resistance (TER) in MDCK-II cells <xref rid="pone.0074994-Singh1" ref-type="bibr">[14]</xref>, <xref rid="pone.0074994-Singh2" ref-type="bibr">[15]</xref>. However, using the same model (MDCK cells), other authors have reported that the downregulation of claudin-2 induced higher cell motility, even with increased TER <xref rid="pone.0074994-Ikari2" ref-type="bibr">[16]</xref>. Recently, the EGFR/ERK/c-Fos pathway was shown to up-regulate claudin-2, an increase that was correlated with increased intercellular permeability and cell migration in human lung adenocarcinoma cells <xref rid="pone.0074994-Ikari3" ref-type="bibr">[17]</xref>, <xref rid="pone.0074994-Peter1" ref-type="bibr">[18]</xref>.</p>
+      <p>Little information is known about the molecular mechanisms underlying the alterations in claudin expression that are associated with colorectal tumorigenesis. We have shown that patients with colorectal cancer presented increased expression levels of claudins 1, 3 and 4, which altered the barrier function of TJs <xref rid="pone.0074994-Oliveira1" ref-type="bibr">[19]</xref>. Recent studies have reported a controversial role for claudin-1 during colorectal carcinogenesis; increased claudin-1 expression was observed in hepatic metastatic lesions of colorectal cancer, but this expression was decreased in the lymph node metastases of colon carcinomas <xref rid="pone.0074994-Kinugasa1" ref-type="bibr">[20]</xref>, <xref rid="pone.0074994-Ersoz1" ref-type="bibr">[21]</xref>. Additionally, the ERK1/2 and PI3K pathways have been reported to mediate increases in EGF-induced claudin-2 expression in colon cancer cells; this event was accompanied by increases in proliferation, anchorage-independent growth and tumor growth <italic>in vivo</italic>
+<xref rid="pone.0074994-Dhawan1" ref-type="bibr">[22]</xref>. Therefore, it is important to understand the molecular mechanisms that regulate the expression of other claudin family members and the implications of claudin overexpression in colorectal cancer progression.</p>
+      <p>In the present study, we show that the EGF-mediated increased expression of claudin-3 is related to increased cell migration and the formation of anchorage-dependent and anchorage-independent colonies in human colorectal adenocarcinoma HT-29 cells. Furthermore, we show that these events were mediated by the ERK1/2 and PI3K-Akt pathways. We also demonstrated that the forced overexpression of claudin-3 in HT-29 cells by genetic manipulation increased the malignant potential, while the overexpression of claudin-1 decreased cell migration. Most importantly, our results reveal that claudin-3 plays a role as tumor promoter when its expression is imbalanced and implicate the ERK1/2 and PI3K-Akt signaling pathways as modulators of claudin-3 upregulation-related tumor progression in colorectal cancer cells.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Materials</title>
+        <p>Anti-claudin-1 (Cat. no. 51&#x2013;9000) and anti-claudin-3 (Cat. no. 34&#x2013;1700) rabbit polyclonal antibodies as well as an anti-&#x3B1;-tubulin mouse monoclonal antibody (Cat. no. 32&#x2013;2500) were obtained from Invitrogen Inc. (Carlsbad, CA, USA). Anti-Akt (Cat. no. 4691) and anti-p-Akt (Cat. no. 4058) rabbit monoclonal antibodies as well as an anti-ERK mouse monoclonal (Cat. no. 9107) antibody were purchased from Cell Signaling (Beverly, MA, USA). The anti-uvomorulin/E-cadherin rat monoclonal (Cat. no. U3254) and anti-p-ERK1/2 mouse monoclonal (Cat. no. M8159) antibodies were obtained from Sigma-Aldrich (St Louis, MO, USA). An anti-E-cadherin mouse monoclonal antibody (clone 36, Cat. no. 610182) was purchased from BD Biosciences (San Diego, CA, USA). Horseradish peroxidase-conjugated anti-rabbit and anti-mouse IgG were purchased from GE Healthcare (Chalfont St. Giles, UK). Alex-fluor-488 anti-rabbit (Cat. no. A11008) and Alex-fluor-546 anti-rat (Cat. no. A11010) were obtained from Molecular Probes (Eugene, Oregon, USA). The 2-(4-morpholinyl)-8-phenyl-1(4H)-benzopyran-4-one LY294002 (PI3K inhibitor) (Cat. no. L9908) was obtained from Sigma-Aldrich, the 2-(2-amino-3-methoxyphenyl)-4H-1-benzopyran-4-one PD98059 (MEK1 inhibitor) (Cat. no. 9900) was obtained from Cell Signaling, and EGF (Cat. no. PHG0311) was purchased from Invitrogen Inc.</p>
+      </sec>
+      <sec id="s2b">
+        <title>Cell Culture</title>
+        <p>The human colorectal adenocarcinoma cell lines Caco-2 (Cat. no. HTB-37) and HT-29 (Cat. no. HTB-38) as well as the human embryonic <bold><italic>kidney</italic></bold> cell line HEK-293 (Cat. no. CRL-1573) were obtained from the American Type Culture Collection (Manassas, VA, USA). Caco-2 cells present with a differentiated phenotype at the monolayer stage and possess a low invasive and metastatic potential <xref rid="pone.0074994-deFreitasJunior1" ref-type="bibr">[23]</xref>, <xref rid="pone.0074994-Mariadason1" ref-type="bibr">[24]</xref>, <xref rid="pone.0074994-Sambuy1" ref-type="bibr">[25]</xref>, while the HT-29 cells present with an undifferentiated phenotype and a high tumorigenic potential <xref rid="pone.0074994-Halder1" ref-type="bibr">[26]</xref>. The cells were grown in Dulbecco&#x2019;s modified Eagle&#x2019;s medium (DMEM) that was supplemented with 10% heat-inactivated fetal bovine serum (FBS), penicillin G (60 mg/L), and streptomycin (100 mg/L) at 37&#xB0;C in a humidified atmosphere of 5% CO<sub>2</sub>/air. For experimental purposes, the cells were seeded into culture plates or onto glass coverslips.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Treatment with EGF and Pharmacological Inhibitors</title>
+        <p>Cell cultures were treated with 20 ng/mL of EGF, a concentration that we have used in a previous study <xref rid="pone.0074994-Barbosa1" ref-type="bibr">[27]</xref>. The effects of EGF treatment on claudin-1 and claudin-3 expression in Caco-2 and HT-29 cells were assessed in cells growing in DMEM medium supplemented with 10% FBS after 6, 24 and 48 h. For pharmacological inhibition, cells were serum starved overnight and selective inhibitors were added to the cell cultures 1 h before EGF treatment to inhibit the intrinsic kinase activity. The cells were then incubated with fresh culture medium supplemented with 10% FBS containing EGF and selective inhibitors, which were maintained throughout the experiments. The inhibitors were diluted in DMSO and stored at &#x2212;20&#xB0;C. Each concentrated solution was diluted immediately before each experiment to yield final concentrations of 50 &#xB5;M (PD98059) and 8 &#xB5;M (LY294002).</p>
+      </sec>
+      <sec id="s2d">
+        <title>Plasmid Construction, Production of Recombinant Retroviruses and the Infection of HT-29 Cells</title>
+        <p>Constructs that contain claudin-1 and claudin-3 murine cDNA have been previously described <xref rid="pone.0074994-Furuse1" ref-type="bibr">[28]</xref>, <xref rid="pone.0074994-Morita1" ref-type="bibr">[29]</xref> and were kindly provided by Dr. Mikio Furuse (Division of Cell Biology, Department of Physiology and Cell Biology, Kobe University, Japan). The cDNAs contained in these constructs were subcloned into the pBABE-Puro backbone retroviral plasmid to generate the pBABE-Cld1 (BamH1-Xho1) and pBABE-Cld3 (Bgl2-Xho1) constructs. HEK-293 cells were used as retroviral packaging cells after a transient co-transfection by calcium phosphate precipitation for 24 h with the pCL-Ampho retroviral packaging vector (Cat. no. 10046P; Imgenex, CA, USA) and one of the following constructs: pBABE-Cld1, pBABE-Cld3 or empty retroviral vectors. The cell-free supernatant that contained the virus was collected 48 h after transfection, mixed 1&#x2236;1 with fresh medium, supplemented with 8 &#xB5;g/ml polybrene (Cat. no. 107689; Sigma-Aldrich), and immediately used for the spin-infection (2&#xD7;45 min at 400&#xD7;g at room temperature) of 5&#xD7;10<sup>4</sup> HT-29 cells. Infected cells were incubated at 37&#xB0;C for an additional 24 h, trypsinized and used as indicated.</p>
+      </sec>
+      <sec id="s2e">
+        <title>HT-29<sup>Cld1</sup> and HT-29<sup>Cld3</sup> Cell Construction</title>
+        <p>HT-29<sup>Cld1</sup>, HT-29<sup>Cld3</sup> or empty-vector (HT-29<sup>pBABE</sup>) cells were generated by transducing HT-29 wild-type cells with pBABE-Cld1, pBABE-Cld3 or empty vectors and selecting successfully transduced cells with 7.5 &#xB5;g/mL puromycin (Cat. no. P8833; Sigma-Aldrich) for at least 5 days. The clones were isolated and the overexpression of claudins 1 and 3 was confirmed by immunoblotting.</p>
+      </sec>
+      <sec id="s2f">
+        <title>Claudin-3 Silencing</title>
+        <p>HT-29 cells were transfected with either a non-targeting control siRNA (siRNA negative control # 1; Cat. no. 4390844; Ambion, TX, USA), scramble as a control for non-sequence-specific effects, or a claudin-3-specific siRNA sequence (Silencer Predesigned siRNA CLDN3, Cat. no. SI03101623; Qiagen, MD, USA). The cells (10<sup>6</sup>) were resuspended in 100 &#xB5;L of 1SM buffer <xref rid="pone.0074994-Chicaybam1" ref-type="bibr">[30]</xref>, kindly provided by Dr. Martin Bonamino (INCa, Brazil), containing either the scrambled or CLDN3-specific duplex. The cells were transferred in a 0.2 cm cuvette (Cat. no. MIR 50121; Mirus Biotech, Madison, WI, USA) and electroporated using the W-17 program of the Lonza Nucleofector II electroporation system for HT-29 cells (Lonza Group Ltd, Basel, Switzerland). The cells were then gently resuspended in DMEM supplemented with 10% FBS to a final siRNA concentration of 25 or 45 nM. The attenuation of CLDN3 expression was verified by immunoblotting cell lysates and probing them with an antibody against claudin-3.</p>
+      </sec>
+      <sec id="s2g">
+        <title>Cell Extraction and Immunoblotting</title>
+        <p>Caco-2 (3&#xD7;10<sup>5</sup>) and HT-29 (2&#xD7;10<sup>5</sup>) cells were seeded into 6-well plates and incubated until confluence. The cell molayers were then scraped and homogenized in lysis buffer (1% Triton X-100, 0.5% sodium deoxycholate, 0.2% SDS, 150 mM NaCl, 2 mM EDTA, 10 mM HEPES, pH 7.3) that contained 20 mM NaF, 1 mM orthovanadate and a protease inhibitor cocktail (1&#x2236;100 dilution) to obtain total cell lysates. The homogenized lysates were centrifuged at 10,000&#xD7;g for 10 min at 4&#xB0;C. The supernatants were collected and stored at &#x2212;20&#xB0;C for later analysis. Equal amounts of protein (30 &#xB5;g/lane) per sample were separated by SDS-PAGE electrophoresis on 13% gels and transferred to nitrocellulose sheets. The membranes were blocked and incubated with primary antibodies against claudin-1 (1&#x2236;500), claudin-3 (2 &#xB5;g/mL), or &#x3B1;-tubulin (1&#x2236;1000). After washing, the membranes were incubated with horseradish peroxidase-conjugated anti-rabbit or anti-mouse antibodies. The proteins were visualized using an enhanced chemiluminescence kit (GE Healthcare, Chalfont St. Giles, UK). The bands were quantified according to their optical densities using LabWorks 4.6 (Bio-Rad Laboratories, Hercules, CA).</p>
+      </sec>
+      <sec id="s2h">
+        <title>Immunofluorescence</title>
+        <p>Caco-2 (2&#xD7;10<sup>5</sup>) and HT-29 (10<sup>5</sup>) cells were seeded on glass coverslips in 24-well plates and incubated until confluence. The cell monolayers were subsequently washed with PBS and fixed with methanol for 10 min at &#x2212;20&#xB0;C. Next, the cells were blocked with 0.2% BSA in PBS for 1 h and permeabilized with 0.1% Triton X-100. The cells were incubated overnight with anti-claudin-1, anti-claudin-3 (1&#x2236;40), anti-E-cadherin (1&#x2236;300) antibodies, followed by 1 h incubations with the appropriate Alexa 488-conjugated secondary antibodies (1&#x2236;500). Following the incubations, the cells were mounted using n-propyl-gallate to allow for visualization with either an Axio Observe.Z1 microscope that was equipped with an AxioCam HRc and the AxioVision Release 4.8 digital image processing software (Carl Zeiss Inc., Jena, Germany) or a confocal laser scanning microscope <bold><italic>FV10i-O</italic></bold>, from which images were analyzed using the FV10-ASW software (Olympus, Tokyo, Japan).</p>
+      </sec>
+      <sec id="s2i">
+        <title>Wound Healing Assay</title>
+        <p>HT-29 cells (2&#xD7;10<sup>5</sup>) were seeded into 6-well plates and incubated until confluence. To perform wound-healing assays, cell monolayers were manually wounded by scraping with pipette tips. After different treatments, the cells were permitted to migrate into the denuded areas and photographed immediately after wounding (0 h) and at 6 h or 24 h after wounding. The distance between the two edges of a denuded area was quantified in triplicate and repeated independently three times. Migration is represented as the percentage of cell migration and plotted on a graph.</p>
+      </sec>
+      <sec id="s2j">
+        <title>Cell Proliferation Assays</title>
+        <p>The relative viable cell numbers were determined using crystal violet or trypan blue dyes. The crystal violet method was conducted as described previously <xref rid="pone.0074994-Leve1" ref-type="bibr">[31]</xref>. Briefly, the HT-29 cells (10<sup>4</sup>) were seeded into 96-well plates and incubated in culture medium with or without EGF for 24 and 48 h before ethanol fixation for 10 min. A crystal violet solution (0.05% crystal violet and 20% methanol) was added to the cells for 10 min. The cells were washed and solubilized with methanol. The absorbances at 595 nm were measured with a Spectra Max 190 spectrophotometer (Molecular Devices, Sunnyvale, CA, USA). For the trypan blue method, transduced HT-29 cells (2&#xD7;10<sup>5</sup>) were seeded into 6-well plates and incubated in culture medium for 6 h. After the incubations, the cells were trypsinized (0.05% trypsin/0.02% EDTA in PBS solution) and counted on an Axio Observe.Z1 microscope (Zeiss) with a Neubauer chamber hemacytometer and trypan blue dye (0.4% trypan blue in PBS solution).</p>
+      </sec>
+      <sec id="s2k">
+        <title>Anchorage-dependent and -independent Colony Formation</title>
+        <p>For anchorage-dependent colony formation assays, HT-29 cells were seeded at a low density (2.5&#xD7;10<sup>2</sup>) for 4 h in 12-well plates and treated with EGF for 5 days or left untreated. After 5 days, the cells were fixed with ethanol for 10 min and stained with a crystal violet solution (0.05% crystal violet and 20% methanol). The cells were washed twice with water and solubilized with methanol. The colonies were either counted with an Axio Observer.Z1 microscope (Zeiss) or the absorbances were measured at 595 nm with a Spectra Max190 spectrophotometer (Molecular Devices, Sunnyvale, CA, USA).</p>
+        <p>For anchorage-independent colony formation assays, 12-well plates were coated with growth medium supplemented with 10% FBS containing 0.6% agarose to avoid cell adhesion to the substrate. HT-29 cells (5&#xD7;10<sup>2</sup>) were then resuspended in culture medium containing 10% FBS plus 0.3% agarose, seeded on the substrate described above and submitted to different treatments for 11 days (as indicated). At the endpoint, the colonies were counted with an Axio Observer.Z1 microscope (Zeiss).</p>
+      </sec>
+      <sec id="s2l">
+        <title>Measurement of the Transepithelial Electrical Resistance (TER)</title>
+        <p>TJ functionality was also assessed by measuring the TER to evaluate the paracellular flux to ions, as previously described by Contreras and colleagues <xref rid="pone.0074994-Contreras1" ref-type="bibr">[32]</xref> with slight modifications. Briefly, transduced HT-29 cells (10<sup>4</sup>) were seeded at confluence onto Transwell polyester membrane cell culture inserts with a 0.4 &#xB5;m pore size and 0.33 cm<sup>2</sup> surface area (Cat. no. CLS3470; Sigma-Aldrich). The TER values were determined using a Millicel-ERS system (Millipore Co., Billirica, MA, USA). The values plotted on the graph were normalized for the area of the insert and the blank value (bath solution incubated with insert without cells) was subtracted. The TER was thus measured in Ohms&#xD7;cm<sup>2</sup> (&#x3A9; &#xB7; cm<sup>2</sup>).</p>
+      </sec>
+      <sec id="s2m">
+        <title>Macromolecule Permeability Assay</title>
+        <p>To further test the TJ functionality, the macromolecular permeability was assessed using an antibody permeability assay, as described previously <xref rid="pone.0074994-Rajasekaran1" ref-type="bibr">[33]</xref>. Transduced HT-29 cells (10<sup>5</sup>) were seeded on glass coverslips in 24-well plates and incubated until confluence. The cell monolayers were then fixed in 2% paraformaldehyde and incubated with anti-uvomorulin/E-cadherin antibody for 2 h under nonpermeabilization conditions, followed by 1 h incubation with the respective secondary antibody at 37&#xB0;C. The uvomorulin/E-cadherin staining was visualized with an Axio Observer.Z1 microscope (Zeiss).</p>
+      </sec>
+      <sec id="s2n">
+        <title>Statistical Analysis</title>
+        <p>A statistical analysis was performed with a one-way ANOVA, followed by Dunnett&#x2019;s post-tests or the t-test using the GraphPad Prism 4.02 software (GraphPad Software, San Diego, CA, USA). The graphs represent the means &#xB1; the standard error (SEM) of three independent experiments. A difference of p&lt;0.05 was considered statistically significant.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>EGF Increases the Protein Levels of Claudin-3 in HT-29 Cells but not in Caco-2 Cells</title>
+        <p>Initially, we examined changes in the expression levels of claudin-1 and claudin-3 after EGF treatment in two colorectal adenocarcinoma cell lines, Caco-2 and HT-29, which differ in differentiation status and metastatic potential. We observed that EGF-treatment did not significantly alter the protein levels of claudins 1 and 3 in Caco-2 and HT-29 cells at an early time point (6 h) (<xref ref-type="fig" rid="pone-0074994-g001">Fig. 1A</xref>). Following prolonged EGF-treatment times (24 and 48 h), the protein levels of claudins 1 and 3 were not altered significantly in Caco-2 cells. However, HT-29 cells showed significantly increased levels of claudin-3, while the levels of claudin-1 remained unchanged in this same time point of treatment (<xref ref-type="fig" rid="pone-0074994-g001">Fig. 1B</xref>). Furthermore, immunofluorescence analysis indicated that EGF treatment for 48 h did not alter the distribution patterns of claudins 1 and 3 in Caco-2 cells (<xref ref-type="fig" rid="pone-0074994-g002">Fig. 2A</xref>). Nevertheless, a discontinuous staining pattern and the punctual accumulation of these proteins were observed in some cell-cell contact regions of HT-29 cells (<xref ref-type="fig" rid="pone-0074994-g002">Fig. 2B</xref>). Because EGF did not alter the protein levels of claudins 1 and 3 in Caco-2 cells, we examined whether EGF can activate effector pathways in this cell line. We verified that EGF treatment increased the phosphorylation levels of ERK1/2 (<xref ref-type="supplementary-material" rid="pone.0074994.s001">Fig. S1</xref>), a known signaling effector triggered by EGF. These results indicate that EGF treatment differentially regulates claudins 1 and 3 depending on the cellular context. Based on these results, we chose HT-29 cells for subsequent functional analyses due to the alterations observed in the expression and subcellular distribution of the claudin proteins after EGF treatment.</p>
+        <fig id="pone-0074994-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Effect of EGF on the claudins 1 and 3 expression in Caco-2 and HT-29 cells.</title>
+            <p>Cultured Caco-2 and HT-29 cells were treated with EGF (20 ng/mL) for 6 h (<bold>A</bold>), 24 h and 48 h (<bold>B</bold>). Following EGF treatment, total cell lysates were harvested and analyzed by immunoblotting for the expression of claudins 1 and 3. &#x3B1;-tubulin was used as a loading control. The numbers represent the ratio of the optical density of EGF-treated to untreated cells normalized by &#x3B1;-tubulin. <italic>Claudin</italic>; Cld. &#x3B1;<italic>-tubulin</italic>; &#x3B1;-tub.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g001"/>
+        </fig>
+        <fig id="pone-0074994-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>The effect of EGF treatment on the subcellular distribution of claudins 1 and 3.</title>
+            <p>Cell monolayers were grown on glass coverslips and processed for immunofluorescence analysis of claudin-1 and claudin-3 distribution after EGF treatment (48 h). The stained cells were viewed with confocal <bold><italic>FV10i-O or</italic></bold> Axio Observe.Z1 microscopes. (<bold>A</bold>) Caco-2 cells<bold><italic>; bar: 5 </italic></bold>&#xB5;m. (<bold>B</bold>) HT-29 cells; bar: 10 &#xB5;m. <italic>Arrowheads</italic>; punctual accumulation of claudins. <italic>Ctr</italic>; control.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g002"/>
+        </fig>
+      </sec>
+      <sec id="s3b">
+        <title>EGF Treatment Increases the Migration and Anchorage-Dependent and Anchorage-Independent Colony Formation of HT-29 Cells</title>
+        <p>We have shown that increased cell migration is related to mechanisms of tumor progression in cancer cells <xref rid="pone.0074994-deArajo1" ref-type="bibr">[10]</xref>, <xref rid="pone.0074994-Leve1" ref-type="bibr">[31]</xref> and that EGF treatment increased the migration of Caco-2 cells <xref rid="pone.0074994-Vidal1" ref-type="bibr">[34]</xref>. To determine whether EGF altered the migration of HT-29 cells, we performed wound-healing assays after EGF treatment. We observed that after 24 h of EGF treatment, the cell migratory potential was increased compared with that of untreated cells (<xref ref-type="fig" rid="pone-0074994-g003">Fig. 3A and 3B</xref>). To further investigate whether the wound closure was indeed due to the migration status and not cell proliferation, we verified the relative number of viable cells. <xref ref-type="fig" rid="pone-0074994-g003">Figure 3C</xref> shows that cell proliferation was not altered in EGF-treated cells when compared with untreated cells at the same time-point that was observed in the wound-healing assay. An increase in cell proliferation was observed only 48 h after EGF treatment.</p>
+        <fig id="pone-0074994-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>The impact of EGF treatment on the migration and proliferation of HT-29 cells.</title>
+            <p>(<bold>A, B</bold>) HT-29 cells were grown in 6-well plates until confluent. Next, cell monolayers were wounded and treated with EGF, and cell migration in these regions was monitored for 24 h. (<bold>C</bold>) HT-29 cells were seeded in 96-well plates and treated with EGF at the indicated times, and proliferation was quantified using the crystal violet technique. The bar graph shows the ratio of the absorbance of EGF-treated to untreated cells (control). Bar: 100 &#xB5;m. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); **p&lt;0.01, ***p&lt;0.001 as determined by t test.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g003"/>
+        </fig>
+        <p>It is known that cell transformation is an important parameter to evaluate the malignant potential, which may also be assessed by the ability of cells to form anchorage-dependent and anchorage-independent colonies <xref rid="pone.0074994-Robbs1" ref-type="bibr">[35]</xref>, <xref rid="pone.0074994-Ohmori1" ref-type="bibr">[36]</xref>. In this context, we evaluated the cell-transforming potential of EGF in HT-29 cells. As observed in <xref ref-type="fig" rid="pone-0074994-g004">figure 4A</xref>, EGF-treated cells displayed higher numbers of anchorage-dependent colonies when compared with untreated cells. Furthermore, EGF treatment increased the number of anchorage-independent colonies and the colony sizes compared to control cells (<xref ref-type="fig" rid="pone-0074994-g004">Fig. 4B</xref>). Together, these data show that EGF enhances events related to the malignant potential of undifferentiated colorectal cancer cells.</p>
+        <fig id="pone-0074994-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>The effect of EGF treatment on anchorage-dependent and anchorage-independent colony formation in HT-29 cells.</title>
+            <p>(<bold>A</bold>) Representative photographs of anchorage-dependent colonies that were stained with crystal violet after EGF treatment. The bar graphs show the ratio of fold increase in foci formation of EGF-treated to untreated cells (control). (<bold>B</bold>) Representative images of anchorage-independent colonies that show the differences in size between EGF-treated and untreated cells. The bar graphs show the ratio of fold increase in colony formation of EGF-treated to untreated cells (control). Bar: 10 &#xB5;m. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); *p&lt;0.05, **p&lt;0.01 as determined by t test.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g004"/>
+        </fig>
+      </sec>
+      <sec id="s3c">
+        <title>ERK1/2 and PI3K-Akt Signaling Mediate EGF-Induced Increases in Cell Migration and the Colony Formation of HT-29 Cells</title>
+        <p>EGF is well known to activate signaling pathways, such as ERK1/2 and PI3K-Akt, to regulate cell proliferation, survival and differentiation in various tumor cell models. Therefore, we analyzed whether these pathways could also modulate the underlying EGF-induced events that we had observed here, including the increase in claudin-3 expression. As seen in <xref ref-type="fig" rid="pone-0074994-g005">figure 5A</xref>, EGF treatment increased the phosphorylation levels of ERK1/2 and Akt, indicating the activation of these proteins. Next, we pharmacologically inhibited the MEK1/2-ERK1/2 and PI3K-Akt pathways with PD98059 and LY294002, respectively, to verify whether these pathways could modulate the EGF-induced increase in claudin-3 expression levels in HT-29 cells. We observed that treatment with these inhibitors alone or in combination prevented the EGF-induced increase in claudin-3 expression levels (<xref ref-type="fig" rid="pone-0074994-g005">Fig. 5B</xref>). Furthermore, we observed that inhibition of the ERK1/2 and PI3K-Akt signaling pathways prevented the EGF-induced increase in cell migration (<xref ref-type="fig" rid="pone-0074994-g005">Fig. 5C</xref>). In <xref ref-type="fig" rid="pone-0074994-g005">figures 5D and 5E</xref>, we further verified that the inhibition of both pathways prevented EGF-induced increases in the numbers of anchorage-dependent and anchorage-independent colonies. Interestingly, pretreatment with the PI3k inhibitor alone and in combination with the ERK1/2 inhibitor decreased the anchorage-dependent colony formation. Together, these data strongly support the notion that the ERK1/2 and PI3K-Akt pathways are also involved in increased claudin-3 expression levels, concomitant to the increased malignant potential that is induced by EGF in HT-29 cells.</p>
+        <fig id="pone-0074994-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>The impact of MEK1/2-ERK1/2 and PI3K-Akt inhibition on EGF-induced effects in HT-29 cells.</title>
+            <p>(<bold>A</bold>) HT-29 cells were grown and treated with EGF for 5, 15, 30 and 60 min, after which the total cell lysates were harvested and analyzed by immunoblotting for p-ERK1/2, ERK1/2, p-Akt, and Akt. (<bold>B</bold>) Cells were grown and pretreated for 1 h with the indicated inhibitors before incubation with EGF for 48 h. Total cell lysates were harvested and analyzed by immunoblotting for claudin-3. &#x3B1;-Tubulin was used as a loading control. The numbers represent the ratio of the optical density of treated to untreated cells normalized by total protein or &#x3B1;-tubulin. Representative images of wound healing (<bold>C</bold>), anchorage-dependent colony formation (<bold>D</bold>) and anchorage-independent colony formation (<bold>E</bold>) assays. The cells were pretreated with the inhibitors as indicated, and the assays were performed as described in the Materials and Methods. For the anchorage-dependent assay, the bar graph shows the ratio of the fold increase in foci formation of treated to untreated cells (control). For the anchorage-independent assay, the bar graphs show the ratio of the fold increase in colony formation of treated to untreated cells (control). Bar: 200 &#xB5;m. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); **p&lt;0.01 as determined by an ANOVA.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g005"/>
+        </fig>
+      </sec>
+      <sec id="s3d">
+        <title>Forced Overexpression of Claudin-1 and Claudin-3 increases the TER, but Claudin-3 Overexpression Facilitates the Paracellular Flux to Macromolecules</title>
+        <p>Based on the results described above, we postulated that the differential expression levels of claudin-1 and claudin-3 play important roles in colorectal cancer progression. To further test this hypothesis, we forced the expression of claudin-1 and claudin-3 cDNA in HT-29 cells, and the resulting cells were named HT-29<sup>Cld-1</sup> and HT-29<sup>Cld-3</sup>, respectively. Immunoblot analysis confirmed robust claudin-1 (HT-29<sup>Cld-1</sup>) and claudin-3 (HT-29<sup>Cld-3</sup>) overexpression compared with cells that were transduced with the empty vector (HT-29<sup>pBABE</sup>) (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6A</xref>). Furthermore, cells that overexpressed these proteins displayed increased cytoplasmic staining; however, the labeling was maintained at cell-cell contacts (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6B</xref>).</p>
+        <fig id="pone-0074994-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Effects of the forced expression of claudins 1 and 3 on their subcellular distribution, TER and macromolecular permeability. HT-29 cells were transduced with retroviral vectors that contained claudin-1, claudin-3, or empty vector (pBABE).</title>
+            <p>(<bold>A</bold>) The cells were grown and total cell lysates were harvested and analyzed by immunoblotting for the expression of claudin-1 and claudin-3. The numbers represent the ratio of the optical density of claudin-transduced to empty vector-transduced cells normalized by &#x3B1;-tubulin. (<bold>B</bold>) Cells were grown on glass coverslips and processed under permeabilizing conditions for the immunofluorescence analysis of claudin-1 and claudin-3 distribution; bar: 5 &#xB5;m. (<bold>C</bold>) Cells were grown on Transwell inserts and the TER was measured using the Millicel-ERS system. The bar graphs show the TER values normalized for the area of the insert with the blank value subtracted. (<bold>D</bold>) The cells were grown on glass coverslips and processed for immunofluorescence under non-permeabilizing conditions to evaluate macromolecular permeability using the anti-uvomorulin/E-cadherin antibody; bar: 10 &#xB5;m. (<bold>E</bold>) Cells were grown on glass coverslips and processed under permeabilizing conditions for immunofluorescence analysis of E-cadherin distribution. The stained cells were viewed with <bold><italic>FV10i-O</italic></bold> confocal microscope. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); **p&lt;0.01 as determined by an ANOVA.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g006"/>
+        </fig>
+        <p>In a previous study, we showed that the upregulation of claudins 1, 3 and 4 was associated with the disorganization of TJ fibrils, leading to the increased permeability of the paracellular barrier in tissue samples of human colorectal cancer <xref rid="pone.0074994-Oliveira1" ref-type="bibr">[19]</xref>. Accordingly, we measured the TER to evaluate the effects of claudin-1 and claudin-3 overexpression on the paracellular flux to ions. As observed in <xref ref-type="fig" rid="pone-0074994-g006">figure 6C</xref>, claudin-1 and claudin-3 overexpression increased the TER of HT-29 cells, indicating a strengthening of the barrier to ions. It is also known that the rearrangement of TJ strands may favor the paracellular flux of macromolecules, thus impairing the barrier function of TJs <xref rid="pone.0074994-Marcial1" ref-type="bibr">[37]</xref>. We and other authors have assessed the TJ function using an antibody permeability assay, which also evaluates the paracellular permeability to macromolecules <xref rid="pone.0074994-Barbosa1" ref-type="bibr">[27]</xref>, <xref rid="pone.0074994-Rajasekaran1" ref-type="bibr">[33]</xref>. Using this assay, we observed an absence of uvomorulin/E-cadherin staining in HT-29<sup>cld-1</sup> cells, which indicated that cells overexpressing claudin-1 maintained an intact TJs-regulated paracellular flux of macromolecules. On the contrary, cells that overexpressed claudin-3 (HT-29<sup>Cld-3</sup>) showed a normal pattern of uvomorulin/E-cadherin staining on the plasma membrane, which indicated that the macromolecular flux, was impaired because the cells were not permeabilized prior to staining (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6D</xref>). To confirm that this labeling pattern did not result from the claudin overexpression-induced cellular redistribution of E-cadherin, we assessed the distribution of this protein in permeabilized cells by immunofluorescence and confocal microscopy. We observed that claudin-1 and claudin-3 overexpression did not alter the cellular distribution of the E-cadherin, which was mostly present in the basolateral region (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6E</xref>). Together, these data indicate that claudin-1 and claudin-3 overexpression increases the TER, but claudin-3 overexpression facilitates the macromolecular flux in HT-29 cells.</p>
+      </sec>
+      <sec id="s3e">
+        <title>Forced Overexpression of Claudin-3 but not of Claudin-1 Increases the Malignant Potential of HT-29 Cells</title>
+        <p>We observed that EGF treatment did not cause statistically significant changes in claudin-1 expression but increased claudin-3 expression concomitantly with the malignant potential in HT-29 cells (<xref ref-type="fig" rid="pone-0074994-g001">Fig. 1B</xref>, <xref ref-type="fig" rid="pone-0074994-g003">3</xref>, <xref ref-type="fig" rid="pone-0074994-g004">4</xref> and <xref ref-type="fig" rid="pone-0074994-g005">5</xref>). Based on these findings, we further examined the effects of the forced claudin-1 and claudin-3 overexpression on cell migration, proliferation and colony formation. Interestingly, we observed that the overexpression of claudin-1 but not that of claudin-3 decreased cell migration (<xref ref-type="fig" rid="pone-0074994-g007">Fig. 7A and 7B</xref>). Conversely, cell proliferation was not altered by the overexpression of either claudin at the same time point (<xref ref-type="fig" rid="pone-0074994-g007">Fig. 7C</xref>). Furthermore, we observed increases in the anchorage-dependent and anchorage-independent colonies formation after the overexpression of claudin-3 but not claudin-1 (<xref ref-type="fig" rid="pone-0074994-g008">Fig. 8</xref> and <xref ref-type="fig" rid="pone-0074994-g009">9</xref>, respectively). Because claudin-3 overexpression increased the colony formation in HT-29 cells, we assessed whether the forced overexpression of claudin-3 could increase cell proliferation at later time points (24, 48 and 72 h). We verified that claudin-3 overexpression increased cell proliferation at these times (<xref ref-type="supplementary-material" rid="pone.0074994.s002">Fig. S2</xref>), which could contribute to the increased malignant potential of HT-29 cells. These results indicate that the differential expression of claudins 1 and 3 plays a crucial role in the malignant phenotype of the HT-29 colorectal cancer cells.</p>
+        <fig id="pone-0074994-g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>The effect of claudin-1 and claudin-3 overexpression on migration and proliferation.</title>
+            <p>(<bold>A, B</bold>) HT-29<sup>pBABE</sup>, HT-29<sup>cld-1</sup> and HT-29<sup>cld-3</sup> cells were grown in 6-well plates until confluent. Next, cell monolayers were wounded and the cell migration in the wounded regions were monitored after 6 h. (<bold>C</bold>) Transduced cells were seeded into 6-well plates for 6 h, and the numbers of cells were quantified by optical microscopy using trypan blue dye as described in the Materials and Methods. The bar graph shows the ratio of the number of claudin-transduced to the empty vector-transduced (pBABE) cells. Bar: 100 &#xB5;m. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); *p&lt;0.05 as determined by an ANOVA.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g007"/>
+        </fig>
+        <fig id="pone-0074994-g008" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g008</object-id>
+          <label>Figure 8</label>
+          <caption>
+            <title>The impact of claudin-1 and claudin-3 overexpression on anchorage-dependent colony formation.</title>
+            <p>Representative photographs of anchorage-dependent colonies of transduced HT-29 cells (HT-29<sup>pBABE</sup>, HT-29<sup>cld-1</sup> and HT-29<sup>cld-3</sup>) that were stained with crystal violet. The bar graph shows the ratio of the fold increase in foci formation of claudin-transduced to empty vector-transduced (pBABE) cells. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); ***p&lt;0.001, as determined by an ANOVA.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g008"/>
+        </fig>
+        <fig id="pone-0074994-g009" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g009</object-id>
+          <label>Figure 9</label>
+          <caption>
+            <title>The impact of claudin-1 and claudin-3 overexpression on anchorage-independent colony formation.</title>
+            <p>HT-29<sup>pBABE</sup>, HT-29<sup>cld-1</sup> and HT-29<sup>cld-3</sup> cells were seeded for an anchorage-independent colony formation assay as described in the Materials and Methods. The bar graph shows the ratio of the fold increase in colony formation of claudin-transduced cells to empty vector-transduced (pBABE) cells. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); ***p&lt;0.001, as determined by an ANOVA.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g009"/>
+        </fig>
+      </sec>
+      <sec id="s3f">
+        <title>Claudin-3 Silencing Prevents the EGF-induced Malignant Potential of HT-29 Cells</title>
+        <p>Because EGF treatment increased claudin-3 expression (<xref ref-type="fig" rid="pone-0074994-g001">Fig. 1B</xref>), and the overexpression of this claudin is related to the increased malignant potential of HT-29 cells (<xref ref-type="fig" rid="pone-0074994-g008">Figs. 8</xref> and <xref ref-type="fig" rid="pone-0074994-g009">9</xref>), we investigated whether the downregulation of claudin-3 could to prevent the EGF-induced effects in HT-29 cells using claudin-3 siRNA. Using immunoblot analysis, we confirmed a robust downregulation of claudin-3 24 h after transfection using both 25 and 45 nM of claudin-3 siRNA (<xref ref-type="fig" rid="pone-0074994-g010">Fig. 10A</xref>). Based on these results, we chose 25 nM of claudin-3 siRNA for subsequent functional analyses. Because claudin-3 overexpression-regulated colony formation is analyzed at late time points (more than 5 days), we evaluated whether the early downregulation of claudin-3 induced by siRNA (at 24 h) would be sufficient to prevent the events regulated by prolonged treatment with EGF. Accordingly, we performed a proliferation assay after 48 h of treatment with EGF because we had observed that this agent increased cell proliferation at this time point (<xref ref-type="fig" rid="pone-0074994-g003">Fig. 3C</xref>). We observed that claudin-3 siRNA prevented the increase in EGF-induced proliferation, indicating that the early downregulation of claudin-3 may regulate EGF-induced late events (<xref ref-type="fig" rid="pone-0074994-g010">Fig. 10B</xref>). In addition, claudin-3 siRNA also prevented the increase in EGF-induced anchorage-dependent and -independent colony formation (<xref ref-type="fig" rid="pone-0074994-g010">Figs. 10C and D</xref>, respectively). Interestingly, a higher proliferation rate and more colony formation were observed using only the claudin-3 siRNA. Together, these data indicate that claudin-3 downregulation alone increases the malignant potential but may also prevent the EGF-induced malignant potential of HT-29 cells. These findings suggest that an imbalance in the levels of this claudin plays an important role in the development of the tumorigenic process.</p>
+        <fig id="pone-0074994-g010" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0074994.g010</object-id>
+          <label>Figure 10</label>
+          <caption>
+            <title>The impact of claudin-3 silencing on EGF-induced effects in HT-29 cells.</title>
+            <p>HT-29 cells were transfected with non-targenting control siRNA (scramble) or claudin-3 siRNA and treated with EGF as indicated. (<bold>A</bold>) Cells were grown for 24 h and the total cell lysates were obtained and analyzed for the expression of claudin-3 by immunoblotting; &#x3B1;-tubulin was used as a loading control. (<bold>B</bold>) Cells were seeded in 96-well plates for 48 h and proliferation was quantified using the crystal violet technique. The bar graph shows the ratio of the absorbance of transfected and/or EGF-treated cells to the control cells. (<bold>C</bold>) Representative photographs of anchorage-dependent colonies that were stained with crystal violet. The bar graph shows the proportion of fold increase in foci formation of the transfected and/or EGF-treated cells to control cells. (<bold>D</bold>) Representative images of anchorage-independent colonies. The bar graph shows the ratio of the fold increase in colony formation of transfected and/or EGF-treated cells to control cells. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); *p&lt;0.05, **p&lt;0.01, as determined by an ANOVA. <italic>Claudin</italic>; Cld. &#x3B1;<italic>-tubulin</italic>; &#x3B1;-tub.</p>
+          </caption>
+          <graphic xlink:href="pone.0074994.g010"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>Changes in the expression and subcellular distribution of claudin proteins have been reported in different epithelial cancers in which EGF signaling is involved. However, the roles that EGF plays in modulating the expression of these proteins are different and depend of the cell type and tumor. In a previous study using tissue samples of patients with colorectal cancer, we showed the increased expression of claudins 1, 3 and 4, which was associated with a significant disorganization of the TJ strands and increased paracellular permeability <xref rid="pone.0074994-Oliveira1" ref-type="bibr">[19]</xref>. However, the molecular mechanisms involved in the regulation of this overexpression and its implications during the progression of this cancer type remained undefined. In the present study, we demonstrated that EGF increased the expression of claudin-3 protein, an event that was mediated by the ERK1/2 and PI3K-Akt pathways. We further demonstrated that the increased expression of claudin-1 and claudin-3 differentially affected colorectal cancer cells; in HT-29 cells, the forced expression of claudin-1 decreased cell migration, whereas the forced expression of claudin-3 increased the malignant potential. Moreover, claudin-3 silencing prevented the EGF-induced increase in the malignant potential of HT-29 cells.</p>
+      <p>Our study reveals that EGF treatment did not alter the protein levels of claudin-1 and claudin-3 in Caco-2 cells; however, HT-29 cells treated with this agent displayed differential changes in the expression of these proteins. Claudin-1 levels were not significantly altered after of 6, 24 or 48 h, while the expression levels of claudin-3 did not change significantly at 6 h of treatment but were increased at 24 and 48 h, and the increase was more evident in this later time (<xref ref-type="fig" rid="pone-0074994-g001">Fig. 1A and 1B</xref>). The differentiation grades and metastatic behaviors of the cell lines used in the study may explain these results. Claudin-2 overexpression has been shown to relate to epithelial weakening in lung and colorectal cancer cells, and these events are regulated by EGF-mediated signaling pathways <xref rid="pone.0074994-Peter1" ref-type="bibr">[18]</xref>, <xref rid="pone.0074994-Dhawan1" ref-type="bibr">[22]</xref>. Here, we observed changes in the redistribution of claudins 1 and 3 after prolonged EGF treatment in HT-29 cells but not in Caco-2 cells (<xref ref-type="fig" rid="pone-0074994-g002">Fig. 2A and 2B</xref>), even though EGF signaling was triggered in this cell line as shown by increased ERK1/2 phosphorylation (<xref ref-type="supplementary-material" rid="pone.0074994.s001">Fig. S1</xref>). The EGF-induced changes observed in this study could be attributed to impaired TJ function, which facilitated access to the EGF receptor, EGFR. This receptor is mainly present in the basolateral region and can thus potentially induce neoplastic transformation, as suggested previously <xref rid="pone.0074994-Singh1" ref-type="bibr">[14]</xref>, <xref rid="pone.0074994-Oliveira1" ref-type="bibr">[19]</xref>, <xref rid="pone.0074994-Bezdekova1" ref-type="bibr">[38]</xref>. Controversially to our observations, a recent study showed that EGF decreased claudin-3 and -4 via MEK/ERK and/or PI3K/Akt signaling pathways in ovarian cancer cell lines <xref rid="pone.0074994-Ogawa1" ref-type="bibr">[39]</xref>. The reasons for the discrepancy observed are currently unclear but may be related to tissue-specific differences in claudin function or even the tissue microenvironment features, as previously discussed <xref rid="pone.0074994-Oliveira2" ref-type="bibr">[40]</xref>.</p>
+      <p>In earlier studies, we showed a correlation between increased cell migration and malignant potential in colorectal cancer cells <xref rid="pone.0074994-deArajo1" ref-type="bibr">[10]</xref>, <xref rid="pone.0074994-Leve1" ref-type="bibr">[31]</xref>, <xref rid="pone.0074994-Vidal1" ref-type="bibr">[34]</xref>. Here, we showed increased cell migration in HT-29 cells that were treated with EGF (<xref ref-type="fig" rid="pone-0074994-g003">Fig. 3A and 3B</xref>), which confirms that EGF is a potential tumor promoter. Furthermore, we observed that inhibitors of the ERK1/2 and PI3K-Akt pathways both prevented and decreased the EGF treatment-induced migration of HT-29 cells (<xref ref-type="fig" rid="pone-0074994-g005">Fig. 5C</xref>), suggesting that these pathways participate as modulators of EGF-mediated responses. In addition, to verify the importance of claudins 1 and 3 in this process, we forced the overexpression of these proteins in HT-29 cells. Compared to HT-29<sup>pBABE</sup> cells, our results showed that HT-29<sup>Cld-1</sup> cells displayed decreased cell migration, whereas the migration of HT-29<sup>Cld-3</sup> cells was unaltered (<xref ref-type="fig" rid="pone-0074994-g007">Fig. 7A and 7B</xref>). These results suggest that claudin-1 expression plays an important role in cell migration and that this migration decreases with claudin-1 upregulation. Conversely, overexpressed claudin-3 <italic>per se</italic> was not sufficient to alter cell migration. It is possible that EGF may induce other pathways that are involved in the regulation of cell migration; however, further studies are necessary to confirm this hypothesis.</p>
+      <p>We further evaluated the malignant potential of EGF-treated HT-29 cells with colony formation assays <xref rid="pone.0074994-Robbs1" ref-type="bibr">[35]</xref>, <xref rid="pone.0074994-deFreitasJunior2" ref-type="bibr">[41]</xref> and observed that EGF treatment increased the numbers of anchorage-dependent and anchorage-independent colonies (<xref ref-type="fig" rid="pone-0074994-g004">Fig. 4A and 4B</xref>). Additionally, the inhibition of PI3K-Akt and ERK1/2, alone or in combination prevented these effects induced by EGF (<xref ref-type="fig" rid="pone-0074994-g005">Fig. 5D and 5E</xref>). Furthermore, we showed that forced claudin-3 overexpression increased colony formation, while claudin-1 overexpression did not alter the colony formation potential (<xref ref-type="fig" rid="pone-0074994-g008">Fig. 8</xref> and <xref ref-type="fig" rid="pone-0074994-g009">9</xref>). These findings agree with previous reports, which showed that the upregulation of claudins 3 and 4 was related to increased tumorigenic potential in ovarian epithelial cells <xref rid="pone.0074994-Agarwal1" ref-type="bibr">[42]</xref>, <xref rid="pone.0074994-Kwon1" ref-type="bibr">[43]</xref>. Nevertheless, our findings show that claudin-1-overexpressing cells displayed decreased malignant potential, as determined by the prevention of cell migration, and this finding is in contrast with previously published reports in which claudin-1 upregulation increased metastatic potential in colorectal cancer <xref rid="pone.0074994-Dhawan2" ref-type="bibr">[44]</xref>, <xref rid="pone.0074994-Singh3" ref-type="bibr">[45]</xref>. We do not know the reason for these different observations, but they may be a result of cell type differences; we used HT-29 cells, which are less differentiated than the SW480 and SW620 cells used by the previous authors <xref rid="pone.0074994-Chantret1" ref-type="bibr">[46]</xref>. Additionally, earlier studies have shown that claudin-1 downregulation was related to disease recurrence and poor patient survival in stage II colon cancer <xref rid="pone.0074994-Resnick1" ref-type="bibr">[47]</xref> and that the decreased expression of this protein was also observed in lymph node metastases of colon carcinomas. We postulate that claudin-1 expression and colon cancer progression correlate negatively, as previously suggested <xref rid="pone.0074994-Ersoz1" ref-type="bibr">[21]</xref>. Based on our findings, we suspect that the differential regulation of claudins 1 and 3 expression may define a more aggressive phenotype in colorectal cancer cells. Currently, we are examining the differential regulation of these claudins in colorectal cancer in detail.</p>
+      <p>We also showed that the forced overexpression of claudin-1 and claudin-3 increased the cytoplasmic content of these proteins but did not alter their localization at cell-cell contacts (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6B</xref>). Moreover, we observed that claudin-1 and claudin-3 overexpression increased the TER, indicating a higher retention of the paracellular flux to ions (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6C</xref>). However, the HT-29 cells that overexpressed claudin-3 increased the macromolecular permeability, indicating a higher paracellular flux to macromolecules (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6D</xref>). It is known that the paracellular flux is performed differentially, depending on the type of claudin and is cell specific. For instance, upregulation of claudin-3 decreased the barrier function, while the overexpression of claudin-4 improved the alveolar TER <xref rid="pone.0074994-Mitchell1" ref-type="bibr">[48]</xref>. On the other hand, H<sub>2</sub>O<sub>2</sub>-induced downregulation of claudin-3 decreased the TER and increased the FITC-dextran permeability in gastric epithelial cells <xref rid="pone.0074994-Hashimoto1" ref-type="bibr">[49]</xref>. Additionally, claudin-2 was suggested have a role in the regulation of ion-selective passage, while other TJ proteins, such as occludin and tricellulin, appear to regulate the macromolecular flux <xref rid="pone.0074994-Weber1" ref-type="bibr">[50]</xref>. In our study, we verified that claudin-3 overexpression did not alter the E-cadherin subcellular redistribution, indicating that the altered macromolecular permeability, as assessed by the labeling of Uvomorulin/E-cadherin, is a consequence of impaired TJ function and not the redistribution of this protein (<xref ref-type="fig" rid="pone-0074994-g006">Fig. 6E</xref>). These findings indicate that claudin-3 overexpression regulates of dual manner the barrier function of TJs, strengthening the barrier to ions while facilitating the macromolecular flux, which may be a reflex of the redistribution of occludin e/or tricellulin to the cytoplasm. However, further studies are necessary to better understand the role played by interactions between claudins and other TJ proteins to regulate TJ barrier function.</p>
+      <p>We further investigated the importance of claudin-3 as regulator of EGF-induced events in HT-29 cells by using siRNA for this claudin. We showed that the silencing of claudin-3 prevents the EGF-induced cell proliferation increases and anchorage-dependent and -independent colony formation (<xref ref-type="fig" rid="pone-0074994-g010">Fig. 10B, 10C and 10D</xref>). Interestingly, we verified that claudin-3 silencing alone caused increased cell proliferation and colony formation more than EGF treatment. Based these findings, it is possible suggest that both claudin-3 overexpression and claudin-3 downregulation may cause the disorganization of TJs, which could contribute to the malignant potential of these cells. In addition, our data indicate that equilibrium of the claudin-3 level maintains the homeostasis of the intestinal epithelium and that both claudin-3 upregulation or downregulation may result in increased malignant potential. However, additional experiments are needed to confirm this mechanism.</p>
+      <p>In conclusion, we have shown that claudin-3 overexpression is associated with the increased malignant potential of HT-29 cells and that the ERK1/2 and PI3K-Akt pathways, activated by EGF, are important regulators of this event. Additionally, the impaired paracellular flux of macromolecules in HT-29 cells that overexpress claudin-3 confirms the correlation between impaired epithelial barrier function and colorectal tumorigenesis. Furthermore, we showed that claudin-3 silencing can prevent the EGF-induced increase of the malignant potential. However claudin-3 silencing alone can enhance this event, indicating a fine balance that controls the expression of this claudin to maintain intestinal homeostasis. Most importantly, our study contributes to a better understanding of the molecular mechanisms that regulate the expression of claudins and the relationship of these proteins with the malignant process. Lastly, our study indicates possible molecular targets for future applications in the treatment of colorectal cancer.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0074994.s001">
+        <label>Figure S1</label>
+        <caption>
+          <p>
+<bold>Effect of EGF on the activation of ERK1/2 proteins in Caco-2 cells.</bold> Cells were grown and treated with EGF for 15 and 30 min, 1, 2 and 6 h, after which total cell lysates were harvested and analyzed by immunoblotting for p-ERK1/2 and ERK1/2. The numbers represent the ratio of optical density of the pERK1/2 of EGF-treated to untreated cells normalized by ER&#x39A;1/2.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0074994.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0074994.s002">
+        <label>Figure S2</label>
+        <caption>
+          <p>
+<bold>Effect of claudin-3 overexpression on proliferation for prolonged times.</bold> Transduced cells were seeded into 6-well plates, and the numbers of cells were quantified by optical microscopy after 24, 48 or 72 h using trypan blue dye as described in the Materials and Methods. The bar graph shows the ratio of the number of claudin-transduced cells to empty vector-transduced (pBABE) cells. Error bars indicate the means &#xB1; SEM (n&#x200A;=&#x200A;3); **p&lt;0.01 as determined by a t-test.</p>
+          <p>(TIFF)</p>
+        </caption>
+        <media xlink:href="pone.0074994.s002.tiff">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We are especially grateful to Dr. Mikio Furuse for kindly providing the claudin-1 and claudin-3 constructs. We would also like to thank Dr. Martin Bonamino and MSc. Leonardo Chicaybam for kindly helping with claudin-3 silencing. This text was reviewed by American Journal Experts.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0074994-Cereijido1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cereijido</surname><given-names>M</given-names></name>, <name><surname>Contreras</surname><given-names>RG</given-names></name>, <name><surname>Shoshani</surname><given-names>L</given-names></name>, <name><surname>Florez-Benitez</surname><given-names>D</given-names></name>, <name><surname>Larre</surname><given-names>I</given-names></name> (<year>2008</year>) <article-title>Tight junction and polarity interaction in the transporting epithelial phenotype</article-title>. <source>Biochim Biphys Acta</source>
+<volume>1778</volume>: <fpage>770</fpage>&#x2013;<lpage>793</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Mineta1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mineta</surname><given-names>K</given-names></name>, <name><surname>Yamamoto</surname><given-names>Y</given-names></name>, <name><surname>Yamazaki</surname><given-names>Y</given-names></name>, <name><surname>Tanaka</surname><given-names>H</given-names></name>, <name><surname>Tada</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Predicted expansion of the claudin multigene family</article-title>. <source>FEBS Lett</source>
+<volume>585</volume>: <fpage>606</fpage>&#x2013;<lpage>612</lpage>.<pub-id pub-id-type="pmid">21276448</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Takizawa1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Takizawa</surname><given-names>Y</given-names></name>, <name><surname>Kishimoto</surname><given-names>H</given-names></name>, <name><surname>Kitazato</surname><given-names>T</given-names></name>, <name><surname>Tomita</surname><given-names>M</given-names></name>, <name><surname>Hayashi</surname><given-names>M</given-names></name> (<year>2012</year>) <article-title>Changes in protein and mRNA expression levels of claudin family after mucosal lesion by intestinal ischemia/reperfusion</article-title>. <source>Int J Pharm</source>
+<volume>426</volume>: <fpage>82</fpage>&#x2013;<lpage>89</lpage>.<pub-id pub-id-type="pmid">22285474</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ikari1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ikari</surname><given-names>A</given-names></name>, <name><surname>Takiguchi</surname><given-names>A</given-names></name>, <name><surname>Atomi</surname><given-names>K</given-names></name>, <name><surname>Sugatani</surname><given-names>J</given-names></name> (<year>2011</year>) <article-title>Epidermal growth factor increases clathrin-dependent endocytosis and degradation of claudin-2 protein in MDCK II cells</article-title>. <source>J Cell Physiol</source>
+<volume>226</volume>: <fpage>2448</fpage>&#x2013;<lpage>2456</lpage>.<pub-id pub-id-type="pmid">21660968</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Asaka1">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Asaka</surname><given-names>M</given-names></name>, <name><surname>Hirase</surname><given-names>T</given-names></name>, <name><surname>Hashimoto-Komatsu</surname><given-names>A</given-names></name>, <name><surname>Node</surname><given-names>K</given-names></name> (<year>2011</year>) <article-title>Rab5a-mediated localization of claudin-1 is regulated by proteasomes in endothelial cells</article-title>. <source>Am J Physiol Cell Physiol</source>
+<volume>300</volume>: <fpage>C87</fpage>&#x2013;<lpage>C96</lpage>.<pub-id pub-id-type="pmid">20926780</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Yoon1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoon</surname><given-names>CH</given-names></name>, <name><surname>Kim</surname><given-names>MJ</given-names></name>, <name><surname>Park</surname><given-names>MJ</given-names></name>, <name><surname>Park</surname><given-names>IC</given-names></name>, <name><surname>Hwang</surname><given-names>SG</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Claudin-1 acts through c-Abl-protein kinase C delta (PKCdelta) signaling and has a causal role in the acquisition of invasive capacity in human liver cells</article-title>. <source>J Biol Chem</source>
+<volume>285</volume>: <fpage>226</fpage>&#x2013;<lpage>233</lpage>.<pub-id pub-id-type="pmid">19897486</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Lafky1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lafky</surname><given-names>JM</given-names></name>, <name><surname>Wilken</surname><given-names>JA</given-names></name>, <name><surname>Baron</surname><given-names>AT</given-names></name>, <name><surname>Maihle</surname><given-names>NJ</given-names></name> (<year>2008</year>) <article-title>Clinical implications of the ErB/epidermal growth factor (EGF) receptor family and its ligands in ovarian cancer</article-title>. <source>Biochim Biophys Acta</source>
+<volume>1785</volume>: <fpage>232</fpage>&#x2013;<lpage>265</lpage>.<pub-id pub-id-type="pmid">18291115</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Vivekanand1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Vivekanand</surname><given-names>P</given-names></name>, <name><surname>Rebay</surname><given-names>I</given-names></name> (<year>2006</year>) <article-title>Intersection of signal transduction pathways and development</article-title>. <source>Annu Rev Genet</source>
+<volume>40</volume>: <fpage>139</fpage>&#x2013;<lpage>157</lpage>.<pub-id pub-id-type="pmid">16771628</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ciardiello1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ciardiello</surname><given-names>F</given-names></name>, <name><surname>Tortora</surname><given-names>G</given-names></name> (<year>2008</year>) <article-title>EGFR antagonistis in cancer treatment</article-title>. <source>N Engl J Med</source>
+<volume>358</volume>: <fpage>1160</fpage>&#x2013;<lpage>1174</lpage>.<pub-id pub-id-type="pmid">18337605</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-deArajo1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>de Ara&#xFA;jo</surname><given-names>WM</given-names></name>, <name><surname>Vidal</surname><given-names>FC</given-names></name>, <name><surname>de Souza</surname><given-names>WF</given-names></name>, <name><surname>de Freitas</surname><given-names>JC</given-names><suffix>Jr</suffix></name>, <name><surname>de Souza</surname><given-names>W</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>PI3K-Akt and GSK-3&#x3B2; prevents in a differential fashion the malignant phenotype of colorectal cancer cells</article-title>. <source>J Cancer Res Clin Oncol</source>
+<volume>136</volume>: <fpage>1773</fpage>&#x2013;<lpage>1782</lpage>.<pub-id pub-id-type="pmid">20204404</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ma1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ma</surname><given-names>C</given-names></name>, <name><surname>Wang</surname><given-names>J</given-names></name>, <name><surname>Gao</surname><given-names>Y</given-names></name>, <name><surname>Gao</surname><given-names>TW</given-names></name>, <name><surname>Chen</surname><given-names>G</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>The role of glycogen synthase kinase 3beta in the transformation of epidermal cells</article-title>. <source>Cancer Res</source>
+<volume>67</volume>: <fpage>7756</fpage>&#x2013;<lpage>7764</lpage>.<pub-id pub-id-type="pmid">17699780</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Yoon2">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yoon</surname><given-names>YK</given-names></name>, <name><surname>Kim</surname><given-names>HP</given-names></name>, <name><surname>Han</surname><given-names>SW</given-names></name>, <name><surname>Hur</surname><given-names>HS</given-names></name>, <name><surname>Oh do</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Combination of EGFR and MEK1/2 inhibitor shows synergistic effects by suppressing EGFR/HER3-dependent AKT activation in human gastric cancer cells</article-title>. <source>Mol Cancer Ther</source>
+<volume>8</volume>: <fpage>2526</fpage>&#x2013;<lpage>2536</lpage>.<pub-id pub-id-type="pmid">19755509</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ahmed1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ahmed</surname><given-names>N</given-names></name>, <name><surname>Maines-Bandiera</surname><given-names>S</given-names></name>, <name><surname>Quinn</surname><given-names>MA</given-names></name>, <name><surname>Unger</surname><given-names>WG</given-names></name>, <name><surname>Dedhar</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Molecular pathways regulating EGF-induced epithelio-mesenchymal transition in human ovarian surface epithelium</article-title>. <source>Am J Physiol Cell Physiol</source>
+<volume>290</volume>: <fpage>C1532</fpage>&#x2013;<lpage>C1542</lpage>.<pub-id pub-id-type="pmid">16394028</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Singh1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Singh</surname><given-names>AB</given-names></name>, <name><surname>Harris</surname><given-names>RC</given-names></name> (<year>2004</year>) <article-title>Epidermal growth factor receptor activation differentially regulates claudin expression and enhances transepithelial resistance in madin-darby canine kidney cells</article-title>. <source>J Biol Chem</source>
+<volume>279</volume>: <fpage>3543</fpage>&#x2013;<lpage>3552</lpage>.<pub-id pub-id-type="pmid">14593119</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Singh2">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Singh</surname><given-names>AB</given-names></name>, <name><surname>Sugimoto</surname><given-names>K</given-names></name>, <name><surname>Dhawan</surname><given-names>P</given-names></name>, <name><surname>Harris</surname><given-names>RC</given-names></name> (<year>2007</year>) <article-title>Juxtacrine activation of EGFR regulates claudin expression and increases transepithelial resistance</article-title>. <source>Am J Physiol Cell Physiol</source>
+<volume>293</volume>: <fpage>C1660</fpage>&#x2013;<lpage>C1668</lpage>.<pub-id pub-id-type="pmid">17855771</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ikari2">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ikari</surname><given-names>A</given-names></name>, <name><surname>Takiguchi</surname><given-names>A</given-names></name>, <name><surname>Atomi</surname><given-names>K</given-names></name>, <name><surname>Sato</surname><given-names>T</given-names></name>, <name><surname>Sugatani</surname><given-names>J</given-names></name> (<year>2011</year>) <article-title>Decrease in claudin-2 expression enhances cell migration in renal epithelial Madin-Darby canine kidney cells</article-title>. <source>J Cell Physiol</source>
+<volume>226</volume>: <fpage>1471</fpage>&#x2013;<lpage>1478</lpage>.<pub-id pub-id-type="pmid">20717932</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ikari3">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ikari</surname><given-names>A</given-names></name>, <name><surname>Sato</surname><given-names>T</given-names></name>, <name><surname>Watanabe</surname><given-names>R</given-names></name>, <name><surname>Yamazaki</surname><given-names>Y</given-names></name>, <name><surname>Sugatani</surname><given-names>J</given-names></name> (<year>2012</year>) <article-title>Increase in claudin-2 expression by an EGFR/MEK1/2-ERK1/2/c-Fos pathway in lung adenocarcinoma A549 cells</article-title>. <source>Biochim Biophys Acta</source>
+<volume>1823</volume>: <fpage>1110</fpage>&#x2013;<lpage>1118</lpage>.<pub-id pub-id-type="pmid">22546605</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Peter1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Peter</surname><given-names>Y</given-names></name>, <name><surname>Comellas</surname><given-names>A</given-names></name>, <name><surname>Levantini</surname><given-names>E</given-names></name>, <name><surname>Ingenito</surname><given-names>EP</given-names></name>, <name><surname>Shapiro</surname><given-names>SD</given-names></name> (<year>2009</year>) <article-title>Epidermal growth factor receptor and claudin-2 participate in A549 permeability and remodeling: implications for non-small cells lung cancer tumor colonization</article-title>. <source>Mol Carcinog</source>
+<volume>48</volume>: <fpage>488</fpage>&#x2013;<lpage>497</lpage>.<pub-id pub-id-type="pmid">18942115</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Oliveira1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Oliveira</surname><given-names>SS</given-names></name>, <name><surname>Oliveira</surname><given-names>IM</given-names></name>, <name><surname>Souza</surname><given-names>W</given-names></name>, <name><surname>Morgado-D&#xED;az</surname><given-names>JA</given-names></name> (<year>2005</year>) <article-title>Claudins upregulation in human colorectal cancer</article-title>. <source>FEBS Letters</source>
+<volume>579</volume>: <fpage>6179</fpage>&#x2013;<lpage>6185</lpage>.<pub-id pub-id-type="pmid">16253248</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Kinugasa1">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kinugasa</surname><given-names>T</given-names></name>, <name><surname>Akagi</surname><given-names>Y</given-names></name>, <name><surname>Ochi</surname><given-names>T</given-names></name>, <name><surname>Tanaka</surname><given-names>N</given-names></name>, <name><surname>Kawahara</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Increased claudin-1 protein expression in hepatic metastatic lesions of colorectal cancer</article-title>. <source>Anticancer Res</source>
+<volume>32</volume>: <fpage>2309</fpage>&#x2013;<lpage>2314</lpage>.<pub-id pub-id-type="pmid">22641667</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ersoz1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ersoz</surname><given-names>S</given-names></name>, <name><surname>Mungan</surname><given-names>S</given-names></name>, <name><surname>Cobanoglu</surname><given-names>U</given-names></name>, <name><surname>Turgutalp</surname><given-names>H</given-names></name>, <name><surname>Ozoran</surname><given-names>Y</given-names></name> (<year>2011</year>) <article-title>Prognostic importance of Claudin-1 and Claudin-4 expression in colon carcinomas</article-title>. <source>Pathol Res Pract</source>
+<volume>207</volume>: <fpage>285</fpage>&#x2013;<lpage>289</lpage>.<pub-id pub-id-type="pmid">21493012</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Dhawan1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dhawan</surname><given-names>P</given-names></name>, <name><surname>Ahmad</surname><given-names>R</given-names></name>, <name><surname>Chaturvedi</surname><given-names>R</given-names></name>, <name><surname>Smith</surname><given-names>JJ</given-names></name>, <name><surname>Midha</surname><given-names>R</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Claudin-2 expression increases tumorigenicity of colon cancer cells: role of growth factor receptor activation</article-title>. <source>Oncogene</source>
+<volume>30</volume>: <fpage>3234</fpage>&#x2013;<lpage>3247</lpage>.<pub-id pub-id-type="pmid">21383692</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-deFreitasJunior1">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>de Freitas Junior</surname><given-names>JC</given-names></name>, <name><surname>Silva Bdu</surname><given-names>R</given-names></name>, <name><surname>de Souza</surname><given-names>WF</given-names></name>, <name><surname>de Ara&#xFA;jo</surname><given-names>WM</given-names></name>, <name><surname>Abdelhay</surname><given-names>ES</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Inhibition of N-linked glycosylation by tunicamycin induces E-cadherin-mediated cell-cell adhesion and inhibits cell proliferation in undifferentiated human colon cancer cells</article-title>. <source>Cancer Chemother Pharmacol</source>
+<volume>68</volume>: <fpage>227</fpage>&#x2013;<lpage>238</lpage>.<pub-id pub-id-type="pmid">20927523</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Mariadason1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mariadason</surname><given-names>JM</given-names></name>, <name><surname>Rickard</surname><given-names>KL</given-names></name>, <name><surname>Barkla</surname><given-names>DH</given-names></name>, <name><surname>Augenlicht</surname><given-names>LH</given-names></name>, <name><surname>Gibson</surname><given-names>PR</given-names></name> (<year>2000</year>) <article-title>Divergent phenotypic patterns and commitment to apoptosis of Caco-2 cells during spontaneous and butyrate-induced differentiation</article-title>. <source>J Cell Physiol</source>
+<volume>183</volume>: <fpage>347</fpage>&#x2013;<lpage>354</lpage>.<pub-id pub-id-type="pmid">10797309</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Sambuy1">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sambuy</surname><given-names>Y</given-names></name>, <name><surname>De Angelis</surname><given-names>I</given-names></name>, <name><surname>Ranaldi</surname><given-names>G</given-names></name>, <name><surname>Scarino</surname><given-names>ML</given-names></name>, <name><surname>Stammati</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>The Caco-2 cell line as a model of the intestinal barrier: influence of cell and culture-related factors on Caco-2 cell functional characteristics</article-title>. <source>Cell Biol Toxicol</source>
+<volume>21</volume>: <fpage>1</fpage>&#x2013;<lpage>26</lpage>.<pub-id pub-id-type="pmid">15868485</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Halder1">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Halder</surname><given-names>SK</given-names></name>, <name><surname>Beauchamp</surname><given-names>RD</given-names></name>, <name><surname>Datta</surname><given-names>PK</given-names></name> (<year>2005</year>) <article-title>A specific inhibitor of TGF-beta receptor kinase, SB-431542, as a potent antitumor agent for human cancers</article-title>. <source>Neoplasia</source>
+<volume>7</volume>: <fpage>509</fpage>&#x2013;<lpage>521</lpage>.<pub-id pub-id-type="pmid">15967103</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Barbosa1">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Barbosa</surname><given-names>LA</given-names></name>, <name><surname>Goto-Silva</surname><given-names>L</given-names></name>, <name><surname>Redondo</surname><given-names>PA</given-names></name>, <name><surname>Oliveira</surname><given-names>S</given-names></name>, <name><surname>Montesano</surname><given-names>G</given-names></name>, <etal>et al</etal> (<year>2003</year>) <article-title>TPA-induced signal transduction: a link between PKC and EGFR signaling modulates the assembly of intercellular junctions in Caco-2 cells</article-title>. <source>Cell Tissue Res</source>
+<volume>312</volume>: <fpage>319</fpage>&#x2013;<lpage>31</lpage>.<pub-id pub-id-type="pmid">12733059</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Furuse1">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Furuse</surname><given-names>M</given-names></name>, <name><surname>Fujita</surname><given-names>K</given-names></name>, <name><surname>Hiiragi</surname><given-names>T</given-names></name>, <name><surname>Fujimoto</surname><given-names>K</given-names></name>, <name><surname>Tsukita</surname><given-names>S</given-names></name> (<year>1998</year>) <article-title>Claudin-1 and -2: novel integral membrane proteins localizing at tight junctions with no sequence similarity to ocludin</article-title>. <source>J Cell Biol</source>
+<volume>141</volume>: <fpage>1539</fpage>&#x2013;<lpage>1550</lpage>.<pub-id pub-id-type="pmid">9647647</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Morita1">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Morita</surname><given-names>K</given-names></name>, <name><surname>Furuse</surname><given-names>M</given-names></name>, <name><surname>Fujimoto</surname><given-names>K</given-names></name>, <name><surname>Tsukita</surname><given-names>S</given-names></name> (<year>1999</year>) <article-title>Claudin multigene family encoding four-transmembrane domain protein components of tight junction strands</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>96</volume>: <fpage>511</fpage>&#x2013;<lpage>516</lpage>.<pub-id pub-id-type="pmid">9892664</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Chicaybam1">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chicaybam</surname><given-names>L</given-names></name>, <name><surname>Sodre</surname><given-names>A</given-names></name>, <name><surname>Curzio</surname><given-names>BA</given-names></name>, <name><surname>Bonamino</surname><given-names>M</given-names></name> (<year>2013</year>) <article-title>An efficient low cost method for gene transfer to T lymphocytes</article-title>. <source>Plos One</source>
+<volume>8</volume>: <fpage>e60298</fpage>.<pub-id pub-id-type="pmid">23555950</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Leve1">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Leve</surname><given-names>F</given-names></name>, <name><surname>Marcondes</surname><given-names>TG</given-names></name>, <name><surname>Bastos</surname><given-names>LG</given-names></name>, <name><surname>Rabello</surname><given-names>SV</given-names></name>, <name><surname>Tanaka</surname><given-names>MN</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Lysophosphatidic acid induces a migratory phenotype through a crosstalk between RhoA-Rock and Src-FAK signalling in colon cancer cells</article-title>. <source>Eur J Pharmacol</source>
+<volume>671</volume>: <fpage>7</fpage>&#x2013;<lpage>17</lpage>.<pub-id pub-id-type="pmid">21968138</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Contreras1">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Contreras</surname><given-names>RG</given-names></name>, <name><surname>Flores-Maldonado</surname><given-names>C</given-names></name>, <name><surname>L&#xE1;zaro</surname><given-names>A</given-names></name>, <name><surname>Shoshani</surname><given-names>L</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>Ouabain binding to Na+,K+-ATPase relaxes cell attachment and sends a specific signal (NACos) to the nucleus</article-title>. <source>J Membr Biol</source>
+<volume>198</volume>: <fpage>147</fpage>&#x2013;<lpage>58</lpage>.<pub-id pub-id-type="pmid">15216416</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Rajasekaran1">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rajasekaran</surname><given-names>SA</given-names></name>, <name><surname>Palmer</surname><given-names>LG</given-names></name>, <name><surname>Quan</surname><given-names>K</given-names></name>, <name><surname>Harper</surname><given-names>JF</given-names></name>, <name><surname>Ball</surname><given-names>WJ</given-names><suffix>Jr</suffix></name>, <etal>et al</etal> (<year>2001</year>) <article-title>Na,K-ATPase beta-subunit is required for epithelial polarization, suppression of invasion, and cell motility</article-title>. <source>Mol Biol Cell</source>
+<volume>12</volume>: <fpage>279</fpage>&#x2013;<lpage>295</lpage>.<pub-id pub-id-type="pmid">11179415</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Vidal1">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Vidal</surname><given-names>F</given-names></name>, <name><surname>de Araujo</surname><given-names>WM</given-names></name>, <name><surname>Cruz</surname><given-names>AL</given-names></name>, <name><surname>Tanaka</surname><given-names>MN</given-names></name>, <name><surname>Viola</surname><given-names>JP</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Lithium reduces tumorigenic potential in response to EGF signaling in human colorectal cancer cells</article-title>. <source>Int J Oncol</source>
+<volume>38</volume>: <fpage>1365</fpage>&#x2013;<lpage>1373</lpage>.<pub-id pub-id-type="pmid">21369697</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Robbs1">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Robbs</surname><given-names>BK</given-names></name>, <name><surname>Cruz</surname><given-names>AL</given-names></name>, <name><surname>Werneck</surname><given-names>MB</given-names></name>, <name><surname>Mognol</surname><given-names>GP</given-names></name>, <name><surname>Viola</surname><given-names>JP</given-names></name> (<year>2008</year>) <article-title>Dual roles for NFAT transcription factor genes as oncogenes and tumor suppressors</article-title>. <source>Mol Cell Biol</source>
+<volume>28</volume>: <fpage>7168</fpage>&#x2013;<lpage>7181</lpage>.<pub-id pub-id-type="pmid">18809576</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ohmori1">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ohmori</surname><given-names>K</given-names></name>, <name><surname>Kawamura</surname><given-names>Y</given-names></name> (<year>2009</year>) <article-title>Cell transformation activities of abietic acid and dehydroabietic acid: safety assessment of possible contaminants in paper and paperboard for food contact use</article-title>. <source>Food Addit Contam Part A Chem Anal Control Expo Risk Assess</source>
+<volume>26</volume>: <fpage>568</fpage>&#x2013;<lpage>573</lpage>.<pub-id pub-id-type="pmid">19680931</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Marcial1">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Marcial</surname><given-names>MA</given-names></name>, <name><surname>Madara</surname><given-names>JL</given-names></name> (<year>1987</year>) <article-title>Analysis of absorptive cell occluding junction structure-function relationships in a state of enhanced junctional permeability</article-title>. <source>Lab Invest</source>
+<volume>56</volume>: <fpage>424</fpage>&#x2013;<lpage>434</lpage>.<pub-id pub-id-type="pmid">3104685</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Bezdekova1">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bezdekova</surname><given-names>M</given-names></name>, <name><surname>Brychtova</surname><given-names>S</given-names></name>, <name><surname>Sedlakova</surname><given-names>E</given-names></name>, <name><surname>Langova</surname><given-names>K</given-names></name>, <name><surname>Brychta</surname><given-names>T</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Analysis of snail-1, E-cadherin and claudin-1 expression in colorectal adenomas and carcinomas</article-title>. <source>Int J Mol Sci</source>
+<volume>13</volume>: <fpage>1632</fpage>&#x2013;<lpage>1643</lpage>.<pub-id pub-id-type="pmid">22408413</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Ogawa1">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ogawa</surname><given-names>M</given-names></name>, <name><surname>Kojima</surname><given-names>T</given-names></name>, <name><surname>Someya</surname><given-names>M</given-names></name>, <name><surname>Nomura</surname><given-names>K</given-names></name>, <name><surname>Takasawa</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Epidermal growth factor modulates claudins and tight junctional functions in ovarian cancer cell lines</article-title>. <source>Histochem Cell Biol</source>
+<volume>138</volume>: <fpage>323</fpage>&#x2013;<lpage>338</lpage>.<pub-id pub-id-type="pmid">22544349</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Oliveira2">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Oliveira</surname><given-names>SS</given-names></name>, <name><surname>Morgado-D&#xED;az</surname><given-names>JA</given-names></name> (<year>2007</year>) <article-title>Claudins: multifunctional players in epithelial tight junctions and their role in cancer</article-title>. <source>Cell Mol Life Sci</source>
+<volume>64</volume>: <fpage>17</fpage>&#x2013;<lpage>28</lpage>.<pub-id pub-id-type="pmid">17115119</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-deFreitasJunior2">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>de-Freitas-Junior</surname><given-names>JC</given-names></name>, <name><surname>Bastos</surname><given-names>LG</given-names></name>, <name><surname>Freire-Neto</surname><given-names>CA</given-names></name>, <name><surname>Rocher</surname><given-names>BD</given-names></name>, <name><surname>Abdelhay</surname><given-names>ES</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>N-glycan biosynthesis inhibitors induce in vitro anticancer activity in colorectal cancer cells</article-title>. <source>J Cell Biochem</source>
+<volume>113</volume>: <fpage>2957</fpage>&#x2013;<lpage>2966</lpage>.<pub-id pub-id-type="pmid">22552949</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Agarwal1">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Agarwal</surname><given-names>R</given-names></name>, <name><surname>D&#x2019;Souza</surname><given-names>T</given-names></name>, <name><surname>Morin</surname><given-names>PJ</given-names></name> (<year>2005</year>) <article-title>Claudin-3 and claudin-4 expression in ovarian epithelial cells enhances invasion and is associated with increased matrix metalloproteinase-2 activity</article-title>. <source>Cancer Res</source>
+<volume>65</volume>: <fpage>7378</fpage>&#x2013;<lpage>7385</lpage>.<pub-id pub-id-type="pmid">16103090</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Kwon1">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kwon</surname><given-names>MJ</given-names></name>, <name><surname>Kim</surname><given-names>SS</given-names></name>, <name><surname>Choi</surname><given-names>YL</given-names></name>, <name><surname>Jung</surname><given-names>HS</given-names></name>, <name><surname>Balch</surname><given-names>C</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Derepression of CLDN3 and CLDN4 during ovarian tumorigenesis is associated with loss of repressive histone modifications</article-title>. <source>Carcinogenesis</source>
+<volume>31</volume>: <fpage>974</fpage>&#x2013;<lpage>983</lpage>.<pub-id pub-id-type="pmid">20053926</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Dhawan2">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dhawan</surname><given-names>P</given-names></name>, <name><surname>Singh</surname><given-names>AB</given-names></name>, <name><surname>Deane</surname><given-names>NG</given-names></name>, <name><surname>No</surname><given-names>Y</given-names></name>, <name><surname>Shiou</surname><given-names>SR</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Claudin-1 regulates cellular transformation and metastatic behavior in colon cancer</article-title>. <source>J Clin Invest</source>
+<volume>115</volume>: <fpage>1765</fpage>&#x2013;<lpage>1776</lpage>.<pub-id pub-id-type="pmid">15965503</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Singh3">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Singh</surname><given-names>AB</given-names></name>, <name><surname>Sharma</surname><given-names>A</given-names></name>, <name><surname>Smith</surname><given-names>JJ</given-names></name>, <name><surname>Krishnan</surname><given-names>M</given-names></name>, <name><surname>Chen</surname><given-names>X</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Claudin-1 upregulates the repressor ZEB-1 to inhibit E-Cadherin expression in colon cancer cells</article-title>. <source>Gastroenterology</source>
+<volume>141</volume>: <fpage>2140</fpage>&#x2013;<lpage>2153</lpage>.<pub-id pub-id-type="pmid">21878201</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Chantret1">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chantret</surname><given-names>I</given-names></name>, <name><surname>Barbat</surname><given-names>A</given-names></name>, <name><surname>Dussaulx</surname><given-names>E</given-names></name>, <name><surname>Brattain</surname><given-names>MG</given-names></name>, <name><surname>Zweibaum</surname><given-names>A</given-names></name> (<year>1988</year>) <article-title>Epithelial polarity, villin expression, and enterocytic differentiation of cultured human colon carcinoma cells: A survey of twenty cell lines</article-title>. <source>Cancer Res</source>
+<volume>48</volume>: <fpage>1936</fpage>&#x2013;<lpage>1942</lpage>.<pub-id pub-id-type="pmid">3349466</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Resnick1">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Resnick</surname><given-names>MB</given-names></name>, <name><surname>Konkin</surname><given-names>T</given-names></name>, <name><surname>Routhier</surname><given-names>J</given-names></name>, <name><surname>Sabo</surname><given-names>E</given-names></name>, <name><surname>Pricolo</surname><given-names>VE</given-names></name> (<year>2005</year>) <article-title>Claudin-1 is a strong prognostic indicator in stage II colonic cancer: a tissue microarray study</article-title>. <source>Mod Pathol</source>
+<volume>18</volume>: <fpage>511</fpage>&#x2013;<lpage>5118</lpage>.<pub-id pub-id-type="pmid">15475928</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Mitchell1">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mitchell</surname><given-names>LA</given-names></name>, <name><surname>Overgaard</surname><given-names>CE</given-names></name>, <name><surname>Ward</surname><given-names>C</given-names></name>, <name><surname>Margulies</surname><given-names>SS</given-names></name>, <name><surname>Koval</surname><given-names>M</given-names></name> (<year>2011</year>) <article-title>Differential effects of claudin-3 and claudin-4 on alveolar epithelial barrier function</article-title>. <source>Am J Physiol Lung Cell Mol Physiol</source>
+<volume>301</volume>: <fpage>L40</fpage>&#x2013;<lpage>49</lpage>.<pub-id pub-id-type="pmid">21515662</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Hashimoto1">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hashimoto</surname><given-names>K</given-names></name>, <name><surname>Oshima</surname><given-names>T</given-names></name>, <name><surname>Tomita</surname><given-names>T</given-names></name>, <name><surname>Kim</surname><given-names>Y</given-names></name>, <name><surname>Matsumoto</surname><given-names>T</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Oxidative stress induces gastric epithelial permeability through claudin-3</article-title>. <source>Biochem Biophys Res Commun</source>
+<volume>376</volume>: <fpage>154</fpage>&#x2013;<lpage>157</lpage>.<pub-id pub-id-type="pmid">18774778</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0074994-Weber1">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Weber</surname><given-names>CR</given-names></name> (<year>2012</year>) <article-title>Dynamic properties of the tight junction barrier</article-title>. <source>Ann N Y Acad Sci</source>
+<volume>1257</volume>: <fpage>77</fpage>&#x2013;<lpage>84</lpage>.<pub-id pub-id-type="pmid">22671592</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

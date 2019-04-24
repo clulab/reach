@@ -1,0 +1,679 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27080443</article-id>
+      <article-id pub-id-type="pmc">4832187</article-id>
+      <article-id pub-id-type="pii">srep24251</article-id>
+      <article-id pub-id-type="doi">10.1038/srep24251</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>MHC-class-II are expressed in a subpopulation of human neural stem cells <italic>in vitro</italic> in an IFN&#x3B3;&#x2013;independent fashion and during development</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vagaska</surname>
+            <given-names>B.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>New</surname>
+            <given-names>S. E. P.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Alvarez-Gonzalez</surname>
+            <given-names>C.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a2">2</xref>
+          <xref ref-type="aff" rid="a3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>D&#x2019;Acquisto</surname>
+            <given-names>F.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gomez</surname>
+            <given-names>S. G.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a5">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bulstrode</surname>
+            <given-names>N. W.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a6">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Madrigal</surname>
+            <given-names>A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="a2">2</xref>
+          <xref ref-type="aff" rid="a3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ferretti</surname>
+            <given-names>P.</given-names>
+          </name>
+          <xref ref-type="corresp" rid="c1">a</xref>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <aff id="a1"><label>1</label><institution>Stem Cells and Regenerative Section, UCL Institute of Child Health</institution>, London WC1N 1EH, <country>UK</country></aff>
+        <aff id="a2"><label>2</label><institution>Anthony Nolan Research Institute</institution>, London NW3 2QG, <country>UK</country></aff>
+        <aff id="a3"><label>3</label><institution>UCL Cancer Institute</institution>, London WC1E 6DD, <country>UK</country></aff>
+        <aff id="a4"><label>4</label><institution>William Harvey Research Institute, Barts and The London School of Medicine, Queen Mary University of London</institution>, Charterhouse Square, London EC1M 6BQ, <country>UK</country></aff>
+        <aff id="a5"><label>5</label><institution>Anthony Nolan Cell Therapy Centre</institution>, Nottingham NG11 8NS, <country>UK</country></aff>
+        <aff id="a6"><label>6</label><institution>Department of Plastic Surgery, Great Ormond St. Hospital for Children NHS Trust</institution>, London WC1N 3JH, <country>UK</country></aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1">
+          <label>a</label>
+          <email>p.ferretti@ucl.ac.uk</email>
+        </corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>15</day>
+        <month>04</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>6</volume>
+      <elocation-id>24251</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>20</day>
+          <month>08</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>14</day>
+          <month>03</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2016, Macmillan Publishers Limited</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <copyright-holder>Macmillan Publishers Limited</copyright-holder>
+        <license xmlns:xlink="http://www.w3.org/1999/xlink" license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <!--author-paid-->
+          <license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Expression of major histocompatibility antigens class-2 (MHC-II) under non-inflammatory conditions is not usually associated with the nervous system. Comparative analysis of immunogenicity of human embryonic/fetal brain-derived neural stem cells (hNSCs) and human mesenchymal stem cells with neurogenic potential from umbilical cord (UC-MSCs) and paediatric adipose tissue (ADSCs), while highlighting differences in their immunogenicity, led us to discover subsets of neural cells co-expressing the neural marker SOX2 and MHC-II antigen <italic>in vivo</italic> during human CNS development. MHC-II proteins in hNSCs are functional, and differently regulated upon differentiation along different lineages. Mimicking an inflammatory response using the inflammatory cytokine IFN&#x3B3; induced MHC-II up-regulation in both astrocytes and hNSCs, but not in UC-MSCs and ADSCs, either undifferentiated or differentiated, though IFN&#x3B3; receptor expression was comparable. Together, hypoimmunogenicity of both UC-MSCs and ADSCs supports their suitability for allogeneic therapy, while significant immunogenicity of hNSCs and their progeny may at least in part underlie negative effects reported in some patients following embryonic neural cell grafts. Crucially, we show for the first time that MHC-II expression in developing human brains is not restricted to microglia as previously suggested, but is present in discrete subsets of neural progenitors and appears to be regulated independently of inflammatory stimuli.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <p>The central nervous system (CNS) has been considered historically to be in an immunologically quiescent state<xref ref-type="bibr" rid="b1">1</xref>. This &#x201C;immune privilege state&#x201D; is due in part to the low expression of key regulators of the immune response, MHC class I (MHC-I) and class II (MHC-II) proteins, as well as the limited entry of infiltrating T cells into the CNS<xref ref-type="bibr" rid="b1">1</xref><xref ref-type="bibr" rid="b2">2</xref>. However despite this, induction of innate and adaptive immune responses occurs within the CNS following viral infection<xref ref-type="bibr" rid="b1">1</xref>. Furthermore, recognition of foreign MHC antigens on transplanted cells could be a crucial determinant for the immunological rejection of cell-derived products<xref ref-type="bibr" rid="b2">2</xref><xref ref-type="bibr" rid="b3">3</xref>.</p>
+    <p>Human neural stem cells (hNSCs) obtained from fetal tissue can successfully differentiate towards all different neural cell types<xref ref-type="bibr" rid="b4">4</xref>, and fetal cells are still considered the best option for neural cell therapy, as indicated by a recent decision of resuming clinical trials using such cells in patients with Parkinson&#x2019;s disease<xref ref-type="bibr" rid="b5">5</xref>. In a human transplant paradigm, the fetal cell grafts have to be allogeneic, but the extent of immunoresponse they may elicit is still a matter of debate, as it is not possible to carry out these experiments in humans.</p>
+    <p>Different studies using <italic>in vitro</italic> models have suggested that allogeneic hNSCs and hNSCs derived from iPS<xref ref-type="bibr" rid="b6">6</xref> or ES<xref ref-type="bibr" rid="b7">7</xref> cells do not induce a significant immunoresponse. Odeberg <italic>et al.</italic> have suggested that although hNSCs express MHC, they are not immunogenic<xref ref-type="bibr" rid="b8">8</xref>. In contrast, potential hNSC immune response has been reported in other studies<xref ref-type="bibr" rid="b9">9</xref><xref ref-type="bibr" rid="b10">10</xref>. Also results from <italic>in vivo</italic> animal studies show discrepancy in their conclusions, with immunoresponse to neural stem cells reported to be low by some, and significant by others<xref ref-type="bibr" rid="b11">11</xref><xref ref-type="bibr" rid="b12">12</xref><xref ref-type="bibr" rid="b13">13</xref>.</p>
+    <p>The initial hypothesis we set to test was that expression of MHCs in hNSCs was comparable to that of mesenchymal stem cells (MSCs), that are considered to have low immunogenicity, though immuno-activation of these cells under inflammatory conditions has been suggested<xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref><xref ref-type="bibr" rid="b16">16</xref>, to have immunomodulatory properties, and to have the capacity to differentiate along the neural lineage<xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b18">18</xref><xref ref-type="bibr" rid="b19">19</xref>. We focused on mesenchymal cells that could be stably maintained and had the potential to be used for neural stem cell therapy, UC-MSCs (umbilical cord-derived MSCs) and paediatric ADSCs (adipose tissue-derived stem cells).</p>
+    <p>The finding that no MHC-II protein expression was observed in UC-MSCs and ADSCs, whereas a significant subset of hNSCs were positive, raised the issues of 1) the identity of these cells, as within the normal central nervous system (CNS) MHC-II are believed to be expressed only by microglia, and 2) their existence in the developing human CNS. We show here that the MHC-II-positive cells present in hNSC culture are not microglia as classified according to standard microglial markers, nor are simply an artifact of the <italic>in vitro</italic> system. As shown by analysis of MHC-II expression in hNSCs from different embryos, the MHC-II-positive population is constant through passages. Crucially, a subset of neural progenitors in the germinal zone, identified by SOX2 labeling, was found to co-express MHC-II in the embryonic human CNS. MHC-II in hNSCs are functional in recognizing allogeneic T cell receptors, and, unlike ADSCs, are rapidly killed by T cells. MHC-II expression <italic>in vitro</italic> does not appear to be regulated via an autocrine mechanism, and all hNSC cells appear to have the potential to express MHC-II in response to IFN-&#x3B3; stimulation. Finally, we show different regulation of MHC-II in hNSCs induced to differentiate along the astrocytic or neurogenic lineages, with down-regulation in the former and up-regulation in the latter. Together, our studies suggest the existence of a novel neural stem cell population within the developing human CNS constitutively expressing MHC-II, rather than as a consequence of an inflammatory reaction. Furthermore, these findings suggest that hNSCs and their progeny may mount an immune response when grafted for therapeutic purposes which may have serious implications for the outcome of the procedure and possibly account for negative outcome in some patients in clinical trials.</p>
+    <sec disp-level="1">
+      <title>Results</title>
+      <sec disp-level="2">
+        <title>MHC class I and II expression in hNSCs, ADSCs, and UC-MSCs</title>
+        <p>Potential immunogenicity of hNSCs, UC-MSCs and ADSCs was first investigated by comparing expression of the major histocompatibility complexes, HLA-A, -B, -C (MHC class I, MHC-I) and HLA-DR, -DP, -DQ (MHC class II, MHC-II), by flow cytometry analysis in 3 independent lines for each cell type. MHC-I was detected in the majority of hNSCs, UC-MSCs and ADSCs (<xref ref-type="fig" rid="f1">Fig. 1A</xref>). UC-MSCs and ADSCs were negative for MHC-II on a basal level whilst approximately 50% (average from 3 different hNSC lines) of undifferentiated hNSCs expressed MHC-II (<xref ref-type="fig" rid="f1">Fig. 1A</xref>). Immunofluorescence staining of the 3 hNSC lines confirmed expression of MHC-II and showed that MHC-II-positive cells were also positive for neural stem cell markers, such as SOX2 (<xref ref-type="fig" rid="f1">Fig. 1B,C</xref>), nestin, PAX6 and Tbr2 (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S1A&#x2013;C</xref>). The difference in the proportion of MHC-II-positive cells in each line did not appear to change through passages. In contrast to hNSCs, human astrocytes were negative for MHC-II (<xref ref-type="fig" rid="f1">Fig. 1D</xref>).</p>
+        <p>The hNSC lines used here and by others obtained with the same protocol have been thoroughly characterized as SOX2-positive neural stem cells<xref ref-type="bibr" rid="b4">4</xref> and we have previously shown by FACS analysis that &#x2265;98% of the hNSCs are SOX2-positive<xref ref-type="bibr" rid="b20">20</xref>. Nonetheless, to rule out that the MHC-II staining observed might be due to microglia contaminations, we stained our cultures with microglial markers, such as CD68 and CD11b. hNSCs were completely negative for CD11b (<xref ref-type="fig" rid="f1">Fig. 1E</xref>) and CD68 (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S1D</xref>).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>MHC class II expression in the embryonic human nervous system</title>
+        <p>We then investigated whether a population of neural stem cells that expresses MHC-II exist <italic>in vivo</italic> by immunostaining brain and spinal cord sections from human embryos. A small number of MHC-II-positive cells per section (n&#x2009;&#x2265;&#x2009;2) was found in all sections (n&#x2009;&#x2265;&#x2009;6/embryo) stained from 5 different embryos at Carnegie stages 22 (Cs22) and 23 (Cs23); these cells were located in the proximity or within the periventricular zone of the spinal cord and brain where the SOX2-positive neural progenitors reside (<xref ref-type="fig" rid="f2">Fig. 2A,B</xref>). A subset of MHC-II-positive cells was present also in the dorsal root ganglia, within a population defined in other studies as &#x201C;support cells&#x201D; (<xref ref-type="fig" rid="f2">Fig. 2C</xref>).</p>
+        <p>Double-labelling for MHC-II and SOX2 showed that most of the MHC-II-positive cells were also SOX2-positive (&gt;87%), consistent with the co-expression of these proteins observed <italic>in vitro</italic> (<xref ref-type="fig" rid="f2">Fig. 2D,E</xref> and <xref ref-type="supplementary-material" rid="S1">Supplementary Table 1</xref>). Co-staining of spinal cord sections with additional neural markers, showed that subsets of MHC-II positive cells expressed PAX6 (<xref ref-type="fig" rid="f2">Fig. 2F</xref>) and nestin (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S3</xref>). At the developmental stage examined (Carnegie stage 22), co-expression of MHC-II and Tbr2, that in the mouse is up-regulated during the transition from radial glia to intermediate progenitor cells<xref ref-type="bibr" rid="b21">21</xref> and is expressed in hNSCs <italic>in vitro</italic> (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S1C</xref>), was detected in the dorsal root ganglion but not in the spinal cord (<xref ref-type="fig" rid="f2">Fig. 2G,H</xref>). Whereas cells co-expressing MHC-II and neural stem cell markers were consistently detected (&#x2265;2 double-labelled cells/section), no cell double-labelled for MHC-II and the neuroblast marker, doublecortin, was observed (<xref ref-type="fig" rid="f2">Fig. 2I</xref>).</p>
+        <p>To further investigate the identity of MHC-II-positive-cells <italic>in vivo</italic>, spinal cord and brain sections were double stained for MHC-II and the microglial markers, CD11b (<xref ref-type="fig" rid="f3">Fig. 3</xref>) and CD68 (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S4</xref>). As exemplified in <xref ref-type="fig" rid="f3">Fig. 3A,B</xref>, cells expressing CD11b were found both in brain and spinal cord in Cs23 embryos, and more than 90% of the CD11b-positive cells was also MHC-II positive. Finally, triple staining for MHC-II, CD11b and SOX2 in developing spinal cord was carried out at Cs23 (<xref ref-type="fig" rid="f3">Fig. 3C</xref>) and demonstrated the presence of a subset of cells positive for all three markers (&gt;92% of MHC-II-positive cells, <xref ref-type="supplementary-material" rid="S1">Supplementary Table S1</xref>). This indicates that the human developing nervous system contains a sub-population of SOX2-positive cells that expresses also MHC-II and CD11b.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Functional analysis of MHC-II</title>
+        <p>In order to establish whether MHC-II proteins expressed by hNSCs are functional, we carried out a T cell co-culture assay using allogeneic T cells from a donor of different sex from the hNSCs. As shown in <xref ref-type="fig" rid="f4">Fig. 4A</xref> (frames from time-lapse imaging) and in Movies 1&#x2013;2, T cells rapidly formed synapses with the hNSCs. Within a few minutes from adding the T cells, significant morphological changes were observed: 30.9%&#x2009;&#xB1;&#x2009;5.3 of hNSCs had started to shrink, as evaluated from images collected at 30&#x2009;minutes of co-culture, and then died (<xref ref-type="fig" rid="f4">Fig. 4A,B</xref>). In contrast, ADSCs did not evoke a T cell response (Movie 3), consistent with their lack of MHC-II expression, and neither morphology nor their survival were affected (<xref ref-type="fig" rid="f4">Fig. 4C</xref>). Immunostaining of co-cultured cells for the T cell markers, CD4 and CD8, showed that both CD4 and CD8 positive T cells interact with hNSCs (<xref ref-type="fig" rid="f4">Fig. 4D</xref>).</p>
+        <p>We then assessed expression of the IFN&#x3B3; receptors, IFN&#x3B3;R1 and IFN&#x3B3;R2, in hNSCs, UC-MSCs, ADSCs and astrocytes by RT-qPCR to establish whether these cells had the potential to respond to IFN&#x3B3; stimulation. As shown in <xref ref-type="fig" rid="f5">Fig. 5A,B</xref>, all cell types expressed both IFN&#x3B3; receptors. However, the mRNA levels of HLA-DRA and CIITA (class II transactivator), the master regulator that modulates both constitutive and IFN&#x3B3;-induced MHC-II expression, were significantly reduced in astrocytes as compared to their parental cell lines (<xref ref-type="fig" rid="f5">Fig. 5B</xref>). Having observed that a subset of hNSCs expressed MHC-II proteins, but astrocytes, UC-MSCs and ADSCs did not (<xref ref-type="fig" rid="f1">Fig. 1</xref>), we investigated whether MHC-II was up-regulated in the three hNSC lines upon stimulation with IFN&#x3B3;. MHC-II expression in hNSCs was clearly increased by treatment with 10&#x2009;ng/ml, with virtually all cells becoming positive when treated with 200&#x2009;ng/ml IFN&#x3B3; (<xref ref-type="fig" rid="f5">Fig. 5C</xref>). Dose-dependent induction of MHC-II by IFN&#x3B3; was observed also in astrocytes; the apparently less intense staining is lilkely due to the flatter morphology of astrocytes as compared to hNSCs (<xref ref-type="fig" rid="f5">Fig. 5D</xref>). In contrast, no MHC-II reactivity was observed in either UC-MSCs or ADSCs stimulated with IFN&#x3B3;, nor following their differentiation (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S2, Supplementary Fig. S5A&#x2013;J</xref>), independently from the levels of IFN&#x3B3; receptor expression that were largely comparable to those detected in hNSCs (<xref ref-type="fig" rid="f5">Fig. 5A</xref>, <xref ref-type="table" rid="t1">Table 1</xref>). These results show that whereas hNSCs increased MHC-II expression in response to IFN&#x3B3;, undifferentiated UC-MSCs or ADSCs did not.</p>
+        <p>We wished to establish whether expression of MHC-II in hNSCs could be due to autocrine effects. Hence we first assessed whether these cells expressed IFN&#x3B3;. As we could not detect any significant amount of IFN&#x3B3; transcript either by RT-PCR or by RT-qPCR, we hypothesised that other components secreted by hNSCs might induce MHC-II expression. To this purpose we tested the effect of hNSC conditioned medium on MHC-II expression in the MHC-II &#x2013;negative astrocytes and in hNSCs lines with low levels of MHC-II expression. The conditioned medium did not induce MHC-II expression in either of them suggesting that regulation of their expression in hNSCs is not via an IFN&#x3B3;-dependent autocrine mechanisms (<xref ref-type="fig" rid="f5">Fig. 5E</xref>).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Expression of MHC-II following hNSC differentiation</title>
+        <p>We compared regulation of MHC-II expression following hNSC differentiation along the astrocytic and neurogenic lineages to establish whether MHC-II down-regulation was a general feature of hNSC differentiation. hNSCs induced to undergo astrocytic differentiation were GFAP-positive, as expected for astrocytes, and did not show any MHC-II reactivity (<xref ref-type="fig" rid="f1">Figs 1C</xref> and <xref ref-type="fig" rid="f6">6A</xref>). Induction of neuronal differentiation of hNSCs resulted in morphological changes and up-regulation of MAP2 protein, as well as in an increase in both MHC-II protein and transcript in all lines (<xref ref-type="fig" rid="f6">Fig. 6B,C</xref>). In addition, CIITA expression was significantly increased in the differentiated cultures (<xref ref-type="fig" rid="f6">Fig. 6E</xref>). Valproic acid (VPA), one of the differentiation medium components, is a histone deacetylase inhibitor, and this class of compounds has been shown to regulate CIITA and MHC-II expression<xref ref-type="bibr" rid="b22">22</xref><xref ref-type="bibr" rid="b23">23</xref><xref ref-type="bibr" rid="b24">24</xref>. Hence, we assessed whether VPA affected MHC-II expression in somatic stem cells; no obvious change was observed either in hNSCs or ADSCs (<xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S6</xref>). Furthermore, we examined MHC-II reactivity following hNSC neuronal differentiation using a growth factor (NGF/BDNF) protocol, in which the culture medium had a completely different composition. MHC-II up-regulation was observed also under these experimental conditions (<xref ref-type="fig" rid="f6">Fig. 6D,E</xref>). MHC-II expression increase after neuronal differentiation was comparable in the two protocols, both at the protein and RNA level. This suggests that the increase in MHC-II is regulated independently from the composition of the culture medium.</p>
+        <p>We further assessed MHC-II expression in control and differentiated ADSC and UC-MSCs (<xref ref-type="supplementary-material" rid="S1">Supplementary Figs S5&#x2013;7 and Supplementary Table S2</xref>). Neither of these stem cell populations expressed MHC-II, though a few positive cells could be detected in sections of fat tissue. Up-regulation of MHC-II in these cells did not occur either following neuronal differentiation or differentiation along mesenchymal lineages, and the levels of MHC-II and CIITA transcripts in both undifferentiated and neurally differentiated hADSCs were much lower than those detected in hNSC (<xref ref-type="table" rid="t1">Table 1</xref>, <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S7A,B</xref>). Finally, as differentiated UC-MSCs and ADSCs expressed both CIITA and IFN&#x3B3; receptors (<xref ref-type="table" rid="t1">Table 1</xref>, <xref ref-type="supplementary-material" rid="S1">Supplementary Fig. S7</xref>), we assessed whether upon differentiation these cells would respond to IFN&#x3B3; by increasing MHC-II expression. No MHC-II reactivity was detected in the differentiated IFN&#x3B3;-treated cells by immunocytochemistry (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>).</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Discussion</title>
+      <p>In this study we provide evidence for a novel population of MHC class II-expressing progenitors that reside in the developing human CNS. Our results suggest that these MHC-II molecules are not only functional, but also that they are regulated in an IFN&#x3B3;-independent fashion. Importantly, these findings question the widely accepted notion that microglia are the only MHC class-II expressing cells in the central nervous system. To our knowledge this is the first time the existence of a population of MHC-II/SOX2-positve cells in the germinal zone of the human embryo has been shown. Furthermore, the potential high immunogenicity of hNSCs is demonstrated in parallel with the hypo-immunogenicity of the mesenchymal UC-MSCs and ADSCs. This may have important implications for the brain immune response to cell or embryonic neural tissue grafting.</p>
+      <sec disp-level="2">
+        <title>MHC-II reactivity in neural stem cells identify a novel cell population in the developing human CNS</title>
+        <p>Our results show that MHC-II molecules are expressed in neural progenitors both <italic>in vitro</italic> and <italic>in vivo</italic>. We could not find any evidence based either on morphology or expression of microglial markers in our hNSC cultures that would indicate that microglial contamination account for the significant expression of MHC-II we observed; in addition, the proportion of MHC-II positive cells did not obviously change with passaging. This supports the view that MHC-II-positive hNSCs represent a distinct proliferating subpopulation of neural progenitors and the findings <italic>in vivo</italic> are consistent with this hypothesis.</p>
+        <p>Together our results support the hypothesis of a constitutive rather than autocrine regulation of MHC-II expression in hNSCs. IFN&#x3B3; treatment increased expression in hNSC in a dose-dependent manner, and, importantly, showed that all hNSCs have the potential of expressing MHC-II. Furthermore, IFN&#x3B3; mRNA was hardly detectable in hNSCs and hNSC-conditioned medium could not elicit an immune response in astrocytes, unlike treatment with IFN&#x3B3;. Finally, MHC-II expression in SOX2-positive cells was consistently found also in the developing human CNS at stages when the immune system is still poorly developed. Hence, it is most unlikely that infective agents had triggered an immune response within the embryonic CNS in all these pregnancies.</p>
+        <p>An apparent difference in the MHC-II expressing SOX2 positive neural progenitors observed <italic>in vivo</italic> is their co-expression of microglial antigens, CD11 and CD68. These findings open questions about the origin and identity of these cells in the developing human CNS. Unfortunately, as tracking studies are not feasible in humans, at this stage we can only speculate. It is well established that the SOX2-positive hNSCs cells have neuronal and glial differentiation potential. The fact that some hNSCs co-express MHC-II and SOX2 suggests a neuroectodermal origin of these cells. However, an alternative intriguing possibility is that, as proposed in a study carried out in rats, microglia harbour a neuronal and glial differentiation potential that is more readily expressed under culture conditions<xref ref-type="bibr" rid="b25">25</xref>. Whether such a microglial population really exists <italic>in vivo</italic> and might be of neuroectodermal rather than of mesodermal origin has yet to be seen. Currently we cannot rule out the possibility that old suggestions of a dual origin of human microglia based on animal work might have been prematurely dismissed<xref ref-type="bibr" rid="b26">26</xref><xref ref-type="bibr" rid="b27">27</xref><xref ref-type="bibr" rid="b28">28</xref>.</p>
+        <p>We have also shown a great up-regulation in MHC-II upon hNSCs neuronal differentiation. Interestingly, recent studies have suggested a role for MHC-I in neurite outgrowth and synaptic plasticity in the developing brain, and that dopaminergic neurons <italic>in vitro</italic> are particularly prone to up-regulate MHC-I in response to inflammatory stimuli<xref ref-type="bibr" rid="b29">29</xref><xref ref-type="bibr" rid="b30">30</xref><xref ref-type="bibr" rid="b31">31</xref><xref ref-type="bibr" rid="b32">32</xref><xref ref-type="bibr" rid="b33">33</xref><xref ref-type="bibr" rid="b34">34</xref>. It will be important to establish whether MHC-II expression in human neurons <italic>in vitro</italic> reflects transient <italic>in vivo</italic> developmental events and whether it is restricted to specific neuronal cell types and plays specific roles in neural development. For example, given the proposed cross-talk between neurons and microglia in the normal brain, transient MHC-II expression in embryonic neurons might play a role in microglia development<xref ref-type="bibr" rid="b35">35</xref>. Based on the differences in MHC-II expression observed in neurons <italic>in vivo</italic> and <italic>in vitro</italic> it is conceivable that interactions between neurons with other cell types negatively regulate expression of MHC-II in the developing and possibly in the adult brain. Hence dys-regulation of these interactions may contribute to disease states such as in neurodegenerative diseases. There is some indication that this is the case for MHC-I, whose expression renders neurons particularly susceptible to T-cell mediated degeneration<xref ref-type="bibr" rid="b34">34</xref>. The scarcity of relevant human tissue and the possibility of manipulating it is a limitation to providing rapid answers to these important questions.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>MHC-II, but not MHC-I, is differentially expressed in neural and mesenchymal stem cells and associated with high immunogenicity</title>
+        <p>Our comparative analysis of immunogenicity of hNSCs and mesenchymal stem cells, paediatric ADSCs and UC-MSCs, highlights important differences among these cell lines. In all the cell lines studied most cells express MHC-I. In contrast, only hNSCs, which are rapidly killed by T cells, express MHC-II at significant levels. MSCs, either undifferentiated or differentiated, do not express MHC-II, nor respond to IFN&#x3B3; or interact with T cells, consistent with a previous report<xref ref-type="bibr" rid="b36">36</xref>. This supports the view that MHC-II is the main antigenic complex underlying differences in the immunogenicity of these cells.</p>
+        <p>The immunogenicity of hNSCs derived from human embryos/fetuses between 41 days and 10 weeks of gestation is more extensive than previously reported and it dramatically increases upon neuronal differentiation. The increase in MHC-II expression in hNSCs differentiated towards the neuronal lineage was unexpected. In a previous study human neural progenitors grown as neurospheres did not up-regulate MHC-II upon neuronal differentiation<xref ref-type="bibr" rid="b10">10</xref>. MHC-II up-regulation in our cultures was neuron-specific; it was observed with two completely different neuronal differentiation protocols, and did not occur upon differentiation towards the astrocytic lineage, when, in contrast, MHC-II was down-regulated. Nonetheless, the astrocytes expressed the IFN&#x3B3;-receptors, and up-regulated MHC-II expression in an IFN&#x3B3;-dependent pathway, demonstrating the potential for mounting an immune response in an inflammatory environment.</p>
+        <p>Our hNSCs differed from those described by Odeberg <italic>et al.</italic> and Laguna Goya <italic>et al.</italic> also in regard to their behaviour in co-cultures with T cells<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b10">10</xref>. Whereas these authors could co-culture their neural progenitors with T cells for several days to assess their ability to induce T cell proliferation, our hNSCs derived from 3 different embryos died when exposed to allogeneic T cells, and particularly rapidly when sex-mismatched. In our study we used post-adherent T lymphocytes (&gt;98% pure) rather than the whole population of PBMCs as used in the study by Odeberg, or purified CD4+ or CD8+ T-cells as in the Laguna Goya&#x2019;s study, where 6.5% of neural stem cells were MHC-II-positive<xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b10">10</xref>. It should be noted that the CD4+ and CD8+ T-cells increased their proliferative activity when co-cultured with neural stem cells suggesting that an immunogenic response had been triggered. Another difference between ours and other studies is in the neural stem/progenitor cells themselves, as we used different isolation and growth protocols. In both studies mentioned above, cells were expanded as neurospheres, while our hNSCs are grown on laminin as a monolayer, which has been previously reported as the preferable method of culture to maintain the phenotype of stem cells stable over time in culture<xref ref-type="bibr" rid="b37">37</xref>. It is therefore possible that the differences between the studies reflect differences in the populations of neural stem cells isolated and expanded <italic>in vitro</italic>. While expression of MHC-II in neural stem cells in the embryo is likely to play a physiological role, it is apparent that they could mount an immune response upon transplantation. Notwithstanding some differences in the results between our study and the one by Laguna Goya, there is indeed agreement on the key issue that much caution is required in the use of hNSCs and their progeny in cell therapies. MHC-II compatibility and use of immunosuppression should be considered to maximize the chances of survival and successful engraftment of undifferentiated or differentiated (e.g. dopaminergic neurones) hNSCs.</p>
+        <p>In contrast to hNSCs, none of the ADSC and UC-MSC lines seem to be immunogenic even when induced to express neuronal and glial markers, though less efficiently than hNSCs<xref ref-type="bibr" rid="b38">38</xref>. Although it might prove difficult to differentiate them into specific mature neuronal sub-types, they can play important trophic and/or immunomodulatory roles in injured CNS<xref ref-type="bibr" rid="b39">39</xref><xref ref-type="bibr" rid="b40">40</xref>. This, together with their low immunogenicity, allowing them to survive longer than hNSCs after grafting as reported in animal models<xref ref-type="bibr" rid="b41">41</xref>, makes ADSCs and UC-MSCs attractive cell sources for aiding repair after traumatic brain injury or hypoxia-ischaemia.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Conclusions</title>
+      <p>We have identified a previously undiscovered population of MHC-II/SOX2-positive cells in the germinal zone of the human embryo that does not appear to be due to an inflammatory response. MHC-II expression in human neural progenitors is found both <italic>in vitro</italic> and <italic>in vivo</italic>, and also in neurons at least <italic>in vitro</italic>. This is consistent with a non-immune role of MHC-II in the human developing CNS, as it occurs before maturation of the adaptive immune system, but might play a role in its development.</p>
+      <p>Furthermore, the fact that hNSCs can evoke a robust immune response may have important implications for the use of embryonic/fetal neural cells therapeutically and perhaps account, at least in part, for unexplained poor outcomes noted in some patients during clinical trials utilizing neural cell therapies.</p>
+    </sec>
+    <sec disp-level="1">
+      <title>Methods</title>
+      <p>All chemicals were from Sigma-Aldrich (UK), unless otherwise stated.</p>
+      <p>All procedures involving human tissue were carried out in accordance to the UK Human Tissue Act 2006.</p>
+      <sec disp-level="2">
+        <title>Human embryonic and fetal tissues</title>
+        <p>Hindbrains and spinal cords from human embryos between 6&#x2013;10 weeks of gestation from consenting patients were provided by a tissue bank, the Human Developmental Biology Resource (HDBR, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://hdbr.org">http://hdbr.org</ext-link>) under ethical approval (NRES Committee London &#x2013; Fulham, UK). Dissected tissues were either dissociated for culturing as described below, or fixed in 4% PFA prior to cryo-embedding and sectioning for protein expression analysis by immunofluorescence. Embryos at Carnegie stages 22 (approximately 53 days of gestation) and 23 (approximately 56 days of gestation) and a fetus at 10 weeks of gestation were used in this study.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Cell growth, differentiation and treatments</title>
+        <p>All cells were grown at 37&#x2009;&#xB0;C with 5% CO<sub>2</sub> in a humidified incubator.</p>
+        <sec disp-level="3">
+          <title>Human Neural Stem Cells (hNSCs)</title>
+          <p>hNSCs were isolated as previously described<xref ref-type="bibr" rid="b4">4</xref><xref ref-type="bibr" rid="b42">42</xref>. Cells were grown in DMEM/F12 medium with Glutamax (Life Technologies) containing 1% penicillin/streptomycin (Life Technologies), 1% N2 supplement, 2% B27 supplement (both Life Technologies), 20&#x2009;ng/ml human recombinant fibroblast growth factor 2 (FGF2), 20&#x2009;ng/ml human recombinant epidermal growth factor (EGF; both Peprotech), 50&#x2009;&#x3BC;g/ml bovine serum albumin (BSA) fraction V and 5&#x2009;&#x3BC;g/ml heparin, and laminin was added to the medium (10&#x2009;&#x3BC;g/ml) instead of coating the dishes. Most experiments were carried out with cell at passage 10&#x2013;20, in some experiments early (10) and late (30) passages were compared.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Human Pediatric Adipose tissue-Derived Stem Cells (ADSCs)</title>
+          <p>Abdominal adipose tissue was collected from consenting patients under ethical approval from the Camden and Islington Community Local Research Ethics Committee (London, UK). ADSCs were isolated from lipoaspirates of pediatric patients as previously described<xref ref-type="bibr" rid="b17">17</xref>. Isolated ADSCs were cultured in high glucose Dulbecco&#x2019;s modified Eagle&#x2019;s medium (DMEM; Life Technologies) containing GlutaMAX&#x2122; and supplemented with 10% embryonic stem cell-qualified fetal bovine serum (ES-FBS; Invitrogen, Carlsbad, CA) and 1% penicillin/streptomycin.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Human Umbilical Cord Mesenchymal Stem Cells (UC-MSCs)</title>
+          <p>Whole umbilical cords collected from consenting mothers with healthy full-term pregnancies were provided by the Anthony Nolan Cell Therapy Centre under ethical approval. Information on the ethical approval held by the Centre, that acts as a research tissue bank, can be found at: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://www.anthonynolan.org/about-us/accreditation-and-regulation">http://www.anthonynolan.org/about-us/accreditation-and-regulation</ext-link>. UC-MSCs were isolated from the Wharton&#x2019;s jelly of the umbilical cord using a modified protocol described by Weiss <italic>et al.</italic><xref ref-type="bibr" rid="b43">43</xref> In brief, the cord was rinsed several times with phosphate buffered saline (PBS; PAA Laboratories, Linz, Austria), and the blood vessels removed prior to the cord being cut into small pieces (3&#x2013;5&#x2009;mm<sup>3</sup>) and incubated with an enzyme solution (composed of 0.5&#x2009;mg/mL of hyaluronidase and 0.5&#x2009;mg/mL of collagenase) in a MACS MixTM Tube Rotator (Miltenyi Biotec) at 37&#x2009;&#xB0;C. After 1&#x2009;hour, 0.125% trypsin was added to the tissue and it was incubated on the tube rotator at 37&#x2009;&#xB0;C for an additional 30&#x2009;minutes. The final product was passed through 70&#x2009;&#x3BC;m cell strainer (BD Bioscience), washed with PBS, and centrifuged. The pellet was treated with ammonium chloride solution (STEMCELL Technologies) to lyse any remaining red blood cells. The remaining washed cells were centrifuged and resuspended in culture media. Unless stated otherwise, UC-MSCs were cultured in high glucose DMEM containing GlutaMAX&#x2122; and supplemented with 10% embryonic stem cell-qualified fetal bovine serum and 1% penicillin/streptomycin. UC-MSCs were also cultured in human umbilical cord blood low enriched plasma, (CP), supplemented with EGF and FGF2; these cells are referred to as UC-MSC (CP) within the text. CP was prepared following a protocol modified from Chieregato <italic>et al.</italic><xref ref-type="bibr" rid="b44">44</xref>. Briefly, CP was thawed at 37&#x2009;&#xB0;C to promote cell disruption. After thawing, CP was heat-inactivated at 56&#x2009;&#xB0;C for 30&#x2009;minutes, centrifuged at 1000&#x2009;g for 10&#x2009;minutes at room temperature, and the CP supernatant stored at &#x2212;20&#x2009;&#xB0;C until use.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Neural Differentiation</title>
+          <p>The following neuronal differentiation protocols were used:</p>
+          <p>Protocol 1. hNSCs were plated in expansion medium on Matrigel coated plates. After 10 days in culture, EGF was withdrawn to induce differentiation. After another 7 days in culture the FGF2 and heparin were also withdrawn from the medium and the cells were maintained in DMEM/F12 medium with Glutamax, supplemented with 1% penicillin/streptomycin, 1% N2 supplement, 2% B27 supplement, 50&#x2009;&#x3BC;g/ml BSA fraction V, 10&#x2009;ng/ml human recombinant nerve growth factor (&#x3B2;NGF) and 10&#x2009;ng/ml human recombinant brain-derived nerve growth factor (BDNF; both Peprotech) for another 7 days to allow maturation.</p>
+          <p>Protocol 2. hNSCs were plated in expansion media containing laminin and after reaching confluence differentiation was induced using DMEM/F12-Glutamax containing 1% penicillin/streptomycin, 10&#x2009;&#x3BC;M forskolin, 5&#x2009;mM KCl, 2&#x2009;mM valproic acid (VPA), 1&#x2009;&#x3BC;M hydrocortisone and 5&#x2009;&#x3BC;g/ml insulin. After 10 days the medium was changed to Neurobasal A medium supplemented with 1% L-Glutamine, 1% penicillin/streptomycin and 2% B27 supplement for another 20 days to allow maturation. Differentiated cells were either collected for analysis of gene expression or fixed in 4% paraformaldehyde and characterized by immunocytochemistry as described below.</p>
+          <p>Protocol 3. A modified &#x201C;Protocol 2&#x201D; was used to assess neural differentiation potential of ADSCs and UC-MSCs. When cells became confluent the medium was changed to DMEM containing Glutamax, 1% penicillin/streptomycin, 10% ES-FBS, 10&#x2009;&#x3BC;M forskolin, 5&#x2009;mM KCl, 2&#x2009;mM VPA, 1&#x2009;&#x3BC;m hydrocortisone and 5&#x2009;&#x3BC;g/ml insulin. After 3 week differentiation, cells were analyzed for gene expression. In some experiments, hNSC differentiation was induced with this protocol but ES-FBS was omitted to avoid astrocytic differentiation.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Adipogenic Differentiation</title>
+          <p>Adipogenic differentiation was induced in confluent cells by the addition of a medium (DMEM containing Glutamax, 1% penicillin/streptomycin, 10% ES-FBS, 1&#x2009;&#x3BC;M dexamethasone, 10&#x2009;ng/ml insulin, 500&#x2009;mM 3-isobutyl-1-methylxanthine and 1&#x2009;mM rosiglitazone). After 3 weeks, cells were fixed in 4% and analyzed semi-quantitatively as previously described<xref ref-type="bibr" rid="b17">17</xref>.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Osteogenic Differentiation</title>
+          <p>Osteogenic differentiation was induced in confluent cells by the addition of a medium (DMEM containing Glutamax, 1% penicillin/streptomycin, 10% ES-FBS, 0.1&#x2009;&#x3BC;M dexamethasone, 100&#x2009;&#x3BC;g/ml ascorbate and 10&#x2009;mM &#x3B2;-glycerophosphate). After 3 weeks, cells were fixed in ice-cold 70% ethanol and analyzed semi-quantitatively as previously described<xref ref-type="bibr" rid="b17">17</xref> or analyzed for gene expression.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Chondrogenic Differentiation</title>
+          <p>Chondrogenic differentiation was induced in confluent cells by the addition of DMEM containing Glutamax, 1% penicillin/streptomycin, 10% ES-FBS, 0.1&#x2009;&#x3BC;M dexamethasone, 50&#x2009;&#x3BC;g/ml ascorbate, 10&#x2009;ng/ml transforming growth factor &#x3B2;1 (TGF &#x3B2;1) and insulin, transferrin and selenium (ITS, Sigma). After 3 weeks, cells were fixed in 4% PFA and analyzed semi-quantitatively as previously described<xref ref-type="bibr" rid="b17">17</xref> or analyzed for gene expression.</p>
+        </sec>
+        <sec disp-level="3">
+          <title>Treatments</title>
+          <p>Cells were stimulated for 24&#x2013;48&#x2009;hours with interferon gamma (IFN&#x3B3;, Peprotech) at different concentrations (10, 50, 200&#x2009;ng/ml) as indicated in the results. In some experiments cells were exposed to hNSC conditioned medium for 48&#x2009;hours.</p>
+        </sec>
+      </sec>
+      <sec disp-level="2">
+        <title>Detection of surface antigens by flow cytometry</title>
+        <p>For cell surface protein analysis, cells were pre-incubated in 2.5% FBS in PBS to prevent any non-specific protein binding for 5&#x2009;minutes, incubated with antibodies (<xref ref-type="supplementary-material" rid="S1">Supplementary Table S2</xref>) diluted in 2.5% FBS in PBS at 4&#x2009;&#xB0;C for 10&#x2009;minutes, and then washed twice with FACS washing buffer. For negative controls cells were stained using the isotype controls. A BD FACSCalibur TM cell analyzer was used to carry out flow cytometry analysis and data were analyzed using FlowJo 6.4.7 software.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Immunofluorescence</title>
+        <p>All antibodies used are listed in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S3</xref>. Cells or tissues were fixed in 4% PFA prior to immunocytochemical protein detection. After incubation with a blocking/permeabilizing buffer (10% FBS, 3% BSA, and 0.2% Triton-X100 in PBS), cells were incubated with primary antibodies for 2&#x2009;hours at room temperature and then for 1&#x2009;hour with secondary antibodies and Hoechst 33258 (2&#x2009;&#x3BC;g/ml) at room temperature. When double-staining for MHC-II and SOX2, cells were first treated with MHC-II primary antibody, then permeabilized and incubated with the SOX2 antibody. Negative controls were incubated with the secondary antibody only. For live cell staining, cells were washed in ice-cold PBS, blocked using 2.5% FBS in PBS on ice, incubated with the pan-antibody to MHC-II for 15&#x2009;minutes, extensively washed in PBS, and fixed with 4% PFA. Nuclei were counterstained with Hoechst 33258. Images were acquired either using an inverted microscope Olympus IX71 equipped ORCA-R2 digital camera (Hamamatsu Corp., Bridgewater, NJ) or by confocal laser scanning microscopy (LSM 710, Carl Zeiss, Jena, Germany). Image analysis was performed using Fiji/ImageJ software<xref ref-type="bibr" rid="b45">45</xref>. Quantification of immunolabeled cells was performed by counting double or triple positive cells in at least 5&#x2013;6 alternate sections per tissue sample from 5 different embryos.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Reverse Transcription-Polymerase Chain Reaction (RT-PCR) and Quantitative Real-Time Polymerase Chain Reaction (RT-qPCR)</title>
+        <p>RNA was extracted from cells and tissue using Tri-Reagent (Life Technologies) according to the manufacturer&#x2019;s protocol. RNA was retro-transcribed with Moloney murine leukaemia virus reverse transciptase (Promega). mRNA was quantified by real-time quantitative polymerase chain reaction with the 7500 sequence detection system (Applied Biosysytems) and the Quantitect SYBR Green PCR kit (Qiagen) following the manufacturer&#x2019;s instructions. Primers used are listed in <xref ref-type="supplementary-material" rid="S1">Supplementary Table S3</xref>. Gene expression data were normalized using GAPDH housekeeping gene as a reference.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>T cell purification and co-culture</title>
+        <p>All blood donors gave oral and written consent and cell separation from blood samples was covered by ethical approval 05/Q0603/34 (East London and The City Research Ethics Committee 1). Blood donors were 20- to 35-year-old healthy men and women who were tested to be negative for HIV, hepatitis B virus, and hepatitis C virus. Further exclusion criteria were manifest infections during the last 4 weeks, fever, symptomatic allergies, abnormal blood cell counts, increased liver enzymes, or medication of any kind. Blood from 3 different donors (2 male and 1 female) was used, with one of the male volunteers donating blood two times. Hence independent co-culture experiments were repeated 4 times.</p>
+        <p>Human lymphocytes were isolated using double-gradient density centrifugation as previously described<xref ref-type="bibr" rid="b30">30</xref>. The fresh venous blood collected was immediately transferred to a tube containing 3.2% sodium citrate (1:10 dilution). Cells were then separated using the density gradient method: 3&#x2009;ml of Ficoll Histopaque-10771 was layered on top of 3&#x2009;ml of Ficoll Histopaque-11911 (both from Sigma) to create discrete layers and 6&#x2009;ml of blood (diluted 1:1 with RPMI medium) layered on top of the Histopaques. After centrifugation at 400&#x2009;g at room temperature for 30&#x2009;minutes, the peripheral blood mononuclear cells (PBMCs) were aspirated from their appropriate layer using a sterile Pasteur pipette and washed with RPMI three times. Cells were resuspended in complete RPMI medium and incubated at 37&#x2009;&#xB0;C for 2&#x2009;hours to remove monocyte macrophages. Post-adherent T lymphocytes (&gt;98% pure) were diluted to 1&#x2009;&#xD7;&#x2009;10<sup>6</sup> cells/ml in standard hNSC medium and incubated for 10&#x2009;minutes at 37&#x2009;&#xB0;C prior to seeding over stem cell monolayers. For time-lapse recording, about 5&#x2009;&#xD7;&#x2009;10<sup>4</sup> hNSCs or 2.5&#x2009;&#xD7;&#x2009;10<sup>4</sup> ADSCs per well were seeded in 12 well tissue culture plates to obtain semi-confluent monolayers. A total of 5&#x2009;&#xD7;&#x2009;10<sup>5</sup> lymphocytes were seeded onto hNSC/ADSCs monolayers and their movement and interaction were recorded using an inverted microscope (Zeiss Axiovert) equipped with an incubation chamber with temperature and CO<sub>2</sub> percentage control, and Volocity (Openlab 3.1.5) software. Time-lapse images were taken every 10&#x2009;seconds for 10 to 30&#x2009;minutes as specified in the movie legends. Movies were generated using Fiji software. At least 5 hNSC/T cell pairs were tracked for each experimental condition. Four independent experiments with combinations of 2 donors and 2 cell lines were analysed by counting the number of hNSC that had shrunk in the 30&#x2009;minute co-culture frames and was expressed as the percentage of the total number of hNSC present in the field of view.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Statistical Analysis</title>
+        <p>Data are presented as mean&#x2009;&#xB1;&#x2009;SEM. The statistical analysis was performed using GraphPad Prism version 5.00 for Windows. Statistical significance was evaluated by Student&#x2019;s t-test or ANOVA followed by a Tukey post-hoc test. A p value equal to or less than 0.05 was considered as statistically significant.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Additional Information</title>
+      <p><bold>How to cite this article</bold>: Vagaska, B. <italic>et al.</italic> MHC-class-II are expressed in a subpopulation of human neural stem cells <italic>in vitro</italic> in an IFN&#x3B3;&#x2013;independent fashion and during development. <italic>Sci. Rep.</italic>
+<bold>6</bold>, 24251; doi: 10.1038/srep24251 (2016).</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="S1">
+      <title>Supplementary Material</title>
+      <supplementary-material id="d33e25" content-type="local-data">
+        <caption>
+          <title>Supplementary Information</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-s1.pdf"/>
+      </supplementary-material>
+      <supplementary-material id="d33e28" content-type="local-data">
+        <caption>
+          <title>Supplementary Movie 1</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-s2.avi"/>
+      </supplementary-material>
+      <supplementary-material id="d33e31" content-type="local-data">
+        <caption>
+          <title>Supplementary Movie 2</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-s3.avi"/>
+      </supplementary-material>
+      <supplementary-material id="d33e34" content-type="local-data">
+        <caption>
+          <title>Supplementary Movie 3</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-s4.avi"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>This work was supported by grants from Great Ormond Street Hospital Children&#x2019;s Charity, Newlife Foundation, the Antony Nolan Trust, a studentship to CAG from Consejo Nacional de Ciencia y Tecnologia (CONACyT) and Instituto Jaliscience de la Juventud (IJJ), Mexico and GOSH NIHR Biomedical Research Centre. The human embryonic and fetal material was provided by the Human Developmental Biology Resource (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://hdbr.org">http://hdbr.org</ext-link>) jointly funded by the Medical Research Council (grant G070089) and The Wellcome Trust (grant GR082557). We wish to thank T. Crompton for helpful discussion and JP Martinez-Barbera and J Sowden for reading the manuscript.</p>
+    </ack>
+    <ref-list>
+      <ref id="b1">
+        <mixed-citation publication-type="journal"><name><surname>Das</surname><given-names>S.</given-names></name>, <name><surname>Ghosh</surname><given-names>D.</given-names></name> &amp; <name><surname>Basu</surname><given-names>A.</given-names></name>
+<article-title>Japanese encephalitis virus induce immuno-competency in neural stem/progenitor cells</article-title>. <source>Plos One</source>
+<volume>4</volume>, <fpage>e8134</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0008134</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19956550</pub-id></mixed-citation>
+      </ref>
+      <ref id="b2">
+        <mixed-citation publication-type="journal"><name><surname>Barker</surname><given-names>R. A.</given-names></name> &amp; <name><surname>Widner</surname><given-names>H.</given-names></name>
+<article-title>Immune problems in central nervous system cell therapy</article-title>. <source>NeuroRx</source>
+<volume>1</volume>, <fpage>472</fpage>&#x2013;<lpage>481</lpage>, doi: <pub-id pub-id-type="doi">10.1602/neurorx.1.4.472</pub-id> (<year>2004</year>).<pub-id pub-id-type="pmid">15717048</pub-id></mixed-citation>
+      </ref>
+      <ref id="b3">
+        <mixed-citation publication-type="journal"><name><surname>Johansson</surname><given-names>S.</given-names></name>, <name><surname>Price</surname><given-names>J.</given-names></name> &amp; <name><surname>Modo</surname><given-names>M.</given-names></name>
+<article-title>Effect of inflammatory cytokines on major histocompatibility complex expression and differentiation of human neural stem/progenitor cells</article-title>. <source>Stem Cells</source>
+<volume>26</volume>, <fpage>2444</fpage>&#x2013;<lpage>2454</lpage>, doi: <pub-id pub-id-type="doi">10.1634/stemcells.2008-0116</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18635871</pub-id></mixed-citation>
+      </ref>
+      <ref id="b4">
+        <mixed-citation publication-type="journal"><name><surname>Sun</surname><given-names>Y.</given-names></name>
+<italic>et al.</italic>
+<article-title>Long-term tripotent differentiation capacity of human neural stem (NS) cells in adherent culture</article-title>. <source>Mol Cell Neurosci</source>
+<volume>38</volume>, <fpage>245</fpage>&#x2013;<lpage>258</lpage> (<year>2008</year>).</mixed-citation>
+      </ref>
+      <ref id="b5">
+        <mixed-citation publication-type="journal"><name><surname>Abbott</surname><given-names>A.</given-names></name>
+<article-title>Fetal-cell revival for Parkinson&#x2019;s</article-title>. <source>Nature</source>
+<volume>510</volume>, <fpage>195</fpage>&#x2013;<lpage>196</lpage>, doi: <pub-id pub-id-type="doi">10.1038/510195a</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24919900</pub-id></mixed-citation>
+      </ref>
+      <ref id="b6">
+        <mixed-citation publication-type="journal"><name><surname>Huang</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>Neural progenitor cells from human induced pluripotent stem cells generated less autogenous immune response</article-title>. <source>Sci China Life Sci</source>
+<volume>57</volume>, <fpage>162</fpage>&#x2013;<lpage>170</lpage>, doi: <pub-id pub-id-type="doi">10.1007/s11427-013-4598-6</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24443177</pub-id></mixed-citation>
+      </ref>
+      <ref id="b7">
+        <mixed-citation publication-type="journal"><name><surname>Preynat-Seauve</surname><given-names>O.</given-names></name>
+<italic>et al.</italic>
+<article-title>Neural progenitors derived from human embryonic stem cells are targeted by allogeneic T and natural killer cells</article-title>. <source>J Cell Mol Med</source>
+<volume>13</volume>, <fpage>3556</fpage>&#x2013;<lpage>3569</lpage>, doi: <pub-id pub-id-type="doi">10.1111/j.1582-4934.2009.00746.x</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19320778</pub-id></mixed-citation>
+      </ref>
+      <ref id="b8">
+        <mixed-citation publication-type="journal"><name><surname>Odeberg</surname><given-names>J.</given-names></name>, <name><surname>Piao</surname><given-names>J. H.</given-names></name>, <name><surname>Samuelsson</surname><given-names>E. B.</given-names></name>, <name><surname>Falci</surname><given-names>S.</given-names></name> &amp; <name><surname>Akesson</surname><given-names>E.</given-names></name>
+<article-title>Low immunogenicity of <italic>in vitro</italic>-expanded human neural cells despite high MHC expression</article-title>. <source>J Neuroimmunol</source>
+<volume>161</volume>, <fpage>1</fpage>&#x2013;<lpage>11</lpage> (<year>2005</year>).<pub-id pub-id-type="pmid">15748938</pub-id></mixed-citation>
+      </ref>
+      <ref id="b9">
+        <mixed-citation publication-type="journal"><name><surname>McLaren</surname><given-names>F. H.</given-names></name>, <name><surname>Svendsen</surname><given-names>C. N.</given-names></name>, <name><surname>Van der Meide</surname><given-names>P.</given-names></name> &amp; <name><surname>Joly</surname><given-names>E.</given-names></name>
+<article-title>Analysis of neural stem cells by flow cytometry: cellular differentiation modifies patterns of MHC expression</article-title>. <source>J Neuroimmunol</source>
+<volume>112</volume>, <fpage>35</fpage>&#x2013;<lpage>46</lpage> (<year>2001</year>).<pub-id pub-id-type="pmid">11108931</pub-id></mixed-citation>
+      </ref>
+      <ref id="b10">
+        <mixed-citation publication-type="journal"><name><surname>Laguna Goya</surname><given-names>R.</given-names></name>, <name><surname>Busch</surname><given-names>R.</given-names></name>, <name><surname>Mathur</surname><given-names>R.</given-names></name>, <name><surname>Coles</surname><given-names>A. J.</given-names></name> &amp; <name><surname>Barker</surname><given-names>R. A.</given-names></name>
+<article-title>Human fetal neural precursor cells can up-regulate MHC class I and class II expression and elicit CD4 and CD8 T cell proliferation</article-title>. <source>Neurobiol Dis</source>
+<volume>41</volume>, <fpage>407</fpage>&#x2013;<lpage>414</lpage> (<year>2011</year>).<pub-id pub-id-type="pmid">20955796</pub-id></mixed-citation>
+      </ref>
+      <ref id="b11">
+        <mixed-citation publication-type="journal"><name><surname>Fainstein</surname><given-names>N.</given-names></name>
+<italic>et al.</italic>
+<article-title>Time limited immunomodulatory functions of transplanted neural precursor cells</article-title>. <source>Glia</source>
+<volume>61</volume>, <fpage>140</fpage>&#x2013;<lpage>149</lpage>, doi: <pub-id pub-id-type="doi">10.1002/glia.22420</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23001547</pub-id></mixed-citation>
+      </ref>
+      <ref id="b12">
+        <mixed-citation publication-type="journal"><name><surname>Modo</surname><given-names>M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Transplantation of neural stem cells in a rat model of stroke: assessment of short-term graft survival and acute host immunological response</article-title>. <source>Brain Res</source>
+<volume>958</volume>, <fpage>70</fpage>&#x2013;<lpage>82</lpage> (<year>2002</year>).<pub-id pub-id-type="pmid">12468031</pub-id></mixed-citation>
+      </ref>
+      <ref id="b13">
+        <mixed-citation publication-type="journal"><name><surname>Hori</surname><given-names>J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Neural progenitor cells lack immunogenicity and resist destruction as allografts</article-title>. <source>Stem Cells</source>
+<volume>21</volume>, <fpage>405</fpage>&#x2013;<lpage>416</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12832694</pub-id></mixed-citation>
+      </ref>
+      <ref id="b14">
+        <mixed-citation publication-type="journal"><name><surname>Niemeyer</surname><given-names>P.</given-names></name>
+<italic>et al.</italic>
+<article-title>Comparison of immunological properties of bone marrow stromal cells and adipose tissue-derived stem cells before and after osteogenic differentiation <italic>in vitro</italic></article-title>. <source>Tissue Eng</source>
+<volume>13</volume>, <fpage>111</fpage>&#x2013;<lpage>121</lpage> (<year>2007</year>).<pub-id pub-id-type="pmid">17518585</pub-id></mixed-citation>
+      </ref>
+      <ref id="b15">
+        <mixed-citation publication-type="journal"><name><surname>McIntosh</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>The immunogenicity of human adipose-derived cells: temporal changes <italic>in vitro</italic></article-title>. <source>Stem Cells</source>
+<volume>24</volume>, <fpage>1246</fpage>&#x2013;<lpage>1253</lpage>, doi: <pub-id pub-id-type="doi">10.1634/stemcells.2005-0235</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16410391</pub-id></mixed-citation>
+      </ref>
+      <ref id="b16">
+        <mixed-citation publication-type="journal"><name><surname>Cho</surname><given-names>P. S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Immunogenicity of umbilical cord tissue derived cells</article-title>. <source>Blood</source>
+<volume>111</volume>, <fpage>430</fpage>&#x2013;<lpage>438</lpage>, doi: <pub-id pub-id-type="doi">10.1182/blood-2007-03-078774</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">17909081</pub-id></mixed-citation>
+      </ref>
+      <ref id="b17">
+        <mixed-citation publication-type="journal"><name><surname>Guasti</surname><given-names>L.</given-names></name>
+<italic>et al.</italic>
+<article-title>High plasticity of paediatric adipose tissue-derived stem cells: too much for selective skeletogenic differentiation?</article-title>
+<source>Stem Cells Trans Med</source>
+<volume>1</volume>, <fpage>384</fpage>&#x2013;<lpage>395</lpage>, doi: <pub-id pub-id-type="doi">10.5966/sctm.2012-0009</pub-id> (<year>2012</year>).</mixed-citation>
+      </ref>
+      <ref id="b18">
+        <mixed-citation publication-type="journal"><name><surname>Gao</surname><given-names>S.</given-names></name>
+<italic>et al.</italic>
+<article-title>Differentiation of Human-Adipose Derived Stem Cells into neuron-like cells which are compatible with photocurable three-dimensional scaffolds</article-title>. <source>Tissue Eng Part A</source>, doi: <pub-id pub-id-type="doi">10.1089/ten.TEA.2012.0773</pub-id> (<year>2013</year>).</mixed-citation>
+      </ref>
+      <ref id="b19">
+        <mixed-citation publication-type="journal"><name><surname>Kronsteiner</surname><given-names>B.</given-names></name>
+<italic>et al.</italic>
+<article-title>Human mesenchymal stem cells from adipose tissue and amnion influence T-cells depending on stimulation method and presence of other immune cells</article-title>. <source>Stem Cells Dev</source>
+<volume>20</volume>, <fpage>2115</fpage>&#x2013;<lpage>2126</lpage>, doi: <pub-id pub-id-type="doi">10.1089/scd.2011.0031</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21381973</pub-id></mixed-citation>
+      </ref>
+      <ref id="b20">
+        <mixed-citation publication-type="journal"><name><surname>New</surname><given-names>S. E. P.</given-names></name>
+<italic>et al.</italic>
+<article-title>A matter of identity - phenotype and differentiation potential of human somatic stem cells</article-title>. <source>Stem Cell Res</source>
+<volume>5</volume>, <fpage>1</fpage>&#x2013;<lpage>13</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.scr.2015.04.003</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25957945</pub-id></mixed-citation>
+      </ref>
+      <ref id="b21">
+        <mixed-citation publication-type="journal"><name><surname>Englund</surname><given-names>C.</given-names></name>
+<italic>et al.</italic>
+<article-title>Pax6, Tbr2, and Tbr1 are expressed sequentially by radial glia, intermediate progenitor cells, and postmitotic neurons in developing neocortex</article-title>. <source>J Neurosci</source>
+<volume>25</volume>, <fpage>247</fpage>&#x2013;<lpage>251</lpage>, doi: <pub-id pub-id-type="doi">10.1523/JNEUROSCI.2899-04.2005</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">15634788</pub-id></mixed-citation>
+      </ref>
+      <ref id="b22">
+        <mixed-citation publication-type="journal"><name><surname>Cycon</surname><given-names>K. A.</given-names></name>, <name><surname>Mulvaney</surname><given-names>K.</given-names></name>, <name><surname>Rimsza</surname><given-names>L. M.</given-names></name>, <name><surname>Persky</surname><given-names>D.</given-names></name> &amp; <name><surname>Murphy</surname><given-names>S. P.</given-names></name>
+<article-title>Histone deacetylase inhibitors activate CIITA and MHC class II antigen expression in diffuse large B-cell lymphoma</article-title>. <source>Immunology</source>
+<volume>140</volume>, <fpage>259</fpage>&#x2013;<lpage>272</lpage>, doi: <pub-id pub-id-type="doi">10.1111/imm.12136</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23789844</pub-id></mixed-citation>
+      </ref>
+      <ref id="b23">
+        <mixed-citation publication-type="journal"><name><surname>Chou</surname><given-names>S. D.</given-names></name> &amp; <name><surname>Tomasi</surname><given-names>T. B.</given-names></name>
+<article-title>Spatial distribution of histone methylation during MHC class II expression</article-title>. <source>Mol Immunol</source>
+<volume>45</volume>, <fpage>971</fpage>&#x2013;<lpage>980</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.molimm.2007.07.039</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">17850872</pub-id></mixed-citation>
+      </ref>
+      <ref id="b24">
+        <mixed-citation publication-type="journal"><name><surname>Gregorie</surname><given-names>C. J.</given-names></name>, <name><surname>Wiesen</surname><given-names>J. L.</given-names></name>, <name><surname>Magner</surname><given-names>W. J.</given-names></name>, <name><surname>Lin</surname><given-names>A. W.</given-names></name> &amp; <name><surname>Tomasi</surname><given-names>T. B.</given-names></name>
+<article-title>Restoration of immune response gene induction in trophoblast tumor cells associated with cellular senescence</article-title>. <source>J Reprod Immunol</source>
+<volume>81</volume>, <fpage>25</fpage>&#x2013;<lpage>33</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.jri.2009.02.009</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19493573</pub-id></mixed-citation>
+      </ref>
+      <ref id="b25">
+        <mixed-citation publication-type="journal"><name><surname>Yokoyama</surname><given-names>A.</given-names></name>, <name><surname>Yang</surname><given-names>L.</given-names></name>, <name><surname>Itoh</surname><given-names>S.</given-names></name>, <name><surname>Mori</surname><given-names>K.</given-names></name> &amp; <name><surname>Tanaka</surname><given-names>J.</given-names></name>
+<article-title>Microglia, a potential source of neurons, astrocytes, and oligodendrocytes</article-title>. <source>Glia</source>
+<volume>45</volume>, <fpage>96</fpage>&#x2013;<lpage>104</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">14648550</pub-id></mixed-citation>
+      </ref>
+      <ref id="b26">
+        <mixed-citation publication-type="journal"><name><surname>Fedoroff</surname><given-names>S.</given-names></name>, <name><surname>Zhai</surname><given-names>R.</given-names></name> &amp; <name><surname>Novak</surname><given-names>J. P.</given-names></name>
+<article-title>Microglia and astroglia have a common progenitor cell</article-title>. <source>J Neurosci Res</source>
+<volume>50</volume>, <fpage>477</fpage>&#x2013;<lpage>486</lpage> (<year>1997</year>).<pub-id pub-id-type="pmid">9364333</pub-id></mixed-citation>
+      </ref>
+      <ref id="b27">
+        <mixed-citation publication-type="journal"><name><surname>Levison</surname><given-names>S. W.</given-names></name>, <name><surname>Druckman</surname><given-names>S. K.</given-names></name>, <name><surname>Young</surname><given-names>G. M.</given-names></name> &amp; <name><surname>Basu</surname><given-names>A.</given-names></name>
+<article-title>Neural stem cells in the subventricular zone are a source of astrocytes and oligodendrocytes, but not microglia</article-title>. <source>Dev Neurosci</source>
+<volume>25</volume>, <fpage>184</fpage>&#x2013;<lpage>196</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">12966216</pub-id></mixed-citation>
+      </ref>
+      <ref id="b28">
+        <mixed-citation publication-type="journal"><name><surname>Verney</surname><given-names>C.</given-names></name>, <name><surname>Monier</surname><given-names>A.</given-names></name>, <name><surname>Fallet-Bianco</surname><given-names>C.</given-names></name> &amp; <name><surname>Gressens</surname><given-names>P.</given-names></name>
+<article-title>Early microglial colonization of the human forebrain and possible involvement in periventricular white-matter injury of preterm infants</article-title>. <source>J Anat</source>
+<volume>217</volume>, <fpage>436</fpage>&#x2013;<lpage>448</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">20557401</pub-id></mixed-citation>
+      </ref>
+      <ref id="b29">
+        <mixed-citation publication-type="journal"><name><surname>Boulanger</surname><given-names>L. M.</given-names></name>
+<article-title>Immune proteins in brain development and synaptic plasticity</article-title>. <source>Neuron</source>
+<volume>64</volume>, <fpage>93</fpage>&#x2013;<lpage>109</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19840552</pub-id></mixed-citation>
+      </ref>
+      <ref id="b30">
+        <mixed-citation publication-type="journal"><name><surname>Spurr</surname><given-names>L.</given-names></name>
+<italic>et al.</italic>
+<article-title>Comparative analysis of Annexin A1-formyl peptide receptor 2/ALX expression in human leukocyte subsets</article-title>. <source>Int Immunopharmacol</source>
+<volume>11</volume>, <fpage>55</fpage>&#x2013;<lpage>66</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.intimp.2010.10.006</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">20974309</pub-id></mixed-citation>
+      </ref>
+      <ref id="b31">
+        <mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>H.</given-names></name>
+<italic>et al.</italic>
+<article-title>Synapse elimination and learning rules co-regulated by MHC class I H2-Db</article-title>. <source>Nature</source>
+<volume>509</volume>, <fpage>195</fpage>&#x2013;<lpage>200</lpage> (<year>2014</year>).<pub-id pub-id-type="pmid">24695230</pub-id></mixed-citation>
+      </ref>
+      <ref id="b32">
+        <mixed-citation publication-type="journal"><name><surname>Corriveau</surname><given-names>R. A.</given-names></name>, <name><surname>Huh</surname><given-names>G. S.</given-names></name> &amp; <name><surname>Shatz</surname><given-names>C. J.</given-names></name>
+<article-title>Regulation of class I MHC gene expression in the developing and mature CNS by neural activity</article-title>. <source>Neuron</source>
+<volume>21</volume>, <fpage>505</fpage>&#x2013;<lpage>520</lpage> (<year>1998</year>).<pub-id pub-id-type="pmid">9768838</pub-id></mixed-citation>
+      </ref>
+      <ref id="b33">
+        <mixed-citation publication-type="journal"><name><surname>Zhang</surname><given-names>A.</given-names></name>
+<italic>et al.</italic>
+<article-title>The spatio-temporal expression of MHC class I molecules during human hippocampal formation development</article-title>. <source>Brain Res</source>
+<volume>1529</volume>, <fpage>26</fpage>&#x2013;<lpage>38</lpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23838325</pub-id></mixed-citation>
+      </ref>
+      <ref id="b34">
+        <mixed-citation publication-type="journal"><name><surname>Cebrian</surname><given-names>C.</given-names></name>
+<italic>et al.</italic>
+<article-title>MHC-I expression renders catecholaminergic neurons susceptible to T-cell-mediated degeneration</article-title>. <source>Nat Commun</source>
+<volume>5</volume>, <fpage>3633</fpage>, doi: <pub-id pub-id-type="doi">10.1038/ncomms4633</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24736453</pub-id></mixed-citation>
+      </ref>
+      <ref id="b35">
+        <mixed-citation publication-type="journal"><name><surname>Eyo</surname><given-names>U. B.</given-names></name> &amp; <name><surname>Wu</surname><given-names>L. J.</given-names></name>
+<article-title>Bidirectional microglia-neuron communication in the healthy brain</article-title>. <source>Neural Plast</source>
+<volume>2013</volume>, <fpage>456857</fpage>, doi: <pub-id pub-id-type="doi">10.1155/2013/456857</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">24078884</pub-id></mixed-citation>
+      </ref>
+      <ref id="b36">
+        <mixed-citation publication-type="journal"><name><surname>Le Blanc</surname><given-names>K.</given-names></name>, <name><surname>Tammik</surname><given-names>C.</given-names></name>, <name><surname>Rosendahl</surname><given-names>K.</given-names></name>, <name><surname>Zetterberg</surname><given-names>E.</given-names></name> &amp; <name><surname>Ringden</surname><given-names>O.</given-names></name>
+<article-title>HLA expression and immunologic properties of differentiated and undifferentiated mesenchymal stem cells</article-title>. <source>Exp Hematol</source>
+<volume>31</volume>, <fpage>890</fpage>&#x2013;<lpage>896</lpage> (<year>2003</year>).<pub-id pub-id-type="pmid">14550804</pub-id></mixed-citation>
+      </ref>
+      <ref id="b37">
+        <mixed-citation publication-type="journal"><name><surname>Conti</surname><given-names>L.</given-names></name>
+<italic>et al.</italic>
+<article-title>Niche-independent symmetrical self-renewal of a mammalian tissue stem cell</article-title>. <source>Plos Biol</source>
+<volume>3</volume>, <fpage>e283</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pbio.0030283</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">16086633</pub-id></mixed-citation>
+      </ref>
+      <ref id="b38">
+        <mixed-citation publication-type="journal"><name><surname>Yan</surname><given-names>M.</given-names></name>
+<italic>et al.</italic>
+<article-title>Conversion of human umbilical cord mesenchymal stem cells in Wharton&#x2019;s jelly to dopamine neurons mediated by the Lmx1a and neurturin <italic>in vitro</italic>: potential therapeutic application for Parkinson&#x2019;s disease in a rhesus monkey model</article-title>. <source>Plos One</source>
+<volume>8</volume>, <fpage>e64000</fpage> (<year>2013</year>).<pub-id pub-id-type="pmid">23724014</pub-id></mixed-citation>
+      </ref>
+      <ref id="b39">
+        <mixed-citation publication-type="journal"><name><surname>Zhang</surname><given-names>R.</given-names></name>
+<italic>et al.</italic>
+<article-title>Anti-inflammatory and immunomodulatory mechanisms of mesenchymal stem cell transplantation in experimental traumatic brain injury</article-title>. <source>J Neuroinflamm</source>
+<volume>10</volume>, <fpage>106</fpage>, doi: <pub-id pub-id-type="doi">10.1186/1742-2094-10-106</pub-id> (<year>2013</year>).</mixed-citation>
+      </ref>
+      <ref id="b40">
+        <mixed-citation publication-type="journal"><name><surname>Prockop</surname><given-names>D. J.</given-names></name> &amp; <name><surname>Oh</surname><given-names>J. Y.</given-names></name>
+<article-title>Mesenchymal stem/stromal cells (MSCs): role as guardians of inflammation</article-title>. <source>Mol Ther</source>
+<volume>20</volume>, <fpage>14</fpage>&#x2013;<lpage>20</lpage>, doi: <pub-id pub-id-type="doi">10.1038/mt.2011.211</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22008910</pub-id></mixed-citation>
+      </ref>
+      <ref id="b41">
+        <mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>C. C.</given-names></name>
+<italic>et al.</italic>
+<article-title>Transplantation of human umbilical mesenchymal stem cells from Wharton&#x2019;s jelly after complete transection of the rat spinal cord</article-title>. <source>Plos One</source>
+<volume>3</volume>, <fpage>e3336</fpage> (<year>2008</year>).<pub-id pub-id-type="pmid">18852872</pub-id></mixed-citation>
+      </ref>
+      <ref id="b42">
+        <mixed-citation publication-type="journal"><name><surname>U</surname><given-names>K. P.</given-names></name>, <name><surname>Subramanian</surname><given-names>V.</given-names></name>, <name><surname>Nicholas</surname><given-names>A. P.</given-names></name>, <name><surname>Thompson</surname><given-names>P. R.</given-names></name> &amp; <name><surname>Ferretti</surname><given-names>P.</given-names></name>
+<article-title>Modulation of calcium-induced cell death in human neural stem cells by the peptidylarginine deiminase-AIF pathway</article-title>. <source>BBA Mol Cell Res</source>
+<volume>1843</volume>, <fpage>1162</fpage>&#x2013;<lpage>1171</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.bbamcr.2014.02.018</pub-id> (<year>2014</year>).</mixed-citation>
+      </ref>
+      <ref id="b43">
+        <mixed-citation publication-type="journal"><name><surname>Weiss</surname><given-names>M. L.</given-names></name>
+<italic>et al.</italic>
+<article-title>Human umbilical cord matrix stem cells: preliminary and effect of transplantation in a rodent model of Parkinson&#x2019;s disease</article-title>. <source>Stem Cells</source>
+<volume>24</volume>, <fpage>781</fpage>&#x2013;<lpage>792</lpage> (<year>2006</year>).<pub-id pub-id-type="pmid">16223852</pub-id></mixed-citation>
+      </ref>
+      <ref id="b44">
+        <mixed-citation publication-type="journal"><name><surname>Chieregato</surname><given-names>K.</given-names></name>
+<italic>et al.</italic>
+<article-title>A study on mutual interaction between cytokine induced killer cells and umbilical cord-derived mesenchymal cells: Implication for their <italic>in-vivo</italic> use</article-title>. <source>Blood Cells Mol Dis</source>
+<volume>49</volume>, <fpage>159</fpage>&#x2013;<lpage>165</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.bcmd.2012.05.009</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22818859</pub-id></mixed-citation>
+      </ref>
+      <ref id="b45">
+        <mixed-citation publication-type="journal"><name><surname>Schindelin</surname><given-names>J.</given-names></name>
+<italic>et al.</italic>
+<article-title>Fiji: an open-source platform for biological-image analysis</article-title>. <source>Nature Methods</source>
+<volume>9</volume>, <fpage>676</fpage>&#x2013;<lpage>682</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nmeth.2019</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22743772</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn>
+        <p><bold>Author Contributions</bold> B.V., S.E.P.N., C.A-G. and F.D.A. designed and performed experiments, analyzed data and contributed to the writing; A.M., S.G.G. and N.W.B. provided reagents, tissues and critical reading of the manuscript; P.F. planned research, analyzed data, obtained funding, and wrote the manuscript.</p>
+      </fn>
+    </fn-group>
+  </back>
+  <floats-group>
+    <fig id="f1">
+      <label>Figure 1</label>
+      <caption>
+        <title>Detection of MHC proteins by flow cytometry and immunofluorescence staining of MHC class II (MHC-II) in combination with the neural stem cell marker, SOX2, and the microglial markers CD11b.</title>
+        <p>(<bold>A</bold>) HLA-A, -B, -C (MHC-class I) and HLA-DR, -DP, -DQ (MHC-class II) assessed by flow cytometry in UC-MSCs (FCS), UC-MSCs (CP), ADSCs and hNSCs (light grey curves: negative controls; dark grey curves: labelled cells). These are representative histograms of &#x2265;3 cell isolates. Data are percentages represented as mean&#x2009;&#xB1;&#x2009;SEM. Abbreviations: ADSC, adipose-derived stem cells; CP, cord plasma; FCS, fetal calf serum; HLA, human leukocyte antigens; NSC, neural stem cells; UCMSC, umbilical cord mesenchymal stem cell. (<bold>B</bold>) MHC-II staining in hNSCs from 3 brains at different stages of development. Cs: Carnegie stage. Nuclei are counterstained with Hoechst dye (blue). Note that subsets of hNSCs are positive at all stages. (<bold>C</bold>) hNSCs (Cs23) double-labelled for SOX2 and MHC-II. All nuclei are SOX2-positive, and some cells display also cytoplasmic SOX2 staining; a subset of SOX2-positive cells expresses MHC-II protein. (<bold>D</bold>) hNSCs and astrocytes stained for MHC-II; positive cells are observed in hNSCs but not in astrocyte cultures. (<bold>E</bold>) hNSCs stained for MHC-II and CD11b; no CD11b-positive cells are observed.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-f1"/>
+    </fig>
+    <fig id="f2">
+      <label>Figure 2</label>
+      <caption>
+        <title>Detection of MHC class II and neural markers in human fetal CNS by immunofluorescence.</title>
+        <p>(<bold>A&#x2013;C)</bold> MHC-II staining in spinal cords (SC) and dorsal root ganglion (DRG) from developing embryos at Carnegie stages 22 (Cs22) and 23 (Cs23). Note expression of MHC-II protein in a subset of cells in the germinal layer surrounding the central canal. The dorsal root ganglion, indicated by the oval in (<bold>C</bold>) contains several MHC-II-positive cells. The inserts show a group of positive cells at a higher magnification. (<bold>D,E)</bold> Double-staining for MHC-II and SOX2 in Cs23 spinal cords (<bold>D</bold>) and brain (<bold>E</bold>). MHC-II staining is detected in cells expressing SOX2 mainly in the cytoplasm (insert). (<bold>F</bold>) Spinal cord stained for PAX6 and MHC-II at higher magnification. PAX6 protein expression is detected in MHC-II positive cells. (<bold>G,H</bold>) Double-staining for Tbr2 and MHC-II protein expression in spinal cord (<bold>G</bold>) and DRG (<bold>H</bold>); note the absence of co-labelling in spinal cord cells, but co-expression in MHC-II positive cells in DRG. (<bold>I</bold>) Cs22 spinal cord stained for MHC-II and doublecortin (DCX) proteins; no double-labelled cell is detected.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-f2"/>
+    </fig>
+    <fig id="f3">
+      <label>Figure 3</label>
+      <caption>
+        <title>MHC class II (MHC-II), CD11b and SOX2 expression in human fetal CNS detected by immunofluorescence.</title>
+        <p>(<bold>A,B</bold>) Double-staining for MHC-II and CD11b in spinal cord (SC) and brain (Br) from embryos at Carnegie stages 23 (Cs23). Note that not all CD11b positive cells are MHC-II positive. (<bold>C</bold>) Triple staining for MHC-II, CD11b and SOX2 in developing spinal cord at Cs23 shows presence of a subset of cells positive for all three markers.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-f3"/>
+    </fig>
+    <fig id="f4">
+      <label>Figure 4</label>
+      <caption>
+        <title>Response of hNSCs and ADSCs to T cell detected by time-lapse photography and immunofluorescence.</title>
+        <p>(<bold>A</bold>) Frames taken at different times of co-culture of hNSCs and T cells. (<bold>B</bold>) Comparison of hNSCs and ADSCs response to T cells after 30&#x2009;minutes in co-culture. (<bold>C</bold>) MHC-II staining of hNSCs and ADSCs co-cultured with T cells. MHC-II reactivity is observed in hNSCs and T cells, but not in ADSCs. (<bold>D</bold>) Expression of CD45, CD4 and CD8 in hNSC and T cell co-cultures; note that all blood-derived cells are CD45-positive and that both CD4- and CD8-positive T cells make contact with hNSCs.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-f4"/>
+    </fig>
+    <fig id="f5">
+      <label>Figure 5</label>
+      <caption>
+        <title>Expression of IFN&#x3B3; receptors (IFNR1 and IFNR2) and effect of IFN&#x3B3; stimulation on MHC class II (MHC-II) expression in undifferentiated hNSCs (cs23) and astrocytes differentiated from the same line.</title>
+        <p>(<bold>A</bold>) Expression of IFNR1 and IFNR2 in hNSCs, ADSCs and UC-MSCs assessed by RT-qPCR. (<bold>B</bold>) Fold changes in the expression of IFNR1 and IFNR2, and HLA-DRA and CIITA in astrocytes in relation to their parental hNSCs prior to differentiation assessed by RT-qPCR (Mean&#x2009;&#xB1;&#x2009;S.E.M; n&#x2009;=&#x2009;3, biological replicates); *p&#x2009;&lt;&#x2009;0.05; **p&#x2009;&lt;&#x2009;0.01 (Student&#x2019;s t-test). (<bold>C</bold>) Effect of IFN&#x3B3; stimulation on hNSCs. Note the dose-dependent increase of MHC-II reactivity in hNSCs. (<bold>D</bold>) Effect of IFN&#x3B3; stimulation on astrocyte; note MHC-II up-regulation upon IFN&#x3B3;-treatment. (<bold>E</bold>) Negative control of the MHC-II staining (top panel) and stimulation of astrocytes or hNSCs with low MHC-II expression with hNSC conditioned medium (below); no MHC-II induction is observed. All scale bars are 100&#x2009;&#x3BC;m.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-f5"/>
+    </fig>
+    <fig id="f6">
+      <label>Figure 6</label>
+      <caption>
+        <title>MHC class II (MHC-II) expression in undifferentiated hNSCs and following neuronal and astrocytic differentiation.</title>
+        <p>(<bold>A</bold>) Detection of MHC-II protein by immunocytochemistry in undifferentiated hNSCs and following astrocytic differentiation: differentiated astrocytes are MHC-II-negative and GFAP-positive. (<bold>B</bold>) Detection of MHC-II protein by immunocytochemistry in hNSCs from 3 different developing brains following neuronal differentiation for 3 weeks. Note the high expression of MHC-II protein in subsets of differentiated cells and increased expression upon differentiation. (<bold>C</bold>) Detection of MHC-II mRNA by RT-qPCR (values are means of 2 biological replicates) in the hNSC lines shown in (<bold>B</bold>); note that the MHC-II transcript increases in all lines upon differentiation. (<bold>D</bold>) Detection of MHC-II proteins by immunocytochemistry following differentiation of hNSCs (cs23) for 4 weeks using two different protocols; increased MHC-II expression is observed in both conditions. (<bold>E</bold>) Detection of HLA-DRA and CIITA mRNAs by RT-qPCR in hNSCs (cs23) under the differentiation conditions shown in (<bold>B</bold>). Mean&#x2009;&#xB1;&#x2009;S.E.M (n&#x2009;=&#x2009;3, biological replicates; *p&#x2009;&lt;&#x2009;0.05; **p&#x2009;&lt;&#x2009;0.001 (one-way ANOVA followed by Tukey t-test).</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep24251-f6"/>
+    </fig>
+    <table-wrap position="float" id="t1">
+      <label>Table 1</label>
+      <caption>
+        <title>Fold increase in IFN&#x3B3; receptor and in HLA-class II transcripts following neuronal differentiation of hNSCs (protocol 1) and osteogenic differentiation of ADSC and UCMSC as compared to undifferentiated controls assessed by RT-qPCR.</title>
+      </caption>
+      <table frame="hsides" rules="groups" border="1">
+        <colgroup>
+          <col align="left"/>
+          <col align="center"/>
+          <col align="center"/>
+          <col align="center"/>
+        </colgroup>
+        <thead valign="bottom">
+          <tr>
+            <th align="left" valign="top" charoff="50">Cell type</th>
+            <th align="center" valign="top" charoff="50">IFN&#x3B3; R1</th>
+            <th align="center" valign="top" charoff="50">IFN&#x3B3; R2</th>
+            <th align="center" valign="top" charoff="50">HLA-II</th>
+          </tr>
+        </thead>
+        <tbody valign="top">
+          <tr>
+            <td align="left" valign="top" charoff="50">hNSC-Cs17</td>
+            <td align="center" valign="top" charoff="50">3.75</td>
+            <td align="center" valign="top" charoff="50">2.90</td>
+            <td align="center" valign="top" charoff="50">34.44</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">hNSC-Cs23</td>
+            <td align="center" valign="top" charoff="50">7.63</td>
+            <td align="center" valign="top" charoff="50">2.36</td>
+            <td align="center" valign="top" charoff="50">11.03</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">hNSC-10wk</td>
+            <td align="center" valign="top" charoff="50">3.87</td>
+            <td align="center" valign="top" charoff="50">2.32</td>
+            <td align="center" valign="top" charoff="50">9.68</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ADSC-h11</td>
+            <td align="center" valign="top" charoff="50">4.35&#x2009;&#xB1;&#x2009;0.65</td>
+            <td align="center" valign="top" charoff="50">1.46&#x2009;&#xB1;&#x2009;0.23</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">ADSC-h13</td>
+            <td align="center" valign="top" charoff="50">5.83&#x2009;&#xB1;&#x2009;2.91</td>
+            <td align="center" valign="top" charoff="50">2.99&#x2009;&#xB1;&#x2009;1.12</td>
+            <td align="center" valign="top" charoff="50">1.70&#x2009;&#xB1;&#x2009;2.63</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">UCMSC-3</td>
+            <td align="center" valign="top" charoff="50">1.87&#x2009;&#xB1;&#x2009;1.18</td>
+            <td align="center" valign="top" charoff="50">1.68&#x2009;&#xB1;&#x2009;0.65</td>
+            <td align="center" valign="top" charoff="50">&#xA0;</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" charoff="50">UCMSC-4</td>
+            <td align="center" valign="top" charoff="50">0.39&#x2009;&#xB1;&#x2009;0.13</td>
+            <td align="center" valign="top" charoff="50">1.17&#x2009;&#xB1;&#x2009;0.18</td>
+            <td align="center" valign="top" charoff="50">0.25&#x2009;&#xB1;&#x2009;0.11</td>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn id="t1-fn1">
+          <p>Data presented as mean for hNSCs (n&#x2009;=&#x2009;2, biological replicates per cell line), and mean&#x2009;&#xB1;&#x2009;S.E.M. for ADSC/UCMSC (n&#x2009;=&#x2009;3, biological replicates).</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

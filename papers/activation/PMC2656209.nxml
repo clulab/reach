@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9418515</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">8470</journal-id>
+      <journal-id journal-id-type="nlm-ta">In Vitro Cell Dev Biol Anim</journal-id>
+      <journal-title>In vitro cellular &amp; developmental biology. Animal</journal-title>
+      <issn pub-type="ppub">1071-2690</issn>
+      <issn pub-type="epub">1543-706X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19057972</article-id>
+      <article-id pub-id-type="pmc">2656209</article-id>
+      <article-id pub-id-type="manuscript">NIHMS95717</article-id>
+      <article-id pub-id-type="doi">10.1007/s11626-008-9153-6</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Mitogen limitation and bone morphogenetic protein-4 promote neurogenesis in SFME cells, an EGF-dependent neural stem cell line</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kusumoto</surname>
+            <given-names>Ken-ichi</given-names>
+          </name>
+          <aff id="A1">Department of Biological Chemistry, Biotechnology and Food Research Institute, Fukuoka Industrial Technology Center, Kurume, Fukuoka 8390861, Japan</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Parton</surname>
+            <given-names>Angela</given-names>
+          </name>
+          <aff id="A2">Mount Desert Island Biological Laboratories, P.O. Box 35, Salisbury Cove, ME 04672, USA</aff>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Barnes</surname>
+            <given-names>David</given-names>
+          </name>
+          <email>dbarnes@mdibl.org</email>
+          <aff id="A3">Mount Desert Island Biological Laboratories, P.O. Box 35, Salisbury Cove, ME 04672, USA</aff>
+        </contrib>
+      </contrib-group>
+      <pub-date pub-type="nihms-submitted">
+        <day>18</day>
+        <month>2</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>5</day>
+        <month>12</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>1</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>45</volume>
+      <issue>1-2</issue>
+      <fpage>55</fpage>
+      <lpage>61</lpage>
+      <abstract>
+        <p id="P1">Serum-free mouse embryo (SFME) cells are an epidermal growth factor (EGF)-dependent established line derived from brains of 16-d-old Balb/c mouse embryos. SFME cells grow indefinitely in serum-free medium without replicative senescence, chromosomal abnormalities, or malignant transformation. SFME cells express nestin, a neural stem cell marker, under serum-free conditions. Exposure to serum or transforming growth factor &#x3B2; (TGF-&#x3B2;) leads to a marked increase in differentiation toward the astrocytic lineage with expression of glial fibrillary acidic protein and other astrocyte markers. In this study, we show that treatment of SFME cells with bone morphogenetic protein-4 (BMP-4), another member of the TGF-&#x3B2; family, led to differentiation toward a neuronal lineage under conditions of low mitogenic stimulation (0.5 ng/mL) by EGF and fibroblast growth factor. Maximum mitogenic stimulation with 50 ng/mL EGF blocked the BMP-4 effect on neuronal differentiation, but did not block TGF-&#x3B2;-induced expression of markers of the astrocytic lineage. BMP-4 treatment also enhanced the activity of the neuron-specific enolase (NSE) promoter in SFME-NSE-<italic>lacZ</italic> cells that carry the gene for bacterial &#x3B2;-galactosidase under the control of the NSE promoter. Extended BMP-4 treatment caused SFME cells to express a neuronal phenotype synthesizing gamma-aminobutyric acid. These results indicate that SFME cells have the capacity to generate both neurons and astrocytes in vitro, which resemble the behavior of EGF-dependent multipotential stem cells in the central nervous system, and establish a relationship between effects of BMP-4 and degree of mitogenic stimulation by other peptide growth factors.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Neural stem cells</kwd>
+        <kwd>Bone morphogenetic protein</kwd>
+        <kwd>Epidermal growth factor</kwd>
+        <kwd>Fibroblast growth factor</kwd>
+        <kwd>Neuronal differentiation</kwd>
+        <kwd>Astrocyte differentiation</kwd>
+      </kwd-group>
+      <contract-num rid="RR1">P40 RR015452-02</contract-num>
+      <contract-num rid="ES1">P30 ES003828-23</contract-num>
+      <contract-num rid="RR1">P20 RR016463-07</contract-num>
+      <contract-sponsor id="RR1">National Center for Research Resources : NCRR</contract-sponsor>
+      <contract-sponsor id="ES1">National Institute of Environmental Health Sciences : NIEHS</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

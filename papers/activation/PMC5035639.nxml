@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8100316</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1138</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biomaterials</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomaterials</journal-id>
+      <journal-title-group>
+        <journal-title>Biomaterials</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0142-9612</issn>
+      <issn pub-type="epub">1878-5905</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27619243</article-id>
+      <article-id pub-id-type="pmc">5035639</article-id>
+      <article-id pub-id-type="doi">10.1016/j.biomaterials.2016.08.054</article-id>
+      <article-id pub-id-type="manuscript">NIHMS814461</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Tissue Engineering-based Therapeutic Strategies for Vocal Fold Repair and Regeneration</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Linqing</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Stiadle</surname>
+            <given-names>Jeanna M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lau</surname>
+            <given-names>Hang K.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zerdoum</surname>
+            <given-names>Aidan B.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jia</surname>
+            <given-names>Xinqiao</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>L.Thibeault</surname>
+            <given-names>Susan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kiick</surname>
+            <given-names>Kristi L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Materials Science and Engineering, University of Delaware, Newark, DE, 19716, USA</aff>
+      <aff id="A2"><label>2</label>Division of Otolaryngology-Head and Neck Surgery, Department of Surgery, University of Wisconsin-Madison, Madison, WI, 53792, USA</aff>
+      <aff id="A3"><label>3</label>Department of Communication Sciences and Disorders, University of Wisconsin-Madison, Madison, WI, 53792, USA</aff>
+      <aff id="A4"><label>4</label>Department of Biomedical Engineering, University of Delaware, Newark, DE, 19716, USA</aff>
+      <aff id="A5"><label>5</label>Delaware Biotechnology Institute, 15 Innovation Way, Newark, DE, 19711, USA</aff>
+      <author-notes>
+        <corresp id="FN1"><label>*</label>Corresponding authors: S.L. Thibeault, <email>thibeaul@surgery.wisc.edu</email> and K.L. Kiick, <email>kiick@udel.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>7</day>
+        <month>9</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>2</day>
+        <month>9</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>11</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>108</volume>
+      <fpage>91</fpage>
+      <lpage>110</lpage>
+      <!--elocation-id from pubmed: 10.1016/j.biomaterials.2016.08.054-->
+      <abstract>
+        <p id="P1">Vocal folds are soft laryngeal connective tissues with distinct layered structures and complex multicomponent matrix compositions that endow phonatory and respiratory functions. This delicate tissue is easily damaged by various environmental factors and pathological conditions, altering vocal biomechanics and causing debilitating vocal disorders that detrimentally affect the daily lives of suffering individuals. Modern techniques and advanced knowledge of regenerative medicine have led to a deeper understanding of the microstructure, microphysiology, and micropathophysiology of vocal fold tissues. State-of-the-art materials ranging from extracecullar-matrix (ECM)-derived biomaterials to synthetic polymer scaffolds have been proposed for the prevention and treatment of voice disorders including vocal fold scarring and fibrosis. This review intends to provide a thorough overview of current achievements in the field of vocal fold tissue engineering, including the fabrication of injectable biomaterials to mimic <italic>in vitro</italic> cell microenvironments, novel designs of bioreactors that capture <italic>in vivo</italic> tissue biomechanics, and establishment of various animal models to characterize the <italic>in vivo</italic> biocompatibility of these materials. The combination of polymeric scaffolds, cell transplantation, biomechanical stimulation, and delivery of antifibrotic growth factors will lead to successful restoration of functional vocal folds and improved vocal recovery in animal models, facilitating the application of these materials and related methodologies in clinical practice.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>vocal folds</kwd>
+        <kwd>lamina propria</kwd>
+        <kwd>tissue engineering</kwd>
+        <kwd>hyaluronic acid</kwd>
+        <kwd>collagen</kwd>
+        <kwd>elastin</kwd>
+        <kwd>resilin</kwd>
+        <kwd>bioreactor</kwd>
+        <kwd>human mesenchymal stem cells</kwd>
+        <kwd>VF fibroblasts</kwd>
+        <kwd>growth factor</kwd>
+        <kwd>regenerative medicine</kwd>
+        <kwd>animal model</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

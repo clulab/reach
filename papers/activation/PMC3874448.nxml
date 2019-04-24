@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9426302</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">20385</journal-id>
+      <journal-id journal-id-type="nlm-ta">Methods</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Methods</journal-id>
+      <journal-title-group>
+        <journal-title>Methods (San Diego, Calif.)</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1046-2023</issn>
+      <issn pub-type="epub">1095-9130</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24056212</article-id>
+      <article-id pub-id-type="pmc">3874448</article-id>
+      <article-id pub-id-type="doi">10.1016/j.ymeth.2013.09.006</article-id>
+      <article-id pub-id-type="manuscript">NIHMS531659</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Isolation and analysis of rare cells in the blood of cancer patients using a negative depletion methodology</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Yongqi</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Deighan</surname>
+            <given-names>Clayton J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Miller</surname>
+            <given-names>Brandon L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Balasubramanian</surname>
+            <given-names>Priya</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lustberg</surname>
+            <given-names>Maryam B.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zborowski</surname>
+            <given-names>Maciej</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chalmers</surname>
+            <given-names>Jeffrey J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A4">d</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, OH 43210, United States</aff>
+      <aff id="A2"><label>b</label>Stefanie Spielman Comprehensive Breast Center, Wexner Medical Center, The Ohio State University, Columbus, OH 43210, United States</aff>
+      <aff id="A3"><label>c</label>Department of Biomedical Engineering, The Cleveland Clinic, 9500 Euclid Avenue, Cleveland, OH 44195, United States</aff>
+      <aff id="A4"><label>d</label>Analytical Cytometry Shared Resource, The Ohio State University Comprehensive Cancer Center, Columbus, OH 43210, United States</aff>
+      <author-notes>
+        <corresp id="FN1"><label>*</label>Corresponding author at: William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, OH 43210, United States. <email>chalmers.1@osu.edu</email> (J.J. Chalmers)</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>16</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>20</day>
+        <month>9</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>1</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>12</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>64</volume>
+      <issue>2</issue>
+      <elocation-id>10.1016/j.ymeth.2013.09.006</elocation-id>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 Elsevier Inc. All rights reserved.</copyright-statement>
+        <copyright-year>2013</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">A variety of enrichment/isolation technologies exist for the characterization of rare cells in the blood of cancer patients. In this article, a negative depletion process is presented and discussed which consists of red blood cell (RBC) lysis and the subsequent removal of CD45 expressing cells through immunomagnetic depletion. Using this optimized assembly on 120 whole blood specimens, from 71 metastatic breast cancer patients, after RBC lysis, the average nucleated cell log depletion was 2.56 with a 77% recovery of the nucleated cells. The necessity of exploring different anti-CD45 antibody clones to label CD45 expressing cells in this enrichment scheme is also presented and discussed. An optimized, four-color immunofluorescence staining is conducted on the cells retained after the CD45-based immunomagnetic depletion process. Different types of rare non-hematopoietic cells are found in these enriched peripheral blood samples and a wide range of external and internal markers have been characterized, which demonstrates the range and heterogeneity of the rare cells.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Circulating tumor cells</kwd>
+        <kwd>Flow cytometry</kwd>
+        <kwd>Immunocytochemistry</kwd>
+        <kwd>Immunofluorescence</kwd>
+        <kwd>Immunomagnetic separation</kwd>
+        <kwd>Tumor-related cell marker</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Cancer Institute : NCI</funding-source>
+          <award-id>R33 CA081662 || CA</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Cancer Institute : NCI</funding-source>
+          <award-id>R01 CA097391 || CA</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Cancer Institute : NCI</funding-source>
+          <award-id>P30 CA016058 || CA</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

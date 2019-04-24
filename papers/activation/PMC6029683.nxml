@@ -1,0 +1,1771 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Biomol Ther (Seoul)</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomol Ther (Seoul)</journal-id>
+      <journal-id journal-id-type="publisher-id">Biomol Ther (Seoul)</journal-id>
+      <journal-id journal-id-type="publisher-id">ksp</journal-id>
+      <journal-title-group>
+        <journal-title>Biomolecules &amp; Therapeutics</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1976-9148</issn>
+      <issn pub-type="epub">2005-4483</issn>
+      <publisher>
+        <publisher-name>The Korean Society of Applied Pharmacology</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29635911</article-id>
+      <article-id pub-id-type="pmc">6029683</article-id>
+      <article-id pub-id-type="doi">10.4062/biomolther.2018.001</article-id>
+      <article-id pub-id-type="publisher-id">bt-26-380</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Neural Stem Cell Differentiation Using Microfluidic Device-Generated Growth Factor Gradient</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Ji Hyeon</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sim</surname>
+            <given-names>Jiyeon</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Hyun-Jung</given-names>
+          </name>
+          <xref rid="c1-bt-26-380" ref-type="corresp">
+            <sup>*</sup>
+          </xref>
+        </contrib>
+        <aff id="af1-bt-26-380">Laboratory of Molecular Pharmacology and Stem Cells, College of Pharmacy, Chung-Ang University, Seoul 06974, 
+<country>Republic of Korea</country></aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1-bt-26-380"><label>*</label>Corresponding Author: E-mail: <email>hyunjungkim@cau.ac.kr</email>, Tel: +82-2-820-5619, Fax: +82-2-820-5619</corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>7</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>11</day>
+        <month>4</month>
+        <year>2018</year>
+      </pub-date>
+      <volume>26</volume>
+      <issue>4</issue>
+      <fpage>380</fpage>
+      <lpage>388</lpage>
+      <history>
+        <date date-type="received">
+          <day>02</day>
+          <month>1</month>
+          <year>2018</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>22</day>
+          <month>1</month>
+          <year>2018</year>
+        </date>
+        <date date-type="accepted">
+          <day>23</day>
+          <month>1</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9;2018, The Korean Society of Applied Pharmacology</copyright-statement>
+        <copyright-year>2018</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">
+          <license-p><!--CREATIVE COMMONS-->This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link>) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Neural stem cells (NSCs) have the ability to self-renew and differentiate into multiple nervous system cell types. During embryonic development, the concentrations of soluble biological molecules have a critical role in controlling cell proliferation, migration, differentiation and apoptosis. In an effort to find optimal culture conditions for the generation of desired cell types <italic>in vitro</italic>, we used a microfluidic chip-generated growth factor gradient system. In the current study, NSCs in the microfluidic device remained healthy during the entire period of cell culture, and proliferated and differentiated in response to the concentration gradient of growth factors (epithermal growth factor and basic fibroblast growth factor). We also showed that overexpression of ASCL1 in NSCs increased neuronal differentiation depending on the concentration gradient of growth factors generated in the microfluidic gradient chip. The microfluidic system allowed us to study concentration-dependent effects of growth factors within a single device, while a traditional system requires multiple independent cultures using fixed growth factor concentrations. Our study suggests that the microfluidic gradient-generating chip is a powerful tool for determining the optimal culture conditions.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Neural stem cells</kwd>
+        <kwd>Microfluidic chip</kwd>
+        <kwd>Growth factor-gradient</kwd>
+        <kwd>Differentiation</kwd>
+        <kwd>Proliferation</kwd>
+        <kwd>Neurogenesis</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>INTRODUCTION</title>
+      <p>Stem cells hold great promise as biopharmaceuticals and cell-based therapies because they can be expanded in culture, genetically modified using ectopic gene delivery systems, and differentiated into multiple cell types (<xref rid="b12-bt-26-380" ref-type="bibr">Clarke <italic>et al</italic>., 2000</xref>; <xref rid="b31-bt-26-380" ref-type="bibr">Muller <italic>et al</italic>., 2006</xref>; <xref rid="b7-bt-26-380" ref-type="bibr">Capowski <italic>et al</italic>., 2007</xref>; <xref rid="b21-bt-26-380" ref-type="bibr">Kim and Jin, 2012</xref>). Like other stem cells, neural stem cells (NSCs) are capable of self-renew while maintaining their capability to differentiate neurons, astrocytes and oligodendrocytes (<xref rid="b15-bt-26-380" ref-type="bibr">Gage, 2000</xref>; <xref rid="b1-bt-26-380" ref-type="bibr">Abematsu <italic>et al</italic>., 2006</xref>; <xref rid="b16-bt-26-380" ref-type="bibr">Germain <italic>et al</italic>., 2010</xref>; <xref rid="b3-bt-26-380" ref-type="bibr">Alenzi and Bahkali, 2011</xref>). To obtain enriched populations of the desired cell types for clinical applications, optimizing the stem cell microenvironment is crucial in controlling the differentiation of cell types <italic>in vitro</italic> (<xref rid="b19-bt-26-380" ref-type="bibr">Jessell, 2000</xref>; <xref rid="b17-bt-26-380" ref-type="bibr">Gurdon and Bourillot, 2001</xref>; <xref rid="b42-bt-26-380" ref-type="bibr">Rallu <italic>et al</italic>., 2002</xref>; <xref rid="b18-bt-26-380" ref-type="bibr">Hebert and Fishell, 2008</xref>).</p>
+      <p>Growth factors or biological molecules play significant roles in biological processes of NSCs, regulating cell growth, migration, differentiation and apoptosis in a temporal and spatial manner (<xref rid="b4-bt-26-380" ref-type="bibr">Altmann and Brivanlou, 2001</xref>; <xref rid="b27-bt-26-380" ref-type="bibr">Lee and Pfaff, 2001</xref>; <xref rid="b37-bt-26-380" ref-type="bibr">Panchision and McKay, 2002</xref>; <xref rid="b44-bt-26-380" ref-type="bibr">Rogulja and Irvine, 2005</xref>). Therefore, efforts have been made to understand the influences of concentration gradients of signaling molecules to find the optimal concentration that regulate NSC fate commitment (<xref rid="b28-bt-26-380" ref-type="bibr">Lee <italic>et al</italic>., 1997</xref>; <xref rid="b47-bt-26-380" ref-type="bibr">Tropepe <italic>et al</italic>., 1999</xref>; <xref rid="b13-bt-26-380" ref-type="bibr">Dorsky <italic>et al</italic>., 2000</xref>; <xref rid="b50-bt-26-380" ref-type="bibr">Xu <italic>et al</italic>., 2000</xref>; <xref rid="b30-bt-26-380" ref-type="bibr">Megason and McMahon, 2002</xref>). However, traditional cell culture methods are unable to control stem cell behaviors precisely (<xref rid="b5-bt-26-380" ref-type="bibr">Bavister, 1995</xref>; <xref rid="b6-bt-26-380" ref-type="bibr">Beebe <italic>et al</italic>., 2002</xref>; <xref rid="b45-bt-26-380" ref-type="bibr">Sia and Whitesides, 2003</xref>). The traditional approaches of screening for optimal conditions with multiple growth factors require substantial effort and time. For example, conventional cell culture technologies require multiple independent cultures exposed to fixed growth factor concentrations and thus consume large volumes of media, expensive reagents and enormous amounts of cells.</p>
+      <p>Microfluidic gradient systems have been recently developed to overcome the limitations of conventional systems. These systems have attempted to create microenvironments with greater relevance to normal physiological processes as well as high-throughput platforms for determining cell behavior-biological factor interactions (<xref rid="b6-bt-26-380" ref-type="bibr">Beebe <italic>et al</italic>., 2002</xref>; <xref rid="b34-bt-26-380" ref-type="bibr">Ng <italic>et al</italic>., 2002</xref>; <xref rid="b39-bt-26-380" ref-type="bibr">Park and Shuler, 2003</xref>; <xref rid="b45-bt-26-380" ref-type="bibr">Sia and Whitesides, 2003</xref>; <xref rid="b48-bt-26-380" ref-type="bibr">Walker <italic>et al</italic>., 2004</xref>). The microfluidic platform enables the manipulation of fluid flow, the generation of stable concentration gradient profiles in a tempo-spatial manner, and monitoring of the cell behaviors (<xref rid="b29-bt-26-380" ref-type="bibr">Li Jeon <italic>et al</italic>., 2002</xref>; <xref rid="b49-bt-26-380" ref-type="bibr">Wang <italic>et al</italic>., 2004</xref>). Given these notable characteristics, microfluidic devices have attracted widespread interest as powerful tools for various biological applications.</p>
+      <p>In this study, we described a microfluidic-based gradient platform to control NSC behaviors. Using this microfluidic device, we examined the effects of growth factor concentration gradients on survival, proliferation and differentiation of ectopic gene, ACSL1-delivered NSCs as well as unmodified NSCs.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>MATERIALS AND METHODS</title>
+      <sec>
+        <title>Microfluidic system design</title>
+        <p>Microfluidic chips and osmotic pumps were kindly provided by Dr. Sang-Hoon Lee (Korea University, Seoul, Korea). Microfluidic system is based on a concentration gradient generated by an osmotic pump (<xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>). Briefly, the system is composed of microchannel, inlet reservoir made of tips, osmotic pump, and coiled tube outlet reservoir (<xref rid="f1-bt-26-380" ref-type="fig">Fig. 1</xref>). Two solutions of different concentrations of growth factors were introduced into the main channel and a concentration gradient is generated at the interface of the two solutions. Two micropipette tips (AxyGen, NY, USA) were filled with the same amounts of medium and connected to each inlet, serving as inlet reservoirs. The osmosis occurred by concentration difference between water and 0.082 M polyethylene glycol (PEG, Sigma-Aldrich, MO, USA) solution was used as driving force of the microfluidic system (<xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>). To increase the liquid capacity, we wound flexible polyethylene tube (Natume Seisakusho, Tokyo, Japan) into a compact size and used as outlet reservoir.</p>
+      </sec>
+      <sec>
+        <title>Rat neural stem cell cultures</title>
+        <p>The cortices of the embryonic stage 14.5 (E14.5) Sprague Dawley (SD) rat (Orient bio, Seongnam, Korea) brain were isolated and cutured as previously reported (<xref rid="b24-bt-26-380" ref-type="bibr">Kong <italic>et al</italic>., 2017</xref>). Briefly, NSCs were expanded as neurospheres in Dulbecco&#x2019;s Modified Eagle Medium: Nutrient Mixture F-12 (DMEM/F12) (Invitrogen, CA, USA) containing 1% (v/v) antibiotic-antimycotic (Gibco, CA, USA), 2% (v/v) B27 (Invitrogen), 20 ng/ml epidermal growth factor (EGF, Merk, Darmstadt, Germany) and 20 ng/ml basic fibroblast growth factor (bFGF, Merk). The cells were maintained at 37&#xB0;C, 5% CO<sub>2</sub> incubator (Sanyo, Osaka, Japan) and the medium was conditionally changed every other day by removing half the media and adding fresh media containing 2% B27 and 20 ng/ml EGF and bFGF. After 1 week, neurospheres were dissociated with accutase (Merk) and used for microfluidic culture system and traditional culture system.</p>
+      </sec>
+      <sec>
+        <title>Retrovirus preparation and transduction</title>
+        <p>Retroviral GFP vector and retroviral ASCL1 vector were used to generate retroviruses. pMX vector containing cDNA of ASCL1, internal ribosome entry site (IRES), and cDNA of GFP was used for the overexpression for ASCL1 (<xref rid="b22-bt-26-380" ref-type="bibr">Kim <italic>et al</italic>., 2009</xref>). pMX-IRES-GFP (Addgene, MA, USA) was used for the control. PLAT-E cells transduced with gag-pol and env were used for the packaging of viruses. Briefly, PLAT-E cells were transfected with retroviral GFP vector or retroviral ASCL1 vector using X-tremeGENE 9 (Roche, Basel, Swiss) following manufacturer&#x2019;s instruction. Supernatant containing viral particles was collected 2 days after incubation and centrifuged at 12500 g for 12 h to concentrate retroviruses. To determine the titer of viruses, 6.0&#xD7;10<sup>4</sup> dissociated rat NSCs were plated onto the poly-D-lysine (Sigma-Aldrich) and laminin (Invitrogen) coated microscope cover glasses (Superior, Lauda-Konigshofen, Germany) in 24 well plates (ThermoFisher Scientific, MA, USA). NSCs were cultured for 1 day to 50&#x2013;60% confluency, and then exposed to retroviruses encoding green fluorescence protein (GFP) for 6 h in the presence of polybrene (4 &#x3BC;g/ml, Sigma-Aldrich). After washing twice with DMEM/F12, cells were cultured in the presence of EGF and bFGF for 2 days. Then cells were fixed for immunocytochemistry.</p>
+      </sec>
+      <sec>
+        <title>Microfluidic culture of ectopic gene-expressing neural stem cells</title>
+        <p>After 1 week of propagation, 6.0&#xD7;10<sup>5</sup> dissociated rat NSCs were plated at 12 well plates (ThermoFisher Scientific) and exposed to retroviruses for 6 h in the presence of polybrene (4 &#x3BC;g/ml). After 6 h incubation, ectopic gene-expressing NSCs (200 &#x3BC;l of a suspension of 7.5&#xD7;10<sup>5</sup> cells/ml) were loaded into a microchannel coated with poly-D-lysine/laminin via outlet port using a micropipette and allowed to adhere for 90 min in a 37&#xB0;C, 5% CO<sub>2</sub> incubator. Adherent cells were cultured for 1 day in media containing 2% B27 and 20 ng/ml EGF and bFGF. After that, ectopic gene-expressing NSCs were exposed to growth media (containing 20 ng/ml EGF and bFGF) via inlet 1 port or differentiation media (without EGF and bFGF) via inlet 2 port for 3 days. Then, cells were fixed for immunocytochemistry. To compare the graded effects of growth factors in a microfluidic device with that in a traditional culture system, dissociated rat NSCs were also plated onto the poly-D-lysine/laminin-coated microscope cover glasses in 24 well plates at a density of 6&#xD7;10<sup>4</sup>/500 &#x3BC;l, transduced with retroviruses for 6 h in the presence of polybrene (4 &#x3BC;g/ml), washed twice with DMEM/F12 and then cultured in the same medium for 2 days.</p>
+      </sec>
+      <sec>
+        <title>Immunocytochemistry and cell counting</title>
+        <p>We did immunocytochemistry as previously reported (<xref rid="b25-bt-26-380" ref-type="bibr">Kong <italic>et al</italic>., 2015</xref>; <xref rid="b26-bt-26-380" ref-type="bibr">Lee <italic>et al</italic>., 2016</xref>). NSCs were fixed with 4% (v/v) paraformaldehyde (Affymetrix, CA, USA) for 30 min and rinsed with phosphate-buffered saline (PBS). Fixed cells were blocked for 30 min in PBS containing 5% (v/v) normal goat serum (Millipore, MO, USA) and 0.2% (v/v) triton X-100 (Amresco, PA, USA) and probed with primary antibodies to GFP (anti-GFP, mouse IgG<sub>2a</sub> isotype, monoclonal, 1:500; Molecular Probes, OR, USA) or &#x3B2;-tubulin type III (TuJ1, mouse IgG<sub>2b</sub> isotype, monoclonal, 1:1000; Sigma-Aldrich). After 1 h incubation with primary antibodies, the cells were rinsed with PBS and probed with Alexa Fluor 488-conjugated secondary antibody (goat anti-mouse IgG<sub>2a</sub>, 1:1000; Molecular Probes) or Alexa Fluor 546-conjugated secondary antibody (goat anti-mouse IgG<sub>2b</sub>, 1:1000; Molecular Probes) for 40 min. Following rinsing with PBS, cell nuclei were stained by 4&#x2019;,6-diamidino-2-phenylindole (DAPI, 1:10,000 in PBS; Sigma-Aldrich) to count the total cell number. The images were obtained using an inverse fluorescence microscopy (DMIL; Leica, Wetzlar, Germany). Quantification of cells for traditional culture system was performed by counting the number of specifically immunostained cells in 3 randomly chosen microscopic fields. For microfluidic chip, the phase contrast images were captured at 6 different fields (10&#xD7; magnification) and the fluorescent images were captured at 9 different fields (20&#xD7; magnification) of microchannel. Quantification of cells for microfluidic culture system was performed by counting the number of specifically immunostained cells in each selected fields of over three independent experiments.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>The ratio of GFP-positive cells to total cells was calculated to draw transduction efficiency. The number of TuJ1/GFP-double positive cells was divided by GFP-positive cells to get the percentage of ectopic gene-expressing neurons. The percentage value of ASCL1 retrovirus-transduced group was divided by that of control retrovirus-transduced group to get the fold increase. Quantitative data were expressed as the mean &#xB1; SD. For the determination of statistical significance, differences between groups were tested by the Student&#x2019;s <italic>t</italic>-test and considered to be statistically significant if <italic>p</italic>&lt;0.05.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>RESULTS</title>
+      <sec>
+        <title>Differential NSC proliferation and differentiation induced by EGF/bFGF concentrations generated in the microfluidic chip</title>
+        <p>We first observed whether rat NSCs could be successfully cultured in the microfluidic device under continuous flow, and examined the effects of a concentration gradient of extracellular biological molecules on survival, proliferation and differentiation. Microfluidic device previously reported were kindly provided by Prof. Sang-Hoon Lee (Korea University) (<xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>; <xref rid="f1-bt-26-380" ref-type="fig">Fig. 1</xref>). One week after dissection and expansion, NSCs were dissociated into single cells, loaded into the poly-D-lysine and laminin coated microchannel of chip device at a density of 1.5&#xD7;10<sup>5</sup> cells/200 &#x3BC;l, and then cultured for 24 h in the presence of growth factors. After 1 day, adherent cells were exposed to media with EGF and bFGF in one side and without EGF and bFGF in the other side for 3 days and then fixed to perform immunocytochemistry (<xref rid="f2-bt-26-380" ref-type="fig">Fig. 2A</xref>). We used 20 ng/ml EGF and bFGF because it is the condition we and others generally use for NSC proliferation (<xref rid="b33-bt-26-380" ref-type="bibr">Nelson and Svendsen, 2006</xref>; <xref rid="b26-bt-26-380" ref-type="bibr">Lee <italic>et al</italic>., 2016</xref>; <xref rid="b8-bt-26-380" ref-type="bibr">Cha <italic>et al</italic>., 2017</xref>). NSCs proliferate in the presence of growth factor and differentiate into neurons, and glia in the absence of growth factors (<xref rid="b25-bt-26-380" ref-type="bibr">Kong <italic>et al</italic>., 2015</xref>; <xref rid="b26-bt-26-380" ref-type="bibr">Lee <italic>et al</italic>., 2016</xref>). To observe the effect of the growth factor gradient on rat NSCs, we took phase contrast images from 6 different fields of the microchannel at 10&#xD7; magnification (<xref rid="f2-bt-26-380" ref-type="fig">Fig. 2B&#x2013;2H</xref>). Images taken immediately after fixation showed that the cells directly exposed to media with growth factors were elongated and showed a normal proliferation (<xref rid="f2-bt-26-380" ref-type="fig">Fig. 2G</xref>). The cells directly exposed to media lacking growth factors exhibited extensive outgrowth of processes and formed a cellular network, but showed little proliferation (<xref rid="f2-bt-26-380" ref-type="fig">Fig. 2H</xref>). The cells cultured near the outlet port, where diffusive mixing of media both with and without growth factors occurs, appeared to not only proliferate but also differentiate and were evenly distributed across the microchannel (<xref rid="f2-bt-26-380" ref-type="fig">Fig. 2C, 2D</xref>). This result shows that the growth factor gradient was successfully generated across the entire microfluidic device and NSCs can be cultured in the device.</p>
+        <p>To assess the degree of neuronal differentiation with the growth factor concentration gradient, immunocytochemistry was performed with antibody against &#x3B2;-Tubulin type III (TuJ) and fluorescence images from 9 different fields of the microchannel were captured at 20&#xD7; magnification (<xref rid="f3-bt-26-380" ref-type="fig">Fig. 3A</xref>). Representative images are shown in <xref rid="f3-bt-26-380" ref-type="fig">Fig. 3B</xref>, and quantitative analyses are shown in <xref rid="f3-bt-26-380" ref-type="fig">Fig. 3C</xref>. Cells in the low growth factor compartment showed increased neuronal differentiation (1.96% for R-inlet) compared to cells in the high growth factor compartment (0.89% for L-inlet) (<xref rid="f3-bt-26-380" ref-type="fig">Fig. 3C</xref>, lower panel). Cells in the intermediate growth factor compartment, where growth media and differentiation media (media without growth factors) are mixed, exhibited the highest degree of neuronal differentiation (4.15% for R-outlet, 3.11% for M-outlet and 2.21% for R-middle) (<xref rid="f3-bt-26-380" ref-type="fig">Fig. 3C</xref>, upper and middle panel). These results suggest that rat NSCs remained healthy throughout the entire culture period under fluidic flow, and importantly, proliferated and differentiated in response to growth factor concentration gradient. In addition, the presence of low amount of growth factors near the outlets, generated by mixing of supplemented from the left and right inlets, increased neurogenesis compared with the no growth factor condition (R-inlet). These suggests that NSCs generate more differentiated neurons in the presence of low growth factor.</p>
+      </sec>
+      <sec>
+        <title>Differentiation of ASCL1-overexpressing NSCs into neurons in a traditional culture system</title>
+        <p>To explore whether ectopically delivered genes function in NSCs, and if transduced cells also respond to a growth factor concentration gradient under continuous fluidic flow, we next overexpressed ASCL1, a basis helix-loop-helix protein that is known to induce neurogenesis, using a retroviral delivery system (<xref rid="b23-bt-26-380" ref-type="bibr">Kim <italic>et al</italic>., 2007</xref>). Before applying transduced NSCs to the microfluidic device, we examined cell fate and behavior of control GFP or ASCL1 retrovirus-transduced NSCs in the presence or absence of growth factors using a traditional culture system. The titer of retroviruses for ectopic gene delivery was first determined using NSCs (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 1A&#x2013;1C</xref>).</p>
+        <p>To investigate the response of control GFP or ASCL1 introduced NSCs to the growth factors, 6.0&#xD7;10<sup>4</sup> dissociated cells were plated onto microscope cover glasses, grown for 1 day, and transduced with retroviruses encoding either GFP alone or ASCL1 with GFP. Ectopic gene-transduced cells were then cultured for additional 2 days in media with or without growth factors followed by fixation (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 1D</xref>). Immunocytochemistry analysis with anti-GFP antibody and anti-&#x3B2;-Tubulin type III antibody revealed that ectopic gene expression of ASCL1 increased neuronal differentiation in both growth media (media with EGF/bFGF) and differentiation media (media without EGF/bFGF) (<xref rid="f4-bt-26-380" ref-type="fig">Fig. 4</xref>). When the cells were cultured in growth media containing EGF and bFGF, none of the control GFP retrovirus-transduced cells were positive for anti-&#x3B2;-Tubulin type III, whereas 1.70 &#xB1; 0.11% of the ASCL1 retrovirus-transduced cells were positive for anti-&#x3B2;-Tubulin type III, a marker for neurons (<xref rid="f4-bt-26-380" ref-type="fig">Fig. 4A&#x2013;4F, 4M</xref>). In the case of NSCs cultured in differentiation media without EGF and bFGF, the number of anti-&#x3B2;-Tubulin type III positive cells in the ASCL1 retrovirus-transduced group was 1.54 fold higher than the control GFP retrovirus-transduced group (<xref rid="f4-bt-26-380" ref-type="fig">Fig. 4G&#x2013;4L, 4N</xref>). These data indicate that ectopic expression of ASCL1 induced differentiation of NSCs into neurons and the effect of ASCL1 on neuronal differentiation was dramatic when the cells were cultured in differentiation media (increase about 15%) compared with cells cultured in growth media (increase about 1.5%).</p>
+      </sec>
+      <sec>
+        <title>ASCL1-expressing NSC differentiation in a microfluidic chip system revealed that low concentrations of EGF/bFGF increases neurogenesis</title>
+        <p>To identify the optimum conditions for NSC differentiation using a microfluidic chip, we cultured control GFP or ASCL1 retrovirus transduced NSCs in the microfluidic gradient devices and assessed the degree of neurogenesis by calculating the numbers of TuJ1-positive neurons. NSCs were dissociated and 6.0&#xD7;10<sup>5</sup> cells were plated onto 12-well plates and transduced with retroviruses in the presence of polybrene and growth factors. 6 h after retroviral transduction, cells were loaded into a poly-D-lysine/laminin coated microchannel of the chip device at a density of 1.5&#xD7;10<sup>5</sup> cells/200 &#x3BC;l and stabilized for 90 min. The cells were grown for 24 h and then exposed to media with growth factor in one inlet and without growth factors in the other inlet for 3 days followed by fixation (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 1D</xref>). Phase contrast images revealed that the spatial concentration gradient of growth factors was stably generated across the cell culture area in the microfluidic device of both the control GFP and ASCL1 retrovirus transduced groups (data not shown). Representative fluorescence images for the control GFP and ASCL1 retrovirus-transduced groups are shown in <xref rid="f5-bt-26-380" ref-type="fig">Fig. 5A</xref>, and <xref rid="f6-bt-26-380" ref-type="fig">6A</xref>, and quantitative analyses for both groups are shown in <xref rid="f5-bt-26-380" ref-type="fig">Fig. 5B</xref>, and <xref rid="f6-bt-26-380" ref-type="fig">6B</xref>, respectively. When NSCs were transduced with the control GFP retrovirus, the cells expressed GFP, as shown by immunocytochemistry (<xref rid="f5-bt-26-380" ref-type="fig">Fig. 5A</xref>). However, TuJ1 positive neurons were rare in the control GFP retrovirus-transduced cells. Only a few cells cultured in the intermediate growth factor compartment were positive for both GFP and &#x3B2;-Tubulin type III (1.35 &#xB1; 1.22% for R-outlet and 1.12 &#xB1; 1.53% for M-outlet). In contrast, a significant number of ASCL1 retrovirus-transduced cells developed into anti-&#x3B2;-Tubulin type III positive neurons (<xref rid="f6-bt-26-380" ref-type="fig">Fig. 6A, 6B</xref>). Direct exposure to media lacking growth factors (R-inlet) resulted in the highest number of cells positive for both GFP and the neuronal marker TuJ1 (26.74 &#xB1; 0.47%), followed by the cells in the intermediate growth factor area, such as R-middle (15.02 &#xB1; 1.20%), R-outlet (11.79 &#xB1; 4.08%) and M-outlet (12.38 &#xB1; 8.21%) (<xref rid="f6-bt-26-380" ref-type="fig">Fig. 6B</xref>). The cells directly exposed to media with growth factors (L-inlet) also expressed GFP. However, few GFP-positive cells expressed TuJ1 (3.14 &#xB1; 1.56%) compared with cells exposed to the low growth factor compartment or intermediate growth factor compartment (<xref rid="f6-bt-26-380" ref-type="fig">Fig. 6B</xref>). Thus, neuronal differentiation of ASCL1 retrovirus-transduced cells was inversely proportional to growth factor concentration in the gradient microchannel.</p>
+        <p>By culturing ectopic gene-expressing cells as well as unmodified NSCs under a continuous gradient of growth factors, we showed that these cells proliferated and differentiated in a graded fashion and the cell properties reflected the concentrations of growth factors. Furthermore, a higher percentage of ASCL1 retrovirus-transduced NSCs differentiated into &#x3B2;-Tubulin type III positive neurons whereas control GFP retrovirus-transduced cells produced few neurons. Unlike non transfected NSCs, ASCL1 expressing NSCs differentiated more into neurons where growth factors are absent. These results show that the optimum conditions for NSC proliferation or differentiation can be identified by using the microfluidic chip.</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>DISCUSSION</title>
+      <p>In the past few years, on-chip-based microfluidic systems have provided tremendous promise for many biological applications such as controlling cell-extracellular microenvironment interactions and optimizing conditions for stem cell cultures (<xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>). In this study, we also used a gradient-generating microfluidic platform and investigated the optimal conditions for NSC microenvironment.</p>
+      <p>NSCs cultured in a continuous concentration gradient of growth factors were well adhered, remained healthy, and proliferated in response to growth factors. Interestingly, the cells in the intermediate growth factor compartment showed a higher percentage of neuronal differentiation than cells in other fields of the microchannel. Consistent with our observations, it has been reported that low concentrations of bFGF have been shown to promote significant neurogenesis in rodent progenitor cells (<xref rid="b41-bt-26-380" ref-type="bibr">Qian <italic>et al</italic>., 1997</xref>). Similarly, low levels of bFGF also increased the number of neurons generated from human neural progenitor cells (hNPCs) (<xref rid="b33-bt-26-380" ref-type="bibr">Nelson and Svendsen, 2006</xref>). Another study using adult rat cortical cells showed that low-level stimulation with bFGF induced the activation of a neurogenic progenitor that normally remains inactive in the adult cortex (<xref rid="b36-bt-26-380" ref-type="bibr">Palmer <italic>et al</italic>., 1999</xref>). A reasonable explanation for this phenomenon of low concentrations of bFGF increasing neurogenesis is that it may drive the progenitor to a neuronal fate. Enhancement of the survival of newly formed neurons could also address the neurogenic effect of bFGF. It is also notable that NSCs are sensitive and responsive to the environment. Thus, fluid flow, shear stress in the microfluidic chips can affect the NSC biology. It is known that fluid mechanical stress resulted in differential gene expression compared to static control (<xref rid="b35-bt-26-380" ref-type="bibr">Nishii <italic>et al</italic>., 2018</xref>) Thus, it is possible that NSCs in the microfluidic chamber may show different feature compare to the static culture.</p>
+      <p>Several earlier studies report that ectopic expression of bHLH genes like Neurogenin 2 can induce neurogenesis from different types of cells (<xref rid="b14-bt-26-380" ref-type="bibr">Farah <italic>et al</italic>., 2000</xref>; <xref rid="b23-bt-26-380" ref-type="bibr">Kim <italic>et al</italic>., 2007</xref>; <xref rid="b43-bt-26-380" ref-type="bibr">Ribes <italic>et al</italic>., 2008</xref>; <xref rid="b22-bt-26-380" ref-type="bibr">Kim <italic>et al</italic>., 2009</xref>; <xref rid="b46-bt-26-380" ref-type="bibr">Thoma <italic>et al</italic>., 2012</xref>). In our current study, we observed enhanced neuronal differentiation in NSCs that are retrovirally transduced with ASCL1 (achaete-scute family bHLH transcription factor 1), a member of the bHLH protein family, which plays an important role in the generation of neurons during embryonic development (<xref rid="b20-bt-26-380" ref-type="bibr">Kim, 2011</xref>). Notably, with the microfluidic gradient chip, we found that the number of neurons-derived from ASCL1 retrovirus-transduced NSCs was inversely proportional to the growth factor concentrations, with the highest percentage of neurons in the low growth factor compartment (<xref rid="f6-bt-26-380" ref-type="fig">Fig. 6B</xref>). We have previously reported that ASCL1 expressing progenitor cells continued to divide in the presence of growth factors, and subsequently differentiated into neurons after growth factor withdrawal (<xref rid="b23-bt-26-380" ref-type="bibr">Kim <italic>et al</italic>., 2007</xref>). However, the concentration of growth factors may be important to determine the level of proliferation and differentiation of ASCL1 expressing NSCs. NSCs introduced with ASCL1 probably proliferated to increase the numbers and then differentiated to neurons in the high growth factor section. When growth factors are low or intermediate, some may be still proliferating but not as much as NSCs in the section where growth factors are high, and differentiated before increasing the ASCL1 expressing cell numbers. Therefore, we see more GFP+ neurons in high growth factor area. In the postnatal subventricular zone, ASCL1 expression was conserved in progenitors for both the neuronal and oligodendrocyte lineages (<xref rid="b40-bt-26-380" ref-type="bibr">Parras <italic>et al</italic>., 2004</xref>). Thus, we speculate that ASCL1 may be involved in maintaining cells as neural progenitors while retaining the neurogenic potential. In contrast to ASCL1 retrovirus-transduced NSCs, there were few control GFP retrovirus-transduced NSCs that had differentiated into neurons. The cells that were transduced with the control GFP retrovirus had differentiated the most in the intermediate growth factor compartment as seen with the unmodified NSCs (<xref rid="f5-bt-26-380" ref-type="fig">Fig. 5B</xref>). This could be explained by the protective effects of growth factors onto neurons (<xref rid="b9-bt-26-380" ref-type="bibr">Chadi <italic>et al</italic>., 1993</xref>; <xref rid="b32-bt-26-380" ref-type="bibr">Nakata <italic>et al</italic>., 1993</xref>; <xref rid="b41-bt-26-380" ref-type="bibr">Qian <italic>et al</italic>., 1997</xref>; <xref rid="b33-bt-26-380" ref-type="bibr">Nelson and Svendsen, 2006</xref>). Importantly, the increased number of neurons induced by ASCL1-overexpression was also observed in the traditional culture system (<xref rid="f4-bt-26-380" ref-type="fig">Fig. 4</xref>). The number of GFP-expressing cells positive for &#x3B2;-III Tubulin antibody in the microfluidic devices under continuous flow was lower than that in the conventional culture plates lacking fluid flow (data not shown). This could be because of the removal of autocrine and paracrine factors in our microfluidic system, which would not occur in the traditional culture system.</p>
+      <p>To create a biomolecular gradient in a well-defined microenvironment, flow-based and diffusion-based microfluidic gradient generators have been previously developed (<xref rid="b10-bt-26-380" ref-type="bibr">Chung <italic>et al</italic>., 2005</xref>; <xref rid="b2-bt-26-380" ref-type="bibr">Abhyankar and Beebe, 2007</xref>; <xref rid="b11-bt-26-380" ref-type="bibr">Chung <italic>et al</italic>., 2007</xref>; <xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>). We used a microfluidic chips previously reported to provide a stable growth factor concentration gradient without an external power source (<xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>). It has been reported that with the same type of microfluidic chip, concentration gradients of sonic hedgehog (Shh)/fibroblast growth factor 8 or Shh/bone morphogenic protein were generated and NPCs differentiated into neurons, generating a complex neural network that was proportional to the Shh concentration (<xref rid="b38-bt-26-380" ref-type="bibr">Park <italic>et al</italic>., 2009</xref>). Similarly, in the current study, we were also able to generate and maintain EGF/bFGF gradients through an osmotic pump by adjusting the capillary action and hydraulic pressure in the reservoirs. NSCs proliferate in the presence of mitogens and differentiate into neurons or glia when the growth factors are removed. Thus, media without the addition of any growth factors are generally used for the induction of differentiation. However, in the current study, using the microfluidic chip, we found that to induce neurogenesis, low concentrations of growth factors provide a better environment than the condition without growth factor condition.</p>
+      <p>In conclusion, we showed that foreign gene-expressing NSCs as well as unmodified NSCs could be successfully cultured under a continuous fluid flow which generated a growth factor concentration gradient. These advantages of the microfluidic system will provide a powerful tool to explore the optimal microenvironments for various types of stem cells prior to use in cell therapy and transplantation.</p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title/>
+      <supplementary-material content-type="local-data" id="SD1">
+        <media mimetype="image" mime-subtype="pdf" xlink:href="bt-26-380_suppl.pdf" orientation="portrait" id="d35e713" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank the deceased professor Sang Hoon Lee (Korea University, Seoul, Korea) for providing the microfluidic chips. This research was supported by the Chung-Ang University Research Scholarship Grants in 2015&#x2013;2016. This work was supported by a National Research Foundation of Korea grant funded by Korean Government [No. NRF2017R1A1A1A05000876 (granted to H. J. Kim)].</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p>
+          <bold>CONFLICT OF INTEREST</bold>
+        </p>
+        <p>All authors declare no conflict of interest.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="b1-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abematsu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Nakashima</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Mechanisms of neural stem cell fate determination: extracellular cues and intracellular programs</article-title>
+          <source>Curr Stem Cell Res Ther</source>
+          <volume>1</volume>
+          <fpage>267</fpage>
+          <lpage>277</lpage>
+          <pub-id pub-id-type="doi">10.2174/157488806776956887</pub-id>
+          <pub-id pub-id-type="pmid">18220872</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abhyankar</surname>
+              <given-names>VV</given-names>
+            </name>
+            <name>
+              <surname>Beebe</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Spatiotemporal micropatterning of cells on arbitrary substrates</article-title>
+          <source>Anal Chem</source>
+          <volume>79</volume>
+          <fpage>4066</fpage>
+          <lpage>4073</lpage>
+          <pub-id pub-id-type="doi">10.1021/ac062371p</pub-id>
+          <pub-id pub-id-type="pmid">17465529</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alenzi</surname>
+              <given-names>FQB</given-names>
+            </name>
+            <name>
+              <surname>Bahkali</surname>
+              <given-names>AH</given-names>
+            </name>
+          </person-group>
+          <year>2011</year>
+          <article-title>Stem cells: biology and clinical potential</article-title>
+          <source>Afr J Biotechnol</source>
+          <volume>10</volume>
+          <fpage>19929</fpage>
+          <lpage>19940</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b4-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Altmann</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Brivanlou</surname>
+              <given-names>AH</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Neural patterning in the vertebrate embryo</article-title>
+          <source>Int Rev Cytol</source>
+          <volume>203</volume>
+          <fpage>447</fpage>
+          <lpage>482</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0074-7696(01)03013-3</pub-id>
+          <pub-id pub-id-type="pmid">11131523</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bavister</surname>
+              <given-names>BD</given-names>
+            </name>
+          </person-group>
+          <year>1995</year>
+          <article-title>Culture of preimplantation embryos: facts and artifacts</article-title>
+          <source>Hum Reprod Update</source>
+          <volume>1</volume>
+          <fpage>91</fpage>
+          <lpage>148</lpage>
+          <pub-id pub-id-type="doi">10.1093/humupd/1.2.91</pub-id>
+          <pub-id pub-id-type="pmid">15726768</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beebe</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Mensing</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Physics and applications of microfluidics in biology</article-title>
+          <source>Annu Rev Biomed Eng</source>
+          <volume>4</volume>
+          <fpage>261</fpage>
+          <lpage>286</lpage>
+          <pub-id pub-id-type="doi">10.1146/annurev.bioeng.4.112601.125916</pub-id>
+          <pub-id pub-id-type="pmid">12117759</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Capowski</surname>
+              <given-names>EE</given-names>
+            </name>
+            <name>
+              <surname>Schneider</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Ebert</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Seehus</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Szulc</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zufferey</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Aebischer</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Lentiviral vector-mediated genetic modification of human neural progenitor cells for ex vivo gene therapy</article-title>
+          <source>J Neurosci Methods</source>
+          <volume>163</volume>
+          <fpage>338</fpage>
+          <lpage>349</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jneumeth.2007.02.022</pub-id>
+          <pub-id pub-id-type="pmid">17397931</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cha</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HW</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>La</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <year>2017</year>
+          <article-title>Cell density-dependent differential proliferation of neural stem cells on omnidirectional nanopore-arrayed surface</article-title>
+          <source>Sci Rep</source>
+          <volume>7</volume>
+          <fpage>13077</fpage>
+          <pub-id pub-id-type="doi">10.1038/s41598-017-13372-6</pub-id>
+          <!--<pub-id pub-id-type="pmcid">5638797</pub-id>-->
+          <pub-id pub-id-type="pmid">29026125</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chadi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Moller</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rosen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Janson</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Agnati</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Goldstein</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ogren</surname>
+              <given-names>SO</given-names>
+            </name>
+            <name>
+              <surname>Pettersson</surname>
+              <given-names>RF</given-names>
+            </name>
+            <name>
+              <surname>Fuxe</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <year>1993</year>
+          <article-title>Protective actions of human recombinant basic fibroblast growth factor on MPTP-lesioned nigrostriatal dopamine neurons after intraventricular infusion</article-title>
+          <source>Exp Brain Res</source>
+          <volume>97</volume>
+          <fpage>145</fpage>
+          <lpage>158</lpage>
+          <pub-id pub-id-type="doi">10.1007/BF00228825</pub-id>
+          <pub-id pub-id-type="pmid">7907549</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chung</surname>
+              <given-names>BG</given-names>
+            </name>
+            <name>
+              <surname>Flanagan</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Rhee</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>Monuki</surname>
+              <given-names>ES</given-names>
+            </name>
+            <name>
+              <surname>Jeon</surname>
+              <given-names>NL</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>Human neural stem cell growth and differentiation in a gradient-generating microfluidic device</article-title>
+          <source>Lab Chip</source>
+          <volume>5</volume>
+          <fpage>401</fpage>
+          <lpage>406</lpage>
+          <pub-id pub-id-type="doi">10.1039/b417651k</pub-id>
+          <pub-id pub-id-type="pmid">15791337</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chung</surname>
+              <given-names>BG</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Monuki</surname>
+              <given-names>ES</given-names>
+            </name>
+            <name>
+              <surname>Jeon</surname>
+              <given-names>NL</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>A hybrid microfluidic-vacuum device for direct interfacing with conventional cell culture methods</article-title>
+          <source>BMC Biotechnol</source>
+          <volume>7</volume>
+          <fpage>60</fpage>
+          <pub-id pub-id-type="doi">10.1186/1472-6750-7-60</pub-id>
+          <!--<pub-id pub-id-type="pmcid">2071914</pub-id>-->
+          <pub-id pub-id-type="pmid">17883868</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Clarke</surname>
+              <given-names>DL</given-names>
+            </name>
+            <name>
+              <surname>Johansson</surname>
+              <given-names>CB</given-names>
+            </name>
+            <name>
+              <surname>Wilbertz</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Veress</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Nilsson</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Karlstrom</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Lendahl</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Frisen</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Generalized potential of adult neural stem cells</article-title>
+          <source>Science</source>
+          <volume>288</volume>
+          <fpage>1660</fpage>
+          <lpage>1663</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.288.5471.1660</pub-id>
+          <pub-id pub-id-type="pmid">10834848</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dorsky</surname>
+              <given-names>RI</given-names>
+            </name>
+            <name>
+              <surname>Moon</surname>
+              <given-names>RT</given-names>
+            </name>
+            <name>
+              <surname>Raible</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Environmental signals and cell fate specification in premigratory neural crest</article-title>
+          <source>Bioessays</source>
+          <volume>22</volume>
+          <fpage>708</fpage>
+          <lpage>716</lpage>
+          <pub-id pub-id-type="doi">10.1002/1521-1878(200008)22:8&lt;708::AID-BIES4&gt;3.0.CO;2-N</pub-id>
+          <pub-id pub-id-type="pmid">10918301</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Farah</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Olson</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Sucic</surname>
+              <given-names>HB</given-names>
+            </name>
+            <name>
+              <surname>Hume</surname>
+              <given-names>RI</given-names>
+            </name>
+            <name>
+              <surname>Tapscott</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Turner</surname>
+              <given-names>DL</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Generation of neurons by transient expression of neural bHLH proteins in mammalian cells</article-title>
+          <source>Development</source>
+          <volume>127</volume>
+          <fpage>693</fpage>
+          <lpage>702</lpage>
+          <pub-id pub-id-type="pmid">10648228</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gage</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Mammalian neural stem cells</article-title>
+          <source>Science</source>
+          <volume>287</volume>
+          <fpage>1433</fpage>
+          <lpage>1438</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.287.5457.1433</pub-id>
+          <pub-id pub-id-type="pmid">10688783</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Germain</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Banda</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Grabel</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <year>2010</year>
+          <article-title>Embryonic stem cell neurogenesis and neural specification</article-title>
+          <source>J Cell Biochem</source>
+          <volume>111</volume>
+          <fpage>535</fpage>
+          <lpage>542</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.22747</pub-id>
+          <pub-id pub-id-type="pmid">20589755</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gurdon</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Bourillot</surname>
+              <given-names>PY</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Morphogen gradient interpretation</article-title>
+          <source>Nature</source>
+          <volume>413</volume>
+          <fpage>797</fpage>
+          <lpage>803</lpage>
+          <pub-id pub-id-type="doi">10.1038/35101500</pub-id>
+          <pub-id pub-id-type="pmid">11677596</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hebert</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Fishell</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <year>2008</year>
+          <article-title>The genetics of early telencephalon patterning: some assembly required</article-title>
+          <source>Nat Rev Neurosci</source>
+          <volume>9</volume>
+          <fpage>678</fpage>
+          <lpage>685</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrn2463</pub-id>
+          <pub-id pub-id-type="pmid">19143049</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jessell</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Neuronal specification in the spinal cord: inductive signals and transcriptional codes</article-title>
+          <source>Nat Rev Genet</source>
+          <volume>1</volume>
+          <fpage>20</fpage>
+          <lpage>29</lpage>
+          <pub-id pub-id-type="doi">10.1038/35049541</pub-id>
+          <pub-id pub-id-type="pmid">11262869</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b20-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <year>2011</year>
+          <article-title>Stem cell potential in Parkinson&#x2019;s disease and molecular factors for the generation of dopamine neurons</article-title>
+          <source>Biochim Biophys Acta</source>
+          <volume>1812</volume>
+          <fpage>1</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bbadis.2010.08.006</pub-id>
+          <pub-id pub-id-type="pmid">20713152</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Jin</surname>
+              <given-names>CY</given-names>
+            </name>
+          </person-group>
+          <year>2012</year>
+          <article-title>Stem cells in drug screening for neurodegenerative disease</article-title>
+          <source>Korean J Physiol Pharmacol</source>
+          <volume>16</volume>
+          <fpage>1</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.4196/kjpp.2012.16.1.1</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3298819</pub-id>-->
+          <pub-id pub-id-type="pmid">22416213</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>McMillan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Regionally specified human neural progenitor cells derived from the mesencephalon and forebrain undergo increased neurogenesis following overexpression of ASCL1</article-title>
+          <source>Stem Cells</source>
+          <volume>27</volume>
+          <fpage>390</fpage>
+          <lpage>398</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2007-1047</pub-id>
+          <pub-id pub-id-type="pmid">19008346</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b23-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Sugimori</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nakafuku</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Control of neurogenesis and tyrosine hydroxylase expression in neural progenitor cells through bHLH proteins and Nurr1</article-title>
+          <source>Exp Neurol</source>
+          <volume>203</volume>
+          <fpage>394</fpage>
+          <lpage>405</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.expneurol.2006.08.029</pub-id>
+          <pub-id pub-id-type="pmid">17034791</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b24-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kong</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HR</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <year>2017</year>
+          <article-title>The histone demethylase KDM5A is required for the repression of astrocytogenesis and regulated by the translational machinery in neural progenitor cells</article-title>
+          <source>FASEB J</source>
+          <volume>32</volume>
+          <fpage>1108</fpage>
+          <lpage>1119</lpage>
+          <pub-id pub-id-type="doi">10.1096/fj.201700780R</pub-id>
+          <pub-id pub-id-type="pmid">29212818</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b25-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kong</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JO</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HR</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+            <name>
+              <surname>Sung</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <year>2015</year>
+          <article-title>Kuwanon V inhibits proliferation, promotes cell survival and increases neurogenesis of neural stem cells</article-title>
+          <source>PLoS ONE</source>
+          <volume>10</volume>
+          <fpage>e0118188</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0118188</pub-id>
+          <!--<pub-id pub-id-type="pmcid">4338147</pub-id>-->
+          <pub-id pub-id-type="pmid">25706719</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b26-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>HR</given-names>
+            </name>
+            <name>
+              <surname>Farhanullah</surname>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Jajoo</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JO</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <year>2016</year>
+          <article-title>Discovery of a small molecule that enhances astrocytogenesis by activation of stat3, smad1/5/8, and erk1/2 via induction of cytokines in neural stem cells</article-title>
+          <source>ACS Chem Neurosci</source>
+          <volume>7</volume>
+          <fpage>90</fpage>
+          <lpage>99</lpage>
+          <pub-id pub-id-type="doi">10.1021/acschemneuro.5b00243</pub-id>
+          <pub-id pub-id-type="pmid">26505647</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b27-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Pfaff</surname>
+              <given-names>SL</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Transcriptional networks regulating neuronal identity in the developing spinal cord</article-title>
+          <source>Nat Neurosci</source>
+          <volume>4</volume>
+          <fpage>1183</fpage>
+          <lpage>1191</lpage>
+          <pub-id pub-id-type="doi">10.1038/nn750</pub-id>
+          <pub-id pub-id-type="pmid">11687828</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b28-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Danielian</surname>
+              <given-names>PS</given-names>
+            </name>
+            <name>
+              <surname>Fritzsch</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>McMahon</surname>
+              <given-names>AP</given-names>
+            </name>
+          </person-group>
+          <year>1997</year>
+          <article-title>Evidence that FGF8 signalling from the midbrain-hindbrain junction regulates growth and polarity in the developing midbrain</article-title>
+          <source>Development</source>
+          <volume>124</volume>
+          <fpage>959</fpage>
+          <lpage>969</lpage>
+          <pub-id pub-id-type="pmid">9056772</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b29-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li Jeon</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Baskaran</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Dertinger</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Whitesides</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Van de Water</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Toner</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Neutrophil chemotaxis in linear and complex gradients of interleukin-8 formed in a microfabricated device</article-title>
+          <source>Nat Biotechnol</source>
+          <volume>20</volume>
+          <fpage>826</fpage>
+          <lpage>830</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt712</pub-id>
+          <pub-id pub-id-type="pmid">12091913</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b30-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Megason</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>McMahon</surname>
+              <given-names>AP</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>A mitogen gradient of dorsal midline Wnts organizes growth in the CNS</article-title>
+          <source>Development</source>
+          <volume>129</volume>
+          <fpage>2087</fpage>
+          <lpage>2098</lpage>
+          <pub-id pub-id-type="pmid">11959819</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b31-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Muller</surname>
+              <given-names>FJ</given-names>
+            </name>
+            <name>
+              <surname>Snyder</surname>
+              <given-names>EY</given-names>
+            </name>
+            <name>
+              <surname>Loring</surname>
+              <given-names>JF</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Gene therapy: can neural stem cells deliver?</article-title>
+          <source>Nat Rev Neurosci</source>
+          <volume>7</volume>
+          <fpage>75</fpage>
+          <lpage>84</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrn1829</pub-id>
+          <pub-id pub-id-type="pmid">16371952</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b32-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakata</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kogure</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <year>1993</year>
+          <article-title>Protective effects of basic fibroblast growth factor against hippocampal neuronal damage following cerebral ischemia in the gerbil</article-title>
+          <source>Brain Res</source>
+          <volume>605</volume>
+          <fpage>354</fpage>
+          <lpage>356</lpage>
+          <pub-id pub-id-type="doi">10.1016/0006-8993(93)91766-L</pub-id>
+          <pub-id pub-id-type="pmid">8481788</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b33-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nelson</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>CN</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Low concentrations of extracellular FGF-2 are sufficient but not essential for neurogenesis from human neural progenitor cells</article-title>
+          <source>Mol Cell Neurosci</source>
+          <volume>33</volume>
+          <fpage>29</fpage>
+          <lpage>35</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.mcn.2006.06.003</pub-id>
+          <pub-id pub-id-type="pmid">16860999</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b34-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ng</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Gitlin</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Stroock</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Whitesides</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Components for integrated poly(dimethylsiloxane) microfluidic systems</article-title>
+          <source>Electrophoresis</source>
+          <volume>23</volume>
+          <fpage>3461</fpage>
+          <lpage>3473</lpage>
+          <pub-id pub-id-type="doi">10.1002/1522-2683(200210)23:20&lt;3461::AID-ELPS3461&gt;3.0.CO;2-8</pub-id>
+          <pub-id pub-id-type="pmid">12412113</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b35-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nishii</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Brodin</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Renshaw</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Weesner</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Moran</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Soker</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sparks</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <year>2018</year>
+          <article-title>Shear stress upregulates regeneration-related immediate early genes in liver progenitors in 3D ECM-like microenvironments</article-title>
+          <source>J Cell Physiol</source>
+          <volume>233</volume>
+          <fpage>4272</fpage>
+          <lpage>4281</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcp.26246</pub-id>
+          <pub-id pub-id-type="pmid">29052842</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b36-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Palmer</surname>
+              <given-names>TD</given-names>
+            </name>
+            <name>
+              <surname>Markakis</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Willhoite</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Safar</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <year>1999</year>
+          <article-title>Fibroblast growth factor-2 activates a latent neurogenic program in neural stem cells from diverse regions of the adult CNS</article-title>
+          <source>J Neurosci</source>
+          <volume>19</volume>
+          <fpage>8487</fpage>
+          <lpage>8497</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.19-19-08487.1999</pub-id>
+          <pub-id pub-id-type="pmid">10493749</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b37-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Panchision</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>McKay</surname>
+              <given-names>RD</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>The control of neural stem cells by morphogenic signals</article-title>
+          <source>Curr Opin Genet Dev</source>
+          <volume>12</volume>
+          <fpage>478</fpage>
+          <lpage>487</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0959-437X(02)00329-5</pub-id>
+          <pub-id pub-id-type="pmid">12100896</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b38-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Park</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Woo</surname>
+              <given-names>DH</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>SH</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Differentiation of neural progenitor cells in a microfluidic chip-generated cytokine gradient</article-title>
+          <source>Stem Cells</source>
+          <volume>27</volume>
+          <fpage>2646</fpage>
+          <lpage>2654</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.202</pub-id>
+          <pub-id pub-id-type="pmid">19711444</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b39-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Park</surname>
+              <given-names>TH</given-names>
+            </name>
+            <name>
+              <surname>Shuler</surname>
+              <given-names>ML</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Integration of cell culture and microfabrication technology</article-title>
+          <source>Biotechnol Prog</source>
+          <volume>19</volume>
+          <fpage>243</fpage>
+          <lpage>253</lpage>
+          <pub-id pub-id-type="doi">10.1021/bp020143k</pub-id>
+          <pub-id pub-id-type="pmid">12675556</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b40-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Parras</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Galli</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Britz</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Soares</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Galichet</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Battiste</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Nakafuku</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Vescovi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Guillemot</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Mash1 specifies neurons and oligodendrocytes in the postnatal brain</article-title>
+          <source>EMBO J</source>
+          <volume>23</volume>
+          <fpage>4495</fpage>
+          <lpage>4505</lpage>
+          <pub-id pub-id-type="doi">10.1038/sj.emboj.7600447</pub-id>
+          <!--<pub-id pub-id-type="pmcid">526464</pub-id>-->
+          <pub-id pub-id-type="pmid">15496983</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b41-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Qian</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Davis</surname>
+              <given-names>AA</given-names>
+            </name>
+            <name>
+              <surname>Goderie</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Temple</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <year>1997</year>
+          <article-title>FGF2 concentration regulates the generation of neurons and glia from multipotent cortical stem cells</article-title>
+          <source>Neuron</source>
+          <volume>18</volume>
+          <fpage>81</fpage>
+          <lpage>93</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0896-6273(01)80048-9</pub-id>
+          <pub-id pub-id-type="pmid">9010207</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b42-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rallu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Corbin</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Fishell</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Parsing the prosencephalon</article-title>
+          <source>Nat Rev Neurosci</source>
+          <volume>3</volume>
+          <fpage>943</fpage>
+          <lpage>951</lpage>
+          <pub-id pub-id-type="doi">10.1038/nrn989</pub-id>
+          <pub-id pub-id-type="pmid">12461551</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b43-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ribes</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Stutzmann</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Bianchetti</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Guillemot</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Dolle</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Le Roux</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <year>2008</year>
+          <article-title>Combinatorial signalling controls Neurogenin2 expression at the onset of spinal neurogenesis</article-title>
+          <source>Dev Biol</source>
+          <volume>321</volume>
+          <fpage>470</fpage>
+          <lpage>481</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2008.06.003</pub-id>
+          <pub-id pub-id-type="pmid">18590718</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b44-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rogulja</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Irvine</surname>
+              <given-names>KD</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>Regulation of cell proliferation by a morphogen gradient</article-title>
+          <source>Cell</source>
+          <volume>123</volume>
+          <fpage>449</fpage>
+          <lpage>461</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2005.08.030</pub-id>
+          <pub-id pub-id-type="pmid">16269336</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b45-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sia</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Whitesides</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Microfluidic devices fabricated in poly(dimethylsiloxane) for biological studies</article-title>
+          <source>Electrophoresis</source>
+          <volume>24</volume>
+          <fpage>3563</fpage>
+          <lpage>3576</lpage>
+          <pub-id pub-id-type="doi">10.1002/elps.200305584</pub-id>
+          <pub-id pub-id-type="pmid">14613181</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b46-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thoma</surname>
+              <given-names>EC</given-names>
+            </name>
+            <name>
+              <surname>Wischmeyer</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Offen</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Maurus</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Siren</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Schartl</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Wagner</surname>
+              <given-names>TU</given-names>
+            </name>
+          </person-group>
+          <year>2012</year>
+          <article-title>Ectopic expression of neurogenin 2 alone is sufficient to induce differentiation of embryonic stem cells into mature neurons</article-title>
+          <source>PLoS ONE</source>
+          <volume>7</volume>
+          <fpage>e38651</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0038651</pub-id>
+          <!--<pub-id pub-id-type="pmcid">3374837</pub-id>-->
+          <pub-id pub-id-type="pmid">22719915</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b47-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tropepe</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Sibilia</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ciruna</surname>
+              <given-names>BG</given-names>
+            </name>
+            <name>
+              <surname>Rossant</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wagner</surname>
+              <given-names>EF</given-names>
+            </name>
+            <name>
+              <surname>van der Kooy</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <year>1999</year>
+          <article-title>Distinct neural stem cells proliferate in response to EGF and FGF in the developing mouse telencephalon</article-title>
+          <source>Dev Biol</source>
+          <volume>208</volume>
+          <fpage>166</fpage>
+          <lpage>188</lpage>
+          <pub-id pub-id-type="doi">10.1006/dbio.1998.9192</pub-id>
+          <pub-id pub-id-type="pmid">10075850</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b48-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Walker</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Zeringue</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name>
+              <surname>Beebe</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Microenvironment design considerations for cellular scale studies</article-title>
+          <source>Lab Chip</source>
+          <volume>4</volume>
+          <fpage>91</fpage>
+          <lpage>97</lpage>
+          <pub-id pub-id-type="doi">10.1039/b311214d</pub-id>
+          <pub-id pub-id-type="pmid">15052346</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b49-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Saadi</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Minh-Canh Nguyen</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Li Jeon</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Differential effects of EGF gradient profiles on MDA-MB-231 breast cancer cell chemotaxis</article-title>
+          <source>Exp Cell Res</source>
+          <volume>300</volume>
+          <fpage>180</fpage>
+          <lpage>189</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.yexcr.2004.06.030</pub-id>
+          <pub-id pub-id-type="pmid">15383325</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b50-bt-26-380">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ornitz</surname>
+              <given-names>DM</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Temporal and spatial gradients of Fgf8 and Fgf17 regulate proliferation and differentiation of midline cerebellar structures</article-title>
+          <source>Development</source>
+          <volume>127</volume>
+          <fpage>1833</fpage>
+          <lpage>1843</lpage>
+          <pub-id pub-id-type="pmid">10751172</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-bt-26-380" orientation="portrait" position="float">
+      <label>Fig. 1.</label>
+      <caption>
+        <p>Microfluidic chip device experimental device scheme. (A) The size of microchip channel is 4 mm in width, 10 mm in length. (B) For inlet reservoirs, 1,000-&#x3BC;L micropipette tips were used. (C) The main driving force for fluid flow is generated by the osmotic pump. (D) The flexible tube was used as an outlet reservoir.</p>
+      </caption>
+      <graphic xlink:href="bt-26-380f1"/>
+    </fig>
+    <fig id="f2-bt-26-380" orientation="portrait" position="float">
+      <label>Fig. 2.</label>
+      <caption>
+        <p>Microfluidic Chip can be used to generate growth factor concentration gradient. (A) Scheme of experiments. NSCs were cultured after dissection of E14.5 cortices for 6 days. Then NSCs were dissociated and plated into poly-D-lysine/laminine coated microfluidic chip. NSCs were allowed to adhere for 90 min, and cultured for 24 h under continuous flow of media with growth factors. On 7<sup>th</sup> day, NSCs were exposed to growth factor (GF) gradients by supplying left inlet with 20 ng/ml of both EGF and bFGF, and right inlet with the same component of media without EGF/bFGF. After 3 days of incubation, cells were fixed for immunocytochemistry. (B). Six spots were chosen to take phase contrast figures. L-O, left-outlet; L-M, left-middle; L-I, left-inlet; R-O, right-outlet; R-M, right-middle; R-I, right-inlet. (C-H) Representative phase contrast images for L-O (C), R-O (D), L-M (E), R-M (F), L-I (G), R-I (H), respectively.</p>
+      </caption>
+      <graphic xlink:href="bt-26-380f2"/>
+    </fig>
+    <fig id="f3-bt-26-380" orientation="portrait" position="float">
+      <label>Fig. 3.</label>
+      <caption>
+        <p>NSCs differentiated better with low concentration of GF than without GF condition. (A) Nine spots were chosen to take microscopic photos. M-O, middle-outlet; M-M, middle-middle; M-I, middle-inlet. (B) Immunocytochemistry data for neuron (TuJ1, green). DAPI was used to obtain the total number of cells. Scale bar=50 &#x3BC;m. (C) Quantification of the immunostaining data. Cells positive to TuJ1 were counted and the ratio of TuJ1-positive cells to total cells was calculated and presented. Quantitative data are expressed as the mean &#xB1; SD (n=3).</p>
+      </caption>
+      <graphic xlink:href="bt-26-380f3"/>
+    </fig>
+    <fig id="f4-bt-26-380" orientation="portrait" position="float">
+      <label>Fig. 4.</label>
+      <caption>
+        <p>ASCL1 overexpressing NSCs proliferate and differentiate in the presence and absence of EGF/bFGF. Using traditional method (without using microfluidic chip), NSCs were cultured and differentiated in the presence and absence of GF. (A&#x2013;F) Immunocytochemistry for control GFP retrovirus (A&#x2013;C) or ASCL1 retrovirus (D&#x2013;F) transduced cell (anti-GFP, green) and neuron (TuJ1, red) of culture in growth media. (G&#x2013;L) Immunocytochemistry for control GFP retrovirus (G&#x2013;I) or ASCL1 retrovirus (J&#x2013;L) transduced cell of culture in differentiation (without GF) media. Arrows indicate TuJ1+GFP+cells. Scale bar=50 &#x3BC;m. (M) Quantification of the immunostaining data of cell culture in growth media (with GF). Cells positive to TuJ1 and GFP were counted, and the ratio of TuJ1/GFP-double positive cells to GFP-positive cells was calculated and presented. (N) Quantification of the immunostaining data of cell culture in differentiation media. Fold increase of control of ASCL1 retrovirus-transduced cells was calculated and presented. Quantitative data are expressed as the mean &#xB1; SD (<sup>*</sup><italic>p</italic>&lt;0.05; <sup>**</sup><italic>p</italic>&lt;0.01 vs. control GFP retrovirus-transduced cell).</p>
+      </caption>
+      <graphic xlink:href="bt-26-380f4"/>
+    </fig>
+    <fig id="f5-bt-26-380" orientation="portrait" position="float">
+      <label>Fig. 5.</label>
+      <caption>
+        <p>Response of control GFP retrovirus-transduced rat NSCs in a growth factor concentration gradient using microfluidic culture system. (A) Immunocytochemistry for control GFP retrovirus-transduced cell (anti-GFP, green) and neuron (TuJ1, red) of culture in a growth factor concentration gradient. Scale bar=50 &#x3BC;m. (B) Graphical quantification of the immunostaining data. Cells positive to TuJ1 and GFP were counted, and the ratio of TuJ1/GFP-double positive cells to GFP-positive cells was calculated and presented. Quantitative data are expressed as the mean &#xB1; SD (n=3).</p>
+      </caption>
+      <graphic xlink:href="bt-26-380f5"/>
+    </fig>
+    <fig id="f6-bt-26-380" orientation="portrait" position="float">
+      <label>Fig. 6.</label>
+      <caption>
+        <p>ASCL1 retrovirus-transduced rat NSCs differentiate more into neurons when GF concentration is low or absent. (A) Immunocytochemistry for ASCL1 retrovirus-transduced cells (anti-GFP, green) and neurons (TuJ1, red) of culture in a microfluidic chip generated growth factor concentration gradient. Arrows indicate TuJ1<sup>+</sup>GFP<sup>+</sup> cells. Scale bar=50 &#x3BC;m. (B) Graphical quantification of the immunostaining data. Cells positive to TuJ1 and GFP were counted, and the ratio of TuJ1/GFP-double positive cells to GFP- positive cells was calculated and presented. Quantitative data are expressed as the mean &#xB1; SD (n=3). <sup>*</sup><italic>p</italic>&lt;0.05; <sup>**</sup><italic>p</italic>&lt;0.01 vs. control GFP retrovirus-transduced cell shown in <xref rid="f4-bt-26-380" ref-type="fig">Fig. 4</xref>. Abbreviation: L, left; M, middle; R, right; GF, growth factor; GFP, green fluorescence protein.</p>
+      </caption>
+      <graphic xlink:href="bt-26-380f6"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

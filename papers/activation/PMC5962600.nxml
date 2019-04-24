@@ -1,0 +1,1819 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group UK</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29784938</article-id>
+      <article-id pub-id-type="pmc">5962600</article-id>
+      <article-id pub-id-type="publisher-id">26237</article-id>
+      <article-id pub-id-type="doi">10.1038/s41598-018-26237-3</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Characterization of the rat cerebrospinal fluid proteome following acute cerebral ischemia using an aptamer-based proteomic technology</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Simats</surname>
+            <given-names>Alba</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Garc&#xED;a-Berrocoso</surname>
+            <given-names>Teresa</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ramiro</surname>
+            <given-names>Laura</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Giralt</surname>
+            <given-names>Dolors</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gill</surname>
+            <given-names>Natalia</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Penalba</surname>
+            <given-names>Anna</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bustamante</surname>
+            <given-names>Alejandro</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rosell</surname>
+            <given-names>Anna</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Montaner</surname>
+            <given-names>Joan</given-names>
+          </name>
+          <address>
+            <email>joan.montaner@vhir.org</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1"/>
+        </contrib>
+        <aff id="Aff1"><institution-wrap><institution-id institution-id-type="GRID">grid.7080.f</institution-id><institution>Neurovascular Research Laboratory, </institution><institution>Vall d&#x2019;Hebron Institute of Research (VHIR), Universitat Aut&#xF2;noma de Barcelona, </institution></institution-wrap>Barcelona, Spain </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>21</day>
+        <month>5</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>21</day>
+        <month>5</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2018</year>
+      </pub-date>
+      <volume>8</volume>
+      <elocation-id>7899</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>5</day>
+          <month>1</month>
+          <year>2018</year>
+        </date>
+        <date date-type="accepted">
+          <day>20</day>
+          <month>4</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s) 2018</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article&#x2019;s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p id="Par1">The limited accessibility to the brain has turned the cerebrospinal fluid (CSF) into a valuable source that may contribute to the complete understanding of the stroke pathophysiology. Here we have described the CSF proteome in the hyper-acute phase of cerebral ischemia by performing an aptamer-based proteomic assay (SOMAscan) in CSF samples collected before and 30&#x2009;min after male Wistar rats had undergone a 90&#x2009;min Middle Cerebral Artery Occlusion (MCAO) or sham-surgery. Proteomic results indicated that cerebral ischemia acutely increased the CSF levels of 716 proteins, mostly overrepresented in leukocyte chemotaxis and neuronal death processes. Seven promising candidates were further evaluated in rat plasma and brain (CKB, CaMK2A, CaMK2B, CaMK2D, PDXP, AREG, CMPK). The 3 CaMK2 family-members and CMPK early decreased in the infarcted brain area and, together with AREG, co-localized with neurons. Conversely, CKB levels remained consistent after the insult and specifically matched with astrocytes. Further exploration of these candidates in human plasma revealed the potential of CKB and CMPK to diagnose stroke, while CaMK2B and CMPK resulted feasible biomarkers of functional stroke outcome. Our findings provided insights into the CSF proteome following cerebral ischemia and identified new outstanding proteins that might be further considered as potential biomarkers of stroke.</p>
+      </abstract>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2018</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1" sec-type="introduction">
+      <title>Introduction</title>
+      <p id="Par2">Stroke is one of the most frequent causes of mortality worldwide and is still considered the leading cause of permanent adult disability in developed countries<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. Despite major improvements have been achieved in the management of stroke patients in regards to acute therapies<sup><xref ref-type="bibr" rid="CR2">2</xref>,<xref ref-type="bibr" rid="CR3">3</xref></sup>, there is still a need for improving the diagnosis, prognosis and the treatment of patients that had suffered from this devastating disease. To that end, a complete understanding of the key molecular changes that happen as a consequence of the reduction of glucose and oxygen supply to the brain is necessarily required, and has been a matter of study during the last decade for many experts on this field<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>.</p>
+      <p id="Par3">Due to limited accessibility to the brain, the study of these cellular and molecular alterations remains laborious. It is not surprising, then, that remarkable efforts have been directed to the systemic identification and evaluation of molecular mediators of ischemic injury that accurately reflect the stroke pathology and its severity. Remarkably, due to the exchange of molecules between brain and blood, circulating biomarkers have been the first line of research thanks to the simplicity and the minimally-invasive blood collection procedure. Blood evaluation has permitted the identification of potential mediators of the stroke pathophysiology in terms of diagnosis and prognosis, despite none of them has reached its clinical implementation yet<sup><xref ref-type="bibr" rid="CR5">5</xref>,<xref ref-type="bibr" rid="CR6">6</xref></sup>. However, because the brain is strictly protected from circulation by the brain-blood barrier (BBB) and considering that there is still a lack of complete understanding of how different brain molecules reach the peripheral circulatory system, blood biomarkers research has not yet provided enough information to fully understand all the alterations that occur in the brain following stroke.</p>
+      <p id="Par4">To overcome these issues, the exhaustive study of other biological samples, such as the cerebrospinal fluid (CSF), which is in much more close contact with the brain than the peripheral circulation, has emerged as a complementary approach for the characterization of stroke pathophysiology. As known for other neurological diseases, this brain protective and supportive body-fluid provides an excellent opportunity to evaluate the very early signs of neuronal degeneration<sup><xref ref-type="bibr" rid="CR7">7</xref>,<xref ref-type="bibr" rid="CR8">8</xref></sup>. In the case of ischemic stroke, however, the clinical usefulness of CSF for an early diagnosis of stroke is challenging, since collection methods require an invasive procedure that might still be difficult to be perform in clinical situations of emergency and supposes an absolute contraindication for intravenous thrombolytic therapies. Nevertheless, CSF evaluation in the field of ischemic stroke might provide additional insights about the pathogenic alterations underlying cerebral ischemia, and may contribute to the complete interpretation of stroke pathology and the identification of potential therapeutic targets for its pharmacological modulation<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>. In this context, the use of pre-clinical models has proven to be notably relevant to examine those biological fluids that are difficult to obtain from human, as for the case of CSF.</p>
+      <p id="Par5">The emerging proteomic technologies provide new high-throughput approaches that allow the simultaneous identification of a huge quantity of proteins in biological samples, including fluids, especially serum or plasma, and, although to a lesser extent, post-mortem brain tissue of ischemic stroke subjects<sup><xref ref-type="bibr" rid="CR10">10</xref></sup>. Due to the wide range of protein abundance in the circulating proteome, however, the identification of low abundant brain-specific molecules in body fluids is frequently a limitation<sup><xref ref-type="bibr" rid="CR11">11</xref></sup>. To overcome this challenge, continuous advances in these proteomics&#x2019; approaches are being made. Concretely, the SOMAscan proteomic assay, which is based on the usage of modified nucleic acid aptamers (named SOMAmers: Slow Off-rate Modified Aptamers), facilitates the simultaneous identification of an extensive set of proteins across a wide range of concentrations and abundances by replacing direct protein measurement into a straightforward DNA quantification, independently of high abundant protein confounders<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>.</p>
+      <p id="Par6">In this study, our aim was to describe the CSF proteomic profile at a very early stage after cerebral ischemia in rats by using the SOMAscan proteomic technology. Moreover, we further explored our results to deeply describe seven selected candidates with a potential involvement in the stroke pathophysiology. To that end, these molecules were examined in blood and brain tissue of ischemic and sham-control animals and were tested in stroke patients for their ability as diagnosis and prognosis biomarkers.</p>
+    </sec>
+    <sec id="Sec2" sec-type="results">
+      <title>Results</title>
+      <sec id="Sec3">
+        <title>Proteomic profiling of CSF after cerebral ischemia</title>
+        <p id="Par7">To characterize the CSF proteomic profile in the hyperacute phase of cerebral ischemia, we harvested CSF from MCAO and sham-control animals at two different time-points: before (pre) and after (post) their respective surgeries (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1B</xref>). No tangible differences in relative protein abundances were detected in CSF samples from sham-control animals, with only 47 proteins (4.16%) differentially regulated in CSF between the pre and post sham-control surgical procedure. Interestingly, a large amount of proteins (738; 65.4% of total) increased in rat CSF after the induction of cerebral ischemia compared to their pre samples (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1C</xref> and Supplementary Table&#xA0;<xref rid="MOESM2" ref-type="media">S1</xref>).<fig id="Fig1"><label>Figure 1</label><caption><p>(<bold>A</bold>) Schematic representation of the design of the experimental study. (<bold>B</bold>) Schematic representation of data analyzed by the SOMAscan proteomic assay. (<bold>C</bold>) Color map of relative fluorescence units (RFU) of the 738 proteins that were significantly altered after the ischemia. Squares are color coded; bright yellow color indicates high RFU and pale orange color indicate low RFU. The brighter the color is, the higher RFUs are. A1-A6 indicate samples obtained before MCAO; B1-B6 indicate samples obtained 2&#x2009;h after MCAO; C1-C6 indicate samples obtained before sham surgery; D1-D6 indicate samples obtained after sham surgery. Abbreviations: CSF: cerebrospinal fluid; MCAO: middle cerebral artery occlusion.</p></caption><graphic xlink:href="41598_2018_26237_Fig1_HTML" id="d29e312"/></fig></p>
+        <p id="Par8">CSF differentially-expressed proteins after MCAO and sham-control surgery were further characterized through bioinformatics analysis. The disease- and function-related analysis (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A</xref>) revealed that the inflammatory response that early appears in the brain after an ischemic event was the most overrepresented biological process in the CSF proteome 2&#x2009;h after cerebral ischemia. Specifically, the activation and accumulation of leukocytes, and several inflammatory processes related to the infiltration of immune cells into the brain, including immune cells movement and leukocytes chemotaxis, were largely represented in the CSF from MCAO animals. Furthermore, particular interest was also directed towards the specific biological processes encompassed in the category of neurological disease, since molecular mechanisms of cell death of brain cells, specifically of cortical neurons, were the foremost annotations reported in the CSF at this early time-point after ischemia (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A</xref>).<fig id="Fig2"><label>Figure 2</label><caption><p>IPA analysis of differentially expressed proteins in CSF after cerebral ischemia in rats. Analyses were classified by disease and disorders (<bold>A</bold>) and canonical pathways (<bold>B</bold>) and compared with the CSF from the control group of sham-operated animals. Magnification of the top 2 canonical pathways from A is also provided. Top 10 categories ranked by MCAO corrected p-value are listed in all graphs.</p></caption><graphic xlink:href="41598_2018_26237_Fig2_HTML" id="d29e335"/></fig></p>
+        <p id="Par9">Notably, the analysis of the main canonical pathways revealed that the neuroregulin and the platelet-derived growth factor (PDGF) molecular pathways were also highlighted processes in the acute phase of ischemia, as reflected by their highlighted relevance in the CSF proteome exclusively from ischemic animals (-log(B-H p-value)&#x2009;&gt;&#x2009;7). Moreover, additional strength was given to inflammation in the early phase of ischemia, since chemokine signaling pathways were also highly represented in the CSF proteome profile after cerebral ischemia (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2B</xref>).</p>
+      </sec>
+      <sec id="Sec4">
+        <title>Selection of proteins with significantly altered expression in CSF after cerebral ischemia</title>
+        <p id="Par10">Twenty-two out of the 738 differentially-expressed proteins after MCAO (2.98%) were also up-regulated after sham-control surgery, namely common in both dataset comparisons. Since our attention was focused on the key proteomic alterations after cerebral ischemia, and in order to minimize the influence of the non-ischemic processes associated to the surgery procedure, these 22 common proteins were discarded for further analysis. Therefore, we finally identified 716 proteins that were exclusively up-regulated due to brain ischemia.</p>
+        <p id="Par11">Of those stroke-associated proteins, 46 (6.42%) presented more than a 4-fold up-regulation in the CSF after MCAO compared to pre MCAO (the top 20 proteins are shown in Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption><p>Top 20 proteins increased in the CSF after MCAO.</p></caption><table frame="hsides" rules="groups"><thead><tr><th rowspan="2">Protein name</th><th rowspan="2">Acronym</th><th colspan="2">Pre vs. Post MCAO</th></tr><tr><th>FDR p-value</th><th>Log(FC)</th></tr></thead><tbody><tr><td>
+<bold>Creatin kinase B-type</bold>
+</td><td>
+<bold>CKB</bold>
+</td><td>
+<bold>0.0393</bold>
+</td><td>
+<bold>3.4370</bold>
+</td></tr><tr><td>
+<bold>Calcium/Calmodulin dependent protein kinase II subunit beta</bold>
+</td><td>
+<bold>CAMK2B</bold>
+</td><td>
+<bold>0.0393</bold>
+</td><td>
+<bold>2.7742</bold>
+</td></tr><tr><td>
+<bold>Pyridoxal phosphate phosphatase</bold>
+</td><td>
+<bold>PDXP</bold>
+</td><td>
+<bold>0.0393</bold>
+</td><td>
+<bold>2.7283</bold>
+</td></tr><tr><td>
+<bold>Amphiregulin</bold>
+</td><td>
+<bold>AREG</bold>
+</td><td>
+<bold>0.0393</bold>
+</td><td>
+<bold>2.6482</bold>
+</td></tr><tr><td>
+<bold>Calcium/Calmodulin dependent protein kinase II subunit delta</bold>
+</td><td>
+<bold>CAMK2D</bold>
+</td><td>
+<bold>0.0393</bold>
+</td><td>
+<bold>2.6411</bold>
+</td></tr><tr><td>Junctional adhesion molecule C</td><td>JAM3</td><td>0.0393</td><td>2.5815</td></tr><tr><td>Cytokine receptor common subunit gamma</td><td>IL2RG</td><td>0.0393</td><td>2.5596</td></tr><tr><td>40S ribosomal protein S7</td><td>RPS7</td><td>0.0102</td><td>2.5538</td></tr><tr><td>Fibroblast growth factor 16</td><td>FGF16</td><td>0.0393</td><td>2.5361</td></tr><tr><td>Ubiquitin-conjugating enzyme E2 L3</td><td>UBE2L3</td><td>0.0393</td><td>2.5222</td></tr><tr><td>Interleukin-23 receptor</td><td>IL23R</td><td>0.0393</td><td>2.5061</td></tr><tr><td>Vacuolar protein sorting-associated protein VTA1</td><td>VTA1</td><td>0.0183</td><td>2.5013</td></tr><tr><td>
+<bold>Calcium/Calmodulin dependent protein kinase II subunit alpha</bold>
+</td><td>
+<bold>CAMK2A</bold>
+</td><td>
+<bold>0.0393</bold>
+</td><td>
+<bold>2.5007</bold>
+</td></tr><tr><td>Seizure 6-like protein 2</td><td>SEZ6L2</td><td>0.0393</td><td>2.4662</td></tr><tr><td>Glycoprotein hormones alpha chain/Lutropin subunit beta</td><td>CGALHB</td><td>0.0393</td><td>2.4515</td></tr><tr><td>Protein kinase C iota type</td><td>PRKCI</td><td>0.0393</td><td>2.4042</td></tr><tr><td>NKG2D ligand 3</td><td>ULBP3</td><td>0.0393</td><td>2.3961</td></tr><tr><td>Desert hedgehog protein</td><td>DHH</td><td>0.0393</td><td>2.3926</td></tr><tr><td>Fibroblast growth factor 7</td><td>FGF7</td><td>0.0393</td><td>2.3710</td></tr><tr><td>Apoptosis regulator Bcl-2</td><td>BCL2</td><td>0.0393</td><td>2.3698</td></tr></tbody></table><table-wrap-foot><p>Proteins selected for further examination are highlighted in bold.</p></table-wrap-foot></table-wrap></p>
+        <p id="Par12">For further studies, the top five proteins from this list (CKB, CaMK2B, CaMK2D, PDXP and AREG) were chosen as promising candidates to be examined in detail. Calcium/Calmodulin-dependent protein kinase II subunit alpha (CaMK2A) was additionally chosen for further exploration, given the outstanding importance of their analogues (CaMK2B and CaMK2D), and Uridine monophosphate/cytidine monophosphate (UMP/CMP) kinase (CMPK) protein was also included as a candidate due to its relevance in a previous study from our group (FDR p&#x2009;=&#x2009;0.008, logFC&#x2009;=&#x2009;1.127)<sup><xref ref-type="bibr" rid="CR13">13</xref></sup> (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3A</xref>). None of the selected candidates showed an association with the acute neurological deficits of ischemic animals (data not shown).<fig id="Fig3"><label>Figure 3</label><caption><p>Exploration of protein levels in CSF, plasma and brain of ischemic and sham-control animals. Plots of protein abundance data (RFU: relative fluorescent units) in (<bold>A</bold>) CSF samples obtained pre- and post-MCAO and (<bold>B</bold>) plasma samples obtained 2&#x2009;h after MCAO or sham-control surgery (n&#x2009;=&#x2009;6 samples per experimental group for all cases). (<bold>C</bold>) Plot of protein abundance (relative quantification, ratio IP vs. CL hemisphere of each animal) in brain homogenates samples obtained 2&#x2009;h after MCAO or sham-control surgery (n&#x2009;=&#x2009;4 samples for sham; n&#x2009;=&#x2009;8 samples for MCAO). In all cases, IP and CL samples from each animal are run in the same gel and individually corrected by their respective &#x3B2;-actin loading controls (Supplemental Figure&#xA0;<xref rid="MOESM1" ref-type="media">S3</xref>). (<bold>D</bold>) Representative Western Blots signals used for quantification of proteins in brain. Bars indicate mean&#x2009;&#xB1;&#x2009;SD. For all graphs, *p&#x2009;&lt;&#x2009;0.05 and <sup>#</sup>p&#x2009;&lt;&#x2009;0.1. Abbreviations: IP: ipsilateral hemisphere; CL: contralateral hemisphere.</p></caption><graphic xlink:href="41598_2018_26237_Fig3_HTML" id="d29e754"/></fig></p>
+      </sec>
+      <sec id="Sec5">
+        <title>Analysis of the selected proteins in the rat brain and blood</title>
+        <p id="Par13">The proteomic profile of plasma samples, which were also obtained 2&#x2009;h post MCAO or sham-control surgery from the same set of animals, was run in parallel. Of all selected candidates, only CKB and the 3 members of the CaMK2 protein family showed an increase in plasma of MCAO animals compared to sham controls (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3B</xref>). Additionally, these higher circulating levels were positively correlated with the CSF levels for the CaMK2 members (R&#x2009;=&#x2009;0.736, p&#x2009;=&#x2009;0.006 for CaMK2B; R&#x2009;=&#x2009;0.589, p&#x2009;=&#x2009;0.044 for CaMK2D; and R&#x2009;=&#x2009;0.626, p&#x2009;=&#x2009;0.029 for CaMK2A), whereas no correlation between plasma and CSF levels post MCAO was seen for CKB (R&#x2009;=&#x2009;0.161, p&#x2009;=&#x2009;0.617). Conversely, neither PDXP nor AREG or CMPK showed differences in their circulating plasma levels between MCAO and sham-control animals at the studied time-point, and neither of them showed correlation between plasma and CSF levels post MCAO.</p>
+        <p id="Par14">Protein candidates were further characterized in brain homogenates from the same set of MCAO and sham-control animals. No appreciable differences were detected for PDXP, AREG and CKB levels between the affected and healthy brain hemispheres of MCAO animals and sham controls, as reported by the ratio between ipsilateral (IP) and contralateral (CL) protein levels (p&#x2009;=&#x2009;0.956, p&#x2009;=&#x2009;0.190 and p&#x2009;=&#x2009;0.736, respectively). However, CMPK and the three members of the CaMK2 family (CaMK2B, CaMK2D and CaMK2A) did show a decrease in their levels in the ischemic hemisphere compared to the healthy side of the brain and sham controls (p&#x2009;=&#x2009;0.032, p&#x2009;=&#x2009;0.075, p&#x2009;=&#x2009;0.037 and p&#x2009;=&#x2009;0.011, respectively) (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3C,D</xref>). Interestingly, the simultaneous evaluation of the total levels of CaMK2 (phosphorylated and non-phosphorylated forms) resulted in no differences between MCAO and sham-control animals (p&#x2009;=&#x2009;0.817), whereas the detection of the phosphorylated form alone did show a slight increase in the infarcted hemisphere compared to the contralateral in ischemic animals (p&#x2009;=&#x2009;0.090) (Supplemental Figure&#xA0;<xref rid="MOESM1" ref-type="media">S2</xref>).</p>
+        <p id="Par15">The specific brain localization in ischemic rats was conducted for each selected protein with commercially-available antibodies for immunohistochemistry. Relative abundances between IP and CL hemispheres were consistent with the aforementioned results for all candidates. CKB immunostaining was consistent through all brain regions and co-localized with the astrocytic marker GFAP (Glial Fibrillary Acidic Protein) (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4A</xref>), but not with the microglial marker Iba-1 (data not shown). CaMK2B positive staining was observed in neurons from the pyramidal layers of the cerebral cortex and in striatal neurons. Moderate staining of CaMK2B was also shown in hypothalamic nuclei from the periventricular region and in the hippocampus (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4B</xref>). Staining of AREG was detected in both, pyramidal and granular neuronal layers. Moreover, AREG-positive signal was also seen in the third coronal brain depth and was localized just below the ending lateral ventricles, close to the reticular nucleus of the thalamus (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4C</xref>). CaMK2D positive staining was shown in cortical neurons from the granular layer IV and the multiform layer VI, it was also identified in the periventricular region of the hypothalamus, similar to its analogue CaMK2B, and presented robust positive staining in neurons from the internal capsule of the corticospinal tract (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4D</xref>). Finally, CMPK staining was observed in areas close to the <italic>cingulum</italic>, external and internal capsule, and was notably pronounced in neuronal bundles from the striatum (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4E</xref>).<fig id="Fig4"><label>Figure 4</label><caption><p>Histological localization of protein candidates in the ischemic brain. (<bold>A</bold>) CKB, (<bold>B</bold>) CaMK2B, (<bold>C</bold>) AREG, (<bold>D</bold>) CaMK2D and (<bold>E</bold>) CMPK histological examination in three established cortical depths of the ischemic brain (see Supplemental Figure&#xA0;<xref rid="MOESM1" ref-type="media">S1</xref>). In the schematic representation of brain, right hemisphere corresponds to IP and left hemisphere corresponds to CL. Dark grey regions indicate higher abundance of positive staining than pale gray zones. CKB (green) was co-localized with GFAP marker in the red channel and nuclear detection was conducted with DAPI in the blue channel. Scale bar&#x2009;=&#x2009;50&#x2009;&#xB5;m.</p></caption><graphic xlink:href="41598_2018_26237_Fig4_HTML" id="d29e819"/></fig></p>
+      </sec>
+      <sec id="Sec6">
+        <title>Translation to potential biomarkers in stroke patients</title>
+        <p id="Par16">We further aimed to assess the potential role of CKB, CaMK2B, CaMK2D, CaMK2A and CMPK as biomarkers of stroke. With that purpose, we evaluated circulating levels of these proteins in human blood samples from ischemic stroke (&lt;6&#x2009;h from symptoms onset) and control subjects. Demographical and clinical characteristics of all patients are described in Supplemental Table S<xref rid="MOESM2" ref-type="media">2</xref>. In brief, ischemic stroke subjects were older and presented higher prevalence of atrial fibrillation and ischemic cardiopathy than control individuals. However, differences in the circulating levels of the selected candidates could not be explained by any of these demographical and clinical variations (data not shown).</p>
+        <p id="Par17">Notably, circulating levels of CKB and CMPK were higher in ischemic strokes than controls (p&#x2009;=&#x2009;0.050 and p&#x2009;=&#x2009;0.047, respectively) (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5A,D</xref>). However, neither CaMK2B nor CaMK2D or CaMK2A showed differences in their circulating levels between both studied groups (p&#x2009;=&#x2009;0.719, p&#x2009;=&#x2009;0.904 and p&#x2009;=&#x2009;0.687, respectively) (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5B,C</xref>&#xA0;<xref rid="Fig5" ref-type="fig">and E</xref>).<fig id="Fig5"><label>Figure 5</label><caption><p>Plasma levels of CKB, CaMK2-family members and CMPK. Circulating levels in ischemic stroke patients (n&#x2009;=&#x2009;38) and controls (n&#x2009;=&#x2009;8) of all selected candidates. Blood samples were obtained on patient admission to the hospital (&lt;6&#x2009;h from symptoms onset). Median and Tukey confidence intervals are represented in each graph. Standardized values for CKB were calculated using Z-score (see Supplemental materials and methods data). For all graphs, *p&#x2009;&lt;&#x2009;0.05.</p></caption><graphic xlink:href="41598_2018_26237_Fig5_HTML" id="d29e847"/></fig></p>
+        <p id="Par18">Next, we aimed to evaluate the practical use of these proteins as biomarkers of long-term functional outcome after stroke. Seventeen out of 38 ischemic stroke patients (44.7%) exhibited a poor functional outcome by the third month after stroke. Notably, baseline circulating levels of CaMK2B and CMPK were higher in those patients with poor functional outcome than patients with good functional outcome (6.23&#x2009;&#xB1;&#x2009;1.96&#x2009;ng/mL vs. 5.02&#x2009;&#xB1;&#x2009;1.41&#x2009;ng/mL, p&#x2009;=&#x2009;0.046 for CaMK2B; 1.43 [0.9&#x2013;2.39] ng/mL vs. 0.62 [0.62&#x2013;1.09] ng/mL, p&#x2009;=&#x2009;0.019 for CMPK), but did not associate with stroke severity, as measured by the NIHSS at admission (p&#x2009;=&#x2009;0.734 and p&#x2009;=&#x2009;0.773 respectively).</p>
+        <p id="Par19">We found a cut-off point of 5.016&#x2009;ng/mL for CaMK2B (70% sensibility, 69% specificity) and 0.759&#x2009;ng/mL for CMPK (76% sensibility, 71% specificity) that were significantly associated with poor functional outcome at the studied time-point (p&#x2009;=&#x2009;0.020 and p&#x2009;=&#x2009;0.014, respectively). The predictive clinical model including the variables significantly associated with poor outcome in the univariate analysis (Supplemental Table S<xref rid="MOESM2" ref-type="media">3</xref>) was further adjusted by age, sex and NIHSS score at admission, which are well-known factors that highly influence stroke prognosis<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. The addition of each biomarker individually to this predictive model showed that both of them remained independent predictors of poor outcome (OR&#x2009;=&#x2009;9.82 [1.13&#x2013;85.88], p&#x2009;=&#x2009;0.039 for CaMK2B; OR&#x2009;=&#x2009;9.40 [1.53&#x2013;57.67], p&#x2009;=&#x2009;0.015 for CMPK). The combination of both biomarkers in the same predictive model was also an independent predictor of poor outcome (OR&#x2009;=&#x2009;6.38 [1.33&#x2013;30.69], p&#x2009;=&#x2009;0.020).</p>
+      </sec>
+    </sec>
+    <sec id="Sec7" sec-type="discussion">
+      <title>Discussion</title>
+      <p id="Par20">The study being presented here aimed to map the rat cerebrospinal fluid proteome in the hyperacute phase of cerebral ischemia by using an aptamer-based proteomic technology as a research tool to identify potential stroke biomarkers. The SOMAscan approach facilitated the screening of hundreds of proteins in CSF, and permitted the evaluation and characterization of its protein composition following an event of cerebral ischemia.</p>
+      <p id="Par21">The cerebrospinal fluid is the physiological medium that surrounds and mechanically supports the central nervous system (CNS). The CSF circulates unidirectionally from the brain ventricles to the subarachnoid space in the cortex and serves as a transporter of biochemical messages from one brain region to another. Approximately an 80% of the CSF originates from the filtration of arterial blood in the choroid plexus, whereas the rest is thought to principally derive of the drainage of brain interstitial fluid (ISF)<sup><xref ref-type="bibr" rid="CR15">15</xref>,<xref ref-type="bibr" rid="CR16">16</xref></sup>. The connection between CSF and ISF is strictly necessary for an optimal maintenance of the neuronal microenvironment in the brain parenchyma. Under cytotoxic conditions, ISF conducts metabolic waste to clear away cellular degradation products, leading to an accumulation of catabolites diffusing out from brain to the CSF<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. Following an ischemic event, unique signatures of brain-specific molecules from damaged parenchyma come together in the CSF. The early accumulation of these brain-derived factors in the CSF might accurately reflect the current status of the brain, and its collection might in turn facilitate a rapid diagnosis of the on-going CNS pathological processes and accelerate therapeutic interventions as required.</p>
+      <p id="Par22">Bioinformatics&#x2019; analysis of the CSF composition after cerebral ischemia reinforced the well-known importance of the inflammatory response in the ischemic brain<sup><xref ref-type="bibr" rid="CR18">18</xref></sup>. After only 2&#x2009;hours from ischemia onset, the signaling cascade of inflammation was well established and molecularly reflected in the CSF. Concretely, mediators of the mobilization of activated leukocytes to the ischemic site of injury, including proteins involved in cellular movement and chemotactic factors, were of considerable relevance in the ischemic CSF proteome. The diffusion into the CSF of proteins that participate in pathways of neuronal cell death was also found to be of great magnitude at the studied time-point. As it is well-known, the breakdown of neuronal cell integrity causes a devastating loss of neurons in the core of the ischemic lesion within a short period of time from disease onset. The identification and functional characterization of mediators of (or induced by) this rapid stroke-related massive injury might serve as valuable therapeutic targets for the reduction of the brain lesion. This is the case of the neuroregulin and PDGF pathways, since both signaling pathways have been related to neuroprotection: neuroregulin has shown potential therapeutic value by preventing macrophage/monocytes infiltration and astrocyte activation<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>, whereas PDGF has been proposed to be angiogenic in stroke<sup><xref ref-type="bibr" rid="CR20">20</xref></sup>.</p>
+      <p id="Par23">The top seven outstanding proteins found at high levels in the CSF following cerebral ischemia in the present study have been extensively described in the context of the stroke pathophysiology. CK-BB, composed by two identical CKB subunits, is the most abundant creatine kinase (CK) isoenzyme in the brain. CK isoforms play a key role in energy transduction and homeostasis, especially in high-demanding tissues, by catalyzing the reversible exchange between creatine and creatine-phosphate, thus facilitating the conversion of ADP to ATP and vice versa to cover cell energy requirements and storage<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>. CK in the isoforms of CK-MM and CK-MB have been widely studied for the diagnosis of myocardial infarction<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>, but less is known about CK-BB disease relevance. In concordance with our results, CK-BB has been well reported to immediately increase in blood circulation and CSF following acute cerebral injuries, including cerebrovascular traumatisms, meningitis and strokes<sup><xref ref-type="bibr" rid="CR23">23</xref>&#x2013;<xref ref-type="bibr" rid="CR25">25</xref></sup>, and its role as a plausible diagnostic biomarker for ischemic stroke has been previously postulated<sup><xref ref-type="bibr" rid="CR26">26</xref>,<xref ref-type="bibr" rid="CR27">27</xref></sup>. CK-BB provenance has been slightly controversial; some studies have proven that astrocytes and neurons are the main CK-BB source, whereas others, including us, could only proof that astrocytes express CK-BB in brain<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>. Our findings indicate that there is a strong CK-BB accumulation in the CSF and blood following ischemia in rats; despite we were not able to detect differences in CK-BB levels in brain parenchyma between the infarcted and healthy hemispheres of the brain.</p>
+      <p id="Par24">AREG (amphiregulin) was another outstanding protein found to have increased levels in CSF after cerebral ischemia. AREG is a member of the epidermal growth factor (EGF) family of proteins. This EGF-like molecule induces cell differentiation and proliferation and contributes to wound healing and tissue repair following infection or injury<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. In brain, AREG remarkably increases in response to ischemic conditions in cortical, striatal and hippocampal neurons, and attenuates neuronal damage by inhibiting the pro-inflammatory-related endoplasmic reticulum stress<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>. In the present study, AREG markedly accumulate in the CSF of ischemic animals but their plasma and in-brain levels did not change after the insult. This controversy might be explained in part by a direct balance between a higher intracellular release caused by the on-going massive cell disruption and death in the ischemic core, and a simultaneously higher expression of this protein in an attempt to slow-down and retrain stroke-related neuronal damage. Besides, AREG has been also linked to the propensity to develop hemorrhages in thrombolytic-treated ischemic stroke patients<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. Concretely, AREG increases the expression of MMP-9 and VEGF, both molecules strongly associated with hemorrhagic complications after stroke<sup><xref ref-type="bibr" rid="CR32">32</xref>,<xref ref-type="bibr" rid="CR33">33</xref></sup>. Thus, although the time-point studied here precludes the study of hemorrhagic complications and their association with AREG levels, further experiments should be conducted to explore it as a therapeutic target.</p>
+      <p id="Par25">PDXP, also named as chronophin, regulates the synthesis of pyroxidal 5&#x2032;-phosphate (PLP), the coenzymatically active form of vitamin B6. It removes the phosphate group from PLP and degrades it to 4-pyridoxic acid<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>. PDXP participates in the biosynthesis of various neurotransmitters and organic molecules, and is found at high levels in brain and testis<sup><xref ref-type="bibr" rid="CR35">35</xref>,<xref ref-type="bibr" rid="CR36">36</xref></sup>. PDXP is also an important regulator of cofilin or actin-depolymerization factor (ADF)<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. ADF/cofilin maintains a regular intracellular reservoir of ATP-G-actin monomers by the depolymerization of older ADP-F-actin, thus regulating actin dynamics and contributing to the construction and remodeling of a great variety of polarized structures within cells<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>. Activated ADF/cofilin (non-phosphorylated form) has been shown to mediate apoptotic processes, and its inhibition (phosphorylated form) has shown promising neuroprotective results by increasing neuronal viability and survival<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>. PDXP is known to activate ADF/Cofilin, thus further contributing to mechanisms of neuronal damage and death<sup><xref ref-type="bibr" rid="CR40">40</xref></sup>. PDXP itself is activated in response to different intracellular and extracellular signals of stress, such as oxidative stress or the drop of intracellular ATP that occurs after cerebral blood flow impairment<sup><xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR37">37</xref></sup>. PDXP levels increase in brain following cerebral ischemia, and decrease after the administration of neuroprotective free radical scavengers, such as ferulic acid<sup><xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR41">41</xref></sup>. In our study, we reported high levels of PDXP in CSF early after ischemia, but we were not able to detect changes in brain levels neither in plasma at the studied time-point. It remains to be tested whether PDXP increases in the ischemic brain at later stages after ischemia, which would potentially serve as a therapeutic target to mediate the mechanisms of stroke-related tissue injury.</p>
+      <p id="Par26">CMPK reversibly catalyzes the addition of a phosphate group to UMP and CMP to consequently form UDP and CDP, which are further converted to their triphosphorylated form to be used as substrates of the DNA and RNA polymerases<sup><xref ref-type="bibr" rid="CR42">42</xref></sup>. In brain, these nucleotides are strictly required for the synthesis of neuronal membrane phospholipids, and thus influence various membrane-dependent processes such as neurotransmitter release and neurite outgrowth<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. A decrease expression of CMPK has been related to aging<sup><xref ref-type="bibr" rid="CR44">44</xref></sup>, whereas an increased expression has been seen in brain cortex from patients with temporal lobe epilepsy and following sciatic nerve injury in rodents<sup><xref ref-type="bibr" rid="CR45">45</xref>,<xref ref-type="bibr" rid="CR46">46</xref></sup>. In terms of ischemia, decreased levels of both, nucleotides and CMPK, has been observed in the infarcted region of the brain after transient cerebral ischemia<sup><xref ref-type="bibr" rid="CR13">13</xref>,<xref ref-type="bibr" rid="CR47">47</xref></sup>, which we further corroborated by also reporting decreased levels of CMPK in the early ischemic rat brain. Besides, at the same time-point following ischemia, we observed an increased accumulation of CMPK in the CSF, which suggest that this lower content of CMPK in the ischemic core could be a direct consequence of a massive release of components from disrupted cells within the injured area, rather than a brain injury-related decrease in CMPK expression. On the other hand, despite we could not observe any increase in CMPK levels in circulation 2&#x2009;h after ischemia in rats, we reported higher CMPK blood levels in ischemic patients within the first 6&#x2009;h from symptoms compared to controls. Moreover, we could explore the role of CMPK as marker of stroke patient poor prognosis. As reported in the field of cancer<sup><xref ref-type="bibr" rid="CR48">48</xref></sup>, we observed that circulating levels of CMPK at admission were associated with poor long-term outcome, independently of the patient clinical factors. Taking into consideration the involvement of CMPK in mechanisms to combat cell disruption and neuronal cell death<sup><xref ref-type="bibr" rid="CR49">49</xref></sup>, higher CMPK levels following ischemia could be associated with severe ischemic lesions and a final patient poor outcome. Nevertheless, further studies are needed to verify both, the observed diagnostic and prognostic value of CMPK, and evaluate whether CMPK can also serve as a valuable target for therapeutic strategies.</p>
+      <p id="Par27">Finally, CaMK2 members (CaMK2A, CaMK2B and CaMK2D) belong to a group of Ser/Thr protein kinases that has been previously involved in glutamate excitotoxicity-induced neuronal cell death<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>. CaMK2 members are primary activated under ischemic conditions by binding of Ca<sup>2+</sup>/Calmodulin and achieve full activity after autophosphorylation of all former subunits by their neighbors<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>. Phosphorylated CaMK2 remains active and maintains its autonomous activity after dissociation of Ca<sup>2+</sup>/Calmodulin, which facilitates and prolongs CaMK2 functional activity<sup><xref ref-type="bibr" rid="CR51">51</xref></sup>. Glutamate citotoxicity causes translocation of the activated CaMK2 members to the post-synaptic sites and extra-synaptic clusters<sup><xref ref-type="bibr" rid="CR52">52</xref>,<xref ref-type="bibr" rid="CR53">53</xref></sup>, where are involved in synaptic plasticity and serve as a reservoir of CaMK2 to avoid their massive phosphorilation within cells, respectively. Active CaMK2 members have a controversial role in mediating both apoptotic cell death and cell viability<sup><xref ref-type="bibr" rid="CR50">50</xref></sup>. Some of the CaMK2-downstream targets, including different Ca<sup>2+</sup> channels, promote neuronal apoptosis by enhancing death-inducing overload of cellular Ca<sup>2+&#x2009;</sup><sup><xref ref-type="bibr" rid="CR50">50</xref></sup>, while the modulation of other factors, such as the inhibition of caspase 2 and Bad or the enhanced expression of Bcl-xL, might also attenuate those apoptotic processes<sup><xref ref-type="bibr" rid="CR54">54</xref>,<xref ref-type="bibr" rid="CR55">55</xref></sup>. In accordance, both cerebroprotective but also neurotoxic properties of CaMK2 inhibition have been described previously<sup><xref ref-type="bibr" rid="CR56">56</xref>&#x2013;<xref ref-type="bibr" rid="CR58">58</xref></sup>. However, more promising results have been reported in terms of neuroprotection by suppressing CaMK2 activity before, during or after the ischemic insult, both <italic>in vitro</italic> and <italic>in vivo</italic><sup><xref ref-type="bibr" rid="CR58">58</xref>&#x2013;<xref ref-type="bibr" rid="CR60">60</xref></sup>. In our study, we described decreased levels of the non-phosphorylated inactive CaMK2 and increased levels of the phosphorylated active CaMK2 in the ischemic brain hemisphere compared to the healthy side of the brain and sham controls, as others have also stated<sup><xref ref-type="bibr" rid="CR61">61</xref></sup>. This early increase in the active forms of CaMK2 might be promoted by their involvement in ischemia-related neural plasticity processes and might also participate in the early on-going apoptotic mechanisms within the ischemic lesion. Moreover, CaMK2 levels accumulated in the CSF early after ischemia, and this increase was also reflected in the peripheral circulatory system of ischemic rats. However, these results did not match with those from the pilot study, where circulating levels of CaMK2 were not increased in patients that had suffered an ischemic stroke, and hampers the use of these proteins as potential blood biomarkers of stroke diagnosis. Notably, CaMK2B, but not CaMK2A neither CaMK2D, appeared as a valuable indicator of stroke patient functional outcome. CaMK2B association to disease prognosis has been previously reported in cancer<sup><xref ref-type="bibr" rid="CR62">62</xref></sup> but, as far as we know no previous study has explored CaMK2B prognosis-value by measuring its levels in the circulation. Thus, in this preliminary study we are newly describing that circulating levels of CaMK2B showed a potential to predict stroke patients outcome, though larger studies are required to corroborate these findings and to assess whether this predictive capacity is unique to CaMK2B, which is the most brain-specific protein of the CaMK2 members<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>, and whether it turns out to also be a potential target to therapeutically modulate the progression of the ischemic lesion.</p>
+      <p id="Par28">Importantly, we could not identify a consistent pattern among brain, CSF and blood levels relation between the studied candidates. The lack of a reliable correlation between these three compartments hampers the fully comprehension of their interrelationship in stroke pathology and leads to presume that there might be several unknown mechanisms that selectively and distinctively regulate the exchange of molecules between one and another compartment following an ischemic event. We propose that further efforts should be made to understand this brain-CSF-blood connection, which would offer a huge breakthrough for the complete understanding of stroke disease.</p>
+      <p id="Par29">Our work presents some limitations that should be taken into consideration for further studies. First, although the animal model chosen in this study is highly suitable to evaluate the biological alterations of acute ischemic stroke, some additional injury due to reperfusion cannot be avoided, which can lead to the identification of surrounding processes of ischemic stroke itself that are not found in all clinical scenarios<sup><xref ref-type="bibr" rid="CR63">63</xref></sup>. Second, due to technical incompatibilities, we were not able to determine the lesion volumes in the ischemic animals, which would have also been an interesting parameter to analyze. Besides, the SOMAscan platform used here for candidate discovery is initially designed to detect serum human proteins. Despite a great majority of those human-based aptamers show high reactivity based on homology to their rodent counterparts, we cannot discard the presence of potential confounding proteins identified in our datasets. However, we present further analysis with other techniques and tissues confirming the relevance of some of the selected proteins. Finally, despite our clinical pilot study supports the findings on experimental data, we are aware of its limitation due to the reduced number of patients included. Larger and independent cohorts should be studied to validate these results in a near future.</p>
+      <p id="Par30">This work also has some strengths that should be highlighted. This study has originated an extended source of important contributors of stroke pathology, which has been validated through the achieved congruence between the discovery datasets and the further exploration of the selected candidates in brain and blood. In this same line, previously known candidate biomarkers for stroke diagnosis and prognosis, including interleukin 6<sup><xref ref-type="bibr" rid="CR64">64</xref>,<xref ref-type="bibr" rid="CR65">65</xref></sup>, C-reactive protein<sup><xref ref-type="bibr" rid="CR66">66</xref>,<xref ref-type="bibr" rid="CR67">67</xref></sup>, CC-chemokine ligand 23<sup><xref ref-type="bibr" rid="CR68">68</xref></sup> or D-dimer<sup><xref ref-type="bibr" rid="CR69">69</xref>,<xref ref-type="bibr" rid="CR70">70</xref></sup>, have also been corroborated here, since they were also highly increased in CSF 2&#x2009;h after stroke onset (data not shown). Hence, this additional information further validates and gives potential effect to our study, which we expect it to serve as a potential tool to elucidate future mediators of stroke pathology, provide other feasible biomarkers of stroke and support further potential discovery studies in the field of cerebral ischemia.</p>
+      <p id="Par31">In conclusion, we have used here for the first time a high multiplexed, sensitive and quantitative proteomic tool for mapping the rat cerebrospinal fluid proteome in the hyperacute phase of cerebral ischemia. The SOMAscan proteomic approach has facilitated an unbiased screening of hundred of proteins in CSF and plasma samples from ischemic animals, and has originated an extended source of important contributors of stroke pathology that might be supporting future studies in this field. Through this strategy we have been able to firstly identify and primary evaluate the role of three promising proteins as stroke blood biomarkers, which provides added value on the design and development of the present study.</p>
+    </sec>
+    <sec id="Sec8" sec-type="materials|methods">
+      <title>Methods</title>
+      <sec id="Sec9">
+        <title>Animals</title>
+        <p id="Par32">All experimental procedures were conducted in compliance with the Spanish legislation and in accordance with the Directives of the European Union and were approved by the Ethics Committee of the Vall d&#x2019;Hebron Institute of Research (protocol number 58/14). All experiments were conducted in a randomized manner and in adherence to the ARRIVE guidelines. Male Wistar rats were used in the experiments (7&#x2013;12 weeks; Charles River Laboratories Inc., Wilmington, MA, USA). Animals were kept in a climate-controlled environment on a 12&#x2009;h light/12&#x2009;h dark cycle. Food and water were provided <italic>ad libitum</italic>. Analgesia (Buprenorfine, 0.05&#x2009;mg/kg, s.c, Divasa Farma-Vic S.A, Barcelona, Spain) was administered before surgeries to all animals to minimize pain and discomfort. All animals were anesthetized with isoflurane (4% for induction; 2% for maintenance in air, Abbot Laboratories, Spain) and body temperature was maintained at 37&#x2009;&#xB0;C during all surgical procedures.</p>
+        <p id="Par33">A total of 41 rats were needed to complete the study: 14 animals were subjected to sham-control surgery and 26 to transient middle cerebral artery occlusion (MCAO). One sham-control animal died during surgery and 10 ischemic animals were excluded after applying the following criteria: inappropriate occlusion or reperfusion of the middle cerebral artery as described below (n&#x2009;=&#x2009;6), massive surgical bleedings (n&#x2009;=&#x2009;1) and death during the surgery procedure (n&#x2009;=&#x2009;3).</p>
+      </sec>
+      <sec id="Sec10">
+        <title>Model of transient MCAO</title>
+        <p id="Par34">Cerebral ischemia was induced by mechanical occlusion of territory of the MCA, as previously described<sup><xref ref-type="bibr" rid="CR71">71</xref>,<xref ref-type="bibr" rid="CR72">72</xref></sup>. In brief, the day before surgery, cranial trepanation was performed to attach a laser-Doppler probe (Moor Instruments, Devon, UK) and monitor regional cerebral blood flow (CBF). The following day, a silicone-coated nylon filament (Doccol Corporation, reference number: 403723PK10) was introduced through the external carotid artery and pushed to the internal carotid artery to occlude the MCA. Animals were allowed to recovery during the MCA occlusion period. Ninety minutes later, animals were re-anesthetized to induce a 30-min reperfusion by removal of the filament. Successful occlusion and reperfusion of the MCA was guaranteed by the reduction or increase in the CBF recorded by the laser Doppler probe. Only animals that exhibited a CSF reduction &gt;75% after filament placement and a recovery of &gt;75% after filament removal were included in the study. Sham-control surgery was performed by the same surgical procedures without insertion of the nylon-coated filament.</p>
+      </sec>
+      <sec id="Sec11">
+        <title>Acute neurological deficit</title>
+        <p id="Par35">Rats were assessed using the modified Bederson scale, as described elsewhere<sup><xref ref-type="bibr" rid="CR73">73</xref></sup>. Neurological deficits were evaluated in a blinded manner at 80&#x2009;minutes of MCAO, before reperfusion.</p>
+      </sec>
+      <sec id="Sec12">
+        <title>CSF collection</title>
+        <p id="Par36">CSF was collected from rats one week before (pre) and 2&#x2009;hours after MCAO or sham-control surgery (post) (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1A</xref>). CSF was collected by using a minimally-invasive method of CSF sampling, previously described by Mahat and colleagues<sup><xref ref-type="bibr" rid="CR74">74</xref></sup>. In brief, animals under anesthesia effects were placed in a stereotactic apparatus and properly fixed to create an angle of approximately 110&#xB0; between the base of the stereotaxic frame and the animal snout. After localizing the rhomboid depressed region, corresponding to the cisterna magna, a 25G-needle connected to a collection apparatus was vertically inserted and slowly advanced until CSF started flowing into the collection tube. After obtaining the sample, the collection tube was clipped to avoid blood contamination and the needle was withdrawn from the cisterna magna.</p>
+        <p id="Par37">If blood contamination occurs at any point during CSF collection, the collection tube was cut off from the point of blood contamination. Only clear CSF without visual sings of blood contamination was collected and frozen at &#x2212;80&#x2009;&#xB0;C until further use.</p>
+      </sec>
+      <sec id="Sec13">
+        <title>Rat brain and blood samples</title>
+        <p id="Par38">Immediately after CSF collection blood samples were drawn through transcardiac puncture in EDTA tubes and immediately centrifuged at 3,000&#x2009;g for 10&#x2009;minutes at 4&#x2009;&#xB0;C to obtain plasma, which was frozen at &#x2212;80&#x2009;&#xB0;C until further use. Animals were then euthanized and transcardially perfused with cold saline. Brains were carefully removed and IP and CL hemispheres were separated. Each hemisphere was individually frozen at &#x2212;80&#x2009;&#xB0;C. Frozen hemispheres were cut into 1&#x2009;mm coronal slices over dry ice. Slice corresponding to the bregma point, where the infarction territory is located, were selected for all animals, thawed and homogenized using mirVana&#x2122; PARIS&#x2122; RNA and Native Protein Purification kit (ThermoFisher Scientific Inc., Waltham, MA, USA). Protein homogenates were centrifuged at 12,000&#x2009;g for 10&#x2009;min at 4&#x2009;&#xB0;C and the cleared protein extract was quantified using bicinchoninic acid (BCA) assay (ThermoFisher Scientific Inc.) and frozen at &#x2212;80&#xB0; until further use.</p>
+        <p id="Par39">Brains from MCAO animal were also used for immunohistological purposes. Those rats were euthanized and transcardially perfused with cold saline and their brains carefully removed and fixed with formalin. Fixed brains were carefully cut into segments at three precisely controlled depths: (1) 2.1&#x2009;&#xB1;&#x2009;0.2&#x2009;mm anterior to bregma, (2) bregma and (3) 1.5&#x2009;&#xB1;&#x2009;0.2&#x2009;mm posterior to bregma (Supplementary Figure&#xA0;<xref rid="MOESM1" ref-type="media">S1</xref>). The formed tissue sections were mounted on blocks and embedded with paraffin. Tissue slices of 3&#x2009;&#xB5;m were cut, mounted onto glass slides and kept at 4&#x2009;&#xB0;C for the IHC experiments.</p>
+      </sec>
+      <sec id="Sec14">
+        <title>SOMAscan proteomic assay</title>
+        <p id="Par40">The SOMAscan assay was performed by SomaLogic Inc. (Boulder, CO, USA). SOMAScan is a relative quantitative proteomics assay based on the usage of SOMAmers, which are modified nucleic acid aptamers that permit the identification and quantification of a library of human proteins, most of which show reactivity based on homology to their rodent counterparts<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. Concretely, 1,129 (1.1&#x2009;k assay) and 1,310 (1.3&#x2009;k assay) proteins were measured in CSF and plasma samples, respectively, from 6 MCAO and 6 sham-control animals. Animals were selected according to the total volume of CSF collected (minimum CSF volume required&#x2009;=&#x2009;100&#x2009;&#xB5;l), and all samples were analyzed individually. Three different dilutions were performed to achieve all dynamic logs provided by the SOMAscan technology<sup><xref ref-type="bibr" rid="CR75">75</xref></sup>. Normalization and calibration steps were then performed following SOMAscan technical instructions in order to remove systemic biases in the raw assay data. All samples passed SomaLogic quality control. Moreover, relative fluorescent unit (RFU) output from the array was subjected to background subtraction by establishing an accurate limit of detection threshold. To that end, a no-protein control sample was included in the assay run, which enabled the qualitative evaluation of baseline signal for each SOMAmer. Concretely, background subtraction discarded 216 (19.1%) and 29 (1.4%) proteins from the CSF and plasma datasets, respectively.</p>
+        <p id="Par41">Comparisons between pre and post CSF samples were performed using paired t-test, corrected by the False Discovery Rate (FDR adjusted p-value), within each experimental group (R software 3.3.2, R development core team 2012, Austria, multtest R package) (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1B</xref>). Proteins presenting an FDR adjusted p-value&#x2009;&lt;&#x2009;0.05 were considered statistically significant. Base 2 logarithmic fold-changes (LogFC) were calculated for each protein by substracting abundance logarithmic values of the pre to the post CSF samples (LogFC&#x2009;=&#x2009;log [Post-CSF value/Pre-CSF value]). Comparisons on plasma samples were performed by using t-test (R software 3.3.2). Proteins presenting a p-value&#x2009;&lt;&#x2009;0.05 were considered statistically significant. Correlations between CSF and plasma levels were calculated using Pearson&#x2019;s test.</p>
+      </sec>
+      <sec id="Sec15">
+        <title>Bioinformatics analysis</title>
+        <p id="Par42">All data on rat CSF were analyzed by Ingenuity Pathway Analysis (IPA, QIAGEN, USA). All proteins screened in the SOMAscan proteomic approach were introduced in the software. For each experimental group, a filter of FDR adjusted p-value&#x2009;&lt;&#x2009;0.05 for the comparison of proteins between pre and post CSF samples was applied. For the MCAO group, an additional cut-off of logFC&#x2009;&gt;&#x2009;|1.5| was also used.</p>
+        <p id="Par43">Data sets from MCAO and sham experimental groups were then characterized with the Ingenuity Pathways Knowledge Base, focusing the attention on the central nervous system and neuronal, immune and microvasculature cells types, and using all data sources (human, mouse and rat). A list of the main enriched biological processes, canonical pathways and molecular functions for each experimental data set were obtained according to the overlap p-values, calculated using right-tailed Fisher&#x2019;s exact test corrected by the Benjamini-Hochberg multiple test (significant B-H p-value&#x2009;&#x2264;&#x2009;0.05). Furthermore, both IPA analysis (MCAO and sham) were then compared side-by-side.</p>
+      </sec>
+      <sec id="Sec16">
+        <title>Western Blot and Immunohistochemistry/Immunofluorescence</title>
+        <p id="Par44">Seven protein candidates from the proteomics list (AREG, CaMK2A, CaMK2B, CaMK2D, CKB, CMPK and PDXP) were evaluated in rat brain protein homogenates and tissue sections by means of western blot (n&#x2009;=&#x2009;4/8 shams and ischemic animals, respectively) and immunohistochemistry or immunofluorescence (n&#x2009;=&#x2009;2 ischemic animals). Detailed protocols and procedures can be found in Supplemental materials and methods data.</p>
+      </sec>
+      <sec id="Sec17">
+        <title>Human blood samples</title>
+        <p id="Par45">All human studies were approved by the Ethics Committee of Vall d&#x2019;Hebron Hospital (ischemic stroke -PR[AG]157/2011- and control - PR[IR]87/2010 - individuals) and written informed consent was obtained from all subjects or relatives in accordance with the Declaration of Helsinki. Ischemic stroke patients admitted to the emergency department of the Vall d&#x2019;Hebron University Hospital (Barcelona, Spain) from December 2013 to November 2014 within the first 6&#x2009;h after neurological symptoms onset. On admission, patients underwent a standardized protocol of brain imaging to differentially diagnose ischemic stroke. Trained neurologists assessed stroke severity using the National Institutes of Health Stroke Scale (NIHSS) and obtained demographic and clinical data from all patients. When eligible, ischemic stroke patients received the standard thrombolytic treatment (intravenous 0.9&#x2009;mg/Kg recombinant tissue-plasminogen activator, rt-PA) and/or mechanical thrombectomy to remove the arterial clot. The clinical follow-up of each stroke patient was conducted at the 3rd month after stroke. At that time-point, functional outcome was evaluated according to the modified Rankin Scale (mRS); patients with a mRS score from 0 to 2 were classified as &#x201C;good outcome&#x201D; group and patients with a mRS from 3 to 6 as &#x201C;poor outcome&#x201D; group.</p>
+        <p id="Par46">Blood samples from all patients were drawn on admission (&lt;6&#x2009;h from symptoms onset) and before administration of any treatment in EDTA tubes. Samples were then centrifuged at 1,500&#x2009;g at 4&#x2009;&#xB0;C for 15&#x2009;minutes and plasma was stored at &#x2212;80&#x2009;&#xB0;C until further use. From this sample collection, a total of 38 ischemic stroke patients were selected for this study. Additionally, a total of 16 volunteers were included as controls.</p>
+      </sec>
+      <sec id="Sec18">
+        <title>Human ELISA</title>
+        <p id="Par47">Five protein candidates (CaMK2A, CaMK2B, CaMK2D, CKB and CMPK) were further evaluated in blood samples from the aforementioned ischemic stroke patients and controls using commercially available ELISA kits. Detailed methods are available in Supplemental materials and methods data.</p>
+      </sec>
+      <sec id="Sec19">
+        <title>Statistical analyses</title>
+        <p id="Par48">SPSS statistical package 22.0 was used for statistical analyses and GraphPad Prism 6.0 for creating graphs. Rat brain and human plasma protein data distribution was assessed by Shapiro-Wilk and Kolmogorov-Smirnov test, respectively. To determine differences in protein levels between experimental groups, Student t-test (normally distributed variables) or Mann-Whitney (non-normally distributed variables) were used. To analyze differences on clinical variables among patients, continuous factors were analyzed by Student&#x2019;s test (normally distributed, mean and SD values) or Mann-Whitney test (non-normally distributed, median and interquartile range (IQR)), while categorical variables were assessed by Pearson chi-squared test (frequencies). Correlations between protein levels and clinical continuous variables were analyzed using Pearson&#x2019;s test (normally distributed variables) or Spearman&#x2019;s test (non-normally distributed variables).</p>
+        <p id="Par49">Receiver operating characteristics (ROC) curves were used to obtain the cut-off points of circulating protein levels with optimal accuracy (both sensitivity and specificity) for discriminating ischemic stroke prognosis. Forward stepwise multivariate logistic regression analysis for poor functional outcome was performed with all clinical variables associated with this endpoint at p&#x2009;&lt;&#x2009;0.1. Odds ratio (OR) and 95% confidence interval (CI) were adjusted by sex, age and NIHSS score at admission. Using the previous identified cut-off points, baseline levels of each associated prognostic biomarker were added to the clinical model, singly or in combination, to assess their independent association and to build new predictive models.</p>
+        <p id="Par50">P-value&#x2009;&lt;&#x2009;0.05 was considered significant at a 95% confidence level in all cases.</p>
+      </sec>
+      <sec id="Sec20">
+        <title>Data availability</title>
+        <p id="Par51">The datasets generated during and/or analyzed during the current study are available from the corresponding author on reasonable request.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Electronic supplementary material</title>
+      <sec id="Sec21">
+        <p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2018_26237_MOESM1_ESM.pdf"><caption><p>Supplementary material and methods</p></caption></media></supplementary-material>
+<supplementary-material content-type="local-data" id="MOESM2"><media xlink:href="41598_2018_26237_MOESM2_ESM.xlsx"><caption><p>Supplementary table S1</p></caption></media></supplementary-material>
+</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn>
+        <p>
+          <bold>Electronic supplementary material</bold>
+        </p>
+        <p><bold>Supplementary information</bold> accompanies this paper at 10.1038/s41598-018-26237-3.</p>
+      </fn>
+      <fn>
+        <p><bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>A.S. is supported by a pre-doctoral fellowship grant from AGAUR (2015 FI_B00952) and A.B. is supported by a Juan Rodes research contract (JR16/00008) and A.R. by the Miguel Servet contract (CPII15/00003), both from Instituto de Salud Carlos III. Neurovascular Research Laboratory acknowledges funding for this project by a PI15/00354 grant from Fondo de Investigaciones Sanitarias of the Instituto de Salud Carlos III (co-financed by the European Regional Development Fund, FEDER). Neurovascular Research Laboratory also takes part into the Spanish stroke research network INVICTUS+ (RD16/0019).</p>
+    </ack>
+    <notes notes-type="author-contribution">
+      <title>Author Contributions</title>
+      <p>A.S., T.G.-B. and J.M. conceived and designed the experiments. A.S. performed all animal experiments. A.S., L.R. and N.G. did the western blot and immunohistochemical replication. A.P. and A.B. helps in recruiting and selecting the cohort of patients and A.S. performed the ELISAs with human blood samples. A.S. and D.G. performed the statistical analysis. A.R., T.G.-B. and J.M. supervised the experiments and A.S. drafted the manuscript. All authors have critically reviewed the article content and approved it in its final version.</p>
+    </notes>
+    <notes notes-type="COI-statement">
+      <sec id="FPar1">
+        <title>Competing Interests</title>
+        <p id="Par52">The authors declare no competing interests.</p>
+      </sec>
+    </notes>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Benjamin</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Heart Disease and Stroke Statistics-2017 Update: A Report From the American Heart Association</article-title>
+          <source>Circulation</source>
+          <year>2017</year>
+          <volume>135</volume>
+          <fpage>e146</fpage>
+          <lpage>e603</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIR.0000000000000485</pub-id>
+          <pub-id pub-id-type="pmid">28122885</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hacke</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Thrombolysis with Alteplase 3 to 4.5 Hours after Acute Ischemic Stroke</article-title>
+          <source>N. Engl. J. Med.</source>
+          <year>2008</year>
+          <volume>359</volume>
+          <fpage>1317</fpage>
+          <lpage>1329</lpage>
+          <pub-id pub-id-type="doi">10.1056/NEJMoa0804656</pub-id>
+          <pub-id pub-id-type="pmid">18815396</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goyal</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Endovascular thrombectomy after large-vessel ischaemic stroke: a meta-analysis of individual patient data from five randomised trials</article-title>
+          <source>Lancet (London, England)</source>
+          <year>2016</year>
+          <volume>387</volume>
+          <fpage>1723</fpage>
+          <lpage>31</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0140-6736(16)00163-X</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Terasaki</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mechanisms of Neurovascular Dysfunction in Acute Ischemic Brain</article-title>
+          <source>Curr Med Chem.</source>
+          <year>2014</year>
+          <volume>21</volume>
+          <fpage>2035</fpage>
+          <lpage>2042</lpage>
+          <pub-id pub-id-type="doi">10.2174/0929867321666131228223400</pub-id>
+          <pub-id pub-id-type="pmid">24372202</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Laborde</surname>
+              <given-names>CM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Potential blood biomarkers for stroke</article-title>
+          <source>Expert Rev Proteomics</source>
+          <year>2012</year>
+          <volume>9</volume>
+          <fpage>437</fpage>
+          <lpage>449</lpage>
+          <pub-id pub-id-type="doi">10.1586/epr.12.33</pub-id>
+          <pub-id pub-id-type="pmid">22967080</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jickling</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>Sharp</surname>
+              <given-names>FR</given-names>
+            </name>
+          </person-group>
+          <article-title>Biomarker panels in ischemic stroke</article-title>
+          <source>Stroke</source>
+          <year>2015</year>
+          <volume>46</volume>
+          <fpage>915</fpage>
+          <lpage>920</lpage>
+          <pub-id pub-id-type="doi">10.1161/STROKEAHA.114.005604</pub-id>
+          <pub-id pub-id-type="pmid">25657186</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shi</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cerebrospinal Fluid Biomarkers for Parkinson Disease Diagnosis and Progression</article-title>
+          <source>Ann Neurol</source>
+          <year>2011</year>
+          <volume>69</volume>
+          <fpage>570</fpage>
+          <lpage>580</lpage>
+          <pub-id pub-id-type="doi">10.1002/ana.22311</pub-id>
+          <pub-id pub-id-type="pmid">21400565</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olsson</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>CSF and blood biomarkers for the diagnosis of Alzheimer&#x2019;s disease: A systematic review and meta-analysis</article-title>
+          <source>Lancet Neurol.</source>
+          <year>2016</year>
+          <volume>4422</volume>
+          <fpage>1</fpage>
+          <lpage>12</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <mixed-citation publication-type="other">S&#xF8;lvsten S&#xF8;rensen, S. <italic>et al</italic>. Elevation of brain-enriched miRNAs in cerebrospinal fluid of patients with acute ischemic stroke. <italic>Biomark. Res</italic>. 5&#x2013;24, 10.1186/s40364-017-0104-9 (2017).</mixed-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <mixed-citation publication-type="other">Ning, M., Lopez, M., Cao, J., Buonanno, F. S. &amp; Lo, E. H. Application of proteomics to cerebrovascular disease. <italic>Electrophoresis</italic><bold>5</bold>, (2013).</mixed-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <mixed-citation publication-type="other">Tu, C. <italic>et al</italic>. Depletion of Abundant Plasma Proteins and Limitations of Plasma Proteomics, 10.1021/pr100646w.</mixed-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gold</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Wilcox</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Advances in human proteomics at high scale with the SOMAscan proteomics platform</article-title>
+          <source>N. Biotechnol.</source>
+          <year>2012</year>
+          <volume>29</volume>
+          <fpage>543</fpage>
+          <lpage>549</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.nbt.2011.11.016</pub-id>
+          <pub-id pub-id-type="pmid">22155539</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Llombart</surname>
+              <given-names>V</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Profiling and identification of new proteins involved in brain ischemia using MALDI-imaging-mass-spectrometry</article-title>
+          <source>J. Proteomics</source>
+          <year>2017</year>
+          <volume>152</volume>
+          <fpage>243</fpage>
+          <lpage>253</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jprot.2016.11.014</pub-id>
+          <pub-id pub-id-type="pmid">27888142</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bustamante</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ischemic stroke outcome: A review of the influence of post-stroke complications within the different scenarios of stroke care</article-title>
+          <source>Eur. J. Intern. Med.</source>
+          <year>2016</year>
+          <volume>29</volume>
+          <fpage>9</fpage>
+          <lpage>21</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ejim.2015.11.030</pub-id>
+          <pub-id pub-id-type="pmid">26723523</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <mixed-citation publication-type="other">Ore&#x161;kovi&#x107;, D. &amp; Klarica, M. The formation of cerebrospinal fluid: Nearly a hundred years of interpretations and misinterpretations. <bold>6</bold>, (2010).</mixed-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <mixed-citation publication-type="other">Brinker, T., Stopa, E., Morrison, J. &amp; Klinge, P. A new look at cerebrospinal fluid circulation, 10.1186/2045-8118-11-10 (2014).</mixed-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <mixed-citation publication-type="other">Johanson, C. E. <italic>et al</italic>. Cerebrospinal Fluid Research Multiplicity of cerebrospinal fluid functions: New challenges in health and disease. <italic>Cerebrospinal Fluid Res</italic>. <bold>5</bold>, (2008).</mixed-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jin</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Inflammatory mechanisms in ischemic stroke: role of inflammatory cells</article-title>
+          <source>J. Leukoc. Biol.</source>
+          <year>2010</year>
+          <volume>87</volume>
+          <fpage>779</fpage>
+          <lpage>89</lpage>
+          <pub-id pub-id-type="doi">10.1189/jlb.1109766</pub-id>
+          <pub-id pub-id-type="pmid">20130219</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Jiang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ford</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ford</surname>
+              <given-names>BD</given-names>
+            </name>
+          </person-group>
+          <article-title>Neuregulin-1 is neuroprotective and attenuates inflammatory responses induced by ischemic stroke</article-title>
+          <source>Biochem. Biophys. Res. Commun.</source>
+          <year>2004</year>
+          <volume>322</volume>
+          <fpage>440</fpage>
+          <lpage>446</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bbrc.2004.07.149</pub-id>
+          <pub-id pub-id-type="pmid">15325249</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krupinski</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A putative role for platelet-derived growth factor in angiogenesis and neuroprotection after ischemic stroke in humans</article-title>
+          <source>Stroke</source>
+          <year>1997</year>
+          <volume>28</volume>
+          <fpage>564</fpage>
+          <lpage>73</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.STR.28.3.564</pub-id>
+          <pub-id pub-id-type="pmid">9056612</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bessman</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Carpenter</surname>
+              <given-names>CL</given-names>
+            </name>
+          </person-group>
+          <article-title>The Creatine-Creatine Phosphate Energy Shuttle</article-title>
+          <source>Annu. Rev. Biochem.</source>
+          <year>1985</year>
+          <volume>54</volume>
+          <fpage>831</fpage>
+          <lpage>862</lpage>
+          <pub-id pub-id-type="doi">10.1146/annurev.bi.54.070185.004151</pub-id>
+          <pub-id pub-id-type="pmid">3896131</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ravkilde</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nissen</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Horder</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Thygesen</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Independent Prognostic Value of Serum Creatine Kinase Isoenzyme MB Mass, Cardiac Troponin T and Myosin Light Chain Levels in Suspected Acute Myocardial Infarction. Analysis of 28 Months of Follow-up in 196 Patients</article-title>
+          <source>J Am Coll Cardio</source>
+          <year>1995</year>
+          <volume>25</volume>
+          <fpage>574</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="doi">10.1016/0735-1097(94)00430-X</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burbaeva</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Savushkina</surname>
+              <given-names>OK</given-names>
+            </name>
+          </person-group>
+          <article-title>&amp; Boksha, I. S. Creatine kinase BB in brain in schizophrenia</article-title>
+          <source>World J Biol Psychiatry</source>
+          <year>2003</year>
+          <volume>4</volume>
+          <fpage>177</fpage>
+          <lpage>183</lpage>
+          <pub-id pub-id-type="doi">10.1080/15622970310029916</pub-id>
+          <pub-id pub-id-type="pmid">14608589</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dubo</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Pennington</surname>
+              <given-names>RJT</given-names>
+            </name>
+            <name>
+              <surname>Kalbag</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Walton</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Serum-creatinine-kinase in cases of stroke, head injury and meningitis</article-title>
+          <source>Lancet</source>
+          <year>2016</year>
+          <volume>290</volume>
+          <fpage>743</fpage>
+          <lpage>748</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0140-6736(67)91946-0</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <mixed-citation publication-type="other">Bell, R. D., Alexander, G. M., Nguyen, T. &amp; Albin, M. S. Quantification of Cerebral Infarct Size by Creatine Kinase BB Isoenzyme. <italic>Stroke</italic><bold>17</bold>, (1986).</mixed-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Capocchi</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Creatine kinase BB activity in serum of patients with acute stroke: correlation with the severity of brain damage</article-title>
+          <source>Ital. J. Neurol. Sci.</source>
+          <year>1987</year>
+          <volume>8</volume>
+          <fpage>567</fpage>
+          <lpage>570</lpage>
+          <pub-id pub-id-type="doi">10.1007/BF02333663</pub-id>
+          <pub-id pub-id-type="pmid">3429216</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pfeiffer</surname>
+              <given-names>FE</given-names>
+            </name>
+            <name>
+              <surname>Homburger</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>Yanagihara</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Serum creatine kinase B concentrations in acute cerebrovascular diseases</article-title>
+          <source>Arch. Neurol.</source>
+          <year>1984</year>
+          <volume>41</volume>
+          <fpage>1175</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="doi">10.1001/archneur.1984.04050220073017</pub-id>
+          <pub-id pub-id-type="pmid">6487101</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Worley</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Creatine kinase brain isoenzyme: relationship of cerebrospinal fluid concentration to the neurologic condition of newborns and cellular localization in the human brain</article-title>
+          <source>Pediatrics</source>
+          <year>1985</year>
+          <volume>76</volume>
+          <fpage>15</fpage>
+          <lpage>21</lpage>
+          <pub-id pub-id-type="pmid">4040236</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zaiss</surname>
+              <given-names>DMW</given-names>
+            </name>
+            <name>
+              <surname>Gause</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Osborne</surname>
+              <given-names>LC</given-names>
+            </name>
+            <name>
+              <surname>Artis</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Energing Functions of Amphiregulin in Orchestrating Immunity, Inflammation, and Tissue Repair</article-title>
+          <source>Cell Press</source>
+          <year>2015</year>
+          <volume>53</volume>
+          <fpage>216</fpage>
+          <lpage>226</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <mixed-citation publication-type="other">Zhan, L., Zheng, L., Hosoi, T., Okuma, Y. &amp; Nomura, Y. Stress-Induced Neuroprotective Effects of Epiregulin and Amphiregulin, 10.1371/journal.pone.0118280.</mixed-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jickling</surname>
+              <given-names>GC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>RNA in blood is altered prior to hemorrhagic transformation in ischemic stroke</article-title>
+          <source>Ann Neurol</source>
+          <year>2013</year>
+          <volume>74</volume>
+          <fpage>232</fpage>
+          <lpage>240</lpage>
+          <pub-id pub-id-type="pmid">23468366</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rosell</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MMP-9-positive neutrophil infiltration is associated to blood-brain barrier breakdown and basal lamina type IV collagen degradation during hemorrhagic transformation after human ischemic stroke</article-title>
+          <source>Stroke</source>
+          <year>2008</year>
+          <volume>39</volume>
+          <fpage>1121</fpage>
+          <lpage>1126</lpage>
+          <pub-id pub-id-type="doi">10.1161/STROKEAHA.107.500868</pub-id>
+          <pub-id pub-id-type="pmid">18323498</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <mixed-citation publication-type="other">Turner, R. J. &amp; Sharp, F. R. Implications of MMP9 for Blood Brain Barrier Disruption and Hemorrhagic Transformation Following Ischemic Stroke. <bold>10</bold> (2016).</mixed-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <mixed-citation publication-type="other">Sung, J. <italic>et al</italic>. Identification of Proteins Regulated by Ferulic Acid in a Middle Cerebral Artery Occlusion Animal Model-A Proteomics Approach, 10.1292/jvms.12-0063 (2012).</mixed-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uhlen</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Towards a knowledge-based Human Protein Atlas</article-title>
+          <source>Nat. Biotechnol.</source>
+          <year>2010</year>
+          <volume>28</volume>
+          <fpage>1248</fpage>
+          <lpage>1250</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1210-1248</pub-id>
+          <pub-id pub-id-type="pmid">21139605</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>JE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Potential role of pyridoxal-5&#x2032;-phosphate phosphatase/chronopin in epilepsy</article-title>
+          <source>Exp. Neurol.</source>
+          <year>2008</year>
+          <volume>211</volume>
+          <fpage>128</fpage>
+          <lpage>140</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.expneurol.2008.01.029</pub-id>
+          <pub-id pub-id-type="pmid">18346735</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gohla</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Birkenfeld</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Bokoch</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <article-title>Chronophin, a novel HAD-type serine protein phosphatase, regulates cofilin-dependent actin dynamics</article-title>
+          <source>Nat. Cell Biol.</source>
+          <year>2005</year>
+          <volume>7</volume>
+          <fpage>21</fpage>
+          <lpage>29</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb1201</pub-id>
+          <pub-id pub-id-type="pmid">15580268</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wiggan</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Bernstein</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Bamburg</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>A phosphatase for cofilin to be HAD</article-title>
+          <source>Nat. Cell Biol.</source>
+          <year>2005</year>
+          <volume>7</volume>
+          <fpage>8</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb0105-8</pub-id>
+          <pub-id pub-id-type="pmid">15632942</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alhadidi</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Bin Sayeed</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Shah</surname>
+              <given-names>ZA</given-names>
+            </name>
+          </person-group>
+          <article-title>Cofilin as a Promising Therapeutic Target for Ischemic and Hemorrhagic Stroke</article-title>
+          <source>Transl. Stroke Res.</source>
+          <year>2016</year>
+          <volume>7</volume>
+          <fpage>33</fpage>
+          <lpage>41</lpage>
+          <pub-id pub-id-type="doi">10.1007/s12975-015-0438-2</pub-id>
+          <pub-id pub-id-type="pmid">26670926</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>JE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pyridoxal-5&#x2032;-phosphate phosphatase/chronophin induces astroglial apoptosis via actin-depolymerizing factor/cofilin system in the rat brain following status epilepticus</article-title>
+          <source>Glia</source>
+          <year>2010</year>
+          <volume>58</volume>
+          <fpage>1937</fpage>
+          <lpage>1948</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.21063</pub-id>
+          <pub-id pub-id-type="pmid">20737471</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hwang</surname>
+              <given-names>IK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Time course of changes in pyridoxal 5&#x2032;-phosphate (vitamin B6 active form) and its neuroprotection in experimental ischemic damage</article-title>
+          <source>Exp. Neurol.</source>
+          <year>2007</year>
+          <volume>206</volume>
+          <fpage>114</fpage>
+          <lpage>125</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.expneurol.2007.04.005</pub-id>
+          <pub-id pub-id-type="pmid">17531224</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Segura-Pe&#xF1;a</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Sekulic</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Ort</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Konrad</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lavie</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Substrate-induced Conformational Changes in Human UMP/CMP Kinase</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>33882</fpage>
+          <lpage>33889</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M401989200</pub-id>
+          <pub-id pub-id-type="pmid">15163660</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <mixed-citation publication-type="other">Cansev, M. Uridine and cytidine in the brain: Their transport and utilization. <italic>Brain Res. Rev</italic>, 10.1016/j.brainresrev.2006.05.001 (2006).</mixed-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carrette</surname>
+              <given-names>O</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Changes of the cortex proteome and Apolipoprotein E in transgenic mouse models of Alzheimer&#x2019;s Disease</article-title>
+          <source>J. Chromatogr. B Anal. Technol. Biomed. Life Sci.</source>
+          <year>2006</year>
+          <volume>840</volume>
+          <fpage>1</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jchromb.2006.05.019</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eun</surname>
+              <given-names>J-P</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>H-Y</given-names>
+            </name>
+            <name>
+              <surname>Kwak</surname>
+              <given-names>Y-G</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteomic analysis of human cerebral cortex in epileptic patients</article-title>
+          <source>Exp. Mol. Med.</source>
+          <year>2004</year>
+          <volume>36</volume>
+          <fpage>185</fpage>
+          <lpage>191</lpage>
+          <pub-id pub-id-type="doi">10.1038/emm.2004.26</pub-id>
+          <pub-id pub-id-type="pmid">15150448</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yuh</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Up-regulated uridine kinase gene identified by RLCS in the ventral horn after crush injury to rat sciatic nerves</article-title>
+          <source>Biochem. Biophys. Res. Commun.</source>
+          <year>1999</year>
+          <volume>266</volume>
+          <fpage>104</fpage>
+          <lpage>109</lpage>
+          <pub-id pub-id-type="doi">10.1006/bbrc.1999.1781</pub-id>
+          <pub-id pub-id-type="pmid">10581173</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Onodera</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Iijima</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kogure</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Mononucleotide Metabolism in the Rat Brain After Transient Ischemia</article-title>
+          <source>J. Neurochem.</source>
+          <year>2006</year>
+          <volume>46</volume>
+          <fpage>1704</fpage>
+          <lpage>1710</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1471-4159.1986.tb08487.x</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <mixed-citation publication-type="other">Liu, N. Q. <italic>et al</italic>. Prognostic significance of nuclear expression of UMP-CMP kinase in triple negative breast cancer patients. <italic>Nat. Publ. Gr</italic>, 10.1038/srep32027 (2016).</mixed-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Najarian</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Traut</surname>
+              <given-names>TW</given-names>
+            </name>
+          </person-group>
+          <article-title>Nifedipine and nimodipine competitively inhibit uridine kinase and orotidine-phosphate decarboxylase: theoretical relevance to poor outcome in stroke</article-title>
+          <source>Neurorehabil Neural Repair</source>
+          <year>2000</year>
+          <volume>14</volume>
+          <fpage>237</fpage>
+          <lpage>241</lpage>
+          <pub-id pub-id-type="doi">10.1177/154596830001400310</pub-id>
+          <pub-id pub-id-type="pmid">11272481</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Coultrap</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Vest</surname>
+              <given-names>RS</given-names>
+            </name>
+            <name>
+              <surname>Ashpole</surname>
+              <given-names>NM</given-names>
+            </name>
+            <name>
+              <surname>Hudmon</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ulrich Bayer</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>CaMKII in cerebral ischemia</article-title>
+          <source>Acta Pharmacol. Sin.</source>
+          <year>2011</year>
+          <volume>3268</volume>
+          <fpage>861</fpage>
+          <lpage>872</lpage>
+          <pub-id pub-id-type="doi">10.1038/aps.2011.68</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pellicena</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Schulman</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Grandi</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Edwards</surname>
+              <given-names>AG</given-names>
+            </name>
+          </person-group>
+          <article-title>CaMKII inhibitors: from research tools to therapeutic agents</article-title>
+          <source>Front. Pharmacol.</source>
+          <year>2014</year>
+          <volume>5</volume>
+          <fpage>1</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="doi">10.3389/fphar.2014.00021</pub-id>
+          <pub-id pub-id-type="pmid">24478702</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shen</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Meyer</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Dynamic Control of CaMKII Translocation and Localization in Hippocampal Neurons by NMDA Receptor Stimulation Published by: American Association for the Advancement of Science Stable http://www.jstor.org/stable/2899163 REFERENCES Linked references a</article-title>
+          <source>Science (80-.)</source>
+          <year>1999</year>
+          <volume>284</volume>
+          <fpage>162</fpage>
+          <lpage>166</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.284.5411.162</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tao-Cheng</surname>
+              <given-names>JH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Sustained elevation of calcium induces Ca2+/calmodulin-dependent protein kinase II clusters in hippocampal neurons</article-title>
+          <source>Neuroscience</source>
+          <year>2001</year>
+          <volume>106</volume>
+          <fpage>69</fpage>
+          <lpage>78</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0306-4522(01)00262-7</pub-id>
+          <pub-id pub-id-type="pmid">11564417</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nutt</surname>
+              <given-names>LK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Metabolic regulation of oocyte cell death through the CaMKII- mediated phosphorylation of Caspase 2</article-title>
+          <source>Cell</source>
+          <year>2005</year>
+          <volume>123</volume>
+          <fpage>89</fpage>
+          <lpage>103</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2005.07.032</pub-id>
+          <pub-id pub-id-type="pmid">16213215</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Endogenous human CaMKII inhibitory protein suppresses tumor growth by inducing cell cycle arrest and apoptosis through down-regulation of the phosphatidylinositide 3-kinase/Akt/HDM2 pathway</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2009</year>
+          <volume>284</volume>
+          <fpage>24773</fpage>
+          <lpage>24782</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M109.028621</pub-id>
+          <pub-id pub-id-type="pmid">19586909</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fan</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Agarwal</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Cooper</surname>
+              <given-names>NGF</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of CaMKII in BDNF-mediated neuroprotection of retinal ganglion cells (RGC-5)</article-title>
+          <source>Brain Res.</source>
+          <year>2006</year>
+          <volume>1067</volume>
+          <fpage>48</fpage>
+          <lpage>57</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2005.10.030</pub-id>
+          <pub-id pub-id-type="pmid">16337157</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takano</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fukushi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Morishima</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Shirasaki</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Calmodulin and calmodulin-dependent kinase II mediate neuronal cell death induced by depolarization</article-title>
+          <source>Brain Res.</source>
+          <year>2003</year>
+          <volume>962</volume>
+          <fpage>41</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0006-8993(02)03932-X</pub-id>
+          <pub-id pub-id-type="pmid">12543454</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Waxham</surname>
+              <given-names>MN</given-names>
+            </name>
+            <name>
+              <surname>Grotta</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Silva</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Strong</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Aronowski</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Ischemia-Induced Neuronal Damage: A Role for Calcium/Calmodulin-Dependent Protein Kinase II</article-title>
+          <source>J. Cereb. Blood Flow Metab.</source>
+          <year>1996</year>
+          <volume>16</volume>
+          <fpage>1</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="doi">10.1097/00004647-199601000-00001</pub-id>
+          <pub-id pub-id-type="pmid">8530541</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hajimohammadreza</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A specific inhibitor of calcium/calmodulin-dependent protein kinase-II provides neuroprotection against NMDA- and hypoxia/hypoglycemia-induced cell death</article-title>
+          <source>J. Neurosci.</source>
+          <year>1995</year>
+          <volume>15</volume>
+          <fpage>4093</fpage>
+          <lpage>101</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.15-05-04093.1995</pub-id>
+          <pub-id pub-id-type="pmid">7538570</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <mixed-citation publication-type="other">Vest, R. S., O&#x2019;leary, H., Coultrap, S. J., Kindy, M. S. &amp; Bayer, K. U. Effective Post-insult Neuroprotection by a Novel Ca2(+)/Calmodulin-dependent Protein Kinase II (CaMKII) Inhibitor*, 10.1074/jbc.M109.088617 (2010).</mixed-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hou</surname>
+              <given-names>ST</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>CaMKII phosphorylates collapsin response mediator protein 2 and modulates axonal damage during glutamate excitotoxicity</article-title>
+          <source>J. Neurochem.</source>
+          <year>2009</year>
+          <volume>111</volume>
+          <fpage>870</fpage>
+          <lpage>81</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1471-4159.2009.06375.x</pub-id>
+          <pub-id pub-id-type="pmid">19735446</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chi</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Phosphorylation of calcium/calmodulin-stimulated protein kinase II at T286 enhances invasion and migration of human breast cancer cells</article-title>
+          <source>Sci Rep</source>
+          <year>2016</year>
+          <volume>6</volume>
+          <fpage>33132</fpage>
+          <pub-id pub-id-type="doi">10.1038/srep33132</pub-id>
+          <pub-id pub-id-type="pmid">27605043</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sutherland</surname>
+              <given-names>BA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The transient intraluminal filament middle cerebral artery occlusion model as a model of endovascular thrombectomy in stroke</article-title>
+          <source>J. Cereb. Blood Flow Metab.</source>
+          <year>2016</year>
+          <volume>36</volume>
+          <fpage>363</fpage>
+          <lpage>369</lpage>
+          <pub-id pub-id-type="doi">10.1177/0271678X15606722</pub-id>
+          <pub-id pub-id-type="pmid">26661175</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shaafi</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interleukin-6, a reliable prognostic factor for ischemic stroke</article-title>
+          <source>Iran. J. Neurol.</source>
+          <year>2014</year>
+          <volume>13</volume>
+          <fpage>70</fpage>
+          <lpage>6</lpage>
+          <pub-id pub-id-type="pmid">25295149</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fr&#xF8;yshov</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Bj&#xF8;rnerem</surname>
+              <given-names>&#xC5;</given-names>
+            </name>
+            <name>
+              <surname>Engstad</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Halvorsen</surname>
+              <given-names>DS</given-names>
+            </name>
+          </person-group>
+          <article-title>Elevated inflammatory markers predict mortality in long-term ischemic stroke-survivors: a population-based prospective study</article-title>
+          <source>Aging Clin. Exp. Res.</source>
+          <year>2017</year>
+          <volume>29</volume>
+          <fpage>379</fpage>
+          <lpage>385</lpage>
+          <pub-id pub-id-type="doi">10.1007/s40520-016-0575-9</pub-id>
+          <pub-id pub-id-type="pmid">27146666</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bustamante</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>C-reactive protein in the detection of post-stroke infections: systematic review and individual participant data analysis</article-title>
+          <source>J. Neurochem.</source>
+          <year>2017</year>
+          <volume>141</volume>
+          <fpage>305</fpage>
+          <lpage>314</lpage>
+          <pub-id pub-id-type="doi">10.1111/jnc.13973</pub-id>
+          <pub-id pub-id-type="pmid">28171699</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Glickman</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Phillips</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Anstrom</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Laskowitz</surname>
+              <given-names>DT</given-names>
+            </name>
+            <name>
+              <surname>Cairns</surname>
+              <given-names>CB</given-names>
+            </name>
+          </person-group>
+          <article-title>Discriminative capacity of biomarkers for acute stroke in the emergency department</article-title>
+          <source>J. Emerg. Med.</source>
+          <year>2011</year>
+          <volume>41</volume>
+          <fpage>333</fpage>
+          <lpage>339</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jemermed.2010.02.025</pub-id>
+          <pub-id pub-id-type="pmid">20417054</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <mixed-citation publication-type="other">Simats, A. <italic>et al</italic>. CCL23: A new CC chemokine involved in human brain damage. <italic>J. Intern. Med</italic>. 0&#x2013;3, 10.1111/joim.12738 (2018).</mixed-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Montaner</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A panel of biomarkers including caspase-3 and D-dimer may differentiate acute stroke from stroke-mimicking conditions in the emergency department</article-title>
+          <source>J. Intern. Med.</source>
+          <year>2011</year>
+          <volume>270</volume>
+          <fpage>166</fpage>
+          <lpage>174</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2796.2010.02329.x</pub-id>
+          <pub-id pub-id-type="pmid">21198992</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR70">
+        <label>70.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alvarez-Perez</surname>
+              <given-names>FJ</given-names>
+            </name>
+            <name>
+              <surname>Castelo-Branco</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Sabin</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Usefulness of measurement of fibrinogen, D-dimer, D-dimer/fibrinogen ratio, C reactive protein and erythrocyte sedimentation rate to assess the pathophysiology and mechanism of ischaemic stroke</article-title>
+          <source>J. Neurol. Neurosurg. Psychiatry</source>
+          <year>2011</year>
+          <volume>82</volume>
+          <fpage>986</fpage>
+          <lpage>92</lpage>
+          <pub-id pub-id-type="doi">10.1136/jnnp.2010.230870</pub-id>
+          <pub-id pub-id-type="pmid">21296900</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR71">
+        <label>71.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garc&#xED;a-Bonilla</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of acute post-treatment with dipyridamole in a rat model of focal cerebral ischemia</article-title>
+          <source>Brain Res.</source>
+          <year>2011</year>
+          <volume>1373</volume>
+          <fpage>211</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2010.12.005</pub-id>
+          <pub-id pub-id-type="pmid">21146508</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR72">
+        <label>72.</label>
+        <mixed-citation publication-type="other">Campos-martorell, M. <italic>et al</italic>. Characterization of simvastatin encapsulation into liposomal delivery system to treat experimental ischemic stroke in rats. (2012).</mixed-citation>
+      </ref>
+      <ref id="CR73">
+        <label>73.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Campos-Martorell</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Brain proteomics identifies potential simvastatin targets in acute phase of stroke in a rat embolic model</article-title>
+          <source>J. Neurochem.</source>
+          <year>2014</year>
+          <volume>130</volume>
+          <fpage>301</fpage>
+          <lpage>12</lpage>
+          <pub-id pub-id-type="doi">10.1111/jnc.12719</pub-id>
+          <pub-id pub-id-type="pmid">24661059</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR74">
+        <label>74.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mahat</surname>
+              <given-names>MYA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>An improved method of transcutaneous cisterna magna puncture for cerebrospinal fluid sampling in rats</article-title>
+          <source>J. Neurosci. Methods</source>
+          <year>2012</year>
+          <volume>211</volume>
+          <fpage>272</fpage>
+          <lpage>279</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jneumeth.2012.09.013</pub-id>
+          <pub-id pub-id-type="pmid">23000275</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR75">
+        <label>75.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Candia</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Assessment of Variability in the SOMAscan Assay</article-title>
+          <source>Sci. Rep.</source>
+          <year>2017</year>
+          <volume>7</volume>
+          <fpage>1</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="doi">10.1038/s41598-017-14755-5</pub-id>
+          <pub-id pub-id-type="pmid">28127051</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">7801132</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">7499</journal-id>
+      <journal-id journal-id-type="nlm-ta">Semin Perinatol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Semin. Perinatol.</journal-id>
+      <journal-title-group>
+        <journal-title>Seminars in perinatology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0146-0005</issn>
+      <issn pub-type="epub">1558-075X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27940091</article-id>
+      <article-id pub-id-type="pmc">5484641</article-id>
+      <article-id pub-id-type="doi">10.1053/j.semperi.2016.09.014</article-id>
+      <article-id pub-id-type="manuscript">NIHMS835385</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Pathogenesis of NEC: Role of the Innate and Adaptive Immune Response</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Denning</surname>
+            <given-names>Timothy L.</given-names>
+          </name>
+          <degrees>Ph.D.</degrees>
+          <role>Associate Professor</role>
+          <aff id="A1">Institute of Biomedical Sciences, Georgia State University, Atlanta, GA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bhatia</surname>
+            <given-names>Amina M.</given-names>
+          </name>
+          <degrees>M.D., M.Sc.</degrees>
+          <role>Adjunct Associate Professor of Surgery</role>
+          <aff id="A2">Emory University School of Medicine, Atlanta, GA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kane</surname>
+            <given-names>Andrea F.</given-names>
+          </name>
+          <degrees>M.D.</degrees>
+          <aff id="A3">Neonatal Fellow, Division of Neonatal-Perinatal Medicine, Department of Pediatrics, Emory University School of Medicine, Atlanta, GA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Patel</surname>
+            <given-names>Ravi M.</given-names>
+          </name>
+          <degrees>M.D., M.Sc.</degrees>
+          <role>Assistant Professor</role>
+          <aff id="A4">Division of Neonatal-Perinatal Medicine, Department of Pediatrics, Emory University School of Medicine, Atlanta, GA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Denning</surname>
+            <given-names>Patricia L.</given-names>
+          </name>
+          <degrees>M.D.</degrees>
+          <role>Associate Professor</role>
+          <aff id="A5">Division of Neonatal-Perinatal Medicine, Department of Pediatrics, Emory University School of Medicine, Atlanta</aff>
+        </contrib>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">Address correspondence to: Patricia L. Denning, M.D., Director of Pediatrics, Emory University Hospital Midtown, 550 Peachtree St, NE, 3<sup>rd</sup> floor, Rm 4219, Atlanta, GA 30308; 404-686-8053 (O); 404-686-4631 (F); <email>pllin@emory.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>18</day>
+        <month>3</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>09</day>
+        <month>12</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>2</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>2</month>
+        <year>2018</year>
+      </pub-date>
+      <volume>41</volume>
+      <issue>1</issue>
+      <fpage>15</fpage>
+      <lpage>28</lpage>
+      <!--elocation-id from pubmed: 10.1053/j.semperi.2016.09.014-->
+      <abstract>
+        <p id="P1">Necrotizing enterocolitis (NEC) is a devastating disease in premature infants with high case fatality and significant morbidity among survivors. Immaturity of intestinal host defenses predisposes the premature infant gut to injury. An abnormal bacterial colonization pattern with a deficiency of commensal bacteria may lead to a further breakdown of these host defense mechanisms, predisposing the infant to NEC. Here, we review the role of the innate and adaptive immune system in the pathophysiology of NEC.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

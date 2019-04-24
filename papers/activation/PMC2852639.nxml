@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0375410</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">5127</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Pediatr</journal-id>
+      <journal-title>The Journal of pediatrics</journal-title>
+      <issn pub-type="ppub">0022-3476</issn>
+      <issn pub-type="epub">1097-6833</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">20105663</article-id>
+      <article-id pub-id-type="pmc">2852639</article-id>
+      <article-id pub-id-type="doi">10.1016/j.jpeds.2009.11.018</article-id>
+      <article-id pub-id-type="manuscript">NIHMS176659</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Milk Epidermal Growth Factor and Gut Protection</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dvorak</surname>
+            <given-names>Bohuslav</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">Department of Pediatrics University of Arizona 1501 N. Campbell Ave, P.O. Box 245073 Tucson, AZ 85724-5073 Phone: 520-626-6553 Fax: 520-626-5009 <email>dvorakb@peds.arizona.edu</email></aff>
+      </contrib-group>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <collab>WFB</collab>
+        </contrib>
+      </contrib-group>
+      <pub-date pub-type="nihms-submitted">
+        <day>10</day>
+        <month>2</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>2</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>2</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>156</volume>
+      <issue>2 Suppl</issue>
+      <fpage>S31</fpage>
+      <lpage>S35</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2009 Mosby, Inc. All rights reserved.</copyright-statement>
+        <copyright-year>2009</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">Maternal milk is a complex fluid with multifunctional roles within the developing gastrointestinal tract. Epidermal growth factor (EGF) and heparin-binding EGF-like growth factor (HB-EGF) are members of the family of EGF-related peptides. Biological actions of these growth factors are mediated via interaction with the EGF-receptor (EGF-R). In the early postnatal period, breast milk is the major source of EGF for the developing intestinal mucosa. HB-EGF is also detected in breast milk, but in concentrations 2 to 3 times lower than EGF. Under normal physiological conditions, the intestinal epithelium undergoes a continuing process of cell proliferation, differentiation and maturation. EGF plays an important role in these processes. In pathophysiologic situations, EGF contributes to epithelial protection from injury and post-injury mucosal repair. Necrotizing enterocolitis (NEC) is a devastating disease affecting prematurely born infants. The pathogenesis of NEC is not known and there is no effective treatment for this disease. In an experimental NEC model, oral administration of a physiological dose of EGF significantly reduces the incidence and severity of NEC. HB-EGF provides similar protection against NEC, but only when pharmacological doses are used. Further studies are necessary before EGF can be introduced as an efficient therapeutic approach of intestinal injury.</p>
+      </abstract>
+      <contract-num rid="HD1">R01 HD039657-09
+				||HD</contract-num>
+      <contract-sponsor id="HD1">National Institute of Child Health &amp; Human Development : NICHD</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

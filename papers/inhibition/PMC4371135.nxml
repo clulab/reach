@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101285195</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">34211</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biomed Mater</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomed Mater</journal-id>
+      <journal-title-group>
+        <journal-title>Biomedical materials (Bristol, England)</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1748-6041</issn>
+      <issn pub-type="epub">1748-605X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25729882</article-id>
+      <article-id pub-id-type="pmc">4371135</article-id>
+      <article-id pub-id-type="doi">10.1088/1748-6041/10/1/015026</article-id>
+      <article-id pub-id-type="manuscript">NIHMS671220</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Effects of Epidermal Growth Factor-Loaded Mucoadhesive Films on Wounded Oral Tissue Rafts</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ramineni</surname>
+            <given-names>Sandeep K.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fowler</surname>
+            <given-names>Craig B.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fisher</surname>
+            <given-names>Paul D.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cunningham</surname>
+            <given-names>Larry L.</given-names>
+            <suffix>Jr.</suffix>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Puleo</surname>
+            <given-names>David A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biomedical Engineering, University of Kentucky, Lexington, KY USA</aff>
+      <aff id="A2"><label>2</label>College of Dentistry, University of Kentucky, Lexington, KY USA</aff>
+      <author-notes>
+        <corresp id="FN1">Corresponding Author: David A. Puleo, Ph.D., Department of Biomedical Engineering, 522A Robotics and Manufacturing Building, University of Kentucky, Lexington, KY 40506-0108, USA, Phone: +1-859-257-2405, Fax: +1-859-257-1856, <email>puleo@uky.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>14</day>
+        <month>3</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>02</day>
+        <month>3</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>02</day>
+        <month>3</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>10</volume>
+      <issue>1</issue>
+      <fpage>015026</fpage>
+      <lpage>015026</lpage>
+      <!--elocation-id from pubmed: 10.1088/1748-6041/10/1/015026-->
+      <abstract>
+        <p id="P1">Current treatments for traumatic oral mucosal wounds include the gold standard of autologous tissue and alternative tissue engineered grafts. While use of autografts has disadvantages of minimal availability of oral keratinized tissue, second surgery, and donor site discomfort, tissue engineered grafts are limited by their unavailability as off-the-shelf products owing to their fabrication time of 4&#x2013;8 weeks. Hence, the current work aimed to develop a potentially cost-effective, readily available device capable of enhancing native mucosal regeneration. Considering the key role of epidermal growth factor (EGF) in promoting mucosal wound regeneration and the advantages of mucoadhesive delivery systems, mucoadhesive films composed of polyvinylpyrrolidone and carboxymethylcellulose were developed to provide sustained release of EGF for minimum of 6 hours. Bioactivity of released EGF supernatants was then confirmed by its ability to promote proliferation of BALB/3T3 fibroblasts. Efficacy of the developed system was then investigated <italic>in vitro</italic> using buccal tissues (ORL 300-FT) as a potential replacement for small animal studies. Although the mucoadhesive films achieved their desired role of delivering bioactive EGF in a sustained manner, treatment with EGF, irrespective of its release from the films or solubilized in medium, caused a hyperparakeratotic response from <italic>in vitro</italic> tissues with distinguishable histological features including thickening of the spinous layer, intra- and intercellular edema, and pyknotic nuclei. These significant morphological changes were associated with no improvements in wound closure. These observations raise questions about the potential of using <italic>in vitro</italic> tissues as a wound healing model and substitute for small animal studies. The mucoadhesive delivery system developed, however, with its potential for sustained release of bioactive growth factors and small molecules, may be loaded with other desired compounds, with or without EGF, to accelerate the process of wound healing.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>mucoadhesive films</kwd>
+        <kwd>epidermal growth factor (EGF)</kwd>
+        <kwd>epithelial rafts</kwd>
+        <kwd>controlled release</kwd>
+        <kwd>hyperparakeratosis</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

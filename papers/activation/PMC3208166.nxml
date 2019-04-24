@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Zhejiang Univ Sci B</journal-id>
+      <journal-id journal-id-type="publisher-id">JZUS</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of Zhejiang University. Science. B</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1673-1581</issn>
+      <issn pub-type="epub">1862-1783</issn>
+      <publisher>
+        <publisher-name>Zhejiang University Press</publisher-name>
+        <publisher-loc>Hangzhou</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22042651</article-id>
+      <article-id pub-id-type="pmc">3208166</article-id>
+      <article-id pub-id-type="doi">10.1631/jzus.B1100023</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Biochemistry &amp; Biotechnology</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Effect of epidermal growth factor on follicle-stimulating hormone-induced proliferation of granulosa cells from chicken prehierarchical follicles<xref ref-type="fn" rid="FN01">*</xref>
+				</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lin</surname>
+            <given-names>Jin-xing</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jia</surname>
+            <given-names>Yu-dong</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Cai-qiao</given-names>
+          </name>
+          <xref ref-type="corresp" rid="cor01">&#x2020;</xref>
+          <xref ref-type="author-notes" rid="CorAuth">&#x2021;</xref>
+        </contrib>
+      </contrib-group>
+      <aff>Key Laboratory of Animal Epidemic Etiology &amp; Immunological Prevention of the Ministry of Agriculture, Department of Veterinary Medicine, College of Animal Sciences, Zhejiang University, Hangzhou 310058, China</aff>
+      <author-notes>
+        <fn id="CorAuth">
+          <label>&#x2021;</label>
+          <p>Corresponding Author</p>
+        </fn>
+        <corresp id="cor01">&#x2020;E-mail:<email>cqzhang@zju.edu.cn</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>12</volume>
+      <issue>11</issue>
+      <fpage>875</fpage>
+      <lpage>883</lpage>
+      <history>
+        <date date-type="received">
+          <day>18</day>
+          <month>1</month>
+          <year>2011</year>
+        </date>
+        <date date-type="accepted">
+          <day>27</day>
+          <month>7</month>
+          <year>2011</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; Zhejiang University and Springer-Verlag Berlin Heidelberg 2011</copyright-statement>
+        <copyright-year>2011</copyright-year>
+      </permissions>
+      <abstract>
+        <p>The development of ovarian follicular cells is controlled by multiple circulating and local hormones and factors, including follicle-stimulating hormone (FSH) and epidermal growth factor (EGF). In this study, the stage-specific effect of EGF on FSH-induced proliferation of granulosa cells was evaluated in the ovarian follicles of egg-laying chickens. Results showed that <italic>EGF</italic> and its receptor (<italic>EGFR</italic>) mRNAs displayed a high expression in granulosa cells from the prehierarchical follicles, including the large white follicle (LWF) and small yellow follicle (SYF), and thereafter the expression decreased markedly to the stage of the largest preovulatory follicle. SYF represents a turning point of <italic>EGF</italic>/<italic>EGFR</italic> mRNA expression during follicle selection. Subsequently the granulosa cells from SYF were cultured to reveal the mediation of EGF in FSH action. Cell proliferation was remarkably increased by treatment with either EGF or FSH (0.1&#x2013;100 ng/ml). This result was confirmed by elevated proliferating cell nuclear antigen (PCNA) expression and decreased cell apoptosis. Furthermore, EGF-induced cell proliferation was accompanied by increased mRNA expressions of EGFR, FSH receptor, and the cell cycle-regulating genes (cyclins D1 and E1, cyclin-dependent kinases 2 and 6) as well as decreased expression of luteinizing hormone receptor mRNA. However, the EGF or FSH-elicited effect was reversed by simultaneous treatment with an EGFR inhibitor AG1478. In conclusion, EGF and EGFR expressions manifested stage-specific changes during follicular development and EGF mediated FSH-induced cell proliferation and retarded cell differentiation in the prehierarchical follicles. These expressions thus stimulated follicular growth before selection in the egg-laying chicken.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Epidermal growth factor</kwd>
+        <kwd>Follicle-stimulating hormone</kwd>
+        <kwd>Granulosa cell</kwd>
+        <kwd>Proliferation</kwd>
+        <kwd>Chicken</kwd>
+      </kwd-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>Crosschecked</meta-name>
+          <meta-value>Oct. 12, 2011</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

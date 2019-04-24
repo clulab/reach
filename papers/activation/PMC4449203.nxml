@@ -1,0 +1,540 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, CA USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26024354</article-id>
+      <article-id pub-id-type="pmc">4449203</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0128826</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-15-03682</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Trans-Activation between EphA and FGFR Regulates Self-Renewal and Differentiation of Mouse Embryonic Neural Stem/Progenitor Cells via Differential Activation of FRS2&#x3B1;</article-title>
+        <alt-title alt-title-type="running-head">Differential Signals for Fate Determination of Neural Stem Cells</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Sawada</surname>
+            <given-names>Takahiro</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+          <xref rid="cor001" ref-type="corresp">*</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Arai</surname>
+            <given-names>Daiki</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Jing</surname>
+            <given-names>Xuefeng</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Furushima</surname>
+            <given-names>Kenryo</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Qingfa</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kawakami</surname>
+            <given-names>Kazuki</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yokote</surname>
+            <given-names>Hideyuki</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Miyajima</surname>
+            <given-names>Masayasu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sakaguchi</surname>
+            <given-names>Kazushige</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+          <xref rid="cor001" ref-type="corresp">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff001">
+<label>1</label>
+<addr-line>Department of Molecular Cell Biology and Molecular Medicine, Institute of Advanced Medicine, Wakayama, Wakayama, Japan</addr-line>
+</aff>
+      <aff id="aff002">
+<label>2</label>
+<addr-line>Laboratory Animal Center, Wakayama Medical University, Wakayama, Japan</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Zhou</surname>
+            <given-names>Renping</given-names>
+          </name>
+          <role>Academic Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Rutgers University, UNITED STATES</addr-line>
+</aff>
+      <author-notes>
+        <fn fn-type="COI-statement" id="coi001">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con" id="contrib001">
+          <p>Conceived and designed the experiments: TS KS. Performed the experiments: DA XJ KF QC KK TS HY. Analyzed the data: TS KS. Contributed reagents/materials/analysis tools: DA XJ KF QC KK MM. Wrote the paper: TS KS.</p>
+        </fn>
+        <corresp id="cor001">* E-mail: <email>ksaka@wakayama-med.ac.jp</email> (KS); <email>t-sawada@hokuto7.or.jp</email> (TS)</corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>29</day>
+        <month>5</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2015</year>
+      </pub-date>
+      <volume>10</volume>
+      <issue>5</issue>
+      <elocation-id>e0128826</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>28</day>
+          <month>1</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>30</day>
+          <month>4</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2015 Sawada et al</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <copyright-holder>Sawada et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:type="simple" xlink:href="pone.0128826.pdf"/>
+      <abstract>
+        <p>Ephs and FGFRs belong to a superfamily of receptor tyrosine kinases, playing important roles in stem cell biology. We previously reported that EphA4 and FGFR form a heterodimer following stimulation with ligands, trans-activating each other and signaling through a docking protein, FRS2&#x3B1;, that binds to both receptors. Here, we investigated whether the interaction between EphA4 and FGFRs can be generalized to other Ephs and FGFRs, and, in addition, examined the downstream signal mediating their function in embryonic neural stem/progenitor cells. We revealed that various Ephs and FGFRs interact with each other through similar molecular domains. When neural stem/progenitor cells were stimulated with FGF2 and ephrin-A1, the signal transduced from the EphA4/FGFR/FRS2&#x3B1; complex enhanced self-renewal, while stimulation with ephrin-A1 alone induced neuronal differentiation. The downstream signal required for neuronal differentiation appears to be MAP kinase mainly linked to the Ras family of G proteins. MAP kinase activation was delayed and sustained, distinct from the transient activation induced by FGF2. Interestingly, this effect on neuronal differentiation required the presence of FGFRs. Specific FGFR inhibitor almost completely abolished the function of ephrin-A1 stimulation. These findings suggest that the ternary complex of EphA, FGFR and FRS2&#x3B1; formed by ligand stimulation regulates self-renewal and differentiation of mouse embryonic neural stem/progenitor cells by ligand-specific fine tuning of the downstream signal via FRS2&#x3B1;.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work was supported in part by the 2011 Wakayama Medical Award for Young Reseachers (to T.S.); the Japanese Government Grant-in-Aid for Scientific Research #19300132 (to K.S.); a Research Grant on Priority Areas from Wakayama Medical University (to K.S.); a Medical Research Grant from the Wakayama Foundation for the Promotion of Medicine (to K.S.); and the Japanese Government Grant-in-Aid for Scientific Research #19700346 (to T.S.).</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="6"/>
+        <table-count count="0"/>
+        <page-count count="15"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>All relevant data are within the paper.</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>All relevant data are within the paper.</p>
+    </notes>
+  </front>
+  <body>
+    <sec sec-type="intro" id="sec001">
+      <title>Introduction</title>
+      <p>Fibroblast growth factor receptor substrate 2&#x3B1; (FRS2&#x3B1;) is a major docking protein and mediator of signal transduction pathways downstream of the fibroblast growth factor receptor (FGFR) [<xref rid="pone.0128826.ref001" ref-type="bibr">1</xref>]. Stimulation with FGF ligands results in phosphorylation of multiple tyrosines on FRS2&#x3B1;, creating multiple binding motifs that recruit certain downstream signaling molecules. Four tyrosine phosphorylation sites on FRS2&#x3B1; bind to the adaptor molecule Grb2, while the remaining two bind to the Src Homology 2 (SH2) domain-containing tyrosine phosphatase, Shp2 [<xref rid="pone.0128826.ref001" ref-type="bibr">1</xref>]. Binding of Grb2 to FRS2&#x3B1; mediates not only the SOS-Ras-MAP kinase pathway, but also recruitment of an additional docking protein, Gab1, followed by activation of the phosphatidylinositol 3-kinase/Akt pathway, while binding of Shp2 mediates the Ras-MAP kinase signaling cascade [<xref rid="pone.0128826.ref001" ref-type="bibr">1</xref>, <xref rid="pone.0128826.ref002" ref-type="bibr">2</xref>]. Binding of Shp2 to phosphorylated FRS2&#x3B1; also mediates formation and activation of the Shp2-Crk-C3G complex in response to NGF, leading to Rap1 activation followed by sustained MAP kinase activation [<xref rid="pone.0128826.ref003" ref-type="bibr">3</xref>&#x2013;<xref rid="pone.0128826.ref005" ref-type="bibr">5</xref>]. Aoki et al. reported that Rap1, but not Ras, is activated by EphA receptors, mediating sustained MAP kinase activation in response to ephrin-A1 [<xref rid="pone.0128826.ref006" ref-type="bibr">6</xref>]. Shp2 binding sites of FRS2&#x3B1; appear to play an important role in maintaining neural stem/progenitor cells (NSPCs), while FGF2-induced activation of these sites mediates embryonic corticogenesis [<xref rid="pone.0128826.ref007" ref-type="bibr">7</xref>]. We previously reported that FRS2&#x3B1; forms a ternary complex with FGFR and EphA4 in response to stimulation with FGFs or ephrins, as well as mediating NSPC proliferation [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>].</p>
+      <p>Eph receptors constitute the largest subfamily of the receptor tyrosine kinase superfamily [<xref rid="pone.0128826.ref009" ref-type="bibr">9</xref>]. Eph receptors and their ligands, ephrins, are likewise divided into two subclasses, type A and B, depending on their binding specificity. EphA receptors bind to the ephrin-A class of ligands, which are anchored to the cell membrane through glycosyl phosphatidyl inositol linkage, while EphB receptors bind to another class of ligands, ephrin-Bs, which have a transmembrane and short cytoplasmic domain. In general, EphAs bind to ephrin-As and EphBs to ephrin-Bs; however, cross-specificity has been reported in both the receptors and ligands. Interaction between Eph receptors and their membrane-bound ligands, ephrins, leads to contact-dependent bidirectional signaling into opposing cells, which regulates diverse developmental and physiological processes. Eph/ephrin signaling has multiple functions including cytoskeletal modulation affecting cell migration, growth cone repulsion and axon guidance [<xref rid="pone.0128826.ref010" ref-type="bibr">10</xref>], maintenance and plasticity regulation of neural stem cells in the subventricular niche [<xref rid="pone.0128826.ref011" ref-type="bibr">11</xref>], cell sorting during embryonic patterning [<xref rid="pone.0128826.ref012" ref-type="bibr">12</xref>], angiogenesis [<xref rid="pone.0128826.ref013" ref-type="bibr">13</xref>], bone homeostasis [<xref rid="pone.0128826.ref014" ref-type="bibr">14</xref>] and insulin secretion [<xref rid="pone.0128826.ref015" ref-type="bibr">15</xref>].</p>
+      <p>Our earlier discovery that EphA4 and FGFR form a heterodimer, trans-activating each other after stimulation with their ligands [<xref rid="pone.0128826.ref016" ref-type="bibr">16</xref>], led us to examine the function of this complex formation in NSPC proliferation and differentiation. Thus far, we have shown that FRS2&#x3B1; binds not only to FGFR but also EphA4 through distinct molecular regions as well as mediating differential downstream signals from the activated receptors. The signal depends on the ligand used for initial stimulation and, more or less, induces stem cell proliferation [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>]. We also reported that the adult subventricular niche possesses a mechanism for regulation of both stem cell and angiogenic responses via ephrin-A1/EphA4-mediated signals [<xref rid="pone.0128826.ref017" ref-type="bibr">17</xref>]. Activation of EphA receptor-mediated signals by ephrin-A1 from within the lateral ventricle could potentially be utilized in the treatment of neurodegenerative diseases such as Parkinson&#x2019;s disease. Another group revealed that EphA4 is expressed in adult neural stem cells in the subventricular zone, playing an important role in maintaining an undifferentiated state [<xref rid="pone.0128826.ref018" ref-type="bibr">18</xref>]. These findings suggested the need for further studies to determine what signals are responsible for self-renewal and differentiation of embryonic neural stem cells.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="sec002">
+      <title>Materials and Methods</title>
+      <sec id="sec003">
+        <title>Reagents</title>
+        <p>Ephrin-A1 fused to human IgG(Fc) (ephrin-A1-Fc) was purchased from Sigma-Aldrich Co (St. Louis, MO, USA; Cat. #E9902). Before application, 5 &#x3BC;g of ephrin-A1-Fc was oligomerized via incubation with 12 &#x3BC;g of rabbit anti-human IgG(Fc) (Jackson ImmunoResearch Lab., West Grove, PA, USA; Cat. #309-005-008) in 1 ml of PBS at 4&#xB0;C for at least 1 h. As a control, a human IgG(Fc) fragment (Jackson ImmunoResearch Lab.; Cat. #009-000-008) was used after oligomerization. FGFR inhibitor (SU5402; Cat. #572630), PI3-kinase inhibitor (LY294002; Cat. #440202) and MEK1/2 inhibitor (U0126; Cat. #662005) were purchased from Calbiochem (Billerica, MA, USA). The following antibodies were used according to the manufacturers&#x2019; instructions: mouse anti-myc antibody derived from hybridoma MYC1-9E10.2 (ATCC, Manassas, VA, USA; Cat. #CRL-1729), mouse anti-HA antibody derived from hybridoma 12CA5 (Roche, Mannheim, Germany; Cat. #11583816001), mouse anti-Flag M2 monoclonal antibody (clone M2; Sigma-Aldrich Co.; Cat. #F3165), mouse anti-HA monoclonal antibody (Santa Cruz Biotechnology, Santa Cruz, CA, USA; Cat. #sc-7392), rat anti-HA monoclonal antibody (clone 3F10; Roche, Cat. #11867423001), mouse anti-GFP monoclonal antibody (Santa Cruz Biotechnology, Cat. #sc-9996); rabbit anti-FGFR1 polyclonal antibody (Santa Cruz, Cat. #sc-121), rabbit anti-FGFR3 polyclonal antibody (Santa Cruz Biotechnology, Cat. #sc-123), rabbit anti-FRS2&#x3B1; polyclonal antibody (Santa Cruz Biotechnology, Cat. #sc-8318), rabbit anti-EphA4 polyclonal antibody (Santa Cruz Biotechnology, Cat. #sc-921), rabbit anti-Akt 1/2 polyclonal antibody (Santa Cruz Biotechnology, Cat. #sc-8312), rabbit anti-phospho-Akt (Ser473) monoclonal antibody (Cell Signaling Technology, Denvers, MA, USA; Cat. #4060), rabbit anti-phospho-p44/42 polyclonal mitogen-activated protein kinase (MAPK) (ERK) (Thr202/Tyr204) antibody (Cell Signaling Technology, Cat. #9101), rabbit anti-p44/42 MAPK (ERK) polyclonal antibody (Cell Signaling Technology, Cat. #9102), mouse anti-phosphotyrosine monoclonal antibody (clone 4G10, Millipore, Billerica, MA, USA Cat. #05&#x2013;321) and rat anti-nestin antibody (Rat-401, DSHB, Iowa City, IA, USA). Alexa Fluor 488 and Alexa Fluor 568 were purchased from Life Technologies (Rockville, MD, USA).</p>
+      </sec>
+      <sec id="sec004">
+        <title>Ethics statement</title>
+        <p>All animal experiments were carried out in strict accordance with the recommendations of the Act on Welfare and Management of Animals (Law No. 105, Japan), the Fundamental Guidelines for Proper Conduct of Animal Experiment and Related Activities in Academic Research Institutions (Japanese Ministry of Education, Culture, Sports, Science and Technology, Notice No. 71, 2006) and the Standards Relating to the Care and Management of Laboratory Animals and Relief of Pain (Japanese Ministry of Environment, Notice No. 88, 2006). The protocol was approved by the Committee on the Ethics of Animal Experiments of Wakayama Medical University (Permit Number: 467). All surgeries were performed under sodium pentobarbital anesthesia with efforts made to minimize suffering.</p>
+      </sec>
+      <sec id="sec005">
+        <title>Cell culture</title>
+        <p>HEK293T cells were maintained in Dulbecco&#x2019;s Modified Eagle&#x2019;s Medium (DMEM) supplemented with 10% fetal bovine serum. Cells were transfected with eukaryotic expression vectors as described below. Prior to ligand stimulation, cells were preincubated in serum-free medium containing 0.5% bovine serum albumin (BSA) for 5 h. Chemical inhibitors, such as SU5402, were then added 1 h before completing the 5-h preincubation.</p>
+        <p>Mouse embryonic NSPCs were derived from the E14.5 telencephalon. Mouse embryos were obtained from a mated pregnant mouse which was euthanized by decapitation under sodium pentobarbital anesthesia. The whole brains were removed by decapitation from embryos and transferred into ice-chilled PBS in a culture-grade plate under the culture hood. The tissue region mainly including striatal telencephalon were isolated using micro-forceps under the stereomicroscope, then transferred into 1 ml of culture medium. Tissue pieces were dissociated into a single-cell slurry in the medium by pipetting up and down, and cells derived from 4 fetal brains were seeded into a T75 tissue culture flask. Cells were trypsinized and re-seeded into new flasks at an interval of 5 days.</p>
+        <p>Mouse NSPCs were maintained as neurospheres up to 2 passages in 50% DMEM/ 50% Ham&#x2019;s F12 supplemented with 5 mM 4-(2-hydroxyethyl)-1-piperazineethanesulfonic acid (HEPES) buffer at pH 7.4, 0.6% glucose, 25 &#x3BC;g/mL insulin, 100 &#x3BC;g/mL transferrin, 20 nM progesterone, 60 &#x3BC;M putrescine, 30 nM sodium selenite, 20 ng/mL FGF2 and 20 ng/mL EGF as described previously [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>]. For self-renewing assays, third passage cells cultured as neurospheres were trypsinized, dissociated mechanically by pipetting and seeded onto 96-well plates at 500 cells per well. In order to mark only the replicating cells, cells were transduced with a retrovirus carrying the expression cassette of enhanced green fluorescence protein (EGFP) and other molecules connected by the internal ribosomal entry site [<xref rid="pone.0128826.ref019" ref-type="bibr">19</xref>] at a multiplicity of infection of 5. They were incubated in medium containing different reagents in place of FGF2 and EGF. More than 95% of the retrovirus-infected cells expressed EGFP. NSPC self-renewal activity was measured according to the neurosphere formation assay [<xref rid="pone.0128826.ref020" ref-type="bibr">20</xref>, <xref rid="pone.0128826.ref021" ref-type="bibr">21</xref>]. The number of neurospheres larger than 100 &#x3BC;m in diameter and positive for green fluorescence was counted under a fluorescent microscope within 24 h after 8-day incubation with the reagents. For stimulation with ligands, third passage sphere-cultured cells were preincubated for 4 h in medium devoid of FGF2 or EGF. Chemical inhibitors of certain signals were added 1 h after starting preincubation. Cells were lysed for protein analysis after incubation with the ligands.</p>
+      </sec>
+      <sec id="sec006">
+        <title>RNA extraction and reverse transcription-PCR</title>
+        <p>After 3-days culture, the neurospheres were rinsed with PBS. Total cellular RNA was then extracted using TRI reagent (Sigma-Aldrich Co.; Cat. #T9424). Reverse transcription (RT) was performed with M-MLV reverse transcriptase and an oligo(dT)20 reverse transcription primer to a final volume of 20 &#x3BC;l (SuperScript III; Invitrogen, Carlsbad, CA, USA; Cat. #18080&#x2013;051). Polymerase chain reaction (PCR) was performed with 35 two-step cycles of 30 s at 94&#xB0;C and 45 s at 58&#xB0;C using 3 &#x3BC;l of RT product and GoTaq polymerase (Promega, Madison, WI, USA; Cat. #M7123). The PCR products were fractionated on 2% agarose gels, and bands stained with ethidium bromide and detected under ultraviolet irradiation. Primer sequences (forward and reverse) and product sizes were as described previously [<xref rid="pone.0128826.ref017" ref-type="bibr">17</xref>].</p>
+      </sec>
+      <sec id="sec007">
+        <title>DNA constructs, transfection, immunoprecipitation and immunoblotting</title>
+        <p>The eukaryotic expression vectors for wild-type (WT) and mutant EphA4, FGFRs and FRS2&#x3B1; were constructed as previously reported [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>, <xref rid="pone.0128826.ref016" ref-type="bibr">16</xref>]. Transient transfection of HEK293T cells was performed via 48-h incubation with PerFectin (Genlantis, Cat# T303015, San Diego, CA) according to the manufacturer&#x2019;s instructions. Cells were then used for stimulation with ligands following 5-h preincubation in serum-free medium. Immunoprecipitation and immunoblotting were performed according to the standard procedure [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>, <xref rid="pone.0128826.ref016" ref-type="bibr">16</xref>, <xref rid="pone.0128826.ref022" ref-type="bibr">22</xref>]. We confirmed that anti-HA and anti-myc antibodies efficiently immunoprecipitate the tagged proteins in a protein dose-dependent manner. For immunoblotting analysis, antibodies were diluted in appropriate reagent at a dilution range of 1:1000 to 1:5000 according to the manufacturer&#x2019;s instructions. All experiments were carried out at least twice to confirm reproducibility. Quantification of band intensity was carried out with digital data using the computer program CS Analyzer version 3.0 (ATTO Corporation, Tokyo, Japan).</p>
+      </sec>
+      <sec id="sec008">
+        <title>Ras and Rap1 activity assay</title>
+        <p>Ras and Rap1 activity in the mouse embryonic NSPCs in response to ephrin-A1 and FGF2 were measured using a Ras activation assay kit and Rap1 activation assay kit (Cell Biolabs, Inc., San Diego, CA, USA; Cat. #STA-400 and #STA-406-1), respectively. Active small G proteins isolated from each cell lysate were detected by immunoblotting and the band intensities evaluated using CS Analyzer version 3.0 (ATTO Corporation).</p>
+      </sec>
+      <sec id="sec009">
+        <title>Construction of retrovirus expression vectors</title>
+        <p>WT and mutant EphA4 and FRS2&#x3B1; were constructed in a pMXs-IG vector and incorporated into a retrovirus as previously reported [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>, <xref rid="pone.0128826.ref016" ref-type="bibr">16</xref>, <xref rid="pone.0128826.ref019" ref-type="bibr">19</xref>, <xref rid="pone.0128826.ref022" ref-type="bibr">22</xref>] via co-transfection of the pMXs-IG-based constructs with pCAGVSV-G, which encodes a vesicular stomatitis virus surface protein, under control of a chicken &#x3B2;-actin promoter.</p>
+      </sec>
+      <sec id="sec010">
+        <title>Immunocytochemistry</title>
+        <p>Cells cultured on chamber slides were fixed with 4% paraformaldehyde in PBS then permeabilized with 0.25% Triton X-100 in PBS mixed with 1% normal rabbit serum and incubated with primary antibodies at 4&#xB0;C overnight. After washing in PBS, they were then incubated with secondary antibodies conjugated to Alexa Fluor 488 or Alexa Fluor 568 at 4&#xB0;C for 2 h, followed by washing in PBS. Immunofluorescence was detected with a Keyence BZ-9000 microscope and the number of cells counted using the BZ-II analyzer included in the apparatus.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="sec011">
+      <title>Results</title>
+      <sec id="sec012">
+        <title>Crosstalk between EphAs and FGFRs may have multiple functions in NSPCs</title>
+        <p>We investigated expression patterns of Eph receptors, ephrin ligands and other relevant signal molecules thought to regulate proliferation, self-renewal and differentiation of mouse embryonic NSPCs. Almost all Eph receptors and ephrin ligands were expressed in the NSPCs, and all FGFR family members were co-expressed (<xref rid="pone.0128826.g001" ref-type="fig">Fig 1A and 1B</xref>). First, we examined the interaction between EphAs and FGFRs via co-expression studies using HEK293T cells. All EphA members examined showed binding to both FGFR1 and FGFR3, while the EphA4 dominant-negative mutant EphA4(&#x394;JM,KD) inhibited binding in a dose-dependent fashion (<xref rid="pone.0128826.g001" ref-type="fig">Fig 1C and 1D</xref>). Trans-phosphorylation between EphA and FGFR was also inhibited by EphA4(&#x394;JM,KD). These results suggest that EphAs and FGFRs bind to each other through specific molecular regions, and moreover, that crosstalk is involved in various cellular and tissue functions when both kinds of receptor are expressed.</p>
+        <fig id="pone.0128826.g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0128826.g001</object-id>
+          <label>Fig 1</label>
+          <caption>
+            <title>Expression and interaction of Ephs and FGFRs.</title>
+            <p>(A) Expression of all Eph receptors, ephrin ligands, FGFRs and related molecules in mouse embryonic NSPCs. RT-PCR was performed with equal amounts of total RNA isolated from mouse NSPCs. Fragment lengths are indicated on the left in base pairs. (B) Co-expression of FGFRs, EphA4 and FRS2&#x3B1; (green, left panel), respectively, with the neural stem cell marker nestin (red, middle panel) in cultured neurospheres. Merged images are shown in right panels. Neurospheres were cultured on PLL-coated plates for a short time, fixed and immunostained. Immunofluorescent images were detected using a confocal microscopy with an appropriate optical filter. (C, D) Inhibition of FGFR-EphA binding with a dominant-negative EphA4 molecule, EphA4(&#x394;JM,KD), tagged with enhanced green fluorescence protein (&#x394;JM,KD-EGFP). FGFR1-HA (C) and FGFR3-HA (D) were co-expressed with Flag-tagged EphAs (EphA1, 2, 3, 5 and 7), respectively, and increasing doses of &#x394;JM,KD-EGFP in HEK293T cells. Binding of FGFR-HA with EphAs-Flag was examined with immunoprecipitation (IP) followed by SDS-PAGE and immunoblotting (IB) using the antibodies shown.</p>
+          </caption>
+          <graphic xlink:href="pone.0128826.g001"/>
+        </fig>
+      </sec>
+      <sec id="sec013">
+        <title>Augmentation of NSPC self-renewal activity in response to FGF2 and ephrin-A1</title>
+        <p>We previously reported that EphA4 forms a ternary complex with FGFRs and the docking protein FRS2&#x3B1; through distinct molecular regions. Stimulation with oligomerized ephrin-A1-Fc and/or FGF2 had differential effects on NSPC proliferation, with the combination of both having the maximum effect on mitogenic activity [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>]. When NSPCs were stimulated with FGF2 (10 ng/ml) after 45 min pre-incubation with oligomerized ephrin-A1-Fc (0.5 &#x3BC;g/ml), they responded with sustained and enhanced tyrosine phosphorylation of FRS2&#x3B1; compared to FGF2 stimulation alone (<xref rid="pone.0128826.g002" ref-type="fig">Fig 2A</xref>). MAP kinase activation was also enhanced by addition of ephrin-A1, which strongly corresponded to the FRS2&#x3B1; phosphorylation results. To examine whether proliferating cells retain their stemness (multipotency), we examined the formation of secondary neurospheres as an indicator of self-renewal in response to varying concentrations of ephrin-A1 and/or FGF2. Respective treatment with ephrin-A1 and FGF2 resulted in dose-dependent augmentation of sphere formation activity; the increase with ephrin-A1 being smaller. Combined treatment with the starting doses of ephrin-A1 (0.02 &#x3BC;g/ml) and FGF2 (1 ng/ml) did not result in any significant increase compared with the vehicle (IgG(Fc)) alone. Meanwhile, treatment with 5 ng/ml FGF2 and varying concentrations of ephrin-A1 resulted in synergistic augmentation of sphere formation (<xref rid="pone.0128826.g002" ref-type="fig">Fig 2B</xref>). These results are consistent with our previous findings whereby a combination of ephrin-A1 and FGF2 synergistically augmented the proliferation of NSPCs.</p>
+        <fig id="pone.0128826.g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0128826.g002</object-id>
+          <label>Fig 2</label>
+          <caption>
+            <title>Effect of ephrin-A1 and FGF2 on NSPCs.</title>
+            <p>(A) Tyrosine phosphorylation of FRS2&#x3B1; and MAP kinase in response to FGF2 stimulation with and without ephrin-A1 pre-treatment. Mouse NSPCs were treated with FGF2 (10 ng/ml) for the indicated periods of time with or without 45-min ephrin-A1 (0.5 &#x3BC;g/ml) pre-treatment (PreA1). FRS2&#x3B1; was immunoprecipitated using anti-FRS2&#x3B1; Ab from the cell lysate. Immunoprecipitates were fractionated by SDS-PAGE, and phosphorylated FRS2&#x3B1; was detected by immunoblotting with anti-pY Ab. For MAP kinase, cell lysates (50 &#x3BC;g of total protein per time point) were fractionated by SDS-PAGE and immunoblotted with anti-phospho-p44/42 MAPK (Thr202/Tyr204) Ab (phospho-MAPK) and anti-p44/42 MAPK Ab (total MAPK). (B) Synergistic effect of ephrin-A1 and FGF2 on neurosphere formation. Single NSPCs were plated 500 cells/well in 96-well plates for 3&#x2013;5 days in medium containing different concentrations and combinations of reagent. Reagents were added repeatedly on the 3rd and 5th days and the number of spheres counted on the 10th day under a microscope. Concentrations of ephrin-A1 are expressed in &#x3BC;g/ml and that of FGF2 in ng/ml. Values were analyzed using Tukey&#x2019;s multiple comparison test following ANOVA; n = 10 for each value. Bars represent the SD. * p&lt;0.01 compared to the control treated with IgG(Fc) alone or between two treatment groups. (C) Self-renewing activity of NSPCs expressing EphA4(WT), EphA4(DN), FRS2(WT) and FRS2(DN), respectively. Study protocols were as in (B), but cells were exposed to vehicle (black), ephrin-A1 (0.5 &#x3BC;g/ml; blue), FGF2 (20 &#x3BC;g/ml; yellow), or a combination of ephrin-A1 and FGF2 (green). Bottom panels show micrographs of the spheres at the same magnification after various treatments of vector-expressing cells. Values were analyzed using Tukey&#x2019;s multiple comparison test following ANOVA; n = 4 for each value. Bars represent the SD. * p&lt;0.01 compared to controls transduced with the vector alone and treated with the same reagent. Values between WT- and DN-expressing cells were also significantly different (p&lt;0.01) for each treatment except those treated with vehicle alone.</p>
+          </caption>
+          <graphic xlink:href="pone.0128826.g002"/>
+        </fig>
+        <p>We also examined functions of ternary complex formation in self-renewal activity. As shown in <xref rid="pone.0128826.g002" ref-type="fig">Fig 2C</xref>, both ephrin-A1 and FGF2 enhanced sphere formation, while a combination of the two increased it further in vector-transduced cells. Although retroviral transduction of WT <italic>EphA4</italic> and <italic>FRS2&#x3B1;</italic> respectively resulted in higher sphere formation activity in response to both ligands, transduction of the dominant-negative <italic>EphA4</italic> and <italic>FRS2&#x3B1;</italic> significantly inhibited sphere formation almost to the basal level, suggesting that EphA4 and/or FGFR signals play an important role not only in proliferation of NSPCs [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>], but also in self-renewal. These results are consistent with our previous report whereby proliferating cells activated by EphA and FGFR signaling were shown to retain stemness.</p>
+      </sec>
+      <sec id="sec014">
+        <title>Ephrin-A1 induces neuronal differentiation rather than self-renewal</title>
+        <p>As shown in <xref rid="pone.0128826.g003" ref-type="fig">Fig 3A</xref>, immunofluorescent staining of nestin, a neural stem/progenitor cell specific marker, showed that all adherent cells cultured on a plate coated with poly L-lysine (PLL) and fibronectin retained characteristics of NSPCs in culture medium containing EGF and FGF2, even though they were spindle-like in shape. Using these adherent cells, we examined the effects of ephrin-A1 and/or FGF2 on differentiation of NSPCs.</p>
+        <fig id="pone.0128826.g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0128826.g003</object-id>
+          <label>Fig 3</label>
+          <caption>
+            <title>Differentiation and proliferation of mouse embryonic NSPCs induced by ephrin-A1 and/or FGF2 (A) NSPCs cultured as adherent cells.</title>
+            <p>NSPCs were plated as adherent single cells at 1000 cells/well on a PLL- and fibronectin-coated cover glass in culture medium containing FGF2 (20 ng/ml) and EGF (20 ng/ml) for 3&#x2013;5 days. Cells were then stained for anti-nestin (green), and counterstained with DAPI (blue) for nuclei. Scale bar: 50 &#x3BC;m. (B) NSPCs were plated as single cells 500 cells/well on PLL- and fibronectin-coated 96-well plates for 3&#x2013;5 days in medium containing the different reagents. Reagents were re-added on days 3 and 5, and the numbers of Tuj1-positive cells counted between days 8 and 10 under an inverted fluorescent microscope with an optical filter. Scale bar: 50 &#x3BC;m. (C) The number of neuronally differentiated Tuj1-positive cells per 1000 cells. Values were analyzed using Tukey&#x2019;s multiple comparison test following ANOVA (two-way). Bars represent the SD. * p&lt;0.05, ** p&lt;0.001 (n = 6) compared to the control. (D) The number of total cells in the area of one microscopic field. Values were analyzed using Tukey&#x2019;s multiple comparison test following one-way ANOVA. Bars represent the SD. * p&lt;0.05, ** p&lt;0.001 (n = 6) compared to the control. (E) Effect of various signal inhibitors on the number of neuronally differentiated Tuj1-positive cells per 1000 cells (upper panel) and on the number of total cells in a single microscopic field (lower panel). NSPCs were plated as single adherent cells at 2 &#xD7; 10<sup>5</sup> cells/well on PLL- and fibronectin-coated 4-well chamber slides for 2 days in growth medium. Medium was replaced with growth factor-free medium containing ephrin-A1 and various inhibitors on day 2, and the number of Tuj1-positive cells and total cells per unit area counted on day 4 under an inverted fluorescent microscope with an optical filter. SU (SU5402), FGFR inhibitor; LY (LY294002), PI-3 kinase inhibitor; U (U0126), MEK1 and MEK2 inhibitor. Bars represent the SD. Values were analyzed using Tukey&#x2019;s multiple comparison test following one-way ANOVA. * p&lt;0.05, ** p&lt;0.005, *** p&lt;0.0001 (n&gt;8) compared to the control (IgG(Fc)).</p>
+          </caption>
+          <graphic xlink:href="pone.0128826.g003"/>
+        </fig>
+        <p>To examine multipotency, we investigated the characteristics of cells stimulated with ephrin-A1 and/or FGF2. Immunofluorescent staining of the neuron specific marker Tuj1 in adherent cells cultured with ligands for 4 days revealed an increase in differentiation into neurons with ephrin-A1 treatment compared to treatment with control vehicles (none and IgG(Fc), respectively) (<xref rid="pone.0128826.g003" ref-type="fig">Fig 3B</xref>). Compared with combined treatment with FGF2 and ephrin-A1, single ephrin-A1 treatment resulted in a significant increase in the number of Tuj1-positive cells per total number of cells (<xref rid="pone.0128826.g003" ref-type="fig">Fig 3C</xref>). A small number of differentiated cells observed in negative controls (none and IgG(Fc), respectively) appeared to be the result of spontaneous neuronal differentiation caused by removal of growth factors (FGF2 and EGF) from the culture medium. Most Tuj1-negative cells in negative controls were positive for glial fibrillary acidic protein (GFAP)-positive (data not shown). The proliferative function of ephrin-A1 was almost zero compared with FGF2, FGF2 plus epnrin-A1 and FGF2 plus EGF treatment, respectively (<xref rid="pone.0128826.g003" ref-type="fig">Fig 3D</xref>). The slight self-renewal activity of ephrin-A1 alone shown in <xref rid="pone.0128826.g002" ref-type="fig">Fig 2C</xref> was possibly caused by differences in the culture method (sphere vs. adherent culture). We speculate that ephrin-A1 might be less effective at self-renewal under the adherent single cell culture system. These results demonstrate that ephrin-A1 is more involved in induction of neuronal differentiation rather than proliferation in NSPCs.</p>
+        <p>To verify the effect of ephrin-A1 itself on neuronal differentiation of NSPCs and to elucidate the signal pathways downstream of EphAs, we treated NSPCs with ephrin-A1 and inhibitors of various signaling pathways thought to be downstream of the ternary complex. Inhibition of the MAP kinase pathway with U0126 completely suppressed both the neuronal differentiation and proliferative activities induced by ephrin-A1 (<xref rid="pone.0128826.g003" ref-type="fig">Fig 3E</xref>). Treatment with PI3-kinase inhibitor LY294002 resulted in slight suppression of proliferation and differentiation compared with ephrin-A1 and vehicle (DMSO) treatment. Concomitant treatment with LY294002 and U0126 inhibited both proliferation and differentiation to a level similar to that with U0126 alone, suggesting that the effect was almost totally attributable to U0126. SU5402 is a specific inhibitor of FGFR; however, ephrin-A1-induced proliferation and differentiation were suppressed by SU5402 almost to the level of FGF2 plus SU5402 treatment. These results suggest that MAP kinase activity is principally required for neuronal proliferation and differentiation, and that trans-activation of FGFRs by EphAs plays an important role in these processes.</p>
+      </sec>
+      <sec id="sec015">
+        <title>Differential phosphorylation of FRS2&#x3B1; by EphA4 and FGFR1</title>
+        <p>The signal mechanisms of the ternary complex comprising EphAs, FGFRs and FRS2&#x3B1; are yet to be clarified with regards to function. We previously reported that activated EphA4 directly binds to and phosphorylates FRS2&#x3B1; [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>]. In the present study, we examined phosphorylation target sites of FRS2&#x3B1; with EphA4 kinase. To do so, we used WT and various mutants of FRS2&#x3B1;. The mutants, in which tyrosine residues were replaced by phenylalanine residues, included FRS2&#x3B1;-2F (a mutant of Shp2 binding sites), FRS2&#x3B1;-4F (a mutant of Grb2 binding sites) and FRS2&#x3B1;-6F (a mutant of both Shp2 and Grb2 binding sites) (<xref rid="pone.0128826.g004" ref-type="fig">Fig 4A</xref>). Co-expression studies of these FRS2&#x3B1; mutants in HEK293T cells with increasing doses of FGFR1 revealed that both Shp2 and Grb2 binding sites are phosphorylated in a dose-dependent manner, suggesting that both are FGFR1 targets. Furthermore, phosphorylation of these tyrosines was reduced with exogenous overexpression of a dominant negative EphA4, EphA4(&#x394;JM,KD), suggesting that FGFR-dependent FRS2&#x3B1; phosphorylation is also partly dependent on EphA4 expression (<xref rid="pone.0128826.g004" ref-type="fig">Fig 4B</xref>). In contrast, co-expression of FRS2&#x3B1; with increasing doses of EphA4 resulted in tyrosine phosphorylation of Grb2-binding sites only in a dose-dependent manner (<xref rid="pone.0128826.g004" ref-type="fig">Fig 4C</xref>). Treatment with SU5402, a specific inhibitor of FGFR kinases, significantly reduced phosphorylation, although it did not abolish it completely. Thus, we concluded that both Shp2 and Grb2 binding tyrosines are FGFR targets, whereas Grb2 binding tyrosines are the major targets of EphA4.</p>
+        <fig id="pone.0128826.g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0128826.g004</object-id>
+          <label>Fig 4</label>
+          <caption>
+            <title>Differential phosphorylation of tyrosines in FRS2&#x3B1;.</title>
+            <p>(A) Schematic representation of FRS2&#x3B1; mutants ectopically expressed in HEK293T cells. Mutant 4F contains phenylalanine in place of four tyrosine residues (Y169, Y306, Y349 and Y392), and is devoid of Grb2 binding. Similarly, mutant 2F contains phenylalanine in place of two tyrosine residues (Y439 and Y471), and is devoid of Shp2 binding. Mutant 6F carries the mutations of both 4F and 2F. (B, C) Tyrosine phosphorylation of FRS2&#x3B1; via FGFR1 and EphA4, respectively. Increasing doses (0, 1 and 3 &#x3BC;g per 60-mm plate) of pcDNA3.1/FGFR1-Myc or pcDNA3.1/EphA4-3Flag were co-transfected with pcDNA3.1/FRS2&#x3B1; (WT or mutants, 4 &#x3BC;g/plate) into HEK293T cells. A dominant-negative EphA4, EphA4(&#x394;JM,KD)-HA, was ectopically expressed in some HEK293T cells using a retrovirus vector (B, bottom panel). Some transfected cells were pretreated with 25 &#x3BC;M of SU5402 for 1 h before exposure to ephrin-A1 (C, bottom). The transfected cells were stimulated with FGF2 (100 ng/ml) for 15 min (B) or ephrin-A1 (0.5 &#x3BC;g/ml) for 60 min (C). In separate experiments, the maximal effects of FGF2 and ephrin-A1 were shown to occur at 15 and 60 min, respectively.</p>
+          </caption>
+          <graphic xlink:href="pone.0128826.g004"/>
+        </fig>
+      </sec>
+      <sec id="sec016">
+        <title>Signaling mechanisms of neuronal differentiation mediated by the EphA/FGFR/FRS2&#x3B1; ternary complex</title>
+        <p>The functions of Grb2 in mediating activation of the PI3-kinase-Akt pathway and SOS-Ras-MAP kinase pathway are well known. Since MAP kinase and PI3-kinase signals have been implicated in cell proliferation and differentiation activities, respectively, we examined their activities in NSPCs. Time-course analysis of FGF2 stimulation showed quick and robust activation of MAP kinase, which was suppressed almost completely by SU5402 (<xref rid="pone.0128826.g005" ref-type="fig">Fig 5A</xref>). In contrast, ephrin-A1 stimulation resulted in delayed weaker activation of MAP kinase, peaking approximately at 6 h, which was also suppressed by SU5402 (<xref rid="pone.0128826.g005" ref-type="fig">Fig 5B</xref>). In contrast, Akt activity did not change significantly from the basal level (0 min) following application of both FGF2 and ephrin-A1, even though a slight increase was observed at later time points between 9 and 18 h (<xref rid="pone.0128826.g005" ref-type="fig">Fig 5C and 5D</xref>). Pre-treatment with SU5402 did not affect Akt activity following FGF2 stimulation, but reduced Akt activity following ephrin-A1 stimulation at early time points (15 min-6 h). It was previously reported that activation of EphA2 via ephrin-A1 causes attenuation of Akt phosphorylation [<xref rid="pone.0128826.ref023" ref-type="bibr">23</xref>]. Since NSPCs also express EphA2 (<xref rid="pone.0128826.g001" ref-type="fig">Fig 1A</xref>), it is possible that the suppression of Akt activity with SU5402 pre-treatment might have had an effect on ephrin-A1/EphA2 signaling. That is, SU5402 might attenuate Akt phosphorylation. These results suggest that the delayed weak ephrin-A1-induced MAP kinase activation in NSPCs is caused by trans-phosphorylation of FGFR via active EphA receptor kinases, probably mediated mainly by the FRS2&#x3B1;-Grb2/SOS-Ras pathway. These findings also suggest why ephrin-A1-induced neuronal differentiation was suppressed by SU5402 (<xref rid="pone.0128826.g003" ref-type="fig">Fig 3D</xref>).</p>
+        <fig id="pone.0128826.g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0128826.g005</object-id>
+          <label>Fig 5</label>
+          <caption>
+            <title>Ligand-specific activation of FRS2&#x3B1;, MAP kinase and Akt in mouse embryonic NSPCs.</title>
+            <p>(A-D) Time course tyrosine phosphorylation of MAPK (ERK) and Akt in response to ephrin-A1 (0.5 &#x3BC;g/ml) and FGF2 (20 ng/ml), respectively, in mouse embryonic NSPCs. Cells were starved in growth factor-free medium containing 0.5% BSA and 20 mM HEPES buffer for 4 h. Activated phospho-MAPK (p-MAPK) and total amounts of MAPK (total MAPK) were detected by immunoblotting with anti-phospho-p44/42 MAPK (Thr202/Tyr204) and anti-p44/42 MAPK antibodies, respectively, using 20 &#x3BC;g of cell lysate for each time point. Phospho-Akt (p-Akt) and the total amount of Akt (total Akt) were also detected by immunoblotting with anti-phospho-Akt and anti-Akt antibodies, respectively. SU5402 (final concentration of 25 &#x3BC;M) was added 3 h before exposure to the ligand. Activation of MAP kinase and Akt were quantified in four different experiments (bottom: representative blotting result) and values were expressed as the ratio of p-MAPK/total MAPK or p-Akt/ total Akt. Bars represent the SD. * p&lt;0.005, ** p&lt;0.001, *** p&lt;0.0001 (n = 4) compared to the value at the 0 time point in each treatment using the two-tailed Student&#x2019;s t test. (E, F) Time course of Ras and Rap1 activation in response to ephrin-A1 (0.5 &#x3BC;g/ml) and FGF2 (20 ng/ml), respectively, in mouse embryonic NSPCs. Experiments were carried out twice with similar results. One of the blots is shown. Mean values of active (GTP-bound) and total Ras and Rap1 under various conditions were evaluated with the ratio of GTP-bound Ras/total Ras and GTP-bound Rap1/total Rap1, respectively.</p>
+          </caption>
+          <graphic xlink:href="pone.0128826.g005"/>
+        </fig>
+        <p>Subsequently, we performed further analysis of the delayed weak MAP kinase activation in response to ephrin-A1. To examine the activation status of downstream molecules of FRS2&#x3B1; in response to ephrin-A1 and FGF2 in NSPCs, activities of small G proteins, Ras and Rap1, were measured by pull-down assay. Ephrin-A1 increased the amount of GTP-bound Ras and sustained it even 12 h later, whereas the effect of FGF2 attenuated after 6 h of stimulation (<xref rid="pone.0128826.g005" ref-type="fig">Fig 5E</xref>). Ephrin-A1 slightly increased the amount of GTP-bound Rap1, with a peak at 6h, although not as much as Ras activation (<xref rid="pone.0128826.g005" ref-type="fig">Fig 5B</xref>). FGF2 did not influence GTP-Rap1 (<xref rid="pone.0128826.g005" ref-type="fig">Fig 5F</xref>). These results suggest that ephrin-A1 causes delayed weak MAP kinase activation probably through activation of Ras, leading to neuronal differentiation.</p>
+        <p>In summary, we extensively studied signals of the EphA4/FGFR/FRS2&#x3B1; complex following stimulation with ephrin-A1. Co-activation of FGF and ephrin signals enhanced NSPC self-renewal. The findings further revealed that ephrin-induced NSPC neuronal differentiation is enhanced through trans-phosphorylation of FGFRs by EphA and subsequent delayed MAP kinase activation.</p>
+      </sec>
+    </sec>
+    <sec sec-type="conclusions" id="sec017">
+      <title>Discussion</title>
+      <p>We previously reported that trans-activation between EphA4 and FGFRs is mediated by direct interaction of their cytoplasmic domains, which augments downstream signaling through activation of FRS2&#x3B1; [<xref rid="pone.0128826.ref016" ref-type="bibr">16</xref>]. We also reported that FRS2&#x3B1; directly binds to not only FGFRs but also EphA4, suggesting that FRS2&#x3B1; mediates the signal from the two receptors. The ternary complex composed of these three molecules mediates augmentation of NSPC proliferation in response to combined treatment with FGF2 and ephrin-A1 [<xref rid="pone.0128826.ref008" ref-type="bibr">8</xref>]. In a separate report, we also revealed that FGFR directly activates ephexin1, a downstream signal molecule of EphA4, which regulates migration and morphological changes in neuronal cells through modulation of Rho family GTPases [<xref rid="pone.0128826.ref022" ref-type="bibr">22</xref>].</p>
+      <p>In this report, we demonstrated that FGFRs bind to and phosphorylate almost all EphA members, and furthermore, that the interactions are inhibited by a dominant-negative form of EphA4. Consistent with our previous reports showing mitogenic activity, ternary complex signals were shown to mediate augmentation of NSPC self-renewing activity when stimulated with both FGF2 and ephrin-A1. The downstream signaling pathway of the ternary complex supporting augmentation is schematically shown in <xref rid="pone.0128826.g006" ref-type="fig">Fig 6</xref>. Ligand-stimulated FGFR resulted in phosphorylation of tyrosine residues on both the Grb2- and Shp2-binding sites of FRS2&#x3B1;, mediating activation of the Ras-MAP kinase pathway (<xref rid="pone.0128826.g006" ref-type="fig">Fig 6A</xref>), consistent with other reports [<xref rid="pone.0128826.ref001" ref-type="bibr">1</xref>, <xref rid="pone.0128826.ref002" ref-type="bibr">2</xref>, <xref rid="pone.0128826.ref004" ref-type="bibr">4</xref>]. In addition, combined stimulation with ephrin and FGF induced quick, robust and sustained MAP kinase activation caused by activation of both the Ras and Rap1 pathways. These signals resulted in augmentation of NSPC self-renewing activity (<xref rid="pone.0128826.g006" ref-type="fig">Fig 6B</xref>). The proliferating NSPCs retained the potential to differentiate into cells of neural lineage. Stimulation with ephrin-A1 alone activated MAP kinase signals, but in a delayed manner, and induced neuronal differentiation. This effect was suppressed by SU5402 (a specific inhibitor of FGFR kinase), suggesting that trans-activation of FGFRs plays an important role (<xref rid="pone.0128826.g006" ref-type="fig">Fig 6C</xref>). Rap1 was slightly activated consistent with the previous report [<xref rid="pone.0128826.ref006" ref-type="bibr">6</xref>]; however, did not appear to be the major signal downstream of the ephrin/Eph pathway.</p>
+      <fig id="pone.0128826.g006" orientation="portrait" position="float">
+        <object-id pub-id-type="doi">10.1371/journal.pone.0128826.g006</object-id>
+        <label>Fig 6</label>
+        <caption>
+          <title>Schematic representation of EphA/FGFR/FRS2&#x3B1; complex signaling in NSPCs.</title>
+          <p>(A) FGF2-induced activation of FGFR leads to phosphorylation of both Grb2 and Shp2 binding sites on FRS2&#x3B1;. Both the Shp2- and Grb2-mediated pathways were found to lead to activation of MAP kinase via activation of the Ras pathway. Rap1 was not significantly activated. (B) Co-stimulation with FGF2 and ephrin-A1 induced strong and sustained activation of FRS2&#x3B1;. Both the Ras- and Rap1-mediated pathways resulted in quick and robust MAP kinase activation, augmenting self-renewal of NSPCs. (C) Ephrin-A1-induced activation of EphA led to delayed weak activation of MAP kinase, and appeared to be mediated mainly by the Shp2-Ras and Shp2-Rap1 pathways via trans-phosphorylation of FGFR by EphA. Activation of Ras through the EphA-mediated Grb2-Ras pathway was weak. Dotted lines and grey letters indicate decreased signals compared with solid lines and black letters. Two FRS2&#x3B1; molecules are included in the complex to conveniently separate the signal transduction pathways mediated by ephrin/EphA4 and FGF/FGFR. The binding stoichiometry has yet to be studied.</p>
+        </caption>
+        <graphic xlink:href="pone.0128826.g006"/>
+      </fig>
+      <p>We also determined the downstream signaling pathway using specific inhibitors. Treatment with LY294002 (PI-3 kinase inhibitor) did not result in a significant decrease in ephrin-A1-induced proliferation or differentiation, unlike U0126 (MEK1/2 inhibitor) treatment, which resulted in a significant decrease in both. These findings suggest that the MAP kinase pathway, but not the PI-3 kinase-Akt pathway, is involved in these effects. It was previously reported that FGF signaling through the MAP kinase pathway is required for neuronal differentiation and neural induction in zebrafish [<xref rid="pone.0128826.ref024" ref-type="bibr">24</xref>] and Xenopus [<xref rid="pone.0128826.ref025" ref-type="bibr">25</xref>], respectively. In PC12 cells, robust MAP kinase activation induced by EGF and FGF2, respectively, contributes to cellular proliferation, whereas nerve growth factor (NGF) stimulation leads to prolonged activation of MAP kinase through the FRS2&#x3B1;-Shp2-Rap1 pathway and to neuronal differentiation [<xref rid="pone.0128826.ref003" ref-type="bibr">3</xref>, <xref rid="pone.0128826.ref005" ref-type="bibr">5</xref>, <xref rid="pone.0128826.ref026" ref-type="bibr">26</xref>]. EphA appears to be a positive regulator of the Rap1-MAP kinase pathway that induces neurogenesis of mouse embryonic NSPCs [<xref rid="pone.0128826.ref006" ref-type="bibr">6</xref>]. These reports indicate that MAP kinase activity, which is regulated by EphAs or other growth factor receptors, is essential for neurogenesis. In this study, we demonstrated that Ras is the major G protein up-regulated by ephrin-A1 stimulation in mouse embryonic NSPCs. Taken together, these findings suggest that trans-activation of FGFRs via activation of EphAs mediates delayed MAP kinase activation principally through the FRS2&#x3B1;-Ras pathway, leading to neuronal differentiation of NSPCs.</p>
+      <p>Our study also shows that activation of the PI-3 kinase pathway does not play a major role in EphA-mediated neural stem cell differentiation. Inactivation of the PI-3 kinase/Akt pathway and activation of glycogen synthase kinase-3 &#x3B2; (GSK-3&#x3B2;) with differential application of FGF or EGF led to differentiation of human fetal neural stem cells into motor neurons <italic>in vitro</italic> [<xref rid="pone.0128826.ref027" ref-type="bibr">27</xref>]. Activation of the PI-3 kinase-Akt pathway is also necessary for PDGF-AA-induced differentiation of NSPCs into oligodendrocyte precursor cells (OPCs) [<xref rid="pone.0128826.ref028" ref-type="bibr">28</xref>]. However, in our study, ephrin-A1 stimulation resulted in significant attenuation of Akt activity. This might be attributable to crosstalk between EphA and Akt, as demonstrated by Miao et al. in glioma cells [<xref rid="pone.0128826.ref023" ref-type="bibr">23</xref>]. Ligand-stimulated EphA2 dephosphorylates a serine residue of Akt, which is conserved in EphA1 and EphA2. Attenuation of Akt phosphorylation might therefore be mediated by these same EphAs expressed in NSPCs.</p>
+      <p>In conclusion, we demonstrated that the ternary complex composed of EphA, FGFR and FRS2&#x3B1; mediates the self-renewing activity of mouse NSPCs in response to simultaneous stimulation with FGF2 and ephrin-A1. Stimulation with ephrin-A1 alone leads to delayed weak MAP kinase activation through characteristic phosphorylation of FRS2&#x3B1; via trans-activation of FGFR by EphA, resulting in induction of neuronal differentiation rather than proliferation and self-renewal. These findings suggest that the FGFR/EphA/FRS2&#x3B1; complex plays a critical role in switching between proliferation and differentiation of neural stem cells via domain-specific activation of FRS2&#x3B1;. Moreover, the findings provide important molecular evidence supporting ephrin-A1 stimulation of dopaminergic neurogenesis in a rat model of Parkinson&#x2019;s disease [<xref rid="pone.0128826.ref029" ref-type="bibr">29</xref>].</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We would like to thank Ms. E. Shimada and Ms. M. Sakiayama for technical assistance and Dr. N. Gotoh of the University of Tokyo for kindly providing the mutant cDNA constructs of mouse <italic>Frs2&#x3B1;</italic>.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0128826.ref001">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Gotoh</surname><given-names>N</given-names></name>. <article-title>Regulation of growth factor signaling by FRS2 family docking/scaffold adaptor proteins</article-title>. <source>Cancer Sci</source>. <year>2008</year>;<volume>99</volume>: <fpage>1319</fpage>&#x2013;<lpage>1325</lpage>. <pub-id pub-id-type="doi">10.1111/j.1349-7006.2008.00840.x</pub-id>
+<pub-id pub-id-type="pmid">18452557</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref002">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hadari</surname><given-names>YR</given-names></name>, <name><surname>Gotoh</surname><given-names>N</given-names></name>, <name><surname>Kouhara</surname><given-names>H</given-names></name>, <name><surname>Lax</surname><given-names>I</given-names></name>, <name><surname>Schlessinger</surname><given-names>J</given-names></name>. <article-title>Critical role for the docking-protein FRS2 alpha in FGF receptor-mediated signal transduction pathways</article-title>. <source>Proc Natl Acad Sci USA</source>. <year>2001</year>;<volume>98</volume>: <fpage>8578</fpage>&#x2013;<lpage>8583</lpage>.
+<pub-id pub-id-type="pmid">11447289</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref003">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kao</surname><given-names>S</given-names></name>, <name><surname>Jaiswal</surname><given-names>RK</given-names></name>, <name><surname>Kolch</surname><given-names>W</given-names></name>, <name><surname>Landreth</surname><given-names>GE</given-names></name>. <article-title>Identification of the mechanisms regulating the differential activation of the mapk cascade by epidermal growth factor and nerve growth factor in PC12 cells</article-title>. <source>J Biol Chem</source>. <year>2001</year>;<volume>276</volume>: <fpage>18169</fpage>&#x2013;<lpage>18177</lpage>.
+<pub-id pub-id-type="pmid">11278445</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref004">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wu</surname><given-names>C</given-names></name>, <name><surname>Lai</surname><given-names>CF</given-names></name>, <name><surname>Mobley</surname><given-names>WC</given-names></name>. <article-title>Nerve growth factor activates persistent Rap1 signaling in endosomes</article-title>. <source>J Neurosci</source>. <year>2001</year>;<volume>21</volume>: <fpage>5406</fpage>&#x2013;<lpage>5416</lpage>.
+<pub-id pub-id-type="pmid">11466412</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref005">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>York</surname><given-names>RD</given-names></name>, <name><surname>Yao</surname><given-names>H</given-names></name>, <name><surname>Dillon</surname><given-names>T</given-names></name>, <name><surname>Ellig</surname><given-names>CL</given-names></name>, <name><surname>Eckert</surname><given-names>SP</given-names></name>, <name><surname>McCleskey</surname><given-names>EW</given-names></name>, <etal>et al</etal>
+<article-title>Rap1 mediates sustained MAP kinase activation induced by nerve growth factor</article-title>. <source>Nature</source>. <year>1998</year>;<volume>392</volume>: <fpage>622</fpage>&#x2013;<lpage>626</lpage>.
+<pub-id pub-id-type="pmid">9560161</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref006">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Aoki</surname><given-names>M</given-names></name>, <name><surname>Yamashita</surname><given-names>T</given-names></name>, <name><surname>Tohyama</surname><given-names>M</given-names></name>. <article-title>EphA receptors direct the differentiation of mammalian neural precursor cells through a mitogen-activated protein kinase-dependent pathway</article-title>. <source>J Biol Chem</source>. <year>2004</year>;<volume>279</volume>: <fpage>32643</fpage>&#x2013;<lpage>32650</lpage>.
+<pub-id pub-id-type="pmid">15145949</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref007">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yamamoto</surname><given-names>S</given-names></name>, <name><surname>Yoshino</surname><given-names>I</given-names></name>, <name><surname>Shimazaki</surname><given-names>T</given-names></name>, <name><surname>Murohashi</surname><given-names>M</given-names></name>, <name><surname>Hevner</surname><given-names>RF</given-names></name>, <name><surname>Lax</surname><given-names>I</given-names></name>, <etal>et al</etal>
+<article-title>Essential role of Shp2-binding sites on FRS2alpha for corticogenesis and for FGF2-dependent proliferation of neural progenitor cells</article-title>. <source>Proc Natl Acad Sci USA</source>. <year>2005</year>;<volume>102</volume>: <fpage>15983</fpage>&#x2013;<lpage>15988</lpage>.
+<pub-id pub-id-type="pmid">16239343</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref008">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sawada</surname><given-names>T</given-names></name>, <name><surname>Jing</surname><given-names>X</given-names></name>, <name><surname>Zhang</surname><given-names>Y</given-names></name>, <name><surname>Shimada</surname><given-names>E</given-names></name>, <name><surname>Yokote</surname><given-names>H</given-names></name>, <name><surname>Miyajima</surname><given-names>M</given-names></name>, <etal>et al</etal>
+<article-title>Ternary complex formation of EphA4, FGFR and FRS2alpha plays an important role in the proliferation of embryonic neural stem/progenitor cells</article-title>. <source>Genes Cells</source>. <year>2010</year>;<volume>15</volume>: <fpage>297</fpage>&#x2013;<lpage>311</lpage>. <pub-id pub-id-type="doi">10.1111/j.1365-2443.2010.01391.x</pub-id>
+<pub-id pub-id-type="pmid">20184660</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref009">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kullander</surname><given-names>K</given-names></name>, <name><surname>Klein</surname><given-names>R</given-names></name>. <article-title>Mechanisms and functions of Eph and ephrin signalling</article-title>. <source>Nat Rev Mol Cell Biol</source>. <year>2002</year>;<volume>3</volume>: <fpage>475</fpage>&#x2013;<lpage>486</lpage>.
+<pub-id pub-id-type="pmid">12094214</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref010">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shamah</surname><given-names>SM</given-names></name>, <name><surname>Lin</surname><given-names>MZ</given-names></name>, <name><surname>Goldberg</surname><given-names>JL</given-names></name>, <name><surname>Estrach</surname><given-names>S</given-names></name>, <name><surname>Sahin</surname><given-names>M</given-names></name>, <name><surname>Hu</surname><given-names>L</given-names></name>, <etal>et al</etal>
+<article-title>EphA receptors regulate growth cone dynamics through the novel guanine nucleotide exchange factor ephexin</article-title>. <source>Cell</source>. <year>2001</year>;<volume>105</volume>: <fpage>233</fpage>&#x2013;<lpage>244</lpage>.
+<pub-id pub-id-type="pmid">11336673</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref011">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nomura</surname><given-names>T</given-names></name>, <name><surname>Goritz</surname><given-names>C</given-names></name>, <name><surname>Catchpole</surname><given-names>T</given-names></name>, <name><surname>Henkemeyer</surname><given-names>M</given-names></name>, <name><surname>Frisen</surname><given-names>J</given-names></name>. <article-title>EphB signaling controls lineage plasticity of adult neural stem cell niche cells</article-title>. <source>Cell Stem Cell</source>. <year>2010</year>;<volume>7</volume>: <fpage>730</fpage>&#x2013;<lpage>743</lpage>. <pub-id pub-id-type="doi">10.1016/j.stem.2010.11.009</pub-id>
+<pub-id pub-id-type="pmid">21112567</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref012">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Xu</surname><given-names>Q</given-names></name>, <name><surname>Mellitzer</surname><given-names>G</given-names></name>, <name><surname>Robinson</surname><given-names>V</given-names></name>, <name><surname>Wilkinson</surname><given-names>DG</given-names></name>. <article-title>In vivo cell sorting in complementary segmental domains mediated by Eph receptors and ephrins</article-title>. <source>Nature</source>. <year>1999</year>;<volume>399</volume>: <fpage>267</fpage>&#x2013;<lpage>271</lpage>.
+<pub-id pub-id-type="pmid">10353250</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref013">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wang</surname><given-names>HU</given-names></name>, <name><surname>Chen</surname><given-names>ZF</given-names></name>, <name><surname>Anderson</surname><given-names>DJ</given-names></name>. <article-title>Molecular distinction and angiogenic interaction between embryonic arteries and veins revealed by ephrin-B2 and its receptor Eph-B4</article-title>. <source>Cell</source>. <year>1998</year>;<volume>93</volume>: <fpage>741</fpage>&#x2013;<lpage>753</lpage>.
+<pub-id pub-id-type="pmid">9630219</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref014">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhao</surname><given-names>C</given-names></name>, <name><surname>Irie</surname><given-names>N</given-names></name>, <name><surname>Takada</surname><given-names>Y</given-names></name>, <name><surname>Shimoda</surname><given-names>K</given-names></name>, <name><surname>Miyamoto</surname><given-names>T</given-names></name>, <name><surname>Nishiwaki</surname><given-names>T</given-names></name>, <etal>et al</etal>
+<article-title>Bidirectional ephrinB2-EphB4 signaling controls bone homeostasis</article-title>. <source>Cell Metab</source>. <year>2006</year>;<volume>4</volume>: <fpage>111</fpage>&#x2013;<lpage>121</lpage>.
+<pub-id pub-id-type="pmid">16890539</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref015">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Konstantinova</surname><given-names>I</given-names></name>, <name><surname>Nikolova</surname><given-names>G</given-names></name>, <name><surname>Ohara-Imaizumi</surname><given-names>M</given-names></name>, <name><surname>Meda</surname><given-names>P</given-names></name>, <name><surname>Kucera</surname><given-names>T</given-names></name>, <name><surname>Zarbalis</surname><given-names>K</given-names></name>, <etal>et al</etal>
+<article-title>EphA-Ephrin-A-mediated beta cell communication regulates insulin secretion from pancreatic islets</article-title>. <source>Cell</source>. <year>2007</year>;<volume>129</volume>: <fpage>359</fpage>&#x2013;<lpage>370</lpage>.
+<pub-id pub-id-type="pmid">17448994</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref016">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yokote</surname><given-names>H</given-names></name>, <name><surname>Fujita</surname><given-names>K</given-names></name>, <name><surname>Jing</surname><given-names>X</given-names></name>, <name><surname>Sawada</surname><given-names>T</given-names></name>, <name><surname>Liang</surname><given-names>S</given-names></name>, <name><surname>Yao</surname><given-names>L</given-names></name>, <etal>et al</etal>
+<article-title>Trans-activation of EphA4 and FGF receptors mediated by direct interactions between their cytoplasmic domains</article-title>. <source>Proc Natl Acad Sci USA</source>. <year>2005</year>;<volume>102</volume>: <fpage>18866</fpage>&#x2013;<lpage>18871</lpage>.
+<pub-id pub-id-type="pmid">16365308</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref017">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jing</surname><given-names>X</given-names></name>, <name><surname>Miwa</surname><given-names>H</given-names></name>, <name><surname>Sawada</surname><given-names>T</given-names></name>, <name><surname>Nakanishi</surname><given-names>I</given-names></name>, <name><surname>Kondo</surname><given-names>T</given-names></name>, <name><surname>Miyajima</surname><given-names>M</given-names></name>, <etal>et al</etal>
+<article-title>Ephrin-A1-mediated dopaminergic neurogenesis and angiogenesis in a rat model of Parkinson's disease</article-title>. <source>PLoS One</source>. <year>2012</year>;<volume>7</volume>: <fpage>e32019</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0032019</pub-id>
+<pub-id pub-id-type="pmid">22363788</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref018">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Khodosevich</surname><given-names>K</given-names></name>, <name><surname>Watanabe</surname><given-names>Y</given-names></name>, <name><surname>Monyer</surname><given-names>H</given-names></name>. <article-title>EphA4 preserves postnatal and adult neural stem cells in an undifferentiated state in vivo</article-title>. <source>J Cell Sci</source>. <year>2011</year>;<volume>124</volume>: <fpage>1268</fpage>&#x2013;<lpage>1279</lpage>. <pub-id pub-id-type="doi">10.1242/jcs.076059</pub-id>
+<pub-id pub-id-type="pmid">21444754</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref019">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kitamura</surname><given-names>T</given-names></name>, <name><surname>Koshino</surname><given-names>Y</given-names></name>, <name><surname>Shibata</surname><given-names>F</given-names></name>, <name><surname>Oki</surname><given-names>T</given-names></name>, <name><surname>Nakajima</surname><given-names>H</given-names></name>, <name><surname>Nosaka</surname><given-names>T</given-names></name>, <etal>et al</etal>
+<article-title>Retrovirus-mediated gene transfer and expression cloning: powerful tools in functional genomics</article-title>. <source>Exp Hematol</source>. <year>2003</year>;<volume>31</volume>: <fpage>1007</fpage>&#x2013;<lpage>1014</lpage>.
+<pub-id pub-id-type="pmid">14585362</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref020">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ahmed</surname><given-names>S</given-names></name>. <article-title>The culture of neural stem cells</article-title>. <source>J Cell Biochem</source>. <year>2009</year>;<volume>106</volume>: <fpage>1</fpage>&#x2013;<lpage>6</lpage>. <pub-id pub-id-type="doi">10.1002/jcb.21972</pub-id>
+<pub-id pub-id-type="pmid">19021147</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref021">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ferron</surname><given-names>SR</given-names></name>, <name><surname>Andreu-Agullo</surname><given-names>C</given-names></name>, <name><surname>Mira</surname><given-names>H</given-names></name>, <name><surname>Sanchez</surname><given-names>P</given-names></name>, <name><surname>Marques-Torrejon</surname><given-names>MA</given-names></name>, <name><surname>Farinas</surname><given-names>I</given-names></name>, <etal>et al</etal>
+<article-title>A combined ex/in vivo assay to detect effects of exogenously added factors in neural stem cells</article-title>. <source>Nat Protoc</source>. <year>2007</year>;<volume>2</volume>: <fpage>849</fpage>&#x2013;<lpage>859</lpage>.
+<pub-id pub-id-type="pmid">17474182</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref022">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhang</surname><given-names>Y</given-names></name>, <name><surname>Sawada</surname><given-names>T</given-names></name>, <name><surname>Jing</surname><given-names>X</given-names></name>, <name><surname>Yokote</surname><given-names>H</given-names></name>, <name><surname>Yan</surname><given-names>X</given-names></name>, <name><surname>Sakaguchi</surname><given-names>K</given-names></name>, <etal>et al</etal>
+<article-title>Regulation of ephexin1, a guanine nucleotide exchange factor of Rho family GTPases, by fibroblast growth factor receptor-mediated tyrosine phosphorylation</article-title>. <source>J Biol Chem</source>. <year>2007</year>;<volume>282</volume>: <fpage>31103</fpage>&#x2013;<lpage>31112</lpage>.
+<pub-id pub-id-type="pmid">17702745</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref023">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Miao</surname><given-names>H</given-names></name>, <name><surname>Li</surname><given-names>DQ</given-names></name>, <name><surname>Mukherjee</surname><given-names>A</given-names></name>, <name><surname>Guo</surname><given-names>H</given-names></name>, <name><surname>Petty</surname><given-names>A</given-names></name>, <name><surname>Cutter</surname><given-names>J</given-names></name>, <etal>et al</etal>
+<article-title>EphA2 mediates ligand-dependent inhibition and ligand-independent promotion of cell migration and invasion via a reciprocal regulatory loop with Akt</article-title>. <source>Cancer Cell</source>. <year>2009</year>;<volume>16</volume>: <fpage>9</fpage>&#x2013;<lpage>20</lpage>. <pub-id pub-id-type="doi">10.1016/j.ccr.2009.04.009</pub-id>
+<pub-id pub-id-type="pmid">19573808</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref024">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shinya</surname><given-names>M</given-names></name>, <name><surname>Koshida</surname><given-names>S</given-names></name>, <name><surname>Sawada</surname><given-names>A</given-names></name>, <name><surname>Kuroiwa</surname><given-names>A</given-names></name>, <name><surname>Takeda</surname><given-names>H</given-names></name>. <article-title>Fgf signalling through MAPK cascade is required for development of the subpallial telencephalon in zebrafish embryos</article-title>. <source>Development</source>. <year>2001</year>;<volume>128</volume>: <fpage>4153</fpage>&#x2013;<lpage>4164</lpage>.
+<pub-id pub-id-type="pmid">11684653</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref025">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Delaune</surname><given-names>E</given-names></name>, <name><surname>Lemaire</surname><given-names>P</given-names></name>, <name><surname>Kodjabachian</surname><given-names>L</given-names></name>. <article-title>Neural induction in Xenopus requires early FGF signalling in addition to BMP inhibition</article-title>. <source>Development</source>. <year>2005</year>;<volume>132</volume>: <fpage>299</fpage>&#x2013;<lpage>310</lpage>.
+<pub-id pub-id-type="pmid">15590738</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref026">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sun</surname><given-names>P</given-names></name>, <name><surname>Watanabe</surname><given-names>H</given-names></name>, <name><surname>Takano</surname><given-names>K</given-names></name>, <name><surname>Yokoyama</surname><given-names>T</given-names></name>, <name><surname>Fujisawa</surname><given-names>J</given-names></name>, <name><surname>Endo</surname><given-names>T</given-names></name>, <etal>et al</etal>
+<article-title>Sustained activation of M-Ras induced by nerve growth factor is essential for neuronal differentiation of PC12 cells</article-title>. <source>Genes Cells</source>. <year>2006</year>;<volume>11</volume>: <fpage>1097</fpage>&#x2013;<lpage>1113</lpage>.
+<pub-id pub-id-type="pmid">16923128</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref027">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ojeda</surname><given-names>L</given-names></name>, <name><surname>Gao</surname><given-names>J</given-names></name>, <name><surname>Hooten</surname><given-names>KG</given-names></name>, <name><surname>Wang</surname><given-names>E</given-names></name>, <name><surname>Thonhoff</surname><given-names>JR</given-names></name>, <name><surname>Dunn</surname><given-names>TJ</given-names></name>, <etal>et al</etal>
+<article-title>Critical role of PI3K/Akt/GSK3beta in motoneuron specification from human neural stem cells in response to FGF2 and EGF</article-title>. <source>PLoS One</source>. <year>2011</year>;<volume>6</volume>: <fpage>e23414</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0023414</pub-id>
+<pub-id pub-id-type="pmid">21887250</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref028">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hu</surname><given-names>JG</given-names></name>, <name><surname>Wang</surname><given-names>YX</given-names></name>, <name><surname>Wang</surname><given-names>HJ</given-names></name>, <name><surname>Bao</surname><given-names>MS</given-names></name>, <name><surname>Wang</surname><given-names>ZH</given-names></name>, <name><surname>Ge</surname><given-names>X</given-names></name>, <etal>et al</etal>
+<article-title>PDGF-AA mediates B104CM-induced oligodendrocyte precursor cell differentiation of embryonic neural stem cells through Erk, PI3K, and p38 signaling</article-title>. <source>J Mol Neurosci</source>. <year>2012</year>;<volume>46</volume>: <fpage>644</fpage>&#x2013;<lpage>653</lpage>. <pub-id pub-id-type="doi">10.1007/s12031-011-9652-x</pub-id>
+<pub-id pub-id-type="pmid">21953009</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0128826.ref029">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jing</surname><given-names>X</given-names></name>, <name><surname>Miyajima</surname><given-names>M</given-names></name>, <name><surname>Sawada</surname><given-names>T</given-names></name>, <name><surname>Chen</surname><given-names>Q</given-names></name>, <name><surname>Iida</surname><given-names>K</given-names></name>, <name><surname>Furushima</surname><given-names>K</given-names></name>, <etal>et al</etal>
+<article-title>Crosstalk of humoral and cell-cell contact-mediated signals in postnatal body growth</article-title>. <source>Cell Rep</source>. <year>2012</year>;<volume>2</volume>: <fpage>652</fpage>&#x2013;<lpage>665</lpage>. <pub-id pub-id-type="doi">10.1016/j.celrep.2012.08.021</pub-id>
+<pub-id pub-id-type="pmid">22999939</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

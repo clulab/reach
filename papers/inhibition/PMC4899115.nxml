@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8100316</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1138</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biomaterials</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomaterials</journal-id>
+      <journal-title-group>
+        <journal-title>Biomaterials</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0142-9612</issn>
+      <issn pub-type="epub">1878-5905</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27177218</article-id>
+      <article-id pub-id-type="pmc">4899115</article-id>
+      <article-id pub-id-type="doi">10.1016/j.biomaterials.2016.04.018</article-id>
+      <article-id pub-id-type="manuscript">NIHMS786016</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Cell-based tissue engineering strategies used in the clinical repair of articular cartilage</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Brian J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Jerry C.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Athanasiou</surname>
+            <given-names>Kyriacos A.</given-names>
+          </name>
+          <degrees>PhD, PE</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biomedical Engineering, University of California Davis
+</aff>
+      <aff id="A2"><label>2</label>Department of Orthopedic Surgery, University of California Davis
+</aff>
+      <author-notes>
+        <corresp id="CR1">Correspondence and reprint requests should be addressed to: Athanasiou, KA, Department of Biomedical Engineering, University of California Davis, One Shields Avenue, Davis, CA, 95616, USA, Tel.: (530) 754-6645, Fax: (530) 754-5739, <email>athanasiou@ucdavis.edu</email></corresp>
+        <fn id="FN1">
+          <p id="P1"><email>brihuang@ucdavis.edu</email>, <email>jcyhu@ucdavis.edu</email></p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>14</day>
+        <month>5</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>26</day>
+        <month>4</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>8</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>8</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>98</volume>
+      <fpage>1</fpage>
+      <lpage>22</lpage>
+      <!--elocation-id from pubmed: 10.1016/j.biomaterials.2016.04.018-->
+      <abstract>
+        <p id="P2">One of the most important issues facing cartilage tissue engineering is the inability to move technologies into the clinic. Despite the multitude of review articles on the paradigm of biomaterials, signals, and cells, it is reported that 90% of new drugs that advance past animal studies fail clinical trials (<xref rid="R1" ref-type="bibr">1</xref>). The intent of this review is to provide readers with an understanding of the scientific details of tissue engineered cartilage products that have demonstrated a certain level of efficacy in humans, so that newer technologies may be developed upon this foundation. Compared to existing treatments, such as microfracture or autologous chondrocyte implantation, a tissue engineered product can potentially provide more consistent clinical results in forming hyaline repair tissue and in filling the entirety of the defect. The various tissue engineering strategies (e.g., cell expansion, scaffold material, media formulations, biomimetic stimuli, etc.) used in forming these products, as collected from published literature, company websites, and relevant patents, are critically discussed. The authors note that many details about these products remain proprietary, not all information is made public, and that advancements to the products are continuously made. Nevertheless, by fully understanding the design and production processes of these emerging technologies, one can gain tremendous insight into how to best use them and also how to design the next generation of tissue engineered cartilage products.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

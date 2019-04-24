@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0373226</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">3643</journal-id>
+      <journal-id journal-id-type="nlm-ta">Exp Cell Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Exp. Cell Res.</journal-id>
+      <journal-title-group>
+        <journal-title>Experimental cell research</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0014-4827</issn>
+      <issn pub-type="epub">1090-2422</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23219847</article-id>
+      <article-id pub-id-type="pmc">3593966</article-id>
+      <article-id pub-id-type="doi">10.1016/j.yexcr.2012.11.019</article-id>
+      <article-id pub-id-type="manuscript">NIHMS427342</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Induction of apoptotic death and retardation of neuronal differentiation of human neural stem cells by sodium arsenite treatment</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ivanov</surname>
+            <given-names>Vladimir N.</given-names>
+          </name>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hei</surname>
+            <given-names>Tom K.</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">Center for Radiological Research, Department of Radiation Oncology, College of Physicians and Surgeons, Columbia University, 670 West 168th St., NY 10032 New York, United States</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1"><label>*</label>Corresponding author. Tel.: +1 212 305 9667; fax: +1 212 305 3229. <email>vni3@columbia.edu</email></corresp>
+        <fn id="FN2" fn-type="conflict">
+          <p>The authors declare that there are no conflicts of interest.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>14</day>
+        <month>12</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>05</day>
+        <month>12</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>1</day>
+        <month>4</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>4</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>319</volume>
+      <issue>6</issue>
+      <fpage>875</fpage>
+      <lpage>887</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Elsevier Inc. All rights reserved.</copyright-statement>
+        <copyright-year>2012</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P2">Chronic arsenic toxicity is a global health problem that affects more than 100 million people worldwide. Long-term health effects of inorganic sodium arsenite in drinking water may result in skin, lung and liver cancer and severe neurological abnormalities. We investigated in the present study whether sodium arsenite affects signaling pathways that control cell survival, proliferation and neuronal differentiation of human neural stem cells (NSC). We demonstrated that the critical signaling pathway, which was suppressed by sodium arsenite in NSC, was the protective PI3K-AKT pathway. Sodium arsenite (2&#x2013;4 &#x3BC;M) also caused down-regulation of Nanog, one of the key transcription factors that control pluripotency and self-renewal of stem cells. Mitochondrial damage and cytochrome-<italic>c</italic> release induced by sodium arsenite exposure was followed by initiation of the mitochondrial apoptotic pathway in NSC. Besides caspase-9 and caspase-3 inhibitors, suppression of JNK activity decreased levels of arsenite-induced apoptosis in NSC. Neuronal differentiation of NSC was substantially inhibited by sodium arsenite exposure. Over-activation of JNK1 and ERK1/2 and down-regulation of PI3K-AKT activity induced by sodium arsenite were critical factors that strongly affected neuronal differentiation. In conclusion, sodium arsenite exposure of human NSC induces the mitochondrial apoptotic pathway, which is substantially accelerated due to the simultaneous suppression of PI3K-AKT. Sodium arsenite also negatively affects neuronal differentiation of NSC through over-activation of MEK-ERK and suppression of PI3K-AKT.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Neural stem cells</kwd>
+        <kwd>AKT</kwd>
+        <kwd>ERK</kwd>
+        <kwd>JNK</kwd>
+        <kwd>Sodium arsenite</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Environmental Health Sciences : NIEHS</funding-source>
+          <award-id>P30 ES009089 || ES</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Cancer Institute : NCI</funding-source>
+          <award-id>P01 CA049062 || CA</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

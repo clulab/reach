@@ -1,0 +1,786 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:ali="http://www.niso.org/schemas/ali/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Front Cell Neurosci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Front Cell Neurosci</journal-id>
+      <journal-id journal-id-type="publisher-id">Front. Cell. Neurosci.</journal-id>
+      <journal-title-group>
+        <journal-title>Frontiers in Cellular Neuroscience</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1662-5102</issn>
+      <publisher>
+        <publisher-name>Frontiers Media S.A.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26441523</article-id>
+      <article-id pub-id-type="pmc">4561523</article-id>
+      <article-id pub-id-type="doi">10.3389/fncel.2015.00350</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Neuroscience</subject>
+          <subj-group>
+            <subject>Original Research</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Leptin-dependent neurotoxicity via induction of apoptosis in adult rat neurogenic cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Segura</surname>
+            <given-names>St&#xE9;phanie</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn002">
+            <sup>&#x2020;</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Efthimiadi</surname>
+            <given-names>Laurie</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn002">
+            <sup>&#x2020;</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Porcher</surname>
+            <given-names>Christophe</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/118344/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Courtes</surname>
+            <given-names>Sandrine</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Coronas</surname>
+            <given-names>Val&#xE9;rie</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/3600/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Krantic</surname>
+            <given-names>Slavica</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn003">
+            <sup>&#x2021;</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/157612/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Moyse</surname>
+            <given-names>Emmanuel</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn001">
+            <sup>*</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn003">
+            <sup>&#x2021;</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/106535/overview"/>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+        <sup>1</sup>
+        <institution>Physiologie de la Reproduction et des Comportements, UMR 85 Institut National de la Recherche Agronomique, Centre INRA de Tours, Universit&#xE9; Fran&#xE7;ois Rabelais de Tours</institution>
+        <country>Nouzilly, France</country>
+      </aff>
+      <aff id="aff2">
+        <sup>2</sup>
+        <institution>Institut National de la Sant&#xE9; et de la Recherche M&#xE9;dicale Unit&#xE9; 901, Institut de Neurobiologie de la M&#xE9;diterran&#xE9;e, Parc Scientifique de Luminy, Aix-Marseille Universit&#xE9;</institution>
+        <country>Marseille, France</country>
+      </aff>
+      <aff id="aff3">
+        <sup>3</sup>
+        <institution>Signalisation et Transports Ioniques Membranaires, ERL 7368 Centre National de la Recherche Scientifique, Universit&#xE9; de Poitiers</institution>
+        <country>Poitiers, France</country>
+      </aff>
+      <aff id="aff4">
+        <sup>4</sup>
+        <institution>Centre de Recherche des Cordeliers, UMR_S 1138 INSERM, Paris Descartes University, Sorbonne Paris Cit&#xE9;, Pierre and Marie Curie University</institution>
+        <country>Paris, France</country>
+      </aff>
+      <author-notes>
+        <fn fn-type="edited-by">
+          <p>Edited by: Gerald W. Zamponi, University of Calgary, Canada</p>
+        </fn>
+        <fn fn-type="edited-by">
+          <p>Reviewed by: Oliver von Bohlen und Halbach, Universit&#xE4;tsmedizin Greifswald, Germany; Jo&#xE3;o O. Malva, University of Coimbra, Portugal</p>
+        </fn>
+        <corresp id="fn001">*Correspondence: Emmanuel Moyse, UMR 85 Institut National de la Recherche Agronomique, Centre INRA de Tours, Universit&#xE9; Fran&#xE7;ois Rabelais de Tours, 37380 Nouzilly, France <email xlink:type="simple">emmanuel.moyse@univ-tours.fr</email></corresp>
+        <fn fn-type="present-address" id="fn002">
+          <p>&#x2020;These authors have contributed equally to this work as first co-authors.</p>
+        </fn>
+        <fn fn-type="present-address" id="fn003">
+          <p>&#x2021;These authors have contributed equally to this work as co-directors.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>07</day>
+        <month>9</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2015</year>
+      </pub-date>
+      <volume>9</volume>
+      <elocation-id>350</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>03</day>
+          <month>9</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>21</day>
+          <month>8</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2015 Segura, Efthimiadi, Porcher, Courtes, Coronas, Krantic and Moyse.</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <copyright-holder>Segura, Efthimiadi, Porcher, Courtes, Coronas, Krantic and Moyse</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) or licensor are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Adipocyte-derived hormone leptin has been recently implicated in the control of neuronal plasticity. To explore whether modulation of adult neurogenesis may contribute to leptin control of neuronal plasticity, we used the neurosphere assay of neural stem cells derived from the adult rat subventricular zone (SVZ). Endogenous expression of specific leptin receptor (ObRb) transcripts, as revealed by RT-PCR, is associated with activation of both ERK and STAT-3 pathways via phosphorylation of the critical ERK/STAT-3 amino acid residues upon addition of leptin to neurospheres. Furthermore, leptin triggered withdrawal of neural stem cells from the cell cycle as monitored by Ki67 labeling. This effect was blocked by pharmacological inhibition of ERK activation thus demonstrating that ERK mediates leptin effects on neural stem cell expansion. Leptin-dependent withdrawal of neural stem cells from the cell cycle was associated with increased apoptosis, as detected by TUNEL, which was preceded by cyclin D1 induction. Cyclin D1 was indeed extensively colocalized with TUNEL-positive, apoptotic nuclei. Cyclin-D1 silencing by specific shRNA prevented leptin-induced decrease of the cell number per neurosphere thus pointing to the causal relationship between leptin actions on apoptosis and cyclin D1 induction. Leptin target cells in SVZ neurospheres were identified by double TUNEL/phenotypic marker immunocytofluorescence as differentiating neurons mostly. The inhibition of neural stem cell expansion via ERK/cyclin D1-triggered apoptosis defines novel biological action of leptin which may be involved in adiposity-dependent neurotoxicity.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>leptin</kwd>
+        <kwd>neurospheres</kwd>
+        <kwd>adult neural stem cells</kwd>
+        <kwd>proliferation</kwd>
+        <kwd>neuronal death</kwd>
+        <kwd>STAT3</kwd>
+        <kwd>ERK</kwd>
+        <kwd>rat</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="8"/>
+        <table-count count="1"/>
+        <equation-count count="0"/>
+        <ref-count count="63"/>
+        <page-count count="13"/>
+        <word-count count="9430"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro" id="s1">
+      <title>Introduction</title>
+      <p>Leptin has been identified as a fat storage-reducing hormone in adipose tissue (Zhang et al., <xref rid="B63" ref-type="bibr">1994</xref>). In adult mammals, it is secreted by adipocytes proportionally to their lipidic charge and negatively regulates energy homeostasis (Oswal and Yeo, <xref rid="B43" ref-type="bibr">2010</xref>). Leptin also exerts direct long-term inhibition of feeding behavior at the central level by regulating the key centres of food intake, including hypothalamus (Grill and Hayes, <xref rid="B21" ref-type="bibr">2012</xref>; Morton et al., <xref rid="B38" ref-type="bibr">2014</xref>). These leptin actions are mediated by specific membrane receptors (ObRb; Villanueva and Myers, <xref rid="B62" ref-type="bibr">2008</xref>) that are widely distributed in the adult brain (Elmquist et al., <xref rid="B14" ref-type="bibr">1998</xref>; Myers et al., <xref rid="B40" ref-type="bibr">2009</xref>). Activation of ObRb by leptin binding triggers multiple signaling pathways: (i) Signal Transducer and Activator of Transcription 3 (STAT3), (ii) mitogen-activated protein kinase (MAPK)/extracellular signal-regulated kinase (ERK), (iii) phosphatidylinositol 3-kinase (PI3K)-AKT cascades, (iv) STAT5, (v) 5&#x2032; adenosine monophosphate-activated protein kinase (AMPK; Villanueva and Myers, <xref rid="B62" ref-type="bibr">2008</xref>; Coppari and Bj&#xF8;rb&#xE6;k, <xref rid="B10" ref-type="bibr">2012</xref>).</p>
+      <p>At the cellular level, leptin regulates structural plasticity of the neuronal networks in rodent hypothalamus, both during development (Bouret et al., <xref rid="B5" ref-type="bibr">2004</xref>; Bouret, <xref rid="B6" ref-type="bibr">2013</xref>) and in adult (Pinto et al., <xref rid="B50" ref-type="bibr">2004</xref>). Among the mechanisms regulating neuronal network plasticity inherent to physiological adaptations, neurogenesis has been established to play an important role (Braun and Jessberger, <xref rid="B7" ref-type="bibr">2014</xref>). Notably, the adult neurogenesis located to the neurogenic niche of rodent hypothalamus (Cheng, <xref rid="B9" ref-type="bibr">2013</xref>; Hann et al., <xref rid="B23" ref-type="bibr">2013</xref>), has been recently involved in food intake regulation (Kokoeva et al., <xref rid="B25" ref-type="bibr">2005</xref>; Pierce and Xu, <xref rid="B49" ref-type="bibr">2010</xref>; Lee et al., <xref rid="B28" ref-type="bibr">2012</xref>; McNay et al., <xref rid="B35" ref-type="bibr">2012</xref>). In addition, leptin has been shown to stimulate adult neurogenesis in murine hypothalamus <italic>in vivo</italic> via expansion of hypothalamic neural stem cells in the context of energy homeostasis and feeding (McNay et al., <xref rid="B35" ref-type="bibr">2012</xref>; Bless et al., <xref rid="B4" ref-type="bibr">2014</xref>).</p>
+      <p>Food intake regulation is also determined by olfactory perception and memory which is shaped by adult neurogenesis in olfactory bulb (Gheusi and Lledo, <xref rid="B20" ref-type="bibr">2014</xref>) and is modulated by leptin (Palouzier-Paulignan et al., <xref rid="B45" ref-type="bibr">2012</xref>). The exclusive source of olfactory bulb adult neurogenesis is the neural stem cell niche of the subventricular zone of the telencephalon (SVZ) (Braun and Jessberger, <xref rid="B7" ref-type="bibr">2014</xref>). However, SVZ has not been investigated so far in terms of possible regulation of adult neurogenesis by leptin. In the present study, we therefore asked whether leptin regulates adult neurogenesis in the SVZ. To address this question, we used the <italic>in vitro</italic> culture system known as the neurosphere assay (Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>) and analyzed leptin effects on neurospheres derived from adult rat SVZ.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and methods</title>
+      <sec>
+        <title>Animals</title>
+        <p>Forty adult male Wistar rats (ICO: OFA-S.D. [IOPS.Caw]; Charles River, Les Oncins, France), weighing 150&#x2013;200 g, were used in this study. These animals were bred and handled in accordance with the Guide for the Care and Use of Laboratory Animals (National Research Council, <xref rid="B41" ref-type="bibr">1996</xref>) and the European Communities Council Directive of 24 November 1986 (86/609/EEC). The experimental protocols were carried out in compliance with institutional Ethical Committee guidelines for animal research. All efforts were made to minimize the number of animals used and their suffering.</p>
+      </sec>
+      <sec>
+        <title>Primary culture of neural stem cells</title>
+        <p>The &#x201C;neurosphere assay&#x201D; was performed as previously described (Charrier et al., <xref rid="B8" ref-type="bibr">2006</xref>; Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>). Brains were obtained from adult rats anesthesized and euthanized by decapitation. 500 &#x3BC;m-thick coronal forebrain slices were rapidly cut with a tissue-chopper at the level of anterior striatum, and transferred into ice-cold low-calcium artificial cerebrospinal fluid (aCSF: 124 mM NaCl, 5 mM KCl, 3.2 mM MgCl2, 0.1 mM CaCl2, 26 mM NaHCO3, 100 mM glucose, pH 7.38) for microdissection of the SVZ under binoculars. The tissue samples were digested in 10 U activated papain (Sigma, L'Isle d'Abeau, France) and then by 1X TrypLe&#x2122; Express (Invitrogen, Cergy-Pontoise, France), each for 8 min at 37&#xB0;C, while being triturated gently with a pipet cone. The resulting cell suspension was diluted with 800 &#x3BC;L of culture medium (DMEM [Sigma], 20 &#x3BC;M HEPES [Invitrogen], 200 U/mL penicilline and 200 &#x3BC;g/mL streptomycine [Invitrogen], 1X B27 [Invitrogen, Cergy Pontoise, France], 20 ng/mL basic Fibroblast Growth Factor (bFGF) [Invitrogen], 8 or 20 ng/mL Epidermal Growth Factor (EGF) [Invitrogen]). The cell suspension was then centrifuged at 400 &#xD7; g for 8 min, the pellet was resuspended in 500 &#x3BC;L of culture medium and triturated with a 1 mL 26G syringe. The cells were seeded at 10,000 cells per 1 mL culture medium per well (24-well plates for non-adherent cells [Corning, Avon, France]) with or without murine recombinant leptin [Amgen, Thousand Oaks, CA, USA]). For passaging, the neurospheres were pooled in a tube and incubated for 30 min at 37&#xB0;C in 1 mL TrypLe&#x2122; Express (Invitrogen). The cell suspension was then diluted with 800 &#x3BC;L of culture medium and centrifuged. The resulting pellet was dissociated, the cell density was counted and adjusted as above. Cell culture medium was changed every 2 days and, when relevant, leptin was added daily.</p>
+      </sec>
+      <sec>
+        <title>Cytochemical assays</title>
+        <p>For cytochemical assays, primary cultures of adult rat SVZ EGF were grown in the presence of 8 nM during 5 DIV on poly-D-lysine (Sigma)-coated glass coverslips (inserted at the bottom of the 24-well plates) in the absence (control) or in the presence of leptin at the physiologically relevant dose 6.2 nM (Bariohay et al., <xref rid="B1" ref-type="bibr">2005</xref>), rinsed in PBS, fixed 30 min at 4&#xB0;C with a 4% paraformaldehyde solution in 0.05 M sodium phosphate buffer (pH 7.4), rinsed three times in PBS, and permeabilized in PBS containing 0.1% Triton X-100 and 1% BSA. For immunocytochemistry, primary antibodies (list in Table <xref ref-type="table" rid="T1">1</xref>) were incubated in PBS containing 0.1% Triton X-100, 1% BSA, 1% normal serum overnight at 4&#xB0;C, revealed with relevant Alexa-fluorescent secondary antibodies, counterstained with diamidino-2-phenylindole (DAPI) and mounted on glass slides with Vectashield (Vector labs). <italic>In situ</italic> labeling of apoptotic nuclear DNA fragmentation (TUNEL assay) was performed as previously described (Bauer et al., <xref rid="B2" ref-type="bibr">2003</xref>) for initial quantification of leptin effects. Briefly, the coverslips were incubated 15 min at room temperature with proteinase K at 20 &#x3BC;g/mL in PBS, then 10 min with 2% H<sub>2</sub>O<sub>2</sub> in PBS, 5 min in Tris-cacodylate-CoCl<sub>2</sub> (300:140:1 mM) buffer (pH 7.5) and 2 h at 37&#xB0;C in the same buffer with 150 U/mL terminal-transferase (TdT, Roche-Diagnostics, Meylan, France) and 6 nM biotinylated d-UTP (Roche), rinsed 15 min at room temperature in SSC 1X, and revealed with Alexa-fluorescent avidin (Molecular Probes). For the phenotypic identification of apoptotic cells, a proteinase-K-free fluorescent detection kit was used (Roche Diagnostic, Meylan, France) following the manufacturer's instructions, prior to subsequent immunocytofluorescent labeling of neuropoiesis stage markers (Table <xref ref-type="table" rid="T1">1</xref>).</p>
+        <table-wrap id="T1" position="float">
+          <label>Table 1</label>
+          <caption>
+            <p><bold>List of primary antibodies and details of immunohistochemical procedures used</bold>.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th valign="top" align="left" rowspan="1" colspan="1">
+                  <bold>Antigen</bold>
+                </th>
+                <th valign="top" align="left" rowspan="1" colspan="1">
+                  <bold>Source</bold>
+                </th>
+                <th valign="top" align="left" rowspan="1" colspan="1">
+                  <bold>Cell-type specificity</bold>
+                </th>
+                <th valign="top" align="left" rowspan="1" colspan="1">
+                  <bold>Dilution</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Nestin</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Mouse monoclonal, Millipore</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Neural stem cells</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:300</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Sox-2</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Goat polyclonal, Santa-Cruz</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Neural stem cells</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:100</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Doublecortin (DCX)</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Goat polyclonal, Santa-Cruz</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Immature/migrating neurons</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:200</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Ki-67</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Mouse monoclonal, BD Biosciences</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Proliferating cells in cell cycle</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:1.000</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Cyclin D1</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Rabbit monoclonal, Neomarker</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Cycling cells in G1/S phases</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:500</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Glial fibrillary acidic protein (GFAP)</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Rabbit polyclonal, Dako</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Astrocytes, neural stem cells, radial glia</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:500</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">S-100-&#x3B2;</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Rabbit polyclonal, Dako, Z0311</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Astrocytes</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:400</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Oligodendrocytic protein O4</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Rabbit polyclonal, Chemicon</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Oligodendrocytes</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:75</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Microtubule-associated protein-2 (MAP2)</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Mouse monoclonal, Sigma-Aldrich</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Mature neurons</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:300&#x2013;1:500</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" rowspan="1" colspan="1">Axonal &#x3B2;III-tubulin</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Mouse monoclonal, Sigma-Aldrich</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">Mature neurons</td>
+                <td valign="top" align="left" rowspan="1" colspan="1">1:150</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>mRNA extraction and RT-PCRs</title>
+        <p>Neurospheres (obtained from two rats) were collected after 5&#x2013;10 DIV and centrifuged 8 min at 400 g. The resulting pellet was subjected to TRIzol (Invitrogen) RNA extraction according to the manufacturer's instructions. RNA was then reverse-transcribed using the Transcriptor First Strand cDNA Synthesis Kit (Roche Applied Science, Mannheim, Germany) with 2.5 &#x3BC;M anchored-oligo(dT)18 primer and 60 &#x3BC;M random hexamer primer in a 20 &#x3BC;l final volume, according to the manufacturer's instructions. PCR amplification was performed using Taq polymerase (Sigma, 1 unit per &#x3BC;L cDNA template) with forward primer 5&#x2032;-AGTTGTGGTGAAATCACATTGG-3&#x2032; and reverse primer 5&#x2032;-GATATTTGGTCCTCTTCTTCTGG-3&#x2032;, i.e., the Blast-derived rat homolog of the primer pair that we had used previously for rat ObRb (Fombonne et al., <xref rid="B15" ref-type="bibr">2007</xref>) generating a ObR-specific 438-bp DNA fragment; after 3 min denaturation at 96&#xB0;C, 33 cycles of 45 s denaturation at 96&#xB0;C, 30 s annealing at 58&#xB0;C, 90 s extension at 72&#xB0;C, and a final 10 min extension at 72&#xB0;C, amplicons were subjected to electrophoresis on 1% agarose gel pre-stained with ethidium bromide. For quantitative real-time RT-PCR (qPCR), the primers used were Ccnd1 (QT00185241) generating a cyclin D1-specific 109-bp DNA fragment (GenBank <ext-link ext-link-type="DDBJ/EMBL/GenBank" xlink:href="NM_022267">NM_022267</ext-link>) and QT00199640 generating an HPRT-specific125-bp DNA fragment (GenBank <ext-link ext-link-type="DDBJ/EMBL/GenBank" xlink:href="NM_012583">NM_012583</ext-link>). qPCR was carried out with the LightCycler 480 SYBR Green I Master (Roche Applied Science) with 1 &#x3BC;l cDNA per 20 &#x3BC;l, 4 mM MgCl<sub>2</sub>, 0.4 &#x3BC;M each primer, in a LightCycler 480 (Roche Applied Science) for 40 cycles: 10 s at 95&#xB0;C, 5 s at 60&#xB0;C, 10 s at 72&#xB0;C. The threshold cycle (Ct) value, corresponding to the PCR cycle number at which fluorescence was detected above threshold, was calculated from Lightcycler 480 software version 1.3 (Roche Applied Science) by using the second derivative maximum method. Relative mRNA values were calculated with RealQuant Software (Roche Applied Science) by using HPRT as the reference gene.</p>
+      </sec>
+      <sec>
+        <title>Immunocytochemical quantification of STAT3 and phospho-STAT3 on neurospheres</title>
+        <p>One day before stimulation with leptin (i.e., at 13 DIV), one-half of the culture medium was changed to MEM with 2% B27 supplement. To reduce the basal level of STAT3 phosphorylation, cultures were incubated for 30 min in TTX (1 &#x3BC;M). The cultures were then stimulated with leptin (6.2 nM) for 5, 10, or 20 min. After stimulation, all culture wells were fixed with buffered 4% formaldehyde at 4&#xB0;C and rinsed several times. Coverslips were then pre-incubated in PBS-Triton X-100 (0.1%)-goat serum (5%) for 1 h at room temperature and incubated overnight with rabbit antiphospho-STAT3 (pSTAT3) or rabbit anti-STAT3 (Cell Signalling Technology Inc. Danvers, MA, USA) and with mouse anti-MAP2 (Sigma) primary antibodies. Alexa 488-conjugated goat anti-rabbit IgG (FluoProbes, France) and Cy3-conjugated goat anti-mouse IgG (Jackson ImmunoResearch Laboratories, Inc., PA, USA) were used as secondary antibodies. All procedures were performed in phosphate-free solution containing 140 mM NaCl, 5 mM KCl, and 10 mM HEPES-Na, pH 7.4.</p>
+        <p>Images were acquired with a LSM 510 laser-scanning confocal microscope (Zeiss, Germany). The acquisition of A488 (pSTAT3 or STAT3) and then Cy3 (MAP2) was sequential to avoid overlap of excitation and emission of fluorescence. The optical sections were digitized (1024 &#xD7; 1024 pixels) and processed using Image J software. Ten randomly chosen optical fields were analyzed from each experiment (3&#x2013;15 neurons per field). For analysis of the intensity of pSTAT3 or STAT3 staining in neuronal cells, we first created a binary mask from MAP2-positive cells and then analyzed pSTAT3/STAT3 intensity in regions overlapping with the binary mask. This procedure allowed avoiding detection of pSTAT3 in non-neuronal cells. All acquisitions and analysis were done blind. Acquisition parameters were same for every set of experiments. STAT3 immunostaining was performed in parallel cultures treated in the same condition as for pSTAT3 experiments. The pSTAT3 to STAT3 intensity ratio was expressed as means value ratio of the pSTAT3 staining intensity vs. the STAT3 staining intensity in cultures run in parallel.</p>
+      </sec>
+      <sec>
+        <title>Western blotting</title>
+        <p>Protein extraction from 2 to 10 rats and Western blotting were performed as described previously (Fombonne et al., <xref rid="B15" ref-type="bibr">2007</xref>). In brief, soluble neurosphere extracts were adjusted at 30 &#x3BC;g protein/sample after protein quantification with the BCA Protein Assay Kit (Pierce, Rockford), resolved through 4&#x2013;20% Tris-Glycine gels (Invitrogen) and transferred to nitrocellulose membranes. Membranes were incubated overnight at 4&#xB0;C with a relevant primary antibody: rabbit monoclonal anti-cyclin D1 (NeoMarker, 1:500), rabbit polyclonal anti-phospho(Thr202/Tyr204)p42/p44 ERK, anti-phospho(Thr308)AKT, or anti-phospho(Tyr705)-STAT3 (Cell Signaling Technology, 1: 1000), then 2 h at room temperature with horseradish peroxidase (HRP)-conjugated goat anti-rabbit IgG (1:3000) (Santa Cruz Biotechnology, Paso Robles, CA, USA). After rinsing in PBST-tween and incubation for 1&#x2013;5 min in ECL-Plus reagent (Perkin-Elmer, Waltham, MA, USA), nitrocellulose membranes were exposed to Hyper Performance Chemiluminescence film. Subsequent to cyclin D1 detection, the membranes were re-incubated with rabbit polyclonal anti-&#x3B2;-actin antibody (Sigma, 1:10,000) according to the same experimental procedure to serve as a loading control. After detection of each phosphorylated protein, the bound antibodies were stripped off and the membranes were reblotted with either rabbit anti-p42/p44 ERK, anti-AKT, or anti-STAT3 polyclonal antibodies (Cell Signaling Technology, 1:1000). Immunolabeled bands were quantified using the public domain NIH Image program (National Institutes of Health, Bethesda, MD, USA). The relative amount of cyclin D1 protein was measured and expressed as the ratio over &#x3B2;-actin expression whereas the amounts of phosphorylated proteins were determined as a ratio over relevant total protein expression.</p>
+      </sec>
+      <sec>
+        <title>Cyclin D1-specific shRNA design and transfections</title>
+        <p>The sequence of cyclin-specific shRNA of the cyclin D1 (CCND1) gene was designed by using siRNA Target Designer (<ext-link ext-link-type="uri" xlink:href="http://www.promega.com/siRNADesigner/program/default.asp">www.promega.com/siRNADesigner/program/default.asp</ext-link>) soft-ware. Among designed sequences, the one corresponding to the coding region (233&#x2013;255) was chosen for single-strand cDNA synthesis. The chosen forward sequence was: 5&#x2032;TTTGA CCTGCGCGCCCTCCGTTTCTTTCAAGAGAAGAAACGGAGGGCGCGCAGGTCTTTTT 3&#x2032; and the chosen reverse sequence was 5&#x2032;CTAGAAAAAGACCTGCGCGCCCTCCGTTTCTTCTCTTG AAAGAAACGGAGGGCGCGCAGGT 3&#x2032;. After annealing of synthesized single strand cDNAs, the resulting shRNA was ligated into mU6pro vector (Promega) and resulting plasmid was amplified as previously described (Efthimiadi et al., <xref rid="B13" ref-type="bibr">2012</xref>). The primers used to identify mU6pro vector containing the chosen shRNA sequence were: F1F (CATTCAGGCTGCGCAACTGTTG) and M13R2 (CACAGGAAACAGCTATGACCAT) giving rise to an amplified fragment of 810 bp. After the PCR verification, plasmidic DNA was purified by using plasmid mini-prep kit (Invitrogen), the presence of cDNA sequence corresponding to the chosen shRNA was checked by sequencing (GATC Biotech, Marseille) and the relevant cDNA was amplified by using plasmid maxi-prep (Invitrogen).</p>
+        <p>Transfection experiments were performed by using tertiary neurosphere cultures with plasmidic cDNAs corresponding to pEGFP (BD Biosciences) and generated mU6pro-cyclinD1 shRNA and NeuroMag&#xAE; magnetofection kit (OZ Biosciences) according to the manufacturer's instructions. Briefly, 0.3 &#x3BC;g of cDNAs corresponding to pEGFP were transfected alone to serve as a transfection contol or in combination with 0.7 &#x3BC;g of cDNAs corresponding to mU6pro-cyclinD1 shRNA. After 24 h-period of transfection, the cell cultures were treated or not with leptin (6.2 nM). At the end of the treatments, the neurospheres were fixed with 4% paraformaldehyde for immunocytochemistry.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>Immunoblotting intensities and enumeration data obtained from cytochemical studies were compared between experimental groups with One-Way ANOVA followed by Newman-Keuls (for cellular assays) or Fisher's PLSD (for Western blots) post-tests for multiple comparisons. Unpaired Student's <italic>t</italic>-test (Prism software, Graph-Pad, San Diego, CA, USA) was used in experiments where only two sets of values were compared.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="s3">
+      <title>Results</title>
+      <sec>
+        <title>SVZ-derived neurospheres respond to exogenous leptin by decreased expansion and express endogenous ObRb receptor transcripts</title>
+        <p>Microdissected SVZ tissues yielded 90,000 dissociated cells per rat. The majority of initially seeded cells died in agreement with their well-known low survival rate in the standard neurosphere culture conditions (Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>). Surviving cells proliferated, giving rise to growing spherical masses of undifferentiated cells. Plating at 10,000 cells per ml, when cultured 10 days <italic>in vitro</italic> (DIV) in the presence of 20 ng/ml of mitogens (EGF and bFGF), yielded 1700&#x2013;1900 neurospheres per rat SVZ pair. The primary cultures of SVZ neurospheres were passaged at 10&#x2013;11 DIV, i.e., before sphere diameter exceeded 100&#x2013;120 &#x3BC;m in size. Passaging cells after dissociation of these neurospheres gave rise to morphologically similar neurospheres up to five successive generations. Upon differentiation by retrieval of growth factors after 10 DIV, the three neural lineages (neurons, astrocytes, oligodendrocytes) could be identified by immunocytochemistry of phenotypic markers (&#x3B2;III-tubulin, GFAP, O4 respectively, data not shown) as already reported in our previous study (Charrier et al., <xref rid="B8" ref-type="bibr">2006</xref>). This indicated that the cells comprised in the neurospheres fulfill the criteria for <italic>bone fida</italic> adult neural stem cells (Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>). Besides, during these preliminary experiments and the set-up of optimal culture conditions, we observed that reducing EGF concentration in the culture medium to 8 ng/ml still allowed neurosphere yield of 70&#x2013;75% the values obtained with 20 ng/mL EGF at 10 DIV from adult SVZ tissues.</p>
+        <p>In all further experiments leptin effects on neurosphere expansion were therefore systematically assessed in the presence of 8 ng/mL EGF. Treatment with 6.2 nM leptin (Bariohay et al., <xref rid="B1" ref-type="bibr">2005</xref>) strongly inhibited neurosphere growth in adult SVZ cultures as compared to controls carried in the presence of EGF but in the absence of leptin (Figure <xref ref-type="fig" rid="F1">1A</xref>). At 10 DIV, the number of neurospheres in leptin-treated SVZ cultures fell by 35% (Figure <xref ref-type="fig" rid="F1">1A</xref>).</p>
+        <fig id="F1" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p><bold>Morphological effect of leptin and expression of its receptor (ObR) in adult rat SVZ neurospheres</bold>. <bold>(A)</bold> Morphology of primary neurospheres. Neurospheres were obtained from microdissected adult rat SVZ at 10 DIV. The neurospheres were cultured in the presence of EGF and bFGF (8 ng/mL each), in the absence (control) or in the presence of leptin (6.2 nM). Arrows point to typical examples of neurospheres. Neurosphere counts on histograms are given as means &#xB1; s.e.m. of three independent experiments. <sup>*</sup>significantly different from control at <italic>p</italic> &lt; 0.05. <bold>(B)</bold> Endogenous expression of leptin receptor mRNA by SVZ-derived neurospheres. RT-PCR and gel electrophoresis detection of ObRb transcripts in mRNA extracts of SVZ neurospheres (lane 1), whole rat hypothalamus (lane 2), vs. internal control in the absence of cDNA template (con-, lane 3) and commercial DNA standard mix (lane 4). Base pair standard values are indicated on the right.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0001"/>
+        </fig>
+        <p>The first step in addressing the molecular mechanisms behind leptin actions on SVZ neurospheres was to ascertain that in our experimental conditions the neurospheres express the specific leptin receptor (ObRb). As in hypothalamus, which served as a positive control, RT-PCR performed on the whole RNAs extracts obtained from SVZ-derived neurospheres yielded a specific transcript of the expected 438-bp size corresponding to ObRb leptin receptor (Figure <xref ref-type="fig" rid="F1">1B</xref>).</p>
+      </sec>
+      <sec>
+        <title>Leptin recruits two ObRb post-receptor pathways in SVZ neurospheres</title>
+        <p>To explore whether detected ObRb mRNA expression corresponds to the presence of functional leptin receptors, we first studied if leptin could alter STAT3 expression and phosphorylation in SVZ neurospheres by double immunocytochemistry and confocal microscopy. In both control and leptin-treated neurospheres, unphosphorylated (inactive) STAT3 was expressed only in MAP2-immunoreactive, i.e., neuronal cells; reciprocally all neuronal cells displayed STAT3 immunoreactivity (Figures <xref ref-type="fig" rid="F2">2 C,D,G,H,K,L,O,P</xref>). In the absence of leptin, the phosphorylated form of STAT3 (pSTAT3) was almost undetectable in neurosphere cultures (Figures <xref ref-type="fig" rid="F2">2A,B</xref>). However, leptin triggered rapid and transient STAT3 phosphorylation which peaked 10 min after its addition (Figures <xref ref-type="fig" rid="F2">2 E,I,M,Q</xref>) and was restricted to MAP2-labeled neuronal cells (Figures <xref ref-type="fig" rid="F2">2 E,F,I,J,M,N</xref>).</p>
+        <fig id="F2" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p><bold>Leptin triggers STAT3 pathway activation in SVZ-derived neurospheres</bold>. <bold>(A&#x2013;P)</bold> Immunocytochemical assay of leptin effects on STAT3 <bold>(C,D,G,H,K,L,O,P)</bold> and its active phosphorylated form (Phospho-STAT3; <bold>A,B,E,F,I,J,M,N</bold>) in MAP2-labeled neuronal cell subpopulation of in SVZ neurospheres. SVZ neurospheres were assayed in the absence (Control) or in the presence of 6.2 M leptin for the indicated time periods. <sup>***</sup>significantly different from control at <italic>p</italic> &lt; 0.001. <bold>(Q)</bold> Proportions (%) of activated Phospho-STAT3 immunoreactive among total STAT3 cells; the numbers in brackets indicate the number of STAT-3 cells quantified for each duration of leptin exposure.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0002"/>
+        </fig>
+        <p>We also assessed the putative activation of the AKT-phosphoinositide-3 (PI3) pathway by leptin in SVZ neurospheres, since this pathway is generally activated in leptin targets relevant to energy metabolism regulation (Coppari and Bj&#xF8;rb&#xE6;k, <xref rid="B10" ref-type="bibr">2012</xref>). No activation-specific phosphorylation of amino-acid residues (Thr<sup>308</sup>) in AKT was detectable (data not shown), thus indicating that this pathway is not involved in signaling leptin actions on SVZ neurospheres.</p>
+        <p>We next investigated whether leptin actions also involve the ERK pathway. We found that addition of leptin to SVZ cultures triggers an increased phosphorylation of critical threonine/tyrosine residues (Thr<sup>202</sup>/Tyr<sup>204</sup>) in both ERK1 and ERK2 (p44 and p42, respectively; Figure <xref ref-type="fig" rid="F3">3A</xref>). This increase in P-ERK pointing to ERK activation could be detected 5 min after leptin addition and was maintained over control levels up to 5 DIV (Figure <xref ref-type="fig" rid="F3">3B</xref>). Interestingly, leptin-mediated activation of ERK was the most pronounced after 5-days treatment (Figure <xref ref-type="fig" rid="F3">3</xref>). The specificity of leptin-mediated ERK activation was assessed by using U0126, an inhibitor of the upstream kinase (MEK1) that selectively activates ERK1/2. At the concentration used (10 &#x3BC;M), U0126 markedly inhibited leptin-induced ERK activation at all time points studied, from 5 min to 5 days (Figure <xref ref-type="fig" rid="F3">3</xref>).</p>
+        <fig id="F3" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p><bold>Leptin triggers ERK pathway activation in SVZ-derived neurospheres</bold>. <bold>(A)</bold> Western-blot of phosphorylated ERK 1, 2 (P-ERK1, P-ERK2) and of total ERK1 and ERK2 performed on soluble protein extracts obtained from SVZ neurospheres that were plated and cultured in the presence of 6.2 nM leptin without (&#x2212;) or with (+) 10 &#x3BC;M U0126 for the indicated time periods. <bold>(B)</bold> Densitometric quantification of chemiluminescence-revealed immunoreactivities is depicted on the histogram as the ratio of phospho-ERK vs. total ERK labeling. <sup>*</sup>, <sup>**</sup>, <sup>***</sup>significantly different from control at <italic>p</italic> &lt; 0.05, <italic>p</italic> &lt; 0.01, and <italic>p</italic> &lt; 0.001, respectively.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0003"/>
+        </fig>
+        <p>The results from this set of experiments therefore indicated that endogenously expressed ObRb receptor transcripts correspond to the leptin receptors that are functionally coupled to STAT3 and ERK signaling pathways. Leptin receptor coupling to STAT3 and ERK transduction pathways appears selective since another major leptin-activated signaling pathway, AKT-PI3, is not involved in the leptin actions on adult rat neurospheres.</p>
+      </sec>
+      <sec>
+        <title>Leptin increases cyclin D1 expression via ERK1/2 in cultured SVZ neurospheres</title>
+        <p>Given that cyclin D1 is one of the major regulators of cell division and growth (Sherr and Roberts, <xref rid="B57" ref-type="bibr">2004</xref>) and the reported involvement of ERK pathway in the control of cyclin D1 expression (Lefloch et al., <xref rid="B29" ref-type="bibr">2009</xref>), we sought to determine whether leptin might alter cyclin D1 expression in SVZ neurospheres. Indeed, since leptin inhibited the growth of neurospheres in our <italic>in vitro</italic> assay, we hypothesized that leptin may also inhibit cyclin D1 expression via ERK activation. Unexpectedly, as indicated by cyclin D1 western blot (Figure <xref ref-type="fig" rid="F4">4A</xref>), leptin clearly did not trigger a decrease in cyclin D1 expression. Moreover, after 5 DIV, the cyclin D1 expression was increased almost two-fold over basal expression (Figure <xref ref-type="fig" rid="F4">4A</xref>). The ERK1/2 inhibitor U0126 could reduce leptin-triggered induction of cyclin D1 protein to at least one-half of that seen in the absence of the inhibitor (Figure <xref ref-type="fig" rid="F4">4A</xref>) thus pointing to a specific involvement of ERK1/2 in leptin's action on cyclin D1 expression. Leptin-dependent induction of cyclin D1 was confirmed at the transcriptomal level by qRT-PCR at the time point (i.e., 5 DIV) where the maximal cyclin D1 protein expression was observed (Figure <xref ref-type="fig" rid="F4">4B</xref>). Indeed, after 5 DIV, leptin consistently increased the expression of cyclin D1 transcripts by itself (Figure <xref ref-type="fig" rid="F4">4B</xref>: no EGF condition). This effect was comparable to the cyclin D1 mRNA induction by the mitogen EGF (in the absence of leptin), used here as a positive control.</p>
+        <fig id="F4" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p><bold>Leptin triggers cyclin D1 induction via ERK activation in SVZ-derived neurospheres</bold>. <bold>(A)</bold> Western-blot of cyclin D1 on protein extracts of SVZ neurospheres cultured in the presence of 6.2 nM leptin without (&#x2212;) or with (+) 10 &#x3BC;M U0126 for the indicated time periods. Load control was provided by &#x3B2;-actin western-blot after stripping of the cyclin D1-labeled membranes. The intensity of cyclin D1 expression was normalized over respective &#x3B2;-actin labeling used as a loading control and expressed as % of the time 0 expression. <bold>(B)</bold> qRT-PCR of cyclin D1 performed on mRNA extracts of SVZ neurospheres that were plated and cultured for 5 DIV with or without 6.2 nM leptin, in the presence of increasing EGF concentrations. Data are expressed as % of cyclin D1 expression signal in the absence of leptin and EGF. <sup>*</sup>, <sup>**</sup>, <sup>***</sup>significantly different at <italic>p</italic> &lt; 0.05, <italic>p</italic> &lt; 0.01, and <italic>p</italic> &lt; 0.001, respectively.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0004"/>
+        </fig>
+        <p>The above combined biochemical and pharmacological approaches therefore show that leptin increases cyclin D1 expression. This leptin effect is synergistic with the EGF-mediated cyclin D1 induction thus suggesting that leptin and EGF mediate the increase in cyclin D1 via different mechanisms.</p>
+      </sec>
+      <sec>
+        <title>Leptin triggers withdrawal from the cell cycle and cell death in SVZ neurospheres</title>
+        <p>The observed leptin-mediated increase of cyclin D1 (Figure <xref ref-type="fig" rid="F4">4</xref>) appeared paradoxical in the light of our findings concerning the inhibition of neurosphere neural cell proliferation by leptin (Figure <xref ref-type="fig" rid="F1">1</xref>). To understand the mechanism behind such paradoxical effect of leptin, we checked directly leptin effects on the cell cycle by immunocytochemical analysis of Ki-67 labeling. This marker is expressed by cycling cells in any phase of the cell cycle but not by quiescent cells (Scholzen and Gerdes, <xref rid="B56" ref-type="bibr">2000</xref>). In the absence of leptin, the majority of cells (about 60% of the total cell population as identified by DAPI-staining of their nuclei) were in the cell division cycle (Figure <xref ref-type="fig" rid="F5">5A</xref>). Addition of leptin resulted in a significant decrease in the proportion of the Ki-67-positive cells as compared to control cultures (Figure <xref ref-type="fig" rid="F5">5A</xref>).</p>
+        <fig id="F5" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p><bold>Leptin inhibits proliferation and triggers cell death of SVZ neurospheres</bold>. <bold>(A)</bold> Photomicrographs of DAPI staining (top row) and Ki-67 green immunocytofluorescence (lower row) in control (no leptin) and 6.2 nM leptin-treated neurosphere cultures at 5 DIV. <bold>(B)</bold> Photomicrographs of DAPI staining (top row) and TUNEL green cytofluorescent staining (lower row) in control (no leptin) and 6.2 nM leptin-treated neurosphere cultures at 5 DIV. Histograms represent the proportions of Ki-67 <bold>(A)</bold> or TUNEL <bold>(B)</bold> positive nuclei expressed as % of the total cell number (as determined by DAPI staining) by taking as a reference 100% the values obtained for the control condition. Data are expressed as mean percent of control &#xB1; SEM. Statistical significancies at <sup>*</sup><italic>p</italic> &lt; 0.05 or <sup>***</sup><italic>p</italic> &lt; 0.001.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0005"/>
+        </fig>
+        <p>The inhibitory actions of leptin on neurosphere growth are therefore associated with the inhibition of cell division in the presence of leptin but not with an expected decrease in cyclin D1 expression. Because in some paradigms of neuronal death, induction of cyclin D1 precedes the cell death (Di Giovanni et al., <xref rid="B12" ref-type="bibr">2005</xref>; Krantic et al., <xref rid="B27" ref-type="bibr">2005</xref>), we asked whether leptin could trigger cell death in our neurosphere assays. Assessment of apoptosis by TUNEL staining indicated that, indeed, leptin treatment yielded a two-fold increase of the number of TUNEL-positive cells (Figure <xref ref-type="fig" rid="F5">5B</xref>).</p>
+      </sec>
+      <sec>
+        <title>Cyclin D1 expression in tunel-positive neurosphere cells after leptin treatment</title>
+        <p>To address whether cyclin D1 induction could be involved in leptin-stimulated apoptosis, TUNEL staining was combined with cyclin D1 immunocytochemistry on proliferating SVZ neurosphere cultures. Cyclin D1 immunoreactivity was much more abundant in leptin-treated neurospheres than in control cultures. In leptin-treated neurospheres, cyclin D1-immunoreactive cells splitted into two strikingly different subpopulations: small cells with cyclin D1 restriction in the cell nucleus, and large neuron-like cells expressing cyclin D1 throughout cytoplasm but not in nuclei (Figure <xref ref-type="fig" rid="F6">6</xref>). TUNEL staining was extensively and exclusively colocalized with nuclear cyclin D1, and never associated with cytoplasmic cyclin D1-containing cells (Figure <xref ref-type="fig" rid="F6">6</xref>).</p>
+        <fig id="F6" position="float">
+          <label>Figure 6</label>
+          <caption>
+            <p><bold>Cyclin D1 immunoreactivity colocalizes with TUNEL-positive cells in leptin-treated neurospheres</bold>. A series of identical culture wells of leptin-treated secondary neurospheres from adult rat SVZ were processed in parallel for either <bold>(A)</bold> cyclin D1 immunocytochemistry (revealed in red), <bold>(B)</bold> TUNEL (revealed in green), <bold>(C)</bold> DAPI staining (revealed in blue). Single and double arrows point respectively, to TUNEL&#x2212;/cyclinD1+ and TUNEL+/cyclinD1+ representative cells. Note the occurrence of TUNEL-negative cyclin-D1-immunoreactive cells, and the differential morphologies of the two subpopulations of labeled cells (see Results text for details).</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0006"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Silencing cyclin D1 expression by specific shRNA prevents leptin-induced decrease of the neural stem cell number</title>
+        <p>To assess a causal relationship between leptin-mediated cyclin D1 expression and cell death, we performed RNA silencing experiments with a cyclin D1-specific shRNA. Knock-down of cyclin D1 by specific shRNA resulted in a decrease of the number of cyclin D1-positive cells per neurosphere (Figures <xref ref-type="fig" rid="F7">7A,B</xref>), thus confirming the functionally efficient knock-down of cyclin D1 expression.</p>
+        <fig id="F7" position="float">
+          <label>Figure 7</label>
+          <caption>
+            <p><bold>Leptin-triggered cell death is inhibited by shRNA-silencing of cyclin D1 expression in SVZ neurospheres</bold>. <bold>(A)</bold> GFP fluorescence (top row) and cyclin D1 immunocytofluorescence (bottom row) in neurospheres with single GFP transfection in the absence of leptin (first column from left, &#x201C;control&#x201D;) or with double GFP- and shRNA cyclinD1- transfection in the absence (second column) or in the presence (third column) of 6.2 nM leptin. <bold>(B)</bold> Quantification of cyclinD1-immunoreactive cells per neurosphere in the three experimental conditions. <bold>(C)</bold> Enumeration of cells per neurosphere in the three cultures run in parallel. Data are expressed as mean &#xB1; SEM of three independent cultures. <sup>*</sup> significantly different from control at <italic>p</italic> &lt; 0.05.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0007"/>
+        </fig>
+        <p>Moreover, when cyclin D1-specific shRNA-transfected neurospheres were treated with leptin (6.2 nM), a decrease in the number of cyclin D1-labeled cells due to the transfection could not be over-come by leptin-mediated increase in cyclin D1 expression (Figure <xref ref-type="fig" rid="F7">7A</xref>: cyclin D1 row, and Figure <xref ref-type="fig" rid="F7">7B</xref> for quantification) seen in previous experiments (Figure <xref ref-type="fig" rid="F4">4</xref>). Interestingly, such decrease in the number of cyclin D1-labeled cells precluded the leptin triggered-decrease in the number of cells per neurosphere (Figure <xref ref-type="fig" rid="F7">7A</xref>: GFP row, and Figure <xref ref-type="fig" rid="F7">7C</xref> for quantification).</p>
+        <p>Taken together, these data show that functional knock-down of cyclin D1 expression is sufficient to rescue leptin-mediated decrease in the cell number per neurosphere.</p>
+      </sec>
+      <sec>
+        <title>Phenotypic identification of apoptotic cells in leptin-treated neurospheres</title>
+        <p>In order to identify the cell types that are committed to apoptosis in response to leptin among the neuropoietic lineage, TUNEL was combined with immunocytochemistry of each among eight phenotypic markers on neurosphere cultures from adult rat SVZ (Figure <xref ref-type="fig" rid="F8">8</xref>). Proportions of marker-immunoreactivity among TUNEL-positive cells and of TUNEL positivity among each phenotypic subpopulation of SVZ neurosphere cells were quantified on large numbers of cells in three distinct cultures at least (above 100 in each case) and respectively plotted in histograms of Figure <xref ref-type="fig" rid="F8">8</xref>. The neural stem cell marker Sox-2 rarely co-localized with TUNEL, although numerous TUNEL-positive and Sox-2 immunoreactive cells were detected (Figure <xref ref-type="fig" rid="F8">8</xref>, two first rows). No TUNEL colocalization was detected with the other neural stem cell marker, nestin (Figure <xref ref-type="fig" rid="F8">8</xref>). A small proportion of TUNEL colocalization was detected with the marker of immature migrating neurons doublecortin (DCX) (Figure <xref ref-type="fig" rid="F8">8</xref>). By contrast, TUNEL staining extensively colocalized with three markers of differentiated neurons: the microtubule-associated protein-2 (MAP2), the neuronal nuclear antigen NeuN and the axonal protein &#x3B2;-III-tubulin (Figure <xref ref-type="fig" rid="F8">8</xref>). No TUNEL colocalization was detected with the astrocyte marker S100&#x3B2; (Figure <xref ref-type="fig" rid="F8">8</xref>).</p>
+        <fig id="F8" position="float">
+          <label>Figure 8</label>
+          <caption>
+            <p><bold>Phenotypic identification of leptin-induced apoptotic cells in SVZ neurospheres</bold>. Secondary neurospheres from adult rat SVZ were grown on poly-lysine-coated coverslips in the presence of EGF, bFGF (8 ng/mL each) and leptin (6.2 nM), fixed after 5 DIV, processed for TUNEL (kit Roche, green fluorescent detection, middle column), then for red Alexa-594 fluorescence-revealed marker immunocytochemistry (left column), and finally for DAPI staining (right column). Each row displays photomicrographs of the same representative field from one neurosphere culture that was processed for immunocytochemistry of the marker indicated on left and observed with respective fluorescence-activating lights for each of the three labelings indicated on column top. Scale bars: 30 &#x3BC;m. Single and double arrows point respectively to TUNEL+/marker&#x2212; and TUNEL+/marker+ representative cells. Quantitative analyses of each marker/TUNEL combination are presented on the two histograms at the bottom; each value is mean &#xB1; SEM of three cultures.</p>
+          </caption>
+          <graphic xlink:href="fncel-09-00350-g0008"/>
+          <graphic xlink:href="fncel-09-00350-g0009"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion" id="s4">
+      <title>Discussion</title>
+      <p>The present study provides the first report on leptin-mediated inhibition of neural stem cell expansion in neurospheres derived from the adult rat neurogenic niche, SVZ. These leptin actions are mediated, at least in part, by apoptosis involving cyclin D1 induction as a prelude to cell death. The characterized novel actions of leptin on adult brain neural stem cells involve receptors and overlapping post-receptor mechanisms also relevant for its classical effects on energy metabolism.</p>
+      <p>Our neural stem cell culture conditions were validated by the fact that in control conditions, the primary cultures from adult rat SVZ yielded similar growth kinetics as those previously reported by our group and others (Charrier et al., <xref rid="B8" ref-type="bibr">2006</xref>; Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>). <italic>In vitro</italic> inhibition of neurosphere expansion is due to a decrease in the number of stem cells (Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>), which in turn results from either neural stem cell death or entry into quiescence (Daynac et al., <xref rid="B11" ref-type="bibr">2013</xref>). In our experiments, the inhibitory effect of leptin on neural stem cell expansion could be revealed <italic>in vitro</italic> by lowering the EGF concentration from standard 20 ng/mL (Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>; Charrier et al., <xref rid="B8" ref-type="bibr">2006</xref>) to 8 ng/mL, in agreement with previous studies (Palma et al., <xref rid="B44" ref-type="bibr">2004</xref>; Louis et al., <xref rid="B32" ref-type="bibr">2013</xref>).</p>
+      <p>The novel actions of leptin characterized in the present study involve the receptor molecule, ObRb, shared by all known leptin target cells. Indeed, ObRb transcripts were amplified from SVZ neurosphere RNAs by using primers designated for amplification of the conserved cDNA sequences. Although the performed RT-PCR assay does not allow for the accurate quantification, ObRb expression level in SVZ neurospheres appears lower than in hypothalamus, which is one of the major leptin targets in adult mammals organism (Elmquist et al., <xref rid="B14" ref-type="bibr">1998</xref>; Villanueva and Myers, <xref rid="B62" ref-type="bibr">2008</xref>; Myers et al., <xref rid="B40" ref-type="bibr">2009</xref>; Gautron and Elmquist, <xref rid="B19" ref-type="bibr">2011</xref>; Coppari and Bj&#xF8;rb&#xE6;k, <xref rid="B10" ref-type="bibr">2012</xref>; Park and Ahima, <xref rid="B46" ref-type="bibr">2014</xref>). The functionality of ObRb in SVZ neurospheres is attested by leptin activation of the specific transduction pathways: STAT3 and ERK1/2. In particular, phospho-STAT3 immunoreactivity is established as a universal index of functional recruitment of leptin receptor in target cells. Indeed, among the five intracellular pathways that can be recruited by leptin reception in its numerous target cell types, the Jak2/STAT3 is the only one that is systematically activated by leptin (Villanueva and Myers, <xref rid="B62" ref-type="bibr">2008</xref>; Coppari and Bj&#xF8;rb&#xE6;k, <xref rid="B10" ref-type="bibr">2012</xref>; Rasmussen et al., <xref rid="B53" ref-type="bibr">2014</xref>). Interestingly, STAT3 phosphorylation-dependent activation was exclusively detected in MAP2-immunoreactive cells. As a corollary, the STAT3 transduction pathway may be involved in leptin-mediated induction of differentiation via commitment of the neural stem cells to neural progenitors. Differentiation-related actions of leptin were out of the scope of this study. It is nevertheless likely that commitment of neural stem cells to differentiation toward a neural lineage may be preceded by the observed withdrawal of neural stem cells from the cell cycle, as shown by our Ki67 labeling experiments. Ki67 is a nuclear protein which is exclusively expressed by dividing cells (Scholzen and Gerdes, <xref rid="B56" ref-type="bibr">2000</xref>). The observed decrease in Ki67 labeling in the presence of leptin therefore points to the inhibitory role of leptin in the control of SVZ neural stem cell expansion. This novel action of leptin on neurospheres adds to the well-known complexity of leptin-mediated control of cell division pointing to both inhibitory and stimulatory effects of leptin (reviewed in Garofalo and Surmacz, <xref rid="B18" ref-type="bibr">2006</xref>; King et al., <xref rid="B24" ref-type="bibr">2013</xref>). For instance, anti-proliferative actions of leptin combined with leptin-mediated induction of cell death, have been documented in immune, epithelial, endothelial, adipose cells, and some tumors (Garofalo and Surmacz, <xref rid="B18" ref-type="bibr">2006</xref>; Tang, <xref rid="B60" ref-type="bibr">2008</xref>). In line with these findings, the inhibitory effect of leptin on adult SVZ neural stem cell expansion shown here was also associated to apoptosis induction. Moreover, apoptosis was preceded by ERK-mediated cyclin D1 induction. In agreement, ERK has been previously shown to be involved in the control of cyclin D1 expression (Meloche and Pouyssegur, <xref rid="B36" ref-type="bibr">2007</xref>). The specificity of ERK mediation was further attested by the capacity of the ERK kinase MEK1 inhibitor (U0126) to prevent cyclin D1 induction and cell death upon leptin addition to SVZ neurospheres. At the cellular level, cyclin D1 expression by the apoptotic cells was directly demonstrated by colocalization of cyclin D1 immunoreactivity and TUNEL staining in numerous nuclei of leptin-treated neurosphere cultures from adult rat SVZ. Furthermore, this experiment revealed that a subpopulation of differentiated, TUNEL-negative, neuron-like cells displayed strong cytoplasmic accumulation of cyclin D1 protein. It suggests that leptin-dependent induction of cyclin D1 might trigger either apoptosis or differentiation of neurosphere cells.</p>
+      <p>The specificity of cyclin D1 involvement in cell death induction was demonstrated by our RNA silencing experiments. Interestingly, cyclin D1 silencing in the absence of leptin resulted in withdrawal from the cell cycle as shown by decreased Ki67 expression. In these control conditions, the basal cyclin D1 expression by neurosphere cells is likely due to the presence of a low level of EGF concentration in culture medium. Indeed EGF, like other mitogens, has the capacity to trigger cyclin D1 expression and subsequent entry into the cell division cycle (Sherr and Roberts, <xref rid="B57" ref-type="bibr">2004</xref>; Meloche and Pouyssegur, <xref rid="B36" ref-type="bibr">2007</xref>). Therefore, in the absence of leptin, cyclin D1 likely acts in its normal capacity as a positive regulator of the cell division cycle (Sherr and Roberts, <xref rid="B57" ref-type="bibr">2004</xref>). However, because it has been demonstrated that the over-expression of cyclin D1 leads to increased proliferation in immature, i.e., cycling, neurons (Oliver et al., <xref rid="B42" ref-type="bibr">2003</xref>) whereas it triggers cell death in mature, i.e., differentiated, neurons (Kranenburg et al., <xref rid="B26" ref-type="bibr">1996</xref>; Timsit et al., <xref rid="B61" ref-type="bibr">1999</xref>), our data suggest that the present pro-apoptotic action of leptin might be associated with its concomitant pro-differentiative effects on SVZ cells. This hypothesis is supported by the following experimental evidence: (i) morphological signs of differentiation (neurite growth, cell migration), similar to those seen in in pro-differentiative culture conditions such as mitogen retrieval, were consistently observed in the presence of leptin; (ii) this leptin-dependent differentiation is associated with cyclin D1 in the cytoplasm of neurosphere cells; (iii) leptin triggers neural stem cell withdrawal from the cell cycle, as monitored by decreased Ki67 labeling, which is generally required for induction of cell differentiation (Gao and Zelenka, <xref rid="B17" ref-type="bibr">1997</xref>). Relevantly, it has been demonstrated already that failure in differentiation leads to cell death in other paradigms such as in EGF-induced differentiation of somato-lactotrope precursors into PRL-secreting lactotrope cells (Fombonne et al., <xref rid="B16" ref-type="bibr">2004</xref>) or in erythropoietin-induced differentiation of hematopoietic lineage (Lesault et al., <xref rid="B30" ref-type="bibr">2002</xref>).</p>
+      <p>Leptin targets for commitment to apoptosis in SVZ neurospheres, i.e., in the &#x201C;neuropoietic lineage,&#x201D; were identified by a double TUNEL/immunocytochemical approach, as differentiated neurons predominantly. Less than 10% of TUNEL-positive cells indeed expressed Sox2 or DCX in the present culture conditions. These data are in keeping with the result of our previous time-course assay of leptin-dependent transduction effector, STAT-3 phosphorylation, which occurred exclusively in neurosphere neurons (see above). It indicates that leptin impacts late stages of neuropoiesis, even though its present action is detected in proliferating neurospheres and primarily targets the early cell division factor cyclin D1. Consistently, it is established that neuron differentiation markers are already expressed during the proliferative state of neural stem/progenitor cells in the presence of mitogens (Liard et al., <xref rid="B31" ref-type="bibr">2009</xref>; Rosa et al., <xref rid="B55" ref-type="bibr">2010</xref>). Cyclin D1 was recently shown in neural stem cells of fetal rodent brain, to block astroglial differentiation and to stimulate neuronal differentiation <italic>via</italic> STAT-3 activation (Bizen et al., <xref rid="B3" ref-type="bibr">2014</xref>). This latter finding is similar to the presently characterized actions of leptin on adult rat SVZ cells, although it was characterized on neural progenitors from late fetus. Further, our cytochemical assays clearly showed that leptin-induced cyclin D1 colocalizes with TUNEL-stained apoptosis in the nuclei of small SVZ cells, whereas cyclin D1 is also extensively expressed in much larger, neuron-like, non-apoptotic cells. This dual subcellular distribution of cyclin D1 is suggestive of its alternative roles that have recently emerged and are independent of cell cycle onset (Pestell, <xref rid="B48" ref-type="bibr">2013</xref>).</p>
+      <p>From a more integrated point of view, the presently characterized leptin actions on adult SVZ neural stem cells provide a putative mechanism for <italic>in vivo</italic> leptin-dependent physiological adaptations. Functional deficiency of leptin actions in genetic (db/db mice) (Ramos-Rodriguez et al., <xref rid="B52" ref-type="bibr">2014</xref>) or physiological (long-term intermittent fasting, Manzanero et al., <xref rid="B34" ref-type="bibr">2014</xref>) models leads to increased neural stem cell proliferation in adult rat SVZ. Likewise, daily exercise in adult rats has been reported to increase neurogenesis in the adult hippocampus while decreasing leptinemia (Speisman et al., <xref rid="B58" ref-type="bibr">2013</xref>). In contrast, increased levels of leptin, resulting from a high-fat diet, inhibit neurogenesis in the adult mouse hippocampus without neuronal loss (Park et al., <xref rid="B47" ref-type="bibr">2010</xref>). Consistently, obesity decreases the number of neurosphere-producing cells in hypothalamus-derived primary neurosphere cultures (Bless et al., <xref rid="B4" ref-type="bibr">2014</xref>). The putative leptin-dependent decrease of neurogenic rate in adult olfactory bulb, as suggested by the present <italic>in vitro</italic> study, should alter olfactory perception since odor discrimination and memory were recently demonstrated to depend on adult SVZ-fed neurogenesis in olfactory bulb (Gheusi and Lledo, <xref rid="B20" ref-type="bibr">2014</xref>). The relevance of leptin impact on SVZ neural stem cells for food intake regulation though appears complex since olfactory perception could be optimized both by net increase (Sultan et al., <xref rid="B59" ref-type="bibr">2010</xref>) and decrease (Mouret et al., <xref rid="B39" ref-type="bibr">2009</xref>) of olfactory bulb neurogenesis in adult rat.</p>
+      <p>In conclusion, the present data further extend the known role of leptin in the control of neural plasticity in adult mammals. More precisely, since our data show that <italic>in vitro</italic> leptin inhibition of adult neural stem cell expansion is associated with specific receptor-mediated induction of apoptosis, and since <italic>in vivo</italic> the leptin hormone is secreted in direct proportion to adiposity, the present study suggests that adiposity/obesity may be considered as a neurotoxicity paradigm. This view is further supported by the recent <italic>in vivo</italic> report that a high-fat leptin-inducing diet during 2 months in adult mouse and rat triggers apoposis in mature hypothalamic neurons (Moraes et al., <xref rid="B37" ref-type="bibr">2009</xref>). These recent findings extend the physiological pleiotropy of leptin beyond hormonal action toward a multifaceted growth factor in adult mammals. In this light, it is interesting to stress that the major post-receptor intracellular relays of leptin (STAT3, ERK1/2, AMPK, AKT) play a role in the control of both the cell cycle in proliferating cells and metabolite/metabolic sensing in post-mitotic neurons of the brain feeding regulatory centers (Rahmouni et al., <xref rid="B51" ref-type="bibr">2009</xref>; Haissaguerre et al., <xref rid="B22" ref-type="bibr">2014</xref>; Rehman et al., <xref rid="B54" ref-type="bibr">2014</xref>). Stem cell control by leptin may therefore provide an exciting paradigm for the study of the cross-talk between these two regulation registers (Mans and Haramis, <xref rid="B33" ref-type="bibr">2014</xref>). Several questions are raised by the present results about the function and relevance of leptin and leptin receptors in the SVZ neurogenic niche, such as the type(s) of leptin-receptive cells, the impact of leptin on differentiation/migration and behavioral alteration of stem cell progenies. Answering these questions definitively requires future studies that will focus on these exciting issues.</p>
+    </sec>
+    <sec>
+      <title>Funding</title>
+      <p>This work was supported by CNRS, INRA, La Ligue Contre le Cancer Grand Ouest Comit&#xE9;s de la Vienne et des Deux S&#xE8;vres, University of Poitiers, University Fran&#xE7;ois Rabelais of Tours. SS, SC were recipients of French Government Doctoral Fellowships (SS: Biology of Ageing; SC: Neurosciences). LE was recipient of PACA Region/INSERM Doctoral Fellowship.</p>
+      <sec>
+        <title>Conflict of interest statement</title>
+        <p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Amgen (USA) for gracious gift of murine recombinant leptin and Pr Anne-Marie Pr&#xEA;t (University of Versailles-St-Quentin, Center for Molecular Genetics CNRS, Gif-sur-Yvette, France) for English language revision. This study was supported by funds from Institut National de la Recherche Agronomique (INRA), Centre National de la Recherche Scientifique (CNRS), Universities of Tours and Poitiers (Action Collaborative de Recherche Poitiers-Tours), La Ligue Contre le Cancer Grand Ouest Comit&#xE9;s de la Vienne et des Deux S&#xE8;vres and by PhD fellowships from French government, in Biology of Ageing (SS) and Neuroscience (LE, SC).</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bariohay</surname><given-names>B.</given-names></name><name><surname>Lebrun</surname><given-names>B.</given-names></name><name><surname>Moyse</surname><given-names>E.</given-names></name><name><surname>Jean</surname><given-names>A.</given-names></name></person-group> (<year>2005</year>). <article-title>Brain-Derived Neurotrophic Factor plays a role as an anorexigenic factor in the dorsal vagal complex</article-title>. <source>Endocrinology</source>
+<volume>146</volume>, <fpage>5612</fpage>&#x2013;<lpage>5620</lpage>. <pub-id pub-id-type="doi">10.1210/en.2005-0419</pub-id><pub-id pub-id-type="pmid">16166223</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bauer</surname><given-names>S.</given-names></name><name><surname>Moyse</surname><given-names>E.</given-names></name><name><surname>Jourdan</surname><given-names>F.</given-names></name><name><surname>Colpaert</surname><given-names>F.</given-names></name><name><surname>Martel</surname><given-names>J. C.</given-names></name><name><surname>Marien</surname><given-names>M.</given-names></name></person-group> (<year>2003</year>). <article-title>Effects of the a2-adrenoreceptor antagonist dexefaroxan on neurogenesis in the olfactory bulb of the adult rat <italic>in vivo</italic>: selective protection against neuronal death</article-title>. <source>Neuroscience</source>
+<volume>117</volume>, <fpage>281</fpage>&#x2013;<lpage>291</lpage>. <pub-id pub-id-type="doi">10.1016/S0306-4522(02)00757-1</pub-id><pub-id pub-id-type="pmid">12614670</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bizen</surname><given-names>N.</given-names></name><name><surname>Inoue</surname><given-names>T.</given-names></name><name><surname>Shimizu</surname><given-names>T.</given-names></name><name><surname>Tabu</surname><given-names>K.</given-names></name><name><surname>Kagawa</surname><given-names>T.</given-names></name><name><surname>Taga</surname><given-names>T.</given-names></name></person-group> (<year>2014</year>). <article-title>A growth-promoting signaling component cyclin D1 in neural stem cells has antiastrogliogenic function to execute self-renewal</article-title>. <source>Stem Cells</source>
+<volume>32</volume>, <fpage>1602</fpage>&#x2013;<lpage>1615</lpage>. <pub-id pub-id-type="doi">10.1002/stem.1613</pub-id><pub-id pub-id-type="pmid">24302516</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bless</surname><given-names>E. P.</given-names></name><name><surname>Reddy</surname><given-names>T.</given-names></name><name><surname>Acharva</surname><given-names>K. D.</given-names></name><name><surname>Beltz</surname><given-names>B. S.</given-names></name><name><surname>Tetl</surname><given-names>M. J.</given-names></name></person-group> (<year>2014</year>). <article-title>Oestradiol and diet modulate energy homeostasis and hypothalamic neurogenesis in the adult female mouse</article-title>. <source>J. Neuroendocrinol</source>. <volume>26</volume>, <fpage>805</fpage>&#x2013;<lpage>816</lpage>. <pub-id pub-id-type="doi">10.1111/jne.12206</pub-id><pub-id pub-id-type="pmid">25182179</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bouret</surname><given-names>S. G.</given-names></name><name><surname>Draper</surname><given-names>S. J.</given-names></name><name><surname>Simerly</surname><given-names>R. B.</given-names></name></person-group> (<year>2004</year>). <article-title>Trophic action of leptin on hypothalamic neurons that regulate feeding</article-title>. <source>Science</source>
+<volume>304</volume>, <fpage>108</fpage>&#x2013;<lpage>110</lpage>. <pub-id pub-id-type="doi">10.1126/science.1095004</pub-id><pub-id pub-id-type="pmid">15064420</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bouret</surname><given-names>S. G.</given-names></name></person-group> (<year>2013</year>). <article-title>Organizational actions of metabolic hormones</article-title>. <source>Front. Neuroendocrinol</source>. <volume>34</volume>, <fpage>18</fpage>&#x2013;<lpage>26</lpage>. <pub-id pub-id-type="doi">10.1016/j.yfrne.2013.01.001</pub-id><pub-id pub-id-type="pmid">23357643</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Braun</surname><given-names>S. M. G.</given-names></name><name><surname>Jessberger</surname><given-names>S.</given-names></name></person-group> (<year>2014</year>). <article-title>Adult neurogenesis: mechanisms and functional significance</article-title>. <source>Development</source>
+<volume>141</volume>, <fpage>1983</fpage>&#x2013;<lpage>1986</lpage>. <pub-id pub-id-type="doi">10.1242/dev.104596</pub-id><pub-id pub-id-type="pmid">24803647</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Charrier</surname><given-names>C.</given-names></name><name><surname>Coronas</surname><given-names>V.</given-names></name><name><surname>Fombonne</surname><given-names>J.</given-names></name><name><surname>Roger</surname><given-names>M.</given-names></name><name><surname>Jean</surname><given-names>A.</given-names></name><name><surname>Krantic</surname><given-names>S.</given-names></name><etal/></person-group>. (<year>2006</year>). <article-title>Characterization of neural stem cells in the dorsal vagal complex of adult rat brainstem by <italic>in vivo</italic> proliferation labelling and <italic>in vitro</italic> neurosphere assay</article-title>. <source>Neuroscience</source>
+<volume>138</volume>, <fpage>5</fpage>&#x2013;<lpage>16</lpage>. <pub-id pub-id-type="doi">10.1016/j.neuroscience.2005.10.046</pub-id><pub-id pub-id-type="pmid">16338085</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cheng</surname><given-names>M. F.</given-names></name></person-group> (<year>2013</year>). <article-title>Hypothalamic neurogenesis in the adult brain</article-title>. <source>Front. Neuroendocrinol</source>. <volume>34</volume>, <fpage>167</fpage>&#x2013;<lpage>78</lpage>. <pub-id pub-id-type="doi">10.1016/j.yfrne.2013.05.001</pub-id><pub-id pub-id-type="pmid">23684668</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Coppari</surname><given-names>R.</given-names></name><name><surname>Bj&#xF8;rb&#xE6;k</surname><given-names>C.</given-names></name></person-group> (<year>2012</year>). <article-title>Leptin revisited: its mechanism of action and potential for treating diabetes</article-title>. <source>Nat. Rev. Drug Discov</source>. <volume>11</volume>, <fpage>692</fpage>&#x2013;<lpage>708</lpage>. <pub-id pub-id-type="doi">10.1038/nrd3757</pub-id><pub-id pub-id-type="pmid">22935803</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Daynac</surname><given-names>M.</given-names></name><name><surname>Chicheportiche</surname><given-names>A.</given-names></name><name><surname>Pineda</surname><given-names>J. R.</given-names></name><name><surname>Gauthier</surname><given-names>L. R.</given-names></name><name><surname>Boussin</surname><given-names>F. D.</given-names></name><name><surname>Mouthon</surname><given-names>M. A.</given-names></name></person-group> (<year>2013</year>). <article-title>Quiescent neural stem cells exit dormancy upon alteration of GABAAR signalling following radiation damage</article-title>. <source>Stem Cell Res</source>. <volume>11</volume>, <fpage>516</fpage>&#x2013;<lpage>528</lpage>. <pub-id pub-id-type="doi">10.1016/j.scr.2013.02.008</pub-id><pub-id pub-id-type="pmid">23562833</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Di Giovanni</surname><given-names>S.</given-names></name><name><surname>Movsesyan</surname><given-names>V.</given-names></name><name><surname>Ahmed</surname><given-names>F.</given-names></name><name><surname>Cernak</surname><given-names>I.</given-names></name><name><surname>Schinelli</surname><given-names>S.</given-names></name><name><surname>Stoica</surname><given-names>B.</given-names></name><etal/></person-group>. (<year>2005</year>). <article-title>Cell cycle inhibition provides neuroprotection and reduces glial proliferation and scar formation after traumatic brain injury</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>102</volume>, <fpage>8333</fpage>&#x2013;<lpage>8338</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.0500989102</pub-id><pub-id pub-id-type="pmid">15923260</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Efthimiadi</surname><given-names>L.</given-names></name><name><surname>Farso</surname><given-names>M.</given-names></name><name><surname>Quirion</surname><given-names>R.</given-names></name><name><surname>Krantic</surname><given-names>S.</given-names></name></person-group> (<year>2012</year>). <article-title>Cyclin D1 induction preceding neuronal death via the excitotoxic NMDA pathway involves selective stimulation of extrasynaptic NMDA receptors and JNK pathway</article-title>. <source>Neurodegener. Dis</source>. <volume>10</volume>, <fpage>80</fpage>&#x2013;<lpage>91</lpage>. <pub-id pub-id-type="doi">10.1159/000335911</pub-id><pub-id pub-id-type="pmid">22354185</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Elmquist</surname><given-names>J. K.</given-names></name><name><surname>Bj&#xF8;rbaek</surname><given-names>C.</given-names></name><name><surname>Ahima</surname><given-names>R. S.</given-names></name><name><surname>Flier</surname><given-names>J. S.</given-names></name><name><surname>Saper</surname><given-names>C. B.</given-names></name></person-group> (<year>1998</year>). <article-title>Distributions of leptin receptor mRNA isoforms in the rat brain</article-title>. <source>J. Comp. Neurol</source>. <volume>395</volume>, <fpage>535</fpage>&#x2013;<lpage>547</lpage>. <pub-id pub-id-type="pmid">9619505</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fombonne</surname><given-names>J.</given-names></name><name><surname>Charrier</surname><given-names>C.</given-names></name><name><surname>Goddard</surname><given-names>I.</given-names></name><name><surname>Moyse</surname><given-names>E.</given-names></name><name><surname>Krantic</surname><given-names>S.</given-names></name></person-group> (<year>2007</year>). <article-title>Leptin-mediated decrease of cyclin A2 and increase of cyclin D1 expression: relevance for the control of prepubertal rat Leydig cell division and differentiation</article-title>. <source>Endocrinology</source>
+<volume>148</volume>, <fpage>2126</fpage>&#x2013;<lpage>2137</lpage>. <pub-id pub-id-type="doi">10.1210/en.2006-1218</pub-id><pub-id pub-id-type="pmid">17303663</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fombonne</surname><given-names>J.</given-names></name><name><surname>Reix</surname><given-names>S.</given-names></name><name><surname>Rasolonjanahary</surname><given-names>R.</given-names></name><name><surname>Danty</surname><given-names>E.</given-names></name><name><surname>Thirion</surname><given-names>S.</given-names></name><name><surname>Laforge-Anglade</surname><given-names>G.</given-names></name><etal/></person-group>. (<year>2004</year>). <article-title>Epidermal growth factor triggers an original, caspase-independent pituitary cell death with heterogeneous phenotype</article-title>. <source>Mol. Biol. Cell</source>. <volume>15</volume>, <fpage>4938</fpage>&#x2013;<lpage>4948</lpage>. <pub-id pub-id-type="doi">10.1091/mbc.E04-07-0601</pub-id><pub-id pub-id-type="pmid">15331766</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gao</surname><given-names>C. Y.</given-names></name><name><surname>Zelenka</surname><given-names>P. S.</given-names></name></person-group> (<year>1997</year>). <article-title>Cyclins, cyclin-dependent kinases and differentiation</article-title>. <source>Bioessays</source>
+<volume>19</volume>:<fpage>307</fpage>&#x2013;<lpage>315</lpage>. <pub-id pub-id-type="pmid">9136628</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Garofalo</surname><given-names>C.</given-names></name><name><surname>Surmacz</surname><given-names>E.</given-names></name></person-group> (<year>2006</year>). <article-title>Leptin and cancer</article-title>. <source>J. Cell. Physiol</source>. <volume>207</volume>, <fpage>12</fpage>&#x2013;<lpage>22</lpage>. <pub-id pub-id-type="doi">10.1002/jcp.20472</pub-id><pub-id pub-id-type="pmid">16110483</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gautron</surname><given-names>L.</given-names></name><name><surname>Elmquist</surname><given-names>J. K.</given-names></name></person-group> (<year>2011</year>). <article-title>Sixteen years and counting: an update on leptin in energy balance</article-title>. <source>J. Clin. Invest</source>. <volume>121</volume>, <fpage>2087</fpage>&#x2013;<lpage>2093</lpage>. <pub-id pub-id-type="doi">10.1172/JCI45888</pub-id><pub-id pub-id-type="pmid">21633176</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gheusi</surname><given-names>G.</given-names></name><name><surname>Lledo</surname><given-names>P. M.</given-names></name></person-group> (<year>2014</year>). <article-title>Adult neurogenesis in the olfactory system shapes odor memory and perception</article-title>. <source>Prog. Brain Res</source>. <volume>208</volume>, <fpage>157</fpage>&#x2013;<lpage>175</lpage>. <pub-id pub-id-type="doi">10.1016/B978-0-444-63350-7.00006-1</pub-id><pub-id pub-id-type="pmid">24767482</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Grill</surname><given-names>H. J.</given-names></name><name><surname>Hayes</surname><given-names>M. R.</given-names></name></person-group> (<year>2012</year>). <article-title>Hindbrain neurons as an essential hub in the neuroanatomically distributed control of energy balance</article-title>. <source>Cell Metab</source>. <volume>16</volume>, <fpage>296</fpage>&#x2013;<lpage>309</lpage>. <pub-id pub-id-type="doi">10.1016/j.cmet.2012.06.015</pub-id><pub-id pub-id-type="pmid">22902836</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Haissaguerre</surname><given-names>M.</given-names></name><name><surname>Saucisse</surname><given-names>N.</given-names></name><name><surname>Cota</surname><given-names>D.</given-names></name></person-group> (<year>2014</year>). <article-title>Influence of mTOR in energy and metabolic homeostasis</article-title>. <source>Mol. Cell. Endocrinol</source>. <volume>397</volume>, <fpage>67</fpage>&#x2013;<lpage>77</lpage>. <pub-id pub-id-type="doi">10.1016/j.mce.2014.07015</pub-id><pub-id pub-id-type="pmid">25109278</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hann</surname><given-names>N.</given-names></name><name><surname>Goodman</surname><given-names>T.</given-names></name><name><surname>Nadji-Samiei</surname><given-names>A.</given-names></name><name><surname>Stratford</surname><given-names>C. M.</given-names></name><name><surname>Rice</surname><given-names>R.</given-names></name><name><surname>El Agha</surname><given-names>E.</given-names></name><etal/></person-group>. (<year>2013</year>). <article-title>Fgf10-expressing tanycytes add new neurons to the appetite/energy balance regulating centres of the postnatal and adult hypothalamus</article-title>. <source>J. Neurosci</source>. <volume>33</volume>, <fpage>6170</fpage>&#x2013;<lpage>6180</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.2437-12.2013</pub-id><pub-id pub-id-type="pmid">23554498</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>King</surname><given-names>B.</given-names></name><name><surname>Jiang</surname><given-names>Y.</given-names></name><name><surname>Su</surname><given-names>X.</given-names></name><name><surname>Xu</surname><given-names>J.</given-names></name><name><surname>Xie</surname><given-names>L.</given-names></name><name><surname>Standard</surname><given-names>J.</given-names></name><etal/></person-group>. (<year>2013</year>). <article-title>Weight control, endocrine hormones and cancer prevention</article-title>. <source>Exp. Biol Med</source>. <volume>238</volume>, <fpage>502</fpage>&#x2013;<lpage>508</lpage>. <pub-id pub-id-type="doi">10.1177/1535370213480695</pub-id><pub-id pub-id-type="pmid">23856901</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kokoeva</surname><given-names>M. V.</given-names></name><name><surname>Yin</surname><given-names>H.</given-names></name><name><surname>Flier</surname><given-names>J. S.</given-names></name></person-group> (<year>2005</year>). <article-title>Neurogenesis in the hypothalamus of adult mice: potential role in energy balance</article-title>. <source>Science</source>
+<volume>310</volume>, <fpage>679</fpage>&#x2013;<lpage>683</lpage>. <pub-id pub-id-type="doi">10.1126/science.1115360</pub-id><pub-id pub-id-type="pmid">16254185</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kranenburg</surname><given-names>O.</given-names></name><name><surname>van der Eb</surname><given-names>A. J.</given-names></name><name><surname>Zantema</surname><given-names>A.</given-names></name></person-group> (<year>1996</year>). <article-title>Cyclin D1 is an essential mediator of apoptotic neuronal cell death</article-title>. <source>EMBO J</source>. <volume>15</volume>, <fpage>46</fpage>&#x2013;<lpage>54</lpage>. <pub-id pub-id-type="pmid">8598205</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Krantic</surname><given-names>S.</given-names></name><name><surname>Mechawar</surname><given-names>N.</given-names></name><name><surname>Reix</surname><given-names>S.</given-names></name><name><surname>Quirion</surname><given-names>R.</given-names></name></person-group> (<year>2005</year>). <article-title>Molecular basis of programmed cell death involved in neurodegeneration</article-title>. <source>Trends Neurosci</source>. <volume>28</volume>, <fpage>670</fpage>&#x2013;<lpage>676</lpage>. <pub-id pub-id-type="doi">10.1016/j.tins.2005.09.011</pub-id><pub-id pub-id-type="pmid">16216345</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>D. A.</given-names></name><name><surname>Bedont</surname><given-names>J. L.</given-names></name><name><surname>Pak</surname><given-names>T.</given-names></name><name><surname>Wang</surname><given-names>H.</given-names></name><name><surname>Song</surname><given-names>J.</given-names></name><name><surname>Miranda-Angulo</surname><given-names>A.</given-names></name><etal/></person-group>. (<year>2012</year>). <article-title>Tanycytes of the hypothalamic median eminence form a diet-responsive neurogenic niche</article-title>. <source>Nat. Neurosci</source>. <volume>15</volume>, <fpage>700</fpage>&#x2013;<lpage>702</lpage>. <pub-id pub-id-type="doi">10.1038/nn.3079</pub-id><pub-id pub-id-type="pmid">22446882</pub-id></mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lefloch</surname><given-names>R.</given-names></name><name><surname>Pouyss&#xE9;gur</surname><given-names>J.</given-names></name><name><surname>Lenormand</surname><given-names>P.</given-names></name></person-group> (<year>2009</year>). <article-title>Total ERK1/2 activity regulates cell proliferation</article-title>. <source>Cell Cycle</source>
+<volume>8</volume>, <fpage>705</fpage>&#x2013;<lpage>711</lpage>. <pub-id pub-id-type="doi">10.4161/cc.8.5.7734</pub-id><pub-id pub-id-type="pmid">19242111</pub-id></mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lesault</surname><given-names>I.</given-names></name><name><surname>Quang</surname><given-names>C. T.</given-names></name><name><surname>Frampton</surname><given-names>J.</given-names></name><name><surname>Ghysdael</surname><given-names>J.</given-names></name></person-group> (<year>2002</year>). <article-title>Direct regulation of BCl-2 by FLI-1 is involved in the survival of FLI-1-transformed erythroblasts</article-title>. <source>EMBO J</source>. <volume>21</volume>, <fpage>694</fpage>&#x2013;<lpage>703</lpage>. <pub-id pub-id-type="doi">10.1093/emboj/21.4.694</pub-id><pub-id pub-id-type="pmid">11847117</pub-id></mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Liard</surname><given-names>O.</given-names></name><name><surname>Segura</surname><given-names>S.</given-names></name><name><surname>Pascual</surname><given-names>A.</given-names></name><name><surname>Gaudreau</surname><given-names>P.</given-names></name><name><surname>Fusai</surname><given-names>T.</given-names></name><name><surname>Moyse</surname><given-names>E.</given-names></name></person-group> (<year>2009</year>). <article-title><italic>In vitro</italic> isolation of neural precursor cells from the adult pig subventricular zone</article-title>. <source>J. Neurosci. Methods</source>
+<volume>182</volume>, <fpage>172</fpage>&#x2013;<lpage>179</lpage>. <pub-id pub-id-type="doi">10.1016/j.jneumeth.2009.06.008</pub-id><pub-id pub-id-type="pmid">19524610</pub-id></mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Louis</surname><given-names>S. A.</given-names></name><name><surname>Mak</surname><given-names>C. K. H.</given-names></name><name><surname>Reynolds</surname><given-names>B. A.</given-names></name></person-group> (<year>2013</year>). <article-title>Methods to culture, differentiate, and characterize neural stem cells from the adult and embryonic mouse central nervous system</article-title>. <source>Meth. Mol. Biol</source>. <volume>946</volume>, <fpage>479</fpage>&#x2013;<lpage>506</lpage>. <pub-id pub-id-type="doi">10.1007/978-1-62703-128-8_30</pub-id><pub-id pub-id-type="pmid">23179851</pub-id></mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mans</surname><given-names>L. D.</given-names></name><name><surname>Haramis</surname><given-names>A. P.</given-names></name></person-group> (<year>2014</year>). <article-title>Burn to cycle: energetics of cell-cycle control and stem cell maintenance</article-title>. <source>Front. Biosci</source>. <volume>19</volume>, <fpage>1003</fpage>&#x2013;<lpage>1014</lpage>. <pub-id pub-id-type="doi">10.2741/4263</pub-id><pub-id pub-id-type="pmid">24896332</pub-id></mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Manzanero</surname><given-names>S.</given-names></name><name><surname>Erion</surname><given-names>J. R.</given-names></name><name><surname>Santro</surname><given-names>T.</given-names></name><name><surname>Steyn</surname><given-names>F. J.</given-names></name><name><surname>Chen</surname><given-names>C.</given-names></name><name><surname>Arumugam</surname><given-names>T. V.</given-names></name><etal/></person-group>. (<year>2014</year>). <article-title>Intermittent fasting attenuates increases in neurogenesis after ischaemia and reperfusion and improves recovery</article-title>. <source>J. Cereb. Blood Flow Metab</source>. <volume>34</volume>, <fpage>897</fpage>&#x2013;<lpage>905</lpage>. <pub-id pub-id-type="doi">10.1038/jcbfm.2014.36</pub-id><pub-id pub-id-type="pmid">24549184</pub-id></mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>McNay</surname><given-names>D. E. G.</given-names></name><name><surname>Brian&#xE7;on</surname><given-names>N.</given-names></name><name><surname>Kokoeva</surname><given-names>M. V.</given-names></name><name><surname>Maratos-Flier</surname><given-names>E.</given-names></name><name><surname>Flier</surname><given-names>J. S.</given-names></name></person-group> (<year>2012</year>). <article-title>Remodeling of the arcuate nucleus energy-balance circuit is inhibited in obese mice</article-title>. <source>J. Clin. Invest</source>. <volume>122</volume>, <fpage>142</fpage>&#x2013;<lpage>152</lpage>. <pub-id pub-id-type="doi">10.1172/JCI43134</pub-id><pub-id pub-id-type="pmid">22201680</pub-id></mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Meloche</surname><given-names>S.</given-names></name><name><surname>Pouyssegur</surname><given-names>J.</given-names></name></person-group> (<year>2007</year>). <article-title>The ERK &#xBD;mitogen-activated protein kinase pathway as a master regulator of the G1- to S-phase transition</article-title>. <source>Oncogene</source>
+<volume>26</volume>, <fpage>3227</fpage>&#x2013;<lpage>3239</lpage>. <pub-id pub-id-type="doi">10.1038/sj.onc.1210414</pub-id><pub-id pub-id-type="pmid">17496918</pub-id></mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Moraes</surname><given-names>J. C.</given-names></name><name><surname>Coope</surname><given-names>A.</given-names></name><name><surname>Morari</surname><given-names>J.</given-names></name><name><surname>Cintra</surname><given-names>D. E.</given-names></name><name><surname>Roman</surname><given-names>E. A.</given-names></name><name><surname>Pauli</surname><given-names>J. R.</given-names></name><etal/></person-group>. (<year>2009</year>). <article-title>High-fat diet induces apoptosis of hypothalamic neurons</article-title>. <source>PLoS ONE</source>
+<volume>4</volume>:<fpage>e5045</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0005045</pub-id><pub-id pub-id-type="pmid">19340313</pub-id></mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Morton</surname><given-names>G. J.</given-names></name><name><surname>Meak</surname><given-names>T. H.</given-names></name><name><surname>Schwartz</surname><given-names>M. W.</given-names></name></person-group> (<year>2014</year>). <article-title>Central nervous system control of food intake and body weight</article-title>. <source>Nat. Rev. Neurosci</source>. <volume>15</volume>, <fpage>367</fpage>&#x2013;<lpage>378</lpage>. <pub-id pub-id-type="doi">10.1038/nrn3745</pub-id><pub-id pub-id-type="pmid">24840801</pub-id></mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mouret</surname><given-names>A.</given-names></name><name><surname>Lepousez</surname><given-names>G.</given-names></name><name><surname>Gras</surname><given-names>J.</given-names></name><name><surname>Gabellec</surname><given-names>M. M.</given-names></name><name><surname>Lledo</surname><given-names>P. M.</given-names></name></person-group> (<year>2009</year>). <article-title>Turnover of newborn olfactory bulb neurons optimizes olfaction</article-title>. <source>J. Neurosci</source>. <volume>29</volume>, <fpage>12302</fpage>&#x2013;<lpage>12314</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.3383-09.2009</pub-id><pub-id pub-id-type="pmid">19793989</pub-id></mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Myers</surname><given-names>M. G.</given-names><suffix>Jr.</suffix></name><name><surname>M&#xFC;nzberg</surname><given-names>H.</given-names></name><name><surname>Lehninger</surname><given-names>G. M.</given-names></name><name><surname>Leshan</surname><given-names>R. L.</given-names></name></person-group> (<year>2009</year>). <article-title>The geometry of leptin action in the brain: more complicated than a simple ARC</article-title>. <source>Cell Metab</source>. <volume>9</volume>, <fpage>117</fpage>&#x2013;<lpage>123</lpage>. <pub-id pub-id-type="doi">10.1016/j.cmet.2008.12.001</pub-id><pub-id pub-id-type="pmid">19187770</pub-id></mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>National Research Council</surname><given-names>N. R. C.</given-names></name></person-group> (<year>1996</year>). <source>Guide for Care and use of Laboratory Animals, 8th Edn</source>. <publisher-loc>Washington, DC</publisher-loc>: <publisher-name>The National Academies Press</publisher-name>.</mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Oliver</surname><given-names>T. G.</given-names></name><name><surname>Grasfeder</surname><given-names>L. L.</given-names></name><name><surname>Carroll</surname><given-names>A. L.</given-names></name><name><surname>Kaiser</surname><given-names>C.</given-names></name><name><surname>Gillingham</surname><given-names>C. L.</given-names></name><name><surname>Lin</surname><given-names>S. M.</given-names></name><etal/></person-group>. (<year>2003</year>). <article-title>Transcriptional profile of the Sonic hedgehog response: a critical role for N-myc in proliferation of neuronal precursors</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>100</volume>, <fpage>7331</fpage>&#x2013;<lpage>7336</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.0832317100</pub-id><pub-id pub-id-type="pmid">12777630</pub-id></mixed-citation>
+      </ref>
+      <ref id="B43">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Oswal</surname><given-names>A.</given-names></name><name><surname>Yeo</surname><given-names>G.</given-names></name></person-group> (<year>2010</year>). <article-title>Leptin and the control of body weight: a review of its diverse central targets, signaling mechanisms, and role in the pathogenesis of obesity</article-title>. <source>Obesity</source>
+<volume>18</volume>, <fpage>221</fpage>&#x2013;<lpage>229</lpage>. <pub-id pub-id-type="doi">10.1038/oby.2009.228</pub-id><pub-id pub-id-type="pmid">19644451</pub-id></mixed-citation>
+      </ref>
+      <ref id="B44">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Palma</surname><given-names>V.</given-names></name><name><surname>Lim</surname><given-names>D. A.</given-names></name><name><surname>Dahmane</surname><given-names>N.</given-names></name><name><surname>S&#xE1;nchez</surname><given-names>P.</given-names></name><name><surname>Brionne</surname><given-names>T. C.</given-names></name><name><surname>Herzberg</surname><given-names>C. D.</given-names></name><etal/></person-group>. (<year>2004</year>). <article-title>Sonic hedgehog controls stem cell behavior in the postnatal and adult brain</article-title>. <source>Development</source>
+<volume>132</volume>, <fpage>335</fpage>&#x2013;<lpage>344</lpage>. <pub-id pub-id-type="doi">10.1242/dev.01567</pub-id><pub-id pub-id-type="pmid">15604099</pub-id></mixed-citation>
+      </ref>
+      <ref id="B45">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Palouzier-Paulignan</surname><given-names>B.</given-names></name><name><surname>Lacroix</surname><given-names>M. C.</given-names></name><name><surname>Aim&#xE9;</surname><given-names>P.</given-names></name><name><surname>Baly</surname><given-names>C.</given-names></name><name><surname>Caillol</surname><given-names>M.</given-names></name><name><surname>Congar</surname><given-names>P.</given-names></name><etal/></person-group>. (<year>2012</year>). <article-title>Olfaction under metabolic influences</article-title>. <source>Chem. Senses</source>
+<volume>37</volume>, <fpage>769</fpage>&#x2013;<lpage>797</lpage>. <pub-id pub-id-type="doi">10.1093/chemse/bjs059</pub-id><pub-id pub-id-type="pmid">22832483</pub-id></mixed-citation>
+      </ref>
+      <ref id="B46">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Park</surname><given-names>H. K.</given-names></name><name><surname>Ahima</surname><given-names>R. S.</given-names></name></person-group> (<year>2014</year>). <article-title>Leptin signaling</article-title>. <source>F1000Prime Rep</source>. <volume>6</volume>:<fpage>73</fpage>. <pub-id pub-id-type="doi">10.12703/P6-73</pub-id><pub-id pub-id-type="pmid">25343030</pub-id></mixed-citation>
+      </ref>
+      <ref id="B47">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Park</surname><given-names>H. R.</given-names></name><name><surname>Park</surname><given-names>M.</given-names></name><name><surname>Choi</surname><given-names>J.</given-names></name><name><surname>Park</surname><given-names>K. Y.</given-names></name><name><surname>Chung</surname><given-names>H. Y.</given-names></name><name><surname>Lee</surname><given-names>J.</given-names></name></person-group> (<year>2010</year>). <article-title>A high-fat diet impairs neurogenesis: involvement of lipid peroxidation and brain-derived neurotrophic factor</article-title>. <source>Neurosci. Lett</source>. <volume>482</volume>, <fpage>235</fpage>&#x2013;<lpage>239</lpage>. <pub-id pub-id-type="doi">10.1016/j.neulet.2010.07.046</pub-id><pub-id pub-id-type="pmid">20670674</pub-id></mixed-citation>
+      </ref>
+      <ref id="B48">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pestell</surname><given-names>R. G.</given-names></name></person-group> (<year>2013</year>). <article-title>New roles of cyclin D1</article-title>. <source>Am. J. Pathol</source>. <volume>183</volume>, <fpage>3</fpage>&#x2013;<lpage>9</lpage>. <pub-id pub-id-type="doi">10.1016/j.ajpath.2013.03.001</pub-id><pub-id pub-id-type="pmid">23790801</pub-id></mixed-citation>
+      </ref>
+      <ref id="B49">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pierce</surname><given-names>A. A.</given-names></name><name><surname>Xu</surname><given-names>A. W.</given-names></name></person-group> (<year>2010</year>). <article-title>De novo neurogenesis in adult hypothalamus as a compensatory mechanism to regulate energy balance</article-title>. <source>J. Neurosci</source>. <volume>30</volume>, <fpage>723</fpage>&#x2013;<lpage>730</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.2479-09.2010</pub-id><pub-id pub-id-type="pmid">20071537</pub-id></mixed-citation>
+      </ref>
+      <ref id="B50">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pinto</surname><given-names>S.</given-names></name><name><surname>Roseberry</surname><given-names>A. G.</given-names></name><name><surname>Liu</surname><given-names>H.</given-names></name><name><surname>Diano</surname><given-names>S.</given-names></name><name><surname>Shanabrough</surname><given-names>M.</given-names></name><name><surname>Cai</surname><given-names>X.</given-names></name><etal/></person-group>. (<year>2004</year>). <article-title>Rapid rewiring of arcuate nucleus feeding circuits by leptin</article-title>. <source>Science</source>
+<volume>304</volume>, <fpage>110</fpage>&#x2013;<lpage>115</lpage>. <pub-id pub-id-type="doi">10.1126/science.1089459</pub-id><pub-id pub-id-type="pmid">15064421</pub-id></mixed-citation>
+      </ref>
+      <ref id="B51">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rahmouni</surname><given-names>K.</given-names></name><name><surname>Sigmund</surname><given-names>C. D.</given-names></name><name><surname>Haynes</surname><given-names>W. G.</given-names></name><name><surname>Mark</surname><given-names>A. L.</given-names></name></person-group> (<year>2009</year>). <article-title>Hypothalamic ERK mediates the anorectic and thermogenic sympathetic effects of leptin</article-title>. <source>Diabetes</source>
+<volume>58</volume>, <fpage>536</fpage>&#x2013;<lpage>542</lpage>. <pub-id pub-id-type="doi">10.2337/db08-0822</pub-id><pub-id pub-id-type="pmid">19066310</pub-id></mixed-citation>
+      </ref>
+      <ref id="B52">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ramos-Rodriguez</surname><given-names>J. J.</given-names></name><name><surname>Molina-Gil</surname><given-names>S.</given-names></name><name><surname>Ortiz-Barajas</surname><given-names>O.</given-names></name><name><surname>Jimenez-Palomares</surname><given-names>M.</given-names></name><name><surname>Perdomo</surname><given-names>G.</given-names></name><name><surname>Cozar-Castellano</surname><given-names>I.</given-names></name><etal/></person-group>. (<year>2014</year>). <article-title>Central proliferation and neurogenesis is impaired in type 2 diabetes and prediabetes animal models</article-title>. <source>PLoS ONE</source>
+<volume>9</volume>:<fpage>e89229</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0089229</pub-id><pub-id pub-id-type="pmid">24586614</pub-id></mixed-citation>
+      </ref>
+      <ref id="B53">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rasmussen</surname><given-names>B. A.</given-names></name><name><surname>Breen</surname><given-names>D. M.</given-names></name><name><surname>Duca</surname><given-names>F. A.</given-names></name><name><surname>C&#xF4;t&#xE9;</surname><given-names>C. D.</given-names></name><name><surname>Filippi</surname><given-names>B. M.</given-names></name><name><surname>Lam</surname><given-names>T. K. T.</given-names></name></person-group> (<year>2014</year>). <article-title>Jejunal leptin-PI3K signaling lowers glucose production</article-title>. <source>Cell Metab</source>. <volume>19</volume>, <fpage>155</fpage>&#x2013;<lpage>161</lpage>. <pub-id pub-id-type="doi">10.1016/j.cmet.2013.11.014</pub-id><pub-id pub-id-type="pmid">24361011</pub-id></mixed-citation>
+      </ref>
+      <ref id="B54">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rehman</surname><given-names>G.</given-names></name><name><surname>Shehzad</surname><given-names>A.</given-names></name><name><surname>Khan</surname><given-names>A. L.</given-names></name><name><surname>Hamayun</surname><given-names>M.</given-names></name></person-group> (<year>2014</year>). <article-title>Role of AMP-activated protein kinase in cancer therapy</article-title>. <source>Arch. Pharm</source>. <volume>347</volume>, <fpage>457</fpage>&#x2013;<lpage>468</lpage>. <pub-id pub-id-type="doi">10.1002/ardp.201300402</pub-id><pub-id pub-id-type="pmid">24677093</pub-id></mixed-citation>
+      </ref>
+      <ref id="B55">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rosa</surname><given-names>A. I.</given-names></name><name><surname>Gon&#xE7;calves</surname><given-names>J.</given-names></name><name><surname>Cortes</surname><given-names>L.</given-names></name><name><surname>Bernardino</surname><given-names>L.</given-names></name><name><surname>Malva</surname><given-names>J. O.</given-names></name><name><surname>Agasse</surname><given-names>F.</given-names></name></person-group> (<year>2010</year>). <article-title>The angiogenic factor angiopoietin-1 is a proneurogenic peptide on subventricular zone stem/progenitor cells</article-title>. <source>J. Neurosci</source>. <volume>30</volume>, <fpage>4573</fpage>&#x2013;<lpage>4584</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.5597-09.2010</pub-id><pub-id pub-id-type="pmid">20357108</pub-id></mixed-citation>
+      </ref>
+      <ref id="B56">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Scholzen</surname><given-names>T.</given-names></name><name><surname>Gerdes</surname><given-names>J.</given-names></name></person-group> (<year>2000</year>). <article-title>The Ki-67 protein: from the known and the unknown</article-title>. <source>J. Cell. Physiol</source>. <volume>182</volume>, <fpage>311</fpage>&#x2013;<lpage>322</lpage>. <pub-id pub-id-type="doi">10.1002/(SICI)1097-4652(200003)182:3&lt;311::AID-JCP1&gt;3.0.CO;2-9</pub-id><pub-id pub-id-type="pmid">10653597</pub-id></mixed-citation>
+      </ref>
+      <ref id="B57">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sherr</surname><given-names>C. J.</given-names></name><name><surname>Roberts</surname><given-names>J. M.</given-names></name></person-group> (<year>2004</year>). <article-title>Living with or without cyclins and cyclin-dependent kinases</article-title>. <source>Genes Dev</source>. <volume>18</volume>, <fpage>2699</fpage>&#x2013;<lpage>2711</lpage>. <pub-id pub-id-type="doi">10.1101/gad.1256504</pub-id><pub-id pub-id-type="pmid">15545627</pub-id></mixed-citation>
+      </ref>
+      <ref id="B58">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Speisman</surname><given-names>R. B.</given-names></name><name><surname>Kumar</surname><given-names>A.</given-names></name><name><surname>Rani</surname><given-names>A.</given-names></name><name><surname>Foster</surname><given-names>T. C.</given-names></name></person-group> (<year>2013</year>). <article-title>Daily exercise improves memory, stimulates hippocampal neurogenesis and modulates immune and neuroimmune cytokines in aging rats</article-title>. <source>Brain Behav. Immun</source>. <volume>28</volume>, <fpage>25</fpage>&#x2013;<lpage>43</lpage>. <pub-id pub-id-type="doi">10.1016/j.bbi.2012.09.013</pub-id><pub-id pub-id-type="pmid">23078985</pub-id></mixed-citation>
+      </ref>
+      <ref id="B59">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sultan</surname><given-names>S.</given-names></name><name><surname>Mandairon</surname><given-names>N.</given-names></name><name><surname>Kermen</surname><given-names>F.</given-names></name><name><surname>Garcia</surname><given-names>S.</given-names></name><name><surname>Sacquet</surname><given-names>J.</given-names></name><name><surname>Didier</surname><given-names>A.</given-names></name></person-group> (<year>2010</year>). <article-title>Learning-dependent neurogenesis in the olfactory bulb determines long-term olfactory memory</article-title>. <source>FASEB J</source>. <volume>24</volume>, <fpage>2355</fpage>&#x2013;<lpage>2363</lpage>. <pub-id pub-id-type="doi">10.1096/fj.09-151456</pub-id><pub-id pub-id-type="pmid">20215526</pub-id></mixed-citation>
+      </ref>
+      <ref id="B60">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tang</surname><given-names>B. L.</given-names></name></person-group> (<year>2008</year>). <article-title>Leptin as a neuroprotective agent</article-title>. <source>Biochem. Biophys. Res. Commun</source>. <volume>368</volume>, <fpage>181</fpage>&#x2013;<lpage>185</lpage>. <pub-id pub-id-type="doi">10.1016/j.bbrc.2008.01.063</pub-id><pub-id pub-id-type="pmid">18222172</pub-id></mixed-citation>
+      </ref>
+      <ref id="B61">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Timsit</surname><given-names>S.</given-names></name><name><surname>Rivera</surname><given-names>S.</given-names></name><name><surname>Ouaghi</surname><given-names>P.</given-names></name><name><surname>Guischard</surname><given-names>F.</given-names></name><name><surname>Tremblay</surname><given-names>E.</given-names></name><name><surname>Ben-Ari</surname><given-names>Y.</given-names></name><etal/></person-group>. (<year>1999</year>). <article-title>Increased cyclin D1 in vulnerable neurons in the hippocampus after ischemia and epilepsy: a modulator of <italic>in vivo</italic> programmed cell death?</article-title>
+<source>Eur. J. Neurosci</source>. <volume>11</volume>, <fpage>263</fpage>&#x2013;<lpage>278</lpage>. <pub-id pub-id-type="pmid">9987030</pub-id></mixed-citation>
+      </ref>
+      <ref id="B62">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Villanueva</surname><given-names>E. C.</given-names></name><name><surname>Myers</surname><given-names>M. G.</given-names><suffix>Jr.</suffix></name></person-group> (<year>2008</year>). <article-title>Leptin receptor signaling and the regulation of mammalian physiology</article-title>. <source>Int. J. Obes</source>. <volume>32</volume>(<issue>Suppl. 7</issue>), <fpage>S8</fpage>&#x2013;<lpage>S12</lpage>. <pub-id pub-id-type="doi">10.1038/ijo.2008.232</pub-id><pub-id pub-id-type="pmid">19136996</pub-id></mixed-citation>
+      </ref>
+      <ref id="B63">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>F.</given-names></name><name><surname>Proenca</surname><given-names>R.</given-names></name><name><surname>Maffei</surname><given-names>M.</given-names></name><name><surname>Barone</surname><given-names>M.</given-names></name><name><surname>Leopold</surname><given-names>L.</given-names></name><name><surname>Friedman</surname><given-names>J. M.</given-names></name></person-group> (<year>1994</year>). <article-title>Positional cloning of the mouse obese gene and its human homologue</article-title>. <source>Nature</source>
+<volume>372</volume>, <fpage>425</fpage>&#x2013;<lpage>432</lpage>. <pub-id pub-id-type="doi">10.1038/372425a0</pub-id><pub-id pub-id-type="pmid">7984236</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+    <glossary>
+      <def-list>
+        <title>Abbreviations</title>
+        <def-item>
+          <term>aCSF</term>
+          <def>
+            <p>artificial cerebrospinal fluid</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>AKT</term>
+          <def>
+            <p>protein kinase B</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>AMPK</term>
+          <def>
+            <p>5&#x2032;-adenosine monophosphate-activated protein kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>bFGF</term>
+          <def>
+            <p>basic fibroblast growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CNTF</term>
+          <def>
+            <p>ciliary neurotrophic factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DAPI</term>
+          <def>
+            <p>diamidino-2-phenylindole</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DIV</term>
+          <def>
+            <p>days <italic>in vitro</italic></p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DMEM</term>
+          <def>
+            <p>Dulbecco's modified Eagle's medium</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF</term>
+          <def>
+            <p>epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ERK</term>
+          <def>
+            <p>extracellular signal-regulated kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>MAPK</term>
+          <def>
+            <p>mitogen-activated protein kinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ObRb</term>
+          <def>
+            <p>leptin receptor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PCR</term>
+          <def>
+            <p>polymerase chain reaction</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>RNA</term>
+          <def>
+            <p>ribonucleic acid</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>shRNA</term>
+          <def>
+            <p>short hairpin ribonucleic acid</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>siRNA</term>
+          <def>
+            <p>silencing RNA</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>STAT</term>
+          <def>
+            <p>signal transducer and activator of transcription</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>SVZ</term>
+          <def>
+            <p>subventricular zone.</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+  </back>
+</article>
+</pmc-articleset>

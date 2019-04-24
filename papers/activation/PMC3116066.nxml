@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">1305440</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4818</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Immunol Methods</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of immunological methods</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0022-1759</issn>
+      <issn pub-type="epub">1872-7905</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21569776</article-id>
+      <article-id pub-id-type="pmc">3116066</article-id>
+      <article-id pub-id-type="doi">10.1016/j.jim.2011.04.012</article-id>
+      <article-id pub-id-type="manuscript">NIHMS294604</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Cytokine Profiling of Pancreatic Fluid using the ePFT Collection Method in Tandem with a Multiplexed Microarray Assay</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Paulo</surname>
+            <given-names>Joao A.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <aff id="A1">Department of Pathology, Children's Hospital Boston, Boston, MA Proteomics Center at Children's Hospital Boston, Boston, MA Center for Pancreatic Disease, Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital and Department of Medicine, Harvard Medical School, Boston, MA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Linda S.</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <aff id="A2">Center for Pancreatic Disease, Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital and Department of Medicine, Harvard Medical School, Boston, MA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Bechien</given-names>
+          </name>
+          <degrees>MD, MPH</degrees>
+          <aff id="A3">Center for Pancreatic Disease, Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital and Department of Medicine, Harvard Medical School, Boston, MA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Banks</surname>
+            <given-names>Peter A.</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <aff id="A4">Center for Pancreatic Disease, Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital and Department of Medicine, Harvard Medical School, Boston, MA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Steen</surname>
+            <given-names>Hanno</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="author-notes" rid="FN1">#</xref>
+          <aff id="A5">Department of Pathology, Children's Hospital Boston and Harvard Medical School, BostonProteomics Center at Children's Hospital Boston, Boston, MA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Conwell</surname>
+            <given-names>Darwin L.</given-names>
+          </name>
+          <degrees>MD, MS</degrees>
+          <xref ref-type="author-notes" rid="FN1">#</xref>
+          <aff id="A6">Center for Pancreatic Disease, Division of Gastroenterology, Hepatology and Endoscopy, Brigham and Women's Hospital and Department of Medicine, Harvard Medical School, Boston, MA</aff>
+        </contrib>
+      </contrib-group>
+      <author-notes>
+        <fn id="FN2">
+          <p id="P1">AUTHOR CONTRIBUTIONS</p>
+          <p id="P2">JP carried out the experiments. JP and DC conceived of the study and drafted the original manuscript. JP, HS, and DC participated in its design and coordination. DC, and LL collected the specimens and assisted in experimental design. All authors helped to draft the manuscript and approved the final manuscript.</p>
+        </fn>
+        <fn fn-type="equal" id="FN1">
+          <label>#</label>
+          <p id="P3">These authors contributed equally to this work</p>
+        </fn>
+        <corresp id="CR1">corresponding author: Darwin L. Conwell Center for Pancreatic Disease Division of Gastroenterology, Hepatology and Endoscopy 75 Francis St. Boston, MA 02115 <email>dconwell@partners.org</email> phone:(617) 525-8818 fax: (617) 566-0338</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>16</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>1</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>30</day>
+        <month>6</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>30</day>
+        <month>6</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>369</volume>
+      <issue>1-2</issue>
+      <fpage>98</fpage>
+      <lpage>107</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2011 Elsevier B.V. All rights reserved.</copyright-statement>
+        <copyright-year>2011</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P4">Cytokines are secreted immunomodulating proteins involved in pancreatic stellate cell activation and propagation of fibrosis in chronic pancreatitis. We aim to show that cytokines can be identified from pancreatic fluid by (1) collecting pancreatic fluid with the ePFT method, (2) processing the fluid for cytokine-targeted microarray analysis, and (3) comparing cytokine profiles in pancreatic fluid of chronic pancreatitis (CP) patients and of chronic abdominal pain (CAP) controls. We endoscopically collected pancreatic fluid from patients with CP and those with CAP using the ePFT method. This fluid was subjected directly to a multiplexed cytokine protein microarray assay. Six patients (3 CP, 3 CAP) underwent a secretin-stimulated ePFT. The mean peak bicarbonate concentrations [meq/L] of the CP and CAP patients were 43 and 97, respectively. Statistically significant decreases in the cytokine concentrations of EGF, IP-10, eotaxin, IL-3, MIP-1a, IL-15, PDGF-AB/BB, and IL-1a were observed in the CP specimens (p &lt; 0.05). We have successfully identified differences in the abundance of cytokines in ePFT-collected pancreatic fluid with a multiplexed microarray assay comparing CP and CAP controls. Further targeted investigation of cytokines in ePFT-collected fluid will broaden our knowledge of pancreatic immune response and pathogenesis in chronic pancreatitis.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>ePFT</kwd>
+        <kwd>pancreas</kwd>
+        <kwd>biomarker</kwd>
+        <kwd>pancreatitis</kwd>
+        <kwd>pancreatic juice</kwd>
+        <kwd>pancreas fluid</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Diabetes and Digestive and Kidney Diseases  : NIDDK</funding-source>
+          <award-id>R21 DK081703-01A2 || DK</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

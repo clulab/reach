@@ -1,0 +1,935 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23409135</article-id>
+      <article-id pub-id-type="pmc">3567048</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-12-23765</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0056117</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Proteins</subject>
+              <subj-group>
+                <subject>Growth Factors</subject>
+                <subject>Transmembrane Proteins</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Developmental Biology</subject>
+            <subj-group>
+              <subject>Cell Differentiation</subject>
+              <subject>Cell Fate Determination</subject>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Neuroscience</subject>
+            <subj-group>
+              <subject>Developmental Neuroscience</subject>
+              <subj-group>
+                <subject>Neural Stem Cells</subject>
+                <subject>Neurogenesis</subject>
+                <subject>Neuroglial Development</subject>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Molecular Neuroscience</subject>
+              <subj-group>
+                <subject>Signaling Pathways</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Hepatocyte Growth Factor Activator Inhibitor-1 Is Induced by Bone Morphogenetic Proteins and Regulates Proliferation and Cell Fate of Neural Progenitor Cells</article-title>
+        <alt-title alt-title-type="running-head">BMP-2 Regulates Neural Progenitor Cells via HAI-1</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Koivuniemi</surname>
+            <given-names>Raili</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>M&#xE4;kel&#xE4;</surname>
+            <given-names>Johanna</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hokkanen</surname>
+            <given-names>Marie-Estelle</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bruelle</surname>
+            <given-names>C&#xE9;line</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ho</surname>
+            <given-names>Tho Huu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ola</surname>
+            <given-names>Roxana</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Korhonen</surname>
+            <given-names>Laura</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Schr&#xF6;der</surname>
+            <given-names>Jim</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kataoka</surname>
+            <given-names>Hiroaki</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lindholm</surname>
+            <given-names>Dan</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Institute of Biomedicine/Biochemistry and Developmental Biology, University of Helsinki, Helsinki, Finland</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Minerva Foundation Institute for Medical Research, Biomedicum-2 Helsinki, Helsinki, Finland</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Neuroscience Center, University of Helsinki, Helsinki, Finland</addr-line>
+</aff>
+      <aff id="aff4">
+<label>4</label>
+<addr-line>Department of Pathology, Faculty of Medicine, University of Miyazaki, Miyazaki, Japan</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Silver</surname>
+            <given-names>Debra L.</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Duke University Medical Center, United States of America</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>dan.lindholm@helsinki.fi</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: RK JM MEH CB THH RO LK JS HK DL. Performed the experiments: RK JM MEH CB RO. Analyzed the data: RK JM MEH CB THH RO LK JS HK DL. Contributed reagents/materials/analysis tools: LK JS HK DL. Wrote the paper: RK LK DL.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>7</day>
+        <month>2</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>2</issue>
+      <elocation-id>e56117</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>1</day>
+          <month>8</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>4</day>
+          <month>1</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 Koivuniemi et al</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <copyright-holder>Koivuniemi et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>Neural progenitor cells (NPCs) in the developing neuroepithelium are regulated by intrinsic and extrinsic factors. There is evidence that NPCs form a self-supporting niche for cell maintenance and proliferation. However, molecular interactions and cell-cell contacts and the microenvironment within the neuroepithelium are largely unknown. We hypothesized that cellular proteases especially those associated with the cell surface of NPCs play a role in regulation of progenitor cells in the brain.</p>
+        </sec>
+        <sec>
+          <title>Methodology/Principal Findings</title>
+          <p>In this work, we show that NPCs, isolated from striatal anlage of developing rat brain, express hepatocyte growth factor activator inhibitor-1 and -2 (HAI-1 and HAI-2) that are cell surface-linked serine protease inhibitors. In addition, radial glia cells derived from mouse embryonic stem cells also express HAI-1 and HAI-2. To study the functional significance of HAI-1 and HAI-2 in progenitor cells, we modulated their levels using expression plasmids or silencing RNA (siRNA) transfected into the NPCs. Data showed that overexpression of HAI-1 or HAI-2 decreased cell proliferation of cultured NPCs, whilst their siRNAs had opposite effects. HAI-1 also influenced NPC differentiation by increasing the number of glial fibrillary acidic protein (GFAP) expressing cells in the culture. Expression of HAI-1 <italic>in vivo</italic> decreased cell proliferation in developing neuroepithelium in E15 old animals and promoted astrocyte cell differentiation in neonatal animals. Studying the regulation of HAI-1, we observed that Bone morphogenetic protein-2 (BMP-2) and BMP-4 increased HAI-1 levels in the NPCs. Experiments using HAI-1-siRNA showed that these BMPs act on the NPCs partly in a HAI-1-dependent manner.</p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>This study shows that the cell-surface serine protease inhibitors, HAI-1 and HAI-2 influence proliferation and cell fate of NPCs and their expression levels are linked to BMP signaling. Modulation of the levels and actions of HAI-1 in NPCs may be of a potential value in stem cell therapies in various brain diseases.</p>
+        </sec>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work was supported by Sigrid Juselius Foundation, Nona and Kullervo V&#xE4;re Foundation, Academy of Finland, Liv och H&#xE4;lsa Foundation, Finska L&#xE4;kares&#xE4;llskapet, Magnus Ehrnrooth and Minerva Foundation. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="13"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Interactions between proteases and their inhibitors play an important role in development and post-injury tissue remodeling. Particularly proteases linked to the cell surface and the pericellular space are crucial for cell-cell contacts and interactions with the extracellular matrix <xref rid="pone.0056117-Szabo1" ref-type="bibr">[1]</xref>, <xref rid="pone.0056117-Tung1" ref-type="bibr">[2]</xref>. In the brain, NPCs are present in the developing neuroepithelium in a local microenvironment and form a self-supporting niche that regulates cell maintenance and proliferation <xref rid="pone.0056117-Temple1" ref-type="bibr">[3]</xref>. In this local tissue milieu the stem and progenitor cells can be in contact with other cell types such as endothelial cells and immature neuroblasts and glial cells <xref rid="pone.0056117-Tung1" ref-type="bibr">[2]</xref>, <xref rid="pone.0056117-Temple1" ref-type="bibr">[3]</xref>. The mechanism governing the interactions between these different cells types is largely unknown but may involve proteases and their inhibitors. It is also known that NPCs <italic>in vitro</italic> grow preferentially as neurospheres suggesting that cell-cell contacts and surface interactions are important for their development. However, apart from cell adhesion molecules and integrins little is known about cell surface-associated proteins and how they influence NPCs. In this study, we have focused on the expression of cell-surface linked protease inhibitors in the NPCs and whether these putative molecules might influence cell proliferation or differentiation of the NPCs.</p>
+      <p>Hepatocyte growth factor activator inhibitor-1 (HAI-1) and -2 (HAI-2) are type I transmembrane glycoproteins that belong to the Kunitz type serine protease inhibitor family, and they are expressed by epithelial cells in all major organs of the body <xref rid="pone.0056117-Kataoka1" ref-type="bibr">[4]</xref>&#x2013;<xref rid="pone.0056117-Szabo2" ref-type="bibr">[6]</xref>. We therefore studied whether these molecules are also present in the neuroepithelium harboring the NPCs and their progeny. We observed that NPCs derived from developing rat striatum express HAI-1 and HAI-2 in cell culture as well as in developing rat neuroepithelium. We further noted that the modulation of the cell surface-expression of HAI-1 and HAI-2 had a robust effect on cell proliferation of NPCs. Particularly, HAI-1 exhibited effects on cultured rat NPCs increasing cell division and promoting glial cell differentiation. Overexpression of HAI-1 in the developing mouse brain in utero reduced cell proliferation in E14 old neuropeithelium and promoted astroglia formation in E17 to P1 old neuroepithelium. Studies in cell culture showed that the expression of HAI-1 and HAI-2 is increased by BMP-2 and BMP-4 acting via the BMP receptors, BMPR-IA and BMPR-IB (also called ALK-3 and ALK-6 receptors, respectively) that are expressed in developing progenitor cells and in the developing neuroepithelium. This study shows that there is a link between the action of growth factors such as BMP-2 and the serine protease inhibitor HAI-1 in the NPCs and that this can contribute to the regulation of these progenitor cells and the local tissue milieu in the developing brain.</p>
+    </sec>
+    <sec id="s2">
+      <title>Results</title>
+      <sec id="s2a">
+        <title>NPCs Express the Cell-surface Proteins HAI-1 and HAI-2</title>
+        <p>In this study, we observed that HAI-1 and HAI-2 are expressed by nestin-positive NPCs in the embryonic (E17) and in the postnatal (P1) old rat neuroepithelium, as shown by immunostaining of dorsal cortex sections (<xref ref-type="fig" rid="pone-0056117-g001">Fig. 1A&#x2013;D</xref>). Data obtained in culture showed that NPCs derived from E17 old rat striatum also express HAI-1 and HAI-2 (<xref ref-type="fig" rid="pone-0056117-g001">Fig. 1E&#x2013;F</xref>). Double staining revealed that most of the HAI-1 and HAI-2-labeled cells are positive for nestin identifying them as NPCs (<xref ref-type="fig" rid="pone-0056117-g001">Fig. 1F</xref>). Likewise many cells positive for HAI-1 or HAI-2 were also labeled with Ki67 as a marker for dividing cells (<xref ref-type="fig" rid="pone-0056117-g001">Fig. 1E</xref>). Control experiments omitting the first antibodies showed no immunostaining of cells (<xref ref-type="fig" rid="pone-0056117-g001">Fig. 1E</xref>). Immunoblots of cell lysates showed that HAI-1 and HAI-2 are present in cells grown as neurospheres and in cells undergoing differentiation (<xref ref-type="fig" rid="pone-0056117-g001">Fig. 1G</xref>). This data shows that HAI-1 and HAI-2 are expressed by NPCs, raising questions about their putative functions.</p>
+        <fig id="pone-0056117-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>HAI-1 and HAI-2 are expressed in neural progenitor cells and in the developing neuroepithelium.</title>
+            <p>Sections were made from dorsal area of developing embryonic day 17 (E17)-old and postnatal P1-day old rat brain cortex. Immunostaining was done using specific antibodies as described in <xref ref-type="sec" rid="s4">Methods</xref>. Neural progenitor cells were prepared from the striatal anlage of E17 old rats and cultivated as described in <xref ref-type="sec" rid="s4">Methods</xref>. Nestin is a marker for progenitor cells and Ki67 for dividing cells. (<bold>A&#x2013;B</bold>) Immunofluorescence of dorsal cortex of E17 old (A) or P1 old rats (B). Left panels, HAI-1 and HAI-2 positive cells (red fluorescence). Right panels, Ki67- and Nestin-positive cells (green fluorescence). LV, lateral ventricle. Scale bar, 200 &#xB5;m. (<bold>C&#x2013;D</bold>) Higher magnification of confocal images showing double-staining of HAI-1 and HAI-2 (red fluorescence) with Nestin positive cells (green fluorescence) in E17 (C) and P1 (D) brain. Scale bars, 50 &#xB5;m. (<bold>E&#x2013;F</bold>) Immunocytochemistry of NPCs isolated from developing striatum of E17 rat brain. HAI-1 and HAI-2 are shown in red and Ki67 (E) and Nestin (F) in green fluorescence. Merged pictures to the right show double-stained cells (yellow fluorescence). Note double staining of almost all Nestin-positive cells. Lower panels in (E) show control staining without secondary antibodies, and nuclei are stained using Hoechst blue. Scale bars, 20 &#xB5;m. (<bold>G</bold>) Immunoblots of the NPCs cultivated under proliferating (P) or differentiating (D) conditions (see <xref ref-type="sec" rid="s4">Methods</xref>). HAI-1 (55 kDa band) remains fairly constant, whereas HAI-2 (34 kDa) decreases during cell differentiation. &#xDF;-actin was used as a loading control.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g001"/>
+        </fig>
+      </sec>
+      <sec id="s2b">
+        <title>HAI-1 and HAI-2 Decrease Cell Proliferation of NPCs</title>
+        <p>To study whether HAI-1 and HAI-2 influence NPCs we used either overexpressing plasmids, as depicted in <xref ref-type="fig" rid="pone-0056117-g002">Fig. 2A</xref>, or small interfering RNA (siRNA). Overexpression of HAI-1 and HAI-2 in the NPCs decreased the number of dividing cells, as shown by Ki67 immunostaining (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2B</xref>). HAI-1 and HAI-2 exist as membrane-bound and secreted proteins (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2A</xref>), and both isoforms significantly reduced the number of Ki67-positive cells (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2B</xref>). CyclinD1 is a major regulator of the cell cycle in developing NPCs <xref rid="pone.0056117-Sundberg1" ref-type="bibr">[7]</xref>, and the level of this protein was decreased by overexpression of HAI-1 and HAI-2, which is in line with the reduced cell proliferation (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2C</xref>). Furthermore, employing siRNAs to downregulate HAI-1 or HAI-2 increased the number of BrdU-positive cells (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2D</xref> and <xref ref-type="fig" rid="pone-0056117-g002">Fig. 2F</xref>). The addition of a blocking antibody against HAI-1 to the cultures <xref rid="pone.0056117-Hallikas1" ref-type="bibr">[8]</xref> led to an increase in the number of proliferating NPCs (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2E</xref>).</p>
+        <fig id="pone-0056117-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Effects of HAI-1 and HAI-2 overexpression and downregulation on cell proliferation in NPCs.</title>
+            <p>NPCs were isolated from developing E17-old striatum and were transfected as described in <xref ref-type="sec" rid="s4">Methods</xref> using overexrepressing constructs or silencing RNA (siRNA) as indicated. (<bold>A</bold>) Left, Schematic view of human full-length and transmembrane-lacking (dTM) constructs of HAI-1 and HAI-2. 8 &#xB5;g of expression plasmids for these constructs were transfected into NPCs as described in <xref ref-type="sec" rid="s4">Methods</xref>. Control cells were transfected with EGFP plasmids. Right, Immunoblots of transfected cells detected using anti-HAI-1 and anti-HAI-2 antibodies detecting human HAI-1 at 66 kDa, and human HAI-2 at 34 kDa and 28 kDa, respectively. N, aminoterminus; KD, Kunitz domain; LDLR, LDL receptor-like domain; TM, transmembrane domain; C, carboxyterminus. (<bold>B</bold>) The number of Ki67-positive of all cells was determined by immunocytochemistry. Expression of HAI-1 and HAI-2 for 6 days reduced the number of dividing cells compared with controls (mock). Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. **p&lt;0.01 for HAI-1 constructs vs. control, and *p&lt;0.05 for HAI-2 constructs vs. control. (<bold>C</bold>) Immunoblot of the cell cycle regulator, CyclinD1. &#xDF;-actin was used as a control. Quantification below shows a decrease in CyclinD1 after HAI-1 and HAI-2 expression. Values are means &#xB1; SEM, n&#x200A;=&#x200A;4. ***p&lt;0.001 for HAI-1 vs. control, and **p&lt;0.01 for HAI-2 vs. control. (<bold>D</bold>) Downregulation of HAI-1 by siRNA increased the number of dividing cells. Control cells received scrambled siRNA. After 3 days with siRNA the number of BrdU-positive cells was determined by immunostaining. Values are means &#xB1; SEM, n&#x200A;=&#x200A;4. *p&lt;0.05 for HAI-1 siRNA vs. control. HAI-1 levels are shown to the right. (<bold>E</bold>) Cell culture supernatant from hybridoma cells producing monoclonal anti-HAI-1 antibodies (MG2, see Hallikas et al., 2006) was diluted 1&#x2236;50 and added to the cultures for 3 days. Note an increase in the number of dividing NPCs. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. *p&lt;0.05 for MG2 vs. control. (<bold>F</bold>) Downregulation of HAI-2 by siRNA increased the number of BrdU-positive dividing cells after 3 days. Control cells received scrambled siRNA. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. *p&lt;0.05 for HAI-2 siRNA vs. control. HAI-2 mRNA levels are shown to the right. (<bold>G</bold>) Immunoblot of Erk1/2. The phosphorylation of Erk1/2 was reduced by HAI-1 overexpression. Total Erk1/2 was not changed. &#xDF;-actin was used as a control. Quantification below. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. *p&lt;0.05 for HAI-1 vs. control.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g002"/>
+        </fig>
+      </sec>
+      <sec id="s2c">
+        <title>Alterations in Erk1/Erk2 Phosphorylation in NPCs by HAI-1 and HAI-2</title>
+        <p>The mechanism underlying the changes in cell proliferation observed with HAI-1 and HAI-2, probably involves alterations in cell signaling cascades subsequent to changes in cell-surface protease activity. Activation of the Ras/extracellular signal-regulated kinase-1 and -2 (Erk1/Erk2) is linked to increased progenitor cell proliferation <xref rid="pone.0056117-Enarsson1" ref-type="bibr">[9]</xref>. We observed that the degree of phosphorylation of Erk1/Erk2 was decreased in the NPCs after HAI-1 expression (<xref ref-type="fig" rid="pone-0056117-g002">Fig. 2G</xref>). Studying the putative targets for HAI-1 and HAI-2, we first focused on HGFA, which is involved in hepatocyte growth factor (HGF) signaling. NPCs express HGF and HGFA but the high-affinity c-Met receptor for HGF was hardly detectable in NPCs under the present culture conditions (<xref ref-type="supplementary-material" rid="pone.0056117.s001">Fig. S1</xref>). Incubation of NPCs in the presence of the c-Met inhibitor, SU11274 did not influence the number of BrdU-positive cells nor did the addition of 20 ng/ml HGF (<xref ref-type="supplementary-material" rid="pone.0056117.s001">Fig. S1</xref>). These and other data suggest that HGF is not essentially involved in the HAI-mediated effects on cell proliferation in the NPCs.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Stimulation with BMPs Increase the Expression of HAI-1 and HAI-2 in NPCs</title>
+        <p>To search for putative factor(s) that regulate HAI-1/HAI-2, we stimulated NPCs with different growth factors followed by PCR analyses. Data showed that BMP-4 significantly increased the expression of HAI-1 (<xref ref-type="fig" rid="pone-0056117-g003">Fig. 3A</xref>) and HAI-2 in the NPCs (<xref ref-type="fig" rid="pone-0056117-g003">Fig. 3D</xref> and <xref ref-type="fig" rid="pone-0056117-g003">Fig. 3E</xref>), whereas transforming growth factor-&#x3B2; and Wnt-3 produced minor effects (data not shown). Similar effects as with BMP-4 was also observed using BMP-2 (<xref ref-type="fig" rid="pone-0056117-g003">Fig. 3B</xref> and <xref ref-type="fig" rid="pone-0056117-g003">Fig. 3F</xref>). This is in line with the fact that BMP-2 and BMP-4 share the same type of BMP type I receptors, BMPR-IA and BMPR-IB <xref rid="pone.0056117-Miyazono1" ref-type="bibr">[10]</xref>. Using immunoblotting it was found that BMP-2 increased HAI-1 levels in the NPCs (<xref ref-type="fig" rid="pone-0056117-g003">Fig. 3C</xref>). Collectively this data shows that the BMP-2 and BMP-4 increase expression of the serine protease inhibitors, HAI-1 and HAI-2 in the NPCs.</p>
+        <fig id="pone-0056117-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Bone morphogenetic proteins (BMPs) regulate HAI-1 and HAI-2 expression.</title>
+            <p>NPCs were isolated from developing striatum of E17 old rats and treated with 100 ng/ml BMP-2 or BMP-4 and analyzed further as indicated. (<bold>A&#x2013;C</bold>) HAI-1 changes. Expression of HAI-1 was analyzed using RT-PCR (A) and qPCR (B) after 24 h stimulation and by immunoblotting (C) after 3 days stimulation. Values are means &#xB1; SEM, n&#x200A;=&#x200A;4. *p&lt;0.05 for BMPs vs. control. (<bold>D&#x2013;F</bold>) HAI-2 changes. Expression of HAI-2 was analyzed using RT-PCR (D, F) after 3 days of stimulation and by qPCR (E) after 24 h stimulation. Values are means &#xB1; SEM, n&#x200A;=&#x200A;4. **p&lt;0.01 and *p&lt;0.05 for BMPs vs. control.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g003"/>
+        </fig>
+      </sec>
+      <sec id="s2e">
+        <title>Role of HAI-1 and HAI-2 in the BMP-mediated Effects in NPCs</title>
+        <p>Previously, BMPs have been shown to influence different progenitor cell populations in the brain <xref rid="pone.0056117-Li1" ref-type="bibr">[11]</xref>&#x2013;<xref rid="pone.0056117-Colak1" ref-type="bibr">[16]</xref>. Activation of the BMP receptors in target cells leads to a phosphorylation of Smad that can be studied using phospho-Smad (p-Smad) specific antibodies. We observed that there are few p-Smad immunopositive cells in the NPC cultures under control conditions (<xref ref-type="fig" rid="pone-0056117-g004">Fig. 4A</xref>), but this number increased significantly after stimulation with BMP-4 (<xref ref-type="fig" rid="pone-0056117-g004">Fig. 4A</xref>). Addition of Noggin that inhibits BMP signaling blocked this increase. We further observed that the addition of either 25 ng/ml BMP-4 (<xref ref-type="fig" rid="pone-0056117-g004">Fig. 4B</xref>) or BMP-2 (data not shown) decreased the number of BrdU-positive cells in the NPCs. Most importantly the decrease in cell division was significantly counteracted by the downregulation of either HAI-1 or HAI-2 using the corresponding siRNAs (<xref ref-type="fig" rid="pone-0056117-g004">Fig. 4B</xref>). Interestingly, the decrease in expression of HAI-1 or HAI-2 by their respective siRNAs did not completely inhibit the BMP-mediated effect, which may be due to a partial redundancy in their actions. To study this further, we attempted to simultaneously knockdown HAI-1 and HAI-2 in the NPCs but this proved to be rather difficult and gave variable results (data not shown).</p>
+        <fig id="pone-0056117-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>BMP-4 influences NPC division through HAI-1.</title>
+            <p>NPCs were isolated from developing striatum of E17 old rats and treated as indicated below. (<bold>A</bold>) Immunostaining. Stimulation with 25 ng/ml BMP-4 increases the number of phospho-Smad positive NPCs and this was inhibited by adding 25 ng/ml Noggin. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. **p&lt;0.01 for BMP-4 vs. control and for BMP-4+Noggin vs. BMP-4. (<bold>B</bold>) siRNAs were added for 48 h to downregulate HAI-1 and HAI-2. Cells were further treated with 25 ng/ml BMP-4 for another 24 h, and the number of BrdU-positive cells determined. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. **p&lt;0.01 for BMP-4 vs. control and *p&lt;0.05 for HAI-1/HAI-2 siRNA +BMP-4 vs. BMP-4 treatment.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g004"/>
+        </fig>
+        <p>We then analyzed whether HAI-1 and HAI-2 exert effects on cell differentiation, a process that is also influenced by BMPs (reviewed in <xref rid="pone.0056117-Chen1" ref-type="bibr">[15]</xref>). Removal of the mitogen EGF from the incubation medium induces cell differentiation of NPCs, with the appearance of neuroblasts and glial cells, such as astrocytes and oligodendrocytes <xref rid="pone.0056117-Sundberg1" ref-type="bibr">[7]</xref>, <xref rid="pone.0056117-Brnnvall1" ref-type="bibr">[17]</xref>, <xref rid="pone.0056117-Korhonen1" ref-type="bibr">[18]</xref>. In line with previous results, stimulation with BMP-4 or BMP-2 increased the number of glial fibrillary acidic protein (GFAP)-positive cells in the NPC cultures (<xref ref-type="fig" rid="pone-0056117-g005">Fig. 5A</xref> and <xref ref-type="fig" rid="pone-0056117-g005">Fig. 5C</xref>). Similarly, overexpression of HAI-1 significantly increased the number of GFAP-positive cells in these cultures (<xref ref-type="fig" rid="pone-0056117-g005">Fig. 5B</xref>). There was a trend towards an increase of glial cell number also by using HAI-2, but the effect was not statistically significant (<xref ref-type="fig" rid="pone-0056117-g005">Fig. 5B</xref>). We therefore focused on HAI-1 and showed that downregulation of HAI-1 by siRNA led to a significant decrease in the number of GFAP-positive cells induced by BMP-2 (<xref ref-type="fig" rid="pone-0056117-g005">Fig. 5C</xref>). Taken together, these findings show that HAI-1 is essentially involved in glial cell differentiation, and that the downregulation of HAI-1 can partly counteract the effect of BMPs on glial cell formation.</p>
+        <fig id="pone-0056117-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>Effects of BMPs and HAI-1 and HAI-2 on cell differentiation.</title>
+            <p>(<bold>A</bold>) NPCs were isolated from developing striatum of E17 old rats and stimulated with 25 ng/ml BMP-4 for 4 days followed by incubation without EGF to induce cell differentiation (see <xref ref-type="sec" rid="s4">Methods</xref>). The relative numbers of neurons (&#xDF;-tubulin), astrocytes (GFAP) and oligodendroglial (CNPase) cells were identified using specific antibodies. Note an increase in number of GFAP-positive cells by BMP-4. Values are means &#xB1; SEM, n&#x200A;=&#x200A;4. *p&lt;0.05 for BMP-4 vs. C. (<bold>B</bold>) NPCs were transfected with 5 &#xB5;g of HAI-1 or HAI-2 expression plasmids and cell differentiation was induced for 5 days. The number of specific cell types was determined by immunostaining. Note an increase in number of GFAP-positive cells by HAI-1. Values are means &#xB1; SEM, n&#x200A;=&#x200A;4. *p&lt;0.05 for HAI-1 vs. control. (<bold>C</bold>) NPCs were transfected with HAI-1 siRNA and stimulated with BMP-2 for 24 h and cell differentiation was induced for 5 days. BMP-2 increased the number of GFAP-positive cells and this effect was inhibited by the downregulation of HAI-1. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. **p&lt;0.01 for BMP-2+HAI-1 siRNA vs. BMP-2 alone.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g005"/>
+        </fig>
+      </sec>
+      <sec id="s2f">
+        <title>BMPs and BMP Receptors are Expressed in the Neuroepithelium</title>
+        <p>Subsequently we studied the expression of the BMPs and their receptors in the developing neuroepithelium using <italic>in situ</italic> hybridization and sections from E17-old rat dorsal cortex. Data showed that BMP-2 was highly expressed in the neuropeithelium at this developmental stage, whereas BMP-4 expression was rather low (<xref ref-type="fig" rid="pone-0056117-g006">Fig. 6A</xref>). Using RT-PCR, BMP-4 transcripts were detected in cultured NPCs isolated from developing rat E17-old striatum and in radial glial cells derived from mouse ES cells (<xref ref-type="fig" rid="pone-0056117-g006">Fig. 6B</xref>). The BMPR-IA and BMPR-IB receptors, as well as Noggin that is a BMP inhibitor, are all expressed in the developing neuroepithelium and in the cultured progenitor cells (<xref ref-type="fig" rid="pone-0056117-g006">Fig. 6A and 6B</xref>). The presence of both the BMPs and Noggin in the progenitor cells indicate that the BMP signaling is tightly regulated in the NPCs.</p>
+        <fig id="pone-0056117-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Expression of BMPs and BMP type-I receptors in developing neuroepithelium and in cultured progenitor cells.</title>
+            <p>NPCs were isolated from developing striatum of E17 old rats and Radial glial (RG) cells were derived from mouse embryonic stem (ES) cells as described in <xref ref-type="sec" rid="s4">Methods</xref>. (<bold>A</bold>) <italic>In situ</italic> hybridization was done using E17 old rat dorsal cortex and digoxigenin-labeled probes as described in <xref ref-type="sec" rid="s4">Methods</xref>. Note expression of BMPR-IA and BMPR-IB receptors. BMP-2 was strongly expressed in the neuroepithelium of dorsal cortex. Scale bar, 500 &#xB5;m. (<bold>B</bold>) RT-PCR was done as described in <xref ref-type="sec" rid="s4">Methods</xref>. BMP-4, BMPR-IA, BMPR-IB as well as Noggin are expressed by cultured rat NPCs isolated from the striatal anlage, and by RG cells derived from mouse ES cells. For BMP-2 only NPCs were studied.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g006"/>
+        </fig>
+      </sec>
+      <sec id="s2g">
+        <title>HAI-1 Overexpression Decreases NPC Proliferation and Promotes Glial Cell Formation <italic>In Vivo</italic>
+</title>
+        <p>To study whether the regulation of NPCs by HAI-1 observed <italic>in vitro</italic> is also observed <italic>in vivo,</italic> we performed <italic>in utero</italic> electroporation in developing mice using an expression vector for HAI-1. Using E14 old mice for injections, we observed that the number of Ki67 positive cells in HAI-1 injected mice day E15 was drastically decreased in the neuroepithelium compared with mice injected with control GFP vector (<xref ref-type="fig" rid="pone-0056117-g007">Fig. 7</xref>). At this stage mainly neuroblasts are formed, while gliogenesis is robust during later development. We observed that using E17-old mice that the overexpression of HAI-1 <italic>in utero</italic> led to an increase in the number of GFAP-positive cells in the marginal zone when analyzed at day P1 (<xref ref-type="fig" rid="pone-0056117-g008">Fig. 8</xref>). Together these results show that HAI-1 can both reduce cell proliferation and increase gliogenesis in developing NPCs in line with the data obtained in cell culture. The results also show that the effect of HAI-1 overexpression in brain <italic>in vivo</italic> is dependent on the developmental stage of the NPCs in the neuropithelium reflecting probably their inherent capacity to divide or to differentiate into glial cells.</p>
+        <fig id="pone-0056117-g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>Expression of HAI-1 in developing E14-old rat neuroepithelium reduces cell proliferation.</title>
+            <p>E14 old mice embryos were electroporated as described in <xref ref-type="sec" rid="s4">Methods</xref> using 1 &#xB5;g pCAG-GFP control plasmid alone or a combination of 0.75 &#xB5;g pCAG-human HAI-1and 0.25 &#xB5;g pCAG-GFP. E15-old Brains from E15-old mice were processed as described in <xref ref-type="sec" rid="s4">Methods</xref>. (<bold>A</bold>) E15 brain sections were immunostained with anti-Ki67 antibodies (red). The number of double stained cells in the ventricular and subventricular zones was counted and expressed as a percentage of total GFP-positive cells (green). Upper panel, injection of GFP control plasmid. Lower panel, HAI-1 plasmid. Scale bar, 100 &#xB5;m. CP, cortical plate; IZ, intermediate zone; SVZ, subventricular zone; VZ, ventricular zone. (<bold>B</bold>) Higher magnification. Scale bar, 50 &#xB5;m. Left panel, control. Right panel. HAI-1 plasmid. Quantification below. Values are means &#xB1; SEM, n&#x200A;=&#x200A;6. **p&lt;0.01 for HAI-1 vs. GFP. LV, lateral ventricle.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g007"/>
+        </fig>
+        <fig id="pone-0056117-g008" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.g008</object-id>
+          <label>Figure 8</label>
+          <caption>
+            <title>Expression of HAI-1 in developing E17-old rat brain promotes glial cell fate.</title>
+            <p>E17 old mice embryos were electroporated as described above and the brains processed at postnatal day 1 (P1). (<bold>A</bold>) P1-old sections were immunostained with anti-GFAP antibodies (red). The number of double stained cells in the marginal zone was counted and expressed as a percentage of total GFP-positive cells (green). The merged pictures show coexpression of GFAP and GFP. Upper panel, injection of GFP control plasmid. Lower panel, HAI-1 expression plasmids. Scale bar, 100 &#xB5;m. MZ, marginal zone; CP, cortical plate; IZ, intermediate zone; SVZ, subventricular zone; VZ, ventricular zone. (<bold>B</bold>) Higher magnification. Scale bar, 25 &#xB5;m. Quantification to the right. Values are means &#xB1; SEM. n&#x200A;=&#x200A;3. *p&lt;0.05 for HAI-1 vs. GFP. (<bold>C</bold>) Higher magnification shows colozalization of HAI-1 and GFP stained cells in the MZ. Scale bar, 25 &#xB5;m.</p>
+          </caption>
+          <graphic xlink:href="pone.0056117.g008"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Discussion</title>
+      <p>The present study shows that the cell surface-associated serine protease inhibitors, HAI-1 and HAI-2 regulate the behavior of NPCs in the developing brain. Particularly, HAI-1 was found to influence cell division and differentiation of NPCs into glial cells. This notion is supported by <italic>in vitro</italic> and <italic>in vivo</italic> data and suggests that HAI-1 is an important molecule in the regulation of NPCs. Cell surface-expressed protease inhibitors like HAI-1 may constitute a novel signaling system in the NPCs different from cell adhesion molecules and integrins to influence NPCs. As shown here for BMP-2 and BMP-4, HAI-1 may act in conjunction with growth factors to orchestrate the responses of NPCs towards cell proliferation or differentiation.</p>
+      <p>HAI-1 encoded by the <italic>Spint1</italic> gene was originally identified as an inhibitor for hepatocyte growth factor activator (HGFA) <xref rid="pone.0056117-Kataoka1" ref-type="bibr">[4]</xref>, <xref rid="pone.0056117-Shimomura1" ref-type="bibr">[19]</xref>. Studies of mouse development have shown that HAI-1 gene-deleted animals die <italic>in utero</italic> due to placental dysfunctions and basement membrane failures <xref rid="pone.0056117-Tanaka1" ref-type="bibr">[20]</xref>, <xref rid="pone.0056117-Fan1" ref-type="bibr">[21]</xref>. Gene deletion of HAI-2 encoded by the <italic>Spint2</italic> gene <xref rid="pone.0056117-Kawaguchi1" ref-type="bibr">[22]</xref> also resulted sin evere developmental defects and embryonic lethality <xref rid="pone.0056117-Szabo3" ref-type="bibr">[23]</xref>, <xref rid="pone.0056117-Camerer1" ref-type="bibr">[24]</xref>.</p>
+      <p>HAI-1 and HAI-2 are structurally related protease inhibitors having two extracellular Kunitz inhibitor domains, KD1 and KD2 that are important for activity <xref rid="pone.0056117-Kataoka2" ref-type="bibr">[25]</xref>&#x2013;<xref rid="pone.0056117-Denda1" ref-type="bibr">[27]</xref>. Few data are so far available on the function of HAI-1 or HAI-2 in brain tissue. HAI-1 is expressed by human astrocytes and in cell lines derived from human brain gliomas <xref rid="pone.0056117-Miyata1" ref-type="bibr">[28]</xref>, <xref rid="pone.0056117-Yamada1" ref-type="bibr">[29]</xref>. HAI-1 also increases the tumorigenicity of glioblastoma cells <italic>in vivo</italic> but reduces the invasive capabilities of the same cells <xref rid="pone.0056117-Miyata2" ref-type="bibr">[30]</xref>. HAI-2 mRNA was reported to be expressed in adult human brain but not in fetal brain using Northern blotting <xref rid="pone.0056117-Kawaguchi1" ref-type="bibr">[22]</xref>. HAI-2 expression was reduced in glioblastoma cells <italic>in vitro</italic>
+<xref rid="pone.0056117-Hamasuna1" ref-type="bibr">[31]</xref>, and HAI-2 may act as a tumor suppressor as shown previously in pediatric medulloblastomas <xref rid="pone.0056117-Kongkham1" ref-type="bibr">[32]</xref>.</p>
+      <p>We observed that HAI-2 displayed similar activities to HAI-1 in reducing NPC proliferation. In contrast, HAI-2 was less active in regulating glial cell differentiation, suggesting that these serine protease inhibitors may have partly different substrates in the NPCs. HAI-2 was recently shown to be expressed in the early neural tube in conjunction with the serine protease, matriptase <xref rid="pone.0056117-Camerer1" ref-type="bibr">[24]</xref>. As <italic>bona fide</italic> protease inhibitors, HAI-1 and HAI-2 have the capacity to inhibit different proteases at the cell surface. Recently it was shown that neural progenitor cells derived from mouse embryonic stem cells express matriptase <xref rid="pone.0056117-Fang1" ref-type="bibr">[33]</xref>. We have preliminary findings showing that rat NPCs express matriptase both in the developing neuroepithelium and <italic>in vitro</italic> (unpublished). Collectively this data indicates that the cell surface serine protease inhibitors HAI-1 and HAI-2 may affect brain development and NPCs via inhibiting serine proteases, such as matriptase. We are currently investigating this in more detail.</p>
+      <p>Given that HAI-1 was described as an inhibitor of HGFA <xref rid="pone.0056117-Kataoka1" ref-type="bibr">[4]</xref>, <xref rid="pone.0056117-Shimomura1" ref-type="bibr">[19]</xref>, we also studied whether HGF might be involved in the action of the HAI-1 in the NPCs. However, we observed that the HGF receptor, c-Met was not expressed by the NPCs to any significant extent nor did the addition of HGF influence NPCs under the present conditions. Previously, HGF has been shown to influence different neuronal and progenitor cell populations in the brain <xref rid="pone.0056117-Korhonen2" ref-type="bibr">[34]</xref>, <xref rid="pone.0056117-Kokuzawa1" ref-type="bibr">[35]</xref>. It is likely that HGF may influence NPCs at a later stage of development affecting for example cell migration as shown for embryonic stem cell-derived progenitor cells in culture <xref rid="pone.0056117-Fang1" ref-type="bibr">[33]</xref>.</p>
+      <p>As shown in <xref ref-type="fig" rid="pone-0056117-g003">Fig. 3</xref> the study of the effect of different growth factors revealed that BMP-2 and BMP-4 increase the expression of HAI-1 and HAI-2 in the NPCs. BMP signaling in target cells take place through activation of a heteromeric complex of type-I and type-II serine/threonine kinase receptors <xref rid="pone.0056117-Miyazono1" ref-type="bibr">[10]</xref>. Previous studies have shown that different BMP receptors are expressed in the developing and adult brain <xref rid="pone.0056117-Dewulf1" ref-type="bibr">[36]</xref>&#x2013;<xref rid="pone.0056117-Furuta1" ref-type="bibr">[38]</xref>. BMP-2 and BMP-4 bind the BMPR-IA and BMPR-IB receptors and activate Smad1/5/8 that forms a heteromeric complex with Smad4 <xref rid="pone.0056117-Miyazono1" ref-type="bibr">[10]</xref> that translocates to the nucleus to regulate the expression of various genes, including the transcription factor GATA2 <xref rid="pone.0056117-Dalgin1" ref-type="bibr">[39]</xref>. Putative binding sites for GATA2 are present in the promoter regions of HAI-1 and HAI-2 <xref rid="pone.0056117-Itoh1" ref-type="bibr">[40]</xref> suggesting that GATA2 may be involved in the BMP-mediated increases in HAI-1 and HAI-2 expression observed here.</p>
+      <p>Of the BMPs studied here, BMP-2 was more prominently expressed in the developing neuroepithelium as shown in sections of dorsal cortex, whereas the levels of BMP-4 were low as determined by <italic>in situ</italic> hybridization. In the cultures, developing rat NPCs as well as mouse RGs express BMP-4 as shown using PCR. These cells also expressed the BMPR-IA and BMPR-IB receptors, which mediate the effects of both BMP-2 and BMP-4 on target cells. In line with this we observed that BMP-2 and BMP-4 had similar effects on NPC proliferation and glia cell induction and both also increased HAI-1 and HAI-2 expression. It remains to be studied whether BMP-4 is expressed in significant amounts in the developing striatum and which progenitor populations might be targets for this growth factor and for BMP-2 in developing brain <italic>in vivo.</italic>
+</p>
+      <p>Previously BMPs were shown to regulate cell death, cell proliferation, neurogenesis and gliogenesis in brain tissue <xref rid="pone.0056117-Chen1" ref-type="bibr">[15]</xref>. The activities of BMPs are controlled by inhibitors like Noggin, and are influenced by other growth factors that may act in concert with the BMPs in the neurogenic niche <xref rid="pone.0056117-Lim1" ref-type="bibr">[41]</xref>, <xref rid="pone.0056117-Bonaguidi1" ref-type="bibr">[42]</xref>. Recently it was shown that BMP signaling regulates the quiescence state of neuronal progenitor cells in the subgranular zone of adult hippocampus <xref rid="pone.0056117-Mira1" ref-type="bibr">[43]</xref>. In particular, the activation of BMPR-IA receptors by BMP-2 or BMP-4 was shown to reduce cell proliferation of the hippocampal NPCs <xref rid="pone.0056117-Mira1" ref-type="bibr">[43]</xref>, but the downstream effectors were not further delineated. We show here that these BMPs regulate cell proliferation of embryonic NPCs partly via the upregulation of HAI-1. HAI-1 in turn influences cell signaling events and the behavior of NPCs. It remains to be determined whether the BMPs also increase HAI-1 in the subgranular zone and whether this can contribute to the regulation of the neurogenic niche in adult brain. In addition the identity of putative downstream proteases regulated by HAI-1 and HAI-2 in the NPCs and their role in cell proliferation and differentiation of these cells warrant to be studied more in the future.</p>
+      <p>Taken together these results show that BMP-2 and BMP-4 increase HAI-1 and influence cell proliferation and glial cell differentiation of developing NPCs. This finding may be of general relevance as BMP-2 and BMP-4 may regulate the cell-surface protease inhibitors also in other stem cell types and in tumor cells with effects on cell growth and differentiation. The data also suggests that modulation of cell-surface expressed HAI-1 and its downstream proteases in the NPCs may be of value for different cell therapies in the brain.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s4">
+      <title>Materials and Methods</title>
+      <sec id="s4a">
+        <title>Animals</title>
+        <p>Wistar rats were obtained from Harlan (Horst, The Netherlands) and NMRI mice from our own breeding. All animal experiments were performed in accordance with the European Communities Council Directive (86/609/EEC) and approved by the Experimental Animal Ethics Committee of the National Laboratory Animal Center, Finland.</p>
+      </sec>
+      <sec id="s4b">
+        <title>Cell Culture</title>
+        <p>NPCs were prepared from striatum of embryonic day 17 to 18 (E17&#x2013;18) old rats and the cells were plated in Corning Suspension Culture dishes (5&#xD7;10<sup>6</sup> cells per 10 cm dish; Corning Incorporated, Corning, NY, USA) and cultivated in a serum-free DMEM/F12 medium (Gibco, Invitrogen Carlsbad, CA, USA) in the presence of B27 supplement (Gibco) and 20 ng/ml epidermal growth factor (EGF) (Peprotech, Rocky Hill, NJ, USA) at +37&#xB0;C in 5% CO<sub>2</sub>
+<xref rid="pone.0056117-Sundberg1" ref-type="bibr">[7]</xref>, <xref rid="pone.0056117-Brnnvall1" ref-type="bibr">[17]</xref>, <xref rid="pone.0056117-Korhonen1" ref-type="bibr">[18]</xref>, <xref rid="pone.0056117-Brnnvall2" ref-type="bibr">[44]</xref>. Cells were grown for 5 days in culture before passaging and then used for the experiments. Recombinant BMP-2, BMP-4, Wnt3a and Noggin (all from R&amp;D Systems, MN, USA), HGF (Peprotech, Rocky Hill, NJ, USA) and the c-Met inhibitor, SU11274 (Calbiochem, San Diego, CA, USA) were added at the indicated concentrations. TGF&#x3B2; was a kind gift from Dr J Keskioja. Hippocampal neurons were prepared and cultured as described previously <xref rid="pone.0056117-Korhonen3" ref-type="bibr">[45]</xref>, <xref rid="pone.0056117-Sokka1" ref-type="bibr">[46]</xref>.</p>
+      </sec>
+      <sec id="s4c">
+        <title>Cell Proliferation</title>
+        <p>NPCs were dissociated and plated onto 50 &#xB5;g/ml poly-DL-ornithine-coated (Sigma) 24&#x2013;well culture dishes (150000 cells per well; Cellstar, Greiner Bio-one) for 2 h and fixed with 4% paraformaldehyde (PFA) for 20 min, washed and subjected to immunocytochemistry using anti-mouse Ki67 antibody (1&#x2236;500; BD Biosciences, Franklin Lakes, NJ, USA). Alternatively, 10 &#xB5;M BrdU (Sigma, St. Louis, MO, USA) was added to the cells for 24 h, and DNA was denaturated, and immunostaining performed using anti-rat BrdU (1&#x2236;200; Sigma) antibody as described previously <xref rid="pone.0056117-Sundberg1" ref-type="bibr">[7]</xref>, <xref rid="pone.0056117-Mkel1" ref-type="bibr">[47]</xref>, <xref rid="pone.0056117-Sippel1" ref-type="bibr">[48]</xref>. The number of Ki67-, or BrdU-positive cells was counted using microscopy in four non-overlapping fields per coverslip. Experiments were repeated at least three times.</p>
+      </sec>
+      <sec id="s4d">
+        <title>Cell Differentiation Assay</title>
+        <p>Dissociated cells were plated onto 50 &#xB5;g/ml poly-DL-ornithine-coated 24-well culture dishes (100 000 cells per well; Cellstar), and incubated for 5 days at +37&#xB0;C. Cells were fixed as above, washed with PBS, and subjected to immunocytochemistry using &#xDF;III-tubulin (1&#x2236;1000; Covance Research Products Inc., Denver, PA, USA), GFAP (1&#x2236;500; Sigma) and CNPase (1&#x2236;1000; Sigma) antibodies. The number of immunopositive cells were counted using microscopy in four non-overlapping fields per coverslip. Experiments were repeated at least three times.</p>
+      </sec>
+      <sec id="s4e">
+        <title>Radial Glia Cells</title>
+        <p>Mouse embryonic stem (ES) cells (strain R1) were cultured on mitomycin-C-inactivated mouse embryonic fibroblast (mEF) cells or on 0,2% gelatin. ES cells were cultivated in knockout-DMEM medium (Invitrogen) containing 15% fetal calf serum (FCS), leukemia inhibitory factor (LIF; 1000 U/ml, Merck, Germany), non-essential amino acids and &#xDF;-mercaptoethanol. Medium was changed every day and cells passaged at 70&#x2013;80% confluency. ES cells without feeders were split every second day and then used for embryoid body (EB) formation. 3&#xD7;10<sup>6</sup> ES cells were plated on fibroblast-free, ultra-low-attachment dishes in culture medium with 10% FCS and without LIF. EBs were cultured for 8 days with medium change every other day. 5 &#xB5;M retinoic acid (Sigma) was added to the EB cultures for the last 4 days and cells were dissociated using trypsin and plated onto poly-DL-lysine/laminin-coated dishes (1.5&#xD7;10<sup>5</sup> cells per cm<sup>2</sup>) in N2B27 medium as described <xref rid="pone.0056117-Bibel1" ref-type="bibr">[49]</xref>. The RGs formed were incubated for 2 h and analyzed further as indicated.</p>
+      </sec>
+      <sec id="s4f">
+        <title>Expression Studies</title>
+        <p>Expression vectors (pCIneo) for human HAI-1 (pCI-hHAI-1), truncated human HAI-1 (pCI-hHAI-1dTM), human HAI-2 (pCI-hHAI-2) and truncated human HAI-2 (pCI-hHAI-2dTM) have been described before <xref rid="pone.0056117-Kataoka3" ref-type="bibr">[26]</xref>, <xref rid="pone.0056117-Denda1" ref-type="bibr">[27]</xref>, <xref rid="pone.0056117-Kongkham1" ref-type="bibr">[32]</xref>. Plasmids were transfected into NPCs using Amaxa Nucleofector (Lonza Cologne GmbH, Germany), and 24 h after transfection the medium was replaced, and cells were further cultured in the presence of 0.6 mg/ml of G418 (Sigma). G418-resistant cells were selected, screened for HAI-1 and HAI-2 expression and used in studies of cell proliferation, differentiation and for immunoblotting. Mock-transfected EGFP expressing cells were used as controls. For <italic>in utero</italic> electroporation, human HAI-1 cDNA was digested from pCI-hHAI-1 vector with the desired restriction enzymes and subcloned into the <italic>Eco</italic>RI/<italic>Sma</italic>I site of a pCAG expression vector (Addgene, Cambridge, MA, USA).</p>
+      </sec>
+      <sec id="s4g">
+        <title>siRNA Experiments</title>
+        <p>100 nM HAI-1 or HAI-2 siRNA (Applied Biosystems/Ambion, Austin, TX, USA) was transfected into NPCs using the Rat NSC Nucleofector Kit as described <xref rid="pone.0056117-Mkel1" ref-type="bibr">[47]</xref>, <xref rid="pone.0056117-Sippel1" ref-type="bibr">[48]</xref>. Scrambled siRNA with no target was used as control. Cells were incubated for 3 days and studied further as indicated. Efficacy of downregulation was analyzed by immunoblotting or using RT-PCR.</p>
+      </sec>
+      <sec id="s4h">
+        <title>Reverse Transcriptase (RT)-PCR</title>
+        <p>Total RNA was extracted from cultured cells using the GenElute Mammalian total RNA kit (Sigma). cDNA was made using the reverse transcriptase kit (Stratagene) <xref rid="pone.0056117-Hong1" ref-type="bibr">[50]</xref>. Primers for the different genes and conditions used for PCR are given in <xref ref-type="table" rid="pone-0056117-t001">Table 1</xref>. The PCR was run for 35 cycles and with a final run at 72&#xB0;C for 10 min.</p>
+        <table-wrap id="pone-0056117-t001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0056117.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>Specific primers, product size and annealing temp for PCR.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0056117-t001-1" xlink:href="pone.0056117.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Gene</td>
+                  <td align="left" rowspan="1" colspan="1">Forward primer, 5&#x2032;&#x2013;3&#x2032;</td>
+                  <td align="left" rowspan="1" colspan="1">Reverse primer, 5&#x2032;&#x2013;3&#x2032;</td>
+                  <td align="left" rowspan="1" colspan="1">Size(bp)</td>
+                  <td align="left" rowspan="1" colspan="1">Temp</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">HAI-1</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">GAGCAGAACTTCGTGTG</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">GTAGTTGTTCTTGTTGCC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">500</td>
+                  <td align="left" rowspan="1" colspan="1">59&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">HAI-2</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">ATGAAGAATACTGTGTC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">GCTGCTCCTTGTCATC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">347</td>
+                  <td align="left" rowspan="1" colspan="1">45&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">c-Met</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">ATAGAGTGGAAGCAAGC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">GCACTTACAAGCCTATC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">229</td>
+                  <td align="left" rowspan="1" colspan="1">58&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">BMP-2</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">TCCATCACGAAGAAGCC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">ACTGACTTGTGTTCTGAG</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">272</td>
+                  <td align="left" rowspan="1" colspan="1">50&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">BMP-4</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">AGCCAACACTGTGAGGAG</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">TGTCTGGTGGAGGTGAGT</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">393</td>
+                  <td align="left" rowspan="1" colspan="1">54&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">BMPRIA</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">AGCCTGTCTGTTCATCATT</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">CAGAGCCTTCATACTTCAT</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">283</td>
+                  <td align="left" rowspan="1" colspan="1">54&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">BMPRIB</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">TACCTCATCACAGACTATC</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">CTAATGAACTTGACAGCCA</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">250</td>
+                  <td align="left" rowspan="1" colspan="1">48&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Noggin</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">AGCACTATCTACACATCCG</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">CACAGACTTGGATGGCTTA</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">511</td>
+                  <td align="left" rowspan="1" colspan="1">62&#xB0;C</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">&#x3B2;-actin</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">CACACTGTGCCCATCTATGA</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">
+<named-content content-type="gene">CCATCTCTTGCTCGAAGTCT</named-content>
+</td>
+                  <td align="left" rowspan="1" colspan="1">201</td>
+                  <td align="left" rowspan="1" colspan="1">62&#xB0;C</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+      </sec>
+      <sec id="s4i">
+        <title>Quantitative (q)PCR</title>
+        <p>Total RNA was prepared as above. cDNA for HAI-2 qPCR was made using the Superscript&#xAE; VILO&#x2122; cDNA Synthesis kit (Invitrogen). For HAI-1 qPCR, gene-specific cDNA was prepared with HAI-1 and GAPDH primers, <named-content content-type="gene">5&#x2032;-AAGCTTCGGTGTCCAACA-3&#x2032;</named-content> and <named-content content-type="gene">5&#x2032;-AAGGTGGAAGAATGGGAG-3&#x2032;</named-content>, respectively, using the RevertAid Premium reverse transcriptase (Thermo Scientific, Waltham, MA, USA). qPCR analysis was performed using the comparative C<sub>T</sub> method and the Power SYRB&#xAE; Green PCR Master Mix (Applied Biosystems) essentially as described <xref rid="pone.0056117-Hong1" ref-type="bibr">[50]</xref>, <xref rid="pone.0056117-Do1" ref-type="bibr">[51]</xref> or the LightCycler&#xAE; 480 SYBR Green I Master Mix (Roche, Basel, Switzerland). Assays were performed in triplicate including water as a negative control, and using the ABI PRISM 7000 sequence detection system (Applied Biosystems) and the following conditions: 95&#xB0;C for 10 min and 46 cycles of 95&#xB0;C for 20 s and 60&#xB0;C for 1 min or using the LightCycler&#xAE; 480 II system (Roche) with following conditions: 95&#xB0;C for 10 min and 40&#x2013;42 cycles of 95&#xB0;C for 10 s, 60&#xB0;C for 15 s, 72&#xB0;C for 5 s followed by 72&#xB0;C for 1 min. Primers for HAI-1 were: fwd, <named-content content-type="gene">5&#x2032;-GCCAGCATCTCTACGGTCT-3&#x2032;</named-content> and rev, <named-content content-type="gene">5&#x2032;-ACGGCAGCTCGGTCTCA-3&#x2032;</named-content>. Primers for HAI-2 were: fwd, <named-content content-type="gene">5&#x2032;-GGCTGTGAGGGAAATGGTAA-3&#x2032;</named-content> and rev, <named-content content-type="gene">5&#x2032;-ACCATCAATGGTGTTCTCAGTG-3&#x2032;</named-content>.</p>
+      </sec>
+      <sec id="s4j">
+        <title>Immunoblotting</title>
+        <p>NPCs and hippocampal neurons were homogenized in ice-cold RIPA buffer (150 mM NaCl, 1% Triton-X-100, 0,25% sodium deoxycholate, 1% SDS, and 50 mM Tris-HCl, pH 7.4, 1 mM EDTA) supplemented with protease inhibitor cocktail (Roche). In some experiments, phosStop solution (Roche) was added to inhibit phosphatases. Protein concentration was determined using the DC Protein Assay (BioRad, Finland), and equal amounts of protein were separated by SDS-PAGE and transferred onto a nitrocellulose filter (Hybond-C Extra; Amersham, England). Filters were incubated for 1 h in 50 mM Tris-HCl, pH 7.5, 150 mM NaCl, 0.1% Tween 20, and using 5% skimmed milk or bovine serum albumin, followed by incubation overnight at +4&#xB0;C with primary antibodies. These included anti-rabbit HAI-1 (diluted 1&#x2236;2000, Santa Cruz), anti-rabbit polyclonal mHAI-1 (1&#x2236;200, ref <xref rid="pone.0056117-Tanaka1" ref-type="bibr">[20]</xref>), anti-rabbit polyclonal mHAI-2 (1&#x2236;400, ref <xref rid="pone.0056117-Denda1" ref-type="bibr">[27]</xref>), or anti-mouse monoclonal hHAI-2 2N9 (1&#x2236;300, ref <xref rid="pone.0056117-Miyata1" ref-type="bibr">[28]</xref>), anti-rabbit Erk1/2 and P-Erk1/2 (1&#x2236;1000, Cell Signaling Technology, Inc., Danvers, MA, USA), anti-mouse CyclinD1 (1&#x2236;750), anti-goat HGFA (1&#x2236;500), and anti-rabbit HGF (1&#x2236;300, Santa Cruz, CA, USA) or anti-mouse c-Met (1&#x2236;1000, Cell Signaling). Filters were washed and exposed to horseradish peroxidase-conjugated secondary antibodies (diluted 1&#x2236;2500, Pierce), followed by detection using the enhanced chemiluminescent method (Pierce). Filters were stripped for 20 min at room temperature (RT) (0.1M glycine) and reprobed using anti-&#x3B2;-actin (1&#x2236;5000, Sigma) antibody.</p>
+      </sec>
+      <sec id="s4k">
+        <title>Immunocytochemistry</title>
+        <p>Cells plated on poly-DL-ornithine (Sigma) coated coverslips were fixed with 4% PFA for 20 min, washed with PBS and incubated for 1 h with 3% BSA in 0.1% Triton-X-100 and PBS (PBS-T), followed by incubation at +4&#xB0;C overnight with primary antibodies, including anti-goat mHAI-1 (1&#x2236;100, R&amp;D Systems), anti-goat mHAI-2 (1&#x2236;20, R&amp;D Systems), anti-mouse Ki67 (1&#x2236;500), anti-rabbit p-Smad1/5/8 (1&#x2236;400, Cell Signaling) or anti-mouse nestin (1&#x2236;1000; Millipore). Cells were washed with PBS-T, and appropriate secondary Alexa 488-conjugated anti-mouse or anti-rabbit, and Alexa 594-conjugated anti-rabbit or anti-goat antibodies were added for 1 h. Cells were counterstained for 5 min using Hoechst 33342 (4 &#xB5;g/ml, Sigma), washed with 0,1 M Tris-HCl (pH 7,4), and mounted using Fluoromount gel mounting medium (Sigma).</p>
+      </sec>
+      <sec id="s4l">
+        <title>Immunohistochemistry of Paraffin and Frozen Sections</title>
+        <p>E17 and P1 old rat brains were embedded in paraffin and cut at the coronal plane using a microtome <xref rid="pone.0056117-Sokka1" ref-type="bibr">[46]</xref>, <xref rid="pone.0056117-Putkonen1" ref-type="bibr">[52]</xref>. 5&#x2013;7 &#xB5;m thick sections were dewaxed in xylane and rehydrated in decreasing ethanol series and water. Antigen retrieval was performed by boiling sections 3 times at 95&#xB0;C for 5 min in 10 mM citrate, pH 6.0. Sections were cooled for 10 min, washed with PBS, and blocked with 5% BSA in PBS-T. Primary anti-goat mHAI-1 (1&#x2236;20), anti-goat mHAI-2 (1&#x2236;20), anti-mouse Ki67 (1&#x2236;500) and anti-mouse nestin (1&#x2236;1000) in 3% BSA in PBS-T were added overnight at +4&#xB0;C. After washing, secondary anti-goat Alexa 594-conjugated and anti-mouse Alexa 488-conjugated antibodies (Invitrogen) were added for 1 h. The sections were briefly washed, counterstained with Hoechst 33342 and mounted as above.</p>
+        <p>E15 or P1 mouse brains were mounted into Tissue-Tek (Sakura Finetek, Netherlands) and frozen on dry ice. Brains were cut into 16 &#xB5;m coronal sections with a cryotome. After melting, cryosections were fixed in ice-cold acetone-methanol (1&#x2236;1) and rinsed with PBS. Sections were subsequently subjected to antigen retrieval for 3&#xD7;3 min, and washed with PBS-T before blocking with 5% BSA/PBS-T. Anti-mouse Ki67 (1&#x2236;500), anti-rabbit GFAP (1&#x2236;500) or anti-rabbit HAI-1 antibody (1&#x2236;50, Santa Cruz) were added, and the sections were incubated overnight at +4&#xB0;C. After washing, secondary Alexa 594-conjugated anti-mouse or Alexa 594-conjugated anti-rabbit antibodies were added for 1 h. The sections were washed, counterstained with Hoechst 33342 and rinsed with 70% ethanol before mounting with 1,4-Diazabicyclo[2.2.2]octane (DABCO; Merck) diluted in Mowiol mounting media (Sigma).</p>
+      </sec>
+      <sec id="s4m">
+        <title>
+<italic>In Situ</italic> Hybridization</title>
+        <p>Whole mount <italic>in situ</italic> hybridization was performed essentially as described using E17 rat brain tissues that were fixed overnight at 4&#xB0;C using 4% PFA. Brains were embedded in 5% agarose and 40&#x2013;80 &#xB5;m thick sections were cut using the Leica VT 1000S Vibratome (Leica). Sections were incubated at 37&#xB0;C for 30 min with 0.5 mg/ml Proteinase K following hybridization using digoxigenin (DIG)-labelled cRNA probes and the InSituPro automate (Intavis). Antisense and sense riboprobes were synthesized from the following linearized plasmids: pGEZ-3Z (BMPR-IA), pGEM-4Z (BMPR-IB) or pGEM (BMP-2 and BMP-4) and using T7 or SP6 polymerases. Sections were hybridized for 16 h at 65&#xB0;C and mounted.</p>
+      </sec>
+      <sec id="s4n">
+        <title>
+<italic>In Utero</italic> Electroporation</title>
+        <p>E14 or E17 mouse embryonic brains were injected with 1 &#xB5;g pCAG-GFP control plasmid alone (1 &#xB5;g/&#xB5;l) or with a combination of pCAG-HAI-1 and pCAG-GFP (0.75 &#xB5;g/&#xB5;l and 0.25 &#xB5;g/&#xB5;l, respectively). In brief, mice were anesthetized with isoflurane (induction 4,8%, maintenance 2&#x2013;3%), and the depth of sleep was monitored by the rate of breathing. A midline incision was made in the abdominal skin and muscle. Uterine horns were exposed and hydrated during the surgery using 37&#xB0;C warm phosphate buffered saline (PBS). Plasmids supplemented with 0.01% Fast Green (Sigma) were injected with a glass capillary needle through the uterine wall into the lateral ventricle and the brains were electroporated with forceps-type electrodes (CUY650P3, Sonidel) using a square-wave pulse generator (CUY21SC, Sonidel) in an dorsal to lateral direction <xref rid="pone.0056117-Tervonen1" ref-type="bibr">[53]</xref>. Embryos received 5 pulses with voltage of 50 V, lasting for 0.05 s and with a pulse interval of 0.95 s. The uteri were carefully placed back and the abdominal cavity was filled with warm PBS and sutured. Mice received Temgesic (4.5 &#xB5;g/50 g) to reduce pain and were kept on a heated pad during the whole operation and during recovery. Brains were collected at E15 or P1 and fixed with 4% PFA overnight at +4&#xB0;C. After washes with PBS, the brains were immersed with 30% sucrose in PBS and analyzed further as indicated.</p>
+      </sec>
+      <sec id="s4o">
+        <title>Image Analysis and Statistics</title>
+        <p>Fluorescent images were taken with the Leica DM 4500B microscope using N Plan 10&#xD7;/0.25 objective, the Zeiss Axio Observer Z1 inverted microscope using N Achroplan 10&#xD7;/0.25 and EC Plan-Neofluar 40&#xD7;/0.75 objectives or Plan-Apochromat 63&#xD7;/1.4 oil objective or with the Zeiss LSM 510 Meta confocal microscope using Plan-Neofluar40&#xD7;/1.3 or Plan-Apochromat 63&#xD7;/1.4 oil objectives. Brightfield images were taken with the Leica DM 4500B microscope using N Plan 2.5&#xD7;/0.07 objective. Leica Application Suite Version 2.3.1 R1, AxioVision Release 4.8.1 and LSM software release 3.2 softwares were used for image acquisition. Adobe Photoshop was used for adjustment of brightness and/or contrast of images. Statistical analyses were performed using Student&#x2019;s <italic>t</italic>-test. Values are given as means &#xB1; SEM and p&lt;0.05 was considered as statistically significant.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0056117.s001">
+        <label>Figure S1</label>
+        <caption>
+          <p>
+<bold>Hepatocyte growth factor signaling in the NPCs.</bold> NPCs from E17 old rat brains were treated and analyzed as indicated below. <bold>(A)</bold> Immunoblots. Left, Hepatocyte growth factor activator (HGFA) protein is expressed in NPCs but the levels are not influenced by HAI-1 or HAI-2 overexpression. Right, HGF is expressed mainly in proliferating (P) and less in differentiating (D) NPCs. The 90 kDa band is the nascent single chain, and the 69 kDa the active form of HGF. &#xDF;-actin was used as a control. Typical experiment is shown and was repeated three times. <bold>(B)</bold> Analyzes of the c-Met receptor for HGF by RT-PCR (left panel) and immunoblots (right panel). Lysates from hippocampal neurons (HC) were used as controls. c-Met was expressed in HC but was not detectable in NPCs using these <xref ref-type="sec" rid="s4">Methods</xref>. <bold>(C&#x2013;D)</bold> NPCs were incubated in the presence of 1 &#xB5;M c-Met inhibitor, SU11274 (C) or after addition of 20 ng/ml HGF (D). There was no change in the number of BrdU-positive cells by these treatments. <bold>(E)</bold> 20 ng/ml HGF was added to NPCs in which HAI-1 or HAI-2 were downregulated using siRNAs as described in <xref ref-type="sec" rid="s4">Methods</xref>. The number of dividing NPCs was determined using BrdU labeling. Note an increase in cell proliferation after downregulation of HAI-1 and HAI-2 but no effect of HGF. Values are means &#xB1; SEM, n&#x200A;=&#x200A;3. *p&lt;0.05 for HAI-siRNAs vs. control. N.s, not significant.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0056117.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We are grateful to Kristiina S&#xF6;derholm, Eeva Lehto and Agnes Viher&#xE4; for skillful technical assistance. Cell imaging was done at Molecular Imaging Unit, Biomedicum Helsinki.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0056117-Szabo1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Szabo</surname><given-names>R</given-names></name>, <name><surname>Bugge</surname><given-names>TH</given-names></name> (<year>2011</year>) <article-title>Membrane-anchored serine proteases in vertebrate cell and developmental biology</article-title>. <source>Annu Rev Cell Dev Biol</source>
+<volume>27</volume>: <fpage>213</fpage>&#x2013;<lpage>235</lpage>.<pub-id pub-id-type="pmid">21721945</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Tung1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tung</surname><given-names>HH</given-names></name>, <name><surname>Lee</surname><given-names>SL</given-names></name> (<year>2012</year>) <article-title>Neural transmembrane protease and endothelial Gs protein activation in cell contact-dependent signaling between neural stem/progenitor cells and brain endothelial cells</article-title>. <source>J Biol Chem</source>
+<volume>287</volume>: <fpage>22497</fpage>&#x2013;<lpage>22508</lpage>.<pub-id pub-id-type="pmid">22577149</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Temple1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Temple</surname><given-names>S</given-names></name> (<year>2001</year>) <article-title>The development of neural stem cells</article-title>. <source>Nature</source>
+<volume>414</volume>: <fpage>112</fpage>&#x2013;<lpage>117</lpage>.<pub-id pub-id-type="pmid">11689956</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Kataoka1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kataoka</surname><given-names>H</given-names></name>, <name><surname>Suganuma</surname><given-names>T</given-names></name>, <name><surname>Shimomura</surname><given-names>T</given-names></name>, <name><surname>Itoh</surname><given-names>H</given-names></name>, <name><surname>Kitamura</surname><given-names>N</given-names></name>, <etal>et al</etal> (<year>1999</year>) <article-title>Distribution of hepatocyte growth factor activator inhibitor type 1 (HAI-1) in human tissues. Cellular surface localization of HAI-1 in simple columnar epithelium and its modulated expression in injured and regenerative tissues</article-title>. <source>J Histochem Cytochem</source>
+<volume>47</volume>: <fpage>673</fpage>&#x2013;<lpage>682</lpage>.<pub-id pub-id-type="pmid">10219059</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Oberst1">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Oberst</surname><given-names>M</given-names></name>, <name><surname>Anders</surname><given-names>J</given-names></name>, <name><surname>Xie</surname><given-names>B</given-names></name>, <name><surname>Singh</surname><given-names>B</given-names></name>, <name><surname>Ossandon</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>2001</year>) <article-title>Matriptase and HAI-1 are expressed by normal and malignant epithelial cells in vitro and in vivo</article-title>. <source>Am J Pathol</source>
+<volume>158</volume>: <fpage>1301</fpage>&#x2013;<lpage>1311</lpage>.<pub-id pub-id-type="pmid">11290548</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Szabo2">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Szabo</surname><given-names>R</given-names></name>, <name><surname>Hobson</surname><given-names>JP</given-names></name>, <name><surname>List</surname><given-names>K</given-names></name>, <name><surname>Molinolo</surname><given-names>A</given-names></name>, <name><surname>Lin</surname><given-names>CY</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Potent inhibition and global co-localization implicate the transmembrane Kunitz-type serine protease inhibitor hepatocyte growth factor activator inhibitor-2 in the regulation of epithelial matriptase activity</article-title>. <source>J Biol Chem</source>
+<volume>283</volume>: <fpage>29495</fpage>&#x2013;<lpage>29504</lpage>.<pub-id pub-id-type="pmid">18713750</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Sundberg1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sundberg</surname><given-names>M</given-names></name>, <name><surname>Savola</surname><given-names>S</given-names></name>, <name><surname>Hienola</surname><given-names>A</given-names></name>, <name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Lindholm</surname><given-names>D</given-names></name> (<year>2006</year>) <article-title>Glucocorticoid hormones decrease proliferation of embryonic neural stem cells through ubiquitin-mediated degradation of cyclin D1</article-title>. <source>J Neurosci</source>
+<volume>26</volume>: <fpage>5402</fpage>&#x2013;<lpage>5410</lpage>.<pub-id pub-id-type="pmid">16707792</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Hallikas1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hallikas</surname><given-names>OK</given-names></name>, <name><surname>Aaltonen</surname><given-names>JM</given-names></name>, <name><surname>von Koskull</surname><given-names>H</given-names></name>, <name><surname>Lindberg</surname><given-names>LA</given-names></name>, <name><surname>Valmu</surname><given-names>L</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Identification of antibodies against HAI-1 and integrin alpha6beta4 as immunohistochemical markers of human villous cytotrophoblast</article-title>. <source>J Histochem Cytochem</source>
+<volume>54</volume>: <fpage>745</fpage>&#x2013;<lpage>752</lpage>.<pub-id pub-id-type="pmid">16495474</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Enarsson1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Enarsson</surname><given-names>M</given-names></name>, <name><surname>Erlandsson</surname><given-names>A</given-names></name>, <name><surname>Larsson</surname><given-names>H</given-names></name>, <name><surname>Forsberg-Nilsson</surname><given-names>K</given-names></name> (<year>2002</year>) <article-title>Extracellular signal-regulated protein kinase signaling is uncoupled from initial differentiation of central nervous system stem cells to neurons</article-title>. <source>Mol Cancer Res</source>
+<volume>1</volume>: <fpage>147</fpage>&#x2013;<lpage>154</lpage>.<pub-id pub-id-type="pmid">12496361</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Miyazono1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Miyazono</surname><given-names>K</given-names></name>, <name><surname>Maeda</surname><given-names>S</given-names></name>, <name><surname>Imamura</surname><given-names>T</given-names></name> (<year>2005</year>) <article-title>BMP receptor signaling: transcriptional targets, regulation of signals, and signaling cross-talk</article-title>. <source>Cytokine Growth Factor Rev</source>
+<volume>16</volume>: <fpage>251</fpage>&#x2013;<lpage>263</lpage>.<pub-id pub-id-type="pmid">15871923</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Li1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Li</surname><given-names>W</given-names></name>, <name><surname>Cogswell</surname><given-names>CA</given-names></name>, <name><surname>LoTurco</surname><given-names>JJ</given-names></name> (<year>1998</year>) <article-title>Neuronal differentiation of precursors in the neocortical ventricular zone is triggered by BMP</article-title>. <source>J Neurosci</source>
+<volume>18</volume>: <fpage>8853</fpage>&#x2013;<lpage>8862</lpage>.<pub-id pub-id-type="pmid">9786991</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Mehler1">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mehler</surname><given-names>MF</given-names></name>, <name><surname>Mabie</surname><given-names>PC</given-names></name>, <name><surname>Zhu</surname><given-names>G</given-names></name>, <name><surname>Gokhan</surname><given-names>S</given-names></name>, <name><surname>Kessler</surname><given-names>JA</given-names></name> (<year>2000</year>) <article-title>Developmental changes in progenitor cell responsiveness to bone morphogenetic proteins differentially modulate progressive CNS lineage fate</article-title>. <source>Dev Neurosci</source>
+<volume>22</volume>: <fpage>74</fpage>&#x2013;<lpage>85</lpage>.<pub-id pub-id-type="pmid">10657700</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Nakashima1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nakashima</surname><given-names>K</given-names></name>, <name><surname>Takizawa</surname><given-names>T</given-names></name>, <name><surname>Ochiai</surname><given-names>W</given-names></name>, <name><surname>Yanagisawa</surname><given-names>M</given-names></name>, <name><surname>Hisatsune</surname><given-names>T</given-names></name>, <etal>et al</etal> (<year>2001</year>) <article-title>BMP2-mediated alteration in the developmental pathway of fetal mouse brain cells from neurogenesis to astrocytogenesis</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>98</volume>: <fpage>5868</fpage>&#x2013;<lpage>5873</lpage>.<pub-id pub-id-type="pmid">11331769</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Piccirillo1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Piccirillo</surname><given-names>SG</given-names></name>, <name><surname>Reynolds</surname><given-names>BA</given-names></name>, <name><surname>Zanetti</surname><given-names>N</given-names></name>, <name><surname>Lamorte</surname><given-names>G</given-names></name>, <name><surname>Binda</surname><given-names>E</given-names></name>, <etal>et al</etal> (<year>2006</year>) <article-title>Bone morphogenetic proteins inhibit the tumorigenic potential of human brain tumour-initiating cells</article-title>. <source>Nature</source>
+<volume>444</volume>: <fpage>761</fpage>&#x2013;<lpage>765</lpage>.<pub-id pub-id-type="pmid">17151667</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Chen1">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>HL</given-names></name>, <name><surname>Panchision</surname><given-names>DM</given-names></name> (<year>2007</year>) <article-title>Concise review: bone morphogenetic protein pleiotropism in neural stem cells and their derivatives - alternative pathways, convergent signals</article-title>. <source>Stem Cells</source>
+<volume>25</volume>: <fpage>63</fpage>&#x2013;<lpage>68</lpage>.<pub-id pub-id-type="pmid">16973830</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Colak1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Colak</surname><given-names>D</given-names></name>, <name><surname>Mori</surname><given-names>T</given-names></name>, <name><surname>Brill</surname><given-names>MS</given-names></name>, <name><surname>Pfeifer</surname><given-names>A</given-names></name>, <name><surname>Falk</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Adult neurogenesis requires Smad4-mediated bone morphogenic protein signaling in stem cells</article-title>. <source>J Neurosci</source>
+<volume>28</volume>: <fpage>434</fpage>&#x2013;<lpage>446</lpage>.<pub-id pub-id-type="pmid">18184786</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Brnnvall1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Br&#xE4;nnvall</surname><given-names>K</given-names></name>, <name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Lindholm</surname><given-names>D</given-names></name> (<year>2002</year>) <article-title>Estrogen-receptor-dependent regulation of neural stem cell proliferation and differentiation</article-title>. <source>Mol Cell Neurosci</source>
+<volume>21</volume>: <fpage>512</fpage>&#x2013;<lpage>520</lpage>.<pub-id pub-id-type="pmid">12498791</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Korhonen1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Brannvall</surname><given-names>K</given-names></name>, <name><surname>Skoglosa</surname><given-names>Y</given-names></name>, <name><surname>Lindholm</surname><given-names>D</given-names></name> (<year>2003</year>) <article-title>Tumor suppressor gene BRCA-1 is expressed by embryonic and adult neural stem cells and involved in cell proliferation</article-title>. <source>J Neurosci Res</source>
+<volume>71</volume>: <fpage>769</fpage>&#x2013;<lpage>776</lpage>.<pub-id pub-id-type="pmid">12605402</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Shimomura1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shimomura</surname><given-names>T</given-names></name>, <name><surname>Denda</surname><given-names>K</given-names></name>, <name><surname>Kitamura</surname><given-names>A</given-names></name>, <name><surname>Kawaguchi</surname><given-names>T</given-names></name>, <name><surname>Kito</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>1997</year>) <article-title>Hepatocyte growth factor activator inhibitor, a novel Kunitz-type serine protease inhibitor</article-title>. <source>J Biol Chem</source>
+<volume>272</volume>: <fpage>6370</fpage>&#x2013;<lpage>6376</lpage>.<pub-id pub-id-type="pmid">9045658</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Tanaka1">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tanaka</surname><given-names>H</given-names></name>, <name><surname>Nagaike</surname><given-names>K</given-names></name>, <name><surname>Takeda</surname><given-names>N</given-names></name>, <name><surname>Itoh</surname><given-names>H</given-names></name>, <name><surname>Kohama</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Hepatocyte growth factor activator inhibitor type 1 (HAI-1) is required for branching morphogenesis in the chorioallantoic placenta</article-title>. <source>Mol Cell Biol</source>
+<volume>25</volume>: <fpage>5687</fpage>&#x2013;<lpage>5698</lpage>.<pub-id pub-id-type="pmid">15964823</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Fan1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fan</surname><given-names>B</given-names></name>, <name><surname>Brennan</surname><given-names>J</given-names></name>, <name><surname>Grant</surname><given-names>D</given-names></name>, <name><surname>Peale</surname><given-names>F</given-names></name>, <name><surname>Rangell</surname><given-names>L</given-names></name>, <name><surname>Kirchhofer</surname><given-names>D</given-names></name> (<year>2007</year>) <article-title>Hepatocyte growth factor activator inhibitor-1 (HAI-1) is essential for the integrity of basement membranes in the developing placental labyrinth</article-title>. <source>Dev Biol</source>
+<volume>303</volume>: <fpage>222</fpage>&#x2013;<lpage>230</lpage>.<pub-id pub-id-type="pmid">17174946</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Kawaguchi1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kawaguchi</surname><given-names>T</given-names></name>, <name><surname>Qin</surname><given-names>L</given-names></name>, <name><surname>Shimomura</surname><given-names>T</given-names></name>, <name><surname>Kondo</surname><given-names>J</given-names></name>, <name><surname>Matsumoto</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>1997</year>) <article-title>Purification and cloning of hepatocyte growth factor activator inhibitor type 2, a Kunitz-type serine protease inhibitor</article-title>. <source>J Biol Chem</source>
+<volume>272</volume>: <fpage>27558</fpage>&#x2013;<lpage>27564</lpage>.<pub-id pub-id-type="pmid">9346890</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Szabo3">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Szabo</surname><given-names>R</given-names></name>, <name><surname>Hobson</surname><given-names>JP</given-names></name>, <name><surname>Christoph</surname><given-names>K</given-names></name>, <name><surname>Kosa</surname><given-names>P</given-names></name>, <name><surname>List</surname><given-names>K</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Regulation of cell surface protease matriptase by HAI2 is essential for placental development, neural tube closure and embryonic survival in mice</article-title>. <source>Development</source>
+<volume>136</volume>: <fpage>2653</fpage>&#x2013;<lpage>2663</lpage>.<pub-id pub-id-type="pmid">19592578</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Camerer1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Camerer</surname><given-names>E</given-names></name>, <name><surname>Barker</surname><given-names>A</given-names></name>, <name><surname>Duong</surname><given-names>DN</given-names></name>, <name><surname>Ganesan</surname><given-names>R</given-names></name>, <name><surname>Kataoka</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Local Protease Signaling Contributes to Neural Tube Closure in the Mouse Embryo</article-title>. <source>Dev Cell</source>
+<volume>18</volume>: <fpage>25</fpage>&#x2013;<lpage>38</lpage>.<pub-id pub-id-type="pmid">20152175</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Kataoka2">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kataoka</surname><given-names>H</given-names></name>, <name><surname>Shimomura</surname><given-names>T</given-names></name>, <name><surname>Kawaguchi</surname><given-names>T</given-names></name>, <name><surname>Hamasuna</surname><given-names>R</given-names></name>, <name><surname>Itoh</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2000</year>) <article-title>Hepatocyte growth factor activator inhibitor type 1 is a specific cell surface binding protein of hepatocyte growth factor activator (HGFA) and regulates HGFA activity in the pericellular microenvironment</article-title>. <source>J Biol Chem</source>
+<volume>275</volume>: <fpage>40453</fpage>&#x2013;<lpage>40462</lpage>.<pub-id pub-id-type="pmid">11013244</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Kataoka3">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kataoka</surname><given-names>H</given-names></name>, <name><surname>Itoh</surname><given-names>H</given-names></name>, <name><surname>Nuki</surname><given-names>Y</given-names></name>, <name><surname>Hamasuna</surname><given-names>R</given-names></name>, <name><surname>Naganuma</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>Mouse Hepatocyte Growth Factor (HGF) Activator Inhibitor Type 2 Lacking the First Kunitz Domain Potently Inhibits the HGF Activator</article-title>. <source>Biochem Biophys Res Commun</source>
+<volume>290</volume>: <fpage>1096</fpage>&#x2013;<lpage>1100</lpage>.<pub-id pub-id-type="pmid">11798188</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Denda1">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Denda</surname><given-names>K</given-names></name>, <name><surname>Shimomura</surname><given-names>T</given-names></name>, <name><surname>Kawaguchi</surname><given-names>T</given-names></name>, <name><surname>Miyazawa</surname><given-names>K</given-names></name>, <name><surname>Kitamura</surname><given-names>N</given-names></name> (<year>2002</year>) <article-title>Functional characterization of Kunitz domains in hepatocyte growth factor activator inhibitor type 1</article-title>. <source>J Biol Chem</source>
+<volume>277</volume>: <fpage>14053</fpage>&#x2013;<lpage>14059</lpage>.<pub-id pub-id-type="pmid">11805118</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Miyata1">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Miyata</surname><given-names>S</given-names></name>, <name><surname>Uchinokura</surname><given-names>S</given-names></name>, <name><surname>Fukushima</surname><given-names>T</given-names></name>, <name><surname>Hamasuna</surname><given-names>R</given-names></name>, <name><surname>Itoh</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2005</year>) <article-title>Diverse roles of hepatocyte growth factor activator inhibitor type 1 (HAI-1) in the growth of glioblastoma cells in vivo</article-title>. <source>Cancer Lett</source>
+<volume>227</volume>: <fpage>83</fpage>&#x2013;<lpage>93</lpage>.<pub-id pub-id-type="pmid">16051034</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Yamada1">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yamada</surname><given-names>T</given-names></name>, <name><surname>Tsujioka</surname><given-names>Y</given-names></name>, <name><surname>Taguchi</surname><given-names>J</given-names></name>, <name><surname>Takahashi</surname><given-names>M</given-names></name>, <name><surname>Tsuboi</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>1998</year>) <article-title>White matter astrocytes produce hepatocyte growth factor activator inhibitor in human brain tissues</article-title>. <source>Exp Neurol</source>
+<volume>153</volume>: <fpage>60</fpage>&#x2013;<lpage>64</lpage>.<pub-id pub-id-type="pmid">9743567</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Miyata2">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Miyata</surname><given-names>S</given-names></name>, <name><surname>Fukushima</surname><given-names>T</given-names></name>, <name><surname>Kohama</surname><given-names>K</given-names></name>, <name><surname>Tanaka</surname><given-names>H</given-names></name>, <name><surname>Takeshima</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Roles of Kunitz domains in the anti-invasive effect of hepatocyte growth factor activator inhibitor type 1 in human glioblastoma cells</article-title>. <source>Hum Cell</source>
+<volume>20</volume>: <fpage>100</fpage>&#x2013;<lpage>106</lpage>.<pub-id pub-id-type="pmid">17949349</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Hamasuna1">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hamasuna</surname><given-names>R</given-names></name>, <name><surname>Kataoka</surname><given-names>H</given-names></name>, <name><surname>Meng</surname><given-names>JY</given-names></name>, <name><surname>Itoh</surname><given-names>H</given-names></name>, <name><surname>Moriyama</surname><given-names>T</given-names></name>, <etal>et al</etal> (<year>2001</year>) <article-title>Reduced expression of hepatocyte growth factor activator inhibitor type-2/placental bikunin (HAI-2/PB) in human glioblastomas: implication for anti-invasive role of HAI-2/PB in glioblastoma cells</article-title>. <source>Int J Cancer</source>
+<volume>93</volume>: <fpage>339</fpage>&#x2013;<lpage>345</lpage>.<pub-id pub-id-type="pmid">11433397</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Kongkham1">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kongkham</surname><given-names>PN</given-names></name>, <name><surname>Northcott</surname><given-names>PA</given-names></name>, <name><surname>Ra</surname><given-names>YS</given-names></name>, <name><surname>Nakahara</surname><given-names>Y</given-names></name>, <name><surname>Mainprize</surname><given-names>TG</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>An epigenetic genome-wide screen identifies SPINT2 as a novel tumor suppressor gene in pediatric medulloblastoma. Cancer Res</article-title>. <volume>68</volume>: <fpage>9945</fpage>&#x2013;<lpage>9953</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Fang1">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fang</surname><given-names>JD</given-names></name>, <name><surname>Chou</surname><given-names>HC</given-names></name>, <name><surname>Tung</surname><given-names>HH</given-names></name>, <name><surname>Huang</surname><given-names>PY</given-names></name>, <name><surname>Lee</surname><given-names>SL</given-names></name> (<year>2011</year>) <article-title>Endogenous expression of matriptase in neural progenitor cells promotes cell migration and neuron differentiation</article-title>. <source>J Biol Chem</source>
+<volume>286</volume>: <fpage>5667</fpage>&#x2013;<lpage>5679</lpage>.<pub-id pub-id-type="pmid">21149451</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Korhonen2">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Sj&#xF6;holm</surname><given-names>U</given-names></name>, <name><surname>Takei</surname><given-names>N</given-names></name>, <name><surname>Kern</surname><given-names>MA</given-names></name>, <name><surname>Schirmacher</surname><given-names>P</given-names></name>, <etal>et al</etal> (<year>2000</year>) <article-title>Expression of c-Met in developing rat hippocampus: evidence for HGF as a neurotrophic factor for calbindin D-expressing neurons</article-title>. <source>Eur J Neurosci</source>
+<volume>12</volume>: <fpage>3453</fpage>&#x2013;<lpage>3461</lpage>.<pub-id pub-id-type="pmid">11029614</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Kokuzawa1">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kokuzawa</surname><given-names>J</given-names></name>, <name><surname>Yoshimura</surname><given-names>S</given-names></name>, <name><surname>Kitajima</surname><given-names>H</given-names></name>, <name><surname>Shinoda</surname><given-names>J</given-names></name>, <name><surname>Kaku</surname><given-names>Y</given-names></name>, <etal>et al</etal> (<year>2003</year>) <article-title>Hepatocyte growth factor promotes proliferation and neuronal differentiation of neural stem cells from mouse embryos</article-title>. <source>Mol Cell Neurosci</source>
+<volume>24</volume>: <fpage>190</fpage>&#x2013;<lpage>197</lpage>.<pub-id pub-id-type="pmid">14550779</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Dewulf1">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dewulf</surname><given-names>N</given-names></name>, <name><surname>Verschueren</surname><given-names>K</given-names></name>, <name><surname>Lonnoy</surname><given-names>O</given-names></name>, <name><surname>Moren</surname><given-names>A</given-names></name>, <name><surname>Grimsby</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>1995</year>) <article-title>Distinct spatial and temporal expression patterns of two type I receptors for bone morphogenetic proteins during mouse embryogenesis</article-title>. <source>Endocrinology</source>
+<volume>136</volume>: <fpage>2652</fpage>&#x2013;<lpage>2663</lpage>.<pub-id pub-id-type="pmid">7750489</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Sderstrm1">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>S&#xF6;derstr&#xF6;m</surname><given-names>S</given-names></name>, <name><surname>Bengtsson</surname><given-names>H</given-names></name>, <name><surname>Ebendal</surname><given-names>T</given-names></name> (<year>1996</year>) <article-title>Expression of serine/threonine kinase receptors including the bone morphogenetic factor type II receptor in the developing and adult rat brain</article-title>. <source>Cell Tissue Res</source>
+<volume>286</volume>: <fpage>269</fpage>&#x2013;<lpage>279</lpage>.<pub-id pub-id-type="pmid">8854897</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Furuta1">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Furuta</surname><given-names>Y</given-names></name>, <name><surname>Piston</surname><given-names>DW</given-names></name>, <name><surname>Hogan</surname><given-names>BL</given-names></name> (<year>1997</year>) <article-title>Bone morphogenetic proteins (BMPs) as regulators of dorsal forebrain development</article-title>. <source>Development</source>
+<volume>124</volume>: <fpage>2203</fpage>&#x2013;<lpage>2212</lpage>.<pub-id pub-id-type="pmid">9187146</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Dalgin1">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dalgin</surname><given-names>G</given-names></name>, <name><surname>Goldman</surname><given-names>DC</given-names></name>, <name><surname>Donley</surname><given-names>N</given-names></name>, <name><surname>Ahmed</surname><given-names>R</given-names></name>, <name><surname>Eide</surname><given-names>CA</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>GATA-2 functions downstream of BMPs and CaM KIV in ectodermal cells during primitive hematopoiesis</article-title>. <source>Dev Biol</source>
+<volume>310</volume>: <fpage>454</fpage>&#x2013;<lpage>469</lpage>.<pub-id pub-id-type="pmid">17850784</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Itoh1">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Itoh</surname><given-names>H</given-names></name>, <name><surname>Kataoka</surname><given-names>H</given-names></name>, <name><surname>Meng</surname><given-names>JY</given-names></name>, <name><surname>Hamasuna</surname><given-names>R</given-names></name>, <name><surname>Kitamura</surname><given-names>N</given-names></name>, <etal>et al</etal> (<year>2001</year>) <article-title>Mouse hepatocyte growth factor activator inhibitor type 1 (HAI-1) and type 2 (HAI-2)/placental bikunin genes and their promoters</article-title>. <source>Biochim Biophys Acta</source>
+<volume>1519</volume>: <fpage>92</fpage>&#x2013;<lpage>95</lpage>.<pub-id pub-id-type="pmid">11406276</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Lim1">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lim</surname><given-names>DA</given-names></name>, <name><surname>Tramontin</surname><given-names>AD</given-names></name>, <name><surname>Trevejo</surname><given-names>JM</given-names></name>, <name><surname>Herrera</surname><given-names>DG</given-names></name>, <name><surname>Garcia-Verdugo</surname><given-names>JM</given-names></name>, <etal>et al</etal> (<year>2000</year>) <article-title>Noggin antagonizes BMP signaling to create a niche for adult neurogenesis</article-title>. <source>Neuron</source>
+<volume>28</volume>: <fpage>713</fpage>&#x2013;<lpage>726</lpage>.<pub-id pub-id-type="pmid">11163261</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Bonaguidi1">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bonaguidi</surname><given-names>MA</given-names></name>, <name><surname>Peng</surname><given-names>CY</given-names></name>, <name><surname>McGuire</surname><given-names>T</given-names></name>, <name><surname>Falciglia</surname><given-names>G</given-names></name>, <name><surname>Gobeske</surname><given-names>KT</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Noggin expands neural stem cells in the adult hippocampus</article-title>. <source>J Neurosci</source>
+<volume>28</volume>: <fpage>9194</fpage>&#x2013;<lpage>9204</lpage>.<pub-id pub-id-type="pmid">18784300</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Mira1">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mira</surname><given-names>H</given-names></name>, <name><surname>Andreu</surname><given-names>Z</given-names></name>, <name><surname>Suh</surname><given-names>H</given-names></name>, <name><surname>Lie</surname><given-names>DC</given-names></name>, <name><surname>Jessberger</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>Signaling through BMPR-IA Regulates Quiescence and Long-Term Activity of Neural Stem Cells in the Adult Hippocampus</article-title>. <source>Cell Stem Cell</source>
+<volume>7</volume>: <fpage>78</fpage>&#x2013;<lpage>89</lpage>.<pub-id pub-id-type="pmid">20621052</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Brnnvall2">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Br&#xE4;nnvall</surname><given-names>K</given-names></name>, <name><surname>Bogdanovic</surname><given-names>N</given-names></name>, <name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Lindholm</surname><given-names>D</given-names></name> (<year>2005</year>) <article-title>19-Nortestosterone influences neural stem cell proliferation and neurogenesis in the rat brain</article-title>. <source>Eur J Neurosci</source>
+<volume>21</volume>: <fpage>871</fpage>&#x2013;<lpage>878</lpage>.<pub-id pub-id-type="pmid">15787693</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Korhonen3">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Belluardo</surname><given-names>N</given-names></name>, <name><surname>Lindholm</surname><given-names>D</given-names></name> (<year>2001</year>) <article-title>Regulation of X-chromosome-linked inhibitor of apoptosis protein in kainic acid-induced neuronal death in the rat hippocampus</article-title>. <source>Mol Cell Neurosci 2001</source>
+<volume>17(2)</volume>: <fpage>364</fpage>&#x2013;<lpage>372</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Sokka1">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sokka</surname><given-names>AL</given-names></name>, <name><surname>Putkonen</surname><given-names>N</given-names></name>, <name><surname>Mudo</surname><given-names>G</given-names></name>, <name><surname>Pryazhnikov</surname><given-names>E</given-names></name>, <name><surname>Reijonen</surname><given-names>S</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>Endoplasmic reticulum stress inhibition protects against excitotoxic neuronal injury in the rat brain</article-title>. <source>J Neurosci</source>
+<volume>27</volume>: <fpage>901</fpage>&#x2013;<lpage>908</lpage>.<pub-id pub-id-type="pmid">17251432</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Mkel1">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>M&#xE4;kel&#xE4;</surname><given-names>J</given-names></name>, <name><surname>Koivuniemi</surname><given-names>R</given-names></name>, <name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Lindholm</surname><given-names>D</given-names></name> (<year>2010</year>) <article-title>Interferon-gamma produced by microglia and the neuropeptide PACAP have opposite effects on the viability of neural progenitor cells</article-title>. <source>PLoS One</source>
+<volume>5</volume>: <fpage>e11091</fpage>.<pub-id pub-id-type="pmid">20559421</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Sippel1">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sippel</surname><given-names>M</given-names></name>, <name><surname>Rajala</surname><given-names>R</given-names></name>, <name><surname>Korhonen</surname><given-names>L</given-names></name>, <name><surname>Bornhauser</surname><given-names>B</given-names></name>, <name><surname>Sokka</surname><given-names>AL</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Dexamethasone regulates expression of BRUCE/Apollon and the proliferation of neural progenitor cells</article-title>. <source>FEBS Lett</source>
+<volume>583</volume>: <fpage>2213</fpage>&#x2013;<lpage>2217</lpage>.<pub-id pub-id-type="pmid">19527720</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Bibel1">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bibel</surname><given-names>M</given-names></name>, <name><surname>Richter</surname><given-names>J</given-names></name>, <name><surname>Schrenk</surname><given-names>K</given-names></name>, <name><surname>Tucker</surname><given-names>KL</given-names></name>, <name><surname>Staiger</surname><given-names>V</given-names></name>, <etal>et al</etal> (<year>2004</year>) <article-title>Differentiation of mouse embryonic stem cells into a defined neuronal lineage</article-title>. <source>Nat Neurosci</source>
+<volume>7</volume>: <fpage>1003</fpage>&#x2013;<lpage>1009</lpage>.<pub-id pub-id-type="pmid">15332090</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Hong1">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hong</surname><given-names>C</given-names></name>, <name><surname>Duit</surname><given-names>S</given-names></name>, <name><surname>Jalonen</surname><given-names>P</given-names></name>, <name><surname>Out</surname><given-names>R</given-names></name>, <name><surname>Scheer</surname><given-names>L</given-names></name>, <etal>et al</etal> (<year>2010</year>) <article-title>The E3 ubiquitin ligase IDOL induces the degradation of the low density lipoprotein receptor family members VLDLR and ApoER2</article-title>. <source>J Biol Chem</source>
+<volume>285</volume>: <fpage>19720</fpage>&#x2013;<lpage>19726</lpage>.<pub-id pub-id-type="pmid">20427281</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Do1">
+        <label>51</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Do</surname><given-names>HT</given-names></name>, <name><surname>Tselykh</surname><given-names>TV</given-names></name>, <name><surname>M&#xE4;kel&#xE4;</surname><given-names>J</given-names></name>, <name><surname>Ho</surname><given-names>TH</given-names></name>, <name><surname>Olkkonen</surname><given-names>VM</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>Fibroblast growth factor-21 (FGF21) regulates low-density lipoprotein receptor (LDLR) levels in cells via the E3-ubiquitin ligase Mylip/Idol and the Canopy2 (Cnpy2)/Mylip-interacting saposin-like protein (Msap). J Biol Chem</article-title>. <volume>287</volume>: <fpage>12602</fpage>&#x2013;<lpage>12611</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Putkonen1">
+        <label>52</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Putkonen</surname><given-names>N</given-names></name>, <name><surname>Kukkonen</surname><given-names>JP</given-names></name>, <name><surname>Mudo</surname><given-names>G</given-names></name>, <name><surname>Putula</surname><given-names>J</given-names></name>, <name><surname>Belluardo</surname><given-names>N</given-names></name>, <etal>et al</etal> (<year>2011</year>) <article-title>Involvement of cyclin-dependent kinase-5 in the kainic acid-mediated degeneration of glutamatergic synapses in the rat hippocampus</article-title>. <source>Eur J Neurosci</source>
+<volume>34</volume>: <fpage>1212</fpage>&#x2013;<lpage>1221</lpage>.<pub-id pub-id-type="pmid">21978141</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0056117-Tervonen1">
+        <label>53</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tervonen</surname><given-names>TA</given-names></name>, <name><surname>Louhivuori</surname><given-names>V</given-names></name>, <name><surname>Sun</surname><given-names>X</given-names></name>, <name><surname>Hokkanen</surname><given-names>ME</given-names></name>, <name><surname>Kratochwil</surname><given-names>CF</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Aberrant differentiation of glutamatergic cells in neocortex of mouse model for fragile X syndrome</article-title>. <source>Neurobiol Dis</source>
+<volume>33</volume>: <fpage>250</fpage>&#x2013;<lpage>259</lpage>.<pub-id pub-id-type="pmid">19056494</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

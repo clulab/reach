@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9301549</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">8482</journal-id>
+      <journal-id journal-id-type="nlm-ta">Exp Dermatol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Exp. Dermatol.</journal-id>
+      <journal-title-group>
+        <journal-title>Experimental dermatology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0906-6705</issn>
+      <issn pub-type="epub">1600-0625</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24451036</article-id>
+      <article-id pub-id-type="pmc">4046644</article-id>
+      <article-id pub-id-type="doi">10.1111/exd.12333</article-id>
+      <article-id pub-id-type="manuscript">NIHMS560839</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Combined treatment with sodium butyrate and PD153035 enhances keratinocyte differentiation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Carrion</surname>
+            <given-names>Sandra Leon</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sutter</surname>
+            <given-names>Carrie Hayes</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sutter</surname>
+            <given-names>Thomas R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biological Sciences, University of Memphis, Memphis, TN, USA</aff>
+      <aff id="A2"><label>2</label>W. Harry Feinstone Center for Genomic Research, University of Memphis, Memphis, TN, USA</aff>
+      <author-notes>
+        <corresp id="FN1">Correspondence: Dr. Thomas Sutter, Department of Biological Sciences, University of Memphis, 3774 Walker Avenue, Memphis, TN 38152, USA, Tel.: +1-901-678-8391, <email>tsutter@memphis.edu</email></corresp>
+        <fn id="FN3" fn-type="conflict">
+          <p>
+            <bold>Conflict of interest</bold>
+          </p>
+          <p>The authors declare no conflicts of interest.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>7</day>
+        <month>3</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>3</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>3</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>23</volume>
+      <issue>3</issue>
+      <fpage>211</fpage>
+      <lpage>214</lpage>
+      <!--elocation-id from pubmed: 10.1111/exd.12333-->
+      <abstract>
+        <p id="P1">Epidermal growth factor (EGF) receptor (EGFR) signaling is a critical determinant of keratinocyte proliferation and differentiation in both normal and diseased skin. Here we explore the effects of combined treatment with the differentiation-promoting agent sodium butyrate (SB) and the EGFR inhibitor (EGFRI) PD153035 on terminal differentiation of normal human epidermal keratinocytes (NHEKs). Cells treated with SB showed increased expression of the levels of mRNA and protein of the differentiation markers filaggrin and transglutaminase 1. Co-treatment with EGF significantly blunted these effects of SB. Combined treatment with SB and PD153035 alleviated these inhibitory actions of EGF, resulting in improved effects of decreased cell growth and increased terminal differentiation, relative to the individual treatments. These results indicate that the combined use of a differentiation-promoting agent and an EGFR inhibitor may offer an additional approach to the management of hyperproliferative skin diseases.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>keratinocyte</kwd>
+        <kwd>differentiation</kwd>
+        <kwd>psoriasis</kwd>
+        <kwd>epidermal growth factor receptor</kwd>
+        <kwd>sodium butyrate</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

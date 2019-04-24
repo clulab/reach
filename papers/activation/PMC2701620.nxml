@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101092707</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">22472</journal-id>
+      <journal-id journal-id-type="nlm-ta">Proteomics</journal-id>
+      <journal-title>Proteomics</journal-title>
+      <issn pub-type="ppub">1615-9853</issn>
+      <issn pub-type="epub">1615-9861</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18846511</article-id>
+      <article-id pub-id-type="pmc">2701620</article-id>
+      <article-id pub-id-type="manuscript">NIHMS105336</article-id>
+      <article-id pub-id-type="doi">10.1002/pmic.200800231</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Quantitative phosphoproteomics by mass spectrometry: Past, present, and future</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nita-Lazar</surname>
+            <given-names>Aleksandra</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="author-notes" rid="FN1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Saito-Benz</surname>
+            <given-names>Hideshiro</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="author-notes" rid="FN1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>White</surname>
+            <given-names>Forest M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biological Engineering, Massachusetts Institute of Technology, Cambridge, MA, USA</aff>
+      <aff id="A2"><label>2</label>Center for Cancer Research, Massachusetts Institute of Technology, Cambridge, MA, USA</aff>
+      <author-notes>
+        <corresp id="cor1"><bold>Correspondence</bold>: Dr. Forest M. White, Department of Biological Engineering, Massachusetts Institute of Technology, Cambridge, MA 02139, USA, <bold>E-mail</bold>: <email>fwhite@mit.edu</email>, <bold>fax</bold>: +1-617-258-0225</corresp>
+        <fn id="FN1" fn-type="equal">
+          <label>*</label>
+          <p id="P1">Both these authors contributed equally.</p>
+        </fn>
+        <fn id="FN2" fn-type="conflict">
+          <p id="P48">The authors have declared no conflict of interest.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>26</day>
+        <month>3</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>21</issue>
+      <fpage>4433</fpage>
+      <lpage>4443</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2008 WILEY-VCH Verlag GmbH &amp; Co. KGaA, Weinheim</copyright-statement>
+        <copyright-year>2008</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P2">Protein phosphorylation-mediated signaling networks regulate much of the cellular response to external stimuli, and dysregulation in these networks has been linked to multiple disease states. Significant advancements have been made over the past decade to enable the analysis and quantification of cellular protein phosphorylation events, but comprehensive analysis of the phosphoproteome is still lacking, as is the ability to monitor signaling at the network level while comprehending the biological implications of each phosphorylation site. In this review we highlight many of the technological advances over the past decade and describe some of the latest applications of these tools to uncover signaling networks in a variety of biological settings. We finish with a concise discussion of the future of the field, including additional advances that are required to link protein phosphorylation analysis with biological insight.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Electrospray ionization-tandem mass spectrometry</kwd>
+        <kwd>Protein phosphorylation</kwd>
+        <kwd>Signal transduction profiling</kwd>
+        <kwd>Spectrometry</kwd>
+      </kwd-group>
+      <contract-num rid="CA1">R01 CA118705-01A2</contract-num>
+      <contract-num rid="GM1">P50 GM068762-069006</contract-num>
+      <contract-sponsor id="CA1">National Cancer Institute : NCI</contract-sponsor>
+      <contract-sponsor id="GM1">National Institute of General Medical Sciences : NIGMS</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

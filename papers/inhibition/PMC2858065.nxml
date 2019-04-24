@@ -1,0 +1,201 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0413066</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2830</journal-id>
+      <journal-id journal-id-type="nlm-ta">Cell</journal-id>
+      <journal-title>Cell</journal-title>
+      <issn pub-type="ppub">0092-8674</issn>
+      <issn pub-type="epub">1097-4172</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">20403327</article-id>
+      <article-id pub-id-type="pmc">2858065</article-id>
+      <article-id pub-id-type="doi">10.1016/j.cell.2010.03.013</article-id>
+      <article-id pub-id-type="manuscript">NIHMS190910</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>TRP Channel regulates EGFR signaling in Hair Morphogenesis and Skin Barrier Formation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cheng</surname>
+            <given-names>Xiping</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+          <xref rid="FN2" ref-type="author-notes">#</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jin</surname>
+            <given-names>Jie</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">2</xref>
+          <xref rid="A3" ref-type="aff">3</xref>
+          <xref rid="FN2" ref-type="author-notes">#</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Lily</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shen</surname>
+            <given-names>Dongbiao</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dong</surname>
+            <given-names>Xian-ping</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Samie</surname>
+            <given-names>Mohammad A.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Knoff</surname>
+            <given-names>Jayne</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Eisinger</surname>
+            <given-names>Brian</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Mei-ling</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huang</surname>
+            <given-names>Susan M.</given-names>
+          </name>
+          <xref rid="A4" ref-type="aff">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Caterina</surname>
+            <given-names>Michael J.</given-names>
+          </name>
+          <xref rid="A4" ref-type="aff">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dempsey</surname>
+            <given-names>Peter</given-names>
+          </name>
+          <xref rid="A5" ref-type="aff">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Michael</surname>
+            <given-names>Lowell Evan</given-names>
+          </name>
+          <xref rid="A6" ref-type="aff">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dlugosz</surname>
+            <given-names>Andrzej A.</given-names>
+          </name>
+          <xref rid="A6" ref-type="aff">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Andrews</surname>
+            <given-names>Nancy C.</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">2</xref>
+          <xref rid="A7" ref-type="aff">7</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Clapham</surname>
+            <given-names>David E</given-names>
+          </name>
+          <xref rid="A3" ref-type="aff">3</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xu</surname>
+            <given-names>Haoxing</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">1</xref>
+          <xref rid="A3" ref-type="aff">3</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label> Department of Molecular, Cellular, and Developmental Biology, the University of Michigan, 3089 Natural Science Building (Kraus), 830 North University, Ann Arbor, MI 48109, USA</aff>
+      <aff id="A2"><label>2</label> Division of Hematology and Oncology, Children&#x2019;s Hospital Boston, Karp Family Building 8-125A, Boston, MA 02115, USA</aff>
+      <aff id="A3"><label>3</label> Department of Cardiology, Children&#x2019;s Hospital Boston, Manton Center for Orphan Disease, Enders 1350, 320 Longwood Avenue, Boston, MA 02115, USA</aff>
+      <aff id="A4"><label>4</label> Department of Biological Chemistry and Department of Neuroscience, Johns Hopkins University School of Medicine, Baltimore, Maryland 21025</aff>
+      <aff id="A5"><label>5</label> Department of Pediatrics and Communicable Diseases and Dept. of Molecular &amp; Integrative Physiology, the University of Michigan, 1500 East Medical Center Drive, Room D3252, Ann Arbor, MI 48109, USA</aff>
+      <aff id="A6"><label>6</label> Department of Dermatology and Comprehensive Cancer Center, the University of Michigan, 1500 East Medical Center Drive, Ann Arbor, MI 48109, USA</aff>
+      <aff id="A7"><label>7</label> Department of Pediatrics and Department of Pharmacology and Cancer Biology, Duke University School of Medicine, DUMC 2927, Durham, NC 27710, USA</aff>
+      <author-notes>
+        <corresp id="FN1">
+<label>*</label>To whom correspondence should be addressed: H.X: <email>haoxingx@umich.edu</email> or. D.E.C: <email>dclapham@enders.tch.harvard.edu</email></corresp>
+        <fn id="FN2" fn-type="equal">
+          <label>#</label>
+          <p>These Authors contributed equally.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>30</day>
+        <month>3</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>16</day>
+        <month>4</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>16</day>
+        <month>4</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>141</volume>
+      <issue>2</issue>
+      <fpage>331</fpage>
+      <lpage>343</lpage>
+      <related-article journal-id-type="nlm-ta" journal-id="Cell" related-article-type="commentary" page="218" id="N0x20c9fd0N0x2b950a0" xlink:href="20403316" ext-link-type="pubmed" vol="141"/>
+      <abstract>
+        <title>Summary</title>
+        <p id="P3">A plethora of growth factors regulate keratinocyte proliferation and differentiation that control hair morphogenesis and skin barrier formation. Wavy hair phenotypes in mice result from naturally occurring loss-of-function mutations in the genes for TGF-&#x3B1; and EGFR. Conversely, excessive activities of TGF-&#x3B1;/EGFR result in hairless phenotypes and skin cancers. Unexpectedly, we found that mice lacking the <italic>TRPV</italic>3 gene also exhibit wavy hair coat and curly whiskers. Here we show that keratinocyte TRPV3, a member of the Transient Receptor Potential (TRP) family of Ca<sup>2+</sup>-permeant channels, forms a signaling complex with TGF-&#x3B1;/EGFR. Activation of EGFR leads to increased TRPV3 channel activity, which in turn stimulates TGF-&#x3B1; release. TRPV3 is also required for the formation of the skin barrier by regulating the activities of transglutaminases, a family of Ca<sup>2+</sup>-dependent cross-linking enzymes essential for keratinocyte cornification. Our results show that a TRP channel plays a role in regulating growth factor signaling by direct complex formation.</p>
+      </abstract>
+      <contract-num rid="NS1">R01 NS062792-02
+				||NS</contract-num>
+      <contract-sponsor id="NS1">National Institute of Neurological Disorders and Stroke : NINDS</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0050222</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4586</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Cell Physiol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Cell. Physiol.</journal-id>
+      <journal-title-group>
+        <journal-title>Journal of cellular physiology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0021-9541</issn>
+      <issn pub-type="epub">1097-4652</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24105823</article-id>
+      <article-id pub-id-type="pmc">4292882</article-id>
+      <article-id pub-id-type="doi">10.1002/jcp.24468</article-id>
+      <article-id pub-id-type="manuscript">NIHMS540801</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Neurogenesis of Neural Crest Derived Periodontal Ligament Stem Cells by EGF and bFGF</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fortino</surname>
+            <given-names>Veronica R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Ren-Shiang</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pelaez</surname>
+            <given-names>Daniel</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cheung</surname>
+            <given-names>Herman S.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A4">4</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biomedical Engineering, College of Engineering, University of Miami; Coral Gables, FL, 33146, USA</aff>
+      <aff id="A2"><label>2</label>Department of Physiology and Biophysics, Miller School of Medicine, University of Miami; Miami, FL, 33125, USA</aff>
+      <aff id="A3"><label>3</label>Department of Life Science, Tunghai University; Taichung, 40704, Taiwan</aff>
+      <aff id="A4"><label>4</label>Geriatric Research, Education and Clinical Center (GRECC); Miami Veterans Affairs Medical Center, Miami, FL, 33125, USA</aff>
+      <author-notes>
+        <corresp id="FN1">Corresponding Author: Dr. Herman S. Cheung, Miami VA Medical Center, 1201 NW 16<sup>th</sup> Street, Miami, FL 33125, Phone: +1-(305)-575-3388, Fax: +1-(305)-575-3365, <email>hcheung@med.miami.edu</email></corresp>
+        <fn id="FN2" fn-type="conflict">
+          <p>
+            <bold>Author Disclosure Statement</bold>
+          </p>
+          <p>The authors state that no competing financial interests exist.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>23</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>4</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>13</day>
+        <month>1</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>229</volume>
+      <issue>4</issue>
+      <fpage>479</fpage>
+      <lpage>488</lpage>
+      <!--elocation-id from pubmed: 10.1002/jcp.24468-->
+      <abstract>
+        <p id="P1">Neuroregenerative medicine is an ever-growing field in which regeneration of lost cells/tissues due to a neurodegenerative disease is the ultimate goal. With the scarcity of available replacement alternatives, stem cells provide an attractive source for regenerating neural tissue. While many stem cell sources exist, including: mesenchymal stem cells (MSCs), embryonic stem cells (ESCs), and induced pluripotent stem cells (iPSCs), the limited cellular potency, technical difficulties, and ethical considerations associated with these make finding alternate sources a desirable goal. Periodontal ligament stem cells (PDLSCs) derived from the neural crest were induced into neural-like cells using a combination of epidermal growth factor (EGF) and basic fibroblast growth factor (bFGF). Morphological changes were evident in our treated group, seen under both light microscopy and scanning electron microscopy (SEM). A statistically significant increase in the expression of neuron-specific &#x3B2;-tubulin III and the neural stem/progenitor cell marker nestin, along with positive immunohistochemical staining for glial fibrillary acidic protein (GFAP), demonstrated the success of our treatment in inducing both neuronal and glial phenotypes. Positive staining for synaptophysin demonstrated neural connections and electrophysiological recordings indicated that when subjected to whole cell patch clamping, our treated cells displayed inward currents conducted through voltage-gated sodium (Na<sup>+</sup>) channels. Taken together, our results indicate the success of our treatment in inducing PDLSCs to neural-like cells. The ease of sourcing and expansion, their embryologic neural crest origin, and the lack of ethical implications in their use make PDLSCs an attractive source for use in neuroregenerative medicine.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Adult Stem Cells</kwd>
+        <kwd>Neural Crest</kwd>
+        <kwd>Neurogenesis</kwd>
+        <kwd>Periodontal Ligament</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

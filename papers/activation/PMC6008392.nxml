@@ -1,0 +1,2063 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group UK</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29921916</article-id>
+      <article-id pub-id-type="pmc">6008392</article-id>
+      <article-id pub-id-type="publisher-id">27613</article-id>
+      <article-id pub-id-type="doi">10.1038/s41598-018-27613-9</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The Thrombin Receptor Restricts Subventricular Zone Neural Stem Cell Expansion and Differentiation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Choi</surname>
+            <given-names>Chan-Il</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yoon</surname>
+            <given-names>Hyesook</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Drucker</surname>
+            <given-names>Kristen L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Langley</surname>
+            <given-names>Monica R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kleppe</surname>
+            <given-names>Laurel</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Scarisbrick</surname>
+            <given-names>Isobel A.</given-names>
+          </name>
+          <address>
+            <email>Scarisbrick.Isobel@mayo.edu</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0459 167X</institution-id><institution-id institution-id-type="GRID">grid.66875.3a</institution-id><institution>Department of Physical Medicine and Rehabilitation Mayo Clinic, </institution></institution-wrap>Rochester, MN 55905 USA </aff>
+        <aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0459 167X</institution-id><institution-id institution-id-type="GRID">grid.66875.3a</institution-id><institution>Rehabilitation Medicine Research Center Mayo Clinic, </institution></institution-wrap>Rochester, MN 55905 USA </aff>
+        <aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0004 0459 167X</institution-id><institution-id institution-id-type="GRID">grid.66875.3a</institution-id><institution>Department of Physiology Mayo Clinic, </institution></institution-wrap>Rochester, MN 55905 USA </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>19</day>
+        <month>6</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>19</day>
+        <month>6</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2018</year>
+      </pub-date>
+      <volume>8</volume>
+      <elocation-id>9360</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>4</day>
+          <month>4</month>
+          <year>2018</year>
+        </date>
+        <date date-type="accepted">
+          <day>6</day>
+          <month>6</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s) 2018</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article&#x2019;s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p id="Par1">Thrombin is frequently increased in the CNS after injury yet little is known regarding its effects on neural stem cells. Here we show that the subventricular zone (SVZ) of adult mice lacking the high affinity receptor for thrombin, proteinase activated receptor 1 (PAR1), show increased numbers of Sox2+ and Ki-67+ self-renewing neural stem cells (NSCs) and Olig2+ oligodendrocyte progenitors. SVZ NSCs derived from PAR1-knockout mice, or treated with a PAR1 small molecule inhibitor (SCH79797), exhibited enhanced capacity for self-renewal <italic>in vitro</italic>, including increases in neurosphere formation and BrdU incorporation. PAR1-knockout SVZ monolayer cultures contained more Nestin, NG2+ and Olig2+ cells indicative of enhancements in expansion and differentiation towards the oligodendrocyte lineage. Cultures of NSCs lacking PAR1 also expressed higher levels of myelin basic protein, proteolipid protein and glial fibrillary acidic protein upon differentiation. Complementing these findings, the corpus callosum and anterior commissure of adult PAR1-knockout mice contained greater numbers of Olig2+ progenitors and CC1+ mature oligodendrocytes. Together these findings highlight PAR1 inhibition as a means to expand adult SVZ NSCs and to promote an increased number of mature myelinating oligodendrocytes <italic>in vivo</italic> that may be of particular benefit in the context of neural injury where PAR1 agonists such as thrombin are deregulated.</p>
+      </abstract>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2018</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1" sec-type="introduction">
+      <title>Introduction</title>
+      <p id="Par2">The subventricular zone (SVZ) of the forebrain lateral ventricles and the subgranular zone (SGZ) in the hippocampal dentate gyrus are neurogenic niches in the adult brain that contain multipotent cells that self-renew and differentiate into all neural cell types including neurons, astrocytes and oligodendrocytes. NSCs are generated in these regions of the adult murine brain throughout life and play a critical role in replacement of post mitotic cells and therefore in regenerative repair after injury<sup><xref ref-type="bibr" rid="CR1">1</xref>&#x2013;<xref ref-type="bibr" rid="CR4">4</xref></sup>. Although there is now considerable evidence regarding the differentiation and migration patterns of NSCs from these regenerative niches, far less is known regarding environmental factors present that may regulate their expansion and differentiation in the intact and injured CNS.</p>
+      <p id="Par3">Emerging studies show that a family of G-protein coupled receptors (GPCRs) referred to as proteinase activated receptors (PARs) are densely expressed in the adult CNS and can regulate the proliferation and differentiation of both neurons and neuroglial cells. While all four family members (PAR1-4) are expressed at significant levels across the brain and spinal cord<sup><xref ref-type="bibr" rid="CR5">5</xref>,<xref ref-type="bibr" rid="CR6">6</xref></sup>, PAR1 is by far the most abundant<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR7">7</xref></sup>. PARs are activated by cleavage within their extracellular domain revealing a new amino-terminus that binds to the receptor&#x2019;s second extracellular loop thereby eliciting intracellular signaling. PARs are of particular interest clinically as their activating proteinases are widely deregulated in the context of CNS injury and disease<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. For example thrombin, which readily extravasates with CNS injury, is the high affinity agonist for PAR1. PAR1 may also be activated by matrix metalloproteinases 1 (MMP1)<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>, certain kallikreins<sup><xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR7">7</xref>,<xref ref-type="bibr" rid="CR10">10</xref>&#x2013;<xref ref-type="bibr" rid="CR12">12</xref></sup>, tissue plasminogen activator and plasmin<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. PAR1 is therefore positioned to translate changes in the proteolytic microenvironment into changes in cell behavior. For example, PAR1 activation promotes proliferation of adult brain astrocytes<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. PAR1 activation also suppresses differentiation of oligodendrocyte progenitor cells, while a PAR1 small molecule inhibitor enhances differentiation and production of myelin related genes<sup><xref ref-type="bibr" rid="CR15">15</xref>,<xref ref-type="bibr" rid="CR16">16</xref></sup>. Indeed, mice with PAR1 knockout show an accelerated pattern of myelin production in the spinal cord developmentally and higher levels of myelin basic protein (MBP) and thicker myelin sheaths in adulthood<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Notably, recent studies show that proliferation of NSCs derived from the SGZ of the hippocampus are inhibited by thrombin or a PAR1 activating peptide (PAR1-AP) and blockade of serine proteinases by intracerebroventricular infusion of a pan-serine proteinase inhibitor AEBMSF increased SGZ cell proliferation, although the cell type involved was not investigated<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. PAR1 is also documented to play a role in cell proliferation, differentiation, and migration in other adult stem/progenitor cell niches, including endothelial progenitor cells<sup><xref ref-type="bibr" rid="CR18">18</xref>,<xref ref-type="bibr" rid="CR19">19</xref></sup> and hematopoietic stem cells<sup><xref ref-type="bibr" rid="CR20">20</xref>,<xref ref-type="bibr" rid="CR21">21</xref></sup>. Since orally bioavailable PAR1 small molecule inhibitors are already available in the clinic<sup><xref ref-type="bibr" rid="CR22">22</xref>&#x2013;<xref ref-type="bibr" rid="CR25">25</xref></sup>, a better understanding of the physiological activities of PAR1 towards neural stems of the adult brain may point to new therapeutic avenues to enhance the generation of new neurons and neuroglia.</p>
+      <p id="Par4">Given accumulating evidence that PAR1 is positioned to regulate neural stem/progenitor cell development and its critical activities in the production of myelinating cells<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, we investigated the role of PAR1 in the production of neural progenitor cells arising from the SVZ of the adult mouse brain and their differentiation towards a mature myelinating phenotype. Using NSCs derived from the SVZ of adult wild type or PAR1 knockout mice, our results show for the first time that genetic PAR1 loss-of-function promotes expansion of SVZ neural stem cells <italic>in vitro</italic> and <italic>in vivo</italic>. Moreover, our findings suggest that NSCs lacking PAR1 show enhancements in differentiation towards the oligodendrocyte lineage <italic>in vitro</italic>, an effect that may account for the higher numbers of oligodendrocytes also observed in CNS white matter tracts in mice lacking PAR1. Together these findings highlight PAR1 as a new target for inhibition in therapeutic strategies aimed at fostering NSC expansion and the production of oligodendrocyte progenitors (OPCs) and mature myelinating oligodendroglia that may be useful for restoration of function in the context of injury and diseases of the adult CNS.</p>
+    </sec>
+    <sec id="Sec2" sec-type="materials|methods">
+      <title>Materials and Methods</title>
+      <sec id="Sec3">
+        <title>Animal Care and Use</title>
+        <p id="Par5">PAR1-null mice (PAR1&#x2212;/&#x2212;, B6.129S4-F2r<sup>tm1Ajc</sup>/J) were obtained from Jackson Labs (Bar Harbor, ME) and have been crossed with C57BL6/J for more than 40 generations<sup><xref ref-type="bibr" rid="CR16">16</xref>,<xref ref-type="bibr" rid="CR26">26</xref></sup>. Age matched PAR1+/+ served as controls. All studies used a combination of male and female mice, except for histological analyses that used on male mice only. The Mayo Clinic Institutional Animal Care and Use Committee approved all surgical procedures and experimental manipulations. All experiments were conducted in accordance with the institutional guidelines and regulations for animal experiments.</p>
+      </sec>
+      <sec id="Sec4">
+        <title>Adult Mouse Neural Stem Cell Isolation and Culture</title>
+        <p id="Par6">Neural stem cells (NSCs) derived from the subventricular zone (SVZ) were isolated as described previously<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>. Briefly, 8-week-old PAR1+/+ or PAR1&#x2212;/&#x2212; mice were deeply anesthetized by an overdose of pentobarbital and decapitated. The brains were removed from the skull and were placed in cold Dulbecco&#x2019;s phosphate buffered saline (DPBS), cut into 1&#x2009;mm thick coronal sections, and the SVZ of each hemisphere was dissected. Neural stem cells were dissociated from the SVZ using Accutase (1X), and gown in Dulbecco&#x2019;s modified Eagle Medium/F12 with B27 supplement (1X), Antibiotic-Antimycotic (1X), insulin (20&#x2009;&#xB5;g/mL), epidermal growth factor (EGF, 20&#x2009;ng/mL) and basic fibroblast growth factor (bFGF, 20&#x2009;ng/mL, PeproTech, Rocky Hill, NJ). All cell culture products were obtained from Life Technologies (Carlsbad, CA), unless otherwise stated. Neural stem cells were grown and passaged in suspension as neurospheres in tissue culture treated flasks.</p>
+      </sec>
+      <sec id="Sec5">
+        <title>Expression of functional PAR1 by SVZ neural stem cells</title>
+        <sec id="Sec6">
+          <title>PAR1 immunostaining and <italic>in situ</italic> hybridization</title>
+          <p id="Par7">The association of PAR1 with NSCs located in the SVZ of the adult (8 wk) PAR1+/+ mouse brain was determined in 4% paraformaldehyde fixed paraffin embedded 6&#x2009;&#x3BC;m sections using immunofluorescence and <italic>in situ</italic> hybridization techniques. PAR1 immunoreactivity was detected with a monoclonal antibody (NBP1-71770, Novus Biologicals, Littleton, CO). PAR1 was co-localized with either Nestin (NB100-1604, Novus Biologicals, Littleton, CO), or Sex determining region Y-box 2 (Sox2, ab97959, Abcam, Cambridge, MA). All species appropriate fluorochrome conjugated secondary antibodies were obtained from Jackson ImmunoResearch (West Grove, PA). Sections were cover slipped with Vectashield HardSet containing 4&#x2032;,6-diamidino-2-phenylindole (DAPI, Vector Laboratories, Burlingame, CA). Slides were imaged on the LSM 780 inverted confocal microscope (Carl Zeiss, Inc., Thornwood, NY).</p>
+          <p id="Par8">To confirm the expression of PAR1 by Sox2 and Nestin positive cells in the SVZ of the adult mouse brain, sections parallel to those for immunohistochemistry were examined for RNA expression by <italic>in situ</italic> hybridization using RNAscope 2.5 HD Duplex reagents (#322430, Advanced Cell Diagnostics, Newark, CA). Probes specific for PAR1 (Mm-F2R-C1, 471081), Sox2 (Mm-Sox2-C2, 401041) and Nestin (Mm-Nes-C2, 313161) were hybridized as previously detailed<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>. The C1-tagged PAR1 probe was visualized using horseradish peroxidase-based green chromogenic development and the C2-tagged Sox2 or Nestin probes using alkaline phosphatase-based fast red color development. Sections were counterstained with hematoxylin and cover slipped with Vectamount (H5000, Vector Labs, Burlingame, CA).</p>
+        </sec>
+        <sec id="Sec7">
+          <title>PAR1 RNA expression in cultured NSCs</title>
+          <p id="Par9">The potential for PAR1 to exert a regulatory role in neural stem cell expansion and/or differentiation was examined by quantifying PAR1 or Nestin (a marker of stem cell status) RNA expression in Passage 3 neurospheres, or in dissociated NSCs plated on poly-L-lysine coated (10&#x2009;&#x3BC;g/ml) 6 well plates for 2 days <italic>in vitro</italic> (DIV) in the presence of EGF and bFGF, or after withdrawal of these growth factors for 5 DIV to induce differentiation. Total RNA was harvested using RNA Stat-60 (Tel-Test, Inc., Friendswood, TX), and RNA expression levels were determined in 0.125&#x2009;&#x3BC;g of RNA using quantitative real-time reverse-transcription polymerase chain reaction (RT-PCR, CFX96 Touch Real-Time RCR Detection System, Bio-Rad Laboratories, Hercules, CA). Primers specific for <italic>Mus musculus</italic> PAR1 (NM_010169) were forward, 5&#x2032;-CAGCCAGAATCAGAGAGGACAGA-3&#x2032; and reverse, 5&#x2032;-GGAAGGCTGACAATGAACACAATC-3&#x2032; and were obtained from Integrated DNA Technologies (IDT, Skokie, IL). Primers for <italic>Mus musculus</italic> Nestin (NM_016701, ID: Mm00450205_m1) were from Applied Biosystems (AB, Foster City, CA). To control for loading the housekeeping genes Rn18s (AB ID: Mm03928990_g1) and glyceraldehyde-3-phosphate dehydrogenase (GAPDH, AB ID: Mm99999915_g1) were amplified in the same RNA samples.</p>
+        </sec>
+        <sec id="Sec8">
+          <title>Ca<sup>2+</sup> Imaging</title>
+          <p id="Par10">The ability of SVZ neural stem cell PAR1 to gate Ca<sup>2+</sup> signaling was determined using a series of receptor cross desensitization experiments involving the canonical PAR1 activating enzyme, thrombin, as well as a peptide that specifically activates PAR1 (PAR1-AP). Dissociated neural stem cells were plated at a density of 21,400 cells/cm<sup>2</sup> on Poly-L-lysine coated (10&#x2009;&#x3BC;g/mL) glass chambered slides (Cat #155409, Nalge Nunc International, Roskilde, Denmark). Prior to Ca<sup>2+</sup> imaging, cells were loaded with the Rhod-3 calcium indicator (Cat #R10145, Life Technologies). In all experiments, changes in Rhod-3 fluorescence intensity after application of PAR1 agonists were captured with a 20X objective on the LSM 780. A receptor cross desensitization strategy was used to determine the extent to which changes in fluorescence observed after application of the first agonist were due to PAR1 activation. In this case, Rhod-3 loaded NSCs were imaged for 2&#x2009;min to establish the baseline fluorescence prior to application of either thrombin (5&#x2009;&#x3BC;g/ml (135&#x2009;nM), HT1002a, Enzyme Research Laboratories, South Bend IN), or PAR1-activating peptide (PAR1-AP, TFLLR-amide, 40&#x2009;&#x3BC;M, Peptides International, Louisville, KY), and the alternative agonist was applied 4&#x2009;min after application of the first agonist with changes in fluorescence monitored for an additional 4&#x2009;min. The disruption of PAR1-mediated calcium signaling in the NSCs lacking PAR1 was confirmed using NSCs derived from PAR1&#x2212;/&#x2212; mice. Rhod-3 loaded NSCs were imaged for 1.5&#x2009;min to establish the baseline fluorescence prior to application of either thrombin, or PAR1-AP, with changes in fluorescence monitored over the subsequent 3.5&#x2009;min. Cells were selected across multiple; wells for analysis, with a minimum of 15 cells, and all results were verified using independent cell culture preparations. A baseline intensity value (F<sub>0</sub>) was created for each cell using the minimum intensity value collected. The intensity (F) of fluorescence emission responses were expressed as the mean &#x394;F/F<sub>0</sub>&#x2009;=&#x2009;[(F&#x2009;&#x2212;&#x2009;F<sub>0</sub>)/F<sub>0</sub>] and a line graph was created to illustrate data collected at one second intervals over the entire period of analysis.</p>
+        </sec>
+      </sec>
+      <sec id="Sec9">
+        <title>Regulatory role of PAR1 on NSC proliferation <italic>in vitro</italic></title>
+        <sec id="Sec10">
+          <title>Neurosphere formation assay</title>
+          <p id="Par11">To address whether changes in PAR1 activation affect the proliferation of neural stem cells <italic>in vitro</italic>, suspensions of passage 3 PAR1+/+ or PAR1&#x2212;/&#x2212; neurospheres were enzymatically dissociated with Accutase and passed through a 40&#x2009;&#x3BC;m filter to ensure a single cell suspension. Cells were plated and grown in triplicate at low density (5000 cells/well) in 6 well plates. After 7 days, the total number of neurospheres per well was quantified.</p>
+        </sec>
+        <sec id="Sec11">
+          <title>BrdU incorporation assay</title>
+          <p id="Par12">To confirm the potential for PAR1 activation or inactivation to regulate neural stem cell proliferation, we next performed a bromodeoxyuridine (BrdU) incorporation assay (2750, EMD Millipore, Billerica, MA). In each case, dissociated NSCs were plated at a density of 25,000 cells in 96 well tissue culture plates for 24&#x2009;h, before the addition of PAR1 antagonists or agonists, in addition to BrdU (1X), for an additional 18&#x2009;h culture period. The impact of PAR1 inactivation was determined by comparison of BrdU incorporation by PAR1+/+ or PAR1&#x2212;/&#x2212; NSCs. Alternatively, the effect of PAR1 inactivation was evaluated by application of a PAR1 specific small molecule inhibitor (SCH79797, 35 or 70&#x2009;nM, Tocris, Bristol, United Kingdom) applied to PAR1+/+ NSCs. Conversely, the impact of PAR1 activation was evaluated by application PAR1-AP (40&#x2009;&#x3BC;M) to PAR1+/+ NSCs. Vehicle (DPBS) alone, or a negative control peptide (RLLFT-amide, Peptides International), was applied in parallel experiments as controls.</p>
+        </sec>
+      </sec>
+      <sec id="Sec12">
+        <title>Regulatory role of PAR1 in NSC differentiation <italic>in vitro</italic></title>
+        <p id="Par13">To determine the potential for PAR1 to regulate neural stem cell differentiation towards the oligodendrocyte lineage, we compared the expression of markers of each stage in neural stem cell cultures derived from PAR1+/+ or PAR1&#x2212;/&#x2212; mice using immunofluorescence staining approaches and quantitative real time RT-PCR.</p>
+        <sec id="Sec13">
+          <title>Immunofluorescence for oligodendrocyte markers</title>
+          <p id="Par14">Dissociated PAR1+/+ or PAR1&#x2212;/&#x2212; NSCs at passage 3 were plated as monolayers in triplicate on poly-L-lysine coated glass cover slips and grown for 2 DIV in media containing EGF and bFGF or for 5 DIV after growth factor withdrawal. At each end point, cultures were fixed with 2% paraformaldehyde and stained for NG2 (AB5320, EMD Millipore), Olig2 (AB9610, EMD Millipore), or PLP (ab28486, Abcam) using immunofluorescence techniques. Species appropriate fluorochrome conjugated secondary antibodies were obtained from Jackson ImmunoResearch (West Grove, PA). Sections were cover slipped with VECTASHIELD Hardset containing 4&#x2032;,6-diamidino-2-phenylindole (DAPI, Vector Laboratories, Burlingame, CA). Five 20X microscopic fields encompassing the center and 4 poles of each coverslip were digitally imaged using an Olympus BX51 microscope (Olympus, Center Valley, PA). The mean number of NG2+ or Olig2+ cells was enumerated without knowledge of genotype and expressed as a ratio of the total number of DAPI+ cells counted in the same fields.</p>
+        </sec>
+        <sec id="Sec14">
+          <title>Real Time PCR for NSC differentiation markers</title>
+          <p id="Par15">Dissociated PAR1+/+ or PAR1&#x2212;/&#x2212; NSCs at passage 3 were plated on poly-L-lysine coated 6 well plates for 2 DIV in the presence of EGF and bFGF, or for 3 or 7 DIV after withdrawal of growth factors to induce differentiation. The expression of RNA encoding Nestin for stem cell status, or Olig2, myelin basic protein (MBP), or proteolipid protein (PLP) for the oligodendrocyte lineage, were quantified using RT-PCR as described above. Primers specific for <italic>Mus musculus</italic> PLP forward, 5&#x2032;-TCTTTGGCGACTACAAGACCAC-3&#x2032; and reverse, 5&#x2032;-CACAAACTTGTCGGGATGTCCTA-3&#x2032;, and for MBP forward, 5&#x2032;-CCAGTAGTCCATTTCTTCAAGAACAT-3&#x2032; and reverse, 5&#x2032;-GCCGATTTATAGTCGGAAGCTC-3&#x2032; were obtained from IDT. Primers for <italic>Mus musculus</italic> Olig2 (NM_016967; AB ID: Mm.PT.56a.42319010); GFAP (NM_010277.2) and Neurofilament 200 (NF(H), NM_010904.3) were from Applied Biosystems. To control for loading, all RNA expression levels were normalized to GAPDH amplified in the same samples as described above.</p>
+        </sec>
+      </sec>
+      <sec id="Sec15">
+        <title>Regulatory role of PAR1 on NSC proliferation and differentiation <italic>in vivo</italic></title>
+        <p id="Par16">To determine the impact of PAR1 on the proliferation and differentiation of NSCs <italic>in vivo</italic>, 8 wk old PAR1+/+ or PAR1&#x2212;/&#x2212; mice were perfusion fixed with 4% paraformaldehyde and the brains were embedded in paraffin. Six &#x3BC;m sections taken from a region +0.5&#x2009;mm anterior to Bregma were deparaffinized and processed to localize Sox2, Ki-67 (550609, BD Bioscience), or Olig2 immunoreactivity within the SVZ using standard immunoperoxidase techniques. Numbers of Sox2&#x2212;, Ki-67&#x2212;, or Olig2-positive cells within the SVZ were counted bilaterally within the dorsolateral SVZ at the level where the lateral ventricle lies adjacent to the corpus callosum.</p>
+        <p id="Par17">To determine whether changes in oligodendrocyte differentiation observed within the SVZ were reflected in white matter tracts of the adult brain, oligodendrocyte numbers were quantified in the corpus callosum and anterior commissure in the same or parallel tissue sections. Oligodendrocyte progenitors and young oligodendrocytes were identified by immunohistochemical localization of Olig2, and mature oligodendrocytes were identified as immunopositive for adenomatous polyposis coli (CC-1/APC1, AB16794, Abcam). GFAP-immunoreactive astrocytes (Z0334, Agilent Dako, Santa Clara, CA) were also enumerated in parallel sections. Cell counts were made bilaterally within the corpus callosum in the region immediately above the lateral ventricles. Counts within the anterior commissure were made in the region directly below each lateral ventricle. Antibody localization was visualized using standard immunoperoxidase techniques. All immunoperoxidase stained sections were counterstained with methyl green (Vector Laboratories) to visualize nuclei. Area measurements were made using Image J software<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. Counts were made without knowledge of genotype and included at least 5 to 6 male mice in each case.</p>
+      </sec>
+      <sec id="Sec16">
+        <title>Statistics</title>
+        <p id="Par18">All statistical analysis was performed using SigmaPlot 13. An unpaired t-test (i.e. Student&#x2019;s t-test) was performed to determine statistical significance. Statistical significance was defined as P&#x2009;&lt;&#x2009;0.05 and all data are represented as the mean&#x2009;&#xB1;&#x2009;SEM.</p>
+      </sec>
+    </sec>
+    <sec id="Sec17" sec-type="results">
+      <title>Results</title>
+      <sec id="Sec18">
+        <title>Regulated expression of PAR1 by adult SVZ neural stem cells <italic>in vivo</italic> and <italic>in vitro</italic></title>
+        <p id="Par19">To document PAR1 expression by NSCs of the adult mouse SVZ, immunofluorescence labeling was used to co-localize PAR1 to either Sox2- or Nestin-positive NSCs in the SVZ of the adult mouse brain (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1A,C</xref>). Sox2- or Nestin-immunofluorescence was observed in association with cells lining the wall of the lateral ventricles (LV) and a subset of these was also PAR1-immunopositive. Next, we confirmed the expression of PAR1 by SVZ NSCs using <italic>in situ</italic> hybridization to localize PAR1 RNA to NSCs expressing either Sox2 or Nestin RNA (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1B,D</xref>). Finally, we demonstrated that SVZ NSCs grown in culture as neurospheres or monolayers in the presence of EGF and bFGF express high levels of both PAR1 and Nestin RNA (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1E,F</xref>). Withdrawal of growth factors from monolayer cultures promoted differentiation and was paralleled by a 7.5-fold reduction in PAR1, and a 13-fold decrease in Nestin RNA expression (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1E,F</xref>, Students t-test P&#x2009;=&#x2009;0.02&#x2009;&#xD7;&#x2009;10<sup>&#x2212;4</sup>). These findings collectively provide evidence that SVZ NSCs in the adult murine brain express PAR1 and that this receptor is substantially down regulated upon NSC differentiation.<fig id="Fig1"><label>Figure 1</label><caption><p>PAR1 is expressed by neural stem cells in the sub-ventricular zone (SVZ) of the adult mouse brain. Photomicrographs show immunofluorescence double-labeling for PAR1 with Sox2-positive (<bold>A</bold>), or PAR1 with Nestin-positive (<bold>C</bold>) multipotent neural stem cells (NSCs) within the lateral wall of the lateral ventricle (LV). RNAscope was used to identify cells expressing both PAR1 and Sox2 (<bold>B</bold>), or Nestin (<bold>D</bold>) RNA in NSCs of the adult SVZ. Arrow indicates an example of a double-labeled cell in each case, with arrowhead indicating a singly labeled cell (Scale bar&#x2009;=&#x2009;10&#x2009;&#x3BC;m). Boxed area in B and D is also shown at higher magnification to visualize double-labeled cells. (<bold>E</bold>) Histogram shows expression of PAR1 RNA was high in NSCs grown as neurospheres (NS), or when plated on poly-L-lysine coated coverslips as monolayers in stem cell media containing EGF and bFGF. PAR1 RNA expression by NSC monolayers decreased by 87% when EGF and bFGF were removed from the media for 7 DIV promoting stem cell differentiation. (<bold>F</bold>) Withdrawal of EGF and bFGF to induce NSC monolayer differentiation resulted in a parallel decrease in Nestin RNA expression. (**P&#x2009;&lt;&#x2009;0.01, ***P&#x2009;&lt;&#x2009;0.001 Students t-test).</p></caption><graphic xlink:href="41598_2018_27613_Fig1_HTML" id="d29e581"/></fig></p>
+      </sec>
+      <sec id="Sec19">
+        <title>Thrombin gates Ca<sup>2+</sup> signaling in SVZ neural stem cells by activation of PAR1</title>
+        <p id="Par20">The ability of neural stem cell PAR1 to gate Ca<sup>2+</sup> signaling was evaluated by determining thrombin or PAR1-AP elicited changes in fluorescence intensity in Rhod-3 loaded NSCs (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A&#x2013;J</xref>). In addition, receptor cross desensitization was performed to determine the extent to which each agonist gated Ca<sup>2+</sup> specifically through activation of PAR1. Thrombin (135&#x2009;nM) elicited a sharp increase in fluorescence intensity over that seen at baseline, and application of PAR1-AP 240&#x2009;s after the application of thrombin resulted in a 3.8-fold lower Ca<sup>2+</sup> response (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A,B</xref>, P&#x2009;=&#x2009;0.02&#x2009;&#xD7;&#x2009;10<sup>&#x2212;7</sup>, Students t-test). Similarly, application of PAR1-AP (40&#x2009;&#x3BC;M) elicited a robust Ca<sup>2+</sup> response, and a 2.4-fold reduction in Ca<sup>2+</sup> signaling was observed when thrombin was applied 240&#x2009;s after PAR1-AP (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2C,D</xref>, P&#x2009;=&#x2009;0.0002, Students t-test). Reductions in fluorescence intensity observed when an agonist is applied after the first agonist has already activated PAR1, indicate receptor desensitization and point to the ability of the first agonist to specifically activate PAR1.<fig id="Fig2"><label>Figure 2</label><caption><p>Thrombin gates Ca<sup>2+</sup> signaling in neural stem cells in a PAR1-dependent manner. Traces, photomicrographs, and histograms (<bold>A</bold>&#x2013;<bold>J</bold>), show that thrombin-induced Ca<sup>2+</sup> signaling in NSCs occurs in a manner that depends in part on the presence of PAR1. The change in fluorescence intensity measured in response to application of (<bold>A</bold>) the PAR1 agonist thrombin (5&#x2009;&#x3BC;g/mL, (135&#x2009;nM)), or (<bold>C</bold>) a PAR1-activating peptide (PAR1-AP, 40&#x2009;&#x3BC;M) to Rhod-3 loaded NSCs monolayer cultures grown in the presence of EGF and bFGF. Subsequent application of (<bold>A</bold>) PAR1-AP or (<bold>C</bold>) thrombin 240&#x2009;s later resulted in significantly lower &#x394;F/F0, indicating receptor desensitization by the first agonist. Application of thrombin (<bold>E</bold>&#x2013;<bold>G</bold>), or PAR1-AP (<bold>H</bold>&#x2013;<bold>J</bold>), to NSCs derived from PAR1+/+ or PAR1&#x2212;/&#x2212; mice demonstrates the absence of Ca<sup>2+</sup> signaling in response to either agonist in NSCs lacking PAR1. The change in intensity (&#x394;F) over baseline intensity (F0) is provided and expressed as &#x394;F/F0&#x2009;=&#x2009;[(F&#x2009;&#x2212;&#x2009;F0)/F0]. (***P&#x2009;&lt;&#x2009;0.001, Scale bar&#x2009;=&#x2009;50&#x2009;&#x3BC;m).</p></caption><graphic xlink:href="41598_2018_27613_Fig2_HTML" id="d29e667"/></fig></p>
+        <p id="Par21">To confirm PAR1-gated Ca<sup>2+</sup> signaling, NSCs derived from PAR1 deficient mice were examined. Rhod-3 loaded PAR1+/+ or PAR1&#x2212;/&#x2212; NSCs were imaged for 1.5&#x2009;min to establish the baseline fluorescence prior to application of either thrombin (135&#x2009;nM), or PAR1-AP (40&#x2009;&#x3BC;M), with changes in fluorescence monitored over the subsequent 3.5&#x2009;min. Increases in fluorescence intensity elicited by each agonist were observed in PAR1+/+ NSCs. In contrast, thrombin or PAR1-AP did not elicit Ca<sup>2+</sup> signaling in PAR1&#x2212;/&#x2212; NSCs (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2E&#x2013;J</xref>, P&#x2009;=&#x2009;0.05&#x2009;&#xD7;&#x2009;10<sup>&#x2212;8</sup>). These results suggest that functional PAR1 is expressed by SVZ neural stem cells derived from the adult brain, and that both thrombin and PAR1-AP specifically activate PAR1 in NSCs to gate Ca<sup>2+</sup> signaling.</p>
+      </sec>
+      <sec id="Sec20">
+        <title>Inhibition of PAR1 increases neural stem cells proliferation</title>
+        <p id="Par22">The potential activity of SVZ adult neural stem cell PAR1 in regulating proliferation was evaluated by comparing the impact of PAR1 genetic deletion on neurosphere formation and BrdU incorporation <italic>in vitro</italic> (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3A&#x2013;D</xref>). The plating of 5000 PAR1+/+ neural stem cells in EGF and bFGF containing media for 7 d resulted in 201&#x2009;&#xB1;&#x2009;5.2 spheres, compared to 425&#x2009;&#xB1;&#x2009;12.1 in the case of PAR1&#x2212;/&#x2212; NSCs, a 2.1-fold increase (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3A&#x2013;C</xref>, P&#x2009;=&#x2009;7.0&#x2009;&#xD7;&#x2009;10<sup>&#x2212;4</sup>, Students t-test). PAR1&#x2212;/&#x2212; NSCs grown in growth factor containing media also incorporated 30% more BrdU compared to PAR1+/+ cells (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3D</xref>, P&#x2009;=&#x2009;0.009, Students t-test). We next tested whether a PAR1 small inhibitor would also promote expansion of SVZ NSCs <italic>in vitro</italic>. SCH79797 (35 or 70&#x2009;nM), a non-peptide PAR1 specific antagonist, promoted a 39% increase in BrdU incorporation in PAR1+/+ cells (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3E</xref>, P&#x2009;&#x2264;&#x2009;0.02, Students t-test). Conversely, activation of PAR1 with PAR1-AP (40&#x2009;&#x3BC;M) reduced incorporation of BrdU by 30% (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3F</xref>, P&#x2009;=&#x2009;0.007, Students t-test). Together these findings suggest that PAR1 expression by neural stem cells suppresses their proliferative capacity.<fig id="Fig3"><label>Figure 3</label><caption><p>Blocking PAR1 promotes neural stem cell proliferation. Histograms and photomicrographs (<bold>A</bold>&#x2013;<bold>D</bold>) show that NSCs lacking PAR1 have increased capacity to form neurosphere (NS) in culture and demonstrate higher levels of BrdU incorporation compared to those derived from PAR1+/+ mice (Scale bar&#x2009;=&#x2009;100&#x2009;&#x3BC;m). Treatment of NSCs with a PAR1 small molecule inhibitor, SCH79797 (35 or 70&#x2009;nM) for 18&#x2009;h increased BrdU incorporation (<bold>E</bold>), whereas a PAR1 activating peptide (PAR1-AP, 40&#x2009;&#x3BC;M) reduced BrdU incorporation (<bold>F</bold>). (*P&#x2009;&lt;&#x2009;0.05, **P&#x2009;&lt;&#x2009;0.01, ***P&#x2009;&lt;&#x2009;0.001 Students t-test).</p></caption><graphic xlink:href="41598_2018_27613_Fig3_HTML" id="d29e735"/></fig></p>
+      </sec>
+      <sec id="Sec21">
+        <title>PAR1 knockout enhances NSC production and glial differentiation <italic>in vitro</italic></title>
+        <p id="Par23">Previously, we reported that mice with PAR1 gene knockout show enhancements in spinal cord myelination, including an accelerated pattern of PLP production developmentally and higher levels of MBP in adulthood<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. To determine the potential influence of PAR1 on the production of oligodendrocyte lineage cells from NSCs, SVZ NSCs were plated as monolayers on poly-L-lysine coated glass coverslips in stem cell media containing EGF and bFGF, or under conditions where EGF and bFGF were withdrawn to elicit differentiation (Figs&#xA0;<xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref>). Markers of oligodendrocyte differentiation were quantified 5 d later using immunofluorescence. First, SVZ NSC monolayers derived from PAR1&#x2212;/&#x2212; mice showed a 1.2-fold increase in the number of cells stained for markers of OPCs (NG2 and Olig2) (P&#x2009;&lt;&#x2009;0.03, Students t-test), an effect that was lost with growth factor withdrawal and differentiation. Interestingly, a greater number of cells in NSC monolayers derived from PAR1&#x2212;/&#x2212; mice were also stained for the major myelin protein PLP, both in the presence of growth factors (2-fold) and after their withdrawal (1.3-fold higher compared to PAR1+/+) (P&#x2009;&#x2264;&#x2009;0.006, Students t-test).<fig id="Fig4"><label>Figure 4</label><caption><p>PAR1 gene knockout enhances neural stem cell expansion and oligodendrocyte differentiation in cell culture. Photomicrographs and cell counts normalized to DAPI show significantly increased immunofluorescence for NG2, a marker for NSCs (<bold>A</bold>&#x2013;<bold>C</bold>), Olig2 a marker of oligodendrocyte progenitor cells and young oligodendrocytes (<bold>D</bold>&#x2013;<bold>F</bold>), and PLP, a marker for mature oligodendrocytes (<bold>G</bold>&#x2013;<bold>I</bold>) in NSC cultures grown in the presence or absence of EGF and bFGF. The percentage of NG2, Olig2 and PLP+ cells was greater in NSC cultures lacking PAR1 when grown in the presence of EGF and bFGF (2 DIV). After withdrawal of EGF and bFGF for 5 DIV, we observed an expected decrease in the percentage of cells positive for NG2 and an increase in those positive for PLP. The increase in PLP+ cells after withdrawal of EGF and bFGF was greater in NSCs lacking PAR1 compared to wild type NSCs. (Scale bar&#x2009;=&#x2009;50&#x2009;&#x3BC;m). (*P&#x2009;&lt;&#x2009;0.05, **P&#x2009;&lt;&#x2009;0.01, ***P&#x2009;&lt;&#x2009;0.001, Students t-test).</p></caption><graphic xlink:href="41598_2018_27613_Fig4_HTML" id="d29e780"/></fig><fig id="Fig5"><label>Figure 5</label><caption><p>SVZ NSCs with PAR1 gene knockout show enhanced differentiation <italic>in vitro</italic>. (<bold>A</bold>) Expression of RNA indicative of the neural stem cell stage of differentiation (Nestin) was greater in NSCs derived from the SVZ of adult PAR1&#x2212;/&#x2212; compared to PAR1+/+ mice when grown in the presence of EGF and bFGF. The rapid loss of Nestin RNA in NSCs by 3 and at 7 d after withdrawal of EGF and bFGF is consistent with their differentiation and did not differ across genotypes. (<bold>B</bold>) Olig2, a marker of oligodendrocyte progenitor cells and young oligodendrocytes was higher in PAR1&#x2212;/&#x2212; NSCs grown in the presence of EGF and bFGF and lower by 3 d after growth factor withdrawal. Expression of RNA encoding MBP (<bold>C</bold>) and PLP (<bold>D</bold>) were greatly increased by growth factor withdrawal and each was expressed at highest levels in NSCs lacking PAR1 at 3 d, with MBP remaining significantly higher after 7 d of differentiation. (<bold>E</bold>) Growth factor withdrawal also resulted in an increase in GFAP (<bold>E</bold>) and Neurofilament (<bold>F</bold>) expression, with differentiating NSCs lacking PAR1 showing higher levels of GFAP but lower levels of neurofilament. (*P&#x2009;&lt;&#x2009;0.05, **P&#x2009;&lt;&#x2009;0.01, ***P&#x2009;&lt;&#x2009;0.001 Students t-test).</p></caption><graphic xlink:href="41598_2018_27613_Fig5_HTML" id="d29e814"/></fig></p>
+        <p id="Par24">Next we used quantitative real time PCR to determine the impact of PAR1 gene knockout on the expression of neural stem cell, oligodendrocyte, astrocyte and neuron-specific markers in NSC monolayers grown in 6 well plates in the presence or absence of EGF and bFGF (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). Nestin RNA expression was 1.1-fold higher in PAR1&#x2212;/&#x2212; compared to PAR1+/+ cells when grown in stem cell media with EGF and bFGF (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5A</xref>, P&#x2009;=&#x2009;0.01 Students t-test). Nestin RNA expression was extinguished upon differentiation by 3 and after 7 d, in both PAR1+/+ and PAR1&#x2212;/&#x2212; NSC monolayers. Olig2 RNA levels were 1.3-fold higher in PAR1&#x2212;/&#x2212; SVZ monolayers grown in the presence of EGF and bFGF (P&#x2009;=&#x2009;0.01), but were 1.3-fold lower than PAR1+/+ after 3 d of differentiation (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5B</xref>, P&#x2009;=&#x2009;0.0007). The expression of MBP and PLP RNA by NSC monolayers was highly increased at 3 and 7 d after withdrawal of growth factors. NSC monolayers lacking PAR1 showed 1.3-fold higher levels of PLP at 3d, and 1.7-fold higher levels of MBP at 3 and 7 d of differentiation, compared to PAR1+/+ NSC monolayers (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5C,D</xref>, P&#x2009;&#x2264;&#x2009;0.001, Students t-test). GFAP RNA expression levels were 3 to 4-fold higher in PAR1&#x2212;/&#x2212; NSCs at 3 and 7 days of differentiation.</p>
+        <p id="Par25">By contrast, the abundance of Neurofilament RNA was 2-fold lower in cultures of PAR1&#x2212;/&#x2212; NSCs 7 d after growth factor withdrawal (P&#x2009;=&#x2009;0.006, Students t-test). Together these results suggest that knocking out PAR1 in SVZ NSC cultures can increase the expression of markers of mature oligodendrocytes and astrocytes upon differentiation.</p>
+      </sec>
+      <sec id="Sec22">
+        <title>Increases in NSCs and oligodendrocyte progenitors occur in the SVZ of adult mice with PAR1 loss-of-function</title>
+        <p id="Par26">To determine if the regulatory actions of PAR1 on NSC expansion and differentiation observed in cell culture also occur <italic>in vivo</italic>, we quantified neural stem cells and Olig2+ oligodendrocyte progenitors in the SVZ of adult PAR1+/+ and PAR1&#x2212;/&#x2212; mice using immunohistochemical approaches (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6</xref>). The SVZ of PAR1 knockout mice contained 1.2-fold more Sox2+ neural stem cells compared to wild type mice (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6C&#x2013;E</xref>, P&#x2009;=&#x2009;0.002, Student&#x2019;s t-test). This was accompanied by a 1.3-fold increase in counts of Ki-67+ cells in the SVZ of PAR1&#x2212;/&#x2212; mice compared to PAR1+/+ in near adjacent sections (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6F&#x2013;H</xref>, P&#x2009;=&#x2009;0.03, Student&#x2019;s t-test). The SVZ of mice lacking PAR1 also showed a 1.3-fold increase in the number of cells immunopositive for Olig2 (Fig.&#xA0;<xref rid="Fig6" ref-type="fig">6I&#x2013;K</xref>, P&#x2009;=&#x2009;0.04, Student&#x2019;s t-test).<fig id="Fig6"><label>Figure 6</label><caption><p>PAR1 gene knockout results in increased numbers of Sox2+ neural stem cells and oligodendrocyte progenitor cells in the adult SVZ. Counts of Sox2-positive NSCs (<bold>C</bold>&#x2013;<bold>E</bold>), and Ki-67-positive proliferating cells (<bold>F</bold>&#x2013;<bold>H</bold>) were greater in coronal sections taken +0.5&#x2009;mm to Bregma (<bold>A</bold>,<bold>B</bold>) through the SVZ of PAR1&#x2212;/&#x2212; compared to PAR1+/+ adult mice. A greater number of cells positive for the early oligodendrocyte lineage marker Olig2 were also observed in PAR1&#x2212;/&#x2212; mice in parallel sections (<bold>I</bold>&#x2013;<bold>K</bold>). Ki-67 and Olig2 stained sections were counterstained with methyl green. (*P&#x2009;&lt;&#x2009;0.05, **P&#x2009;&lt;&#x2009;0.01, Students t-test) (Scale bar&#x2009;=&#x2009;50&#x2009;&#x3BC;m).</p></caption><graphic xlink:href="41598_2018_27613_Fig6_HTML" id="d29e885"/></fig></p>
+      </sec>
+      <sec id="Sec23">
+        <title>Increases in oligodendrocyte progenitors and mature oligodendrocytes are found in white matter tracts of adult mice lacking PAR1</title>
+        <p id="Par27">To establish if the increased numbers of NSCs and OPCs observed in the SVZ of PAR1&#x2212;/&#x2212; mice may contribute to increases in myelinating cells in white matter tracts of the adult brain, we quantified cells immunoreactive for Olig2, a marker of OPCs and young oligodendrocytes and CC-1, a marker of mature myelinating cells, in the corpus callosum and the anterior commissure. We also enumerated the number of GFAP+ astrocytes in the same regions. The number of Olig2-immunoreactive cells in the corpus callosum was increased by 1.2-fold in PAR1&#x2212;/&#x2212; compared to PAR1+/+ mice (Fig.&#xA0;<xref rid="Fig7" ref-type="fig">7A&#x2013;C</xref>, P&#x2009;=&#x2009;0.03, Student&#x2019;s t-test). In addition, 1.3-fold more CC-1-immunoreactive mature oligodendrocytes were observed in the corpus callosum of adult mice lacking PAR1 (Fig.&#xA0;<xref rid="Fig7" ref-type="fig">7D&#x2013;F</xref>, P&#x2009;=&#x2009;0.002, Student&#x2019;s t-test). Similar increases in both Olig2 (Fig.&#xA0;<xref rid="Fig7" ref-type="fig">7J&#x2013;L</xref>, 1.6-fold, P&#x2009;=&#x2009;0.0009, Student&#x2019;s t-test) and CC-1 (Fig.&#xA0;<xref rid="Fig7" ref-type="fig">7M&#x2013;O</xref>, 1.2-fold, P&#x2009;=&#x2009;0.02, Student&#x2019;s t-test) were observed in the anterior commissure of PAR1&#x2212;/&#x2212; compared to PAR1+/+ mice. By contrast, counts of GFAP-immunoreactive astrocytes in the same regions were not significantly different between genotypes (Fig.&#xA0;<xref rid="Fig7" ref-type="fig">7G&#x2013;I and P&#x2013;R</xref>). These findings suggest that the increases in myelinating cells we previously reported in the spinal cord of mice lacking PAR1<sup><xref ref-type="bibr" rid="CR16">16</xref></sup> extend to white matter tracts of the adult brain. Also, taken with findings suggesting that blocking SVZ PAR1 can enhance the production of myelinating progenitor cells, the increases in oligodendrocyte progenitors and myelinating cells in white matter tracts of the adult brain may manifest at least in part from neural stem cell sources.<fig id="Fig7"><label>Figure 7</label><caption><p>PAR1 gene knockout results in increased numbers of oligodendrocytes in the corpus callosum and anterior commissure of the adult mouse brain. The corpus callosum of adult (8 wk) PAR1&#x2212;/&#x2212; mice showed an increase in the number of Olig2- (<bold>A</bold>&#x2013;<bold>C</bold>) and CC-1-positive cells (<bold>D</bold>&#x2013;<bold>F</bold>) relative to PAR1+/+ mice. Similar increases in Olig2 (<bold>J</bold>&#x2013;<bold>L</bold>) and CC-1 (<bold>M</bold>&#x2013;<bold>O</bold>) were also observed in the anterior commissure of mice with PAR1 gene knockout. Counts of GFAP+ astrocytes in parallel sections did not differ between genotypes (<bold>G</bold>&#x2013;<bold>I</bold> and <bold>P</bold>&#x2013;<bold>R</bold>). All data are expressed as the mean number of positive cells counted per area&#x2009;&#xB1;&#x2009;SEM. (*P&#x2009;&lt;&#x2009;0.05, **P&#x2009;&lt;&#x2009;0.01, ***P&#x2009;&lt;&#x2009;0.001, Students t-test) (Scale bar&#x2009;=&#x2009;50&#x2009;&#x3BC;m).</p></caption><graphic xlink:href="41598_2018_27613_Fig7_HTML" id="d29e957"/></fig></p>
+      </sec>
+    </sec>
+    <sec id="Sec24" sec-type="discussion">
+      <title>Discussion</title>
+      <p id="Par28">Stem cells derived from the SVZ of the adult brain play key roles in the replacement of post mitotic cells, including a prominent role in the generation of new OPCs that form the substrate for myelin regeneration. While there has been considerable research regarding the SVZ as a source of OPCs and their migration, much less is known regarding the microenvironment of the stem cell niche<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>. Here we investigate how PAR1, the high affinity receptor for thrombin, regulates SVZ NSC expansion and differentiation with a focus on the oligodendrocyte lineage. PAR1 is a GPCR that upon cleavage is able to translate changes in the proteolytic microenvironment into adaptive or in some cases maladaptive cellular responses. Our findings suggest that PAR1 activation plays a suppressive role in the expansion of NSCs derived from the SVZ of the adult mouse brain and their capacity to differentiate towards mature myelinating oligodendrocytes <italic>in vivo</italic>. First we document functional expression of PAR1 by SVZ NSCs. We observe that the SVZ of PAR1 knockout mice contains greater numbers of both NSCs and OPCs and increased numbers of OPCs and mature oligodendrocytes are seen in white matter tracts of the adult brain. Accordingly, genetic or pharmacologic PAR1-loss-of-function in SVZ NSCs <italic>in vitro</italic> promotes proliferation and increases in the abundance of mature myelinating oligodendrocytes <italic>in vivo</italic>. The discovery of an essential role for PAR1 in NSC production and differentiation identify this highly druggable receptor as an important biological node for manipulation to enhance endogenous expansion of NSCs in the SVZ and their myelinating potential, to protect NSCs from the actions of thrombin, and to potentially to foster the success of neural stem cell transplantation strategies.</p>
+      <sec id="Sec25">
+        <title>Regulated expression of functional PAR1 by SVZ neural stem cells</title>
+        <p id="Par29">Consistent with a role for PAR1 as a regulator of SVZ NSC physiology, we document PAR1 expression by both Sox2+ and Nestin+ NSCs in the SVZ of the adult forebrain <italic>in vivo</italic>. SVZ neurosphere or monolayer cultures also express high levels of PAR1 in the presence of EGF and bFGF. The dramatic reductions in PAR1 expression by NSCs upon growth factor withdrawal and differentiation <italic>in vitro</italic> is consistent with a model in which the intact receptor plays roles at progenitor stages with receptor loss-of-function positioned to influence differentiation. The reductions in PAR1 as differentiation proceeds mirror PAR1 expression dynamics we observe in other developing systems. For example, OPCs isolated from the postnatal mouse cortex express high levels of PAR1 with dramatic reductions occurring upon differentiation <italic>in vitro</italic><sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Correspondingly, the spinal cord of mice contains very little myelin and high levels of PAR1 expression at birth, with receptor levels progressively decreased as myelination ensues over the first 3 postnatal weeks<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>.</p>
+        <p id="Par30">To confirm that PAR1 expressed by SVZ NSCs is functional, we determined the ability of thrombin or a PAR1-specific activating peptide (PAR1-AP), to gate Ca<sup>2+</sup> signaling in wild type or PAR1 knockout NSC monolayers. These experiments demonstrate that PAR1 is necessary and sufficient to gate Ca<sup>2+</sup> downstream of thrombin or PAR1-AP in NSCs derived from the adult SVZ. Although thrombin is able to activate PAR3 and PAR4, and even PAR2 at higher concentrations<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>, in NSC monolayers grown in the presence of EGF and bFGF, genetic knockout of PAR1 completely blocked the ability of thrombin to gate intracellular Ca<sup>2+</sup> flux. As Ca<sup>2+</sup> ions are ubiquitous second messengers with wide-ranging roles in signal transduction, future studies are needed to delineate how PAR1-mediated increases in intracellular Ca<sup>2+</sup> modulate the proliferative and differentiation effects we observe in SVZ-derived NSCs.</p>
+      </sec>
+      <sec id="Sec26">
+        <title>PAR1 loss-of-function promotes neural stem cell expansion</title>
+        <p id="Par31">NSCs from the adult SVZ can be grown in suspension in the presence of EGF and bFGF to promote self-renewal and to maintain an undifferentiated multipotent state<sup><xref ref-type="bibr" rid="CR31">31</xref>&#x2013;<xref ref-type="bibr" rid="CR33">33</xref></sup>. We report here for the first time that genetic knockout of PAR1 results in a doubling of neurosphere numbers in culture and this is reflected in an increase in BrdU incorporation. We additionally demonstrate that application of a PAR1 small molecule antagonist to wild type NSCs replicates the effects of PAR1 knockout, resulting in a significant enhancement of BrdU incorporation in neurosphere cultures. The presence of PAR1 is necessary and sufficient to impede proliferation of neurospheres in culture since PAR1-AP that mimics the tethered ligand of the receptor attenuates SVZ NSC proliferation. Near parallel effects were recently documented in cultures of neural precursor cells from the murine hippocampal dentate gyrus, with thrombin or PAR1-AP reducing proliferation<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. Collectively, these studies suggest that PAR1 activation is necessary and sufficient to suppress NSC proliferation <italic>in vitro</italic>. To determine whether the regulatory effects of targeting PAR1 on NSC expansion <italic>in vitro</italic> extend to the adult murine brain, we made counts of Sox2+ NSCs in the SVZ of wild type and PAR1 KO mice. Consistent with a role for PAR1 in suppressing NSC expansion <italic>in vivo</italic>, higher numbers of Sox2+ and Ki-67+ cells are present in SVZ of adult PAR1 knockout mice.</p>
+      </sec>
+      <sec id="Sec27">
+        <title>PAR1 loss-of-function increases the abundance of mature oligodendrocytes <italic>in vitro</italic> and <italic>in vivo</italic></title>
+        <p id="Par32">In the adult brain mature oligodendrocytes can be replaced from two primary reservoirs. First, myelinating cells can be replaced from a pool of OPCs that reside in a widely distributed manner within the parenchyma of the CNS and that are estimated to comprise 5-6% of all neural cell types<sup><xref ref-type="bibr" rid="CR34">34</xref>,<xref ref-type="bibr" rid="CR35">35</xref></sup>. Secondly, neural precursor cells located primarily in the dorsal and lateral walls of the SVZ may give rise to new pre-myelinating OPCs<sup><xref ref-type="bibr" rid="CR36">36</xref>&#x2013;<xref ref-type="bibr" rid="CR38">38</xref></sup>. Despite the presence of these myelinating cell reservoirs, multiple studies indicate that OPCs may already be present at sites of demyelination, but in many cases, especially chronic MS lesions, these fail to differentiate. For example, although endogenous remyelination occurs at early stages in MS<sup><xref ref-type="bibr" rid="CR39">39</xref>&#x2013;<xref ref-type="bibr" rid="CR41">41</xref></sup>, it increasingly fails with disease progression<sup><xref ref-type="bibr" rid="CR42">42</xref>&#x2013;<xref ref-type="bibr" rid="CR48">48</xref></sup>. Understanding factors that regulate OPC differentiation is highly significant since although many years of translational research have generated immunomodulatory drugs to treat MS, there are still no clinically approved treatment strategies to promote myelin repair.</p>
+        <p id="Par33">To determine if PAR1 plays a regulatory role in the production of mature oligodendrocytes from NSCs, we quantified stem cell and myelinating cell markers in NSC cultures grown as monolayers in the presence or absence of EGF and bFGF. After growth factor withdrawal to induce differentiation, the expression of the two major myelin proteins, MBP and PLP were each nearly two-fold higher in PAR1 knockout NSC cultures. Moreover, enhancements in markers of oligodendrocyte differentiation in PAR1 knockout NSCs were observed even in the presence of EGF and bFGF, including Olig2 and PLP. Reductions in NSC PAR1 expression with growth factor withdrawal <italic>in vitro</italic> and as CNS myelination unfolds<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, lend support to the concept that PAR1-loss-of function is associated with oligodendrocyte differentiation. Consistent with this, we observe higher numbers of Olig2 and CC-1+ oligodendrocytes in the corpus callosum and anterior commissure of mice lacking PAR1. These new findings suggest that the enhancements we recently reported in myelin production in the spinal cord of mice lacking PAR1<sup><xref ref-type="bibr" rid="CR16">16</xref></sup> are generalizable to broad regions of the CNS. Future studies are needed to clearly distinguish the extent to which the increases in the abundance of myelin producing cells we observe <italic>in vivo</italic> and <italic>in vitro</italic> in the absence of PAR1 are related to enhancements of NSC proliferation and to extent to which they also include a direct impact on NSC differentiation.</p>
+        <p id="Par34">Findings that PAR1 loss-of-function enhances the abundance of myelin producing cells in cultures of differentiating SVZ NSCs do not exclude potential effects on other lineages. To begin to address this in the current study, we examined levels of GFAP expression in differentiating wild type and PAR1 knockout NSCs in cell culture and made counts of GFAP+ astrocytes in white matter tracts of the adult brain across genotypes. While counts of GFAP-immunoreactive cells in the corpus callosum and anterior commissure did not differ between wild type and PAR1 knockout mice, NSC cultures with PAR1 loss-of-function showed increased levels of GFAP expression upon growth factor withdrawal. By contrast neurofilament, a marker for neurons, was decreased in PAR1&#x2212;/&#x2212; NSC cultures upon differentiation. These results suggest that under the culture conditions of this study that the effects of PAR1 knockout extend beyond myelinating cells to include astrocytes, but additional studies using a neural cell lineage-specific culture conditions will be needed to confirm these <italic>in vitro</italic> findings and extend them to other cell types. While we observed enhancements in oligodendrocyte lineage cells, but not GFAP+ astrocytes in the corpus callosum and anterior commissure of PAR1&#x2212;/&#x2212; mice, future studies are needed to examine a greater number of brain regions and cell types, and to apply fate-mapping approaches to capture the full spectrum of regulatory actions of PAR1 in NSC differentiation in the adult brain.</p>
+      </sec>
+      <sec id="Sec28">
+        <title>Clinical significance</title>
+        <p id="Par35">Findings presented suggesting that PAR1 activation can block SVZ NSC expansion and differentiation have important implications for neuropathological conditions in which PAR1 activators become elevated in the CNS. As the high affinity receptor for thrombin it is not difficult to envision how PAR1 may be aberrantly activated with changes in blood brain barrier permeability and serum protein extravasation. PAR1 may also be activated by other proteinases at lower affinity, including MMP1, plasmin and kallikrein 6. Like thrombin, other PAR1 activators are present in the general circulation and/or enriched in CSF and may also be dynamically up regulated within the parenchyma of the CNS itself in the context of CNS injury and disease<sup><xref ref-type="bibr" rid="CR49">49</xref>&#x2013;<xref ref-type="bibr" rid="CR51">51</xref></sup>. For example, kallikrein 6 is highly enriched in the serum<sup><xref ref-type="bibr" rid="CR52">52</xref></sup> and CSF of MS patients<sup><xref ref-type="bibr" rid="CR53">53</xref>&#x2013;<xref ref-type="bibr" rid="CR55">55</xref></sup>. Findings presented here highlight the potential consequences of aberrant PAR1 activation for expansion of NSCs in the SVZ niche and their capacity to form mature myelinating cells. The results of this study also suggest that clinical strategies aimed at replacement of myelin by targeting endogenous myelinating cell reservoirs, or through transplantation strategies<sup><xref ref-type="bibr" rid="CR56">56</xref>,<xref ref-type="bibr" rid="CR57">57</xref></sup>, may be enhanced by additionally targeting PAR1. These studies also set the stage for examination of the effects of PAR1 on the differentiation of other cell types.</p>
+        <p id="Par36">As is the case for OPCs, evidence suggests that oligodendrogenesis from NSCs is regulated by both positive and negative regulators. Ciliary neurotrophic factor<sup><xref ref-type="bibr" rid="CR58">58</xref></sup>, EGF<sup><xref ref-type="bibr" rid="CR59">59</xref>,<xref ref-type="bibr" rid="CR60">60</xref></sup>, FGF<sup><xref ref-type="bibr" rid="CR61">61</xref></sup> and Wnt<sup><xref ref-type="bibr" rid="CR62">62</xref>,<xref ref-type="bibr" rid="CR63">63</xref></sup> all increase oligodendrogenesis from SVZ NSCs, while BMPs<sup><xref ref-type="bibr" rid="CR64">64</xref></sup> are inhibitory. Targeting NSC transcription factors can also exert oligodendrogenic effects with over expression of Olig2<sup><xref ref-type="bibr" rid="CR65">65</xref>&#x2013;<xref ref-type="bibr" rid="CR67">67</xref></sup>, Nkx2.2<sup><xref ref-type="bibr" rid="CR68">68</xref></sup> and Sox10<sup><xref ref-type="bibr" rid="CR67">67</xref></sup> promoting enhancements, but Sirtuin 1<sup><xref ref-type="bibr" rid="CR69">69</xref></sup>, Gli1<sup><xref ref-type="bibr" rid="CR70">70</xref></sup> and neurofibromin 1<sup><xref ref-type="bibr" rid="CR71">71</xref>,<xref ref-type="bibr" rid="CR72">72</xref></sup> being inhibitory. Given that PAR1 activation elicits a conformational change in the receptors intracellular loops that results in specific interactions with G&#x3B1; subunits G12/13, Gq/11 or Gi, or G&#x3B2;&#x3B3;, resulting in modulation of signaling through Rho-guanine nucleotide exchange factors, phosphoinositide phospholipase C, mitogen-activated protein kinase, adenylate cyclase, or Phosphatidylinositol-4,5-bisphosphate 3-kinase pathways<sup><xref ref-type="bibr" rid="CR73">73</xref></sup> an important line of future studies will be to determine to what extent PAR1 signaling integrates with signaling elicited by growth factors already know to play key roles in stem cell and oligodendrocyte expansion and differentiation.</p>
+        <p id="Par37">A limitation of this study is that we cannot definitively state whether the effects we observe on NSC expansion and OPC differentiation as a result of PAR1 knockout are related to changes in PAR1 on NSCs alone or if other cell types are involved. The neurogenic stem cell niche of the CNS includes neural stem/progenitor cells, blood vessel cells, ependymal cells, astrocytes, microglia and oligodendrocytes. Specific cell interactions involving PAR1 are likely to be important. For example, PAR1 is densely expressed by endothelial cells and these cells have been shown to influence NSC self-renewal and migration through the action of a yet to be identified secreted diffusible factor<sup><xref ref-type="bibr" rid="CR74">74</xref>,<xref ref-type="bibr" rid="CR75">75</xref></sup>. Deciphering the role(s) of PAR1 both intrinsic and extrinsic to NSCs awaits future studies using conditional gene targeting approaches.</p>
+      </sec>
+    </sec>
+    <sec id="Sec29" sec-type="conclusion">
+      <title>Conclusion</title>
+      <p id="Par38">Taken with our prior studies documenting the pro-myelinating effects of targeting PAR1 during spinal cord development, the current findings pointing to parallel effects in the adult brain that include a direct impact on SVZ neural stem cells underscore the fundamental importance of PAR1 in myelination across the lifespan and across brain regions. These data provide a working hypothesis for the role of PAR1 in myelin production in the CNS that yields a number of testable predictions. In particular, experiments to determine whether PAR1 can be targeted to foster myelin regeneration after injury are now needed to determine how these findings can be translated to promote recovery of function. In addition, future lineage-tracing studies will be important to establish whether blocking PAR1 function also affects the production and/or differentiation of other glial and neuron cell types that derive from the SVZ of the adult brain. Moreover, by identifying PAR1 as an essential regulator of neural stem cell expansion in the adult brain these studies have wide ranging implications for use of PAR1 targeting strategies to enhance neural stem cell based regeneration strategies for endogenous precursors or transplanted cells.</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn>
+        <p><bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>Studies were supported by the National Institutes of Health R01NS052741-10, Pilot Project PP2009 and RG3367 from the National Multiple Sclerosis Society, and an Accelerated Regenerative Medicine Award from the Mayo Clinic Center for Regenerative Medicine (IAS) and a Postdoctoral Fellowship from the Center for MS and Autoimmune Neurology (ML).</p>
+    </ack>
+    <notes notes-type="author-contribution">
+      <title>Author Contributions</title>
+      <p>Designed Research: C.C., H.Y., K.L.D. and I.A.S.; Performed Experiments: C.C., K.L.D., H.Y., M.R.L., L.K.; Wrote Paper: C.C., I.A.S.; Edited Paper C.C., H.Y., M.R.L., I.A.S.</p>
+    </notes>
+    <notes notes-type="COI-statement">
+      <sec id="FPar1">
+        <title>Competing Interests</title>
+        <p id="Par39">The authors declare no competing interests.</p>
+      </sec>
+    </notes>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Temple</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Stem cells in the developing and adult nervous system</article-title>
+          <source>Journal of neurobiology</source>
+          <year>1998</year>
+          <volume>36</volume>
+          <fpage>105</fpage>
+          <lpage>110</lpage>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1097-4695(199808)36:2&lt;105::AID-NEU1&gt;3.0.CO;2-5</pub-id>
+          <pub-id pub-id-type="pmid">9712298</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kriegstein</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>The glial nature of embryonic and adult neural stem cells</article-title>
+          <source>Annual review of neuroscience</source>
+          <year>2009</year>
+          <volume>32</volume>
+          <fpage>149</fpage>
+          <lpage>184</lpage>
+          <pub-id pub-id-type="doi">10.1146/annurev.neuro.051508.135600</pub-id>
+          <pub-id pub-id-type="pmid">19555289</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bonaguidi</surname>
+              <given-names>MA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title><italic>In vivo</italic> clonal analysis reveals self-renewing and multipotent adult neural stem cell characteristics</article-title>
+          <source>Cell</source>
+          <year>2011</year>
+          <volume>145</volume>
+          <fpage>1142</fpage>
+          <lpage>1155</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2011.05.024</pub-id>
+          <pub-id pub-id-type="pmid">21664664</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chaker</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Codega</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Doetsch</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>A mosaic world: puzzles revealed by adult neural stem cell heterogeneity</article-title>
+          <source>Wiley Interdiscip Rev Dev Biol</source>
+          <year>2016</year>
+          <volume>5</volume>
+          <fpage>640</fpage>
+          <lpage>658</lpage>
+          <pub-id pub-id-type="doi">10.1002/wdev.248</pub-id>
+          <pub-id pub-id-type="pmid">27647730</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Striggow</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Four different types of protease-activated receptors are widely expressed in the brain and are up-regulated in hippocampus by severe ischemia</article-title>
+          <source>Eur J Neurosci</source>
+          <year>2001</year>
+          <volume>14</volume>
+          <fpage>595</fpage>
+          <lpage>608</lpage>
+          <pub-id pub-id-type="doi">10.1046/j.0953-816x.2001.01676.x</pub-id>
+          <pub-id pub-id-type="pmid">11556885</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vandell</surname>
+              <given-names>AG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Protease Activated Receptor Dependent and Independent Signaling by Kallikreins 1 and 6 in CNS Neuron and Astroglial Cell Lines</article-title>
+          <source>Journal of neurochemistry</source>
+          <year>2008</year>
+          <volume>107</volume>
+          <fpage>855</fpage>
+          <lpage>870</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1471-4159.2008.05658.x</pub-id>
+          <pub-id pub-id-type="pmid">18778305</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoon</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Kallikrein 6 signals through PAR1 and PAR2 to promote neuron injury and exacerbate glutamate neurotoxicity</article-title>
+          <source>Journal of neurochemistry</source>
+          <year>2013</year>
+          <volume>127</volume>
+          <fpage>283</fpage>
+          <lpage>298</lpage>
+          <pub-id pub-id-type="doi">10.1111/jnc.12293</pub-id>
+          <pub-id pub-id-type="pmid">23647384</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ramachandran</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Altier</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Oikonomopoulou</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hollenberg</surname>
+              <given-names>MD</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteinases, Their Extracellular Targets, and Inflammatory Signaling</article-title>
+          <source>Pharmacol Rev</source>
+          <year>2016</year>
+          <volume>68</volume>
+          <fpage>1110</fpage>
+          <lpage>1142</lpage>
+          <pub-id pub-id-type="doi">10.1124/pr.115.010991</pub-id>
+          <pub-id pub-id-type="pmid">27677721</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Blockade of PAR1 signaling with cell-penetrating pepducins inhibits Akt survival pathways in breast cancer cells and suppresses tumor survival and metastasis</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <fpage>6223</fpage>
+          <lpage>6231</lpage>
+          <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-09-0187</pub-id>
+          <pub-id pub-id-type="pmid">19622769</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scarisbrick</surname>
+              <given-names>IA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Functional role of kallikrein 6 in regulating immune cell survival</article-title>
+          <source>PLoS One</source>
+          <year>2011</year>
+          <volume>6</volume>
+          <issue>e18376</issue>
+          <fpage>18371</fpage>
+          <lpage>18311</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Drucker</surname>
+              <given-names>KL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Clinical significance and novel mechanism of action of kallikrein 6 in glioblastoma</article-title>
+          <source>Neuro Oncol</source>
+          <year>2013</year>
+          <volume>15</volume>
+          <fpage>305</fpage>
+          <lpage>318</lpage>
+          <pub-id pub-id-type="doi">10.1093/neuonc/nos313</pub-id>
+          <pub-id pub-id-type="pmid">23307575</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Radulovic</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genetic targeting of protease activated receptor 2 reduces inflammatory astrogliosis and improves recovery of function after spinal cord injury</article-title>
+          <source>Neurobiol Dis</source>
+          <year>2015</year>
+          <volume>83</volume>
+          <fpage>75</fpage>
+          <lpage>89</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.nbd.2015.08.021</pub-id>
+          <pub-id pub-id-type="pmid">26316358</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Junge</surname>
+              <given-names>CE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The contribution of protease-activated receptor 1 to neuronal damage caused by transient focal cerebral ischemia</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>2003</year>
+          <volume>100</volume>
+          <fpage>13019</fpage>
+          <lpage>13024</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.2235594100</pub-id>
+          <pub-id pub-id-type="pmid">14559973</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nicole</surname>
+              <given-names>O</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activation of protease-activated receptor-1 triggers astrogliosis after brain injury</article-title>
+          <source>The Journal of neuroscience: the official journal of the Society for Neuroscience</source>
+          <year>2005</year>
+          <volume>25</volume>
+          <fpage>4319</fpage>
+          <lpage>4329</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.5200-04.2005</pub-id>
+          <pub-id pub-id-type="pmid">15858058</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burda</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Radulovic</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yoon</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Scarisbrick</surname>
+              <given-names>IA</given-names>
+            </name>
+          </person-group>
+          <article-title>Critical role for PAR1 in kallikrein 6-mediated oligodendrogliopathy</article-title>
+          <source>Glia</source>
+          <year>2013</year>
+          <volume>61</volume>
+          <fpage>1456</fpage>
+          <lpage>1470</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22534</pub-id>
+          <pub-id pub-id-type="pmid">23832758</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoon</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Radulovic</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Drucker</surname>
+              <given-names>KL</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Scarisbrick</surname>
+              <given-names>IA</given-names>
+            </name>
+          </person-group>
+          <article-title>The thrombin receptor is a critical extracellular switch controlling myelination</article-title>
+          <source>Glia</source>
+          <year>2015</year>
+          <volume>63</volume>
+          <fpage>846</fpage>
+          <lpage>859</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22788</pub-id>
+          <pub-id pub-id-type="pmid">25628003</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yoneyama</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Shiba</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yamaguchi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ogita</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Protease-activated receptor-1 negatively regulates proliferation of neural stem/progenitor cells derived from the hippocampal dentate gyrus of the adult mouse</article-title>
+          <source>J Pharmacol Sci</source>
+          <year>2016</year>
+          <volume>131</volume>
+          <fpage>162</fpage>
+          <lpage>171</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jphs.2016.05.005</pub-id>
+          <pub-id pub-id-type="pmid">27426918</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smadja</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Bieche</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Emmerich</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Aiach</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Gaussem</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>PAR-1 activation has different effects on the angiogenic activity of endothelial progenitor cells derived from human adult and cord blood</article-title>
+          <source>Journal of thrombosis and haemostasis: JTH</source>
+          <year>2006</year>
+          <volume>4</volume>
+          <fpage>2729</fpage>
+          <lpage>2731</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1538-7836.2006.02208.x</pub-id>
+          <pub-id pub-id-type="pmid">17100658</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tarzami</surname>
+              <given-names>ST</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Singh</surname>
+              <given-names>JP</given-names>
+            </name>
+          </person-group>
+          <article-title>Thrombin and PAR-1 stimulate differentiation of bone marrow-derived endothelial progenitor cells</article-title>
+          <source>Journal of thrombosis and haemostasis: JTH</source>
+          <year>2006</year>
+          <volume>4</volume>
+          <fpage>656</fpage>
+          <lpage>663</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1538-7836.2006.01788.x</pub-id>
+          <pub-id pub-id-type="pmid">16460448</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baumer</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Proteinase-Activated Receptor 1 (PAR1) regulates leukemic stem cell functions</article-title>
+          <source>PLoS One</source>
+          <year>2014</year>
+          <volume>9</volume>
+          <fpage>e94993</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0094993</pub-id>
+          <pub-id pub-id-type="pmid">24740120</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gur-Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>PAR1 signaling regulates the retention and recruitment of EPCR-expressing bone marrow hematopoietic stem cells</article-title>
+          <source>Nat Med</source>
+          <year>2015</year>
+          <volume>21</volume>
+          <fpage>1307</fpage>
+          <lpage>1317</lpage>
+          <pub-id pub-id-type="doi">10.1038/nm.3960</pub-id>
+          <pub-id pub-id-type="pmid">26457757</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kehinde</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Kunle</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Vorapaxar: A novel agent to be considered in the secondary prevention of myocardial infarction</article-title>
+          <source>J Pharm Bioallied Sci</source>
+          <year>2016</year>
+          <volume>8</volume>
+          <fpage>98</fpage>
+          <lpage>105</lpage>
+          <pub-id pub-id-type="doi">10.4103/0975-7406.171690</pub-id>
+          <pub-id pub-id-type="pmid">27134460</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kraft</surname>
+              <given-names>WK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effect of Vorapaxar Alone and in Combination with Aspirin on Bleeding Time and Platelet Aggregation in Healthy Adult Subjects</article-title>
+          <source>Clin Transl Sci</source>
+          <year>2016</year>
+          <volume>9</volume>
+          <fpage>221</fpage>
+          <lpage>227</lpage>
+          <pub-id pub-id-type="doi">10.1111/cts.12405</pub-id>
+          <pub-id pub-id-type="pmid">27304196</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <mixed-citation publication-type="other">Moschonas, I. C. &amp; Tselepis, A. D. Increased Benefit With Vorapaxar Use in Patients With a History of Myocardial Infarction and Diabetes Mellitus: What the Data Show Us. <italic>J Cardiovasc Pharmacol Ther</italic>, 10.1177/1074248416662347 (2016).</mixed-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Du</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Chase</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Oguz</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Davies</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>State transition model: vorapaxar added to standard antiplatelet therapy to prevent thrombosis post myocardial infarction or peripheral artery disease</article-title>
+          <source>Current medical research and opinion</source>
+          <year>2017</year>
+          <volume>33</volume>
+          <fpage>1535</fpage>
+          <lpage>1543</lpage>
+          <pub-id pub-id-type="doi">10.1080/03007995.2017.1301902</pub-id>
+          <pub-id pub-id-type="pmid">28277861</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Radulovic</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yoon</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mustafa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Scarisbrick</surname>
+              <given-names>IA</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeting the thrombin receptor modulates inflammation and astrogliosis to improve recovery after spinal cord injury</article-title>
+          <source>Neurobiol Dis</source>
+          <year>2016</year>
+          <volume>93</volume>
+          <fpage>226</fpage>
+          <lpage>242</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.nbd.2016.04.010</pub-id>
+          <pub-id pub-id-type="pmid">27145117</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Guo</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Patzlaff</surname>
+              <given-names>NE</given-names>
+            </name>
+            <name>
+              <surname>Jobe</surname>
+              <given-names>EM</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation of multipotent neural stem or progenitor cells from both the dentate gyrus and subventricular zone of a single adult mouse</article-title>
+          <source>Nat Protoc</source>
+          <year>2012</year>
+          <volume>7</volume>
+          <fpage>2005</fpage>
+          <lpage>2012</lpage>
+          <pub-id pub-id-type="doi">10.1038/nprot.2012.123</pub-id>
+          <pub-id pub-id-type="pmid">23080272</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>RNAscope: a novel <italic>in situ</italic> RNA analysis platform for formalin-fixed, paraffin-embedded tissues</article-title>
+          <source>J Mol Diagn</source>
+          <year>2012</year>
+          <volume>14</volume>
+          <fpage>22</fpage>
+          <lpage>29</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jmoldx.2011.08.002</pub-id>
+          <pub-id pub-id-type="pmid">22166544</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schindelin</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Rueden</surname>
+              <given-names>CT</given-names>
+            </name>
+            <name>
+              <surname>Hiner</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Eliceiri</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>The ImageJ ecosystem: An open platform for biomedical image analysis</article-title>
+          <source>Mol Reprod Dev</source>
+          <year>2015</year>
+          <volume>82</volume>
+          <fpage>518</fpage>
+          <lpage>529</lpage>
+          <pub-id pub-id-type="doi">10.1002/mrd.22489</pub-id>
+          <pub-id pub-id-type="pmid">26153368</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lim</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult neural stem cells stake their ground</article-title>
+          <source>Trends Neurosci</source>
+          <year>2014</year>
+          <volume>37</volume>
+          <fpage>563</fpage>
+          <lpage>571</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.tins.2014.08.006</pub-id>
+          <pub-id pub-id-type="pmid">25223700</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Generation of neurons and astrocytes from isolated cells of the adult mammalian central nervous system</article-title>
+          <source>Science (New York, N.Y</source>
+          <year>1992</year>
+          <volume>255</volume>
+          <fpage>1707</fpage>
+          <lpage>1710</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1553558</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vescovi</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Fraser</surname>
+              <given-names>DD</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>bFGF regulates the proliferative fate of unipotent (neuronal) and bipotent (neuronal/astroglial) EGF-generated CNS progenitor cells</article-title>
+          <source>Neuron</source>
+          <year>1993</year>
+          <volume>11</volume>
+          <fpage>951</fpage>
+          <lpage>966</lpage>
+          <pub-id pub-id-type="doi">10.1016/0896-6273(93)90124-A</pub-id>
+          <pub-id pub-id-type="pmid">8240816</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gritti</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Multipotential stem cells from the adult mouse brain proliferate and self-renew in response to basic fibroblast growth factor</article-title>
+          <source>J Neurosci</source>
+          <year>1996</year>
+          <volume>16</volume>
+          <fpage>1091</fpage>
+          <lpage>1100</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.16-03-01091.1996</pub-id>
+          <pub-id pub-id-type="pmid">8558238</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gensert</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Goldman</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Endogenous progenitors remyelinate demyelinated axons in the adult CNS</article-title>
+          <source>Neuron</source>
+          <year>1997</year>
+          <volume>19</volume>
+          <fpage>197</fpage>
+          <lpage>203</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0896-6273(00)80359-1</pub-id>
+          <pub-id pub-id-type="pmid">9247275</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fancy</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Franklin</surname>
+              <given-names>RJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Increased expression of Nkx2.2 and Olig2 identifies reactive oligodendrocyte progenitor cells responding to demyelination in the adult CNS</article-title>
+          <source>Mol Cell Neurosci</source>
+          <year>2004</year>
+          <volume>27</volume>
+          <fpage>247</fpage>
+          <lpage>254</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.mcn.2004.06.015</pub-id>
+          <pub-id pub-id-type="pmid">15519240</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nait-Oumesmar</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Progenitor cells of the adult mouse subventricular zone proliferate, migrate and differentiate into oligodendrocytes after demyelination</article-title>
+          <source>Eur J Neurosci</source>
+          <year>1999</year>
+          <volume>11</volume>
+          <fpage>4357</fpage>
+          <lpage>4366</lpage>
+          <pub-id pub-id-type="doi">10.1046/j.1460-9568.1999.00873.x</pub-id>
+          <pub-id pub-id-type="pmid">10594662</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Picard-Riera</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Experimental autoimmune encephalomyelitis mobilizes neural progenitors from the subventricular zone to undergo oligodendrogenesis in adult mice</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>2002</year>
+          <volume>99</volume>
+          <fpage>13211</fpage>
+          <lpage>13216</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.192314199</pub-id>
+          <pub-id pub-id-type="pmid">12235363</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Menn</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Origin of oligodendrocytes in the subventricular zone of the adult brain</article-title>
+          <source>J Neurosci</source>
+          <year>2006</year>
+          <volume>26</volume>
+          <fpage>7907</fpage>
+          <lpage>7918</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.1299-06.2006</pub-id>
+          <pub-id pub-id-type="pmid">16870736</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Patrikios</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Remyelination is extensive in a subset of multiple sclerosis patients</article-title>
+          <source>Brain</source>
+          <year>2006</year>
+          <volume>129</volume>
+          <fpage>3165</fpage>
+          <lpage>3172</lpage>
+          <pub-id pub-id-type="doi">10.1093/brain/awl217</pub-id>
+          <pub-id pub-id-type="pmid">16921173</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR40">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Patani</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Balaratnam</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Vora</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Remyelination can be extensive in multiple sclerosis despite a long disease course</article-title>
+          <source>Neuropathology and applied neurobiology</source>
+          <year>2007</year>
+          <volume>33</volume>
+          <fpage>277</fpage>
+          <lpage>287</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2990.2007.00805.x</pub-id>
+          <pub-id pub-id-type="pmid">17442065</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR41">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Piaton</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Seilhean</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Lubetzki</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Remyelination in multiple sclerosis</article-title>
+          <source>Progress in brain research</source>
+          <year>2009</year>
+          <volume>175</volume>
+          <fpage>453</fpage>
+          <lpage>464</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0079-6123(09)17530-1</pub-id>
+          <pub-id pub-id-type="pmid">19660673</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR42">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuhlmann</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differentiation block of oligodendroglial progenitor cells as a cause for remyelination failure in chronic multiple sclerosis</article-title>
+          <source>Brain</source>
+          <year>2008</year>
+          <volume>131</volume>
+          <fpage>1749</fpage>
+          <lpage>1758</lpage>
+          <pub-id pub-id-type="doi">10.1093/brain/awn096</pub-id>
+          <pub-id pub-id-type="pmid">18515322</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR43">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scolding</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Oligodendrocyte progenitors are present in the normal adult human CNS and in the lesions of multiple sclerosis</article-title>
+          <source>Brain</source>
+          <year>1998</year>
+          <volume>121</volume>
+          <issue>Pt 12</issue>
+          <fpage>2221</fpage>
+          <lpage>2228</lpage>
+          <pub-id pub-id-type="doi">10.1093/brain/121.12.2221</pub-id>
+          <pub-id pub-id-type="pmid">9874475</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR44">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wolswijk</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Chronic stage multiple sclerosis lesions contain a relatively quiescent population of oligodendrocyte precursor cells</article-title>
+          <source>J Neurosci</source>
+          <year>1998</year>
+          <volume>18</volume>
+          <fpage>601</fpage>
+          <lpage>609</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.18-02-00601.1998</pub-id>
+          <pub-id pub-id-type="pmid">9425002</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR45">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chang</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nishiyama</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Peterson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Prineas</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Trapp</surname>
+              <given-names>BD</given-names>
+            </name>
+          </person-group>
+          <article-title>NG2-positive oligodendrocyte progenitor cells in adult human brain and multiple sclerosis lesions</article-title>
+          <source>J Neurosci</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>6404</fpage>
+          <lpage>6412</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.20-17-06404.2000</pub-id>
+          <pub-id pub-id-type="pmid">10964946</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR46">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rivera</surname>
+              <given-names>FJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Deciphering the oligodendrogenic program of neural progenitors: cell intrinsic and extrinsic regulators</article-title>
+          <source>Stem Cells Dev</source>
+          <year>2010</year>
+          <volume>19</volume>
+          <fpage>595</fpage>
+          <lpage>606</lpage>
+          <pub-id pub-id-type="doi">10.1089/scd.2009.0293</pub-id>
+          <pub-id pub-id-type="pmid">19938982</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR47">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kremer</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Aktas</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Hartung</surname>
+              <given-names>HP</given-names>
+            </name>
+            <name>
+              <surname>Kury</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>The complex world of oligodendroglial differentiation inhibitors</article-title>
+          <source>Ann Neurol</source>
+          <year>2011</year>
+          <volume>69</volume>
+          <fpage>602</fpage>
+          <lpage>618</lpage>
+          <pub-id pub-id-type="doi">10.1002/ana.22415</pub-id>
+          <pub-id pub-id-type="pmid">21520230</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR48">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Franklin</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Gallo</surname>
+              <given-names>V</given-names>
+            </name>
+          </person-group>
+          <article-title>The translational biology of remyelination: past, present, and future</article-title>
+          <source>Glia</source>
+          <year>2014</year>
+          <volume>62</volume>
+          <fpage>1905</fpage>
+          <lpage>1915</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22622</pub-id>
+          <pub-id pub-id-type="pmid">24446279</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR49">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scarisbrick</surname>
+              <given-names>IA</given-names>
+            </name>
+          </person-group>
+          <article-title>The multiple sclerosis degradome: enzymatic cascades in development and progression of central nervous system inflammatory disease</article-title>
+          <source>Current topics in microbiology and immunology</source>
+          <year>2008</year>
+          <volume>318</volume>
+          <fpage>133</fpage>
+          <lpage>175</lpage>
+          <pub-id pub-id-type="pmid">18219817</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR50">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Trentini</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Interplay between Matrix Metalloproteinase-9, Matrix Metalloproteinase-2, and Interleukins in Multiple Sclerosis Patients</article-title>
+          <source>Disease markers</source>
+          <year>2016</year>
+          <volume>2016</volume>
+          <fpage>3672353</fpage>
+          <pub-id pub-id-type="doi">10.1155/2016/3672353</pub-id>
+          <pub-id pub-id-type="pmid">27555667</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR51">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xing</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MMPs/TIMPs imbalances in the peripheral blood and cerebrospinal fluid are associated with the pathogenesis of HIV-1-associated neurocognitive disorders</article-title>
+          <source>Brain, behavior, and immunity</source>
+          <year>2017</year>
+          <volume>65</volume>
+          <fpage>161</fpage>
+          <lpage>172</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bbi.2017.04.024</pub-id>
+          <pub-id pub-id-type="pmid">28487203</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR52">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scarisbrick</surname>
+              <given-names>IA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Kallikreins are associated with secondary progressive multiple sclerosis and promote neurodegeneration</article-title>
+          <source>Biol Chem</source>
+          <year>2008</year>
+          <volume>389</volume>
+          <fpage>739</fpage>
+          <lpage>745</lpage>
+          <pub-id pub-id-type="doi">10.1515/BC.2008.085</pub-id>
+          <pub-id pub-id-type="pmid">18627300</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR53">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gonzalez</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Identification of novel candidate protein biomarkers for the post-polio syndrome - implications for diagnosis, neurodegeneration and neuroinflammation</article-title>
+          <source>J Proteomics</source>
+          <year>2009</year>
+          <volume>71</volume>
+          <fpage>670</fpage>
+          <lpage>681</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jprot.2008.11.014</pub-id>
+          <pub-id pub-id-type="pmid">19100873</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR54">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Singh</surname>
+              <given-names>V</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gray matter-related proteins are associated with childhood-onset multiple sclerosis</article-title>
+          <source>Neurology(R) neuroimmunology &amp; neuroinflammation</source>
+          <year>2015</year>
+          <volume>2</volume>
+          <fpage>e155</fpage>
+          <pub-id pub-id-type="doi">10.1212/NXI.0000000000000155</pub-id>
+          <pub-id pub-id-type="pmid">26445729</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR55">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schutzer</surname>
+              <given-names>SE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gray matter is targeted in first-attack multiple sclerosis</article-title>
+          <source>PLoS One</source>
+          <year>2013</year>
+          <volume>8</volume>
+          <fpage>e66117</fpage>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0066117</pub-id>
+          <pub-id pub-id-type="pmid">24039694</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR56">
+        <label>56.</label>
+        <mixed-citation publication-type="other">Franklin, R. J. &amp; Goldman, S. A. Glia Disease and Repair-Remyelination. <italic>Cold Spring Harbor perspectives in biology</italic><bold>7</bold>, 10.1101/cshperspect.a020594 (2015).</mixed-citation>
+      </ref>
+      <ref id="CR57">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goldman</surname>
+              <given-names>SA</given-names>
+            </name>
+          </person-group>
+          <article-title>Progenitor cell-based treatment of glial disease</article-title>
+          <source>Progress in brain research</source>
+          <year>2017</year>
+          <volume>231</volume>
+          <fpage>165</fpage>
+          <lpage>189</lpage>
+          <pub-id pub-id-type="doi">10.1016/bs.pbr.2017.02.010</pub-id>
+          <pub-id pub-id-type="pmid">28554396</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR58">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vernerey</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Macchi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Magalon</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Cayre</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Durbec</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Ciliary neurotrophic factor controls progenitor migration during remyelination in the adult rodent brain</article-title>
+          <source>J Neurosci</source>
+          <year>2013</year>
+          <volume>33</volume>
+          <fpage>3240</fpage>
+          <lpage>3250</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.2579-12.2013</pub-id>
+          <pub-id pub-id-type="pmid">23407977</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR59">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aguirre</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gallo</surname>
+              <given-names>V</given-names>
+            </name>
+          </person-group>
+          <article-title>Reduced EGFR signaling in progenitor cells of the adult subventricular zone attenuates oligodendrogenesis after demyelination</article-title>
+          <source>Neuron Glia Biol</source>
+          <year>2007</year>
+          <volume>3</volume>
+          <fpage>209</fpage>
+          <lpage>220</lpage>
+          <pub-id pub-id-type="doi">10.1017/S1740925X08000082</pub-id>
+          <pub-id pub-id-type="pmid">18634612</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR60">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gonzalez-Perez</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Romero-Rodriguez</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Soriano-Navarro</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Garcia-Verdugo</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Alvarez-Buylla</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor induces the progeny of subventricular zone type B cells to migrate and differentiate into oligodendrocytes</article-title>
+          <source>Stem Cells</source>
+          <year>2009</year>
+          <volume>27</volume>
+          <fpage>2032</fpage>
+          <lpage>2043</lpage>
+          <pub-id pub-id-type="doi">10.1002/stem.119</pub-id>
+          <pub-id pub-id-type="pmid">19544429</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR61">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Azim</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Raineteau</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Butt</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>Intraventricular injection of FGF-2 promotes generation of oligodendrocyte-lineage cells in the postnatal and adult forebrain</article-title>
+          <source>Glia</source>
+          <year>2012</year>
+          <volume>60</volume>
+          <fpage>1977</fpage>
+          <lpage>1990</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22413</pub-id>
+          <pub-id pub-id-type="pmid">22951928</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR62">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ortega</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Oligodendrogliogenic and neurogenic adult subependymal zone neural stem cells constitute distinct lineages and exhibit differential responsiveness to Wnt signalling</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2013</year>
+          <volume>15</volume>
+          <fpage>602</fpage>
+          <lpage>613</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb2736</pub-id>
+          <pub-id pub-id-type="pmid">23644466</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR63">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Azim</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Rivera</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Raineteau</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Butt</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>GSK3beta regulates oligodendrogenesis in the dorsal microdomain of the subventricular zone via Wnt-beta-catenin signaling</article-title>
+          <source>Glia</source>
+          <year>2014</year>
+          <volume>62</volume>
+          <fpage>778</fpage>
+          <lpage>779</lpage>
+          <pub-id pub-id-type="doi">10.1002/glia.22641</pub-id>
+          <pub-id pub-id-type="pmid">24677550</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR64">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sabo</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Aumann</surname>
+              <given-names>TD</given-names>
+            </name>
+            <name>
+              <surname>Merlo</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kilpatrick</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Cate</surname>
+              <given-names>HS</given-names>
+            </name>
+          </person-group>
+          <article-title>Remyelination is altered by bone morphogenic protein signaling in demyelinated lesions</article-title>
+          <source>J Neurosci</source>
+          <year>2011</year>
+          <volume>31</volume>
+          <fpage>4504</fpage>
+          <lpage>4510</lpage>
+          <pub-id pub-id-type="doi">10.1523/JNEUROSCI.5859-10.2011</pub-id>
+          <pub-id pub-id-type="pmid">21430151</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR65">
+        <label>65.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hack</surname>
+              <given-names>MA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neuronal fate determinants of adult olfactory bulb neurogenesis</article-title>
+          <source>Nat Neurosci</source>
+          <year>2005</year>
+          <volume>8</volume>
+          <fpage>865</fpage>
+          <lpage>872</lpage>
+          <pub-id pub-id-type="doi">10.1038/nn1479</pub-id>
+          <pub-id pub-id-type="pmid">15951811</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR66">
+        <label>66.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jessberger</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Toni</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Clemenson</surname>
+              <given-names>GD</given-names>
+              <suffix>Jr.</suffix>
+            </name>
+            <name>
+              <surname>Ray</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>FH</given-names>
+            </name>
+          </person-group>
+          <article-title>Directed differentiation of hippocampal stem/progenitor cells in the adult brain</article-title>
+          <source>Nat Neurosci</source>
+          <year>2008</year>
+          <volume>11</volume>
+          <fpage>888</fpage>
+          <lpage>893</lpage>
+          <pub-id pub-id-type="doi">10.1038/nn.2148</pub-id>
+          <pub-id pub-id-type="pmid">18587391</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR67">
+        <label>67.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Braun</surname>
+              <given-names>SM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Programming Hippocampal Neural Stem/Progenitor Cells into Oligodendrocytes Enhances Remyelination in the Adult Brain afterInjury</article-title>
+          <source>Cell reports</source>
+          <year>2015</year>
+          <volume>11</volume>
+          <fpage>1679</fpage>
+          <lpage>1685</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.celrep.2015.05.024</pub-id>
+          <pub-id pub-id-type="pmid">26074082</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR68">
+        <label>68.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>The bHLH transcription factor Olig2 promotes oligodendrocyte differentiation in collaboration with Nkx2.2</article-title>
+          <source>Neuron</source>
+          <year>2001</year>
+          <volume>31</volume>
+          <fpage>791</fpage>
+          <lpage>807</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0896-6273(01)00414-7</pub-id>
+          <pub-id pub-id-type="pmid">11567617</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR69">
+        <label>69.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rafalski</surname>
+              <given-names>VA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expansion of oligodendrocyte progenitor cells following SIRT1 inactivation in the adult brain</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2013</year>
+          <volume>15</volume>
+          <fpage>614</fpage>
+          <lpage>624</lpage>
+          <pub-id pub-id-type="doi">10.1038/ncb2735</pub-id>
+          <pub-id pub-id-type="pmid">23644469</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR70">
+        <label>70.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Samanta</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibition of Gli1 mobilizes endogenous neural stem cells for remyelination</article-title>
+          <source>Nature</source>
+          <year>2015</year>
+          <volume>526</volume>
+          <fpage>448</fpage>
+          <lpage>452</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature14957</pub-id>
+          <pub-id pub-id-type="pmid">26416758</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR71">
+        <label>71.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mosaic analysis with double markers reveals tumor cell of origin in glioma</article-title>
+          <source>Cell</source>
+          <year>2011</year>
+          <volume>146</volume>
+          <fpage>209</fpage>
+          <lpage>221</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cell.2011.06.014</pub-id>
+          <pub-id pub-id-type="pmid">21737130</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR72">
+        <label>72.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sun</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Latent tri-lineage potential of adult hippocampal neural stem cells revealed by Nf1 inactivation</article-title>
+          <source>Nat Neurosci</source>
+          <year>2015</year>
+          <volume>18</volume>
+          <fpage>1722</fpage>
+          <lpage>1724</lpage>
+          <pub-id pub-id-type="doi">10.1038/nn.4159</pub-id>
+          <pub-id pub-id-type="pmid">26523645</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR73">
+        <label>73.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ramachandran</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Hollenberg</surname>
+              <given-names>MD</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteinases and signalling: pathophysiological and therapeutic implications via PARs and more</article-title>
+          <source>British journal of pharmacology</source>
+          <year>2008</year>
+          <volume>153</volume>
+          <issue>Suppl 1</issue>
+          <fpage>S263</fpage>
+          <lpage>282</lpage>
+          <pub-id pub-id-type="pmid">18059329</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR74">
+        <label>74.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goldberg</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Hirschi</surname>
+              <given-names>KK</given-names>
+            </name>
+          </person-group>
+          <article-title>Diverse roles of the vasculature within the neural stem cell niche</article-title>
+          <source>Regen Med</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>879</fpage>
+          <lpage>897</lpage>
+          <pub-id pub-id-type="doi">10.2217/rme.09.61</pub-id>
+          <pub-id pub-id-type="pmid">19903006</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR75">
+        <label>75.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kazanis</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Subependymal Zone-Derived Oligodendroblasts Respond to Focal Demyelination but Fail to Generate Myelin in Young and Aged Mice</article-title>
+          <source>Stem Cell Reports</source>
+          <year>2017</year>
+          <volume>8</volume>
+          <fpage>685</fpage>
+          <lpage>700</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2017.01.007</pub-id>
+          <pub-id pub-id-type="pmid">28196689</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

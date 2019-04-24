@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cell Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Cell Biol</journal-id>
+      <journal-title-group>
+        <journal-title>The Journal of Cell Biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0021-9525</issn>
+      <issn pub-type="epub">1540-8140</issn>
+      <publisher>
+        <publisher-name>The Rockefeller University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">3279054</article-id>
+      <article-id pub-id-type="pmc">2115111</article-id>
+      <article-id pub-id-type="publisher-id">88153910</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Epidermal growth factor controls smooth muscle alpha-isoactin expression in BC3H1 cells</article-title>
+      </title-group>
+      <pub-date pub-type="ppub">
+        <day>1</day>
+        <month>3</month>
+        <year>1988</year>
+      </pub-date>
+      <volume>106</volume>
+      <issue>3</issue>
+      <fpage>797</fpage>
+      <lpage>803</lpage>
+      <permissions>
+        <license license-type="openaccess">
+          <license-p>This article is distributed under the terms of an Attribution&#x2013;Noncommercial&#x2013;Share Alike&#x2013;No Mirror Sites license for the first six months after the publication date (see <ext-link ext-link-type="uri" xlink:href="http://www.rupress.org/terms">http://www.rupress.org/terms</ext-link>). After six months it is available under a Creative Commons License (Attribution&#x2013;Noncommercial&#x2013;Share Alike 4.0 Unported license, as described at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-sa/4.0/">http://creativecommons.org/licenses/by-nc-sa/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>We have examined the effects of epidermal growth factor (EGF), platelet- derived growth factor, and insulin on the differentiation of a mouse vascular smooth muscle-like cell line, the BC3H1 cells. On the basis of cell morphology and smooth muscle alpha-isoactin synthesis, we demonstrate that EGF at physiological concentrations prevents the differentiation of these cells, whereas platelet-derived growth factor has no apparent effect. The induction of alpha-isoactin synthesis by serum deprivation is inhibited by EGF in a dose-dependent manner with a half-maximal effect at 3-5 ng/ml and a maximal inhibition at approximately 30 ng/ml. Northern analysis also shows that EGF blocks the accumulation of alpha-isoactin mRNA normally observed during cell differentiation. Addition of EGF to differentiated cells results in a repression of alpha-isoactin synthesis, a stimulation of beta- and gamma-isoactin synthesis, and the stabilization of the nonmuscle isoactins. The synthesis of creatine phosphokinase, a muscle-specific noncontractile protein, is also regulated by EGF in a similar fashion. Modulation by EGF of alpha-isoactin expression is not affected by aphidicolin and is therefore independent of its mitogenic effect on these cells. Insulin is not required for observation of the EGF- dependent effects but instead seems to promote differentiation. Our results show that EGF can replace serum in controlling the differentiation of BC3H1 cells.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

@@ -1,0 +1,448 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Front Cell Dev Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Front Cell Dev Biol</journal-id>
+      <journal-id journal-id-type="publisher-id">Front. Cell Dev. Biol.</journal-id>
+      <journal-title-group>
+        <journal-title>Frontiers in Cell and Developmental Biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2296-634X</issn>
+      <publisher>
+        <publisher-name>Frontiers Media S.A.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29468156</article-id>
+      <article-id pub-id-type="pmc">5807902</article-id>
+      <article-id pub-id-type="doi">10.3389/fcell.2018.00003</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Cell and Developmental Biology</subject>
+          <subj-group>
+            <subject>Original Research</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Adherent vs. Free-Floating Neural Induction by Dual SMAD Inhibition for Neurosphere Cultures Derived from Human Induced Pluripotent Stem Cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pauly</surname>
+            <given-names>Martje G.</given-names>
+          </name>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/489862/overview"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Krajka</surname>
+            <given-names>Victor</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Stengel</surname>
+            <given-names>Felix</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Seibler</surname>
+            <given-names>Philip</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Klein</surname>
+            <given-names>Christine</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Capetian</surname>
+            <given-names>Philipp</given-names>
+          </name>
+          <xref ref-type="author-notes" rid="fn001">
+            <sup>*</sup>
+          </xref>
+          <uri xlink:type="simple" xlink:href="http://loop.frontiersin.org/people/123064/overview"/>
+        </contrib>
+      </contrib-group>
+      <aff><institution>Institute of Neurogenetics, University of L&#xFC;beck</institution>, <addr-line>L&#xFC;beck</addr-line>, <country>Germany</country></aff>
+      <author-notes>
+        <fn fn-type="edited-by">
+          <p>Edited by: Darius Widera, University of Reading, United Kingdom</p>
+        </fn>
+        <fn fn-type="edited-by">
+          <p>Reviewed by: Stefan Hauser, Deutsche Zentrum f&#xFC;r Neurodegenerative Erkrankungen (DZNE), Germany; Yu Tang, Xiangya Hospital, Central South University, China; Hideko Sone, National Institute for Environmental Studies, Japan</p>
+        </fn>
+        <corresp id="fn001">*Correspondence: Philipp Capetian <email xlink:type="simple">philipp.capetian@neuro.uni-luebeck.de</email></corresp>
+        <fn fn-type="other" id="fn002">
+          <p>This article was submitted to Stem Cell Research, a section of the journal Frontiers in Cell and Developmental Biology</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>06</day>
+        <month>2</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2018</year>
+      </pub-date>
+      <volume>6</volume>
+      <elocation-id>3</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>10</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>19</day>
+          <month>1</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2018 Pauly, Krajka, Stengel, Seibler, Klein and Capetian.</copyright-statement>
+        <copyright-year>2018</copyright-year>
+        <copyright-holder>Pauly, Krajka, Stengel, Seibler, Klein and Capetian</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Keeping neural stem cells under proliferation, followed by terminal differentiation, can substantially increase the number of neurons generated. With regard to the usability of proliferating neurospheres (NSPHs) cultures, adherent induction protocols have not yet been studied in comparison to embryoid body (EB)-based protocols. To compare these proctocols, neural induction of human induced pluripotent stem cells was performed by dual SMAD inhibition under both adherent and free-floating EB culture conditions. After 10 days, we transferred cells to low-attachment culture plates and proliferated them as free-floating neurospheres. RNA was collected, transcribed to cDNA and analyzed for sonic hedgehog expression that plays an important role during proliferation process. NSPHs were analyzed by immunofluorescence imaging directly and upon continued differentiation. The EB-based approach yielded in higher numbers of cells expressing the neural stem cell marker Nestin, and showed in contrast to the adherent induction protocol increased expression levels of sonic hedgehog. Although improvements to culture consistency and reliability are desirable, the EB-based protocol appears to be superior to the adherent protocol for both, the proliferation and differentiation capacity.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>neural stem cell culture</kwd>
+        <kwd>induced pluripotent stem cells</kwd>
+        <kwd>neural induction</kwd>
+        <kwd>adherent neural induction</kwd>
+        <kwd>embryoid bodies</kwd>
+        <kwd>neural differentiation</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="5"/>
+        <table-count count="0"/>
+        <equation-count count="0"/>
+        <ref-count count="28"/>
+        <page-count count="8"/>
+        <word-count count="5627"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro" id="s1">
+      <title>Introduction</title>
+      <p>Deriving and cultivating human neurons <italic>in vitro</italic> has always posed a particular challenge due to the need of proliferating early precursors. Different approaches to derive and cultivate human neural precursors and differentiating them into mature neurons have been established over time: (i) Primary neurons from aborted fetuses are ethically controversial and technically problematic due to their low yield. (ii) Human embryonic stem cells were isolated from <italic>in-vitro-</italic>fertilized embryos in the cleavage stage (Thomson et al., <xref rid="B25" ref-type="bibr">1998</xref>). While this approach still has similar ethical problems as the use of primary neurons from fetuses, the cell yield can be increased through the step-wise process of neural induction to neural stem cells, proliferation, and differentiation to mature neurons. (iii) In 2007, the field of stem cell research was revolutionized by the development of induced pluripotent stem cells (iPSCs) (Takahashi et al., <xref rid="B24" ref-type="bibr">2007</xref>). Since iPSCs are generated from adult human fibroblasts, ethical concerns are avoided and it is possible to generate patient-specific neurons. In many subsequent studies, the neural induction of pluripotent stem cells to neural stem cells (NSCs) was directly followed by differentiation to mature neurons (e.g., Dimos et al., <xref rid="B7" ref-type="bibr">2008</xref>; Karumbayaram et al., <xref rid="B14" ref-type="bibr">2009</xref>; Hartfield et al., <xref rid="B11" ref-type="bibr">2014</xref>).</p>
+      <p>However, it is desirable to establish proliferating NSC cultures to improve their consistency by omitting repeated induction steps and to simplify the experimental procedures. In the past decade, different protocols have been published for the generation of proliferating NSC cultures from pluripotent cells. Most protocols relied on a combination of free-floating aggregates called embryoid bodies (EB) followed by adherent culture conditions (Zhang et al., <xref rid="B27" ref-type="bibr">2001</xref>; Koch et al., <xref rid="B16" ref-type="bibr">2009</xref>). More recent protocols used small molecule inhibitors of the activin/nodal and bone morphogenetic protein (BMP) pathway (also termed dual SMAD inhibition) (Kim et al., <xref rid="B15" ref-type="bibr">2010</xref>) to enhance neural induction (Reinhardt et al., <xref rid="B22" ref-type="bibr">2013</xref>). Some protocols reached the limits of expandability (Elkabetz et al., <xref rid="B9" ref-type="bibr">2008</xref>; Reinhardt et al., <xref rid="B22" ref-type="bibr">2013</xref>) or were not able to generate neurons of the peripheral nervous system (Li et al., <xref rid="B19" ref-type="bibr">2011</xref>). One key study (Crompton et al., <xref rid="B4" ref-type="bibr">2013</xref>) demonstrated the importance of intrinsic sonic hedgehog (SHH) signaling for a sufficient neuronal yield. SHH plays an important role in the proliferation process of NSCs, especially in the development from the NSC stage of radial glia cells to intermediate progenitor cells (Komada, <xref rid="B17" ref-type="bibr">2012</xref>). Other protocols showed the possibility of neural induction under fully adherent conditions which resulted in a more uniform and consistent yield by minimizing the generation of non-neural cells. However, these protocols have not yet been employed to generate long-term proliferative cultures (Chambers et al., <xref rid="B3" ref-type="bibr">2009</xref>).</p>
+      <p>While most protocols to derive NSCs from ESCs and iPSCs employed adherent cultivation, a more classical approach is cultivation as free-floating aggregates termed neurospheres (NSPHs). This culture type has mainly been employed for NSCs derived from embryonal or postnatal tissue in the past. It is considered a more natural environment for the cells due to its three-dimensional structure (Deleyrolle and Reynolds, <xref rid="B6" ref-type="bibr">2009</xref>). It has been demonstrated that, at least for short-term expansion, combining the adherent induction protocol with NSPH cultivation is a feasible approach (Zhou et al., <xref rid="B28" ref-type="bibr">2015</xref>). We aimed to answer the question how the difference between adherent and EB-based neural induction affects proliferation and differentiation to mature neurons, and which protocol holds more promise in combination with NSPH cultivation. Furthermore, we monitored the expression of sonic hedgehog (SHH) over time as an important factor for maintaining proliferativity.</p>
+    </sec>
+    <sec sec-type="materials and methods" id="s2">
+      <title>Materials and methods</title>
+      <sec>
+        <title>Neural induction and proliferation</title>
+        <p>Primary human dermal fibroblasts were reprogrammed to induced pluripotent stem cells (iPSCs) as described previously (Seibler et al., <xref rid="B23" ref-type="bibr">2011</xref>). In short, fibroblasts were transduced with retroviral vectors for overexpression of OCT4, SOX2, cMYC, and KLF4. Four iPSC lines from healthy adult donors (who had given informed consent according to the ethical regulations of the University of L&#xFC;beck) were employed for the experiments. IPSC colonies were picked and cultured on irradiated mouse embryonic fibroblasts (MEF) in iPSC medium. The IPSCs were dissociated with accutase (Gibco, Carlsbad, CA, USA) for 15 min. Four hundred thousand cells were either transferred to ultra-low attachment 6-well culture plates (Corning, Corning, NY, USA) for the embryoid body (EB)-based protocol (Crompton et al., <xref rid="B4" ref-type="bibr">2013</xref>), or plated on 6-well culture plates coated with matrigel (Corning, Corning, NY, USA) for the adherent induction (Chambers et al., <xref rid="B3" ref-type="bibr">2009</xref>).</p>
+        <p>For adherent induction, cells were cultured in MEF-conditioned iPSC medium (CM) (see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">1</xref>) with FGF-2 (5 ng/ml; Merck Millipore, Darmstadt, Germany) and the ROCK-inhibitor Y-27632 (10 &#x3BC;M; Stemcell Technologies, Vancouver, Canada) for increased cell survival (Watanabe et al., <xref rid="B26" ref-type="bibr">2007</xref>) until reaching confluency. For the EB-based protocol, cells were cultured in knockout serum replacement medium (KSR) (see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">1</xref>) with the ROCK-inhibitor Y-27632. From this point onwards, both protocols were identical except that cells were either cultured adherently or as EBs.</p>
+        <p>Neural induction was initiated in KSR by withdrawal of FGF-2. Dual SMAD inhibition was achieved by adding the small molecules SB-431542 (10 &#x3BC;M; Tocris, Bristol, UK) as a TGF-&#x3B2; inhibitor and LDN-193189 (100 nM; Stemgent, Cambridge, MA, USA) as a BMP-inhibitor. Successively, SB-431542, Y-27632, and LDN-193189 were withdrawn (at day 5, 7, and 10) and increasing amounts of N2B27 medium (25, 50, 75%) were added to the KSR medium. On day 10, cells from both induction protocols were dissociated with accutase for 15 min, transferred to ultra-low attachment 6-well culture plates. Single cells proliferated to NSPHs. NSCs were cultured in N2B27 medium (see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">1</xref>) supplemented with FGF-2 (10 ng/ml), EGF (epidermal growth factor, 20 ng/ml; Peprotech, Hamburg, Germany) and heparin (2 &#x3BC;g/ml; Merck Millipore, Darmstadt, Germany) and passaged when the NSPHs grew to a sufficient size so that a central dark core became apparent. The medium was replaced twice per week. All four iPSC lines were induced by the adherent induction protocol resulting in 10 individual experiments and two iPSC lines were induced by the EB-based induction protocol resulting in 4 individual experiments. At passages 2 and 5, cells were plated for immunostaining. Cells were dissociated by accutase treatment for 30 min and plated on poly-d-lysine (Sigma-Aldrich, St. Louis, MO, USA) and laminin (Roche, Basel, Switzerland)-coated coverslips (Hecht, Sondheim, Germany) at a density of 50,000 cells/well (~ 28,000 cells/cm<sup>2</sup>). We cultured the cells in N2B27 medium with FGF-2, EGF and heparin as described above. Cells were processed for immunostaining after reaching a sufficient number for analysis (usually after ~4 days).</p>
+      </sec>
+      <sec>
+        <title>Differentiation</title>
+        <p>At passages 2 and 5, cells were dissociated to single cells and plated for differentiation as described above. We chose this approach in contrast to direct differentiation of NSPHs for a more standardized differentiation and better quantification by microscopy. When confluent, differentiation was initiated by withdrawal of FGF-2, EGF and heparin. To enhance neuronal differentiation, we added BDNF (brain-derived neurotrophic factor, 20 ng/ml), GDNF (glial cell-derived neurotrophic factor, 10 ng/ml), IGF1 (insulin-like growth factor 1, 10 ng/ml) (all from Peprotech, Hamburg, Germany), dibutyryl-cAMP (500 &#x3BC;M; EnzoLife Sciences, L&#xF6;rrach, Germany) and the notch inhibitor DAPT (10 &#x3BC;M; Tocris, Bristol UK) for 30 days.</p>
+      </sec>
+      <sec>
+        <title>Immunostaining</title>
+        <p>Cells were washed with PBS (Gibco, Carlsbad, CA, USA) and then fixed with 4% paraformaldehyde (Sigma-Aldrich, St. Louis, MO, USA) for 30 min at room temperature. After repeated washing with PBS, nonspecific binding sites were blocked for 45 min with PBS containing 5% normal donkey (Sigma-Aldrich, St. Louis, MO, USA) or goat serum (Invitrogen, Carlsbad, CA, USA), 0.1% Triton X-100 (AppliChem, Darmstadt, Germany) and 0.01% NaN<sub>3</sub> (Sigma-Aldrich, St. Louis, MO, USA). Primary antibodies were incubated over night at 4 &#xB0;C, followed by a washing step (3 &#xD7; 15 min of PBS with 0.1% Triton X-100). Secondary antibodies were incubated for 2 h at room temperature. Both primary and secondary antibodies were diluted in PBS with 1% normal donkey or goat serum/ 0.1% Triton X-100 and 0.01% NaN<sub>3</sub>. For a list of the employed antibodies, see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">3</xref>. After a subsequent washing step, cover slips were mounted with media containing 4&#x2032;, 6-Diamidin-2-phenylindol (DAPI) on cover slips and stored at 4&#xB0;C. Slides were analyzed with a LSM 710 confocal microscope (Zeiss, Jena, Germany). Six random high-power fields were acquired and immunostained cells counted manually using ImageJ (NIH, Bethesda, MD, USA). The means of cell counts or percentages were calculated, along with the standard error of mean (SEM). An unpaired student <italic>t</italic>-test was performed to detect significant difference between both protocols with an alpha-level of 0.05. Multiple testing was corrected by the Holm-Sidak method. All statistical calculations were performed with GraphPad Prism 6 (La Jolla, CA, USA).</p>
+      </sec>
+      <sec>
+        <title>Analysis of gene expression</title>
+        <p>The four iPSC lines were neurally induced under adherent or EB conditions and cultured until passage 8 as described above. After each passage, we extracted RNA from a third of the passaged cells (~500,000) cultured in ultra-low attachment 6-well culture plates (QIAshredder kit, RNeasy Mini Kit, Qiagen, Hilden, Germany). Subsequently, RNA was transcribed to cDNA by the Maxima First Strand cDNA Synthesis Kit for RT-qPCR (Thermo Fisher Scientific, Waltham, MA, USA).</p>
+        <p>We analyzed sonic hedgehog (SHH) expression by regular RT-PCR following the standard protocol provided (MP Biomedicals, Eschwege, Germany) (for the primer sequence see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">2</xref>). The PCR product was analyzed by agarose gel electrophoresis with &#x3B2;-actin as control. Percentages of positive cell lines were compared by Fisher's exact test.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="s3">
+      <title>Results</title>
+      <sec>
+        <title>Cultivation, induction, and differentiation of cells</title>
+        <p>IPSCs reprogrammed from primary human dermal fibroblasts were dissociated to single cells. Subsequently they were either transferred to ultra-low attachment 6-well culture plates for the EB-based protocol (Figure <xref ref-type="fig" rid="F1">1a</xref>) or plated on 6-well culture plates for the adherent induction (Figure <xref ref-type="fig" rid="F1">1b</xref>). Neural induction was initiated and performed by dual SMAD inhibition for both protocols. Cells proliferated to NSPHs when transferred to ultra-low attachment culture plates on day 10. NSCs were passaged when NSPHs grew to a sufficient size so that a central dark core became apparent (Figure <xref ref-type="fig" rid="F1">1c</xref>). These occurred in average after 20.7 &#xB1; 1.38 days (with considerably shorter culture times at the beginning). Following dissociation, cells proliferated to new NSPHs. Both protocols shared the disadvantage that for all lines proliferation slowed down and finally stopped before passage 10 (at ~200 days). Thus, it was only possible to obtain a sufficient number of cells for analysis by immunofluorescence at passages 2 and 5. Cells were plated for immunostaining and differentiation at those time points. After reaching a sufficient number (Figure <xref ref-type="fig" rid="F1">1d</xref>), cells were directly processed for analysis or differentiation was initiated. In the latter case, cells were processed for analysis following 30 days of differentiation (Figure <xref ref-type="fig" rid="F1">1e</xref>). For a schematic overview, see Figure <xref ref-type="fig" rid="F2">2</xref>.</p>
+        <fig id="F1" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>Induction and cultivation of NSCs from iPSCs: IPSCs were either plated as free-floating EBs <bold>(a)</bold> or plated and proliferated to high density <bold>(b)</bold> for neural induction. After 10 days, cells were dissociated and replated under low-adherent conditions for the formation of NSPHs <bold>(c)</bold>. For immunofluorescence analysis, cells were replated under adherent conditions <bold>(d)</bold> and differentiated for 30 days <bold>(e)</bold>. EB, embryoid body; iPSC, induced pluripotent stem cell; NPSH, neurosphere; NSC, neural stem cell. Scale bars: <bold>(a)</bold> 50 &#x3BC;m, <bold>(b)</bold> 50 &#x3BC;m, <bold>(c)</bold> 100 &#x3BC;m, <bold>(d)</bold> 100 &#x3BC;m, <bold>(e)</bold> 100 &#x3BC;m.</p>
+          </caption>
+          <graphic xlink:href="fcell-06-00003-g0001"/>
+        </fig>
+        <fig id="F2" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p>Schematic overview of experiments: outline of the study.</p>
+          </caption>
+          <graphic xlink:href="fcell-06-00003-g0002"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Immunophenotype of NSCs and differentiated cells</title>
+        <sec>
+          <title>NSCs under proliferative conditions</title>
+          <p>During the entire cultivation period, the majority of cells under proliferative conditions expressed the neural stem cell marker Nestin (Figures <xref ref-type="fig" rid="F3">3a,b</xref>). Additionally, we stained the cells with MAP2 as a marker for mature neurons and a sign of spontaneous differentiation (Figures <xref ref-type="fig" rid="F3">3c,d</xref>). The density of cells was similar in the experiments regardless of protocol or passage number (Figure <xref ref-type="fig" rid="F3">3e</xref>). The EB-based protocol yielded a significantly higher density of Nestin-positive cells at passage 5 (<italic>p</italic> = 0.002, <italic>n</italic> = 8, Figure <xref ref-type="fig" rid="F3">3f</xref>). However, the relative number of Nestin-positive cells did not show any significant difference between the different protocols and passages (Figure <xref ref-type="fig" rid="F3">3g</xref>). In comparison to the number of Nestin-positive cells, fewer cells expressed the neuronal progenitor marker &#x3B2;-III-tubulin (Katsetos et al., <xref rid="B13" ref-type="bibr">2003</xref>) with similar numbers for all inducing conditions and passages (Figures <xref ref-type="fig" rid="F3">3a,b,f</xref>).</p>
+          <fig id="F3" position="float">
+            <label>Figure 3</label>
+            <caption>
+              <p>Immunofluorescence analysis of NSCs under proliferative conditions. Irrespective of the induction protocol chosen, the majority of cells expressed the intermediate filament Nestin (associated with NSCs); fewer cells expressed the early neuronal &#x3B2;-III-tubulin <bold>(a,b)</bold>. MAP2, a marker of mature neurons and expressed in only few cells, showed a low rate of spontaneous differentiation <bold>(c,d)</bold>. GFAP-positive astrocytes were only present in low numbers after adherent and absent after EB-based induction <bold>(c,d)</bold>. Density of cells did not differ (as intended as cells proliferated until near confluency before analysis) <bold>(e)</bold>. Density of Nestin-positive cells were significantly different between the adherent and EB-based protocol at passage 5 (<italic>p</italic> = 0.002, adherent: <italic>n</italic> = 10 EB: <italic>n</italic> = 4). There were no other significant differences between the induction protocols during cultivation for &#x3B2;-III-tubulin, MAP2 and GFAP <bold>(f)</bold>. The relative numbers of Nestin-, &#x3B2;-III-tubulin-, MAP2-, and GFAP-positive cells demonstrated no significant differences between the induction protocols <bold>(g)</bold>. All statistical analyses: unpaired student-<italic>t</italic>-test, correction for multiple testing by the Holm-Sidak method, error bars correspond to the standard error of the mean. EB, embryoid body; GFAP, glial fibrillary acidic protein; MAP2, microtuble-associated protein 2; NSC, neural stem cell. Scale bars: <bold>(a)</bold> 30 &#x3BC;m, <bold>(b)</bold> 30 &#x3BC;m, <bold>(c)</bold> 30 &#x3BC;m, <bold>(d)</bold> 30 &#x3BC;m. <sup>*</sup>Significant with <italic>p</italic>-value &lt; 0.05.</p>
+            </caption>
+            <graphic xlink:href="fcell-06-00003-g0003"/>
+          </fig>
+          <p>Relative numbers of &#x3B2;-III-tubulin-positive cells showed a trend toward higher values for the adherent induction protocol without reaching significant levels (Figure <xref ref-type="fig" rid="F3">3g</xref>). Only a low number of cells expressed MAP2 with similar amounts for both protocols and passages (Figure <xref ref-type="fig" rid="F3">3f</xref>). Relative numbers of MAP2-positive cells showed a trend to lower values for the EB-based protocol without reaching significant levels (Figure <xref ref-type="fig" rid="F3">3g</xref>). GFAP-positive cells were almost absent for the adherent induction protocol (Figure <xref ref-type="fig" rid="F3">3c</xref>). Proliferating cultures after EB-based induction were void of GFAP-positive cells (Figure <xref ref-type="fig" rid="F3">3d</xref>). Relative numbers of GFAP-positive cells showed a trend to lower values for the EB-based protocol without reaching significant levels (Figure <xref ref-type="fig" rid="F3">3g</xref>). For statistical values, see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">4</xref>.</p>
+        </sec>
+        <sec>
+          <title>Cellular identity after differentiation</title>
+          <p>For differentiation after passage 2, the total cell number of the EB-based induction protocol was significantly higher compared to the adherent protocol (<italic>p</italic> = 0.01, <italic>n</italic> = 8). However, after passage 5, total cell numbers were similar (Figure <xref ref-type="fig" rid="F4">4a</xref>). Cells differentiated into mature MAP2-positive neurons (Figures <xref ref-type="fig" rid="F4">4b,c</xref>) with both induction protocols. There was nominal significance for a higher number of neurons for the EB-based protocol after passage 2 and a trend after passage 5 compared to the adherent induction (Figure <xref ref-type="fig" rid="F4">4i</xref>). Relative amounts of MAP2-positive cells showed a trend toward higher numbers for the EB-based protocol without reaching statistical significance (Figure <xref ref-type="fig" rid="F4">4j</xref>). For further characterization, we analyzed distinct neuronal subtypes. MAP2-positive cells showed no significant differences at any time point (with considerable variability between different lines) when comparing both protocols regarding the co-expression of the following neuronal markers (Figure <xref ref-type="fig" rid="F4">4g</xref>): BRN2 (a marker for cortical neurons, Dominguez et al., <xref rid="B8" ref-type="bibr">2013</xref>, Figure <xref ref-type="fig" rid="F4">4d</xref>), GABA (Figure <xref ref-type="fig" rid="F4">4e</xref>), TH (expressed by dopaminergic neurons, Figure <xref ref-type="fig" rid="F4">4f</xref>). GFAP-positive cells were present in low numbers after differentiation (Figures <xref ref-type="fig" rid="F4">4b,c</xref>). There was a trend toward higher density after passage 2 for the EB-based neural induction (Figure <xref ref-type="fig" rid="F4">4i</xref>). Relative numbers showed no differences between protocols and passages (Figure <xref ref-type="fig" rid="F4">4j</xref>). As a marker for neural crest cells, we stained cells for p75 after differentiation (Figure <xref ref-type="fig" rid="F4">4h</xref>). There were no clear differences in density for p75-positiv cells (Figure <xref ref-type="fig" rid="F4">4i</xref>). However, there was a trend toward a higher relative amount for the adherent induction protocol (Figure <xref ref-type="fig" rid="F4">4j</xref>). For statistical values, see Supplemental Table <xref ref-type="supplementary-material" rid="SM1">4</xref>.</p>
+          <fig id="F4" position="float">
+            <label>Figure 4</label>
+            <caption>
+              <p>Immunofluorescence analysis of NSCs after 30 days of differentiation. The total cell number after differentiation was significantly higher for the EB-based protocol after passage 2 (<italic>p</italic> = 0.01, adherent: <italic>n</italic> = 10 EB: <italic>n</italic> = 4), but not after passage 5 <bold>(a)</bold>. NSCs from both induction protocols differentiated into MAP2-positive neurons and GFAP-positive astrocytes <bold>(b,c)</bold>. MAP2-positive cells co-expressed the cortical marker BRN2, GABA, and TH <bold>(d&#x2013;f)</bold>. There were no statistically significant differences between induction protocols and passages for the distinct neuronal markers with a considerably high variability <bold>(i)</bold>. MAP2-positive cells showed a trend to higher absolute numbers for the EB-based protocol <bold>(i)</bold>. The relative numbers of MAP2-positive cells showed only a trend to higher proportions for the EB-based protocol <bold>(j)</bold>. GFAP-positive cells were only present at low absolute and relative numbers with no statistically significant differences <bold>(i,j)</bold>. P75-positive neural crest cells were also present under all inducing conditions and at all-time points <bold>(h)</bold>. No statistically significant differences for absolute and relative amounts were present. However, the adherent induction protocol showed a trend to higher relative amounts of p75-positive cells <bold>(i,j)</bold>. All statistical analyses: unpaired student-<italic>t</italic>-test, correction for multiple testing by the Holm-Sidak method, error bars correspond to the standard error of the mean. EB, embryoid body; GABA, &#x3B3;-aminobutyric acid; GFAP, glial fibrillary acidic protein; MAP2, microtuble-associated protein 2; NSC, neural stem cell; TH, tyrosine hydroxylase. Scale bars: <bold>(b)</bold> 30 &#x3BC;m, <bold>(c)</bold> 30 &#x3BC;m, <bold>(d)</bold> 30 &#x3BC;m. <sup>*</sup>Significant with <italic>p</italic>-value &lt; 0.05.</p>
+            </caption>
+            <graphic xlink:href="fcell-06-00003-g0004"/>
+          </fig>
+        </sec>
+      </sec>
+      <sec>
+        <title>Expression of sonic hedgehog</title>
+        <p>In its role as an important proliferative factor of NSCs, we analyzed the capacity of the cell lines to express SHH (Agathocleous et al., <xref rid="B1" ref-type="bibr">2007</xref>), by evaluating the presence of the corresponding cDNA. All cell cultures derived from the EB-based protocol expressed SHH until passage 6. In higher passages, shortly before the cell lines stopped proliferating, the expression of SHH faded (Figure <xref ref-type="fig" rid="F5">5A</xref>). Of the 4 cell lines induced neurally with the adherent protocol, only one showed SHH expression at any passage. Thus, the number of cell lines expressing SHH were significantly higher for the EB-based protocol (<italic>p</italic> = 0.02, <italic>n</italic> = 8; Figure <xref ref-type="fig" rid="F5">5B</xref>).</p>
+        <fig id="F5" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p>Sonic hedgehog expression. Representative gel electrophoresis of a RT-PCR on cDNA derived from a NSC line (EB-based neural induction) for SHH at different passages demonstrates absent expression after passage 8 (beta-actin as loading control) <bold>(A)</bold>. One hundred percentage of all lines induced by the EB-based protocol, but only 25% of the adherently induced ones expressed SHH at any time point during cultivation (<italic>p</italic> = 0.02, adherent: <italic>n</italic> = 10 EB: <italic>n</italic> = 4, Fisher's exact test) <bold>(B)</bold>. <sup>*</sup>Significant with <italic>p</italic>-value &lt; 0.05.</p>
+          </caption>
+          <graphic xlink:href="fcell-06-00003-g0005"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion" id="s4">
+      <title>Discussion</title>
+      <p>The stable expansion of neural cell lines derived from pluripotent stem cells remains a demanding task: Pluripotent stem cells need to undergo neural induction and be transferred to proliferative culture conditions. Hereafter, immature, yet neurally committed neural precursors must be cultivated without spontaneous differentiation or loss of proliferativity.</p>
+      <p>For neural induction, besides the more classical EB-based protocol, a fully adherent protocol (Chambers et al., <xref rid="B3" ref-type="bibr">2009</xref>) has been developed and successfully employed for directed differentiation toward mature neurons (Kriks et al., <xref rid="B18" ref-type="bibr">2011</xref>). The advantages of this approach are considered gold standard over inducing conditions, as cell number and size cannot be easily controlled for EBs.</p>
+      <p>Cultivation of NSCs is also possible under adherent culture conditions, as well as three-dimensionally as free-floating NSPHs. As for neural induction, adherent culturing has been considered superior in terms of standardization and reproducibility (D'Aiuto et al., <xref rid="B5" ref-type="bibr">2014</xref>). However, as the developing central nervous system represents a three-dimensional structure with regionally specified expression of transcription factors and neurotrophins, NSPHs are considered a more &#x201C;natural&#x201D; way of cultivating neural stem cells (Deleyrolle and Reynolds, <xref rid="B6" ref-type="bibr">2009</xref>). Indeed, most protocols for cultivating primary NSCs from fetal tissue relied on the long-term cultivation of NSPHs (Pacey et al., <xref rid="B21" ref-type="bibr">2006</xref>), whereas protocols deriving neural precursors from iPSCs or ESCs are mostly based on adherent culture (Koch et al., <xref rid="B16" ref-type="bibr">2009</xref>; Falk et al., <xref rid="B10" ref-type="bibr">2012</xref>; Reinhardt et al., <xref rid="B22" ref-type="bibr">2013</xref>). Recent publications introduced free-floating culturing steps during neural induction and differentiation of iPSCs (Crompton et al., <xref rid="B4" ref-type="bibr">2013</xref>; D'Aiuto et al., <xref rid="B5" ref-type="bibr">2014</xref>; Zhou et al., <xref rid="B28" ref-type="bibr">2015</xref>). The added value of NPSH may arise from the ability of creating their own favorable microenvironment, e.g., by the autonomous production of the proneural signal molecule SHH (Crompton et al., <xref rid="B4" ref-type="bibr">2013</xref>).</p>
+      <p>Our aim was to compare adherent and EB-based neural induction protocols with respect to their influence on maintained proliferativity, neural identity, and differentiation.</p>
+      <p>Furthermore, we aimed to evaluate the combination of both induction protocols with the free-floating proliferation step, which has been used in the past for proliferating primary neural stem cells. The key readout of the analysis was immunostainings of proliferating NSCs and differentiated neurons. Additionally, we analyzed the expression of SHH as an important factor for sustained neural proliferatitvity.</p>
+      <p>The culture conditions during neural induction had a significant effect on certain aspects of the performance of the NSC lines during proliferation and differentiation. The cell lines induced via EBs contained a higher density of Nestin-positive NSCs (significantly at passage 5) and after differentiation resulted in a higher density of total cells and a trend toward more MAP2-positive neurons (nominally significant at passage 2). Relative numbers of MAP2-positive neurons after differentiation showed a trend toward higher values for the EB-based protocol. Crompton et al. showed that neural cultures induced from iPSCs via EBs have an intrinsic capacity to produce SHH (Crompton et al., <xref rid="B4" ref-type="bibr">2013</xref>). Our results were in line with these findings, although we haven't assessed the production of SHH <italic>per se</italic>, but evaluated the presence of SHH mRNA. In every cell line induced by the EB-based protocol SHH mRNA was present at least during early passages. For the NSCs from the adherent protocol this was true only for some of the cell lines. It is therefore possible that the superior performance associated with the EB-based neural induction was due to the induction method.</p>
+      <p>Both protocols yielded similar proportions of GABAergic, dopaminergic, and cortical neurons. However, the relative amounts of the different subtypes showed considerable variability between the different lines. The proliferation as NSPHs being a three-dimensional system is considered a good approximation to <italic>in-vivo</italic> neurogenesis and a suitable <italic>in-vitro</italic> model for NSCs (Marshall et al., <xref rid="B20" ref-type="bibr">2007</xref>). However, NSPHs are also very sensitive to changes in culture conditions (Jensen and Parmar, <xref rid="B12" ref-type="bibr">2006</xref>), a possible reason for the high variability.</p>
+      <p>Taking into consideration the temporal connection between the cessation of SHH mRNA expression and the reduction of proliferation, the role of SHH in the proliferation process could be of importance. In this regard, the EB-based protocol has a advantage over the adherent protocol in terms of higher numbers of Nestin-positive NSCs and neurons after differentiation. However, it is obvious that other factors must play an important role as well for sustained proliferation, as NSC lines induced by the adherent protocol proliferate despite of absent endogenous SHH mRNA expression. Further experiments including overexpression of SHH or extrinsic addition of SHH-agonists may improve the capability of proliferation for a longer period. A more recent protocol for long-term cultivation of neural precursors from human iPSCs indeed already successfully employed the SHH-agonist purmorphamine for this purpose (Reinhardt et al., <xref rid="B22" ref-type="bibr">2013</xref>). However, Reinhardt et al. employed a complex cocktail of small molecules to achieve long-term proliferation in comparison to the more basic protocol we used.</p>
+      <p>In conclusion, we confirmed the dual SMAD inhibition paradigm as a reliable method for neural induction. It is effective and, by using small molecules, cost-efficient and simple to apply. Furthermore, it is successful under adherent as well as free-floating conditions. However, in direct comparison, the EB-based neural induction emerged as the more promising protocol. Although differences were rather subtle, a higher proliferation and differentiation capacity as well as the presence of SHH mRNA at least during early passages suggests that this method of neural induction may be the preferred one during early cultivation. However, our data also imply that NSPHs, despite their long-standing and successful role in the cultivation of primary stem cells, may not be a feasible option for iPSC-derived neural lines. There are several options for further investigation and improvement of neural induction and proliferation protocols. For example, it would be of interest to modify the culture conditions, such as cultivation under physiological hypoxia (Bilican et al., <xref rid="B2" ref-type="bibr">2014</xref>), combine the proliferation with patterning signals or to try to improve the duration of proliferation by overexpressing SHH. Furthermore, a direct comparison of adherent cultivation with NSPH cultivation subsequent to EB-based neural induction may conclusively clarify the question, which one of the cultivation methods is indeed superior.</p>
+    </sec>
+    <sec id="s5">
+      <title>Author contributions</title>
+      <p>MP: Concept and design, data acquisition, analysis and interpretation, manuscript writing. VK: Data acquisition, analysis and interpretation. FS: Data acquisition, analysis and interpretation. PS: Concept and design, data analysis and interpretation (iPSC). CK: Concept and design, manuscript writing, PC: Concept and design, data acquisition, analysis and interpretation, manuscript writing.</p>
+      <sec>
+        <title>Conflict of interest statement</title>
+        <p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We wish to thank the probands for donating skin biopsies and Britta Meier for her assistance in data acquisition. The research leading to these results has received support from the Innovative Medicines Initiative Joint Undertaking under grant agreement number 115439, resources of which are composed of financial contribution from the European Union's Seventh Framework Programme (FP7/2007-2013) and EFPIA companies' in kind contribution.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding.</bold> CK is the recipient of a career development award from the Hermann and Lilly Schilling Foundation. PS is supported by the DFG (FOR2488). The sponsor did not have any direct involvement in the research.</p>
+      </fn>
+    </fn-group>
+    <sec sec-type="supplementary-material" id="s6">
+      <title>Supplementary material</title>
+      <p>The Supplementary Material for this article can be found online at: <ext-link ext-link-type="uri" xlink:href="https://www.frontiersin.org/articles/10.3389/fcell.2018.00003/full#supplementary-material">https://www.frontiersin.org/articles/10.3389/fcell.2018.00003/full#supplementary-material</ext-link></p>
+      <supplementary-material content-type="local-data" id="SM1">
+        <media xlink:href="DataSheet1.DOCX">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Agathocleous</surname><given-names>M.</given-names></name><name><surname>Locker</surname><given-names>M.</given-names></name><name><surname>Harris</surname><given-names>W. A.</given-names></name><name><surname>Perron</surname><given-names>M.</given-names></name></person-group> (<year>2007</year>). <article-title>A general role of hedgehog in the regulation of proliferation</article-title>. <source>Cell Cycle</source>
+<volume>6</volume>, <fpage>156</fpage>&#x2013;<lpage>159</lpage>. <pub-id pub-id-type="doi">10.4161/cc.6.2.3745</pub-id><pub-id pub-id-type="pmid">17245127</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bilican</surname><given-names>B.</given-names></name><name><surname>Livesey</surname><given-names>M. R.</given-names></name><name><surname>Haghi</surname><given-names>G.</given-names></name><name><surname>Qiu</surname><given-names>J.</given-names></name><name><surname>Burr</surname><given-names>K.</given-names></name><name><surname>Siller</surname><given-names>R.</given-names></name><etal/></person-group>. (<year>2014</year>). <article-title>Physiological normoxia and absence of egf is required for the long-term propagation of anterior neural precursors from human pluripotent cells</article-title>. <source>PLoS ONE</source>
+<volume>9</volume>:<fpage>85932</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0085932</pub-id><pub-id pub-id-type="pmid">24465796</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chambers</surname><given-names>S. M.</given-names></name><name><surname>Fasano</surname><given-names>C. A.</given-names></name><name><surname>Papapetrou</surname><given-names>E. P.</given-names></name><name><surname>Tomishima</surname><given-names>M.</given-names></name><name><surname>Sadelain</surname><given-names>M.</given-names></name><name><surname>Studer</surname><given-names>L.</given-names></name></person-group> (<year>2009</year>). <article-title>Highly efficient neural conversion of human ES and iPS cells by dual inhibition of SMAD signaling</article-title>. <source>Nat. Biotechnol</source>. <volume>27</volume>, <fpage>275</fpage>&#x2013;<lpage>280</lpage>. <pub-id pub-id-type="doi">10.1038/nbt.1529</pub-id><pub-id pub-id-type="pmid">19252484</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Crompton</surname><given-names>L. A.</given-names></name><name><surname>Byrne</surname><given-names>M. L.</given-names></name><name><surname>Taylor</surname><given-names>H.</given-names></name><name><surname>Kerrigan</surname><given-names>T. L.</given-names></name><name><surname>Bru-Mercier</surname><given-names>G.</given-names></name><name><surname>Badger</surname><given-names>J. L.</given-names></name><etal/></person-group>. (<year>2013</year>). <article-title>Stepwise, non-adherent differentiation of human pluripotent stem cells to generate basal forebrain cholinergic neurons via hedgehog signaling</article-title>. <source>Stem Cell Res</source>. <volume>11</volume>, <fpage>1206</fpage>&#x2013;<lpage>1221</lpage>. <pub-id pub-id-type="doi">10.1016/j.scr.2013.08.002</pub-id><pub-id pub-id-type="pmid">24013066</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>D'Aiuto</surname><given-names>L.</given-names></name><name><surname>Zhi</surname><given-names>Y.</given-names></name><name><surname>Das</surname><given-names>D. K.</given-names></name><name><surname>Wilcox</surname><given-names>M. R.</given-names></name><name><surname>Johnson</surname><given-names>J. W.</given-names></name><name><surname>McClain</surname><given-names>L.</given-names></name><etal/></person-group>. (<year>2014</year>). <article-title>Large-scale generation of human iPSC-derived neural stem cells/early neural progenitor cells and their neuronal differentiation</article-title>. <source>Organogenesis</source>
+<volume>10</volume>, <fpage>365</fpage>&#x2013;<lpage>377</lpage>. <pub-id pub-id-type="doi">10.1080/15476278.2015.1011921</pub-id><pub-id pub-id-type="pmid">25629202</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Deleyrolle</surname><given-names>L. P.</given-names></name><name><surname>Reynolds</surname><given-names>B. A.</given-names></name></person-group> (<year>2009</year>). <article-title>Isolation, expansion, and differentiation of adult Mammalian neural stem and progenitor cells using the neurosphere assay</article-title>. <source>Methods Mol. Biol. Clifton NJ</source>
+<volume>549</volume>, <fpage>91</fpage>&#x2013;<lpage>101</lpage>. <pub-id pub-id-type="doi">10.1007/978-1-60327-931-4_7</pub-id><pub-id pub-id-type="pmid">19378198</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dimos</surname><given-names>J. T.</given-names></name><name><surname>Rodolfa</surname><given-names>K. T.</given-names></name><name><surname>Niakan</surname><given-names>K. K.</given-names></name><name><surname>Weisenthal</surname><given-names>L. M.</given-names></name><name><surname>Mitsumoto</surname><given-names>H.</given-names></name><name><surname>Chung</surname><given-names>W.</given-names></name><etal/></person-group>. (<year>2008</year>). <article-title>Induced pluripotent stem cells generated from patients with ALS can be differentiated into motor neurons</article-title>. <source>Science</source>
+<volume>321</volume>, <fpage>1218</fpage>&#x2013;<lpage>1221</lpage>. <pub-id pub-id-type="doi">10.1126/science.1158799</pub-id><pub-id pub-id-type="pmid">18669821</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dominguez</surname><given-names>M. H.</given-names></name><name><surname>Ayoub</surname><given-names>A. E.</given-names></name><name><surname>Rakic</surname><given-names>P.</given-names></name></person-group> (<year>2013</year>). <article-title>POU-III Transcription Factors (Brn1, Brn2, and Oct6) Influence Neurogenesis, Molecular Identity, and Migratory Destination of Upper-Layer Cells of the Cerebral Cortex</article-title>. <source>Cereb. Cortex</source>
+<volume>23</volume>, <fpage>2632</fpage>&#x2013;<lpage>2643</lpage>. <pub-id pub-id-type="doi">10.1093/cercor/bhs252</pub-id><pub-id pub-id-type="pmid">22892427</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Elkabetz</surname><given-names>Y.</given-names></name><name><surname>Panagiotakos</surname><given-names>G.</given-names></name><name><surname>Al Shamy</surname><given-names>G.</given-names></name><name><surname>Socci</surname><given-names>N. D.</given-names></name><name><surname>Tabar</surname><given-names>V.</given-names></name><name><surname>Studer</surname><given-names>L.</given-names></name></person-group> (<year>2008</year>). <article-title>Human ES cell-derived neural rosettes reveal a functionally distinct early neural stem cell stage</article-title>. <source>Genes Dev</source>. <volume>22</volume>, <fpage>152</fpage>&#x2013;<lpage>165</lpage>. <pub-id pub-id-type="doi">10.1101/gad.1616208</pub-id><pub-id pub-id-type="pmid">18198334</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Falk</surname><given-names>A.</given-names></name><name><surname>Koch</surname><given-names>P.</given-names></name><name><surname>Kesavan</surname><given-names>J.</given-names></name><name><surname>Takashima</surname><given-names>Y.</given-names></name><name><surname>Ladewig</surname><given-names>J.</given-names></name><name><surname>Alexander</surname><given-names>M.</given-names></name><etal/></person-group>. (<year>2012</year>). <article-title>Capture of neuroepithelial-like stem cells from pluripotent stem cells provides a versatile system for <italic>in vitro</italic> production of human neurons</article-title>. <source>PLoS ONE</source>
+<volume>7</volume>:<fpage>e29597</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0029597</pub-id><pub-id pub-id-type="pmid">22272239</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hartfield</surname><given-names>E. M.</given-names></name><name><surname>Yamasaki-Mann</surname><given-names>M.</given-names></name><name><surname>Ribeiro Fernandes</surname><given-names>H. J.</given-names></name><name><surname>Vowles</surname><given-names>J.</given-names></name><name><surname>James</surname><given-names>W. S.</given-names></name><name><surname>Cowley</surname><given-names>S. A.</given-names></name><etal/></person-group>. (<year>2014</year>). <article-title>Physiological characterisation of human iPS-derived dopaminergic neurons</article-title>. <source>PLoS ONE</source>
+<volume>9</volume>:<fpage>e87388</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0087388</pub-id><pub-id pub-id-type="pmid">24586273</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jensen</surname><given-names>J. B.</given-names></name><name><surname>Parmar</surname><given-names>M.</given-names></name></person-group> (<year>2006</year>). <article-title>Strengths and limitations of the neurosphere culture system</article-title>. <source>Mol. Neurobiol</source>. <volume>34</volume>, <fpage>153</fpage>&#x2013;<lpage>161</lpage>. <pub-id pub-id-type="doi">10.1385/MN:34:3:153</pub-id><pub-id pub-id-type="pmid">17308349</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Katsetos</surname><given-names>C. D.</given-names></name><name><surname>Legido</surname><given-names>A.</given-names></name><name><surname>Perentes</surname><given-names>E.</given-names></name><name><surname>M&#xF6;rk</surname><given-names>S. J.</given-names></name></person-group> (<year>2003</year>). <article-title>Class III &#x3B2;-tubulin isotype: a key cytoskeletal protein at the crossroads of developmental neurobiology and tumor neuropathology</article-title>. <source>J. Child Neurol</source>. <volume>18</volume>, <fpage>851</fpage>&#x2013;<lpage>866</lpage>. <pub-id pub-id-type="doi">10.1177/088307380301801205</pub-id><pub-id pub-id-type="pmid">14736079</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Karumbayaram</surname><given-names>S.</given-names></name><name><surname>Novitch</surname><given-names>B. G.</given-names></name><name><surname>Patterson</surname><given-names>M.</given-names></name><name><surname>Umbach</surname><given-names>J. A.</given-names></name><name><surname>Richter</surname><given-names>L.</given-names></name><name><surname>Lindgren</surname><given-names>A.</given-names></name><etal/></person-group>. (<year>2009</year>). <article-title>Directed differentiation of human-induced pluripotent stem cells generates active motor neurons</article-title>. <source>Stem Cells</source>
+<volume>27</volume>, <fpage>806</fpage>&#x2013;<lpage>811</lpage>. <pub-id pub-id-type="doi">10.1002/stem.31</pub-id><pub-id pub-id-type="pmid">19350680</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kim</surname><given-names>D.-S.</given-names></name><name><surname>Lee</surname><given-names>J. S.</given-names></name><name><surname>Leem</surname><given-names>J. W.</given-names></name><name><surname>Huh</surname><given-names>Y. J.</given-names></name><name><surname>Kim</surname><given-names>J. Y.</given-names></name><name><surname>Kim</surname><given-names>H.-S.</given-names></name><etal/></person-group>. (<year>2010</year>). <article-title>Robust enhancement of neural differentiation from human es and ips cells regardless of their innate difference in differentiation propensity</article-title>. <source>Stem Cell Rev. Rep</source>. <volume>6</volume>, <fpage>270</fpage>&#x2013;<lpage>281</lpage>. <pub-id pub-id-type="doi">10.1007/s12015-010-9138-1</pub-id><pub-id pub-id-type="pmid">20376579</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Koch</surname><given-names>P.</given-names></name><name><surname>Opitz</surname><given-names>T.</given-names></name><name><surname>Steinbeck</surname><given-names>J. A.</given-names></name><name><surname>Ladewig</surname><given-names>J.</given-names></name><name><surname>Br&#xFC;stle</surname><given-names>O.</given-names></name></person-group> (<year>2009</year>). <article-title>A rosette-type, self-renewing human ES cell-derived neural stem cell with potential for <italic>in vitro</italic> instruction and synaptic integration</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A.</source>
+<volume>106</volume>, <fpage>3225</fpage>&#x2013;<lpage>3230</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.0808387106</pub-id><pub-id pub-id-type="pmid">19218428</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Komada</surname><given-names>M.</given-names></name></person-group> (<year>2012</year>). <article-title>Sonic hedgehog signaling coordinates the proliferation and differentiation of neural stem/progenitor cells by regulating cell cycle kinetics during development of the neocortex: regulation of cell cycle kinetics by Shh</article-title>. <source>Congenit. Anom</source>. <volume>52</volume>, <fpage>72</fpage>&#x2013;<lpage>77</lpage>. <pub-id pub-id-type="doi">10.1111/j.1741-4520.2012.00368.x</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kriks</surname><given-names>S.</given-names></name><name><surname>Shim</surname><given-names>J.-W.</given-names></name><name><surname>Piao</surname><given-names>J.</given-names></name><name><surname>Ganat</surname><given-names>Y. M.</given-names></name><name><surname>Wakeman</surname><given-names>D. R.</given-names></name><name><surname>Xie</surname><given-names>Z.</given-names></name><etal/></person-group>. (<year>2011</year>). <article-title>Dopamine neurons derived from human ES cells efficiently engraft in animal models of Parkinson's disease</article-title>. <source>Nature</source>
+<volume>480</volume>, <fpage>547</fpage>&#x2013;<lpage>551</lpage>. <pub-id pub-id-type="doi">10.1038/nature10648</pub-id><pub-id pub-id-type="pmid">22056989</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Li</surname><given-names>W.</given-names></name><name><surname>Sun</surname><given-names>W.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name><name><surname>Wei</surname><given-names>W.</given-names></name><name><surname>Ambasudhan</surname><given-names>R.</given-names></name><name><surname>Xia</surname><given-names>P.</given-names></name><etal/></person-group>. (<year>2011</year>). <article-title>Rapid induction and long-term self-renewal of primitive neural precursors from human embryonic stem cells by small molecule inhibitors</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>108</volume>, <fpage>8299</fpage>&#x2013;<lpage>8304</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.1014041108</pub-id><pub-id pub-id-type="pmid">21525408</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Marshall</surname><given-names>G. P.</given-names></name><name><surname>Reynolds</surname><given-names>B. A.</given-names></name><name><surname>Laywell</surname><given-names>E. D.</given-names></name></person-group> (<year>2007</year>). <article-title>Using the neurosphere assay to quantify neural stem cells <italic>in vivo</italic></article-title>. <source>Curr. Pharm. Biotechnol</source>. <volume>8</volume>, <fpage>141</fpage>&#x2013;<lpage>145</lpage>. <pub-id pub-id-type="doi">10.2174/138920107780906559</pub-id><pub-id pub-id-type="pmid">17584087</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Pacey</surname><given-names>L.</given-names></name><name><surname>Stead</surname><given-names>S.</given-names></name><name><surname>Gleave</surname><given-names>J.</given-names></name><name><surname>Tomczyk</surname><given-names>K.</given-names></name><name><surname>Doering</surname><given-names>L.</given-names></name></person-group> (<year>2006</year>). <article-title>Neural Stem Cell Culture: neurosphere generation, microscopical analysis and cryopreservation</article-title>. <source>Protoc. Exch</source>. <pub-id pub-id-type="doi">10.1038/nprot.2006.215</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Reinhardt</surname><given-names>P.</given-names></name><name><surname>Glatza</surname><given-names>M.</given-names></name><name><surname>Hemmer</surname><given-names>K.</given-names></name><name><surname>Tsytsyura</surname><given-names>Y.</given-names></name><name><surname>Thiel</surname><given-names>C. S.</given-names></name><name><surname>H&#xF6;ing</surname><given-names>S.</given-names></name><etal/></person-group>. (<year>2013</year>). <article-title>Derivation and expansion using only small molecules of human neural progenitors for neurodegenerative disease modeling</article-title>. <source>PLoS ONE</source>
+<volume>8</volume>:<fpage>e59252</fpage>. <pub-id pub-id-type="doi">10.1371/annotation/6a917a2e-df4a-4ad9-99bb-6aa7218b833e</pub-id><pub-id pub-id-type="pmid">23533608</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Seibler</surname><given-names>P.</given-names></name><name><surname>Graziotto</surname><given-names>J.</given-names></name><name><surname>Jeong</surname><given-names>H.</given-names></name><name><surname>Simunovic</surname><given-names>F.</given-names></name><name><surname>Klein</surname><given-names>C.</given-names></name><name><surname>Krainc</surname><given-names>D.</given-names></name></person-group> (<year>2011</year>). <article-title>Mitochondrial Parkin Recruitment Is Impaired in Neurons Derived from Mutant PINK1 Induced Pluripotent Stem Cells</article-title>. <source>J. Neurosci</source>. <volume>31</volume>, <fpage>5970</fpage>&#x2013;<lpage>5976</lpage>. <pub-id pub-id-type="doi">10.1523/JNEUROSCI.4441-10.2011</pub-id><pub-id pub-id-type="pmid">21508222</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Takahashi</surname><given-names>K.</given-names></name><name><surname>Tanabe</surname><given-names>K.</given-names></name><name><surname>Ohnuki</surname><given-names>M.</given-names></name><name><surname>Narita</surname><given-names>M.</given-names></name><name><surname>Ichisaka</surname><given-names>T.</given-names></name><name><surname>Tomoda</surname><given-names>K.</given-names></name><etal/></person-group>. (<year>2007</year>). <article-title>Induction of pluripotent stem cells from adult human fibroblasts by defined factors</article-title>. <source>Cell</source>
+<volume>131</volume>, <fpage>861</fpage>&#x2013;<lpage>872</lpage>. <pub-id pub-id-type="doi">10.1016/j.cell.2007.11.019</pub-id><pub-id pub-id-type="pmid">18035408</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Thomson</surname><given-names>J. A.</given-names></name><name><surname>Itskovitz-Eldor</surname><given-names>J.</given-names></name><name><surname>Shapiro</surname><given-names>S. S.</given-names></name><name><surname>Waknitz</surname><given-names>M. A.</given-names></name><name><surname>Swiergiel</surname><given-names>J. J.</given-names></name><name><surname>Marshall</surname><given-names>V. S.</given-names></name><etal/></person-group>. (<year>1998</year>). <article-title>Embryonic stem cell lines derived from human blastocysts</article-title>. <source>Science</source>
+<volume>282</volume>, <fpage>1145</fpage>&#x2013;<lpage>1147</lpage>. <pub-id pub-id-type="doi">10.1126/science.282.5391.1145</pub-id><pub-id pub-id-type="pmid">9804556</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Watanabe</surname><given-names>K.</given-names></name><name><surname>Ueno</surname><given-names>M.</given-names></name><name><surname>Kamiya</surname><given-names>D.</given-names></name><name><surname>Nishiyama</surname><given-names>A.</given-names></name><name><surname>Matsumura</surname><given-names>M.</given-names></name><name><surname>Wataya</surname><given-names>T.</given-names></name><etal/></person-group>. (<year>2007</year>). <article-title>A ROCK inhibitor permits survival of dissociated human embryonic stem cells</article-title>. <source>Nat. Biotechnol</source>. <volume>25</volume>, <fpage>681</fpage>&#x2013;<lpage>686</lpage>. <pub-id pub-id-type="doi">10.1038/nbt1310</pub-id><pub-id pub-id-type="pmid">17529971</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names>S.-C.</given-names></name><name><surname>Wernig</surname><given-names>M.</given-names></name><name><surname>Duncan</surname><given-names>I. D.</given-names></name><name><surname>Br&#xFC;stle</surname><given-names>O.</given-names></name><name><surname>Thomson</surname><given-names>J. A.</given-names></name></person-group> (<year>2001</year>). <article-title><italic>In vitro</italic> differentiation of transplantable neural precursors from human embryonic stem cells</article-title>. <source>Nat. Biotechnol</source>. <volume>19</volume>, <fpage>1129</fpage>&#x2013;<lpage>1133</lpage>. <pub-id pub-id-type="doi">10.1038/nbt1201-1129</pub-id><pub-id pub-id-type="pmid">11731781</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhou</surname><given-names>S.</given-names></name><name><surname>Szczesna</surname><given-names>K.</given-names></name><name><surname>Ochalek</surname><given-names>A.</given-names></name><name><surname>Kobol&#xE1;k</surname><given-names>K. J.</given-names></name><name><surname>Varga</surname><given-names>E.</given-names></name><name><surname>Nemes</surname><given-names>C.</given-names></name><etal/></person-group>. (<year>2015</year>). <article-title>Neurosphere based differentiation of human iPSC improves astrocyte differentiation</article-title>. <source>Stem Cells Int</source>. <volume>2016</volume>:<fpage>e4937689</fpage>. <pub-id pub-id-type="doi">10.1155/2016/4937689</pub-id><pub-id pub-id-type="pmid">26798357</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+    <glossary>
+      <def-list>
+        <title>Abbreviations</title>
+        <def-item>
+          <term>BMP</term>
+          <def>
+            <p>bone morphogenetic protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EB</term>
+          <def>
+            <p>embryoid bodies</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF</term>
+          <def>
+            <p>epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>FGF</term>
+          <def>
+            <p>fibroblast growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>GFAP</term>
+          <def>
+            <p>glial fibrillary acidic protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>iPSC</term>
+          <def>
+            <p>induced pluripotent stem cells.</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>KSR</term>
+          <def>
+            <p>knockout serum replacement medium</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>MAP</term>
+          <def>
+            <p>microtubule associated protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>MEF</term>
+          <def>
+            <p>mouse embryonic fibroblasts</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NSPH</term>
+          <def>
+            <p>neurospheres</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NSC</term>
+          <def>
+            <p>neural stem cells</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>SHH</term>
+          <def>
+            <p>sonic hedgehog.</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+  </back>
+</article>
+</pmc-articleset>

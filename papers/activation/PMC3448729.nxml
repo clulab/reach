@@ -1,0 +1,661 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23029364</article-id>
+      <article-id pub-id-type="pmc">3448729</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-12-14012</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0046010</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Molecular cell biology</subject>
+            <subj-group>
+              <subject>Gene expression</subject>
+              <subj-group>
+                <subject>Protein translation</subject>
+                <subject>RNA interference</subject>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Cell Death</subject>
+              <subject>Cell Growth</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Oncology</subject>
+            <subj-group>
+              <subject>Cancer Treatment</subject>
+              <subj-group>
+                <subject>Gene Therapy</subject>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Cancers and Neoplasms</subject>
+              <subj-group>
+                <subject>Neurological Tumors</subject>
+                <subj-group>
+                  <subject>Glioma</subject>
+                  <subject>Glioblastoma Multiforme</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+            <subj-group>
+              <subject>Oncology Agents</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>MicroRNA-330 Is an Oncogenic Factor in Glioblastoma Cells by Regulating SH3GL2 Gene</article-title>
+        <alt-title alt-title-type="running-head">MiR-330 Regulates SH3GL2 Gene in Glioblastoma</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Qu</surname>
+            <given-names>Shengtao</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Yao</surname>
+            <given-names>Yilong</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shang</surname>
+            <given-names>Chao</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Xue</surname>
+            <given-names>Yixue</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ma</surname>
+            <given-names>Jun</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Zhen</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Yunhui</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Department of Neurosurgery, Shengjing Hospital of China Medical University, Shenyang, People&#x2019;s Republic of China</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Department of Neurobiology, College of Basic Medicine, China Medical University, Shenyang, People&#x2019;s Republic of China</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Institute of Pathology and Pathophysiology, China Medical University, Shenyang, People&#x2019;s Republic of China</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Ulasov</surname>
+            <given-names>Ilya</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>University of Chicago, United States of America</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>liuyh62@gmail.com</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: YHL YXX CS STQ. Performed the experiments: STQ YLY JM ZL CS. Analyzed the data: STQ ZL CS YXX YHL. Contributed reagents/materials/analysis tools: CS YXX YHL. Wrote the paper: STQ YXX YHL. SPSS.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>21</day>
+        <month>9</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>9</issue>
+      <elocation-id>e46010</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>15</day>
+          <month>5</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>23</day>
+          <month>8</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Qu et al</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <copyright-holder>Qu et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>MicroRNAs have recently emerged as key regulators of cancers. This study was therefore conducted to investigate the role of miR-330 in biological behaviors of human glioblastoma U87 and U251 cell lines and its molecular mechanism. SH3GL2 gene was identified as the target of miR-330. MiR-330 overexpression was established by transfecting miR-330 precursor into U87 and U251 cells, and its effects on proliferation, migration, invasion, cell cycle and apoptosis were studied. Overexpression of miR-330 can enhance cellular proliferation, promote migration and invasion, activate cell cycle and also inhibit apoptosis in U87 and U251 cells. Collectively, these above-mentioned results suggest that miRNA-330 plays an oncogenic role in human glioblastoma by regulating SH3GL2 gene and might be a new therapeutic target of human glioblastoma.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work is supported by grants from Natural Science Foundation of China (Nos. 81171131, 81172197, 30973079, 81072056), the special fund for Scientific Research of Doctor-degree Subjects in Colleges and Universities, (Nos. 20092104110015, 20102104110009), Natural Science Foundation of Liaoning Province in China (No. 201102300), Science and Technology Plan Projects of Liaoning Province in China (No. 2011225020) and Shenyang Science and Technology Plan Projects (Nos. F-10-205-1-22, F-10-205-1-37). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="9"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>With a prevalence of approximately 60%, glioblastoma remains the most common malignant primary brain tumors in adult central nervous system. Despite aggressive surgery, combined radiation and chemotherapy, the median survival time is approximately 14 months <xref rid="pone.0046010-Ohgaki1" ref-type="bibr">[1]</xref>. Therefore, how to prolong the survival time of patients of glioblastoma is an urgent problem we are facing. The recent study of miRNAs brings us possibilities for the treatment of human glioblastoma <xref rid="pone.0046010-Li1" ref-type="bibr">[2]</xref>, <xref rid="pone.0046010-Zhong1" ref-type="bibr">[3]</xref>.</p>
+      <p>MicroRNAs (miRNAs) are now recognized as a class of small non-coding RNA molecules throughout the genomes of mammal <xref rid="pone.0046010-Stark1" ref-type="bibr">[4]</xref>. They post-transcriptionally regulate protein expression by targeting the 3&#x2032;-UTR of target mRNA which causes either degradation or repression of translation. Recently many miRNAs are found to play important roles in the development and maintenance of tumorigenesis. A large set of miRNAs are lower expressed or overexpressed in human tumors compared to normal tissues and miRNAs-mediating gene silencing promotes or inhibits tumor cell growth. Such regulators are usually regarded as the enhancers or suppressors of tumor progression. MiR-21 is overexpressed and has been identified as an antiapoptotic factor in human glioblastoma cells <xref rid="pone.0046010-Chan1" ref-type="bibr">[5]</xref>, <xref rid="pone.0046010-Lu1" ref-type="bibr">[6]</xref>. Additionally, miR-128, miR-34a, miR-7 and many other miRNAs also act as tumor suppressors in human glioblastoma cells <xref rid="pone.0046010-Shi1" ref-type="bibr">[7]</xref>&#x2013;<xref rid="pone.0046010-Kefas1" ref-type="bibr">[9]</xref>. MiR-330 gene was firstly found by Weber in 2005, located at 19q13.32 <xref rid="pone.0046010-Weber1" ref-type="bibr">[10]</xref>
+<bold>.</bold> Previous studies show that miR-330 was able to acts as tumor suppressor and induced apoptosis of prostate cancer cells through E2F1-mediated suppression of Akt phosphorylation <xref rid="pone.0046010-Lee1" ref-type="bibr">[11]</xref>. However, the function and molecular mechanism of miR-330 in determining the malignant phenotype of human glioblastoma are less elusive.</p>
+      <p>SH3GL2 gene is a candidate tumor suppressor gene that particularly more highly expressed in central nervous system <xref rid="pone.0046010-Giachino1" ref-type="bibr">[12]</xref>, <xref rid="pone.0046010-Ringstad1" ref-type="bibr">[13]</xref>. Moreover, decreased expression of SH3GL2 is shown to be associated with tumorigenesis of laryngeal carcinoma <xref rid="pone.0046010-Shang1" ref-type="bibr">[14]</xref>. Our previous study has shown that SH3GL2 gene is obviously less expressed in human glioblastoma which indicates the correlation of its expression with the incidence of glioblastoma <xref rid="pone.0046010-Shang2" ref-type="bibr">[15]</xref>. Potter, et al also observed deletion of the locus in pilocytic astrocytomas suggesting a tumor suppressor role of SH3GL2 in brain tumors <xref rid="pone.0046010-Potter1" ref-type="bibr">[16]</xref>. However, the underlying mechanism is still unclear. The recent prediction of miR-330 targeting SH3GL2 3&#x2032;-UTR has led our further study on the mechanism of downregulation of SH3GL2 gene in glioblastoma.</p>
+      <p>Here, for the first time, we uncovered a comprehensive analysis of the regulation of miR-330 and SH3GL2 expression in glioblastoma. We investigated the regulatory effects of miR-330 on SH3GL2 and explored the potential oncogenic mechanism of miR-330 in glioblastoma cells.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Human Tissue Samples</title>
+        <p>All human normal brain and glioma tissue samples were obtained from the Department of Neurosurgery, Shengjing Hospital of China Medical University. This study procedure was approved by The Institutional Review Board at the hospital. All participants provided written informed consent. The tissue samples were obtained from those without necrosis and coagulation parts. For each sample, the major portion of tissue was frozen immediately in liquid nitrogen for molecular analysis, and the remaining tissue was fixed in paraformaldehyde for histological examination. All samples were histologically classified and graded according to WHO guidelines by tow experienced clinical pathologists.</p>
+      </sec>
+      <sec id="s2b">
+        <title>Reagents and Cell Culture</title>
+        <p>Dulbecco's Modified Eagle Medium: Nutrient Mixture F-12 (DMEM/F12) and fetal bovine serum (FBS) was purchased from Gibco (Carlsbad, CA, USA). Trizol and Lipofectamine&#x2122; 2000 transfection reagent were purchased from Invitrogen (Carlsbad, CA, USA). MicroRNAs and their negative control molecules were synthesized by Ambion (Austin, TX, USA). The siRNA targeting SH3GL2 gene and its negative control molecules were synthesized in vitro using the Ambion Silencer &#x2122; siRNA Construction Kit. All other chemicals and reagents were purchased from Sigma-Aldrich (Shanghai, China) unless otherwise specified. Human glioblastoma cell lines U87 and U251 were obtained from the Chinese Academy of Medical Sciences and cultured in DMEM/F12 medium supplemented with 10% fetal bovine serum (FBS), 100 units of penicillin/ml and 100 ng of streptomycin/ml. HEK-293 cells were also from the Chinese Academy of Medical Sciences and cultured in DMEM medium of high glucose without penicillin and streptomycin. All cells were incubated in a 5% CO<sub>2</sub> humidified incubator at 37&#xB0;C.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Vector Construction</title>
+        <p>The 3&#x2032;-UTR sequence of human SH3GL2 gene was amplified by PCR using the following primers: SH3GL2 forward primer, <named-content content-type="gene">5&#x2032;-TCG AGG ATG TTA TGC TGG CTG-3&#x2032;</named-content>; SH3GL2 reverse primer, <named-content content-type="gene">5&#x2032;-CTG CGG CCT GCA CTT GGG ATGT-3&#x2032;</named-content>. For its mutagenesis, the sequence complementary to the binding site of miR-330 in its 3&#x2032;-UTR (TGC TTT G) was replaced by GAA GCC A using the overlap PCR method. The wild type and mutant type 3&#x2032;-UTRs of SH3GL2 were cloned into pmirGLO Dual-Luciferase miRNA target expression vector using the Xho I and Sal I sites. These constructs were validated by sequencing.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Cell Transfection</title>
+        <p>Cells at 50&#x2013;70% confluence were transfected using lipofectamine 2000 reagent (Invitrogen, CA, USA) 24 h after plating. Transfection complexes were prepared according to the manufacturer&#x2019;s instructions and added directly to the cells to a final oligonucleotide concentration of 50 nmol/L. At 6 h after the transfection, the medium was replaced with fresh DMEM/F12 with 10% fetal bovine serum, and the cells were incubated for an additional 48 h or 72 h. Then the transfected cells were harvested for further study. Those transfected with miRNA precursors were divided into 5 groups: mock group with no miRNA precursor but PBS, pre-miR-con group with pre-miR negative control precursor, pre-miR-330 group with miR-330 precursor, anti-miR-con with anti-miR negative control precursor and anti-miR-330 group with miR-330 inhibitor precursor. Those transfected with siRNA were divided into 2 groups: siRNA control (siRNA-con) group and siRNA-SH3GL2 group.</p>
+      </sec>
+      <sec id="s2e">
+        <title>Bioinformatics Method and Luciferase Reporter Assay</title>
+        <p>The common targets of miR-330 predicted by computer-aided algorithms were obtained from multiple target prediction programs: Targetscan and Miranda (<ext-link ext-link-type="uri" xlink:href="http://www.targetscan.org/and">http://www.targetscan.org/and</ext-link>
+<ext-link ext-link-type="uri" xlink:href="http://www.microrna.org/">http://www.microrna.org/</ext-link>). HEK-293 cells were seeded into a 24-well plate. After cultured overnight, cells were co-transfected with the wild-type or mutated SH3GL2 3&#x2032;-UTR reporter plasmid, and transfected with pre-miR-330 or pre-miR-con precursors. Luciferase assays were performed 48 h after transfection using the Dual-Luciferase Reporter Assay System (Promega, WI, USA).</p>
+      </sec>
+      <sec id="s2f">
+        <title>RNA Extraction, Reverse Transcription PCR and Quantitative Real-time PCR</title>
+        <p>Total RNA of each group was extracted from the cells using Trizol according to the manufacturer&#x2019;s instruction. RT-PCR was conducted using an RT-PCR kit (TaKaRa, Dalian, China). The primers used were all synthesized by Sangon (Shanghai, China). To analyze miR-330 expression levels, the stem-loop RT-PCR assay was used to quantify the miRNAs expression levels. The RT-PCR primers were as following: miR-330 RT primer: 5&#x2032;-GTC GTA TCC AGT GCG TGT CGT GGA GTC GGC AAT TGC ACT GGA TAC GAC TCT CTG C-3&#x2032;. MiR-330 PCR primers are: forward: 5&#x2032;-CGG CAA AGC ACA CGG CCT G-3&#x2032;; reverse: 5&#x2032;-TGC GTG TCG TGG AGT CGG C-3&#x2032;. U6 RT primer is: 5&#x2032;-TGG TGT CGT GGA GTC G-3&#x2032;. U6 PCR primers are: forward: 5&#x2032;-CTC GCT TCG GCA GCA CA-3&#x2032;; reverse: 5&#x2032;-AAC GCT TCA CGA ATT TGC GT-3&#x2032;. qRT-PCR was performed using SYBR Premix Dimer Eraser (TaKaRa, Dalian, China) on a 7500HT system. The expression levels of miR-330 were normalized with reference to expression levels of U6, and fold changes were calculated by relative quantification (2<sup>&#x2212;&#x394;&#x394;Ct</sup>). The primer sequences for SH3GL2 gene expression were as follows: &#x3B2;-actin forward: 5&#x2032;-ATC ATG TTT GAG ACC TTC AAC A-3&#x2032;, reverse: 5&#x2032;-CAT CTC TTG CTC GAA GTC CA-3&#x2032;; SH3GL2, forward: 5&#x2032;-GGC CCT GTC ACT CCT GAG AT-3&#x2032;, reverse: 5&#x2032;-GGC ATC CAG GTT ATC GGG GA-3&#x2032;; Amplification was performed over 35 cycles: 94&#xB0;C/60 s (denaturation), 58&#xB0;C/45 s (annealing) and 72&#xB0;C/45 s (extension). The relative SH3GL2 mRNA levels were normalized to those of &#x3B2;-actin mRNA levels using Quality One analysis software (Bio-Rad, USA).</p>
+      </sec>
+      <sec id="s2g">
+        <title>Western Blot Analysis</title>
+        <p>Total protein from transfected cells was extracted in RIPA buffer supplemented with protease inhibitors (100 mM Tris, pH 7.4, 150 mM NaCl, 5 mMEDTA, 1% Triton X-100, 1% deoxycholate acid, 0.1% SDS, 2 mM phenylmethylsulfonyl fluoride, 1 mM sodium orthovanadate, 2 mM DTT, 2 mM leupeptin, 2 mM pepstatin). The samples were centrifuged (12,000 g, 4&#xB0;C) for 20 min and the protein concentration was determined by the BCA method (Beyotime Institute of Biotechnology, Jiangsu, China). The proteins were separated using 12% SDS-PAGE and then electrophoretically transferred to a PVDF membrane (Millipore, USA). The membranes were blocked in blocking buffer (5% non-fat milk dissolved in Tris-buffered saline-Tween, TBS-T) overnight at 4&#xB0;C. The blots were then incubated with mouse monoclonal anti-SH3GL2 antibody (diluted 1&#x2236;500, Santa Cruz Biotechnology, CA, USA) and mouse monoclonal anti-&#x3B2;-actin antibody (diluted 1&#x2236;4000, Santa Cruz Biotechnology). Protein bands were visualized by ECL (Santa Cruz Biotechnology, CA, USA) and detected by ECL Detection Systems (Thermo Scientific). The relative integrated density values (IDVs) were calculated based on &#x3B2;-actin protein as an internal control.</p>
+      </sec>
+      <sec id="s2h">
+        <title>Proliferation Assay</title>
+        <p>U87 and U251 cells were seeded into 96-well plates at a density of 2000 cells/well with five replicate wells for each group, transfected and assayed 24, 48, 72, 96, 120 h after transfection. 20 &#xB5;l of MTT (5 mg/ml) was added into each well and incubated for another 4 h, and then the supernatant was discarded, 150 &#xB5;l of DMSO was added to each well to dissolve the precipitate. Optical density (OD) value was measured at the wavelength of 490 nm every 24 h for 5 consecutive days after treatment. The data were derived from three independent experiments.</p>
+      </sec>
+      <sec id="s2i">
+        <title>Cell Migration and Invasion Assay</title>
+        <p>Migration of U87 and U251 cells was assayed using chamber (Costar, USA) with polycarbonic membrane (6.5 mm in diameter, 8 &#xB5;m pore size). Cells were grown to about 70% confluence and transfected with the desired miRNAs. After 24 h, the cells were replaced with serum-free medium incubated for another 24 h. Then cells were trypsinized and collected. 5&#xD7;10<sup>4</sup> cells in serum-free medium were added to the upper chamber. Then 600 &#xB5;l medium with 10% FBS was added to the lower chamber. Cells were incubated for 24 h at 37&#xB0;C, and then non-migrating cells on the top of membrane were removed with cotton swabs. Cells that migrated to the bottom of the membrane were then fixed with methanol and stained with 20% Giemsa solution for 30 min at 37&#xB0;C and washed twice with PBS. Then stained cells were subjected to a microscopic inspection counted within five randomly chosen fields and the average number was taken. For the cell invasion ability assay, the procedure was similar to migration assay, but the transwell membrane was coated with a 500 ng/&#xB5;l Matrigel solution (BD, Franklin Lakes, NJ), and incubated for 4h at 37&#xB0;C then collected the after-transfected cells added to the upper chamber for the further assay. Invasive cells were fixed, stained with 5% crystal violet and counted as previously described.</p>
+      </sec>
+      <sec id="s2j">
+        <title>Cell Cycle Assay</title>
+        <p>To assess the effect of miR-330 on the cell cycle, the U87 and U251 cells were transfected with pre-miR-con and pre-miR-330. Briefly, 72 h after transfection 1&#xD7;10<sup>6</sup> cells were washed with phosphate buffer saline (PBS), trypsinized and resuspended in ice-cold PBS. Cells were then gently pelleted by centrifugation (500 g for 5 min at 4&#xB0;C), the supernatant was removed and the cells were fixed and permeabilized in 70% ethanol at &#x2212;20&#xB0;C. Fixed cells were washed with PBS and incubated in the dark for 30 min with a propidium iodide (PI) staining solution containing 50 &#xB5;g/ml propidium iodide (PI) and 100 &#xB5;g/ml RNase A in PBS. The cells were then analyzed for DNA content on a FACscan (BD FACSCalibur, USA) and G0/G1, S and G2/M fractions were determined.</p>
+      </sec>
+      <sec id="s2k">
+        <title>Apoptosis Assay</title>
+        <p>The effect of miR-330 expression on cell apoptosis was assessed by Annexin V-FITC/PI staining. U87 and U251 cells were transfected with mock, pre-miR-330, anti-miR-330 and their negative control molecules for 72 h. Then, the cells were harvested and stained with Annexin V-FITC and PI according to the instruction of the manufacturer. Cell samples were analyzed on a FACsan and apoptotic fractions were determined.</p>
+      </sec>
+      <sec id="s2l">
+        <title>Statistical Analysis</title>
+        <p>For all the experiments, data were obtained from three independent experiments. All results were expressed as the mean &#xB1; SD for each group. Data were analyzed by use of SPSS 13.0 software. When appropriate, two group comparisons were analyzed with a <italic>t</italic>-test and more than two groups comparisons were analyzed with one-way ANOVA. P&lt;0.05 was considered significant and symbolized by an asterisk in the graphs.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>MiR-330 Expression was Increased in Glioblastoma</title>
+        <p>To determine the levels of miR-330 in established glioblastoma cell lines, glioblastoma tissues and normal brain tissues, total RNAs were extracted from U87, U251 and U373 cells, glioblastoma tissues and normal brain tissues. The expression levels of miR-330 were analyzed using RT-PCR and quantitative real-time PCR<bold>.</bold> U6 RNA level was used as an internal control. As shown in <xref ref-type="fig" rid="pone-0046010-g001">Figure 1</xref>, the expression levels of miR-330 normalized to U6 were significantly up-regulated in five glioblastoma tissues and three glioblastoma cells when compared to the three normal brain tissues. This result indicates that miR-330 is up-regulated in glioblastoma.</p>
+        <fig id="pone-0046010-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>MiR-330 was overexpressed in human glioblastoma tissues and cells.</title>
+            <p>Relative miR-330 expression levels were analyzed by qRT-PCR in normal brain tissues, glioblastoma tissues and established glioblastoma cell lines. U6 RNA level was used as an internal control. Asterisks indicate significant difference when compared to normal brain tissues (P&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g001"/>
+        </fig>
+      </sec>
+      <sec id="s3b">
+        <title>MiR-330 Directly Targeted the 3&#x2032;-UTR of SH3GL2</title>
+        <p>Bioinformatics analyses available on the public miRNA databases were used (<ext-link ext-link-type="uri" xlink:href="http://www.targetscan.org/and">http://www.targetscan.org/and</ext-link>
+<ext-link ext-link-type="uri" xlink:href="http://www.microrna.org/">http://www.microrna.org/</ext-link>) to identify miRNAs that specifically target SH3GL2. MiR-330 was shown to have a putative binding site to the 3&#x2032;-UTR region of SH3GL2 with 100% conserved sequence. A highly conservative miR-330 binding site at SH3GL2 3&#x2032;-UTR 56&#x2013;62 base position was predicted in many species, such as the <italic>H. Sapiens</italic>, the <italic>M. muculus</italic> and the <italic>R. Norvegius et al</italic>. The seed for miR-330 to SH3GL2 3&#x2032;-UTR is shown in <xref ref-type="fig" rid="pone-0046010-g002">Figure 2A</xref>. The wild type of SH3GL2 3&#x2032;-UTRs was cloned into pmirGLO Dual-Luciferase miRNA target expression vector. Overexpression of miR-330 decreased luciferase activity of this reporter to about 60% of the control level (<xref ref-type="fig" rid="pone-0046010-g002">Figure 2C</xref>), suggesting that miR-330 inhibits the 3&#x2032;-UTR function of SH3GL2. To test whether miR-330 specifically inhibited SH3GL2 by its potential binding site of seed sequence, the mutated reporter at miR-330 binding site was constructed (<xref ref-type="fig" rid="pone-0046010-g002">Figure 2B</xref>). Forced expression of miR-330 did not affect the mutant SH3GL2 reporter activities (<xref ref-type="fig" rid="pone-0046010-g002">Figure 2D</xref>). These results indicate that SH3GL2 is a direct target of miR-330 with the specific binding site at the seed sequence.</p>
+        <fig id="pone-0046010-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>MiR-330 negatively regulated SH3GL2 through binding to the 3&#x2032;-UTR of SH3GL2.</title>
+            <p>(A) Schematic diagram of putative miR-330 binding site in the 3&#x2032;-UTR of SH3GL2 in human. The seed sequence of miR-330 matches 3&#x2032;-UTR of SH3GL2 (in bold). (B) The corresponding mutated nucleotides of the SH3GL2 3&#x2032;-UTR was labeled in bold bellow. (C) Relative luciferase activities of SH3GL2 wild type 3&#x2032;- UTR were obtained by co-transfection of PBS (mock), negative control miRNA or miR-330 precursors; and calculated as the ratio of firefly/renilla activities in the cells and normalized to those of the control. The results were presented as mean&#xB1;SD from three independent experiments with each experiment in triplicate. Asterisk indicates significant difference when compared to control (P&lt;0.05). (D) Relative luciferase activities of pmirGLO plasmid, SH3GL2 wild type and mutant type 3&#x2032;- UTR were obtained by co-transfection of miR-330 precursor; and calculated as the ratio of firefly/renilla activities in the cells and normalized to those of the control. The results were presented as mean&#xB1;SD from three independent experiments with each experiment in triplicate. Asterisk indicates significant difference when compared to control (P&lt;0.05).</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g002"/>
+        </fig>
+      </sec>
+      <sec id="s3c">
+        <title>MiR-330 Post-transcriptionally Inhibited SH3GL2 Expression</title>
+        <p>The relationship between miR-330 level and SH3GL2 expression was analyzed in U87 and U251 cells. When cell lines were transfected with exogenous miR-330 and its inhibitors, the level of SH3GL2 protein was detected by western blotting. As shown in <xref ref-type="fig" rid="pone-0046010-g003">Figure 3B</xref>
+<bold>,</bold> there was a significant inverse correlation between miR-330 and SH3GL2 protein level in the pre-miR-330 group versus pre-miR-con group (P&lt;0.05), while there was no obvious difference between mock group and pre-miR-con group. What&#x2019;s more, the anti-miR-330 played the opposite effect of pre-miR-330 with an increasing level of SH3GL2 protein expression versus either pre-miR-330 or anti-miR-con group (P&lt;0.05). Meanwhile, the SH3GL2 mRNA level after transfection in each group was also detected by RT-PCR. However, there was no statistical significance among the five groups (<xref ref-type="fig" rid="pone-0046010-g003">Figure 3A</xref>). As shown in <xref ref-type="fig" rid="pone-0046010-g003">Figure 3</xref>, miR-330 induced a significant decrease of SH3GL2 protein expression without influence on mRNA level. To further validate the effect of miR-330 on SH3GL2 gene, rescue experiment by siRNA on SH3GL2 in U87 cells was performed. As shown in <xref ref-type="supplementary-material" rid="pone.0046010.s001">Figure S1</xref>, there were decreases at both mRNA and protein level of SH3GL2 gene (P&lt;0.05). All of these results indicate that miR-330 post-transcriptionally inhibits SH3GL2 expression and miR-330 is negatively correlated with SH3GL2 protein expression in glioblastoma cells.</p>
+        <fig id="pone-0046010-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>MiR-330 regulated SH3GL2 expression at the post-transcriptional level.</title>
+            <p>(A) Overexpression of miR-330 or transfection of exogenous miR-330 inhibitor did not change the SH3GL2 mRNA level detected by RT-PCR. The effectiveness of miR-330 on SH3GL2 mRNA was analyzed by RT-PCR. The mRNA levels of the SH3GL2 were shown and normalized against that of &#x3B2;-actin. (B) Overexpression of miR-330 inhibited SH3GL2 expression at protein level. The expression level of SH3GL2 and &#x3B2;-actin in U87 and U251 cells transfected with exogenous miR-330 or its inhibitor were analyzed by Western blot 48 h after transfection. &#x3B2;-actin was used as an internal loading control (P&lt;0.05). Accompanying graphs show densitometry analysis of SH3GL2 expression. Data are means of three independent experiments &#xB1; SD.* P&lt;0.05 compared with control group.</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g003"/>
+        </fig>
+      </sec>
+      <sec id="s3d">
+        <title>MiR-330 Promoted Cellular Proliferation of Glioblastoma</title>
+        <p>To investigate whether miR-330 could influence glioblastoma cell proliferation, MTT assay was performed in U87 and U251 cells. The result demonstrated that U87 and U251 cells transfected with pre-miR-330 exhibited a significant increase of cellular viability compared with cells treated by pre-miR-con (P&lt;0.05). While, there was no significant difference between mock group and pre-miR-con group in both cell lines. On the contrary, anti-miR-330 decreased cellular proliferation in both U87 and U251 cells compared with anti-miR-con group (<xref ref-type="fig" rid="pone-0046010-g004">Figure 4</xref>). In the rescue experiment, U87 cells transfected with siRNA-SH3GL2 showed higher cellular proliferation than that of siRNA-con group (<xref ref-type="supplementary-material" rid="pone.0046010.s002">Figure S2A</xref>). These results demonstrate that miR-330 can promote cellular proliferation in glioblastoma cells in an SH3GL2-dependent way.</p>
+        <fig id="pone-0046010-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>MiR-330 increased cell proliferation of U87 and U251 cells.</title>
+            <p>MTT assay showed that U87 (A) and U251 (B) cells transfected with pre-miR-330 proliferated at a higher rate than the pre-miR-con group (P&lt;0.05). Those transefected with anti-miR-330 group showed a lower proliferation rate than the anti-miR-con group (P&lt;0.05).There was no obvious difference between mock group and the two control groups in the experiment. Values represent the mean &#xB1; SD of three independent experiments.* P&lt;0.05 compared with control group.</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g004"/>
+        </fig>
+      </sec>
+      <sec id="s3e">
+        <title>MiR-330 Increased Glioblastoma Cell Migration and Invasion</title>
+        <p>To examine whether overexpression of miR-330 affected the migration and invasion capacity of glioblastoma cells, transwell assays were introduced. We observed that miR-330 overexpression enhanced FBS-induced migration ability of glioblastoma cells compared with pre-miR-con group (P&lt;0.05) (<xref ref-type="fig" rid="pone-0046010-g005">Figures 5A and 5C</xref>). In parallel, a Matrigel invasion assay was also performed to study the effects of miR-330 on the invasion of glioblastoma cells. The results clearly revealed that miR-330 also increased FBS-induced invasion of U87 and U251 cells compared with pre-miR-con group (P&lt;0.05) (<xref ref-type="fig" rid="pone-0046010-g005">Figures 5B and 5D</xref>). However, there was no significant difference between mock group and pre-miR-con group. We also found the opposite effects of anti-miR-330 exerted on both cell lines compared with anti-miR-con or pre-miR-330 group (P&lt;0.05). While the U87 cell showed higher migration and invasion capacity in siRNA-SH3GL2 group than in siRNA-con group (P&lt;0.05) (<xref ref-type="supplementary-material" rid="pone.0046010.s002">Figure S2B</xref>).These results above strongly suggest that miR-330 is an important factor involved in the migration and invasion of glioblastoma cells by regulating SH3GL2 gene.</p>
+        <fig id="pone-0046010-g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>MiR-330 increased migration and invasion of U87 and U251 cells.</title>
+            <p>U87 and U251 cells were transfected miRNA precursors and then subject to transwell migration and invasion assays. After 24 h and 48 h, migration and invasion cells were correspondingly counted after staining with Giemsa (A and B) or 5% crystal violet (C and D). Representative photographs of migration and invasion cells on the membrane and accompanying statistical plots were presented. There were obvious differences between pre-miR-330 group and pre-miR-con group; the anti-miR-330 group showed a contrary effect compared with mock, negative control and pre-miR-330 groups (P&lt;0.05). However, there was no obvious difference between mock group and negative control groups. Values represent the mean &#xB1; SD from three independent experiments.* P&lt;0.05 compared with control group.</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g005"/>
+        </fig>
+      </sec>
+      <sec id="s3f">
+        <title>MiR-330 Accelerated Glioblastoma Cell Cycle</title>
+        <p>The cell cycle distribution of the cells treated with miR-330 was examined using flow cytometry. The results showed that there were higher S, G2/M phase fractions in glioblastoma cells transfected with pre-miR-330 compared with the cells transfected with pre-miR-con (P&lt;0.05) (<xref ref-type="fig" rid="pone-0046010-g006">Figure 6</xref>). In the rescue experiment, the cell cycle distribution between siRNA-SH3GL2 group and siRNA-con group showed a significant difference (P&lt;0.05) (<xref ref-type="supplementary-material" rid="pone.0046010.s003">Figure S3A</xref>). These data suggest that overexpression of miR-330 cause acceleration of cell cycle through influencing SH3GL2 gene.</p>
+        <fig id="pone-0046010-g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>MiR-330 promoted cell cycle progression of U87 and U251 cells.</title>
+            <p>Cell cycle distribution of U87 and U251 cells transfected with pre-miR-con and pre-miR-330. The percentage of cells in the different cell cycle phases was plotted, and the results represent the mean &#xB1; SD. * P&lt;0.05 compared with control group.</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g006"/>
+        </fig>
+      </sec>
+      <sec id="s3g">
+        <title>MiR-330 Inhibited the Apoptosis of Glioblastoma</title>
+        <p>To confirm that the overexpression of miR-330 was associated with apoptosis, we examined the apoptosis of the cells by flow cytometry 72 h after transfection. The results obviously demonstrated that there was a significant decrease of apoptosis in glioblastoma cells transfected with pre-miR-330 compared with cells transfected with pre-miR-con (P&lt;0.05). While those transfected with anti-miR-330 showed an increase of apoptosis compared with anti-miR-con and pre-miR-330 groups (P&lt;0.05) (<xref ref-type="fig" rid="pone-0046010-g007">Figure 7</xref>). In the rescue experiment, the siRNA-SH3GL2 group also showed a lower apoptotic proportion than the siRNA-con group (P&lt;0.05) (<xref ref-type="supplementary-material" rid="pone.0046010.s003">Figure S3B</xref>). These data confirm that miR-330 plays an antiapoptotic role in glioblastoma cells by regulating SH3GL2 gene.</p>
+        <fig id="pone-0046010-g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0046010.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>MiR-330 inhibited apoptosis of U87 and U251 cells.</title>
+            <p>Apoptosis of U87 and U251 cells were monitored by flow cytometry. Early apoptotic cells are Annexin V+/PI&#x2212;, late apoptotic cells are Annexin V+/PI+, necrotic cells are Annexin V&#x2212;/PI+ and healthy cells are Annexin V&#x2212;/PI&#x2212;. A representative experiment of three performed was shown. The percentage of apoptotic cells is indicated and the results represent the mean &#xB1; SD. * P&lt;0.05 compared with control group.</p>
+          </caption>
+          <graphic xlink:href="pone.0046010.g007"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>In this study, we firstly revealed the oncogenic role of miR-330 in human glioblastoma cells and its relationship with SH3GL2 gene. We found that miR-330 could influence the proliferation, migration, invasion, cell cycle and apoptosis of human glioblastoma by regulating SH3GL2 gene.</p>
+      <p>SH3GL2, also termed as endophilin-1, is a multifunctional gene <xref rid="pone.0046010-Reutens1" ref-type="bibr">[17]</xref>. SH3GL2 mainly distributes in central nervous system, particularly enriched in the presynaptic ganglion <xref rid="pone.0046010-Giachino1" ref-type="bibr">[12]</xref>. Besides its endocytic functions, the non-endocytic functions of SH3GL2 may play a more important part in the malignant progression of tumor. Previous studies have shown that SH3GL2 gene is expressed less and functions as a tumor suppressor gene in many different tumor tissues. Gene chip demonstrated that the SH3GL2 gene expression was significantly decreased in laryngeal cancer. Clinical evidences also showed that there is a reduction of SH3GL2 expression in the samples from the follow-up patients <xref rid="pone.0046010-Shang1" ref-type="bibr">[14]</xref>. Osterberg also proved that low expression of SH3GL2 was associated with increased chemotherapy resistance in ovarian cancer <xref rid="pone.0046010-Osterberg1" ref-type="bibr">[18]</xref>. Sinha confirmed the decreased SH3GL2 gene expression in breast cancer <xref rid="pone.0046010-Sinha1" ref-type="bibr">[19]</xref>. In addition, it was reported that the SH3GL2 gene was involved in head and neck dysplastic lesions <xref rid="pone.0046010-Ghosh1" ref-type="bibr">[20]</xref>. Our previous study found that the SH3GL2 expression was obviously lower in glioblastoma tissues compared with normal brain tissues <xref rid="pone.0046010-Shang2" ref-type="bibr">[15]</xref>. These suggest that the SH3GL2 gene may also be a tumor suppressor gene and plays an important role in human glioblastoma. However, the underlying mechanism is still unclear.</p>
+      <p>Recently, miRNAs have been rapidly developed as potential important molecular markers for cancer and other diseases <xref rid="pone.0046010-Nimmo1" ref-type="bibr">[21]</xref>&#x2013;<xref rid="pone.0046010-Dalmay1" ref-type="bibr">[23]</xref>. They are found to regulate apoptosis, proliferation, differentiation, development, and metabolism in worm, fly, fish, mouse and human cells <xref rid="pone.0046010-Bartel1" ref-type="bibr">[24]</xref>. Many studies have shown that miRNAs function as oncogenes or tumor suppressor genes <xref rid="pone.0046010-EsquelaKerscher1" ref-type="bibr">[25]</xref>&#x2013;<xref rid="pone.0046010-Chen1" ref-type="bibr">[27]</xref>. MiR-34a is repressed and promotes tumorigenesis in proneural malignant gliomas <xref rid="pone.0046010-Silber2" ref-type="bibr">[28]</xref>. Inhibition of the highly expressed miR-221 and miR-222 impairs the growth of prostate carcinoma xenografts in mice <xref rid="pone.0046010-Mercatelli1" ref-type="bibr">[29]</xref>.</p>
+      <p>To explore whether there were some microRNAs involved in the regulation of SH3GL2, we applied bioinformatics method (TargetScan and Miranda) to search for the possible microRNAs that target SH3GL2<bold>.</bold> We found that there was a binding site of miR-330 in the 3&#x2032;-UTR of SH3GL2, suggesting SH3GL2 as a potential target of miR-330. Subsequently, luciferase reporter assay confirmed the prediction of miR-330&#x2032;s targeting on the 3&#x2032;-UTR of SH3GL2 gene. Meanwhile, we found a higher relative expression level in glioblastoma tissues and established glioblastoma cell lines than that of normal brain tissues. By transfection of exogenous miR-330, we detected a reduction of SH3GL2 protein expression in two glioblastoma cells. Glioblastoma cells transfected with anti-miR-330 showed higher expression of SH3GL2 protein level. Neither of these miRNA precursor transfections affected the SH3GL2 mRNA level. Meanwhile, we revealed that overexpression of miR-330 could increase the viability of glioblastoma cells. We also found that miR-330 obviously increased migration and invasion of glioblastoma cells. Besides, miR-330 could also influence the cell cycle and act as an antiapoptotic factor in both cell lines. What&#x2019; more, we found the opposite effects by transfecting anti-miR-330 precursor. To further confirm the biological behavior change of glioblastoma cells through miR-330&#x2032;s regulation of SH3GL2, we also transfected the siRNA targeting on SH3GL2 and got similar results as miR-330. In line with the previous studies, these results indicated that miR-330 functioned as an oncogenic miRNA by negatively regulating the candidate tumor suppressor gene SH3GL2 in human glioblastoma cells.</p>
+      <p>Since the close relationship between miR-330 and the SH3GL2 gene, we analyzed the potential mechanism of this process according to the previous studies. SH3GL2 can regulate intracellular transit and maturation of metalloprotease disintegrin by binding to its cytoplasmic tail, and then affects cell adhesion and growth factor signaling <xref rid="pone.0046010-Howard1" ref-type="bibr">[30]</xref>. When binding to Cbl-interacting protein of 85 kDa (CIN85) and Cbl, SH3GL2 can also influence internalization, degradation and intracellular signaling of tyrosine kinase receptors for hepatocyte and epidermal growth factors <xref rid="pone.0046010-Petrelli1" ref-type="bibr">[31]</xref>&#x2013;<xref rid="pone.0046010-Song1" ref-type="bibr">[33]</xref>. At the same time, this complex mediates ligand-induced downregulation of c-Met and EGF receptors <xref rid="pone.0046010-Petrelli1" ref-type="bibr">[31]</xref>, <xref rid="pone.0046010-Soubeyran1" ref-type="bibr">[34]</xref>. Both c-Met and EGF receptors cause the development of cancers by influencing their differentiation, proliferation, migration, invasion, cell cycle progression and apoptosis, etc. Hence, SH3GL2 may play a key role in the progression of malignant tumors as a tumor suppressor gene.</p>
+      <p>A recent study showed that miR-330 induced apoptosis in prostate cancer cells through E2F1-mediated suppression of Akt phosphorylation <xref rid="pone.0046010-Lee1" ref-type="bibr">[11]</xref>. Our study showed that exogenous overexpression of miR-330 caused some opposite biological behavior changes in glioblastoma cells compared with those in prostate cancer cells. However, it has been reported that even the same miRNA targets the same gene, which may show different biological effects in different tissues <xref rid="pone.0046010-Abdellatif1" ref-type="bibr">[35]</xref>. Hodzic reported that miR-330 post-transcriptionally regulated the expression of deoxycytidine kinase by targeting its 3&#x2032;-UTR and decreased its sensitivity to gemcitabine in cancer cells <xref rid="pone.0046010-Hodzic1" ref-type="bibr">[36]</xref>. Though, by targeting different gene and maybe through different pathways, miR-330 seems to exert the same effect in this report and our study to some extent. What is to be explored next is the molecular mechanism, downstream signal pathway of SH3GL2 mediates apoptosis and whether there is some crosstalk between other genes and signal pathways. Moreover, in vivo studies are to be performed to validate these findings.</p>
+      <p>In conclusion, this is the first study to show that the tumor suppressor gene SH3GL2 is negatively regulated by miR-330 at the posttranscriptional level. We also showed that overexpression of miR-330 played an oncogenic role by inhibiting SH3GL2 and affected cell proliferation, migration, invasion and activation of cell cycle in U87 and U251 cells. MiR-330 is a potential novel oncogenic miRNA in glioblastoma and provides a new therapeutic target of human glioblastoma.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0046010.s001">
+        <label>Figure S1</label>
+        <caption>
+          <p>
+<bold>Inhibition of SH3GL2 expression by siRNA in U87 cells.</bold> U87 cells were transfected with SH3GL2 siRNA (siRNA-SH3GL2) and its scramble control (siRNA-con) oligonucleotides. Both mRNA and protein levels lower expression of SH3GL2 were revealed compared with scramble control group. * P&lt;0.05 compared with control group.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0046010.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0046010.s002">
+        <label>Figure S2</label>
+        <caption>
+          <p>
+<bold>Effect of SH3GL2 knocked-down on U87 cell proliferation, migration and invasion.</bold> (A) The proliferation of siRNA-con and siRNA-SH3GL2 transfected U87 cells was analyzed by MTT assay. The cell proliferation rate of siRNA-SH3GL2 group was much higher than that of siRNA-con group. (B) Transwell assay was performed to evaluate the migration and invasion capacity in U87 cells. The migration and invasion capacity of siRNA-SH3GL2 cells was larger than that of siRNA-con group. * P&lt;0.05 compared with control group.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0046010.s002.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0046010.s003">
+        <label>Figure S3</label>
+        <caption>
+          <p>
+<bold>Effect of SH3GL2 knocked-down on U87 cell cycle and apoptosis.</bold> The cell cycle distribution of siRNA-con and siRNA-SH3GL2 transfected cells was analyzed by flow cytometry. The percentage of cells in the different cell cycle phases was plotted, and the results represent the mean &#xB1; SD. * P&lt;0.05 compared with control group. (B) Apoptosis of U87 cells were monitored by flow cytometry after transfected with siRNA to SH3GL2. Early apoptotic cells are Annexin V+/PI&#x2212;, late apoptotic cells are Annexin V+/PI+, necrotic cells are Annexin V&#x2212;/PI+ and healthy cells are Annexin V&#x2212;/PI&#x2212;. A representative experiment of three performed was shown. The percentage of apoptotic cells is indicated and the results represent the mean &#xB1; SD. * P&lt;0.05 compared with control group.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0046010.s003.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0046010-Ohgaki1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ohgaki</surname><given-names>H</given-names></name> (<year>2009</year>) <article-title>Epidemiology of brain tumors</article-title>. <source>Methods Mol Biol</source>
+<volume>472</volume>: <fpage>323</fpage>&#x2013;<lpage>342</lpage>.<pub-id pub-id-type="pmid">19107440</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Li1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Li</surname><given-names>C</given-names></name>, <name><surname>Feng</surname><given-names>Y</given-names></name>, <name><surname>Coukos</surname><given-names>G</given-names></name>, <name><surname>Zhang</surname><given-names>L</given-names></name> (<year>2009</year>) <article-title>Therapeutic microRNA strategies in human cancer</article-title>. <source>AAPS J</source>
+<volume>11</volume>: <fpage>747</fpage>&#x2013;<lpage>757</lpage>.<pub-id pub-id-type="pmid">19876744</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Zhong1">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhong</surname><given-names>X</given-names></name>, <name><surname>Coukos</surname><given-names>G</given-names></name>, <name><surname>Zhang</surname><given-names>L</given-names></name> (<year>2012</year>) <article-title>miRNAs in human cancer</article-title>. <source>Methods Mol Biol</source>
+<volume>822</volume>: <fpage>295</fpage>&#x2013;<lpage>306</lpage>.<pub-id pub-id-type="pmid">22144208</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Stark1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Stark</surname><given-names>A</given-names></name>, <name><surname>Brennecke</surname><given-names>J</given-names></name>, <name><surname>Bushati</surname><given-names>N</given-names></name>, <name><surname>Russell</surname><given-names>RB</given-names></name>, <name><surname>Cohen</surname><given-names>SM</given-names></name> (<year>2005</year>) <article-title>Animal MicroRNAs confer robustness to gene expression and have a significant impact on 3&#x2032;UTR evolution</article-title>. <source>Cell</source>
+<volume>123</volume>: <fpage>1133</fpage>&#x2013;<lpage>1146</lpage>.<pub-id pub-id-type="pmid">16337999</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Chan1">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chan</surname><given-names>JA</given-names></name>, <name><surname>Krichevsky</surname><given-names>AM</given-names></name>, <name><surname>Kosik</surname><given-names>KS</given-names></name> (<year>2005</year>) <article-title>MicroRNA-21 is an antiapoptotic factor in human glioblastoma cells</article-title>. <source>Cancer Res</source>
+<volume>65</volume>: <fpage>6029</fpage>&#x2013;<lpage>6033</lpage>.<pub-id pub-id-type="pmid">16024602</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Lu1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lu</surname><given-names>Z</given-names></name>, <name><surname>Liu</surname><given-names>M</given-names></name>, <name><surname>Stribinskis</surname><given-names>V</given-names></name>, <name><surname>Klinge</surname><given-names>CM</given-names></name>, <name><surname>Ramos</surname><given-names>KS</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>MicroRNA-21 promotes cell transformation by targeting the programmed cell death 4 gene</article-title>. <source>Oncogene</source>
+<volume>27</volume>: <fpage>4373</fpage>&#x2013;<lpage>4379</lpage>.<pub-id pub-id-type="pmid">18372920</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Shi1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shi</surname><given-names>ZM</given-names></name>, <name><surname>Wang</surname><given-names>J</given-names></name>, <name><surname>Yan</surname><given-names>Z</given-names></name>, <name><surname>You</surname><given-names>YP</given-names></name>, <name><surname>Li</surname><given-names>CY</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>MiR-128 inhibits tumor growth and angiogenesis by targeting p70S6K1</article-title>. <source>PLoS One</source>
+<volume>7</volume>: <fpage>e32709</fpage>.<pub-id pub-id-type="pmid">22442669</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Silber1">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Silber</surname><given-names>J</given-names></name>, <name><surname>Jacobsen</surname><given-names>A</given-names></name>, <name><surname>Ozawa</surname><given-names>T</given-names></name>, <name><surname>Harinath</surname><given-names>G</given-names></name>, <name><surname>Pedraza</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>miR-34a Repression in Proneural Malignant Gliomas Upregulates Expression of Its Target PDGFRA and Promotes Tumorigenesis</article-title>. <source>PLoS One</source>
+<volume>7</volume>: <fpage>e33844</fpage>.<pub-id pub-id-type="pmid">22479456</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Kefas1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kefas</surname><given-names>B</given-names></name>, <name><surname>Godlewski</surname><given-names>J</given-names></name>, <name><surname>Comeau</surname><given-names>L</given-names></name>, <name><surname>Li</surname><given-names>Y</given-names></name>, <name><surname>Abounader</surname><given-names>R</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>microRNA-7 inhibits the epidermal growth factor receptor and the Akt pathway and is down-regulated in glioblastoma</article-title>. <source>Cancer Res</source>
+<volume>68</volume>: <fpage>3566</fpage>&#x2013;<lpage>3572</lpage>.<pub-id pub-id-type="pmid">18483236</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Weber1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Weber</surname><given-names>MJ</given-names></name> (<year>2005</year>) <article-title>New human and mouse microRNA genes found by homology search</article-title>. <source>FEBS J</source>
+<volume>272</volume>: <fpage>59</fpage>&#x2013;<lpage>73</lpage>.<pub-id pub-id-type="pmid">15634332</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Lee1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lee</surname><given-names>KH</given-names></name>, <name><surname>Chen</surname><given-names>YL</given-names></name>, <name><surname>Yeh</surname><given-names>SD</given-names></name>, <name><surname>Hsiao</surname><given-names>M</given-names></name>, <name><surname>Lin</surname><given-names>JT</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>MicroRNA-330 acts as tumor suppressor and induces apoptosis of prostate cancer cells through E2F1-mediated suppression of Akt phosphorylation</article-title>. <source>Oncogene</source>
+<volume>28</volume>: <fpage>3360</fpage>&#x2013;<lpage>3370</lpage>.<pub-id pub-id-type="pmid">19597470</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Giachino1">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Giachino</surname><given-names>C</given-names></name>, <name><surname>Lantelme</surname><given-names>E</given-names></name>, <name><surname>Lanzetti</surname><given-names>L</given-names></name>, <name><surname>Saccone</surname><given-names>S</given-names></name>, <name><surname>Bella Valle</surname><given-names>G</given-names></name>, <etal>et al</etal> (<year>1997</year>) <article-title>A novel SH3-containing human gene family preferentially expressed in the central nervous system</article-title>. <source>Genomics</source>
+<volume>41</volume>: <fpage>427</fpage>&#x2013;<lpage>434</lpage>.<pub-id pub-id-type="pmid">9169142</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Ringstad1">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ringstad</surname><given-names>N</given-names></name>, <name><surname>Nemoto</surname><given-names>Y</given-names></name>, <name><surname>De Camilli</surname><given-names>P</given-names></name> (<year>1997</year>) <article-title>The SH3p4/Sh3p8/SH3p13 protein family: binding partners for synaptojanin and dynamin via a Grb2-like Src homology3 domain</article-title>. <source>Proc Natl Acad Sci U S A</source>
+<volume>94</volume>: <fpage>8569</fpage>&#x2013;<lpage>8574</lpage>.<pub-id pub-id-type="pmid">9238017</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Shang1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shang</surname><given-names>C</given-names></name>, <name><surname>Guo</surname><given-names>Y</given-names></name>, <name><surname>Fu</surname><given-names>S</given-names></name>, <name><surname>Fu</surname><given-names>W</given-names></name>, <name><surname>Sun</surname><given-names>K</given-names></name> (<year>2010</year>) <article-title>SH3GL2 gene participates in MEK-ERK signal pathway partly by regulating EGFR in the laryngeal carcinoma cell line Hep2</article-title>. <source>Med Sci Monit</source>
+<volume>16</volume>: <fpage>BR168</fpage>&#x2013;<lpage>173</lpage>.<pub-id pub-id-type="pmid">20512084</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Shang2">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shang</surname><given-names>C</given-names></name>, <name><surname>Hong</surname><given-names>Y</given-names></name>, <name><surname>Sang</surname><given-names>M</given-names></name>, <name><surname>Xue</surname><given-names>YX</given-names></name> (<year>2010</year>) <article-title>The expression of SH3GL2 gene in human brain glioma</article-title>. <source>Progress of Anatomical Sciences</source>
+<volume>16</volume>: <fpage>128</fpage>&#x2013;<lpage>130</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Potter1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Potter</surname><given-names>N</given-names></name>, <name><surname>Karakoula</surname><given-names>A</given-names></name>, <name><surname>Phipps</surname><given-names>KP</given-names></name>, <name><surname>Harkness</surname><given-names>W</given-names></name>, <name><surname>Hayward</surname><given-names>R</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Genomic deletions correlate with underexpression of novel candidate genes at six loci in pediatric pilocytic astrocytoma</article-title>. <source>Neoplasia</source>
+<volume>10</volume>: <fpage>757</fpage>&#x2013;<lpage>772</lpage>.<pub-id pub-id-type="pmid">18670637</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Reutens1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Reutens</surname><given-names>AT</given-names></name>, <name><surname>Begley</surname><given-names>CG</given-names></name> (<year>2002</year>) <article-title>Endophilin-1: a multifunctional protein</article-title>. <source>Int J Biochem Cell Biol</source>
+<volume>34</volume>: <fpage>1173</fpage>&#x2013;<lpage>1177</lpage>.<pub-id pub-id-type="pmid">12127567</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Osterberg1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Osterberg</surname><given-names>L</given-names></name>, <name><surname>Levan</surname><given-names>K</given-names></name>, <name><surname>Partheen</surname><given-names>K</given-names></name>, <name><surname>Delle</surname><given-names>U</given-names></name>, <name><surname>Olsson</surname><given-names>B</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Potential predictive markers of chemotherapy resistance in stage III ovarian serous carcinomas</article-title>. <source>BMC Cancer</source>
+<volume>9</volume>: <fpage>368</fpage>.<pub-id pub-id-type="pmid">19835627</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Sinha1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Sinha</surname><given-names>S</given-names></name>, <name><surname>Chunder</surname><given-names>N</given-names></name>, <name><surname>Mukherjee</surname><given-names>N</given-names></name>, <name><surname>Alam</surname><given-names>N</given-names></name>, <name><surname>Roy</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Frequent deletion and methylation in SH3GL2 and CDKN2A loci are associated with early- and late-onset breast carcinoma</article-title>. <source>Ann Surg Oncol</source>
+<volume>15</volume>: <fpage>1070</fpage>&#x2013;<lpage>1080</lpage>.<pub-id pub-id-type="pmid">18239974</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Ghosh1">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ghosh</surname><given-names>A</given-names></name>, <name><surname>Ghosh</surname><given-names>S</given-names></name>, <name><surname>Maiti</surname><given-names>GP</given-names></name>, <name><surname>Sabbir</surname><given-names>MG</given-names></name>, <name><surname>Alam</surname><given-names>N</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>SH3GL2 and CDKN2A/2B loci are independently altered in early dysplastic lesions of head and neck: correlation with HPV infection and tobacco habit</article-title>. <source>J Pathol</source>
+<volume>217</volume>: <fpage>408</fpage>&#x2013;<lpage>419</lpage>.<pub-id pub-id-type="pmid">19023882</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Nimmo1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Nimmo</surname><given-names>RA</given-names></name>, <name><surname>Slack</surname><given-names>FJ</given-names></name> (<year>2009</year>) <article-title>An elegant miRror: microRNAs in stem cells, developmental timing and cancer</article-title>. <source>Chromosoma</source>
+<volume>118</volume>: <fpage>405</fpage>&#x2013;<lpage>418</lpage>.<pub-id pub-id-type="pmid">19340450</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Calin1">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Calin</surname><given-names>GA</given-names></name>, <name><surname>Croce</surname><given-names>CM</given-names></name> (<year>2006</year>) <article-title>MicroRNA-cancer connection: the beginning of a new tale</article-title>. <source>Cancer Res</source>
+<volume>66</volume>: <fpage>7390</fpage>&#x2013;<lpage>7394</lpage>.<pub-id pub-id-type="pmid">16885332</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Dalmay1">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dalmay</surname><given-names>T</given-names></name>, <name><surname>Edwards</surname><given-names>DR</given-names></name> (<year>2006</year>) <article-title>MicroRNAs and the hallmarks of cancer</article-title>. <source>Oncogene</source>
+<volume>25</volume>: <fpage>6170</fpage>&#x2013;<lpage>6175</lpage>.<pub-id pub-id-type="pmid">17028596</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Bartel1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bartel</surname><given-names>DP</given-names></name> (<year>2004</year>) <article-title>MicroRNAs: genomics, biogenesis, mechanism, and function</article-title>. <source>Cell</source>
+<volume>116</volume>: <fpage>281</fpage>&#x2013;<lpage>297</lpage>.<pub-id pub-id-type="pmid">14744438</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-EsquelaKerscher1">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Esquela-Kerscher</surname><given-names>A</given-names></name>, <name><surname>Slack</surname><given-names>FJ</given-names></name> (<year>2006</year>) <article-title>Oncomirs - microRNAs with a role in cancer</article-title>. <source>Nat Rev Cancer</source>
+<volume>6</volume>: <fpage>259</fpage>&#x2013;<lpage>269</lpage>.<pub-id pub-id-type="pmid">16557279</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Esteller1">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Esteller</surname><given-names>M</given-names></name> (<year>2011</year>) <article-title>Non-coding RNAs in human disease</article-title>. <source>Nat Rev Genet</source>
+<volume>12</volume>: <fpage>861</fpage>&#x2013;<lpage>874</lpage>.<pub-id pub-id-type="pmid">22094949</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Chen1">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>CZ</given-names></name> (<year>2005</year>) <article-title>MicroRNAs as oncogenes and tumor suppressors</article-title>. <source>New England Journal of Medicine</source>
+<volume>353</volume>: <fpage>1768</fpage>&#x2013;<lpage>1771</lpage>.<pub-id pub-id-type="pmid">16251533</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Silber2">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Silber</surname><given-names>J</given-names></name>, <name><surname>Jacobsen</surname><given-names>A</given-names></name>, <name><surname>Ozawa</surname><given-names>T</given-names></name>, <name><surname>Harinath</surname><given-names>G</given-names></name>, <name><surname>Pedraza</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2012</year>) <article-title>miR-34a Repression in Proneural Malignant Gliomas Upregulates Expression of Its Target PDGFRA and Promotes Tumorigenesis</article-title>. <source>PLoS One</source>
+<volume>7</volume>: <fpage>e33844</fpage>.<pub-id pub-id-type="pmid">22479456</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Mercatelli1">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mercatelli</surname><given-names>N</given-names></name>, <name><surname>Coppola</surname><given-names>V</given-names></name>, <name><surname>Bonci</surname><given-names>D</given-names></name>, <name><surname>Miele</surname><given-names>F</given-names></name>, <name><surname>Costantini</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>The inhibition of the highly expressed miR-221 and miR-222 impairs the growth of prostate carcinoma xenografts in mice</article-title>. <source>PLoS One</source>
+<volume>3</volume>: <fpage>e4029</fpage>.<pub-id pub-id-type="pmid">19107213</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Howard1">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Howard</surname><given-names>L</given-names></name>, <name><surname>Nelson</surname><given-names>KK</given-names></name>, <name><surname>Maciewicz</surname><given-names>RA</given-names></name>, <name><surname>Blobel</surname><given-names>CP</given-names></name> (<year>1999</year>) <article-title>Interaction of the metalloprotease disintegrins MDC9 and MDC15 with two SH3 domain-containing proteins, endophilin I and SH3PX1</article-title>. <source>J Biol Chem</source>
+<volume>274</volume>: <fpage>31693</fpage>&#x2013;<lpage>31699</lpage>.<pub-id pub-id-type="pmid">10531379</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Petrelli1">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Petrelli</surname><given-names>A</given-names></name>, <name><surname>Gilestro</surname><given-names>GF</given-names></name>, <name><surname>Lanzardo</surname><given-names>S</given-names></name>, <name><surname>Comoglio</surname><given-names>PM</given-names></name>, <name><surname>Migone</surname><given-names>N</given-names></name>, <etal>et al</etal> (<year>2002</year>) <article-title>The endophilin-CIN85-Cbl complex mediates ligand-dependent downregulation of c-Met</article-title>. <source>Nature</source>
+<volume>416</volume>: <fpage>187</fpage>&#x2013;<lpage>190</lpage>.<pub-id pub-id-type="pmid">11894096</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Wells1">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wells</surname><given-names>A</given-names></name> (<year>1999</year>) <article-title>EGF receptor</article-title>. <source>Int J Biochem Cell Biol</source>
+<volume>31</volume>: <fpage>637</fpage>&#x2013;<lpage>643</lpage>.<pub-id pub-id-type="pmid">10404636</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Song1">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Song</surname><given-names>JY</given-names></name>, <name><surname>Lee</surname><given-names>SW</given-names></name>, <name><surname>Hong</surname><given-names>JP</given-names></name>, <name><surname>Chang</surname><given-names>SE</given-names></name>, <name><surname>Choe</surname><given-names>H</given-names></name>, <etal>et al</etal> (<year>2009</year>) <article-title>Epidermal growth factor competes with EGF receptor inhibitors to induce cell death in EGFR-overexpressing tumor cells</article-title>. <source>Cancer Lett</source>
+<volume>283</volume>: <fpage>135</fpage>&#x2013;<lpage>142</lpage>.<pub-id pub-id-type="pmid">19380191</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Soubeyran1">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Soubeyran</surname><given-names>P</given-names></name>, <name><surname>Kowanetz</surname><given-names>K</given-names></name>, <name><surname>Szymkiewicz</surname><given-names>I</given-names></name>, <name><surname>Langdon</surname><given-names>WY</given-names></name>, <name><surname>Dikic</surname><given-names>I</given-names></name> (<year>2002</year>) <article-title>Cbl-CIN85-endophilin complex mediates ligand-induced downregulation of EGF receptors</article-title>. <source>Nature</source>
+<volume>416</volume>: <fpage>183</fpage>&#x2013;<lpage>187</lpage>.<pub-id pub-id-type="pmid">11894095</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Abdellatif1">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Abdellatif</surname><given-names>M</given-names></name> (<year>2012</year>) <article-title>Differential expression of microRNAs in different disease states</article-title>. <source>Circ Res</source>
+<volume>110</volume>: <fpage>638</fpage>&#x2013;<lpage>650</lpage>.<pub-id pub-id-type="pmid">22343558</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0046010-Hodzic1">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hodzic</surname><given-names>J</given-names></name>, <name><surname>Giovannetti</surname><given-names>E</given-names></name>, <name><surname>Calvo</surname><given-names>BD</given-names></name>, <name><surname>Adema</surname><given-names>AD</given-names></name>, <name><surname>Peters</surname><given-names>GJ</given-names></name> (<year>2011</year>) <article-title>Regulation of deoxycytidine kinase expression and sensitivity to gemcitabine by micro-RNA 330 and promoter methylation in cancer cells</article-title>. <source>Nucleosides Nucleotides Nucleic Acids</source>
+<volume>30</volume>: <fpage>1214</fpage>&#x2013;<lpage>1222</lpage>.<pub-id pub-id-type="pmid">22132977</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

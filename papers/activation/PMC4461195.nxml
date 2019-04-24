@@ -1,0 +1,757 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, CA USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">26057128</article-id>
+      <article-id pub-id-type="pmc">4461195</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0129546</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-14-25109</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Epidermal Growth Factor Removal or Tyrphostin AG1478 Treatment Reduces Goblet Cells &amp; Mucus Secretion of Epithelial Cells from Asthmatic Children Using the Air-Liquid Interface Model</article-title>
+        <alt-title alt-title-type="running-head">EGFR Inhibition, Goblet Cells &amp; Mucus Secretion</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Parker</surname>
+            <given-names>Jeremy C.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Douglas</surname>
+            <given-names>Isobel</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bell</surname>
+            <given-names>Jennifer</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Comer</surname>
+            <given-names>David</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bailie</surname>
+            <given-names>Keith</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Skibinski</surname>
+            <given-names>Grzegorz</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Heaney</surname>
+            <given-names>Liam G.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+          <xref ref-type="author-notes" rid="econtrib001">
+<sup>&#x2021;</sup>
+</xref>
+          <xref rid="cor001" ref-type="corresp">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shields</surname>
+            <given-names>Michael D.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff002">
+<sup>2</sup>
+</xref>
+          <xref ref-type="author-notes" rid="econtrib001">
+<sup>&#x2021;</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff001">
+<label>1</label>
+<addr-line>Centre for Infection and Immunity, Health Sciences Building, Queen&#x2019;s University Belfast, Belfast, Northern Ireland</addr-line>
+</aff>
+      <aff id="aff002">
+<label>2</label>
+<addr-line>Royal Belfast Hospital for Sick Children, Belfast, Northern Ireland</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Ahmad</surname>
+            <given-names>Shama</given-names>
+          </name>
+          <role>Academic Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>University of Alabama at Birmingham, UNITED STATES</addr-line>
+</aff>
+      <author-notes>
+        <fn fn-type="COI-statement" id="coi001">
+          <p><bold>Competing Interests: </bold>Prof. Heaney has received grants and has grants pending outside of the submitted work including funding from GlaxoSmithKline ($30,000 &#x2013; unrestricted research grant to support the British Thoracic Society Severe Asthma Network and National Registry, $150,000 &#x2013; support programme for Regional Difficult Asthma Service, $144,000 &#x2013; unrestricted research grant &#x2013; Cost of Refractory Asthma in the UK &#x2013; an economic analysis), Medimmune ($75,000 &#x2013; unrestricted research grant to support the British Thoracic Society Severe Asthma Network and National Registry), Novartis UK ($48,000 - unrestricted research grant to support the British Thoracic Society Severe Asthma Network and National Registry), AstraZeneca ($90,0000 - unrestricted research grant to support the British Thoracic Society Severe Asthma Network and National Registry), Genentech Inc ($15,000 &#x2013; bronchial biopsy study, $150,000 &#x2013; biomarker study, $36,000 support with Department of Education and Learning Northern Ireland (DEL/CAST scheme) or a PhD studentship), Medical Research Council UK (&#xA3;409,462 &#x2013; laboratory based study), Northern Ireland Chest Heart and Stroke Association (&#xA3;90,281 &#x2013; biomarker study), Hoffman la Roche UK (&#xA3;650,000 &#x2013; development of clinical trial and support for National Registry), Asthma UK/Northern Ireland Chest Heart and Stroke Association (&#xA3;166,282 &#x2013; post-doctoral Fellowship funding and laboratory consumables). Additionally, Prof. Heaney has also received payment for lectures including service on speakers bureaus from the Pharmaceutical Industry (GlaxoSmithKline, Merck, Sharpe &amp; Dohme, Nycomed, Novartis, Genentech Inc and Astra Zeneca) totalling approximately $60,000 in the past 5 years. Prof. Heaney has also received support to attend the American Thoracic Society and European Respiratory Society Annual Meetings in the past 3 years from Astra Zeneca, Chiesi, Novartis, and GlaxoSmithKline. Prof. Shields has received personal fees outside of the submitted work including funding from GlaxoSmithKline and Novartis for lectures on childhood asthma/cough at educational events and support to attend the annual European Respiratory Society meeting.</p>
+        </fn>
+        <fn fn-type="con" id="contrib001">
+          <p>Conceived and designed the experiments: JCP GS LGH MDS. Performed the experiments: JCP JB DC. Analyzed the data: JCP MDS. Wrote the paper: JCP LGH MDS. Obtained clinical samples for the study: ID KB.</p>
+        </fn>
+        <fn fn-type="other" id="econtrib001">
+          <p>&#x2021; These authors are joint senior authors on this work.</p>
+        </fn>
+        <corresp id="cor001">* E-mail: <email>l.heaney@qub.ac.uk</email></corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>9</day>
+        <month>6</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2015</year>
+      </pub-date>
+      <volume>10</volume>
+      <issue>6</issue>
+      <elocation-id>e0129546</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>5</day>
+          <month>6</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>11</day>
+          <month>5</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2015 Parker et al</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <copyright-holder>Parker et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:type="simple" xlink:href="pone.0129546.pdf"/>
+      <abstract>
+        <sec id="sec001">
+          <title>Rationale</title>
+          <p>Epithelial remodelling in asthma is characterised by goblet cell hyperplasia and mucus hypersecretion for which no therapies exist. Differentiated bronchial air-liquid interface cultures from asthmatic children display high goblet cell numbers. Epidermal growth factor and its receptor have been implicated in goblet cell hyperplasia.</p>
+        </sec>
+        <sec id="sec002">
+          <title>Objectives</title>
+          <p>We hypothesised that EGF removal or tyrphostin AG1478 treatment of differentiating air-liquid interface cultures from asthmatic children would result in a reduction of epithelial goblet cells and mucus secretion.</p>
+        </sec>
+        <sec id="sec003">
+          <title>Methods</title>
+          <p>In Aim 1 primary bronchial epithelial cells from non-asthmatic (n = 5) and asthmatic (n = 5) children were differentiated under EGF-positive (10ng/ml EGF) and EGF-negative culture conditions for 28 days. In Aim 2, cultures from a further group of asthmatic children (n = 5) were grown under tyrphostin AG1478, a tyrosine kinase inhibitor, conditions. All cultures were analysed for epithelial resistance, markers of differentiation using immunocytochemistry, ELISA for MUC5AC mucin secretion and qPCR for MUC5AC mRNA.</p>
+        </sec>
+        <sec id="sec004">
+          <title>Results</title>
+          <p>In cultures from asthmatic children the goblet cell number was reduced in the EGF negative group (p = 0.01). Tyrphostin AG1478 treatment of cultures from asthmatic children had significant reductions in goblet cells at 0.2&#x3BC;g/ml (p = 0.03) and 2&#x3BC;g/ml (p = 0.003) as well as mucus secretion at 2&#x3BC;g/ml (p = 0.04).</p>
+        </sec>
+        <sec id="sec005">
+          <title>Conclusions</title>
+          <p>We have shown in this preliminary study that through EGF removal and tyrphostin AG1478 treatment the goblet cell number and mucus hypersecretion in differentiating air-liquid interface cultures from asthmatic children is significantly reduced. This further highlights the epidermal growth factor receptor as a potential therapeutic target to inhibit goblet cell hyperplasia and mucus hypersecretion in asthma.</p>
+        </sec>
+      </abstract>
+      <funding-group>
+        <funding-statement>Northern Ireland Chest Heart and Stroke Association (grant number 200942) provided funding for this study. The funders had no involvement in the design, data collection, analysis, decision to publish or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="4"/>
+        <table-count count="1"/>
+        <page-count count="12"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>All relevant data are within the paper and its supporting information</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>All relevant data are within the paper and its supporting information</p>
+    </notes>
+  </front>
+  <body>
+    <sec sec-type="intro" id="sec006">
+      <title>Introduction</title>
+      <p>Asthma is a disease that normally begins during childhood [<xref rid="pone.0129546.ref001" ref-type="bibr">1</xref>, <xref rid="pone.0129546.ref002" ref-type="bibr">2</xref>] progressing into adulthood with airways remodelling including goblet cell hyperplasia due to chronic inflammation. Differentiated air-liquid interface (ALI) cultures of primary bronchial epithelial cells from asthmatic children express a goblet cell hyperplasia [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>]. MUC5AC is the major mucus forming mucin produced mainly by goblet cells [<xref rid="pone.0129546.ref004" ref-type="bibr">4</xref>&#x2013;<xref rid="pone.0129546.ref006" ref-type="bibr">6</xref>]. We have previously shown that the Th2 cytokine interleukin 13 (IL-13) caused goblet cell hyperplasia, decreased ciliated cell number and increased mucus secretion in differentiating cultures of healthy epithelial cells while IL-13 stimulation of differentiating ALI cultures from asthmatic children also showed increased goblet cell number [<xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>]. However under unstimulated conditions where an inherent goblet cell hyperplasia existed we detected no IL-13 mRNA or protein. We deduced that while IL-13 can induce an asthmatic phenotype, it was unlikely to be the cause of the inherent goblet cell hyperplasia seen in unstimulated ALI cultures from asthmatic children [<xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>]. This lead us to consider epidermal growth factor (EGF) and its receptor (EGFR) which have been shown to induce MUC5AC via ERK pathway activation as ERK inhibition effectively reduces MUC5AC mRNA production and promoter activity [<xref rid="pone.0129546.ref008" ref-type="bibr">8</xref>]. Current asthma therapies focus on reducing inflammation and relieving airway hyperresponsiveness (AHR) but these do not address airways remodelling. There have been attempts to target mucus hypersecretion using mucoactive drugs however these have provided minimal benefit [<xref rid="pone.0129546.ref009" ref-type="bibr">9</xref>].</p>
+      <p>EGFR is highly expressed throughout many tissues and functions in a variety of processes including proliferation, differentiation and cell survival [<xref rid="pone.0129546.ref010" ref-type="bibr">10</xref>]. In asthma, overexpression of EGF/EGFR correlates with disease severity and epithelial injury [<xref rid="pone.0129546.ref011" ref-type="bibr">11</xref>, <xref rid="pone.0129546.ref012" ref-type="bibr">12</xref>]. In sputum from asthmatic patients during and following an acute asthma attack, EGF levels were highly elevated and prolonged [<xref rid="pone.0129546.ref013" ref-type="bibr">13</xref>]. EGF has been shown to induce altered epithelial basal differentiation towards an EMT-like phenotype commonly seen in smokers [<xref rid="pone.0129546.ref014" ref-type="bibr">14</xref>] and in other studies EGFR has been implicated in goblet cell hyperplasia [<xref rid="pone.0129546.ref015" ref-type="bibr">15</xref>, <xref rid="pone.0129546.ref016" ref-type="bibr">16</xref>].</p>
+      <p>In murine models of asthma, Egf/Egfr was shown to be important in goblet cell differentiation [<xref rid="pone.0129546.ref017" ref-type="bibr">17</xref>, <xref rid="pone.0129546.ref018" ref-type="bibr">18</xref>] while under ovalbumin challenge in Brown Norway rats, increased airway epithelial cell proliferation and goblet cell differentiation was observed via Egfr activation [<xref rid="pone.0129546.ref019" ref-type="bibr">19</xref>]. Egfr inhibition reduced AHR and inflammation in ovalbumin challenged animals [<xref rid="pone.0129546.ref019" ref-type="bibr">19</xref>]. By specifically targeting Egfr with tyrphostin AG1478 (AG1478), a tyrosine kinase inhibitor, prior to ovalbumin challenge, goblet cell numbers were reduced to basal levels identifying Egfr as a therapeutic target [<xref rid="pone.0129546.ref019" ref-type="bibr">19</xref>].</p>
+      <p>These studies used models which are challenged with an exogenous agent to induce the asthmatic phenotype during which inhibition of EGFR is then assessed. To our knowledge this preliminary study is the first to look at the effects of an EGFR tyrosine kinase inhibitor on human pediatric asthmatic epithelium which demonstrates a goblet cell hyperplasia <italic>ex vivo</italic> [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>]. EGF/EGFR has a role to play in the disequilibrium of the bronchial epithelium in asthma and is considered a promising target for pharmacotherapy [<xref rid="pone.0129546.ref004" ref-type="bibr">4</xref>]. The aim of this study is to assess whether removal of EGF or treatment with AG1478 will result in a reduction of goblet cell number and mucus secretion in epithelium from asthmatic children.</p>
+      <sec id="sec007">
+        <title>Hypothesis</title>
+        <p>We hypothesised that chronic removal of EGF or treatment with AG1478 would reduce the inherent goblet cell hyperplasia and mucus secretion in differentiating ALI cultures from asthmatic children.</p>
+      </sec>
+      <sec id="sec008">
+        <title>Aims</title>
+        <p>Our first aim (Aim 1) was to sample and differentiate bronchial epithelial cells from 5 non-asthmatic and 5 asthmatic children in the presence or absence of EGF to assess if the removal of EGF resulted in a reduction in the numbers of goblet cells and mucus secretion.</p>
+        <p>Our second aim (Aim 2) was to sample a further 5 asthmatic children and differentiate their bronchial epithelial cells in the absence of EGF or in the presence of EGF +/- AG1478 to assess goblet cell number and mucus secretion.</p>
+      </sec>
+    </sec>
+    <sec sec-type="materials|methods" id="sec009">
+      <title>Methods</title>
+      <sec id="sec010">
+        <title>Subjects</title>
+        <p>Children 13 years or less attending elective surgical procedures at the Royal Belfast Hospital for Sick Children were recruited. A clinician-administered semi-structured pro-forma [<xref rid="pone.0129546.ref020" ref-type="bibr">20</xref>] was used to record the clinical history. Recruited children were either doctor diagnosed asthma or non-asthmatic controls who had never wheezed (<xref rid="pone.0129546.t001" ref-type="table">Table 1</xref>). Written informed parental consent was obtained. This study was approved by the Office of the Research Ethics Committees of Northern Ireland.</p>
+        <table-wrap id="pone.0129546.t001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129546.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>Clinical Details of Subjects.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone.0129546.t001g" xlink:href="pone.0129546.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" valign="middle" span="1"/>
+                <col align="left" valign="middle" span="1"/>
+                <col align="left" valign="middle" span="1"/>
+                <col align="left" valign="middle" span="1"/>
+                <col align="left" valign="middle" span="1"/>
+                <col align="left" valign="middle" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th align="left" rowspan="1" colspan="1">Clinical Status</th>
+                  <th align="left" rowspan="1" colspan="1">Gender (M/F)</th>
+                  <th align="left" rowspan="1" colspan="1">Age (y)</th>
+                  <th align="left" rowspan="1" colspan="1">Serum IgE Concentration (kU/L)</th>
+                  <th align="left" rowspan="1" colspan="1">Medication</th>
+                  <th align="left" rowspan="1" colspan="1">Cohort</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Non-asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">3</td>
+                  <td align="left" rowspan="1" colspan="1">32</td>
+                  <td align="left" rowspan="1" colspan="1">None</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Non-asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">12</td>
+                  <td align="left" rowspan="1" colspan="1">14</td>
+                  <td align="left" rowspan="1" colspan="1">None</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Non-asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">12</td>
+                  <td align="left" rowspan="1" colspan="1">25</td>
+                  <td align="left" rowspan="1" colspan="1">None</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Non-asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">F</td>
+                  <td align="left" rowspan="1" colspan="1">11</td>
+                  <td align="left" rowspan="1" colspan="1">18</td>
+                  <td align="left" rowspan="1" colspan="1">None</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Non-asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                  <td align="left" rowspan="1" colspan="1">3</td>
+                  <td align="left" rowspan="1" colspan="1">None</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">11</td>
+                  <td align="left" rowspan="1" colspan="1">1071</td>
+                  <td align="left" rowspan="1" colspan="1">Beta 2 agonist as required, alone</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">12</td>
+                  <td align="left" rowspan="1" colspan="1">780</td>
+                  <td align="left" rowspan="1" colspan="1">Adrenaline auto-injector, ICS+LAB2A, LTA</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">7</td>
+                  <td align="left" rowspan="1" colspan="1">27</td>
+                  <td align="left" rowspan="1" colspan="1">ICS+LAB2A, LTA</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">12</td>
+                  <td align="left" rowspan="1" colspan="1">910</td>
+                  <td align="left" rowspan="1" colspan="1">ICS+LAB2A, LTA</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">F</td>
+                  <td align="left" rowspan="1" colspan="1">4</td>
+                  <td align="left" rowspan="1" colspan="1">209</td>
+                  <td align="left" rowspan="1" colspan="1">ICS+LAB2A, LTA, antihistamine.</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">F</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                  <td align="left" rowspan="1" colspan="1">ICS, LTA</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">M</td>
+                  <td align="left" rowspan="1" colspan="1">6</td>
+                  <td align="left" rowspan="1" colspan="1">1908</td>
+                  <td align="left" rowspan="1" colspan="1">ICS+LAB2A</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">F</td>
+                  <td align="left" rowspan="1" colspan="1">1</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                  <td align="left" rowspan="1" colspan="1">ICS</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">F</td>
+                  <td align="left" rowspan="1" colspan="1">13</td>
+                  <td align="left" rowspan="1" colspan="1">313</td>
+                  <td align="left" rowspan="1" colspan="1">ICS</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Asthmatic</td>
+                  <td align="left" rowspan="1" colspan="1">F</td>
+                  <td align="left" rowspan="1" colspan="1">13</td>
+                  <td align="left" rowspan="1" colspan="1">304</td>
+                  <td align="left" rowspan="1" colspan="1">ICS+LAB2A,antihistamine</td>
+                  <td align="left" rowspan="1" colspan="1">2</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+          <table-wrap-foot>
+            <fn id="t001fn001">
+              <p>NB/. ICS&#x2013;Inhaled corticosteroid; LAB2A &#x2013;Long-acting beta 2 agonist; LTA&#x2013;Leukotriene antagonist.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec id="sec011">
+        <title>Isolation of primary bronchial epithelial cells for Differentiated ALI cultures</title>
+        <p>Non-bronchoscopic brushings were used to sample bronchial epithelial cells as previously described [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>,<xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>,<xref rid="pone.0129546.ref021" ref-type="bibr">21</xref>] and samples were tested for the presence of viral contamination [<xref rid="pone.0129546.ref022" ref-type="bibr">22</xref>]. Primary bronchial epithelial cells were expanded and seeded at 0.8x10<sup>5</sup> cells per membrane and grown as previously described [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>,<xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>,<xref rid="pone.0129546.ref023" ref-type="bibr">23</xref>,<xref rid="pone.0129546.ref024" ref-type="bibr">24</xref>]. All cells from subjects used in this study were differentiated at passage 2.</p>
+      </sec>
+      <sec id="sec012">
+        <title>Stimulation of Differentiating ALI cultures</title>
+        <p>For Aim 1, differentiating ALI cultures from non-asthmatic (n = 5) and asthmatic (n = 5) children were fed every other day for 28 days with EGF+ve (10ng/ml EGF) or EGF-ve (EGF supplement omitted from the media) culture media.</p>
+        <p>For Aim 2, differentiating ALI cultures from a further group of asthmatic (n = 5) children were fed with either EGF+ve, EGF-ve or EGF+ve medium supplemented with AG1478 (0.2 or 2&#x3BC;g/ml) (Cayman Chemical Co., MI, USA).</p>
+      </sec>
+      <sec id="sec013">
+        <title>Measurement of Transepithelial Electrical Resistance (TEER)</title>
+        <p>TEER was measured weekly using an EVOM meter and an ENDOHM-12 chamber (World Precision Instruments, FL, USA) [<xref rid="pone.0129546.ref025" ref-type="bibr">25</xref>].</p>
+      </sec>
+      <sec id="sec014">
+        <title>Quantification of goblet and ciliated cells using immunocytochemistry</title>
+        <p>Cultures were trypsinised with cytospin slides being made as previously described [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>, <xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>]. Goblet cells and ciliated cells were identified using a mouse monoclonal antibody for MUC5AC (clone 45M1) (1:200 dilution) and a mouse monoclonal antibody for acetylated alpha tubulin (6&#x2013;11 B-1) (1:700 dilution) respectively (Abcam, UK). Slides were anonymized and counts are represented as a mean % of 500 cells counted per slide.</p>
+      </sec>
+      <sec id="sec015">
+        <title>ELISA measuring MUC5AC mucin secretion</title>
+        <p>Apical secretion of MUC5AC mucin from ALI cultures was measured using an in-house MUC5AC ELISA [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>, <xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>] adapted from Takeyama and colleagues [<xref rid="pone.0129546.ref017" ref-type="bibr">17</xref>].</p>
+      </sec>
+      <sec id="sec016">
+        <title>RNA extraction, cDNA synthesis and qPCR for MUC5AC</title>
+        <p>Total RNA was extracted using an RNeasy Mini kit (Qiagen, Crawley, UK) followed by cDNA synthesis performed using GoScript Reverse Transcription System (Medical Supply Co., Republic of Ireland). DNA amplification was carried out using the Fast Start Universal SYBR Green Master (Rox) (Roche, UK) according to all manufacturers&#x2019; instructions. Samples were assayed in duplicate on an Agilent Mx3005P 96-well detection plate system.</p>
+      </sec>
+      <sec id="sec017">
+        <title>Statistical Analysis</title>
+        <p>Descriptive data was expressed as mean (standard deviation, SD) or median (interquartile range, IQR). We used one and two-way repeated measures ANOVA while, when appropriate, simultaneously adjusted for differing total cell counts (covariate) in each culture.</p>
+        <p>If in the overall model p&#x2264; 0.05 we performed <italic>a priori</italic> planned comparisons using unadjusted paired t-tests. Analysis was carried out using JMP version 11 (SAS, Cary, North Carolina, USA) and GraphPad PRISM 5 (CA, USA). A p-value of &lt;0.05 was taken as statistically significant.</p>
+        <p>All methods are described in detail in the supplementary information (<xref rid="pone.0129546.s001" ref-type="supplementary-material">S1 Methods</xref>).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="sec018">
+      <title>Results</title>
+      <sec id="sec019">
+        <title>Patient Characteristics</title>
+        <p>Asthmatic children were similarly aged compared to those without asthma (asthmatic: mean age of 8 years (SD 4.8), range 1&#x2013;13 years, non-asthmatic: mean age of 7.8 years (SD 5.4), range 1&#x2013;12 years, p = 0.94). Median total serum IgE concentrations were higher in asthmatic (median = 308 (IQR 21&#x2013;950), range 2&#x2013;1908 kU/L) compared with non-asthmatic patients (median = 18 (IQR 3&#x2013;29), range 2&#x2013;32 kU/L). 50% of the asthmatic group were male whereas 80% of the non-asthmatic group were male. Asthmatic children studied in Aim 1 and Aim 2 had similar ages and similar total IgE levels.</p>
+      </sec>
+      <sec id="sec020">
+        <title>ALI cultures maintained epithelial resistance measurements in the absence of EGF and during AG1478 treatment throughout the differentiation process</title>
+        <p>ALI cultures from non-asthmatic and asthmatic children in Aim 1 of the study displayed no significant difference in TEER values during differentiation in the absence or presence of EGF, as was also the case in Aim 2 of the study in cultures from asthmatic children stimulated with AG1478 (<xref rid="pone.0129546.g001" ref-type="fig">Fig 1A and 1B</xref>).</p>
+        <fig id="pone.0129546.g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129546.g001</object-id>
+          <label>Fig 1</label>
+          <caption>
+            <title>Measurement of Epithelial Resistance.</title>
+            <p>Transepithelial Electrical Resistance (TEER) measurements on days 7, 14, 21 &amp; 28 of ALI culture. (A) TEER measurements over 28 days at ALI for asthmatic and non-asthmatic cultures in the presence or absence of EGF (10ng/ml) (n = 5) and (B) in the presence or absence of EGF +/- AG1478 (0.2 or 2&#x3BC;g/ml) (n = 5). Values are expressed as median with interquartile range. Data was analysed using a Kruskal-Wallis test with Dunn&#x2019;s multiple comparison post hoc test.</p>
+          </caption>
+          <graphic xlink:href="pone.0129546.g001"/>
+        </fig>
+      </sec>
+      <sec id="sec021">
+        <title>ALI cultures proliferate at different rates in the absence of EGF</title>
+        <p>With respect to total cell number on day 28 of Aim 1 EGF+ve cultures from non-asthmatic children (mean 8.0x10<sup>5</sup> (SD 2.6) cells/well) differed significantly compared with the EGF-ve group (mean 4.7x10<sup>5</sup> (SD 1.8) cells/well, p = 0.001) and the asthmatic EGF+ve group (mean 4.4x10<sup>5</sup> (SD 1.5) cells/well, p = 0.03,) in total cell number (<xref rid="pone.0129546.g002" ref-type="fig">Fig 2A</xref>). The asthmatic EGF+ve group (mean 4.4x10<sup>5</sup> (SD 1.5) cells/well) had significantly higher cell numbers at day 28 compared with the asthmatic EGF-ve group (mean 3.0x10<sup>5</sup> (SD 1.1) cells/well, p = 0.02) (<xref rid="pone.0129546.g002" ref-type="fig">Fig 2A</xref>). In Aim 2 of the study, ALI cultures from asthmatic children stimulated with AG1478 exhibited no significant differences between EGF+ve controls and EGF-ve or AG1478 stimulations (<xref rid="pone.0129546.g002" ref-type="fig">Fig 2B</xref>).</p>
+        <fig id="pone.0129546.g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129546.g002</object-id>
+          <label>Fig 2</label>
+          <caption>
+            <title>Total Cell Count.</title>
+            <p>Total cell count (x10<sup>5</sup>) on day 28 of ALI culture. (A) Asthmatic and non-asthmatic cultures in the presence or absence of EGF (10ng/ml) (n = 5). Data analysed using a 2-way repeated measures ANOVA with planned unadjusted t-tests. (B) Asthmatic cultures in the presence or absence of EGF +/- AG1478 (0.2 or 2&#x3BC;g/ml) (n = 4). Data analysed using a 1-way repeated measures ANOVA. Values are expressed as mean (SD).</p>
+          </caption>
+          <graphic xlink:href="pone.0129546.g002"/>
+        </fig>
+      </sec>
+      <sec id="sec022">
+        <title>Removal of EGF or AG1478 treatment during differentiation reduces the percentage of goblet cells and mucus secretion with no effect on MUC5AC mRNA in ALI cultures</title>
+        <p>At the end of Aim 1, tests for simple effects (no interaction effect included) showed that in the presence of EGF the mean percentage goblet cells for asthmatic cultures was statistically significantly higher than for non-asthmatics (mean %GC asthmatic 34.5% (SD 11.4) versus mean %GC non-asthmatic 12.0% (SD 5.0), p = 0.038). Similarly in the presence of EGF the mean percentage goblet cells for asthmatic cultures was statistically significantly higher compared with EGF-ve cultures (mean %GC asthmatic 34.5% (SD 11.4) versus mean %GC 15.0% (SD 9.8), p = 0.01) (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3A</xref>). Importantly, the clinical grouping (asthma versus non-asthmatic) by EGF conditions (EGF+ve versus EGF-ve) interaction on goblet cell percentage was statistically significant (p = 0.005) indicating that asthmatic samples behaved differently compared with non-asthmatics with respect to the presence or absence of EGF during differentiation.</p>
+        <fig id="pone.0129546.g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129546.g003</object-id>
+          <label>Fig 3</label>
+          <caption>
+            <title>Goblet Cell Quantification, MUC5AC Secretion Measurements and MUC5AC qPCR.</title>
+            <p>(A) Goblet cells expressed as a percentage of total in asthmatic and non-asthmatic cultures in the presence or absence of EGF (10ng/ml) (n = 5). Data analysed using a 2-way repeated measures ANOVA with planned t-tests adjusted for total cell number. (B) Mucus secretion presented as average relative optical density of apical washings measured for MUC5AC mucin on day 28 of ALI culture in the presence or absence of EGF (10ng/ml) (n = 5). Data analysed using a two-way repeated measures mixed (random and fixed) effects design. (C) Fold change of MUC5AC mRNA in asthmatic and non-asthmatic ALI cultures in the presence or absence of EGF (10ng/ml) (n = 5). Data was analysed using a 2-way repeated measures ANOVA. (D) Goblet cells expressed as a percentage of total in asthmatic cultures in the presence or absence of EGF +/- AG1478 (0.2 or 2&#x3BC;g/ml) (n = 5). Data was analysed using a 1-way repeated measures ANOVA with planned unadjusted t-tests. (E) Mucus secretion presented as average relative optical density of apical washings measured for MUC5AC mucin on day 28 of ALI culture in the presence or absence of EGF +/- AG1478 (0.2 or 2&#x3BC;g/ml) (n = 5). Data was log transformed due to skewing and was analysed using a 1-way repeated measures ANOVA with a Tukey-Kramer multi-comparison test. (F) Fold change of MUC5AC mRNA in asthmatic ALI cultures in the presence or absence of EGF +/- AG1478 (0.2 or 2 &#x3BC;g/ml) (n = 5). Data was analysed using a 1-way repeated measures ANOVA. Values are expressed as mean (SD).</p>
+          </caption>
+          <graphic xlink:href="pone.0129546.g003"/>
+        </fig>
+        <p>The clinical grouping (asthmatic versus non-asthmatics) and EGF conditions (as detailed above) interaction for MUC5AC mucin secretion on Day 28 was not statistically significant (p = 0.4) and therefore was not included. Tests for simple effects (no interaction included) showed that the mean MUC5AC absorbance for cultures from asthmatic children was significantly higher than for non-asthmatic children (p = 0.01) and was higher (but not statistically significant) in EGF+ve versus EGF-ve cultures (p = 0.06) (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3B</xref>). Post-hoc contrast showed that it was cultures from asthmatic children (EGF+ve and EGF-ve) which secreted higher levels of MUC5AC mucin compared with non-asthmatic children (EGF+ve and EGF-ve) (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3B</xref>). ALI cultures showed no significant difference in MUC5AC mRNA between the non-asthmatic EGF-ve group (3.3 fold increase) and the non-asthmatic EGF+ve group (mean 1.0 fold increase) as was also the case with the asthmatic EGF-ve group and the asthmatic EGF+ve group (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3C</xref>).</p>
+        <p>ALI cultures from asthmatic children in Aim 2 of the study displayed a lower percentage of goblet cells in the unstimulated EGF+ve group (mean 23.4% SD 3.1) reflecting patient variability (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3D</xref>). Within the dataset for <xref rid="pone.0129546.g003" ref-type="fig">Fig 3D</xref> there was an obvious visible outlier which we have removed in order than any true effect was not masked or skewed by the outlying data point. Cultures from the EGF-ve group displayed a significant reduction in the percentage of goblet cells compared with the EGF+ve group (mean 13.9% SD 5.9, p = 0.04). ALI cultures from the 0.2&#x3BC;g/ml (mean %GC 13.1% (SD 9.4), p = 0.03) and 2&#x3BC;g/ml (mean %GC 7.7% (SD 5.7), p = 0.003) AG1478 group also exhibited a significant reduction in goblet cells when compared with the EGF+ve group (mean 23.4% SD 3.1) (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3D</xref>).</p>
+        <p>In AG1478 treatment of ALI cultures from asthmatic children we observed a significant reduction in the amount of secreted MUC5AC mucin in the EGF-ve group (p = 0.037) and the 2&#x3BC;g/ml AG1478 group (p = 0.04) compared with the EGF+ve group (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3E</xref>). In ALI cultures from asthmatic children differentiated under stimulation with AG1478 we saw no significant difference in MUC5AC mRNA between EGF+ve and EGF-ve or AG1478 stimulations (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3F</xref>).</p>
+      </sec>
+      <sec id="sec023">
+        <title>Removal of EGF or AG1478 treatment does not have a detrimental effect on ciliated cells</title>
+        <p>In Aim 1 of the study we found no statistical difference between the mean percentage ciliated cells and either clinical grouping (p = 0.8), EGF conditions (p = 0.68) and their interaction (p = 0.55) (<xref rid="pone.0129546.g004" ref-type="fig">Fig 4A</xref>). ALI cultures from asthmatic children in Aim 2 of the study displayed similar numbers of ciliated cells during differentiation with AG1478 (<xref rid="pone.0129546.g004" ref-type="fig">Fig 4B</xref>).</p>
+        <fig id="pone.0129546.g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0129546.g004</object-id>
+          <label>Fig 4</label>
+          <caption>
+            <title>Ciliated Cell Quantification.</title>
+            <p>Quantification of ciliated cells on day 28 of ALI culture expressed as a percentage of total on day 28. (A) Ciliated cells expressed as a percentage of total in the presence or absence of EGF (10ng/ml) (n = 5). Data was analysed using a 2-way repeated measures ANCOVA. (B) in the presence or absence of EGF +/- AG1478 (0.2 or 2&#x3BC;g/ml) (n = 5). Data was analysed using a 1-way repeated measures ANOVA. Values are expressed as mean (SD).</p>
+          </caption>
+          <graphic xlink:href="pone.0129546.g004"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="conclusions" id="sec024">
+      <title>Discussion</title>
+      <p>In Aim 1 of this preliminary study we confirmed that removal of EGF during differentiation of ALI cultures from asthmatic children significantly reduced the goblet cell number (p = 0.01) and reduced MUC5AC mucin secretion albeit not significantly (p = 0.06) (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3A and 3B</xref>). Other morphological assessments demonstrated that epithelial resistance, MUC5AC mRNA and ciliated cell number remained unchanged in asthmatic and non-asthmatic groups (Figs <xref rid="pone.0129546.g001" ref-type="fig">1</xref>, <xref rid="pone.0129546.g003" ref-type="fig">3C, 3F</xref> and <xref rid="pone.0129546.g004" ref-type="fig">4</xref>). This suggests that EGF removal resulted in a specific change related to goblet cell differentiation rather than as a result of an overall morphological change of the epithelium.</p>
+      <p>We then sampled a further five asthmatic children for Aim 2 of the study which involved using tyrphostin AG1478, a tyrosine kinase inhibitor. We noted that in this group of asthmatic patients there were a lower mean percentage of goblet cells compared with the group of cultures from asthmatic children in Aim 1 (mean %GC 23.4% (SD 3.1) versus mean % GC 34.5% (SD 11.4), respectively). This difference is also reflected in the MUC5AC ELISA data between Aims 1 and 2. However in Aim 2 there was a statistical difference in the percentage of goblet cells (p = 0.04) and the MUC5AC secretion (p = 0.037) between the EGF+ve and EGF-ve cultures. Although variability between cohorts exists, the changes observed follow a consistent trend. We observed a significant reduction in the goblet cell number associated with asthmatic epithelium through AG1478 treatment at 0.2&#x3BC;g/ml AG1478 (p = 0.04) and 2&#x3BC;g/ml AG1478 (p = 0.003) with a significant reduction in the amount of mucus secreted (p = 0.04) in the 2&#x3BC;g/ml AG1478 group (<xref rid="pone.0129546.g003" ref-type="fig">Fig 3D and 3E</xref>). The results from Aim 1 &amp; 2 suggest the involvement of EGF/EGFR in the goblet cell hyperplasia and subsequent mucus hypersecretion that are characteristic of our asthmatic epithelial ALI cell model [<xref rid="pone.0129546.ref003" ref-type="bibr">3</xref>, <xref rid="pone.0129546.ref007" ref-type="bibr">7</xref>].</p>
+      <p>Current asthma therapies do not address goblet cell hyperplasia or mucus hypersecretion. EGFR inhibitors such as gefitinib and erlotinib are used in lung cancer therapy where EGFR overexpression is implicated [<xref rid="pone.0129546.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0129546.ref027" ref-type="bibr">27</xref>]. Erlotinib has been used in a murine house dust mite model of asthma where it reduced goblet cell hyperplasia, airway hyperresponsiveness and inflammation [<xref rid="pone.0129546.ref028" ref-type="bibr">28</xref>] and gefitinib has been used in an ovalbumin challenge murine model of asthma where it reduced inflammatory cell counts and cytokines [<xref rid="pone.0129546.ref026" ref-type="bibr">26</xref>]. We have shown in this study using the <italic>ex vivo</italic> ALI model of epithelium from asthmatic children that AG1478 also reduced goblet cell hyperplasia and mucus hypersecretion. This adds further strength to the possibility that targeting EGFR may be a potential therapeutic for airway remodelling, a current unmet need in asthma treatment. However, EGFR inhibition may have undesirable side-effects including impaired response to viral, allergen and airway pollutant insults [<xref rid="pone.0129546.ref029" ref-type="bibr">29</xref>] but in an Egfr<sup>-/-</sup> murine model no overt gross changes in lung structure following EGFR inhibition were observed [<xref rid="pone.0129546.ref030" ref-type="bibr">30</xref>].</p>
+      <p>Our study, though preliminary, has shown that there is potential in altering airway remodelling in asthmatic ALI cultures through EGF removal or AG1478 treatment. We suggest that further <italic>in vitro</italic> studies with a larger cohort of asthmatic children using the ALI model of bronchial epithelium would be the next step in determining whether EGF inhibitors, such as AG1478, could be considered as a viable therapeutic for reducing goblet cell hyperplasia and mucus hypersecretion in asthma.</p>
+      <p>Our study is limited by small sample numbers in each group due to its preliminary nature. A recent article has highlighted that obtaining lower airway samples from children is often more difficult than from adult patients which will result in small study numbers [<xref rid="pone.0129546.ref031" ref-type="bibr">31</xref>]. When samples are from optimal groups however the data obtained is still meaningful [<xref rid="pone.0129546.ref031" ref-type="bibr">31</xref>]. We believe that the results we have observed, though preliminary, are indeed real and of significant interest warranting further study of EGFR inhibitors in ALI cultures from asthmatic children.</p>
+      <p>In conclusion, to our knowledge, we are the first to show the effect of AG1478 treatment in human pediatric asthmatic epithelium which significantly reduced the goblet cell hyperplasia and mucus secretion. These results encourage further studies to consider EGF/EGFR as a potential therapeutic target capable of reducing the goblet cell hyperplasia and mucus hypersecretion inherent to asthmatic bronchial epithelium.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="sec025">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0129546.s001">
+        <label>S1 Methods</label>
+        <caption>
+          <title>Detailed description of the methods section.</title>
+          <p>(DOCX)</p>
+        </caption>
+        <media xlink:href="pone.0129546.s001.docx">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0129546.ref001">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cutz</surname><given-names>E</given-names></name>, <name><surname>Levison</surname><given-names>H</given-names></name>, <name><surname>Cooper</surname><given-names>DM</given-names></name> (<year>2002</year>) <article-title>Ultrastructure of airways in children with asthma</article-title>. <source>Histopathology</source>
+<volume>41</volume>: <fpage>22</fpage>&#x2013;<lpage>36</lpage>.
+<pub-id pub-id-type="pmid">12405926</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref002">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pohunek</surname><given-names>P</given-names></name>, <name><surname>Warner</surname><given-names>JO</given-names></name>, <name><surname>Turzikova</surname><given-names>J</given-names></name>, <name><surname>Kudrmann</surname><given-names>J</given-names></name>, <name><surname>Roche</surname><given-names>WR</given-names></name> (<year>2005</year>) <article-title>Markers of eosinophilic inflammation and tissue remodelling in children before clinically diagnosed bronchial asthma</article-title>. <source>Pediatr Allergy Immunol</source>
+<volume>16</volume>(<issue>1</issue>): <fpage>43</fpage>&#x2013;<lpage>51</lpage>.
+<pub-id pub-id-type="pmid">15693911</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref003">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Parker</surname><given-names>J</given-names></name>, <name><surname>Sarlang</surname><given-names>S</given-names></name>, <name><surname>Thavagnanam</surname><given-names>S</given-names></name>, <name><surname>Williamson</surname><given-names>G</given-names></name>, <name><surname>O&#x2019;Donoghue</surname><given-names>D</given-names></name>, <name><surname>Villenave</surname><given-names>R</given-names></name>
+<etal>et al</etal> (<year>2010</year>) <article-title>A 3-D well-differentiated model of paediatric bronchial epithelium demonstrates unstimulated morphological differences between asthmatic and non-asthmatic cells</article-title>. <source>Ped Res</source>
+<volume>67</volume>: <fpage>17</fpage>&#x2013;<lpage>22</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref004">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lai</surname><given-names>HY</given-names></name>, <name><surname>Rogers</surname><given-names>DF</given-names></name> (<year>2010</year>) <article-title>Mucus hypersecretion in asthma: intracellular signalling pathways as targets for pharmacotherapy</article-title>. <source>Curr Opin Allergy Clin Immunol</source>
+<volume>10</volume>(<issue>1</issue>): <fpage>67</fpage>&#x2013;<lpage>76</lpage>. <pub-id pub-id-type="doi">10.1097/ACI.0b013e328334643a</pub-id>
+<pub-id pub-id-type="pmid">19907312</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref005">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hovenberg</surname><given-names>HW</given-names></name>, <name><surname>Davies</surname><given-names>JR</given-names></name>, <name><surname>Carlstedt</surname><given-names>I</given-names></name> (<year>1996</year>) <article-title>Different mucins are produced by the surface epithelium and the submucosa in human trachea: identification of MUC5AC as a major mucin from the goblet cells</article-title>. <source>Biochem J</source>
+<volume>318</volume>: <fpage>319</fpage>&#x2013;<lpage>324</lpage>.
+<pub-id pub-id-type="pmid">8761488</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref006">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zudhi-Alimam</surname><given-names>M</given-names></name>, <name><surname>Piazza</surname><given-names>FM</given-names></name>, <name><surname>Selby</surname><given-names>DM</given-names></name>, <name><surname>Letwin</surname><given-names>N</given-names></name>, <name><surname>Huang</surname><given-names>L</given-names></name>, <name><surname>Rose</surname><given-names>MC</given-names></name>. (<year>2000</year>) <article-title>Muc-5/5ac mucin messenger RNA and protein expression is a marker of goblet cell metaplasia in murine airways</article-title>. <source>Am J Respir Cell Mol Biol</source>
+<volume>22</volume>(<issue>3</issue>): <fpage>253</fpage>&#x2013;<lpage>260</lpage>.
+<pub-id pub-id-type="pmid">10696060</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref007">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Thavagnanam</surname><given-names>S</given-names></name>, <name><surname>Parker</surname><given-names>JC</given-names></name>, <name><surname>McBrien</surname><given-names>ME</given-names></name>, <name><surname>Skibinski</surname><given-names>G</given-names></name>, <name><surname>Heaney</surname><given-names>LG</given-names></name>, <name><surname>Shields</surname><given-names>MD</given-names></name>. (<year>2011</year>) <article-title>Effects of Interleukin-13 on mucociliary differentiation of paediatric asthmatic bronchial epithelial cells</article-title>. <source>Ped Res</source>
+<volume>69</volume>(<issue>2</issue>): <fpage>95</fpage>&#x2013;<lpage>100</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref008">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Perrais</surname><given-names>M</given-names></name>, <name><surname>Pigny</surname><given-names>P</given-names></name>, <name><surname>Copin</surname><given-names>MC</given-names></name>, <name><surname>Aubert</surname><given-names>JP</given-names></name>, <name><surname>Van Seuningen</surname><given-names>I</given-names></name> (<year>2002</year>) <article-title>Induction of MUC2 and MUC5AC mucins by factors of the epidermal growth factor (EGF) family is mediated by EGF receptor/Ras/Raf/extracellular signal-regulated kinase cascade and Sp1</article-title>. <source>J Biol Chem</source>
+<volume>277</volume>(<issue>35</issue>): <fpage>32258</fpage>&#x2013;<lpage>32267</lpage>.
+<pub-id pub-id-type="pmid">12077147</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref009">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Rogers</surname><given-names>DF</given-names></name> (<year>2007</year>) <article-title>Physiology of airway mucus secretion and pathophysiology of hypersecretion</article-title>. <source>Respir Care</source>
+<volume>52</volume>(<issue>9</issue>): <fpage>1134</fpage>&#x2013;<lpage>1146</lpage>.
+<pub-id pub-id-type="pmid">17716382</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref010">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zwick</surname><given-names>E</given-names></name>, <name><surname>Hackel</surname><given-names>PO</given-names></name>, <name><surname>Prenzel</surname><given-names>N</given-names></name>, <name><surname>Ullrich</surname><given-names>A</given-names></name> (<year>1999</year>) <article-title>The EGF receptor as central transducer of heterologous signalling systems</article-title>. <source>Trends Pharmacol Sci</source>
+<volume>20</volume>(<issue>10</issue>): <fpage>408</fpage>&#x2013;<lpage>412</lpage>.
+<pub-id pub-id-type="pmid">10577253</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref011">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Amishima</surname><given-names>M</given-names></name>, <name><surname>Munkata</surname><given-names>M</given-names></name>, <name><surname>Nasuhara</surname><given-names>Y</given-names></name>, <name><surname>Sato</surname><given-names>Y</given-names></name>, <name><surname>Takahashi</surname><given-names>T</given-names></name>, <name><surname>Homma</surname><given-names>Y</given-names></name>
+<etal>et al</etal> (<year>1998</year>) <article-title>Expression of epidermal growth factor and epidermal growth factor receptor immunoreactivity in the asthmatic human airway</article-title>. <source>Am J Respir Crit Care Med</source>
+<volume>157</volume>: <fpage>1907</fpage>&#x2013;<lpage>1912</lpage>.
+<pub-id pub-id-type="pmid">9620926</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref012">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Holgate</surname><given-names>S</given-names></name>, <name><surname>Lackie</surname><given-names>PM</given-names></name>, <name><surname>Davies</surname><given-names>DE</given-names></name>, <name><surname>Roche</surname><given-names>WR</given-names></name>, <name><surname>Walls</surname><given-names>AF</given-names></name> (<year>1999</year>) <article-title>The bronchial epithelium as a key regulator of airway inflammation and remodelling in asthma</article-title>. <source>Clin Exp Allergy</source>
+<volume>29</volume>: <fpage>90</fpage>&#x2013;<lpage>95</lpage>.
+<pub-id pub-id-type="pmid">10421830</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref013">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Enomoto</surname><given-names>Y</given-names></name>, <name><surname>Orihara</surname><given-names>K</given-names></name>, <name><surname>Takamasu</surname><given-names>T</given-names></name>, <name><surname>Matsuda</surname><given-names>A</given-names></name>, <name><surname>Gon</surname><given-names>Y</given-names></name>, <name><surname>Saito</surname><given-names>H</given-names></name>
+<etal>et al</etal> (<year>2009</year>) <article-title>Tissue remodelling induced by hypersecreted epidermal growth factor and amphiregulin in the airway after an acute asthma attack</article-title>. <source>J Allergy Clin Immunol</source>
+<volume>124</volume>(<issue>5</issue>): <fpage>913</fpage>&#x2013;<lpage>920</lpage>. <pub-id pub-id-type="doi">10.1016/j.jaci.2009.08.044</pub-id>
+<pub-id pub-id-type="pmid">19895983</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref014">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Shaykhiev</surname><given-names>R</given-names></name>, <name><surname>Zuo W-</surname><given-names>L</given-names></name>, <name><surname>Chao</surname><given-names>IW</given-names></name>, <name><surname>Fukui</surname><given-names>T</given-names></name>, <name><surname>Witover</surname><given-names>B</given-names></name>, <name><surname>Brekman</surname><given-names>A</given-names></name>
+<etal>et al</etal> (<year>2013</year>) <article-title>EGF shifts human airway basal cell fate toward a smoking-associated airway epithelial phenotype</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>110</volume>(<issue>29</issue>): <fpage>12102</fpage>&#x2013;<lpage>12107</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.1303058110</pub-id>
+<pub-id pub-id-type="pmid">23818594</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref015">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Puddicombe</surname><given-names>SM</given-names></name>, <name><surname>Polosa</surname><given-names>R</given-names></name>, <name><surname>Richter</surname><given-names>A</given-names></name>, <name><surname>Krishna</surname><given-names>MT</given-names></name>, <name><surname>Howarth</surname><given-names>PH</given-names></name>, <name><surname>Holgate</surname><given-names>ST</given-names></name>
+<etal>et al</etal> (<year>2000</year>) <article-title>Involvement of the epidermal growth factor receptor in epithelial repair in asthma</article-title>. <source>FASEB J</source>
+<volume>14</volume>(<issue>10</issue>): <fpage>1362</fpage>&#x2013;<lpage>1374</lpage>.
+<pub-id pub-id-type="pmid">10877829</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref016">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Burgel</surname><given-names>PR</given-names></name>, <name><surname>Nadel</surname><given-names>JA</given-names></name> (<year>2004</year>) <article-title>Roles of epidermal growth factor receptor activation in epithelial cell repair and mucin production in airway epithelium</article-title>. <source>Thorax</source>
+<volume>59</volume>(<issue>11</issue>): <fpage>992</fpage>&#x2013;<lpage>996</lpage>.
+<pub-id pub-id-type="pmid">15516478</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref017">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Takeyama</surname><given-names>K</given-names></name>, <name><surname>Dabbagh</surname><given-names>K</given-names></name>, <name><surname>Lee</surname><given-names>HM</given-names></name>, <name><surname>Agusti</surname><given-names>C</given-names></name>, <name><surname>Lausier</surname><given-names>JA</given-names></name>, <name><surname>Ueki</surname><given-names>IF</given-names></name>
+<etal>et al</etal> (<year>1999</year>) <article-title>Epidermal growth factor system regulates mucin production in airways</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>96</volume>: <fpage>3081</fpage>&#x2013;<lpage>3086</lpage>.
+<pub-id pub-id-type="pmid">10077640</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref018">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Vargaftig</surname><given-names>BB</given-names></name>, <name><surname>Singer</surname><given-names>M</given-names></name> (<year>2003</year>) <article-title>Leukotrienes mediate part of Ova-induced lung effects in mice via EGFR</article-title>. <source>Am J Physiol Lung Cell Mol Physiol</source>
+<volume>285</volume>(<issue>4</issue>): <fpage>L808</fpage>&#x2013;<lpage>818</lpage>.
+<pub-id pub-id-type="pmid">12794006</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref019">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tamaoka</surname><given-names>M</given-names></name>, <name><surname>Hassan</surname><given-names>M</given-names></name>, <name><surname>McGovern</surname><given-names>T</given-names></name>, <name><surname>Ramos-Barbon</surname><given-names>D</given-names></name>, <name><surname>Jo</surname><given-names>T</given-names></name>, <name><surname>Yoshizawa</surname><given-names>Y</given-names></name>
+<etal>et al</etal> (<year>2008</year>) <article-title>The epidermal growth factor receptor mediates allergic remodelling in the rat</article-title>. <source>Eur Respir J</source>
+<volume>32</volume>(<issue>5</issue>): <fpage>1213</fpage>&#x2013;<lpage>1223</lpage>. <pub-id pub-id-type="doi">10.1183/09031936.00166907</pub-id>
+<pub-id pub-id-type="pmid">18653647</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref020">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Stevenson</surname><given-names>EC</given-names></name>, <name><surname>Turner</surname><given-names>G</given-names></name>, <name><surname>Heaney</surname><given-names>LG</given-names></name>, <name><surname>Schock</surname><given-names>BC</given-names></name>, <name><surname>Taylor</surname><given-names>R</given-names></name>, <name><surname>Gallagher</surname><given-names>T</given-names></name>
+<etal>et al</etal> (<year>1997</year>) <article-title>Bronchoalveolar lavage findings suggest two different forms of childhood asthma</article-title>. <source>Clin Exp Allergy</source>
+<volume>27</volume>(<issue>9</issue>): <fpage>1027</fpage>&#x2013;<lpage>1035</lpage>.
+<pub-id pub-id-type="pmid">9678834</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref021">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Doherty</surname><given-names>GM</given-names></name>, <name><surname>Christie</surname><given-names>SN</given-names></name>, <name><surname>Skibinski</surname><given-names>G</given-names></name>, <name><surname>Puddicombe</surname><given-names>SM</given-names></name>, <name><surname>Warke</surname><given-names>TJ</given-names></name>, <name><surname>de Courcey</surname><given-names>F</given-names></name>
+<etal>et al</etal> (<year>2003</year>) <article-title>Non-bronchoscopic sampling and culture of bronchial epithelial cells in children</article-title>. <source>Clin Exp Allergy</source>
+<volume>33</volume>: <fpage>1221</fpage>&#x2013;<lpage>1225</lpage>.
+<pub-id pub-id-type="pmid">12956742</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref022">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Coyle</surname><given-names>PV</given-names></name>, <name><surname>Ong</surname><given-names>GM</given-names></name>, <name><surname>O'Neill</surname><given-names>HJ</given-names></name>, <name><surname>McCaughey</surname><given-names>C</given-names></name>, <name><surname>De Ornellas</surname><given-names>D</given-names></name>, <name><surname>Mitchell</surname><given-names>SJ</given-names></name>
+<etal>et al</etal> (<year>2004</year>) <article-title>A touchdown nucleic acid amplification protocol as an alternative to culture backup for immunofluorescence in the routine diagnosis of acute viral respiratory tract infections</article-title>. <source>BMC Microbiol</source>
+<volume>4</volume>: <fpage>41</fpage>
+<pub-id pub-id-type="pmid">15504232</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref023">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Gray</surname><given-names>TE</given-names></name>, <name><surname>Guzman</surname><given-names>K</given-names></name>, <name><surname>Davis</surname><given-names>CW</given-names></name>, <name><surname>Abdullah</surname><given-names>LH</given-names></name>, <name><surname>Nettesheim</surname><given-names>P</given-names></name> (<year>1996</year>) <article-title>Mucociliary differentiation of serially passaged non-asthmatic human tracheobronchial epithelial cells</article-title>. <source>Am J Respir Cell Mol Biol</source>
+<volume>14</volume>: <fpage>104</fpage>&#x2013;<lpage>112</lpage>.
+<pub-id pub-id-type="pmid">8534481</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref024">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fulcher</surname><given-names>ML</given-names></name>, <name><surname>Gabriel</surname><given-names>S</given-names></name>, <name><surname>Burns</surname><given-names>KA</given-names></name>, <name><surname>Yankaskas</surname><given-names>JR</given-names></name>, <name><surname>Randell</surname><given-names>SH</given-names></name> (<year>2005</year>) <article-title>Well-differentiated human airway epithelial cell cultures</article-title>. <source>Methods Mol Med</source>
+<volume>107</volume>: <fpage>183</fpage>&#x2013;<lpage>206</lpage>.
+<pub-id pub-id-type="pmid">15492373</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref025">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Denker</surname><given-names>BM</given-names></name>, <name><surname>Nigam</surname><given-names>SK</given-names></name> (<year>1998</year>) <article-title>Molecular structure and assembly of the tight junction</article-title>. <source>Am J Physiol</source>
+<volume>274</volume>: <fpage>F1</fpage>&#x2013;<lpage>9</lpage>.
+<pub-id pub-id-type="pmid">9458817</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref026">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hur</surname><given-names>GY</given-names></name>, <name><surname>Lee</surname><given-names>SY</given-names></name>, <name><surname>Lee</surname><given-names>SH</given-names></name>, <name><surname>Kim</surname><given-names>SJ</given-names></name>, <name><surname>Lee</surname><given-names>KJ</given-names></name>, <name><surname>Jung</surname><given-names>JY</given-names></name>
+<etal>et al</etal> (<year>2007</year>) <article-title>Potential use of an anticancer drug gefinitib, an EGFR inhibitor, on allergic airway inflammation</article-title>. <source>Exp Mol Med</source>
+<volume>39</volume>(<issue>3</issue>): <fpage>367</fpage>&#x2013;<lpage>375</lpage>.
+<pub-id pub-id-type="pmid">17603291</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref027">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Raymond</surname><given-names>E</given-names></name>, <name><surname>Faivre</surname><given-names>S</given-names></name>, <name><surname>Armand</surname><given-names>JP</given-names></name> (<year>2000</year>) <article-title>Epidermal growth factor receptor tyrosine kinase as a target for anticancer therapy</article-title>. <source>Drugs</source>
+<volume>60</volume>: <fpage>15</fpage>&#x2013;<lpage>23</lpage>.
+<pub-id pub-id-type="pmid">11129168</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref028">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Le Cras</surname><given-names>TD</given-names></name>, <name><surname>Acciani</surname><given-names>TH</given-names></name>, <name><surname>Mushaben</surname><given-names>EM</given-names></name>, <name><surname>Kramer</surname><given-names>EL</given-names></name>, <name><surname>Pastura</surname><given-names>PA</given-names></name>, <name><surname>Hardie</surname><given-names>WD</given-names></name>
+<etal>et al</etal> (<year>2011</year>) <article-title>Epithelial EGF receptor signalling mediates airway hyperreactivity and remodelling in a mouse model of chronic asthma</article-title>. <source>Am J Physiol Lung Cell Mol Physiol</source>
+<volume>300</volume>(<issue>3</issue>): <fpage>L414</fpage>&#x2013;<lpage>421</lpage>. <pub-id pub-id-type="doi">10.1152/ajplung.00346.2010</pub-id>
+<pub-id pub-id-type="pmid">21224214</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref029">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lai</surname><given-names>H</given-names></name>, <name><surname>Rogers</surname><given-names>DF</given-names></name> (<year>2010</year>) <article-title>New pharmacotherapy for airway mucus hypersecretion in asthma and COPD: targeting intracellular signalling pathways</article-title>. <source>J Aerosol Med Pulm Drug Deliv</source>
+<volume>23</volume>(<issue>4</issue>): <fpage>219</fpage>&#x2013;<lpage>231</lpage>. <pub-id pub-id-type="doi">10.1089/jamp.2009.0802</pub-id>
+<pub-id pub-id-type="pmid">20695774</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref030">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Manzo</surname><given-names>ND</given-names></name>, <name><surname>Foster</surname><given-names>WM</given-names></name>, <name><surname>Stripp</surname><given-names>BR</given-names></name> (<year>2012</year>) <article-title>Amphiregulin-dependent mucous cell metaplasia in a model of nonallergic lung injury</article-title>. <source>Am J Respir Cell Mol Biol</source>
+<volume>47</volume>(<issue>3</issue>): <fpage>349</fpage>&#x2013;<lpage>357</lpage>. <pub-id pub-id-type="doi">10.1165/rcmb.2011-0257OC</pub-id>
+<pub-id pub-id-type="pmid">22493011</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0129546.ref031">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Saglani</surname><given-names>S</given-names></name> (<year>2014</year>) <article-title>Innate immunity in paediatric viral wheezers is virus specific and not interferon dependent</article-title>. <source>Thorax</source>
+<volume>69</volume>(<issue>10</issue>): <fpage>887</fpage>&#x2013;<lpage>888</lpage>. <pub-id pub-id-type="doi">10.1136/thoraxjnl-2014-205561</pub-id>
+<pub-id pub-id-type="pmid">24870208</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

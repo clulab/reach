@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0407300</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">618</journal-id>
+      <journal-id journal-id-type="nlm-ta">Ann Otol Rhinol Laryngol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Ann. Otol. Rhinol. Laryngol.</journal-id>
+      <journal-title-group>
+        <journal-title>The Annals of otology, rhinology, and laryngology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0003-4894</issn>
+      <issn pub-type="epub">1943-572X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24592576</article-id>
+      <article-id pub-id-type="pmc">5878934</article-id>
+      <article-id pub-id-type="doi">10.1177/000348941312201203</article-id>
+      <article-id pub-id-type="manuscript">NIHMS952985</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>In Vitro Epithelial Differentiation of Human Induced Pluripotent Stem Cells for Vocal Fold Tissue Engineering</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Imaizumi</surname>
+            <given-names>Mitsuyoshi</given-names>
+          </name>
+          <degrees>MD, PhD</degrees>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sato</surname>
+            <given-names>Yuka</given-names>
+          </name>
+          <degrees>PhD</degrees>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>David T.</given-names>
+          </name>
+          <degrees>MD</degrees>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Thibeault</surname>
+            <given-names>Susan L.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+        </contrib>
+        <aff id="A1">Division of Otolaryngology&#x2013;Head and Neck Surgery (Imaizumi, Sato, Thibeault) and the Department of Pathology and Laboratory Medicine (Yang), University of Wisconsin&#x2013;Madison, Madison, Wisconsin, and the Department of Otolaryngology, Fukushima Medical University, Fukushima, Japan (Imaizumi)</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">Correspondence: Susan L. Thibeault, PhD, 5107 WIMR, 1111 Highland Ave, University of Wisconsin, Madison, WI 53705</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>22</day>
+        <month>3</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>4</month>
+        <year>2018</year>
+      </pub-date>
+      <volume>122</volume>
+      <issue>12</issue>
+      <fpage>737</fpage>
+      <lpage>747</lpage>
+      <!--elocation-id from pubmed: 10.1177/000348941312201203-->
+      <abstract>
+        <sec id="S1">
+          <title>Objectives</title>
+          <p id="P1">We determined the feasibility and optimization of differentiating human induced pluripotent stem cells (hiPS) into nonkeratinized stratified squamous epithelial cells for vocal fold engineering.</p>
+        </sec>
+        <sec id="S2">
+          <title>Methods</title>
+          <p id="P2">hiPS were cultured and assessed for differentiation in 3 conditions: a 3-dimensional (3D) hyaluronic acid (HA) hydrogel scaffold, a 3D HA hydrogel scaffold with epidermal growth factor (EGF), and a 3D HA hydrogel scaffold cocultured with human vocal fold fibroblasts (hVFF). After 1, 2, and 4 weeks of cultivation, hiPS were selected for histology, immunohistochemistry, and/or transcript expression analysis.</p>
+        </sec>
+        <sec id="S3">
+          <title>Results</title>
+          <p id="P3">At 4 weeks, hiPS cultivated with hVFF or with EGF had significantly decreased levels of Oct 3/4, indicating loss of pluripotency. Immunofluorescence revealed the presence of pancytokeratin and of cytokeratin (CK) 13 and 14 epithelial-associated proteins at 4 weeks after cultivation in hiPS EGF and hiPS hVFF cultures. The transcript expression level of CK14 was significantly increased for hiPS hVFF cultures only and was measured concomitantly with cell morphology that was clearly cohesive and displayed a degree of nuclear polarity suggestive of epithelial differentiation.</p>
+        </sec>
+        <sec id="S4">
+          <title>Conclusions</title>
+          <p id="P4">We found that hiPS cultivated in 3D HA hydrogel with hVFF demonstrated the most robust conversion evidence to date of epithelial differentiation. Further work is necessary to focus on amplification of these progenitors for application in vocal fold regenerative biology.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>hiPS</kwd>
+        <kwd>hyaluronic acid hydrogel</kwd>
+        <kwd>induced pluripotent stem cell</kwd>
+        <kwd>tissue engineering</kwd>
+        <kwd>vocal fold</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

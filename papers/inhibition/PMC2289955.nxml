@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cell Biol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Cell Biol</journal-id>
+      <journal-id journal-id-type="publisher-id">J. Cell Biol.</journal-id>
+      <journal-title-group>
+        <journal-title>The Journal of Cell Biology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0021-9525</issn>
+      <issn pub-type="epub">1540-8140</issn>
+      <publisher>
+        <publisher-name>The Rockefeller University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">1659574</article-id>
+      <article-id pub-id-type="pmc">2289955</article-id>
+      <article-id pub-id-type="publisher-id">92064650</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Transcription of the muscle regulatory gene Myf4 is regulated by serum components, peptide growth factors and signaling pathways involving G proteins</article-title>
+      </title-group>
+      <pub-date pub-type="ppub">
+        <day>2</day>
+        <month>11</month>
+        <year>1991</year>
+      </pub-date>
+      <volume>115</volume>
+      <issue>4</issue>
+      <fpage>905</fpage>
+      <lpage>917</lpage>
+      <permissions>
+        <license license-type="openaccess">
+          <license-p>This article is distributed under the terms of an Attribution&#x2013;Noncommercial&#x2013;Share Alike&#x2013;No Mirror Sites license for the first six months after the publication date (see <ext-link ext-link-type="uri" xlink:href="http://www.rupress.org/terms">http://www.rupress.org/terms</ext-link>). After six months it is available under a Creative Commons License (Attribution&#x2013;Noncommercial&#x2013;Share Alike 4.0 Unported license, as described at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-sa/4.0/">http://creativecommons.org/licenses/by-nc-sa/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>The muscle regulatory protein myogenin accumulates in differentiating muscle cells when the culture medium is depleted for serum. To investigate the regulation of myogenin gene expression, we have isolated and characterized the Myf4 gene which encodes the human homologue of murine myogenin. Serum components, basic FGF (b-FGF), transforming growth factor beta (TGF-beta), and EGF, agents which suppress differentiation of muscle cells in vitro, down-regulate the activity of the Myf4 gene, suggesting that it constitutes a nuclear target for the negative control exerted by these factors. The 5' upstream region containing the Myf4 promoter confers activity to a CAT reporter plasmid in C2C12 myotubes but not in fibroblasts and undifferentiated myoblasts. Unidirectional 5' deletions of the promoter sequence reveal that integral of 200 nucleotides upstream of the transcriptional start site are sufficient for cell type-specific expression. The forced expression of the muscle determining factors, MyoD1, Myf5, and Myf6 and to a lesser degree Myf4, results in the transactivation of the Myf4 promoter in C3H mouse 10T1/2 fibroblasts. Pathways potentially involved in conveying signals from the cell- surface receptors to the Myf4 gene were probed with pertussis- and cholera toxin, forskolin, and cAMP. Dibutyryl-cAMP and compounds that stimulate adenylate cyclase inhibit the endogenous Myf4 gene and the Myf4 promoter in CAT and LacZ reporter constructs. Conversely, pertussis toxin which modifies Gi protein stimulates Myf4 gene expression. In summary, our data provide evidence that the muscle- specific expression of the Myf4 gene is subject to negative control by serum components, growth factors and a cAMP-dependent intracellular mechanism. Positive control is exerted by a pertussis toxin-sensitive pathway that presumably involves G proteins.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

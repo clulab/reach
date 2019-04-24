@@ -1,0 +1,1213 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group UK</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28710467</article-id>
+      <article-id pub-id-type="pmc">5511281</article-id>
+      <article-id pub-id-type="publisher-id">5600</article-id>
+      <article-id pub-id-type="doi">10.1038/s41598-017-05600-w</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Human iPSC-derived cardiomyocytes cultured in 3D engineered heart tissue show physiological upstroke velocity and sodium current density</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Lemoine</surname>
+            <given-names>Marc D.</given-names>
+          </name>
+          <address>
+            <email>m.lemoine@uke.de</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mannhardt</surname>
+            <given-names>Ingra</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Breckwoldt</surname>
+            <given-names>Kaja</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Prondzynski</surname>
+            <given-names>Maksymilian</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Flenner</surname>
+            <given-names>Frederik</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ulmer</surname>
+            <given-names>B&#xE4;rbel</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hirt</surname>
+            <given-names>Marc N.</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Neuber</surname>
+            <given-names>Christiane</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Horv&#xE1;th</surname>
+            <given-names>Andr&#xE1;s</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kloth</surname>
+            <given-names>Benjamin</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff5">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Reichenspurner</surname>
+            <given-names>Hermann</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff5">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Willems</surname>
+            <given-names>Stephan</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hansen</surname>
+            <given-names>Arne</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Eschenhagen</surname>
+            <given-names>Thomas</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Christ</surname>
+            <given-names>Torsten</given-names>
+          </name>
+          <address>
+            <email>t.christ@uke.de</email>
+          </address>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2180 3484</institution-id><institution-id institution-id-type="GRID">grid.13648.38</institution-id><institution>Department of Cardiology-Electrophysiology, </institution><institution>University Heart Center, </institution></institution-wrap>Hamburg, Germany </aff>
+        <aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2180 3484</institution-id><institution-id institution-id-type="GRID">grid.13648.38</institution-id><institution>Department of Experimental Pharmacology and Toxicology, </institution><institution>University Medical Center Hamburg-Eppendorf, </institution></institution-wrap>Hamburg, Germany </aff>
+        <aff id="Aff3"><label>3</label>DZHK (German Center for Cardiovascular Research), partner site Hamburg/Kiel/L&#xFC;beck, Hamburg, Germany </aff>
+        <aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 1016 9625</institution-id><institution-id institution-id-type="GRID">grid.9008.1</institution-id><institution>Department of Pharmacology and Pharmacotherapy, </institution><institution>Faculty of Medicine, University of Szeged, </institution></institution-wrap>Szeged, Hungary </aff>
+        <aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2180 3484</institution-id><institution-id institution-id-type="GRID">grid.13648.38</institution-id><institution>Department of Cardiovascular Surgery, </institution><institution>University Heart Center, </institution></institution-wrap>Hamburg, Germany </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>14</day>
+        <month>7</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>14</day>
+        <month>7</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2017</year>
+      </pub-date>
+      <volume>7</volume>
+      <elocation-id>5464</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>3</day>
+          <month>3</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>12</day>
+          <month>6</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s) 2017</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p>
+<bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article&#x2019;s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p id="Par1">Human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CM) are a promising tool for drug testing and modelling genetic disorders. Abnormally low upstroke velocity is a current limitation. Here we investigated the use of 3D engineered heart tissue (EHT) as a culture method with greater resemblance to human heart tissue in comparison to standard technique of 2D monolayer (ML) format. I<sub>Na</sub> was measured in ML or EHT using the standard patch-clamp technique. I<sub>Na</sub> density was ~1.8 fold larger in EHT (&#x2212;18.5&#x2009;&#xB1;&#x2009;1.9 pA/pF; n&#x2009;=&#x2009;17) than in ML (&#x2212;10.3&#x2009;&#xB1;&#x2009;1.2 pA/pF; n&#x2009;=&#x2009;23; p&#x2009;&lt;&#x2009;0.001), approaching densities reported for human CM. Inactivation kinetics, voltage dependency of steady-state inactivation and activation of I<sub>Na</sub> did not differ between EHT and ML and were similar to previously reported values for human CM. Action potential recordings with sharp microelectrodes showed similar upstroke velocities in EHT (219&#x2009;&#xB1;&#x2009;15 V/s, n&#x2009;=&#x2009;13) and human left ventricle tissue (LV, 253&#x2009;&#xB1;&#x2009;7 V/s, n&#x2009;=&#x2009;25). EHT showed a greater resemblance to LV in CM morphology and subcellular Na<sub>V</sub>1.5 distribution. I<sub>Na</sub> in hiPSC-CM showed similar biophysical properties as in human CM. The EHT format promotes I<sub>Na</sub> density and action potential upstroke velocity of hiPSC-CM towards adult values, indicating its usefulness as a model for excitability of human cardiac tissue.</p>
+      </abstract>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2017</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1" sec-type="introduction">
+      <title>Introduction</title>
+      <p id="Par2">Animal-heart tissue is commonly used as a model for human-heart tissue, but exhibits a significantly different action potential (AP) duration and shape, due to different ion channel contributions, interactions and regulation. Human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CM) have the great advantage of generating human-like AP-duration and shape. In addition, hiPSC-CM represent a theoretically unlimited source of CM, lacking the ethical concerns that come along with sacrificing animals. The recent progress in the development and generation of hiPSC provides great opportunities to study individualised cardiac electrophysiology, focusing on genetic disorders<sup><xref ref-type="bibr" rid="CR1">1</xref></sup> and individualised drug treatment<sup><xref ref-type="bibr" rid="CR2">2</xref></sup>. However, there are concerns about the immaturity of hiPSC-CM<sup><xref ref-type="bibr" rid="CR3">3</xref></sup>. One important difference relates to AP upstroke-velocity which, in initial publications, was found to be markedly lower (~2&#x2013;50%) in hiPSC-CM<sup><xref ref-type="bibr" rid="CR4">4</xref>&#x2013;<xref ref-type="bibr" rid="CR6">6</xref></sup> than in adult CM<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>. These findings suggest lower sodium current (I<sub>Na</sub>) density in hiPSC-CM, which is of great physiological importance as I<sub>Na</sub> determines excitability, conductance velocity, refractoriness and triggered activity. Furthermore, I<sub>Na</sub> is an established drug target for antiarrhythmic therapy (flecainide, propafenone, amiodarone, vernakalant and ranolazine). Recent improvements have been brought about by co-culture with non-cardiac cells<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>, long-term culture<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>, hormone stimulation<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>, continuous field stimulation<sup><xref ref-type="bibr" rid="CR10">10</xref></sup> and variation of substrate stiffness<sup><xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref></sup>, revealing upstroke velocities of up to 147 V/s<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. While these values approach the expected range (200&#x2013;300 V/s) for human adult ventricular tissue, differences remain and a head-to-head comparison under same conditions is lacking.</p>
+      <p id="Par3">An alternative approach to increase the maturation of hiPSC-CM is cardiac tissue engineering<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. CM in hydrogel-based engineered heart tissue (EHT) form a synchronously beating syncytium, which generates contractile force by rhythmically deflecting the two elastic silicone posts it is attached to and thereby performs auxotonic contractile work<sup><xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref></sup>. Morphological and functional evidence suggest that hiPSC-CM reach a higher degree of maturity in EHT<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>, but electrophysiological data are lacking. Here we directly compared upstroke velocity in hiPSC-CM cultured in 3D (EHT) and in human heart tissue biopsies obtained during the implantation of left ventricular assist devices (LVAD) or heart transplantation, and studied I<sub>Na</sub> properties in hiPSC-CM from 2D monolayers (ML) and EHT under the conditions published for human adult CM.</p>
+    </sec>
+    <sec id="Sec2" sec-type="results">
+      <title>Results</title>
+      <sec id="Sec3">
+        <title>Cell capacitance and sodium current</title>
+        <p id="Par4">We compared the I<sub>Na</sub> of EHT with standard 2D ML using the whole-cell patch clamp technique. Cell size as measured by the cell capacitance showed no statistically significant difference between EHT and ML (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1A</xref>): EHT 28.2&#x2009;&#xB1;&#x2009;2.0&#xA0;pF (n&#x2009;=&#x2009;37) vs. ML 23.3&#x2009;&#xB1;&#x2009;1.9&#xA0;pF (n&#x2009;=&#x2009;38). We studied I<sub>Na</sub> at a reduced extracellular Na concentration, in order to ensure good voltage control and comparability to previous studies on human adult CM<sup><xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref></sup>. As expected, current amplitude showed a proportional relation to cell size (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1D</xref>). Mean I<sub>Na</sub> density was remarkably higher (~80%) in EHT (&#x2212;18.5&#x2009;&#xB1;&#x2009;1.9 pA/pF; n&#x2009;=&#x2009;17) than in ML (&#x2212;10.3&#x2009;&#xB1;&#x2009;1.2 pA/pF; n&#x2009;=&#x2009;23; p&#x2009;&lt;&#x2009;0.001; Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1C</xref>). I&#x2013;V curves (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A</xref>) show that the I<sub>Na</sub> was activated around &#x2212;55&#x2009;mV and peaked at &#x2212;30&#x2009;mV in EHT and ML. EHT hiPSC-CM showed higher I<sub>Na</sub> density than ML over the entire activation range (p&#x2009;&lt;&#x2009;0.05, Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A</xref>). Thus, EHT showed increased I<sub>Na</sub> density in comparison to ML. To test for a late sodium current, we measured currents at the end of our test-pulse. Currents amounted to &#x2212;68.9&#x2009;&#xB1;&#x2009;13.9 pA under control condition and to &#x2212;70.1&#x2009;&#xB1;&#x2009;13.9 pA after the application of 30&#xA0;&#xB5;M tetrodotoxin (TTX; n&#x2009;=&#x2009;10, ns, paired t-test). Therefore, we did not find evidence for a persistent/late I<sub>Na</sub>.<fig id="Fig1"><label>Figure 1</label><caption><p>Cell capacitance and sodium current. (<bold>A</bold>) Scatter plot of cell capacitance in hiPSC-CM (mean values in Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>). (<bold>B</bold>) Family of original Na current traces elicited by the protocol shown in the inset. (<bold>C</bold>) Scatter plot of I<sub>Na</sub> density in hiPSC-CM for voltage-clamp pulse to &#x2212;30 mV from a holding potential of &#x2212;110 mV (EHT vs ML: ***p&#x2009;&lt;&#x2009;0.001). (<bold>D</bold>): Correlation of I<sub>Na</sub> amplitude and cell capacitance. Best fit values for slope: ML 9.7&#x2009;&#xB1;&#x2009;2.4 pA/pF vs. EHT 16.9&#x2009;&#xB1;&#x2009;5.9 pA/pF. Deviation from zero slope was significant for ML (p&#x2009;&lt;&#x2009;0.001) and EHT (p&#x2009;&lt;&#x2009;0.05).</p></caption><graphic xlink:href="41598_2017_5600_Fig1_HTML" id="d29e512"/></fig>
+<fig id="Fig2"><label>Figure 2</label><caption><p>Biophysical properties of sodium current. (A) Current&#x2013;voltage relationship in human induced pluripotent stem cell-derived cardiomyocytes: engineered heart tissue vs. monolayer, *p&#x2009;&lt;&#x2009;0.05. (<bold>B</bold>) Inactivation kinetics of I<sub>Na</sub> were fitted by a single exponential function and characterised by the time constant &#x3C4; as a function of the depolarisation step. An exemplary original trace of I<sub>Na</sub> in EHT hiPSC-CM is shown (inset) with a function fitted as a dotted line and corresponding parameters. (<bold>C</bold>) Steady-state inactivation and activation relations for I<sub>Na</sub>. The dotted lines represent fitted data calculated by a Boltzmann function. Insets show curves at higher magnification to illustrate the overlap at ~62.5 mV and maximal window current of 1&#x2013;2%. (<bold>D</bold>) Recovery from inactivation of I<sub>Na</sub> using a double-pulse protocol varying intervals (2 to 500 ms). Dotted line represents curve fits by a two-phase exponential function.</p></caption><graphic xlink:href="41598_2017_5600_Fig2_HTML" id="d29e544"/></fig>
+</p>
+      </sec>
+      <sec id="Sec4">
+        <title>Inactivation, activation and recovery from inactivation</title>
+        <p id="Par5">The contribution of I<sub>Na</sub> to the electrical activity of CM depends critically on the voltage and time-dependent activation and inactivation. Activation curves were calculated from individual I&#x2013;V curves by normalising peak current amplitudes for their actual driving force and a Boltzmann function was fitted to the data set (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2C</xref>). Voltages for the half-maximum activation (V<sub>0.5act</sub>) of I<sub>Na</sub> and curve steepness (k<sub>act</sub>) did not differ between EHT and ML (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>). In order to characterise the inactivation kinetics of I<sub>Na</sub>, we fitted a single exponential function to current traces at different test pulse potentials (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2B</xref>). Time constants were shorter at increasing voltages of the test pulse without differences between EHT and ML.<table-wrap id="Tab1"><label>Table 1</label><caption><p>Biophysical parameters of ML and EHT cultured hiPSC-CM. HiPSC-CM: human induced pluripotent stem cell-derived cardiomyocytes; n: number of cardiomyocytes; I<sub>Na</sub> density measured at &#x2212;30 mV from &#x2212;110 mV holding potential; V<sub>0.5</sub>: voltage of half-maximal (in)activation; k: slope factor of voltage-dependence of (in)activation; &#x3C4;<sub>fast</sub> /&#x3C4;<sub>slow</sub>: fast and slow time constants of recovery from inactivation. Values are mean&#x2009;&#xB1;&#x2009;SEM.</p></caption><table frame="hsides" rules="groups"><thead><tr><th/><th>ML</th><th>n</th><th>EHT</th><th>n</th><th>p-value</th></tr></thead><tbody><tr><td>
+<bold>Cell capacitance</bold> (pF)</td><td>23.3&#x2009;&#xB1;&#x2009;1.9</td><td>38</td><td>28.2&#x2009;&#xB1;&#x2009;2.0</td><td>37</td><td>0.081</td></tr><tr><td>
+<bold>I</bold>
+<sub><bold>Na</bold></sub>
+<bold>density</bold> (pA/pF) at &#x2212;30 mV test pulse</td><td>&#x2212;10.3&#x2009;&#xB1;&#x2009;1.2</td><td>23</td><td>&#x2212;18.5&#x2009;&#xB1;&#x2009;1.9</td><td>17</td><td>&lt;0.001</td></tr><tr><td>
+<bold>Inactivation</bold> &#x3C4; (ms) at &#x2212;30 mV test pulse</td><td>1.68&#x2009;&#xB1;&#x2009;0.1</td><td>5</td><td>1.73&#x2009;&#xB1;&#x2009;0.1</td><td>9</td><td>0.758</td></tr><tr><td>
+<bold>Activation</bold>
+</td><td/><td>6</td><td/><td>9</td><td/></tr><tr><td>V<sub>0.5</sub> (mV)</td><td>&#x2212;34.6&#x2009;&#xB1;&#x2009;2.1</td><td/><td>&#x2212;36.2&#x2009;&#xB1;&#x2009;0.7</td><td/><td>0.353</td></tr><tr><td>k<sub>act</sub>
+</td><td>5.8&#x2009;&#xB1;&#x2009;0.2</td><td/><td>6.2 &#x2009;&#xB1;&#x2009;0.2</td><td/><td>0.187</td></tr><tr><td>
+<bold>Steady-state inactivation</bold>
+</td><td/><td>10</td><td/><td>11</td><td/></tr><tr><td>V<sub>0.5</sub> (mV)</td><td>&#x2212;89.8&#x2009;&#xB1;&#x2009;1.6</td><td/><td>&#x2212;91.3&#x2009;&#xB1;&#x2009;1.3</td><td/><td>0.493</td></tr><tr><td>k<sub>inact</sub>
+</td><td>6.1&#x2009;&#xB1;&#x2009;0.5</td><td/><td>6.7&#x2009;&#xB1;&#x2009;0.2</td><td/><td>0.252</td></tr><tr><td>
+<bold>Recovery of inactivation</bold>
+</td><td/><td>8</td><td/><td>8</td><td/></tr><tr><td>Proportion fast (%)</td><td>54.7&#x2009;&#xB1;&#x2009;14.1</td><td/><td>49.7&#x2009;&#xB1;&#x2009;6.3</td><td/><td>0.376</td></tr><tr><td>
+<bold>&#x3C4;</bold>
+<sub><bold>fast</bold></sub> (=1/k<sub>fast</sub>) (ms)</td><td>5.4&#x2009;&#xB1;&#x2009;1.3</td><td/><td>6.7&#x2009;&#xB1;&#x2009;1.3</td><td/><td>0.488</td></tr><tr><td>
+<bold>&#x3C4;</bold>
+<sub><bold>slow</bold></sub> (=1/k<sub>slow</sub>) (ms)</td><td>93.4&#x2009;&#xB1;&#x2009;17.3</td><td/><td>90.4&#x2009;&#xB1;&#x2009;9.0</td><td/><td>0.857</td></tr></tbody></table></table-wrap>
+</p>
+        <p id="Par6">In general, resting membrane potential (RMP) in CM is less negative than V<sub>0.5inact</sub>
+<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. Therefore, only a minority of cardiac Na channels can be activated. Even small changes in RMP have strong effects on Na channel availability. We simulated different RMPs by applying variable conditioning pre-pulses from &#x2212;120 mV to &#x2212;30 mV for 1000 ms to determine steady-state inactivation. The mean data revealed no differences between EHT and ML in V<sub>0.5inact</sub> or k<sub>inact</sub> (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>). A Boltzmann curve (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2C</xref>) showed that activation and steady-state inactivation curves overlap between ~&#x2212;77 mV and ~&#x2212;45 mV (inset Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2C</xref>). The maximal overlap was reached at &#x2212;61.9 mV (ML) and &#x2212;61.3 mV (EHT), where normalised I<sub>Na</sub> availability and conductance were 1.4% (EHT) and 1.8% (ML) of the maximum. EHT and ML did not differ in window current amplitude or in voltage-dependency.</p>
+        <p id="Par7">The refractoriness of heart muscle depends critically on the fast recovery of I<sub>Na</sub> from inactivation. The proportion of second I<sub>Na</sub> to first I<sub>Na</sub> was decreased by shorter interpulse duration as shown by the mean data and the two-phase exponential fit (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2D</xref>). Fitting a two-phase exponential function to the data set of each individual cell revealed no difference between EHT and ML (Table&#xA0;<xref rid="Tab1" ref-type="table">1</xref>).</p>
+      </sec>
+      <sec id="Sec5">
+        <title>Tetrodotoxin sensitivity and expression of sodium channel isoforms</title>
+        <p id="Par8">TTX is a Na channel blocker with high affinity for neural isoforms and low affinity for cardiac isoforms of the Na channel. We found a concentration-dependent inhibition of I<sub>Na</sub> in hiPSC-CM by TTX (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3A</xref>) with a sigmoidal concentration-response relationship. A single-site binding model could be fitted to the data points (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3C</xref>). The IC<sub>50</sub> was calculated at 1.3&#xA0;&#xB5;mol/L (95% CI 1.1 and 1.6&#xA0;&#xB5;mol/L) with a slope factor of 1.08. A two-site binding model did not show a better fit. Applying the extra sum-of-square-test a single-site binding model was identified as the preferred fit. Our results argue against a relevant contribution of a high affinity binding site. Accordingly, transcript levels of the low-TTX-sensitive cardiac isoform Na<sub>V</sub>1.5 (SCN5A) were predominant without differences between EHT, ML and non-failing human left ventricular tissue (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3B</xref>), and the TTX-resistant neuronal isoform Na<sub>V</sub>1.8 (SCN10A) had 8-fold (LV), 50-fold (EHT) and 350-fold (ML) lower mRNA concentrations than Na<sub>V</sub>1.5 (SCN5A). Transcript levels of the neuronal isoform Na<sub>V</sub> 1.8 (SCN10A) were significantly lower in EHT- and ML-hiPSC-CM than in LV. Transcript levels of the highly-TTX sensitive brain-type isoforms Na<sub>V</sub>1.1&#x2013;1.3, 1.6 (SCN1A, SCN2A, SCN3A, SCN6A) fell mainly below the cycle threshold cut-off level of 30. At the beginning of the differentiation from stem cells to cardiomyocytes SCN2A was the dominant isoform (Supplementary Figure&#xA0;<xref rid="MOESM1" ref-type="media">2</xref>). Expression levels of all isoforms described a U-shaped curve in development between day 0 and 20 of differentiation. However, at the late phase SCN5A clearly became the dominant isoform.<fig id="Fig3"><label>Figure 3</label><caption><p>Concentration dependent effect of tetrodotoxin (TTX) on I<sub>Na</sub> and expression of sodium channel subunits. (<bold>A</bold>) Representative original Na current tracings under control conditions and after exposure to 1, 3 and 30 &#xB5;mol/L of TTX. (<bold>B</bold>) Transcript levels of various Na channel isoforms were quantified by qPCR in 3 samples each of human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CM) in monolayer (ML) and engineered heart tissue (EHT) format and non-failing human left ventricle (LV). SCN10A showed a different expression for ML (***p&#x2009;&lt;&#x2009;0.001 vs. LV) and EHT (*p&#x2009;&lt;&#x2009;0.05 vs. LV). Sequences of primers are provided in Supplementary Table&#xA0;<xref rid="MOESM1" ref-type="media">1</xref>. CT stands for cycle threshold of PCR amplification. (<bold>C</bold>) Concentration-response curve for TTX on I<sub>Na</sub> in hiPSC-CM. Data are expressed as a normalized block (n&#x2009;=&#x2009;3&#x2013;9; total 30). In time-matched controls I<sub>Na</sub> remains stable over several minutes (Supplementary Figure&#xA0;<xref rid="MOESM1" ref-type="media">1</xref>). IC<sub>50</sub> indicates inhibitory concentration 50% of maximal response.</p></caption><graphic xlink:href="41598_2017_5600_Fig3_HTML" id="d29e1002"/></fig>
+</p>
+      </sec>
+      <sec id="Sec6">
+        <title>Action potential measurements</title>
+        <p id="Par9">EHT beat spontaneously (EHT: 0.83&#x2009;&#xB1;&#x2009;0.12&#xA0;Hz, N&#x2009;=&#x2009;5), whereas LV tissue was quiescent. We paced EHT slightly above its intrinsic rate at 1&#xA0;Hz pacing in order to compare data to LV tissue (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4</xref>) and to the literature (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>). AP upstroke velocity in EHT did not differ significantly from that recorded in LV tissue (EHT: 219&#x2009;&#xB1;&#x2009;15 V/s, n&#x2009;=&#x2009;13, N&#x2009;=&#x2009;6 vs. LV: 253&#x2009;&#xB1;&#x2009;16 V/s, n&#x2009;=&#x2009;25, N&#x2009;=&#x2009;5; ns; Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4A and B</xref>). Maximum diastolic potential (MDP), RMP immediately before the upstroke (= take-off potential) and AP amplitude (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4B</xref>) also did not differ significantly between EHT (MDP: &#x2212;78.4&#x2009;&#xB1;&#x2009;2.9 mV, RMP: &#x2013;73.5&#x2009;&#xB1;&#x2009;1.6 mV, 102.7&#x2009;&#xB1;&#x2009;2.8 mV, n&#x2009;=&#x2009;13, N&#x2009;=&#x2009;6) and LV (MDP: &#x2212;74.8&#x2009;&#xB1;&#x2009;1.1 mV, RMP: &#x2212;74.8&#x2009;&#xB1;&#x2009;1.1 mV, APA: 104.8&#x2009;&#xB1;&#x2009;1.4 mV, n&#x2009;=&#x2009;25, N&#x2009;=&#x2009;5).<fig id="Fig4"><label>Figure 4</label><caption><p>Action potential characterisation. (<bold>A</bold>) Example of action potentials (AP) and the AP upstroke velocity (inset) measured in human induced pluripotent stem cell-derived cardiomyocytes cultured in engineered heart tissue (EHT) or in human left ventricular tissue (LV) at 36.5&#x2009;&#xB0;C paced at 1 Hz. (<bold>B</bold>) Corresponding AP parameters. N: number of EHTs/LV tissues; n: number of impalements with the sharp microelectrode. RMP, resting membrane potential; APA, action potential amplitude; dV/dt, maximum upstroke velocity; APD<sub>90</sub>, AP duration at 90% repolarisation.</p></caption><graphic xlink:href="41598_2017_5600_Fig4_HTML" id="d29e1038"/></fig>
+<table-wrap id="Tab2"><label>Table 2</label><caption><p>Comparison of I<sub>Na</sub> properties in isolated human induced pluripotent stem cell-derived and adult cardiomyocytes. HiPSC-CM: human induced pluripotent stem cell-derived cardiomyocyte; ML: monolayer; EHT: engineered heart tissue; V<sub>0.5</sub>: voltage of half-maximal (in)activation; k: slope factor of voltage-dependence of (in)activation; *overlap-potential (V<sub>m</sub>) was calculated: ((k<sub>act</sub>*V<sub>0.5Inact</sub>)&#x2212;(&#x2212;k<sub>Inact</sub>*V<sub>0.5act</sub>))/(k<sub>Inact</sub>+k<sub>act</sub>) (details in supplementary data); <sup>#</sup>availability at overlap (%) was calculated = 1/(1+EXP<sup>((&#x2212;V0.5Inact+overlap-potential)/</sup>k<sub>Inact</sub>
+<sup>))</sup>*100; I<sub>Na</sub> ext: sodium concentration of the extracellular (bath) solution, I<sub>Na</sub> int: sodium concentration of the intracellular (pipette) solution; MDP: maximum diastolic potential; RMP: resting membrane potential (=take-off potential); dV/dtmax: maximum upstroke velocity; APA: action potential amplitude.</p></caption><table frame="hsides" rules="groups"><thead><tr><th>CM-type</th><th>ML hiPSC</th><th>EHT hiPSC</th><th>ventri-cular</th><th>ventri-cular</th><th>atrial</th><th>atrial</th><th>atrial</th><th>atrial</th><th>atrial</th><th>atrial</th><th>atrial</th><th>ML hiPSC(on Matri-gel)</th><th>Single hiPSC (on Matri-gel)</th><th>ML hiPSC</th><th>ML hiPSC</th><th>ML hiPSC</th></tr></thead><tbody><tr><td>Capacitance (pF)</td><td>24.1</td><td>27.9</td><td/><td>194</td><td>126</td><td>73.1</td><td/><td>72.1</td><td>66</td><td>89</td><td/><td/><td>17.0</td><td>42</td><td/><td>15.8</td></tr><tr><td>Peak I<sub>Na</sub> density (pA/pF)</td><td>&#x2212;10.3</td><td>&#x2212;18.5</td><td/><td>&#x2212;20.2</td><td>&#x2212;17.8</td><td>&#x2212;14</td><td>&#x2212;30</td><td>&#x2212;50.2</td><td>&#x2212;37</td><td>&#x2212;30.0</td><td>&#x2212;160</td><td>&#x2212;105</td><td>~&#x2212;68</td><td>&#x2212;118</td><td>&#x2212;264.4</td><td>&#x2212;216.7</td></tr><tr><td>V<sub>0.5</sub> activation (mV)</td><td>&#x2212;34.6</td><td>&#x2212;36.2</td><td/><td>&#x2212;42.8</td><td>&#x2212;38.9</td><td>&#x2212;38.8</td><td/><td>&#x2212;50.2</td><td>&#x2212;38.6</td><td/><td/><td>~&#x2212;44</td><td/><td>&#x2212;42.4</td><td>&#x2212;42</td><td>&#x2212;34.1</td></tr><tr><td>k<sub>act</sub>
+</td><td>5.8</td><td>5.9</td><td/><td>6.0</td><td>6.5</td><td/><td/><td>5.3</td><td>7.2</td><td/><td/><td/><td/><td>1.8</td><td/><td>5.9</td></tr><tr><td>V<sub>0.5</sub> inactivation (mV)</td><td>&#x2212;89.8</td><td>&#x2212;91.3</td><td/><td>&#x2212;97.3</td><td>&#x2212;95.8</td><td>&#x2212;97.1</td><td/><td>&#x2212;97.2</td><td>&#x2212;95.1</td><td>&#x2212;72.2</td><td>&#x2212;77</td><td>&#x2212;88.0</td><td>&#x2212;82.8</td><td>&#x2212;61.4</td><td/><td>&#x2212;72.1</td></tr><tr><td>k<sub>inact</sub>
+</td><td>6.1</td><td>7</td><td/><td>5.8</td><td>5.3</td><td/><td/><td>6.2</td><td>7.4</td><td>4.9</td><td/><td/><td/><td>7.6</td><td/><td>5.7</td></tr><tr><td>&#x2206;V<sub>0.5(Act-Inact)</sub> (mV)</td><td>55.2</td><td>55.1</td><td/><td>54.5</td><td>56.9</td><td>58.3</td><td/><td>47.0</td><td>56.5</td><td/><td/><td>~44</td><td/><td>19.0</td><td/><td>38.0</td></tr><tr><td>Overlap-potential (mV)*</td><td>&#x2212;61.5</td><td>&#x2212;61.4</td><td/><td>&#x2212;70.5</td><td>&#x2212;70.2</td><td/><td/><td>&#x2212;71.9</td><td>&#x2212;66.5</td><td/><td/><td>~&#x2212;61</td><td/><td>&#x2212;46.0</td><td/><td>&#x2212;53.4</td></tr><tr><td>Overlap-availability (%)<sup>#</sup>
+</td><td>0.9</td><td>1.4</td><td/><td>1.0</td><td>0.8</td><td/><td/><td>1.7</td><td>2.0</td><td/><td/><td>~4</td><td/><td>11.7</td><td/><td>3.6</td></tr><tr><td>Days after differentiation</td><td>28</td><td>28</td><td/><td/><td/><td/><td/><td/><td/><td/><td/><td>4&#x2013;7</td><td>5&#x2013;7</td><td>28</td><td>18</td><td>16</td></tr><tr><td>I<sub>Na</sub> ext (mmol/L)</td><td>5</td><td>5</td><td/><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>10</td><td>120</td><td>150</td><td>20</td><td>10</td><td>135</td><td>130</td><td>50</td></tr><tr><td>I<sub>Na</sub> int (mmol/L)</td><td>5</td><td>5</td><td/><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>10</td><td>70</td><td>10</td><td>5</td><td>5</td><td>5</td><td>5</td><td>10</td></tr><tr><td>Holding potential (mV)</td><td>&#x2212;110</td><td>&#x2212;110</td><td/><td>&#x2212;140</td><td>&#x2212;140</td><td>&#x2212;120</td><td>&#x2212;110</td><td>&#x2212;140</td><td>&#x2212;140</td><td>&#x2212;135</td><td>&#x2212;120</td><td>&#x2212;140</td><td>&#x2212;120</td><td>&#x2212;90</td><td>&#x2212;90</td><td>&#x2212;80</td></tr><tr><td>Temperature (&#xB0;C) for I<sub>Na</sub>
+</td><td>21</td><td>21</td><td/><td>17</td><td>17</td><td>23</td><td>21</td><td>22</td><td>22</td><td>24</td><td>21</td><td>37</td><td>22</td><td>24</td><td>36</td><td>36</td></tr><tr><td>Pulse frequency (Hz)</td><td>0.5</td><td>0.5</td><td/><td>0.1</td><td>0.1</td><td>0.1</td><td>0.5</td><td/><td>0.1</td><td>0.5</td><td>0.2</td><td/><td/><td/><td/><td/></tr><tr><td>IC<sub>50</sub> TTX (&#xB5;mol/L)</td><td>1.4</td><td/><td/><td>1.7</td><td>1.1</td><td/><td/><td/><td/><td>10.6</td><td/><td/><td/><td/><td/><td>0.6</td></tr><tr><td>Temperature (&#xB0;C) for AP</td><td>37</td><td>37</td><td>37</td><td/><td/><td/><td>37</td><td>22</td><td>22</td><td>24</td><td>21</td><td>37</td><td>22</td><td>24</td><td>36</td><td>36</td></tr><tr><td>MDP (mV)</td><td/><td>&#x2212;78.4</td><td>&#x2212;74.8</td><td/><td/><td/><td>&#x2212;72.6</td><td/><td/><td/><td/><td>&#x2212;77.5</td><td>74.0</td><td>&#x2212;60.9</td><td>&#x2212;72.4</td><td>&#x2212;75.6</td></tr><tr><td>RMP (=take-off) (mV)</td><td/><td>&#x2212;73.5</td><td>&#x2212;74.8</td><td/><td/><td/><td>&#x2212;72.6</td><td/><td/><td/><td/><td>&#x2212;70.5</td><td/><td/><td/><td/></tr><tr><td>dV/dtmax (V/s)</td><td/><td>219</td><td>253</td><td/><td/><td/><td>230</td><td/><td/><td/><td/><td>146.5</td><td>84</td><td>13.1</td><td>115.7</td><td>27.8</td></tr><tr><td>APA (mV)</td><td/><td>102.7</td><td>104.8</td><td/><td/><td/><td>94.3</td><td/><td/><td/><td/><td>116</td><td>124</td><td>88.1</td><td>106.0</td><td>104.0</td></tr><tr><td>Author/year</td><td>This study</td><td>This study</td><td>This study</td><td>Sakak-ibara <italic>et al</italic>. 1993<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>, Am J Physiol</td><td>Sakak-ibara <italic>et al</italic>. 1992<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, Circ Res</td><td>Li <italic>et al</italic>. 2009, Cardi-ovasc Res</td><td>Wettwer <italic>et al</italic>. 2013<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>, Cardi-ovasc Res</td><td>Bosch <italic>et al</italic>. 1999, Cardi-ovasc Res</td><td>Feng <italic>et al</italic>. 1996<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>, Am J Physiol</td><td>Schneider <italic>et al</italic>. 1994, Pfl&#xFC;gers Arch Eur J Physiol</td><td>Busta-mante <italic>et al</italic>. 1983, Science</td><td>Herron <italic>et al</italic>. 2016<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, Circ Arrhy-thmia Elect-roph</td><td>Feaster <italic>et al</italic>. 2015<sup><xref ref-type="bibr" rid="CR11">11</xref></sup>, Circ Res</td><td>Ma <italic>et al</italic>. 2013, Int J Cardiol</td><td>Davis <italic>et al</italic>. 2012, Circulation</td><td>Ma <italic>et al</italic>. 2011, Am J Physiol Hear Circ Physiol</td></tr></tbody></table></table-wrap>
+</p>
+      </sec>
+      <sec id="Sec7">
+        <title>Cell structure and subcellular distribution of Na<sub>V</sub>1.5</title>
+        <p id="Par10">HiPSC-CM in EHT were oriented in parallel and showed a rod-shape morphology with sarcomere alignment comparable to LV tissue (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). In contrast, hiPSC-CM in ML format showed an increased circularity and the sarcomeres were oriented in different directions even within the cell. Na<sub>V</sub>1.5 was distributed in the Z-disks and in the intercalated disks of adult cardiac tissue (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). The subcellular distribution of Na<sub>V</sub>1.5 in ML hiPSC-CM was markedly different. It shows perinuclear enhancement with less pronounced signalling at the cell periphery and without co-localisation with &#x3B1;-actinin or enrichment at cell-cell contacts similar to what has been found in previous publications<sup><xref ref-type="bibr" rid="CR18">18</xref>&#x2013;<xref ref-type="bibr" rid="CR20">20</xref></sup>. In contrast, hiPSC-CM in EHT showed a more pronounced expression of Na<sub>V</sub>1.5 in the periphery of the CM. Few CM in EHT showed co-localisation of Na<sub>V</sub>1.5 to Z-disks (arrowheads in Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5B</xref>) and enhanced expression of Na<sub>V</sub>1.5 at cell-cell contacts orthogonal to the CM orientation (arrow in Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5B</xref>), comparable to the intercalated disk of adult cardiac tissue. Proper impulse propagation does not only depend on the sodium channels, but also on polarized connexin-43 expression. We found pronounced connexin-43 staining at the cell membranes of hiPSC-CM in EHT, but no clear enhancement at end-to-end over lateral cell-cell contacts typical of adult human LV (Supplementary Figure&#xA0;<xref rid="MOESM1" ref-type="media">3</xref>).<fig id="Fig5"><label>Figure 5</label><caption><p>Immunofluorescence analysis. Subcellular localisation of &#x3B1;-actinin (green), Na<sub>V</sub>1.5 (red) and nuclei (blue) in a whole mount immunofluorescent confocal section of left ventricular tissue (LV, two examples, <bold>A</bold>) and human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CM) in engineered heart tissue (EHT, two examples, <bold>B</bold>) and monolayer (ML, <bold>C</bold>). In contrast to ML, EHT showed a parallel orientation of CM, a more rod-shaped morphology, sarcomere alignment and Na<sub>V</sub>1.5 enhancement at cell-cell contact (arrow). In some parts of the EHT, Na<sub>V</sub>1.5 was co-localised with &#x3B1;-actinin at Z-disks (see arrowheads in inset with 2.5 fold magnification), comparable to LV. Scale bar for all images is 10 &#xB5;m. Black rectangles were placed aside confocal images in A for symmetrical appearance.</p></caption><graphic xlink:href="41598_2017_5600_Fig5_HTML" id="d29e2269"/></fig>
+</p>
+      </sec>
+    </sec>
+    <sec id="Sec8" sec-type="discussion">
+      <title>Discussion</title>
+      <p id="Par11">In the present study, we investigated whether culture of hiPSC-CM in the EHT format leads to a higher resemblance with adult human CM in terms of I<sub>Na</sub> density, upstroke velocity, CM morphology and subcellular distribution of Na<sub>V</sub>1.5.</p>
+      <p id="Par12">I<sub>Na</sub> densities are difficult to compare among different studies, as experimental conditions differ widely with respect to temperature and Na concentrations (as listed in Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>). Here we used the same experimental conditions used previously to measure I<sub>Na</sub> in human adult ventricular CM<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>, allowing for reliable comparisons with hiPSC-CM. Due to the limited availability of human adult ventricular tissue, studies analysing its electrophysiological properties are rare. To our knowledge, only one publication has studied I<sub>Na</sub> in human adult ventricular CM<sup><xref ref-type="bibr" rid="CR16">16</xref></sup> reporting an I<sub>Na</sub> density of &#x2212;20.2 pA/pF. Human atrial CM I<sub>Na</sub> density measured under the same conditions amounted to &#x2212;17.8 pA/pF, others reported values between &#x2212;4 and -30 pA/pF<sup><xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref></sup>. Thus, the I<sub>Na</sub> densities in EHT hiPSC-CM (-18.5 pA/pF) fit nicely with ventricular and atrial adult CM. The observation that I<sub>Na</sub> density in EHT CM was nearly two fold higher than CM cultured in conventional ML (&#x2212;10.7 pA/pF) provides evidence for the hypothesis that EHT culture improves the maturity of CM. The isometric mode of contraction of hiPSC-CM cultured on rigid surfaces (ML) in comparison to the auxotonic mode of contraction with defined load (EHT) might cause the difference in I<sub>Na</sub> density. This supports recent data from hiPSC-CM cultured on soft substrate<sup><xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref></sup>, suggesting that auxotonic work is essential for the development of proper I<sub>Na</sub> density. I<sub>Na</sub> density in mammalian CM increases constantly during cardiac development from embryonic to neonatal stages until the adult state<sup><xref ref-type="bibr" rid="CR23">23</xref>&#x2013;<xref ref-type="bibr" rid="CR25">25</xref></sup>, which occurs in parallel with increasing SCN5A expression during differentiation and culture of hiPSC-CM (Supplementary Figure&#xA0;<xref rid="MOESM1" ref-type="media">2</xref> and Fig.&#xA0;<xref rid="MOESM1" ref-type="media">3B</xref>). Thus, the increase in I<sub>Na</sub> density might be part of the maturation process.</p>
+      <p id="Par13">In order to elucidate potential mechanisms causing the greater I<sub>Na</sub> density in EHT vs. ML, we reanalysed our previously published transcriptome of hiPSC-CM<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. We focused on the expression of genes thought to influence I<sub>Na</sub>. On the one hand, we found lower mRNA levels in EHT for the transforming growth factor beta 1 (<italic>TGFB1l1</italic>) which is a multifunctional cytokine and may reduce Na<sub>V</sub>1.5 expression<sup><xref ref-type="bibr" rid="CR26">26</xref></sup>. On the other hand, we found higher mRNA levels in EHT of proteins believed to enhance I<sub>Na</sub> function: epidermal growth factor (<italic>EGF</italic>), promoting ubiquitously growth, proliferation and differentiation<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>; anchoring adaptor ankyrin-G (<italic>ANK3</italic>)<sup><xref ref-type="bibr" rid="CR28">28</xref></sup>, which is involved in ion channel trafficking to the cell membrane, and plakophilin-2 (<italic>PKP2</italic>), which is part of cytoskeleton and cell-cell contact<sup><xref ref-type="bibr" rid="CR29">29</xref></sup>. Interestingly, missense mutations in plakophilin-2 are known to cause arrhythmogenic right ventricular cardiomyopathy and I<sub>Na</sub> deficit<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>.</p>
+      <p id="Par14">The contribution of the short lasting I<sub>Na</sub> to the AP also depends on inactivation kinetics, which can be characterised by fitting a single exponential non-linear curve to the negative downslope of the I<sub>Na</sub>. Inactivation kinetics revealed similar time constants and voltage-dependency in ML and EHT (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2B</xref>) fitting nicely to data reported for human adult CM<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>. The voltage-dependency of activation and steady-state inactivation were indistinguishable between EHT and ML (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2C</xref>), implying that the higher I<sub>Na</sub> density in EHT may be explained by a greater number of functional Na channels. As experimental conditions like time after rupture and temperature are known to shift V<sub>0.5act</sub> and V<sub>0.5inact</sub> to approximately the same extent, we calculated the actual difference (delta) between V<sub>0.5act</sub> and V<sub>0.5inact</sub>. We found values of 55.1 mV and 55.3 mV for EHT and ML, respectively (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>), which are comparable to published data<sup><xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR21">21</xref></sup> for adult CM (54&#x2013;58 mV). This finding is in contrast to previous measurements in hiPSC-CM cultured in ML showing markedly smaller values<sup><xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR22">22</xref></sup>, including a recent study that describes the culturing of hiPSC-CM on a soft substrate<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. It is unclear if these discrepancies relate to technical differences or to intrinsic properties of different cell lines. Overall, we conclude that EHT format does not affect the voltage-dependent steady-state inactivation and activation in hiPSC-CM and these parameters are similar in our hiPSC-CM to that in human adult CM.</p>
+      <p id="Par15">The difference (delta) between V<sub>0.5act</sub> and V<sub>0.5inact</sub> mentioned above is not trivial: more overlap should generate more window current. Previously published studies on hiPSC-CM<sup><xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR22">22</xref></sup> have shown reduced differences (delta) between V<sub>0.5act</sub> and V<sub>0.5inact</sub> and as a consequence a higher calculated window current (4&#x2013;12%, Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>). Larger window currents may partly explain persistent/late I<sub>Na</sub> in CM and might have a critical influence on AP duration<sup><xref ref-type="bibr" rid="CR31">31</xref></sup>. In our experiments with hiPSC-CM, we found only a small amount of window current as in adult CM and no persistent/late I<sub>Na</sub>. At the maximum degree of overlap (inset Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2C</xref>), I<sub>Na</sub> in hiPSC-CM showed similar fractions of maximal availability and conductance (1.4% and 1.8% for EHT and ML, respectively) as human adult CM (~2% and ~1% for atrial<sup><xref ref-type="bibr" rid="CR17">17</xref></sup> and ventricular CM<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>, respectively). It should be noted that the amount of window current might be an additional marker in the maturation process, since window currents decrease during the development of chick embryonic CM<sup><xref ref-type="bibr" rid="CR32">32</xref></sup>.</p>
+      <p id="Par16">Interestingly, not only does the RMP influence I<sub>Na</sub> density, but also vice versa, I<sub>Na</sub> may influence RMP. Window I<sub>Na</sub> may contribute significantly to RMP<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>, especially when inward rectifier currents are small, as in human atrial trabeculae. Imanishi <italic>et al</italic>. have shown that high concentrations of TTX hyperpolarized the membrane potential of quiescent human atrial trabecular by about 7 mV<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. Consequently, window I<sub>Na</sub> may be of particular relevance in hiPSC-CM, as less negative RMP and small inwardly rectifying potassium currents are consistently reported for hiPSC-CM<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>.</p>
+      <p id="Par17">Sodium currents are known to recover quickly from voltage-dependent inactivation. Recovery from inactivation critically determines refractoriness and influences the susceptibility to tachyarrhythmia. In human adult atrial and ventricular CM recovery from inactivation could be fitted by a two-time constant function when plotting peak currents against different recovery time intervals<sup><xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref></sup>. Earlier studies on hiPSC-CM from ML reported similar characteristics of recovery from inactivation as here<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. It should be noted that both this study and Ma <italic>et al</italic>.<sup><xref ref-type="bibr" rid="CR5">5</xref></sup> found a somewhat faster recovery from inactivation in hiPSC-CM than in human adult CM. Whether this small difference has physiological relevance needs to be elucidated by computer modelling and functional studies.</p>
+      <p id="Par18">We used TTX-inhibition of I<sub>Na</sub> to evaluate whether non-cardiac isoforms contribute significantly to I<sub>Na</sub> in hiPSC-CM, which might be a sign of immaturity (Supplementary Figure&#xA0;<xref rid="MOESM1" ref-type="media">2</xref>). In hiPSC-CM, the effect size for low nanomolar concentrations of TTX fits perfectly to a single-site binding model with low sensitivity (IC<sub>50</sub> 1.3&#xA0;&#xB5;mol/L). Therefore, we would not assume relevant contribution from highly sensitive isoforms of Na channels to peak currents. Published TTX-sensitivities in atrial and ventricular CM amount to 1.1&#xA0;&#xB5;mol/L<sup>17</sup> and 1.7&#xA0;&#xB5;mol/L<sup>16</sup> showing that the TTX-sensitivity of I<sub>Na</sub> in hiPSC-CM was similar to that in adult CM. Quantitative evaluation of the transcript levels of different Na channel isoforms confirmed that expression was dominated by the expression of the low-TTX sensitive isoform Na<sub>V</sub> 1.5 (SCN5A) compared to the highly-TTX sensitive neuronal isoforms Na<sub>V</sub> 1.1&#x2013;1.3, 1.6 (SCN1&#x2013;3A, SCN6A). The TTX-resistant neuronal isoform Na<sub>V</sub>1.8 (SCN10A) was expressed at intermediate levels and showed lower absolute transcription levels in hiPSC-CM than in LV.</p>
+      <p id="Par19">To the best of our knowledge, we show here for the first time AP in hiPSC-CM with an upstroke velocity similar to human adult ventricular tissue (200&#x2013;300 V/s). Previous studies in hiPSC-CM have reported heterogeneous and overall lower upstroke velocities (Table&#xA0;<xref rid="Tab2" ref-type="table">2</xref>) at ~40 V/s for ventricular-like AP in isolated cells<sup><xref ref-type="bibr" rid="CR4">4</xref>&#x2013;<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR22">22</xref></sup> or in embryoid bodies<sup><xref ref-type="bibr" rid="CR9">9</xref></sup>. Recent approaches to culture hiPSC-CM on a soft substrate of extracellular matrix as single CM<sup><xref ref-type="bibr" rid="CR11">11</xref></sup> or ML<sup><xref ref-type="bibr" rid="CR12">12</xref></sup> revealed higher I<sub>Na</sub> density<sup><xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref></sup> and higher upstroke velocity of 147 V/s<sup>12</sup> in comparison to cultures on a stiff substrate (65 V/s). Collectively, the data indicate that culture conditions allowing auxotonic contractions of hiPSC-CM against a flexible resistance increases the resemblance in I<sub>Na</sub> density known for adult CM. This will be important for the further use of hiPSC-CM in drug testing and modelling of genetically determined cardiac diseases.</p>
+      <p id="Par20">We also found that AP in hiPSC-CM in EHTs showed a steeper early repolarisation and were considerably shorter than APs derived from LV tissue. A possible explanation is that APs from human tissue were all recorded from the subendocardial myocardium, which is known to express much less transient outward potassium current (I<sub>to</sub>) and therefore exhibits longer APs than subepicardial regions<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>. Future work is warranted to evaluate whether APs in EHT are in fact &#x201C;subepicardial-like&#x201D; or whether the observed difference indicate a specific hiPSC-CM phenotype or a peculiarity of the cell line under investigation.</p>
+      <p id="Par21">Immunohistochemistry revealed a parallel orientation of CM with a more rod-shaped morphology and sarcomere alignment of hiPSC-CM than in ML (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5</xref>). Interestingly, the subcellular distribution of Na<sub>V</sub>1.5 in EHT hiPSC-CM showed an enhancement of Na<sub>V</sub>1.5 at cell-cell contacts and, in some CM, pronounced signals, similar to those in the intercalated disks of the LV. Since Na<sub>V</sub>1.5 relocates from lateral to intercalated disks during cardiac development<sup><xref ref-type="bibr" rid="CR36">36</xref></sup>, the enhancement of Na<sub>V</sub>1.5 in the direction of sarcomere orientation might be another hint for structural maturation of hiPSC-CM by the EHT format. Additionally, some hiPSC-CM in EHT showed co-localisation of Na<sub>V</sub>1.5 with &#x3B1;-actinin at Z-disks, while hiPSC-CM in ML did not, as shown previously<sup><xref ref-type="bibr" rid="CR19">19</xref></sup>.</p>
+      <p id="Par22">Although the EHT format facilitated structural maturation, the cell size of hiPSC-CM was similar to those in ML format (~25 pF) and much smaller in comparison to adult LV CM (~100&#x2013;200 pF)<sup><xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR37">37</xref></sup>. As cell size increases during the embryonic development of cardiomyocytes<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>, the small cell size may indicate an early stage of development. Smaller cells have a greater membrane area to volume ratio, but the physiological relevance of this remains unclear. From a technical point of view, smaller cells should conduct smaller absolute membrane currents making patch-clamp studies more technically demanding<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>.</p>
+      <p id="Par23">A limitation of this study is that all LV tissue was obtained from patients with advanced heart failure due to dilated cardiomyopathy, since access to living non-failing heart tissue is virtually impossible. We therefore cannot fully exclude electrophysiological differences to healthy tissue. However, previous publications have shown no differences in sodium current properties from failing or non-failing hearts<sup><xref ref-type="bibr" rid="CR17">17</xref></sup> and upstroke velocity in our hands were similar to values reported for non-failing human heart<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>.</p>
+      <p id="Par24">In conclusion, we have characterized I<sub>Na</sub> in hiPSC-CM in 3D EHT and conventional 2D ML culture and compared AP characteristics in hiPSC-EHTs and human ventricular tissue. The main findings are 1) a higher I<sub>Na</sub> density and a similar upstroke velocity in EHT as in human adult ventricular tissue, 2) similar voltage-dependent inactivation and activation of I<sub>Na</sub> in EHT and ML, 3) no evidence for relevant non-cardiac isoforms contributing to I<sub>Na</sub> in hiPSC-CM and 4) a higher resemblance of hiPSC-CM in EHT to LV concerning structure and subcellular Na<sub>V</sub>1.5 distribution than ML. Thus, our data suggest that EHT culture of hiPSC-CM may improve the validity of <italic>in-vitro</italic> experiments studying electrophysiological questions.</p>
+    </sec>
+    <sec id="Sec9" sec-type="materials|methods">
+      <title>Methods</title>
+      <sec id="Sec10">
+        <title>An expanded method section is available in the supplementary data</title>
+        <sec id="Sec11">
+          <title>Human materials and experimental protocols</title>
+          <p id="Par25">This investigation conforms to all principles outlined by the Declaration of Helsinki and the Medical Associaton of Hamburg. According to the guidelines of the ethical review committee of the Medical Association of Hamburg, Germany, there is no need for a specific approval in this case since patient data were used anonymized. All materials from patients were taken with informed consent of the donors. Left ventricular free wall samples were obtained from patients undergoing implantation of left ventricular assist device (LVAD) or heart transplantation.</p>
+        </sec>
+        <sec id="Sec12">
+          <title>Generation and culture of human induced pluripotent stem cell-derived cardiomyocytes in engineered heart tissue and monolayer format</title>
+          <p id="Par26">As previously described<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>, single cell suspensions of hiPSC-CM were either subjected to EHT generation in a 24-well format (1x10<sup>6</sup>&#xA0;hiPSC-CM/EHT in a fibrin matrix (total volume 100 &#xB5;l) consisting of 10 &#xB5;l/100 &#xB5;l Matrigel [BD Bioscience, 256235], 5 mg/ml bovine fibrinogen (200 mg/ml in NaCl 0.9% [Sigma, F4753] plus 0.5 &#xB5;g/mg aprotinin [Sigma, A1153]), 2x DMEM, 10 &#xB5;M Y-27632 and 3 U/ml thrombin [Biopur, BP11101104]) or cultured conventionally in ML gelatin-coated 24-well plates (4x10<sup>5</sup> hiPSC-CM per well, 2 cm<sup>2</sup>). Culture media and duration were kept identical. For patch clamp measurements, hiPSC-CM in EHT and ML were isolated with collagenase II (200&#xA0;U/ml, Worthington, LS004176) after a 24&#x2013;29 day culturing period, and re-plated on gelatin-coated coverslips for 24&#x2013;48&#xA0;h in order to maintain adherence under perfusion.</p>
+        </sec>
+        <sec id="Sec13">
+          <title>Patch-clamp experiments</title>
+          <p id="Par27">I<sub>Na</sub> recordings were performed as described previously<sup><xref ref-type="bibr" rid="CR7">7</xref></sup>. In brief, borosilicate glass microelectrode pipettes (tip resistances 1.5&#x2013;3.0&#xA0;MOhm) were used to record I<sub>Na</sub> in whole-cell configuration at room temperature (21&#x2009;&#xB1;&#x2009;1&#x2009;&#xB0;C) with an Axopatch-200B amplifier (Axon Instruments, Foster City, CA). Pipette and bath solution contained 5&#xA0;mmol/L NaCl.</p>
+        </sec>
+        <sec id="Sec14">
+          <title>Action potential measurements</title>
+          <p id="Par28">APs were recorded as described previously<sup><xref ref-type="bibr" rid="CR7">7</xref></sup> with standard sharp microelectrodes in intact EHTs (25&#x2013;60 days old) or LV tissue superfused with Tyrode&#xB4;s solution at 36.5&#x2009;&#xB1;&#x2009;0.5&#x2009;&#xB0;C field-stimulated at 1 Hz (n&#x2009;=&#x2009;number of total impalements, N&#x2009;=&#x2009;number of EHT/LV tissue).</p>
+        </sec>
+        <sec id="Sec15">
+          <title>Immunofluorescence</title>
+          <p id="Par29">Immunofluorescence was performed as described previously<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. Briefly, EHT or LV tissue were fixed in formaldehyde overnight at 4&#x2009;&#xB0;C, blocked for 6 h and incubated with primary antibodies (monoclonal mouse anti-&#x3B1;-actinin; monoclonal rabbit anti-Na<sub>V</sub>1.5) and secondary antibodies and nuclear staining (Alexa Fluor&#xAE; 488 goat-anti-rabbit; Alexa Fluor&#xAE; 546 goat-anti-mouse; DRAQ5TM). 2D cultures were cultivated on 96-well plates and were fixed for 20 minutes at 4&#x2009;&#xB0;C and stained accordingly with the exception of using Hoechst 33342 for nuclei staining.</p>
+        </sec>
+        <sec id="Sec16">
+          <title>Statistics</title>
+          <p id="Par30">GraphPad Prism 5 (GraphPad Software, San Diego, CA, USA) was used for data analyses. Curves were fitted to data points from individual experiments and all data were compared using unpaired t-tests and for groups greater than 2 One-way ANOVA followed by Tukey corrections. Two-way ANOVA was used to assess repeated measurements of current-voltage relationship (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2A</xref>). All analyses were two-tailed and a p&#x2009;&lt;&#x2009;0.05 was considered to be statistically significant. Group data are presented as mean&#x2009;&#xB1;&#x2009;SEM.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Electronic supplementary material</title>
+      <sec id="Sec17">
+        <p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2017_5600_MOESM1_ESM.pdf"><caption><p>Supplementary</p></caption></media></supplementary-material>
+</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn>
+        <p>
+          <bold>Electronic supplementary material</bold>
+        </p>
+        <p>
+<bold>Supplementary information</bold> accompanies this paper at doi:10.1038/s41598-017-05600-w
+</p>
+      </fn>
+      <fn>
+        <p>
+<bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>This work was supported by the German Centre for Cardiovascular Research (DZHK) and the German Ministry of Education and Research (BMBF), the German Research Foundation (DFG Es 88/12-1), the British National Centre for the Replacement, Refinement &amp; Reduction of Animals in Research (NC3Rs CRACK-IT grant 35911-259146) and the European Research Council Advanced Grant (IndivuHeart). We greatly appreciate the assistance of Kristin Hartmann and Susanne Krasemann (HEXT Mouse Pathology Core Facility, UKE Hamburg), in processing histological samples. The authors thank Alessandra Moretti and Dennis Schade for their kind contribution of materials. The authors gratefully acknowledge expert technical advice and help in providing hiPSC-CM and EHTs from Anika Benzin, Tessa Werner, Mirja Schulze, Marta Lemme, Klaus S&#xF6;hren, Thomas Schulze, Birgit Klampe, Umber Saleem, Lisa Kr&#xE4;mer, Giulia Mearini, Sari Panjaitan, Aya Domke-Shibamiya, Sandra Laufer and Katharina Scherschel. We thank Jennifer N. Lohr for useful comments on the manuscript as well as language editing and proofreading.</p>
+    </ack>
+    <notes notes-type="author-contribution">
+      <title>Author Contributions</title>
+      <p>M.D.L., A.H., T.E. and T.C. conceived the experiments, M.D.L., I.M., K.B., M.P., F.F., B.U., H.R., M.N.H., C.N., A.H., and B.K. organised or conducted the experiments and acquired data. M.D.L. analysed data. M.D.L., T.E. and T.C. wrote the manuscript. S.W., A.H., T.E. and T.C. acquired financial support for this project. All authors reviewed the manuscript.</p>
+    </notes>
+    <notes notes-type="COI-statement">
+      <sec id="FPar1">
+        <title>Competing Interests</title>
+        <p id="Par31">I.M., M.N.H., A.H. and T.E. are cofounder of EHT Technologies GmbH, Hamburg.</p>
+      </sec>
+    </notes>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Birket</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Contractile Defect Caused by Mutation in MYBPC3 Revealed under Conditions Optimized for Human PSC-Cardiomyocyte Function</article-title>
+          <source>Cell Rep.</source>
+          <year>2015</year>
+          <volume>13</volume>
+          <fpage>733</fpage>
+          <lpage>745</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.celrep.2015.09.025</pub-id>
+          <pub-id pub-id-type="pmid">26489474</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liang</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Drug screening using a library of human induced pluripotent stem cell-derived cardiomyocytes reveals disease-specific patterns of cardiotoxicity</article-title>
+          <source>Circulation</source>
+          <year>2013</year>
+          <volume>127</volume>
+          <fpage>1677</fpage>
+          <lpage>1691</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.113.001883</pub-id>
+          <pub-id pub-id-type="pmid">23519760</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Pabon</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Murry</surname>
+              <given-names>CE</given-names>
+            </name>
+          </person-group>
+          <article-title>Engineering adolescence: Maturation of human pluripotent stem cell-derived cardiomyocytes</article-title>
+          <source>Circ. Res.</source>
+          <year>2014</year>
+          <volume>114</volume>
+          <fpage>511</fpage>
+          <lpage>523</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.114.300558</pub-id>
+          <pub-id pub-id-type="pmid">24481842</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davis</surname>
+              <given-names>RP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cardiomyocytes derived from pluripotent stem cells recapitulate electrophysiological characteristics of an overlap syndrome of cardiac sodium channel disease</article-title>
+          <source>Circulation</source>
+          <year>2012</year>
+          <volume>125</volume>
+          <fpage>3079</fpage>
+          <lpage>91</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.111.066092</pub-id>
+          <pub-id pub-id-type="pmid">22647976</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>High purity human-induced pluripotent stem cell-derived cardiomyocytes: electrophysiological properties of action potentials and ionic currents. <italic>Am J Physiol Hear</italic></article-title>
+          <source>Circ Physiol</source>
+          <year>2011</year>
+          <volume>301</volume>
+          <fpage>2006</fpage>
+          <lpage>2017</lpage>
+          <pub-id pub-id-type="doi">10.1152/ajpheart.00694.2011</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moretti</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Patient-specific induced pluripotent stem-cell models for long-QT syndrome</article-title>
+          <source>N. Engl. J. Med.</source>
+          <year>2010</year>
+          <volume>363</volume>
+          <fpage>1397</fpage>
+          <lpage>1409</lpage>
+          <pub-id pub-id-type="doi">10.1056/NEJMoa0908679</pub-id>
+          <pub-id pub-id-type="pmid">20660394</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wettwer</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The new antiarrhythmic drug vernakalant: <italic>Ex vivo</italic> study of human atrial tissue from sinus rhythm and chronic atrial fibrillation</article-title>
+          <source>Cardiovasc. Res.</source>
+          <year>2013</year>
+          <volume>98</volume>
+          <fpage>145</fpage>
+          <lpage>154</lpage>
+          <pub-id pub-id-type="doi">10.1093/cvr/cvt006</pub-id>
+          <pub-id pub-id-type="pmid">23341576</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tulloch</surname>
+              <given-names>NL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Growth of engineered human myocardium with mechanical loading and vascular coculture</article-title>
+          <source>Circ. Res.</source>
+          <year>2011</year>
+          <volume>109</volume>
+          <fpage>47</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.110.237206</pub-id>
+          <pub-id pub-id-type="pmid">21597009</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <mixed-citation publication-type="other">Doss, M. X. <italic>et al</italic>. Maximum diastolic potential of human induced pluripotent stem cell-derived cardiomyocytes depends critically on IKr. <italic>PLoS One</italic><bold>7</bold> (2012).</mixed-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eng</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Autonomous beating rate adaptation in human stem cell-derived cardiomyocytes</article-title>
+          <source>Nat. Commun.</source>
+          <year>2016</year>
+          <volume>7</volume>
+          <fpage>1</fpage>
+          <lpage>10</lpage>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Feaster</surname>
+              <given-names>TK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Matrigel Mattress: A Method for the Generation of Single Contracting Human-Induced Pluripotent Stem Cell-Derived Cardiomyocytes</article-title>
+          <source>Circ. Res.</source>
+          <year>2015</year>
+          <volume>117</volume>
+          <fpage>995</fpage>
+          <lpage>1000</lpage>
+          <pub-id pub-id-type="pmid">26429802</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Herron</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Extracellular matrix-mediated maturation of human pluripotent stem cell-derived cardiac monolayer structure and electrophysiological function</article-title>
+          <source>Circ. Arrhythmia Electrophysiol.</source>
+          <year>2016</year>
+          <volume>9</volume>
+          <fpage>1</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCEP.113.003638</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Feric</surname>
+              <given-names>NT</given-names>
+            </name>
+            <name>
+              <surname>Radisic</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Maturing human pluripotent stem cell-derived cardiomyocytes in human engineered cardiac tissues</article-title>
+          <source>Advanced Drug Delivery Reviews</source>
+          <year>2016</year>
+          <volume>96</volume>
+          <fpage>110</fpage>
+          <lpage>134</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.addr.2015.04.019</pub-id>
+          <pub-id pub-id-type="pmid">25956564</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hansen</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Development of a drug screening platform based on engineered heart tissue</article-title>
+          <source>Circ. Res.</source>
+          <year>2010</year>
+          <volume>107</volume>
+          <fpage>35</fpage>
+          <lpage>44</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.109.211458</pub-id>
+          <pub-id pub-id-type="pmid">20448218</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mannhardt</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human Engineered Heart Tissue: Analysis of Contractile Force</article-title>
+          <source>Stem Cell Reports</source>
+          <year>2016</year>
+          <volume>7</volume>
+          <fpage>1</fpage>
+          <lpage>14</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.stemcr.2016.04.011</pub-id>
+          <pub-id pub-id-type="pmid">27346679</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sakakibara</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Characterization of the sodium current in single human atrial myocytes</article-title>
+          <source>Circ. Res.</source>
+          <year>1992</year>
+          <volume>71</volume>
+          <fpage>535</fpage>
+          <lpage>46</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.RES.71.3.535</pub-id>
+          <pub-id pub-id-type="pmid">1323431</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sakakibara</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Sodium current in isolated human ventricular myocytes</article-title>
+          <source>Am. J. Physiol.</source>
+          <year>1993</year>
+          <volume>265</volume>
+          <fpage>H1301</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">8238418</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Malan</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Friedrichs</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Fleischmann</surname>
+              <given-names>BK</given-names>
+            </name>
+            <name>
+              <surname>Sasse</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Cardiomyocytes obtained from induced pluripotent stem cells with long-QT syndrome 3 recapitulate typical disease-specific features <italic>in vitro</italic></article-title>
+          <source>Circ. Res.</source>
+          <year>2011</year>
+          <volume>109</volume>
+          <fpage>841</fpage>
+          <lpage>847</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.111.243139</pub-id>
+          <pub-id pub-id-type="pmid">21799153</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Malan</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human iPS cell model of type 3 long QT syndrome recapitulates drug-based phenotype correction</article-title>
+          <source>Basic Res. Cardiol.</source>
+          <year>2016</year>
+          <volume>111</volume>
+          <fpage>14</fpage>
+          <pub-id pub-id-type="doi">10.1007/s00395-016-0530-0</pub-id>
+          <pub-id pub-id-type="pmid">26803770</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Modeling type 3 long QT syndrome with cardiomyocytes derived from patient-speci fi c induced pluripotent stem cells</article-title>
+          <source>Int. J. Cardiol.</source>
+          <year>2013</year>
+          <volume>168</volume>
+          <fpage>5277</fpage>
+          <lpage>5286</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ijcard.2013.08.015</pub-id>
+          <pub-id pub-id-type="pmid">23998552</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Feng</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Fermini</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Nattel</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Properties of sodium and potassium currents of cultured adult human atrial myocytes</article-title>
+          <source>Am. J. Physiol.</source>
+          <year>1996</year>
+          <volume>270</volume>
+          <fpage>H1676</fpage>
+          <lpage>H1686</lpage>
+          <pub-id pub-id-type="pmid">8928874</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Modeling type 3 long QT syndrome with cardiomyocytes derived from patient-specific induced pluripotent stem cells</article-title>
+          <source>Int. J. Cardiol.</source>
+          <year>2013</year>
+          <volume>168</volume>
+          <fpage>5277</fpage>
+          <lpage>5286</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ijcard.2013.08.015</pub-id>
+          <pub-id pub-id-type="pmid">23998552</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davies</surname>
+              <given-names>MP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Developmental changes in ionic channel activity in the embryonic murine heart</article-title>
+          <source>Circ. Res.</source>
+          <year>1996</year>
+          <volume>78</volume>
+          <fpage>15</fpage>
+          <lpage>25</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.RES.78.1.15</pub-id>
+          <pub-id pub-id-type="pmid">8603498</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yatani</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>AM</given-names>
+            </name>
+          </person-group>
+          <article-title>The calcium channel blocker nitrendipine blocks sodium channels in neonatal rat cardiac myocytes</article-title>
+          <source>Circ. Res.</source>
+          <year>1985</year>
+          <volume>56</volume>
+          <fpage>868</fpage>
+          <lpage>875</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.RES.56.6.868</pub-id>
+          <pub-id pub-id-type="pmid">2408778</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR25">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Conforti</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Tohse</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Sperelakis</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Tetrodotoxin-sensitive sodium current in rat fetal ventricular myocytes&#x2013;Contribution to the plateau phase of action potential</article-title>
+          <source>J Mol Cell Cardiol</source>
+          <year>1993</year>
+          <volume>25</volume>
+          <fpage>159</fpage>
+          <lpage>173</lpage>
+          <pub-id pub-id-type="doi">10.1006/jmcc.1993.1019</pub-id>
+          <pub-id pub-id-type="pmid">8386254</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR26">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ramos-Mondrag&#xF3;n</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Vega</surname>
+              <given-names>AV</given-names>
+            </name>
+            <name>
+              <surname>Avila</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Long-term modulation of Na+ and K+ channels by TGF-??1 in neonatal rat cardiac myocytes</article-title>
+          <source>Pflugers Arch. Eur. J. Physiol.</source>
+          <year>2011</year>
+          <volume>461</volume>
+          <fpage>235</fpage>
+          <lpage>247</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00424-010-0912-3</pub-id>
+          <pub-id pub-id-type="pmid">21229261</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR27">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Lau</surname>
+              <given-names>CP</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>GR</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of voltage-gated cardiac sodium current by epidermal growth factor receptor kinase in guinea pig ventricular myocytes</article-title>
+          <source>J. Mol. Cell. Cardiol.</source>
+          <year>2007</year>
+          <volume>42</volume>
+          <fpage>760</fpage>
+          <lpage>768</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.yjmcc.2006.10.013</pub-id>
+          <pub-id pub-id-type="pmid">17188293</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR28">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mohler</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Nav1.5 E1053K mutation causing Brugada syndrome blocks binding to ankyrin-G and expression of Nav1.5 on the surface of cardiomyocytes</article-title>
+          <source>Proc. Natl. Acad. Sci. USA.</source>
+          <year>2004</year>
+          <volume>101</volume>
+          <fpage>17533</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.0403711101</pub-id>
+          <pub-id pub-id-type="pmid">15579534</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR29">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sato</surname>
+              <given-names>PY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Loss of plakophilin-2 expression leads to decreased sodium current and slower conduction velocity in cultured cardiac myocytes</article-title>
+          <source>Circ. Res.</source>
+          <year>2009</year>
+          <volume>105</volume>
+          <fpage>523</fpage>
+          <lpage>526</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCRESAHA.109.201418</pub-id>
+          <pub-id pub-id-type="pmid">19661460</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR30">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cerrone</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Missense mutations in plakophilin-2 cause sodium current deficit and associate with a brugada syndrome phenotype</article-title>
+          <source>Circulation</source>
+          <year>2014</year>
+          <volume>129</volume>
+          <fpage>1092</fpage>
+          <lpage>1103</lpage>
+          <pub-id pub-id-type="doi">10.1161/CIRCULATIONAHA.113.003077</pub-id>
+          <pub-id pub-id-type="pmid">24352520</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR31">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Attwell</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Eisner</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Ohba</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ojeda</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>The steady state TTX-sensitive (&#x201C;window&#x201D;) sodium current in cardiac Purkinje fibres</article-title>
+          <source>Pfl&#xFC;gers Arch. Eur. J. Physiol.</source>
+          <year>1979</year>
+          <volume>379</volume>
+          <fpage>137</fpage>
+          <lpage>142</lpage>
+          <pub-id pub-id-type="doi">10.1007/BF00586939</pub-id>
+          <pub-id pub-id-type="pmid">571107</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR32">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sada</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ban</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Fujita</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ebina</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sperelakis</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>Developmental change in fast Na channel properties in embryonic chick ventricular heart cells</article-title>
+          <source>Can J Physiol Pharmacol</source>
+          <year>1995</year>
+          <volume>73</volume>
+          <fpage>1475</fpage>
+          <lpage>1484</lpage>
+          <pub-id pub-id-type="doi">10.1139/y95-205</pub-id>
+          <pub-id pub-id-type="pmid">8748940</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR33">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Imanishi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Arita</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Factors related to the low resting membrane potentials of diseased human atrial muscles</article-title>
+          <source>Jpn. J. Physiol.</source>
+          <year>1987</year>
+          <volume>37</volume>
+          <fpage>393</fpage>
+          <lpage>410</lpage>
+          <pub-id pub-id-type="doi">10.2170/jjphysiol.37.393</pub-id>
+          <pub-id pub-id-type="pmid">2446032</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR34">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meijer van Putten</surname>
+              <given-names>RME</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ion channelopathies in human induced pluripotent stem cell derived cardiomyocytes: a dynamic clamp study with virtual IK1</article-title>
+          <source>Front. Physiol.</source>
+          <year>2015</year>
+          <volume>6</volume>
+          <fpage>1</fpage>
+          <lpage>16</lpage>
+          <pub-id pub-id-type="doi">10.3389/fphys.2015.00007</pub-id>
+          <pub-id pub-id-type="pmid">25688210</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR35">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wettwer</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Amos</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <name>
+              <surname>Posival</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ravens</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>Transient outward current in human ventricular myocytes of subepicardial and subendocardial origin</article-title>
+          <source>Circ. Res.</source>
+          <year>1994</year>
+          <volume>75</volume>
+          <fpage>473</fpage>
+          <lpage>482</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.RES.75.3.473</pub-id>
+          <pub-id pub-id-type="pmid">8062421</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR36">
+        <label>36.</label>
+        <mixed-citation publication-type="other">Vreeker, A. <italic>et al</italic>. Assembly of the cardiac intercalated disk during preand postnatal development of the human heart. <italic>PLoS One</italic><bold>9</bold> (2014).</mixed-citation>
+      </ref>
+      <ref id="CR37">
+        <label>37.</label>
+        <mixed-citation publication-type="other">Uzun, A. U. <italic>et al</italic>. Ca2+-Currents in Human Induced Pluripotent Stem Cell-Derived Cardiomyocytes Effects of Two Different Culture Conditions. <italic>Front. Pharmacol</italic>. <bold>7</bold> (2016).</mixed-citation>
+      </ref>
+      <ref id="CR38">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wilson</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>RB</given-names>
+            </name>
+            <name>
+              <surname>Banderali</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Giles</surname>
+              <given-names>WR</given-names>
+            </name>
+          </person-group>
+          <article-title>Measurement of the membrane potential in small cells using patch clamp methods</article-title>
+          <source>Channels (Austin)</source>
+          <year>2011</year>
+          <volume>5</volume>
+          <fpage>530</fpage>
+          <lpage>537</lpage>
+          <pub-id pub-id-type="doi">10.4161/chan.5.6.17484</pub-id>
+          <pub-id pub-id-type="pmid">21829090</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR39">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Drouin</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Charpentier</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Gauthier</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Laurent</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Marec</surname>
+              <given-names>HL</given-names>
+            </name>
+          </person-group>
+          <article-title>Electrophysiologic characteristics of cells spanning the left ventricular wall of human heart: Evidence for presence of M cells</article-title>
+          <source>J. Am. Coll. Cardiol.</source>
+          <year>1995</year>
+          <volume>26</volume>
+          <fpage>185</fpage>
+          <lpage>192</lpage>
+          <pub-id pub-id-type="doi">10.1016/0735-1097(95)00167-X</pub-id>
+          <pub-id pub-id-type="pmid">7797750</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

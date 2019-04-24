@@ -1,0 +1,1334 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Stem Cells Transl Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cells Transl Med</journal-id>
+      <journal-id journal-id-type="doi">10.1002/(ISSN)2157-6580</journal-id>
+      <journal-id journal-id-type="publisher-id">SCT3</journal-id>
+      <journal-title-group>
+        <journal-title>Stem Cells Translational Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2157-6564</issn>
+      <issn pub-type="epub">2157-6580</issn>
+      <publisher>
+        <publisher-name>John Wiley and Sons Inc.</publisher-name>
+        <publisher-loc>Hoboken</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28170174</article-id>
+      <article-id pub-id-type="pmc">5442732</article-id>
+      <article-id pub-id-type="doi">10.5966/sctm.2016-0012</article-id>
+      <article-id pub-id-type="publisher-id">SCT312034</article-id>
+      <article-categories>
+        <subj-group subj-group-type="overline">
+          <subject>Tissue&#x2010;Specific Progenitor and Stem Cells</subject>
+        </subj-group>
+        <subj-group subj-group-type="heading">
+          <subject>Translational Research Articles and Reviews</subject>
+          <subj-group subj-group-type="heading">
+            <subject>Tissue&#x2010;Specific Progenitor and Stem Cells</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Transplantation of Donor&#x2010;Origin Mouse Embryonic Stem Cell&#x2010;Derived Thymic Epithelial Progenitors Prevents the Development of Chronic Graft&#x2010;versus&#x2010;Host Disease in Mice</article-title>
+        <alt-title alt-title-type="right-running-head">Transplanted Donor&#x2010;Origin mESCs to Prevent cGVHD</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib id="sct312034-cr-0010" contrib-type="author">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Rong</given-names>
+          </name>
+          <xref ref-type="aff" rid="sct312034-aff-0001">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="sct312034-aff-0002">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib id="sct312034-cr-0011" contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Yalan</given-names>
+          </name>
+          <xref ref-type="aff" rid="sct312034-aff-0001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib id="sct312034-cr-0012" contrib-type="author">
+          <name>
+            <surname>Su</surname>
+            <given-names>Min</given-names>
+          </name>
+          <xref ref-type="aff" rid="sct312034-aff-0001">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="sct312034-aff-0002">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib id="sct312034-cr-0013" contrib-type="author">
+          <name>
+            <surname>Song</surname>
+            <given-names>Yinhong</given-names>
+          </name>
+          <xref ref-type="aff" rid="sct312034-aff-0001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib id="sct312034-cr-0014" contrib-type="author">
+          <name>
+            <surname>Rood</surname>
+            <given-names>Debra</given-names>
+          </name>
+          <xref ref-type="aff" rid="sct312034-aff-0001">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib id="sct312034-cr-00150" contrib-type="author" corresp="yes">
+          <name>
+            <surname>Lai</surname>
+            <given-names>Laijun</given-names>
+          </name>
+          <address>
+            <email>laijun.lai@uconn.edu</email>
+          </address>
+          <xref ref-type="aff" rid="sct312034-aff-0001">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="sct312034-aff-0003">
+<sup>3</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="sct312034-aff-0001">
+        <label>
+          <sup>1</sup>
+        </label>
+        <institution>Department of Allied Health Sciences, University of Connecticut, Storrs, Connecticut, USA</institution>
+      </aff>
+      <aff id="sct312034-aff-0002">
+        <label>
+          <sup>2</sup>
+        </label>
+        <institution>Guizhou Medical University, Guizhou, People's Republic of China</institution>
+      </aff>
+      <aff id="sct312034-aff-0003">
+        <label>
+          <sup>3</sup>
+        </label>
+        <institution>University of Connecticut Stem Cell Institute, University of Connecticut, Storrs, Connecticut, USA</institution>
+      </aff>
+      <author-notes>
+        <corresp id="correspondenceTo"><label>*</label>Correspondence: Laijun Lai, M.D., Department of Allied Health Sciences, University of Connecticut, 1390 Storrs Road, Storrs, Connecticut 06269, USA. Telephone: 860&#x2010;486&#x2010;6073; e&#x2010;mail: <email>laijun.lai@uconn.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>02</day>
+        <month>8</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>1</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>6</volume>
+      <issue>1</issue>
+      <issue-id pub-id-type="doi">10.1002/sct3.2017.6.issue-1</issue-id>
+      <fpage>121</fpage>
+      <lpage>130</lpage>
+      <history>
+        <date date-type="received">
+          <day>08</day>
+          <month>1</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>16</day>
+          <month>6</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <!--<copyright-statement content-type="issue-copyright"> &#x000a9; 2017 AlphaMed Press <copyright-statement>-->
+        <copyright-statement content-type="article-copyright">&#xA9; 2016 The Authors S<sc>tem</sc> C<sc>ells</sc> T<sc>ranslational</sc> M<sc>edicine</sc> published by Wiley Periodicals, Inc. on behalf of AlphaMed Press</copyright-statement>
+        <license license-type="creativeCommonsBy">
+          <license-p>This is an open access article under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:type="simple" xlink:href="file:SCT3-6-121.pdf"/>
+      <abstract>
+        <title>Abstract</title>
+        <p>Allogeneic hematopoietic stem cell transplantation (HSCT) is a potentially curative therapy for many malignant and nonmalignant diseases. However, chronic graft&#x2010;versus&#x2010;host disease (cGVHD) remains a significant cause of late morbidity and mortality after allogeneic HSCT. cGVHD often manifests as autoimmune syndrome. Thymic epithelial cells (TECs) play a critical role in supporting negative selection and regulatory T&#x2010;cell (Treg) generation. Studies have shown that damage in TECs is sufficient to induce cGVHD. We have previously reported that mouse embryonic stem cells (mESCs) can be selectively induced to generate thymic epithelial progenitors (TEPs) in vitro. When transplanted in vivo, mESC&#x2010;TEPs further develop into TECs that support T&#x2010;cell development. We show here that transplantation of donor&#x2010;origin mESC&#x2010;TEPs into cGVHD recipients induces immune tolerance to both donor and host antigens and prevents the development of cGVHD. This is associated with more TECs and Tregs. Our results suggest that embryonic stem cell&#x2010;derived TEPs may offer a new tool to control cGVHD. S<sc>tem</sc> C<sc>ells</sc> T<sc>ranslational</sc> M<sc>edicine</sc>
+<italic>2017;6:121&#x2013;130</italic>
+</p>
+      </abstract>
+      <kwd-group kwd-group-type="author-generated">
+        <kwd id="sct312034-kwd-0010">Chronic graft&#x2010;versus&#x2010;host disease</kwd>
+        <kwd id="sct312034-kwd-0011">Thymic epithelial progenitors</kwd>
+        <kwd id="sct312034-kwd-0012">Thymic epithelial cells</kwd>
+        <kwd id="sct312034-kwd-0013">Embryonic stem cells</kwd>
+        <kwd id="sct312034-kwd-0014">Tolerance induction</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="5"/>
+        <table-count count="0"/>
+        <page-count count="10"/>
+        <word-count count="6385"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>source-schema-version-number</meta-name>
+          <meta-value>2.0</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>component-id</meta-name>
+          <meta-value>sct312034</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>cover-date</meta-name>
+          <meta-value>January 2017</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>details-of-publishers-convertor</meta-name>
+          <meta-value>Converter:WILEY_ML3GV2_TO_NLMPMC version:5.0.9 mode:remove_FC converted:23.05.2017</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>
+<boxed-text position="anchor" content-type="box" orientation="portrait"><caption><title>Significance Statement</title></caption><p>Allogeneic hematopoietic stem cell transplantation (HSCT) is widely used in the treatment of many malignant and nonmalignant diseases. However, chronic graft&#x2010;versus&#x2010;host disease (cGVHD) remains a significant cause of late morbidity and mortality following allogeneic HSCT. This study shows that transplantation of mouse embryonic stem cell (ESC)&#x2010;derived thymic epithelial progenitors (TEPs) into cGVHD recipient mice prevents the development of cGVHD. Results suggest that generation of TEPs from human ESCs have the potential to provide a novel approach to prevent the development of cGVHD in patients after allogeneic HSCT.</p></boxed-text>
+</p>
+    <sec id="sct312034-sec-0001">
+      <title>Introduction</title>
+      <p>Allogeneic hematopoietic stem cell transplantation (HSCT) is widely used in the treatment of a variety of diseases, including hematopoietic diseases, congenital immunodeficiency, autoimmune diseases, and solid tumors. However, chronic graft&#x2010;versus&#x2010;host disease (cGVHD) remains as a common and serious complication following allogeneic HSCT <xref rid="sct312034-bib-0001" ref-type="ref">1</xref>
+<xref rid="sct312034-bib-0002" ref-type="ref">2</xref>
+<xref rid="sct312034-bib-0003" ref-type="ref">3</xref>. Based on different clinical manifestations and histopathology, GVHD can be divided into acute GVHD and cGVHD. The latter typically manifests as an autoimmune syndrome. Current therapies to prevent or treat cGVHD often rely on generalized immunosuppression. Despite achieving some success, immunosuppressive strategies often lead to the development of immune deficiency with a consequence of a high rate of opportunistic infections and the occurrence or relapse of cancers <xref rid="sct312034-bib-0001" ref-type="ref">1</xref>, <xref rid="sct312034-bib-0002" ref-type="ref">2</xref>.</p>
+      <p>Many studies have suggested that the thymus plays a critical role in the pathogenic events leading to cGVHD <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>
+<xref rid="sct312034-bib-0004" ref-type="ref">4</xref>
+<xref rid="sct312034-bib-0005" ref-type="ref">5</xref>
+<xref rid="sct312034-bib-0006" ref-type="ref">6</xref>
+<xref rid="sct312034-bib-0007" ref-type="ref">7</xref>
+<xref rid="sct312034-bib-0008" ref-type="ref">8</xref>
+<xref rid="sct312034-bib-0009" ref-type="ref">9</xref>
+<xref rid="sct312034-bib-0010" ref-type="ref">10</xref>. The thymus, especially thymic epithelial cells (TECs), is one of the primary targets of graft&#x2010;versus&#x2010;host disease (GVHD) <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>
+<xref rid="sct312034-bib-0004" ref-type="ref">4</xref>
+<xref rid="sct312034-bib-0005" ref-type="ref">5</xref>
+<xref rid="sct312034-bib-0006" ref-type="ref">6</xref>
+<xref rid="sct312034-bib-0007" ref-type="ref">7</xref>
+<xref rid="sct312034-bib-0008" ref-type="ref">8</xref>
+<xref rid="sct312034-bib-0009" ref-type="ref">9</xref>
+<xref rid="sct312034-bib-0010" ref-type="ref">10</xref>
+<xref rid="sct312034-bib-0011" ref-type="ref">11</xref>
+<xref rid="sct312034-bib-0012" ref-type="ref">12</xref>
+<xref rid="sct312034-bib-0013" ref-type="ref">13</xref>
+<xref rid="sct312034-bib-0014" ref-type="ref">14</xref>
+<xref rid="sct312034-bib-0015" ref-type="ref">15</xref>
+<xref rid="sct312034-bib-0016" ref-type="ref">16</xref>
+<xref rid="sct312034-bib-0017" ref-type="ref">17</xref>. The damage in TECs not only affects negative T&#x2010;cell selection, but it also impairs the generation of regulatory T cells (Tregs), leading to the development of cGVHD <xref rid="sct312034-bib-0016" ref-type="ref">16</xref>. Therefore, strategies to restore or regenerate TECs should lead to the prevention of cGVHD <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>, <xref rid="sct312034-bib-0018" ref-type="ref">18</xref>.</p>
+      <p>It is well known that embryonic stem cells (ESCs) have the dual ability to propagate indefinitely in vitro in an undifferentiated state and to differentiate into many types of cells that derived from all three germ layers <xref rid="sct312034-bib-0019" ref-type="ref">19</xref>. ESCs have been shown to be able to generate different types of cells in vitro <xref rid="sct312034-bib-0019" ref-type="ref">19</xref>. We have reported that mouse embryonic stem cells (mESCs) can be selectively induced to generate thymic epithelial progenitors (TEPs) in vitro <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>. When transplanted into syngeneic and allogeneic HSCT recipients, the mESC&#x2010;TEPs further developed into cortical TECs (cTECs) and medullary TECs (mTECs), reconstituted normal thymic architecture, and promoted thymocyte generation, leading to increased numbers of functional T cells in the periphery <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>, <xref rid="sct312034-bib-0021" ref-type="ref">21</xref>. Importantly, the reconstituted immune system was tolerant to host, HSCT donor, and third&#x2010;party mESC&#x2010;TEP/TEC antigens <xref rid="sct312034-bib-0021" ref-type="ref">21</xref>, <xref rid="sct312034-bib-0022" ref-type="ref">22</xref>.</p>
+      <p>In this study, we determined the ability of mESC&#x2010;TEPs to control cGVHD. We show here that transplantation of mESC&#x2010;TEPs into the thymus of cGVHD recipients results in immune tolerance to donor and host antigens, leading to the prevention of cGVHD.</p>
+    </sec>
+    <sec id="sct312034-sec-0002">
+      <title>Materials and Methods</title>
+      <sec id="sct312034-sec-0003">
+        <title>Mice</title>
+        <p>BALB/c, C57BL/6 (B6), and Rag1<sup>&#x2212;/&#x2212;</sup> mice were purchased from Jackson Laboratory (Bar Harbor, ME, 
+<ext-link ext-link-type="uri" xlink:href="https://www.jax.org">https://www.jax.org</ext-link>). Mice were used in accordance with protocols approved by the Institutional Animal Care and Use Committee of the University of Connecticut.</p>
+      </sec>
+      <sec id="sct312034-sec-0004">
+        <title>Cell Culture and Differentiation</title>
+        <p>B6 mESC and GFP<sup>+</sup> B6 mESC lines (Cyagen, Santa Clara, CA, 
+<ext-link ext-link-type="uri" xlink:href="http://www.cyagen.com">http://www.cyagen.com</ext-link>) were maintained on irradiated murine embryonic fibroblasts in PluriQ ES&#x2010;DMEM medium (MTI GlobalStem, Gaithersburg, MD, 
+<ext-link ext-link-type="uri" xlink:href="https://www.mti-globalstem.com">https://www.mti-globalstem.com</ext-link>) with 15% fetal bovine serum, embryonic stem cell&#x2010;qualified (Thermo Fisher Scientific Life Sciences, Carlsbad, CA, 
+<ext-link ext-link-type="uri" xlink:href="https://www.thermofisher.com">https://www.thermofisher.com</ext-link>) and 10<sup>3</sup> U/ml leukemia inhibitory factor. For the differentiation of B6 mESCs into definitive endoderm (DE), dissociated mESCs were seeded on gelatin&#x2010;coated plates and cultured in 50% Dulbecco's modified Eagle's medium (DMEM), and 50% Advanced DMEM/F&#x2010;12 medium (Thermo Fisher) supplemented with 55 &#x3BC;M &#x3B2;&#x2010;mercaptoethanol (Thermo Fisher) and 0.2% BSA (Sigma&#x2010;Aldrich, St. Louis, MO, 
+<ext-link ext-link-type="uri" xlink:href="https://www.sigmaaldrich.com">https://www.sigmaaldrich.com</ext-link>). The combination of activin A (50 ng/ml; R&amp;D Systems, Minneapolis, MN, USA, 
+<ext-link ext-link-type="uri" xlink:href="https://www.rndsystems.com">https://www.rndsystems.com</ext-link>), Noggin (200 ng/ml; R&amp;D Systems), and a GSK3&#x3B2; inhibitor, 1&#x2010;azakenpaullone (AKP; 2.5 &#x3BC;M; Sigma&#x2010;Aldrich), were added to the cultures from days 3&#x2013;6 as described <xref rid="sct312034-bib-0023" ref-type="ref">23</xref>. For the differentiation of mESC&#x2010;DE into TEPs, the cells were cultured in the presence of fibroblast grown factor (FGF) 7 (20 ng/ml), FGF10 (20 ng/ml), epithelial growth factor (EGF) (50 ng/ml), and bone morphogenetic protein 4 (BMP&#x2010;4) (20 ng/ml) (R&amp;D Systems or Pepro Tech, Rocky Hill, NJ, 
+<ext-link ext-link-type="uri" xlink:href="https://www.peprotech.com">https://www.peprotech.com</ext-link>), recombinant (r) FOXN1 (100 ng/ml), and rHOXA3 protein (200 ng/ml) for another 10 days <xref rid="sct312034-bib-0024" ref-type="ref">24</xref>.</p>
+      </sec>
+      <sec id="sct312034-sec-0005">
+        <title>Flow Cytometry Analysis</title>
+        <p>Single&#x2010;cell suspensions of the thymus, spleen, graft, and mESC&#x2010;derived cells were stained with the fluorochrome&#x2010;conjugated antibodies as described <xref rid="sct312034-bib-0025" ref-type="ref">25</xref>, <xref rid="sct312034-bib-0026" ref-type="ref">26</xref>. For intracellular staining, the cells were first permeabilized with a BD Cytofix/Cytoperm solution for 20 minutes at 4&#xB0;C. Direct or indirect staining of fluorochrome&#x2010;conjugated antibodies included CD4, CD8, CD3, CD25, Foxp3, CD45, Ly51, and EpCAM1 (BioLegend or BD Biosciences, San Diego, CA, 
+<ext-link ext-link-type="uri" xlink:href="http://www.bdbiosciences.com">http://www.bdbiosciences.com</ext-link>), keratin (k)5 (SantaCruz Biotechnology, Santa Cruz, CA, 
+<ext-link ext-link-type="uri" xlink:href="http://www.scbt.com">http://www.scbt.com</ext-link>), k8 (US Biological, Swampscott, MA, 
+<ext-link ext-link-type="uri" xlink:href="https://www.usbio.net">https://www.usbio.net</ext-link>), fluorescein isothiocyanate, phycoerythrin&#x2010;labeled anti&#x2010;rat or &#x2010;rabbit IgG (BD Biosciences). The samples were analyzed on a FACSCalibur machine (BD Biosciences). Data analysis was performed using FlowJo software (Ashland, OR, 
+<ext-link ext-link-type="uri" xlink:href="http://www.flowjo.com">http://www.flowjo.com</ext-link>).</p>
+      </sec>
+      <sec id="sct312034-sec-0006">
+        <title>Real&#x2010;time Quantitative Reverse&#x2010;Transcription and Polymerase Chain Reactions</title>
+        <p>Total RNA was isolated from cells, and cDNA was synthesized as described <xref rid="sct312034-bib-0027" ref-type="ref">27</xref>. Quantitative reverse&#x2010;transcription polymerase chain reaction (qRT&#x2010;PCR) was performed with the Power SYBR green mastermix (Thermo Fisher) using the 7500 real&#x2010;time polymerase chain reaction (PCR) system (Thermo Fisher). Primers are summarized in 
+supplemental online Table 1.</p>
+      </sec>
+      <sec id="sct312034-sec-0007">
+        <title>Immunomagnetic Cell Separation</title>
+        <p>Single&#x2010;cell suspensions from differentiated mESCs were harvested after the cells were treated with 2 mg/ml collagenase IV. The cells were stained with rat anti&#x2010;mouse EpCAM1 antibody, washed, and stained with anti&#x2010;rat IgG MicroBeads (Miltenyi Biotec, Auburn, CA, 
+<ext-link ext-link-type="uri" xlink:href="http://www.miltenyibiotec.com">http://www.miltenyibiotec.com</ext-link>). EpCAM1<sup>+</sup> and EpCAM1<sup>&#x2212;</sup> cells were selected using a magnetic&#x2010;activated cell sorter immunomagnetic separation system (Miltenyi Biotec).</p>
+      </sec>
+      <sec id="sct312034-sec-0008">
+        <title>Intrathymic Injection</title>
+        <p>The thymus was surgically exposed and one&#x2010;half of the indicated number of mESC&#x2010;derived cells were injected into the anterior superior portion of each lobe (10 &#x3BC;l per site) using a 0.1&#x2010;ml syringe (with attached 28&#x2010;gauge needle), as described <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>, <xref rid="sct312034-bib-0021" ref-type="ref">21</xref>. Control mice were injected intrathymically (i.t.) with phosphate&#x2010;buffered saline (PBS) alone.</p>
+      </sec>
+      <sec id="sct312034-sec-0009">
+        <title>HSCT Procedure</title>
+        <p>Bone marrow (BM) was harvested from mice by flushing the marrow from the femurs and tibias with cold RPMI 1640 supplemented with sodium bicarbonate (2 mg/ml) and 1% 4&#x2010;(2&#x2010;hydroxyethyl)&#x2010;1&#x2010;piperazineethanesulfonic acid. T&#x2010;cell&#x2010;depleted (TCD) BM cells were prepared by incubating the BM cell suspensions with anti&#x2010;Thy1.2 antibody for 30 minutes at 4&#xB0;C, followed by incubation with low&#x2010;TOX&#x2010;M rabbit complement (Cedarlane Laboratories, Hornby, ON, Canada, 
+<ext-link ext-link-type="uri" xlink:href="https://www.cedarlanelabs.com">https://www.cedarlanelabs.com</ext-link>), as described <xref rid="sct312034-bib-0025" ref-type="ref">25</xref>. Recipients received 900 cGy total body irradiation from a 137Cs source (Gammator&#x2010;50 &#x3B3; Irradiator; Radiation Machinery Corporation, Parsippany, NJ). Two to four hours later, the mice were injected intravenously (i.v.) with TCD&#x2010;BM (5 &#xD7; 10<sup>6</sup>) with or without splenic cells (1.25 &#xD7; 10<sup>6</sup>) or purified splenic T cells (0.1&#x2013;0.5 &#xD7; 10<sup>6</sup>), and i.t. with mESC&#x2010;derived cells (5 &#xD7; 10<sup>4</sup>).</p>
+      </sec>
+      <sec id="sct312034-sec-0010">
+        <title>Assessment of GVHD</title>
+        <p>Clinical cutaneous cGVHD scores were assessed as described <xref rid="sct312034-bib-0028" ref-type="ref">28</xref>. In brief, the evaluation was based on the area of alopecia as follows: 0.5: skin ulceration but no hair loss; 1: skin ulcer with alopecia, 1 cm<sup>2</sup> in area; 2: skin ulcer with alopecia 1&#x2013;3 cm<sup>2</sup>; 3: skin ulcer with alopecia15% body area; and 4: skin ulcer with alopecia 30% body area.</p>
+        <p>cGVHD mice were euthanized on day 60 after HSCT, and cGVHD target organs were harvested for histopathological analysis. The organs were formalin preserved, paraffin embedded, sectioned, and hematoxylin/eosin (H&amp;E) stained. Assessment of tissue damage was performed based on scoring systems previously described <xref rid="sct312034-bib-0028" ref-type="ref">28</xref>. In brief, gut cGVHD was scored on the basis of crypt apoptosis and lamina propria inflammation; the maximum score is 8. Skin tissue cGVHD was scored on the basis of tissue damage in the epidermis and dermis, especially expansion of dermis with collagen deposition and loss of subcutaneous fat; the maximum score is 9. Salivary gland tissue cGVHD was scored on mononuclear cell infiltration and structural disruption, with a maximum score of 8. To assess collagen in the skin, tissues were stained with Trichrome Stain Kit (Sigma&#x2010;Aldrich).</p>
+      </sec>
+      <sec id="sct312034-sec-0011">
+        <title>Kidney Capsule Grafting and Bone Marrow Transplantation</title>
+        <p>Purified mESC&#x2010;derived EpCAM1<sup>+</sup> or EpCAM1<sup>&#x2212;</sup> cells were subjected to reaggregate cultures for 24&#x2013;48 hours, as described <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>. Mice were transplanted under the kidney capsule with the solidified reaggregate of the mESC&#x2010;derived cells.</p>
+      </sec>
+      <sec id="sct312034-sec-0012">
+        <title>Immunohistology and Confocal Microscopy</title>
+        <p>Immunohistological analysis of grafts from kidney capsule was performed according to a modified protocol <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>. Briefly, the graft tissues were incubated in 4% paraformaldeyde for 4 hours followed by incubation in 30% sucrose solution overnight. The tissues were embedded in optimal cutting temperature medium, snap frozen, and subsequently cut into 5&#x2010;&#xB5;m sections. The sections were stained with rabbit anti&#x2010;mouse K5 polyclonal antibody (Covance Research Products, Denver, PA, 
+<ext-link ext-link-type="uri" xlink:href="http://www.covance.com">http://www.covance.com</ext-link>), and rat anti&#x2010;mouse K8 monoclonal antibody (Troma&#x2010;I mAb, raised by P. Brulet and R. Kemler and obtained from the Developmental Studies Hybridoma Bank, University of Iowa, IA). Serum autoantibodies were examined by staining Rag&#x2010;1<sup>&#x2212;/&#x2212;</sup> murine skin and salivary gland tissues as described <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>. In brief, cryosections of the tissues were prepared, blocked with 5% bovine serum albumin in PBS for 2 hours, incubated overnight with 5&#xD7;&#x2010;diluted serum from cGVHD recipients, and then incubated with secondary antibody and DAPI. Cells of mESC&#x2010;DE in slides were stained with goat anti&#x2010;Foxa2 antibody (Santa Cruz Biotechnology) and anti&#x2010;Sox17 monoclonal antibody (R&amp;D Systems). The secondary antibodies used were AlexaFluor&#x2010;488&#x2010;, or 594&#x2010;conjugated anti&#x2010;mouse, &#x2010;rat, &#x2010;rabbit, or &#x2010;goat IgG (Thermo Fisher). The sections and cells were observed under a Nikon A1R confocal microscope (Nikon, Kanagawa, Japan, 
+<ext-link ext-link-type="uri" xlink:href="http://www.nikon.com">http://www.nikon.com</ext-link>).</p>
+      </sec>
+      <sec id="sct312034-sec-0013">
+        <title>Cytokine Analysis</title>
+        <p>Blood samples were obtained from cGVHD mice on day 60 after HSCT. Cytokine content was measured using the Cytometric Bead Array (CBA)&#x2010;Mouse Th1/Th2 cytokine kit, the CBA Mouse IL&#x2010;17A Enhanced Sensitivity Flex Set, and Mouse Enhanced Sensitivity Master Buffer Kit (BD Biosciences) as described previously <xref rid="sct312034-bib-0022" ref-type="ref">22</xref>.</p>
+      </sec>
+      <sec id="sct312034-sec-0014">
+        <title>Mixed Leukocyte Reactions</title>
+        <p>Splenocytes (normalized to 1 &#xD7; 10<sup>5</sup> T cells per well) from HSCT recipients were cultured in the presence or absence of irradiated (2,000 cGy) splenocytes (2 &#xD7; 10<sup>5</sup> cells per well) from different mouse strains in a 96&#x2010;well plate for 4 days. Cell proliferation was measured by BrdU Labeling and Detection Kit III (Roche Applied Science, Mannheim, Germany, 
+<ext-link ext-link-type="uri" xlink:href="https://lifescience.roche.com">https://lifescience.roche.com</ext-link>) according to the manufacturer's instructions. Absorbance (measured as optical density [OD]), proportional to BrdU uptake, was measured at 405 nm using an ELISA microplate reader (BioTek, Winooski, VT, 
+<ext-link ext-link-type="uri" xlink:href="http://www.biotek.com">http://www.biotek.com</ext-link>). The data are expressed as stimulation index (OD in mixed leukocyte reactions [MLRs]/OD in spontaneous proliferation).</p>
+        <p>For one&#x2010;way MLRs, splenocytes from HSCT recipients were depleted for CD25<sup>+</sup> T cells before MLR. Briefly, splenocytes were incubated with anti&#x2010;CD25&#x2010;PE, and then anti&#x2010;PE&#x2010;labeled microbeads (Miltenyi Biotec). Depletion of CD25<sup>+</sup> cells was achieved by using a magnetic&#x2010;activated cell sorter immunomagnetic separation system (Miltenyi Biotec) as described <xref rid="sct312034-bib-0029" ref-type="ref">29</xref>. The purity of the depletion using this procedure, assessed by flow cytometry, was &gt;97%.</p>
+      </sec>
+      <sec id="sct312034-sec-0015">
+        <title>Statistical Analysis</title>
+        <p>
+<italic>p</italic> values were based on the two&#x2010;sided Student's <italic>t</italic> test. A confidence level above 95% (<italic>p</italic> &lt; .05) was determined to be significant.</p>
+      </sec>
+    </sec>
+    <sec id="sct312034-sec-0016">
+      <title>Results</title>
+      <sec id="sct312034-sec-0017">
+        <title>Inducing the Differentiation of mESCs From B6 Mice Into TEPs In Vitro</title>
+        <p>We have previously described protocols to induce the differentiation of TEPs from a TC&#x2010;1 mESC line that was derived from 129SVEVTac mice <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>. However, the protocols could not efficiently induce the differentiation of mESCs from B6 mice into TEPs in vitro (data not shown). Therefore, we modified our differentiation protocols. Because TECs originate from the endoderm <xref rid="sct312034-bib-0030" ref-type="ref">30</xref>, we first induced the differentiation of B6 mESCs into DE by the combination of activin A, Noggin, and a GSK3&#x3B2; inhibitor AKP as described <xref rid="sct312034-bib-0023" ref-type="ref">23</xref>. Six days later, the cells were analyzed for the expression of DE markers <italic>Gsc</italic> and <italic>Cxcr4</italic>
+<xref rid="sct312034-bib-0023" ref-type="ref">23</xref> by qRT&#x2010;PCR. As shown in Figure <xref rid="sct312034-fig-0001" ref-type="fig">1A</xref>, the expression of these markers was significantly increased as compared with undifferentiated mESCs. Immunofluorescence analysis also showed that most of the mESC&#x2010;derived cells coexpressed the Sox17 and Foxa2 proteins (Fig. <xref rid="sct312034-fig-0001" ref-type="fig">1B</xref>). These results indicate that the DE had been generated from the mESCs.</p>
+        <fig fig-type="Figure" xml:lang="en" id="sct312034-fig-0001" orientation="portrait" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>Generation of thymic epithelial progenitors from B6 mESCs in vitro. <bold>(A, B):</bold> Dissociated mESCs (5 &#xD7; 10<sup>5</sup> cells per well) were seeded on gelatin&#x2010;coated plates. Activin A (50 ng/ml), Noggin (200 ng/ml), and 1&#x2010;azakenpaullone (2.5 &#xB5;M) were added to the cultures from days 3&#x2013;6 <bold>(A)</bold>. On day 6, the expression of <italic>Gsc</italic> and <italic>Cxcr4</italic> was analyzed by quantitative reverse&#x2010;transcription polymerase chain reaction (qRT&#x2010;PCR). Data are presented as relative levels of expression in mESC&#x2010;derived cells versus undifferentiated mESCs. <bold>(B):</bold> Representative image of immunofluorescence shows the expression of Sox17 and Foxa2. Scale bar = 100 &#xB5;m. <bold>(C, D):</bold> The mESC&#x2010;DE were cultured with PBS control or BFFE + rFOXN1 (100 ng/ml) + rHOXA3 (200 ng/ml). On day 16, <bold>(C)</bold> the percentage and <bold>(D)</bold> the number of cells that coexpressed K5 and K8 by mESC&#x2010;derived <bold>(C, D)</bold> EpCAM1<sup>+</sup> and <bold>(C)</bold> EpCAM1<sup>&#x2212;</sup> cells was analyzed by flow cytometry. <bold>(E):</bold>The expression of <italic>Pax1</italic>, <italic>Pax9</italic>, <italic>Plet1</italic>, <italic>Foxn1</italic>, and <italic>Hoxa3</italic> in mESC&#x2010;EpCAM1<sup>+</sup> cells that had been cultured with BFFE + rFOXN1+ rHOXA3 was analyzed by qRT&#x2010;PCR. Expression levels for each gene were normalized to the housekeeping gene <italic>glyceraldehyde&#x2010;3&#x2010;phosphate dehydrogenase</italic> and are presented as relative expression compared with mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cells. <bold>(F&#x2013;J):</bold> EpCAM1<sup>+</sup> or EpCAM1<sup>&#x2212;</sup> cells were purified from day 16 mESC cultures that contained BFFE, rFOXN1, and rHOXA3. The cells were reaggregated in vitro and then transplanted under the kidney capsule of B6 mice. Two months later, <bold>(F)</bold> the grafts were stained with fluorochrome&#x2010;labeled anti&#x2010;K8 and anti&#x2010;K5 antibodies. A representative EpCAM1<sup>+</sup> graft is shown. Scale bar = 50 &#xB5;m. <bold>(G):</bold> A representative EpCAM1<sup>+</sup> graft with H&amp;E staining (magnification, &#xD7;200). <bold>(H&#x2013;J):</bold> T&#x2010;cell development in the grafts was analyzed. Representative flow cytometric profiles of CD4 and CD8 double positive and single positive in <bold>(H)</bold> EpCAM1<sup>&#x2212;</sup> and <bold>(I)</bold> EpCAM1<sup>+</sup> cell grafts, as well as <bold>(J)</bold> CD4<sup>+</sup>CD8<sup>&#x2212;</sup>CD3<sup>+</sup>Foxp3<sup>+</sup> regulatory T cells in EpCAM1<sup>+</sup> cell graft. Data show one of three independent experiments with similar results. Abbreviations: DE, definitive endoderm; H&amp;E, hematoxylin/eosin; mESC, mouse embryonic stem cell; PBS, phosphate&#x2010;buffered saline.</p>
+          </caption>
+          <graphic id="nlm-graphic-1" xlink:href="SCT3-6-121-g001"/>
+        </fig>
+        <p>We then directed the differentiation of the mESC&#x2010;DE into TEPs. We have previously reported that the combination of BMP&#x2010;4, FGF7, FGF10, and EGF (BFFE) induces the differentiation of TC&#x2010;1 mESCs into TEPs <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>, <xref rid="sct312034-bib-0021" ref-type="ref">21</xref>. Studies have shown that Hoxa3 and Foxn1 are critical regulators for thymus organogenesis and thymic epithelium development <xref rid="sct312034-bib-0031" ref-type="ref">31</xref>, <xref rid="sct312034-bib-0032" ref-type="ref">32</xref>. We have recently shown that rHOXA3 protein and rFOXN1 protein that was fused to the HIV transactivator of transcription protein transduction domain significantly enhance the differentiation of human ESC&#x2010;derived DE into TEPs <xref rid="sct312034-bib-0024" ref-type="ref">24</xref>. Therefore, in addition to the four growth factors, rHOXA3 and rFOXN1 were also added to mESC differentiation cultures.</p>
+        <p>We analyzed for the expression of EpCAM1 because it has been shown to be expressed by TEPs and because we have previously used it as a marker for mESC&#x2010;TEPs <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>, <xref rid="sct312034-bib-0033" ref-type="ref">33</xref>. However, unlike TC&#x2010;1 mTECs, a significant percentage (54%&#x2013;78%) of undifferentiated B6 mESCs expressed EpCAM1. After differentiation, the percentage of EpCAM1<sup>+</sup> cells did not significantly differ from the undifferentiated mESCs. We then examined the expression of K5 and K8 from mESC&#x2010;derived cells, because it has been reported that K5 and K8 double positive (K5<sup>+</sup>K8<sup>+</sup>) cells contain or represent TEPs <xref rid="sct312034-bib-0034" ref-type="ref">34</xref>, <xref rid="sct312034-bib-0035" ref-type="ref">35</xref>. As shown in Figures <xref rid="sct312034-fig-0001" ref-type="fig">1C</xref> and <xref rid="sct312034-fig-0001" ref-type="fig">1D</xref>, the percentage and number of K5<sup>+</sup>K8<sup>+</sup> cells in day 16 mESC&#x2010;EpCAM1<sup>+</sup> cells was tremendously increased in the cultures containing BFFE, rHOXA3 and rFOXN1, as compared with cultures without all of these factors. In both of the culture conditions, few mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cells were K5<sup>+</sup>K8<sup>+</sup> cells (Fig. <xref rid="sct312034-fig-0001" ref-type="fig">1C</xref>). We then analyzed for the expression of TEP&#x2010;related genes <italic>Pax1</italic>, <italic>Pax9</italic>, <italic>Plet1</italic>, <italic>Foxn1</italic>, and <italic>Hoxa3</italic> by qRT&#x2010;PCR. The expression of these genes in mESC&#x2010;EpCAM1<sup>+</sup> cells that had been cultured with BFFE, rHOXA3, and rFOXN1 was markedly higher than that in mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cells (Fig. <xref rid="sct312034-fig-0001" ref-type="fig">1E</xref>).</p>
+        <p>To determine whether mESC&#x2010;derived cells can develop into TECs in vivo, we purified mESC&#x2010;derived EpCAM1<sup>+</sup> and EpCAM1<sup>&#x2212;</sup> cells from the cultures of mESCs having had the addition of BFFE, rHOXA3, and rFOXN1. The cells were reaggregated in vitro and then transplanted under the kidney capsule of syngeneic B6 mice. Two months later, the grafts were harvested and analyzed for structure by immunofluorescence. Discrete K8<sup>+</sup>K5<sup>&#x2212;</sup> cortical (green color) and K8<sup>&#x2212;</sup>K5<sup>+</sup> medullary (red color) areas were present in the EpCAM1<sup>+</sup> cell grafts, but not in the EpCAM1<sup>&#x2212;</sup> cell grafts (Fig. <xref rid="sct312034-fig-0001" ref-type="fig">1F</xref>, and data not shown). H&amp;E staining also shows a demarcation between cortical and medullary regions in the EpCAM1<sup>+</sup> cell grafts (Fig. <xref rid="sct312034-fig-0001" ref-type="fig">1G</xref>). Furthermore, CD4 and CD8 double positive (DP) and single positive (SP) T cells were generated in the EpCAM1<sup>+</sup> grafts, but not in the mESC&#x2010;EpCAM1<sup>&#x2212;</sup> grafts (Figs. <xref rid="sct312034-fig-0001" ref-type="fig">1H</xref>, <xref rid="sct312034-fig-0001" ref-type="fig">1I</xref>). In addition, CD4<sup>+</sup>Foxp3<sup>+</sup> Tregs were observed in the EpCAM1<sup>+</sup> cell&#x2010;transplanted mice (Fig. <xref rid="sct312034-fig-0001" ref-type="fig">1J</xref>).</p>
+        <p>Taken together, these results suggest that B6 mESCs can also be selectively induced to generate TEPs in vitro. The mESC&#x2010;TEPs in vivo further developed into TECs that attract mouse T&#x2010;cell precursors to the grafts and support their development into T cells, including Tregs.</p>
+      </sec>
+      <sec id="sct312034-sec-0018">
+        <title>Transplantation of Donor&#x2010;Origin mESC&#x2010;TEPs Into the Thymus of cGVHD Recipients Prevents the Development of cGVHD</title>
+        <p>Because TEC damage is sufficient to initiate the generation of autoreactive T cells and the development of cGVHD, we investigated whether transplantation of mESC&#x2010;TEPs prevents the development of cGVHD. We used a cGVHD model that was recently described by Zeng's group <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>. In this model, cGVHD is induced by transferring a low dose of splenic cells or CD8<sup>+</sup> T cells from B6 mice into BALB/c recipients. Lethally irradiated BALB/c recipients were injected i.v. with TCD&#x2010;BM and a low dose of spleen cells from B6 mice, and i.t. with B6 mESC&#x2010;EpCAM1<sup>+</sup> TEPs, mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cells, or PBS. Mice that were injected with TCD&#x2010;BM only were used as cGVHD negative controls. As shown in Figures <xref rid="sct312034-fig-0002" ref-type="fig">2A</xref>, <xref rid="sct312034-fig-0002" ref-type="fig">2B</xref>, and <xref rid="sct312034-fig-0002" ref-type="fig">2C</xref>, PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated mice developed gradual body weight loss and hair loss although 80% of these mice still survived for more than 60 days. In contrast, transplantation of B6 mESC&#x2010;EpCAM1<sup>+</sup> TEPs prevented this body weight loss and hair loss with all mice surviving for more than 60 days.</p>
+        <fig fig-type="Figure" xml:lang="en" id="sct312034-fig-0002" orientation="portrait" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p>Transplantation of mESC&#x2010;thymic epithelial progenitors prevents the development of cGVHD. Lethally irradiated BALB/c recipients were injected intravenously with TCD&#x2010;BM cells and spleen cells from B6 mice and intrathymically with B6 mESC&#x2010;derived EpCAM1<sup>+</sup>, EpCAM1<sup>&#x2212;</sup> cells, or PBS on day 0. Recipients given TCD&#x2010;BM alone were used as a control. Recipients were monitored for <bold>(A)</bold> body weight change, <bold>(B)</bold> clinical cutaneous cGVHD score, and <bold>(C)</bold> survival. Pooled data from three separate experiments are shown, with four to five mice per group in each experiment. <bold>(D&#x2013;G):</bold> On day 60 after HSCT, <bold>(D, E)</bold> recipients were analyzed for histologic damage of colon, SI, skin, and salivary gland by H&amp;E staining. <bold>(D)</bold>: Mean &#xB1; SD of histopathology scores and <bold>(E)</bold> representative H&amp;E staining photomicrographs. <bold>(F):</bold> Skin tissues were stained with trichrome for collagen (blue color) (magnification, &#xD7;200). <bold>(G):</bold> Recipient serum samples were tested for the presence of autoantibodies by staining donor&#x2010;type Rag&#x2010;1<sup>&#x2212;/&#x2212;</sup> skin (top) and salivary gland (bottom) tissues. 4&#x2032;,6&#x2010;diamidino&#x2010;2&#x2010;phenylindole staining is shown in blue, and autoantibody staining is shown in green. Representative photomicrographs are shown. Scale bar = 50 &#xB5;m. Abbreviations: BM, bone marrow; cGVHD, chronic graft&#x2010;versus&#x2010;host disease; H&amp;E, hematoxylin/eosin; HSCT, hematopoietic stem cell transplantation; mESC, mouse embryonic stem cell; PBS, phosphate&#x2010;buffered saline; SI, small intestine; TCD, T&#x2010;cell&#x2010;depleted.</p>
+          </caption>
+          <graphic id="nlm-graphic-3" xlink:href="SCT3-6-121-g002"/>
+        </fig>
+        <p>Histopathologically, PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated mice manifested typical cGVHD characteristics including expansion of dermis with collagen deposition and loss of subcutaneous fat in the skin, infiltration and loss of crypts in the guts, and infiltration and destruction of secretory follicles in the salivary gland (Figs. <xref rid="sct312034-fig-0002" ref-type="fig">2D&#x2013;F</xref>). In contrast, there were fewer inflammatory cell infiltrates and less tissue damages in mESC&#x2010;TEP&#x2010;treated cGVHD recipients. Consequently, the histological scores in mESC&#x2010;TEP&#x2010;treated recipients were significantly reduced, as compared with PBS&#x2010;treated recipients (Fig. <xref rid="sct312034-fig-0002" ref-type="fig">2D</xref>).</p>
+        <p>Furthermore, immunofluorescent staining revealed that sera from PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated cGVHD recipients on day 60 after HSCT had strong autoantibody staining of donor&#x2010;type and recipient&#x2010;type Rag1<sup>&#x2212;/&#x2212;</sup> skin and salivary gland tissues, whereas sera from mESC&#x2010;EpCAM1<sup>+</sup> TEP&#x2010;treated recipients did not (Fig. <xref rid="sct312034-fig-0002" ref-type="fig">2G</xref>, and data not shown).</p>
+        <p>Several studies have shown that cGVHD is associated with increased inflammatory cytokines, such as interleukin&#x2010;6 (IL&#x2010;6), tumor necrosis factor&#x2010;&#x3B1; (TNF&#x2010;&#x3B1;), and interleukin&#x2010;17A (IL&#x2010;17A) <xref rid="sct312034-bib-0036" ref-type="ref">36</xref>, <xref rid="sct312034-bib-0037" ref-type="ref">37</xref>. We then examined Th1/Th2/Th17 cytokines in the sera. We found that IL&#x2010;6, TNF&#x2010;&#x3B1;, and IL&#x2010;17A were elevated in control&#x2010;treated cGVHD recipients, but they were significantly reduced in mESC&#x2010;EpCAM1<sup>+</sup> TEP&#x2010;treated recipients (
+supplemental online Fig. 1, and data not shown).</p>
+        <p>Similar results were obtained in mESC&#x2010;TEP&#x2010;treated cGVHD recipients that were induced by purified CD8<sup>+</sup> T cells <xref rid="sct312034-bib-0003" ref-type="ref">3</xref> from B6 mice (data not shown). Taken together, our results suggest that transplantation of mESC&#x2010;TEPs into allogeneic HSCT recipients prevents the development of cGVHD.</p>
+      </sec>
+      <sec id="sct312034-sec-0019">
+        <title>mESC&#x2010;TEP&#x2010;Treated cGVHD Recipients Have Increased Numbers of TECs and Thymocytes</title>
+        <p>Our previous studies have shown that transplantation of mESC&#x2010;TEPs into non&#x2010;GVHD recipients results in more TECs and thymocytes <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>, <xref rid="sct312034-bib-0021" ref-type="ref">21</xref>. We determined whether this would also occur in GVHD recipients. As shown in Figure <xref rid="sct312034-fig-0003" ref-type="fig">3A</xref>, PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated cGVHD mice had reduced numbers of total TECs (CD45<sup>&#x2212;</sup>EpCAM1<sup>+</sup>), and their subsets cTECs (CD45<sup>&#x2212;</sup>EpCAM1<sup>+</sup>Ly51<sup>+</sup>) and mTECs (CD45<sup>&#x2212;</sup>EpCAM1<sup>+</sup>Ly51<sup>&#x2212;</sup>). In contrast, transplantation of mESC&#x2010;EpCAM1<sup>+</sup> TEPs resulted in more total TECs, cTECs, and mTECs, consistent with our previous data in non&#x2010;GVHD models <xref rid="sct312034-bib-0020" ref-type="ref">20</xref>, <xref rid="sct312034-bib-0021" ref-type="ref">21</xref>. Interestingly, by using GFP<sup>+</sup> B6 mESCs to separate mESC&#x2010;TECs and host TECs, we found that the number of host TECs (GFP<sup>&#x2212;</sup>) and their subsets cTECs and mTECs was also significantly increased in mESC&#x2010;TEP&#x2010;transplanted cGVHD recipients, as compared with control&#x2010;treated recipients (Fig. <xref rid="sct312034-fig-0003" ref-type="fig">3A</xref>). The host TECs and mESC&#x2010;derived TECs (total, cTECs, and mTECs) were in approximately a 50/50 ratio.</p>
+        <fig fig-type="Figure" xml:lang="en" id="sct312034-fig-0003" orientation="portrait" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p>mESC&#x2010;thymic epithelial progenitors&#x2010;treated chronic graft&#x2010;versus&#x2010;host disease recipients have more TECs and thymocytes. Lethally irradiated BALB/c recipients were injected intravenously with TCD&#x2010;BM cells and spleen cells from B6 mice, and intrathymically with GFP<sup>+</sup> B6 mESC&#x2010;derived EpCAM1<sup>+</sup> cells, EpCAM1<sup>&#x2212;</sup> cells, or PBS on day 0. Recipients given TCD&#x2010;BM alone were used as a control. On day 60 after transplant, the number of <bold>(A)</bold> total and host&#x2010;origin (GFP<sup>&#x2212;</sup>) TECs (CD45<sup>&#x2212;</sup>EpCAM1<sup>+</sup>), cTECs (CD45<sup>&#x2212;</sup>EpCAM1<sup>+</sup>Ly51<sup>+</sup>), mTECs (CD45<sup>&#x2212;</sup>EpCAM1<sup>+</sup>Ly51<sup>&#x2212;</sup>), and <bold>(B)</bold> total, CD4 and CD8 DP, CD4 SP and CD8 SP thymocytes was analyzed by flow cytometry. The data are expressed as mean &#xB1; SD from one of three independent experiments with similar results (four to five mice per group in each experiment). <bold>(C):</bold> Representative hematoxylin/eosin staining photomicrographs for the thymus from indicated groups (magnification, &#xD7;200). &#x2217;, <italic>p</italic> &lt; .05, compared with PBS&#x2010;treated mice. Abbreviations: BM, bone marrow; cTECs, cortical thymic epithelial cells; DP, double positive; mESC, mouse embryonic stem cell; mTECs, medullary thymic epithelial cells; PBS, phosphate&#x2010;buffered saline; SP, single positive; TCD, T&#x2010;cell&#x2010;depleted; TECs, thymic epithelial cells.</p>
+          </caption>
+          <graphic id="nlm-graphic-5" xlink:href="SCT3-6-121-g003"/>
+        </fig>
+        <p>We then analyzed thymocytes. The number of total and CD4 and CD8 DP thymocytes in PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated cGVHD mice was tremendously reduced, as compared with non&#x2010;GVHD mice (recipients received TCD&#x2010;BM only). In contrast, transplantation of mESC&#x2010;EpCAM1<sup>+</sup> TEPs significantly increased the number of total, DP, and CD4 SP and CD8 SP thymocytes to a level comparable with that in the non&#x2010;GVHD mice (Fig. <xref rid="sct312034-fig-0003" ref-type="fig">3B</xref>).</p>
+        <p>We also examined the thymic architecture. Similar to TCD&#x2010;BMT only group, the thymus from mESC&#x2010;EpCAM1<sup>+</sup> TEP recipients shows a sharp demarcation between cortical regions in H&amp;E staining. In contrast, atrophic thymus from PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated cGVHD mice displayed disorganized boundaries between cortex and medulla (Fig. <xref rid="sct312034-fig-0003" ref-type="fig">3C</xref>).</p>
+      </sec>
+      <sec id="sct312034-sec-0020">
+        <title>mESC&#x2010;TEP&#x2010;Treated cGVHD Recipients Have Increased Number of Tregs</title>
+        <p>Accumulating data have shown that Tregs also play an important role in the prevention of GVHD <xref rid="sct312034-bib-0038" ref-type="ref">38</xref>
+<xref rid="sct312034-bib-0039" ref-type="ref">39</xref>
+<xref rid="sct312034-bib-0040" ref-type="ref">40</xref>
+<xref rid="sct312034-bib-0041" ref-type="ref">41</xref>
+<xref rid="sct312034-bib-0042" ref-type="ref">42</xref>
+<xref rid="sct312034-bib-0043" ref-type="ref">43</xref>
+<xref rid="sct312034-bib-0044" ref-type="ref">44</xref>
+<xref rid="sct312034-bib-0045" ref-type="ref">45</xref>. Because TECs can support Treg development, we analyzed Tregs in the cGVHD recipients. As shown in <xref rid="sct312034-fig-0004" ref-type="fig">Figures 4A</xref>&#x2013;<xref rid="sct312034-fig-0004" ref-type="fig">4D</xref>, the numbers of Tregs in the thymus and spleen of mESC&#x2010;TEP&#x2010;treated cGVHD recipients were significantly higher than that in PBS&#x2010; or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated cGVHD mice. It is likely that both host TECs and mESC&#x2010;TECs support the development of the thymic Tregs, leading to the increased number of Tregs in the periphery.</p>
+        <fig fig-type="Figure" xml:lang="en" id="sct312034-fig-0004" orientation="portrait" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p>mESC&#x2010;TEP&#x2010;treated chronic graft&#x2010;versus&#x2010;host disease recipients have more Tregs. Lethally irradiated BALB/c recipients were injected intravenously with TCD&#x2010;BM and spleen cells from B6 mice and intrathymically with mESC&#x2010;derived EpCAM1<sup>+</sup> cells, EpCAM1<sup>&#x2212;</sup> cells, or PBS, as in Figure <xref rid="sct312034-fig-0002" ref-type="fig">2</xref>. On day 60 after transplant, Tregs in the thymus and spleen were analyzed by flow cytometry. <bold>(A):</bold> A representative flow cytometric profile showing thymic Tregs in mESC&#x2010;EpCAM1<sup>+</sup> TEP recipients. <bold>(B):</bold> The number of thymic CD4<sup>+</sup>CD8<sup>&#x2212;</sup>CD3<sup>+</sup>FoxP3<sup>+</sup> Tregs from each group. <bold>(C):</bold> A representative flow cytometric profile showing the Tregs in the spleen of mESC&#x2010;EpCAM1<sup>+</sup> TEP recipients. <bold>(D):</bold> The number of splenic CD4<sup>+</sup>CD25<sup>+</sup>FoxP3<sup>+</sup> Tregs from each group. <bold>(C, D):</bold> The data are expressed as mean &#xB1; SD from one of three independent experiments with similar results (four to five mice per group in each experiment). &#x2217;, <italic>p</italic> &lt; .05, compared with PBS&#x2010;treated mice. Abbreviations: BM, bone marrow; mESC, mouse embryonic stem cell; PBS, phosphate&#x2010;buffered saline; TCD, T&#x2010;cell&#x2010;depleted; TEP, thymic epithelial progenitor; Tregs, regulatory T cells.</p>
+          </caption>
+          <graphic id="nlm-graphic-7" xlink:href="SCT3-6-121-g004"/>
+        </fig>
+      </sec>
+      <sec id="sct312034-sec-0021">
+        <title>Transplantation of mESC&#x2010;TEPs Into the Thymus of cGVHD Recipients Results in Immune Tolerance to Both the Donor and Host Antigens</title>
+        <p>To determine the mechanisms by which transplantation of mESC&#x2010;TEPs prevents cGVHD development, we investigated whether immune tolerance to the donor and host allo&#x2010;antigens had been established in mESC&#x2010;TEP&#x2010;transplanted cGVHD recipients. MLR showed that splenocytes from control&#x2010; (PBS or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell)&#x2010;treated mice proliferated robustly in response to the donor and host antigens, whereas those from mESC&#x2010;EpCAM1<sup>+</sup> TEP&#x2010;treated mice did not (Fig. <xref rid="sct312034-fig-0005" ref-type="fig">5</xref>). In contrast, splenocytes from all animal groups were able to mount an immune response to third&#x2010;party antigens (from CBA mice). These results suggest that T cells in mESC&#x2010;TEP&#x2010;treated cGVHD recipients are immune tolerant to both donor and host allo&#x2010;antigens.</p>
+        <fig fig-type="Figure" xml:lang="en" id="sct312034-fig-0005" orientation="portrait" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p>T cells from mouse embryonic stem cell&#x2010; thymic epithelial progenitor&#x2010;treated chronic graft&#x2010;versus&#x2010;host disease recipients fail to proliferate in response to donor or host antigens but were able to mount an immune response to third&#x2010;party antigens. Lethally irradiated BALB/c recipients were injected intravenously with thymic epithelial progenitors&#x2010;bone marrow and spleen cells from B6 mice and intrathymically with B6 mESC&#x2010;derived EpCAM1<sup>+</sup> cells, EpCAM1<sup>&#x2212;</sup> cells, or PBS, as in Figure <xref rid="sct312034-fig-0002" ref-type="fig">2</xref>. On day 60 after transplant, splenocytes from the recipients were harvested and used as effector cells for mixed leukocyte reactions. The effector cells were cultured with irradiated splenocytes (as stimulators) from normal non&#x2010;hematopoietic stem cell transplantation BALB/c, B6, and CBA mice, respectively. Cell proliferation was determined. Data are shown as stimulation index. The data are expressed as mean &#xB1; SD from one of three independent experiments with similar results (four to five mice per group in each experiment). &#x2217;, <italic>p</italic> &lt; .05, compared with PBS&#x2010;treated mice. Abbreviations: CBA, cytometric bead array; PBS, phosphate&#x2010;buffered saline.</p>
+          </caption>
+          <graphic id="nlm-graphic-9" xlink:href="SCT3-6-121-g005"/>
+        </fig>
+        <p>Because we have shown that the number of Tregs was increased in mESC&#x2010;TEP&#x2010;treated cGVHD recipients, we wanted to determine whether the Tregs play a role in the immune tolerance. We used one&#x2010;way MLR in which splenocytes from the cGVHD recipients were depleted for CD25<sup>+</sup> Tregs before MLR. The deletion of CD25<sup>+</sup> Tregs resulted in splenocytes from mESC&#x2010;TEP&#x2010;treated cGVHD recipients proliferating in response to the donor and host allo&#x2010;antigens (
+supplemental online Fig. 2). The results suggest that Tregs in mESC&#x2010;TEP&#x2010;treated cGVHD recipients play a role in the immune tolerance. However, the response levels of CD25<sup>+</sup> Treg&#x2010;depleted splenocytes from mESC&#x2010;TEP&#x2010;treated cGVHD recipients were still lower than those from PBS or mESC&#x2010;EpCAM1<sup>&#x2212;</sup> cell&#x2010;treated cGVHD recipients (
+supplemental online Fig. 2).</p>
+      </sec>
+    </sec>
+    <sec id="sct312034-sec-0022">
+      <title>Discussion</title>
+      <p>Despite the advance in transplantation practices, cGVHD remain to be a major limiting factor for a successful allogeneic HSCT <xref rid="sct312034-bib-0002" ref-type="ref">2</xref>, <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>, <xref rid="sct312034-bib-0046" ref-type="ref">46</xref>, <xref rid="sct312034-bib-0047" ref-type="ref">47</xref>. This is mainly due to our failure to reduce the incidence and severity of cGVHD <xref rid="sct312034-bib-0002" ref-type="ref">2</xref>. In addition to GVHD, patients following HSCT often suffer a prolonged period of T&#x2010;cell reconstitution from donor HSCs, resulting in a profound T&#x2010;cell immunodeficiency, which is associated with an increased risk of infections, and occurrence or relapse of cancers. GVHD, pre&#x2010;HSCT conditioning, and the age&#x2010;dependent thymus contribute to the prolonged T&#x2010;cell regeneration. It has also been reported that T&#x2010;cell immunodeficiency itself increases the susceptibility to GVHD <xref rid="sct312034-bib-0048" ref-type="ref">48</xref>. Therefore, developing a therapeutic strategy to prevent GVHD without compromising the immune system would be ideal for allogeneic HSCT recipients.</p>
+      <p>TECs are the major component of the thymic microenvironment for T&#x2010;cell development <xref rid="sct312034-bib-0030" ref-type="ref">30</xref>, <xref rid="sct312034-bib-0049" ref-type="ref">49</xref>, <xref rid="sct312034-bib-0050" ref-type="ref">50</xref>. TECs play a critical role in immune tolerance induction by mediating negative selection and supporting Treg generation. Unfortunately, TECs are one of the primary targets of GVHD <xref rid="sct312034-bib-0003" ref-type="ref">3</xref>
+<xref rid="sct312034-bib-0004" ref-type="ref">4</xref>
+<xref rid="sct312034-bib-0005" ref-type="ref">5</xref>
+<xref rid="sct312034-bib-0006" ref-type="ref">6</xref>
+<xref rid="sct312034-bib-0007" ref-type="ref">7</xref>
+<xref rid="sct312034-bib-0008" ref-type="ref">8</xref>
+<xref rid="sct312034-bib-0009" ref-type="ref">9</xref>
+<xref rid="sct312034-bib-0010" ref-type="ref">10</xref>
+<xref rid="sct312034-bib-0011" ref-type="ref">11</xref>
+<xref rid="sct312034-bib-0012" ref-type="ref">12</xref>
+<xref rid="sct312034-bib-0013" ref-type="ref">13</xref>
+<xref rid="sct312034-bib-0014" ref-type="ref">14</xref>
+<xref rid="sct312034-bib-0015" ref-type="ref">15</xref>
+<xref rid="sct312034-bib-0016" ref-type="ref">16</xref>
+<xref rid="sct312034-bib-0017" ref-type="ref">17</xref>. Because damage in TECs is sufficient to induce cGVHD, we hypothesized that restoration or regeneration of TECs could prevent the development of cGVHD. Indeed, we show here that transplantation of donor&#x2010;origin mESC&#x2010;TEPs into the thymus of cGVHD recipients induces immune tolerance to both donor and host allo&#x2010;antigens, leading to the prevention of cGVHD. Furthermore, T&#x2010;cell regeneration in the thymus was significantly enhanced in mESC&#x2010;TEP&#x2010;treated recipients, which can overcome T&#x2010;cell immunodeficiency following allogeneic HSCT.</p>
+      <p>Interestingly, in addition to the generation of mESC&#x2010;derived TECs, the number of host TECs was also significantly increased. This is important for inducing immune tolerance to host antigens because, in addition to being damaged by GVHD, TECs undergo both a qualitative and quantitative loss with age <xref rid="sct312034-bib-0049" ref-type="ref">49</xref>, <xref rid="sct312034-bib-0050" ref-type="ref">50</xref>, which contributes to the increased incidence of autoimmunity diseases among older adults <xref rid="sct312034-bib-0051" ref-type="ref">51</xref>. The mechanisms by which transplantation of mESC&#x2010;TEPs results in more host TECs remain to be investigated. It is possible that mESC&#x2010;TEPs and/or TECs directly contact with host TECs or produce growth factors, such as FGF7 <xref rid="sct312034-bib-0052" ref-type="ref">52</xref>, <xref rid="sct312034-bib-0053" ref-type="ref">53</xref>, to stimulate host TECs.</p>
+      <p>Our MLR assay shows that T cells from mESC&#x2010;TEP&#x2010;transplanted mice failed to proliferate in response to stimulation with donor and host allo&#x2010;antigens but were able to mount an immune response to third&#x2010;party antigens. Studies have shown that Tregs play an important role in maintaining peripheral tolerance and prevention of GVHD <xref rid="sct312034-bib-0038" ref-type="ref">38</xref>
+<xref rid="sct312034-bib-0039" ref-type="ref">39</xref>
+<xref rid="sct312034-bib-0040" ref-type="ref">40</xref>
+<xref rid="sct312034-bib-0041" ref-type="ref">41</xref>
+<xref rid="sct312034-bib-0042" ref-type="ref">42</xref>
+<xref rid="sct312034-bib-0043" ref-type="ref">43</xref>
+<xref rid="sct312034-bib-0044" ref-type="ref">44</xref>
+<xref rid="sct312034-bib-0045" ref-type="ref">45</xref> and that TECs support the development of Tregs <xref rid="sct312034-bib-0054" ref-type="ref">54</xref>, <xref rid="sct312034-bib-0055" ref-type="ref">55</xref>. We have shown that the number of Tregs is increased in mESC&#x2010;TEP&#x2010;treated cGVHD recipients. Our one&#x2010;way MLR suggests that the Tregs play a role in the immune tolerance to donor and host allo&#x2010;antigens. Because the response levels of Treg&#x2010;depleted splenocytes from mESC&#x2010;TEP&#x2010;treated cGVHD recipients were still lower than those from control&#x2010;treated cGVHD recipients, it is likely that both the mESC&#x2010;TECs and the host TECs also contribute to negative selection, leading to, at least in part, the deletion or inactivation of reactive T cells for donor and host allo&#x2010;antigens.</p>
+      <p>Studies have shown that B cells also play an important role in the development of cGVHD <xref rid="sct312034-bib-0046" ref-type="ref">46</xref>, <xref rid="sct312034-bib-0056" ref-type="ref">56</xref> and that Tregs can inhibit autoantibody producing&#x2010;plasma cells in cGVHD recipients <xref rid="sct312034-bib-0045" ref-type="ref">45</xref>. Our data show that control&#x2010;treated cGVHD recipients contained donor and recipient specific autoantibody, whereas mESC&#x2010;TEP&#x2010;treated mice did not. It will be of interest to investigate whether this is due to the inhibition of autoantibody producing&#x2010;plasma cells by Tregs in mESC&#x2010;TEP&#x2010;treated mice.</p>
+    </sec>
+    <sec id="sct312034-sec-0023">
+      <title>Conclusion</title>
+      <p>We have demonstrated that transplantation of mESC&#x2010;TEPs can prevent the development cGVHD. Therefore, generation of TEPs from human ESCs have the potential to provide a novel approach to prevent the development of cGVHD in patients following allogeneic HSCT.</p>
+    </sec>
+    <sec id="sct312034-sec-0024">
+      <title>Author Contributions</title>
+      <p>R.H.: collection and/or assembly of data, data analysis and interpretation, manuscript writing; Y.L., M.S., and Y.S.: collection and/or assembly of data, data analysis and interpretation; D.R.: administrative support, collection and/or assembly of data; L.L.: conception and design, financial support, collection and/or assembly of data, data analysis and interpretation, manuscript writing, final approval of manuscript.</p>
+    </sec>
+    <sec id="sct312034-sec-0025">
+      <title>Disclosure of Potential Conflicts of Interest</title>
+      <p>The authors indicated no potential conflicts of interest.</p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supporting information</title>
+      <supplementary-material content-type="local-data">
+        <caption>
+          <p>Supporting Information</p>
+        </caption>
+        <media xlink:href="SCT3-6-121-s001.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack id="sct312034-sec-0026">
+      <title>Acknowledgments</title>
+      <p>This work was supported by Connecticut Regenerative Medicine Fund Grant 12&#x2010;SCB&#x2010;UCON&#x2010;02 (to L.L.), NIH Grant 1R01AI123131&#x2010;01 (to L.L.), and National Natural Science Foundation of China Grant NSFC 81560211 (to M.S.).</p>
+    </ack>
+    <ref-list content-type="cited-references">
+      <title>References</title>
+      <ref id="sct312034-bib-0001">
+        <label>1</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0001">
+<string-name>
+<surname>Farag</surname>
+<given-names>SS.</given-names>
+</string-name>
+<article-title>Chronic graft&#x2010;versus&#x2010;host disease: Where do we go from here?</article-title>. <source>Bone Marrow Transplant</source>
+<year>2004</year>;<volume>33</volume>:<fpage>569</fpage>&#x2013;<lpage>577</lpage>.
+<pub-id pub-id-type="pmid">14743199</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0002">
+        <label>2</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0002">
+<string-name>
+<surname>Soci&#xE9;</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Ritz</surname>
+<given-names>J.</given-names>
+</string-name>
+<article-title>Current issues in chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>Blood</source>
+<year>2014</year>;<volume>124</volume>:<fpage>374</fpage>&#x2013;<lpage>384</lpage>.
+<pub-id pub-id-type="pmid">24914139</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0003">
+        <label>3</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0003">
+<string-name>
+<surname>Wu</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Young</surname>
+<given-names>JS</given-names>
+</string-name>, <string-name>
+<surname>Johnston</surname>
+<given-names>H</given-names>
+</string-name> et al. <article-title>Thymic damage, impaired negative selection, and development of chronic graft&#x2010;versus&#x2010;host disease caused by donor CD4+ and CD8+ T cells</article-title>. <source>J Immunol</source>
+<year>2013</year>;<volume>191</volume>:<fpage>488</fpage>&#x2013;<lpage>499</lpage>.
+<pub-id pub-id-type="pmid">23709681</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0004">
+        <label>4</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0004">
+<string-name>
+<surname>Dertschnig</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Nusspaumer</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Ivanek</surname>
+<given-names>R</given-names>
+</string-name> et al. <article-title>Epithelial cytoprotection sustains ectopic expression of tissue&#x2010;restricted antigens in the thymus during murine acute GVHD</article-title>. <source>Blood</source>
+<year>2013</year>;<volume>122</volume>:<fpage>837</fpage>&#x2013;<lpage>841</lpage>.
+<pub-id pub-id-type="pmid">23719300</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0005">
+        <label>5</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0005">
+<string-name>
+<surname>Krenger</surname>
+<given-names>W</given-names>
+</string-name>, <string-name>
+<surname>Holl&#xE4;nder</surname>
+<given-names>GA.</given-names>
+</string-name>
+<article-title>The immunopathology of thymic GVHD</article-title>. <source>Semin Immunopathol</source>
+<year>2008</year>;<volume>30</volume>:<fpage>439</fpage>&#x2013;<lpage>456</lpage>.
+<pub-id pub-id-type="pmid">18974988</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0006">
+        <label>6</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0006">
+<string-name>
+<surname>Krenger</surname>
+<given-names>W</given-names>
+</string-name>, <string-name>
+<surname>Holl&#xE4;nder</surname>
+<given-names>GA.</given-names>
+</string-name>
+<article-title>The role of the thymus in allogeneic hematopoietic stem cell transplantation</article-title>. <source>Swiss Med Wkly</source>
+<year>2010</year>;<volume>140</volume>:<fpage>w13051</fpage>.
+<pub-id pub-id-type="pmid">20648397</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0007">
+        <label>7</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0007">
+<string-name>
+<surname>Na</surname>
+<given-names>IK</given-names>
+</string-name>, <string-name>
+<surname>Lu</surname>
+<given-names>SX</given-names>
+</string-name>, <string-name>
+<surname>Yim</surname>
+<given-names>NL</given-names>
+</string-name> et al. <article-title>The cytolytic molecules Fas ligand and TRAIL are required for murine thymic graft&#x2010;versus&#x2010;host disease</article-title>. <source>J Clin Invest</source>
+<year>2010</year>;<volume>120</volume>:<fpage>343</fpage>&#x2013;<lpage>356</lpage>.
+<pub-id pub-id-type="pmid">19955659</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0008">
+        <label>8</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0008">
+<string-name>
+<surname>Teshima</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Reddy</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Liu</surname>
+<given-names>C</given-names>
+</string-name> et al. <article-title>Impaired thymic negative selection causes autoimmune graft&#x2010;versus&#x2010;host disease</article-title>. <source>Blood</source>
+<year>2003</year>;<volume>102</volume>:<fpage>429</fpage>&#x2013;<lpage>435</lpage>.
+<pub-id pub-id-type="pmid">12663438</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0009">
+        <label>9</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0009">
+<string-name>
+<surname>Sakoda</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Hashimoto</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Asakura</surname>
+<given-names>S</given-names>
+</string-name> et al. <article-title>Donor&#x2010;derived thymic&#x2010;dependent T cells cause chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>Blood</source>
+<year>2007</year>;<volume>109</volume>:<fpage>1756</fpage>&#x2013;<lpage>1764</lpage>.
+<pub-id pub-id-type="pmid">17032915</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0010">
+        <label>10</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0010">
+<string-name>
+<surname>Chen</surname>
+<given-names>X</given-names>
+</string-name>, <string-name>
+<surname>Vodanovic&#x2010;Jankovic</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Johnson</surname>
+<given-names>B</given-names>
+</string-name> et al. <article-title>Absence of regulatory T&#x2010;cell control of TH1 and TH17 cells is responsible for the autoimmune&#x2010;mediated pathology in chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>Blood</source>
+<year>2007</year>;<volume>110</volume>:<fpage>3804</fpage>&#x2013;<lpage>3813</lpage>.
+<pub-id pub-id-type="pmid">17693581</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0011">
+        <label>11</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0011">
+<string-name>
+<surname>Hauri&#x2010;Hohl</surname>
+<given-names>MM</given-names>
+</string-name>, <string-name>
+<surname>Keller</surname>
+<given-names>MP</given-names>
+</string-name>, <string-name>
+<surname>Gill</surname>
+<given-names>J</given-names>
+</string-name> et al. <article-title>Donor T&#x2010;cell alloreactivity against host thymic epithelium limits T&#x2010;cell development after bone marrow transplantation</article-title>. <source>Blood</source>
+<year>2007</year>;<volume>109</volume>:<fpage>4080</fpage>&#x2013;<lpage>4088</lpage>.
+<pub-id pub-id-type="pmid">17213290</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0012">
+        <label>12</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0012">
+<string-name>
+<surname>Seemayer</surname>
+<given-names>TA</given-names>
+</string-name>, <string-name>
+<surname>Lapp</surname>
+<given-names>WS</given-names>
+</string-name>, <string-name>
+<surname>Bolande</surname>
+<given-names>RP.</given-names>
+</string-name>
+<article-title>Thymic involution in murine graft&#x2010;versus&#x2010;host reaction. Epithelial injury mimicking human thymic dysplasia</article-title>. <source>Am J Pathol</source>
+<year>1977</year>;<volume>88</volume>:<fpage>119</fpage>&#x2013;<lpage>134</lpage>.
+<pub-id pub-id-type="pmid">18011</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0013">
+        <label>13</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0013">
+<string-name>
+<surname>Seddik</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Seemayer</surname>
+<given-names>TA</given-names>
+</string-name>, <string-name>
+<surname>Lapp</surname>
+<given-names>WS.</given-names>
+</string-name>
+<article-title>T cell functional defect associated with thymid epithelial cell injury induced by a graft&#x2010;versus&#x2010;host reaction</article-title>. <source>Transplantation</source>
+<year>1980</year>;<volume>29</volume>:<fpage>61</fpage>&#x2013;<lpage>66</lpage>.
+<pub-id pub-id-type="pmid">6989042</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0014">
+        <label>14</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0014">
+<string-name>
+<surname>Gartner</surname>
+<given-names>JG.</given-names>
+</string-name>
+<article-title>Thymic involution with loss of Hassall's corpuscles mimicking thymic dysplasia in a child with transfusion&#x2010;associated graft&#x2010;versus&#x2010;host disease</article-title>. <source>Pediatr Pathol</source>
+<year>1991</year>;<volume>11</volume>:<fpage>449</fpage>&#x2013;<lpage>456</lpage>.
+<pub-id pub-id-type="pmid">1866363</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0015">
+        <label>15</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0015">
+<string-name>
+<surname>Toubert</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Glauzy</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Douay</surname>
+<given-names>C</given-names>
+</string-name> et al. <article-title>Thymus and immune reconstitution after allogeneic hematopoietic stem cell transplantation in humans: Never say never again</article-title>. <source>Tissue Antigens</source>
+<year>2012</year>;<volume>79</volume>:<fpage>83</fpage>&#x2013;<lpage>89</lpage>.
+<pub-id pub-id-type="pmid">22220718</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0016">
+        <label>16</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0016">
+<string-name>
+<surname>Fukushi</surname>
+<given-names>N</given-names>
+</string-name>, <string-name>
+<surname>Arase</surname>
+<given-names>H</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>B</given-names>
+</string-name> et al. <article-title>Thymus: A direct target tissue in graft&#x2010;versus&#x2010;host reaction after allogeneic bone marrow transplantation that results in abrogation of induction of self&#x2010;tolerance</article-title>. <source>Proc Natl Acad Sci USA</source>
+<year>1990</year>;<volume>87</volume>:<fpage>6301</fpage>&#x2013;<lpage>6305</lpage>.
+<pub-id pub-id-type="pmid">2117278</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0017">
+        <label>17</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0017">
+<string-name>
+<surname>Rossi</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Blazar</surname>
+<given-names>BR</given-names>
+</string-name>, <string-name>
+<surname>Farrell</surname>
+<given-names>CL</given-names>
+</string-name> et al. <article-title>Keratinocyte growth factor preserves normal thymopoiesis and thymic microenvironment during experimental graft&#x2010;versus&#x2010;host disease</article-title>. <source>Blood</source>
+<year>2002</year>;<volume>100</volume>:<fpage>682</fpage>&#x2013;<lpage>691</lpage>.
+<pub-id pub-id-type="pmid">12091365</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0018">
+        <label>18</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0018">
+<string-name>
+<surname>Zhang</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Hexner</surname>
+<given-names>E</given-names>
+</string-name>, <string-name>
+<surname>Frank</surname>
+<given-names>D</given-names>
+</string-name> et al. <article-title>CD4+ T cells generated de novo from donor hemopoietic stem cells mediate the evolution from acute to chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>J Immunol</source>
+<year>2007</year>;<volume>179</volume>:<fpage>3305</fpage>&#x2013;<lpage>3314</lpage>.
+<pub-id pub-id-type="pmid">17709547</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0019">
+        <label>19</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0019">
+<string-name>
+<surname>Murry</surname>
+<given-names>CE</given-names>
+</string-name>, <string-name>
+<surname>Keller</surname>
+<given-names>G.</given-names>
+</string-name>
+<article-title>Differentiation of embryonic stem cells to clinically relevant populations: Lessons from embryonic development</article-title>. <source>Cell</source>
+<year>2008</year>;<volume>132</volume>:<fpage>661</fpage>&#x2013;<lpage>680</lpage>.
+<pub-id pub-id-type="pmid">18295582</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0020">
+        <label>20</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0020">
+<string-name>
+<surname>Lai</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Jin</surname>
+<given-names>J.</given-names>
+</string-name>
+<article-title>Generation of thymic epithelial cell progenitors by mouse embryonic stem cells</article-title>. <source>STEM CELLS</source>
+<year>2009</year>;<volume>27</volume>:<fpage>3012</fpage>&#x2013;<lpage>3020</lpage>.
+<pub-id pub-id-type="pmid">19824081</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0021">
+        <label>21</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0021">
+<string-name>
+<surname>Lai</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Cui</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Jin</surname>
+<given-names>J</given-names>
+</string-name> et al. <article-title>Mouse embryonic stem cell&#x2010;derived thymic epithelial cell progenitors enhance T&#x2010;cell reconstitution after allogeneic bone marrow transplantation</article-title>. <source>Blood</source>
+<year>2011</year>;<volume>118</volume>:<fpage>3410</fpage>&#x2013;<lpage>3418</lpage>.
+<pub-id pub-id-type="pmid">21791423</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0022">
+        <label>22</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0022">
+<string-name>
+<surname>Su</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Song</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>He</surname>
+<given-names>Z</given-names>
+</string-name> et al. <article-title>Administration of embryonic stem cell&#x2010;derived thymic epithelial progenitors expressing MOG induces antigen&#x2010;specific tolerance and ameliorates experimental autoimmune encephalomyelitis</article-title>. <source>J Autoimmun</source>
+<year>2015</year>;<volume>58</volume>:<fpage>36</fpage>&#x2013;<lpage>47</lpage>.
+<pub-id pub-id-type="pmid">25618825</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0023">
+        <label>23</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0023">
+<string-name>
+<surname>Mfopou</surname>
+<given-names>JK</given-names>
+</string-name>, <string-name>
+<surname>Geeraerts</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Dejene</surname>
+<given-names>R</given-names>
+</string-name> et al. <article-title>Efficient definitive endoderm induction from mouse embryonic stem cell adherent cultures: A rapid screening model for differentiation studies</article-title>. <source>Stem Cell Res (Amst)</source>
+<year>2014</year>;<volume>12</volume>:<fpage>166</fpage>&#x2013;<lpage>177</lpage>.
+</mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0024">
+        <label>24</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0024">
+<string-name>
+<surname>Su</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Hu</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Jin</surname>
+<given-names>J</given-names>
+</string-name> et al. <article-title>Efficient in vitro generation of functional thymic epithelial progenitors from human embryonic stem cells</article-title>. <source>Sci Rep</source>
+<year>2015</year>;<volume>5</volume>:<fpage>9882</fpage>.
+<pub-id pub-id-type="pmid">26044259</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0025">
+        <label>25</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0025">
+<string-name>
+<surname>Lai</surname>
+<given-names>L</given-names>
+</string-name>, <string-name>
+<surname>Zhang</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Song</surname>
+<given-names>Y</given-names>
+</string-name> et al. <article-title>Recombinant IL&#x2010;7/HGF&#x3B2; hybrid cytokine enhances T cell recovery in mice following allogeneic bone marrow transplantation</article-title>. <source>PLoS One</source>
+<year>2013</year>;<volume>8</volume>:<fpage>e82998</fpage>.
+<pub-id pub-id-type="pmid">24349415</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0026">
+        <label>26</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0026">
+<string-name>
+<surname>Song</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Su</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Panchatsharam</surname>
+<given-names>P</given-names>
+</string-name> et al. <article-title>c&#x2010;Met signalling is required for efficient postnatal thymic regeneration and repair</article-title>. <source>Immunology</source>
+<year>2015</year>;<volume>144</volume>:<fpage>245</fpage>&#x2013;<lpage>253</lpage>.
+<pub-id pub-id-type="pmid">25074726</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0027">
+        <label>27</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0027">
+<string-name>
+<surname>Yan</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Su</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Song</surname>
+<given-names>Y</given-names>
+</string-name> et al. <article-title>Tbx1 modulates endodermal and mesodermal differentiation from mouse induced pluripotent stem cells</article-title>. <source>Stem Cells Dev</source>
+<year>2014</year>;<volume>23</volume>:<fpage>1491</fpage>&#x2013;<lpage>1500</lpage>.
+<pub-id pub-id-type="pmid">24564535</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0028">
+        <label>28</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0028">
+<string-name>
+<surname>Young</surname>
+<given-names>JS</given-names>
+</string-name>, <string-name>
+<surname>Wu</surname>
+<given-names>T</given-names>
+</string-name>, <string-name>
+<surname>Chen</surname>
+<given-names>Y</given-names>
+</string-name> et al. <article-title>Donor B cells in transplants augment clonal expansion and survival of pathogenic CD4+ T cells that mediate autoimmune&#x2010;like chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>J Immunol</source>
+<year>2012</year>;<volume>189</volume>:<fpage>222</fpage>&#x2013;<lpage>233</lpage>.
+<pub-id pub-id-type="pmid">22649197</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0029">
+        <label>29</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0029">
+<string-name>
+<surname>Verbinnen</surname>
+<given-names>B</given-names>
+</string-name>, <string-name>
+<surname>Billiau</surname>
+<given-names>AD</given-names>
+</string-name>, <string-name>
+<surname>Vermeiren</surname>
+<given-names>J</given-names>
+</string-name> et al. <article-title>Contribution of regulatory T cells and effector T cell deletion in tolerance induction by costimulation blockade</article-title>. <source>J Immunol</source>
+<year>2008</year>;<volume>181</volume>:<fpage>1034</fpage>&#x2013;<lpage>1042</lpage>.
+<pub-id pub-id-type="pmid">18606655</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0030">
+        <label>30</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0030">
+<string-name>
+<surname>Gordon</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Manley</surname>
+<given-names>NR.</given-names>
+</string-name>
+<article-title>Mechanisms of thymus organogenesis and morphogenesis</article-title>. <source>Development</source>
+<year>2011</year>;<volume>138</volume>:<fpage>3865</fpage>&#x2013;<lpage>3878</lpage>.
+<pub-id pub-id-type="pmid">21862553</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0031">
+        <label>31</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0031">
+<string-name>
+<surname>Manley</surname>
+<given-names>NR</given-names>
+</string-name>, <string-name>
+<surname>Condie</surname>
+<given-names>BG.</given-names>
+</string-name>
+<article-title>Transcriptional regulation of thymus organogenesis and thymic epithelial cell differentiation</article-title>. <source>Prog Mol Biol Transl Sci</source>
+<year>2010</year>;<volume>92</volume>:<fpage>103</fpage>&#x2013;<lpage>120</lpage>.
+<pub-id pub-id-type="pmid">20800818</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0032">
+        <label>32</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0032">
+<string-name>
+<surname>Zhang</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name>
+<surname>Burnley</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Coder</surname>
+<given-names>B</given-names>
+</string-name> et al. <article-title>Insights on FoxN1 biological significance and usages of the &#x201C;nude&#x201D; mouse in studies of T&#x2010;lymphopoiesis</article-title>. <source>Int J Biol Sci</source>
+<year>2012</year>;<volume>8</volume>:<fpage>1156</fpage>&#x2013;<lpage>1167</lpage>.
+<pub-id pub-id-type="pmid">23091413</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0033">
+        <label>33</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0033">
+<string-name>
+<surname>Rossi</surname>
+<given-names>SW</given-names>
+</string-name>, <string-name>
+<surname>Jenkinson</surname>
+<given-names>WE</given-names>
+</string-name>, <string-name>
+<surname>Anderson</surname>
+<given-names>G</given-names>
+</string-name> et al. <article-title>Clonal analysis reveals a common progenitor for thymic cortical and medullary epithelium</article-title>. <source>Nature</source>
+<year>2006</year>;<volume>441</volume>:<fpage>988</fpage>&#x2013;<lpage>991</lpage>.
+<pub-id pub-id-type="pmid">16791197</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0034">
+        <label>34</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0034">
+<string-name>
+<surname>Klug</surname>
+<given-names>DB</given-names>
+</string-name>, <string-name>
+<surname>Carter</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Crouch</surname>
+<given-names>E</given-names>
+</string-name> et al. <article-title>Interdependence of cortical thymic epithelial cell differentiation and T&#x2010;lineage commitment</article-title>. <source>Proc Natl Acad Sci USA</source>
+<year>1998</year>;<volume>95</volume>:<fpage>11822</fpage>&#x2013;<lpage>11827</lpage>.
+<pub-id pub-id-type="pmid">9751749</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0035">
+        <label>35</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0035">
+<string-name>
+<surname>Popa</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Zubkova</surname>
+<given-names>I</given-names>
+</string-name>, <string-name>
+<surname>Medvedovic</surname>
+<given-names>M</given-names>
+</string-name> et al. <article-title>Regeneration of the adult thymus is preceded by the expansion of K5+K8+ epithelial cell progenitors and by increased expression of Trp63, cMyc and Tcf3 transcription factors in the thymic stroma</article-title>. <source>Int Immunol</source>
+<year>2007</year>;<volume>19</volume>:<fpage>1249</fpage>&#x2013;<lpage>1260</lpage>.
+<pub-id pub-id-type="pmid">17823311</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0036">
+        <label>36</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0036">
+<string-name>
+<surname>Jung</surname>
+<given-names>JW</given-names>
+</string-name>, <string-name>
+<surname>Han</surname>
+<given-names>SJ</given-names>
+</string-name>, <string-name>
+<surname>Song</surname>
+<given-names>MK</given-names>
+</string-name> et al. <article-title>Tear cytokines as biomarkers for chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>Biol Blood Marrow Transplant</source>
+<year>2015</year>;<volume>21</volume>:<fpage>2079</fpage>&#x2013;<lpage>2085</lpage>.
+<pub-id pub-id-type="pmid">26303101</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0037">
+        <label>37</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0037">
+<string-name>
+<surname>Pidala</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Sarwal</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Roedder</surname>
+<given-names>S</given-names>
+</string-name> et al. <article-title>Biologic markers of chronic GVHD</article-title>. <source>Bone Marrow Transplant</source>
+<year>2014</year>;<volume>49</volume>:<fpage>324</fpage>&#x2013;<lpage>331</lpage>.
+<pub-id pub-id-type="pmid">23872737</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0038">
+        <label>38</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0038">
+<string-name>
+<surname>Coghill</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name>
+<surname>Carlson</surname>
+<given-names>MJ</given-names>
+</string-name>, <string-name>
+<surname>Moran</surname>
+<given-names>TP</given-names>
+</string-name> et al. <article-title>The biology and therapeutic potential of natural regulatory T&#x2010;cells in the bone marrow transplant setting</article-title>. <source>Leuk Lymphoma</source>
+<year>2008</year>;<volume>49</volume>:<fpage>1860</fpage>&#x2013;<lpage>1869</lpage>.
+<pub-id pub-id-type="pmid">18661393</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0039">
+        <label>39</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0039">
+<string-name>
+<surname>Cohen</surname>
+<given-names>JL</given-names>
+</string-name>, <string-name>
+<surname>Trenado</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Vasey</surname>
+<given-names>D</given-names>
+</string-name> et al. <article-title>CD4(+)CD25(+) immunoregulatory T Cells: New therapeutics for graft&#x2010;versus&#x2010;host disease</article-title>. <source>J Exp Med</source>
+<year>2002</year>;<volume>196</volume>:<fpage>401</fpage>&#x2013;<lpage>406</lpage>.
+<pub-id pub-id-type="pmid">12163568</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0040">
+        <label>40</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0040">
+<string-name>
+<surname>Edinger</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Hoffmann</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Ermann</surname>
+<given-names>J</given-names>
+</string-name> et al. <article-title>CD4+CD25+ regulatory T cells preserve graft&#x2010;versus&#x2010;tumor activity while inhibiting graft&#x2010;versus&#x2010;host disease after bone marrow transplantation</article-title>. <source>Nat Med</source>
+<year>2003</year>;<volume>9</volume>:<fpage>1144</fpage>&#x2013;<lpage>1150</lpage>.
+<pub-id pub-id-type="pmid">12925844</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0041">
+        <label>41</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0041">
+<string-name>
+<surname>Hoffmann</surname>
+<given-names>P</given-names>
+</string-name>, <string-name>
+<surname>Ermann</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Edinger</surname>
+<given-names>M</given-names>
+</string-name> et al. <article-title>Donor&#x2010;type CD4(+)CD25(+) regulatory T cells suppress lethal acute graft&#x2010;versus&#x2010;host disease after allogeneic bone marrow transplantation</article-title>. <source>J Exp Med</source>
+<year>2002</year>;<volume>196</volume>:<fpage>389</fpage>&#x2013;<lpage>399</lpage>.
+<pub-id pub-id-type="pmid">12163567</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0042">
+        <label>42</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0042">
+<string-name>
+<surname>Semple</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>Yu</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>D</given-names>
+</string-name> et al. <article-title>Efficient and selective prevention of GVHD by antigen&#x2010;specific induced Tregs via linked&#x2010;suppression in mice</article-title>. <source>Biol Blood Marrow Transplant</source>
+<year>2011</year>;<volume>17</volume>:<fpage>309</fpage>&#x2013;<lpage>318</lpage>.
+<pub-id pub-id-type="pmid">21224010</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0043">
+        <label>43</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0043">
+<string-name>
+<surname>Taylor</surname>
+<given-names>PA</given-names>
+</string-name>, <string-name>
+<surname>Panoskaltsis&#x2010;Mortari</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Swedin</surname>
+<given-names>JM</given-names>
+</string-name> et al. <article-title>L&#x2010;Selectin(hi) but not the L&#x2010;selectin(lo) CD4+25+ T&#x2010;regulatory cells are potent inhibitors of GVHD and BM graft rejection</article-title>. <source>Blood</source>
+<year>2004</year>;<volume>104</volume>:<fpage>3804</fpage>&#x2013;<lpage>3812</lpage>.
+<pub-id pub-id-type="pmid">15292057</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0044">
+        <label>44</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0044">
+<string-name>
+<surname>Trenado</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Charlotte</surname>
+<given-names>F</given-names>
+</string-name>, <string-name>
+<surname>Fisson</surname>
+<given-names>S</given-names>
+</string-name> et al. <article-title>Recipient&#x2010;type specific CD4+CD25+ regulatory T cells favor immune reconstitution and control graft&#x2010;versus&#x2010;host disease while maintaining graft&#x2010;versus&#x2010;leukemia</article-title>. <source>J Clin Invest</source>
+<year>2003</year>;<volume>112</volume>:<fpage>1688</fpage>&#x2013;<lpage>1696</lpage>.
+<pub-id pub-id-type="pmid">14660744</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0045">
+        <label>45</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0045">
+<string-name>
+<surname>Zhao</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Zhang</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Yi</surname>
+<given-names>T</given-names>
+</string-name> et al. <article-title>In vivo&#x2010;activated CD103+CD4+ regulatory T cells ameliorate ongoing chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>Blood</source>
+<year>2008</year>;<volume>112</volume>:<fpage>2129</fpage>&#x2013;<lpage>2138</lpage>.
+<pub-id pub-id-type="pmid">18550852</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0046">
+        <label>46</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0046">
+<string-name>
+<surname>Srinivasan</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Flynn</surname>
+<given-names>R</given-names>
+</string-name>, <string-name>
+<surname>Price</surname>
+<given-names>A</given-names>
+</string-name> et al. <article-title>Donor B&#x2010;cell alloantibody deposition and germinal center formation are required for the development of murine chronic GVHD and bronchiolitis obliterans</article-title>. <source>Blood</source>
+<year>2012</year>;<volume>119</volume>:<fpage>1570</fpage>&#x2013;<lpage>1580</lpage>.
+<pub-id pub-id-type="pmid">22072556</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0047">
+        <label>47</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0047">
+<string-name>
+<surname>Arai</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Arora</surname>
+<given-names>M</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>T</given-names>
+</string-name> et al. <article-title>Increasing incidence of chronic graft&#x2010;versus&#x2010;host disease in allogeneic transplantation: A report from the Center for International Blood and Marrow Transplant Research</article-title>. <source>Biol Blood Marrow Transplant</source>
+<year>2015</year>;<volume>21</volume>:<fpage>266</fpage>&#x2013;<lpage>274</lpage>.
+<pub-id pub-id-type="pmid">25445023</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0048">
+        <label>48</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0048">
+<string-name>
+<surname>Blazar</surname>
+<given-names>BR</given-names>
+</string-name>, <string-name>
+<surname>Lees</surname>
+<given-names>CJ</given-names>
+</string-name>, <string-name>
+<surname>Martin</surname>
+<given-names>PJ</given-names>
+</string-name> et al. <article-title>Host T cells resist graft&#x2010;versus&#x2010;host disease mediated by donor leukocyte infusions</article-title>. <source>J Immunol</source>
+<year>2000</year>;<volume>165</volume>:<fpage>4901</fpage>&#x2013;<lpage>4909</lpage>.
+<pub-id pub-id-type="pmid">11046015</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0049">
+        <label>49</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0049">
+<string-name>
+<surname>Anderson</surname>
+<given-names>G</given-names>
+</string-name>, <string-name>
+<surname>Lane</surname>
+<given-names>PJ</given-names>
+</string-name>, <string-name>
+<surname>Jenkinson</surname>
+<given-names>EJ.</given-names>
+</string-name>
+<article-title>Generating intrathymic microenvironments to establish T&#x2010;cell tolerance</article-title>. <source>Nat Rev Immunol</source>
+<year>2007</year>;<volume>7</volume>:<fpage>954</fpage>&#x2013;<lpage>963</lpage>.
+<pub-id pub-id-type="pmid">17992179</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0050">
+        <label>50</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0050">
+<string-name>
+<surname>Chidgey</surname>
+<given-names>A</given-names>
+</string-name>, <string-name>
+<surname>Dudakov</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Seach</surname>
+<given-names>N</given-names>
+</string-name> et al. <article-title>Impact of niche aging on thymic regeneration and immune reconstitution</article-title>. <source>Semin Immunol</source>
+<year>2007</year>;<volume>19</volume>:<fpage>331</fpage>&#x2013;<lpage>340</lpage>.
+<pub-id pub-id-type="pmid">18024073</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0051">
+        <label>51</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0051">
+<string-name>
+<surname>Xia</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Wang</surname>
+<given-names>H</given-names>
+</string-name>, <string-name>
+<surname>Guo</surname>
+<given-names>J</given-names>
+</string-name> et al. <article-title>Age&#x2010;related disruption of steady&#x2010;state thymic medulla provokes autoimmune phenotype via perturbing negative selection</article-title>. <source>Aging Dis</source>
+<year>2012</year>;<volume>3</volume>:<fpage>248</fpage>&#x2013;<lpage>259</lpage>.
+<pub-id pub-id-type="pmid">22724083</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0052">
+        <label>52</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0052">
+<string-name>
+<surname>Min</surname>
+<given-names>D</given-names>
+</string-name>, <string-name>
+<surname>Taylor</surname>
+<given-names>PA</given-names>
+</string-name>, <string-name>
+<surname>Panoskaltsis&#x2010;Mortari</surname>
+<given-names>A</given-names>
+</string-name> et al. <article-title>Protection from thymic epithelial cell injury by keratinocyte growth factor: A new approach to improve thymic and peripheral T&#x2010;cell reconstitution after bone marrow transplantation</article-title>. <source>Blood</source>
+<year>2002</year>;<volume>99</volume>:<fpage>4592</fpage>&#x2013;<lpage>4600</lpage>.
+<pub-id pub-id-type="pmid">12036893</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0053">
+        <label>53</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0053">
+<string-name>
+<surname>Rossi</surname>
+<given-names>SW</given-names>
+</string-name>, <string-name>
+<surname>Jeker</surname>
+<given-names>LT</given-names>
+</string-name>, <string-name>
+<surname>Ueno</surname>
+<given-names>T</given-names>
+</string-name> et al. <article-title>Keratinocyte growth factor (KGF) enhances postnatal T&#x2010;cell development via enhancements in proliferation and function of thymic epithelial cells</article-title>. <source>Blood</source>
+<year>2007</year>;<volume>109</volume>:<fpage>3803</fpage>&#x2013;<lpage>3811</lpage>.
+<pub-id pub-id-type="pmid">17213286</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0054">
+        <label>54</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0054">
+<string-name>
+<surname>Aschenbrenner</surname>
+<given-names>K</given-names>
+</string-name>, <string-name>
+<surname>D'Cruz</surname>
+<given-names>LM</given-names>
+</string-name>, <string-name>
+<surname>Vollmann</surname>
+<given-names>EH</given-names>
+</string-name> et al. <article-title>Selection of Foxp3+ regulatory T cells specific for self antigen expressed and presented by Aire+ medullary thymic epithelial cells</article-title>. <source>Nat Immunol</source>
+<year>2007</year>;<volume>8</volume>:<fpage>351</fpage>&#x2013;<lpage>358</lpage>.
+<pub-id pub-id-type="pmid">17322887</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0055">
+        <label>55</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0055">
+<string-name>
+<surname>Sala&#xFC;n</surname>
+<given-names>J</given-names>
+</string-name>, <string-name>
+<surname>Corbel</surname>
+<given-names>C</given-names>
+</string-name>, <string-name>
+<surname>Le&#x2010;Douarin</surname>
+<given-names>NM.</given-names>
+</string-name>
+<article-title>Regulatory T cells in the establishment and maintenance of self&#x2010;tolerance: Role of the thymic epithelium</article-title>. <source>Int J Dev Biol</source>
+<year>2005</year>;<volume>49</volume>:<fpage>137</fpage>&#x2013;<lpage>142</lpage>.
+<pub-id pub-id-type="pmid">15906226</pub-id></mixed-citation>
+      </ref>
+      <ref id="sct312034-bib-0056">
+        <label>56</label>
+        <mixed-citation publication-type="journal" id="sct312034-cit-0056">
+<string-name>
+<surname>Sarantopoulos</surname>
+<given-names>S</given-names>
+</string-name>, <string-name>
+<surname>Blazar</surname>
+<given-names>BR</given-names>
+</string-name>, <string-name>
+<surname>Cutler</surname>
+<given-names>C</given-names>
+</string-name> et al. <article-title>B cells in chronic graft&#x2010;versus&#x2010;host disease</article-title>. <source>Biol Blood Marrow Transplant</source>
+<year>2015</year>;<volume>21</volume>:<fpage>16</fpage>&#x2013;<lpage>23</lpage>.
+<pub-id pub-id-type="pmid">25452031</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

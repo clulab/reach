@@ -1,0 +1,1006 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21655272</article-id>
+      <article-id pub-id-type="pmc">3104995</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-10-03890</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0019926</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology</subject>
+          <subj-group>
+            <subject>Developmental Biology</subject>
+            <subj-group>
+              <subject>Stem Cells</subject>
+              <subj-group>
+                <subject>Adult Stem Cells</subject>
+                <subject>Induced Pluripotent Stem Cells</subject>
+                <subject>Neural Stem Cells</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+          <subj-group>
+            <subject>Neuroscience</subject>
+            <subj-group>
+              <subject>Neurobiology of Disease and Regeneration</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine</subject>
+          <subj-group>
+            <subject>Neurology</subject>
+            <subj-group>
+              <subject>Parkinson Disease</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Oct4-Induced Reprogramming Is Required for Adult Brain Neural Stem Cell Differentiation into Midbrain Dopaminergic Neurons</article-title>
+        <alt-title alt-title-type="running-head">Regional Identity of Adult Brain Neural Stem Cells</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Deleidi</surname>
+            <given-names>Michela</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cooper</surname>
+            <given-names>Oliver</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hargus</surname>
+            <given-names>Gunnar</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Levy</surname>
+            <given-names>Adam</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Isacson</surname>
+            <given-names>Ole</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Center for Neuroregeneration Research, Harvard Medical School/McLean Hospital, Belmont, Massachusetts, United States of America</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Udall Parkinson's Disease Research Center of Excellence, Harvard Medical School, Boston, Massachusetts, United States of America</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Zheng</surname>
+            <given-names>Jialin Charles</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">University of Nebraska Medical Center, United States of America</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>ole_isacson@hms.harvard.edu</email></corresp>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: MD OI. Performed the experiments: MD OC GH AL. Analyzed the data: MD OC OI. Wrote the paper: MD OC GH AL OI.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>31</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>6</volume>
+      <issue>5</issue>
+      <elocation-id>e19926</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>10</month>
+          <year>2010</year>
+        </date>
+        <date date-type="accepted">
+          <day>21</day>
+          <month>4</month>
+          <year>2011</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Deleidi et al.</copyright-statement>
+        <copyright-year>2011</copyright-year>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Neural stem cells (NSCs) lose their competency to generate region-specific neuronal populations at an early stage during embryonic brain development. Here we investigated whether epigenetic modifications can reverse the regional restriction of mouse adult brain subventricular zone (SVZ) NSCs. Using a variety of chemicals that interfere with DNA methylation and histone acetylation, we showed that such epigenetic modifications increased neuronal differentiation but did not enable specific regional patterning, such as midbrain dopaminergic (DA) neuron generation. Only after Oct-4 overexpression did adult NSCs acquire a pluripotent state that allowed differentiation into midbrain DA neurons. DA neurons derived from Oct4-reprogrammed NSCs improved behavioural motor deficits in a rat model of Parkinson's disease (PD) upon intrastriatal transplantation. Here we report for the first time the successful differentiation of SVZ adult NSCs into functional region-specific midbrain DA neurons, by means of Oct-4 induced pluripotency.</p>
+      </abstract>
+      <counts>
+        <page-count count="13"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>One of the fundamental questions in the field of regenerative neuroscience is whether adult forebrain subventricular zone (SVZ) neural stem cells (NSCs) can efficiently generate neuronal phenotypes other than their native inhibitory olfactory bulb (OB) interneuron populations. Adult SVZ NSCs are primarily fated to generate non-dopaminergic (DA) gamma-amino butyric acid (GABA)-ergic olfactory bulb (OB) interneurons <xref rid="pone.0019926-Caldwell1" ref-type="bibr">[1]</xref>, <xref rid="pone.0019926-Jain1" ref-type="bibr">[2]</xref>, <xref rid="pone.0019926-Lois1" ref-type="bibr">[3]</xref>, <xref rid="pone.0019926-Carleton1" ref-type="bibr">[4]</xref>. This represents an obstacle to the development of successful therapeutic strategies for neurodegenerative diseases, since region-specific phenotypes are warranted for the generation of clinically relevant neurons by mobilization of endogenous neural precursor cells (NPCs) after degeneration or lesion.</p>
+      <p>With respect of cell therapy for Parkinson's disease (PD), several pieces of evidence now demonstrate the importance of the midbrain DA neuronal subtype as a determinant of the functional impact of cell-based strategies in animal models of PD <xref rid="pone.0019926-Grealish1" ref-type="bibr">[5]</xref>, <xref rid="pone.0019926-Isacson1" ref-type="bibr">[6]</xref>. The critical challenge is to generate neuronal populations with the phenotypic and molecular properties of midbrain DA neurons in order to achieve proper striatal reinnervation. However, there is still no evidence of the successful manipulation of adult SVZ NSCs toward a midbrain DA neuronal identity suitable for such clinical regenerative purposes. In vitro, midbrain DA neurons have only been efficiently derived from early fetal ventral midbrain and embryonic stem cells (ESCs) from preimplanted blastocysts of embryos <xref rid="pone.0019926-Lee1" ref-type="bibr">[7]</xref>. On the contrary, adult SVZ NSCs are more restricted in their capacity to generate neuronal subtypes with a specific regional identity <xref rid="pone.0019926-Caldwell1" ref-type="bibr">[1]</xref>, <xref rid="pone.0019926-Jain1" ref-type="bibr">[2]</xref>, <xref rid="pone.0019926-He1" ref-type="bibr">[8]</xref>. In vivo, different strategies have been tested in order to promote the proliferation of endogenous SVZ NPCs, their migration toward the lesioned striatum, and their differentiation into midbrain DA neurons <xref rid="pone.0019926-Kuhn1" ref-type="bibr">[9]</xref>, <xref rid="pone.0019926-Jin1" ref-type="bibr">[10]</xref>, <xref rid="pone.0019926-Nakatomi1" ref-type="bibr">[11]</xref>, <xref rid="pone.0019926-Benraiss1" ref-type="bibr">[12]</xref>. However, there is no evidence that such strategies promote the generation of functional midbrain DA neurons that integrate into the nigrostriatal DA system <xref rid="pone.0019926-Chen1" ref-type="bibr">[13]</xref>, <xref rid="pone.0019926-Cooper1" ref-type="bibr">[14]</xref>, <xref rid="pone.0019926-deChevigny1" ref-type="bibr">[15]</xref>.</p>
+      <p>During development, adult SVZ NSCs lose their competency for neuronal region-specific patterning and therefore acquire a restricted temporal and regional specification <xref rid="pone.0019926-Temple1" ref-type="bibr">[16]</xref>. Epigenetic modifications such as histone acetylation and DNA methylation play an important role in regulating such fate determination <xref rid="pone.0019926-Lunyak1" ref-type="bibr">[17]</xref>. Importantly, DNA methylation and histone acetylation state closely correlates with NSC multipotency both in vivo and in vitro <xref rid="pone.0019926-Li1" ref-type="bibr">[18]</xref>.</p>
+      <p>Here, we sought to investigate whether chromatin-modifying agents (such as histone deacetylase inhibitors and demethylating agents) can regulate the capacity of adult SVZ NSCs to differentiate into region-specific neuronal subtypes such as midbrain DA neurons. We found that chromatin-modifying agents increase neuronal differentiation of adult SVZ NSCs without altering their capacity to differentiate into region-specific neuronal phenotypes. Only by Oct4-induced reprogramming could adult SVZ NSCs re-acquire the competency to differentiate into multiple neuronal lineages.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Animals</title>
+        <p>4&#x2013;8 week old C57BL/6 mice (Charles River Laboratories) and B6;129-Gt(ROSA)26Sor<sup>tm1(rtTA*M2)Jae</sup> Col1a1<sup>tm2(tetO-Pou5f1)Jae</sup>/J (rTA/Oct4) mice (The Jackson Laboratory) were used in the study. Female Sprague-Dawley rats with unilateral 6-OHDA lesions were obtained from Taconic. All animal procedures were performed in accordance with the guidelines of the National Institutes of Health and were approved by the Institutional Animal Care and Use Committee (IACUC) at McLean Hospital, Harvard Medical School (Mclean IACUC Protocol #09-3/2-6 approved on 09/16/10).</p>
+      </sec>
+      <sec id="s2b">
+        <title>Primary neural stem cell cultures and differentiation</title>
+        <p>NSC cultures were established from the lateral ventricular walls of 4- to 8-week-old female mice, as described <xref rid="pone.0019926-Reynolds1" ref-type="bibr">[19]</xref>. Briefly, the SVZ was isolated <xref rid="pone.0019926-Seaberg1" ref-type="bibr">[20]</xref> and digested in 0.1% trypsin-EDTA. Cells were plated at a density of 20 cells/&#xB5;l in growth medium, consisting of mouse NeuroCult NSC basal medium, mouse NeuroCult NSC proliferation supplements, 2 &#xB5;g/ml heparin, penicillin [100 U/ml]/streptomycin [100 U/ml], EGF (20 ng/ml) and bFGF (10 ng/ml) (all from StemCell Technologies). To analyse cell proliferation, wild-type (n&#x200A;=&#x200A;3) or rTA/Oct4 (n&#x200A;=&#x200A;3) primary NSCs were plated at 8000 cells/cm<sup>2</sup> in neurosphere growth medium. After 3&#x2013;4 days, neurospheres were harvested, mechanically dissociated, counted and re-plated under the same culture conditions. For in vitro neurosphere formation assay, NSCs from wild-type (n&#x200A;=&#x200A;5) and rTA/Oct4 mice (n&#x200A;=&#x200A;5) were plated in 24-well polyornithine coated plates at a density of 8000 cells/cm<sup>2</sup> in growth medium with or without doxycycline (DOX) (2 &#xB5;g/mL; Sigma). Number of neurospheres (diameter&#x2265;100 &#xB5;m) was counted 7 days after plating <xref rid="pone.0019926-Pluchino1" ref-type="bibr">[21]</xref>.</p>
+        <p>To induce differentiation, cells were manually dissociated and plated on glass coverslips coated with 10 &#xB5;g/mL poly-L-ornithine and 1 &#xB5;g/mL laminin at density of &#x2248;5&#x2227;10<sup>5</sup> cells/cm<sup>2</sup>. Cells were first expanded and patterned for 4 days after plating in N2 medium supplemented with FGF2 (10 ng/ml), Shh (500 ng/ml), and FGF8 (100 ng/ml) (all from R&amp;D Systems). After 4 days, cells were subsequently differentiated in N2 medium containing ascorbic acid (AA) (200 &#xB5;M; Sigma) for 10&#x2013;14 days. In some experiments, NSCs were treated with VPA (1 mM, EMD), TSA (100 nM, EMD), AZA (1 &#xB5;M, Sigma), BIX-01294 (1 &#xB5;M, Sigma) or 100 nM TSA/500 nM AZA for 72 hours and then replated in differentiation medium containing 1 mM VPA, 100 nM TSA, 1 &#xB5;M AZA, 1 &#xB5;M BIX-01294 or 100 nM TSA/500 nM AZA. After an additional 48 hours, chemicals were withdrawn and differentiation was carried out as described above. Untreated NSCs and dimethyl sulfoxide (DMSO)-treated NSCs were used as control. Three independent experiments were run at least in triplicate.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Bisulfite sequencing</title>
+        <p>DNA was isolated with a QIAGEN DNeasy kit. Purified genomic DNA was denatured and converted with an Epitect kit QIAGEN. 500 ng of DNA was then bisulfite converted and purified. Bisulfite sequencing was carried out by Genpathway, Inc. Bisulfite conversion specific primers were designed using MethPrimer. PCR products were cloned into the TOPO-TA vector (Invitrogen), transformed into bacteria and plated on agarose plates. Colonies were picked, inserts were PCR amplified using M13 forward and reverse primers and products were visualized on a 1% agarose gel. Amplified PCR products were sequenced using M13 reverse primers. The following primers were used: bisulfite PCR-forward (<named-content content-type="gene">GTAATGGTTGTTTTGTTTTGGTTTT</named-content>), bisulfite PCR-reverse (<named-content content-type="gene">CCACCCTCTAACCTTAACCTCTAAC</named-content>).</p>
+      </sec>
+      <sec id="s2d">
+        <title>Generation of NSC-derived iPSCs</title>
+        <p>NSCs established from 4 week-old rTA-Oct4 transgenic mice were seeded at a density of 5&#x2227;10<sup>5</sup> cells per 6-well plate in growth medium with DOX (1&#x2013;2 &#xB5;g/ml). Forty-eight hours later, cells were further subcultured on irradiated MEFs (GlobalStem) in ESC medium (DMEM supplemented with 15% FBS, nonessential amino acids, L-glutamine, penicillin/streptomycin, &#x3B2;-mercaptoethanol, and 1000 U/ml LIF) with DOX (2 &#xB5;g/ml). In some conditions, VPA (0.5 mM) was added to ESC medium for 7&#x2013;10 days. ES-like colonies were mechanically isolated, and individual cells were dissociated and subsequently replated onto MEFs.</p>
+      </sec>
+      <sec id="s2e">
+        <title>Quantitative Real-Time PCR</title>
+        <p>Total RNA was extracted with an RNeasy kit (QIAGEN) as described <xref rid="pone.0019926-Chung1" ref-type="bibr">[22]</xref>. The expression level of each gene was normalized to endogenous &#x3B2;-actin. Fold-change in gene expression was calculated using 2<sup>&#x2212;&#x394;&#x394;CT</sup> method <xref rid="pone.0019926-Livak1" ref-type="bibr">[23]</xref>. All the results are from three technical replicates of three independent experiments. Primer sequences are available on request.</p>
+      </sec>
+      <sec id="s2f">
+        <title>Western-Blot</title>
+        <p>Cells were lysed in NE-PER Nuclear and Cytoplasmic Extraction Kit (Pierce) according to the manufacturer's protocol. Protein extract (20 &#xB5;g) was run on a 4%&#x2013;15% gradient gel (Bio-Rad). The following primary antibodies were used: Oct-4 (1&#x2236;200, Santa Cruz, H-134), &#x3B2;-TubIII (1&#x2236;1000, Abcam), GFAP (1&#x2236;1000, Millipore), GAPDH (1&#x2236;5000, Millipore).</p>
+      </sec>
+      <sec id="s2g">
+        <title>In vitro differentiation of NPC-derived iPSCs</title>
+        <p>Cells were harvested by trypsinization and transferred to bacterial culture dishes in ESC medium without LIF. After 3 days, aggregated cells were plated onto gelatin-coated tissue culture dishes and incubated for another 7 days. Differentiated EBs were fixed with 4% paraformaldehyde.</p>
+      </sec>
+      <sec id="s2h">
+        <title>In vitro differentiation of NSC-derived iPSCs into DA neurons</title>
+        <p>NPC-derived iPSCs were differentiated into DA neurons using a previously described protocol <xref rid="pone.0019926-Lee1" ref-type="bibr">[7]</xref>, with some modifications. iPSCs (stage 1) were dissociated and plated in bacterial dishes. EBs were allowed 3 days to form in DMEM containing defined 10% FBS, L-glutamine (2 mM), 1&#xD7; NEAA, HEPES (10 mM), &#x3B2;-mercaptoethanol (1 mM), penicillin (100 U/ml)/streptomycin (100 g/ml) (stage 2). EBs were allowed 1 day to attach to tissue culture dishes, and neuronal precursors were then selected by incubation in DMEM F-12 medium containing apo-transferrin (50 g/ml), insulin (5 g/ml), sodium selenite (30 nM), fibronectin (250 ng/ml), penicillin (100 U/ml)/streptomycin (100 g/ml) for 9&#x2013;10 days (stage 3). Cells were subsequently dissociated by 0.05% trypsin, and neuronal precursors were expanded and patterned for 4 days after plating onto polyornithine/laminin-coated plates at a density of 75,000 cells/cm<sup>2</sup> in N2 medium supplemented with laminin (1 mg/ml), FGF-2 (10 ng/ml), Shh (500 ng/mL) and murine FGF8b (100 ng/mL) (stage 4). The cells were subsequently differentiated in N2 medium containing AA (200 &#xB5;M) for 10&#x2013;14 days (stage 5).</p>
+      </sec>
+      <sec id="s2i">
+        <title>Flow Cytometry and Cell Sorting</title>
+        <p>Cell sorting was performed as previously described <xref rid="pone.0019926-Hedlund1" ref-type="bibr">[24]</xref>. Briefly, cells were harvested at stage 5 (day 7&#x2013;10), and stained with primary mouse IgM anti-SSEA-1 antibody (0.4 &#xB5;g/ml; DSHB) for 20 minutes. Cells were then washed, incubated with Alexa Fluor 488 fluorescent secondary antibody. FACS sorting was performed using a FACSAria cell sorter and FACSDiva software (BD Biosciences). A 100 &#xB5;m nozzle, sheath pressure of 20&#x2013;25 psi, and an acquisition rate of 1,000&#x2013;2,000 events per second were used as the standard conditions. Isotype-matched control antibodies were used to set the gate. Annexin V Apoptosis Detection Kit (BD Pharmingen) was used according to the manufacturer's protocol.</p>
+      </sec>
+      <sec id="s2j">
+        <title>Transplantation into 6-Hydroxydopamine-Lesioned Rats and Analysis of Drug-Induced Rotational Behaviour</title>
+        <p>NSC-derived iPSCs, sorted for SSEA1 negative expression, were resuspended in HBSS containing 1 &#xB5;g/ml GDNF (Sigma-Aldrich) at a density of 5&#x2227;10<sup>5</sup> cells/&#xB5;L. 6-OHDA lesioned rats were grafted into the lesioned striatum with 4 &#xB5;l of cell suspension as 2 deposits of 100,000 cells using the following coordinates from bregma: site 1: AP+0.4; ML -3; DV -5.0; site 2: AP -0.5; ML -3.6; DV -5.0. Cells were engrafted at a rate of 0.3 &#xB5;l per minute. Immunosuppression, anesthesia, transplantation, and analgesia were performed as previously described <xref rid="pone.0019926-Bjorklund1" ref-type="bibr">[25]</xref>. Rotational asymmetry of 6-OHDA-lesioned rats was analysed after i.p. injection of amphetamine (4 mg/kg; 90 min) or s.c. injection of apomorphine (0.1 mg/kg; 40 min) two weeks before transplantation and at 4, 6 and 8 weeks after transplantation. Functionally lesioned rats were randomly assigned to 2 groups, one control group (n&#x200A;=&#x200A;6) and one group for the transplantation of differentiated NSC-iPSCs (n&#x200A;=&#x200A;5). The animals were sacrificed 8 weeks post-transplantation. Brains were removed, postfixed in 4% paraformaldehyde, equilibrated in 30% sucrose, and sectioned on a freezing microtome in 40-&#xB5;m coronal slices.</p>
+      </sec>
+      <sec id="s2k">
+        <title>Immunofluorescent staining and Stereological Procedures</title>
+        <p>Immunofluorescent staining was performed as previously described <xref rid="pone.0019926-Hedlund1" ref-type="bibr">[24]</xref>. The following primary antibodies were used: sheep/rabbit anti-TH (1&#x2236;1,000; Pel-Freez Biologicals), rabbit anti-Pitx3 (1&#x2236;250, Zymed), mouse anti-En1 (1&#x2236;50, DSHB), goat anti-Foxa2 (1&#x2236;100, Santa Cruz), rabbit/chicken anti &#x3B2;-TubIII (Tuj1, Covance), rabbit anti-GFAP (1&#x2236;1000, Dako), mouse anti-SSEA-1 (0.4 &#xB5;g/ml; DSHB), mouse anti Oct4 (1&#x2236;100, Santa Cruz Biotechnology), rabbit anti Nanog (1&#x2236;100, Bethyl), mouse anti NeuN (1&#x2236;1000, Chemicon), mouse anti SSEA1 (1&#x2236;50, Chemicon), rabbit anti GAD67 (1&#x2236;5000, Sigma), rabbit anti GABA (1&#x2236;5000, Sigma), mouse anti AFP (1;100, R&amp;D Systems), goat anti brachyury (1&#x2236;100, Santa Cruz Biotechnology). Appropriate fluorescence-labeled secondary antibodies (AlexaFluor; Invitrogen) were used and nuclei were stained with Hoechst 33342 (5 &#xB5;g/mL; Sigma-Aldrich). For light microscopy, biotinylated secondary antibodies (1&#x2236;300, Vector Laboratories) were applied to detect anti-TH antibody, followed by incubation in streptavidin-biotin complex (Vectastain ABC Kit Elite; Vector Laboratories) for 1 h and visualized by incubation in 3,3&#x2032;-diaminobenzidine (DAB; Vector Laboratories). Alkaline phosphatase (AP) staining was performed using Alkaline Phosphatase.</p>
+        <p>Detection Kit (Chemicon), according to the manufacturer's instructions. Confocal analysis was performed using a Zeiss LSM510/Meta Station (Thornwood). Stereology was performed using Stereo Investigator image-capture equipment and software (MicroBright-Field,) and a Zeiss Axioplan I fluorescent microscope. Three coverslips were counted for each immunostaining.</p>
+      </sec>
+      <sec id="s2l">
+        <title>Statistical analysis</title>
+        <p>For statistical analyses, we used a standard software package (GraphPad Prism version 4.00). Data are expressed as mean&#xB1;SEM. Asterisks identify experimental groups that were significantly different from control groups by t-test, one-way ANOVA, or two-way ANOVA with a Bonferroni correction for multiple comparisons (p value, 0.05), where applicable.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>Chromatin modifying agents do not alter the differentiation potential of mouse adult SVZ NSCs</title>
+        <p>We first investigated whether epigenetic modifications induced by chromatin modifying agents can increase adult SVZ NSC responsiveness to the patterning signals that regulate midbrain DA neuron specification such as sonic hedgehog (Shh) and fibroblast growth factor 8 (FGF8). We tested the effects of a variety of chemicals that have been shown to enhance cell dedifferentiation by promoting an ESC-like state: 5-aza-cytidine (AZA), a DNA methyltransferase (DNMT) inhibitor; BIX-01294, a G9a histone methyltransferase inhibitor; valproic acid (VPA) and trichostatin A (TSA), histone deacetylase inhibitors (HDACi) (<xref ref-type="table" rid="pone-0019926-t001">Table 1</xref>) <xref rid="pone.0019926-Feng1" ref-type="bibr">[26]</xref>. The non-toxic concentration of each chemical was determined by exposing adult SVZ NSCs to a range of concentrations and determining cell toxicity by Annexin V/Propidium iodide flow-cytometry analysis at 24 and 48 hours after treatment (data not shown). In order to test whether such chromatin modifying agents increase NSC competency to region-specific neuronal differentiation, NSCs were isolated from the SVZ of adult C57/BL6 mice and grown as neurospheres in the presence of epidermal growth factor (EGF) and fibroblast growth factor 2 (FGF-2). In order to limit the exposure to EGF and FGF-2 that can deregulate the spatial identity and differentiation potential of neural precursors <xref rid="pone.0019926-Bithell1" ref-type="bibr">[27]</xref>, only primary neurospheres were used in these experiments. NSCs were treated with 1 &#xB5;M AZA, 1 &#xB5;M BIX-01294, 1 mM VPA, 100 nM TSA, or 500 nM AZA/100 nM TSA (<xref ref-type="table" rid="pone-0019926-t001">Table 1</xref>) for 72 hours. NSCs were then differentiated upon EGF withdrawal, using a modified protocol developed for the differentiation of mouse ESCs to midbrain DA neurons <xref rid="pone.0019926-Lee1" ref-type="bibr">[7]</xref>, <xref rid="pone.0019926-Hedlund1" ref-type="bibr">[24]</xref> (<xref ref-type="fig" rid="pone-0019926-g001">Fig. 1A</xref>). In this protocol, the signaling molecules Shh, FGF-2 and FGF8 induce ventral midbrain DA neuron patterning of neuronal precursors. Final differentiation to mature DA neurons is induced by ascorbic acid (AA) in the absence of growth factors. Differentiation medium was supplemented with 1 &#xB5;M AZA, 1 &#xB5;M BIX-01294, 1 mM VPA, 100 nM TSA, or 500 nM AZA/100 nM TSA for an additional 48 hours (<xref ref-type="fig" rid="pone-0019926-g001">Fig. 1A</xref>). AZA alone and BIX-01294 at effective concentrations were found to be too toxic when added during differentiation, thus were excluded from further studies. Treatment with HDACi (TSA,VPA) induced a significant increase of &#x3B2;-TubIII<sup>+</sup> neurons as revealed by immunohistochemistry at day 30 (40.5&#xB1;0.5%, 55.25&#xB1;1.6%, 62.5&#xB1;4% in untreated, TSA and VPA treated cells; p&#x2264;0.01 and p&#x2264;0.001 compared to untreated respectively) and western blot analysis (<xref ref-type="fig" rid="pone-0019926-g001">Fig. 1B&#x2013;D</xref>). Treatment with TSA, TSA/AZA and VPA decreased the number of GFAP<sup>+</sup> astrocytes in differentiated cultures at day 30 (65&#xB1;1.9%, 37.25&#xB1;1.8%, 48.34&#xB1;1.5%, 34&#xB1;1.9% in untreated, TSA, TSA/AZA, and VPA treated cells; p&#x2264;0.001, p&#x2264;0.01 and p&#x2264;0.001 compared to untreated cells) (<xref ref-type="fig" rid="pone-0019926-g001">Fig. 1B&#x2013;C</xref>). Western blot analysis confirmed the decrease of astrocytic differentiation after treatment with TSA, TSA/AZA and VPA (<xref ref-type="fig" rid="pone-0019926-g001">Figure 1D</xref>). We examined the expression of tyrosine hydroxylase (TH), the rate-limiting enzyme of DA synthesis, and other midbrain DA neuronal markers [engrailed-1 (En1), paired-like homeodomain transcription factor 3 (Pitx3), dopamine transporter (DAT), and nuclear receptor related 1 (Nurr1)] by immunocytochemistry and RT-PCR at day 16, 26 and 30. Some TH<sup>+</sup> neurons were transiently detected at day 16 in HDACi treated cultures (data not shown). However, after the completion of the differentiation protocol (day 30), differentiated neurons did not express any midbrain DA marker. We found that differentiated neurons almost exclusively expressed GAD67, a marker for GABAergic interneurons (<xref ref-type="fig" rid="pone-0019926-g001">Fig. 1E</xref>).</p>
+        <fig id="pone-0019926-g001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Chromatin modifying agents increase neuronal differentiation of adult mouse SVZ NSCs.</title>
+            <p>(<bold>A</bold>) Schematic representation of the experimental design: adult SVZ NSCs were treated with TSA, TSA/AZA or VPA for 5 days and differentiated using a modified protocol developed for the differentiation of mouse ESCs to midbrain DA neurons. (<bold>B</bold>) Quantification of &#x3B2;-TubIII<sup>+</sup> neurons and GFAP<sup>+</sup> astrocytes in untreated, TSA-, TSA/AZA- or VPA-treated cultures. Treatment with TSA and VPA increased the number of &#x3B2;-TubIII<sup>+</sup> neurons, whereas TSA, TSA/AZA and VPA decreased the number of GFAP<sup>+</sup> astrocytes. Error bars indicate SEM. Three independent experiments were performed in triplicate (** p&#x2264;0.01, *** p&#x2264;0.001; One-way ANOVA). (<bold>C</bold>) Immunofluorescence staining for neuron-specific class III &#x3B2;-Tubulin (TUJ1) and the glial-specific marker glial fibrillary acidic protein (GFAP) of untreated, TSA-, TSA/AZA-, and VPA-treated cultures. Nuclei were counterstained with Hoechst. (<bold>D</bold>) Western blot analysis of differentiated NSC extracts, untreated or differentiated in the presence of TSA, TSA/AZA or VPA. Two independent experiments were performed in triplicate. Error bars indicate SEM. (*p&#x2264;0.05, ** p&#x2264;0.01; One-way ANOVA). Optical densities of the individual bands were quantified using NIH ImageJ and normalized by the averaged value of GAPDH. (<bold>E</bold>) Immunofluorescence staining for &#x3B2;-TubIII (green) and GAD67 (red) of differentiated adult SVZ NSCs treated with VPA. The majority of &#x3B2;-TubIII<sup>+</sup> neurons co-expressed GAD67. Scale bars: 20 &#xB5;m (C); 10 &#xB5;m (E). U, untreated; T, TSA; T/A, TSA/AZA; V, VPA.</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g001"/>
+        </fig>
+        <table-wrap id="pone-0019926-t001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>List of reagents used in the study.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0019926-t001-1" xlink:href="pone.0019926.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Chemical</td>
+                  <td align="left" rowspan="1" colspan="1">Function</td>
+                  <td align="left" rowspan="1" colspan="1">Concentration</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>AZA</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1">DNMT inhibitor</td>
+                  <td align="left" rowspan="1" colspan="1">0.5&#x2013;1 &#xB5;m</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>BIX-01294</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1">G9a histone methyltransferase inhibitor</td>
+                  <td align="left" rowspan="1" colspan="1">1 &#xB5;m</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>VPA</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1">HDAC inhibitor</td>
+                  <td align="left" rowspan="1" colspan="1">1 mM</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>TSA</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1">HDAC inhibitor</td>
+                  <td align="left" rowspan="1" colspan="1">100 nM</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+      </sec>
+      <sec id="s3b">
+        <title>Epigenetic modifiers increase the expression of pluripotency-associated genes and partial demethylation of <italic>Oct4</italic> promoter</title>
+        <p>We then analysed the expression of pluripotency-associated genes such as Nanog, Sox2, Oct4, and Klf4 in adult SVZ NSCs at 24 and 48 hours after treatment with VPA, TSA or TSA/AZA. We found that TSA alone or TSA/AZA significantly induced the expression of Oct4 and Klf4 at 24 and 48 hours (<xref ref-type="fig" rid="pone-0019926-g002">Fig. 2A</xref>). We investigated the DNA methylation profile of <italic>Oct4</italic> promoter. Oct-4 is the master regulator of stem cell pluripotency and differentiation <xref rid="pone.0019926-Pesce1" ref-type="bibr">[28]</xref> and the methylation of its promoter drives the conversion from primitive NSCs (pNSCs) to definitive NSCs (dNSCs) <xref rid="pone.0019926-Akamatsu1" ref-type="bibr">[29]</xref>, thus limiting their competency to undergo region-specific neuronal differentiation. The methylation status of 12 CpG sites in the <italic>Oct4</italic> promoter region (between 470 to the ATG start codon) was assessed by bisulfite sequencing in mouse ESCs, untreated adult SVZ NSCs and adult SVZ NSCs treated with AZA, VPA, TSA or AZA/TSA for 48 hours (<xref ref-type="fig" rid="pone-0019926-g002">Fig. 2B</xref>). CpG sites within <italic>Oct4</italic> promoter were mostly unmethylated in mouse ESCs (methylation rate: 2.075&#xB1;1.3%). Conversely, untreated NSCs and AZA-treated NSCs were highly methylated (methylation rate: 90&#xB1;3.9% and 89.9&#xB1;4.9%, respectively). Upon treatment with VPA, TSA or AZA/TSA we found more unmethylated CpG sites (methylation rate: 80&#xB1;6.7%, 64&#xB1;3.4%, 60&#xB1;4.1%, respectively) (<xref ref-type="fig" rid="pone-0019926-g002">Fig. 2B</xref>). These data indicate that the chromatin-modifying agents (TSA, VPA and TSA/AZA) induced de novo expression of pluripotency genes and partial demethylation of <italic>Oct4</italic> promoter in adult SVZ NSCs. However, these changes were not sufficient to reverse NSC fate restriction and induce the competency to patterning by midbrain developmental cues.</p>
+        <fig id="pone-0019926-g002" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Chromatin modifying agents induce the expression of pluripotency-associated genes and promote partial demethylation of <italic>Oct4</italic> promoter in adult SVZ NSCs.</title>
+            <p>(<bold>A</bold>) SVZ adult NSCs were treated with VPA, TSA, or TSA/AZA and mRNA level of Nanog, Sox2, Oct4 and Klf4 was analysed by qRT-PCR. Values were normalized to the level of &#x3B2;-actin and expressed as relative increase over vehicle-treated cultures. Error bars indicate SEM. Three independent experiments were performed in triplicate (** p&#x2264;0.01; # p&#x2264;0.05; One-way ANOVA). (<bold>B</bold>) The DNA methylation profile of 12 CpG sites located in the <italic>Oct4</italic> proximal promoter from &#x2212;469 to the ATG start codon in mouse ESCs, untreated SVZ NSCs and NSCs treated with AZA, TSA, VPA or AZA/TSA is shown. The methylated and non-methylated CpG positions are presented as black and white circles, respectively. Ratios indicate average of methylated to unmethylated sites at the 12 CpG sites&#xB1;SEM.</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g002"/>
+        </fig>
+      </sec>
+      <sec id="s3c">
+        <title>The germline factor Oct-4 increases adult SVZ NSC proliferation and self-renewal</title>
+        <p>We then examined whether overexpression of Oct-4 can alter the region-specific differentiation potential of adult SVZ NSCs. We established neurosphere cultures from the lateral ventricular walls of rTA/Oct-4 mice <xref rid="pone.0019926-Hochedlinger1" ref-type="bibr">[30]</xref>. These mice express rtTA-M2, an optimized form of reverse tetracycline-controlled transactivator (rtTA) protein directed to multiple tissues by the Gt(ROSA)26Sor promoter. Following doxycycline (DOX) administration, high Oct-4 expression is induced in several tissues <xref rid="pone.0019926-Hochedlinger1" ref-type="bibr">[30]</xref>. In vivo, Oct-4 expression was not originally detected in the brain probably due to the low penetration of DOX through the blood brain barrier (BBB) <xref rid="pone.0019926-Hochedlinger1" ref-type="bibr">[30]</xref>. Therefore, we first tested Oct-4 expression in adult SVZ NSC cultures derived from rTA/Oct-4 mice. We found that 25-35% of cells expressed Oct-4 as revealed by immunocytochemistry and western-blot analysis 48 hours after DOX induction (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3A&#x2013;B</xref>). NSCs that were not exposed to DOX did not show any detectable Oct-4 expression (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3A&#x2013;B</xref>). We then determined the effect of Oct-4 induction on adult SVZ NSC proliferation and self-renewal. rTA/Oct-4 NSCs were grown as neurospheres in the presence of EGF and FGF-2, with or without DOX, and propagated for up to 8 passages. Growth curves revealed increased long-term proliferation rate in DOX-treated NSCs (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3C</xref>). NSC self-renewal was assessed by the neurosphere-colony forming assay. We found more neurosphere-forming cells in DOX-treated cultures (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3D</xref>).</p>
+        <fig id="pone-0019926-g003" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Short-term overexpression of Oct4 increases proliferation, self-renewal and neuronal differentiation of adult SVZ NSCs.</title>
+            <p>(<bold>A</bold>) Adult SVZ NSCs were isolated from doxycycline (DOX)-inducible Oct4 transgenic mice (rTA-Oct4) and grown as neurospheres in growth medium with EGF/FGF-2. Oct4 was induced by 2 &#xB5;g/mL DOX. Fluorescence images of rTA-Oct4 NSCs cultured for 48 hours, with or without DOX, and stained with an antibody to Oct4. Percentages of Oct4<sup>+</sup> cells are indicated. (<bold>B</bold>) DOX-dependent induction of Oct-4 protein in adult SVZ NSCs from rTA-Oct4 transgenic mice determined by Western blot analysis. Mouse embryonic stem cells (mESC) were used as control. GAPDH was used as loading control. (<bold>C</bold>) Growth curves of DOX-induced and -uninduced adult SVZ NSCs. Time points represent average values from triplicate measurements and their standard deviations (* p&#x2264;0.05, Two-way ANOVA with post hoc analysis by Bonferroni test). (<bold>D</bold>) Clonal analysis of SVZ adult NSCs after Oct4 induction. NSCs were grown as neurospheres and treated with DOX or left untreated. After dissociation, single cells were replated and the total number of neurospheres with a diameter &gt;100 &#xB5;m was assessed and expressed as % over plated cells (** p&#x2264;0.01, t-test). Error bars indicate SEM. (<bold>E</bold>) Schematic representation of the experimental design: SVZ adult NSCs were isolated from rTA-Oct4 transgenic mice and grown as neurospheres in growth medium with EGF/FGF-2, with or without DOX. Forty-eight hours after Oct4 induction, neurospheres were dissociated and replated in differentiation medium with Shh, FGF8, FGF-2, with or without DOX. DOX was withdrawn after 48 hours. Cells were finally differentiated with ascorbic acid (AA). (<bold>F&#x2013;I</bold>) Immunofluorescence staining for &#x3B2;-TubIII (green, F&#x2013;G) and GFAP (green, H&#x2013;I) of adult SVZ NSCs differentiated with or without Oct4 induction. Nuclei were counterstained with Hoechst. (<bold>J</bold>) Quantification of &#x3B2;-TubIII<sup>+</sup> neurons and GFAP<sup>+</sup> astrocytes in untreated and DOX-treated neuronal cultures. Error bars indicate SEM. Three independent experiments were performed in triplicate. (*** p&#x2264;0.001; t-test). (<bold>K</bold>) Immunofluorescence staining for &#x3B2;-TubIII (green) and GAD67 (red) of differentiated adult SVZ NSCs upon Oct4 induction. The majority of &#x3B2;-TubIII<sup>+</sup> neurons co-expressed GAD67. Scale bars: 50 &#xB5;m (F&#x2013;I); 10 &#xB5;m (K).</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g003"/>
+        </fig>
+        <p>We then investigated whether Oct-4 overexpression in adult SVZ NSCs alters their differentiation potential. Oct-4 was induced by DOX and 72 hours later, NSCs were differentiated upon EGF withdrawal in the presence of Shh, FGF-2 and FGF8 for 4 days. DOX was added to the differentiation medium for an additional 48 hours. Cells were then terminally differentiated with AA for 10&#x2013;14 days (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3E</xref>). Interestingly, we found that Oct-4 overexpression generated more &#x3B2;-TubIII<sup>+</sup> neurons (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3F&#x2013;G, J</xref>) and fewer GFAP<sup>+</sup> astrocytes (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3H&#x2013;I, J</xref>). However, at the end of differentiation (day 30), almost all &#x3B2;-TubIII<sup>+</sup> neurons co-expressed the GABA-ergic marker GAD67 (<xref ref-type="fig" rid="pone-0019926-g003">Fig. 3K</xref>).</p>
+      </sec>
+      <sec id="s3d">
+        <title>Adult SVZ NSCs are reprogrammed to a pluripotent state by exogenous Oct4</title>
+        <p>We overexpressed Oct-4 in rTA-Oct4 SVZ NSC cultures by DOX and 48 hours later NSCs were plated on mouse embryonic fibroblasts (MEF) in ESC medium. In order to improve the efficiency of reprogramming, ESC medium was supplemented with 0.5 mM VPA for 7&#x2013;10 days <xref rid="pone.0019926-Huangfu1" ref-type="bibr">[31]</xref> (<xref ref-type="fig" rid="pone-0019926-g004">Fig. 4A</xref>). After 5&#x2013;6 weeks, we were able to select mouse ESC-like colonies [from now on termed as NSCs-derived induced pluripotent stem cells (iPSCs)]. We characterized 2 NSC-derived iPSC clones (clones mm3 and mm4) (<xref ref-type="fig" rid="pone-0019926-g004">Fig. 4B</xref>). The estimated reprogramming efficiency of NSCs was 0.001%. We observed no colonies when VPA was omitted. NSC-derived iPSCs expressed alkaline phosphates (AP), Nanog and SSEA-1, and were morphologically indistinguishable from mouse ESCs (<xref ref-type="fig" rid="pone-0019926-g004">Fig. 4</xref> B&#x2013;E). As expected, the <italic>Oct4</italic> promoter region of NSC-derived iPSCs was found to be hypomethylated (<xref ref-type="fig" rid="pone-0019926-g004">Fig. 4F</xref>). Interestingly, the <italic>Oct4</italic> promoter region of NSCs derived from iPSCs was hypomethylated compared to adult SVZ NSCs (<xref ref-type="fig" rid="pone-0019926-g004">Fig. 4F</xref> and <xref ref-type="fig" rid="pone-0019926-g002">2B</xref>). These iPSC colonies could be expanded up to 25 passages. We then examined the ability of NSC-derived iPSCs to differentiate into the three germ layers by embryoid body (EB) differentiation. EBs derived from NSC-iPSCs expressed markers of the three germ layers including &#x3B1;-fetoprotein (AFP) (endoderm), brachyury (mesoderm), and &#x3B2;-TubIII (ectoderm) as determined by immunocytochemical analysis (<xref ref-type="fig" rid="pone-0019926-g005">Fig. 5</xref> A&#x2013;D).</p>
+        <fig id="pone-0019926-g004" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>SVZ adult NSCs are reprogrammed to pluripotent stem cells by overexpression of Oct-4.</title>
+            <p>(<bold>A</bold>) Schematic representation of the experimental design: SVZ adult NSCs were isolated from rTA-Oct4 transgenic mice and grown as neurospheres. Oct4 was induced by DOX, and 48 hours later, NSCs were plated on mouse feeder cells (MEF) in ESC medium with 0.5 mM VPA. ESC-like colonies were picked 30&#x2013;40 days after DOX induction. (<bold>B</bold>) Phase contrast image showing ESC-like morphology of NSC-derived iPSCs (clone mm3) on MEF. (<bold>C&#x2013;E</bold>) Colonies expressed alkaline phosphatase (AP) and stained positive for Nanog and SSEA-1. (<bold>F</bold>) Methylation analysis of the <italic>Oct4</italic> promoter region. White circles indicate unmethylated and black circles methylated CpGs in the <italic>Oct4</italic> promoter of mouse ESCs, reprogrammed NSCs and NSCs derived from iPSCs (stage 3, day 11). Scale bars: 100 &#xB5;m.</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g004"/>
+        </fig>
+        <fig id="pone-0019926-g005" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>NPC-derived iPSCs can be differentiated into three germ layers in vitro.</title>
+            <p>NSC-derived iPSCs were differentiated into three germ layers by embryoid body (EB) differentiation. (<bold>A</bold>) In vitro EB formation. (<bold>B&#x2013;D</bold>) EBs expressed markers of the three germ layers including &#x3B1;-fetoprotein (AFP) (endoderm), brachyury (mesoderm), and &#x3B2;-TubIII (ectoderm). Scale bars: 25 &#xB5;m (A&#x2013;C); 50 &#xB5;m (D).</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g005"/>
+        </fig>
+      </sec>
+      <sec id="s3e">
+        <title>Reprogrammed adult SVZ NSCs are successfully differentiated into midbrain DA neurons</title>
+        <p>To test whether NSC-derived iPSCs were able to generate DA neurons in vitro, we differentiated iPSCs according to the mouse ESC five-stage protocol, with some modifications (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6A</xref>) <xref rid="pone.0019926-Lee1" ref-type="bibr">[7]</xref>, <xref rid="pone.0019926-Hedlund1" ref-type="bibr">[24]</xref>. We induced neural differentiation by EB formation in ITSFn medium (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6C</xref>). Subsequently, the neural precursors were expanded in the presence of the growth factors Shh, FGF-2 and FGF8. Terminal differentiation was induced by growth factor withdrawal in the presence of AA (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6D</xref>). At day 32, we detected a total of 30% &#x3B2;-TubIII<sup>+</sup> neurons and a total of 5% TH<sup>+</sup>/&#x3B2;-TubIII<sup>+</sup> neurons (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6B, E</xref>). To assess neuronal regional specification, we double-labeled TH-positive neurons with antibody against Pitx3 and En1, markers typically expressed in midbrain DA neurons (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6</xref> G&#x2013;H). Importantly, the vast majority of TH-positive neurons stained positive for these midbrain markers, suggesting their proper midbrain regional specification in vitro (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6</xref> G&#x2013;H). We did not find any colocalization between TH and GABA, a marker typically expressed in OB glomerular interneurons (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6F</xref>). qRT-PCR analysis further confirmed expression levels of midbrain DA markers in differentiated cultures: DAT, PITX3, En1, G-protein-activated inwardly rectifying potassium channel subunit (Girk2), vesicular monoamine transporter (VMAT), aldehyde dehydrogenase 2 (ALDH), Calbindin and Nurr1 (<xref ref-type="fig" rid="pone-0019926-g006">Fig. 6I</xref>).</p>
+        <fig id="pone-0019926-g006" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g006</object-id>
+          <label>Figure 6</label>
+          <caption>
+            <title>Reprogrammed adult NSCs can be differentiated into midbrain DA neurons.</title>
+            <p>(<bold>A</bold>) NSC-derived iPSCs were differentiated into DA neurons according to the five-stage protocol. Neural differentiation was induced by EB formation in ITSFn medium. Subsequently, the neural precursors were expanded in the presence of the growth factors FGF-2, FGF8, and Shh. Terminal differentiation was induced by growth factor withdrawal in the presence of ascorbic acid. (<bold>B</bold>) Graphs indicate the percentage of cells that stained positive for &#x3B2;-TubIII and TH, relative to nuclear Hoechst staining. Error bars indicate SEM. Three independent experiments were performed in triplicate. (<bold>C</bold>) Brightfield images showing EB-derived FGF2-responsive neural precursor cells. (<bold>D</bold>) Brightfield microphotographs of differentiated NSC-derived iPSCs, 7 days after growth factor withdrawal. (<bold>E</bold>) Immunofluorescence staining of neuronal cultures derived from NSC-derived iPSCs for &#x3B2;-TubIII (green) and TH (red). (<bold>F</bold>) Immunofluorescence staining for TH (red) and GABA (green), a marker typically expressed in olfactory bulb (OB) glomerular interneurons. Nuclei were counterstained with Hoechst. (<bold>G&#x2013;H</bold>) Confocal images of neuronal cultures stained for &#x3B2;-TubIII (green) (G), TH (red) (G&#x2013;H), En1 (blue) (G) and Pitx3 (green) (H). (<bold>I</bold>) Quantitative RT-PCR analysis of midbrain transcription factors, DA neurotransmission markers (TH, DAT, Pitx3, En1, Girk2, VMAT, ALDH, Nurr1) and calbindin in differentiated NSC-derived iPSCs. cDNA was isolated from differentiated adult NSC-derived iPSCs, and values were normalized to the level of &#x3B2;-actin. Error bars indicate SEM. Three independent experiments were performed in triplicate. Scale bar: 200 &#xB5;m (C&#x2013;D); 50 &#xB5;m (E&#x2013;F); 20 &#xB5;m (G&#x2013;H). ITSFn, insulin/transferrin/selenium/fibronectin.</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g006"/>
+        </fig>
+      </sec>
+      <sec id="s3f">
+        <title>Midbrain DA neurons from reprogrammed adult SVZ NSCs are successfully grafted and reverse drug-induced behaviour in parkinsonian rats</title>
+        <p>To further analyse the DA fate potential of NSC-derived iPSCs in vivo, we explored the ability of differentiated neurons to survive, integrate and reinnervate the host striatum of 6-hydroxydopamine (6-OHDA)-lesioned rats, a rodent animal model of PD. Adult NSC-derived iPSCs (clone mm3) were differentiated into DA neurons as described above and transplanted into the striatum of 6-OHDA-lesioned rats. Animals received a striatal graft of 2&#xD7;10&#x2227;5 differentiated cells. In order to avoid tumor formation, SSEA1+ cells were eliminated by cell sorting FACS prior to transplantation (<xref ref-type="supplementary-material" rid="pone.0019926.s001">Figure S1</xref>). Analysis of amphetamine-induced behaviour showed a significant reduction of ipsilateral rotations at 8 weeks after transplantation (<xref ref-type="fig" rid="pone-0019926-g007">Fig. 7G</xref>), indicating significant restoration of the 6-OHDA lesion. We found that rats transplanted with differentiated NSC-derived iPSCs showed a significantly reduced number of apomorphine-induced rotations 8 weeks after engraftment, when compared to the non-transplanted rats (<xref ref-type="fig" rid="pone-0019926-g007">Fig. 7H</xref>). Eight weeks after surgery, the animal brains were prepared for morphological analysis. TH staining showed that animals displaying improvement in the behavioural assays had grafts containing large numbers of DA neurons (<xref ref-type="fig" rid="pone-0019926-g007">Fig. 7A&#x2013;D</xref>). Importantly, the transplanted neurons expressed the midbrain DA marker Pitx3 and Foxa2 (<xref ref-type="fig" rid="pone-0019926-g007">Fig. 7E&#x2013;F</xref>). TH-immunoreactive fibres were found to extend into the parenchyma of the host striatum (<xref ref-type="fig" rid="pone-0019926-g007">Fig. 7B,C</xref>).</p>
+        <fig id="pone-0019926-g007" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0019926.g007</object-id>
+          <label>Figure 7</label>
+          <caption>
+            <title>DA neurons from Oct4 reprogrammed adult NSCs integrate into the striatum of 6-OHDA lesioned parkinsonian rats and improve behavioural deficits.</title>
+            <p>(<bold>A</bold>) A low-power overview of an iPSC cell graft 8 weeks after transplantation stained with an antibody against TH (dark brown). (<bold>B&#x2013;C</bold>) Higher magnification of a NSC-derived iPSC graft showing TH-positive soma and the reinnervation of the surrounding host striatum by donor-derived neurites. The dashed line indicates the edge of the graft. (<bold>D&#x2013;F</bold>) Confocal analysis of NSC-derived iPSC grafts, 8 weeks post-transplantation, showed that most grafts contained midbrain DA neurons. The grafted TH-positive cells (red) were colabeled with antibodies against NeuN (green) (D), Pitx3 (green) (E) and FOXA2 (green) (F). (<bold>G&#x2013;H</bold>) DA neurons from NSC-derived iPSCs reversed amphetamine- and apomorphine-induced rotational behaviour upon engraftment into 6-OHDA-lesioned rats. Animals were analysed for amphetamine- and apomorphine-induced rotational behaviour before and 4, 6, and 8 weeks post transplantation. Graphs show mean values&#xB1;SEM. (* p&#x2264;0.05, Two-way ANOVA with post hoc analysis by Bonferroni test). Scale bars: 200 &#xB5;m (A&#x2013;B); 100 &#xB5;m (C); 20 &#xB5;m (D&#x2013;E); 10 &#xB5;m (F).</p>
+          </caption>
+          <graphic xlink:href="pone.0019926.g007"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>NSCs acquire a regional identity already at the formation of the neural plate during embryogenesis <xref rid="pone.0019926-Hitoshi1" ref-type="bibr">[32]</xref>, <xref rid="pone.0019926-Tropepe1" ref-type="bibr">[33]</xref>. Therefore, fetal and adult NSCs have passed crucial checkpoints that restrict their developmental capacity to generate region-specific neuronal subtypes.</p>
+      <p>Epigenetic modifications (i.e. histone code and DNA methylation) play a critical role in regulating adult NSC differentiation and fate determination <xref rid="pone.0019926-Kohyama1" ref-type="bibr">[34]</xref>. Here we investigated whether epigenetic remodeling induced by chromatin-modifying agents can reverse adult SVZ NSC developmental restriction and enable their differentiation into region-specific neuronal subtypes such as midbrain DA neurons. Chromatin remodeling factors can improve the induction of an ESC-like state and have been extensively used to enhance dedifferentiation of somatic cells to the pluripotent state <xref rid="pone.0019926-Huangfu1" ref-type="bibr">[31]</xref>. We showed that chromatin-modifying agents (TSA and TSA in combination with AZA) reactivate specific pluripotency-associated genes such as Oct4 and Klf-4 in adult SVZ NSCs. These agents induced partial demethylation of <italic>Oct4</italic> promoter, thus promoting a dedifferentiation toward a primitive neural stage. We observed an increased neuronal differentiation, paralleled by a decreased number of astrocytes in treated NSC cultures. However, these modifications were not sufficient to reverse the resistance of NSCs to the patterning signals that regulate midbrain DA development, since the majority of differentiated neurons showed a GABAergic phenotype. Previous reports have shown the derivation of iPSCs from NSCs <xref rid="pone.0019926-Kim1" ref-type="bibr">[35]</xref>, <xref rid="pone.0019926-DiStefano1" ref-type="bibr">[36]</xref>. Specifically, the overexpression of Oct-4 alone induces the reprogramming of NSCs obtained from mouse whole brain and fetal human telencephalon NSCs <xref rid="pone.0019926-Kim2" ref-type="bibr">[37]</xref>, <xref rid="pone.0019926-Kim3" ref-type="bibr">[38]</xref>. In the current work we show for the first time that Oct4 overexpression in association with the chromatin-modifying agent VPA induced adult SVZ NSC reprogramming into iPSCs. Such Oct4-reprogrammed NSCs were then successfully differentiated into midbrain DA neurons. Importantly, we show for the first time that single-factor reprogrammed adult SVZ NSCs generated functional midbrain DA neurons that successfully improved the motor behavioural deficits in a rodent model of PD. Such functional motor behavioural recovery in this model is further significant evidence for the correct subtype of DA neurons generated from NSC-derived iPSCs.</p>
+      <p>With respect to functional cell therapy for the motor symptoms of PD, it is critical to obtain DA neurons that have the molecular properties of midbrain DA neurons <xref rid="pone.0019926-Isacson1" ref-type="bibr">[6]</xref>. Both substantia nigra (SN-A9) and ventral tegmental area (VTA-A10) DA neurons contribute to widespread and dense axonal arborization <xref rid="pone.0019926-Matsuda1" ref-type="bibr">[39]</xref>, and SN-A9 DA neurons are responsible for appropriate striatal reinnervation and behavioural motor recovery in rodent models of PD <xref rid="pone.0019926-Grealish1" ref-type="bibr">[5]</xref>, <xref rid="pone.0019926-Isacson1" ref-type="bibr">[6]</xref>. However, no studies have reported successful in vitro differentiation of adult SVZ NSCs into midbrain DA neurons. When grown as neurospheres and differentiated according to the most dedicated differentiation culture protocols, fetal and adult NSCs only generate a small number of TH<sup>+</sup> neurons <xref rid="pone.0019926-Daadi1" ref-type="bibr">[40]</xref>. Furthermore, such differentiated TH<sup>+</sup> neurons do not express markers of midbrain DA neurons <xref rid="pone.0019926-Papanikolaou1" ref-type="bibr">[41]</xref>, <xref rid="pone.0019926-Cai1" ref-type="bibr">[42]</xref>, which is the required cell type for grafting and appropriate striatal reinnervation in PD. In vivo, mobilization of SVZ endogenous precursor cells has been envisaged as a promising alternative to cell transplantation for the treatment of neurodegenerative diseases including PD <xref rid="pone.0019926-Lindvall1" ref-type="bibr">[43]</xref>. Therefore, different approaches have been tested to promote the differentiation of adult SVZ NSCs to midbrain DA neurons and endogenous NPC proliferation in order to achieve tissue repair and functional recovery in several animal models of neurodegenerative diseases <xref rid="pone.0019926-Kuhn1" ref-type="bibr">[9]</xref>, <xref rid="pone.0019926-Jin1" ref-type="bibr">[10]</xref>, <xref rid="pone.0019926-Nakatomi1" ref-type="bibr">[11]</xref>, <xref rid="pone.0019926-Benraiss1" ref-type="bibr">[12]</xref>, <xref rid="pone.0019926-Fallon1" ref-type="bibr">[44]</xref>. However, there is no evidence that such strategies promote the generation of functional midbrain DA neurons that integrate into the injured or na&#xEF;ve nigrostriatal DA system <xref rid="pone.0019926-Chen1" ref-type="bibr">[13]</xref>, <xref rid="pone.0019926-Cooper1" ref-type="bibr">[14]</xref>, <xref rid="pone.0019926-deChevigny1" ref-type="bibr">[15]</xref>.</p>
+      <p>Adult NSCs are resistant to the signaling molecules (Shh, FGF8) that control the development of midbrain and hindbrain <xref rid="pone.0019926-Joyner1" ref-type="bibr">[45]</xref>. The precise mechanism by which such restriction is controlled and maintained in adult SVZ NSCs is still poorly understood. During mouse development, the earliest NSCs can be isolated starting at embryonic day 5.5 (E5.5) <xref rid="pone.0019926-Hitoshi1" ref-type="bibr">[32]</xref>. These pNSCs retain ESC characteristics such as high Oct-4 expression and in vitro LIF-dependence <xref rid="pone.0019926-Tropepe2" ref-type="bibr">[46]</xref>. pNSCs are highly responsive to regionalization cues, allowing the efficient generation of region-specific neuronal subtypes. LIF-dependent NSCs with similar antigenic and functional properties can also be isolated from E5.5&#x2013;7.5 mouse embryos <xref rid="pone.0019926-Smukler1" ref-type="bibr">[47]</xref>. Between embryonic day 7.5 (E7.5) and E8.5, germ cell nuclear factor (GNFC)-mediated <italic>Oct4</italic> promoter methylation drives the conversion from pNSCs to dNSCs <xref rid="pone.0019926-Akamatsu1" ref-type="bibr">[29]</xref>. In the developing neuroectoderm and NSC cultures, such transition from pNSCs to dNSCs restricts the potential of dNSCs to form non-neural cell types and their capacity to generate region-specific neuron populations.</p>
+      <p>Interestingly, we found that Oct-4 overexpression, without reprogramming to an ESC state, increased NSC self-renewal and long-term proliferation in the presence of EGF and FGF-2. In addition, we showed that Oct4 overexpression increases neuronal differentiation of NSC cultures in the presence of Shh, FGF-2 and FGF8. However, our data indicate that such short-term Oct-4 overexpression alone does not confer competence for adult SVZ NSC midbrain regionalization. In contrast, long-term overexpression (30&#x2013;40 days) of Oct-4 in adult SVZ NSCs grown on MEFs in ESC medium with LIF induced complete dedifferentiation to a pluripotent state. Only after Oct-4 induced reprogramming to a pluripotent state were adult SVZ NSCs successfully patterned to midbrain DA neurons.</p>
+      <sec id="s4a">
+        <title>Conclusion and summary</title>
+        <p>In summary, we show that epigenetic modifications are not sufficient to reverse the resistance of SVZ NSCs to the patterning signals that regulate midbrain regional specification. Such modifications do not promote the dedifferentiation of adult SVZ dNSCs toward a primitive neural stage. The current work describes for the first time the reprogramming of adult SVZ NSCs by means of Oct4 overexpression and provides the first evidence that functional midbrain DA neurons can be derived from Oct4-reprogrammed adult SVZ NSCs. These results indicate that the complex and precise regulatory processes responsible for the regional specification of adult NSCs are irreversible, and further de-differentiation steps are required to regain the competency to generate region-specific neuronal phenotypes. These findings have major fundamental scientific and practical implications for regenerative neuroscience.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0019926.s001">
+        <label>Figure S1</label>
+        <caption>
+          <p>
+<bold>Elimination of SSEA1+ cells from NSC-derived iPSC neuronal cultures by cell sorting. (A&#x2013;C)</bold> Neuronal NSC-derived iPSC cultures after sorting based on SSEA1 expression. After sorting, cells were replated onto tissue culture dishes in N2 medium with AA. Three days after sorting, SSEA1<sup>&#x2212;</sup> sorted cells displayed mostly neuronal morphology, whereas the SSEA1<sup>+</sup> sorted cells exhibited an undifferentiated ES cell morphology. <bold>(D&#x2013;F)</bold> Immunofluorescence images of neuronal cultures 3 days after sorting stained for &#x3B2;-TubIII (green), TH (red) and SSEA1 (blue). Scale bars: 50 &#xB5;m (A&#x2013;F).</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0019926.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We would like to thank Andrew Kartunen, Kristen Lee and Alyssa Yow for excellent technical help.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding: </bold>This study was supported by grants to O.I. from the Udall Parkinson's Disease Center of Excellence Grant P50 NS39793, Michael Stern Foundation (WX81XWH-05-1-0555), Orchard Foundation, Poul Hansen Family, the Consolidated Anti-Aging Foundation and the Harold and Ronna Cooper Family, postdoctoral fellowship HA5589/1-1 from the Deutsche Forschungsgemeinschaft (to G.H.). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0019926-Caldwell1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Caldwell</surname><given-names>MA</given-names></name><name><surname>He</surname><given-names>X</given-names></name><name><surname>Wilkie</surname><given-names>N</given-names></name><name><surname>Pollack</surname><given-names>S</given-names></name><name><surname>Marshall</surname><given-names>G</given-names></name><etal/></person-group>
+<year>2001</year>
+<article-title>Growth factors regulate the survival and fate of cells derived from human neurospheres.</article-title>
+<source>Nat Biotechnol</source>
+<volume>19</volume>
+<fpage>475</fpage>
+<lpage>479</lpage>
+<pub-id pub-id-type="pmid">11329020</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Jain1">
+        <label>2</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jain</surname><given-names>M</given-names></name><name><surname>Armstrong</surname><given-names>RJ</given-names></name><name><surname>Tyers</surname><given-names>P</given-names></name><name><surname>Barker</surname><given-names>RA</given-names></name><name><surname>Rosser</surname><given-names>AE</given-names></name></person-group>
+<year>2003</year>
+<article-title>GABAergic immunoreactivity is predominant in neurons derived from expanded human neural precursor cells in vitro.</article-title>
+<source>Exp Neurol</source>
+<volume>182</volume>
+<fpage>113</fpage>
+<lpage>123</lpage>
+<pub-id pub-id-type="pmid">12821381</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Lois1">
+        <label>3</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lois</surname><given-names>C</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A</given-names></name></person-group>
+<year>1994</year>
+<article-title>Long-distance neuronal migration in the adult mammalian brain.</article-title>
+<source>Science</source>
+<volume>264</volume>
+<fpage>1145</fpage>
+<lpage>1148</lpage>
+<pub-id pub-id-type="pmid">8178174</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Carleton1">
+        <label>4</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Carleton</surname><given-names>A</given-names></name><name><surname>Petreanu</surname><given-names>LT</given-names></name><name><surname>Lansford</surname><given-names>R</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A</given-names></name><name><surname>Lledo</surname><given-names>PM</given-names></name></person-group>
+<year>2003</year>
+<article-title>Becoming a new neuron in the adult olfactory bulb.</article-title>
+<source>Nat Neurosci</source>
+<volume>6</volume>
+<fpage>507</fpage>
+<lpage>518</lpage>
+<pub-id pub-id-type="pmid">12704391</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Grealish1">
+        <label>5</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Grealish</surname><given-names>S</given-names></name><name><surname>Jonsson</surname><given-names>ME</given-names></name><name><surname>Li</surname><given-names>M</given-names></name><name><surname>Kirik</surname><given-names>D</given-names></name><name><surname>Bjorklund</surname><given-names>A</given-names></name><etal/></person-group>
+<year>2010</year>
+<article-title>The A9 dopamine neuron component in grafts of ventral mesencephalon is an important determinant for recovery of motor function in a rat model of Parkinson's disease.</article-title>
+<source>Brain</source>
+<volume>133</volume>
+<fpage>482</fpage>
+<lpage>495</lpage>
+<pub-id pub-id-type="pmid">20123725</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Isacson1">
+        <label>6</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Isacson</surname><given-names>O</given-names></name><name><surname>Bjorklund</surname><given-names>LM</given-names></name><name><surname>Schumacher</surname><given-names>JM</given-names></name></person-group>
+<year>2003</year>
+<article-title>Toward full restoration of synaptic and terminal function of the dopaminergic system in Parkinson's disease by stem cells.</article-title>
+<source>Ann Neurol</source>
+<volume>53</volume>
+<issue>Suppl 3</issue>
+<fpage>S135</fpage>
+<lpage>146; discussion S146&#x2013;138</lpage>
+<pub-id pub-id-type="pmid">12666105</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Lee1">
+        <label>7</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lee</surname><given-names>SH</given-names></name><name><surname>Lumelsky</surname><given-names>N</given-names></name><name><surname>Studer</surname><given-names>L</given-names></name><name><surname>Auerbach</surname><given-names>JM</given-names></name><name><surname>McKay</surname><given-names>RD</given-names></name></person-group>
+<year>2000</year>
+<article-title>Efficient generation of midbrain and hindbrain neurons from mouse embryonic stem cells.</article-title>
+<source>Nat Biotechnol</source>
+<volume>18</volume>
+<fpage>675</fpage>
+<lpage>679</lpage>
+<pub-id pub-id-type="pmid">10835609</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-He1">
+        <label>8</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>He</surname><given-names>W</given-names></name><name><surname>Ingraham</surname><given-names>C</given-names></name><name><surname>Rising</surname><given-names>L</given-names></name><name><surname>Goderie</surname><given-names>S</given-names></name><name><surname>Temple</surname><given-names>S</given-names></name></person-group>
+<year>2001</year>
+<article-title>Multipotent stem cells from the mouse basal forebrain contribute GABAergic neurons and oligodendrocytes to the cerebral cortex during embryogenesis.</article-title>
+<source>J Neurosci</source>
+<volume>21</volume>
+<fpage>8854</fpage>
+<lpage>8862</lpage>
+<pub-id pub-id-type="pmid">11698597</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Kuhn1">
+        <label>9</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kuhn</surname><given-names>HG</given-names></name><name><surname>Winkler</surname><given-names>J</given-names></name><name><surname>Kempermann</surname><given-names>G</given-names></name><name><surname>Thal</surname><given-names>LJ</given-names></name><name><surname>Gage</surname><given-names>FH</given-names></name></person-group>
+<year>1997</year>
+<article-title>Epidermal growth factor and fibroblast growth factor-2 have different effects on neural progenitors in the adult rat brain.</article-title>
+<source>J Neurosci</source>
+<volume>17</volume>
+<fpage>5820</fpage>
+<lpage>5829</lpage>
+<pub-id pub-id-type="pmid">9221780</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Jin1">
+        <label>10</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jin</surname><given-names>K</given-names></name><name><surname>LaFevre-Bernt</surname><given-names>M</given-names></name><name><surname>Sun</surname><given-names>Y</given-names></name><name><surname>Chen</surname><given-names>S</given-names></name><name><surname>Gafni</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>FGF-2 promotes neurogenesis and neuroprotection and prolongs survival in a transgenic mouse model of Huntington's disease.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>102</volume>
+<fpage>18189</fpage>
+<lpage>18194</lpage>
+<pub-id pub-id-type="pmid">16326808</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Nakatomi1">
+        <label>11</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Nakatomi</surname><given-names>H</given-names></name><name><surname>Kuriu</surname><given-names>T</given-names></name><name><surname>Okabe</surname><given-names>S</given-names></name><name><surname>Yamamoto</surname><given-names>S</given-names></name><name><surname>Hatano</surname><given-names>O</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Regeneration of hippocampal pyramidal neurons after ischemic brain injury by recruitment of endogenous neural progenitors.</article-title>
+<source>Cell</source>
+<volume>110</volume>
+<fpage>429</fpage>
+<lpage>441</lpage>
+<pub-id pub-id-type="pmid">12202033</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Benraiss1">
+        <label>12</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Benraiss</surname><given-names>A</given-names></name><name><surname>Chmielnicki</surname><given-names>E</given-names></name><name><surname>Lerner</surname><given-names>K</given-names></name><name><surname>Roh</surname><given-names>D</given-names></name><name><surname>Goldman</surname><given-names>SA</given-names></name></person-group>
+<year>2001</year>
+<article-title>Adenoviral brain-derived neurotrophic factor induces both neostriatal and olfactory neuronal recruitment from endogenous progenitor cells in the adult forebrain.</article-title>
+<source>J Neurosci</source>
+<volume>21</volume>
+<fpage>6718</fpage>
+<lpage>6731</lpage>
+<pub-id pub-id-type="pmid">11517261</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Chen1">
+        <label>13</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Chen</surname><given-names>Y</given-names></name><name><surname>Ai</surname><given-names>Y</given-names></name><name><surname>Slevin</surname><given-names>JR</given-names></name><name><surname>Maley</surname><given-names>BE</given-names></name><name><surname>Gash</surname><given-names>DM</given-names></name></person-group>
+<year>2005</year>
+<article-title>Progenitor proliferation in the adult hippocampus and substantia nigra induced by glial cell line-derived neurotrophic factor.</article-title>
+<source>Exp Neurol</source>
+<volume>196</volume>
+<fpage>87</fpage>
+<lpage>95</lpage>
+<pub-id pub-id-type="pmid">16112112</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Cooper1">
+        <label>14</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cooper</surname><given-names>O</given-names></name><name><surname>Isacson</surname><given-names>O</given-names></name></person-group>
+<year>2004</year>
+<article-title>Intrastriatal transforming growth factor alpha delivery to a model of Parkinson's disease induces proliferation and migration of endogenous adult neural progenitor cells without differentiation into dopaminergic neurons.</article-title>
+<source>J Neurosci</source>
+<volume>24</volume>
+<fpage>8924</fpage>
+<lpage>8931</lpage>
+<pub-id pub-id-type="pmid">15483111</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-deChevigny1">
+        <label>15</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>de Chevigny</surname><given-names>A</given-names></name><name><surname>Cooper</surname><given-names>O</given-names></name><name><surname>Vinuela</surname><given-names>A</given-names></name><name><surname>Reske-Nielsen</surname><given-names>C</given-names></name><name><surname>Lagace</surname><given-names>DC</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Fate mapping and lineage analyses demonstrate the production of a large number of striatal neuroblasts after transforming growth factor alpha and noggin striatal infusions into the dopamine-depleted striatum.</article-title>
+<source>Stem Cells</source>
+<volume>26</volume>
+<fpage>2349</fpage>
+<lpage>2360</lpage>
+<pub-id pub-id-type="pmid">18556510</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Temple1">
+        <label>16</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Temple</surname><given-names>S</given-names></name></person-group>
+<year>2001</year>
+<article-title>The development of neural stem cells.</article-title>
+<source>Nature</source>
+<volume>414</volume>
+<fpage>112</fpage>
+<lpage>117</lpage>
+<pub-id pub-id-type="pmid">11689956</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Lunyak1">
+        <label>17</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lunyak</surname><given-names>VV</given-names></name><name><surname>Rosenfeld</surname><given-names>MG</given-names></name></person-group>
+<year>2008</year>
+<article-title>Epigenetic regulation of stem cell fate.</article-title>
+<source>Hum Mol Genet</source>
+<volume>17</volume>
+<fpage>R28</fpage>
+<lpage>36</lpage>
+<pub-id pub-id-type="pmid">18632693</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Li1">
+        <label>18</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Li</surname><given-names>H</given-names></name><name><surname>Radford</surname><given-names>JC</given-names></name><name><surname>Ragusa</surname><given-names>MJ</given-names></name><name><surname>Shea</surname><given-names>KL</given-names></name><name><surname>McKercher</surname><given-names>SR</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Transcription factor MEF2C influences neural stem/progenitor cell differentiation and maturation in vivo.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>105</volume>
+<fpage>9397</fpage>
+<lpage>9402</lpage>
+<pub-id pub-id-type="pmid">18599437</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Reynolds1">
+        <label>19</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Reynolds</surname><given-names>BA</given-names></name><name><surname>Weiss</surname><given-names>S</given-names></name></person-group>
+<year>1992</year>
+<article-title>Generation of neurons and astrocytes from isolated cells of the adult mammalian central nervous system.</article-title>
+<source>Science</source>
+<volume>255</volume>
+<fpage>1707</fpage>
+<lpage>1710</lpage>
+<pub-id pub-id-type="pmid">1553558</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Seaberg1">
+        <label>20</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Seaberg</surname><given-names>RM</given-names></name><name><surname>van der Kooy</surname><given-names>D</given-names></name></person-group>
+<year>2002</year>
+<article-title>Adult rodent neurogenic regions: the ventricular subependyma contains neural stem cells, but the dentate gyrus contains restricted progenitors.</article-title>
+<source>J Neurosci</source>
+<volume>22</volume>
+<fpage>1784</fpage>
+<lpage>1793</lpage>
+<pub-id pub-id-type="pmid">11880507</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Pluchino1">
+        <label>21</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pluchino</surname><given-names>S</given-names></name><name><surname>Muzio</surname><given-names>L</given-names></name><name><surname>Imitola</surname><given-names>J</given-names></name><name><surname>Deleidi</surname><given-names>M</given-names></name><name><surname>Alfaro-Cervello</surname><given-names>C</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Persistent inflammation alters the function of the endogenous brain stem cell compartment.</article-title>
+<source>Brain</source>
+<volume>131</volume>
+<fpage>2564</fpage>
+<lpage>2578</lpage>
+<pub-id pub-id-type="pmid">18757884</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Chung1">
+        <label>22</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Chung</surname><given-names>CY</given-names></name><name><surname>Seo</surname><given-names>H</given-names></name><name><surname>Sonntag</surname><given-names>KC</given-names></name><name><surname>Brooks</surname><given-names>A</given-names></name><name><surname>Lin</surname><given-names>L</given-names></name><etal/></person-group>
+<year>2005</year>
+<article-title>Cell type-specific gene expression of midbrain dopaminergic neurons reveals molecules involved in their vulnerability and protection.</article-title>
+<source>Hum Mol Genet</source>
+<volume>14</volume>
+<fpage>1709</fpage>
+<lpage>1725</lpage>
+<pub-id pub-id-type="pmid">15888489</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Livak1">
+        <label>23</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Livak</surname><given-names>KJ</given-names></name><name><surname>Schmittgen</surname><given-names>TD</given-names></name></person-group>
+<year>2001</year>
+<article-title>Analysis of relative gene expression data using real-time quantitative PCR and the 2(-Delta Delta C(T)) Method.</article-title>
+<source>Methods</source>
+<volume>25</volume>
+<fpage>402</fpage>
+<lpage>408</lpage>
+<pub-id pub-id-type="pmid">11846609</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Hedlund1">
+        <label>24</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hedlund</surname><given-names>E</given-names></name><name><surname>Pruszak</surname><given-names>J</given-names></name><name><surname>Lardaro</surname><given-names>T</given-names></name><name><surname>Ludwig</surname><given-names>W</given-names></name><name><surname>Vinuela</surname><given-names>A</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Embryonic stem cell-derived Pitx3-enhanced green fluorescent protein midbrain dopamine neurons survive enrichment by fluorescence-activated cell sorting and function in an animal model of Parkinson's disease.</article-title>
+<source>Stem Cells</source>
+<volume>26</volume>
+<fpage>1526</fpage>
+<lpage>1536</lpage>
+<pub-id pub-id-type="pmid">18388307</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Bjorklund1">
+        <label>25</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bjorklund</surname><given-names>LM</given-names></name><name><surname>Sanchez-Pernaute</surname><given-names>R</given-names></name><name><surname>Chung</surname><given-names>S</given-names></name><name><surname>Andersson</surname><given-names>T</given-names></name><name><surname>Chen</surname><given-names>IY</given-names></name><etal/></person-group>
+<year>2002</year>
+<article-title>Embryonic stem cells develop into functional dopaminergic neurons after transplantation in a Parkinson rat model.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>99</volume>
+<fpage>2344</fpage>
+<lpage>2349</lpage>
+<pub-id pub-id-type="pmid">11782534</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Feng1">
+        <label>26</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Feng</surname><given-names>B</given-names></name><name><surname>Ng</surname><given-names>JH</given-names></name><name><surname>Heng</surname><given-names>JC</given-names></name><name><surname>Ng</surname><given-names>HH</given-names></name></person-group>
+<year>2009</year>
+<article-title>Molecules that promote or enhance reprogramming of somatic cells to induced pluripotent stem cells.</article-title>
+<source>Cell Stem Cell</source>
+<volume>4</volume>
+<fpage>301</fpage>
+<lpage>312</lpage>
+<pub-id pub-id-type="pmid">19341620</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Bithell1">
+        <label>27</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bithell</surname><given-names>A</given-names></name><name><surname>Finch</surname><given-names>SE</given-names></name><name><surname>Hornby</surname><given-names>MF</given-names></name><name><surname>Williams</surname><given-names>BP</given-names></name></person-group>
+<year>2008</year>
+<article-title>Fibroblast growth factor 2 maintains the neurogenic capacity of embryonic neural progenitor cells in vitro but changes their neuronal subtype specification.</article-title>
+<source>Stem Cells</source>
+<volume>26</volume>
+<fpage>1565</fpage>
+<lpage>1574</lpage>
+<pub-id pub-id-type="pmid">18339769</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Pesce1">
+        <label>28</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pesce</surname><given-names>M</given-names></name><name><surname>Scholer</surname><given-names>HR</given-names></name></person-group>
+<year>2001</year>
+<article-title>Oct-4: gatekeeper in the beginnings of mammalian development.</article-title>
+<source>Stem Cells</source>
+<volume>19</volume>
+<fpage>271</fpage>
+<lpage>278</lpage>
+<pub-id pub-id-type="pmid">11463946</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Akamatsu1">
+        <label>29</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Akamatsu</surname><given-names>W</given-names></name><name><surname>DeVeale</surname><given-names>B</given-names></name><name><surname>Okano</surname><given-names>H</given-names></name><name><surname>Cooney</surname><given-names>AJ</given-names></name><name><surname>van der Kooy</surname><given-names>D</given-names></name></person-group>
+<year>2009</year>
+<article-title>Suppression of Oct4 by germ cell nuclear factor restricts pluripotency and promotes neural stem cell development in the early neural lineage.</article-title>
+<source>J Neurosci</source>
+<volume>29</volume>
+<fpage>2113</fpage>
+<lpage>2124</lpage>
+<pub-id pub-id-type="pmid">19228964</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Hochedlinger1">
+        <label>30</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hochedlinger</surname><given-names>K</given-names></name><name><surname>Yamada</surname><given-names>Y</given-names></name><name><surname>Beard</surname><given-names>C</given-names></name><name><surname>Jaenisch</surname><given-names>R</given-names></name></person-group>
+<year>2005</year>
+<article-title>Ectopic expression of Oct-4 blocks progenitor-cell differentiation and causes dysplasia in epithelial tissues.</article-title>
+<source>Cell</source>
+<volume>121</volume>
+<fpage>465</fpage>
+<lpage>477</lpage>
+<pub-id pub-id-type="pmid">15882627</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Huangfu1">
+        <label>31</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Huangfu</surname><given-names>D</given-names></name><name><surname>Maehr</surname><given-names>R</given-names></name><name><surname>Guo</surname><given-names>W</given-names></name><name><surname>Eijkelenboom</surname><given-names>A</given-names></name><name><surname>Snitow</surname><given-names>M</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Induction of pluripotent stem cells by defined factors is greatly improved by small-molecule compounds.</article-title>
+<source>Nat Biotechnol</source>
+<volume>26</volume>
+<fpage>795</fpage>
+<lpage>797</lpage>
+<pub-id pub-id-type="pmid">18568017</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Hitoshi1">
+        <label>32</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hitoshi</surname><given-names>S</given-names></name><name><surname>Seaberg</surname><given-names>RM</given-names></name><name><surname>Koscik</surname><given-names>C</given-names></name><name><surname>Alexson</surname><given-names>T</given-names></name><name><surname>Kusunoki</surname><given-names>S</given-names></name><etal/></person-group>
+<year>2004</year>
+<article-title>Primitive neural stem cells from the mammalian epiblast differentiate to definitive neural stem cells under the control of Notch signaling.</article-title>
+<source>Genes Dev</source>
+<volume>18</volume>
+<fpage>1806</fpage>
+<lpage>1811</lpage>
+<pub-id pub-id-type="pmid">15289455</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Tropepe1">
+        <label>33</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tropepe</surname><given-names>V</given-names></name><name><surname>Sibilia</surname><given-names>M</given-names></name><name><surname>Ciruna</surname><given-names>BG</given-names></name><name><surname>Rossant</surname><given-names>J</given-names></name><name><surname>Wagner</surname><given-names>EF</given-names></name><etal/></person-group>
+<year>1999</year>
+<article-title>Distinct neural stem cells proliferate in response to EGF and FGF in the developing mouse telencephalon.</article-title>
+<source>Dev Biol</source>
+<volume>208</volume>
+<fpage>166</fpage>
+<lpage>188</lpage>
+<pub-id pub-id-type="pmid">10075850</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Kohyama1">
+        <label>34</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kohyama</surname><given-names>J</given-names></name><name><surname>Kojima</surname><given-names>T</given-names></name><name><surname>Takatsuka</surname><given-names>E</given-names></name><name><surname>Yamashita</surname><given-names>T</given-names></name><name><surname>Namiki</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Epigenetic regulation of neural cell differentiation plasticity in the adult mammalian brain.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>105</volume>
+<fpage>18012</fpage>
+<lpage>18017</lpage>
+<pub-id pub-id-type="pmid">19004774</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Kim1">
+        <label>35</label>
+        <element-citation publication-type="book">
+<person-group person-group-type="author"><name><surname>Kim</surname><given-names>JB</given-names></name><name><surname>Zaehres</surname><given-names>H</given-names></name><name><surname>Wu</surname><given-names>G</given-names></name><name><surname>Gentile</surname><given-names>L</given-names></name><name><surname>Ko</surname><given-names>K</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>Pluripotent stem cells induced from adult neural stem cells by reprogramming with two factors.</article-title>
+<publisher-name>Nature</publisher-name>
+</element-citation>
+      </ref>
+      <ref id="pone.0019926-DiStefano1">
+        <label>36</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Di Stefano</surname><given-names>B</given-names></name><name><surname>Prigione</surname><given-names>A</given-names></name><name><surname>Broccoli</surname><given-names>V</given-names></name></person-group>
+<year>2009</year>
+<article-title>Efficient genetic reprogramming of unmodified somatic neural progenitors uncovers the essential requirement of Oct4 and Klf4.</article-title>
+<source>Stem Cells Dev</source>
+<volume>18</volume>
+<fpage>707</fpage>
+<lpage>716</lpage>
+<pub-id pub-id-type="pmid">18724799</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Kim2">
+        <label>37</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kim</surname><given-names>JB</given-names></name><name><surname>Greber</surname><given-names>B</given-names></name><name><surname>Arauzo-Bravo</surname><given-names>MJ</given-names></name><name><surname>Meyer</surname><given-names>J</given-names></name><name><surname>Park</surname><given-names>KI</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>Direct reprogramming of human neural stem cells by OCT4.</article-title>
+<source>Nature</source>
+<volume>461</volume>
+<fpage>649</fpage>
+<lpage>643</lpage>
+<pub-id pub-id-type="pmid">19718018</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Kim3">
+        <label>38</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Kim</surname><given-names>JB</given-names></name><name><surname>Sebastiano</surname><given-names>V</given-names></name><name><surname>Wu</surname><given-names>G</given-names></name><name><surname>Arauzo-Bravo</surname><given-names>MJ</given-names></name><name><surname>Sasse</surname><given-names>P</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>Oct4-induced pluripotency in adult neural stem cells.</article-title>
+<source>Cell</source>
+<volume>136</volume>
+<fpage>411</fpage>
+<lpage>419</lpage>
+<pub-id pub-id-type="pmid">19203577</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Matsuda1">
+        <label>39</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Matsuda</surname><given-names>W</given-names></name><name><surname>Furuta</surname><given-names>T</given-names></name><name><surname>Nakamura</surname><given-names>KC</given-names></name><name><surname>Hioki</surname><given-names>H</given-names></name><name><surname>Fujiyama</surname><given-names>F</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>Single nigrostriatal dopaminergic neurons form widely spread and highly dense axonal arborizations in the neostriatum.</article-title>
+<source>J Neurosci</source>
+<volume>29</volume>
+<fpage>444</fpage>
+<lpage>453</lpage>
+<pub-id pub-id-type="pmid">19144844</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Daadi1">
+        <label>40</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Daadi</surname><given-names>MM</given-names></name><name><surname>Weiss</surname><given-names>S</given-names></name></person-group>
+<year>1999</year>
+<article-title>Generation of tyrosine hydroxylase-producing neurons from precursors of the embryonic and adult forebrain.</article-title>
+<source>J Neurosci</source>
+<volume>19</volume>
+<fpage>4484</fpage>
+<lpage>4497</lpage>
+<pub-id pub-id-type="pmid">10341249</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Papanikolaou1">
+        <label>41</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Papanikolaou</surname><given-names>T</given-names></name><name><surname>Lennington</surname><given-names>JB</given-names></name><name><surname>Betz</surname><given-names>A</given-names></name><name><surname>Figueiredo</surname><given-names>C</given-names></name><name><surname>Salamone</surname><given-names>JD</given-names></name><etal/></person-group>
+<year>2008</year>
+<article-title>In vitro generation of dopaminergic neurons from adult subventricular zone neural progenitor cells.</article-title>
+<source>Stem Cells Dev</source>
+<volume>17</volume>
+<fpage>157</fpage>
+<lpage>172</lpage>
+<pub-id pub-id-type="pmid">18248323</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Cai1">
+        <label>42</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cai</surname><given-names>J</given-names></name><name><surname>Donaldson</surname><given-names>A</given-names></name><name><surname>Yang</surname><given-names>M</given-names></name><name><surname>German</surname><given-names>MS</given-names></name><name><surname>Enikolopov</surname><given-names>G</given-names></name><etal/></person-group>
+<year>2009</year>
+<article-title>The role of Lmx1a in the differentiation of human embryonic stem cells into midbrain dopamine neurons in culture and after transplantation into a Parkinson's disease model.</article-title>
+<source>Stem Cells</source>
+<volume>27</volume>
+<fpage>220</fpage>
+<lpage>229</lpage>
+<pub-id pub-id-type="pmid">18832589</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Lindvall1">
+        <label>43</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lindvall</surname><given-names>O</given-names></name><name><surname>Kokaia</surname><given-names>Z</given-names></name><name><surname>Martinez-Serrano</surname><given-names>A</given-names></name></person-group>
+<year>2004</year>
+<article-title>Stem cell therapy for human neurodegenerative disorders-how to make it work.</article-title>
+<source>Nat Med</source>
+<volume>10</volume>
+<issue>Suppl</issue>
+<fpage>S42</fpage>
+<lpage>50</lpage>
+<pub-id pub-id-type="pmid">15272269</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Fallon1">
+        <label>44</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Fallon</surname><given-names>J</given-names></name><name><surname>Reid</surname><given-names>S</given-names></name><name><surname>Kinyamu</surname><given-names>R</given-names></name><name><surname>Opole</surname><given-names>I</given-names></name><name><surname>Opole</surname><given-names>R</given-names></name><etal/></person-group>
+<year>2000</year>
+<article-title>In vivo induction of massive proliferation, directed migration, and differentiation of neural cells in the adult mammalian brain.</article-title>
+<source>Proc Natl Acad Sci U S A</source>
+<volume>97</volume>
+<fpage>14686</fpage>
+<lpage>14691</lpage>
+<pub-id pub-id-type="pmid">11121069</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Joyner1">
+        <label>45</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Joyner</surname><given-names>AL</given-names></name></person-group>
+<year>1996</year>
+<article-title>Engrailed, Wnt and Pax genes regulate midbrain&#x2014;hindbrain development.</article-title>
+<source>Trends Genet</source>
+<volume>12</volume>
+<fpage>15</fpage>
+<lpage>20</lpage>
+<pub-id pub-id-type="pmid">8741855</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Tropepe2">
+        <label>46</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tropepe</surname><given-names>V</given-names></name><name><surname>Hitoshi</surname><given-names>S</given-names></name><name><surname>Sirard</surname><given-names>C</given-names></name><name><surname>Mak</surname><given-names>TW</given-names></name><name><surname>Rossant</surname><given-names>J</given-names></name><etal/></person-group>
+<year>2001</year>
+<article-title>Direct neural fate specification from embryonic stem cells: a primitive mammalian neural stem cell stage acquired through a default mechanism.</article-title>
+<source>Neuron</source>
+<volume>30</volume>
+<fpage>65</fpage>
+<lpage>78</lpage>
+<pub-id pub-id-type="pmid">11343645</pub-id></element-citation>
+      </ref>
+      <ref id="pone.0019926-Smukler1">
+        <label>47</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Smukler</surname><given-names>SR</given-names></name><name><surname>Runciman</surname><given-names>SB</given-names></name><name><surname>Xu</surname><given-names>S</given-names></name><name><surname>van der Kooy</surname><given-names>D</given-names></name></person-group>
+<year>2006</year>
+<article-title>Embryonic stem cells assume a primitive neural stem cell fate in the absence of extrinsic influences.</article-title>
+<source>J Cell Biol</source>
+<volume>172</volume>
+<fpage>79</fpage>
+<lpage>90</lpage>
+<pub-id pub-id-type="pmid">16390999</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

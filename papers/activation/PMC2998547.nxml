@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">1275002</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4431</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Allergy Clin Immunol</journal-id>
+      <journal-title>The Journal of allergy and clinical immunology</journal-title>
+      <issn pub-type="ppub">0091-6749</issn>
+      <issn pub-type="epub">1097-6825</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21036386</article-id>
+      <article-id pub-id-type="pmc">2998547</article-id>
+      <article-id pub-id-type="doi">10.1016/j.jaci.2010.08.040</article-id>
+      <article-id pub-id-type="manuscript">NIHMS236380</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Human basophils express amphiregulin in response to T cell-derived IL-3</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Qi</surname>
+            <given-names>Yilin</given-names>
+          </name>
+          <degrees>MSc</degrees>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Operario</surname>
+            <given-names>Darwin J.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Oberholzer</surname>
+            <given-names>Chris M.</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kobie</surname>
+            <given-names>James J.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Looney</surname>
+            <given-names>R. John</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Georas</surname>
+            <given-names>Steve N.</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mosmann</surname>
+            <given-names>Tim R.</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>David H. Smith Center for Vaccine Biology and Immunology, University of Rochester Medical Center, Rochester, NY
+</aff>
+      <aff id="A2"><label>b</label>Department of Medicine, University of Rochester Medical Center, Rochester, NY
+</aff>
+      <author-notes>
+        <corresp id="CR1">
+<bold>Corresponding author</bold>: Tim Mosmann, David H. Smith Center for Vaccine Biology and Immunology, University of Rochester Medical Center, 601 Elmwood Avenue, Box 609, Rochester, NY 14642, Phone: 585 275 9120, FAX: 585 273 2452, <email>Tim_Mosmann@urmc.rochester.edu</email>
+</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>28</day>
+        <month>9</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>30</day>
+        <month>10</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>12</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>1</day>
+        <month>12</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>126</volume>
+      <issue>6</issue>
+      <fpage>1260</fpage>
+      <lpage>1266.e4</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2010 American Academy of Allergy, Asthma and Immunology. Published by Mosby, Inc. All rights reserved.</copyright-statement>
+        <copyright-year>2010</copyright-year>
+      </permissions>
+      <abstract>
+        <sec id="S1">
+          <title>Background</title>
+          <p id="P1">Amphiregulin, a member of the Epidermal Growth Factor family, is expressed by activated mouse Th2 cells. Amphiregulin produced by mouse hematopoietic cells contributes to the elimination of a nematode infection by a Type 2 effector response.</p>
+        </sec>
+        <sec id="S2">
+          <title>Objective</title>
+          <p id="P2">To identify the human peripheral blood cell population expressing amphiregulin.</p>
+        </sec>
+        <sec sec-type="methods" id="S3">
+          <title>Methods</title>
+          <p id="P3">Amphiregulin-expressing cells were identified by flow cytometry of cell surface markers and histological staining. Histamine and amphiregulin in supernatants were measured by enzyme immunoassay. Quantitative real-time PCR was used to measure mRNA expression.</p>
+        </sec>
+        <sec id="S4">
+          <title>Results</title>
+          <p id="P4">Stimulation of human peripheral blood mononuclear cells by anti-CD3 + anti-CD28 antibodies induced expression of amphiregulin mRNA and protein by a non-T cell population. The amphiregulin-producing cells were basophils, as judged by morphology and expression of CD203c and CD123 (IL-3 receptor alpha chain). Activated mouse basophils also produced amphiregulin. Amphiregulin expression by basophils in response to anti-TCR stimulation required IL-3 produced by T cells, and IL-3 alone induced high levels of amphiregulin expression by purified basophils. Amphiregulin was expressed at much higher levels when human basophils were stimulated by IL-3 than by IgE cross-linking, whereas the opposite was true for IL-4 expression and histamine release. Heparin-binding Epidermal Growth Factor-like growth factor was also expressed by IL-3-stimulated human basophils. PBMC from asthmatic human subjects contained significantly higher numbers of basophils able to produce amphiregulin, compared to allergic or non-allergic controls.</p>
+        </sec>
+        <sec id="S5">
+          <title>Conclusion</title>
+          <p id="P5">IL-3 can induce basophils to express high levels of amphiregulin, which may contribute to tissue remodeling during type 2 immune responses such as asthma.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>Basophils</kwd>
+        <kwd>amphiregulin</kwd>
+        <kwd>IL-3</kwd>
+      </kwd-group>
+      <contract-num rid="AI1">R24 AI054953-08
+				||AI</contract-num>
+      <contract-sponsor id="AI1">National Institute of Allergy and Infectious Diseases Extramural Activities : NIAID</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

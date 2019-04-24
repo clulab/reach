@@ -1,0 +1,1970 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:ali="http://www.niso.org/schemas/ali/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Int J Mol Sci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Int J Mol Sci</journal-id>
+      <journal-id journal-id-type="publisher-id">ijms</journal-id>
+      <journal-title-group>
+        <journal-title>International Journal of Molecular Sciences</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1422-0067</issn>
+      <publisher>
+        <publisher-name>MDPI</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25938966</article-id>
+      <article-id pub-id-type="pmc">4463612</article-id>
+      <article-id pub-id-type="doi">10.3390/ijms16059693</article-id>
+      <article-id pub-id-type="publisher-id">ijms-16-09693</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>MicroRNA Expression Profile of Neural Progenitor-Like Cells Derived from Rat Bone Marrow Mesenchymal Stem Cells under the Influence of IGF-1, bFGF and EGF</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Huat</surname>
+            <given-names>Tee Jong</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijms-16-09693">1</xref>
+          <xref ref-type="aff" rid="af2-ijms-16-09693">2</xref>
+          <xref rid="c1-ijms-16-09693" ref-type="corresp">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Khan</surname>
+            <given-names>Amir Ali</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ijms-16-09693">2</xref>
+          <xref ref-type="aff" rid="af3-ijms-16-09693">3</xref>
+          <xref ref-type="aff" rid="af4-ijms-16-09693">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Abdullah</surname>
+            <given-names>Jafri Malin</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ijms-16-09693">2</xref>
+          <xref ref-type="aff" rid="af5-ijms-16-09693">5</xref>
+          <xref ref-type="aff" rid="af6-ijms-16-09693">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Idris</surname>
+            <given-names>Fauziah Mohamad</given-names>
+          </name>
+          <xref ref-type="aff" rid="af7-ijms-16-09693">7</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jaafar</surname>
+            <given-names>Hasnan</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ijms-16-09693">1</xref>
+        </contrib>
+      </contrib-group>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Bloch</surname>
+            <given-names>Wilhelm</given-names>
+          </name>
+          <role>Academic Editor</role>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-ijms-16-09693"><label>1</label>Department of Pathology, School of Medical Sciences, Universiti Sains Malaysia, Jalan Raja Perempuan Zainab II, 16150 Kubang Kerian, Kota Bharu, Kelantan, Malaysia; E-Mail: <email>hasnan@usm.my</email></aff>
+      <aff id="af2-ijms-16-09693"><label>2</label>Department of Neurosciences, School of Medical Sciences, Universiti Sains Malaysia, Jalan Raja Perempuan Zainab II, 16150 Kubang Kerian, Kota Bharu, Kelantan, Malaysia; E-Mails: <email>amkhan@sharjah.ac.ae</email> (A.A.K.); <email>brainsciences@gmail.com</email> (J.M.A.)</aff>
+      <aff id="af3-ijms-16-09693"><label>3</label>Department of Applied Biology, College of Sciences, University of Sharjah, Emirates of Sharjah, P.O. Box 27272, United Arab Emirates</aff>
+      <aff id="af4-ijms-16-09693"><label>4</label>Sharjah Institute for Medical Research, University of Sharjah, Emirates of Sharjah, P.O. Box 27272, United Arab Emirates</aff>
+      <aff id="af5-ijms-16-09693"><label>5</label>Director, Center for Neuroscience Services and Research, Universiti Sains Malaysia, Jalan Raja Perempuan Zainab II, 16150 Kubang Kerian, Kota Bharu, Kelantan, Malaysia</aff>
+      <aff id="af6-ijms-16-09693"><label>6</label>Jabatan Neurosains, Hospital Universiti Sains Malaysia, Jalan Raja Perempuan Zainab II, 16150 Kubang Kerian, Kota Bharu, Kelantan, Malaysia</aff>
+      <aff id="af7-ijms-16-09693"><label>7</label>Department of Medical Microbiology, School of Medical Sciences, Universiti Sains Malaysia, Jalan Raja Perempuan Zainab II, 16150 Kubang Kerian, Kota Bharu, Kelantan, Malaysia; E-Mail: <email>fauziahmi@usm.my</email></aff>
+      <author-notes>
+        <corresp id="c1-ijms-16-09693"><label>*</label>Author to whom correspondence should be addressed; E-Mail: <email>teejonghuat@gmail.com</email>; Tel.: +6018-906-5154.</corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>29</day>
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <month>5</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>16</volume>
+      <issue>5</issue>
+      <fpage>9693</fpage>
+      <lpage>9718</lpage>
+      <history>
+        <date date-type="received">
+          <day>14</day>
+          <month>1</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>17</day>
+          <month>4</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2015 by the authors; licensee MDPI, Basel, Switzerland.</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <license>
+          <license-p><!--CREATIVE COMMONS-->This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Insulin-like growth factor 1 (IGF-1) enhances cellular proliferation and reduces apoptosis during the early differentiation of bone marrow derived mesenchymal stem cells (BMSCs) into neural progenitor-like cells (NPCs) in the presence of epidermal growth factor (EGF) and basic fibroblast growth factor (bFGF). BMSCs were differentiated in three groups of growth factors: (A) EGF + bFGF, (B) EGF + bFGF + IGF-1, and (C) without growth factor. To unravel the molecular mechanisms of the NPCs derivation, microarray analysis using GeneChip<sup>&#xAE;</sup> miRNA arrays was performed. The profiles were compared among the groups. Annotated microRNA fingerprints (GSE60060) delineated 46 microRNAs temporally up-regulated or down-regulated compared to group C. The expressions of selected microRNAs were validated by real-time PCR. Among the 46 microRNAs, 30 were consistently expressed for minimum of two consecutive time intervals. In Group B, only miR-496 was up-regulated and 12 microRNAs, including the let-7 family, miR-1224, miR-125a-3p, miR-214, miR-22, miR-320, miR-708, and miR-93, were down-regulated. Bioinformatics analysis reveals that some of these microRNAs (miR-22, miR-214, miR-125a-3p, miR-320 and let-7 family) are associated with reduction of apoptosis. Here, we summarize the roles of key microRNAs associated with IGF-1 in the differentiation of BMSCs into NPCs. These findings may provide clues to further our understanding of the mechanisms and roles of microRNAs as key regulators of BMSC-derived NPC maintenance.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>microRNA</kwd>
+        <kwd>IGF-1</kwd>
+        <kwd>microarray</kwd>
+        <kwd>bone marrow</kwd>
+        <kwd>mesenchymal stem cell</kwd>
+        <kwd>neural progenitor cell</kwd>
+        <kwd>proliferation</kwd>
+        <kwd>apoptosis</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>1. Introduction</title>
+      <p>Bone marrow derived mesenchymal stem cells (BMSCs) are mesodermal multipotent stem cells with self-renewal capacities and possess the ability to differentiate beyond their lineage into endoderm and even ectoderm cells <italic>in vitro</italic> [<xref rid="B1-ijms-16-09693" ref-type="bibr">1</xref>,<xref rid="B2-ijms-16-09693" ref-type="bibr">2</xref>]. Our previous study showed that BMSCs could be differentiated into neural progenitor-like cells (NPCs) under a specifically induced microenvironment [<xref rid="B3-ijms-16-09693" ref-type="bibr">3</xref>]. We found a combination of epidermal growth factor (EGF), basic fibroblast growth factor (bFGF), and insulin-like growth factor 1 (IGF-1) could significantly improve the quality of the derived NPCs, as the addition of IGF-1 enhances cell proliferation and survivability compared to the published protocol used only EGF and bFGF. An identical combination of growth factors was also reported to provide an optimal niche for embryonic striatal stem cell maintenance [<xref rid="B4-ijms-16-09693" ref-type="bibr">4</xref>]. However, the molecular mechanism of IGF-1 addition on BMSC-derived NPCs maintenance is still unclear. We believed that alteration to gene expression by microRNAs play important role in the enhancement of cellular activities.</p>
+      <p>MicroRNAs are short noncoding RNA with 18 to 22 nucleotides that regulates gene expression at posttranscriptional levels by base pairing with targeted messenger RNA (mRNA) [<xref rid="B5-ijms-16-09693" ref-type="bibr">5</xref>]. MicroRNAs bind on the 3'-untranslated region of mRNA by perfect base pairing, leading to mRNA cleavage. In contrast, binding with imperfect base pairing may cause translational repression or deadenylation [<xref rid="B5-ijms-16-09693" ref-type="bibr">5</xref>]. A single microRNA may regulate hundreds of target mRNAs and single target mRNA may be regulated by several microRNAs. Therefore, microRNA-mRNA interaction forms a complex gene regulatory network. MicroRNAs also regulate genes at the transcriptional level by modulating DNA methylation and histone modification. For instance, miR-10 is required for hypermethylation in gastric cancer, and the mechanism was predicted by targeting the <italic>HOXA1</italic> gene [<xref rid="B6-ijms-16-09693" ref-type="bibr">6</xref>]. Similarly, miR-874, a putative tumor suppressor in human cancers, can target histone deacetylase 1 in head and neck squamous cell carcinoma and contributes to cell proliferation [<xref rid="B7-ijms-16-09693" ref-type="bibr">7</xref>]. Taken together, microRNAs can be considered important players in the control of epigenetics modification.</p>
+      <p>MicroRNAs have also emerged as powerful regulators of diverse biological processes, including cell differentiation [<xref rid="B8-ijms-16-09693" ref-type="bibr">8</xref>,<xref rid="B9-ijms-16-09693" ref-type="bibr">9</xref>], proliferation [<xref rid="B10-ijms-16-09693" ref-type="bibr">10</xref>] and apoptosis [<xref rid="B11-ijms-16-09693" ref-type="bibr">11</xref>,<xref rid="B12-ijms-16-09693" ref-type="bibr">12</xref>]. MicroRNAs are also involved as key modulators of neuronal development, neuroplasticity, and disease pathogenesis, such as neurodegenerative disease and traumatic brain injuries [<xref rid="B11-ijms-16-09693" ref-type="bibr">11</xref>,<xref rid="B13-ijms-16-09693" ref-type="bibr">13</xref>]. The substantial value of microRNAs has been reported for medical diagnostic and prognostic determination, which eventually will lead to novel therapeutic intervention [<xref rid="B14-ijms-16-09693" ref-type="bibr">14</xref>]. In addition, microRNAs have critical roles in stem cell differentiation and the derivation of induced pluripotent stem cells [<xref rid="B15-ijms-16-09693" ref-type="bibr">15</xref>].</p>
+      <p>To elucidate the functions of microRNAs in stem cell differentiation, global profiling, such as microRNA microarray, microRNA sequencing, real-time PCR, and next generation sequencing of microRNA [<xref rid="B16-ijms-16-09693" ref-type="bibr">16</xref>], may be carried out to find differentially and uniquely expressed microRNAs involved in the differentiation of BMSCs into neural lineages. Several microRNA expression studies have been carried out, such as the elucidation of genes involved between the mouse frontal cortex and hippocampus [<xref rid="B17-ijms-16-09693" ref-type="bibr">17</xref>] and microRNA expression pattern changes in spinal-cord injury [<xref rid="B18-ijms-16-09693" ref-type="bibr">18</xref>]. However, no study to date has characterized microRNA expression patterns in BMSC-derived NPCs under the influence of IGF-1. This information is critical since changes in cellular physiology, such as apoptosis and growth rate, are closely related to their microRNA-mRNA interactome within cells.</p>
+      <p>Microarray of microRNA can reveal differential expression of several microRNAs and microRNA family. We hypothesized that microRNA family may act as a whole in regulating specific cellular functions and pathways during the differentiation of BMSCs into NPCs. Therefore, the aim of this study was to identify the biological functions and pathways that might be involved due to the expression of key microRNAs during the differentiation of BMSCs into NPCs under the effect of IGF-1.</p>
+    </sec>
+    <sec>
+      <title>2. Results</title>
+      <sec>
+        <title>2.1. Effect of Insulin-Like Growth Factor 1 (IGF-1) in the Enhancement of Bone Marrow Derived Mesenchymal Stem Cells (BMSCs)-Derived Neural Progenitor-Like Cells (NPCs)</title>
+        <p>BMSCs from group A and B under the influence of their respective growth factors combination formed free-floating neurosphere-like bodies after 24 h of treatment (<xref ref-type="fig" rid="ijms-16-09693-f001">Figure 1</xref>A). The combinatorial effects of the growth factors (EGF + bFGF + IGF-1) could be observed clearly in the enhancement of cell viability (<xref ref-type="fig" rid="ijms-16-09693-f001">Figure 1</xref>B). The proliferation rate of NPCs under IGF-1 treatment was significantly higher than that of the Group A (<italic>p</italic> &lt; 0.01) with 95% confidence interval. Neurospheres under IGF-1 treatment showed largest diameters among the groups and generally oval in shape as compared to negative control (<xref ref-type="fig" rid="ijms-16-09693-f001">Figure 1</xref>A). Floating bodies in Group C showed irregular shape (<xref ref-type="fig" rid="ijms-16-09693-f001">Figure 1</xref>A) and partly remained as BMSCs or undergone differentiation [<xref rid="B3-ijms-16-09693" ref-type="bibr">3</xref>]. Dark cores at the center of the neurospheres were observed at Day 5, indicating that the neurospheres had reached the maximum size (200&#x2013;250 &#xB5;m). NPCs generated by Group B strongly expressed nestin (<xref ref-type="fig" rid="ijms-16-09693-f002">Figure 2</xref>A) and can be terminally differentiated into cells with glial (<xref ref-type="fig" rid="ijms-16-09693-f002">Figure 2</xref>B) and neural (<xref ref-type="fig" rid="ijms-16-09693-f002">Figure 2</xref>F) phenotypes. Cell viability data was supported by the apoptotic and cell death activity of the cells detected using Annexin V and propidium iodide. The IGF-1-treated NPCs showed better survivability (<xref ref-type="fig" rid="ijms-16-09693-f002">Figure 2</xref>G), as compared to the Group A, by maintaining a higher number of live cells and lower apoptotic (<xref ref-type="fig" rid="ijms-16-09693-f002">Figure 2</xref>H) and necrotic activities (<xref ref-type="fig" rid="ijms-16-09693-f002">Figure 2</xref>I). To sum up, addition of IGF-1 could significantly improve the production of healthier and functional NPCs as compared to the published protocol of using only the combination of EGF and bFGF.</p>
+        <fig id="ijms-16-09693-f001" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <p>(<bold>A</bold>) Differentiation of bone marrow derived mesenchymal stem cells (BMSCs) into neural progenitor-like cells (NPCs) at day 1, 3 and 5 showing differing in sizes and morphology of neurospheres under different combination of growth factors. Cells were cultured in NeuroCult<sup>&#xAE;</sup> NS-A neural basal media under serum free condition. Group A (EGF + bFGF), a published protocol of combination of growth factors required for neuronal differentiation of BMSCs; Group B (EGF + bFGF + IGF-1), an enhanced protocol of neuronal differentiation; and Group C (neural basal media without growth factor,) served as negative control of the experiment. Neurospheres with irregular shape was observed only in group C. Images were viewed under inverted light microscope with 100&#xD7; magnification, Scale bar = 150 &#xB5;m; (<bold>B</bold>) Cells proliferation were studied at five time intervals (24, 48, 72, 96 and 120 h) with 4 h incubation each with CellTiter 96<sup>&#xAE;</sup> Aqueous One solution reagent (<italic>n</italic> = 6). Group B contained significant higher proportions of vial cells (<italic>p</italic> = 0.0098 with 95% CI) compared to Group A. The data represented as optical density (OD) at 540 nm in mean &#xB1; standard deviation.</p>
+          </caption>
+          <graphic xlink:href="ijms-16-09693-g001"/>
+        </fig>
+        <fig id="ijms-16-09693-f002" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <p>(<bold>A</bold>&#x2013;<bold>F</bold>) Immunocytochemical staining of terminally differentiated BMSC-derived NPCs from Group B (EGF + bFGF + IGF-1) into neurons and astrocytes. (<bold>A</bold>) Neurosphere shows positive expression against nestin antibody; (<bold>B</bold>) Astrocytes were stained with glial fibrillary acidic protein (GFAP) primary antibody and counterstained with Cy3 secondary antibody; (<bold>C</bold>) Phase contrast image of differentiated cells; (<bold>D</bold>) Nucleus was stained with Sytox Blue; (<bold>E</bold>) Neurofilament body was stained against FluoroPan neuronal marker conjugated with fluorescein isothiocyanate (FITC); (<bold>F</bold>) Overlay of images (<bold>C</bold>&#x2013;<bold>E</bold>). All images are viewed at 40&#xD7; magnification under a confocal microscope; Scale bars = 50 &#xB5;m; (<bold>G</bold>&#x2013;<bold>I</bold>) Flow cytometry analysis of apoptosis assay comparing between treatment groups (Group A and B) and negative control (Group C). (<bold>G</bold>) Dots plot showing the apoptotic effect on Day 1 of differentiation; (<bold>H</bold>) Day 3 and (<bold>I</bold>) Day 5. Plot in first quadrant, Q1&#x2014;Annexin<sup>&#x2212;</sup>/PI<sup>+</sup> necrotic cells; Q2&#x2014;Annexin<sup>+</sup>/PI<sup>+</sup> late apoptotic cells; Q3&#x2014;Annexin<sup>&#x2212;</sup>/PI<sup>&#x2212;</sup> live cells and Q4&#x2014;Annexin<sup>+</sup>/PI<sup>&#x2212;</sup> early apoptotic cells.</p>
+          </caption>
+          <graphic xlink:href="ijms-16-09693-g002"/>
+        </fig>
+        <fig id="ijms-16-09693-f003" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p>(<bold>A</bold>) Hierarchal clustering of differentially expressed microRNAs. Forty-six differentially expressed microRNAs (for up- and down-regulation, respectively) compared to the negative control group in at least one sample were clustered hierarchically. Each rows represent individual microRNAs. The expression ratio representing colour ranges from green (low) to red (high), as indicated by the scale bar. The column bar chart shows the relative expression level of selected microRNAs by qRT-PCR (right column, white) as compared to the fold changes of the corresponding microRNA (left column, grey); (<bold>B</bold>) MicroRNAs expression of Group B <italic>versus</italic> Group A on the first day of treatment; (<bold>C</bold>) Group B <italic>versus</italic> Group A on the third day of treatment; (<bold>D</bold>) MicroRNAs expression of on the fifth day of treatment. U87 was used as housekeeping gene. Bars represent the mean &#xB1; standard error of three independent experiments; and (<bold>E</bold>) qRT-PCR product was confirmed by gel electrophoresis at 90 V for 40 min.</p>
+          </caption>
+          <graphic xlink:href="ijms-16-09693-g003"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>2.2. Identification of MicroRNAs by Affymetrix MicroRNA Array</title>
+        <p>To compare microRNA expression patterns among the different treatments, we analyzed the microRNA expression of Group A (EGF and bFGF), Group B (EGF, bFGF, and IGF-1), and Group C (without growth factor) with Affymetrix GeneChip microRNA 2.0 arrays. From each group, three biological replicates were analyzed on independent arrays. Among the 389 mature microRNAs present on the array chip, 46 microRNAs with consistent expression were detected in all groups over the experimental period (Day 1, Day 3 and Day 5) (<xref ref-type="app" rid="app1-ijms-16-09693">Figure S1</xref>). <xref ref-type="fig" rid="ijms-16-09693-f003">Figure 3</xref>A shows the detected microRNAs displaying the highest variance (top 30th percentile) throughout the differentiation (expression baseline adjusted to the mean of control sample, Group C), and the 46 differentially expressed microRNAs are listed in <xref ref-type="app" rid="app1-ijms-16-09693">Table S1</xref>.</p>
+        <p>In accordance with the clustering profile of microRNAs, two patterns were observed (up- and down-patterns). MicroRNAs with consistent expression (up-regulated or down-regulated) at least on two consecutive treatment periods were taken into account (<xref ref-type="table" rid="ijms-16-09693-t001">Table 1</xref> and <xref ref-type="table" rid="ijms-16-09693-t002">Table 2</xref>). MicroRNAs with inconsistent differential expression are listed in <xref ref-type="app" rid="app1-ijms-16-09693">Table S2</xref>. In the group treated with EGF and bFGF, 8 microRNAs were down-regulated and 14 microRNAs were consistently up-regulated compared to Group C throughout the three time intervals of treatment. However, BMSC-derived NPCs with addition of IGF-1 showed 12 microRNAs which include miR-22, miR-1224, miR-125a-3p, miR-214, miR-320, miR-708 and miR-93 were consistently down-regulated and only miR-496 remained up-regulated compared to Group C from Day 1 to Day 5. The let-7 family (let-7b, let-7c, let-7d, let-7e and let-7i) were constantly down-regulated in both groups.</p>
+        <table-wrap id="ijms-16-09693-t001" position="float">
+          <object-id pub-id-type="pii">ijms-16-09693-t001_Table 1</object-id>
+          <label>Table 1</label>
+          <caption>
+            <p>List of microRNAs up-regulated and down-regulated due to EGF + bFGF. Down-regulation of microRNAs in two consecutive treatment days (Day 3 and 5) was considered as down-regulated and <italic>vice versa</italic>.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th colspan="4" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Down-Pattern</th>
+                <th colspan="4" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Up-Pattern</th>
+              </tr>
+              <tr>
+                <th rowspan="2" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">miRNAs</th>
+                <th colspan="3" align="center" valign="middle" style="border-bottom:solid thin" rowspan="1">Treatment Day</th>
+                <th rowspan="2" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">miRNAs</th>
+                <th colspan="3" align="center" valign="middle" style="border-bottom:solid thin" rowspan="1">Treatment Day</th>
+              </tr>
+              <tr>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-23a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.52</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.03</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;27.66</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-100</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.32</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.01</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.11</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-26a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;3.16</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.39</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;9.71</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-1224</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.77</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.13</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.33</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-320</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;4.04</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.39</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;39.65</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-124*</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.46</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.02</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.33</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7d</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.67</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.35</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;78.22</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-125a-3p</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.48</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.54</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.19</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7e</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">-2.71</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.62</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;115.16</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-200b</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.84</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.26</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.34</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7i</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.50</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;3.55</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;25.15</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-28*</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.61</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.21</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.61</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-99b</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;3.47</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.02</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;19.24</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-29c</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.26</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.49</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.33</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-125a-5p</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.63</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.02</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;26.80</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-30a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.22</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.02</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.40</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-125b-5p</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.57</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.09</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;42.83</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-30c</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.72</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.16</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.26</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7b</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.12</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.54</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;193.29</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-330</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.64</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.38</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.56</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7c</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.27</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.56</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;121.62</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-496</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.16</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.49</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.47</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-191</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.18</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.31</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;17.43</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-935</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.31</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.35</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.75</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<bold>miR-93</bold>
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1.65</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">&#x2212;5.56</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">&#x2212;4.53</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <table-wrap id="ijms-16-09693-t002" position="float">
+          <object-id pub-id-type="pii">ijms-16-09693-t002_Table 2</object-id>
+          <label>Table 2</label>
+          <caption>
+            <p>List of microRNAs up-regulated and down-regulated due to EGF + bFGF + IGF-1. Down-regulation of microRNAs in two consecutive treatment days (Day 3 and 5) was considered as down-regulated and <italic>vice versa</italic>.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th colspan="4" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Down-Pattern</th>
+                <th colspan="4" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Up-Pattern</th>
+              </tr>
+              <tr>
+                <th rowspan="2" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">miRNAs</th>
+                <th colspan="3" align="center" valign="middle" style="border-bottom:solid thin" rowspan="1">Treatment Day</th>
+                <th rowspan="2" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">miRNAs</th>
+                <th colspan="3" align="center" valign="middle" style="border-bottom:solid thin" rowspan="1">Treatment Day</th>
+              </tr>
+              <tr>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-22</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.20</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.22</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.72</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-496</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4.53</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.14</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.06</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7i</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.79</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.06</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;22.39</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7b</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.44</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.59</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;204.17</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7c</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.33</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.55</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;218.82</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7d</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.37</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.50</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;75.57</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7e</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.21</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.55</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;91.88</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-1224</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.26</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.46</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.06</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-125a-3p</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.32</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.66</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.06</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-214</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.34</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.19</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;37.19</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-320</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.04</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.21</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;28.70</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-708</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.30</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.55</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.02</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<bold>miR-93</bold>
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">2.95</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">&#x2212;14.42</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">&#x2212;4.10</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <table-wrap id="ijms-16-09693-t003" position="float">
+          <object-id pub-id-type="pii">ijms-16-09693-t003_Table 3</object-id>
+          <label>Table 3</label>
+          <caption>
+            <p>List of microRNAs comparing between Group B (EGF + bFGF + IGF-1) and A (EGF + bFGF).</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th colspan="4" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Down-Pattern</th>
+                <th colspan="4" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Up-Pattern</th>
+              </tr>
+              <tr>
+                <th rowspan="2" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">miRNAs</th>
+                <th colspan="3" align="center" valign="middle" style="border-bottom:solid thin" rowspan="1">Treatment Day</th>
+                <th rowspan="2" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">miRNAs</th>
+                <th colspan="3" align="center" valign="middle" style="border-bottom:solid thin" rowspan="1">Treatment Day</th>
+              </tr>
+              <tr>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7b</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.29</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.03</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.06</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>let-7e</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.27</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.05</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.25</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-100</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.32</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;3.97</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.01</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-125b-5p</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.68</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.31</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.01</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-196a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;4.23</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;3.76</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.10</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-181a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.85</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.34</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.44</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-22</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.51</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;4.16</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.60</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-24</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.89</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.03</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.07</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-99a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;2.25</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.76</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">&#x2212;1.09</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-26a</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.76</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.71</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.04</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<bold/>
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<bold>miR-320</bold>
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">4.22</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1.15</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">1.38</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+        <p>In addition, several microRNAs in Groups A and B that showed up-regulation on Day 1 but then their expression went down consistently at Day 3 and 5 of treatment. These were also listed and considered in the analysis. Interestingly, miR-22, miR-1224 and miR-125-3p were initially up-regulated under EGF and bFGF treatment, but reversed their quantitative expression in the presence of IGF-1. In addition, miR-214 and miR-708 were expressed inconsistently in Group A while their expression went down in Group B.</p>
+      </sec>
+      <sec>
+        <title>2.3. Quantitative RT-PCR for miRNA Validation</title>
+        <p>To validate the microRNA microarray expression data, a qRT-PCR assay was conducted to confirm the expression levels of three randomly selected microRNAs (let 7-b, miR-181a, and miR26a). The qRT-PCR analysis confirmed that let-7b, miR-181a, and miR-26a were significantly up-regulated on Day 1 after differentiation (<xref ref-type="fig" rid="ijms-16-09693-f003">Figure 3</xref>B). The expression of let-7b was down-regulated on both Day 3 (<xref ref-type="fig" rid="ijms-16-09693-f003">Figure 3</xref>C) and Day 5 (<xref ref-type="fig" rid="ijms-16-09693-f003">Figure 3</xref>D) after induction whereas miR-181a and miR-26a remained up-regulated. Real-time expression was confirmed by gel electrophoresis analysis and the gel bands were photographed (<xref ref-type="fig" rid="ijms-16-09693-f003">Figure 3</xref>E).</p>
+      </sec>
+      <sec>
+        <title>2.4. Target Prediction Analysis</title>
+        <p>To identify microRNA targeted mRNAs, target prediction for all microRNAs consistently up-regulated or down-regulated in both groups (<xref ref-type="table" rid="ijms-16-09693-t001">Table 1</xref> and <xref ref-type="table" rid="ijms-16-09693-t002">Table 2</xref>) were performed using the validated target search engine in the miRWalk database [<xref rid="B19-ijms-16-09693" ref-type="bibr">19</xref>]. The list of predicted genes are listed in <xref ref-type="app" rid="app1-ijms-16-09693">Table S3</xref>. A total of 2518 genes were targeted by 29 consistently expressed microRNAs, including two star microRNAs (miR-28-star and miR-124-star). The number of target genes predicted for each microRNA varied from 2 (miR-330) to 436 (let-7c) (<xref ref-type="app" rid="app1-ijms-16-09693">Figure S2</xref>). The majority of the targeted genes were specific for the regulation of cell proliferation (18.9%), programmed cell death (18.6%), and apoptosis (18.1%) (Data not shown).</p>
+      </sec>
+      <sec>
+        <title>2.5. GO Analysis of MicroRNA Targets</title>
+        <p>To understand the biological functions of the two patterns of microRNAs, a simple GO analysis was performed using DAVID software (National Cancer Institute, Frederick, MD, USA). Up- and down-pattern gene sets from both treatment groups, including the gene set specific for the let-7 family, were considered in the analysis. Only the gene set for down-regulated microRNAs from both groups showed statistically significant GO terms (<italic>p</italic>-value &lt; 0.05, FDR &lt; 0.01), whereas no significant GO term for up-regulated microRNAs was seen in the respective species (<italic>Rattus norvegicus</italic>). The top 10 statistically significant GO terms (FDR &lt; 0.01) with &#x3BA; similarity threshold set at 0.85 (highest stringency = 1.00) are shown in <xref ref-type="table" rid="ijms-16-09693-t004">Table 4</xref> (for full list of enriched GO terms, see <xref ref-type="app" rid="app1-ijms-16-09693">Table S4</xref>). The GO terms were listed based on their respective enrichment score in descending order. Each enrichment score was calculated based on the geometric mean in log scale of the <italic>p</italic>-value (Fisher exact/ EASE score) for the members of a corresponding annotation cluster. The enriched GO terms were then entered into the REViGO software (Rudjer Boskovic Institute, Zagreb, Croatia) to remove redundant terms and generate functional relationship network structure. <xref ref-type="fig" rid="ijms-16-09693-f004">Figure 4</xref>A and 4B show the biological process networks altered by the down-regulation of microRNAs in Group A (EGF + bFGF) and Group B (EGF + bFGF + IGF-1), respectively.</p>
+        <table-wrap id="ijms-16-09693-t004" position="float">
+          <object-id pub-id-type="pii">ijms-16-09693-t004_Table 4</object-id>
+          <label>Table 4</label>
+          <caption>
+            <p>Top 10 GO terms associated with down-regulation of microRNAs in groups A and B.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">Group</th>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">GO Terms</th>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">Biological Processes</th>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">*
+<italic>p</italic>-Value</th>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">** FDR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="5" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">
+<bold>A(EGF + bFGF)</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0043067</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Regulation of programmed cell death</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.81 &#xD7; 10<sup>&#x2212;19</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6.71 &#xD7; 10<sup>&#x2212;16</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0010941</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Regulation of cell death</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4.45 &#xD7; 10<sup>&#x2212;19</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">7.98 &#xD7; 10<sup>&#x2212;16</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0042981</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Regulation of apoptosis</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8.72 &#xD7; 10<sup>&#x2212;18</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.53 &#xD7; 10<sup>&#x2212;14</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0009891</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Positive regulation of biosynthetic process</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.27 &#xD7; 10<sup>&#x2212;18</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.23 &#xD7; 10<sup>&#x2212;15</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">GO: 0031328</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">Positive regulation of cellular biosynthetic process</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">3.96 &#xD7; 10<sup>&#x2212;18</sup></td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">6.97 &#xD7; 10<sup>&#x2212;15</sup></td>
+              </tr>
+              <tr>
+                <td rowspan="6" align="center" valign="middle" style="border-bottom:solid thin" colspan="1">
+<bold>B(EGF + bFGF + IGF-1)</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0043067</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Regulation of programmed cell death</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.42 &#xD7; 10<sup>&#x2212;19</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6.10 &#xD7; 10<sup>&#x2212;16</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0010941</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Regulation of cell death</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4.12 &#xD7; 10<sup>&#x2212;19</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">7.34 &#xD7; 10<sup>&#x2212;16</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0042981</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Regulation of apoptosis</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6.27 &#xD7; 10<sup>&#x2212;18</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.12 &#xD7; 10<sup>&#x2212;14</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0043066</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Negative regulation of apoptosis</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.25 &#xD7; 10<sup>&#x2212;16</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.00 &#xD7; 10<sup>&#x2212;13</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">GO: 0043069</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Negative regulation of programmed cell death</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.94 &#xD7; 10<sup>&#x2212;16</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4.00 &#xD7; 10<sup>&#x2212;13</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">GO: 0060548</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">Negative regulation of cell death</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">2.12 &#xD7; 10<sup>&#x2212;16</sup></td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">4.00 &#xD7; 10<sup>&#x2212;13</sup></td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p><bold>*</bold><italic>p</italic>-value was calculated using Fisher&#x2019;s exact test. <bold>**</bold> FDR corrections were based on Benjamini-Hochberg procedure in DAVID program.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+        <fig id="ijms-16-09693-f004" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <p>A network composed of statistically significant (FDR &lt; 0.01) non-redundant GO terms associated with down-regulation of microRNAs in (<bold>A</bold>) Group A, EGF + bFGF and (<bold>B</bold>) Group B, EGF + bFGF + IGF-1. Figures were constructed by REVIGO software. The color density of each GO term is proportional to statistical significance.</p>
+          </caption>
+          <graphic xlink:href="ijms-16-09693-g004"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>2.6. GeneMANIA Association Network and GO: 0043066 Analyses</title>
+        <p>In order to predict the potential interactions between key differentially regulated microRNAs and targeted mRNAs involved in the reduction of apoptotic activity in Group B and with additional genes outside of the searched network, we plotted an extended rat network associated with GO term 0043066&#x2014;negative regulation of apoptosis (<xref ref-type="fig" rid="ijms-16-09693-f005">Figure 5</xref>A&#x2013;E). MiR-1224, miR-708 and miR-93 were excluded from analysis since there is no mRNA associated with negative regulation of apoptosis. We used GeneMANIA web tool that searches a very large set of publicly available functional network data, which include proteomic and genomic interactions, pathways, co-expression and co-localization of genes and protein domain similarity [<xref rid="B20-ijms-16-09693" ref-type="bibr">20</xref>]. Query genes for individual microRNA are listed in <xref ref-type="table" rid="ijms-16-09693-t005">Table 5</xref>. The major targeted genes by all or four out of five key microRNAs (miR-22, miR-214, miR-125a-3p, miR-320 and let-7 family) included Akt1, Tp53, Pten and Bcl2. Information about search parameters, statistics used and additional outputs are shown in <xref ref-type="app" rid="app1-ijms-16-09693">Table S5</xref>.</p>
+        <fig id="ijms-16-09693-f005" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <p>Identification of molecular functional networks and gene ontology analysis of rat&#x2019;s network genes. The genes up-regulated by down-regulation of miR-22 (<bold>A</bold>); miR-125a-3p (<bold>B</bold>); let-7 family (<bold>C</bold>); miR-214 (<bold>D</bold>); and miR-320 (<bold>E</bold>) were analyzed using GeneMANIA web tool with default weighting method (<italic>i.e.</italic>, weighting based to maximize connectivity between input genes). The edges are indicated based on similar gene expression across conditions (co-expression), interact in a protein-protein interaction (physical interaction), similar protein domain (shared protein domains), expression in the same tissue or gene product identified in the same cellular location, and prediction of functional relationships between genes (predicted).</p>
+          </caption>
+          <graphic xlink:href="ijms-16-09693-g005a"/>
+          <graphic xlink:href="ijms-16-09693-g005b"/>
+          <graphic xlink:href="ijms-16-09693-g005c"/>
+        </fig>
+        <table-wrap id="ijms-16-09693-t005" position="float">
+          <object-id pub-id-type="pii">ijms-16-09693-t005_Table 5</object-id>
+          <label>Table 5</label>
+          <caption>
+            <p>List of predicted target genes involved in negative regulation of apoptosis.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">MicroRNAs</th>
+                <th align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1" colspan="1">Query Genes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-22</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1"><italic>Myc</italic>&#x37E; <italic>Ets1</italic>&#x37E; <italic>Tp53</italic>&#x37E; <italic>Agt</italic>&#x37E; <italic>Esr1</italic>&#x37E; <italic>Pten</italic>&#x37E; <italic>Akt1</italic></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-214</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1"><italic>Bcl2</italic>&#x37E; <italic>Adora1</italic>&#x37E; <italic>Myc</italic>&#x37E; <italic>Neurod1</italic>&#x37E; <italic>Dhcr24</italic>&#x37E; <italic>Kras</italic>&#x37E; <italic>Fgfr1</italic>&#x37E; <italic>Apc</italic>&#x37E; <italic>pcgfr1</italic>&#x37E; <italic>Prnp</italic>&#x37E; <italic>Akt1</italic></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-125a-3p</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1"><italic>Bcl2</italic>&#x37E; <italic>Egfr</italic>&#x37E; <italic>Tp53</italic>&#x37E; <italic>Apc</italic>&#x37E; <italic>Akt1</italic>&#x37E; <italic>Rela</italic></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>miR-320</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1"><italic>Bcl2</italic>&#x37E; <italic>Adora1</italic>&#x37E; <italic>Acvr1</italic>&#x37E; <italic>Neurod1</italic>&#x37E; <italic>Dhcr24</italic>&#x37E; <italic>Tp53</italic>&#x37E; <italic>Hmox1</italic>&#x37E; <italic>Nol3</italic>&#x37E; <italic>Pten</italic>&#x37E; <italic>Akt1</italic>&#x37E; <italic>Cebpb</italic></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<bold>Let-7 Family</bold>
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1"><italic>Cdkn1a</italic>&#x37E; <italic>Tnf</italic>&#x37E; <italic>Bcl2</italic>&#x37E; <italic>Adora1</italic>&#x37E; <italic>Egfr</italic>&#x37E; <italic>Myc</italic>&#x37E; <italic>Il10</italic>&#x37E; <italic>Acvr1</italic>&#x37E; <italic>Sycp3</italic>&#x37E; <italic>Neurod1</italic>&#x37E; <italic>Dhcr24</italic>&#x37E; <italic>Cdkn1b</italic>&#x37E; <italic>SMAD3</italic>&#x37E; <italic>Kras</italic>&#x37E; <italic>ras3</italic>&#x37E; <italic>Neurod1Birc2</italic>&#x37E; <italic>Tp53</italic>&#x37E; <italic>Kcnh8</italic>&#x37E; <italic>FN1</italic>&#x37E; <italic>Fgfr1</italic>&#x37E; <italic>Clu</italic>&#x37E; <italic>Fas</italic>&#x37E; <italic>Pten</italic>&#x37E; <italic>Akt1</italic>&#x37E; <italic>Rela</italic>&#x37E; <italic>Cebpb</italic></td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>2.7. Pathway Analysis of Target mRNA Focusing on Cell Proliferation and Survivability</title>
+        <p>We assessed the predicted target genes of the down-regulated microRNAs with the KEGG database. The significantly overrepresented pathways with an FDR of less than 0.01 are shown in <xref ref-type="app" rid="app1-ijms-16-09693">Table S6</xref>. Additionally, the statistical significant pathways (FDR &lt; 0.01) involving cell proliferation and survivability related to this study are listed in <xref ref-type="table" rid="ijms-16-09693-t006">Table 6</xref>. The significance levels of the related pathways were compared with pathways targeted by specific let-7 microRNAs independently to exclude the possibility that those pathways are due to let-7 microRNAs alone. The majority of the pathways were related to the enhancement of cell proliferation and prevention of apoptosis.</p>
+        <table-wrap id="ijms-16-09693-t006" position="float">
+          <object-id pub-id-type="pii">ijms-16-09693-t006_Table 6</object-id>
+          <label>Table 6</label>
+          <caption>
+            <p>Pathways of predicted target genes for down-regulated microRNAs in Group A, Group B and Let-7 Family. <italic>n</italic> = Number of targeted genes in a specific pathway. Statistical significant was expressed in term of false discovery rate (FDR).</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th rowspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" colspan="1">KEGG ID</th>
+                <th rowspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" colspan="1">Pathways</th>
+                <th colspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Group A</th>
+                <th colspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Group B</th>
+                <th colspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin" rowspan="1">Let-7 Family</th>
+              </tr>
+              <tr>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<italic>n</italic>
+</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">* FDR</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<italic>n</italic>
+</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">* FDR</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<italic>n</italic>
+</th>
+                <th align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">* FDR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno05200</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Pathways in cancer</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">40</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4.19 &#xD7; 10<sup>&#x2212;18</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">39</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.50 &#xD7; 10<sup>&#x2212;15</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">29</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">5.40 &#xD7; 10<sup>&#x2212;12</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno04010</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">MAPK signaling pathway</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">24</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.01 &#xD7; 10<sup>&#x2212;6</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">26</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.20 &#xD7; 10<sup>&#x2212;6</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">18</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.84 &#xD7; 10<sup>&#x2212;4</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno04210</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Apoptosis</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">13</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.37 &#xD7; 10<sup>&#x2212;4</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">12</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.72 &#xD7; 10<sup>&#x2212;3</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">10</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">5.13 &#xD7; 10<sup>&#x2212;3</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno04012</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">ErbB signaling pathway</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">10</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">n.s.</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">12</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3.72 &#xD7; 10<sup>&#x2212;3</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">10</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">5.14 &#xD7; 10<sup>&#x2212;3</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno04350</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">TGF-&#x3B2; signaling pathway</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">14</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.68 &#xD7; 10<sup>&#x2212;5</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">12</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4.18 &#xD7; 10<sup>&#x2212;3</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">11</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6.03 &#xD7; 10<sup>&#x2212;4</sup></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno04620</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Toll-like receptor signaling pathway</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">13</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2.62 &#xD7; 10<sup>&#x2212;4</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">12</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6.57 &#xD7; 10<sup>&#x2212;3</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">9</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">n.s.</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">
+<bold>rno04060</bold>
+</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">Cytokine-cytokine receptor interaction</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">19</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8.69 &#xD7; 10<sup>&#x2212;5</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">17</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1.13 &#xD7; 10<sup>&#x2212;2</sup></td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">13</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">n.s.</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">
+<bold>rno04660</bold>
+</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">T cell receptor signaling pathway</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">13</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">n.s.</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">12</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">n.s.</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">11</td>
+                <td align="center" valign="middle" style="border-bottom:solid thin" rowspan="1" colspan="1">5.46 &#xD7; 10<sup>&#x2212;3</sup></td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p><bold>*</bold> FDR corrections were calculated using the Benjamini-Hochberg procedure; n.s.: Statistically no significant.</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+    </sec>
+    <sec>
+      <title>3. Discussion</title>
+      <p>The present profiling work was the first to decipher the microRNA expression patterns in adult rat BMSC-derived NPCs. Microarray-based microRNA profiling is a common method to discover the differentially and uniquely expressed microRNAs. This procedure is the first step in the screening process of overexpressed microRNAs that in turn regulate gene expression.</p>
+      <p>Both bFGF and EGF have been shown to be crucial factors in differentiating BMSCs into neural lineage cells [<xref rid="B21-ijms-16-09693" ref-type="bibr">21</xref>]. IGF-1 is another polypeptide important for nervous system development [<xref rid="B22-ijms-16-09693" ref-type="bibr">22</xref>]. By stimulating the IGF-1 receptor, IGF-1 acts as an important mitogenic factor to promote neural cell proliferation and survival <italic>in vitro</italic> and <italic>in vivo</italic> [<xref rid="B23-ijms-16-09693" ref-type="bibr">23</xref>].</p>
+      <p>In our previous study, we confirmed that a combination of bFGF, EGF and IGF-1 could induce the neuronal differentiation (NPCs) of BMSCs and significantly (<italic>p</italic> &lt; 0.05) enhance BMSCs-derived NPCs viability in undifferentiated state [<xref rid="B3-ijms-16-09693" ref-type="bibr">3</xref>]. However, the molecular mechanisms such as microRNAs profiling, associated with this enhanced differentiation remain to be elucidated. Therefore, in this study, we described the microRNA signatures of NPCs (P1) specifically at Day 1, 3 and 5 after induction. These signatures showed the pattern of microRNA changes during differentiation. However, one of the main limitations in deciphering the mechanism of epigenetic modification and maintenance of NPCs is the complexity of biological pathways associated with regulating microRNAs. Therefore, it is difficult to reveal the specific biological pathways based on the analysis of a handful of predicted genes.</p>
+      <p>Among the 389 rat-specific microRNA probes on the GeneChip<sup>&#xAE;</sup> microRNA 2.0 array, we discovered 46 microRNAs up-regulated or down-regulated due to the effects of growth factors. However, microRNAs with inconsistent expression throughout the treatment days from Groups A and B were excluded from analysis. Only microRNAs differentially expressed at least on two consecutive treatment days were taken into account.</p>
+      <p>There are 30 microRNAs (<xref ref-type="table" rid="ijms-16-09693-t001">Table 1</xref> and <xref ref-type="table" rid="ijms-16-09693-t002">Table 2</xref>) consistently expressed in two patterns (up-pattern or down-pattern) from Day 1 to Day 5. Both up- and down-patterned microRNAs were observed in Group A; however, in the presence of IGF-1, the majority of microRNAs were down-regulated and only miR-496 was up-regulated. Since the down-regulation of microRNAs may cause the up-regulation of targeted genes, we hypothesized that the presence of IGF-1 triggers the expression of certain genes by down-regulating key microRNAs (miR-1224, miR-125a-3p, miR-214, miR-22, miR-320, miR-708, and miR-93), which in turn enhance NPCs proliferation and survivability.</p>
+      <p>In Groups A and B, let-7 family microRNAs were observed to be consistently down-regulated. These data suggest contribution of different members of one microRNA cluster or family act as a whole in regulating specific signaling pathways. MicroRNAs from miR-8 family and miR-34 family were reported to be involved in the regulation of ceramide signaling pathway in the frontal cortex and dopamine signaling pathway in the hippocampus respectively [<xref rid="B17-ijms-16-09693" ref-type="bibr">17</xref>]. In addition, Itesako <italic>et al.</italic> concluded that down-regulation of miR-195/497 cluster contributed to bladder cancer progression by targeting <italic>BIRC5</italic> and <italic>WNT7A</italic> genes [<xref rid="B24-ijms-16-09693" ref-type="bibr">24</xref>]. Therefore, our finding is supported by previous experiments regarding signaling pathway targeted by either microRNA families or clusters. Besides, Cimadamore <italic>et al.</italic> reported that LIN28 binds to precursor let-7 microRNA and blocks the production of mature let-7i microRNAs, inhibiting neuronal differentiation by targeting <italic>MASH1</italic> and <italic>NGN1</italic> genes [<xref rid="B25-ijms-16-09693" ref-type="bibr">25</xref>]. This process suggests that the down-regulation of the let-7 microRNA family promotes cell proliferation during early neurogenesis.</p>
+      <p>miR-93, a microRNA frequently associated with TGF-&#x3B2; signaling in controlling cell cycle arrest [<xref rid="B26-ijms-16-09693" ref-type="bibr">26</xref>], cell proliferation, and differentiation [<xref rid="B27-ijms-16-09693" ref-type="bibr">27</xref>], was also down-regulated in both Groups A and B. Moreover, we discovered that miR-1224 and miR-125a-3p, which were initially up-regulated in Group A, became down-regulated at day 3 and 5 in Group B post-induced with IGF-1. Both miR-1224 and miR-125a-3p play important roles in maintaining cell proliferation and survivability. The down-regulation of miR-1224 positively regulates TNF-&#x3B1; gene expression [<xref rid="B28-ijms-16-09693" ref-type="bibr">28</xref>], which strongly influences NPC survival, proliferation, and neuronal differentiation [<xref rid="B29-ijms-16-09693" ref-type="bibr">29</xref>,<xref rid="B30-ijms-16-09693" ref-type="bibr">30</xref>].</p>
+      <p>The down-regulation of miR-125a-3p has been associated with a reduction in apoptosis by targeting p53 mRNA and an increase in cell proliferation and migration by up-regulating Fyn expression [<xref rid="B31-ijms-16-09693" ref-type="bibr">31</xref>,<xref rid="B32-ijms-16-09693" ref-type="bibr">32</xref>]. Stronger p53 protein expression has been associated with the induction of apoptosis and inhibition of cell proliferation [<xref rid="B33-ijms-16-09693" ref-type="bibr">33</xref>]. Similarly, the reduction of Fyn and its downstream proteins causes cell cycle arrest at G2/M stage, consequently, reducing cell viability and migration [<xref rid="B32-ijms-16-09693" ref-type="bibr">32</xref>]. These data support our findings that the down-regulation of mir-125-3p reduced apoptosis and increased cell proliferation possibly by a p53- and Fyn-regulated manner.</p>
+      <p>Furthermore, the introduction of IGF-1 triggers the down-regulation of several microRNAs (miR-214, miR-22, miR-320 and miR-708) with their inconsistent differential expression in Group A. The inhibition of miR-214 has been reported to decrease the level of apoptosis in HeLa cells [<xref rid="B34-ijms-16-09693" ref-type="bibr">34</xref>]. Yu <italic>et al.</italic> reported that miR-22 is a pivotal candidate for gene therapy in cerebral ischemic injury due to its neuroprotective effect [<xref rid="B35-ijms-16-09693" ref-type="bibr">35</xref>]. The down-regulation of miR-708 was reported to be involved in the enhancement of cell proliferation [<xref rid="B36-ijms-16-09693" ref-type="bibr">36</xref>] and the expression of miR-708 has been reported to be associated with PI3K/Akt signaling pathways [<xref rid="B37-ijms-16-09693" ref-type="bibr">37</xref>]. In summary, a group of microRNAs with individual roles forms a complex functional network, and together they contribute to the enhancement of BMSC-derived NPCs.</p>
+      <p>Differences in functional involvement of down-regulated microRNAs in Groups A and B were measured using GO and pathway analyses. Biological relevant of each GO terms were determined by enrichment score. Top-ranked annotation groups indicated by higher enrichment score are indicated as more significant biologically [<xref rid="B38-ijms-16-09693" ref-type="bibr">38</xref>,<xref rid="B39-ijms-16-09693" ref-type="bibr">39</xref>]. Both gene groups in A and B were generally associated with cell growth and survival signaling functions (<xref ref-type="table" rid="ijms-16-09693-t004">Table 4</xref> and <xref ref-type="fig" rid="ijms-16-09693-f004">Figure 4</xref>). The GO term &#x201C;regulation of programmed cell death&#x201D; (GO: 0043067) was overrepresented in both groups, resulting from the activation of endogenous cellular processes that play important roles in cell epigenetic modification [<xref rid="B40-ijms-16-09693" ref-type="bibr">40</xref>]. The regulation of non-apoptotic programmed cell death is most likely due to the effects of combinatorial EGF and bFGF in which the synergistic treatment of both growth factors modify the BMSCs fate into a neural lineage.</p>
+      <p>Zhao <italic>et al.</italic> reported that EGF and bFGF trigger the expression of miR-9, which targets the nuclear receptor TLX controlling NSC proliferation and fate determination [<xref rid="B41-ijms-16-09693" ref-type="bibr">41</xref>]. Chuang and Jones reported that small interfering RNAs closely related to microRNAs are involved in the histone modification and DNA methylation that regulate the mechanism of epigenetic modification [<xref rid="B42-ijms-16-09693" ref-type="bibr">42</xref>]. However, the gene list of Group B (EGF + bFGF + IGF-1) showed a higher important level with an enrichment score of 15.76 (34 genes involved) than did Group A (EGF + bFGF) with an enrichment score of 13.31 (29 genes involved) in GO term &#x201C;negative regulation of apoptotic process&#x201D; (GO: 0043066). These data indicate that the down-regulation of key microRNAs in Group B due to IGF-1 triggers some yet to be determined biological processes that reduce apoptotic process. Our GO analysis data is consistent with our apoptosis assay findings described earlier.</p>
+      <p>Furthermore, functional networks analysis of up-regulated genes associated with GO term &#x201C;negative regulation of apoptosis process&#x201D; by the algorithm GeneMANIA. It revealed several genes such as <italic>Akt1</italic> (v-Akt murine thymoma viral oncogene homolog 1), <italic>Tp53</italic> (tumor protein p53), <italic>Pten</italic> (phosphatase and tensin homolog) and <italic>Bcl2</italic> (B-cell lymphoma 2). Protein kinase B or Akt, a key protein involved in the activation of PI3K-Akt pathway and is crucial in promoting cell survivability [<xref rid="B43-ijms-16-09693" ref-type="bibr">43</xref>], is inhibited by the key microRNAs (miR-22, miR-214, miR-125a-3p, miR-320 and let-7 family) that are down-regulated with the addition of IGF-1. Chen <italic>et al.</italic> reported that down-regulation of miR-133b significantly overexpressed <italic>Akt1</italic> mRNA, which increased T24 bladder cancer cell proliferation and reduced cell apoptosis [<xref rid="B44-ijms-16-09693" ref-type="bibr">44</xref>]. Overexpression of <italic>Akt1</italic> gene also triggers the expression of <italic>Pten</italic>, an antagonist of the PI3K pathway [<xref rid="B45-ijms-16-09693" ref-type="bibr">45</xref>]. It has been reported that up-regulation of miR-93 stimulated cell proliferation and inhibited apoptosis through Akt pathway by targeting <italic>Pten</italic> and <italic>Cdkn1a</italic> [<xref rid="B46-ijms-16-09693" ref-type="bibr">46</xref>]. Wang <italic>et al.</italic> showed experimental evidence of miR-21 inhibition triggered the overexpression of <italic>Pten</italic> and <italic>Ptpn14</italic>, which was a result of suppressed intrahepatic cholangiocarcinoma cell proliferation and growth [<xref rid="B47-ijms-16-09693" ref-type="bibr">47</xref>].</p>
+      <p>Moreover, down-regulation of key microRNAs also triggers the expression of anti-apoptotic gene <italic>Bcl-2</italic> and tumor suppressor <italic>p53</italic>. Down-regulation of miR-451 and miR-885-5p in neuron-like cells has been shown to increase <italic>Bcl-2</italic> expression and lead to reduction of apoptosis activity [<xref rid="B48-ijms-16-09693" ref-type="bibr">48</xref>]. Similarly, Lin <italic>et al.</italic> showed that inhibition of miR-34a restored the down-regulated expression of anti-apoptotic gene <italic>Bcl-2</italic> and thus decreased apoptotic rate in pancreatic &#x3B2;-cell [<xref rid="B49-ijms-16-09693" ref-type="bibr">49</xref>]. In contrast, <italic>Tp53</italic> has been described as essential mediator of cell cycle arrest or pro-apoptotic gene, which has strong genetic and biochemical ties with <italic>Bcl-2</italic> [<xref rid="B50-ijms-16-09693" ref-type="bibr">50</xref>]. Yoo <italic>et al.</italic> reported that inhibition of cell growth may occur through up-regulation of p53 which leading to G1/S cell cycle arrest [<xref rid="B51-ijms-16-09693" ref-type="bibr">51</xref>]. Zhang <italic>et al.</italic> also reported that SOX4 transcription factor inhibits Glioblastoma cell growth partly via the activation of p53-p21 signaling which induces G0/G1 cell cycle arrest [<xref rid="B52-ijms-16-09693" ref-type="bibr">52</xref>]. Therefore, taking all together we could postulate that down-regulation of key microRNAs due to IGF-1 induction simultaneously activate the agonist and antagonist of cell growth, which on the one hand, enhanced cell proliferation, but on the other hand, might control the rate of cell proliferation.</p>
+      <p>Cell growth and survival-related pathways, including the pathways in cancer (KEGG 5200), MAPK signaling (KEGG 4010), apoptosis (KEGG 4210), cytokine-cytokine receptor interaction (KEGG 4060), and TGF-&#x3B2; (KEGG 4350) cell cycle, were significantly (<italic>p</italic> &lt; 0.05, FDR &lt; 0.01) enriched in the predicted target genes of down-regulated microRNAs in Groups A and B. This suggests that the down-regulation of microRNAs due to growth factors is biologically functional (<xref ref-type="table" rid="ijms-16-09693-t005">Table 5</xref>). Up-regulated genes due to the down-regulation of microRNAs by EGF, bFGF, and IGF-1 treatment were predicted to target EGFR, FGFR, and IGFR, respectively, via cytokine-cytokine receptor interaction in the cancer pathway. This leads to the activation of Ras protein, which is involved in MAPK and PI3K-Akt signaling pathways. The MAPK [<xref rid="B53-ijms-16-09693" ref-type="bibr">53</xref>,<xref rid="B54-ijms-16-09693" ref-type="bibr">54</xref>] and PI3K-Akt pathways [<xref rid="B43-ijms-16-09693" ref-type="bibr">43</xref>] have been widely reported to be involved in cell proliferation and evading apoptosis. Moreover, the effects of growth factors on the Ras/MAPK/ERK signaling pathway inhibit the TGF-&#x3B2; pathway, which blocks cells from apoptosis and neurogenesis. At the same time, the activated MAPK pathway also triggers the expression of c-Myc regulator genes, which inhibit cyclin-dependent kinase inhibitor 2B on the TGF-&#x3B2; pathway, and leads to cell cycle arrest at G1 phase. In addition, the involvement of the apoptosis pathway showed that down-regulated microRNAs regulate the effect of IAP and Bcl-2, which suppress apoptotic activity [<xref rid="B55-ijms-16-09693" ref-type="bibr">55</xref>,<xref rid="B56-ijms-16-09693" ref-type="bibr">56</xref>]. Therefore, we postulate that the crosstalk between the MAPK and TGF-&#x3B2; pathways is the underlying mechanism of maintaining NPCs in undifferentiated state and producing less apoptotic cells [<xref rid="B57-ijms-16-09693" ref-type="bibr">57</xref>].</p>
+      <p>The other functionally related pathways identified were the ErbB (KEGG 4010) and Toll-like signaling pathways (KEGG 4620). EGF targets the ErbB-1 (EGFR) receptor in the ErbB signaling pathway, which similarly leads to the activation of the MAPK and PI3K-Akt signaling pathways and, thus, regulates cell proliferation. The ErbB signaling pathway has been shown to promote the proliferation of neoplastic Schwann cells [<xref rid="B58-ijms-16-09693" ref-type="bibr">58</xref>]. The Toll-like signaling pathway was reported to modulate the NPC cell-fate decision and provide neuroprotective effects through the activation of Toll-like receptors (TLRs), such as TLR2 and TLR4 [<xref rid="B59-ijms-16-09693" ref-type="bibr">59</xref>,<xref rid="B60-ijms-16-09693" ref-type="bibr">60</xref>]. In summary, each pathway is interconnected with each other and, as a result, promotes NPCs proliferation and reduces cells apoptosis.</p>
+    </sec>
+    <sec>
+      <title>4. Materials and Methods</title>
+      <sec>
+        <title>4.1. Animals</title>
+        <p>Male Sprague-Dawley rats of age 4 to 6 weeks were obtained from the Animal Research and Service Centre of Universiti Sains Malaysia (USM). All rats had access to water and food pellets <italic>ad libitum</italic>. The animal ethics clearance for all experimental procedures involving animals was approved by the board of the Animal Ethics Committee of USM (USM/Animal Ethics Approval/(59) (196)).</p>
+      </sec>
+      <sec>
+        <title>4.2. Primary Cells Isolation and Culture</title>
+        <p>Bone marrow tissues were isolated from the rats&#x2019; tibia and femoral bones according to previously described procedures [<xref rid="B3-ijms-16-09693" ref-type="bibr">3</xref>]. Briefly, animals were euthanized by intraperitoneal injection of ketamine (100 mg/mL) and xylazine (100 mg/mL) (both from Ilium Troy Laboratory, Blacktown, Australia). The central canal of the bone was flushed with 2 mL of Dulbecco Modified Eagle&#x2019;s Media (DMEM) supplemented with 10% fetal bovine serum (FBS) and 1% penicillin-streptomycin (pen/strep) (all from Gibco, Life Technologies, Carlsbad, CA, USA) to extrude the marrow tissue. Mononuclear cells were purified using Ficoll-Paque PREMIUM solution (GE Healthcare Bioscience, Uppsala, Sweden) and the extracted cells were cultured on T25 cm<sup>2</sup> flasks in a 37 &#xB0;C humidified chamber with 5% CO<sub>2</sub>. After 24 h, the non-adherent cells were removed and the attached cells were allowed to grow. Complete media for BMSC proliferation (DMEM + 20% FBS + 1% pen/strep + 1% nonessential amino acids) was used to maintain the cells. The cells were subcultured until passage 3 (P3) and were then characterized by Fluorescein isothicyanate (FITC)-conjugated CD90 mouse monoclonal antibody (1:200; Thermo Scientific, Waltham, MA, USA), a surface marker for BMSCs. Translineage differentiation was conducted using fourth generation (P4) of cells.</p>
+      </sec>
+      <sec>
+        <title>4.3. Translineage Differentiation of BMSCs into NPCs</title>
+        <p>BMSCs at P4 were differentiated into NPCs as previously described [<xref rid="B3-ijms-16-09693" ref-type="bibr">3</xref>]. Briefly, BMSCs were dissociated and induced into neurogenesis with NeuroCult<sup>&#xAE;</sup> NS-A proliferation media (STEMCELLS Technologies, Vancouver, BC, Canada) supplemented with three combinations of growth factors: Group A (10 ng/mL EGF + 10 ng/mL bFGF); Group B (10 ng/mL EGF + 10 ng/mL bFGF + 10 ng/mL IGF-1); and Group C, negative control involving no growth factors. Epidermal growth factor (EGF, catalog # GF155), fibroblast growth factor basic (bFGF, catalog # GF003) and insulin-like growth factor (IGF-1, catalog # GF121) were purchased from Merck Millipore, Billerica, MA, USA. Cells were maintained for 1 week in the incubator at 37 &#xB0;C with 5% CO<sub>2</sub>. Fresh growth factors were added by changing half the media on the second and fourth days of differentiation.</p>
+      </sec>
+      <sec>
+        <title>4.4. NPC Proliferation Assay</title>
+        <p>Viability of the NPCs from each group was determined by colorimetric method using CellTiter 96<sup>&#xAE;</sup> Aqueous One solution (Promega, Fitchburg, WI, USA). Briefly, BMSCs were counted using a Countess<sup>&#xAE;</sup> automated cell counter (Life Technologies, Carlsbad, CA, USA). Then they were seeded into 96-well cell culture plates at 1 &#xD7; 10<sup>3</sup> cells per well within their respective differentiation media. The cells were incubated with CellTiter 96<sup>&#xAE;</sup> Aqueous One solution at 37 &#xB0;C for 4 h prior to optical density measurement. Spectrophotometric measurements were obtained from each group of cells at 12, 24, 48, 72 and 96 h according to the exact procedure suggested in the instruction manual.</p>
+      </sec>
+      <sec>
+        <title>4.5. NPC Survivability Assay</title>
+        <p>The survivability of NPCs under the influence of growth factors was assessed using FITC-conjugated Annexin V and propidium iodide stains (both from BD Pharmingen, San Diego, CA, USA) according to the manufacturer&#x2019;s protocol. Apoptotic activities among groups were compared by quantitative data acquired from flow cytometry analysis.</p>
+      </sec>
+      <sec>
+        <title>4.6. MicroRNA Isolation and Quality Control</title>
+        <p>Total RNA from nine cell populations, including Group A (Day 1, Day 3, Day 5), Group B (Day 1, Day 3, Day 5), and Group C (control) (Day 1, Day 3, Day 5), were isolated for microRNA analyses. Total RNA from each population was isolated in triplicate from three independent experiments with an miRNeasy mini kit (Qiagen, Hilden, Germany) as per the manufacturer&#x2019;s instruction. The quantity of RNA was assessed using a NanoDrop&#x2122; 2000 Spectrophotometer (Thermo Scientific, Driesch, Germany). The quality of the total RNA and small RNA was checked using a 2200 Agilent TapeStation System (Agilent Technologies, Santa Clara, CA, USA). The system detected 28S and 18S ribosomal RNA ratios and generated an RNA integrity number equivalent (RIN<sup>e</sup>) value. The existence of a small RNA population was confirmed from the gel snapshot (<xref ref-type="app" rid="app1-ijms-16-09693">Figure S3</xref>). Only samples with a 28S/18S more than 1.2, RIN<sup>e</sup> value more than 9.0, and detectable small RNA strands were used for microarray analysis (<xref ref-type="app" rid="app1-ijms-16-09693">Table S7</xref>). Total RNA samples were aliquoted and stored at &#x2212;80 &#xB0;C until used.</p>
+      </sec>
+      <sec>
+        <title>4.7. Hybridization and Microarray Scanning</title>
+        <p>A total of 27 (3 groups &#xD7; 3 days &#xD7; 3 biological replicates) RNA samples (1000 ng) from the three groups of cells were polyadenylated and ligated to a biotin signal molecule with a FlashTag&#x2122; biotin HSA RNA labeling kit (Genisphere, Hatfield, PA, USA). A colorimetric Enzyme Linked Oligosorbent Assay (ELOSA) was run simultaneously to confirm successful biotin labeling. The biotinylated RNA samples were then hybridized to Affymetrix GeneChip<sup>&#xAE;</sup> microRNA 2.0 arrays (Affymetrix, Santa Clara, CA, USA) for 16 hours protected from light at 48 &#xB0;C with a rotation speed of 60 rpm. After hybridization, the arrays were washed and stained according to the FS450_0003 fluidics protocol, and then they were scanned using an Affymetrix 3000 7G scanner.</p>
+        <p>The probe cell intensity files (*.CEL files) generated by Affymetrix GeneChip<sup>&#xAE;</sup> Command Console<sup>&#xAE;</sup> software were imported into microRNA QC Tool software, version 1.1.1, to determine data quality. Expression Console&#x2122; software was used to process the *.CEL files into probe level summarization files (*.CHP files) using a robust multi-array (RMA) detection algorithm workflow. The *.CHP files were further analyzed using Transcriptome Analysis Console (TAC) software, version 2.0, to identify and visualize the differentially expressed genes. All software products were downloaded from Affymetrix homepage (<uri xlink:type="simple" xlink:href="http://www.affymetrix.com/">http://www.affymetrix.com/</uri>).</p>
+      </sec>
+      <sec>
+        <title>4.8. MicroRNA Microarray Data Analysis</title>
+        <p>The microRNA microarray data analysis was performed with the GeneSpring GX 12.6 software (Agilent Technologies, Santa Clara, CA, USA). The raw *.CEL files were imported into the software prior to the analysis. The default RMA detection above background (RMA-DABG) setting was used to background correct, normalize, and summarize all expression values for each gene on each array. This dataset is available through the Gene Expression Omnibus (GEO) database (<uri xlink:type="simple" xlink:href="http://www.ncbi.nlm.nih.gov/">http://www.ncbi.nlm.nih.gov/</uri>) with the accession number GSE60060. A two-way Analysis of variance (ANOVA) was then used to calculate the p-value for each microRNA probe comparing among the groups in three different time points. The significance threshold value to define the up-regulation and down-regulation of microRNAs was at fold-change more than or equal to 1.5 (at least one out of three treatment days) with an equivalent p-value of less than 0.05. From these microRNAs, we analyzed the microRNA expression patterns obtained by three interpretation approaches. First, Group A versus Group C analyzed the microRNA expression pattern due to the effects of EGF and bFGF, as the combination of these growth factors are essential for neural lineage differentiation. Second, Group B versus Group C analyzed the microRNA expression pattern due to EGF, bFGF, and IGF-1. Third, Group B versus Group A analyzed the fold changes between the two groups due to IGF-1 addition. Hierarchical clustering analysis of differentially expressed microRNAs was performed using MultiExperiment Viewer (MeV), version 4.0, software (Dana-Farber Cancer Institute, Boston, MA, USA).</p>
+      </sec>
+      <sec>
+        <title>4.9. MicroRNA-qPCR Assay</title>
+        <p>MicroRNA expressions were validated using quantitative reverse transcription polymerase chain reaction (qRT-PCR) according to the manufacturer&#x2019;s protocol (all from Applied Biosystems, Life Technologies Co.; Waltham, MA, USA). Total RNA samples were transcribed to cDNA with a TaqMan<sup>&#xAE;</sup> MicroRNA Reverse Transcription kit. The TaqMan<sup>&#xAE;</sup> Universal PCR Master Mix II with no Uracil-N glycoslyase was used and qRT-PCR was performed using the following thermal protocol with the TaqMan<sup>&#xAE;</sup> Real-Time PCR system: 95 &#xB0;C for 10 min, 40 cycles of 95 &#xB0;C for 15 s, and 60 &#xB0;C for 60 s. Three microRNAs were selected for validation based on the comparison between Groups A and B (<xref ref-type="table" rid="ijms-16-09693-t003">Table 3</xref>). Of these, let-7b was from the down-regulated list, and miR-26a and miR-181a were from the up-regulated list. Forward and reverse primers for mature microRNA miR-26a-3p (Assay ID: 462650_mat; miR-seq: 5'-CCUAUUCUUGGUUACUUGCAC-3'), miR-181a-3p (Assay ID: 000516; miR-seq: 5'-ACCAUCGACCGUUGAUUGUACC-3'), and let-7b-3p (Assay ID: Rn03465224_pri; miR-seq: 5'-CUAUACAACCUACUGCCUUCCC-3') were used for qRT-PCR amplification. Small nucleolar RNA U87 (Assay ID: 001712; 72 bp) was selected as an endogenous control gene. The relative expression of microRNA was calculated using Relative Expression Software Tool (REST) 2009, V2.0.13, (<uri xlink:type="simple" xlink:href="http://rest.gene-quantification.info">http://rest.gene-quantification.info</uri>) [<xref rid="B61-ijms-16-09693" ref-type="bibr">61</xref>]. The mean difference between the cycle thresholds value (<italic>C</italic><sub>t</sub>) of each microRNA and the U87 endogenous control within each sample group was calculated (&#x2212;&#x2206;<italic>C</italic><sub>t</sub>). The fold change in microRNA expression was determined by calculating the difference between the mean &#x2206;<italic>C</italic><sub>t</sub> of the Group B and Group A samples (&#x2206;&#x2206;<italic>C</italic><sub>t</sub>), and the results were expressed as fold-change (2<sup>&#x2212;&#x2206;&#x2206;<italic>C</italic>t</sup>) [<xref rid="B18-ijms-16-09693" ref-type="bibr">18</xref>]. The independent two-tailed <italic>t</italic>-test was used to compare the <italic>C</italic><sub>t</sub> value changes among groups, and <italic>p</italic>-value of less than 0.05 was considered statistically significant.</p>
+      </sec>
+      <sec>
+        <title>4.10. Target Prediction</title>
+        <p>Target mRNAs was predicted by the miRWalk [<xref rid="B19-ijms-16-09693" ref-type="bibr">19</xref>] database (<uri xlink:type="simple" xlink:href="http://www.ma.uni-heidelberg.de/apps/zmf/mirwalk/">http://www.ma.uni-heidelberg.de/apps/zmf/mirwalk/</uri>), which takes into account the improvement of prediction accuracy by multiple computational methods. A validated target module on miRWalk database was used to predict the genes targeted by identified key microRNAs. This module hosts all experimentally verified microRNAs information associated with their genes, pathways, and also the information on proteins known to be involved in microRNA processing. List of targeted mRNAs in the form of official gene symbol were extracted from the miRWalk prediction results for further analysis.</p>
+      </sec>
+      <sec>
+        <title>4.11. Gene Ontology (GO) Analysis</title>
+        <p>Predicted gene lists for both up- and down-patterns of microRNA clusters were uploaded to the Database for Annotation, Visualization, and Integration Discovery (DAVID) software, version 6.7, (<uri xlink:type="simple" xlink:href="http://david.abcc.ncifcrf.gov">http://david.abcc.ncifcrf.gov</uri>) for simple GO analysis as previously described [<xref rid="B39-ijms-16-09693" ref-type="bibr">39</xref>,<xref rid="B62-ijms-16-09693" ref-type="bibr">62</xref>]. Up-regulated or down-regulated microRNAs with consistent expression at least on two consecutive treatment days were considered in the analysis. The <italic>p</italic>-value for each GO-term was calculated using Fisher&#x2019;s exact test. The Benjamini-Hochberg procedure was applied for increased stringency. The resultant statistical significant GO-terms were entered into the Reduce + Visualize Gene Ontology (REViGO) software (Rudjer Boskovic Institute, Zagreb, Croatia) to construct a meaningful network structure by excluding redundant subsets of GO terms. Functional similarity among GO terms was measured based on the SimRel score [<xref rid="B63-ijms-16-09693" ref-type="bibr">63</xref>].</p>
+      </sec>
+      <sec>
+        <title>4.12. MicroRNA-mRNA Functional Network Analysis</title>
+        <p>GeneMANIA web tool (<uri xlink:type="simple" xlink:href="http://genemania.org/">http://genemania.org/</uri>) [<xref rid="B64-ijms-16-09693" ref-type="bibr">64</xref>] was used to construct the molecular functional networks of the genes targeted by specific microRNAs. A default weighting method (maximized genes connectivity strategy) was used for calculations. All down-regulated microRNAs in Group B (IGF-1 treated) were considered in the analysis. Briefly, predicted target genes of individual microRNA were clustered using DAVID software with high stringency (&#x3BA; similarity threshold = 0.85). Genes related to GO: 0043066 negative regulation of apoptosis process were analyzed using GeneMANIA web tool and functional network images were developed. The database version for these searches was 1 June 2014 and application version 3.1.2.8.</p>
+      </sec>
+      <sec>
+        <title>4.13. Pathway Analysis</title>
+        <p>A pathway prediction analysis was performed using DAVID [<xref rid="B62-ijms-16-09693" ref-type="bibr">62</xref>]. Similar to GO analysis, significant pathways were identified based on the input list of predicted genes and corrected <italic>p</italic>-value. The gene lists from Group A, Group B, and the let-7 family were considered in the analysis. Only highly significant pathways with a <italic>p</italic>-value less than 0.05 and FDR less than 0.01 were listed as potential pathways for further analysis. The pathway information used in this study was generated from the Kyoto Encyclopedia of Genes and Genomes (KEGG, <uri xlink:type="simple" xlink:href="http://www.genome.jp/kegg/">http://www.genome.jp/kegg/</uri>) online database.</p>
+      </sec>
+      <sec>
+        <title>4.14. Statistical Analysis</title>
+        <p>The two-way ANOVA was done for the microRNA profiles with the GeneSpring software. The Student&#x2019;s <italic>t</italic>-test was performed to compare the gene expression value between two groups and all data were expressed as the mean &#xB1; SD. A <italic>p</italic>-value of less than 0.05 was considered statistically significant in all experiments. However, the <italic>p</italic>-values for GO and pathway analyses were calculated based on Fisher&#x2019;s exact test and corrections according to the Benjamini-Hochberg procedure were applied.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>5. Conclusions</title>
+      <p>In conclusion, the results of the present study indicate that the introduction of IGF-1 in the basic neural induction media with EGF and bFGF enhanced the quality of BMSC-derived NPCs in terms of cell proliferation and survivability by the down-regulation of key microRNAs. These fundamental findings may provide clues to further our understanding of the mechanisms and roles of microRNAs as key regulators of BMSC-derived NPC maintenance and their prospect in future medical application, especially in neural regenerative medicine.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>We wish to acknowledge Zulkifli Mustafa (Department of Neuroscience, USM) for his technical assistance in acquiring immunofluorescence pictures. Badrulhisham Yahaya and Norashikin Zakaria (Advanced Medical and Dental Institute, USM) for their technical support regarding bioinformatics software. Mohd Ros Sidek (Human Genome Center, USM) for his technical assistance in using microarray station. This study was supported by the Fundamental Research Grant Scheme from the Ministry of Higher Education Malaysia (Grant No: 203/PPSP/6171131), USM Research University Individual Grant (Grant No: 1001/PPSP/812170) and the USM Fellowship Scheme awarded to Tee Jong Huat as financial assistance.</p>
+    </ack>
+    <app-group>
+      <app id="app1-ijms-16-09693">
+        <title>Supplementary Materials</title>
+        <supplementary-material content-type="local-data" id="ijms-16-09693-s001">
+          <media xlink:href="ijms-16-09693-s001.zip">
+            <caption>
+              <p>Click here for additional data file.</p>
+            </caption>
+          </media>
+        </supplementary-material>
+        <p>Supplementary materials can be found at <uri xlink:type="simple" xlink:href="http://www.mdpi.com/1422-0067/16/05/9693/s1">http://www.mdpi.com/1422-0067/16/05/9693/s1</uri>.</p>
+      </app>
+    </app-group>
+    <notes>
+      <title>Author Contributions</title>
+      <p>Tee Jong Huat, Jafri Malin Abdullah, Fauziah Mohamad Idris and Hasnan Jaafar conceived and designed the experiments; Tee Jong Huat and Amir Ali Khan performed the experiments; Tee Jong Huat, Amir Ali Khan and Hasnan Jaafar analyzed the data; Jafri Malin Abdullah, Fauziah Mohamad Idris and Hasnan Jaafar contributed reagents/materials/analysis tools; Tee Jong Huat wrote the paper; Tee Jong Huat and Amir Ali Khan revised the manuscript. All authors have read and approved the final manuscript.</p>
+    </notes>
+    <notes>
+      <title>Conflicts of Interest</title>
+      <p>The authors declare no conflict of interest</p>
+    </notes>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1-ijms-16-09693">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stecklum</surname><given-names>M.</given-names></name><name><surname>Wulf-Goldenberg</surname><given-names>A.</given-names></name><name><surname>Purfurst</surname><given-names>B.</given-names></name><name><surname>Siegert</surname><given-names>A.</given-names></name><name><surname>Keil</surname><given-names>M.</given-names></name><name><surname>Eckert</surname><given-names>K.</given-names></name><name><surname>Fichtner</surname><given-names>I.</given-names></name></person-group>
+<article-title>Cell differentiation mediated by co-culture of human umbilical cord blood stem cells with murine hepatic cells</article-title>
+<source>In Vitro Cell. Dev. Biol. Anim.</source>
+<year>2015</year>
+<volume>51</volume>
+<fpage>183</fpage>
+<lpage>191</lpage>
+<pub-id pub-id-type="doi">10.1007/s11626-014-9817-3</pub-id>
+<pub-id pub-id-type="pmid">25270685</pub-id></element-citation>
+      </ref>
+      <ref id="B2-ijms-16-09693">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhao</surname><given-names>Y.</given-names></name><name><surname>Jiang</surname><given-names>H.</given-names></name><name><surname>Liu</surname><given-names>X.W.</given-names></name><name><surname>Chen</surname><given-names>J.T.</given-names></name><name><surname>Xiang</surname><given-names>L.B.</given-names></name><name><surname>Zhou</surname><given-names>D.P.</given-names></name></person-group>
+<article-title>Neurogenic differentiation from adipose-derived stem cells and application for autologous transplantation in spinal cord injury</article-title>
+<source>Cell Tissue Bank.</source>
+<year>2014</year>
+<pub-id pub-id-type="doi">10.1007/s10561-014-9476-3</pub-id>
+</element-citation>
+      </ref>
+      <ref id="B3-ijms-16-09693">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Huat</surname><given-names>T.J.</given-names></name><name><surname>Khan</surname><given-names>A.A.</given-names></name><name><surname>Pati</surname><given-names>S.</given-names></name><name><surname>Mustafa</surname><given-names>Z.</given-names></name><name><surname>Abdullah</surname><given-names>J.M.</given-names></name><name><surname>Jaafar</surname><given-names>H.</given-names></name></person-group>
+<article-title>IGF-1 enhances cell proliferation and survival during early differentiation of mesenchymal stem cells to neural progenitor-like cells</article-title>
+<source>BMC Neurosci.</source>
+<year>2014</year>
+<volume>15</volume>
+<fpage>91</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2202-15-91</pub-id>
+<pub-id pub-id-type="pmid">25047045</pub-id></element-citation>
+      </ref>
+      <ref id="B4-ijms-16-09693">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Supeno</surname><given-names>N.E.</given-names></name><name><surname>Pati</surname><given-names>S.</given-names></name><name><surname>Hadi</surname><given-names>R.A.</given-names></name><name><surname>Ghani</surname><given-names>A.R.</given-names></name><name><surname>Mustafa</surname><given-names>Z.</given-names></name><name><surname>Abdullah</surname><given-names>J.M.</given-names></name><name><surname>Idris</surname><given-names>F.M.</given-names></name><name><surname>Han</surname><given-names>X.</given-names></name><name><surname>Jaafar</surname><given-names>H.</given-names></name></person-group>
+<article-title>IGF-1 acts as controlling switch for long-term proliferation and maintenance of EGF/FGF-responsive striatal neural stem cells</article-title>
+<source>Int. J. Med. Sci.</source>
+<year>2013</year>
+<volume>10</volume>
+<fpage>522</fpage>
+<lpage>531</lpage>
+<pub-id pub-id-type="doi">10.7150/ijms.5325</pub-id>
+<pub-id pub-id-type="pmid">23532711</pub-id></element-citation>
+      </ref>
+      <ref id="B5-ijms-16-09693">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Sato</surname><given-names>F.</given-names></name><name><surname>Tsuchiya</surname><given-names>S.</given-names></name><name><surname>Meltzer</surname><given-names>S.J.</given-names></name><name><surname>Shimizu</surname><given-names>K.</given-names></name></person-group>
+<article-title>MicroRNAs and epigenetics</article-title>
+<source>FEBS J.</source>
+<year>2011</year>
+<volume>278</volume>
+<fpage>1598</fpage>
+<lpage>1609</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1742-4658.2011.08089.x</pub-id>
+<pub-id pub-id-type="pmid">21395977</pub-id></element-citation>
+      </ref>
+      <ref id="B6-ijms-16-09693">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jia</surname><given-names>H.</given-names></name><name><surname>Zhang</surname><given-names>Z.</given-names></name><name><surname>Zou</surname><given-names>D.</given-names></name><name><surname>Wang</surname><given-names>B.</given-names></name><name><surname>Yan</surname><given-names>Y.</given-names></name><name><surname>Luo</surname><given-names>M.</given-names></name><name><surname>Dong</surname><given-names>L.</given-names></name><name><surname>Yin</surname><given-names>H.</given-names></name><name><surname>Gong</surname><given-names>B.</given-names></name><name><surname>Li</surname><given-names>Z.</given-names></name><etal/></person-group>
+<article-title>MicroRNA-10a is down-regulated by DNA methylation and functions as a tumor suppressor in gastric cancer cells</article-title>
+<source>PLoS ONE</source>
+<year>2014</year>
+<volume>9</volume>
+<fpage>e88057</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0088057</pub-id>
+<pub-id pub-id-type="pmid">24498243</pub-id></element-citation>
+      </ref>
+      <ref id="B7-ijms-16-09693">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Nohata</surname><given-names>N.</given-names></name><name><surname>Hanazawa</surname><given-names>T.</given-names></name><name><surname>Kinoshita</surname><given-names>T.</given-names></name><name><surname>Inamine</surname><given-names>A.</given-names></name><name><surname>Kikkawa</surname><given-names>N.</given-names></name><name><surname>Itesako</surname><given-names>T.</given-names></name><name><surname>Yoshino</surname><given-names>H.</given-names></name><name><surname>Enokida</surname><given-names>H.</given-names></name><name><surname>Nakagawa</surname><given-names>M.</given-names></name><name><surname>Okamoto</surname><given-names>Y.</given-names></name><etal/></person-group>
+<article-title>Tumour-suppressive microRNA-874 contributes to cell proliferation through targeting of histone deacetylase 1 in head and neck squamous cell carcinoma</article-title>
+<source>Br. J. Cancer</source>
+<year>2013</year>
+<volume>108</volume>
+<fpage>1648</fpage>
+<lpage>1658</lpage>
+<pub-id pub-id-type="doi">10.1038/bjc.2013.122</pub-id>
+<pub-id pub-id-type="pmid">23558898</pub-id></element-citation>
+      </ref>
+      <ref id="B8-ijms-16-09693">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Aranha</surname><given-names>M.M.</given-names></name><name><surname>Santos</surname><given-names>D.M.</given-names></name><name><surname>Sol&#xE1;</surname><given-names>S.</given-names></name><name><surname>Steer</surname><given-names>C.J.</given-names></name><name><surname>Rodrigues</surname><given-names>C.M.P.</given-names></name></person-group>
+<article-title>miR-34a regulates mouse neural stem cell differentiation</article-title>
+<source>PLoS ONE</source>
+<year>2011</year>
+<volume>6</volume>
+<fpage>e21396</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0021396</pub-id>
+<pub-id pub-id-type="pmid">21857907</pub-id></element-citation>
+      </ref>
+      <ref id="B9-ijms-16-09693">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stappert</surname><given-names>L.</given-names></name><name><surname>Roese-Koerner</surname><given-names>B.</given-names></name><name><surname>Br&#xFC;stle</surname><given-names>O.</given-names></name></person-group>
+<article-title>The role of microRNAs in human neural stem cells, neuronal differentiation and subtype specification</article-title>
+<source>Cell Tissue Res.</source>
+<year>2015</year>
+<volume>359</volume>
+<fpage>47</fpage>
+<lpage>64</lpage>
+<pub-id pub-id-type="doi">10.1007/s00441-014-1981-y</pub-id>
+<pub-id pub-id-type="pmid">25172833</pub-id></element-citation>
+      </ref>
+      <ref id="B10-ijms-16-09693">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pham</surname><given-names>J.T.</given-names></name><name><surname>Gallicano</surname><given-names>G.I.</given-names></name></person-group>
+<article-title>Specification of neural cell fate and regulation of neural stem cell proliferation by microRNAs</article-title>
+<source>Am. J. Stem Cells</source>
+<year>2012</year>
+<volume>1</volume>
+<fpage>182</fpage>
+<lpage>195</lpage>
+<pub-id pub-id-type="pmid">23671807</pub-id></element-citation>
+      </ref>
+      <ref id="B11-ijms-16-09693">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liu</surname><given-names>N.K.</given-names></name><name><surname>Xu</surname><given-names>X.M.</given-names></name></person-group>
+<article-title>MicroRNA in central nervous system trauma and degenerative disorders</article-title>
+<source>Physiol. Genomics</source>
+<year>2011</year>
+<volume>43</volume>
+<fpage>571</fpage>
+<lpage>580</lpage>
+<pub-id pub-id-type="doi">10.1152/physiolgenomics.00168.2010</pub-id>
+<pub-id pub-id-type="pmid">21385946</pub-id></element-citation>
+      </ref>
+      <ref id="B12-ijms-16-09693">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Matsubara</surname><given-names>H.</given-names></name><name><surname>Takeuchi</surname><given-names>T.</given-names></name><name><surname>Nishikawa</surname><given-names>E.</given-names></name><name><surname>Yanagisawa</surname><given-names>K.</given-names></name><name><surname>Hayashita</surname><given-names>Y.</given-names></name><name><surname>Ebi</surname><given-names>H.</given-names></name><name><surname>Yamada</surname><given-names>H.</given-names></name><name><surname>Suzuki</surname><given-names>M.</given-names></name><name><surname>Nagino</surname><given-names>M.</given-names></name><name><surname>Nimura</surname><given-names>Y.</given-names></name><etal/></person-group>
+<article-title>Apoptosis induction by antisense oligonucleotides against miR-17-5p and miR-20a in lung cancers overexpressing miR-17-92</article-title>
+<source>Oncogene</source>
+<year>2007</year>
+<volume>26</volume>
+<fpage>6099</fpage>
+<lpage>6105</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.onc.1210425</pub-id>
+<pub-id pub-id-type="pmid">17384677</pub-id></element-citation>
+      </ref>
+      <ref id="B13-ijms-16-09693">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Qureshi</surname><given-names>I.A.</given-names></name><name><surname>Mehler</surname><given-names>M.F.</given-names></name></person-group>
+<article-title>Emerging roles of non-coding RNAs in brain evolution, development, plasticity and disease</article-title>
+<source>Nat. Rev. Neurosci.</source>
+<year>2012</year>
+<volume>13</volume>
+<fpage>528</fpage>
+<lpage>541</lpage>
+<pub-id pub-id-type="doi">10.1038/nrn3234</pub-id>
+<pub-id pub-id-type="pmid">22814587</pub-id></element-citation>
+      </ref>
+      <ref id="B14-ijms-16-09693">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lan</surname><given-names>H.</given-names></name><name><surname>Lu</surname><given-names>H.</given-names></name><name><surname>Wang</surname><given-names>X.</given-names></name><name><surname>Jin</surname><given-names>H.</given-names></name></person-group>
+<article-title>MicroRNAs as potential biomarkers in cancer: Opportunities and challenges</article-title>
+<source>BioMed Res. Int.</source>
+<year>2015</year>
+<volume>2015</volume>
+<fpage>125094</fpage>
+<pub-id pub-id-type="doi">10.1155/2015/125094</pub-id>
+<pub-id pub-id-type="pmid">25874201</pub-id></element-citation>
+      </ref>
+      <ref id="B15-ijms-16-09693">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jia</surname><given-names>W.</given-names></name><name><surname>Chen</surname><given-names>W.</given-names></name><name><surname>Kang</surname><given-names>J.</given-names></name></person-group>
+<article-title>The functions of microRNAs and long non-coding RNAs in embryonic and induced pluripotent stem cells</article-title>
+<source>Genomics Proteomics Bioinform.</source>
+<year>2013</year>
+<volume>11</volume>
+<fpage>275</fpage>
+<lpage>283</lpage>
+<pub-id pub-id-type="doi">10.1016/j.gpb.2013.09.004</pub-id>
+</element-citation>
+      </ref>
+      <ref id="B16-ijms-16-09693">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liao</surname><given-names>J.</given-names></name><name><surname>Liu</surname><given-names>R.</given-names></name><name><surname>Yin</surname><given-names>L.</given-names></name><name><surname>Pu</surname><given-names>Y.</given-names></name></person-group>
+<article-title>Expression profiling miRNAs derived from human esophageal cancer cells by solexa high-throughput sequencing</article-title>
+<source>Int. J. Mol. Sci.</source>
+<year>2014</year>
+<volume>15</volume>
+<fpage>15530</fpage>
+<lpage>15551</lpage>
+<pub-id pub-id-type="doi">10.3390/ijms150915530</pub-id>
+<pub-id pub-id-type="pmid">25184951</pub-id></element-citation>
+      </ref>
+      <ref id="B17-ijms-16-09693">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Juhila</surname><given-names>J.</given-names></name><name><surname>Sipil&#xE4;</surname><given-names>T.</given-names></name><name><surname>Icay</surname><given-names>K.</given-names></name><name><surname>Nicorici</surname><given-names>D.</given-names></name><name><surname>Ellonen</surname><given-names>P.</given-names></name><name><surname>Kallio</surname><given-names>A.</given-names></name><name><surname>Korpelainen</surname><given-names>E.</given-names></name><name><surname>Greco</surname><given-names>D.</given-names></name><name><surname>Hovatta</surname><given-names>I.</given-names></name></person-group>
+<article-title>MicroRNA expression profiling reveals miRNA families regulating specific biological pathways in mouse frontal cortex and hippocampus</article-title>
+<source>PLoS ONE</source>
+<year>2011</year>
+<volume>6</volume>
+<fpage>e21495</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0021495</pub-id>
+<pub-id pub-id-type="pmid">21731767</pub-id></element-citation>
+      </ref>
+      <ref id="B18-ijms-16-09693">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Tang</surname><given-names>Y.</given-names></name><name><surname>Ling</surname><given-names>Z.M.</given-names></name><name><surname>Fu</surname><given-names>R.</given-names></name><name><surname>Li</surname><given-names>Y.Q.</given-names></name><name><surname>Cheng</surname><given-names>X.</given-names></name><name><surname>Song</surname><given-names>F.H.</given-names></name><name><surname>Luo</surname><given-names>H.X.</given-names></name><name><surname>Zhou</surname><given-names>L.H.</given-names></name></person-group>
+<article-title>Time-specific microRNA changes during spinal motoneuron degeneration in adult rats following unilateral brachial plexus root avulsion: Ipsilateral <italic>vs.</italic> contralateral changes</article-title>
+<source>BMC Neurosci.</source>
+<year>2014</year>
+<volume>15</volume>
+<fpage>92</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2202-15-92</pub-id>
+<pub-id pub-id-type="pmid">25055855</pub-id></element-citation>
+      </ref>
+      <ref id="B19-ijms-16-09693">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Dweep</surname><given-names>H.</given-names></name><name><surname>Sticht</surname><given-names>C.</given-names></name><name><surname>Pandey</surname><given-names>P.</given-names></name><name><surname>Gretz</surname><given-names>N.</given-names></name></person-group>
+<article-title>miRWalk&#x2014;Database: Prediction of possible miRNA binding sites by &#x201C;walking&#x201D; the genes of three genomes</article-title>
+<source>J. Biomed. Inform.</source>
+<year>2011</year>
+<volume>44</volume>
+<fpage>839</fpage>
+<lpage>847</lpage>
+<pub-id pub-id-type="doi">10.1016/j.jbi.2011.05.002</pub-id>
+<pub-id pub-id-type="pmid">21605702</pub-id></element-citation>
+      </ref>
+      <ref id="B20-ijms-16-09693">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zuberi</surname><given-names>K.</given-names></name><name><surname>Franz</surname><given-names>M.</given-names></name><name><surname>Rodriguez</surname><given-names>H.</given-names></name><name><surname>Montojo</surname><given-names>J.</given-names></name><name><surname>Lopes</surname><given-names>C.T.</given-names></name><name><surname>Bader</surname><given-names>G.D.</given-names></name><name><surname>Morris</surname><given-names>Q.</given-names></name></person-group>
+<article-title>GeneMANIA prediction server 2013 update</article-title>
+<source>Nucleic Acid Res.</source>
+<year>2013</year>
+<volume>41</volume>
+<fpage>W115</fpage>
+<lpage>W122</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkt533</pub-id>
+<pub-id pub-id-type="pmid">23794635</pub-id></element-citation>
+      </ref>
+      <ref id="B21-ijms-16-09693">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hermann</surname><given-names>A.</given-names></name><name><surname>Gastl</surname><given-names>R.</given-names></name><name><surname>Liebau</surname><given-names>S.</given-names></name><name><surname>Popa</surname><given-names>M.O.</given-names></name><name><surname>Fiedler</surname><given-names>J.</given-names></name><name><surname>Boehm</surname><given-names>B.O.</given-names></name><name><surname>Maisel</surname><given-names>M.</given-names></name><name><surname>Lerche</surname><given-names>H.</given-names></name><name><surname>Schwarz</surname><given-names>J.</given-names></name><name><surname>Brenner</surname><given-names>R.</given-names></name><etal/></person-group>
+<article-title>Efficient generation of neural stem cell-like cells from adult human bone marrow stromal cells</article-title>
+<source>J. Cell Sci.</source>
+<year>2004</year>
+<volume>117</volume>
+<fpage>4411</fpage>
+<lpage>4422</lpage>
+<pub-id pub-id-type="doi">10.1242/jcs.01307</pub-id>
+<pub-id pub-id-type="pmid">15304527</pub-id></element-citation>
+      </ref>
+      <ref id="B22-ijms-16-09693">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Puche</surname><given-names>J.</given-names></name><name><surname>Castilla-Cortazar</surname><given-names>I.</given-names></name></person-group>
+<article-title>Human conditions of insulin-like growth factor-I (IGF-I) deficiency</article-title>
+<source>J. Transl. Med.</source>
+<year>2012</year>
+<volume>10</volume>
+<fpage>224</fpage>
+<pub-id pub-id-type="doi">10.1186/1479-5876-10-224</pub-id>
+<pub-id pub-id-type="pmid">23148873</pub-id></element-citation>
+      </ref>
+      <ref id="B23-ijms-16-09693">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Mairet-Coello</surname><given-names>G.</given-names></name><name><surname>Tury</surname><given-names>A.</given-names></name><name><surname>DiCicco-Bloom</surname><given-names>E.</given-names></name></person-group>
+<article-title>Insulin-like growth factor-1 promotes G<sub>1</sub>/S cell cycle progression through bidirectional regulation of cyclins and cyclin-dependent kinase inhibitors via the phosphatidylinositol 3-kinase/Akt pathway in developing rat cerebral cortex</article-title>
+<source>J. Neurosci.</source>
+<year>2009</year>
+<volume>29</volume>
+<fpage>775</fpage>
+<lpage>788</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1700-08.2009</pub-id>
+<pub-id pub-id-type="pmid">19158303</pub-id></element-citation>
+      </ref>
+      <ref id="B24-ijms-16-09693">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Itesako</surname><given-names>T.</given-names></name><name><surname>Seki</surname><given-names>N.</given-names></name><name><surname>Yoshino</surname><given-names>H.</given-names></name><name><surname>Chiyomaru</surname><given-names>T.</given-names></name><name><surname>Yamasaki</surname><given-names>T.</given-names></name><name><surname>Hidaka</surname><given-names>H.</given-names></name><name><surname>Yonezawa</surname><given-names>T.</given-names></name><name><surname>Nohata</surname><given-names>N.</given-names></name><name><surname>Kinoshita</surname><given-names>T.</given-names></name><name><surname>Nakagawa</surname><given-names>M.</given-names></name><etal/></person-group>
+<article-title>The microRNA expression signature of bladder cancer by deep sequencing: The functional significance of the miR-195/497 cluster</article-title>
+<source>PLoS ONE</source>
+<year>2014</year>
+<volume>9</volume>
+<fpage>e84311</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0084311</pub-id>
+<pub-id pub-id-type="pmid">24520312</pub-id></element-citation>
+      </ref>
+      <ref id="B25-ijms-16-09693">
+        <label>25.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cimadamore</surname><given-names>F.</given-names></name><name><surname>Amador-Arjona</surname><given-names>A.</given-names></name><name><surname>Chen</surname><given-names>C.</given-names></name><name><surname>Huang</surname><given-names>C.T.</given-names></name><name><surname>Terskikh</surname><given-names>A.V.</given-names></name></person-group>
+<article-title>SOX2&#x2013;LIN28/let-7 pathway regulates proliferation and neurogenesis in neural precursors</article-title>
+<source>Proc. Natl. Acad. Sci. USA</source>
+<year>2013</year>
+<volume>110</volume>
+<fpage>E3017</fpage>
+<lpage>E3026</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1220176110</pub-id>
+<pub-id pub-id-type="pmid">23884650</pub-id></element-citation>
+      </ref>
+      <ref id="B26-ijms-16-09693">
+        <label>26.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Shi</surname><given-names>J.</given-names></name><name><surname>Zhuang</surname><given-names>Y.</given-names></name><name><surname>Liu</surname><given-names>X.K.</given-names></name><name><surname>Zhang</surname><given-names>Y.X.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name></person-group>
+<article-title>TGF-&#x3B2; induced RBL2 expression in renal cancer cells by down-regulating miR-93</article-title>
+<source>Clin. Transl. Oncol.</source>
+<year>2014</year>
+<volume>16</volume>
+<fpage>986</fpage>
+<lpage>992</lpage>
+<pub-id pub-id-type="doi">10.1007/s12094-014-1185-7</pub-id>
+<pub-id pub-id-type="pmid">25183046</pub-id></element-citation>
+      </ref>
+      <ref id="B27-ijms-16-09693">
+        <label>27.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Liu</surname><given-names>S.</given-names></name><name><surname>Patel</surname><given-names>S.H.</given-names></name><name><surname>Ginestier</surname><given-names>C.</given-names></name><name><surname>Ibarra</surname><given-names>I.</given-names></name><name><surname>Martin-Trevino</surname><given-names>R.</given-names></name><name><surname>Bai</surname><given-names>S.</given-names></name><name><surname>McDermott</surname><given-names>S.P.</given-names></name><name><surname>Shang</surname><given-names>L.</given-names></name><name><surname>Ke</surname><given-names>J.</given-names></name><name><surname>Ou</surname><given-names>S.J.</given-names></name><etal/></person-group>
+<article-title>MicroRNA93 regulates proliferation and differentiation of normal and malignant breast stem cells</article-title>
+<source>PLoS Genet.</source>
+<year>2012</year>
+<volume>8</volume>
+<fpage>e1002751</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pgen.1002751</pub-id>
+<pub-id pub-id-type="pmid">22685420</pub-id></element-citation>
+      </ref>
+      <ref id="B28-ijms-16-09693">
+        <label>28.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Niu</surname><given-names>Y.</given-names></name><name><surname>Mo</surname><given-names>D.</given-names></name><name><surname>Qin</surname><given-names>L.</given-names></name><name><surname>Wang</surname><given-names>C.</given-names></name><name><surname>Li</surname><given-names>A.</given-names></name><name><surname>Zhao</surname><given-names>X.</given-names></name><name><surname>Wang</surname><given-names>X.</given-names></name><name><surname>Xiao</surname><given-names>S.</given-names></name><name><surname>Wang</surname><given-names>Q.</given-names></name><name><surname>Xie</surname><given-names>Y.</given-names></name><etal/></person-group>
+<article-title>Lipopolysaccharide-induced miR-1224 negatively regulates tumour necrosis factor-&#x3B1; gene expression by modulating Sp1</article-title>
+<source>Immunology</source>
+<year>2011</year>
+<volume>133</volume>
+<fpage>8</fpage>
+<lpage>20</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1365-2567.2010.03374.x</pub-id>
+<pub-id pub-id-type="pmid">21320120</pub-id></element-citation>
+      </ref>
+      <ref id="B29-ijms-16-09693">
+        <label>29.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Bernardino</surname><given-names>L.</given-names></name><name><surname>Agasse</surname><given-names>F.</given-names></name><name><surname>Silva</surname><given-names>B.</given-names></name><name><surname>Ferreira</surname><given-names>R.</given-names></name><name><surname>Grade</surname><given-names>S.</given-names></name><name><surname>Malva</surname><given-names>J.O.</given-names></name></person-group>
+<article-title>Tumor necrosis factor-&#x3B1; modulates survival, proliferation, and neuronal differentiation in neonatal subventricular zone cell cultures</article-title>
+<source>Stem Cells</source>
+<year>2008</year>
+<volume>26</volume>
+<fpage>2361</fpage>
+<lpage>2371</lpage>
+<pub-id pub-id-type="doi">10.1634/stemcells.2007-0914</pub-id>
+<pub-id pub-id-type="pmid">18583543</pub-id></element-citation>
+      </ref>
+      <ref id="B30-ijms-16-09693">
+        <label>30.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lan</surname><given-names>X.</given-names></name><name><surname>Chen</surname><given-names>Q.</given-names></name><name><surname>Wang</surname><given-names>Y.</given-names></name><name><surname>Jia</surname><given-names>B.</given-names></name><name><surname>Sun</surname><given-names>L.</given-names></name><name><surname>Zheng</surname><given-names>J.</given-names></name><name><surname>Peng</surname><given-names>H.</given-names></name></person-group>
+<article-title>TNF-&#x3B1; affects human cortical neural progenitor cell differentiation through the autocrine secretion of leukemia inhibitory factor</article-title>
+<source>PLoS ONE</source>
+<year>2012</year>
+<volume>7</volume>
+<fpage>e50783</fpage>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0050783</pub-id>
+<pub-id pub-id-type="pmid">23236394</pub-id></element-citation>
+      </ref>
+      <ref id="B31-ijms-16-09693">
+        <label>31.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Jiang</surname><given-names>L.</given-names></name><name><surname>Chang</surname><given-names>J.</given-names></name><name><surname>Zhang</surname><given-names>Q.</given-names></name><name><surname>Sun</surname><given-names>L.</given-names></name><name><surname>Qiu</surname><given-names>X.</given-names></name></person-group>
+<article-title>MicroRNA hsa-miR-125a-3p activates p53 and induces apoptosis in lung cancer cells</article-title>
+<source>Cancer Investig.</source>
+<year>2013</year>
+<volume>31</volume>
+<fpage>538</fpage>
+<lpage>544</lpage>
+<pub-id pub-id-type="doi">10.3109/07357907.2013.820314</pub-id>
+<pub-id pub-id-type="pmid">24044511</pub-id></element-citation>
+      </ref>
+      <ref id="B32-ijms-16-09693">
+        <label>32.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ninio-Many</surname><given-names>L.</given-names></name><name><surname>Grossman</surname><given-names>H.</given-names></name><name><surname>Shomron</surname><given-names>N.</given-names></name><name><surname>Chuderland</surname><given-names>D.</given-names></name><name><surname>Shalgi</surname><given-names>R.</given-names></name></person-group>
+<article-title>MicroRNA-125a-3p reduces cell proliferation and migration by targeting Fyn</article-title>
+<source>J. Cell Sci.</source>
+<year>2013</year>
+<volume>126</volume>
+<fpage>2867</fpage>
+<lpage>2876</lpage>
+<pub-id pub-id-type="doi">10.1242/jcs.123414</pub-id>
+<pub-id pub-id-type="pmid">23606749</pub-id></element-citation>
+      </ref>
+      <ref id="B33-ijms-16-09693">
+        <label>33.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wawryk-Gawda</surname><given-names>E.</given-names></name><name><surname>Chyli&#x144;ska-Wrzos</surname><given-names>P.</given-names></name><name><surname>Lis-Sochocka</surname><given-names>M.</given-names></name><name><surname>Ch&#x142;apek</surname><given-names>K.</given-names></name><name><surname>Bulak</surname><given-names>K.</given-names></name><name><surname>J&#x119;drych</surname><given-names>M.</given-names></name><name><surname>Jod&#x142;owska-J&#x119;drych</surname><given-names>B.</given-names></name></person-group>
+<article-title>P53 protein in proliferation, repair and apoptosis of cells</article-title>
+<source>Protoplasma</source>
+<year>2014</year>
+<volume>251</volume>
+<fpage>525</fpage>
+<lpage>533</lpage>
+<pub-id pub-id-type="doi">10.1007/s00709-013-0548-1</pub-id>
+<pub-id pub-id-type="pmid">24043441</pub-id></element-citation>
+      </ref>
+      <ref id="B34-ijms-16-09693">
+        <label>34.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Cheng</surname><given-names>A.M.</given-names></name><name><surname>Byrom</surname><given-names>M.W.</given-names></name><name><surname>Shelton</surname><given-names>J.</given-names></name><name><surname>Ford</surname><given-names>L.P.</given-names></name></person-group>
+<article-title>Antisense inhibition of human miRNAs and indications for an involvement of miRNA in cell growth and apoptosis</article-title>
+<source>Nucleic Acids Res.</source>
+<year>2005</year>
+<volume>33</volume>
+<fpage>1290</fpage>
+<lpage>1297</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gki200</pub-id>
+<pub-id pub-id-type="pmid">15741182</pub-id></element-citation>
+      </ref>
+      <ref id="B35-ijms-16-09693">
+        <label>35.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yu</surname><given-names>H.</given-names></name><name><surname>Wu</surname><given-names>M.</given-names></name><name><surname>Zhao</surname><given-names>P.</given-names></name><name><surname>Huang</surname><given-names>Y.</given-names></name><name><surname>Wang</surname><given-names>W.</given-names></name><name><surname>Yin</surname><given-names>W.</given-names></name></person-group>
+<article-title>Neuroprotective effects of viral overexpression of microRNA-22 in rat and cell models of cerebral ischemia-reperfusion injury</article-title>
+<source>J. Cell. Biochem.</source>
+<year>2014</year>
+<volume>116</volume>
+<fpage>233</fpage>
+<lpage>241</lpage>
+<pub-id pub-id-type="doi">10.1002/jcb.24960</pub-id>
+<pub-id pub-id-type="pmid">25186498</pub-id></element-citation>
+      </ref>
+      <ref id="B36-ijms-16-09693">
+        <label>36.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Schaar</surname><given-names>D.G.</given-names></name><name><surname>Medina</surname><given-names>D.J.</given-names></name><name><surname>Moore</surname><given-names>D.F.</given-names></name><name><surname>Strair</surname><given-names>R.K.</given-names></name><name><surname>Ting</surname><given-names>Y.</given-names></name></person-group>
+<article-title>miR-320 targets transferrin receptor 1 (CD71) and inhibits cell proliferation</article-title>
+<source>Exp. Hematol.</source>
+<year>2009</year>
+<volume>37</volume>
+<fpage>245</fpage>
+<lpage>255</lpage>
+<pub-id pub-id-type="doi">10.1016/j.exphem.2008.10.002</pub-id>
+<pub-id pub-id-type="pmid">19135902</pub-id></element-citation>
+      </ref>
+      <ref id="B37-ijms-16-09693">
+        <label>37.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Dileepan</surname><given-names>M.</given-names></name><name><surname>Jude</surname><given-names>J.A.</given-names></name><name><surname>Rao</surname><given-names>S.P.</given-names></name><name><surname>Walseth</surname><given-names>T.F.</given-names></name><name><surname>Panettieri</surname><given-names>R.A.</given-names></name><name><surname>Subramanian</surname><given-names>S.</given-names></name><name><surname>Kannan</surname><given-names>M.S.</given-names></name></person-group>
+<article-title>MicroRNA-708 regulates CD38 expression through signaling pathways JNK MAP kinase and PTEN/AKT in human airway smooth muscle cells</article-title>
+<source>Respir. Res.</source>
+<year>2014</year>
+<volume>15</volume>
+<fpage>107</fpage>
+<pub-id pub-id-type="pmid">25175907</pub-id></element-citation>
+      </ref>
+      <ref id="B38-ijms-16-09693">
+        <label>38.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Dimmer</surname><given-names>E.C.</given-names></name><name><surname>Huntley</surname><given-names>R.P.</given-names></name><name><surname>Alam-Faruque</surname><given-names>Y.</given-names></name><name><surname>Sawford</surname><given-names>T.</given-names></name><name><surname>O&#x2019;Donovan</surname><given-names>C.</given-names></name><name><surname>Martin</surname><given-names>M.J.</given-names></name><name><surname>Bely</surname><given-names>B.</given-names></name><name><surname>Browne</surname><given-names>P.</given-names></name><name><surname>Mun Chan</surname><given-names>W.</given-names></name><name><surname>Eberhardt</surname><given-names>R.</given-names></name><etal/></person-group>
+<article-title>The UniProt-GO Annotation database in 2011</article-title>
+<source>Nucleic Acids Res.</source>
+<year>2012</year>
+<volume>40</volume>
+<fpage>D565</fpage>
+<lpage>D570</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkr1048</pub-id>
+<pub-id pub-id-type="pmid">22123736</pub-id></element-citation>
+      </ref>
+      <ref id="B39-ijms-16-09693">
+        <label>39.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Huang</surname><given-names>D.W.</given-names></name><name><surname>Sherman</surname><given-names>B.T.</given-names></name><name><surname>Lempicki</surname><given-names>R.A.</given-names></name></person-group>
+<article-title>Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources</article-title>
+<source>Nat. Protoc.</source>
+<year>2009</year>
+<volume>4</volume>
+<fpage>44</fpage>
+<lpage>57</lpage>
+<pub-id pub-id-type="doi">10.1038/nprot.2008.211</pub-id>
+<pub-id pub-id-type="pmid">19131956</pub-id></element-citation>
+      </ref>
+      <ref id="B40-ijms-16-09693">
+        <label>40.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Konermann</surname><given-names>S.</given-names></name><name><surname>Brigham</surname><given-names>M.D.</given-names></name><name><surname>Trevino</surname><given-names>A.</given-names></name><name><surname>Hsu</surname><given-names>P.D.</given-names></name><name><surname>Heidenreich</surname><given-names>M.</given-names></name><name><surname>Le</surname><given-names>C.</given-names></name><name><surname>Platt</surname><given-names>R.J.</given-names></name><name><surname>Scott</surname><given-names>D.A.</given-names></name><name><surname>Church</surname><given-names>G.M.</given-names></name><name><surname>Zhang</surname><given-names>F.</given-names></name></person-group>
+<article-title>Optical control of mammalian endogenous transcription and epigenetic states</article-title>
+<source>Nature</source>
+<year>2013</year>
+<volume>500</volume>
+<fpage>472</fpage>
+<lpage>476</lpage>
+<pub-id pub-id-type="pmid">23877069</pub-id></element-citation>
+      </ref>
+      <ref id="B41-ijms-16-09693">
+        <label>41.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhao</surname><given-names>C.</given-names></name><name><surname>Sun</surname><given-names>G.</given-names></name><name><surname>Li</surname><given-names>S.</given-names></name><name><surname>Shi</surname><given-names>Y.</given-names></name></person-group>
+<article-title>A feedback regulatory loop involving microRNA-9 and nuclear receptor TLX in neural stem cell fate determination</article-title>
+<source>Nat. Struct. Mol. Biol.</source>
+<year>2009</year>
+<volume>16</volume>
+<fpage>365</fpage>
+<lpage>371</lpage>
+<pub-id pub-id-type="doi">10.1038/nsmb.1576</pub-id>
+<pub-id pub-id-type="pmid">19330006</pub-id></element-citation>
+      </ref>
+      <ref id="B42-ijms-16-09693">
+        <label>42.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Chuang</surname><given-names>J.C.</given-names></name><name><surname>Jones</surname><given-names>P.A.</given-names></name></person-group>
+<article-title>Epigenetics and microRNAs</article-title>
+<source>Pediatr. Res.</source>
+<year>2007</year>
+<volume>61</volume>
+<fpage>24R</fpage>
+<lpage>29R</lpage>
+<pub-id pub-id-type="doi">10.1203/pdr.0b013e3180457684</pub-id>
+<pub-id pub-id-type="pmid">17413852</pub-id></element-citation>
+      </ref>
+      <ref id="B43-ijms-16-09693">
+        <label>43.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhuang</surname><given-names>Z.</given-names></name><name><surname>Zhao</surname><given-names>X.</given-names></name><name><surname>Wu</surname><given-names>Y.</given-names></name><name><surname>Huang</surname><given-names>R.</given-names></name><name><surname>Zhu</surname><given-names>L.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name><name><surname>Shi</surname><given-names>J.</given-names></name></person-group>
+<article-title>The anti-apoptotic effect of PI3K-Akt signaling pathway after subarachnoid hemorrhage in rats</article-title>
+<source>Ann. Clin. Lab. Sci.</source>
+<year>2011</year>
+<volume>41</volume>
+<fpage>364</fpage>
+<lpage>372</lpage>
+<pub-id pub-id-type="pmid">22166507</pub-id></element-citation>
+      </ref>
+      <ref id="B44-ijms-16-09693">
+        <label>44.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Chen</surname><given-names>X.</given-names></name><name><surname>Wang</surname><given-names>K.</given-names></name><name><surname>Xu</surname><given-names>Z.</given-names></name><name><surname>Li</surname><given-names>Q.</given-names></name><name><surname>Fu</surname><given-names>D.</given-names></name><name><surname>Wang</surname><given-names>X.</given-names></name><name><surname>Wu</surname><given-names>B.</given-names></name></person-group>
+<article-title>miR-133b regulates bladder cancer cell proliferation and apoptosis by targeting Bcl-w and Akt1</article-title>
+<source>Cancer Cell Int.</source>
+<year>2014</year>
+<volume>4</volume>
+<fpage>70</fpage>
+<pub-id pub-id-type="doi">10.1186/s12935-014-0070-3</pub-id>
+<pub-id pub-id-type="pmid">25414595</pub-id></element-citation>
+      </ref>
+      <ref id="B45-ijms-16-09693">
+        <label>45.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hopkins</surname><given-names>B.D.</given-names></name><name><surname>Fine</surname><given-names>B.</given-names></name><name><surname>Steinbach</surname><given-names>N.</given-names></name><name><surname>Dendy</surname><given-names>M.</given-names></name><name><surname>Rapp</surname><given-names>Z.</given-names></name><name><surname>Shaw</surname><given-names>J.</given-names></name><name><surname>Pappas</surname><given-names>K.</given-names></name><name><surname>Yu</surname><given-names>J.S.</given-names></name><name><surname>Hodakoshi</surname><given-names>C.</given-names></name><name><surname>Mense</surname><given-names>S.</given-names></name><etal/></person-group>
+<article-title>A secreted PTEN phosphatase that enters cells to alter signaling and survival</article-title>
+<source>Science</source>
+<year>2013</year>
+<volume>341</volume>
+<fpage>399</fpage>
+<lpage>402</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1234907</pub-id>
+<pub-id pub-id-type="pmid">23744781</pub-id></element-citation>
+      </ref>
+      <ref id="B46-ijms-16-09693">
+        <label>46.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Ohta</surname><given-names>K.</given-names></name><name><surname>Hoshino</surname><given-names>H.</given-names></name><name><surname>Wang</surname><given-names>J.</given-names></name><name><surname>Ono</surname><given-names>S.</given-names></name><name><surname>Iida</surname><given-names>Y.</given-names></name><name><surname>Hata</surname><given-names>K.</given-names></name><name><surname>Huang</surname><given-names>S.K.</given-names></name><name><surname>Colquhoun</surname><given-names>S.</given-names></name><name><surname>Hoon</surname><given-names>D.S.B.</given-names></name></person-group>
+<article-title>MicroRNA-93 activates c-Met/PI3K.Akt pathway activity in hepatocellular carcinoma by directly inhibiting PTEN and CDKN1A</article-title>
+<source>Oncotarget</source>
+<year>2014</year>
+<volume>6</volume>
+<fpage>3211</fpage>
+<lpage>3224</lpage>
+<pub-id pub-id-type="pmid">25633810</pub-id></element-citation>
+      </ref>
+      <ref id="B47-ijms-16-09693">
+        <label>47.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Wang</surname><given-names>L.</given-names></name><name><surname>He</surname><given-names>C.</given-names></name><name><surname>Sui</surname><given-names>X.</given-names></name><name><surname>Cai</surname><given-names>M.</given-names></name><name><surname>Zhou</surname><given-names>C.</given-names></name><name><surname>Ma</surname><given-names>J.</given-names></name><name><surname>Wang</surname><given-names>H.</given-names></name><name><surname>Han</surname><given-names>S.</given-names></name><name><surname>Zhu</surname><given-names>Q.</given-names></name></person-group>
+<article-title>miR-21 promotes intrahepatic cholangiocarcinoma proliferation and growth <italic>in vitro</italic> and <italic>in vivo</italic> by targeting PTPN14 and PTEN</article-title>
+<source>Oncotarget</source>
+<year>2015</year>
+<volume>6</volume>
+<fpage>5932</fpage>
+<lpage>5946</lpage>
+<pub-id pub-id-type="pmid">25803229</pub-id></element-citation>
+      </ref>
+      <ref id="B48-ijms-16-09693">
+        <label>48.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Alural</surname><given-names>B.</given-names></name><name><surname>Duran</surname><given-names>G.A.</given-names></name><name><surname>Tufekci</surname><given-names>K.U.</given-names></name><name><surname>Allmer</surname><given-names>J.</given-names></name><name><surname>Onkal</surname><given-names>Z.</given-names></name><name><surname>Tunali</surname><given-names>D.</given-names></name><name><surname>Genc</surname><given-names>K.</given-names></name><name><surname>Genc</surname><given-names>S.</given-names></name></person-group>
+<article-title>EPO mediates neurotrophic, neuroprotective, anti-oxidant, and anti-apoptotic effects via down-regulation of miR-451 and miR-885-5p in SH-SY5Y neuron-like cells</article-title>
+<source>Front. Immunol.</source>
+<year>2014</year>
+<volume>5</volume>
+<fpage>475</fpage>
+<pub-id pub-id-type="doi">10.3389/fimmu.2014.00475</pub-id>
+<pub-id pub-id-type="pmid">25324845</pub-id></element-citation>
+      </ref>
+      <ref id="B49-ijms-16-09693">
+        <label>49.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Lin</surname><given-names>X.</given-names></name><name><surname>Guan</surname><given-names>H.</given-names></name><name><surname>Huang</surname><given-names>Z.</given-names></name><name><surname>Liu</surname><given-names>J.</given-names></name><name><surname>Li</surname><given-names>H.</given-names></name><name><surname>Wei</surname><given-names>G.</given-names></name><name><surname>Cao</surname><given-names>X.</given-names></name><name><surname>Li</surname><given-names>Y.</given-names></name></person-group>
+<article-title>Down-regulation of Bcl-2 expression by miR-34a mediates palmitate-induced Min6 cells apoptosis</article-title>
+<source>J. Diabetes Res.</source>
+<year>2014</year>
+<volume>2014</volume>
+<fpage>258695</fpage>
+<pub-id pub-id-type="pmid">24829923</pub-id></element-citation>
+      </ref>
+      <ref id="B50-ijms-16-09693">
+        <label>50.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Hemann</surname><given-names>M.T.</given-names></name><name><surname>Lowe</surname><given-names>S.W.</given-names></name></person-group>
+<article-title>The p53-Bcl-2 connection</article-title>
+<source>Cell Death Differ.</source>
+<year>2006</year>
+<volume>13</volume>
+<fpage>1256</fpage>
+<lpage>1259</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.cdd.4401962</pub-id>
+<pub-id pub-id-type="pmid">16710363</pub-id></element-citation>
+      </ref>
+      <ref id="B51-ijms-16-09693">
+        <label>51.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Yoo</surname><given-names>S.</given-names></name><name><surname>Lim</surname><given-names>Y.</given-names></name><name><surname>Kim</surname><given-names>S.</given-names></name><name><surname>Yoo</surname><given-names>K.</given-names></name><name><surname>Yoo</surname><given-names>H.</given-names></name><name><surname>Hong</surname><given-names>J.</given-names></name><name><surname>Lee</surname><given-names>M.</given-names></name><name><surname>Yun</surname><given-names>Y.</given-names></name></person-group>
+<article-title>Sulforaphane inhibits PDGF-induced proliferation of rat aortic vascular smooth muscle cell by up-regulation of p53 leading to G1/S cell cycle arrest</article-title>
+<source>Vasc. Pharmacol.</source>
+<year>2013</year>
+<volume>59</volume>
+<fpage>44</fpage>
+<lpage>51</lpage>
+<pub-id pub-id-type="doi">10.1016/j.vph.2013.06.003</pub-id>
+</element-citation>
+      </ref>
+      <ref id="B52-ijms-16-09693">
+        <label>52.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Jiang</surname><given-names>H.</given-names></name><name><surname>Shao</surname><given-names>J.</given-names></name><name><surname>Mao</surname><given-names>R.</given-names></name><name><surname>Liu</surname><given-names>J.</given-names></name><name><surname>Ma</surname><given-names>Y.</given-names></name><name><surname>Fang</surname><given-names>X.</given-names></name><name><surname>Zhao</surname><given-names>N.</given-names></name><name><surname>Zheng</surname><given-names>S.</given-names></name><name><surname>Lin</surname><given-names>B.</given-names></name></person-group>
+<article-title>SOX4 inhibits GBM cell growth and induces G0/G1 cell cycle arrest through Akt-p53 axis</article-title>
+<source>BMC Neurol.</source>
+<year>2014</year>
+<volume>14</volume>
+<fpage>207</fpage>
+<pub-id pub-id-type="doi">10.1186/s12883-014-0207-y</pub-id>
+<pub-id pub-id-type="pmid">25366337</pub-id></element-citation>
+      </ref>
+      <ref id="B53-ijms-16-09693">
+        <label>53.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Zhang</surname><given-names>W.</given-names></name><name><surname>Liu</surname><given-names>H.T.</given-names></name></person-group>
+<article-title>MAPK signal pathways in the regulation of cell proliferation in mammalian cells</article-title>
+<source>Cell Res.</source>
+<year>2002</year>
+<volume>12</volume>
+<fpage>9</fpage>
+<lpage>18</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.cr.7290105</pub-id>
+<pub-id pub-id-type="pmid">11942415</pub-id></element-citation>
+      </ref>
+      <ref id="B54-ijms-16-09693">
+        <label>54.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Raffetto</surname><given-names>J.D.</given-names></name><name><surname>Vasquez</surname><given-names>R.</given-names></name><name><surname>Goodwin</surname><given-names>D.G.</given-names></name><name><surname>Menzoian</surname><given-names>J.O.</given-names></name></person-group>
+<article-title>Mitogen-activated protein kinase pathway regulates cell proliferation in venous ulcer fibroblasts</article-title>
+<source>Vasc. Endovasc. Surg.</source>
+<year>2006</year>
+<volume>40</volume>
+<fpage>59</fpage>
+<lpage>66</lpage>
+<pub-id pub-id-type="doi">10.1177/153857440604000108</pub-id>
+</element-citation>
+      </ref>
+      <ref id="B55-ijms-16-09693">
+        <label>55.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Czabotar</surname><given-names>P.E.</given-names></name><name><surname>Lessene</surname><given-names>G.</given-names></name><name><surname>Strasser</surname><given-names>A.</given-names></name><name><surname>Adams</surname><given-names>J.M.</given-names></name></person-group>
+<article-title>Control of apoptosis by the Bcl-2 protein family: Implications for physiology and therapy</article-title>
+<source>Nat. Rev. Mol. Cell Biol.</source>
+<year>2014</year>
+<volume>15</volume>
+<fpage>49</fpage>
+<lpage>63</lpage>
+<pub-id pub-id-type="doi">10.1038/nrm3722</pub-id>
+<pub-id pub-id-type="pmid">24355989</pub-id></element-citation>
+      </ref>
+      <ref id="B56-ijms-16-09693">
+        <label>56.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>De Almagro</surname><given-names>M.C.</given-names></name><name><surname>Vucic</surname><given-names>D.</given-names></name></person-group>
+<article-title>The inhibitor of apoptosis (IAP) proteins are critical regulators of signaling pathways and targets for anti-cancer therapy</article-title>
+<source>Exp. Oncol.</source>
+<year>2012</year>
+<volume>34</volume>
+<fpage>200</fpage>
+<lpage>211</lpage>
+<pub-id pub-id-type="pmid">23070005</pub-id></element-citation>
+      </ref>
+      <ref id="B57-ijms-16-09693">
+        <label>57.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Gui</surname><given-names>T.</given-names></name><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Shimokado</surname><given-names>A.</given-names></name><name><surname>Muragaki</surname><given-names>Y.</given-names></name></person-group>
+<article-title>The roles of mitogen-activated protein kinase pathways in TGF-&#x3B2;-induced epithelial-mesenchymal transition</article-title>
+<source>J. Signal Transduct.</source>
+<year>2012</year>
+<volume>2012</volume>
+<fpage>289243</fpage>
+<pub-id pub-id-type="doi">10.1155/2012/289243</pub-id>
+<pub-id pub-id-type="pmid">22363839</pub-id></element-citation>
+      </ref>
+      <ref id="B58-ijms-16-09693">
+        <label>58.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Stonecypher</surname><given-names>M.S.</given-names></name><name><surname>Byer</surname><given-names>S.J.</given-names></name><name><surname>Grizzle</surname><given-names>W.E.</given-names></name><name><surname>Carroll</surname><given-names>S.L.</given-names></name></person-group>
+<article-title>Activation of the neuregulin-1/ErbB signaling pathway promotes the proliferation of neoplastic Schwann cells in human malignant peripheral nerve sheath tumors</article-title>
+<source>Oncogene</source>
+<year>2005</year>
+<volume>24</volume>
+<fpage>5589</fpage>
+<lpage>5605</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.onc.1208730</pub-id>
+<pub-id pub-id-type="pmid">15897877</pub-id></element-citation>
+      </ref>
+      <ref id="B59-ijms-16-09693">
+        <label>59.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Qin</surname><given-names>X.</given-names></name><name><surname>Sun</surname><given-names>Z.Q.</given-names></name><name><surname>Dai</surname><given-names>X.J.</given-names></name><name><surname>Mao</surname><given-names>S.S.</given-names></name><name><surname>Zhang</surname><given-names>J.L.</given-names></name><name><surname>Jia</surname><given-names>M.X.</given-names></name><name><surname>Zhang</surname><given-names>Y.M.</given-names></name></person-group>
+<article-title>Toll-like receptor 4 signaling is involved in PACAP-induced neuroprotection in BV2 microglial cells under OGD/reoxygenation</article-title>
+<source>Neurol. Res.</source>
+<year>2012</year>
+<volume>34</volume>
+<fpage>379</fpage>
+<lpage>389</lpage>
+<pub-id pub-id-type="doi">10.1179/1743132812Y.0000000028</pub-id>
+<pub-id pub-id-type="pmid">22643083</pub-id></element-citation>
+      </ref>
+      <ref id="B60-ijms-16-09693">
+        <label>60.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Rolls</surname><given-names>A.</given-names></name><name><surname>Shechter</surname><given-names>R.</given-names></name><name><surname>London</surname><given-names>A.</given-names></name><name><surname>Ziv</surname><given-names>Y.</given-names></name><name><surname>Ronen</surname><given-names>A.</given-names></name><name><surname>Levy</surname><given-names>R.</given-names></name><name><surname>Schwartz</surname><given-names>M.</given-names></name></person-group>
+<article-title>Toll-like receptors modulate adult hippocampal neurogenesis</article-title>
+<source>Nat. Cell Biol.</source>
+<year>2007</year>
+<volume>9</volume>
+<fpage>1081</fpage>
+<lpage>1088</lpage>
+<pub-id pub-id-type="doi">10.1038/ncb1629</pub-id>
+<pub-id pub-id-type="pmid">17704767</pub-id></element-citation>
+      </ref>
+      <ref id="B61-ijms-16-09693">
+        <label>61.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Pfaffl</surname><given-names>M.W.</given-names></name></person-group>
+<article-title>A new mathematical model for relative quantification in real-time RT-PCR</article-title>
+<source>Nucleic Acids Res.</source>
+<year>2001</year>
+<volume>29</volume>
+<fpage>e45</fpage>
+<pub-id pub-id-type="doi">10.1093/nar/29.9.e45</pub-id>
+<pub-id pub-id-type="pmid">11328886</pub-id></element-citation>
+      </ref>
+      <ref id="B62-ijms-16-09693">
+        <label>62.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Huang</surname><given-names>D.W.</given-names></name><name><surname>Sherman</surname><given-names>B.T.</given-names></name><name><surname>Lempicki</surname><given-names>R.A.</given-names></name></person-group>
+<article-title>Bioinformatics enrichment tools: Paths toward the comprehensive functional analysis of large gene lists</article-title>
+<source>Nucleic Acids Res.</source>
+<year>2009</year>
+<volume>37</volume>
+<fpage>1</fpage>
+<lpage>13</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkn923</pub-id>
+<pub-id pub-id-type="pmid">19033363</pub-id></element-citation>
+      </ref>
+      <ref id="B63-ijms-16-09693">
+        <label>63.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Schlicker</surname><given-names>A.</given-names></name><name><surname>Domingues</surname><given-names>F.</given-names></name><name><surname>Rahnenfuhrer</surname><given-names>J.</given-names></name><name><surname>Lengauer</surname><given-names>T.</given-names></name></person-group>
+<article-title>A new measure for functional similarity of gene products based on Gene Ontology</article-title>
+<source>BMC Bioinform.</source>
+<year>2006</year>
+<volume>7</volume>
+<fpage>302</fpage>
+<pub-id pub-id-type="doi">10.1186/1471-2105-7-302</pub-id>
+</element-citation>
+      </ref>
+      <ref id="B64-ijms-16-09693">
+        <label>64.</label>
+        <element-citation publication-type="journal">
+<person-group person-group-type="author"><name><surname>Warde-Farley</surname><given-names>D.</given-names></name><name><surname>Donaldson</surname><given-names>S.L.</given-names></name><name><surname>Comes</surname><given-names>O.</given-names></name><name><surname>Zuberi</surname><given-names>K.</given-names></name><name><surname>Badrawi</surname><given-names>R.</given-names></name><name><surname>Chao</surname><given-names>P.</given-names></name><name><surname>Franz</surname><given-names>M.</given-names></name><name><surname>Grouios</surname><given-names>C.</given-names></name><name><surname>Kazi</surname><given-names>F.</given-names></name><name><surname>Lopes</surname><given-names>C.T.</given-names></name><etal/></person-group>
+<article-title>The GeneMANIA prediction server: Biological network integration for gene prioritization and predicting gene function</article-title>
+<source>Nucleic Acids Res.</source>
+<year>2010</year>
+<volume>38</volume>
+<fpage>W214</fpage>
+<lpage>W220</lpage>
+<pub-id pub-id-type="doi">10.1093/nar/gkq537</pub-id>
+<pub-id pub-id-type="pmid">20576703</pub-id></element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,1019 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Iran J Basic Med Sci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Iran J Basic Med Sci</journal-id>
+      <journal-id journal-id-type="publisher-id">IJBMS</journal-id>
+      <journal-title-group>
+        <journal-title>Iranian Journal of Basic Medical Sciences</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2008-3866</issn>
+      <issn pub-type="epub">2008-3874</issn>
+      <publisher>
+        <publisher-name>Mashhad University of Medical Sciences</publisher-name>
+        <publisher-loc>Mashhad, Iran</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24298380</article-id>
+      <article-id pub-id-type="pmc">3843855</article-id>
+      <article-id pub-id-type="publisher-id">ijbms-16-134</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Improvement of Expression of &#x3B1;6 and &#x3B2;1 Integrins by the Co-culture of Adult Mouse Spermatogonial Stem Cells with SIM Mouse Embryonic Fibroblast Cells (STO) and Growth Factors</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rastegar</surname>
+            <given-names>Tayebeh</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Minaee</surname>
+            <given-names>Mohammad Bagher</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Habibi Roudkenar</surname>
+            <given-names>Mehryar</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Raghardi Kashani</surname>
+            <given-names>Iraj</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Amidi</surname>
+            <given-names>Fardin</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Abolhasani</surname>
+            <given-names>Farid</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Barbarestani</surname>
+            <given-names>Mohammad</given-names>
+          </name>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1"><label>1</label>Department of Anatomy Sciences, Faculty of Medicine, Tehran University of Medical Sciences, Tehran, Iran</aff>
+      <aff id="aff2"><label>2</label>Research Center, Iran&#x2019;s Blood Transfusion Organization (IBTO), Tehran, Iran</aff>
+      <author-notes>
+        <corresp id="cor1"><label>*</label>Corresponding author: Mohammad Barbarestani, Department of Anatomy Sciences, Faculty of Medicine, Tehran University of Medical Sciences, Pardis of Poursina, Poursina St., Keshavarse Blv., Tehran, Iran. Tel: +98-21-66419072; Fax: +98-21-66419072; E-mail: barbarestani@sina.tums.ac.ir</corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>2</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>16</volume>
+      <issue>2</issue>
+      <fpage>134</fpage>
+      <lpage>139</lpage>
+      <history>
+        <date date-type="received">
+          <day>19</day>
+          <month>11</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>14</day>
+          <month>5</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013: Iranian Journal of Basic Medical Sciences</copyright-statement>
+        <license>
+          <license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License, (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</ext-link>) which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>
+<bold><italic>Objective(s):</italic></bold> Spermatogonial Stem Cells (SSCs) maintain spermatogenesis throughout the life of the male. Because of the small number of SSCs in adult, enriching and culturing them is a crucial step prior to differentiation or transplantation. Maintenance of SSCs and transplantation or induction of in vitro spermio-genesis may provide a therapeutic strategy to treat male infertility. This study investigated the enrichment and proliferation of SSCs co-cultured with STO cells in the presence or absence of growth factors. </p>
+        <p>
+<bold><italic>Materials and Methods:</italic></bold> Spermatogonial populations were enriched from the testis of 4-6 week-old male mice by MACS according to the expression of a specific marker, Thy-1. Isolated SSCs were cultured in the presence or absence of growth factors (GDNF, GFR&#x3B1;1 and EGF) on STO or gelatin-coated dishes for a week. Subsequently, the authors evaluated the effects of growth factors and STO on SSCs colonization by alkaline phosphates (AP) activity and flow cytometery of &#x3B1;6 and &#x3B2;1 integrins.</p>
+        <p>
+<bold><italic>Results:</italic></bold> SSCs co-cultured with STO cells and growth factors developed colonization and AP activity as well as expression of &#x3B1;6 and &#x3B2;1 integrins (<italic>P</italic>&#x2264;0/05).</p>
+        <p>
+<bold><italic>Conclusion:</italic></bold> Our present SSC-STO co-culture provides conditions that may allow efficient maintenance and proliferation of SSCs for the treatment of male infertility.</p>
+      </abstract>
+      <kwd-group>
+        <title>Key Words</title>
+        <kwd>SSCs</kwd>
+        <kwd>STO cells</kwd>
+        <kwd>Growth factors</kwd>
+        <kwd>&#x3B1;6 and &#x3B2;1 integrins</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>The spermatogonial stem cells (SSCs) are the foundation of spermatogenesis. They can self-renew and create a large number of differentiated germ cells <italic>in vivo </italic>(<xref ref-type="bibr" rid="B1">1</xref>). A balance between SSC renewal and differentiation in adult testis is indispensable for spermatogenesis and fertility (<xref ref-type="bibr" rid="B2">2</xref>). The limited number of spermatogonial stem cells in an adult testis makes identification of a specific SSC marker and direct <italic>in vivo</italic> analysis of spermatogonial stem cells more difficult. The testis of an adult mouse contains 20,000&#x2013;35,000 spermatogonial stem cells, representing 0.02-0.03% of the total cells in the testis (<xref ref-type="bibr" rid="B3">3</xref>). Therefore, enrichment and <italic>in vitro </italic>culture of SSCs provides one practical approach to investigating autologous testicular transplantation or genetic manipulation (<xref ref-type="bibr" rid="B4">4</xref>). Furthermore, modulating culture conditions for self-renewal, differentiation of SSCs, generation functional gametes <italic>in vitro </italic>and development of new therapeutic methods for infertility will be attainable (<xref ref-type="bibr" rid="B5">5</xref>) however difficult for a number of reasons: there is a remarkable decline in the viability of the cultured cells within one week and the cell proliferation rate is usually low, minimal or absent under adult-like culture conditions and the identification of a specific spermatogonial stem cell marker has been found challenging (<xref ref-type="bibr" rid="B6">6</xref>, <xref ref-type="bibr" rid="B7">7</xref>). Ideally, the culture system would initiate with spermatogonia but to date, this has been a tricky endeavor and a culture system supporting propagation and differentiation of adult mouse spermatogonia is still very difficult to attain (<xref ref-type="bibr" rid="B8">8</xref>).</p>
+      <p>We co-cultured SSC with STO in the presence of growth factors to replicate conditions somewhat similar to the natural niche. Efficient preparation of SSCs had been characterized by histological staining and the expression of the specific germ cell markers. Our cell culture conditions produced more SSC cells <italic>in vitro</italic>, thereby provided more insight into maturation conditions useful for the treatment of male infertility. </p>
+    </sec>
+    <sec>
+      <title>Materiasl and Methods</title>
+      <p>
+<italic>Experimental animals</italic>
+</p>
+      <p>Testis cells were obtained from 4-6 week-old male mice NMRI (National Medical Research Institute). They were maintained under standard conditions with free access to the food and water. The ethics committee of Tehran University of Medical sciences approved the animal experiments, in accordance with the university guidelines.</p>
+      <p>
+<italic>SSCs enrichment </italic>
+</p>
+      <p>In order to obtain the testicular cells, we used a modified method published by Guan (2009). Briefly, a decapsulated testis was cut into small pieces and seminiferous tubules were transferred to Collagenase type IV (1 mg/ml) (Sigma), DNase I (10 &#x3BC;g/ml) (Sigma) solution. Cells were incubated at 37&#x2DA;C in a 5% CO2 incubator and dispersed by pipetting every 2&#x2013;5 min until the tubules separated following about 20 min. Cells were washed twice with 10 ml of phosphate-buffered saline (PBS) (Sigma) as we reported earlier (<xref ref-type="bibr" rid="B9">9</xref>). The dissociated testis cells suspension was overlaid on 30% (v/v) Percoll (Sigma) prepared in PBS containing 1% fetal bovine serum (FBS) (Gibco) and centrifuged at 600 g for 8 min at 4&#x2DA;C. For magnetic activated cell sorting (MACS) Miltenyi Biotec protocol was assigned (Miltenyi Biotec). Sedimented cells (bottom fraction) of the Percoll gradient (3&#x2013;8&#xD7;106 cells in 90 &#x3BC;l of PBS) were incubated with 10 &#x3BC;l of anti-Thy-1 antibody (30-H12; Miltenyi Biotec) microbeads for 20 min at 4&#x2DA;C. Following rinsing with PBS containing 0.5% bovine serum albumin (BSA)(Sigma), Thy-1<sup>+</sup>cells were designated by passing them through a large separating column (Miltenyi Biotec) and placed in a magnetic field (<xref ref-type="bibr" rid="B10">10</xref>).</p>
+      <p>SSCs culture</p>
+      <p>Enriched SSCs were cultured (6&#x2013;10 &#xD7;104 cells/cm2) in a minimum essential medium-alpha (MEM&#x3B1;)(Gibco) containing 10% FBS, 1 x nonessential amino acids (Invitrogen), 0.1 mM 2-mercaptoethanol )Sigma), 10<sup>3</sup>U/ml human recombinant leukemia inhibitory factor (LIF)(B&amp;D), 0.4 mM Pyrovate (Sigma), 1x Glutamine (Gibco), 100u/ml Penicillin and 100 &#x3BC;g/ml Streptomycin (Sigma), on STO (mitotically inactivated SIM mouse embryo derived Thioguanine and Ouabain resistant) or gelatin-coated dishes in presence or absence of these growth factors; GDNF (Glial Cell line-derived Neurotrophic Factor) 100 ng/ml, GFR&#x3B1; (Rat Glial cell line-derived Neurotrophic Factor Receptor) 300 ng/ml, (both from B&amp;D) and EGF (Epidermal Growth Factor) 20 ng/ml (B&amp;D) for a one week. The culture medium was changed every other day. All culture media were maintained at 32&#x2DA;C in an atmosphere humidified with 5% CO2 (<xref ref-type="bibr" rid="B9">9</xref>). SSCs colonies were stained with Alkaline Phosphatase (Sigma) following 7 days (<xref ref-type="bibr" rid="B11">11</xref>). SSCs number was determined with a hemacytometer. Trypan blue (0.4%) (Sigma) whereas exclusion assays were used to determine the percentage of surviving cells following isolation and culture (<xref ref-type="bibr" rid="B12">12</xref>).</p>
+      <p>STO cells inactivation</p>
+      <p>STO cells were obtained from the Pasture Institute of Iran. Following the treatment of feeder cell lines (STO) with mitomycin C (10 &#xB5;g/ml for 3 hr (Sigma) at 37&#x2DA;C and 5% CO2), feeder cells were dissociated (0.05% trypsin EDTA) (Gibco) and cultured on gelatin coated dishes at 0.5 &#xD7;10<sup>4 </sup>cells/cm<sup>2</sup> for 6 hr at 37&#x2DA; C. Isolated SSCs were seeded at a density of 4&#xD7;10<sup>4</sup> cells/cm<sup>2 </sup>(<xref ref-type="bibr" rid="B13">13</xref>).</p>
+      <p>Cytochemical demonstration of alkaline phosphatase </p>
+      <p>In order to evaluate SSCs colony formation following a week of cultivation, cultured germ cells were stained with Alkaline Phosphatase. Briefly, following fixation with 10% formaldehyde (Sigma) for 10 min at 4&#x2DA;C and washing with 0.2 M Tris buffer (pH 8.9), incubation with 0.01% Naphtol-AS-MX Phosphate and 0.06% Fast Violet salt (both from Sigma) in 0.1 M Tris buffer (pH 8.9 for 30 min at 37&#x2DA;C, cells were washed with distilled water and observed under inverted microscope for a red bright color indicating the expression of Alkaline Phosphatase on SSCs colonies (<xref ref-type="bibr" rid="B11">11</xref>).</p>
+      <p>Flow cytometery </p>
+      <p>Flow cytometric analysis (Becton Dickinson) was performed on populations of testis cells before, following enrichment and cultivation using a modified method of Shinohara (1999). Briefly, 10<sup>6</sup> cells were suspended in 0.1 ml of PBS/1% FBS and 10&#x3BC;l fluorescence isothiocyanate (FITC) conjugated hamster anti-rat &#x3B2;1-integrin (CD29) antibody was added to the cells for 20 min at 4&#x2DA;C. The cells were washed twice in 1 mL of PBS/FBS. Subsequently 0.1 ml of PBS/1% FBS and 10&#x3BC;l Phycoerythrin (PE) conjugated rat anti-human a6-integrin (CD49f) (R&amp;D) was complemented to the cells for 20 min at 4&#x2DA;C. The cells were washed twice with 1 mL of PBS/FBS. Control cells were not treated with an antibody (<xref ref-type="bibr" rid="B5">5</xref>).</p>
+      <p>Statistical analysis</p>
+      <p>The results were expressed as mean &#xB1; SD. The statistical significance between the mean values was determined by one-way analysis of variance (ANOVA). A level of <italic>P&#x2264;</italic>0.05 was considered as significant value.</p>
+      <fig id="F1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p>Flow cytometric analysis for detection of &#x3B1;6 and &#x3B2;1-integrin in SSCs. While there are no cells with expression of &#x3B2;1 and &#x3B1;6 integrins prior to MACS (A), there are considerable cells with positive &#x3B2;1 and &#x3B1;6 integrins following MACS purification( B)</p>
+        </caption>
+        <graphic xlink:href="ijbms-16-134-g001"/>
+      </fig>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <p>Spermatogonial stem cells enrichment</p>
+      <p>The surface antigenic phenotype of SSCs in the mouse testis was reported to be &#x3B1;6-integrin, &#x3B2;<sub>1</sub>-integrin, Thy-1(CD90), CD24, GFR&#x3B1;<sub>1</sub>, Ep-CAM, GPR<sub>125</sub> (<xref ref-type="bibr" rid="B14">14</xref>). In the current study, SSCs were isolated using anti-Thy-1 antibody and MACS. The purity of the isolated cells was determined by flow cytometery using &#x3B1;<sub>6</sub> and &#x3B2;<sub>1</sub>-integrin antibodies. The flow cytometric analysis revealed that of the enriched Thy-1 purified cells, 67.2&#xB1;2.2% (n=6) expressed &#x3B2;<sub>1</sub> integrin, 37.7&#xB1;1.8% (n=6) expressed &#x3B1;<sub>6 </sub>integrin and 30.8&#xB1;1.9% (n=6) of Thy-1-enriched cells expressed both integrins (<xref ref-type="fig" rid="F1">Figure 1</xref>), consistent with former data (51.3&#xB1;11.9 for &#x3B2;<sub>1</sub> integrin ) (<xref ref-type="bibr" rid="B5">5</xref>).</p>
+      <p>SSCs culture</p>
+      <p>Isolated Thy1+ SSCs were cultured on STO or gelatin-coated dishes in the presence or absence of growth factors. On the first day of culture, SSCs were single and attached to STO or gelatin coated dishes (<xref ref-type="fig" rid="F2">Figure 2A</xref>). Following two days, the majority of round cells aggregated into clumps in which no cytoplasmic bridges could be discerned (<xref ref-type="fig" rid="F2">Figure 2B</xref>), and then colonies were formed on days 2-3 (<xref ref-type="fig" rid="F2">Figure 2C</xref>). These cell colonies were positive for alkaline phosphatase activity (<xref ref-type="fig" rid="F2">Figure 2D</xref>) indicating these colonies were SSCs (<xref ref-type="bibr" rid="B10">10</xref>, <xref ref-type="bibr" rid="B11">11</xref>).</p>
+      <fig id="F2" position="float">
+        <label>Figure 2</label>
+        <caption>
+          <p>Microscopy morphology of SSCs derived from 4-6 week-old male mice in different groups. SSCs were single on the first day of cell culture (A). Following 2-3 days of cell culture, small SSCs colonies were formed (B), on the seventh day of cell culture the size of colonies was increased significantly (C) and were positive for alkaline Phosphatase activity (D)</p>
+        </caption>
+        <graphic xlink:href="ijbms-16-134-g002"/>
+      </fig>
+      <p>Flow cytometric analysis</p>
+      <p>Following cultivating SSCs in a week, an expression of &#x3B1;<sub>6 </sub>and &#x3B2;<sub>1</sub>-integrin was determined by flow cytometric analysis. The flow cytometric analysis revealed that expression of &#x3B2;<sub>1</sub> integrin which was up to 64% and &#x3B1;6 integrin up to 11% and both integrins were up to 9% on gelatin coated dishes without growth factors (<xref ref-type="fig" rid="F3">Figure 3A</xref>). On gelatin coated dishes with growth factors, &#x3B2;<sub>1</sub> integrin was up to 33% and &#x3B1;6 integrin up to 5%. Both integrins were up to 4% (<xref ref-type="fig" rid="F3">Figure 3B</xref>). When SSCs were cultivated on STO coated dishes, &#x3B2;<sub>1</sub> integrin was up to 70% and &#x3B1;<sub>6</sub> integrin was up to 10% whereas &#x3B2;<sub>1</sub>, &#x3B1;<sub>6</sub> integrins were up to 10% (<xref ref-type="fig" rid="F3">Figure 3C</xref>). On STO coated dishes with growth factors, &#x3B2;<sub>1</sub> integrin was up to 80% and &#x3B1;6 integrin up to 10% and both integrins were up to 10% (<xref ref-type="fig" rid="F3">Figure 3D</xref>). Results in different samples in different groups (n=6/ group) were an expression of &#x3B2;<sub>1</sub>, &#x3B1;<sub>6</sub> integrins on STO coated dishes with growth factors more than other groups (<italic>P&#x2264;</italic>0/05) (<xref ref-type="fig" rid="F3">Figure 3E</xref>).</p>
+      <p>Our findings strongly suggest that STO cells have substantial role in propagation of SSCs and adding growth factors resulted in the improvement of SSCs propagation and expression &#x3B2;<sub>1</sub>, &#x3B1;<sub>6</sub> integrins.</p>
+      <fig id="F3" position="float">
+        <label>Figure 3</label>
+        <caption>
+          <p>Flow cytometric analysis for the propagation of SSCs. Expression of &#x3B1;6 and &#x3B2;1-integrin in cultured SSCs on gelatin coated dishes absent growth factors (A), gelatin coated dishes with growth factors (GDNF, GFRa1, and EGF) (B), STO coated dishes without growth factors (C), STO coated dishes with growth factors (D). Comparison expression of &#x3B1;6 and &#x3B2;1-integrin in cultured SSCs in a different culture medium (E). (P&#x2264;0.05)</p>
+        </caption>
+        <graphic xlink:href="ijbms-16-134-g003"/>
+      </fig>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>The isolation and proliferation of SSCs may provide a valuable tool for the treatment of male infertility. Our study employed a simple but versatile method to efficiently propagate SSCs using STO cells co-culture and supplements which comprised known important factors for germ cell survival and development. </p>
+      <p>Mouse SSCs were enriched using anti-Thy-1 antibody and MACS technology. Our results revealed that the isolated SSCs had high purity and expressed two specific surface markers for mouse spermatogonial stem cells, for instance &#x3B1;<sub>6</sub> and &#x3B2;<sub>1</sub>-integrin (<xref ref-type="bibr" rid="B5">5</xref>). Similar to our findings, Kubota <italic>et al</italic> (2004) used Thy-1 microbeads to isolate SSCs by MACS. However, as a source for SSCs, they used cryptorchid adult, pup, and neonate testis, in which SSCs are presented at a considerably higher percentage of total testis cells relative the amount of SSCs found in the adult testis (<xref ref-type="bibr" rid="B10">10</xref>). In contrast, our study used adult mouse testis as a source of SSCs, and approximately the same purity of SSCs was obtained as determined by the expression of &#x3B2;<sub>1</sub> and &#x3B1;<sub>6</sub>-integrins (70% compared to 51%) (<xref ref-type="bibr" rid="B5">5</xref>) by flow cytometery, indicating the efficiency of our enrichment method. </p>
+      <p>Because of the limited number of spermatogonial stem cells in an adult testis, ex vivo propagation of SSCs is a crucial step for <italic>in vivo</italic> or <italic>in vitro </italic>evaluations. This study investigated the propagation of SSCs co-culture with STO cells in the presence or absence of growth factors, deliberately designed to mimic the natural niche of SSCs. Our <italic>in vitro </italic>results strongly revealed that STO cells combined with growth factors can improve the numbers of mouse SSCs.</p>
+      <p>Feeder layers of STO cells have a beneficial role in SSC maintenance, cultivation and proliferation (<xref ref-type="bibr" rid="B9">9</xref>, <xref ref-type="bibr" rid="B15">15</xref>). STO cells provided an environment for supporting several types of stem cells and germ cells survived for four months on a feeder layer of STO cells (<xref ref-type="bibr" rid="B16">16</xref>, <xref ref-type="bibr" rid="B17">17</xref>). In another study, under the best conditions, 10% to 20% of the SSCs survived for a week or longer using STO feeder layers (<xref ref-type="bibr" rid="B4">4</xref>). In our study, we used adult mouse testis as a source of SSCs that are very low but we showed STO cells enhanced SSCs propagation and colony formation and expression of &#x3B2;<sub>1</sub> and &#x3B1;<sub>6</sub> integrins.</p>
+      <p>The addition of growth factors or other factors that are normally in testis to the culture medium caused an increase in the number of SSCs (<xref ref-type="bibr" rid="B6">6</xref>, <xref ref-type="bibr" rid="B18">18</xref>, <xref ref-type="bibr" rid="B19">19</xref>). Growth factors support <italic>in vitro </italic>expansion of SSCs and have a positive influence on SSC proliferation (<xref ref-type="bibr" rid="B20">20</xref>). GDNF is an important factor in maintaining the undifferentiated population of spermatogonia in the mouse testis and enhanced spermatogonial numbers and is a crucial regulator of stem cell self-renewal <italic>in vivo</italic> and an increased total number of these cells <italic>in vitro</italic> (<xref ref-type="bibr" rid="B5">5</xref>, <xref ref-type="bibr" rid="B21">21</xref>-<xref ref-type="bibr" rid="B24">24</xref>). Therefore, GDNF is important factor for proliferating SSCs. Moreover, undifferentiated spermatogonia express the receptor for GDNF, and consists of the GDNF-family receptor &#x3B1;1 (GFR&#x3B1;1) and c-Ret receptor tyrosine kinase. Adding soluble GFR&#x3B1;1 molecules potentiate the stimulatory signal through the c-Ret receptor or modulate the signaling pathways (<xref ref-type="bibr" rid="B21">21</xref>, <xref ref-type="bibr" rid="B25">25</xref>, <xref ref-type="bibr" rid="B26">26</xref>) .Thus, the combination of GDNF and its receptor resulted in a natural condition for SSCs cultivation (<xref ref-type="bibr" rid="B20">20</xref>) and was used in tandem in the present study.</p>
+      <p>Alternatively, the receptor of EGF is functional in spermatogonia and EGF has been proposed to inhibit testicular germ cell differentiation. EGF also caused the proliferation of type A spermatogonia in adult rat seminiferous tubules <italic>in vitro </italic>(<xref ref-type="bibr" rid="B27">27</xref>) and might have an important role in the paracrine regulation of spermatogenesis (<xref ref-type="bibr" rid="B19">19</xref>). Likewise, an average concentration of EGF in blood plasma is significantly lower in infertile males. Thus EGF has an important role in the culture of SSCs.</p>
+      <p>Kubota used growth factors for culturing and replicating of SSCs (<xref ref-type="bibr" rid="B10">10</xref>, <xref ref-type="bibr" rid="B20">20</xref>) and we used a combination of growth factors as well. But that study used neonate and pup mice that are rich with SSCs initially whereas our mice were in the adulthood stage. Our data was shown that growth factors have important role in propagating of SSCs <italic>in vitro </italic>but may be not enough for this purpose (as also indicated in the results of Kubota) (<xref ref-type="bibr" rid="B20">20</xref>). However, they obtained these results from neonate and pup mice and yet again, our results were from adult mice.</p>
+      <p>We concluded that using feeder cells and growth factors together mirrored the natural condition in testis and the observed expression &#x3B2;<sub>1</sub> and &#x3B1;<sub>6</sub> integrins yielded more than when they were used them separately (&#x3B2;<sub>1</sub> integrin was up to 75% and &#x3B1;<sub>6</sub> integrin up to 21% and both integrins were up to 21%). Feeder cells and growth factors together caused the propagation of SSCs and more expressions of &#x3B2;1 and &#x3B1;<sub>6</sub> integrins. </p>
+    </sec>
+    <sec sec-type="conclusions">
+      <title>Conclusion</title>
+      <p>Our findings indicated that STO feeder cells and growth factors improved SSC expansion and expression of b<sub>1</sub> and a<sub>6</sub>-integrins. Our simple co-culture system may be applicable prior to transplantation or differentiation, although the efficiency of these cells for ART remains unknown and warrants further complementarystudy.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgment</title>
+      <p>The authors are grateful to Prof Karim Nayernia for his beneficial suggestions and Ms M. Nikogoftar for her assistance in Flowcytometric analysis. This work was supported by a grant (No.2575) from Tehran University of Medical Sciences.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oatley</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Brinster</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Spermatogonial stem cells</article-title>
+          <source> Methods Enzymol</source>
+          <year>2006</year>
+          <volume>419</volume>
+          <fpage>259</fpage>
+          <lpage>282</lpage>
+          <pub-id pub-id-type="pmid">17141059</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dadoune</surname>
+              <given-names>JP</given-names>
+            </name>
+          </person-group>
+          <article-title>New insights into male gametogenesis: what about the spermatogonial stem cell niche</article-title>
+          <source>Folia Histochem Cytobiol</source>
+          <year>2007</year>
+          <volume>45</volume>
+          <fpage>141</fpage>
+          <lpage>147</lpage>
+          <pub-id pub-id-type="pmid">17951161</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De</surname>
+              <given-names>Rooij D</given-names>
+            </name>
+            <name>
+              <surname>Russell</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>All you wanted to know about spermatogonia but were afraid to ask</article-title>
+          <source> J Androl</source>
+          <year>2000</year>
+          <volume>21</volume>
+          <fpage>776</fpage>
+          <lpage>789</lpage>
+          <pub-id pub-id-type="pmid">11105904</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Khaira</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>McLean</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Ohl</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>GD</given-names>
+            </name>
+          </person-group>
+          <article-title>Spermatogonial stem cell isolation, storage, and transplantation</article-title>
+          <source> J Androl</source>
+          <year>2005</year>
+          <volume>26</volume>
+          <fpage>442</fpage>
+          <lpage>450</lpage>
+          <pub-id pub-id-type="pmid">15955880</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shinohara</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Avarbock</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Brinster</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>beta1- and alpha6-integrin are surface markers on mouse spermatogonial stem cells</article-title>
+          <source> Proc Natl Acad Sci</source>
+          <year>1999</year>
+          <volume>96</volume>
+          <fpage>5504</fpage>
+          <lpage>5509</lpage>
+          <pub-id pub-id-type="pmid">10318913</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dirami</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ravindranath</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Pursel</surname>
+              <given-names>V</given-names>
+            </name>
+          </person-group>
+          <article-title>Effects of stem cell factor and granulocyte macrophage-colony stimulating factor on survival of porcine type A spermatogonia cultured in KSOM</article-title>
+          <source> Biol Reprod</source>
+          <year>1999</year>
+          <volume>61</volume>
+          <fpage>225</fpage>
+          <lpage>230</lpage>
+          <pub-id pub-id-type="pmid">10377053</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morena</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Boitani</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Pesce</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>De</surname>
+              <given-names>Felici M</given-names>
+            </name>
+            <name>
+              <surname>Stefanini</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation of highly purified type A spermatogonia from prepubertal rat testis</article-title>
+          <source> J Androl</source>
+          <year>1996</year>
+          <volume>17</volume>
+          <fpage>708</fpage>
+          <lpage>118</lpage>
+          <pub-id pub-id-type="pmid">9016402</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Izadyar</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Ouden</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Creemers</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>Posthuma</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Parvinen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>de</surname>
+              <given-names>Rooij D</given-names>
+            </name>
+          </person-group>
+          <article-title>Proliferation and differentiation of bovine type A spermatogonia during long-term culture</article-title>
+          <source> Biol Reprod</source>
+          <year>2003</year>
+          <volume>68</volume>
+          <fpage>272</fpage>
+          <lpage>278</lpage>
+          <pub-id pub-id-type="pmid">12493723</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Guan</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Wolf</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Becker</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Engel</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Nayernia</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hasenfuss</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation and cultivation of stem cells from adult mouse testes</article-title>
+          <source> Nat Protoc</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>143</fpage>
+          <lpage>154</lpage>
+          <pub-id pub-id-type="pmid">19180086</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kubota</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Avarbock</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Brinster</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Culture conditions and single growth factors affect fate determination of mouse spermatogonial stem cells</article-title>
+          <source> Biol Reprod</source>
+          <year>2004</year>
+          <volume>71</volume>
+          <fpage>722</fpage>
+          <lpage>731</lpage>
+          <pub-id pub-id-type="pmid">15115718</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Van</surname>
+              <given-names>der Wee K</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>EW</given-names>
+            </name>
+            <name>
+              <surname>Dirami</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Dym</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Hofmann</surname>
+              <given-names>MC</given-names>
+            </name>
+          </person-group>
+          <article-title>Immunomagnetic isolation and long-term culture of mouse type A spermatogonia</article-title>
+          <source> J Androl</source>
+          <year>2001</year>
+          <volume>22</volume>
+          <fpage>696</fpage>
+          <lpage>704</lpage>
+          <pub-id pub-id-type="pmid">11451367</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aslam</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Robins</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Dowell</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Fishel</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Isolation, purification and assessment of viability of spermatogenic cells from testicular biopsies of azoospermic men</article-title>
+          <source> Hum Reprod</source>
+          <year>1998</year>
+          <volume>13</volume>
+          <fpage>639</fpage>
+          <lpage>647</lpage>
+          <pub-id pub-id-type="pmid">9572426</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hamra</surname>
+              <given-names>FK</given-names>
+            </name>
+            <name>
+              <surname>Schultz</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chapman</surname>
+              <given-names>KM</given-names>
+            </name>
+          </person-group>
+          <article-title>Defining the spermatogonial stem cell</article-title>
+          <source> Dev Biol</source>
+          <year>2004</year>
+          <volume>269</volume>
+          <fpage>393</fpage>
+          <lpage>410</lpage>
+          <pub-id pub-id-type="pmid">15110708</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yeh</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nagano</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Spermatogonial stem cell biomarkers: improved outcomes of spermatogonial transplantation in male fertility restoration</article-title>
+          <source>Expert Rev Mol Diagn</source>
+          <year>2009</year>
+          <volume>9</volume>
+          <fpage>109</fpage>
+          <lpage>114</lpage>
+          <pub-id pub-id-type="pmid">19298134</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sofikitis</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Pappas</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kawatani</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Baltogiannis</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Loutradis</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kanakas</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Efforts to create an artificial testis: culture systems of male germ cells under biochemical conditions resembling the seminiferous tubular biochemical environment</article-title>
+          <source> Hum Reprod Update</source>
+          <year>2005</year>
+          <volume>11</volume>
+          <fpage>229</fpage>
+          <lpage>259</lpage>
+          <pub-id pub-id-type="pmid">15817525</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De</surname>
+              <given-names>Rooij DG</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of the proliferation of spermatogonial stem cells</article-title>
+          <source> J Cell Sci Suppl</source>
+          <year>1988</year>
+          <volume>10</volume>
+          <fpage>181</fpage>
+          <lpage>194</lpage>
+          <pub-id pub-id-type="pmid">3077936</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nagano</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Avarbock</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Leonida</surname>
+              <given-names>EB</given-names>
+            </name>
+            <name>
+              <surname>Brinster</surname>
+              <given-names>CJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Culture of mouse spermatogonial stem cells</article-title>
+          <source> Tissue Cell</source>
+          <year>1998</year>
+          <volume>30</volume>
+          <fpage>389</fpage>
+          <lpage>97</lpage>
+          <pub-id pub-id-type="pmid">9787472</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Feng</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Dettin</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Reijo</surname>
+              <given-names>Pera RA</given-names>
+            </name>
+            <name>
+              <surname>Herr</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Goldberg</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Generation and in vitro differentiation of a spermatogonial cell line</article-title>
+          <source> Science</source>
+          <year>2002</year>
+          <volume>297</volume>
+          <fpage>392</fpage>
+          <lpage>399</lpage>
+          <pub-id pub-id-type="pmid">12077424</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wahab-Wahlgren</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Martinelle</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Holst</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF stimulates rat spermatogonial DNA synthesis in seminiferous tubule segments in vitro</article-title>
+          <source> Mol Cell Endocrinol</source>
+          <year>2003</year>
+          <volume>201</volume>
+          <fpage>39</fpage>
+          <lpage>46</lpage>
+          <pub-id pub-id-type="pmid">12706292</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kubota</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Avarbock</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Brinster</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth factors essential for self-renewal and expansion of mouse spermatogonial stem cells</article-title>
+          <source> Proc Natl Acad Sci</source>
+          <year>2004</year>
+          <volume>101</volume>
+          <fpage>16489</fpage>
+          <lpage>16494</lpage>
+          <pub-id pub-id-type="pmid">15520394</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meng</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Lindahl</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hyv&#xF6;nen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Parvinen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>de</surname>
+              <given-names>Rooij D</given-names>
+            </name>
+            <name>
+              <surname>Hess</surname>
+              <given-names>MW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Regulation of cell fate decision of undifferentiated spermatogonia by GDNF</article-title>
+          <source> Science</source>
+          <year>2000</year>
+          <volume>287</volume>
+          <fpage>1489</fpage>
+          <lpage>1493</lpage>
+          <pub-id pub-id-type="pmid">10688798</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Creemers</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Meng</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Ouden</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>van</surname>
+              <given-names>Pelt A MM</given-names>
+            </name>
+            <name>
+              <surname>Izadyar</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Santoro</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transplantation of germ cells from glial cell line-derived neurotrophic factor-overexpressing mice to host testes depleted of endogenous spermatogenesis by fractionated irradiation</article-title>
+          <source> Biol Repod</source>
+          <year>2002</year>
+          <volume>66</volume>
+          <fpage>1579</fpage>
+          <lpage>1685</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aponte</surname>
+              <given-names>PM</given-names>
+            </name>
+            <name>
+              <surname>Soda</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Van</surname>
+              <given-names>De Kant HJG</given-names>
+            </name>
+            <name>
+              <surname>de</surname>
+              <given-names>Rooij DG</given-names>
+            </name>
+          </person-group>
+          <article-title>Basic features of bovine spermatogonial culture and effects of glial cell line-derived neurotrophic factor</article-title>
+          <source> Theriogenology</source>
+          <year>2006</year>
+          <volume>65</volume>
+          <fpage>1828</fpage>
+          <lpage>1847</lpage>
+          <pub-id pub-id-type="pmid">16321433</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kanatsu-Shinohara</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ogonuki</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Inoue</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Miki</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ogura</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Toyokuni</surname>
+              <given-names>Sh</given-names>
+            </name>
+          </person-group>
+          <article-title>Long-term proliferation in culture and germline transmission of mouse male germline stem cells</article-title>
+          <source> Biol Reprod</source>
+          <year>2003</year>
+          <volume>69</volume>
+          <fpage>612</fpage>
+          <lpage>616</lpage>
+          <pub-id pub-id-type="pmid">12700182</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Paratcha</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Ledda</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Ib&#xE1;&#xF1;ez</surname>
+              <given-names>CF</given-names>
+            </name>
+          </person-group>
+          <article-title>Released GFR (alpha) 1 potentiates downstream signaling, neuronal survival, and differentiation via a novel mechanism of recruitment of c-Ret to lipid rafts</article-title>
+          <source> Neuron</source>
+          <year>2001</year>
+          <volume>29</volume>
+          <fpage>171</fpage>
+          <lpage>184</lpage>
+          <pub-id pub-id-type="pmid">11182089</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yomogida</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yagura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Tadokoro</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Nishimune</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Dramatic expansion of germinal stem cells by ectopically expressed human glial cell line-derived neurotrophic factor in mouse Sertoli cells</article-title>
+          <source> Biol Reprod</source>
+          <year>2003</year>
+          <volume>69</volume>
+          <fpage>1303</fpage>
+          <lpage>1309</lpage>
+          <pub-id pub-id-type="pmid">12801989</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Haneji</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Koide</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>Tajima</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Nishimune</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Differential effects of epidermal growth factor on the differentiation of type A spermatogonia in adult mouse cryptorchid testes in vitro</article-title>
+          <source> J Endocrinol</source>
+          <year>1991</year>
+          <volume>128</volume>
+          <fpage>383</fpage>
+          <lpage>389</lpage>
+          <pub-id pub-id-type="pmid">1707434</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

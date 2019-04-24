@@ -1,0 +1,508 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27374240</article-id>
+      <article-id pub-id-type="pmc">4931512</article-id>
+      <article-id pub-id-type="pii">srep29029</article-id>
+      <article-id pub-id-type="doi">10.1038/srep29029</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Human neural stem cell-induced endothelial morphogenesis requires autocrine/paracrine and juxtacrine signaling</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chou</surname>
+            <given-names>Chung-Hsing</given-names>
+          </name>
+          <xref ref-type="aff" rid="a1">1</xref>
+          <xref ref-type="aff" rid="a2">2</xref>
+          <xref ref-type="aff" rid="a3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Modo</surname>
+            <given-names>Michel</given-names>
+          </name>
+          <xref ref-type="corresp" rid="c1">a</xref>
+          <xref ref-type="aff" rid="a1">1</xref>
+        </contrib>
+        <aff id="a1"><label>1</label><institution>University of Pittsburgh, Department of Radiology, Department of Bioengineering, McGowan Institute for Regenerative Medicine</institution>, Pittsburgh, <country>USA</country></aff>
+        <aff id="a2"><label>2</label><institution>Kings College London, Department of Neuroscience</institution>, London, <country>UK</country></aff>
+        <aff id="a3"><label>3</label><institution>Tri-service General Hospital, Department of Neurology, National Defense Medical Centre</institution>, Taipei, <country>Taiwan</country></aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="c1">
+          <label>a</label>
+          <email>modomm@upmc.edu</email>
+        </corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>04</day>
+        <month>07</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>6</volume>
+      <elocation-id>29029</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>15</day>
+          <month>02</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>09</day>
+          <month>06</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2016, Macmillan Publishers Limited</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <copyright-holder>Macmillan Publishers Limited</copyright-holder>
+        <license xmlns:xlink="http://www.w3.org/1999/xlink" license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <!--author-paid-->
+          <license-p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Transplanted neural stem cells (NSC) interact with the host brain microenvironment. A neovascularization is commonly observed in the vicinity of the cell deposit, which is correlated with behavioral improvements. To elucidate the signaling mechanisms between human NSCs and endothelial cells (ECs), these were cocultured in an <italic>in vitro</italic> model in which NSC-induced endothelial morphogenesis produced a neurovascular environment. Soluble (autocrine/paracrine) and contact&#x2013;mediated (juxtacrine) signaling molecules were evaluated for two conditionally immortalized fetal NSC lines derived from the cortical anlage (CTXOE03) and ganglionic eminence (STROC05), as well as an adult EC line (D3) derived from the cerebral microvasculature of a hippocampal biopsy. STROC05 were 4 times as efficient to induce endothelial morphogenesis compared to CTXOE03. The cascade of reciprocal interactions between NSCs and ECs in this process was determined by quantifying soluble factors, receptor mapping, and immunocytochemistry for extracellular matrix molecules. The mechanistic significance of these was further evaluated by pharmacological blockade. The sequential cell-specific regulation of autocrine/paracrine and juxtacrine signaling accounted for the differential efficiency of NSCs to induce endothelial morphogenesis. These <italic>in vitro</italic> studies shed new light on the reciprocal interactions between NSCs and ECs, which are pivotal for our mechanistic understanding of the efficacy of NSC transplantation.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <p>Human neural stem cell (NSC) transplantation is emerging as a potential therapeutic strategy for stroke<xref ref-type="bibr" rid="b1">1</xref>. A major advantage of cell lines, such as ReN001 (CTXOE03), is that each patient with chronic stroke in a phase II clinical trial (NCT02117635) receives a homogenous well-characterized population of cells that can be produced on an industrial scale<xref ref-type="bibr" rid="b2">2</xref>. In a preclinical efficacy study using CTXOE03, behavioral improvements were correlated with astrocytic differentiation of transplanted cells, as well as neovascularization at the site of injection<xref ref-type="bibr" rid="b3">3</xref>. Indeed, CTXOE03 has a robust angiogenic phenotype<xref ref-type="bibr" rid="b4">4</xref><xref ref-type="bibr" rid="b5">5</xref>, but other NSC lines, such as STROC05, also exhibit neovascularization at the site of injection<xref ref-type="bibr" rid="b6">6</xref>. Others also reported an interdependent increase in angiogenesis and neurogenesis after a stroke<xref ref-type="bibr" rid="b7">7</xref><xref ref-type="bibr" rid="b8">8</xref><xref ref-type="bibr" rid="b9">9</xref>, with the formation of a vascular network being associated with better NSC survival<xref ref-type="bibr" rid="b10">10</xref>. There is also an indication that systemic blocking of neovascularization is preventing behavioral recovery after NSC transplantation<xref ref-type="bibr" rid="b11">11</xref>, potentially suggesting that endothelial cells (ECs) are the main, even though indirect, therapeutic effector<xref ref-type="bibr" rid="b12">12</xref>.</p>
+    <p>Nevertheless, an association between neovascularization and behavioral recovery does not imply causality. Indeed, most biological systems are the product of a complex interplay between different types of cells influencing each other<xref ref-type="bibr" rid="b13">13</xref>, hence a more complicated mechanistic interaction with synergistic properties might emerge. Elucidating the neurobiological mechanisms underlying NSCs&#x2019; therapeutic efficacy therefore needs to consider continuing autocrine, paracrine and juxtacrine interactions between NSCs and ECs, including the formation of novel blood vessels (i.e. vasculogenesis). Identifying individual signals that can be manipulated to modulate efficacy is therefore indispensable to disentangle the causal cascade. Pivotal factors in blood vessel formation have been identified in vasculogenesis in the developing brain, the neural stem cell niche, as well as tumor-induced angiogenesis<xref ref-type="bibr" rid="b14">14</xref><xref ref-type="bibr" rid="b15">15</xref>. Autocrine and paracrine factors, such as vascular endothelial growth factor (VEGF), brain derived neural growth factor (BDNF), basic fibroblast growth factor (bFGF), stromal derived factor-1&#x3B1; (SDF-1&#x3B1;), platelet derived growth factor (PDGF), angiopoietin (Ang) and transforming growth factor-&#x3B2;1 (TGF-&#x3B2;1), influence the vascular environment by diffusion, hence affecting multiple cells in the vicinity of their release. In contrast, juxtacrine factors, such as vitronectin, fibronectin, laminin, collagen I &amp; IV, hyaluronic acid (HA), aggrecan, neurocan, thrombospondin, nidogen and brain link protein 1 (Bral1), affect neurovascular interactions by close contact cell-to-cell or extracellular matrix (ECM)-to-cell signaling. Indeed, a synergistic effect between autocrine/paracrine and juxtacrine factors is required to produce endothelial morphogenesis and enhance neuronal differentiation of NSCs<xref ref-type="bibr" rid="b16">16</xref>.</p>
+    <p>To gain a mechanistic understanding of interactions between NSCs and brain ECs, autocrine/paracrine (i.e. soluble factors), as well as juxtacrine targets, were investigated in an <italic>in vitro</italic> coculture model of the neurovascular environment using human cerebral microvascular ECs (D3) and two clinical-grade human NSC lines (STROC05 &amp; CTXOE03)<xref ref-type="bibr" rid="b16">16</xref>. NSCs facilitated endothelial morphogenesis (EM) in a reciprocal relationship with neuronal differentiation and allowed us to measure autocrine/paracrine and juxtacrine signals, as well as the corresponding receptors. A concentration-dependent effect was evident for both cell lines, but STROC05 were significantly more efficient to induce EM, hence forming better-defined vessel-like structures (VLS). Autocrine/paracrine and juxtacrine signaling provides essential factors through EM, but neither provides a sufficient factor to induce VLS, indicating that NSCs&#x2019; efficiency cannot be reduced to a single factor. Nevertheless, inhibition of a single factor is sufficient to prevent VLS formation by interfering with EM.</p>
+    <sec disp-level="1">
+      <title>Results</title>
+      <sec disp-level="2">
+        <title>NSCs differentially induce VLS in a concentration-dependent fashion</title>
+        <p>NSCs induced endothelial morphogenesis (EM) of endothelial cells (ECs), resulting in the formation of VLS <italic>in vitro</italic>. VLS are characterized by ECs forming a tubule-like shape surrounding a NSC-based &#x201C;neuropil patch&#x201D;. This plexus of VLS is induced by both STROC05 (<xref ref-type="fig" rid="f1">Fig. 1A</xref>) and CTXOE03 (<xref ref-type="fig" rid="f1">Fig. 1B</xref>) in an inverted U-shape concentration-dependent fashion (<xref ref-type="fig" rid="f1">Fig. 1C</xref>). Although both NSC lines can produce a similar level of VLS, STROC05 were 4x more efficient in this process than CTXOE03. Increasing the number of ECs in coculture led to a linear increase in VLS formation before leveling off for STROC05 and leading to a small, yet significant regression, for CTXOE03 (<xref ref-type="fig" rid="f1">Fig. 1D</xref>). STROC05 produced a very significant concentration-dependent increase in EC proliferation (<xref ref-type="fig" rid="f1">Fig. 1E</xref>), whereas there was little change in proliferation in CTXOE03-D3 cocultures (<xref ref-type="fig" rid="f1">Fig. 1F</xref>). STROC05 and CTXOE03, both NSC lines, hence differ significantly in their effect on EM, as well as EC proliferation.</p>
+        <p>To establish if NSCs and ECs&#x2019; interactions affect phenotypic differentiation, immunocytochemical markers for dividing undifferentiated and non-dividing differentiated cells were first quantified in standard monocultures to provide a baseline characterization (<xref ref-type="fig" rid="f2">Fig. 2A</xref>). As expected, a general shift from proliferative (Ki67) and undifferentiated markers (CD133, Nestin, SOX2) to more mature phenotypic markers of NSCs (GFAP, MAP2, GalC) and ECs (CD31, VE-Cadherin, ZO1, CD146) was observed for STROC05 (<xref ref-type="fig" rid="f2">Fig. 2B</xref>), CTXOE03 (<xref ref-type="fig" rid="f2">Fig. 2C</xref>) and D3 cells (<xref ref-type="fig" rid="f2">Fig. 2D</xref>). These baseline measures served as comparison for cocultures to determine effects on neural differentiation markers in NSCs (<xref ref-type="supplementary-material" rid="S1">Figure S1A</xref>) and endothelial markers in ECs (<xref ref-type="supplementary-material" rid="S1">Figure S1B</xref>). Coculture of NSCs with ECs significantly reduced the presence of Nestin-expressing undifferentiated NSCs in a concentration-dependent, but cell line independent, fashion (<xref ref-type="fig" rid="f3">Fig. 3A</xref>, <xref ref-type="supplementary-material" rid="S1">Table S1</xref>). A concentration-dependent effect was also evident for neuronal (MAP2+) differentiation. Indeed, neuronal differentiation in coculture was enhanced 3-fold for STROC05 and 2-fold for CTXOE03 at the same concentration that resulted in optimal VLS formation (seeding densities of 25,000 STROC05; or 100,000 CTXOE03 NSCs per well). Maximum neuronal differentiation therefore coincides with optimal EM. However, all EC concentrations had a significant effect on neuronal differentiation compared to monoculture.</p>
+        <p>In contrast, oligodendrocytes (GalC+) were equivalent to monocultures only at an optimal concentration with lower differentiation levels at sub-/supra-optimal concentrations for STROC05. CTXOE03, in contrast, revealed an up to 2-fold increase in oligodendrocytic and astrocytic differentiation. Reciprocal signaling is also evident in EC phenotypes (<xref ref-type="supplementary-material" rid="S1">Figure S1B</xref>). The presence of NSCs actually preserves an undifferentiated phenotype in ECs with 35% more cells expressing CD133 for all concentrations (<xref ref-type="fig" rid="f3">Fig. 3B</xref>), which is consistent with an increase in EC proliferation. The preservation of an undifferentiated phenotype results in a decrease in CD31 and VE-Cadherin, both markers of mature ECs. CD31 exhibited an inverted U-shape curve that revealed a concentration and NSC line interaction akin to that observed on EM and neuronal differentiation. Although a concentration and cell line effect was also evident for VE-Cadherin, this effect was linear with higher concentrations of NSCs resulting in an up to 45% reduction of VE-Cadherin+ cells. Surprisingly, ZO1, a marker of cell-to-cell junctions found at the blood-brain barrier was only significantly reduced at the highest concentration of CTXOE03 cells. These results suggest that NSCs exert a concentration-dependent and reciprocal effect on ECs. However, there are also signaling differences between STROC05 and CTXOE03 that are not due to concentration. These effects are likely to be mediated through differences in secreted (autocrine/paracrine) and/or cell-to-cell (juxtacrine) signaling factors.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Sequential regulation of autocrine/paracrine signaling</title>
+        <p>Secreted factors that act in an autocrine and/or paracrine fashion are released from cells and can be assayed in the supernatant. In a coculture, cell signaling and its ensuing behavior are therefore dependent on the phenotypic state of cells as they initiate interactions. Pivotal secreted factors were measured using ELISAs of supernatant from monocultures of dividing undifferentiated and non-dividing differentiated cells and compared with cocultures that were either at an optimal concentration or sub-/supra-optimal conditions (<xref ref-type="fig" rid="f4">Fig. 4</xref>, <xref ref-type="supplementary-material" rid="S1">Table S2</xref>). At the top of the canonical cascade of NSC:EC interactions is VEGF-A. Undifferentiated ECs secreted minute amounts of VEGF-A that are increased upon differentiation. In contrast, NSCs, and especially CTXOE03 express higher levels of VEGF-A. This is dramatically increased upon CTXOE03 differentiation, but even more so in coculture with differentiated ECs. In coculture, STROC05 upregulated VEGF-A release ~16,000 times. Nevertheless, in absolute terms CTXOE03 released the highest amount of VEGF-A with ~12,000&#x2009;pg/mL. In both cocultures, this dramatic increase in VEGF-A release is seen on day 5 with little change compared to baseline beforehand. Although VEGF-C was significantly upregulated in differentiated ECs, coculturing lead to a significant and stable decrease in release. However, VEGF-C was more prominently present in CTXOE03 co-cultures with no detectable levels in STROC05 co-cultures until day 7. VEGF-D was not detectable in any monocultures and cocultures.</p>
+        <p>Ang-1 release, a critical factor in vessel maturation, was significant in differentiated NSCs, but not undifferentiated NSCs, although it was equally present in dividing and differentiated ECs. Coculture lead to a gradual increase in the presence of STROC05, but only a transient increase in CTXOE03 cells at day 3. Ang-2 is known to disrupt vascularization and was stably present over time in co-culture, but was 8x more abundant in the presence of CTXOE03 than STROC05. This is in contrast with PDGF-AB and -BB (modulating cell proliferation and promoting vessel maturation) that are consistently higher in STROC05 cocultures and only detectable in CTXOE03 cocultures at day 7. BDNF (a survival factor) and SDF-1&#x3B1; (controlling cell migration) are only present in differentiated ECs and are consistently stable in coculture with the exception of a BDNF decrease in STROC05 coculture from day 5. The final step in the formation of a stable vessel structure is dependent on the synergistic effects of TGF-&#x3B2;1 and bFGF. Although TGF-&#x3B2;1 was equally present in both coculture conditions, only STROC05 coculture released bFGF. Timing of bFGF, however, controls its function with early release of bFGF in the angiogenic cascade promoting cell proliferation, which is also observed in ECs in the STROC05 coculture. The controlled co-release of TGF-&#x3B2;1 is hence likely serving as a switch to vessel stabilization rather than cell proliferation.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Differential localization of juxtacrine signals</title>
+        <p>To exert a precise spatial and temporal signaling control, juxtacrine factors require close contact to control tissue cytoarchitecture, as well as the formation and maintenance of tissue compartments. Using immunocytochemistry, neuropil- and vasculature-associated molecules can be contrasted for their role in NSC-induced endothelial morphogenesis. The basement membrane defines the signaling interface between the neuropil and vasculature. VLS exhibited the formation of a basement membrane that was characterized by its typical ECM molecules, notably vitronectin, fibronectin, collagen I, collagen IV, as well as laminin (<xref ref-type="supplementary-material" rid="S1">Figure S2</xref>). Within the &#x201C;neuropil&#x201D;, cells only expressed laminin. In contrast to vitronectin and laminin, neither collagen I &amp; IV, nor fibronectin was present in undifferentiated or differentiated NSCs. Undifferentiated D3 ECs strongly expressed fibronectin and laminin, with a small number of cells also expressing collagen I &amp; IV and vitronectin. Upon D3 differentiation, all these molecules were strongly expressed, indicating their tight association with the maturation of a vasculature.</p>
+        <p>Neuropil-associated molecules were mostly present within the neuropil, but also associated with VLS (<xref ref-type="supplementary-material" rid="S1">Figure S3</xref>). Indeed, hyaluronic acid (HA) was evident on NSCs in the &#x201C;neuropil&#x201D;, but was also strongly present in VLS. Undifferentiated and differentiated D3 more strongly expressed HA compared to both NSC lines. Aggrecan was only weakly present in neuropil, but CTXOE03 expressed it under both undifferentiated and differentiated conditions, with significantly lesser expression in D3 and none in STROC05. A similar expression pattern was also evident for neurocan, with some clear cellular expression in CTXOE03 in coculture. Thrombospondin, a molecule often associated with reactive astrocytes, was strongly present in cocultures. Although it colocalized with NSCs, this was only in NSCs that were in proximity to ECs. Indeed, ECs also expressed thrombospondin in coculture, as well as in their undifferentiated and differentiated state. Interestingly, in ECs thrombospondin was morphologically distinct compared to NSCs, with a fiber-like morphology. In contrast to all other molecules, nidogen did not exhibit a differential expression in any of the conditions examined with a strong cytoplasmic appearance and some extracellular punctate presence. Finally, Bral1 was weakly expressed in STROC05 and downregulated in differentiated CTXOE03 cells. Interestingly, it was upregulated in differentiated D3 monoculture, but mostly absent after co-culturing with either NSC lines.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Autocrine/paracrine and juxtacrine receptors are present inside and outside VLS</title>
+        <p>Signaling factors are, nevertheless, dependent on binding to an appropriate receptor on their target cell (<xref ref-type="supplementary-material" rid="S1">Figure S4</xref>). In monoculture, key differences in receptors were evident (<xref ref-type="fig" rid="f5">Fig. 5A</xref>). Specifically within the VEGF signaling family, VEGFR1 was not present on ECs, but was expressed highly in 80&#x2013;90% of undifferentiated STROC05 and CTXOE03 cells with a slight reduction upon differentiation. Although VEGFR3 was present in ~80% of undifferentiated and differentiated CTXOE03, only ~45% of undifferentiated STROC05 and 60% of differentiated D3 expressed this receptor. In contrast, VEGFR2, the receptor for VEGF-A was presented in ~90% of all cells examined potentially highlighting its pivotal role in angiogenesis. PDGF receptors were present in all cell types and conditions, although there was some variation in the number of cells expressing the &#x3B1; or &#x3B2; form of the receptor. Tie2, the receptor for ANG1, was significantly downregulated upon STROC05 differentiation, but upregulated in both CTXOE03 and D3 cells (p&#x2009;&lt;&#x2009;0.01). Interestingly, &#x3B1;v&#x3B2;3 was not present in monocultures of STROC05.</p>
+        <p>Upon coculture, a key distinction in receptor mapping was between cells inside VLS and those outside (i.e. the putative neuropil) (<xref ref-type="fig" rid="f5">Fig. 5B</xref>). All 3 VEGFR were present in most (~90%) cells inside and outside of VLS, with the exception of VEGFR3 in STROC05 co-cultures only being present in 50&#x2013;60% of cells (p&#x2009;&lt;&#x2009;0.05). PDGF receptors were equally present in both cocultures and FGFR2 was significantly (p&#x2009;&lt;&#x2009;0.01) downregulated outside VLS. However, in contrast to CTXOE03 cells, Tie2, p75, TrkB, CXCR4, TGF&#x3B2;R2, &#x3B1;6 and &#x3B1;v&#x3B2;3 were present in significantly fewer cells outside the VLS in STROC05 co-cultures (p&#x2009;&lt;&#x2009;0.01). Having mapped putative signals and their receptors hence afforded to probe mechanistically if these factors are necessary for VLS formation by interfering with their signaling.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Preventing the generation of VLS</title>
+        <p>The roles of paracrine signaling factors in generating neurovascular networks were assayed by blocking receptors. Specifically, VEGFR2 inhibitor SU1498, PDGFR&#x3B2; inhibitor SU6668, and CXCR4 antagonist AMD3100 were added separately into cocultures (<xref ref-type="supplementary-material" rid="S1">Figure S5A</xref>). The VEGFR2 inhibitor significantly inhibited VLS formation in both D3/STROC05 and D3/CTXOE03 cocultures (<xref ref-type="fig" rid="f6">Fig. 6A</xref>, <xref ref-type="supplementary-material" rid="S1">Table S3</xref>). Nevertheless, a significant reduction of VLS formation caused by the PDGFR&#x3B2; inhibitor could only be observed in D3/STROC05, rather than D3/CTXOE03 coculture. A CXCR4 antagonist blocking the potential migration of cells did not interfere with VLS induction by either NSC line.</p>
+        <p>Interferences with juxtacrine factors was achieved using Cilengitide, a RGD pentapeptide inhibitor of integrin &#x3B1;v&#x3B2;3, GoH3-blocking antibody against integrin &#x3B1;6, and IgG<sub>2</sub>A isotype antibody as a negative control (<xref ref-type="supplementary-material" rid="S1">Figure S5B</xref>). The &#x3B1;v&#x3B2;3 inhibitor significantly inhibited VLS formation in both D3/STROC05 and D3/CTXOE03 cocultures (<xref ref-type="fig" rid="f6">Fig. 6B</xref>, <xref ref-type="supplementary-material" rid="S1">Table S3</xref>), but a more pronounced effect (at a lower dose) was evident for CTXOE03 cells. A significant and equivalent reduction in VLS formation caused by the &#x3B1;6 inhibitor could also be seen in both D3/STROC05 and D3/CTXOE03 cocultures. In contrast, the IgG<sub>2</sub>A control antibody did not significantly affect the formation of VLS. The results hence demonstrate that key autocrine/paracrine signaling factors and their receptors can be identified in an <italic>in vitro</italic> model of neuro-vascular interactions and that these can be probed in a mechanistic fashion to determine their involvement in the formation of new vessel-like structures.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Discussion</title>
+      <p>An angiogenic response of the vasculature (<xref ref-type="fig" rid="f7">Fig. 7A</xref>) is emerging as an important factor in the therapeutic efficacy of transplanted NSCs. Unlike pharmacological agents, NSCs and ECs interact in a responsive fashion to each other in a signaling cascade, involving both soluble secreted factors that act in an autocrine and paracrine fashion, but also contact-mediated juxtacrine factors that result in a very locally-controlled signaling. This cascade defines different crucial processes required to promote the creation of a new neuro-vascular environment. We here demonstrate that this signaling cascade that is induced by NSCs organizes ECs into VLS that define a &#x201C;neuropil&#x201D; separated by a basement membrane from the &#x201C;vascular plexus&#x201D;, but also produces a dramatic shift in the neural differentiation of NSCs. This <italic>in vitro</italic> assay afforded the temporal evaluation of autocrine/paracrine and juxtacrine factors involved in this cascade and allowed us to investigate the neuro-vascular signaling cascade underlying the interaction between NSCs and ECs.</p>
+      <sec disp-level="2">
+        <title>A cascade of neuro-vascular signaling</title>
+        <p>ECs by themselves do not form VLS, but are dependent on induction of this process by NSCs<xref ref-type="bibr" rid="b16">16</xref>. This induction is dependent on the NSC:EC ratio following an inverted U-shape function, revealing the importance of dose to the observed effects. However, the propensity of VLS induction exhibited a dramatic difference between STROC05 and CTXOE03, with STROC05 requiring 4 times less cells. At their optimal concentrations, an up to 3 fold increase in neuronal differentiation of NSCs could also be observed, further highlighting the interdependence that these two types of cells exert on each other. Indeed, there is accumulating evidence that factors, such as VEGF, PDGF and EGF, traditionally linked to vascular development, are also pivotal in neural development<xref ref-type="bibr" rid="b17">17</xref>. The potent effects ECs exerted on NSCs also caution about the predictive value and interpretation of monoculture experiments to determine putative therapeutic effects of NSCs, as their molecular profile and behavior is markedly different<xref ref-type="bibr" rid="b18">18</xref>. Uncovering key differences in their autocrine/paracrine and juxtacrine signaling in response to the presence of ECs hence provides a means to determine potential mechanisms by which these cells produce a neovascularization upon implantation into the peri-infarct stroke area, but also their potential to organize a novel neurovascular environment.</p>
+        <p>The organization of a neurovascular environment results from endothelial morphogenesis that is induced by NSCs, and it can be regarded as the product of a cascade of signaling interactions with ECs. In this process, both NSCs and ECs secreted factors that control their own (autocrine) function, as well as other surrounding cells (paracrine). The most potent factor here was VEGF-A, which was dramatically upregulated in both NSC lines in presence of ECs. There is increasing evidence that secretion of VEGF-A is involved in behavioral efficacy of NSCs transplanted in stroke<xref ref-type="bibr" rid="b11">11</xref> and that VEGF-A by itself can promote behavioral improvements<xref ref-type="bibr" rid="b19">19</xref>, but this is unlikely to be due to neovascularization per se, rather than an indirect effect on NSCs or host neurons. CTXOE03&#x2019;s release of VEGF-A was dramatically higher compared to STROC05, potentially driving its high angiogenic potential<xref ref-type="bibr" rid="b4">4</xref><xref ref-type="bibr" rid="b5">5</xref>. The high doses of VEGF generated here in coculture suggest intussusception, rather than sprouting angiogenesis, as a potential mechanisms underlying the observed <italic>in vivo</italic> neovascularization<xref ref-type="bibr" rid="b20">20</xref>. The greater efficiency of STROC05 to induce VLS indicates that neovascularization is not merely the product of destabilizing blood vessels and promoting ECs&#x2019; proliferative response, which are the key processes induced by VEGF-A, but also newly formed vessels, which require organization into tubules and stabilization<xref ref-type="bibr" rid="b21">21</xref>. CTXOE03 inefficiently secreted Ang-1, PDGF-AA and -AB in comparison to STROC05, indicating that it is less efficient in these two processes. Crucially, the secretion of Ang-1 and PDGF-AB increased as VLS were forming in D3/STROC05 cocultures indicating the importance of the evolution of signaling between ECs and NSCs to control particular processes in vasculogenesis. Hence CTXOE03 is a very potent inducer of an angiogenic response, but STROC05 is more efficient in forming stable VLS. For NSCs to induce a stable neurovascular environment, a shift from induction to maintenance signaling is required to ensure that no vessel regression occurs<xref ref-type="bibr" rid="b22">22</xref>.</p>
+        <p>Although secreted factors exert a key influence on the local environment, it is juxtacrine factors that provide the fine-tuning that leads to EM by organizing close cell-to-cell interactions<xref ref-type="bibr" rid="b21">21</xref><xref ref-type="bibr" rid="b23">23</xref>, as well as the formation of the BM that defines the intersection between the neuropil and vascular environment<xref ref-type="bibr" rid="b24">24</xref>. VLS developed a BM that involved early markers, such as vitronectin and fibronectin, but also more mature ECM markers, such as collagen I and IV, as well as laminin<xref ref-type="bibr" rid="b25">25</xref>. Although a BM formed in the presence of both NSC cell types, fibronectin and vitronectin, the earliest molecules in the formation of BM, were more evident in CTXOE03 co-cultures, whereas collagen I and IV, which are more mature markers were defining VLS in STROC05 coculture, potentially again indicating that more stable VLS are being formed. The BM also influences the interaction with the neuropil, especially astrocytes which extend end feet onto the VLS and here also performed a pericyte function<xref ref-type="bibr" rid="b26">26</xref>. Indeed, almost 20% of CTXOE03 expressed CD146, a marker typically found in pericytes<xref ref-type="bibr" rid="b27">27</xref>. Others have also reported the expression of tight junction molecules in undifferentiated NSCs<xref ref-type="bibr" rid="b28">28</xref>. Especially neurosphere preparations appear to potentially promote the adaption of endothelial cell characteristics of NSCs<xref ref-type="bibr" rid="b29">29</xref>, including the contribution<xref ref-type="bibr" rid="b30">30</xref> or formation of VLS<xref ref-type="bibr" rid="b31">31</xref>. However, no VLS formation or expression of tight junction molecules was evident here in both NSC lines. The plasticity of NSCs to form VLS and express endothelial-associated markers might hence be a reflection of NSCs that are less developmentally mature than those used here, but could also be a reflection of specific culture conditions. Ideally, incorporation of a fluorescent marker will help to track NSCs and determine their phenotypic behavior. As the cells used here are of clinical grade, we nevertheless refrained from this approach to preserve their characteristic phenotype.</p>
+        <p>In contrast to VLS, neuropil patches mostly revealed aggrecan, neurocan, thrombospondin, hyaluronic acid, nidogen and Bral1. The deposition of these ECM molecules was increased in cocultures compared to monocultures, further indicating that ECs also contribute to the maturing process of the neuropil (e.g. formation of peri-neuronal nets and axon initial segments) and provide important instructive signals to shape the neural compartment of the neurovascular unit<xref ref-type="bibr" rid="b32">32</xref>. Although all these signaling elements influence communications between NSCs and ECs, understanding their mechanism requires a distinction between necessary conditions, i.e. absence of the factor prevents the formation of VLS, versus sufficient conditions in which the factor influences the overall efficiency of the process, but does not prevent VLS formation.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Necessary versus sufficient vasculogenic signaling</title>
+        <p>As VLS formation is an orchestrated process, interferences with key events by blocking the pivotal signal will disrupt the signal cascade and reveal necessary factors in endothelial morphogenesis. Blocking of VEGFR2 (VEGF-A and -C receptor), as well as &#x3B1;v&#x3B2;3 (vitronectin receptor) and &#x3B1;6 (laminin receptor), disrupted VLS formation consistently and revealed that these pathways are necessary conditions for the induction of EM by both NSC lines. In contrast, PDGFR&#x3B2; (PDGF-BB and -AB receptor) was only required by STROC05 cells, whereas CTXOE03-induced VLS were unaffected by blocking this pathway. As PDGF-BB and -AB secretion in CTXOE03/D3 cocultures was mostly absent, this points to an essential signaling difference between both cell lines. It further indicates that PDGF signaling might not be a necessary condition for VLS formation, but might be sufficient in that it allowed STROC05 cells to be more efficient in VLS formation by stabilizing structures. In STROC05, blocking of PDGF-BB might hence lead to the collapse of VLS, whereas VLS formed by CTXOE03 are not dependent on this support. PDGF-BB secreted from ECs typically recruits pericytes to participate in the formation, stabilization and maturation of vessels<xref ref-type="bibr" rid="b33">33</xref> and further supports the notion that STROC05 cells are more efficient &#x201C;vessel builders&#x201D;, whereas CTXO03 are more potent vessel destabilizers. Indeed, VLS formed by CTXOE03 were also more easily disrupted by Cilengitide, a &#x3B1;v&#x3B2;3 blocker, a key element in sprouting angiogenesis<xref ref-type="bibr" rid="b34">34</xref>. These differences between both NSC lines suggest that CTXOE03 induce a sprouting angiogenesiss, but on their own lack signaling to form stable blood vessels, whereas the signaling profile of STROC05 is more consistent with intussusception and the capability to form stable vessels.</p>
+        <p>The results presented here allow us to propose a theoretical framework that conceptualizes the cascade of interactions between these two NSC lines and ECs that lead to a neovascularization (<xref ref-type="fig" rid="f7">Fig. 7B</xref>). Neovascularization in the brain is typically caused by hypoxia that activates the angiogenic cascade through hypoxia-inducible factor-1&#x3B1;<xref ref-type="bibr" rid="b35">35</xref><xref ref-type="bibr" rid="b36">36</xref>. We here hypothesize that in the case of NSC transplantation, as well as our coculture condition, a brief hypoxic condition, caused by the extra metabolic demand of added NSCs, is the trigger of the angiogenic cascade that leads to the release of VEGF-A, which <italic>in vivo</italic> will destabilize existing vessels and <italic>in vitro</italic> produces unstable conditions in a layer of differentiated ECs. MMP-2 plays a crucial role in disrupting the cell-to-cell tight junctions that lead to the breakup of the vessel structure<xref ref-type="bibr" rid="b37">37</xref>. Both NSC lines here participated in this process, with CTXOE03 being the more potent &#x201C;activator&#x201D;, as indicated by the more significant VEGF-A response. This vessel disruption leads to the dedifferentiation and recruitment of EC progenitors to proliferate locally through paracrine factors (BDNF &amp; bFGF)<xref ref-type="bibr" rid="b38">38</xref>. Indeed, the same factors are involved in NSCs proliferation and demonstrate the similarity and interdependence of signaling between these two cell types<xref ref-type="bibr" rid="b17">17</xref><xref ref-type="bibr" rid="b39">39</xref>. Once a certain threshold of EC progenitors (and paracrine factors) is reached, EM and the creation of neuropil patches will occur. EM requires guidance from NSCs through Ang-1, PDGF-AB and -BB signaling, contributing to the efficiency of this process, but these pathways are not necessary factors, as demonstrated here in the case of CTXOE03. The deposition of vitronectin and fibronectin provides additional structural support to the tubule formation<xref ref-type="bibr" rid="b40">40</xref>. At this stage, both TGF-&#x3B2;1 and bFGF are required to stabilize vessels, otherwise these structures will regress.</p>
+        <p>The formation of novel vessel structures is a complicated process that involves a sequence of signaling events, which exert significant effects on both ECs and NSCs<xref ref-type="bibr" rid="b13">13</xref>. This conceptual framework provides an opportunity to interfere with or enhance particular molecular interactions between NSCs and ECs in order to determine if these beneficially enhance not only EM (and hence potentially neovascularization), but also NSC differentiation. Although this approach will grant important insights into the communication between these two cell types, it only provides a simplified system to answer relevant questions. To more truthfully represent the <italic>in vivo</italic> condition, additions of pericytes and microglia, as well as a 3D structure potentially supporting flow through lumens are required<xref ref-type="bibr" rid="b41">41</xref>.</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Conclusion</title>
+      <p>NSC-induced neovascularization<xref ref-type="bibr" rid="b3">3</xref><xref ref-type="bibr" rid="b11">11</xref>, the co-transplantation of NSCs and ECs<xref ref-type="bibr" rid="b42">42</xref>, as well as the potential for tissue-engineered constructs<xref ref-type="bibr" rid="b43">43</xref> are dependent on a thorough understanding of the signaling interactions between NSCs and ECs. Uncovering these mechanisms <italic>in vivo</italic> will be very challenging considering the number and nature of factors involved. Modeling these interactions <italic>in vitro</italic> provides a mean to investigate NSCs and ECs interactions, as well as conduct high throughput loss- and gain-of-function experiments. Indeed, we here demonstrated that this <italic>in vitro</italic> coculture assay can be used to measure autocrine/paracrine and juxtacrine factors over time, as well as to perform loss-of-function experiments. Mechanistic <italic>in vitro</italic> studies will be essential to dissect which molecules are driving particular physiological processes and how these relate to the behavioral recovery observed <italic>in vivo</italic>. This type of assay potentially not only affords insights into the molecular mechanisms of these cells&#x2019; interaction, but also can provide a method for selecting (unaltered or genetically engineered) cell lines to promote recovery. These types of <italic>in vitro</italic> assays will therefore increasingly become part of defining desirable cell characteristics in our attempts to promote recovery in patients with stroke.</p>
+    </sec>
+    <sec disp-level="1">
+      <title>Methods</title>
+      <p>All procedures were in accordance with institutional, state and federal guidelines and were approved by the University of Pittsburgh&#x2019;s human stem cell research oversight (hSCRO) committee (ES-11-006-C Mod 3R). The Institutional Review Board (IRB) determined that there was no involvement of human subjects, according to federal regulations [&#xA7; 45 CFR 46.102(f)]</p>
+      <sec disp-level="2">
+        <title>Monoculture of NSCs and ECs</title>
+        <p>Human NSC lines STROC05 and CTXOE03 (ECACC accession numbers 04110301 and 04091601, ReNeuron), isolated from the whole ganglionic eminence and the cortex of a 12 weeks&#x2019; gestation human fetal brain were cultured<xref ref-type="bibr" rid="b44">44</xref><xref ref-type="bibr" rid="b45">45</xref> on laminin-coated plates in serum free medium (<xref ref-type="supplementary-material" rid="S1">Table S4</xref>). Both cell lines were produced by transduction with the retroviral vector pLNCX-2 (Clontech) encoding the c-mycER<sup>TAM</sup> gene. Differentiation was induced by withdrawal of bFGF, EGF, and 4-hydroxytamoxifen (4-OHT).</p>
+        <p>Human cerebral microvascular endothelial cells (D3, kindly provided by Dr. Pierre-Olivier Couraud, Institut Cochin) were isolated from microvessel fragments of an adult temporal lobe by coexpression of human telomerase reverse transcriptase and the SV40 large T antigen via a lentiviral vector transduction system<xref ref-type="bibr" rid="b46">46</xref>. D3 were cultured on rat tail collagen type 1 (150&#x2009;&#x3BC;g/mL, BD Biosciences) in EBM-2 basal medium supplemented with 5% fetal bovine serum (<xref ref-type="supplementary-material" rid="S1">Table S4</xref>).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Coculturing of NSCs and ECs</title>
+        <p>NSCs were cocultured with ECs using a previously validated model of the neurovascular environment<xref ref-type="bibr" rid="b16">16</xref> in order to investigate paracrine and juxtacrine signaling mechanisms underlying EM induced by NSCs. In brief, D3 cells were seeded at a density of 40,000 cells/1.9&#x2009;cm<sup>2</sup> in each well of 24-well plates and maintained for 7 days to achieve a density of 400,000 cells/well. Then, NSCs were added at 1,000&#x2013;1,000,000 cells. Coculture media (<xref ref-type="supplementary-material" rid="S1">Table S4</xref>) was replaced daily. For culturing with NSCs that were seeded at a constant density of 40,000 cells, ECs were seeded at densities ranging from 2,000&#x2013;160,000 cells/well. After 7 days, NSCs were seeded at a density of 40,000 cells/well. After co-culturing for 7 days, cells were fixed with 4% paraformaldehyde for 10&#x2009;min, rinsed with phosphate buffered saline (PBS) and stored at 4&#x2009;&#xB0;C before being processed for immunocytochemistry.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Immunocytochemistry</title>
+        <p>Cells were blocked with 10% normal goat serum in PBS containing 0.1% Triton X-100 (Sigma) for 30&#x2009;min. Cells were incubated with primary antibodies (<xref ref-type="supplementary-material" rid="S1">Table S5</xref>) for 18&#x2009;hrs at 4&#x2009;&#xB0;C followed by PBS (3x) washes and appropriate secondary antibodies (Alexa488, Alexa555, Alexa660, 1:1000, Molecular Probes) for 1&#x2009;hr at 22&#x2009;&#xB0;C. Coverslips were rinsed with PBS and mounted in Vectashield with DAPI (Vector). 5 images were taken from 5 different areas at fixed distances from each coverslip using a fluorescent microscope (AxioImager M2, Zeiss). Images were taken in the neuropil or VLS structures (<xref ref-type="supplementary-material" rid="S1">Figure S6A</xref>). Within the neuropil a monolayer formed that allowed images to be taken within a single focal plane (<xref ref-type="supplementary-material" rid="S1">Figure S6B</xref>) for quantification of colocalization of phenotype markers with DAPI nuclei. For VLS, a 2.5D environment was present, but phenotype markers and DAPI were also readily identified and colocalized within a single focal plane (<xref ref-type="supplementary-material" rid="S1">Figure S6C</xref>), but images were taken at the base of the structure, as well as just below the top of the VLS. Quantification was performed on 20x images.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Vessel-like structure (VLS) formation</title>
+        <p>To determine the efficiency of inducing endothelial morphogenesis, the total length of segments between branching points of VLS was measured using Stereo Investigator (MBF Bioscience), as previously described<xref ref-type="bibr" rid="b16">16</xref>.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Quantification of receptor expression</title>
+        <p>To determine the level of receptor expression, the light intensity of cells positive for the antibodies was measured using the same settings and exposure time for each coverslip. The light intensity of the cells was calculated as luminosity units (LU) per cell. Cell counts and intensity measurements were performed using ImageJ software (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://rsb.info.nih.gov/ij">http://rsb.info.nih.gov/ij</ext-link>).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Enzyme-linked Immuno Sorbent Assay (ELISA)</title>
+        <p>Cell culture supernatant (500&#x2009;&#x3BC;L) was collected every 24&#x2009;hrs and centrifuged at 4,000&#x2009;rpm for 5&#x2009;min to remove particulates before being stored at &#x2212;80&#x2009;&#xB0;C. Plain coculture medium served as a control. Soluble factors (Ang-1; Ang-2; BDNF; bFGF; PDGF-BB; PDGF-AB; SDF-1&#x3B1;; TGF-&#x3B2;1; VEGF-A; VEGF-C; VEGF-D; <xref ref-type="supplementary-material" rid="S1">Table S6</xref>) were quantified using Quantikine ELISA kits (R&amp;D Systems) on a PowerWave340 microplate spectrophotometer (BioTek).</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Pharmacological blocking of paracrine and juxtacrine signaling</title>
+        <p>Pharmacological blocking of paracrine factors was introduced from the onset of coculturing using VEGFR2 inhibitor SU1498 (LKT Laboratories), PDGFR inhibitor SU6668 (Santa Cruz), or CXCR4 antagonist AMD3100 (Sigma), at concentrations of 0, 0.5, 1, 5, 10, 25&#x2009;&#x3BC;M. Juxtacrine factors were blocked using Cilengitide (Medkoo), an inhibitor of integrin &#x3B1;v&#x3B2;3, at 0, 10, 20, 40, 80&#x2009;&#x3BC;g/mL. To block integrin &#x3B1;6 signaling, the GoH3 antibody was applied (Beckman Coulter). An IgG<sub>2</sub>A isotype antibody (R&amp;D Systems) served as a control condition. Culture media with inhibitors was changed every other day.</p>
+      </sec>
+      <sec disp-level="2">
+        <title>Statistical Analysis</title>
+        <p>Immunocytochemistry experiments consisted of 3 biological replicates, each containing 3 technical replicates. ELISAs consisted of 4 biological replicates, each with 2 technical replicates. Most of the data presented here exhibit ceiling or flooring effects, non-parametric statistics were therefore used throughout. A Mann-Whitney U test was performed for two-group comparisons, whereas a Kruskal-Wallis test with Dunn&#x2019;s post-hoc test was used for multi-groups comparison in Prism 5 (GraphPad).</p>
+      </sec>
+    </sec>
+    <sec disp-level="1">
+      <title>Additional Information</title>
+      <p><bold>How to cite this article</bold>: Chou, C.-H. and Modo, M. Human neural stem cell-induced endothelial morphogenesis requires autocrine/paracrine and juxtacrine signaling. <italic>Sci. Rep</italic>. <bold>6</bold>, 29029; doi: 10.1038/srep29029 (2016).</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="S1">
+      <title>Supplementary Material</title>
+      <supplementary-material id="d33e26" content-type="local-data">
+        <caption>
+          <title>Supplementary Information</title>
+        </caption>
+        <media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-s1.pdf"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We acknowledge funding from NINDS (R01NS08226). C-H.C. was supported by a PhD studentship from the Taiwanese Government (MOST 104-2314-B-016-017-MY3). The NSC lines were kindly provided by Dr. John Sinden (ReNeuron Ltd). The D3 EC line was kindly provided by Prof Pierre-Olivier Couraud (Institut Cochin). The funders had no involvement in the design or the interpretation of the experiments and results.</p>
+    </ack>
+    <ref-list>
+      <ref id="b1">
+        <mixed-citation publication-type="journal"><name><surname>Savitz</surname><given-names>S. I.</given-names></name>, <name><surname>Cramer</surname><given-names>S. C.</given-names></name>, <name><surname>Wechsler</surname><given-names>L.</given-names></name> &amp; <name><surname>Consortium</surname><given-names>S.</given-names></name>
+<article-title>Stem cells as an emerging paradigm in stroke 3: enhancing the development of clinical trials</article-title>. <source>Stroke; a journal of cerebral circulation</source>
+<volume>45</volume>, <fpage>634</fpage>&#x2013;<lpage>639</lpage>, doi: <pub-id pub-id-type="doi">10.1161/STROKEAHA.113.003379</pub-id> (<year>2014</year>).</mixed-citation>
+      </ref>
+      <ref id="b2">
+        <mixed-citation publication-type="journal"><name><surname>Mack</surname><given-names>G. S.</given-names></name>
+<article-title>ReNeuron and StemCells get green light for neural stem cell trials</article-title>. <source>Nat Biotechnol</source>
+<volume>29</volume>, <fpage>95</fpage>&#x2013;<lpage>97</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nbt0211-95</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21301419</pub-id></mixed-citation>
+      </ref>
+      <ref id="b3">
+        <mixed-citation publication-type="journal"><name><surname>Smith</surname><given-names>E. J.</given-names></name>
+<etal/>. <article-title>Implantation site and lesion topology determine efficacy of a human neural stem cell line in a rat model of chronic stroke</article-title>. <source>Stem cells</source>
+<volume>30</volume>, <fpage>785</fpage>&#x2013;<lpage>796</lpage>, doi: <pub-id pub-id-type="doi">10.1002/stem.1024</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22213183</pub-id></mixed-citation>
+      </ref>
+      <ref id="b4">
+        <mixed-citation publication-type="journal"><name><surname>Gomez-Gaviro</surname><given-names>M. V.</given-names></name>
+<etal/>. <article-title>Betacellulin promotes cell proliferation in the neural stem cell niche and stimulates neurogenesis</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>109</volume>, <fpage>1317</fpage>&#x2013;<lpage>1322</lpage>, doi: <pub-id pub-id-type="doi">10.1073/pnas.1016199109</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22232668</pub-id></mixed-citation>
+      </ref>
+      <ref id="b5">
+        <mixed-citation publication-type="journal"><name><surname>Hicks</surname><given-names>C.</given-names></name>
+<etal/>. <article-title><italic>In vivo</italic> and <italic>in vitro</italic> characterization of the angiogenic effect of CTX0E03 human neural stem cells</article-title>. <source>Cell Transplant</source>
+<volume>22</volume>, <fpage>1541</fpage>&#x2013;<lpage>1552</lpage>, doi: <pub-id pub-id-type="doi">10.3727/096368912X657936</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23067568</pub-id></mixed-citation>
+      </ref>
+      <ref id="b6">
+        <mixed-citation publication-type="journal"><name><surname>Bible</surname><given-names>E.</given-names></name>
+<etal/>. <article-title>Neo-vascularization of the stroke cavity by implantation of human neural stem cells on VEGF-releasing PLGA microparticles</article-title>. <source>Biomaterials</source>
+<volume>33</volume>, <fpage>7435</fpage>&#x2013;<lpage>7446</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.biomaterials.2012.06.085</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22818980</pub-id></mixed-citation>
+      </ref>
+      <ref id="b7">
+        <mixed-citation publication-type="journal"><name><surname>Teng</surname><given-names>H.</given-names></name>
+<etal/>. <article-title>Coupling of angiogenesis and neurogenesis in cultured endothelial cells and neural progenitor cells after stroke</article-title>. <source>J Cereb Blood Flow Metab</source>
+<volume>28</volume>, <fpage>764</fpage>&#x2013;<lpage>771</lpage>, doi: <pub-id pub-id-type="doi">10.1038/sj.jcbfm.9600573</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">17971789</pub-id></mixed-citation>
+      </ref>
+      <ref id="b8">
+        <mixed-citation publication-type="journal"><name><surname>Nakagomi</surname><given-names>N.</given-names></name>
+<etal/>. <article-title>Endothelial cells support survival, proliferation, and neuronal differentiation of transplanted adult ischemia-induced neural stem/progenitor cells after cerebral infarction</article-title>. <source>Stem cells</source>
+<volume>27</volume>, <fpage>2185</fpage>&#x2013;<lpage>2195</lpage>, doi: <pub-id pub-id-type="doi">10.1002/stem.161</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19557831</pub-id></mixed-citation>
+      </ref>
+      <ref id="b9">
+        <mixed-citation publication-type="journal"><name><surname>Ruan</surname><given-names>L.</given-names></name>, <name><surname>Wang</surname><given-names>B.</given-names></name>, <name><surname>ZhuGe</surname><given-names>Q.</given-names></name> &amp; <name><surname>Jin</surname><given-names>K.</given-names></name>
+<article-title>Coupling of neurogenesis and angiogenesis after ischemic stroke</article-title>. <source>Brain Res</source>
+<volume>1623</volume>, <fpage>166</fpage>&#x2013;<lpage>173</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.brainres.2015.02.042</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25736182</pub-id></mixed-citation>
+      </ref>
+      <ref id="b10">
+        <mixed-citation publication-type="journal"><name><surname>Nih</surname><given-names>L. R.</given-names></name>
+<etal/>. <article-title>Neuroblast survival depends on mature vascular network formation after mouse stroke: role of endothelial and smooth muscle progenitor cell co-administration</article-title>. <source>The European journal of neuroscience</source>
+<volume>35</volume>, <fpage>1208</fpage>&#x2013;<lpage>1217</lpage>, doi: <pub-id pub-id-type="doi">10.1111/j.1460-9568.2012.08041.x</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22512253</pub-id></mixed-citation>
+      </ref>
+      <ref id="b11">
+        <mixed-citation publication-type="journal"><name><surname>Horie</surname><given-names>N.</given-names></name>
+<etal/>. <article-title>Transplanted stem cell-secreted vascular endothelial growth factor effects poststroke recovery, inflammation, and vascular repair</article-title>. <source>Stem cells</source>
+<volume>29</volume>, <fpage>274</fpage>&#x2013;<lpage>285</lpage>, doi: <pub-id pub-id-type="doi">10.1002/stem.584</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21732485</pub-id></mixed-citation>
+      </ref>
+      <ref id="b12">
+        <mixed-citation publication-type="journal"><name><surname>Rosell</surname><given-names>A.</given-names></name>
+<etal/>. <article-title>Factors secreted by endothelial progenitor cells enhance neurorepair responses after cerebral ischemia in mice</article-title>. <source>PloS one</source>
+<volume>8</volume>, <fpage>e73244</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0073244</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">24023842</pub-id></mixed-citation>
+      </ref>
+      <ref id="b13">
+        <mixed-citation publication-type="journal"><name><surname>Ottone</surname><given-names>C.</given-names></name>
+<etal/>. <article-title>Direct cell-cell contact with the vascular niche maintains quiescent neural stem cells</article-title>. <source>Nat Cell Biol</source>
+<volume>16</volume>, <fpage>1045</fpage>&#x2013;<lpage>1056</lpage>, doi: <pub-id pub-id-type="doi">10.1038/ncb3045</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25283993</pub-id></mixed-citation>
+      </ref>
+      <ref id="b14">
+        <mixed-citation publication-type="journal"><name><surname>Goldberg</surname><given-names>J. S.</given-names></name> &amp; <name><surname>Hirschi</surname><given-names>K. K.</given-names></name>
+<article-title>Diverse roles of the vasculature within the neural stem cell niche</article-title>. <source>Regen Med</source>
+<volume>4</volume>, <fpage>879</fpage>&#x2013;<lpage>897</lpage>, doi: <pub-id pub-id-type="doi">10.2217/rme.09.61</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19903006</pub-id></mixed-citation>
+      </ref>
+      <ref id="b15">
+        <mixed-citation publication-type="journal"><name><surname>Soda</surname><given-names>Y.</given-names></name>, <name><surname>Myskiw</surname><given-names>C.</given-names></name>, <name><surname>Rommel</surname><given-names>A.</given-names></name> &amp; <name><surname>Verma</surname><given-names>I. M.</given-names></name>
+<article-title>Mechanisms of neovascularization and resistance to anti-angiogenic therapies in glioblastoma multiforme</article-title>. <source>Journal of molecular medicine</source>
+<volume>91</volume>, <fpage>439</fpage>&#x2013;<lpage>448</lpage>, doi: <pub-id pub-id-type="doi">10.1007/s00109-013-1019-z</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23512266</pub-id></mixed-citation>
+      </ref>
+      <ref id="b16">
+        <mixed-citation publication-type="journal"><name><surname>Chou</surname><given-names>C. H.</given-names></name>, <name><surname>Sinden</surname><given-names>J. D.</given-names></name>, <name><surname>Couraud</surname><given-names>P. O.</given-names></name> &amp; <name><surname>Modo</surname><given-names>M.</given-names></name>
+<article-title><italic>In vitro</italic> modeling of the neurovascular environment by coculturing adult human brain endothelial cells with human neural stem cells</article-title>. <source>PloS one</source>
+<volume>9</volume>, <fpage>e106346</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0106346</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25187991</pub-id></mixed-citation>
+      </ref>
+      <ref id="b17">
+        <mixed-citation publication-type="journal"><name><surname>Eichmann</surname><given-names>A.</given-names></name> &amp; <name><surname>Thomas</surname><given-names>J. L.</given-names></name>
+<article-title>Molecular parallels between neural and vascular development</article-title>. <source>Cold Spring Harb Perspect Med</source>
+<volume>3</volume>, <fpage>a006551</fpage>, doi: <pub-id pub-id-type="doi">10.1101/cshperspect.a006551</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23024177</pub-id></mixed-citation>
+      </ref>
+      <ref id="b18">
+        <mixed-citation publication-type="journal"><name><surname>Goldman</surname><given-names>S. A.</given-names></name> &amp; <name><surname>Chen</surname><given-names>Z.</given-names></name>
+<article-title>Perivascular instruction of cell genesis and fate in the adult brain</article-title>. <source>Nat Neurosci</source>
+<volume>14</volume>, <fpage>1382</fpage>&#x2013;<lpage>1389</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nn.2963</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">22030549</pub-id></mixed-citation>
+      </ref>
+      <ref id="b19">
+        <mixed-citation publication-type="journal"><name><surname>Emerich</surname><given-names>D. F.</given-names></name>
+<etal/>. <article-title>Injectable VEGF hydrogels produce near complete neurological and anatomical protection following cerebral ischemia in rats</article-title>. <source>Cell Transplant</source>
+<volume>19</volume>, <fpage>1063</fpage>&#x2013;<lpage>1071</lpage>, doi: <pub-id pub-id-type="doi">10.3727/096368910X498278</pub-id> (<year>2010</year>).<pub-id pub-id-type="pmid">20412616</pub-id></mixed-citation>
+      </ref>
+      <ref id="b20">
+        <mixed-citation publication-type="journal"><name><surname>Gianni-Barrera</surname><given-names>R.</given-names></name>, <name><surname>Bartolomeo</surname><given-names>M.</given-names></name>, <name><surname>Vollmar</surname><given-names>B.</given-names></name>, <name><surname>Djonov</surname><given-names>V.</given-names></name> &amp; <name><surname>Banfi</surname><given-names>A.</given-names></name>
+<article-title>Split for the cure: VEGF, PDGF-BB and intussusception in therapeutic angiogenesis</article-title>. <source>Biochem Soc Trans</source>
+<volume>42</volume>, <fpage>1637</fpage>&#x2013;<lpage>1642</lpage>, doi: <pub-id pub-id-type="doi">10.1042/BST20140234</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25399582</pub-id></mixed-citation>
+      </ref>
+      <ref id="b21">
+        <mixed-citation publication-type="journal"><name><surname>Davis</surname><given-names>G. E.</given-names></name>, <name><surname>Stratman</surname><given-names>A. N.</given-names></name>, <name><surname>Sacharidou</surname><given-names>A.</given-names></name> &amp; <name><surname>Koh</surname><given-names>W.</given-names></name>
+<article-title>Molecular basis for endothelial lumen formation and tubulogenesis during vasculogenesis and angiogenic sprouting</article-title>. <source>Int Rev Cell Mol Biol</source>
+<volume>288</volume>, <fpage>101</fpage>&#x2013;<lpage>165</lpage>, doi: <pub-id pub-id-type="doi">10.1016/B978-0-12-386041-5.00003-0</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21482411</pub-id></mixed-citation>
+      </ref>
+      <ref id="b22">
+        <mixed-citation publication-type="journal"><name><surname>Murakami</surname><given-names>M.</given-names></name>
+<article-title>Signaling required for blood vessel maintenance: molecular basis and pathological manifestations</article-title>. <source>Int J Vasc Med</source>
+<volume>2012</volume>, <fpage>293641</fpage>, doi: <pub-id pub-id-type="doi">10.1155/2012/293641</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22187650</pub-id></mixed-citation>
+      </ref>
+      <ref id="b23">
+        <mixed-citation publication-type="journal"><name><surname>Serini</surname><given-names>G.</given-names></name>
+<etal/>. <article-title>Modeling the early stages of vascular network assembly</article-title>. <source>EMBO J</source>
+<volume>22</volume>, <fpage>1771</fpage>&#x2013;<lpage>1779</lpage>, doi: <pub-id pub-id-type="doi">10.1093/emboj/cdg176</pub-id> (<year>2003</year>).<pub-id pub-id-type="pmid">12682010</pub-id></mixed-citation>
+      </ref>
+      <ref id="b24">
+        <mixed-citation publication-type="journal"><name><surname>Sacharidou</surname><given-names>A.</given-names></name>, <name><surname>Stratman</surname><given-names>A. N.</given-names></name> &amp; <name><surname>Davis</surname><given-names>G. E.</given-names></name>
+<article-title>Molecular mechanisms controlling vascular lumen formation in three-dimensional extracellular matrices</article-title>. <source>Cells Tissues Organs</source>
+<volume>195</volume>, <fpage>122</fpage>&#x2013;<lpage>143</lpage>, doi: <pub-id pub-id-type="doi">10.1159/000331410</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">21997121</pub-id></mixed-citation>
+      </ref>
+      <ref id="b25">
+        <mixed-citation publication-type="journal"><name><surname>Naito</surname><given-names>Y.</given-names></name>
+<etal/>. <article-title>Characterization of the natural history of extracellular matrix production in tissue-engineered vascular grafts during neovessel formation</article-title>. <source>Cells Tissues Organs</source>
+<volume>195</volume>, <fpage>60</fpage>&#x2013;<lpage>72</lpage>, doi: <pub-id pub-id-type="doi">10.1159/000331405</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">21996715</pub-id></mixed-citation>
+      </ref>
+      <ref id="b26">
+        <mixed-citation publication-type="journal"><name><surname>Levy</surname><given-names>A. F.</given-names></name>, <name><surname>Zayats</surname><given-names>M.</given-names></name>, <name><surname>Guerrero-Cazares</surname><given-names>H.</given-names></name>, <name><surname>Quinones-Hinojosa</surname><given-names>A.</given-names></name> &amp; <name><surname>Searson</surname><given-names>P. C.</given-names></name>
+<article-title>Influence of basement membrane proteins and endothelial cell-derived factors on the morphology of human fetal-derived astrocytes in 2D</article-title>. <source>PloS one</source>
+<volume>9</volume>, <fpage>e92165</fpage>, doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0092165</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">24647106</pub-id></mixed-citation>
+      </ref>
+      <ref id="b27">
+        <mixed-citation publication-type="journal"><name><surname>Tigges</surname><given-names>U.</given-names></name>, <name><surname>Welser-Alves</surname><given-names>J. V.</given-names></name>, <name><surname>Boroujerdi</surname><given-names>A.</given-names></name> &amp; <name><surname>Milner</surname><given-names>R.</given-names></name>
+<article-title>A novel and simple method for culturing pericytes from mouse brain</article-title>. <source>Microvasc Res</source>
+<volume>84</volume>, <fpage>74</fpage>&#x2013;<lpage>80</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.mvr.2012.03.008</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">22484453</pub-id></mixed-citation>
+      </ref>
+      <ref id="b28">
+        <mixed-citation publication-type="journal"><name><surname>Watters</surname><given-names>A. K.</given-names></name>
+<etal/>. <article-title>Identification and dynamic regulation of tight junction protein expression in human neural stem cells</article-title>. <source>Stem Cells Dev</source>
+<volume>24</volume>, <fpage>1377</fpage>&#x2013;<lpage>1389</lpage>, doi: <pub-id pub-id-type="doi">10.1089/scd.2014.0497</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">25892136</pub-id></mixed-citation>
+      </ref>
+      <ref id="b29">
+        <mixed-citation publication-type="journal"><name><surname>Denham</surname><given-names>M.</given-names></name>
+<etal/>. <article-title>Neural stem cells express non-neural markers during embryoid body coculture</article-title>. <source>Stem cells</source>
+<volume>24</volume>, <fpage>918</fpage>&#x2013;<lpage>927</lpage>, doi: <pub-id pub-id-type="doi">10.1634/stemcells.2005-0151</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16253983</pub-id></mixed-citation>
+      </ref>
+      <ref id="b30">
+        <mixed-citation publication-type="journal"><name><surname>Wurmser</surname><given-names>A. E.</given-names></name>
+<etal/>. <article-title>Cell fusion-independent differentiation of neural stem cells to the endothelial lineage</article-title>. <source>Nature</source>
+<volume>430</volume>, <fpage>350</fpage>&#x2013;<lpage>356</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nature02604</pub-id> (<year>2004</year>).<pub-id pub-id-type="pmid">15254537</pub-id></mixed-citation>
+      </ref>
+      <ref id="b31">
+        <mixed-citation publication-type="journal"><name><surname>Oishi</surname><given-names>K.</given-names></name>
+<etal/>. <article-title>Angiogenesis <italic>in vitro</italic>: vascular tube formation from the differentiation of neural stem cells</article-title>. <source>J Pharmacol Sci.</source>
+<volume>96</volume>, <fpage>208</fpage>&#x2013;<lpage>218</lpage> (<year>2004</year>).<pub-id pub-id-type="pmid">15492463</pub-id></mixed-citation>
+      </ref>
+      <ref id="b32">
+        <mixed-citation publication-type="journal"><name><surname>McCarty</surname><given-names>J. H.</given-names></name>
+<article-title>Integrin-mediated regulation of neurovascular development, physiology and disease</article-title>. <source>Cell Adh Migr</source>
+<volume>3</volume>, <fpage>211</fpage>&#x2013;<lpage>215</lpage> (<year>2009</year>).<pub-id pub-id-type="pmid">19372738</pub-id></mixed-citation>
+      </ref>
+      <ref id="b33">
+        <mixed-citation publication-type="journal"><name><surname>Stratman</surname><given-names>A. N.</given-names></name>, <name><surname>Schwindt</surname><given-names>A. E.</given-names></name>, <name><surname>Malotte</surname><given-names>K. M.</given-names></name> &amp; <name><surname>Davis</surname><given-names>G. E.</given-names></name>
+<article-title>Endothelial-derived PDGF-BB and HB-EGF coordinately regulate pericyte recruitment during vasculogenic tube assembly and stabilization</article-title>. <source>Blood</source>
+<volume>116</volume>, <fpage>4720</fpage>&#x2013;<lpage>4730</lpage>, doi: <pub-id pub-id-type="doi">10.1182/blood-2010-05-286872</pub-id> (<year>2010</year>).<pub-id pub-id-type="pmid">20739660</pub-id></mixed-citation>
+      </ref>
+      <ref id="b34">
+        <mixed-citation publication-type="journal"><name><surname>Mas-Moruno</surname><given-names>C.</given-names></name>, <name><surname>Rechenmacher</surname><given-names>F.</given-names></name> &amp; <name><surname>Kessler</surname><given-names>H.</given-names></name>
+<article-title>Cilengitide: the first anti-angiogenic small molecule drug candidate design, synthesis and clinical evaluation</article-title>. <source>Anticancer Agents Med Chem</source>
+<volume>10</volume>, <fpage>753</fpage>&#x2013;<lpage>768</lpage> (<year>2010</year>).<pub-id pub-id-type="pmid">21269250</pub-id></mixed-citation>
+      </ref>
+      <ref id="b35">
+        <mixed-citation publication-type="journal"><name><surname>Lee</surname><given-names>H. S.</given-names></name>, <name><surname>Han</surname><given-names>J.</given-names></name>, <name><surname>Bai</surname><given-names>H. J.</given-names></name> &amp; <name><surname>Kim</surname><given-names>K. W.</given-names></name>
+<article-title>Brain angiogenesis in developmental and pathological processes: regulation, molecular and cellular communication at the neurovascular interface</article-title>. <source>FEBS J</source>
+<volume>276</volume>, <fpage>4622</fpage>&#x2013;<lpage>4635</lpage>, doi: <pub-id pub-id-type="doi">10.1111/j.1742-4658.2009.07174.x</pub-id> (<year>2009</year>).<pub-id pub-id-type="pmid">19664072</pub-id></mixed-citation>
+      </ref>
+      <ref id="b36">
+        <mixed-citation publication-type="journal"><name><surname>Cunningham</surname><given-names>L. A.</given-names></name>, <name><surname>Candelario</surname><given-names>K.</given-names></name> &amp; <name><surname>Li</surname><given-names>L.</given-names></name>
+<article-title>Roles for HIF-1alpha in neural stem cell function and the regenerative response to stroke</article-title>. <source>Behav Brain Res</source>
+<volume>227</volume>, <fpage>410</fpage>&#x2013;<lpage>417</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.bbr.2011.08.002</pub-id> (<year>2012</year>).<pub-id pub-id-type="pmid">21871501</pub-id></mixed-citation>
+      </ref>
+      <ref id="b37">
+        <mixed-citation publication-type="journal"><name><surname>Yang</surname><given-names>Y.</given-names></name>
+<etal/>. <article-title>Early inhibition of MMP activity in ischemic rat brain promotes expression of tight junction proteins and angiogenesis during recovery</article-title>. <source>J Cereb Blood Flow Metab</source>
+<volume>33</volume>, <fpage>1104</fpage>&#x2013;<lpage>1114</lpage>, doi: <pub-id pub-id-type="doi">10.1038/jcbfm.2013.56</pub-id> (<year>2013</year>).<pub-id pub-id-type="pmid">23571276</pub-id></mixed-citation>
+      </ref>
+      <ref id="b38">
+        <mixed-citation publication-type="journal"><name><surname>Herbert</surname><given-names>S. P.</given-names></name> &amp; <name><surname>Stainier</surname><given-names>D. Y.</given-names></name>
+<article-title>Molecular control of endothelial cell behaviour during blood vessel morphogenesis</article-title>. <source>Nat Rev Mol Cell Biol</source>
+<volume>12</volume>, <fpage>551</fpage>&#x2013;<lpage>564</lpage>, doi: <pub-id pub-id-type="doi">10.1038/nrm3176</pub-id> (<year>2011</year>).<pub-id pub-id-type="pmid">21860391</pub-id></mixed-citation>
+      </ref>
+      <ref id="b39">
+        <mixed-citation publication-type="journal"><name><surname>Gama Sosa</surname><given-names>M. A.</given-names></name>
+<etal/>. <article-title>Interactions of primary neuroepithelial progenitor and brain endothelial cells: distinct effect on neural progenitor maintenance and differentiation by soluble factors and direct contact</article-title>. <source>Cell Res</source>
+<volume>17</volume>, <fpage>619</fpage>&#x2013;<lpage>626</lpage>, doi: <pub-id pub-id-type="doi">10.1038/cr.2007.53</pub-id> (<year>2007</year>).<pub-id pub-id-type="pmid">17593907</pub-id></mixed-citation>
+      </ref>
+      <ref id="b40">
+        <mixed-citation publication-type="journal"><name><surname>Avraham</surname><given-names>H. K.</given-names></name>
+<etal/>. <article-title>Vascular endothelial growth factor regulates focal adhesion assembly in human brain microvascular endothelial cells through activation of the focal adhesion kinase and related adhesion focal tyrosine kinase</article-title>. <source>J Biol Chem</source>
+<volume>278</volume>, <fpage>36661</fpage>&#x2013;<lpage>36668</lpage>, doi: <pub-id pub-id-type="doi">10.1074/jbc.M301253200</pub-id> (<year>2003</year>).<pub-id pub-id-type="pmid">12844492</pub-id></mixed-citation>
+      </ref>
+      <ref id="b41">
+        <mixed-citation publication-type="journal"><name><surname>Shuler</surname><given-names>M. L.</given-names></name> &amp; <name><surname>Hickman</surname><given-names>J. J.</given-names></name>
+<article-title>Toward <italic>in vitro</italic> models of brain structure and function</article-title>. <source>Proc Natl Acad Sci. USA</source>
+<volume>111</volume>, <fpage>13682</fpage>&#x2013;<lpage>13683</lpage>, doi: <pub-id pub-id-type="doi">10.1073/pnas.1414484111</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25192937</pub-id></mixed-citation>
+      </ref>
+      <ref id="b42">
+        <mixed-citation publication-type="journal"><name><surname>Li</surname><given-names>J.</given-names></name>
+<etal/>. <article-title>Neurovascular recovery via co-transplanted neural and vascular progenitors leads to improved functional restoration after ischemic stroke in rats</article-title>. <source>Stem Cell Reports</source>
+<volume>3</volume>, <fpage>101</fpage>&#x2013;<lpage>114</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.stemcr.2014.05.012</pub-id> (<year>2014</year>).<pub-id pub-id-type="pmid">25068125</pub-id></mixed-citation>
+      </ref>
+      <ref id="b43">
+        <mixed-citation publication-type="journal"><name><surname>Nicholls</surname><given-names>F. J.</given-names></name>, <name><surname>Ling</surname><given-names>W.</given-names></name>, <name><surname>Ferrauto</surname><given-names>G.</given-names></name>, <name><surname>Aime</surname><given-names>S.</given-names></name> &amp; <name><surname>Modo</surname><given-names>M.</given-names></name>
+<article-title>Simultaneous MR imaging for tissue engineering in a rat model of stroke</article-title>. <source>Sci Rep</source>
+<volume>5</volume>, <fpage>14597</fpage>, doi: <pub-id pub-id-type="doi">10.1038/srep14597</pub-id> (<year>2015</year>).<pub-id pub-id-type="pmid">26419200</pub-id></mixed-citation>
+      </ref>
+      <ref id="b44">
+        <mixed-citation publication-type="journal"><name><surname>Pollock</surname><given-names>K.</given-names></name>
+<etal/>. <article-title>A conditionally immortal clonal stem cell line from human cortical neuroepithelium for the treatment of ischemic stroke</article-title>. <source>Exp Neurol</source>
+<volume>199</volume>, <fpage>143</fpage>&#x2013;<lpage>155</lpage>, doi: <pub-id pub-id-type="doi">10.1016/j.expneurol.2005.12.011</pub-id> (<year>2006</year>).<pub-id pub-id-type="pmid">16464451</pub-id></mixed-citation>
+      </ref>
+      <ref id="b45">
+        <mixed-citation publication-type="journal"><name><surname>Johansson</surname><given-names>S.</given-names></name>, <name><surname>Price</surname><given-names>J.</given-names></name> &amp; <name><surname>Modo</surname><given-names>M.</given-names></name>
+<article-title>Effect of inflammatory cytokines on major histocompatibility complex expression and differentiation of human neural stem/progenitor cells</article-title>. <source>Stem cells</source>
+<volume>26</volume>, <fpage>2444</fpage>&#x2013;<lpage>2454</lpage>, doi: <pub-id pub-id-type="doi">10.1634/stemcells.2008-0116</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18635871</pub-id></mixed-citation>
+      </ref>
+      <ref id="b46">
+        <mixed-citation publication-type="journal"><name><surname>Weksler</surname><given-names>B. B.</given-names></name>
+<etal/>. <article-title>Blood-brain barrier-specific properties of a human adult brain endothelial cell line</article-title>. <source>FASEB journal: official publication of the Federation of American Societies for Experimental Biology</source>
+<volume>19</volume>, <fpage>1872</fpage>&#x2013;<lpage>1874</lpage>, doi: <pub-id pub-id-type="doi">10.1096/fj.04-3458fje</pub-id> (<year>2005</year>).<pub-id pub-id-type="pmid">16141364</pub-id></mixed-citation>
+      </ref>
+      <ref id="b47">
+        <mixed-citation publication-type="journal"><name><surname>Roitbak</surname><given-names>T.</given-names></name>, <name><surname>Li</surname><given-names>L.</given-names></name> &amp; <name><surname>Cunningham</surname><given-names>L. A.</given-names></name>
+<article-title>Neural stem/progenitor cells promote endothelial cell morphogenesis and protect endothelial cells against ischemia via HIF-1alpha-regulated VEGF signaling</article-title>. <source>J Cereb Blood Flow Metab</source>
+<volume>28</volume>, <fpage>1530</fpage>&#x2013;<lpage>1542</lpage>, doi: <pub-id pub-id-type="doi">10.1038/jcbfm.2008.38</pub-id> (<year>2008</year>).<pub-id pub-id-type="pmid">18478024</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p>M.M. received funding support from ReNeuron Ltd for an unrelated project.</p>
+      </fn>
+      <fn>
+        <p><bold>Author Contributions</bold> C.-H.C. conducted all experiments and provided a first draft of the manuscript. M.M. oversaw planned the study, provided funding, oversaw experiments and analyses and wrote the final manuscript.</p>
+      </fn>
+    </fn-group>
+  </back>
+  <floats-group>
+    <fig id="f1">
+      <label>Figure 1</label>
+      <caption>
+        <title>Endothelial morphogenesis is dose-dependent.</title>
+        <p>Endothelial morphogenesis is the process that occurs in ECs (red&#x2009;=&#x2009;CD31) when cocultured with striatal STROC05 <bold>(A)</bold> or cortical CTXOE03 <bold>(B)</bold> NSCs (green&#x2009;=&#x2009;nestin), resulting in vessel-like structures (VLS, blue&#x2009;=&#x2009;DAPI). Scale bar&#x2009;=&#x2009;50&#x2009;&#x3BC;m. <bold>(C)</bold> Endothelial morphogenesis, as measured by total rod length of vessel-like structures<xref ref-type="bibr" rid="b16">16</xref>, exhibits a dose-dependent Gaussian function in relationship with NSCs, with fewer STROC05 cells (1:16; NSC:EC ratio) being required to induce VLS compared to CTXOE03 (1:4). <bold>(D)</bold> In contrast, dose-dependence of ECs follows a linear curve up to a ratio of 1:1 (40,000 cells each) for both STROC05 and CTXOE03 before leveling off. STROC05 were significantly more efficient in forming VLS with higher ratios of EC to NSC. <bold>(E</bold>,<bold>F)</bold> The proliferation rate of ECs was predominantly affected by STROC05 cells in a linear fashion without evidence of a leveling off <bold>(E)</bold>, whereas CTXOE03 had little influence on proliferation <bold>(F)</bold>. Conversely, ECs only influenced the STROC05 proliferation at a seeding density of 50,000 cells. Data represent the mean and error bars indicate 1 standard deviation.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f1"/>
+    </fig>
+    <fig id="f2">
+      <label>Figure 2</label>
+      <caption>
+        <title>Phenotypic characterization of undifferentiated and differentiated cell lines.</title>
+        <p><bold>(A)</bold> Immunocytochemistry of dividing, undifferentiated and differentiated ECs (D3) and NSCs (STROC05 &amp; CTXOE03). Scale bars represent 50&#x2009;&#x3BC;m. Expression of phenotypic markers in STROC05 <bold>(B)</bold>, CTXOE03 <bold>(C)</bold> and D3 cells <bold>(D)</bold> in monoculture. Data represent the mean and error bars indicate 1 standard deviation.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f2"/>
+    </fig>
+    <fig id="f3">
+      <label>Figure 3</label>
+      <caption>
+        <title>Phenotypic differentiation of NSCs and ECs is affected by endothelial morphogenesis.</title>
+        <p><bold>(A)</bold> NSCs cocultured with ECs significantly increased differentiation in relation to monoculture (solid and dashed lines for STROC05 and CTXOE03 respectively). Especially STROC05 increased neuronal differentiation (MAP2+ cells). Seeding numbers of NSC at which endothelial morphogenesis was highest (25,000 for STROC05 and 100,000 for CTXOE03) exhibited the greatest effect on NSC differentiation indicating a potential coupling of the two processes. <bold>(B)</bold> Conversely, in NSC/EC coculture, mature EC markers CD31 and VE-Cadherin were reduced in D3 cells compared to EC monocultures. A dose-dependent effect for STROC05 and CTXOE03 was evident for both markers. ZO1 and CD146 were comparable with only a difference being evident at the highest coculture ratio. Consistent with the decrease in mature ECs markers, CD133 expressed in immature ECs was almost twice as high. Data represent the mean and error bars indicate 1 standard deviation. (*)p&#x2009;&lt;&#x2009;0.05, (**)p&#x2009;&lt;&#x2009;0.01, (***)p&#x2009;&lt;&#x2009;0.001, (****)p&#x2009;&lt;&#x2009;0.0001.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f3"/>
+    </fig>
+    <fig id="f4">
+      <label>Figure 4</label>
+      <caption>
+        <title>The secretome of NSCs and ECs undergoing endothelial morphogenesis.</title>
+        <p>Secreted factors from undifferentiated (UD) and differentiated (D) D3, STROC05 and CTXOE03, as well as plain media (M), were measured using ELISAs. Additionally, 7 day co-cultures at a &#xBC;x (0.25*opt), optimal (opt), or 4x optimal (4*opt) ratio, as well as the evolution of factor secretion of the optimal ratio over time were assessed. All factors tested here were secreted from differentiated ECs, but were mostly absent in dividing undifferentiated D3. In contrast, monocultures of NSCs under proliferative or differentiated conditions mostly released low levels of the factors, predominantly factors associated with a stabilization of the vasculature (e.g. TGF-&#x3B2;1, ANG-1). CTXOE03 however expressed high levels of VEGF-A, especially when differentiated. A dramatic change in the level and profile of factor release is observed after coculture. Especially BDNF, VEGF-A, PDGF, ANG-1, TGF-&#x3B2;1 and bFGF showed distinctive cell line profiles in coculture, indicating that NSCs potentially exert differential effects on EC behavior through the interaction of secreted factors. The temporal profile further indicates how these secreted factors evolve from in concurrence with endothelial morphogenesis and cellular differentiation. Data represent the mean and error bars indicate 1 standard deviation.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f4"/>
+    </fig>
+    <fig id="f5">
+      <label>Figure 5</label>
+      <caption>
+        <title>Quantification of receptor expression.</title>
+        <p>Receptor expression was quantified by measuring total amount of fluorescence in the channel reflecting the antibody used to detect a given receptor divided by the number of cells present within the same field-of-view (luminosity). Additionally, the number of cells expressing a particular receptor in relation to the total number of cells per field-of-view (cell expression) were also counted. Receptor expression was quantified for cells grown in monoculture (undifferentiated and differentiated conditions) <bold>(A)</bold>, as well as for those grown in coculture (inside and outside VLS) <bold>(B)</bold>. Data represent the mean and error bars indicate 1 standard deviation. (*)p&#x2009;&lt;&#x2009;0.05, (**)p&#x2009;&lt;&#x2009;0.01.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f5"/>
+    </fig>
+    <fig id="f6">
+      <label>Figure 6</label>
+      <caption>
+        <title>Pharmacological blocking of endothelial morphogenesis.</title>
+        <p><bold>(A)</bold> Blocking of secreted factors revealed that VEGFR2 signaling is essential for endothelial morphogenesis in both NSC lines. In contrast, a PDGFR&#x3B2; inhibitor was only causally involved for STROC05. A CXCR4 antagonist exerted no effect. <bold>(B)</bold> Cilengitide, a RGD pentapeptide inhibitor against receptor integrin &#x3B1;v&#x3B2;3, prevented endothelial morphogenesis in both cell lines, but was more potent in the D3/CTXOE03 condition. Blocking of &#x3B1;6 was less effective than &#x3B1;v&#x3B2;3, but was involved in molecular interactions with ECs for both NSC lines. An IgG2A control antibody did not exert any influence on endothelial morphogenesis. Data represent the mean and error bars indicate 1 standard deviation.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f6"/>
+    </fig>
+    <fig id="f7">
+      <label>Figure 7</label>
+      <caption>
+        <title>Schematic overview of vascular morphogenesis and the role of NSCs.</title>
+        <p><bold>(A)</bold> Sequential regulation of soluble factors and ECM molecules mediates the development of vascular morphogenesis and maintains neurovascular networks. The canonical cascade of factors indicates that each factor plays a key role in guiding sequential processes. There are fewer and more potent initiating factors compared to a greater interplay between factors in establishing a mature vessel. <bold>(B)</bold> CTXOE03 and STROC05 maintain or induce new vessel growth through autocrine/paracrine and juxtacrine interactions. 1.) NSCs are induced to release VEGF-A by HIF-1&#x3B1;<xref ref-type="bibr" rid="b36">36</xref><xref ref-type="bibr" rid="b47">47</xref> as a result of hypoxia. 2.) VEGF-A destabilizes the vasculature. CTXOE03 released VEGF-A, but is also responding to it in an autocrine fashion as it expresses VEGFR2, whereas STROC05 produces VEGF-A expressing less the corresponding auto-receptor. 3.) Degradation of the basement membrane by MMP-2 signaling ensues. 4.) Recruitment of ECs from the vessel is induced by both NSC lines. 5.) BDNF is released from both NSCs lines and ECs express TrkB receptors, STROC05 and CTXOE03 also expresses the auto-receptor. 6.) NSCs, as well as ECs, secreting bFGF induce proliferation. 7.) Migration of cells is promoted by SDF-1 secreted from NSCs with ECs expressing the corresponding CXCR4 receptor. VEGF-C is only released from STROC05. 8.) Tubulogenesis is influenced by the expression of the ECM molecules vitronectin and fibronectin, providing juxtacrine motives for NSCs to more tightly control ECs&#x2019; position, as opposed to more diffusely influential paracrine signaling. 9.) Ang-1 secreted from NSCs further influences the stabilization of the tubular organization. 10.) This process is more heavily influenced by ECM molecules, such as laminin and its &#x3B1;6 receptor. 11.) PDGF signaling can causally influence tubulogenesis (as in the case of STROC05), but alternative signaling can obviate its causal role (see CTXOE03). 12.) Once a tubule is formed, the joint signaling of bFGF and TGF-&#x3B2;1 can determine if a stable vessel is being formed or if the structure is simply regressing. 13.) Further deposition of collagens allows maturation of the vessel, but only the presence of flow will eventually inflate a lumen and warrant the persistence of the structure.</p>
+      </caption>
+      <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="srep29029-f7"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

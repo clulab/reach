@@ -1,0 +1,957 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Onco Targets Ther</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Onco Targets Ther</journal-id>
+      <journal-id journal-id-type="publisher-id">OncoTargets and Therapy</journal-id>
+      <journal-title-group>
+        <journal-title>OncoTargets and therapy</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1178-6930</issn>
+      <publisher>
+        <publisher-name>Dove Medical Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25120372</article-id>
+      <article-id pub-id-type="pmc">4128851</article-id>
+      <article-id pub-id-type="doi">10.2147/OTT.S65051</article-id>
+      <article-id pub-id-type="publisher-id">ott-7-1397</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Research</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>PKN1 modulates TGF&#x3B2; and EGF signaling in HEC-1-A endometrial cancer cell line</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Attarha</surname>
+            <given-names>Sanaz</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-7-1397">1</xref>
+          <xref ref-type="aff" rid="af2-ott-7-1397">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Saini</surname>
+            <given-names>Ravi Kanth Rao</given-names>
+          </name>
+          <xref ref-type="aff" rid="af3-ott-7-1397">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Andersson</surname>
+            <given-names>Sonia</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ott-7-1397">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mints</surname>
+            <given-names>Miriam</given-names>
+          </name>
+          <xref ref-type="aff" rid="af2-ott-7-1397">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Souchelnytskyi</surname>
+            <given-names>Serhiy</given-names>
+          </name>
+          <xref ref-type="aff" rid="af1-ott-7-1397">1</xref>
+          <xref ref-type="aff" rid="af4-ott-7-1397">4</xref>
+          <xref ref-type="aff" rid="af5-ott-7-1397">5</xref>
+          <xref ref-type="corresp" rid="c1-ott-7-1397"/>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-ott-7-1397"><label>1</label>Department of Oncology&#x2013;Pathology, Karolinska Institutet, Stockholm, Sweden</aff>
+      <aff id="af2-ott-7-1397"><label>2</label>Department of Women&#x2019;s and Children&#x2019;s Health, Karolinska Institutet, Stockholm, Sweden</aff>
+      <aff id="af3-ott-7-1397"><label>3</label>Department of Biomedicine, Sahlgrenska Cancer Center, University of Gothenburg, Gothenburg, Sweden</aff>
+      <aff id="af4-ott-7-1397"><label>4</label>OCD-AB, Uppsala, Sweden</aff>
+      <aff id="af5-ott-7-1397"><label>5</label>Neurocentrum, Karolinska University Hospital, Solna, Sweden</aff>
+      <author-notes>
+        <corresp id="c1-ott-7-1397">Correspondence: Serhiy Souchelnytskyi, Z5:01, Karolinska University Hospital, Solna, SE-17 176, Stockholm, Sweden, Tel +46 735777168, Fax +46 8 5177 5000, Email <email>serhiy8085@gmail.com</email></corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>04</day>
+        <month>8</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>7</volume>
+      <fpage>1397</fpage>
+      <lpage>1408</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2014 Attarha et al. This work is published by Dove Medical Press Limited, and licensed under Creative Commons Attribution &#x2013; Non Commercial (unported, v3.0) License</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license>
+          <license-p>The full terms of the License are available at <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/3.0/">http://creativecommons.org/licenses/by-nc/3.0/</ext-link>. Non-commercial uses of the work are permitted without any further permission from Dove Medical Press Limited, provided the work is properly attributed.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>The response of cells to TGF&#x3B2; and EGF is mediated by a network of various intracellular regulators. The signaling crosstalk between different regulators is of key importance for tumorigenesis. The crosstalk may explain the modulation of cellular responses to the same regulator by another signaling molecule. As PKN1 &#x2013; a serine/threonine kinase implicated in tumorigenesis &#x2013; was identified as potential crosstalk node for TGF&#x3B2; and EGF signaling, the cellular functions that may be affected by PKN1 in a crosstalk of TGF&#x3B2; and EGF were explored.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>To investigate the contribution of PKN1 to TGF&#x3B2; and EGF signaling, transiently PKN1-transfected HEC-1-A endometrial cancer cells were generated and subjected to treatment with TGF&#x3B2;1, EGF, and their combination. Proliferation, apoptosis, invasion, wound healing, and migration assays were performed. The impact of PKN1 on the expression and phosphorylation of intracellular proteins was monitored by immunoblotting.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>It was demonstrated that PKN1 modulated the responses of HEC-A-1 endometrial cancer cells to TGF&#x3B2;1 and EGF. PKN1 had an inhibitory effect on the stimulation of cell migration, and PKN1 kinase activity was required for the inhibitory effect of TGF&#x3B2; and EGF on cell proliferation and invasiveness. It was observed that phosphorylation of Smad2, FAK, and Erk1/2 correlated with responses of the cells to TGF&#x3B2;1 and EGF.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>PKN1 modulates TGF&#x3B2;- and EGF-dependent regulation of cell proliferation, migration, and invasiveness, and therefore is a component of the network signaling downstream of TGF&#x3B2; and EGF.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <title>Keywords</title>
+        <kwd>PKN1 kinase</kwd>
+        <kwd>TGF&#x3B2;</kwd>
+        <kwd>EGF</kwd>
+        <kwd>cell migration</kwd>
+        <kwd>proliferation</kwd>
+        <kwd>invasiveness</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>Introduction</title>
+      <p>PKN1, also known as PAK1, is a serine/threonine kinase implicated in formation of mammary gland tumors and premalignant lesions in animal models, although with a long latency.<xref rid="b1-ott-7-1397" ref-type="bibr">1</xref> It has been reported that overexpression of PKN1 correlates with aggressive ovarian,<xref rid="b2-ott-7-1397" ref-type="bibr">2</xref> colorectal,<xref rid="b3-ott-7-1397" ref-type="bibr">3</xref> and prostate cancers.<xref rid="b4-ott-7-1397" ref-type="bibr">4</xref> Other findings suggested that PKN1 has a role in the development of invasive phenotypes of breast<xref rid="b5-ott-7-1397" ref-type="bibr">5</xref> and gastric<xref rid="b6-ott-7-1397" ref-type="bibr">6</xref> cancer cells.</p>
+      <p>PKN1 contains three highly conserved regions: 1) a unique regulatory domain in the amino terminus; 2) a catalytic domain homologous to PKC in carboxyl terminal region; and 3) a so-called D-region located between the regulatory and catalytic domains.<xref rid="b4-ott-7-1397" ref-type="bibr">4</xref>,<xref rid="b7-ott-7-1397" ref-type="bibr">7</xref> The amino terminal region plays a critical role in activation of PKN1.<xref rid="b7-ott-7-1397" ref-type="bibr">7</xref> It provides the activation loop of PKN1 that is important for serine/threonine kinase activity.<xref rid="b2-ott-7-1397" ref-type="bibr">2</xref> Once PKN1 has been activated it mediates downstream signaling events involved in cytoskeletal reorganization, cell motility, apoptosis, and transformation. PKN1 activates a number of signaling pathways, including p38 MAPK, extracellular signal-regulated protein kinase, Jun N-terminal kinase, and NF-kB.<xref rid="b8-ott-7-1397" ref-type="bibr">8</xref></p>
+      <p>TGF&#x3B2; was found to have a double role in tumorigenesis. In the early stage of cancer, TGF&#x3B2; has a tumor suppressor role that results in growth inhibition, cell cycle arrest, and apoptosis. In the advanced stage of cancer, TGF&#x3B2; promotes tumorigenesis. Cancer cells may lose responsiveness to TGF&#x3B2; and may acquire aberrant TGF&#x3B2; signaling followed by promotion of survival, proliferation, epithelial&#x2013;mesenchymal transition, and increased motility and invasiveness of the cells.<xref rid="b9-ott-7-1397" ref-type="bibr">9</xref> Numerous signaling pathways converge with the TGF&#x3B2; pathway to modulate its effects, including signaling induced by EGF.<xref rid="b10-ott-7-1397" ref-type="bibr">10</xref> EGF is a potent regulator of cell functions, with a predominantly pro-mitogenic role in tumorigenesis.<xref rid="b11-ott-7-1397" ref-type="bibr">11</xref> EGF also promotes cell survival, angiogenesis, and differentiation. Deregulation of EGF pathways by its overexpression or constitutive activation of EGF signaling can promote tumorigenesis and is associated with a poor prognosis in many human malignancies.<xref rid="b12-ott-7-1397" ref-type="bibr">12</xref></p>
+      <p>The signaling crosstalk between different regulators is of key importance for tumorigenesis. The crosstalk may explain modulation of cellular responses to the same regulator by another signaling molecule. As PKN1 was identified as potential crosstalk node for TGF&#x3B2; and EGF signaling, the cellular functions that may be affected by PKN1 in a crosstalk of TGF&#x3B2; and EGF were explored. Here, it is reported that PKN1 modulates TGF&#x3B2;- and EGF-dependent regulation of cell proliferation, migration, and invasiveness, and therefore is a component of the network signaling downstream of TGF&#x3B2; and EGF.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Material and methods</title>
+      <sec>
+        <title>Cell culture</title>
+        <p>HEC-1-A cells were obtained from American Type Culture Collection (Manassas, VA, USA) and were cultured in McCoy&#x2019;s 5A modified medium supplemented with 10% fetal bovine serum and 1% penicillin/streptomycin (Sigma-Aldrich, St Louis, MO, USA). HEC-1-A cells are recognized as an accepted model to study endometrial cancer.<xref rid="b13-ott-7-1397" ref-type="bibr">13</xref>,<xref rid="b14-ott-7-1397" ref-type="bibr">14</xref> Human recombinant TGF&#x3B2;1 and EGF were obtained from PeproTech (Rocky Hill, NJ, USA).</p>
+      </sec>
+      <sec>
+        <title>Cell transfection</title>
+        <p>A day before transfection, HEC-1-A cells were cultured to reach 50% confluence for transfection. HEC-1-A cells were transfected with pcDNA3 control vector, full length of human PKN1-FLAG in pRc/CMV (wild type [WT]), full length of human PKN1 (T774A)-FLAG in pRc/CMV (kinase negative [KN]), and catalytic domain of human PKN1-FLAG in pRc/CMV (constitutively active [CA]) in twelve-well plates using GeneJuice<sup>&#xAE;</sup> transfection reagent, as recommended by the supplier (EMD Millipore, Billerica, MA, USA). The expression constructs were kindly provided by Dr Hideyuki Mukai. The medium was changed 6 hours after transfection and cells were incubated in complete medium for 48 hours prior to treatment. Transfection efficiency was monitored by detection of levels of PKN1 constructs and endogenous PKN1 (<xref ref-type="supplementary-material" rid="SD1-ott-7-1397">Figure S1</xref>).</p>
+      </sec>
+      <sec>
+        <title>Cell proliferation assay</title>
+        <p>Cell proliferation in response to TGF&#x3B2;1 and EGF treatment was measured by using CellTiter 96<sup>&#xAE;</sup> AQueous One Solution Cell assay (Promega Corporation, Mudison, WI, USA) according to the manufacturer&#x2019;s recommendations. Cells were grown in McCoy&#x2019;s 5A modified medium supplemented with 10% fetal bovine serum and 1% penicillin/streptomycin with or without TGF&#x3B2;1 (5 ng/mL) and EGF (10 ng/mL) for 24 hours.</p>
+      </sec>
+      <sec>
+        <title>Cell apoptosis assay</title>
+        <p>Cell apoptosis was determined by using Cell Death Detection ELISA<sup>PLUS</sup> (Hoffman-La Roche Ltd, Basel, Switzerland). Briefly, cell lysates were placed in a streptavidin-coated microplate. A mixture of anti-histone&#x2013;biotin and anti-DNA&#x2013;peroxidase was added and incubated for 2 hours at 25&#xB0;C. After removal of the unbound antibodies by washing steps, the peroxidase was determined photometrically at 405 nm with 2,2&#x2032;-azino-bis(3-ethylbenzothiazoline-6-sulphonic acid) as the substrate. As a control, the presence of apoptotic cells and apoptotic bodies upon transfection and treatment of cells was monitored (<xref ref-type="supplementary-material" rid="SD2-ott-7-1397">Figure S2</xref>).</p>
+      </sec>
+      <sec>
+        <title>Wound healing assay</title>
+        <p>Cells were grown in culture media containing 10% fetal bovine serum for 48 hours, until the cells reached confluence. Monolayers of confluent cultures were scratched with a 20 &#x3BC;L pipette tip, and images of the scratched areas were taken under a microscope. TGF&#x3B2;1 (5 ng/mL) and EGF (10 ng/mL) were added, and the cells were incubated for 24 hours. After 24 hours, images of the scratched areas were taken. Quantification was done by measuring the open wound area, which is the fraction of open image area at a later time point compared to the initial time point, given as a percentage using TScratch software (CSElab, Zurich, Switzerland).<xref rid="b15-ott-7-1397" ref-type="bibr">15</xref></p>
+      </sec>
+      <sec>
+        <title>Migration assay</title>
+        <p>Cells were seeded on the membranes of the 96-well plate ChemoTx<sup>&#xAE;</sup> chemotaxis system (116-8; Neuro Probe, Inc., Gaithersburg, MD, USA) in a culture medium containing the growth factors as indicated for treatment. After 24 hours, the membrane was washed twice in phosphate-buffered saline and fixed with 70% ethanol. The nonmigrated cells were removed by cotton swab from the upper side of the membrane. The membrane was stained with 0.5% crystal violet, and subsequently visualized and quantified by using ImageJ software (National Institutes of Health, Bethesda, MD, USA).<xref rid="b16-ott-7-1397" ref-type="bibr">16</xref></p>
+      </sec>
+      <sec>
+        <title>Invasion assay</title>
+        <p>Membranes of the 96-well plate ChemoTx chemotaxis system were covered with 3% gelatin, and cells were seeded on the membranes in a culture medium containing 5 ng/mL TGF&#x3B2;1 and 10 ng/mL EGF. After 24 hours, the membrane was washed twice in phosphate-buffered saline and fixed with 70% ethanol. The noninvaded cells were removed by cotton swab from the upper side of the membrane. The membrane was stained with 0.5% crystal violet, and subsequently visualized and quantified by using ImageJ software.<xref rid="b16-ott-7-1397" ref-type="bibr">16</xref></p>
+      </sec>
+      <sec>
+        <title>Immunoblotting</title>
+        <p>Cell lysates were resolved in 10% sodium dodecyl sulfate polyacrylamide mini gels (Mini-PROTEAN<sup>&#xAE;</sup> Tetra Cell; Bio-Rad Laboratories, Inc., Hercules, CA, USA) and transferred onto Whatman<sup>&#xAE;</sup> Protran<sup>&#xAE;</sup> nitrocellulose membranes (GE Healthcare Bio-Sciences AB, Uppsala, Sweden). Membranes were blocked with 5% (weight/volume [w/v]) bovine serum albumin in Tris-buffered saline with Tween 20 for 1 hour, incubated with primary antibodies against target proteins, and then incubated with horseradish peroxidase-conjugated secondary antibody (GE Healthcare). The proteins were visualized using Western blotting Luminol reagent (Santa Cruz Biotechnology Inc., Dallas, TX, USA). The following antibodies were used: anti-PKN1 (sc-7161), anti-Smad2/3 (sc-6032), anti-pSmad2 (sc-135644), anti-ERK1/2 (sc-135900), anti-pERK1/2 (sc-7383), vimentin (sc-7557), E-cadherin (sc-7870), anti-FAK (sc-558), actin (sc-8432) (Santa Cruz Biotechnology), and anti-FAK (phospho Y397) (ab4803; Abcam, Cambridge, UK).</p>
+      </sec>
+      <sec sec-type="methods">
+        <title>Systematic analysis</title>
+        <p>Systematic analysis was performed with use of Cytoscape version 2.8.1 (Institute for Systems Biology, Seattle, WA, USA). Gene Ontology terms of PKN1, TGF&#x3B2;, and EGF were uploaded to generate a network, including neighbors of the uploaded proteins. Databases were explored by Cytoscape plug-in MiMI (National Center for Integrative Biomedical Informatics, Ann Arbor, MI, USA).</p>
+      </sec>
+      <sec sec-type="methods">
+        <title>Statistical analysis</title>
+        <p>Statistical significance of observed differences was evaluated using the Mann&#x2013;Whitney <italic>U</italic> test among unpaired groups and among multiple groups by the Kruskal&#x2013;Wallis test followed by Dunn&#x2019;s multiple comparison test. Analyses were conducted using Prism<sup>&#xAE;</sup> 6 software (GraphPad Software, Inc., La Jolla, CA, USA) and <italic>P</italic>&lt;0.05 was considered significant.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <sec>
+        <title>Generation of transiently transfected HEC-1-A cells</title>
+        <p>PKN1 has been identified as a protein deregulated in endometrial cancer.<xref rid="b17-ott-7-1397" ref-type="bibr">17</xref> To study the impact of PKN1 on cells, WT, KN, and CA PKN1 was transiently expressed in HEC-1-A endometrial cancer cells. The expression of PKN1 was controlled by immunoblotting with anti-PKN1 antibody (<xref ref-type="fig" rid="f1-ott-7-1397">Figure 1A</xref>). Expression of endogenous PKN1 was observed in six out of seven tested cell lines (<xref ref-type="supplementary-material" rid="SD1-ott-7-1397">Figure S1</xref>). Enhanced expression of PKN1 constructs allowed the impact of PKN1 on cell physiology to be accentuated (<xref ref-type="fig" rid="f1-ott-7-1397">Figure 1A</xref>). Transiently transfected cells were then used in the tests described below. Systemic analysis of potential connections between PKN1, TGF&#x3B2;, and EGF showed involvement of a number of potent regulators of cell proliferation and cytoskeleton rearrangement (<xref ref-type="fig" rid="f1-ott-7-1397">Figure 1B</xref>). This prompted the exploration of whether PKN1 plays a role in modulation of TGF&#x3B2;- and EGF-dependent regulation of cell proliferation, migration, and invasiveness.</p>
+      </sec>
+      <sec>
+        <title>PKN1 reduced proliferation of HEC-1-A cells</title>
+        <p>It was observed that the treatment of cells with TGF&#x3B2;1 and EGF significantly reduced the proliferation rate of the control parental empty vector-transfected and the WT PKN1-transfected HEC-1-A cells (<xref ref-type="fig" rid="f2-ott-7-1397">Figure 2</xref>). Transfection of HEC-1-A cells with KN PKN1 and CA PKN1 resulted in a reduced rate of proliferation of the nontreated cells. It was observed that expression of KN PKN1 countered the effects of TGF&#x3B2;1 and EGF. An unexpected effect was that CA PKN1 countered the effects of EGF and combined TGF&#x3B2;1 and EGF treatments. This indicates that the truncation of PKN1 has a similar impact on PKN1 contribution as the KN construct. It also indicates that the kinase activity itself is not sufficient to mimic WT PKN1, and the intactness of PKN1 is required for the full functional capacity of PKN1. Thus, PKN1 is required for inhibition of cell proliferation by combined action of TGF&#x3B2;1 and EGF, as impairment of PKN1 functions by blocking its kinase activity or by truncation preventing the inhibitory effect by TGF&#x3B2;1 and EGF.</p>
+      </sec>
+      <sec>
+        <title>PKN1 did not affect apoptosis</title>
+        <p>To explore whether PKN1 may affect cell death, an apoptosis assay was performed. It was observed that double treatment of the empty vector-transfected cells with TGF&#x3B2;1 and EGF reduced cell apoptosis (<xref ref-type="fig" rid="f3-ott-7-1397">Figure 3</xref>). Transfection of WT, KN, and CA PKN1 had only a marginal effect on cell death. The only significant, although weak, effect was the reversal of the combined treatment of TGF&#x3B2;1 and EGF. There were no apoptotic cells or apoptotic bodies upon visual inspection of transfected and treated cells (<xref ref-type="supplementary-material" rid="SD2-ott-7-1397">Figure S2</xref>). Thus, strong effects of PKN1 on cell death were not observed.</p>
+      </sec>
+      <sec>
+        <title>PKN1 modulates migration of cells stimulated by TGF&#x3B2;1 and EGF</title>
+        <p>As the systemic analysis indicated that PKN1 may affect migration of cells, wound healing<xref rid="b18-ott-7-1397" ref-type="bibr">18</xref> and membrane migration<xref rid="b19-ott-7-1397" ref-type="bibr">19</xref> assays were performed (<xref ref-type="fig" rid="f4-ott-7-1397">Figures 4</xref> and <xref ref-type="fig" rid="f5-ott-7-1397">5</xref>). Wound healing assays explore migration capacities of cells that are under contact inhibition of proliferation. Membrane migration assays explore proliferating cells in a sparse culture. The molecular mechanisms triggering cell migration in these two tests may differ due to unequal conditions of tested cells. Despite differences, the tests may allow complementation of assessment of migration. The wound healing assay showed that PKN1 constructs prevented TGF&#x3B2;1-induced closure (<xref ref-type="fig" rid="f4-ott-7-1397">Figure 4</xref>). However, expression of the PKN1 constructs strongly promoted wound closure when cells were treated with both TGF&#x3B2;1 and EGF (<xref ref-type="fig" rid="f4-ott-7-1397">Figure 4</xref>).</p>
+        <p>The membrane migration assay showed that the treatment with both TGF&#x3B2;1 and EGF promoted cell migration (<xref ref-type="fig" rid="f5-ott-7-1397">Figure 5</xref>). Single treatments and transfections with PKN1 constructs did not have significant effects. The difference in response pattern between wound healing and membrane migration is that impairment of PKN1 activity in the KN and CA mutants did not mimic the WT construct effect in the membrane migration assay as compared to the wound healing tests (<xref ref-type="fig" rid="f4-ott-7-1397">Figures 4</xref> and <xref ref-type="fig" rid="f5-ott-7-1397">5</xref>). Despite this difference, these results show that PKN1 may indeed counteract the action of combined TGF&#x3B2;1 and EGF treatment.</p>
+      </sec>
+      <sec>
+        <title>TGF&#x3B2;1- and EGF-dependent regulation of cell invasiveness is modulated by PKN1</title>
+        <p>Invasiveness of cells into a collagen matrix is one of the key mechanisms in the development of metastasis. Therefore, we explored whether PKN1 constructs may affect TGF&#x3B2;1- and EGF-dependent regulation of cell invasiveness (<xref ref-type="fig" rid="f6-ott-7-1397">Figure 6</xref>). It was observed that double treatment of HEC-1-A cells with TGF&#x3B2;1 and EGF increased cell invasiveness in the cells transfected with KN PKN1, while expression of WT or CA PKN1 did not show such action. Expression of KN PKN1 significantly increased the invasiveness of cells. This stimulatory effect was strong. Thus, PKN1 did modulate the invasiveness of cells, with the intracellular mechanisms apparently different from mechanisms of regulation of cell migration.</p>
+      </sec>
+      <sec>
+        <title>PKN1 expression in modulation of phosphorylation of Smad2, Erk1/2, and FAK, and expression of E-cadherin and vimentin</title>
+        <p>To explore the molecular mechanisms of PKN1 involvement in TGF&#x3B2; and EGF signaling, the expression and phosphorylation of Smad2, Erk1/2, FAK, E-cadherin, and vimentin were studied. Phosphorylation of Smad2 and Erk1/2 reflect the activation of signaling downstream of TGF&#x3B2; and EGF. It was observed that expression of WT, KN, and CA PKN1 decreased the intensity of Smad2 phosphorylation upon treatment with TGF&#x3B2;1. The effect was more significant in CA PKN1-transfected cells. At the same time, phosphorylation of Smad2 upon treatment with combined TGF&#x3B2;1 and EGF and single EGF decreased in KN and CA PKN1-transfected cells, while there was no change in WT PKN1-transfected cells (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7A</xref>). It was observed that expression of WT, KN, and CA PKN1 decreased the intensity of Erk1/2 phosphorylation upon treatment with TGF&#x3B2;1 (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7B</xref>). It was observed that EGF-dependent Erk1/2 phosphorylation increased in WT, KN, and CA PKN1-transfected cells but not in the vector-transfected cells, which indicates that the cells were responsive to EGF under condition of the enhanced level of PKN1. The effect was most pronounced in KN PKN1-transfected cells. Double treatment of cells with TGF&#x3B2;1 and EGF led to no significant effects on intensity of Erk1/2 phosphorylation in WT and KN PKN1-transfected cells, while it caused a significant decrease in HEC-1-A CA PKN1 cells.</p>
+        <p>The expression and activity of FAK, E-cadherin, and vimentin may reflect molecular mechanisms involved in regulation of cell migration and invasiveness. It was observed that expression of WT PKN1 increased TGF&#x3B2;1- and EGF-dependent phosphorylation of FAK while KN PKN1 expression decreased this effect (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7C</xref>).</p>
+        <p>It was observed that expression of WT and CA PKN1 predominantly inhibited E-cadherin expression upon single and double treatment with TGF&#x3B2;1 and EGF (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7C</xref>). KN PKN1 did not have such inhibitory effect. Vimentin expression in tested conditions was not modulated by treatments with TGF&#x3B2;1 and/or EGF (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7C</xref>). The only observed effect was of WT and KN PKN1, which inhibited levels of vimentin irrespective of treatments. The observations of changes in E-cadherin, vimentin, Smad2, and Erk1/2 expression and phosphorylation indicate that these proteins are indeed affected by PKN1. These observations indicate that further studies of the tested proteins (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7</xref>) in the context of PKN1&#x2019;s role in proliferation, migration, and invasiveness are justified to gain insights into underlying molecular mechanisms.</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Unveiling the complexity of intracellular signaling crosstalk results in the identification of more and more components and interactions. Systems biology tools allow the extraction of potential interactions between proteins and genes, which otherwise may not be detected. The search for the mechanisms of crosstalk between TGF&#x3B2; and EGF indicates that PKN1 may be a convergence point for these two potent regulatory pathways.<xref rid="b17-ott-7-1397" ref-type="bibr">17</xref> Here, it was described that PKN1 is a modulator of the crosstalk between TGF&#x3B2; and EGF in the regulation of cell proliferation, migration, and invasiveness. The modulating effects of PKN1 were dependent on its kinase activity. The description of cellular responses shows involvement of PKN1 in TGF&#x3B2; and EGF signaling (<xref ref-type="fig" rid="f2-ott-7-1397">Figures 2</xref>&#x2013;<xref ref-type="fig" rid="f6-ott-7-1397">6</xref>). Exact molecular mechanisms of this crosstalk would require a further dedicated study. The data (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7</xref>) indicate that Smad2 and Erk1/2 may be involved in the crosstalk. Smad2 is a direct target of TGF&#x3B2; receptor type I and Erk1/2 is a convergence target of many different regulators of cell proliferation. It has been shown that Smad2 can be phosphorylated by Erk1/2, and that phosphorylation may inhibit nuclear localization of Smad2.<xref rid="b20-ott-7-1397" ref-type="bibr">20</xref> Focal adhesion may be regulated by multiple factors, and the results show that PKN1 may interfere with TGF&#x3B2;- and EGF-dependent phosphorylation of FAK (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7</xref>). The effects on FAK phosphorylation are in line with PKN1 modulation of cell invasion and migration. The expression of vimentin and E-cadherin upon explored conditions (<xref ref-type="fig" rid="f7-ott-7-1397">Figure 7</xref>) is also in line with cellular responses (<xref ref-type="fig" rid="f4-ott-7-1397">Figures 4</xref>&#x2013;<xref ref-type="fig" rid="f6-ott-7-1397">6</xref>). It has to be noted that the observed correlations indicate involvement of other intracellular components, as types and amplitude of changes were not fully overlapping with cellular responses. Systemic analysis and a number of reports by others showed that the number of molecules involved in the network signaling by TGF&#x3B2; and EGF may account for more than 100.<xref rid="b21-ott-7-1397" ref-type="bibr">21</xref>,<xref rid="b22-ott-7-1397" ref-type="bibr">22</xref> These molecules are engaged on different stages of signaling cascades, and may include various intracellular processes, eg, gene transcription, protein synthesis, protein activities, localization, and metabolic processes. These intracellular processes then converge on regulators of cellular responses. This report includes PKN1 in this network of combined signaling by TGF&#x3B2; and EGF, which leads to regulation of cell migration, invasiveness, and proliferation, and sets the direction for further exploration of intracellular mechanisms.</p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supplementary materials</title>
+      <supplementary-material content-type="local-data" id="SD1-ott-7-1397">
+        <label>Figure S1</label>
+        <caption>
+          <p>Detection of endogenous PKN1.</p>
+          <p><bold>Notes:</bold> (<bold>A</bold>) Expression of PKN1 was detected by immunoblotting of the empty vector and kinase negative- and constitutively active-transfected clones. Please note that this image represents optimization experiments. (<bold>B</bold>) Expression of endogenous PKN1 in different human cell lines including HEC-1-A endometrial cancer cells.</p>
+          <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+        </caption>
+        <media mimetype="image" mime-subtype="tif" xlink:href="ott-7-1397s1.tif" xlink:type="simple" id="d35e492" position="anchor"/>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SD2-ott-7-1397">
+        <label>Figure S2</label>
+        <caption>
+          <p>Images of HEC1-A cells before and after transfection with WT PKN1.</p>
+          <p><bold>Notes:</bold> Please note lack of dead cells, debris, or apoptotic bodies, which would indicate cell death. Therefore, no cell death was observed.</p>
+          <p><bold>Abbreviation:</bold> WT, wild type.</p>
+        </caption>
+        <media mimetype="image" mime-subtype="tif" xlink:href="ott-7-1397s2.tif" xlink:type="simple" id="d35e507" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>The authors are grateful to Dr Hideyuki Mukai for his gift of the PKN1 constructs. They are also grateful to Oves Minnesfond for support and encouragement. This work is supported in part by grants from the Radiumhemmet research funds (#121202), the Swedish Cancer Society, the Swedish Research Council, the Swedish Institute, INTAS, Erasmus KI-UWM, and STINT to SS, and grants from the regional agreement on medical training and clinical research (ALF) between Stockholm County Council and the Karolinska Institute and Swedish Labour Market Insurance (AFA) to MM.</p>
+    </ack>
+    <fn-group>
+      <fn>
+        <p>
+          <bold>Disclosure</bold>
+        </p>
+        <p>The authors report no conflicts of interest in this work.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="b1-ott-7-1397">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ong</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Jubb</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Haverty</surname>
+              <given-names>PM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Targeting p21-activated kinase 1 (PAK1) to induce apoptosis of tumor cells</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2011</year>
+          <volume>108</volume>
+          <issue>17</issue>
+          <fpage>7177</fpage>
+          <lpage>7182</lpage>
+          <pub-id pub-id-type="pmid">21482786</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b2-ott-7-1397">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Galgano</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Conaway</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Spencer</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Paschal</surname>
+              <given-names>BM</given-names>
+            </name>
+            <name>
+              <surname>Frierson</surname>
+              <given-names>HF</given-names>
+              <suffix>Jr</suffix>
+            </name>
+          </person-group>
+          <article-title>PRK1 distribution in normal tissues and carcinomas: overexpression and activation in ovarian serous carcinoma</article-title>
+          <source>Hum Pathol</source>
+          <year>2009</year>
+          <volume>40</volume>
+          <issue>10</issue>
+          <fpage>1434</fpage>
+          <lpage>1440</lpage>
+          <pub-id pub-id-type="pmid">19427017</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b3-ott-7-1397">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carter</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Douglass</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>Deddens</surname>
+              <given-names>JA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Pak-1 expression increases with progression of colorectal carcinomas to metastasis</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2004</year>
+          <volume>10</volume>
+          <issue>10</issue>
+          <fpage>3448</fpage>
+          <lpage>3456</lpage>
+          <pub-id pub-id-type="pmid">15161701</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b4-ott-7-1397">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Metzger</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>M&#xFC;ller</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Ferrari</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Buettner</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Sch&#xFC;le</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel inducible transactivation domain in the androgen receptor: implications for PRK in prostate cancer</article-title>
+          <source>EMBO J</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <issue>2</issue>
+          <fpage>270</fpage>
+          <lpage>280</lpage>
+          <pub-id pub-id-type="pmid">12514133</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b5-ott-7-1397">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Adam</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Vadlamudi</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Mandal</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Chernoff</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kumar</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of microfilament reorganization and invasiveness of breast cancer cells by kinase dead p21-activated kinase-1</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <issue>16</issue>
+          <fpage>12041</fpage>
+          <lpage>12050</lpage>
+          <pub-id pub-id-type="pmid">10766836</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b6-ott-7-1397">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Downregulation of p21-activated kinase-1 inhibits the growth of gastric cancer cells involving cyclin B1</article-title>
+          <source>Int J Cancer</source>
+          <year>2009</year>
+          <volume>125</volume>
+          <issue>11</issue>
+          <fpage>2511</fpage>
+          <lpage>2259</lpage>
+          <pub-id pub-id-type="pmid">19610058</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b7-ott-7-1397">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mukai</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Toshimori</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Miyamoto</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ono</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteolytic activation of PKN by caspase-3 or related protease during apoptosis</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1998</year>
+          <volume>95</volume>
+          <issue>20</issue>
+          <fpage>11566</fpage>
+          <lpage>11571</lpage>
+          <pub-id pub-id-type="pmid">9751706</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b8-ott-7-1397">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vadlamudi</surname>
+              <given-names>RK</given-names>
+            </name>
+            <name>
+              <surname>Adam</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>RA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Regulatable expression of p21-activated kinase-1 promotes anchorage-independent growth and abnormal organization of mitotic spindles in human epithelial breast cancer cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <issue>46</issue>
+          <fpage>36238</fpage>
+          <lpage>36244</lpage>
+          <pub-id pub-id-type="pmid">10945974</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b9-ott-7-1397">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jakowlew</surname>
+              <given-names>SB</given-names>
+            </name>
+          </person-group>
+          <article-title>Transforming growth factor-&#x3B2; in cancer and metastasis</article-title>
+          <source>Cancer Metastasis Rev</source>
+          <year>2006</year>
+          <volume>25</volume>
+          <issue>3</issue>
+          <fpage>435</fpage>
+          <lpage>457</lpage>
+          <pub-id pub-id-type="pmid">16951986</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b10-ott-7-1397">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dunfield</surname>
+              <given-names>LD</given-names>
+            </name>
+            <name>
+              <surname>Nachtigal</surname>
+              <given-names>MW</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of the antiproliferative effect of TGF&#x3B2; by EGF in primary human ovarian cancer cells</article-title>
+          <source>Oncogene</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <issue>30</issue>
+          <fpage>4745</fpage>
+          <lpage>4751</lpage>
+          <pub-id pub-id-type="pmid">12879019</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b11-ott-7-1397">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Scaltriti</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Baselga</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>The epidermal growth factor receptor pathway: a model for targeted therapy</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2006</year>
+          <volume>12</volume>
+          <issue>18</issue>
+          <fpage>5268</fpage>
+          <lpage>5272</lpage>
+          <pub-id pub-id-type="pmid">17000658</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b12-ott-7-1397">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lurje</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lenz</surname>
+              <given-names>HJ</given-names>
+            </name>
+          </person-group>
+          <article-title>EGFR signaling and drug discovery</article-title>
+          <source>Oncology</source>
+          <year>2009</year>
+          <volume>77</volume>
+          <issue>6</issue>
+          <fpage>400</fpage>
+          <lpage>410</lpage>
+          <pub-id pub-id-type="pmid">20130423</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b13-ott-7-1397">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kuramoto</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hamano</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Imai</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>HEC-1 cells</article-title>
+          <source>Hum Cell</source>
+          <year>2002</year>
+          <volume>15</volume>
+          <issue>2</issue>
+          <fpage>81</fpage>
+          <lpage>95</lpage>
+          <pub-id pub-id-type="pmid">12227503</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b14-ott-7-1397">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mori</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Mizuuchi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Okamura</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kudo</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>The factors involved in invasive ability of endometrial carcinoma cells</article-title>
+          <source>Nihon Sanka Fujinka Gakkai Zasshi</source>
+          <year>1994</year>
+          <volume>46</volume>
+          <issue>6</issue>
+          <fpage>509</fpage>
+          <lpage>516</lpage>
+          <comment>Japanese</comment>
+          <pub-id pub-id-type="pmid">8040623</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b15-ott-7-1397">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Geb&#xE4;ck</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Schulz</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Koumoutsakos</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Detmar</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>TScratch: a novel and simple software tool for automated analysis of monolayer wound healing assays</article-title>
+          <source>Biotechniques</source>
+          <year>2009</year>
+          <volume>46</volume>
+          <issue>4</issue>
+          <fpage>265</fpage>
+          <lpage>274</lpage>
+          <pub-id pub-id-type="pmid">19450233</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b16-ott-7-1397">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schneider</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Rasband</surname>
+              <given-names>WS</given-names>
+            </name>
+            <name>
+              <surname>Eliceiri</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>NIH Image to ImageJ: 25 years of image analysis</article-title>
+          <source>Nat Methods</source>
+          <year>2012</year>
+          <volume>9</volume>
+          <issue>7</issue>
+          <fpage>671</fpage>
+          <lpage>675</lpage>
+          <pub-id pub-id-type="pmid">22930834</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b17-ott-7-1397">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Attarha</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Andersson</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mints</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Souchelnytskyi</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Individualised proteome profiling of human endometrial tumours improves detection of new prognostic markers</article-title>
+          <source>Br J Cancer</source>
+          <year>2013</year>
+          <volume>109</volume>
+          <issue>3</issue>
+          <fpage>704</fpage>
+          <lpage>713</lpage>
+          <pub-id pub-id-type="pmid">23839494</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b18-ott-7-1397">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liang</surname>
+              <given-names>CC</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>AY</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <article-title>In vitro scratch assay: a convenient and inexpensive method for analysis of cell migration in vitro</article-title>
+          <source>Nat Protoc</source>
+          <year>2007</year>
+          <volume>2</volume>
+          <issue>2</issue>
+          <fpage>329</fpage>
+          <lpage>333</lpage>
+          <pub-id pub-id-type="pmid">17406593</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b19-ott-7-1397">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Penno</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Hart</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Mousa</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Bozarth</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Rapid and quantitative in vitro measurement of cellular chemotaxis and invasion</article-title>
+          <source>Methods Cell Sci</source>
+          <year>1997</year>
+          <volume>19</volume>
+          <issue>3</issue>
+          <fpage>189</fpage>
+          <lpage>195</lpage>
+        </element-citation>
+      </ref>
+      <ref id="b20-ott-7-1397">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kamato</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Burch</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Piva</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Transforming growth factor-&#x3B2; signalling: role and consequences of Smad linker region phosphorylation</article-title>
+          <source>Cell Signal</source>
+          <year>2013</year>
+          <volume>25</volume>
+          <issue>10</issue>
+          <fpage>2017</fpage>
+          <lpage>2024</lpage>
+          <pub-id pub-id-type="pmid">23770288</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b21-ott-7-1397">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Katsuno</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Lamouille</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Derynck</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>TGF-&#x3B2; signaling and epithelial&#x2013;mesenchymal transition in cancer progression</article-title>
+          <source>Curr Opin Oncol</source>
+          <year>2013</year>
+          <volume>25</volume>
+          <issue>1</issue>
+          <fpage>76</fpage>
+          <lpage>84</lpage>
+          <pub-id pub-id-type="pmid">23197193</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="b22-ott-7-1397">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ghosh</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Matsuoka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Asai</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hsin</surname>
+              <given-names>KY</given-names>
+            </name>
+            <name>
+              <surname>Kitano</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Software for systems biology: from tools to integrated platforms</article-title>
+          <source>Nat Rev Genet</source>
+          <year>2011</year>
+          <volume>12</volume>
+          <issue>12</issue>
+          <fpage>821</fpage>
+          <lpage>832</lpage>
+          <pub-id pub-id-type="pmid">22048662</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="f1-ott-7-1397" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>PKN1 is a potential component of TGF&#x3B2; and EGF crosstalk.</p>
+        <p><bold>Notes:</bold> (<bold>A</bold>) The expression of WT, KN, and CA PKN1 constructs upon transfection in HEC-1-A cells. The migration position of PKN1 constructs is indicated. (<bold>B</bold>) The network for PKN1 proposed in the context of the authors&#x2019; previous proteomics study<xref rid="b17-ott-7-1397" ref-type="bibr">17</xref> is shown. Links between components define functional interactions.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig1"/>
+    </fig>
+    <fig id="f2-ott-7-1397" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Impact of PKN1 on TGF&#x3B2;1- and EGF-dependent regulation of cell proliferation.</p>
+        <p><bold>Notes:</bold> The treatment of cells transfected with the empty vector (HEC-1-A/PCDNA3), WT PKN1 (HEC-1-A/WT PKN1), KN PKN1 (HEC-1-A/KN PKN1), and CA PKN1 (HEC-1-A/CA PKN1) with TGF&#x3B2;1, EGF, and their combination are indicated. <sup>#</sup>Represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among unpaired groups; *represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among multiple groups. Results of a representative 3-(4,5-Dimethylthiazol-2-yl)-2,5-diphenyltetrazolium bromide (MTT) assay out of three performed are shown.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig2"/>
+    </fig>
+    <fig id="f3-ott-7-1397" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>PKN1 has a marginal effect on HEC-1-A cell death.</p>
+        <p><bold>Notes:</bold> The treatment of cells transfected with the empty vector (HEC-1-A/PCDNA3), WT PKN1 (HEC-1-A/WT PKN1), KN PKN1 (HEC-1-A/KN PKN1), and CA PKN1 (HEC-1-A/CA PKN1) with TGF&#x3B2;1, EGF, and their combination are indicated. <sup>#</sup>Represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among unpaired groups; *represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among multiple groups. Results of a representative assay are shown.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type; OD, optical density.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig3"/>
+    </fig>
+    <fig id="f4-ott-7-1397" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Effect of PKN1 on cell migration in a wound healing assay.</p>
+        <p><bold>Notes:</bold> (<bold>A</bold>) Quantification of the results obtained in a wound healing assay. (<bold>B</bold>) Examples of the assay images. The treatment of cells transfected with the empty vector (HEC-1-A/PCDNA3), WT PKN1 (HEC-1-A/WT PKN1), KN PKN1 (HEC-1-A/KN PKN1), and CA PKN1 (HEC-1-A/CA PKN1) with TGF&#x3B2;1, EGF and their combination are indicated. <sup>#</sup>Represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among unpaired groups; *represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among multiple groups. Results of a representative assay out of three performed are shown.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig4"/>
+    </fig>
+    <fig id="f5-ott-7-1397" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>PKN1 suppressed migration of cells stimulated by TGF&#x3B2;1 and EGF.</p>
+        <p><bold>Notes:</bold> Columns show the total area of the membranes occupied by the cells which migrated through the membrane for HEC-1-A/PCDNA3, HEC-1-A/WT PKN1, HEC-1-A/KN PKN1, and HEC-1-A/CA PKN1 cells treated with TGF&#x3B2;1, EGF, and their combination. Images show examples of membranes with stained cells. <sup>#</sup>Represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among unpaired groups; *represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among multiple groups. A representative experiment out of three is shown.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig5"/>
+    </fig>
+    <fig id="f6-ott-7-1397" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p>TGF&#x3B2;1- and EGF-dependent regulation of cell invasiveness is modulated by PKN1.</p>
+        <p><bold>Notes:</bold> Columns show the total area of the membranes occupied by the cells which migrated through the membrane for HEC-1-A/PCDNA3, HEC-1-A/WT PKN1, HEC-1-A/KN PKN1, and HEC-1-A/CA PKN1 cells treated with TGF&#x3B2;1, EGF, and their combination. Images show examples of membranes with stained cells. <sup>#</sup>Represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among unpaired groups; *represents statistical significance (<italic>P</italic>&lt;0.05) of observed differences among multiple groups. A representative experiment out of three is shown.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig6"/>
+    </fig>
+    <fig id="f7-ott-7-1397" position="float">
+      <label>Figure 7</label>
+      <caption>
+        <p>Impact of PKN1 on the expression and phosphorylation of intracellular proteins (<bold>A</bold>) SMAD2, (<bold>B</bold>) Erk1/2, and (<bold>C</bold>) FAK, E-cadherin, and vimentin.</p>
+        <p><bold>Notes:</bold> The expression and phosphorylation of Smad2, Erk1/2, and FAK and the expression of vimentin and E-cadherin in cells transfected with the empty vector (HEC-1-A/PCDNA3), WT PKN1 (HEC-1-A/WT PKN1), KN PKN1 (HEC-1-A/KN PKN1), and CA PKN1 (HEC-1-A/CA PKN1) cells treated with TGF&#x3B2;1, EGF and their combination are indicated. Immunoblotting for actin was used to monitor equal loading. The migration positions of tested proteins are annotated.</p>
+        <p><bold>Abbreviations:</bold> CA, constitutively active; KN, kinase negative; WT, wild type.</p>
+      </caption>
+      <graphic xlink:href="ott-7-1397Fig7"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

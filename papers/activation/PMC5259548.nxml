@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101478378</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">36347</journal-id>
+      <journal-id journal-id-type="nlm-ta">Integr Biol (Camb)</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Integr Biol (Camb)</journal-id>
+      <journal-title-group>
+        <journal-title>Integrative biology : quantitative biosciences from nano to macro</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1757-9694</issn>
+      <issn pub-type="epub">1757-9708</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27868126</article-id>
+      <article-id pub-id-type="pmc">5259548</article-id>
+      <article-id pub-id-type="doi">10.1039/c6ib00178e</article-id>
+      <article-id pub-id-type="manuscript">NIHMS831381</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>New insights into mammalian signaling pathways using microfluidic pulsatile inputs and mathematical modeling</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sumit</surname>
+            <given-names>M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Takayama</surname>
+            <given-names>S.</given-names>
+          </name>
+          <xref ref-type="corresp" rid="CR1">*</xref>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A3">c</xref>
+          <xref ref-type="aff" rid="A4">d</xref>
+          <xref ref-type="aff" rid="A5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Linderman</surname>
+            <given-names>J. J.</given-names>
+          </name>
+          <xref ref-type="corresp" rid="CR1">*</xref>
+          <xref ref-type="aff" rid="A4">d</xref>
+          <xref ref-type="aff" rid="A6">f</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>Biointerface Institute, North Campus Research Complex, University of Michigan, 2800 Plymouth Road, Ann Arbor, MI 48109, USA.
+</aff>
+      <aff id="A2"><label>b</label>Biophysics Graduate Program, University of Michigan, Ann Arbor, MI 48109, USA
+</aff>
+      <aff id="A3"><label>c</label>Michigan Centre for Integrative Research in Critical Care, North Campus Research Complex, University of Michigan, 2800 Plymouth Road, Ann Arbor, MI 48109, USA
+</aff>
+      <aff id="A4"><label>d</label>Department of Biomedical Engineering, University of Michigan, 1107 Carl A. Gerstacker Building, 2200, Bonisteel Blvd, Ann Arbor, MI 48109, USA.
+</aff>
+      <aff id="A5"><label>e</label>Macromolecular Science and Engineering Program, University of Michigan, 2300, Hayward Street, Ann Arbor, MI 48109, USA
+</aff>
+      <aff id="A6"><label>f</label>Department of Chemical Engineering, University of Michigan, Building 26, 2800 Plymouth Road, Ann Arbor, MI 48109, USA
+</aff>
+      <author-notes>
+        <corresp id="CR1"><label>*</label><email>takayama@umich.edu</email>, <email>linderma@umich.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>23</day>
+        <month>1</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>23</day>
+        <month>1</month>
+        <year>2018</year>
+      </pub-date>
+      <volume>9</volume>
+      <issue>1</issue>
+      <fpage>6</fpage>
+      <lpage>21</lpage>
+      <!--elocation-id from pubmed: 10.1039/c6ib00178e-->
+      <abstract>
+        <p id="P1">Temporally modulated input mimics physiology. This chemical communication strategy filters the biochemical noise through entrainment and phase-locking. Under laboratory conditions, it also expands the observability space for downstream responses. A combined approach involving microfluidic pulsatile stimulation and mathematical modeling has led to deciphering of hidden/unknown temporal motifs in several mammalian signaling pathways and has provided mechanistic insights, including how these motifs combine to form distinct band-pass filters and govern fate regulation under dynamic microenvironment. This approach can be utilized to understand signaling circuit architectures and to gain mechanistic insights for several other signaling systems. Potential applications include synthetic biology and biotechnology, in developing pharmaceutical interventions, and in developing lab-on-chip models.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

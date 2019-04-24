@@ -1,0 +1,806 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23991127</article-id>
+      <article-id pub-id-type="pmc">3749979</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-13-15482</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0072604</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Mesenchymal Stem Cells from Human Umbilical Cord Express Preferentially Secreted Factors Related to Neuroprotection, Neurogenesis, and Angiogenesis</article-title>
+        <alt-title alt-title-type="running-head">Secretomes of Different MSCs</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Hsieh</surname>
+            <given-names>Jui-Yu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Hsei-Wei</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+          <xref ref-type="aff" rid="aff4">
+<sup>4</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chang</surname>
+            <given-names>Shing-Jyh</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liao</surname>
+            <given-names>Ko-Hsun</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>I-Hui</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff5">
+<sup>5</sup>
+</xref>
+          <xref ref-type="aff" rid="aff6">
+<sup>6</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lin</surname>
+            <given-names>Wei-Shiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff7">
+<sup>7</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wu</surname>
+            <given-names>Chun-Hsien</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff7">
+<sup>7</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lin</surname>
+            <given-names>Wen-Yu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff7">
+<sup>7</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cheng</surname>
+            <given-names>Shu-Meng</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff7">
+<sup>7</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>Institute of Microbiology and Immunology, National Yang-Ming University, Taipei, Taiwan</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>Department of Obstetrics and Gynecology, Hsin-Chu Mackay Memorial Hospital, Hsin Chu, Taiwan</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Cancer Research Center &amp; Genome Research Center, National Yang-Ming University, Taipei, Taiwan</addr-line>
+</aff>
+      <aff id="aff4">
+<label>4</label>
+<addr-line>Departments of Education and Research, Taipei City Hospital, Taipei, Taiwan</addr-line>
+</aff>
+      <aff id="aff5">
+<label>5</label>
+<addr-line>Department of Neurology, Neurological Institute, Taipei Veterans General Hospital, Taipei, Taiwan</addr-line>
+</aff>
+      <aff id="aff6">
+<label>6</label>
+<addr-line>Institute of Brain Science, National Yang-Ming University, Taipei, Taiwan</addr-line>
+</aff>
+      <aff id="aff7">
+<label>7</label>
+<addr-line>Division of Cardiology, Department of Internal Medicine, Tri-Service General Hospital, National Defense Medical Center, Taipei, Taiwan</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Shi</surname>
+            <given-names>Xing-Ming</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Georgia Regents University, United States of America</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>chengsm@cm1.hinet.net</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: HWW IHL SMC. Performed the experiments: JYH SJC KHL CHW WYL. Analyzed the data: JYH SJC KHL CHW WYL. Contributed reagents/materials/analysis tools: SJC WSL CHW WYL. Wrote the manuscript: JYH WSL HWW. </p>
+        </fn>
+        <fn id="equal1" fn-type="equal">
+          <label>&#x262F;</label>
+          <p>These authors contributed equally to this work.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>22</day>
+        <month>8</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>8</issue>
+      <elocation-id>e72604</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>17</day>
+          <month>4</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>12</day>
+          <month>7</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 Hsieh et al</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <copyright-holder>Hsieh et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Mesenchymal stem cells (MSCs) are promising tools for the treatment of diseases such as infarcted myocardia and strokes because of their ability to promote endogenous angiogenesis and neurogenesis <italic>via</italic> a variety of secreted factors. MSCs found in the Wharton&#x2019;s jelly of the human umbilical cord are easily obtained and are capable of transplantation without rejection. We isolated MSCs from Wharton&#x2019;s jelly and bone marrow (WJ-MSCs and BM-MSCs, respectively) and compared their secretomes. It was found that WJ-MSCs expressed more genes, especially secreted factors, involved in angiogenesis and neurogenesis. Functional validation showed that WJ-MSCs induced better neural differentiation and neural cell migration <italic>via</italic> a paracrine mechanism. Moreover, WJ-MSCs afforded better neuroprotection efficacy because they preferentially enhanced neuronal growth and reduced cell apoptotic death of primary cortical cells in an oxygen-glucose deprivation (OGD) culture model that mimics the acute ischemic stroke situation in humans. In terms of angiogenesis, WJ-MSCs induced better microvasculature formation and cell migration on co-cultured endothelial cells. Our results suggest that WJ-MSC, because of a unique secretome, is a better MSC source to promote <italic>in vivo</italic> neurorestoration and endothelium repair. This study provides a basis for the development of cell-based therapy and carrying out of follow-up mechanistic studies related to MSC biology.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>This work is supported by National Science Council (NSC; NSC101-2320-B-010-059-MY3, NSC101-2627-B-010-003 and NSC101-2321-B-010-011), Mackay Memorial Hospital (MMH-HB-101-01, MMH-10192 and MMH-100067), Veterans General Hospitals University System of Taiwan Joint Research Program, Tsou&#x2019;s Foundation (VGHUST102-G7-3-2), National Health Research Institutes (NHRI-EX102-10254SI), UST-University of California San Diego International Center for Excellence in Advanced Bioengineering sponsored by the Taiwan NSC I-RiCE Program (NSC101-2911-I-009-101), and in part a grant from National Yang-Ming University (Ministry of Education, Aim for the Top University Plan). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="introduction" id="s1">
+      <title>Introduction</title>
+      <p>Stem cells have attracted much attention due to their unique biological behaviour and potential clinical usage. Mesenchymal stem cells (MSCs) are able to improve outcomes when there are bone and other tissue defects, including osteogenesis imperfecta [<xref rid="B1" ref-type="bibr">1</xref>], infarcted myocardium [<xref rid="B2" ref-type="bibr">2</xref>,<xref rid="B3" ref-type="bibr">3</xref>], and brain injury [<xref rid="B4" ref-type="bibr">4</xref>]. In rats, administration of MSCs 1 day or 7 days after stroke reduces neurological functional deficits [<xref rid="B5" ref-type="bibr">5</xref>]. Clinical phase I trials in patients with chronic ischemic stroke [<xref rid="B6" ref-type="bibr">6</xref>] or with spinal cord injury [<xref rid="B7" ref-type="bibr">7</xref>] have suggested that intravenous autologous MSC transplantation reduces long-term disability in the treated patients and caused no serious adverse events related to MSC transplantation during follow-up. Recent studies have suggested that MSC-based therapy of brain injury enhances not only neurogenesis but also angiogenesis [<xref rid="B8" ref-type="bibr">8</xref>].</p>
+      <p>MSCs can be harvested from many tissues, including bone marrow, cord blood, umbilical cord and adipose tissue [<xref rid="B9" ref-type="bibr">9</xref>&#x2013;<xref rid="B11" ref-type="bibr">11</xref>]. MSCs from Wharton&#x2019;s jelly of the umbilical cord (WJ-MSCs) are multipotent and are able to give rise to various types of cells, including osteocytes, adipocytes and chondrocytes [<xref rid="B12" ref-type="bibr">12</xref>,<xref rid="B13" ref-type="bibr">13</xref>]. Although the immunophenotypic profiles of MSCs from different tissues are similar [<xref rid="B9" ref-type="bibr">9</xref>,<xref rid="B13" ref-type="bibr">13</xref>,<xref rid="B14" ref-type="bibr">14</xref>], the disparate characteristics, including proteomics, genomics, and functionality, of MSCs from different sources have been described and compared in detail for better applying MSCs clinically [<xref rid="B15" ref-type="bibr">15</xref>&#x2013;<xref rid="B18" ref-type="bibr">18</xref>]. A quantitative proteomic and transcriptomic comparison of human mesenchymal stem cells from bone marrow and umbilical cord vein showed that MSCs from both tissues shared high similarity in metabolic and functional processes relevant to their therapeutic potential, especially in the immune system process, response to stimuli, and processes related to the delivery of the MSCs to a given tissue, such as migration and adhesion. Hence, our results support the idea that the more accessible umbilical cord could be a potentially less invasive source of MSCs [<xref rid="B19" ref-type="bibr">19</xref>].</p>
+      <p>Transplanted MSCs not only directly differentiate into neurons and endothelial cells after injection [<xref rid="B20" ref-type="bibr">20</xref>,<xref rid="B21" ref-type="bibr">21</xref>], but also secrete a broad repertoire of trophic and immunomodulatory cytokines, generally referred to as the MSC secretome, which has considerable potential for the treatment of various diseases such as cardiovascular disease and brain damage <italic>via</italic> an induction of endogenous neuro-protection, neurogenesis and angiogenesis [<xref rid="B8" ref-type="bibr">8</xref>,<xref rid="B22" ref-type="bibr">22</xref>,<xref rid="B23" ref-type="bibr">23</xref>]. As a result, the MSC secretome has considerable potential for the treatment of central nervous system (CNS) degeneration and ischemic heart diseases [<xref rid="B23" ref-type="bibr">23</xref>,<xref rid="B24" ref-type="bibr">24</xref>]. However, harnessing this MSC secretome for meaningful therapeutic outcomes is challenging due to the limited knowledge and control of cytokine production following their transplantation. For example, the secretome of bone marrow mesenchymal stem cells-conditioned media varies with time and drives a distinct effect on primary neurons and glial cells [<xref rid="B25" ref-type="bibr">25</xref>]. Addressing the compositions and variations in secretome of MSCs from different sources or expanded <italic>ex vivo</italic> under different conditions (e.g., hypoxia [<xref rid="B26" ref-type="bibr">26</xref>] or serum deprivation [<xref rid="B27" ref-type="bibr">27</xref>]) will eventually benefit the future application of MSCs in regenerative medicine.</p>
+      <p>Secretomes of stem cells from different anatomic resources also vary: for example, comparative analysis of paracrine factor expression in human MSCs derived from bone marrow, adipose (ASCs), and dermal tissue [dermal sheath cells (DSCs) and dermal papilla cells (DPCs)] showed that vascular endothelial growth factor-A (VEGF-A), angiogenin, basic fibroblast growth factor (bFGF/FGF2), and nerve growth factor (NGF) were expressed at comparable levels among the MSC populations examined, while ASCs expressed significantly higher levels of insulin-like growth factor-1, VEGF-D, and interleukin-8. Functional assays examining <italic>in vitro</italic> angiogenic paracrine activity showed that ASCs induced better tubulogenesis compared with DPCs, with VEGF-A and VEGF-D being 2 major factors [<xref rid="B28" ref-type="bibr">28</xref>]. The variation in paracrine factors of different MSC populations thus contributes to different levels of repair activity. MSCs from human umbilical cord Wharton jelly or adipose tissue act differently on central nervous system derived cell populations, in which WJ-MSCs have the better impact on the metabolic viability and cell density of primary hippocampal neurons [<xref rid="B29" ref-type="bibr">29</xref>]. Nevertheless, factors that promote the stronger effect of the WJ-MSC conditioned media in neuronal survival are still to be identified.</p>
+      <p>Here, we aim to investigate the secretome patterns, as well as paracrine neuro-protection, neurogenesis and angiogenesis effects, of BM- and WJ-MSCs. Our results provide a better understanding of the characteristics of these two types of MSCs and this will allow a better and more logical application of these MSC types in a clinical situation. </p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2.1">
+        <title>Cell culture</title>
+        <sec id="s2.1.1">
+          <title>Human mesenchymal stem cells</title>
+          <p>MSCs from healthy individuals were isolated from the Wharton&#x2019;s jelly part of the umbilical cord; in all cases the donors provided written informed consent. The current study complies with the Helsinki Declaration. The tissue sample analysis was approved by the Institutional Review Board of Mackay Memorial Hospital, Taiwan. MSCs from Wharton&#x2019;s jelly were collected as published previously [<xref rid="B30" ref-type="bibr">30</xref>]. Bone marrow MSCs were purchased from PromoCell (Heidelberg, Germany). All MSCs were cultured for less than eight passages in MesenCult&#xAE; medium (StemCell Technologies, USA) in the presence of 5% CO<sub>2</sub>.</p>
+        </sec>
+        <sec id="s2.1.2">
+          <title>Cell lines</title>
+          <p>Mouse Neuron-2a (N2a) neuroblastoma cells were cultured in DMEM supplemented with 10% FBS. Human HMEC1 microvascular endothelial cells were cultured in endothelial cell growth medium MV (PromoCell, Germany).</p>
+        </sec>
+      </sec>
+      <sec id="s2.2">
+        <title>Array probe preparation and data analysis</title>
+        <p>Total RNA collection, cRNA probe preparation, array hybridization and data analysis were carried out as previously described [<xref rid="B31" ref-type="bibr">31</xref>,<xref rid="B32" ref-type="bibr">32</xref>]. A heatmap was created by the dChip software program (<ext-link ext-link-type="uri" xlink:href="http://biosun1.harvard.edu/complab/dchip/"><underline>http://biosun1.harvard.edu/complab/dchip/</underline></ext-link>). Gene annotation was performed by the ArrayFusion web tool (<ext-link ext-link-type="uri" xlink:href="http://microarray.ym.edu.tw/tools/arrayfusion/"><underline>http://microarray.ym.edu.tw/tools/arrayfusion/</underline></ext-link>) [<xref rid="B33" ref-type="bibr">33</xref>], and gene enrichment analysis was performed by DAVID Bioinformatics Resources 2012 (<ext-link ext-link-type="uri" xlink:href="http://david.abcc.ncifcrf.gov/"><underline>http://david.abcc.ncifcrf.gov/</underline></ext-link>) [<xref rid="B34" ref-type="bibr">34</xref>]. All microarray data in this study have been deposited to the NCBI GEO database with an Accession number: GSE48022.</p>
+      </sec>
+      <sec id="s2.3">
+        <title>RNA isolation and real-time PCR</title>
+        <p>Total mRNA were extracted by the RNeasy mini kit (Qiagen, Germany), and 100 ng to 1 &#xB5;g of total RNA were subjected into reverse transcription using a First cDNA Synthesis kit (Fermentas, USA). For quantitative real-time PCR analysis, human pre-messenger RNA sequence was obtained from the NCBI (National Center for Biotechnology Information) AceView program (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/aceview/"><underline>www.ncbi.nlm.nih.gov/AceView/</underline></ext-link>). All primers were designed to cross introns using the Primer3 website (<ext-link ext-link-type="uri" xlink:href="http://frodo.wi.mit.edu/cgi-bin/primer3/primer3_www.cgi/"><underline>http://frodo.wi.mit.edu/cgi-bin/primer3/primer3_www.cgi/</underline></ext-link>) or Primer Express software (Applied Biosystems, CA, USA). Thermodynamics and primer specificity analysis were performed by the Vector NTI suite (Invitrogen, CA, USA) and the NCBI reverse e-PCR program (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/sutils/e-pcr/reverse.cgi/"><underline>http://www.ncbi.nlm.nih.gov/sutils/e-pcr/reverse.cgi/</underline></ext-link>). Real-time PCR reactions were performed using Maxima<sup>TM</sup> SYBR Green qPCR Master Mix (Fermentas, USA), and the specific products of the PCRs were detected and analyzed using a StepOne<sup>TM</sup> sequence detector (Applied Biosystems, USA). The expression level of each gene was normalized against the expression level of glyceraldehyde 3-phosphate dehydrogenase (GAPDH). All the primer sequences are listed in <xref ref-type="supplementary-material" rid="pone.0072604.s001">Table S1</xref>.</p>
+      </sec>
+      <sec id="s2.4">
+        <title>Cell migration assays</title>
+        <p>All cell migration assays were performed in 24-well Transwell plates (Corning Inc., NY, USA). A total of 3 &#xD7; 10<sup>4</sup> MSCs in 600 &#x3BC;l of MesenCult&#xAE; medium was added to the lower compartment. After 1 day, 7.5 &#xD7; 10<sup>4</sup> N2a cells or 5 &#xD7; 10<sup>4</sup> HMEC1 in 100 &#xB5;l of original culture medium were seeded into the upper Transwell inserts. After 6-12 hours, the cells that had migrated across the membrane were stained with Hoechst 33342, and analyzed by fluorescent microscopy.</p>
+      </sec>
+      <sec id="s2.5">
+        <title>Preparation of conditioned medium and enzyme-linked immunosorbent assay (ELISA)</title>
+        <p>A total of 10<sup>5</sup> MSCs cultured in MesenCult&#xAE; medium were plated in 6-well plates. After 1 day, the medium was changed with fresh MesenCult&#xAE; medium and the MSC conditioned medium was collected 1 day later.</p>
+        <p>The levels of PGF and CXCL5 in BM and WJ conditioned medium were quantified ELISA (RayBiotech, Norcross, USA) according to the manufacturer&#x2019;s instructions.</p>
+      </sec>
+      <sec id="s2.6">
+        <title>N2a differentiation and HMEC1 tube formation</title>
+        <p>For N2a differentiation, 4 &#xD7; 10<sup>4</sup> N2a cells were plated in 6-well plates. After 1 day, N2a cells were treated with MSC-conditioned medium for 4 days. Differentiated N2a cells were collected for immunoblotting and immunofluorescent analysis. For HMEC1 tubule formation, 50 &#xB5;l of thawing Matrigel (Cultrex Basement membrane extract, Trevigen Inc, Gaithersburg, MD) was placed in 96-well plate for 1 hour at 37&#x2103;. HMEC1 cells were harvested and placed on the Matrigel in 100 &#xB5;l MSC-conditioned medium for 4 hours. Tubule formation was monitored by inverted light microscopy (100x).</p>
+      </sec>
+      <sec id="s2.7">
+        <title>Oxygen-glucose deprivation (OGD)</title>
+        <sec id="s2.7.1">
+          <title>Primary cortical cultures</title>
+          <p>All animal procedures were approved by Institutional Animal Care and Use Committee (IACUC) of National Yang-Ming University, Taiwan (NYMU), and animals were kept in accordance with the guidelines of Laboratory Animal Center (LAC) at NYMU. Neuronal-enriched cortical cultures were obtained from fetal Sprague-Dawley rats based using a protocol described previously [<xref rid="B35" ref-type="bibr">35</xref>]. The pregnant rats are decapitated after isoflurane (10ml/kg body weight) anesthesia. Cortices were dissected mechanically from embryonic rat brains at E17; these were then triturated, filtered, centrifuged in HBSS, and cultured at 37&#xB0;C in Neurobasal medium (Invitrogen) supplemented with 10% B27 (Invitrogen), 100 U/ml penicillin and 100 mg/ml streptomycin with 5% CO<sub>2</sub>. For the OGD, the cultures were placed into a hypoxic incubator (Thermo Scientific model 3130) on day 4 at 1% O<sub>2</sub> with a gas mixture of 95% N2/5% CO<sub>2</sub>, and the medium was replaced with glucose-free DMEM (Gibco 11966-025) for 24 hours. Afterwards, the cultures were returned to a normoxic incubator, and the medium was replaced with Neurobasal medium with B27.</p>
+        </sec>
+        <sec id="s2.7.2">
+          <title>MSC and cortical cells co-culture</title>
+          <p>For trans-membrane co-cultures, BM-MSCs or WJ-MSCs were plated on membrane inserts at a density of 5 x 10<sup>4</sup> cells per 12 mm Millicell Cell Culture insert (Millipore, with 0.4 &#xB5;m pores) and placed above the cortical cultures after OGD 3 days before fixation (n = 4 per condition in each group).</p>
+          <p>Cortical cell death and apoptosis was evaluated using Propidium iodide (PI) staining and <italic>in Situ</italic> Cell Death Detection Kit (TUNEL), according to manufacturer&#x2019;s instructions (Roche). For both assays, cells were co-stained with DAPI. The results were expressed as a percentage of the number of PI-positive or TUNEL-positive cells to the total number of cells stained with DAPI (n = 4).</p>
+        </sec>
+      </sec>
+      <sec id="s2.8">
+        <title>Immunofluorescent and immunoblotting assays</title>
+        <p>For N2a immunofluorescence, cells were fixed 20 minutes by fixation solution (4% paraformaldehyde in PBS) at room temperature, and then blocked with blocking solution for 30 min. Blocking solution consisted of 0.05% Triton X-100, 5% bovine serum albumin in PBS. Cells were incubated with primary antibodies for 1 hour at room temperature, and secondary antibodies for another 1 hour. Antibodies used were monoclonal mouse anti-&#x3B2;-tubulin III (1:200, MAB1637; Chemicon, USA) and FITC-conjugated goat anti-mouse IgG. For rat cortex cells immunofluorescence, cells were placed on poly-D-lysine hydrobromide (PDL, P6407, Sigma)-coated coverslips, fixed in 4% paraformaldehyde for 20 min at room temperature, washed, and incubated in a blocking solution containing 0.15% Triton X-100 and 5% bovine serum albumin (BSA) in 0.1 M PBS at room temperature for 1 hour. The samples were then incubated with primary antibodies against MAP2 (1:75, Mab3418, Chemicon, USA) and GFAP (1:500, Z0334, Dako) at 4<sup>&#xB0;</sup>C overnight, washed and incubated with secondary antibodies conjugated with Alexa 488 and/or Cy3 (Jackson ImmunoResearch, 1:200) at room temperature for 1 hour in the dark. The coverslips were mounted with VECTASHIELD mounting medium containing DAPI (H-1200, Vector Laboratories) and photographed using a confocal laser-scanning microscope (Olympus FV1000 and ZEISS LSM 700). The quantification of the cell counts and the total length of neurite outgrowth were obtained using Image Pro Plus software V 6.3 (Media Cybernetics, Inc., USA). Western blotting was performed as previously published [<xref rid="B36" ref-type="bibr">36</xref>] using the following antibodies: mouse anti-&#x3B2;-actin (A5441, Sigma, USA), rabbit anti-NEFL (AB1983, Chemicon, USA), and mouse anti-TUBB3 (MAB1637, Chemicon, USA).</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="s3">
+      <title>Results</title>
+      <sec id="s3.1">
+        <title>Functional group analyses revealed distinct secreted factor patterns between BM-MSCs and WJ-MSCs</title>
+        <p>To access the functional differences between human MSCs from different anatomical sources, primary BM-MSCs and WJ-MSCs were collected. Both MSCs were positive for CD73, CD90, CD105 and CD44, while lacking of hematopoietic markers CD14 and CD45 (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1A</xref>). Gene expression profiles of both types of MSC were carried out in at least triplicate using whole-genome chips. Genes that were differentially expressed when the two types of cell were compared (the molecular signature) were identified by statistical pipeline [<xref rid="B31" ref-type="bibr">31</xref>,<xref rid="B32" ref-type="bibr">32</xref>]. A total of 762 probe sets were abundantly over-expressed in WJ-MSCs compared to BM-MSCs, while another 334 probe sets were abundantly over-expressed in BM-MSCs compared with WJ-MSCs (with a positive false discovery rate (pFDR) threshold <italic>q</italic>&lt;0.001). The filtered gene lists are presented in <xref ref-type="supplementary-material" rid="pone.0072604.s002">Table S2</xref>.</p>
+        <fig id="pone-0072604-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0072604.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Differential gene expression between WJ-MSCs and BM-MSCs.</title>
+            <p>(<bold>A</bold>) Flow cytometry analysis of WJ-MSCs and BM-MSCs. (<bold>B</bold>&#x2013;<bold>C</bold>) A total of 1096 probe sets (q &#x2266; 10<sup>-3</sup>) differentiating WJ-MSCs and BM-MSCs were filtered out and 762 WJ-MSC probe sets (B) and 334 BM-MSC probe sets (C) were subjected to DAVID (<ext-link ext-link-type="uri" xlink:href="http://david.abcc.ncifcrf.gov/"><underline>http://david.abcc.ncifcrf.gov/</underline></ext-link>) analysis. These categories were selected using the Biological Process organizing principle via the Gene Ontology project (<ext-link ext-link-type="uri" xlink:href="http://www.geneontology.org/"><underline>http://www.geneontology.org/</underline></ext-link>). The number of genes, as well as <italic>p</italic> values, for categories that are significantly (<italic>p</italic>&lt;0.05) over-represented are listed. The terms indicated by arrows are discussed in the text. Genes involved in nervous system development and blood vessel development are listed, and RT-qPCR verified genes are underlined. (<bold>D</bold>) RT-qPCR validation of the relative expression levels of the neurogenic-related and angiogenic-related genes in the two MSC subtypes. Mean expression levels of the target genes were compared to that of the GAPDH control. Each bar represents a different individual. Results were expressed as the mean &#xB1; standard deviation (SD). (<bold>E</bold>) A heatmap showing BM-MSC and WJ-MSC-specific secreted factors. (<bold>F</bold>&#x2013;<bold>G</bold>) Validation of array data by RT-qPCR. <italic>ANGPT1</italic> and <italic>PGF</italic>, which are up-regulated in BM-MSCs (<bold>F</bold>), as well as various WJ-MSC abundant genes (<bold>G</bold>), were examined. (<bold>H</bold>) The secretion levels of CXCL5 and PGF in the conditioned medium of BM-MSC and WJ-MSC were quantified using enzyme-linked immunosorbent assays. Each bar represents the protein concentration of independent donors.</p>
+          </caption>
+          <graphic xlink:href="pone.0072604.g001"/>
+        </fig>
+        <p>The gene signatures provided a limited indication of the functional differences associated with these two MSC subtypes. To gain more insight into the functional consequences of these differential gene expression patterns and to provide quantitative evidence, the signature genes were subjected to a Gene Ontology (GO) database search [<xref rid="B37" ref-type="bibr">37</xref>] to find statistically over-represented functional groups within gene lists. The DAVID web-based tool was applied for this task [<xref rid="B34" ref-type="bibr">34</xref>]. The GO categories of the biological processes that were statistically overrepresented (<italic>p</italic>&lt;0.05) are shown in <xref ref-type="fig" rid="pone-0072604-g001">Figure 1B-C</xref>. The most predominant of these overrepresented processes in WJ-MSCs include those pertaining to cell proliferation, neurogenesis, nervous system development and blood vessel development (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1B</xref>; indicated by arrows). In contrast, the principal overrepresented processes associated with BM-MSCs include those related to ossification and skeletal system development (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1C</xref>). In WJ-MSCs, neurogenesis transcriptional factors such as <italic>SOX11</italic> [<xref rid="B38" ref-type="bibr">38</xref>] and <italic>PITX1</italic> [<xref rid="B39" ref-type="bibr">39</xref>], as well as transcriptional factors associated with angiogenesis such as <italic>FOXF1</italic> [<xref rid="B40" ref-type="bibr">40</xref>,<xref rid="B41" ref-type="bibr">41</xref>], were highly expressed, and these findings were confirmed by RT-qPCR (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1D</xref>). Receptors involved in neurogenesis and angiogenesis, including <italic>CDH2, NRP2</italic> and <italic>FLT1</italic>, were also more abundant in WJ-MSCs (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1D</xref>).</p>
+        <p>As mentioned in the <italic>Introduction</italic>, the main task of this study is to explore the secretome of different MSCs, as well as to compare the functional differences of conditioned media of MSCs. We therefore focused on the differential expression of secreted factors between BM-MSCs and WJ-MSCs. Each of the two MSCs secretes unique cytokines, chemokines and growth factors: known neurogenic cytokines, such as NTF3, EGF and MDK, were found to be highly expressed in WJ-MSCs, and both MSC types expressed a variety of, but different, angiogenesis-related growth factors (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1E</xref>). Of note, these data only showed the differential expression of these secreted factors between different MSCs. Both MSCs may still express these factors, just at different amounts. RT-qPCR analyses verified the differential expression of the up-regulated BM-MSC genes, namely <italic>PGF</italic> and <italic>ANGPT1</italic> (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1F</xref>), and the WJ-MSC up-regulated genes, namely <italic>HBEGF</italic>, <italic>CXCL5</italic>, <italic>CXCL2</italic>, <italic>EGF, FGF9, MDK</italic> and <italic>NTF3</italic> (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1G</xref>). Levels of secreted proteins were also monitored in culture supernatants (conditioned medium) collected from BM-MSCs and WJ-MSCs using enzyme-linked immunosorbent assay (ELISA). WJ-MSCs produced significantly higher amount of CXCL5 in their conditioned medium (570.3-17622.4 pg/ml) as compared with BM-MSCs, and the secreted level of PGF was higher in BM-MSC conditioned medium (28.6-356.7 pg/ml) (<xref ref-type="fig" rid="pone-0072604-g001">Figure 1H</xref>).</p>
+      </sec>
+      <sec id="s3.2">
+        <title>BM-MSCs and WJ-MSCs have different neural induction abilities</title>
+        <p>To gain more insights into the biological impact of these differential secretomes, we utilized Ingenuity Pathway Analysis (IPA) software to evaluate growth factor functionality, specifically neurogenesis and angiogenesis. Most of the secreted factors were found to be related to neurogenesis, angiogenesis, and vasculogenesis (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2A</xref>), which suggests that both MSCs possess neural and angiogenic induction abilities.</p>
+        <fig id="pone-0072604-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0072604.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Higher neural induction ability of WJ-MSCs.</title>
+            <p>(<bold>A</bold>) An interaction network of secreted factors. Factors that pertained to angiogenesis, vasculogenesis, neurite outgrowth, and neuron migration are connected. Genes in red are abundant in WJ-MSCs and genes in green are abundant in BM-MSCs. (<bold>B</bold>) Differential chemotaxis effects of WJ-MSCs and BM-MSCs. MSCs cultured in MesenCult&#xAE; medium were seeded in the lower part of Tranwell plates, while N2a cells were placed in the upper chambers (illustrated in left panel). Migrated N2a cells to the other side of the membrane were stained with Hoechst 33342 and counted. Data are mean &#xB1; SD (right panel; *<italic>p</italic>&lt;0.05, **<italic>p</italic>&lt;0.01). (<bold>C</bold>&#x2013;<bold>D</bold>) Induction of N2a neural differentiation by MSCs. N2a cells were cultured with MSC conditioned medium, medium only (negative control) or retinoic acid (RA; positive control) for 4 days before the cellular lysates were subjected to Western blotting analysis (C) or the cells were fixed for immunofluorescence staining (D). Neural markers TUBB3 and NEFL were analyzed. Cell nuclei were stained with DAPI. Scale bars: 50 &#x3BC;m.</p>
+          </caption>
+          <graphic xlink:href="pone.0072604.g002"/>
+        </fig>
+        <p>We investigated whether distinct secretomes confer different neural and angiogenic promoting abilities on the two MSCs. First we examined the chemotaxis effects of the two MSCs on neural cells. Mouse Neuro-2a (N2a) cells, which are capable of neuron differentiation and axonal outgrowth [<xref rid="B42" ref-type="bibr">42</xref>], were co-cultured with the two types of MSCs individually in Transwell plates for evaluating the chemotaxic effects of the MSCs on neural cells (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2B</xref>, left panel). Both types of MSCs induced N2a migration, but it was clear that N2a cells moved toward the WJ-MSCs more efficiently (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2B</xref>, right panel). Next we examined the ability of these two MSCs to induce N2a cell neuronal differentiation. N2a cells were cultured with the conditioned media from WJ-MSCs and BM-MSCs individually for 4 days before total proteins were collected from the cultured cells. Retinoic acid (RA) was used as a positive control for neural differentiation [<xref rid="B43" ref-type="bibr">43</xref>]. WJ-MSC conditioned medium induced better neural differentiation of the N2a cells, as evidenced by higher TUBB3 (&#x3B2;-tubulin III) and NEFL (neurofilament, light polypeptide) marker expression from the WJ-MSC conditioned medium N2a population (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2C</xref>). Further substantiating this finding, immunofluorescence staining showed that there were more neurite-positive, TUBB3-positive cells after culturing N2a cells with WJ-MSC conditioned medium (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2D</xref>) compared to N2a cells cultured with BM-MSC conditioned medium.</p>
+      </sec>
+      <sec id="s3.3">
+        <title>Superior neuroprotective effect of WJ-MSC secretome on primary cortical cells injured by oxygen-glucose deprivation (OGD)</title>
+        <p>We next compared the neuroprotective efficacy of secreted factors from the two stem cell types using a similar trans-membranous co-culture system. OGD, a widely used <italic>in vitro</italic> model of ischemia, was used to mimic <italic>in vivo</italic> central nervous system insult (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3A</xref>). The primary cortical cultures isolated from embryonic rats consisted of more than 90% of MAP2-positive neurons and approximately 2% GFAP-positive astrocytes (data not shown). After 24 hours of OGD, primary rat cortical cells were co-cultured with BM-MSCs or WJ-MSCs for 72 hours, and neuroprotection potentials of both MSCs were evaluated by immunofluorescence staining and cell death assays (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3A-B</xref>). Cortical cultures were found to be severely injured after OGD, and cell death and apoptosis were increased with time to more than 70% by measuring PI positive and TUNEL positive cells (OGD alone) (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3C</xref>). After co-culture with WJ-MSCs or BM-MSCs following OGD, both treated cultures showed a significant reduction in cell death and apoptosis compared to the OGD-injured alone group, with WJ-MSC group showed the lowest cell death and apoptosis rate (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3C</xref>). The total neurite length and number of branch points at 72 hours post-OGD was increased significantly by co-culture with both BM-MSCs and WJ-MSCs compared to that of the OGD-injured alone group (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3D</xref>). Moreover, the co-culture with WJ-MSCs produced the most increase in neurite outgrowth (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3D</xref>). Neuronal proliferation was found to be increased in the WJ-MSC group but not in the BM-MSC group (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3E</xref>, left panel). It is known that cerebral ischemia also induces astrocyte reactivation, and the formation of glial scar hampers brain recovery [<xref rid="B44" ref-type="bibr">44</xref>]. In our study, astrocytes proliferated to approximately 16% after OGD. The number of astrocytes was only reduced in the WJ-MSC group, but not in the BM-MSC group (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3E</xref>, right panel). These results showed that WJ-MSC secreted factors have better neuroprotective effects than those from BM-MSCs.</p>
+        <fig id="pone-0072604-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0072604.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Preferential neuroprotection effects of WJ-MSCs.</title>
+            <p>(<bold>A</bold>) Schematic representation of the transmembranous stem cell co-culture system using an oxygen-glucose deprivation (OGD) model. (<bold>B</bold>) Immunofluorescence staining of the rat primary cortical cells subjected to OGD alone (left), to co-culture with BM-MSCs (middle), or to co-culture with WJ-MSCs (right) at 72 hours post-OGD. Neuronal marker MAP2 is shown in red, the astroglial marker GFAP in green, and DAPI nuclear staining in blue. Scale bar: 20 &#xB5;m. (<bold>C</bold>) Quantification of cell death and apoptosis rate using PI and TUNEL staining, respectively, at 72 hours post-OGD. *<italic>p</italic>&lt;0.05, **<italic>p</italic>&lt;0.01, ***<italic>p</italic>&lt;0.001 (<bold>D</bold>) Quantification of total neurite length (left) and neurite branch point numbers (right). (<bold>E</bold>) Percentage of neuron number (left) and astrocyte number (right) after 72 hours co-cultured with BM-MSCs or WJ-MSCs post-OGD.</p>
+          </caption>
+          <graphic xlink:href="pone.0072604.g003"/>
+        </fig>
+      </sec>
+      <sec id="s3.4">
+        <title>WJ-MSC conditioned medium induces better angiogenesis-related abilities in endothelial cells</title>
+        <p>To determine the angiogenic induction abilities of conditioned media of these two types of MSCs, we performed cell migration and tube formation assays on co-cultured HMEC1 human microvascular endothelial cells. As shown in <xref ref-type="fig" rid="pone-0072604-g004">Figure 4A-B</xref>, more HMEC1 cells moved toward WJ-MSCs than towards the BM-MSCs or medium only using Transwell assays. The ability of HMEC1 cells to form microvasculature <italic>in vitro</italic> were promoted significantly after cultured with MSC conditioned medium (<xref ref-type="fig" rid="pone-0072604-g004">Figure 4C-D</xref>) and, importantly, the total tube length generated by HMEC1 cells was longer when incubated with conditioned medium from WJ-MSCs (<xref ref-type="fig" rid="pone-0072604-g004">Figure 4C</xref>) compared to when incubated with conditioned medium from BM-MSCs.</p>
+        <fig id="pone-0072604-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0072604.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Preferential angiogenic induction ability of WJ-MSCs.</title>
+            <p>(<bold>A</bold>&#x2013;<bold>B</bold>) HMEC1 endothelial cells <italic>in vitro</italic> motility. Migrated HMEC1 that were attracted by BM-MSCs and WJ-MSCs were counted. MSC culture medium was used as negative control (medium only). Representative images of migrated HMEC1 cells are shown (B). (<bold>C</bold>&#x2013;<bold>D</bold>) HMEC1 cells <italic>in vitro</italic> tube formation using Matrigel at 4 hours incubation in conditioned medium from BM-MSCs or conditioned medium from WJ-MSCs. Representative images of the HMEC1 tube formation are shown (D). (*<italic>p</italic>&lt;0.05, **<italic>p</italic>&lt;0.01, ***<italic>p</italic>&lt;0.001).</p>
+          </caption>
+          <graphic xlink:href="pone.0072604.g004"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion" id="s4">
+      <title>Discussion</title>
+      <p>It is clear that MSCs derived from various tissues exhibit distinct properties, which may influence their potential applications. Genome-wide approaches have unveiled the unique properties of MSCs efficiently [<xref rid="B16" ref-type="bibr">16</xref>,<xref rid="B45" ref-type="bibr">45</xref>,<xref rid="B46" ref-type="bibr">46</xref>]. By systems biology analysis, it was shown that WJ-MSCs and BM-MSCs possess distinct osteogenic and stemness potentials. Specifically, WJ-MSCs express more stemness and growth related genes, whereas BM-MSCs express more genes involved in skeletal development [<xref rid="B36" ref-type="bibr">36</xref>]. Translating preclinical testing to human trials is made more complex by various considerations, namely the delivery method, the type of stem cell selected, and the relationship between dose and cell survival. Although much progress has been made in stem cell biology, the clinical application of these cells is stymied by an inadequate or insufficient understanding of the functional integration of their complex interactive genetic processes. Further characterization of stem cells <italic>via</italic> a genomics approach is critical to obtaining a better understanding of the molecular parameters involved in cell-based therapy.</p>
+      <p>Although MSCs may repair damaged brain tissue or endothelium by direct differentiation, they also have a second function by secreting trophic factors that allow the recruitment of endogenous stem/precursor cells, which helps to facilitate disease recovery. Previous studies have shown that although transplanted BM-MSCs are able to improve cerebral ischemia <italic>in vivo</italic>, only a few of these MSCs differentiated into neurons (~2%) or astrocytes (~3%) [<xref rid="B47" ref-type="bibr">47</xref>]. Injected MSCs seem also to act <italic>via</italic> a paracrine mechanism and secrete trophic factors; this will inhibit scar formation (mainly caused by astrocytosis) as well as stimulating neural progenitor cells (NPCs) proliferation, migration and differentiation [<xref rid="B48" ref-type="bibr">48</xref>,<xref rid="B49" ref-type="bibr">49</xref>]. The growth and trophic factors secreted by the injected MSCs are able to enhance angiogenesis, synaptogenesis, and neurogenesis [<xref rid="B50" ref-type="bibr">50</xref>]. As to mechanisms, it has been shown that conditioned medium of human bone marrow MSCs (BM-MSCs) can activate the PI3K-Akt pathway in hypoxic endothelial cells resulting in an inhibition of apoptosis, an increased cell survival, and a stimulation of angiogenesis; this is believed to be partly due to these MSCs having a higher content of anti-apoptotic and angiogenic factors, such as IL-6, VEGF, and monocyte chemoattractant protein (MCP)-1 [<xref rid="B51" ref-type="bibr">51</xref>]. As yet, in this context, the paracrine factors of WJ-MSCs remain to be elucidated. MSCs from umbilical cord blood are also able to increase the expression levels of local neurotransmitters, such as brain-derived neurotrophic factor (BDNF), neurotrophin-3 (NTF3), which should enhance disease recovery [<xref rid="B52" ref-type="bibr">52</xref>]. When human umbilical mesenchymal stem cells were used to cure ischemic stroke in rats, implanted WJ-MSCs were shown to survive in the infarct cortex for at least 36 days and released neuroprotective and growth-associated cytokines including BDNF, platelet-derived growth factor-AA, angiopoietin-2, CXCL-16, and neutrophil-activating protein-2 [<xref rid="B53" ref-type="bibr">53</xref>]. It was also suggested that the transplanted neural progenitors derived from human WJ-MSCs was less likely to directly integrate into the neuronal network of the rat host, but rather released the aforementioned nourishing factors to enhance indirectly the endogenous tissue repair as did the undifferentiated WJ-MSCs [<xref rid="B53" ref-type="bibr">53</xref>]. A similar scenario also occurs during NPC transplantation: NPCs are able to accelerate CNS regeneration by secreting various neurotrophic cytokines such as BDNF and NTF3, and nerve growth factor (NGF) [<xref rid="B54" ref-type="bibr">54</xref>]. These secreted cytokines promote axon growth and increase the neuroplasticity of existing neurons, and therefore may be another therapeutic mechanism associated with NPC engraftment [<xref rid="B54" ref-type="bibr">54</xref>].</p>
+      <p>The neurogenesis and angiogenesis effects of BM-MSC and WJ-MSC secretomes have not been well compared at a side-by-side manner, although a similar vis-&#xE0;-vis study has been performed on human MSCs derived from bone marrow, adipose (ASCs), and dermal tissue [<xref rid="B28" ref-type="bibr">28</xref>]. Here we provided a comprehensive list of the differentially secreted factors produced by the two types of MSCs examined in the present study, as well as the correlation of the factors with the neurogenesis and angiogenesis potentials of two MSC types (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2A</xref>). Differential expression by the two types of MSCs should lead to differences in their ability to induce neurogenesis, neuroprotection, and angiogenesis (<xref ref-type="fig" rid="pone-0072604-g002">Figures 2-4</xref>). Specifically, NTF3, EGF, MDK, HBEGF, CXCL2, CXCL5 and FGF9 are more abundant in WJ-MSCs. Among these factors, NTF3, EGF, HBEGF and MDK are known to be involved in neurogenesis, while NTF3 is a neurotrophic factor that helps neuron survival and differentiation. EGF is able to enhance neuron differentiation and maturation [<xref rid="B55" ref-type="bibr">55</xref>], and midkine (MDK) is known to be involved in neuronal precursor cell growth [<xref rid="B56" ref-type="bibr">56</xref>]. Finally, HBEGF is induced after hypoxic or ischemic injury and has been shown to stimulate neurogenesis in the adult brain [<xref rid="B57" ref-type="bibr">57</xref>]. The abundant expression of trophic factors by WJ-MSCs compared to BM-MSCs is able to partly explained why N2a cells, when co-cultured with MSCs, migration towards WJ-MSCs more rapidly than towards BM-MSCs and why N2a cells differentiate into TUBB3-positive neurons more efficiently in the presence of conditioned medium from WJ-MSCs compared to conditioned medium from BM-MSCs (<xref ref-type="fig" rid="pone-0072604-g002">Figure 2</xref>). It also helps to explain why OGD-injured rat cortical neurons survive better when co-cultured with WJ-MSCs than with BM-MSCs (<xref ref-type="fig" rid="pone-0072604-g003">Figure 3</xref>).</p>
+      <p>MDK is also an angiogenic factor that enhances endothelial proliferation and increases tumor vascular density [<xref rid="B58" ref-type="bibr">58</xref>]. EGF and HBEGF belong to the EGF superfamily. EGF is present in normal human endothelium and is important for blood vessel functionality [<xref rid="B59" ref-type="bibr">59</xref>]. In addition, both HBEGF and EGF stimulate human umbilical vein endothelial cells (HUVEC) migration and promote tube formation <italic>via</italic> activation of the PI3K and MAPK signaling pathways [<xref rid="B60" ref-type="bibr">60</xref>]. CXCL2 and CXCL5, which are potent promoters of angiogenesis, are members of the CXC chemokine family and have the Glutamic acid&#x2013;Leucine&#x2013;Arginine (ELR) motif. Both CXCL2 and CXCL5 regulate angiogenesis <italic>via</italic> binding to and activating CXCR2 present in endothelium [<xref rid="B61" ref-type="bibr">61</xref>]. These differentially expressed angiogenic factors may contribute to why WJ-MSCs are able to induce endothelial cells migrate more efficiently than BM-MSCs do and WJ-MSC conditioned medium is also able to promote greater microvasculature formation than BM-MSC conditioned medium. Whether WJ-MSCs are also able to confer better therapeutic effects <italic>in vivo</italic> is currently under investigation.</p>
+      <p>Our results confirmed that WJ-MSCs secreted highly levels of CXCL5 compared with BM-MSCs. Administration of CXCL5 can enhance HUVEC proliferation, invasion and tube formation abilities [<xref rid="B62" ref-type="bibr">62</xref>]. CXCL5 has been reported as an angiogenic factor in non-small cell lung cancer, where the protein level of CXCL5 is positively correlated with tumor vessel density [<xref rid="B63" ref-type="bibr">63</xref>]. CXCL5 secreted by rat adipose tissue-derived stem cells also has neurotrophic effects on rat major pelvic ganglia [<xref rid="B64" ref-type="bibr">64</xref>]. However, secreted levels of CXCL5 were hard to be detected in human BM-MSC and adipose tissue MSC conditioned medium [<xref rid="B28" ref-type="bibr">28</xref>]. The importance of CXCL5 in WJ-MSC conditioned medium related to neuroprotective, neurogenesis and angiogenesis will need further investigation.</p>
+      <p>An improved understanding of MSCs from different sources will help the clinical application of these cells and allow control of their differentiation <italic>in vivo</italic>. This will help their future potential when applied clinically. Studying the paracrine factors that are differentially produced in various types of MSCs should eventually allow us to design new therapeutic approaches based on different MSCs. Thus, our findings contribute new insights that refine our molecular picture of MSC subtypes and help to provide a better understanding of the two MSC subtypes investigated in the present study.</p>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0072604.s001">
+        <label>Table S1</label>
+        <caption>
+          <title>Primers used in real-time PCR experiments.</title>
+          <p>(PDF)</p>
+        </caption>
+        <media xlink:href="pone.0072604.s001.pdf">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0072604.s002">
+        <label>Table S2</label>
+        <caption>
+          <title>Genes that differentially expressed in BM-MSCs and WJ-MSCs.</title>
+          <p>(XLSX)</p>
+        </caption>
+        <media xlink:href="pone.0072604.s002.xlsx">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <label>1</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Horwitz</surname><given-names>EM</given-names></name>, <name><surname>Prockop</surname><given-names>DJ</given-names></name>, <name><surname>Fitzpatrick</surname><given-names>LA</given-names></name>, <name><surname>Koo</surname><given-names>WW</given-names></name>, <name><surname>Gordon</surname><given-names>PL</given-names></name>
+<etal>et al.</etal> (<year>1999</year>) <article-title>Transplantability and therapeutic effects of bone marrow-derived mesenchymal cells in children with osteogenesis imperfecta</article-title>. <source>Nat Med</source>
+<volume>5</volume>: <fpage>309</fpage>-<lpage>313</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/6529">10.1038/6529</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/0086387">10086387</ext-link>.<pub-id pub-id-type="pmid">10086387</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kawada</surname><given-names>H</given-names></name>, <name><surname>Fujita</surname><given-names>J</given-names></name>, <name><surname>Kinjo</surname><given-names>K</given-names></name>, <name><surname>Matsuzaki</surname><given-names>Y</given-names></name>, <name><surname>Tsuma</surname><given-names>M</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>Nonhematopoietic mesenchymal stem cells can be mobilized and differentiate into cardiomyocytes after myocardial infarction</article-title>. <source>Blood</source>
+<volume>104</volume>: <fpage>3581</fpage>-<lpage>3587</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1182/blood-2004-04-1488">10.1182/blood-2004-04-1488</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15297308">15297308</ext-link>.<pub-id pub-id-type="pmid">15297308</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ripa</surname><given-names>RS</given-names></name>, <name><surname>Haack-S&#xF8;rensen</surname><given-names>M</given-names></name>, <name><surname>Wang</surname><given-names>Y</given-names></name>, <name><surname>J&#xF8;rgensen</surname><given-names>E</given-names></name>, <name><surname>Mortensen</surname><given-names>S</given-names></name>
+<etal>et al.</etal> (<year>2007</year>) <article-title>Bone marrow derived mesenchymal cell mobilization by granulocyte-colony stimulating factor after acute myocardial infarction: results from the Stem Cells in Myocardial Infarction (STEMMI) trial</article-title>. <source>Circulation</source>
+<volume>116</volume>: <fpage>I24</fpage>-<lpage>I30</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17846310">17846310</ext-link>.<pub-id pub-id-type="pmid">17846310</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bang</surname><given-names>OY</given-names></name>, <name><surname>Lee</surname><given-names>JS</given-names></name>, <name><surname>Lee</surname><given-names>PH</given-names></name>, <name><surname>Lee</surname><given-names>G</given-names></name> (<year>2005</year>) <article-title>Autologous mesenchymal stem cell transplantation in stroke patients</article-title>. <source>Ann Neurol</source>
+<volume>57</volume>: <fpage>874</fpage>-<lpage>882</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org10.1002/ana.20501">10.1002/ana.20501</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15929052">15929052</ext-link>.<pub-id pub-id-type="pmid">15929052</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>J</given-names></name>, <name><surname>Li</surname><given-names>Y</given-names></name>, <name><surname>Wang</surname><given-names>L</given-names></name>, <name><surname>Zhang</surname><given-names>Z</given-names></name>, <name><surname>Lu</surname><given-names>D</given-names></name>
+<etal>et al.</etal> (<year>2001</year>) <article-title>Therapeutic benefit of intravenous administration of bone marrow stromal cells after cerebral ischemia in rats</article-title>. <source>Stroke</source>
+<volume>32</volume>: <fpage>1005</fpage>-<lpage>1011</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1161/01.STR.32.4.1005">10.1161/01.STR.32.4.1005</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11283404">11283404</ext-link>.<pub-id pub-id-type="pmid">11283404</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lee</surname><given-names>JS</given-names></name>, <name><surname>Hong</surname><given-names>JM</given-names></name>, <name><surname>Moon</surname><given-names>GJ</given-names></name>, <name><surname>Lee</surname><given-names>PH</given-names></name>, <name><surname>Ahn</surname><given-names>YH</given-names></name>
+<etal>et al.</etal> (<year>2010</year>) <article-title>A long-term follow-up study of intravenous autologous mesenchymal stem cell transplantation in patients with ischemic stroke</article-title>. <source>Stem Cells</source>
+<volume>28</volume>: <fpage>1099</fpage>-<lpage>1106</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/stem.430">10.1002/stem.430</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/20506226">20506226</ext-link>.<pub-id pub-id-type="pmid">20506226</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ra</surname><given-names>JC</given-names></name>, <name><surname>Shin</surname><given-names>IS</given-names></name>, <name><surname>Kim</surname><given-names>SH</given-names></name>, <name><surname>Kang</surname><given-names>SK</given-names></name>, <name><surname>Kang</surname><given-names>BC</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>Safety of intravenous infusion of human adipose tissue-derived mesenchymal stem cells in animals and humans</article-title>. <source>Stem Cells Dev</source>
+<volume>20</volume>: <fpage>1297</fpage>-<lpage>1308</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1089/scd.2010.0466">10.1089/scd.2010.0466</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21303266">21303266</ext-link>.<pub-id pub-id-type="pmid">21303266</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Xiong</surname><given-names>Y</given-names></name>, <name><surname>Mahmood</surname><given-names>A</given-names></name>, <name><surname>Chopp</surname><given-names>M</given-names></name> (<year>2010</year>) <article-title>Angiogenesis, neurogenesis and brain recovery of function following injury</article-title>. <source>Curr Opin Investig Drugs</source>
+<volume>11</volume>: <fpage>298</fpage>-<lpage>308</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/20178043">20178043</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lee</surname><given-names>OK</given-names></name>, <name><surname>Kuo</surname><given-names>TK</given-names></name>, <name><surname>Chen</surname><given-names>WM</given-names></name>, <name><surname>Lee</surname><given-names>KD</given-names></name>, <name><surname>Hsieh</surname><given-names>SL</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>Isolation of multipotent mesenchymal stem cells from umbilical cord blood</article-title>. <source>Blood</source>
+<volume>103</volume>: <fpage>1669</fpage>-<lpage>1675</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1182/blood-2003-05-1670">10.1182/blood-2003-05-1670</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/14576065">14576065</ext-link>.<pub-id pub-id-type="pmid">14576065</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Panepucci</surname><given-names>RA</given-names></name>, <name><surname>Siufi</surname><given-names>JL</given-names></name>, <name><surname>Silva</surname><given-names>WA</given-names><suffix>Jr.</suffix></name>, <name><surname>Proto-Siquiera</surname><given-names>R</given-names></name>, <name><surname>Neder</surname><given-names>L</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>Comparison of gene expression of umbilical cord vein and bone marrow-derived mesenchymal stem cells</article-title>. <source>Stem Cells</source>
+<volume>22</volume>: <fpage>1263</fpage>-<lpage>1278</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2004-0024">10.1634/stemcells.2004-0024</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15579645">15579645</ext-link>.<pub-id pub-id-type="pmid">15579645</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chang</surname><given-names>YJ</given-names></name>, <name><surname>Shih</surname><given-names>DT</given-names></name>, <name><surname>Tseng</surname><given-names>CP</given-names></name>, <name><surname>Hsieh</surname><given-names>TB</given-names></name>, <name><surname>Lee</surname><given-names>DC</given-names></name>
+<etal>et al.</etal> (<year>2006</year>) <article-title>Disparate mesenchyme-lineage tendencies in mesenchymal stem cells from human bone marrow and umbilical cord blood</article-title>. <source>Stem Cells</source>
+<volume>24</volume>: <fpage>679</fpage>-<lpage>685</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2004-0308">10.1634/stemcells.2004-0308</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/16179428">16179428</ext-link>.<pub-id pub-id-type="pmid">16179428</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Prockop</surname><given-names>DJ</given-names></name> (<year>1997</year>) <article-title>Marrow stromal cells as stem cells for nonhematopoietic tissues</article-title>. <source>Science</source>
+<volume>276</volume>: <fpage>71</fpage>-<lpage>74</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1126/science.276.5309.71">10.1126/science.276.5309.71</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/9082988">9082988</ext-link>.<pub-id pub-id-type="pmid">9082988</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wang</surname><given-names>HS</given-names></name>, <name><surname>Hung</surname><given-names>SC</given-names></name>, <name><surname>Peng</surname><given-names>ST</given-names></name>, <name><surname>Huang</surname><given-names>CC</given-names></name>, <name><surname>Wei</surname><given-names>HM</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>Mesenchymal stem cells in the Wharton&#x2019;s jelly of the human umbilical cord</article-title>. <source>Stem Cells</source>
+<volume>22</volume>: <fpage>1330</fpage>-<lpage>1337</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2004-0013">10.1634/stemcells.2004-0013</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15579650">15579650</ext-link>.<pub-id pub-id-type="pmid">15579650</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mitchell</surname><given-names>KE</given-names></name>, <name><surname>Weiss</surname><given-names>ML</given-names></name>, <name><surname>Mitchell</surname><given-names>BM</given-names></name>, <name><surname>Martin</surname><given-names>P</given-names></name>, <name><surname>Davis</surname><given-names>D</given-names></name>
+<etal>et al.</etal> (<year>2003</year>) <article-title>Matrix cells from Wharton&#x2019;s jelly form neurons and glia</article-title>. <source>Stem Cells</source>
+<volume>21</volume>: <fpage>50</fpage>-<lpage>60</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.21-1-50">10.1634/stemcells.21-1-50</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12529551">12529551</ext-link>.<pub-id pub-id-type="pmid">12529551</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Balasubramanian</surname><given-names>S</given-names></name>, <name><surname>Venugopal</surname><given-names>P</given-names></name>, <name><surname>Sundarraj</surname><given-names>S</given-names></name>, <name><surname>Zakaria</surname><given-names>Z</given-names></name>, <name><surname>Majumdar</surname><given-names>AS</given-names></name>
+<etal>et al.</etal> (<year>2012</year>) <article-title>Comparison of chemokine and receptor gene expression between Wharton&#x2019;s jelly and bone marrow-derived mesenchymal stromal cells</article-title>. <source>Cytotherapy</source>
+<volume>14</volume>: <fpage>26</fpage>-<lpage>33</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.3109/14653249.2011.605119">10.3109/14653249.2011.605119</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/22091833">22091833</ext-link>.<pub-id pub-id-type="pmid">22091833</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Al-Nbaheen</surname><given-names>M</given-names></name>, <name><surname>Vishnubalaji</surname><given-names>R</given-names></name>, <name><surname>Ali</surname><given-names>D</given-names></name>, <name><surname>Bouslimi</surname><given-names>A</given-names></name>, <name><surname>Al-Jassir</surname><given-names>F</given-names></name>
+<etal>et al.</etal> (<year>2012</year>) <article-title>Human Stromal (Mesenchymal) Stem Cells from Bone Marrow, Adipose Tissue and Skin Exhibit Differences in Molecular Phenotype and Differentiation Potential. Stem</article-title>. <source>Cell Res</source>.</mixed-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kern</surname><given-names>S</given-names></name>, <name><surname>Eichler</surname><given-names>H</given-names></name>, <name><surname>Stoeve</surname><given-names>J</given-names></name>, <name><surname>Kluter</surname><given-names>H</given-names></name>, <name><surname>Bieback</surname><given-names>K</given-names></name> (<year>2006</year>) <article-title>Comparative Analysis of Mesenchymal Stem Cells from Bone Marrow, Umbilical Cord Blood or Adipose Tissue</article-title>. <source>Stem Cells</source>.</mixed-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Strioga</surname><given-names>M</given-names></name>, <name><surname>Viswanathan</surname><given-names>S</given-names></name>, <name><surname>Darinskas</surname><given-names>A</given-names></name>, <name><surname>Slaby</surname><given-names>O</given-names></name>, <name><surname>Michalek</surname><given-names>J</given-names></name> (<year>2012</year>) <article-title>Same or not the same? Comparison of adipose tissue-derived versus bone marrow-derived mesenchymal stem and stromal cells</article-title>. <source>Stem Cells Dev</source>
+<volume>21</volume>: <fpage>2724</fpage>-<lpage>2752</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1089/scd.2011.0722">10.1089/scd.2011.0722</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/22468918">22468918</ext-link>.<pub-id pub-id-type="pmid">22468918</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Miranda</surname><given-names>HC</given-names></name>, <name><surname>Herai</surname><given-names>RH</given-names></name>, <name><surname>Thom&#xE9;</surname><given-names>CH</given-names></name>, <name><surname>Gomes</surname><given-names>GG</given-names></name>, <name><surname>Panepucci</surname><given-names>RA</given-names></name>
+<etal>et al.</etal> (<year>2012</year>) <article-title>A quantitative proteomic and transcriptomic comparison of human mesenchymal stem cells from bone marrow and umbilical cord vein</article-title>. <source>Proteomics</source>
+<volume>12</volume>: <fpage>2607</fpage>-<lpage>2617</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/pmic.201200111">10.1002/pmic.201200111</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/22778083">22778083</ext-link>.<pub-id pub-id-type="pmid">22778083</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Liao</surname><given-names>W</given-names></name>, <name><surname>Xie</surname><given-names>J</given-names></name>, <name><surname>Zhong</surname><given-names>J</given-names></name>, <name><surname>Liu</surname><given-names>Y</given-names></name>, <name><surname>Du</surname><given-names>L</given-names></name>
+<etal>et al.</etal> (<year>2009</year>) <article-title>Therapeutic effect of human umbilical cord multipotent mesenchymal stromal cells in a rat model of stroke</article-title>. <source>Transplantation</source>
+<volume>87</volume>: <fpage>350</fpage>-<lpage>359</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1097/TP.0b013e318195742e">10.1097/TP.0b013e318195742e</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/19202439">19202439</ext-link>.<pub-id pub-id-type="pmid">19202439</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhao</surname><given-names>LR</given-names></name>, <name><surname>Duan</surname><given-names>WM</given-names></name>, <name><surname>Reyes</surname><given-names>M</given-names></name>, <name><surname>Keene</surname><given-names>CD</given-names></name>, <name><surname>Verfaillie</surname><given-names>CM</given-names></name>
+<etal>et al.</etal> (<year>2002</year>) <article-title>Human bone marrow stem cells exhibit neural phenotypes and ameliorate neurological deficits after grafting into the ischemic brain of rats</article-title>. <source>Exp Neurol</source>
+<volume>174</volume>: <fpage>11</fpage>-<lpage>20</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1006/exnr.2001.7853">10.1006/exnr.2001.7853</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11869029">11869029</ext-link>.<pub-id pub-id-type="pmid">11869029</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>J</given-names></name>, <name><surname>Chopp</surname><given-names>M</given-names></name> (<year>2006</year>) <article-title>Neurorestorative treatment of stroke: cell and pharmacological approaches</article-title>. <source>NeuroRx</source>
+<volume>3</volume>: <fpage>466</fpage>-<lpage>473</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.nurx.2006.07.007">10.1016/j.nurx.2006.07.007</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17012060">17012060</ext-link>.<pub-id pub-id-type="pmid">17012060</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ranganath</surname><given-names>SH</given-names></name>, <name><surname>Levy</surname><given-names>O</given-names></name>, <name><surname>Inamdar</surname><given-names>MS</given-names></name>, <name><surname>Karp</surname><given-names>JM</given-names></name> (<year>2012</year>) <article-title>Harnessing the mesenchymal stem cell secretome for the treatment of cardiovascular disease</article-title>. <source>Cell Stem Cell</source>
+<volume>10</volume>: <fpage>244</fpage>-<lpage>258</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.stem.2012.02.005">10.1016/j.stem.2012.02.005</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/22385653">22385653</ext-link>.<pub-id pub-id-type="pmid">22385653</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Carvalho</surname><given-names>MM</given-names></name>, <name><surname>Teixeira</surname><given-names>FG</given-names></name>, <name><surname>Reis</surname><given-names>RL</given-names></name>, <name><surname>Sousa</surname><given-names>N</given-names></name>, <name><surname>Salgado</surname><given-names>AJ</given-names></name> (<year>2011</year>) <article-title>Mesenchymal stem cells in the umbilical cord: phenotypic characterization, secretome and applications in central nervous system regenerative medicine</article-title>. <source>Curr Stem Cell Res Ther</source>
+<volume>6</volume>: <fpage>221</fpage>-<lpage>228</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.2174/157488811796575332">10.2174/157488811796575332</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21476975">21476975</ext-link>.<pub-id pub-id-type="pmid">21476975</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ribeiro</surname><given-names>CA</given-names></name>, <name><surname>Salgado</surname><given-names>AJ</given-names></name>, <name><surname>Fraga</surname><given-names>JS</given-names></name>, <name><surname>Silva</surname><given-names>NA</given-names></name>, <name><surname>Reis</surname><given-names>RL</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>The secretome of bone marrow mesenchymal stem cells-conditioned media varies with time and drives a distinct effect on mature neurons and glial cells (primary cultures)</article-title>. <source>J Tissue Eng Regen Med</source>
+<volume>5</volume>: <fpage>668</fpage>-<lpage>672</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/term.365">10.1002/term.365</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21774090">21774090</ext-link>.<pub-id pub-id-type="pmid">21774090</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tsai</surname><given-names>CC</given-names></name>, <name><surname>Chen</surname><given-names>YJ</given-names></name>, <name><surname>Yew</surname><given-names>TL</given-names></name>, <name><surname>Chen</surname><given-names>LL</given-names></name>, <name><surname>Wang</surname><given-names>JY</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>Hypoxia inhibits senescence and maintains mesenchymal stem cell properties through down-regulation of E2A-p21 by HIF-TWIST</article-title>. <source>Blood</source>
+<volume>117</volume>: <fpage>459</fpage>-<lpage>469</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1182/blood-2010-05-287508">10.1182/blood-2010-05-287508</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/20952688">20952688</ext-link>.<pub-id pub-id-type="pmid">20952688</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Oskowitz</surname><given-names>A</given-names></name>, <name><surname>McFerrin</surname><given-names>H</given-names></name>, <name><surname>Gutschow</surname><given-names>M</given-names></name>, <name><surname>Carter</surname><given-names>ML</given-names></name>, <name><surname>Pochampally</surname><given-names>R</given-names></name> (<year>2011</year>) <article-title>Serum-deprived human multipotent mesenchymal stromal cells (MSCs) are highly angiogenic</article-title>. <source>Stem Cell Res</source>
+<volume>6</volume>: <fpage>215</fpage>-<lpage>225</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.scr.2011.01.004">10.1016/j.scr.2011.01.004</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21421339">21421339</ext-link>.<pub-id pub-id-type="pmid">21421339</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hsiao</surname><given-names>ST</given-names></name>, <name><surname>Asgari</surname><given-names>A</given-names></name>, <name><surname>Lokmic</surname><given-names>Z</given-names></name>, <name><surname>Sinclair</surname><given-names>R</given-names></name>, <name><surname>Dusting</surname><given-names>GJ</given-names></name>
+<etal>et al.</etal> (<year>2012</year>) <article-title>Comparative analysis of paracrine factor expression in human adult mesenchymal stem cells derived from bone marrow, adipose, and dermal tissue</article-title>. <source>Stem Cells Dev</source>
+<volume>21</volume>: <fpage>2189</fpage>-<lpage>2203</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1089/scd.2011.0674">10.1089/scd.2011.0674</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/22188562">22188562</ext-link>.<pub-id pub-id-type="pmid">22188562</pub-id></mixed-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ribeiro</surname><given-names>CA</given-names></name>, <name><surname>Fraga</surname><given-names>JS</given-names></name>, <name><surname>Gr&#xE3;os</surname><given-names>M</given-names></name>, <name><surname>Neves</surname><given-names>NM</given-names></name>, <name><surname>Reis</surname><given-names>RL</given-names></name>
+<etal>et al.</etal> (<year>2012</year>) <article-title>The secretome of stem cells isolated from the adipose tissue and Wharton jelly acts differently on central nervous system derived cell populations</article-title>. <source>Stem Cell Res Ther</source>
+<volume>3</volume>: <fpage>18</fpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1186/scrt109">10.1186/scrt109</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/22551705">22551705</ext-link>.<pub-id pub-id-type="pmid">22551705</pub-id></mixed-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Fu</surname><given-names>YS</given-names></name>, <name><surname>Cheng</surname><given-names>YC</given-names></name>, <name><surname>Lin</surname><given-names>MY</given-names></name>, <name><surname>Cheng</surname><given-names>H</given-names></name>, <name><surname>Chu</surname><given-names>PM</given-names></name>
+<etal>et al.</etal> (<year>2006</year>) <article-title>Conversion of human umbilical cord mesenchymal stem cells in Wharton&#x2019;s jelly to dopaminergic neurons in vitro: potential therapeutic application for Parkinsonism</article-title>. <source>Stem Cells</source>
+<volume>24</volume>: <fpage>115</fpage>-<lpage>124</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2005-0053">10.1634/stemcells.2005-0053</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/16099997">16099997</ext-link>.<pub-id pub-id-type="pmid">16099997</pub-id></mixed-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wang</surname><given-names>HW</given-names></name>, <name><surname>Trotter</surname><given-names>MW</given-names></name>, <name><surname>Lagos</surname><given-names>D</given-names></name>, <name><surname>Bourboulia</surname><given-names>D</given-names></name>, <name><surname>Henderson</surname><given-names>S</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>Kaposi sarcoma herpesvirus-induced cellular reprogramming contributes to the lymphatic endothelial gene expression in Kaposi sarcoma</article-title>. <source>Nat Genet</source>
+<volume>36</volume>: <fpage>687</fpage>-<lpage>693</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1038/ng1384">10.1038/ng1384</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15220918">15220918</ext-link>.<pub-id pub-id-type="pmid">15220918</pub-id></mixed-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Huang</surname><given-names>TS</given-names></name>, <name><surname>Hsieh</surname><given-names>JY</given-names></name>, <name><surname>Wu</surname><given-names>YH</given-names></name>, <name><surname>Jen</surname><given-names>CH</given-names></name>, <name><surname>Tsuang</surname><given-names>YH</given-names></name>
+<etal>et al.</etal> (<year>2008</year>) <article-title>Functional network reconstruction reveals somatic stemness genetic maps and dedifferentiation-like transcriptome reprogramming induced by GATA2</article-title>. <source>Stem Cells</source>
+<volume>26</volume>: <fpage>1186</fpage>-<lpage>1201</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2007-0821">10.1634/stemcells.2007-0821</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18308945">18308945</ext-link>.<pub-id pub-id-type="pmid">18308945</pub-id></mixed-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Yang</surname><given-names>TP</given-names></name>, <name><surname>Chang</surname><given-names>TY</given-names></name>, <name><surname>Lin</surname><given-names>CH</given-names></name>, <name><surname>Hsu</surname><given-names>MT</given-names></name>, <name><surname>Wang</surname><given-names>HW</given-names></name> (<year>2006</year>) <article-title>ArrayFusion: a web application for multi-dimensional analysis of CGH, SNP and microarray data</article-title>. <source>Bioinformatics</source>
+<volume>22</volume>: <fpage>2697</fpage>-<lpage>2698</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1093/bioinformatics/btl457">10.1093/bioinformatics/btl457</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/16935928">16935928</ext-link>.<pub-id pub-id-type="pmid">16935928</pub-id></mixed-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dennis</surname><given-names>G</given-names><suffix>Jr.</suffix></name>, <name><surname>Sherman</surname><given-names>BT</given-names></name>, <name><surname>Hosack</surname><given-names>DA</given-names></name>, <name><surname>Yang</surname><given-names>J</given-names></name>, <name><surname>Gao</surname><given-names>W</given-names></name>
+<etal>et al.</etal> (<year>2003</year>) <article-title>DAVID: Database for Annotation, Visualization, and Integrated Discovery</article-title>. <source>Genome Biol</source>
+<volume>4</volume>: <fpage>3</fpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1186/gb-2003-4-5-p3">10.1186/gb-2003-4-5-p3</ext-link>.</mixed-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mattson</surname><given-names>MP</given-names></name>, <name><surname>Barger</surname><given-names>SW</given-names></name>, <name><surname>Begley</surname><given-names>JG</given-names></name>, <name><surname>Mark</surname><given-names>RJ</given-names></name> (<year>1995</year>) <article-title>Calcium, free radicals, and excitotoxic neuronal death in primary cell culture</article-title>. <source>Methods Cell Biol</source>
+<volume>46</volume>: <fpage>187</fpage>-<lpage>216</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S0091-679X(08)61930-5">10.1016/S0091-679X(08)61930-5</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/7541884">7541884</ext-link>.<pub-id pub-id-type="pmid">7541884</pub-id></mixed-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hsieh</surname><given-names>JY</given-names></name>, <name><surname>Fu</surname><given-names>YS</given-names></name>, <name><surname>Chang</surname><given-names>SJ</given-names></name>, <name><surname>Tsuang</surname><given-names>YH</given-names></name>, <name><surname>Wang</surname><given-names>HW</given-names></name> (<year>2010</year>) <article-title>Functional module analysis reveals differential osteogenic and stemness potentials in human mesenchymal stem cells from bone marrow and Wharton&#x2019;s jelly of umbilical cord</article-title>. <source>Stem Cells Dev</source>
+<volume>19</volume>: <fpage>1895</fpage>-<lpage>1910</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1089/scd.2009.0485">10.1089/scd.2009.0485</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/20367285">20367285</ext-link>.<pub-id pub-id-type="pmid">20367285</pub-id></mixed-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Harris</surname><given-names>MA</given-names></name>, <name><surname>Clark</surname><given-names>J</given-names></name>, <name><surname>Ireland</surname><given-names>A</given-names></name>, <name><surname>Lomax</surname><given-names>J</given-names></name>, <name><surname>Ashburner</surname><given-names>M</given-names></name>
+<etal>et al.</etal> (<year>2004</year>) <article-title>The Gene Ontology (GO) database and informatics resource</article-title>. <source>Nucleic Acids Res</source>
+<volume>32</volume>: <fpage>D258</fpage>-<lpage>D261</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1093/nar/gkh036">10.1093/nar/gkh036</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/14681407">14681407</ext-link>.<pub-id pub-id-type="pmid">14681407</pub-id></mixed-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jankowski</surname><given-names>MP</given-names></name>, <name><surname>Cornuet</surname><given-names>PK</given-names></name>, <name><surname>McIlwrath</surname><given-names>S</given-names></name>, <name><surname>Koerber</surname><given-names>HR</given-names></name>, <name><surname>Albers</surname><given-names>KM</given-names></name> (<year>2006</year>) <article-title>SRY-box containing gene 11 (Sox11) transcription factor is required for neuron survival and neurite growth</article-title>. <source>Neuroscience</source>
+<volume>143</volume>: <fpage>501</fpage>-<lpage>514</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.neuroscience.2006.09.010">10.1016/j.neuroscience.2006.09.010</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17055661">17055661</ext-link>.<pub-id pub-id-type="pmid">17055661</pub-id></mixed-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Freed</surname><given-names>WJ</given-names></name>, <name><surname>Chen</surname><given-names>J</given-names></name>, <name><surname>B&#xE4;ckman</surname><given-names>CM</given-names></name>, <name><surname>Schwartz</surname><given-names>CM</given-names></name>, <name><surname>Vazin</surname><given-names>T</given-names></name>
+<etal>et al.</etal> (<year>2008</year>) <article-title>Gene expression profile of neuronal progenitor cells derived from hESCs: activation of chromosome 11p15.5 and comparison to human dopaminergic neurons</article-title>. <source>PLOS ONE</source>
+<volume>3</volume>: <fpage>e1422</fpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1371/journal.pone.0001422">10.1371/journal.pone.0001422</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18183302">18183302</ext-link>.<pub-id pub-id-type="pmid">18183302</pub-id></mixed-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mahlapuu</surname><given-names>M</given-names></name>, <name><surname>Ormestad</surname><given-names>M</given-names></name>, <name><surname>Enerb&#xE4;ck</surname><given-names>S</given-names></name>, <name><surname>Carlsson</surname><given-names>P</given-names></name> (<year>2001</year>) <article-title>The forkhead transcription factor Foxf1 is required for differentiation of extra-embryonic and lateral plate mesoderm</article-title>. <source>Development</source>
+<volume>128</volume>: <fpage>155</fpage>-<lpage>166</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11124112">11124112</ext-link>.<pub-id pub-id-type="pmid">11124112</pub-id></mixed-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Astorga</surname><given-names>J</given-names></name>, <name><surname>Carlsson</surname><given-names>P</given-names></name> (<year>2007</year>) <article-title>Hedgehog induction of murine vasculogenesis is mediated by Foxf1 and Bmp4</article-title>. <source>Development</source>
+<volume>134</volume>: <fpage>3753</fpage>-<lpage>3761</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1242/dev.004432">10.1242/dev.004432</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17881493">17881493</ext-link>.<pub-id pub-id-type="pmid">17881493</pub-id></mixed-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wu</surname><given-names>PY</given-names></name>, <name><surname>Lin</surname><given-names>YC</given-names></name>, <name><surname>Chang</surname><given-names>CL</given-names></name>, <name><surname>Lu</surname><given-names>HT</given-names></name>, <name><surname>Chin</surname><given-names>CH</given-names></name>
+<etal>et al.</etal> (<year>2009</year>) <article-title>Functional decreases in P2X7 receptors are associated with retinoic acid-induced neuronal differentiation of Neuro-2a neuroblastoma cells</article-title>. <source>Cell Signal</source>
+<volume>21</volume>: <fpage>881</fpage>-<lpage>891</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.cellsig.2009.01.036">10.1016/j.cellsig.2009.01.036</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/19385050">19385050</ext-link>.<pub-id pub-id-type="pmid">19385050</pub-id></mixed-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zeng</surname><given-names>M</given-names></name>, <name><surname>Zhou</surname><given-names>JN</given-names></name> (<year>2008</year>) <article-title>Roles of autophagy and mTOR signaling in neuronal differentiation of mouse neuroblastoma cells</article-title>. <source>Cell Signal</source>
+<volume>20</volume>: <fpage>659</fpage>-<lpage>665</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.cellsig.2007.11.015">10.1016/j.cellsig.2007.11.015</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18207367">18207367</ext-link>.<pub-id pub-id-type="pmid">18207367</pub-id></mixed-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Pekny</surname><given-names>M</given-names></name>, <name><surname>Nilsson</surname><given-names>M</given-names></name> (<year>2005</year>) <article-title>Astrocyte activation and reactive gliosis</article-title>. <source>Glia</source>
+<volume>50</volume>: <fpage>427</fpage>-<lpage>434</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/glia.20207">10.1002/glia.20207</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15846805">15846805</ext-link>.<pub-id pub-id-type="pmid">15846805</pub-id></mixed-citation>
+      </ref>
+      <ref id="B45">
+        <label>45</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>HC</given-names></name>, <name><surname>Lee</surname><given-names>YS</given-names></name>, <name><surname>Sieber</surname><given-names>M</given-names></name>, <name><surname>Lu</surname><given-names>HT</given-names></name>, <name><surname>Wei</surname><given-names>PC</given-names></name>
+<etal>et al.</etal> (<year>2012</year>) <article-title>MicroRNA and messenger RNA analyses of mesenchymal stem cells derived from teeth and the Wharton jelly of umbilical cord</article-title>. <source>Stem Cells Dev</source>
+<volume>21</volume>: <fpage>911</fpage>-<lpage>922</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1089/scd.2011.0186">10.1089/scd.2011.0186</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21732813">21732813</ext-link>.<pub-id pub-id-type="pmid">21732813</pub-id></mixed-citation>
+      </ref>
+      <ref id="B46">
+        <label>46</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tsai</surname><given-names>MS</given-names></name>, <name><surname>Hwang</surname><given-names>SM</given-names></name>, <name><surname>Chen</surname><given-names>KD</given-names></name>, <name><surname>Lee</surname><given-names>YS</given-names></name>, <name><surname>Hsu</surname><given-names>LW</given-names></name>
+<etal>et al.</etal> (<year>2007</year>) <article-title>Functional network analysis of the transcriptomes of mesenchymal stem cells derived from amniotic fluid, amniotic membrane, cord blood, and bone marrow</article-title>. <source>Stem Cells</source>
+<volume>25</volume>: <fpage>2511</fpage>-<lpage>2523</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2007-0023">10.1634/stemcells.2007-0023</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17556597">17556597</ext-link>.<pub-id pub-id-type="pmid">17556597</pub-id></mixed-citation>
+      </ref>
+      <ref id="B47">
+        <label>47</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>J</given-names></name>, <name><surname>Li</surname><given-names>Y</given-names></name>, <name><surname>Wang</surname><given-names>L</given-names></name>, <name><surname>Lu</surname><given-names>M</given-names></name>, <name><surname>Zhang</surname><given-names>X</given-names></name>
+<etal>et al.</etal> (<year>2001</year>) <article-title>Therapeutic benefit of intracerebral transplantation of bone marrow stromal cells after cerebral ischemia in rats</article-title>. <source>J Neurol Sci</source>
+<volume>189</volume>: <fpage>49</fpage>-<lpage>57</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S0022-510X(01)00557-3">10.1016/S0022-510X(01)00557-3</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11535233">11535233</ext-link>.<pub-id pub-id-type="pmid">11535233</pub-id></mixed-citation>
+      </ref>
+      <ref id="B48">
+        <label>48</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chen</surname><given-names>J</given-names></name>, <name><surname>Li</surname><given-names>Y</given-names></name>, <name><surname>Katakowski</surname><given-names>M</given-names></name>, <name><surname>Chen</surname><given-names>X</given-names></name>, <name><surname>Wang</surname><given-names>L</given-names></name>
+<etal>et al.</etal> (<year>2003</year>) <article-title>Intravenous bone marrow stromal cell therapy reduces apoptosis and promotes endogenous cell proliferation after stroke in female rat</article-title>. <source>J Neurosci Res</source>
+<volume>73</volume>: <fpage>778</fpage>-<lpage>786</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/jnr.10691">10.1002/jnr.10691</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12949903">12949903</ext-link>.<pub-id pub-id-type="pmid">12949903</pub-id></mixed-citation>
+      </ref>
+      <ref id="B49">
+        <label>49</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Bai</surname><given-names>L</given-names></name>, <name><surname>Caplan</surname><given-names>A</given-names></name>, <name><surname>Lennon</surname><given-names>D</given-names></name>, <name><surname>Miller</surname><given-names>RH</given-names></name> (<year>2007</year>) <article-title>Human mesenchymal stem cells signals regulate neural stem cell fate</article-title>. <source>Neurochem Res</source>
+<volume>32</volume>: <fpage>353</fpage>-<lpage>362</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1007/s11064-006-9212-x">10.1007/s11064-006-9212-x</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17191131">17191131</ext-link>.<pub-id pub-id-type="pmid">17191131</pub-id></mixed-citation>
+      </ref>
+      <ref id="B50">
+        <label>50</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Chopp</surname><given-names>M</given-names></name>, <name><surname>Li</surname><given-names>Y</given-names></name> (<year>2002</year>) <article-title>Treatment of neural injury with marrow stromal cells</article-title>. <source>Lancet Neurol</source>
+<volume>1</volume>: <fpage>92</fpage>-<lpage>100</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/S1474-4422(02)00040-6">10.1016/S1474-4422(02)00040-6</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12849513">12849513</ext-link>.<pub-id pub-id-type="pmid">12849513</pub-id></mixed-citation>
+      </ref>
+      <ref id="B51">
+        <label>51</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Hung</surname><given-names>SC</given-names></name>, <name><surname>Pochampally</surname><given-names>RR</given-names></name>, <name><surname>Chen</surname><given-names>SC</given-names></name>, <name><surname>Hsu</surname><given-names>SC</given-names></name>, <name><surname>Prockop</surname><given-names>DJ</given-names></name> (<year>2007</year>) <article-title>Angiogenic effects of human multipotent stromal cell conditioned medium activate the PI3K-Akt pathway in hypoxic endothelial cells to inhibit apoptosis, increase survival, and stimulate angiogenesis</article-title>. <source>Stem Cells</source>
+<volume>25</volume>: <fpage>2363</fpage>-<lpage>2370</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1634/stemcells.2006-0686">10.1634/stemcells.2006-0686</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17540857">17540857</ext-link>.<pub-id pub-id-type="pmid">17540857</pub-id></mixed-citation>
+      </ref>
+      <ref id="B52">
+        <label>52</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Dasari</surname><given-names>VR</given-names></name>, <name><surname>Spomar</surname><given-names>DG</given-names></name>, <name><surname>Gondi</surname><given-names>CS</given-names></name>, <name><surname>Sloffer</surname><given-names>CA</given-names></name>, <name><surname>Saving</surname><given-names>KL</given-names></name>
+<etal>et al.</etal> (<year>2007</year>) <article-title>Axonal remyelination by cord blood stem cells after spinal cord injury</article-title>. <source>J Neurotrauma</source>
+<volume>24</volume>: <fpage>391</fpage>-<lpage>410</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1089/neu.2006.0142">10.1089/neu.2006.0142</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17376002">17376002</ext-link>.<pub-id pub-id-type="pmid">17376002</pub-id></mixed-citation>
+      </ref>
+      <ref id="B53">
+        <label>53</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Lin</surname><given-names>YC</given-names></name>, <name><surname>Ko</surname><given-names>TL</given-names></name>, <name><surname>Shih</surname><given-names>YH</given-names></name>, <name><surname>Lin</surname><given-names>MY</given-names></name>, <name><surname>Fu</surname><given-names>TW</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>Human umbilical mesenchymal stem cells promote recovery after ischemic stroke</article-title>. <source>Stroke</source>
+<volume>42</volume>: <fpage>2045</fpage>-<lpage>2053</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1161/STROKEAHA.110.603621">10.1161/STROKEAHA.110.603621</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21566227">21566227</ext-link>.<pub-id pub-id-type="pmid">21566227</pub-id></mixed-citation>
+      </ref>
+      <ref id="B54">
+        <label>54</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Kamei</surname><given-names>N</given-names></name>, <name><surname>Tanaka</surname><given-names>N</given-names></name>, <name><surname>Oishi</surname><given-names>Y</given-names></name>, <name><surname>Hamasaki</surname><given-names>T</given-names></name>, <name><surname>Nakanishi</surname><given-names>K</given-names></name>
+<etal>et al.</etal> (<year>2007</year>) <article-title>BDNF, NT-3, and NGF released from transplanted neural progenitor cells promote corticospinal axon growth in organotypic cocultures</article-title>. <source>Spine</source>
+<volume>32</volume>: <fpage>1272</fpage>-<lpage>1278</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1097/BRS.0b013e318059afab">10.1097/BRS.0b013e318059afab</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17515814">17515814</ext-link>.<pub-id pub-id-type="pmid">17515814</pub-id></mixed-citation>
+      </ref>
+      <ref id="B55">
+        <label>55</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Wong</surname><given-names>RW</given-names></name>, <name><surname>Guillaud</surname><given-names>L</given-names></name> (<year>2004</year>) <article-title>The role of epidermal growth factor and its receptors in mammalian CNS</article-title>. <source>Cytokine Growth Factor Rev</source>
+<volume>15</volume>: <fpage>147</fpage>-<lpage>156</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1016/j.cytogfr.2004.01.004">10.1016/j.cytogfr.2004.01.004</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15110798">15110798</ext-link>.<pub-id pub-id-type="pmid">15110798</pub-id></mixed-citation>
+      </ref>
+      <ref id="B56">
+        <label>56</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zou</surname><given-names>P</given-names></name>, <name><surname>Muramatsu</surname><given-names>H</given-names></name>, <name><surname>Miyata</surname><given-names>T</given-names></name>, <name><surname>Muramatsu</surname><given-names>T</given-names></name> (<year>2006</year>) <article-title>Midkine, a heparin-binding growth factor, is expressed in neural precursor cells and promotes their growth</article-title>. <source>J Neurochem</source>
+<volume>99</volume>: <fpage>1470</fpage>-<lpage>1479</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1111/j.1471-4159.2006.04138.x">10.1111/j.1471-4159.2006.04138.x</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/17230638">17230638</ext-link>.<pub-id pub-id-type="pmid">17230638</pub-id></mixed-citation>
+      </ref>
+      <ref id="B57">
+        <label>57</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jin</surname><given-names>K</given-names></name>, <name><surname>Mao</surname><given-names>XO</given-names></name>, <name><surname>Sun</surname><given-names>Y</given-names></name>, <name><surname>Xie</surname><given-names>L</given-names></name>, <name><surname>Jin</surname><given-names>L</given-names></name>
+<etal>et al.</etal> (<year>2002</year>) <article-title>Heparin-binding epidermal growth factor-like growth factor: hypoxia-inducible expression in vitro and stimulation of neurogenesis in vitro and in vivo</article-title>. <source>J Neurosci</source>
+<volume>22</volume>: <fpage>5365</fpage>-<lpage>5373</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/12097488">12097488</ext-link>.<pub-id pub-id-type="pmid">12097488</pub-id></mixed-citation>
+      </ref>
+      <ref id="B58">
+        <label>58</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Choudhuri</surname><given-names>R</given-names></name>, <name><surname>Zhang</surname><given-names>HT</given-names></name>, <name><surname>Donnini</surname><given-names>S</given-names></name>, <name><surname>Ziche</surname><given-names>M</given-names></name>, <name><surname>Bicknell</surname><given-names>R</given-names></name> (<year>1997</year>) <article-title>An angiogenic role for the neurokines midkine and pleiotrophin in tumorigenesis</article-title>. <source>Cancer Res</source>
+<volume>57</volume>: <fpage>1814</fpage>-<lpage>1819</lpage>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/9135027">9135027</ext-link>.<pub-id pub-id-type="pmid">9135027</pub-id></mixed-citation>
+      </ref>
+      <ref id="B59">
+        <label>59</label>
+        <mixed-citation publication-type="journal">
+<name><surname>M&#xF6;ller</surname><given-names>B</given-names></name>, <name><surname>Rasmussen</surname><given-names>C</given-names></name>, <name><surname>Lindblom</surname><given-names>B</given-names></name>, <name><surname>Olovsson</surname><given-names>M</given-names></name> (<year>2001</year>) <article-title>Expression of the angiogenic growth factors VEGF, FGF-2, EGF and their receptors in normal human endometrium during the menstrual cycle</article-title>. <source>Mol Hum Reprod</source>
+<volume>7</volume>: <fpage>65</fpage>-<lpage>72</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1093/molehr/7.1.65">10.1093/molehr/7.1.65</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/11134362">11134362</ext-link>.<pub-id pub-id-type="pmid">11134362</pub-id></mixed-citation>
+      </ref>
+      <ref id="B60">
+        <label>60</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mehta</surname><given-names>VB</given-names></name>, <name><surname>Besner</surname><given-names>GE</given-names></name> (<year>2007</year>) <article-title>HB-EGF promotes angiogenesis in endothelial cells via PI3-kinase and MAPK signaling pathways</article-title>. <source>Growth Factors</source>
+<volume>25</volume>: <fpage>253</fpage>-<lpage>263</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1080/08977190701773070">10.1080/08977190701773070</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/18092233">18092233</ext-link>.<pub-id pub-id-type="pmid">18092233</pub-id></mixed-citation>
+      </ref>
+      <ref id="B61">
+        <label>61</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Strieter</surname><given-names>RM</given-names></name>, <name><surname>Belperio</surname><given-names>JA</given-names></name>, <name><surname>Burdick</surname><given-names>MD</given-names></name>, <name><surname>Keane</surname><given-names>MP</given-names></name> (<year>2005</year>) <article-title>CXC chemokines in angiogenesis relevant to chronic fibroproliferation</article-title>. <source>Curr Drug Targets Inflamm Allergy</source>
+<volume>4</volume>: <fpage>23</fpage>-<lpage>26</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.2174/1568010053622902">10.2174/1568010053622902</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/15720231">15720231</ext-link>.<pub-id pub-id-type="pmid">15720231</pub-id></mixed-citation>
+      </ref>
+      <ref id="B62">
+        <label>62</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Matsuo</surname><given-names>Y</given-names></name>, <name><surname>Raimondo</surname><given-names>M</given-names></name>, <name><surname>Woodward</surname><given-names>TA</given-names></name>, <name><surname>Wallace</surname><given-names>MB</given-names></name>, <name><surname>Gill</surname><given-names>KR</given-names></name>
+<etal>et al.</etal> (<year>2009</year>) <article-title>CXC-chemokine/CXCR2 biological axis promotes angiogenesis in vitro and in vivo in pancreatic cancer</article-title>. <source>Int J Cancer</source>
+<volume>125</volume>: <fpage>1027</fpage>-<lpage>1037</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1002/ijc.24383">10.1002/ijc.24383</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/19431209">19431209</ext-link>.<pub-id pub-id-type="pmid">19431209</pub-id></mixed-citation>
+      </ref>
+      <ref id="B63">
+        <label>63</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Arenberg</surname><given-names>DA</given-names></name>, <name><surname>Keane</surname><given-names>MP</given-names></name>, <name><surname>DiGiovine</surname><given-names>B</given-names></name>, <name><surname>Kunkel</surname><given-names>SL</given-names></name>, <name><surname>Morris</surname><given-names>SB</given-names></name>
+<etal>et al.</etal> (<year>1998</year>) <article-title>Epithelial-neutrophil activating peptide (ENA-78) is an important angiogenic factor in non-small cell lung cancer</article-title>. <source>J Clin Invest</source>
+<volume>102</volume>: <fpage>465</fpage>-<lpage>472</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1172/JCI3145">10.1172/JCI3145</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/9691082">9691082</ext-link>.<pub-id pub-id-type="pmid">9691082</pub-id></mixed-citation>
+      </ref>
+      <ref id="B64">
+        <label>64</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Zhang</surname><given-names>H</given-names></name>, <name><surname>Yang</surname><given-names>R</given-names></name>, <name><surname>Wang</surname><given-names>Z</given-names></name>, <name><surname>Lin</surname><given-names>G</given-names></name>, <name><surname>Lue</surname><given-names>TF</given-names></name>
+<etal>et al.</etal> (<year>2011</year>) <article-title>Adipose tissue-derived stem cells secrete CXCL5 cytokine with neurotrophic effects on cavernous nerve regeneration</article-title>. <source>J Sex Med</source>
+<volume>8</volume>: <fpage>437</fpage>-<lpage>446</lpage>. doi:<ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.1111/j.1743-6109.2010.02128.x">10.1111/j.1743-6109.2010.02128.x</ext-link>. PubMed: <ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/pubmed/21114767">21114767</ext-link>.<pub-id pub-id-type="pmid">21114767</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9304532</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2286</journal-id>
+      <journal-id journal-id-type="nlm-ta">Stem Cells</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cells</journal-id>
+      <journal-title-group>
+        <journal-title>Stem cells (Dayton, Ohio)</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1066-5099</issn>
+      <issn pub-type="epub">1549-4918</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27709733</article-id>
+      <article-id pub-id-type="pmc">5330845</article-id>
+      <article-id pub-id-type="doi">10.1002/stem.2512</article-id>
+      <article-id pub-id-type="manuscript">NIHMS840598</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>EGF-Amphiregulin Interplay in Airway Stem/Progenitor Cells Links the Pathogenesis of Smoking-Induced Lesions in the Human Airway Epithelium</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zuo</surname>
+            <given-names>Wu-Lin</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Jing</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gomi</surname>
+            <given-names>Kazunori</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chao</surname>
+            <given-names>IonWa</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Crystal</surname>
+            <given-names>Ronald G.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shaykhiev</surname>
+            <given-names>Renat</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">Department of Genetic Medicine, Weill Cornell Medical College, New York, New York, USA</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1">Correspondence: Renat Shaykhiev, MD, PhD, Department of Genetic Medicine, Weill Cornell Medical College, 1300 York Avenue, Box 96, New York, New York 10065, USA. Telephone: (646) 962-4363; Fax: (646) 962-0220; <email>geneticmedicine@med.cornell.edu</email></corresp>
+        <fn id="FN1" fn-type="present-address">
+          <p id="P1">Present address: Department of Medicine Weill Cornell Medical College 1300 York Avenue, A-324 New York, New York 10021, USA Telephone: 646-962-2436 <email>res2003@med.cornell.edu</email></p>
+        </fn>
+        <fn fn-type="COI-statement" id="FN3">
+          <p id="P49">
+            <bold>Disclosure of Potential Conflict of Interest</bold>
+          </p>
+          <p id="P50">The authors indicate no potential conflicts of interest.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>6</day>
+        <month>1</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>17</day>
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>3</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>3</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>35</volume>
+      <issue>3</issue>
+      <fpage>824</fpage>
+      <lpage>837</lpage>
+      <!--elocation-id from pubmed: 10.1002/stem.2512-->
+      <abstract>
+        <p id="P2">The airway epithelium of cigarette smokers undergoes dramatic remodeling with hyperplasia of basal cells (BC) and mucus-producing cells, squamous metaplasia, altered ciliated cell differentiation and decreased junctional barrier integrity, relevant to chronic obstructive pulmonary disease and lung cancer. In this study, we show that epidermal growth factor receptor (EGFR) ligand amphiregulin (AREG) is induced by smoking in human airway epithelium as a result of epidermal growth factor (EGF)-driven squamous differentiation of airway BC stem/progenitor cells. In turn, AREG induced a unique EGFR activation pattern in human airway BC, distinct from that evoked by EGF, leading to BC- and mucous hyperplasia, altered ciliated cell differentiation and impaired barrier integrity. Further, AREG promoted its own expression and suppressed expression of EGF, establishing an autonomous self-amplifying signaling loop in airway BC relevant for promotion of EGF-independent hyperplastic phenotypes. Thus, EGF-AREG interplay in airway BC stem/progenitor cells is one of the mechanisms that mediates the interconnected pathogenesis of all major smoking-induced lesions in the human airway epithelium.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Airway basal cells</kwd>
+        <kwd>Epidermal growth factor receptor</kwd>
+        <kwd>Hyperplasia</kwd>
+        <kwd>Metaplasia</kwd>
+        <kwd>Chronic obstructive pulmonary disease</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

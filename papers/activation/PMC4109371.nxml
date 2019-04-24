@@ -1,0 +1,1849 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Biomed Res Int</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biomed Res Int</journal-id>
+      <journal-id journal-id-type="publisher-id">BMRI</journal-id>
+      <journal-title-group>
+        <journal-title>BioMed Research International</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2314-6133</issn>
+      <issn pub-type="epub">2314-6141</issn>
+      <publisher>
+        <publisher-name>Hindawi Publishing Corporation</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25110681</article-id>
+      <article-id pub-id-type="pmc">4109371</article-id>
+      <article-id pub-id-type="doi">10.1155/2014/493732</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Healing Efficacy of an EGF Impregnated Triple Gel Based Wound Dressing: In Vitro and In Vivo Studies</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Khanbanha</surname>
+            <given-names>Najmeh</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Atyabi</surname>
+            <given-names>Fatemeh</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Taheri</surname>
+            <given-names>Azade</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Talaie</surname>
+            <given-names>Fatemeh</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mahbod</surname>
+            <given-names>Mirgholamreza</given-names>
+          </name>
+          <xref ref-type="aff" rid="I3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-0694-7556</contrib-id>
+          <name>
+            <surname>Dinarvand</surname>
+            <given-names>Rassoul</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><sup>1</sup>Department of Pharmaceutics, Faculty of Pharmacy, Tehran University of Medical Sciences, P.O. Box 14155-6451, Tehran, Iran</aff>
+      <aff id="I2"><sup>2</sup>Nanotechnology Research Center, Faculty of Pharmacy, Tehran University of Medical Sciences, P.O. Box 14155-6451, Tehran, Iran</aff>
+      <aff id="I3"><sup>3</sup>Noor Ophthalmology Research Center, Noor Eye Hospital, P.O. Box 19393-3475, Tehran, Iran</aff>
+      <author-notes>
+        <corresp id="cor1">*Fatemeh Atyabi: <email>atyabifa@tums.ac.ir</email></corresp>
+        <fn fn-type="other">
+          <p>Academic Editor: Aijun Wang</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>8</day>
+        <month>7</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>2014</volume>
+      <elocation-id>493732</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>5</day>
+          <month>2</month>
+          <year>2014</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>29</day>
+          <month>4</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>23</day>
+          <month>5</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Najmeh Khanbanha et al.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license xlink:href="https://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>To accomplish an ideal wound healing process which promotes healthy tissue growth with less scaring, a novel gel based topical drug delivery system composed of 3 different polymers chitosan, dextran sulfate, and polyvinylpyrrolidone K30 (CDP) was prepared. The physicochemical properties of the prepared gels were investigated in vitro. Gels showed a maximum swelling ratio of 50 &#xB1; 1.95 times of dried gel in PBS at pH 7.4. The swelling ratios increase in acidic and alkaline pH to 55.3 &#xB1; 1.75 and 65.5 &#xB1; 2.42, respectively. In the rheological test, prepared gels revealed viscoelastic properties and a small linear viscoelastic region of 0.166%. In vivo wound healing promoting activities of CDP gels containing 20&#x2009;<italic>&#x3BC;</italic>g/mL EGF were evaluated on surgically induced dermal wounds in rats using pathologic examination. The application of CDP gel with incorporated EGF significantly reduced the defect on the rat's skin and enhanced epithelial healing compared with the topical application of the EGF-free CDP gel. The results clearly substantiate the beneficial effects of the topical application of CDP containing EGF in the acceleration of healthy wound healing process with less scarring.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>1. Introduction</title>
+      <p>As a fundamental response to tissue injury, wound healing is a normal complex process including four general phases of hemostasis (clot formation), inflammation, cell proliferation, extracellular matrix production, and remodeling, which usually in each phase occurs consequently in a regulated manner [<xref rid="B19" ref-type="bibr">1</xref>, <xref rid="B26" ref-type="bibr">2</xref>]. The clot and the surrounding wound tissue secrete a variety of cytokines and growth factors such as platelet derived growth factor (PDGF) and epidermal growth factor (EGF) that simulate wound repair process [<xref rid="B33" ref-type="bibr">3</xref>, <xref rid="B9" ref-type="bibr">4</xref>]. Several studies showed that topical use of growth factors such as EGF on the wound could accelerate the rate of the epidermal regeneration and reepithelialization of chronic wounds [<xref rid="B10" ref-type="bibr">5</xref>, <xref rid="B29" ref-type="bibr">6</xref>]. To achieve an appropriate efficacy of EGF therapy in wound repair, the local bioavailability of the EGF should be prolonged using a suitable drug delivery system. To increase the low bioavailability of peptides and proteins such as EGF in conventional topical solutions, viscous drug delivery systems such as sponge have been explored [<xref rid="B11" ref-type="bibr">7</xref>]. Gel based natural polymers such as chitosan and dextran are used for treatment of dermal wounds [<xref rid="B23" ref-type="bibr">8</xref>]. Wound dressing prepared with natural polymers is found to prolong the retention time of therapeutic peptides on the wound and increase the therapeutic effects of these peptides [<xref rid="B7" ref-type="bibr">9</xref>]. Dextrans are polysaccharides which are found in bacterial extracellular matrix [<xref rid="B27" ref-type="bibr">10</xref>], have a good solubility level in water, and have been investigated for protein delivery in pharmaceutical studies [<xref rid="B38" ref-type="bibr">11</xref>, <xref rid="B39" ref-type="bibr">12</xref>]. Dextran sulfate is a negatively charged polysaccharide which is derived from dextran via sulfation and was shown to have appropriate characteristics for the treatment of wounds [<xref rid="B17" ref-type="bibr">13</xref>]. Chitosan is a natural polymer derived from chitin, known to stimulate cell proliferation and wound healing process through its hemostatic properties [<xref rid="B8" ref-type="bibr">14</xref>]. Moreover bacteriostatic properties of chitosan could be useful in relation to wound treatment [<xref rid="B8" ref-type="bibr">14</xref>]. Chitosan and its derivatives have been used successfully for controlled delivery of drugs, peptides, and proteins [<xref rid="B31" ref-type="bibr">15</xref>&#x2013;<xref rid="B5" ref-type="bibr">20</xref>]. Wound dressing prepared using chitosan and dextran could absorb the wound exudates and hold the moisture providing a suitable moisturized environment at the wound site [<xref rid="B35" ref-type="bibr">21</xref>]. But the electrostatic interaction between dextran and chitosan could reduce the stability of dextran-chitosan gels. We used polyvinylpyrrolidone K30 (PVP K30) as suitable polymer to reduce the dextran-chitosan instability (CDP gel). In this work, we prepared CDP gel as a suitable gel based drug delivery system to increase the bioavailability of therapeutic peptides and proteins such as EGF to wound tissue. Then, we impregnated EGF in CDP gel. EGF impregnated CDP gel was used as suitable wound dressing to accelerate and facilitate wound healing process. Physical properties of wound dressing and the effects of EGF on healing process in comparison with controls were studied in full thickness excision wound model in rats in vivo.</p>
+    </sec>
+    <sec id="sec2">
+      <title>2. Material and Methods</title>
+      <sec id="sec2.1">
+        <title>2.1. Materials</title>
+        <p>Already characterized low and medium molecular weight chitosan samples (deacetylation degree approximately 95%) were purchased from Chitoclear (Siglujordur, Iceland). Dextran sulfate (MW 8 and 10&#x2009;kDa) was purchased from Sigma-Aldrich (St. Louis, MO, USA). Polyvinylpyrrolidone K30 (PVP K30) was purchased from BASF (Ludwigshafen, Germany). Recombinant human epidermal growth factor (rhEGF) was obtained from Sichuan Huamai Technology Co (Sichuan, China). All other reagents used were of analytical grade.</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>2.2. Preparation of Gels</title>
+        <sec id="sec2.2.1">
+          <title>2.2.1. Preparation of Chitosan Solutions</title>
+          <p>Chitosan solutions of low and medium molecular weight were prepared in dilute acetic acid (1% w/w) and the mixtures were heated and stirred at 50&#xB0;C for 24&#x2009;h until clear solutions were achieved. Chitosan solutions were neutralized with 1&#x2009;N solution of NaOH to pH 5.1 and then were degassed at 25&#xB0;C for 15&#x2009;min using a sonicator (Elmasonic Elma Hans Schmidbauer GmbH &amp; Co. KG) to remove air bubbles.</p>
+        </sec>
+        <sec id="sec2.2.2">
+          <title>2.2.2. Preparation of Dextran-PVP Solution</title>
+          <p>Dextran sulfate (MW 8 and 10&#x2009;kDa) was dissolved in deionized water. Known amount of PVP K30 was added to the above solution to obtain dextran-PVP solution.</p>
+        </sec>
+        <sec id="sec2.2.3">
+          <title>2.2.3. Preparation of CDP-EGF Gels</title>
+          <p>For preparation of chitosan-dextran-PVP (CPD) gels, freshly prepared chitosan solution was added dropwise to dextran-PVP solution under slow stirring to achieve the final composition of gel formulations as given in <xref ref-type="table" rid="tab1">Table 1</xref>. For preparation of CDP-EGF gels, EGF was added to prepared CDP gels to obtain a concentration of 20&#x2009;<italic>&#x3BC;</italic>g/mL.</p>
+        </sec>
+      </sec>
+      <sec id="sec2.3">
+        <title>2.3. Swelling Study</title>
+        <p>Swelling of gels was studied by a gravimetric procedure. CDP gels were cast into 13 diameter &#xD7; 4.5 height (approximately 0.59&#x2009;mm<sup>3</sup>) molds and then vacuum dried at 60&#xB0;C for 12&#x2009;h. Dried gels were accurately weighted and swollen in PBS pH 7.4 at 25&#xB0;C. The swollen gels were removed from the buffers at certain times (5, 10, 20, 30, 45, 60, and 120&#x2009;min), then blotted to remove excess water, and reweighed. Each experiment was performed in triplicate. The swelling ratio was calculated using the following equation:
+<disp-formula id="eq1"><label>(1)</label><mml:math id="M1"><mml:mtable><mml:mtr><mml:mtd><mml:mtext>SR</mml:mtext><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mi>s</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac><mml:mo>,</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>
+where <italic>W</italic>
+<sub><italic>s</italic></sub> is the weight of the swollen gel and <italic>W</italic>
+<sub><italic>d</italic></sub> is the weight of the dried gel.</p>
+        <p>To characterize the swelling behavior of the gels the following experiments were conducted. To determine the effect of pH on the swelling ratio of gels, CDP gels were immersed in acetate buffer pH 4.5 and phosphate buffer pH 9 at 25&#xB0;C for 5, 10, 20, 30, 45, 60, and 120&#x2009;min. The swelling ratio was calculated as mentioned above. The effect of ionic strength on the swelling ratio of gels was measured in 1&#x2009;N PBS pH 7.4, 4&#x2009;N PBS pH 7.4, and 8&#x2009;N PBS pH 7.4 at 25&#xB0;C for 5, 10, 20, 30, 45, 60, and 120&#x2009;min, as mentioned above.</p>
+        <sec id="sec2.3.1">
+          <title>2.3.1. Gel Fraction</title>
+          <p>Different formulations of gels were cast into 0.59&#x2009;mm<sup>3</sup> molds and then vacuum dried at 50&#xB0;C for 12&#x2009;h until a constant weight was reached (<italic>W</italic>
+<sub><italic>d</italic></sub>). The dried gels were immersed in 40&#x2009;mL distilled water at 50&#xB0;C for 12&#x2009;h under vacuum. The sol part of immersed gels was extracted from the water. The remaining part was vacuum dried at 50&#xB0;C for 12&#x2009;h till constant weight was achieved (<italic>W</italic>
+<sub><italic>r</italic></sub>). The gel fraction percentage was determined using the following equation:
+<disp-formula id="eq2"><label>(2)</label><mml:math id="M2"><mml:mtable><mml:mtr><mml:mtd><mml:mtext>Gel</mml:mtext><mml:mi>&#x2009;&#x2009;</mml:mi><mml:mtext>Fraction</mml:mtext><mml:mi>&#x2009;&#x2009;</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>%</mml:mi></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mfrac><mml:mrow><mml:msub><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mi>r</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>&#xD7;</mml:mo><mml:mn mathvariant="normal">100</mml:mn><mml:mo>.</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>
+</p>
+        </sec>
+      </sec>
+      <sec id="sec2.4">
+        <title>2.4. Differential Scanning Calorimetry (DSC) Analysis</title>
+        <p>The physical or chemical interaction between polymers was analyzed by differential scanning calorimetry (DSC) studies. Samples were analyzed using a differential scanning calorimetric (DSC) analyzer (DSC 823, Mettler-Toledo, Germany). 5&#x2009;mg of the mixture of chitosan and dextran sulfate or chitosan-dextran sulfate dried gels were placed in aluminum pans. For thermogram acquisition, the samples were heated over a range of 30&#xB0;C to 500&#xB0;C at a rate of 10&#xB0;C per min and the thermal behavior of samples was recorded.</p>
+        <sec id="sec2.4.1">
+          <title>2.4.1. Rheological Studies</title>
+          <p>To study the plastic deformation stress and the viscoelastic properties of the gel, the rheological analysis of the prepared gels was performed using a stress controlled Paar Physica MCR 300 (Anton Paar GmbH, Austria) with a plate-plate measurement system PP25 (the gap between the plates was 1&#x2009;mm). The temperature was 25&#xB0;C for all tests. The data were collected using Rheoplus/32 Service V3.40 software (Anton Paar GmbH, Austria). Gels were placed between the plates of the measuring system and two sets of experiments were performed.</p>
+          <p>The amplitude sweep test (oscillatory condition) was performed (25&#xB0;C) in the range of 0.01&#x2013;100&#x2009;Pa for the gels. The storage modulus (<italic>G</italic>&#x2032;), the loss modulus (<italic>G</italic>&#x2032;&#x2032;), and the linear viscoelastic (LVE) deformation range were investigated using this test.</p>
+          <p>Further, gel flow measurement was performed using a plate-plate measurement system PP25 (the gap between the plates was 1&#x2009;mm) with a shear stress range of 1&#x2013;100&#x2009;Pa. The yield point of the gel was determined.</p>
+        </sec>
+        <sec id="sec2.4.2">
+          <title>2.4.2. In Vivo Studies</title>
+          <p>All in vivo experiments were conducted according to the guidelines of Ethical Committee of the Pharmaceutical Research Centre, Faculty of Pharmacy, Tehran University of Medical Sciences, Iran. 15 male Wistar rats (275 &#xB1; 25&#x2009;g) were purchased from Pasteur Institute (Tehran, Iran). Animals had free access to food and water. The animals were divided into three groups. There were 5 animals in each group. Rats' dorsal hair was depilated while the animals were under ketamine/xylazine anesthesia. Skin tissue (1.5&#x2009;cm long &#xD7; 1.5&#x2009;cm) was surgically removed using sterile surgical tools to create full thickness wound on the back of the animal. The animals were housed individually under standardized environmental conditions (day 0). In first group, 0.4&#x2009;mL of CDP gel containing 20&#x2009;<italic>&#x3BC;</italic>g/mL EGF was locally applied to the full thickness skin wounds, from day 1, once a day for 11 days. The second group received the same CDP gel formulation without EGF and the third group was the control group in which the animal was wounded but no treatment was applied.</p>
+          <p>Before using CDP gel with EGF (20&#x2009;<italic>&#x3BC;</italic>g/mL), all the animals' wounds in all groups were washed with sterile normal saline solution and photographed and then the gels were applied on the wounds. Wounds were covered with nonwoven retention tape using adhesive 3M tape. After 8 experimental days, three rats of each group were sacrificed by chloroform inhalation. Other remaining animals were sacrificed after 11 experimental days. The images of wounds were captured after rising of wounds with normal saline using a digital camera. The images of wounds were analyzed for the wound area using Photoshop (versus CS5) software. Tissue specimens from the wound site of individual rats were excised after animal euthanization. The skin samples were fixed in 10% formaldehyde solution, dehydrated with graded alcohol, cleared in xylene, and then embedded in paraffin block. 5&#x2009;<italic>&#x3BC;</italic>m sections have been cut from blocks, stained with Haematoxylin and Eosin, and observed under a light microscope.</p>
+        </sec>
+        <sec id="sec2.4.3">
+          <title>2.4.3. Statistical Analysis</title>
+          <p>Statistical significance was determined by a one way analysis of variance (ANOVA) followed by a post hoc test for multiple comparisons using SPSS Vr.3 software. <italic>P</italic> &lt; 0.05 was considered statistically significant.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>3. Results</title>
+      <sec id="sec3.1">
+        <title>3.1. Preparation of CDP Gels</title>
+        <p>The viscosity of 3% (and higher) of chitosan solutions was too high and thus these solutions were not suitable for gel preparation process. Moreover the viscosity of 1% (and lower) of chitosan solutions was too low and thus these solutions were not suitable for gel preparation process. Thus, chitosan solutions with concentration of 2% w/w were selected for gel preparation. For prevention of the formation of chitosan-dextran precipitation (because of electrostatic interaction), PVP K30 was used as a bulking polymer to slow down the electrostatic interaction and precipitation.</p>
+      </sec>
+      <sec id="sec3.2">
+        <title>3.2. Swelling Behavior of CDP Gels</title>
+        <p>Water uptake of CDP gels was followed gravimetrically. The swelling curves of CDP gels in PBS pH of 7.4 at 25&#xB0;C are given in <xref ref-type="fig" rid="fig1">Figure 1</xref>. CDP gels in PBS at pH 7.4 show high swelling ratios from 16.84 &#xB1; 1.95 for F5 to 50.03 &#xB1; 1.06 for F4. F4 showed the highest swelling ratio (50.03) in PBS at pH 7.4 after 45 minutes. Thus, F4 containing 1.6% low molecular weight chitosan, 0.2% dextran sulfate, and 0.2% PVP was chosen as an optimum sample to conduct further experiments. Swelling behavior was carried out for F4 at different pH values (4.5, 7.4, and 9) (<xref ref-type="fig" rid="fig2">Figure 2</xref>). Maximum swelling ratio of F4 was observed at pH 9.0 whereas lesser but significantly different swelling ratio was observed in other pH values in this study. Effect of ionic strength on the swelling ratio of the candidate gel (F4) was investigated at different concentration of PBS (pH 7.4) at 25&#xB0;C (<xref ref-type="fig" rid="fig3">Figure 3</xref>). It was observed that as the concentration of PBS (pH 7.4) increased (ionic strength increased consequently), a decrease in gel swelling ratio occurred.</p>
+      </sec>
+      <sec id="sec3.3">
+        <title>3.3. Gel Fraction</title>
+        <p>The gel fractions of F1, F2, F3, F4, F5, and F6 CDP gel formulations were 54.74%, 53.21%, 58.56%, 67.92%, 47.76%, and 49.50%, respectively. F4 showed the highest gel fraction among other formulations (<xref ref-type="fig" rid="fig4">Figure 4</xref>). Thus, according to the results of swelling ratio and gel fraction studies, F4 formulation was chosen to perform further studies.</p>
+      </sec>
+      <sec id="sec3.4">
+        <title>3.4. DSC Analysis</title>
+        <p>The differential scanning calorimetry (DSC) thermograms of CDP gels are shown in <xref ref-type="fig" rid="fig5">Figure 5</xref>. An exothermic peak was observed in DSC thermogram of physical mixture of chitosan, dextran, and PVP at about 220&#x2013;240&#xB0;C. The thermograms of gels gave no intrinsic peak but showed an approximately similar pattern to thermogram of physical mixture of chitosan, dextran, and PVP (<xref ref-type="fig" rid="fig5">Figure 5</xref>).</p>
+      </sec>
+      <sec id="sec3.5">
+        <title>3.5. Rheological Properties</title>
+        <p>The strain sweep test shows large differences between the elastic <italic>G</italic>&#x2032; and the loss <italic>G</italic>&#x2032;&#x2032; moduli, with <italic>G</italic>&#x2032; much higher than <italic>G</italic>&#x2032;&#x2032; indicating higher viscoelastic properties of the prepared gel as shown in <xref ref-type="fig" rid="fig6">Figure 6</xref>. However the rapid decrease in modulus resulted in a very small LVR (linear viscoelastic region). Flow measurement was conducted to determine the plastic deformation stress, that is, the yield point of gels (<xref ref-type="table" rid="tab2">Table 2</xref>). The portion of <italic>G</italic>&#x2032;&#x2032; to <italic>G</italic>&#x2032; is defined as tangent <italic>&#x3B4;</italic>, angle from 0 degrees indicating an absolute elastic gel to 90 degrees indicating an absolute viscous gel. The results show that as the strain increases, <italic>G</italic>&#x2032; decreases more rapidly than <italic>G</italic>&#x2032;&#x2032; illustrating a more elastic gel transforms into a more viscous gel. Consider
+<disp-formula id="eq3"><label>(3)</label><mml:math id="M3"><mml:mtable><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:msup><mml:mrow><mml:mi>G</mml:mi></mml:mrow><mml:mrow><mml:mi>&#x2032;&#x2032;</mml:mi></mml:mrow></mml:msup></mml:mrow><mml:mrow><mml:msup><mml:mrow><mml:mi>G</mml:mi></mml:mrow><mml:mrow><mml:mi>&#x2032;</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:mfrac><mml:mo>=</mml:mo><mml:mrow><mml:mrow><mml:mi>tan</mml:mi></mml:mrow><mml:mo>&#x2061;</mml:mo><mml:mrow><mml:mi>&#x3B4;</mml:mi></mml:mrow></mml:mrow><mml:mo>.</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math></disp-formula>
+</p>
+      </sec>
+      <sec id="sec3.6">
+        <title>3.6. In Vivo Wound Healing Study</title>
+        <p>According to data obtained from gel fraction and swelling studies, F4 formulation was chosen for the treatment of full thickness wounds on rats. Macroscopic appearance of wounds treated with F4 formulation of CDP gel with EGF, F4 formulation of CDP gel without EGF and untreated group (control group) are shown in <xref ref-type="fig" rid="fig7">Figure 7</xref>. Each wound was observed for a period of 1, 4, 8, and 11 days after operation. All rats survived in the postoperative period until sacrifice. There were no evidences of necrosis. The formulation of CDP gels with and without EGF induced no infection of the wounds, whereas the control group showed wound infection at 4 and 8 days after operation. The relative size reduction of the wounds treated with CDP gel with EGF, CDP gel without EGF, and untreated wounds is illustrated in <xref ref-type="fig" rid="fig8">Figure 8</xref>. At 8 and 11 days after operation, a significant size reduction in the wounds treated with CDP gel with EGF compared to CDP gel without EGF treated groups and control group was observed. Furthermore, the CDP gels with EGF gave about 90&#x2013;95% of wound size reduction at 11 days after operation.</p>
+      </sec>
+    </sec>
+    <sec id="sec4">
+      <title>4. Histological Examination</title>
+      <p>As shown in <xref ref-type="fig" rid="fig9">Figure 9</xref>, at the end of day 8, there is not any significant difference in diameter of ulcers in different groups of study (<italic>P</italic> &#x2265; 0.05). However, the group treated by CDP gel with EGF reveals the highest rate of new epithelium formation. The greatest diameter of ulcer in CDP gel with EGF treated group at day 11 (3.92 &#xB1; 1.6) was significantly lesser than CDP gel without EGF treated group (4.6 &#xB1; 1.32) and control group (6.8 &#xB1; 1.8) (<italic>P</italic> &#x2264; 0.05).</p>
+      <p>The reepithelialization diameter of the groups (<xref ref-type="fig" rid="fig11">Figure 11</xref>) treated with gels containing EGF was 1.1 &#xB1; 0.65 and 1.925 &#xB1; 1.53 at 8 and 11 days after operation, while the control group revealed 0.96 &#xB1; 0.2 and 1.175 &#xB1; 0.55&#x2009;cm at 8 and 11 days after operation. In days 8 and 11 of reepithelialization improvement in diameter in group treated with CDP gel containing EGF was highest (not statistically significant). The microscopic photos of the wounds at day 11 are shown in <xref ref-type="fig" rid="fig10">Figure 10</xref>. Wound epithelium thickness was of quite similar values in all groups (approximately 150&#x2009;<italic>&#x3BC;</italic>m), data not shown.</p>
+    </sec>
+    <sec id="sec5">
+      <title>5. Discussion</title>
+      <p>In this study, a novel drug delivery system composed of a combination of three gels carrying EGF was prepared, characterized, and studied in vivo. Our experiments show that CDP gel could be used as a novel improved carrier for EGF. EGF could induce the wound healing process and minimize the scar formation. EGF could induce cell proliferation and accelerate wound healing process and skin repair through regulation of extracellular matrix proliferation and epidermal stem cells differentiation. Thus, the local increase in concentration of EGF at the wound site could accelerate the wound healing process [<xref rid="B30" ref-type="bibr">22</xref>, <xref rid="B37" ref-type="bibr">23</xref>]. Following trauma the level of endogenous EGF increases to accelerate tissue repair process, but the amount of endogenous EGF is not sufficient for suitable wound repair. Thus, the application of exogenous EGF on the wound site could accelerate the wound healing process [<xref rid="B18" ref-type="bibr">24</xref>, <xref rid="B34" ref-type="bibr">25</xref>]. Tanaka et al. showed that the continuous use of EGF is a necessary factor for maximum wound healing [<xref rid="B34" ref-type="bibr">25</xref>]. Moreover they demonstrated that the use of EGF in gel formulations was more effective for wound healing promotion than the use of EGF in solutions. The gel formulations could remain on the wound surface for a long time and provide a suitable concentration of EGF on the wounded area, while solutions have fast drainage [<xref rid="B15" ref-type="bibr">26</xref>]. Moreover, gel based wound dressings are suitable formulations for the treatment of wounds and burns because they absorb the exudates of wounds and maintain suitable moisture on the wound surface [<xref rid="B6" ref-type="bibr">27</xref>, <xref rid="B21" ref-type="bibr">28</xref>]. In practice suitable gel based wound dressings could be applied easily [<xref rid="B16" ref-type="bibr">29</xref>, <xref rid="B22" ref-type="bibr">30</xref>] and could be removed easily since the skin is injured [<xref rid="B32" ref-type="bibr">31</xref>]. In the present novel drug delivery system, we were able to take advantage of the different properties of different polymers (chitosan and dextran) in wound healing while preventing instability due to electrostatic interactions between chitosan and dextran polymers. A mixture of chitosan and dextran sulfate forms a gel at room temperature but electrostatic interactions between amino groups of chitosan and sulfate groups of dextran sulfate could cause the formation of chitosan-dextran precipitation. To prevent formation of chitosan-dextran sulfate precipitate, PVP was used to decrease the chitosan and dextran interactions. Similar pattern of the DSC thermograms obtained from CDP gel and chitosan, dextran, and PVP gels suggests that no chemical modification occurs in CDP gel [<xref rid="B12" ref-type="bibr">32</xref>]. The presence of PVP is probably also preventing a potential gel destabilization due to the change in ratio of the two other components (chitosan and dextran) in the final gel which could likely leave one of the components in excess with respect to the other. Moreover, EGF has a negative charge at pH above 4.6 (isoelectric pH of EGF) [<xref rid="B13" ref-type="bibr">33</xref>]; thus, the electrostatic interaction between negatively charged EGF and amino groups of chitosan could also sufficiently entrap EGF in the CDP gel.</p>
+      <p>In the present study the results obtained from gel fraction studies show that F4 CDP gel formulation has the highest gel fraction. An ideal wound dressing should be able to absorb the exudates of wound and decrease the risk of microbial infection that could initiate through the increased accumulation of wound exudates. Moreover, a suitable wound dressing should maintain the moisture on the surface of the wound during treatment to prevent scabbing. The conventional wound dressings absorb the wound moisture and fully dry up the damaged site causing the bandaging to stick to the wound, leading to further damage. Therefore, the swelling behavior and absorption capacity of gels could be important criteria in the design of a suitable gel based wound dressing. The high swelling ratio of F4 formulation which could in part be contributed to lower percentage of PVP as compared to F1 formulation shows that this CDP gel could provide an adequate drainage of wound exudates and suitable levels of moisture on the wound surface. Moreover, the combinatory antimicrobial effects of chitosan and dextran could protect the wound from the external contamination. Thus, CDP gel has different complimentary properties that make it suitable for promoting wound healing. Generally, as the gel fraction of gel increases, the strength of the gel increases [<xref rid="B20" ref-type="bibr">34</xref>, <xref rid="B2" ref-type="bibr">35</xref>] which makes F4 formulation a suitable gel for in vivo studies.</p>
+      <p>The prepared gel showed appropriate rheological properties. In strain sweep tests, large differences were observed between the elastic <italic>G</italic>&#x2032; and the loss <italic>G</italic>&#x2032;&#x2032; moduli, with <italic>G</italic>&#x2032; being much higher than <italic>G</italic>&#x2032;&#x2032;, which could indicate the higher viscoelastic properties of the prepared gel. A small viscoelastic &#x201C;plateau&#x201D; and a rapid decrease in modulus resulting in a very small LVR (linear viscoelastic region) indicate that the structure is a &#x201C;weak gel&#x201D; and ready to flow at higher strain [<xref rid="B4" ref-type="bibr">36</xref>, <xref rid="B28" ref-type="bibr">37</xref>]. The CDP gel revealed viscoelastic properties with a small LVR (linear viscoelastic region) of 0.166%. This nonlinear rheological behavior can be seen in gels based on physical interaction (e.g., hydrogen bond, ionic interaction, and entanglement of polymeric chain). This in turn could be contributed to partial and not complete cross linking that allows the sliding movement of polymeric domains over each other [<xref rid="B24" ref-type="bibr">38</xref>, <xref rid="B36" ref-type="bibr">39</xref>] and indeed this property seems to be important due to the nature of the skin injury. Flow measurement was conducted to determine the plastic deformation stress, that is, the yield point of gels. The higher the yield point is, the more deforming resistant the gel is. Although all prepared gels are found to have physical and weak ionic interaction, F4 prepared with low molecular weight chitosan (1.6%), 0.2% dextran sulfate (10&#x2009;KD MW), and 0.2% of PVP has a higher yield point around 64&#x2009;Pa and is therefore more resistant to deformation. Mechanical properties of gels are very important for pharmaceutical applications. For example, maintaining the integrity of a drug delivery device during the lifetime of the application is crucial.</p>
+      <p>The results of our study showed a significant promotion in the wound healing process in the group given CDP gel containing EGF treatment, compared to treatment with the same gel without EGF and control group. Furthermore, pathological studies showed that epidermis length had also increased significantly in the CDP gel containing EGF treated group, compared to CDP gel treated group or control group. The results indicate that CDP gel combined with EGF could significantly improve epidermal cell proliferation and differentiation, thereby promoting wound healing. It is though important to note that in our experiments the control group showed infection, a phenomenon that can lead to delay in the healing process. In healing process of skin wounds, both epithelial and mesenchymal cells (fibroblasts) are involved. Fibroblasts are in charge of repair of dermis and they proliferate and release extracellular matrix. These two lead to repair of dermis with keloid formation and resultant contracture of wound. On the other hand, epithelial cells proliferate and cover the keloid to make a complete repair. If they fail to cover all the surface of keloid, scar of wound would remain. On the other hand, animals receiving the EGF-free F4 gel showed less infection which might be due to the higher percentage of chitosan; EGF especially might be reacting with polyelectrolytes and thus further increasing the amount of available chitosan, fortifying the antibacterial properties. Finally, CDP gels containing EGF accelerated the wound healing process in vivo. Prepared gels could be easily applied on the wound and removed from the site. Moreover rising the concentration of EGF at the wound site following application of the gels could promote/facilitate wound healing process with a low chance of scar formation.</p>
+    </sec>
+    <sec id="sec6">
+      <title>6. Conclusions</title>
+      <p>In this study chitosan-dextran-PVP gel (CDP gel) prepared as a novel and suitable gel based drug delivery system intended to increase the bioavailability of therapeutic peptides and proteins such as EGF toward wound tissue. Wound dressing prepared using chitosan and dextran could absorb the wound exudates and hold the moisture providing a suitable moisturized environment at the wound site. But the electrostatic interaction between dextran and chitosan could reduce the stability of dextran-chitosan gels. In comparison with other marketed gel based wound dressing products prepared with chitosan and dextran, in this study polyvinylpyrrolidone K30 (PVP K30) was applied as a suitable polymer to reduce the dextran-chitosan instability (CDP gel). CDP gels containing EGF accelerated the wound healing process in vivo while easily applied to or removed from the wound. As a conclusion, the present gel can be applied as a suitable wound dressing to increase EGF concentration at wound site and to promote/facilitate wound healing with a low chance of scar formation.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>The authors would like to thank the kind technical help of the colleagues in the nanomedicine lab. N. Khanbanha conducted the experimental work and helped in drafting the paper; F. Atyabi conceived the study and is the corresponding author of the work; R. Dinarvand supervised the work; M. Mahbod performed the histology experiments; A. Taheri helped with the interpretation of the data analysis; F. Talaie reviewed and edited the paper. All authors read and approved the final paper.</p>
+    </ack>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>PVP K30:</term>
+          <def>
+            <p>Polyvinylpyrrolidone K30</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CDP gels:</term>
+          <def>
+            <p>Chitosan, dextran sulfate, and polyvinylpyrrolidone K30 gels</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PDGF:</term>
+          <def>
+            <p>Platelet derived growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF:</term>
+          <def>
+            <p>Epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>rhEGF:</term>
+          <def>
+            <p>Recombinant human epidermal growth factor.</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <sec sec-type="conflict">
+      <title>Conflict of Interests</title>
+      <p>The authors declare that there is no conflict of interests regarding the publication of this paper.</p>
+    </sec>
+    <ref-list>
+      <ref id="B19">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gosain</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>DiPietro</surname>
+              <given-names>LA</given-names>
+            </name>
+          </person-group>
+          <article-title>Aging and wound healing</article-title>
+          <source>
+            <italic>World Journal of Surgery</italic>
+          </source>
+          <year>2004</year>
+          <volume>28</volume>
+          <issue>3</issue>
+          <fpage>321</fpage>
+          <lpage>326</lpage>
+          <pub-id pub-id-type="other">2-s2.0-1642303270</pub-id>
+          <pub-id pub-id-type="pmid">14961191</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>2</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mathieu</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Linke</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Wattel</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Non-healing wounds</article-title>
+          <source>
+            <italic>Handbook on Hyperbaric Medicine</italic>
+          </source>
+          <year>2006</year>
+          <fpage>401</fpage>
+          <lpage>428</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stadelmann</surname>
+              <given-names>WK</given-names>
+            </name>
+            <name>
+              <surname>Digenis</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Tobin</surname>
+              <given-names>GR</given-names>
+            </name>
+          </person-group>
+          <article-title>Physiology and healing dynamics of chronic cutaneous wounds</article-title>
+          <source>
+            <italic>The American Journal of Surgery A</italic>
+          </source>
+          <year>1998</year>
+          <volume>176</volume>
+          <issue>2, supplement 1</issue>
+          <fpage>26S</fpage>
+          <lpage>38S</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0031656215</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Broughton</surname>
+              <given-names>G</given-names>
+              <suffix>II</suffix>
+            </name>
+            <name>
+              <surname>Janis</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Attinger</surname>
+              <given-names>CE</given-names>
+            </name>
+          </person-group>
+          <article-title>The basic science of wound healing</article-title>
+          <source>
+            <italic>Plastic and Reconstructive Surgery</italic>
+          </source>
+          <year>2006</year>
+          <volume>117</volume>
+          <issue>7</issue>
+          <fpage>12S</fpage>
+          <lpage>34S</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33745491890</pub-id>
+          <pub-id pub-id-type="pmid">16799372</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brown</surname>
+              <given-names>GL</given-names>
+            </name>
+            <name>
+              <surname>Nanney</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>Griffen</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Enhancement of wound healing by topical treatment with epidermal growth factor</article-title>
+          <source>
+            <italic>The New England Journal of Medicine</italic>
+          </source>
+          <year>1989</year>
+          <volume>321</volume>
+          <issue>2</issue>
+          <fpage>76</fpage>
+          <lpage>79</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0024328519</pub-id>
+          <pub-id pub-id-type="pmid">2659995</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nanney</surname>
+              <given-names>LB</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal and dermal effects of epidermal growth factor during wound repair</article-title>
+          <source>
+            <italic>Journal of Investigative Dermatology</italic>
+          </source>
+          <year>1990</year>
+          <volume>94</volume>
+          <issue>5</issue>
+          <fpage>624</fpage>
+          <lpage>629</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0025304214</pub-id>
+          <pub-id pub-id-type="pmid">2324518</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Buckley</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Davidson</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Kamerath</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Wolt</surname>
+              <given-names>TB</given-names>
+            </name>
+            <name>
+              <surname>Woodward</surname>
+              <given-names>SC</given-names>
+            </name>
+          </person-group>
+          <article-title>Sustained release of epidermal growth factor accelerates wound repair</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>1985</year>
+          <volume>82</volume>
+          <issue>21</issue>
+          <fpage>7340</fpage>
+          <lpage>7344</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0001474840</pub-id>
+          <pub-id pub-id-type="pmid">3877308</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lloyd</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Kennedy</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Methacanon</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Paterson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Knill</surname>
+              <given-names>CJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Carbohydrate polymers as wound management aids</article-title>
+          <source>
+            <italic>Carbohydrate Polymers</italic>
+          </source>
+          <year>1998</year>
+          <volume>37</volume>
+          <issue>3</issue>
+          <fpage>315</fpage>
+          <lpage>322</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0032204660</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bi</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effect of combination therapy with alginate dressing and mouse epidermal growth factor on epidermal stem cells in patients with refractory wounds</article-title>
+          <source>
+            <italic>Chinese Medical Journal</italic>
+          </source>
+          <year>2012</year>
+          <volume>125</volume>
+          <issue>2</issue>
+          <fpage>257</fpage>
+          <lpage>261</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84862917652</pub-id>
+          <pub-id pub-id-type="pmid">22340556</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meddens</surname>
+              <given-names>MJM</given-names>
+            </name>
+            <name>
+              <surname>Thompson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Leijh</surname>
+              <given-names>PCJ</given-names>
+            </name>
+            <name>
+              <surname>Van Furth</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of granulocytes in the induction of an experimental endocarditis with a dextran-producing Streptococcus sanguis and its dextran-negative mutant</article-title>
+          <source>
+            <italic>British Journal of Experimental Pathology</italic>
+          </source>
+          <year>1984</year>
+          <volume>65</volume>
+          <issue>2</issue>
+          <fpage>257</fpage>
+          <lpage>265</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0021269728</pub-id>
+          <pub-id pub-id-type="pmid">6201185</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yousefpour</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Dinarvand</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Vasheghani-Farahani</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Preparation and comparison of chitosan nanoparticles with different degrees of glutathione thiolation</article-title>
+          <source>
+            <italic>DARU Journal of Pharmaceutical Sciences</italic>
+          </source>
+          <year>2011</year>
+          <volume>19</volume>
+          <issue>5</issue>
+          <fpage>367</fpage>
+          <lpage>375</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84455199542</pub-id>
+          <pub-id pub-id-type="pmid">22615683</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yousefpour</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Farahani</surname>
+              <given-names>EV</given-names>
+            </name>
+            <name>
+              <surname>Sakhtianchi</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Dinarvand</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Polyanionic carbohydrate doxorubicin-dextran nanocomplex as a delivery system for anticancer drugs: in vitro analysis and evaluations</article-title>
+          <source>
+            <italic>International Journal of Nanomedicine</italic>
+          </source>
+          <year>2011</year>
+          <volume>6</volume>
+          <fpage>1487</fpage>
+          <lpage>1496</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84455180686</pub-id>
+          <pub-id pub-id-type="pmid">21796249</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Frank</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Lebreton-Decoster</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Godeau</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Coulomb</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Jozefonvicz</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Dextran derivatives modulate collagen matrix organization in dermal equivalent</article-title>
+          <source>
+            <italic>Journal of Biomaterials Science, Polymer Edition</italic>
+          </source>
+          <year>2006</year>
+          <volume>17</volume>
+          <issue>5</issue>
+          <fpage>499</fpage>
+          <lpage>517</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33746088075</pub-id>
+          <pub-id pub-id-type="pmid">16800152</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Biagini</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Bertani</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Muzzarelli</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Wound management with N-carboxybutyl chitosan</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>1991</year>
+          <volume>12</volume>
+          <issue>3</issue>
+          <fpage>281</fpage>
+          <lpage>286</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0026001354</pub-id>
+          <pub-id pub-id-type="pmid">1854896</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Saremi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Akhlaghi</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Ostad</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Dinarvand</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Thiolated chitosan nanoparticles for enhancing oral absorption of docetaxel: preparation, in vitro and ex vivo evaluation</article-title>
+          <source>
+            <italic>International Journal of Nanomedicine</italic>
+          </source>
+          <year>2011</year>
+          <volume>6</volume>
+          <issue>1</issue>
+          <fpage>119</fpage>
+          <lpage>128</lpage>
+          <pub-id pub-id-type="other">2-s2.0-79251511860</pub-id>
+          <pub-id pub-id-type="pmid">21289989</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mahmoodi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Khosroshahi</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Laser thrombolysis and in vitro study of tpa release encapsulated by chitosan coated plga nanoparticles for ami</article-title>
+          <source>
+            <italic>International Journal of Biology and Biomedical Engineering</italic>
+          </source>
+          <year>2010</year>
+          <volume>4</volume>
+          <issue>2</issue>
+          <fpage>35</fpage>
+          <lpage>42</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Denkbas</surname>
+              <given-names>EB</given-names>
+            </name>
+            <name>
+              <surname>&#xD6;zt&#xFC;rk</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>&#xD6;zdemi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Ke&#xE7;eci</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Erg&#xFC;n</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF loaded chitosan sponges as wound dressing material</article-title>
+          <source>
+            <italic>Journal of Bioactive and Compatible Polymers</italic>
+          </source>
+          <year>2003</year>
+          <volume>18</volume>
+          <issue>3</issue>
+          <fpage>177</fpage>
+          <lpage>190</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Akhlaghi</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Saremi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ostad</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name>
+              <surname>Dinarvand</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Discriminated effects of thiolated chitosan-coated pMMA paclitaxel-loaded nanoparticles on different normal and cancer cell lines</article-title>
+          <source>
+            <italic>Nanomedicine: Nanotechnology, Biology, and Medicine</italic>
+          </source>
+          <year>2010</year>
+          <volume>6</volume>
+          <issue>5</issue>
+          <fpage>689</fpage>
+          <lpage>697</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77957155414</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B1">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Abashzadeh</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Dinarvand</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Sharifzadeh</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hassanzadeh</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Amini</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Formulation and evaluation of an in situ gel forming system for controlled delivery of triptorelin acetate</article-title>
+          <source>
+            <italic>European Journal of Pharmaceutical Sciences</italic>
+          </source>
+          <year>2011</year>
+          <volume>44</volume>
+          <issue>4</issue>
+          <fpage>514</fpage>
+          <lpage>521</lpage>
+          <pub-id pub-id-type="other">2-s2.0-80455177046</pub-id>
+          <pub-id pub-id-type="pmid">21946260</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Atyabi</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Moghaddam</surname>
+              <given-names>FA</given-names>
+            </name>
+            <name>
+              <surname>Dinarvand</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Zohuriaan-Mehr</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Ponchel</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Thiolated chitosan coated poly hydroxyethyl methacrylate nanoparticles: synthesis and characterization</article-title>
+          <source>
+            <italic>Carbohydrate Polymers</italic>
+          </source>
+          <year>2008</year>
+          <volume>74</volume>
+          <issue>1</issue>
+          <fpage>59</fpage>
+          <lpage>67</lpage>
+          <pub-id pub-id-type="other">2-s2.0-44949187597</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>21</label>
+        <element-citation publication-type="other">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thomas</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>A structured approach to the selection of dressings</article-title>
+          <comment>World Wide Wounds, 1997</comment>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Repertinger</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Campagnaro</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Fuhrman</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>El-Abaseri</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yuspa</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Hansen</surname>
+              <given-names>LA</given-names>
+            </name>
+          </person-group>
+          <article-title>EGFR enhances early healing after cutaneous incisional wounding</article-title>
+          <source>
+            <italic>Journal of Investigative Dermatology</italic>
+          </source>
+          <year>2004</year>
+          <volume>123</volume>
+          <issue>5</issue>
+          <fpage>982</fpage>
+          <lpage>989</lpage>
+          <pub-id pub-id-type="other">2-s2.0-6344270007</pub-id>
+          <pub-id pub-id-type="pmid">15482488</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woodbury</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Black</surname>
+              <given-names>IB</given-names>
+            </name>
+          </person-group>
+          <article-title>Adult rat and human bone marrow stromal cells differentiate into neurons</article-title>
+          <source>
+            <italic>Journal of Neuroscience Research</italic>
+          </source>
+          <year>2000</year>
+          <volume>61</volume>
+          <issue>4</issue>
+          <fpage>364</fpage>
+          <lpage>370</lpage>
+          <pub-id pub-id-type="pmid">10931522</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Sheng</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>Engineered growth factors and cutaneous wound healing: success and possible questions in the past 10 years</article-title>
+          <source>
+            <italic>Wound Repair and Regeneration</italic>
+          </source>
+          <year>2005</year>
+          <volume>13</volume>
+          <issue>2</issue>
+          <fpage>122</fpage>
+          <lpage>130</lpage>
+          <pub-id pub-id-type="other">2-s2.0-16844362298</pub-id>
+          <pub-id pub-id-type="pmid">15828936</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nagate</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Matsuda</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Acceleration of wound healing by gelatin film dressings with epidermal growth factor</article-title>
+          <source>
+            <italic>The Journal of Veterinary Medical Science</italic>
+          </source>
+          <year>2005</year>
+          <volume>67</volume>
+          <issue>9</issue>
+          <fpage>909</fpage>
+          <lpage>913</lpage>
+          <pub-id pub-id-type="other">2-s2.0-26444587113</pub-id>
+          <pub-id pub-id-type="pmid">16210803</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Eriksson</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Vranckx</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Wet wound healing: from laboratory to patients to gene therapy</article-title>
+          <source>
+            <italic>American Journal of Surgery</italic>
+          </source>
+          <year>2004</year>
+          <volume>188</volume>
+          <issue>1</issue>
+          <fpage>36</fpage>
+          <lpage>41</lpage>
+          <pub-id pub-id-type="other">2-s2.0-3042662245</pub-id>
+          <pub-id pub-id-type="pmid">15223501</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Berger</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Reist</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mayer</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Felt</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Gurny</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Structure and interactions in chitosan hydrogels formed by complexation or aggregation for biomedical applications</article-title>
+          <source>
+            <italic>European Journal of Pharmaceutics and Biopharmaceutics</italic>
+          </source>
+          <year>2004</year>
+          <volume>57</volume>
+          <issue>1</issue>
+          <fpage>35</fpage>
+          <lpage>52</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0346724871</pub-id>
+          <pub-id pub-id-type="pmid">14729079</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kiyozumi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kanatani</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ishihara</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Medium (DMEM/F12)-containing chitosan hydrogel as adhesive and dressing in autologous skin grafts and accelerator in the healing process</article-title>
+          <source>
+            <italic>Journal of Biomedical Materials Research B Applied Biomaterials</italic>
+          </source>
+          <year>2006</year>
+          <volume>79</volume>
+          <issue>1</issue>
+          <fpage>129</fpage>
+          <lpage>136</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33749163529</pub-id>
+          <pub-id pub-id-type="pmid">16544309</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Francis Suh</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Matthew</surname>
+              <given-names>HWT</given-names>
+            </name>
+          </person-group>
+          <article-title>Application of chitosan-based polysaccharide biomaterials in cartilage tissue engineering: a review</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>2000</year>
+          <volume>21</volume>
+          <issue>24</issue>
+          <fpage>2589</fpage>
+          <lpage>2598</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0034672873</pub-id>
+          <pub-id pub-id-type="pmid">11071608</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kiyozumi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kanatani</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ishihara</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The effect of chitosan hydrogel containing DMEM/F12 medium on full-thickness skin defects after deep dermal burn</article-title>
+          <source>
+            <italic>Burns</italic>
+          </source>
+          <year>2007</year>
+          <volume>33</volume>
+          <issue>5</issue>
+          <fpage>642</fpage>
+          <lpage>648</lpage>
+          <pub-id pub-id-type="other">2-s2.0-34249978440</pub-id>
+          <pub-id pub-id-type="pmid">17475411</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sezer</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Cevher</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Hat&#x131;po&#x11F;lu</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>O&#x11F;urtan</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname> Ba&#x15F; A. L.</surname>
+            </name>
+            <name>
+              <surname>Akbu&#x11F;a</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Preparation of fucoidan-chitosan hydrogel and its application as burn healing accelerator on rabbits</article-title>
+          <source>
+            <italic>Biological &amp; Pharmaceutical Bulletin</italic>
+          </source>
+          <year>2008</year>
+          <volume>31</volume>
+          <issue>12</issue>
+          <fpage>2326</fpage>
+          <lpage>2333</lpage>
+          <pub-id pub-id-type="pmid">19043221</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carpenter</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Cohen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>epidermal growth factor</article-title>
+          <source>
+            <italic>Annual Review of Biochemistry</italic>
+          </source>
+          <year>1979</year>
+          <volume>48</volume>
+          <fpage>193</fpage>
+          <lpage>216</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0018654080</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dai</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hamblin</surname>
+              <given-names>MR</given-names>
+            </name>
+          </person-group>
+          <article-title>Chitosan preparations for wounds and burns: antimicrobial and wound-healing effects</article-title>
+          <source>
+            <italic>Expert Review of Anti-Infective Therapy</italic>
+          </source>
+          <year>2011</year>
+          <volume>9</volume>
+          <issue>7</issue>
+          <fpage>857</fpage>
+          <lpage>879</lpage>
+          <pub-id pub-id-type="other">2-s2.0-79961182508</pub-id>
+          <pub-id pub-id-type="pmid">21810057</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kim</surname>
+              <given-names>JO</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>JK</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Development of polyvinyl alcohol-sodium alginate gel-matrix-based wound dressing system containing nitrofurazone</article-title>
+          <source>
+            <italic>International Journal of Pharmaceutics</italic>
+          </source>
+          <year>2008</year>
+          <volume>359</volume>
+          <issue>1-2</issue>
+          <fpage>79</fpage>
+          <lpage>86</lpage>
+          <pub-id pub-id-type="other">2-s2.0-44749089789</pub-id>
+          <pub-id pub-id-type="pmid">18440737</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ajji</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Othman</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Rosiak</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Production of hydrogel wound dressing using gamma radiation</article-title>
+          <source>
+            <italic>Aalam Al-Zarra</italic>
+          </source>
+          <year>2006</year>
+          <fpage>58</fpage>
+          <lpage>62</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Anumolu</surname>
+              <given-names>SS</given-names>
+            </name>
+            <name>
+              <surname>DeSantis</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Menjoge</surname>
+              <given-names>AR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Doxycycline loaded poly(ethylene glycol) hydrogels for healing vesicant-induced ocular wounds</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>2010</year>
+          <volume>31</volume>
+          <issue>5</issue>
+          <fpage>964</fpage>
+          <lpage>974</lpage>
+          <pub-id pub-id-type="other">2-s2.0-70649109914</pub-id>
+          <pub-id pub-id-type="pmid">19853296</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moura</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Figueiredo</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Gil</surname>
+              <given-names>MH</given-names>
+            </name>
+          </person-group>
+          <article-title>Rheological study of genipin cross-linked chitosan hydrogels</article-title>
+          <source>
+            <italic>Biomacromolecules</italic>
+          </source>
+          <year>2007</year>
+          <volume>8</volume>
+          <issue>12</issue>
+          <fpage>3823</fpage>
+          <lpage>3829</lpage>
+          <pub-id pub-id-type="other">2-s2.0-38049032352</pub-id>
+          <pub-id pub-id-type="pmid">18004810</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lu</surname>
+              <given-names>HD</given-names>
+            </name>
+            <name>
+              <surname>Charati</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>IL</given-names>
+            </name>
+            <name>
+              <surname>Burdick</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Injectable shear-thinning hydrogels engineered with a self-assembling Dock-and-Lock mechanism</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>2012</year>
+          <volume>33</volume>
+          <issue>7</issue>
+          <fpage>2145</fpage>
+          <lpage>2153</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84855731736</pub-id>
+          <pub-id pub-id-type="pmid">22177842</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van Tomme</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>van Steenbergen</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>de Smedt</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>van Nostrum</surname>
+              <given-names>CF</given-names>
+            </name>
+            <name>
+              <surname>Hennink</surname>
+              <given-names>WE</given-names>
+            </name>
+          </person-group>
+          <article-title>Self-gelling hydrogels based on oppositely charged dextran microspheres</article-title>
+          <source>
+            <italic>Biomaterials</italic>
+          </source>
+          <year>2005</year>
+          <volume>26</volume>
+          <issue>14</issue>
+          <fpage>2129</fpage>
+          <lpage>2135</lpage>
+          <pub-id pub-id-type="other">2-s2.0-9644269012</pub-id>
+          <pub-id pub-id-type="pmid">15576188</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="fig1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Measurement of swelling ratio obtained from different chitosan-dextran-PVP gels presented in <xref ref-type="table" rid="tab1">Table 1</xref> in PBS (pH 7.4) at 25&#xB0;C at predetermined time points (5, 10, 20, 30, 45, 60, and 120&#x2009;min) (<italic>n</italic> = 3, mean &#xB1; SD).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.001"/>
+    </fig>
+    <fig id="fig2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Measurement of swelling ratio of chitosan-dextran-PVP gel (F4) in acetate buffer (pH 4.5), PBS (pH 7.4), and phosphate buffer (pH 9) at 25&#xB0;C at predetermined time points (<italic>n</italic> = 3, mean &#xB1; SD).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.002"/>
+    </fig>
+    <fig id="fig3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Measurement of swelling ratio of chitosan-dextran-PVP gel (F4) in 1&#x2009;N PBS (pH 7.4), 4&#x2009;N PBS (pH 7.4), and 8&#x2009;N PBS (pH 7.4) at 25&#xB0;C (<italic>n</italic> = 3, mean &#xB1; SD).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.003"/>
+    </fig>
+    <fig id="fig4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Gel fraction (%) of chitosan, dextran, and PVP gels.</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.004"/>
+    </fig>
+    <fig id="fig5" orientation="portrait" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>DSC thermogram of physical mixture of chitosan-dextran (F3, F4, F5, and F6).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.005"/>
+    </fig>
+    <fig id="fig6" orientation="portrait" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p>The strain sweep test of gel: (a) F1, (b) F2, (c) F3, (d) F4, (e) F5, (f) F6.</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.006"/>
+    </fig>
+    <fig id="fig7" orientation="portrait" position="float">
+      <label>Figure 7</label>
+      <caption>
+        <p>Photographs of the relative size reduction of the wounds in rat. (a) Wound treated with CDP gel containing EGF, (b) wound treated with CDP gel without EGF, and (c) untreated group (control group) on days 1, 4, 8, and 11 after operation (<italic>n</italic> = 3, mean &#xB1; SD).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.007"/>
+    </fig>
+    <fig id="fig8" orientation="portrait" position="float">
+      <label>Figure 8</label>
+      <caption>
+        <p>The relative size reduction of the wounds treated with CDP gel with EGF, CDP gel without EGF, and untreated wounds (<italic>n</italic> = 3, mean &#xB1; SD).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.008"/>
+    </fig>
+    <fig id="fig9" orientation="portrait" position="float">
+      <label>Figure 9</label>
+      <caption>
+        <p>Histopathological wound diameter evaluation of the wounds treated with CDP gel with EGF (DH1), CDP gel without EGF (H1), and untreated wounds (c).</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.009"/>
+    </fig>
+    <fig id="fig10" orientation="portrait" position="float">
+      <label>Figure 10</label>
+      <caption>
+        <p>Photographs of treated wound areas. (A11) wound treated with CDP gel containing EGF, (B11) wound treated with CDP gels without EGF, and (C11) untreated group (control group) on day 11 after operation. Scale bar: 1&#x2009;mm.</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.010"/>
+    </fig>
+    <fig id="fig11" orientation="portrait" position="float">
+      <label>Figure 11</label>
+      <caption>
+        <p>Histopathological reepithelialization diameter evaluation of the wounds treated with CDP gel containing EGF (DH1), CDP gel without EGF (H1), and untreated wounds.</p>
+      </caption>
+      <graphic xlink:href="BMRI2014-493732.011"/>
+    </fig>
+    <table-wrap id="tab1" orientation="portrait" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Composition of CDP gel formulations.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" rowspan="2" colspan="1">
+Samples</th>
+            <th align="center" colspan="5" rowspan="1">Concentration %</th>
+          </tr>
+          <tr>
+            <th align="center" rowspan="1" colspan="1">Low molecular weight chitosan</th>
+            <th align="center" rowspan="1" colspan="1">Medium molecular weight chitosan</th>
+            <th align="center" rowspan="1" colspan="1">Dextran sulfate (MW 8&#x2009;kDa)</th>
+            <th align="center" rowspan="1" colspan="1">Dextran sulfate (MW 10&#x2009;kDa)</th>
+            <th align="center" rowspan="1" colspan="1">PVP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F1</td>
+            <td align="center" rowspan="1" colspan="1">1.33%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.33%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.33%</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F2</td>
+            <td align="center" rowspan="1" colspan="1">1.5%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.25%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.25%</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F3</td>
+            <td align="center" rowspan="1" colspan="1">1.6%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F4</td>
+            <td align="center" rowspan="1" colspan="1">1.6%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F5</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">1.6%</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F6</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">1.6%</td>
+            <td align="center" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+            <td align="center" rowspan="1" colspan="1">0.2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+    <table-wrap id="tab2" orientation="portrait" position="float">
+      <label>Table 2</label>
+      <caption>
+        <p>Rheological properties of gel.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="center" colspan="12" rowspan="1">Oscillatory test</th>
+            <th align="center" rowspan="1" colspan="1">Flow test</th>
+          </tr>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">&#x2009;</th>
+            <th align="center" colspan="3" rowspan="1">Flow point</th>
+            <th align="center" colspan="2" rowspan="1">
+<italic>G</italic>&#x2032;</th>
+            <th align="center" colspan="2" rowspan="1">
+<italic>G</italic>&#x2032;&#x2032;</th>
+            <th align="center" colspan="2" rowspan="1">tan&#x2061;<italic>&#x3B4;</italic>
+</th>
+            <th align="center" colspan="2" rowspan="1">Angle</th>
+            <th align="center" rowspan="1" colspan="1">Yield point</th>
+          </tr>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">&#x2009;</th>
+            <th align="center" rowspan="2" colspan="1">Stress</th>
+            <th align="center" rowspan="2" colspan="1">Strain</th>
+            <th align="center" rowspan="2" colspan="1">Crossover</th>
+            <th align="center" colspan="8" rowspan="1">% strain</th>
+            <th align="center" rowspan="2" colspan="1">Shear stress</th>
+          </tr>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">&#x2009;</th>
+            <th align="center" rowspan="1" colspan="1">0.01</th>
+            <th align="center" rowspan="1" colspan="1">100</th>
+            <th align="center" rowspan="1" colspan="1">0.01</th>
+            <th align="center" rowspan="1" colspan="1">100</th>
+            <th align="center" rowspan="1" colspan="1">0.01</th>
+            <th align="center" rowspan="1" colspan="1">100</th>
+            <th align="center" rowspan="1" colspan="1">0.01</th>
+            <th align="center" rowspan="1" colspan="1">100</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">
+F1</td>
+            <td align="center" rowspan="1" colspan="1">18.0</td>
+            <td align="center" rowspan="1" colspan="1">79</td>
+            <td align="center" rowspan="1" colspan="1">16.2</td>
+            <td align="center" rowspan="1" colspan="1">423</td>
+            <td align="center" rowspan="1" colspan="1">13</td>
+            <td align="center" rowspan="1" colspan="1">118</td>
+            <td align="center" rowspan="1" colspan="1">14</td>
+            <td align="center" rowspan="1" colspan="1">0.3</td>
+            <td align="center" rowspan="1" colspan="1">1.1</td>
+            <td align="center" rowspan="1" colspan="1">15.6</td>
+            <td align="center" rowspan="1" colspan="1">47.1</td>
+            <td align="center" rowspan="1" colspan="1">38.6&#x2009;Pa</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F2</td>
+            <td align="center" rowspan="1" colspan="1">19.2</td>
+            <td align="center" rowspan="1" colspan="1">47</td>
+            <td align="center" rowspan="1" colspan="1">28.9</td>
+            <td align="center" rowspan="1" colspan="1">614</td>
+            <td align="center" rowspan="1" colspan="1">12.3</td>
+            <td align="center" rowspan="1" colspan="1">166</td>
+            <td align="center" rowspan="1" colspan="1">17.5</td>
+            <td align="center" rowspan="1" colspan="1">0.3</td>
+            <td align="center" rowspan="1" colspan="1">1.4</td>
+            <td align="center" rowspan="1" colspan="1">15.1</td>
+            <td align="center" rowspan="1" colspan="1">54.9</td>
+            <td align="center" rowspan="1" colspan="1">38.9&#x2009;Pa</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F3</td>
+            <td align="center" rowspan="1" colspan="1">No</td>
+            <td align="center" rowspan="1" colspan="1">No</td>
+            <td align="center" rowspan="1" colspan="1">
+No</td>
+            <td align="center" rowspan="1" colspan="1">569</td>
+            <td align="center" rowspan="1" colspan="1">20</td>
+            <td align="center" rowspan="1" colspan="1">134</td>
+            <td align="center" rowspan="1" colspan="1">17</td>
+            <td align="center" rowspan="1" colspan="1">0.24</td>
+            <td align="center" rowspan="1" colspan="1">0.9</td>
+            <td align="center" rowspan="1" colspan="1">13.3</td>
+            <td align="center" rowspan="1" colspan="1">40.7</td>
+            <td align="center" rowspan="1" colspan="1">No</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F4</td>
+            <td align="center" rowspan="1" colspan="1">18.8</td>
+            <td align="center" rowspan="1" colspan="1">75.8</td>
+            <td align="center" rowspan="1" colspan="1">17.5</td>
+            <td align="center" rowspan="1" colspan="1">245</td>
+            <td align="center" rowspan="1" colspan="1">13</td>
+            <td align="center" rowspan="1" colspan="1">129</td>
+            <td align="center" rowspan="1" colspan="1">14.6</td>
+            <td align="center" rowspan="1" colspan="1">0.5</td>
+            <td align="center" rowspan="1" colspan="1">1.1</td>
+            <td align="center" rowspan="1" colspan="1">27.8</td>
+            <td align="center" rowspan="1" colspan="1">48.1</td>
+            <td align="center" rowspan="1" colspan="1">64.2&#x2009;Pa</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F5</td>
+            <td align="center" rowspan="1" colspan="1">41.3</td>
+            <td align="center" rowspan="1" colspan="1">96</td>
+            <td align="center" rowspan="1" colspan="1">30.3</td>
+            <td align="center" rowspan="1" colspan="1">916</td>
+            <td align="center" rowspan="1" colspan="1">28.6</td>
+            <td align="center" rowspan="1" colspan="1">168</td>
+            <td align="center" rowspan="1" colspan="1">29.6</td>
+            <td align="center" rowspan="1" colspan="1">0.2</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">10.4</td>
+            <td align="center" rowspan="1" colspan="1">46</td>
+            <td align="center" rowspan="1" colspan="1">67.6&#x2009;Pa</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">F6</td>
+            <td align="center" rowspan="1" colspan="1">18.7</td>
+            <td align="center" rowspan="1" colspan="1">35.6</td>
+            <td align="center" rowspan="1" colspan="1">37</td>
+            <td align="center" rowspan="1" colspan="1">386</td>
+            <td align="center" rowspan="1" colspan="1">12.1</td>
+            <td align="center" rowspan="1" colspan="1">143</td>
+            <td align="center" rowspan="1" colspan="1">21.1</td>
+            <td align="center" rowspan="1" colspan="1">0.4</td>
+            <td align="center" rowspan="1" colspan="1">1.7</td>
+            <td align="center" rowspan="1" colspan="1">20.3</td>
+            <td align="center" rowspan="1" colspan="1">60.2</td>
+            <td align="center" rowspan="1" colspan="1">37.4&#x2009;Pa</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

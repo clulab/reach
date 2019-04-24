@@ -1,0 +1,2294 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Stem Cell Reports</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cell Reports</journal-id>
+      <journal-title-group>
+        <journal-title>Stem Cell Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2213-6711</issn>
+      <publisher>
+        <publisher-name>Elsevier</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">28157485</article-id>
+      <article-id pub-id-type="pmc">5106528</article-id>
+      <article-id pub-id-type="publisher-id">S2213-6711(16)30220-X</article-id>
+      <article-id pub-id-type="doi">10.1016/j.stemcr.2016.10.001</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>High-Throughput Toxicity and Phenotypic Screening of 3D Human Neural Progenitor Cell Cultures on a Microarray Chip Platform</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nierode</surname>
+            <given-names>Gregory&#xA0;J.</given-names>
+          </name>
+          <xref rid="aff1" ref-type="aff">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Perea</surname>
+            <given-names>Brian&#xA0;C.</given-names>
+          </name>
+          <xref rid="aff2" ref-type="aff">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>McFarland</surname>
+            <given-names>Sean&#xA0;K.</given-names>
+          </name>
+          <xref rid="aff3" ref-type="aff">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pascoal</surname>
+            <given-names>Jorge&#xA0;F.</given-names>
+          </name>
+          <xref rid="aff4" ref-type="aff">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Clark</surname>
+            <given-names>Douglas&#xA0;S.</given-names>
+          </name>
+          <xref rid="aff2" ref-type="aff">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Schaffer</surname>
+            <given-names>David&#xA0;V.</given-names>
+          </name>
+          <xref rid="aff2" ref-type="aff">2</xref>
+          <xref rid="aff3" ref-type="aff">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dordick</surname>
+            <given-names>Jonathan&#xA0;S.</given-names>
+          </name>
+          <email>dordick@rpi.edu</email>
+          <xref rid="aff1" ref-type="aff">1</xref>
+          <xref rid="cor1" ref-type="corresp">&#x2217;</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1"><label>1</label>Chemical and Biological Engineering and Center for Biotechnology &amp; Interdisciplinary Studies, Rensselaer Polytechnic Institute, Troy, NY 12180, USA</aff>
+      <aff id="aff2"><label>2</label>Chemical and Biomolecular Engineering, University of California, Berkeley, CA 94720, USA</aff>
+      <aff id="aff3"><label>3</label>Bioengineering, University of California, Berkeley, CA 94720, USA</aff>
+      <aff id="aff4"><label>4</label>Department of Bioengineering and Institute for Bioengineering and Biosciences, Instituto Superior T&#xE9;cnico, Universidade de Lisboa, Lisbon 1049-001, Portugal</aff>
+      <author-notes>
+        <corresp id="cor1"><label>&#x2217;</label>Corresponding author <email>dordick@rpi.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="pmc-release">
+        <day>27</day>
+        <month>10</month>
+        <year>2016</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on <pub-date
+						pub-type="epub">.-->
+      <pub-date pub-type="collection">
+        <day>08</day>
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>27</day>
+        <month>10</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>5</issue>
+      <fpage>970</fpage>
+      <lpage>982</lpage>
+      <history>
+        <date date-type="received">
+          <day>9</day>
+          <month>5</month>
+          <year>2016</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>30</day>
+          <month>9</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>3</day>
+          <month>10</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2016 The Author(s)</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <license license-type="CC BY" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).</license-p>
+        </license>
+      </permissions>
+      <abstract id="abs0010">
+        <title>Summary</title>
+        <p>A 3D cell culture chip was used for high-throughput screening of a human neural progenitor cell line. The differential toxicity of 24 compounds was determined on undifferentiated and differentiating NPCs. Five compounds led to significant differences in IC<sub>50</sub> values between undifferentiated and differentiating cultures. This platform has potential use in phenotypic screening to elucidate molecular toxicology on human stem cells.</p>
+      </abstract>
+      <abstract abstract-type="graphical" id="abs1015">
+        <title>Graphical Abstract</title>
+        <fig id="undfig1" position="anchor">
+          <graphic xlink:href="fx1"/>
+        </fig>
+      </abstract>
+      <abstract abstract-type="author-highlights" id="abs0015">
+        <title>Highlights</title>
+        <p>
+          <list list-type="simple">
+            <list-item id="u0010">
+              <label>&#x2022;</label>
+              <p>Demonstrated chip platform for HTS of protein expression and toxicity of 3D cultures</p>
+            </list-item>
+            <list-item id="u0015">
+              <label>&#x2022;</label>
+              <p>Dose-response viability and proliferation of a 24-compound library on human NPC lines</p>
+            </list-item>
+            <list-item id="u0020">
+              <label>&#x2022;</label>
+              <p>Assessed differential toxicity between progenitors and differentiating progeny</p>
+            </list-item>
+            <list-item id="u0025">
+              <label>&#x2022;</label>
+              <p>Identified five compounds more toxic to undifferentiated progenitors</p>
+            </list-item>
+          </list>
+        </p>
+      </abstract>
+      <abstract abstract-type="teaser" id="abs0020">
+        <p>Dordick and colleagues demonstrate a 3D cell culture chip for high-throughput screening of immortalized human neural progenitor cells. The dose-response toxicity of 24 compounds was determined on undifferentiated and differentiating hNPCs. Five compounds led to significant differences in IC<sub>50</sub> values between undifferentiated and differentiating cultures. This platform has potential use in phenotypic screening to elucidate molecular toxicology on human stem cells.</p>
+      </abstract>
+      <kwd-group id="kwrds0010">
+        <title>Keywords</title>
+        <kwd>high-content screening</kwd>
+        <kwd>human neural stem cells</kwd>
+        <kwd>high-throughput microarray</kwd>
+        <kwd>screening</kwd>
+        <kwd>neurotoxicity</kwd>
+        <kwd>three-dimensional cell culture</kwd>
+      </kwd-group>
+    </article-meta>
+    <notes>
+      <p id="misc0010">Published: October 27, 2016</p>
+    </notes>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>Introduction</title>
+      <p>Human embryonic, induced pluripotent, and adult stem cells are invaluable tools for drug discovery, human toxicology, and studies on human development. Through controlled stem cell differentiation, large quantities of cell types from various tissues have been generated, including lung, liver, intestine, and neural to name a few (<xref rid="bib25" ref-type="bibr">Lancaster et&#xA0;al., 2013</xref>, <xref rid="bib45" ref-type="bibr">Spence et&#xA0;al., 2011</xref>, <xref rid="bib48" ref-type="bibr">Takebe et&#xA0;al., 2013</xref>, <xref rid="bib49" ref-type="bibr">Wetsel et&#xA0;al., 2011</xref>). In all cases, expansion in a stem or progenitor cell state is required to achieve large cell numbers, followed by differentiation into terminally differentiated fates. Such expansion and differentiation processes depend on myriad soluble factors, and cellular interactions with other cells and the extracellular matrix (ECM). This complexity has motivated the development of high-throughput screening tools to explore the large combinatorial signaling &#x201C;space&#x201D; associated with stem cell&#xA0;differentiation. The development of high-throughput screening platforms that emulate the complexity of natural stem cell microenvironments has provided basic insights into stem cell regulation, as well as enabling numerous applications (<xref rid="bib30" ref-type="bibr">Lutolf et&#xA0;al., 2009</xref>, <xref rid="bib44" ref-type="bibr">Soen et&#xA0;al., 2006</xref>). For example, toxicity screening systems that use human stem/progenitor cells and their terminally differentiated&#xA0;derivatives may help improve preclinical characterization of drug candidates and thereby reduce the extremely&#xA0;high attrition rates that plague drug development, often due to unforeseen toxicity (<xref rid="bib19" ref-type="bibr">Hay et&#xA0;al., 2014</xref>, <xref rid="bib27" ref-type="bibr">Ledford, 2011</xref>).</p>
+      <p>Cell-based microarrays have been used to screen for the effects of arrayed ECM proteins on neural stem cell proliferation and differentiation (<xref rid="bib44" ref-type="bibr">Soen et&#xA0;al., 2006</xref>). The experimental platforms for these cell-based studies, however, have been almost uniformly focused on two-dimensional (2D) environments, despite the fact that three-dimensional (3D) approaches have gained increasing interest (<xref rid="bib40" ref-type="bibr">Ranga et&#xA0;al., 2014</xref>). In particular, 3D culture models may better mimic the in&#xA0;vivo cellular microenvironment, which can be critical in phenotypic screens (<xref rid="bib3" ref-type="bibr">Barcellos-Hoff et&#xA0;al., 1989</xref>, <xref rid="bib50" ref-type="bibr">Yarmush and King, 2009</xref>). However, challenges remain in developing and implementing microarray-based 3D systems for screening purposes, including developing stable natural or synthetic matrices that enable rapid diffusion of soluble factors and reagents&#xA0;for 3D-based studies (<xref rid="bib28" ref-type="bibr">Li et&#xA0;al., 2014</xref>, <xref rid="bib40" ref-type="bibr">Ranga et&#xA0;al., 2014</xref>, <xref rid="bib50" ref-type="bibr">Yarmush and King, 2009</xref>). Furthermore, samples arrayed on a surface often share the&#xA0;same culture medium, whereas it would be desirable to screen many liquid media compositions using a 3D culture platform. To address these limitations, we developed a microfabricated plastic &#x201C;chip&#x201D; system capable of 3D cell culture at the nanoliter scale. This platform, which has been described previously for rapid toxicity screening of compounds with human hepatocellular carcinoma cells,&#xA0;consists of two complementary chips that &#x201C;stamp&#x201D; together to generate up to 532 independent microscale cultures per chip (<xref rid="bib23" ref-type="bibr">Kwon et&#xA0;al., 2014</xref>).</p>
+      <p>In the current work, we use this chip-based microarray platform to culture and perform high-content screening of a human neural progenitor cell (NPC) line, ReNcell VM, in 3D microscale cultures encapsulated within Matrigel. The NPCs were maintained in their multipotent state or induced to differentiate, and the resultant cultures were used to quantify expression of key cellular proteins, screen for acute toxicity and anti-proliferative effects of a diverse range of biologically active compounds, and investigate whether variable toxic sensitivities exist between undifferentiated and differentiating cells. Such information provides new insight into how miniaturization of 3D cell culture impacts NPC proliferation and differentiation for use in high-content, high-throughput screening of toxicity and cell phenotype.</p>
+    </sec>
+    <sec id="sec2">
+      <title>Results</title>
+      <sec id="sec2.1">
+        <title>Characterization of 3D Microarray NPC Cultures</title>
+        <p>The microarray chip platform consists of two complementary polystyrene microchips with 532 micropillars (PillarChip) or microwells (WellChip). Cells are encapsulated in a 3D matrix atop a PillarChip, which is submerged into a WellChip for on-chip culture (<xref rid="fig1" ref-type="fig">Figure&#xA0;1</xref>). In general, 3D cultures require cumbersome imaging and analytical techniques (e.g., confocal imaging and stack reconstruction) (<xref rid="bib29" ref-type="bibr">Li et&#xA0;al., 2015</xref>). To simplify this process, on-chip 3D cultures were rapidly dried for image processing and analysis; however, for samples labeled with fluorescent live-cell stains, this resulted in cell lysis. It was reasoned this cell lysis could be prevented with a lyoprotectant, and addition of 50&#xA0;mM trehalose to the Dulbecco's phosphate-buffered saline (DPBS) wash solution prior to drying indeed preserved cytoplasmic staining of calcein, enabling the simplified imaging approach (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S1</xref>A).</p>
+        <p>The sensitivity of fluorescent live-cell stains to assess quantitatively cell spots was determined using on-chip cultures prepared with a range of cell densities (up to 1&#xA0;&#xD7; 10<sup>7</sup> cells/mL). As anticipated, we observed a near-linear relationship between fluorescence intensity and seeding density for calcein and Hoechst 33342, which demonstrated that the fluorescence intensities are representative of living and total cells, respectively, within the 3D on-chip cultures&#xA0;(<xref rid="fig2" ref-type="fig">Figures 2</xref>A&#x2013;2C). Single-cell analysis revealed on-chip post-printing viability of NPC cultures to be 84% &#xB1; 5% and 80% &#xB1; 6% (mean &#xB1; SD, n&#xA0;= 396 biological replicates) in 0.5% and 1% Matrigel, respectively, at 300 cells per spot (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S1</xref>B). ReNcell VM, the human NPC line used in this study, is a commercially available, <italic>v-myc</italic> immortalized region-specific human neural progenitor cell line derived from ventral mesencephalon bulk tissue dissections of a 10-week fetus (<xref rid="bib14" ref-type="bibr">Donato et&#xA0;al., 2007</xref>). Arrayed, undifferentiated NPCs encapsulated in Matrigel (0.5% and 1% [w/v]) had a compact cylindrical/spherical shape (<xref rid="fig2" ref-type="fig">Figure&#xA0;2</xref>D), notably different from their spread and flattened appearance in 2D monolayer cultures (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S1</xref>C). Calcein staining indicated that the cells were uniformly distributed throughout the cell spots, and the estimated average spot height (n&#xA0;= 3 biological replicates) was 250 &#xB1; 17&#xA0;&#x3BC;m and 204 &#xB1; 5&#xA0;&#x3BC;m for 0.5% and 1% Matrigel, respectively (<xref rid="fig2" ref-type="fig">Figure&#xA0;2</xref>E).</p>
+        <p>The effects of encapsulating and soluble Matrigel concentration, fibroblast growth factor 2 (FGF2) and epidermal growth factor (EGF) concentrations, seeding density, and frequency of medium change were screened in a 2<sup>5</sup> factorial design experiment, which revealed daily medium change had a significant impact on growth and viability on-chip, and was thus employed in subsequent experiments (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S2</xref>). The concentration of EGF and FGF2, and soluble or encapsulating Matrigel, had statistically insignificant effects on cell viability and growth. In addition, cultures seeded at 500 cells/spot had a significantly higher calcein fluorescence than those seeded at 300 cells/spot, which demonstrated that the cultures remained viable at higher cell densities.</p>
+        <p>The effect of culture time on NPC proliferation when cultured within Matrigel on-chip was measured in a time-lapse experiment. Four on-chip cultures were prepared with either 0.5% or 1% Matrigel, and viability across an entire chip was measured after 1, 3, 5, and 7&#xA0;days of culture. As anticipated, calcein fluorescence intensity per spot increased over time (<xref rid="fig2" ref-type="fig">Figures 2</xref>F and 2G). NPCs cultured on-chip experienced a lag phase (&#x223C;1&#x2013;2&#xA0;days) followed by growth with calculated cell doubling times of &#x223C;67 and &#x223C;70&#xA0;hr for 0.5% and 1% Matrigel, respectively. Ultimately, 1% Matrigel encapsulation resulted in increased physical&#xA0;stability of cell spots and was used for subsequent screening.</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>Protein Expression of NPCs in 3D Microscale Cultures On-Chip</title>
+        <p>Several proteins associated with the maintenance and/or function of various cell states were used as markers to characterize undifferentiated and differentiated NPC phenotypes. Undifferentiated NPCs express the intermediate filament Nestin (NES) and transcription factor SOX2 (<xref rid="bib22" ref-type="bibr">Komitova and Eriksson, 2004</xref>, <xref rid="bib37" ref-type="bibr">Park et&#xA0;al., 2010</xref>), and can express additional markers such as glial fibrillary acidic protein (GFAP), an intermediate filament also expressed in terminally differentiated astrocytes (<xref rid="bib17" ref-type="bibr">Goldman, 2003</xref>). Differentiating NPCs begin to express proteins associated with specific terminal lineages, e.g., astrocyte differentiation can be characterized by increased expression of GFAP and S100&#x3B2;, a regulatory calcium-binding protein (<xref rid="bib5" ref-type="bibr">Bignami et&#xA0;al., 1972</xref>, <xref rid="bib31" ref-type="bibr">Markiewicz and Lukomska, 2006</xref>, <xref rid="bib41" ref-type="bibr">Raponi et&#xA0;al., 2007</xref>). Analogously, progenitor cells differentiating into neurons transiently express doublecortin (DCX), a microtubule-associated protein, before terminal differentiation and expression of &#x3B2;III tubulin (TUBB3), a microtubule protein (<xref rid="bib11" ref-type="bibr">Couillard-Despres et&#xA0;al., 2006</xref>, <xref rid="bib42" ref-type="bibr">Roskams et&#xA0;al., 1998</xref>). Cells differentiating into oligodendrocytes express CNPase (CNP), an enzyme involved in myelination (<xref rid="bib46" ref-type="bibr">Sprinkle, 1989</xref>).</p>
+        <p>Withdrawal of EGF and FGF2 from culture medium is expected to induce differentiation of ReNcell VM, during which time the stem/progenitor cells experience significant changes in morphology, protein expression, and function to develop into terminally differentiated phenotypes (<xref rid="bib14" ref-type="bibr">Donato et&#xA0;al., 2007</xref>, <xref rid="bib47" ref-type="bibr">Sun et&#xA0;al., 2008</xref>). Immunofluorescence characterization of protein markers associated with undifferentiated and differentiated cell states before and after induction of differentiation has, to our knowledge, not been done with this cell line. Thus, we proceeded to assess differentiation induced by EGF and FGF2 withdrawal using both immunofluorescence and western blot analysis. To address antibody quality, primary antibodies were validated using human cell lines to verify specificity for immunofluorescence (<xref rid="mmc1" ref-type="supplementary-material">Figures S3</xref>A&#x2013;S3D).</p>
+        <p>ReNcell VM cultured as monolayers (2D) or embedded within 1% Matrigel (3D) were cultured with and without EGF and FGF2 to assess protein expression. For undifferentiated 2D cultures (+EGF/FGF2), expression of DCX, TUBB3, GFAP, SOX2, and NES was detected by both western analysis (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>A) and immunofluorescence (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>E). Differentiation induced through removal of EGF and FGF2 for 10&#xA0;days resulted in drastic morphological changes (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S1</xref>C). Western analysis revealed that the&#xA0;loading control-relative expression of TUBB3, GFAP, and CNP increased while, unexpectedly, the expression of NES and SOX2 persisted (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>A). A second SOX2 antibody was used in a repeat experiment to account for the possibility of a non-specific signal, yielding a similar result (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>B). Notably, 2D differentiation for 6&#xA0;weeks resulted in substantial SOX2 downregulation (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>C). Immunofluorescence analysis revealed that differentiating ReNcell VM continued to express SOX2, NES, DCX, and GFAP while the number of cells expressing TUBB3 increased (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>F) after 10&#xA0;days. S100&#x3B2; and CNP expression was undetected in 2D cultures by immunofluorescence (data not shown). Western analysis of 3D slab cultures revealed an increase in relative expression of TUBB3 and GFAP after culture without EGF and FGF2 (<xref rid="fig3" ref-type="fig">Figure&#xA0;3</xref>D), similar to 2D. However, there were also notable differences between monolayer and 3D slab differentiation. Specifically, in the 3D slab cultures CNP was undetected, and there was an increase in relative expression of SOX2 and NES after 10&#xA0;days without EGF and FGF2.</p>
+        <p>Analysis of protein expression on-chip was performed using a modified in-cell, on-chip immunofluorescence assay. Sensitivity of the assay was first determined by spotting undifferentiated NPCs at varied cell densities (1, 2.5, and 5&#xA0;&#xD7; 10<sup>6</sup> cells/mL) in 1% Matrigel followed by immunofluorescence-based detection of NES and GFAP. As anticipated, the total fluorescence intensity of each marker increased with spotting cell density (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S3</xref>E). Dividing immunofluorescence intensity by Hoechst 33342 intensity within each spot resulted in similar normalized values for all seeding densities (<xref rid="mmc1" ref-type="supplementary-material">Figure&#xA0;S3</xref>F), suggesting that Hoechst 33342 intensity normalization accounts for differences in cell number when analyzing protein expression on-chip. Expression of protein markers indicative of cell fate was then quantified on-chip after a 5-day culture with EGF and FGF2 and again after 10 subsequent days without EGF and FGF2 to induce differentiation. Undifferentiated cultures (+EGF/FGF2) expressed SOX2, NES, GFAP, and DCX after culture on-chip (<xref rid="fig4" ref-type="fig">Figure&#xA0;4</xref>A). Differentiation (&#x2212;EGF/FGF2) resulted in growth of cell extensions, depicted in the immunofluorescence images of GFAP and NES (<xref rid="fig4" ref-type="fig">Figure&#xA0;4</xref>B). Expression of SOX2 persisted while NES, TUBB3, GFAP, S100&#x3B2;, and DCX expression increased (p&#xA0;&lt; 0.05, two-tailed t test; <xref rid="fig4" ref-type="fig">Figure&#xA0;4</xref>A) in differentiating cultures.</p>
+        <p>Taken together, these results suggest that while EGF and&#xA0;FGF2 withdrawal is sufficient for inducing increased expression of terminal markers, the extent of differentiation is moderate after only 10&#xA0;days. Nonetheless, the changes in protein expression support the conclusion the NPCs cultured without EGF and FGF2 are in the <italic>process</italic> of differentiating into primarily pan-astrocytic and neuronal lineages.</p>
+      </sec>
+      <sec id="sec2.3">
+        <title>Acute Toxicity Screening of NPCs in 3D Microarray Cultures</title>
+        <p>To demonstrate the high-throughput screening capability of the chip platform, we evaluated the dose-response effects on cell viability of a 24-compound library with diverse structural and biological properties, consisting of approved drugs, heavy metals, and pesticides, some of which are regarded as acutely neurotoxic (<xref rid="mmc1" ref-type="supplementary-material">Table S2</xref>). Cell proliferation was then tested for a subset of this library. For both viability and proliferation, the effect of the compounds was tested on both undifferentiated and differentiating NPC cultures, which would uncover cell-state specific (self-renewal versus differentiation) differences in toxicity.</p>
+        <p>On-chip cultures of undifferentiated and 10-day differentiated NPCs were stamped with WellChips filled with compound-containing solutions and incubated for 72&#xA0;hr prior to viability assessment. Vehicle-control normalized viabilities were plotted against compound concentration to&#xA0;generate dose-response plots (<xref rid="fig5" ref-type="fig">Figures 5</xref>A and <xref rid="mmc1" ref-type="supplementary-material">S4</xref>). The acute&#xA0;viability screen identified 16 compounds that substantially decreased viability (&#x2265;50% killing) relative to controls (<xref rid="mmc1" ref-type="supplementary-material">Table S3</xref>). The dose-response data for nine of&#xA0;these compounds were suitable for sigmoidal curve fitting and calculation of a median inhibitory concentration (IC<sub>50</sub>) value (<xref rid="tbl1" ref-type="table">Table 1</xref>). The sigmoidal fits for undifferentiated and differentiating NPCs were compared to assess whether differential sensitivities (i.e., different IC<sub>50</sub> values) existed for the screened compounds. Statistically significant (p&#xA0;&lt; 0.05, two-tailed t test) IC<sub>50</sub> values were observed between undifferentiated and differentiating cultures for retinoic acid, doxorubicin (DOX), 5-fluorouracil (5-FU), pitavastatin, and acetaminophen. In addition, the IC<sub>50</sub> values in response to cytosine arabinoside (CA) were notably different, although the statistical difference warranted further investigation (p&#xA0;&lt; 0.10, two-tailed t test). The resulting differences in viability between undifferentiated and differentiating cultures in response to pitavastatin and 5-FU (<xref rid="fig5" ref-type="fig">Figures 5</xref>A and <xref rid="mmc1" ref-type="supplementary-material">S4</xref>) was particularly interesting, with substantially greater killing of undifferentiated cultures for these compounds.</p>
+        <p>Differential toxic effects could be explained, in part, as a consequence of the different proliferative states between the undifferentiated and differentiating NPCs. To this end, the thymidine analog, 5-ethynyl-2&#x2032;-deoxyuridine (EdU), was used to detect actively proliferating cells on-chip following exposure to compounds or vehicle control to determine dose-response effects on proliferation (<xref rid="fig5" ref-type="fig">Figures 5</xref>B and <xref rid="mmc1" ref-type="supplementary-material">S5</xref>), and sigmoidal curves were fit,&#xA0;when appropriate, to obtain IC<sub>50</sub> values (<xref rid="tbl1" ref-type="table">Table 1</xref>). We found &#x223C;60% of undifferentiated NPCs incorporated EdU over a 24-hr period as opposed to &#x223C;3% of differentiating cultures. Following exposure to 5-FU, a known anti-proliferative agent, we observed a sharp decrease to no EdU incorporation in both undifferentiated and differentiating NPC cultures. In consideration with the differential cytotoxicity induced by 5-FU, this result confirms the different proliferation rates of undifferentiated and differentiating culture contributes to their differential sensitivities.</p>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>Discussion</title>
+      <p>There is considerable interest in developing high-throughput technologies for microscale analysis and screening of both undifferentiated and differentiated human stem/progenitor populations to aid drug screening and toxicity analysis (<xref rid="bib4" ref-type="bibr">Bhatia and Ingber, 2014</xref>, <xref rid="bib15" ref-type="bibr">El-Ali et&#xA0;al., 2006</xref>). Animal models are often used to assess toxicity, including neurotoxicity, but they are associated with high costs and results that often have poor translation to humans (<xref rid="bib13" ref-type="bibr">DiMasi et&#xA0;al., 2003</xref>, <xref rid="bib19" ref-type="bibr">Hay et&#xA0;al., 2014</xref>). Human cell-based microarray screening systems are attractive because of automated systems for handling liquids that can enable screening with&#xA0;minimal reagent consumption. This is of particular interest in elucidating the influence of ECM factors and/or signaling pathways on stem/progenitor function and differentiation and to investigate the large combinatorial space associated with their respective microenvironments.</p>
+      <p>In the present work, we have demonstrated a chip-based microarray platform that allows for simple medium exchange on microscale 3D cultures. Importantly, on-chip growth and differentiation of a human progenitor cell line was possible for more than 2&#xA0;weeks. In addition, sensitive fluorescence-based assays were compatible to screen for protein expression, cytotoxicity, and proliferation. The system presented herein is advantageous for several reasons. Miniaturization of 3D cultures, which may better emulate in&#xA0;vivo conditions, permits investigation under conditions where diffusional limitations are negligible (<xref rid="bib40" ref-type="bibr">Ranga et&#xA0;al., 2014</xref>, <xref rid="bib34" ref-type="bibr">Meli et&#xA0;al., 2014</xref>). Moreover, the modularity of a system with two complementary chips (one for&#xA0;cells and one for medium components) that stamp together to generate the high-throughput cell culture is potentially suitable for 3D parallel screening. This is fundamentally distinct from other high-throughput 3D microscale culture platforms, e.g., in 1536-well plates, where medium exchange is cumbersome and specialized automated systems are often optimized for 2D cultures, which restricts the duration of culture and/or screening (<xref rid="bib40" ref-type="bibr">Ranga et&#xA0;al., 2014</xref>).</p>
+      <p>The growth rate of ReNcell VM cultured on-chip in 3D Matrigel was roughly three times slower than that reported for 2D cultures (<xref rid="bib14" ref-type="bibr">Donato et&#xA0;al., 2007</xref>, <xref rid="bib34" ref-type="bibr">Meli et&#xA0;al., 2014</xref>). The on-chip 3D cultures are prepared at a medium-to-cell ratio that is about half that typically used with larger-scale (i.e., flask) 2D cultures. Thus, the relative quantity of available nutrients as a result of scale-down could contribute to delayed growth. In agreement with this, our factorial screen identified that more frequent medium change led to higher numbers of viable cells. We reasoned it was unlikely that diffusional limitations were contributing to slower cellular growth with our &#x223C;200&#xA0;&#x3BC;m cell spots because <xref rid="bib40" ref-type="bibr">Ranga et&#xA0;al.&#xA0;(2014)</xref> demonstrated that soluble nutrients rapidly diffused throughout PEG-based hydrogels of &#x223C;500&#xA0;&#x3BC;m in thickness, while <xref rid="bib33" ref-type="bibr">Meli et&#xA0;al. (2012)</xref> reported that oxygen diffusional limitation in 3D microscale cultures was negligible. Nonetheless, crosslinked Matrigel has been reported to have pore sizes &lt;2&#xA0;&#x3BC;m, which could result in physical constraints on cell growth in the encapsulated environment (<xref rid="bib51" ref-type="bibr">Zaman et&#xA0;al., 2006</xref>). Thus, the slower growth observed on-chip could be a result of the need for NPCs to remodel and/or displace the encapsulating matrix to&#xA0;accommodate cell growth and cell-cell interactions. Regardless, conditions that mediate slow growth can be compatible with stem cell differentiation.</p>
+      <p>Our observation that the expression of multipotency markers (SOX2 and NES) persisted in 2D cultures, and even increased relative to undifferentiated cultures in 3D after 10&#xA0;days of differentiation, was of note. Nevertheless, it has been demonstrated that NES expression decreases slowly; human midbrain neural progenitors have been shown to retain NES expression beyond 4&#xA0;weeks of differentiation both in&#xA0;vitro and in&#xA0;vivo (<xref rid="bib47" ref-type="bibr">Sun et&#xA0;al., 2008</xref>, <xref rid="bib52" ref-type="bibr">Zhang et&#xA0;al., 2001</xref>). However, SOX2 expression is expected to decrease following differentiation into an oligopotent cell&#xA0;state (<xref rid="bib2" ref-type="bibr">Bani-Yaghoub et&#xA0;al., 2006</xref>, <xref rid="bib18" ref-type="bibr">Graham et&#xA0;al., 2003</xref>). ReNcell VM was immortalized by <italic>v-myc</italic> gene transduction of primary fetal neural progenitors. Recently <xref rid="bib38" ref-type="bibr">Pino-Barrio et&#xA0;al. (2015)</xref> reported that inducing <italic>v-myc</italic> expression in NPCs increases SOX2 expression (<xref rid="bib14" ref-type="bibr">Donato et&#xA0;al., 2007</xref>). Therefore, it is possible that overexpression of <italic>v-myc</italic> impacts the downregulation of SOX2 during differentiation of ReNcell VM, which could prolong or interfere with terminal differentiation. However, the downregulation of SOX2 after a 6-week differentiation suggests that <italic>v-myc</italic> immortalization does not inhibit the eventual downregulation of this multipotency marker.</p>
+      <p>Removal of growth factor-mediated self-renewal signaling in NPC cultures should result in increased expression of terminal differentiation markers (<xref rid="bib18" ref-type="bibr">Graham et&#xA0;al., 2003</xref>, <xref rid="bib47" ref-type="bibr">Sun et&#xA0;al., 2008</xref>). Indeed, in 2D monolayer cultures, ReNcell VM increased expression of proteins associated with terminal differentiation into astrocytes, neurons, and oligodendrocytes. Other studies have reported similar results with ReNcell VM after differentiation induced by growth factor withdrawal in monolayer culture (<xref rid="bib14" ref-type="bibr">Donato et&#xA0;al., 2007</xref>, <xref rid="bib20" ref-type="bibr">Hoffrogge et&#xA0;al., 2006</xref>, <xref rid="bib26" ref-type="bibr">Lange et&#xA0;al., 2011</xref>), and terminal neuronal differentiation has been limited without employing methods aimed at directing neuronal differentiation. For example, <xref rid="bib26" ref-type="bibr">Lange et&#xA0;al. (2011)</xref> reported that &lt;3% of cells expressed TUBB3 after 7&#xA0;days of differentiation induced by growth factor withdrawal. In 3D Matrigel, observed changes in protein marker expression upon differentiation were notably different compared with 2D cultures, which suggests that Matrigel impacts the spontaneous differentiation of ReNcell VM. Matrigel is a complex mixture of diverse ECM&#xA0;components, including proteoglycans, which may also impact differentiation. In addition, self-renewal growth factors (EGF and/or FGF2) may remain in the 3D matrix even after their removal from medium due to cytokine-matrix interactions, which could influence the progression of NPC differentiation. Indeed, <xref rid="bib1" ref-type="bibr">Akashi et&#xA0;al. (2005)</xref> observed reduced diffusion of FGF2 through Matrigel matrices, suggesting that its elimination from the microenvironment could be delayed.</p>
+      <p>Moderate increased expression of terminal markers with retained expression of multipotency markers after 10&#xA0;days suggests that spontaneous terminal ReNcell VM differentiation progresses slowly, and this may not be unique. <xref rid="bib43" ref-type="bibr">Shi et&#xA0;al. (2012)</xref> reported that terminal differentiation of iPSC-derived forebrain neural progenitors entailed a 20-day culture. Furthermore, <xref rid="bib9" ref-type="bibr">Choi et&#xA0;al. (2014)</xref> reported differentiating ReNcell VM for 6&#xA0;weeks or longer to derive high proportions of terminally differentiated cells in 3D Matrigel. Thus, long-term differentiation may be required to obtain a high degree of terminally differentiated neural cells with ReNcell VM. Nonetheless, while not substantially terminally differentiated, ReNcell VM cultured without growth factors for 10&#xA0;days were distinct from those grown in the presence of EGF and FGF2 and are likely a mixture of NPCs at various stages of differentiation.</p>
+      <p>Of the 16 compounds that substantially decreased viability, seven had IC<sub>50</sub> concentrations &lt;100&#xA0;&#x3BC;M. This included acutely toxic compounds (e.g., paraquat, CdCl<sub>2</sub>) with IC<sub>50</sub> values consistent with literature values (<xref rid="bib6" ref-type="bibr">Breier et&#xA0;al., 2008</xref>). Compounds without potent neurotoxicity (e.g., acetaminophen, caffeine, diphenhydramine) were found to have no cytotoxicity at functionally relevant concentrations, and only at concentrations associated with systemic human toxicity did decreases in viability occur (<xref rid="bib7" ref-type="bibr">Brent et&#xA0;al., 2011</xref>, <xref rid="bib10" ref-type="bibr">Clemedson et&#xA0;al., 2007</xref>, <xref rid="bib39" ref-type="bibr">Radovanovic et&#xA0;al., 2000</xref>). PbCl<sub>2</sub> and MnCl<sub>2</sub> did not reduce cell viability for either undifferentiated or differentiating cultures. Their neurotoxicity is associated with complex mechanisms that often do not manifest as acute cytotoxicity (<xref rid="bib36" ref-type="bibr">Neal and Guilarte, 2013</xref>). Taken together, these results begin to define the utility of the immortalized ReNcell VM for assessing chemical neurotoxicity.</p>
+      <p>Five compounds elicited differential effects on undifferentiated and differentiating NPCs. All-<italic>trans</italic> retinoic acid&#xA0;is an important endogenous neurodevelopmental signaling small molecule that can also act as a developmental teratogen when dysregulated (<xref rid="bib24" ref-type="bibr">Lammer et&#xA0;al., 1985</xref>, <xref rid="bib32" ref-type="bibr">McCaffery et&#xA0;al., 2003</xref>), and undifferentiated NPCs exhibited a lower IC<sub>50</sub> in response to retinoic acid versus differentiating NPCs. In addition, retinoic acid increased the average number of proliferating cells within differentiated cultures by greater than 3-fold at lower concentrations. Notably, the neurodevelopmental effects and sensitivity of rats to retinoic acid has previously been found to be dependent on the concentration and onset of exposure (<xref rid="bib32" ref-type="bibr">McCaffery et&#xA0;al., 2003</xref>). As highlighted above, the acetaminophen concentrations needed to observe toxicity were above those that would be pharmacologically effective, although a large difference in sensitivity was observed between undifferentiated and differentiating cultures.</p>
+      <p>Pitavastatin, a 3-hydroxy-3-methyl-glutaryl-coenzyme A (HmG-CoA) reductase inhibitor, was cytotoxic only to undifferentiated NPCs, whereas another HmG-CoA reductase inhibitor, cilastatin, had no effect. Similarly, 5-FU was substantially more toxic to undifferentiated cultures and resulted in nearly complete killing while minimally impacting differentiating cultures. Both drugs were also found to inhibit the proliferation of NPC cultures, which suggests that the mechanism of toxicity was predominantly anti-proliferative (in agreement with their known mechanisms of toxicity) because they did not decrease the viability of&#xA0;slowly proliferating differentiating NPCs (<xref rid="bib8" ref-type="bibr">Chan et&#xA0;al., 2003</xref>, <xref rid="bib12" ref-type="bibr">Diasio and Harris, 1989</xref>). The observation that pitavastatin inhibited proliferation and that cilastatin did not is consistent with the finding of <xref rid="bib8" ref-type="bibr">Chan et&#xA0;al. (2003)</xref> that statins have highly variable anti-proliferative effects on various cell lines and cancers.</p>
+      <p>DOX and CA are well-known chemotherapeutics with anti-proliferative and cytotoxic activity (<xref rid="bib16" ref-type="bibr">Gewirtz, 1999</xref>, <xref rid="bib35" ref-type="bibr">Momparler, 1982</xref>). For undifferentiated NPCs, DOX gave lower NPC viability (lower IC<sub>50</sub>), and to a lesser extent so did CA (p&#xA0;&lt; 0.10), in comparison with differentiating NPCs. Because &#x223C;3% of differentiating NPCs actively proliferated, the effects of DOX and CA suggest that cytotoxicity was the predominant mechanism of killing differentiating NPCs. This result also suggests that undifferentiated NPCs may be more sensitive to these compounds as a result of both anti-proliferative and cytotoxic mechanisms being effective against the undifferentiated, highly proliferative cell state.</p>
+      <p>The results presented herein demonstrate the application of a microarray chip platform as a sensitive screening tool capable of detecting differential toxicities of biologically active compounds in human NPCs of varied levels of differentiation. Given the need to develop in&#xA0;vitro screening platforms that can assess the activity and toxicity of chemicals on human cells, the chip platform may serve as a 3D phenotypic screening tool to better predict toxicity of, or identify, bioactive compounds in human stem/progenitor cells. Further research on non-immortalized NPCs may provide useful insights into the influence of specific compounds on stem cells and their progeny of various fates.</p>
+    </sec>
+    <sec id="sec4">
+      <title>Experimental Procedures</title>
+      <sec id="sec4.1">
+        <title>Human Neural Progenitor Cell Culture</title>
+        <p>ReNcell VM (Millipore) was used in this study at passage number 16 or lower. Cells were grown on laminin (Sigma)-coated T25 or T75 tissue-culture-treated flasks in complete growth medium composed of ReNcell Maintenance Medium (Millipore) containing 20&#xA0;ng/mL FGF2 (Millipore), 20&#xA0;ng/mL EGF (Millipore), and 1% (v/v) penicillin-streptomycin (Gibco). Cells were passaged using Accutase and re-plated at 10,000 cells/cm<sup>2</sup> when 90% confluent. Medium was changed the day after passaging and every second day after that. For off-chip 3D culture, ReNcell VM were seeded at 890,000 cells/mL in 100&#xA0;&#x3BC;L of 1% Matrigel in 8-well chamber microscope slides (Nunc) with daily medium change. All cultures were maintained at 37&#xB0;C and 5% CO<sub>2</sub>.</p>
+      </sec>
+      <sec id="sec4.2">
+        <title>3D Microarray Culture Preparation</title>
+        <p>Polystyrene micropillar and microwell chips (SEMCO) were exposed to UV (302&#xA0;nm) light (9&#xA0;cm from source) for 4&#xA0;hr using a 96-W transilluminator (Syngene GVM-30), following a similar procedure to that of <xref rid="bib21" ref-type="bibr">Kohen et&#xA0;al. (2009)</xref>, which helped maintain the cell spots atop the micropillars without covalent attachment. An enclosed MicroSys 5100-4SQ (DigiLab) non-contact robotic microarray spotting system was used for printing. During operation, the relative humidity was maintained above 95% to reduce evaporation. The MicroSys 5100-4SQ spotting head was modified with two water-block assemblies for circulation of chilled ethylene glycol-water to maintain the printer head between 2 and 8&#xB0;C during Matrigel spotting.</p>
+        <p>To prepare microarray cultures, 850 nL of complete growth medium was printed into WellChips and covered with gas-permeable sealing membranes (Diversified Biotech) and stored in an incubator (37&#xB0;C and 5% CO<sub>2</sub>). High-concentration growth factor-reduced Matrigel (Corning Life Sciences) was used for 1% (w/v) encapsulation and growth factor-reduced phenol red-free Matrigel (Corning Life Sciences) was used for 0.5% (w/v) encapsulation. Cooled suspensions of newly passaged ReNcell VM were mixed with Matrigel in a ratio such that the final cell concentration was 3&#xA0;&#xD7; 10<sup>6</sup> cells/mL, unless otherwise noted, with final Matrigel concentrations of either 0.5% or 1% (w/v) and stored on ice until printing. The cooled microarray system was used to print the Matrigel-cell mixtures onto PillarChips (&#x223C;300 cells within each spot). Following printing, the PillarChips were incubated 4&#xA0;min at 25&#xB0;C followed by 10&#xA0;min at 37&#xB0;C in a humid chamber to polymerize the Matrigel. After gelation, a PillarChip was stamped into a WellChip containing warmed complete growth medium and stored in a humidified chamber for culture. The medium was changed daily unless otherwise noted. Periphery wells were not analyzed to prevent potential evaporation from affecting the results.</p>
+      </sec>
+      <sec id="sec4.3">
+        <title>Live/Dead Viability Assay</title>
+        <p>Cell viability was determined in 3D on-chip cultures using a mammalian cell viability assay (LIVE/DEAD, Invitrogen). Prior to the assay, dead cell controls were prepared with 30&#xA0;min incubation in a WellChip containing either complete medium or 0.5% (w/v) saponin-DMEM/F12 medium in its microwells. PillarChips were rinsed twice with warm DPBS and incubated for 25&#xA0;min in DPBS with 1 g/L glucose, 4&#xA0;&#x3BC;M calcein-AM, 2&#xA0;&#x3BC;M ethidium homodimer-I, and 5&#xA0;mg/mL Hoechst 33342 at 5% CO<sub>2</sub> and 37&#xB0;C. After staining, PillarChips were rinsed twice with warm DPBS and incubated in DPBS containing 50&#xA0;mM trehalose (Sigma) for 10&#xA0;min before rapid drying with nitrogen and storage in the dark. Dried PillarChips were imaged with a Thermo Scientific Cellomics ArrayScan VTI high-content system.</p>
+      </sec>
+      <sec id="sec4.4">
+        <title>In-Cell Immunofluorescence Assays</title>
+        <p>Undifferentiated NPCs were plated on laminin-coated 96-well plates and cultured for 3&#xA0;days in complete growth medium prior to fixation. Differentiated NPCs were prepared by expanding undifferentiated NPCs for 3&#xA0;days, followed by differentiation in medium without EGF and FGF2 for 10&#xA0;days with daily medium change to emulate on-chip conditions. Cells were rinsed with warm DPBS and fixed with 4% (w/v) formaldehyde and 0.25% (w/v) glutaraldehyde in DPBS for 20&#xA0;min at room temperature. Fixed cells were permeated with 0.25% (v/v) Triton X-100 in DPBS for 10&#xA0;min, rinsed with DPBS, and quenched for 30&#xA0;min in DPBS with 2&#xA0;mg/mL sodium borohydride (Sigma). Cells were blocked overnight at 4&#xB0;C in DPBS with 5% (w/v) BSA and 1% (v/v) goat serum and incubated in primary antibody solutions diluted into DPBS containing 1% (w/v) BSA and 10 ppm anti-foam C (Sigma) overnight at 4&#xB0;C. Samples were washed three times with DPBS for 2&#xA0;hr before repeating the antibody incubation step for secondary antibodies. A complete list of primary and secondary antibodies, vendors, and dilutions used is presented in <xref rid="mmc1" ref-type="supplementary-material">Table S1</xref>. After incubation with secondary antibodies, samples were washed three times with DPBS for 2&#xA0;hr before 10&#xA0;min incubation in DPBS with 5&#xA0;&#x3BC;g/mL Hoechst 33342 and a final rinse with DPBS. An inverted fluorescent microscope was used for imaging and ImageJ was used to process images.</p>
+        <p>On-chip undifferentiated NPCs were analyzed after 5&#xA0;days and&#xA0;differentiated cells after a 10-day differentiation following a&#xA0;5-day expansion. Antibody incubations were performed in 750&#xA0;nL of antibody containing solutions on-chip. After the final washes, PillarChips were rinsed with DPBS containing 50&#xA0;mM trehalose for 10&#xA0;min before being completely dried with nitrogen and stored in the dark. Dried PillarChips were imaged using a Thermo Scientific Cellomics ArrayScan VTI high-content system. Control cell spots incubated solely with fluorescently labeled secondary antibodies yielded low, non-specific background signals that were subtracted during analysis.</p>
+      </sec>
+      <sec id="sec4.5">
+        <title>Western Blotting</title>
+        <p>Protein concentration of lysates was estimated using a BCA assay (Sigma). Equal amounts of protein (&#x223C;10&#xA0;&#x3BC;g) were loaded into either 8% or 12% cast SDS-PAGE gels. Gels were resolved at 120&#xA0;V in a Tris-glycine buffer and electrotransferred to a nitrocellulose membrane for either 60&#xA0;min at 100&#xA0;V (12% gel) or overnight at 30&#xA0;V (8% gel) at&#xA0;4&#xB0;C. Membranes were rinsed with Tris-buffered saline (TBS), blocked in 5% (w/v) BSA TBS for 1&#xA0;hr at room temperature, and incubated overnight at 4&#xB0;C in primary antibody solutions diluted in blocking buffer with 0.05% (v/v) Tween 20. Membranes were rinsed with TBS containing 0.05% Tween 20 (TBST) and incubated with an appropriate secondary antibody diluted in TBS with 3% BSA for 90&#xA0;min at room temperature. Membranes were washed with TBST and then TBS before incubation with chemiluminescence solution (SuperSignal Pico, Pierce) for 10&#xA0;min. Membranes were imaged with a Bio-Rad ChemiDoc and subsequently stripped using a stripping buffer (200&#xA0;mM glycine, 1% [v/v] Tween 20, 0.1% [w/v] SDS [pH 2]) and evaluated for efficient stripping with chemiluminescence before being reused with the above procedure for detection of loading control proteins (GAPDH for 12% gels, vinculin for 8% gels).</p>
+      </sec>
+      <sec id="sec4.6">
+        <title>On-Chip Cytotoxicity Assay</title>
+        <p>Undifferentiated and differentiated microchip cultures were prepared as described above. Chemicals were purchased from Sigma or the NIH Small Molecule Repository (<xref rid="mmc1" ref-type="supplementary-material">Table S2</xref>). Concentrated stocks were prepared and diluted into ReNcell Maintenance Medium to prepare the highest screened concentration solution for each compound. Four-fold serial dilutions were made in ReNcell Maintenance Medium, with all solutions having a final concentration of 0.5% or 1% DMSO (v/v) and 20&#xA0;&#x3BC;g/mL Matrigel. For undifferentiated cultures, the solutions also contained 20&#xA0;ng/mL of EGF and FGF2. These solutions were printed into WellChips, covered with a gas-permeable membrane, and warmed at 37&#xB0;C for at least 5&#xA0;min before stamping with cells. Each WellChip contained six compounds each at six concentrations (n&#xA0;= 10 biological replicates for each concentration) and the appropriate medium containing 0.5% or 1% DMSO for vehicle and dead controls (n&#xA0;= 32 biological replicates per control). PillarChip cultures were incubated with compounds for 72&#xA0;hr with daily medium exchange to freshly prepared WellChips containing compounds at the appropriate concentrations. After 72&#xA0;hr, PillarChips were assayed with the viability assay and when appropriate data were fit to a sigmoidal dose-response model using GraphPad Prism for IC<sub>50</sub> calculation (see <xref rid="app2" ref-type="sec">Supplemental Information</xref>). On-chip toxicity screens were repeated three times for undifferentiated and differentiated cultures.</p>
+      </sec>
+      <sec id="sec4.7">
+        <title>On-Chip Proliferation Assay</title>
+        <p>Undifferentiated and differentiating cultures were screened for toxicity as described previously, except that after the first 48&#xA0;hr of exposure 10&#xA0;&#x3BC;M EdU (Click-iT EdU, Invitrogen) was added to the compound-containing medium for the final 24&#xA0;hr. After 72&#xA0;hr, on-chip cultures were fixed and processed as described previously for on-chip immunofluorescence; however, instead of antibody staining the cultures were incubated with solution containing Alexa Fluor 488-azide for 30&#xA0;min as specified in the product manual. Cultures were then rinsed with DPBS for 30&#xA0;min, incubated in DPBS with Hoechst 33342 (5&#xA0;&#x3BC;g/mL) for 30&#xA0;min, and washed in DPBS for 30&#xA0;min before proceeding with a trehalose wash and drying as described previously. Nuclei were selected using Cellomics software from blue channel images to create a mask, which was used for identification of fluorescently labeled EdU in the green channel for quantification of actively proliferating cells over the 24-hr EdU exposure. Data were fit to a sigmoidal dose-response model using GraphPad Prism to calculate IC<sub>50</sub> values.</p>
+      </sec>
+    </sec>
+    <sec id="sec5">
+      <title>Author Contributions</title>
+      <p>J.S.D. and D.V.S. conceived the project. J.S.D., D.S.C., and D.V.S. supervised the studies. G.J.N., S.K.M., B.C.P., and J.F.P. designed experiments. G.J.N. performed experiments and analysed data. G.J.N. and J.S.D. wrote the manuscript. All authors critically revised the manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list id="cebib0010">
+      <title>References</title>
+      <ref id="bib1">
+        <element-citation publication-type="journal" id="sref1">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Akashi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Minami</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Ishige</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Eishi</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Takizawa</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Koike</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Yanagishita</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Basement membrane matrix modifies cytokine interactions between lung cancer cells and fibroblasts</article-title>
+          <source>Pathobiology</source>
+          <volume>72</volume>
+          <year>2005</year>
+          <fpage>250</fpage>
+          <lpage>259</lpage>
+          <pub-id pub-id-type="pmid">16374069</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib2">
+        <element-citation publication-type="journal" id="sref2">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bani-Yaghoub</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Tremblay</surname>
+              <given-names>R.G.</given-names>
+            </name>
+            <name>
+              <surname>Lei</surname>
+              <given-names>J.X.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Zurakowski</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Sandhu</surname>
+              <given-names>J.K.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Ribecco-Lutkiewicz</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Kennedy</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>P.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of Sox2 in the development of the mouse neocortex</article-title>
+          <source>Dev. Biol.</source>
+          <volume>295</volume>
+          <year>2006</year>
+          <fpage>52</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="pmid">16631155</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib3">
+        <element-citation publication-type="journal" id="sref3">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barcellos-Hoff</surname>
+              <given-names>M.H.</given-names>
+            </name>
+            <name>
+              <surname>Aggeler</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Ram</surname>
+              <given-names>T.G.</given-names>
+            </name>
+            <name>
+              <surname>Bissell</surname>
+              <given-names>M.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Functional differentiation and alveolar morphogenesis of primary mammary cultures on reconstituted basement membrane</article-title>
+          <source>Development</source>
+          <volume>105</volume>
+          <year>1989</year>
+          <fpage>223</fpage>
+          <lpage>235</lpage>
+          <pub-id pub-id-type="pmid">2806122</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib4">
+        <element-citation publication-type="journal" id="sref4">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bhatia</surname>
+              <given-names>S.N.</given-names>
+            </name>
+            <name>
+              <surname>Ingber</surname>
+              <given-names>D.E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Microfluidic organs-on-chips</article-title>
+          <source>Nat. Biotechnol.</source>
+          <volume>32</volume>
+          <year>2014</year>
+          <fpage>760</fpage>
+          <lpage>772</lpage>
+          <pub-id pub-id-type="pmid">25093883</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib5">
+        <element-citation publication-type="journal" id="sref5">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bignami</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Eng</surname>
+              <given-names>L.F.</given-names>
+            </name>
+            <name>
+              <surname>Dahl</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Uyeda</surname>
+              <given-names>C.T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Localization of the glial fibrillary acidic protein in astrocytes by immunofluorescence</article-title>
+          <source>Brain Res.</source>
+          <volume>43</volume>
+          <year>1972</year>
+          <fpage>429</fpage>
+          <lpage>435</lpage>
+          <pub-id pub-id-type="pmid">4559710</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib6">
+        <element-citation publication-type="journal" id="sref6">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Breier</surname>
+              <given-names>J.M.</given-names>
+            </name>
+            <name>
+              <surname>Radio</surname>
+              <given-names>N.M.</given-names>
+            </name>
+            <name>
+              <surname>Mundy</surname>
+              <given-names>W.R.</given-names>
+            </name>
+            <name>
+              <surname>Shafer</surname>
+              <given-names>T.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Development of a high-throughput screening assay for chemical effects on proliferation and viability of immortalized human neural progenitor cells</article-title>
+          <source>Toxicol. Sci.</source>
+          <volume>105</volume>
+          <year>2008</year>
+          <fpage>119</fpage>
+          <lpage>133</lpage>
+          <pub-id pub-id-type="pmid">18550602</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib7">
+        <element-citation publication-type="journal" id="sref7">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brent</surname>
+              <given-names>R.L.</given-names>
+            </name>
+            <name>
+              <surname>Christian</surname>
+              <given-names>M.S.</given-names>
+            </name>
+            <name>
+              <surname>Diener</surname>
+              <given-names>R.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Evaluation of the reproductive and developmental risks of caffeine</article-title>
+          <source>Birth Defects Res. B Dev. Reprod. Toxicol.</source>
+          <volume>92</volume>
+          <year>2011</year>
+          <fpage>152</fpage>
+          <lpage>187</lpage>
+          <pub-id pub-id-type="pmid">21370398</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib8">
+        <element-citation publication-type="journal" id="sref8">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chan</surname>
+              <given-names>K.K.W.</given-names>
+            </name>
+            <name>
+              <surname>Oza</surname>
+              <given-names>A.M.</given-names>
+            </name>
+            <name>
+              <surname>Siu</surname>
+              <given-names>L.L.</given-names>
+            </name>
+          </person-group>
+          <article-title>The statins as anticancer agents</article-title>
+          <source>Clin. Cancer Res.</source>
+          <volume>9</volume>
+          <year>2003</year>
+          <fpage>10</fpage>
+          <lpage>19</lpage>
+          <pub-id pub-id-type="pmid">12538446</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib9">
+        <element-citation publication-type="journal" id="sref9">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Choi</surname>
+              <given-names>S.H.</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>Y.H.</given-names>
+            </name>
+            <name>
+              <surname>Hebisch</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Sliwinski</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>D&#x2019;Avanzo</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Hooli</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Asselin</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Muffat</surname>
+              <given-names>J.</given-names>
+            </name>
+          </person-group>
+          <article-title>A three-dimensional human neural cell culture model of Alzheimer&#x2019;s disease</article-title>
+          <source>Nature</source>
+          <volume>515</volume>
+          <year>2014</year>
+          <fpage>274</fpage>
+          <lpage>278</lpage>
+          <pub-id pub-id-type="pmid">25307057</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib10">
+        <element-citation publication-type="journal" id="sref10">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Clemedson</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Kolman</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Forsby</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>The integrated acute systemic toxicity project (ACuteTox) for the optimisation and validation of alternative in&#xA0;vitro tests</article-title>
+          <source>Altern. Lab. Anim.</source>
+          <volume>35</volume>
+          <year>2007</year>
+          <fpage>33</fpage>
+          <lpage>38</lpage>
+          <pub-id pub-id-type="pmid">17411349</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib11">
+        <element-citation publication-type="journal" id="sref11">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Couillard-Despres</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Winner</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Karl</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Lindemann</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Schmid</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Aigner</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Laemke</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Bogdahn</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Winkler</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Bischofberger</surname>
+              <given-names>J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeted transgene expression in neuronal precursors: watching young neurons in the old brain</article-title>
+          <source>Eur. J. Neurosci.</source>
+          <volume>24</volume>
+          <year>2006</year>
+          <fpage>1535</fpage>
+          <lpage>1545</lpage>
+          <pub-id pub-id-type="pmid">17004917</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib12">
+        <element-citation publication-type="journal" id="sref12">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Diasio</surname>
+              <given-names>R.B.</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>B.E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Clinical pharmacology of 5-fluorouracil</article-title>
+          <source>Clin. Pharmacokinet.</source>
+          <volume>16</volume>
+          <year>1989</year>
+          <fpage>215</fpage>
+          <lpage>237</lpage>
+          <pub-id pub-id-type="pmid">2656050</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib13">
+        <element-citation publication-type="journal" id="sref13">
+          <person-group person-group-type="author">
+            <name>
+              <surname>DiMasi</surname>
+              <given-names>J.A.</given-names>
+            </name>
+            <name>
+              <surname>Hansen</surname>
+              <given-names>R.W.</given-names>
+            </name>
+            <name>
+              <surname>Grabowski</surname>
+              <given-names>H.G.</given-names>
+            </name>
+          </person-group>
+          <article-title>The price of innovation: new estimates of drug development costs</article-title>
+          <source>J.&#xA0;Health Econ.</source>
+          <volume>22</volume>
+          <year>2003</year>
+          <fpage>151</fpage>
+          <lpage>185</lpage>
+          <pub-id pub-id-type="pmid">12606142</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib14">
+        <element-citation publication-type="journal" id="sref14">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Donato</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Miljan</surname>
+              <given-names>E.A.</given-names>
+            </name>
+            <name>
+              <surname>Hines</surname>
+              <given-names>S.J.</given-names>
+            </name>
+            <name>
+              <surname>Aouabdi</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Pollock</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Patel</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Edwards</surname>
+              <given-names>F.A.</given-names>
+            </name>
+            <name>
+              <surname>Sinden</surname>
+              <given-names>J.D.</given-names>
+            </name>
+          </person-group>
+          <article-title>Differential development of neuronal physiological responsiveness in two human neural stem cell lines</article-title>
+          <source>BMC Neurosci.</source>
+          <volume>8</volume>
+          <year>2007</year>
+          <fpage>36</fpage>
+          <pub-id pub-id-type="pmid">17531091</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib15">
+        <element-citation publication-type="journal" id="sref15">
+          <person-group person-group-type="author">
+            <name>
+              <surname>El-Ali</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Sorger</surname>
+              <given-names>P.K.</given-names>
+            </name>
+            <name>
+              <surname>Jensen</surname>
+              <given-names>K.F.</given-names>
+            </name>
+          </person-group>
+          <article-title>Cells on chips</article-title>
+          <source>Nature</source>
+          <volume>442</volume>
+          <year>2006</year>
+          <fpage>403</fpage>
+          <lpage>411</lpage>
+          <pub-id pub-id-type="pmid">16871208</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib16">
+        <element-citation publication-type="journal" id="sref16">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gewirtz</surname>
+              <given-names>D.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>A critical evaluation of the mechanisms of action proposed for the antitumor effects of the anthracycline antibiotics adriamycin and daunorubicin</article-title>
+          <source>Biochem. Pharmacol.</source>
+          <volume>57</volume>
+          <year>1999</year>
+          <fpage>727</fpage>
+          <lpage>741</lpage>
+          <pub-id pub-id-type="pmid">10075079</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib17">
+        <element-citation publication-type="journal" id="sref17">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goldman</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Glia as neural progenitor cells</article-title>
+          <source>Trends Neurosci.</source>
+          <volume>26</volume>
+          <year>2003</year>
+          <fpage>590</fpage>
+          <lpage>596</lpage>
+          <pub-id pub-id-type="pmid">14585598</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib18">
+        <element-citation publication-type="journal" id="sref18">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Graham</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Khudyakov</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Ellis</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Pevny</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>SOX2 functions to maintain neural progenitor identity</article-title>
+          <source>Neuron</source>
+          <volume>39</volume>
+          <year>2003</year>
+          <fpage>749</fpage>
+          <lpage>765</lpage>
+          <pub-id pub-id-type="pmid">12948443</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib19">
+        <element-citation publication-type="journal" id="sref19">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hay</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>D.W.</given-names>
+            </name>
+            <name>
+              <surname>Craighead</surname>
+              <given-names>J.L.</given-names>
+            </name>
+            <name>
+              <surname>Economides</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Rosenthal</surname>
+              <given-names>J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Clinical development success rates for investigational drugs</article-title>
+          <source>Nat. Biotechnol.</source>
+          <volume>32</volume>
+          <year>2014</year>
+          <fpage>40</fpage>
+          <lpage>51</lpage>
+          <pub-id pub-id-type="pmid">24406927</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib20">
+        <element-citation publication-type="journal" id="sref20">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoffrogge</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Mikkat</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Scharf</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Beyer</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Christoph</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Pahnke</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Mix</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Berth</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Uhrmacher</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Zubrzycki</surname>
+              <given-names>I.Z.</given-names>
+            </name>
+          </person-group>
+          <article-title>2-DE proteome analysis of a proliferating and differentiating human neuronal stem cell line (ReNcell VM)</article-title>
+          <source>Proteomics</source>
+          <volume>6</volume>
+          <year>2006</year>
+          <fpage>1833</fpage>
+          <lpage>1847</lpage>
+          <pub-id pub-id-type="pmid">16475233</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib21">
+        <element-citation publication-type="journal" id="sref21">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kohen</surname>
+              <given-names>N.T.</given-names>
+            </name>
+            <name>
+              <surname>Little</surname>
+              <given-names>L.E.</given-names>
+            </name>
+            <name>
+              <surname>Healy</surname>
+              <given-names>K.E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Characterization of Matrigel interfaces during defined human embryonic stem cell culture</article-title>
+          <source>Biointerphases</source>
+          <volume>4</volume>
+          <year>2009</year>
+          <fpage>69</fpage>
+          <lpage>79</lpage>
+          <pub-id pub-id-type="pmid">20408727</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib22">
+        <element-citation publication-type="journal" id="sref22">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Komitova</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Eriksson</surname>
+              <given-names>P.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Sox-2 is expressed by neural progenitors and astroglia in the adult rat brain</article-title>
+          <source>Neurosci. Lett.</source>
+          <volume>369</volume>
+          <year>2004</year>
+          <fpage>24</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="pmid">15380301</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib23">
+        <element-citation publication-type="journal" id="sref23">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kwon</surname>
+              <given-names>S.J.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>D.W.</given-names>
+            </name>
+            <name>
+              <surname>Shah</surname>
+              <given-names>D.A.</given-names>
+            </name>
+            <name>
+              <surname>Ku</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Jeon</surname>
+              <given-names>S.Y.</given-names>
+            </name>
+            <name>
+              <surname>Solanki</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Ryan</surname>
+              <given-names>J.D.</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>D.S.</given-names>
+            </name>
+            <name>
+              <surname>Dordick</surname>
+              <given-names>J.S.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>M.-Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>High-throughput and combinatorial gene expression on a chip for metabolism-induced toxicology screening</article-title>
+          <source>Nat. Commun.</source>
+          <volume>5</volume>
+          <year>2014</year>
+          <fpage>3739</fpage>
+          <pub-id pub-id-type="pmid">24799042</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib24">
+        <element-citation publication-type="journal" id="sref24">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lammer</surname>
+              <given-names>E.J.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>D.T.</given-names>
+            </name>
+            <name>
+              <surname>Hoar</surname>
+              <given-names>R.M.</given-names>
+            </name>
+            <name>
+              <surname>Agnish</surname>
+              <given-names>N.D.</given-names>
+            </name>
+            <name>
+              <surname>Benke</surname>
+              <given-names>P.J.</given-names>
+            </name>
+            <name>
+              <surname>Braun</surname>
+              <given-names>J.T.</given-names>
+            </name>
+            <name>
+              <surname>Curry</surname>
+              <given-names>C.J.</given-names>
+            </name>
+            <name>
+              <surname>Fernhoff</surname>
+              <given-names>P.M.</given-names>
+            </name>
+            <name>
+              <surname>Grix</surname>
+              <given-names>A.W.</given-names>
+            </name>
+            <name>
+              <surname>Lott</surname>
+              <given-names>I.T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Retinoic acid embryopathy</article-title>
+          <source>N.&#xA0;Engl. J. Med.</source>
+          <volume>313</volume>
+          <year>1985</year>
+          <fpage>837</fpage>
+          <lpage>841</lpage>
+          <pub-id pub-id-type="pmid">3162101</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib25">
+        <element-citation publication-type="journal" id="sref25">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lancaster</surname>
+              <given-names>M.A.</given-names>
+            </name>
+            <name>
+              <surname>Renner</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Wenzel</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Bicknell</surname>
+              <given-names>L.S.</given-names>
+            </name>
+            <name>
+              <surname>Hurles</surname>
+              <given-names>M.E.</given-names>
+            </name>
+            <name>
+              <surname>Homfray</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Penninger</surname>
+              <given-names>J.M.</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>A.P.</given-names>
+            </name>
+            <name>
+              <surname>Knoblich</surname>
+              <given-names>J.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Cerebral organoids model human brain development and microcephaly</article-title>
+          <source>Nature</source>
+          <volume>501</volume>
+          <year>2013</year>
+          <fpage>373</fpage>
+          <lpage>379</lpage>
+          <pub-id pub-id-type="pmid">23995685</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib26">
+        <element-citation publication-type="journal" id="sref26">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lange</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Mix</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Frahm</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Glass</surname>
+              <given-names>&#xC4;.</given-names>
+            </name>
+            <name>
+              <surname>M&#xFC;ller</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Schmitt</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Schm&#xF6;le</surname>
+              <given-names>A.C.</given-names>
+            </name>
+            <name>
+              <surname>Klemm</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Ortinau</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>H&#xFC;bner</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Small molecule GSK-3 inhibitors increase neurogenesis of human neural progenitor cells</article-title>
+          <source>Neurosci. Lett.</source>
+          <volume>488</volume>
+          <year>2011</year>
+          <fpage>36</fpage>
+          <lpage>40</lpage>
+          <pub-id pub-id-type="pmid">21056624</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib27">
+        <element-citation publication-type="journal" id="sref27">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ledford</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Ways to fix the clinical trial</article-title>
+          <source>Nature</source>
+          <volume>477</volume>
+          <year>2011</year>
+          <fpage>7</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="pmid">21886121</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib28">
+        <element-citation publication-type="journal" id="sref28">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Du</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Micro-scaffold array chip for upgrading cell-based high-throughput drug testing to 3D using benchtop equipment</article-title>
+          <source>Lab Chip</source>
+          <volume>14</volume>
+          <year>2014</year>
+          <fpage>471</fpage>
+          <lpage>481</lpage>
+          <pub-id pub-id-type="pmid">24287736</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib29">
+        <element-citation publication-type="journal" id="sref29">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>Q.</given-names>
+            </name>
+            <name>
+              <surname>Voss</surname>
+              <given-names>T.C.</given-names>
+            </name>
+            <name>
+              <surname>Quick</surname>
+              <given-names>K.L.</given-names>
+            </name>
+            <name>
+              <surname>LaBarbera</surname>
+              <given-names>D.V.</given-names>
+            </name>
+          </person-group>
+          <article-title>High-throughput imaging: focusing in on drug discovery in 3D</article-title>
+          <source>Methods</source>
+          <volume>96</volume>
+          <year>2015</year>
+          <fpage>97</fpage>
+          <lpage>102</lpage>
+          <pub-id pub-id-type="pmid">26608110</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib30">
+        <element-citation publication-type="journal" id="sref30">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lutolf</surname>
+              <given-names>M.P.</given-names>
+            </name>
+            <name>
+              <surname>Gilbert</surname>
+              <given-names>P.M.</given-names>
+            </name>
+            <name>
+              <surname>Blau</surname>
+              <given-names>H.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Designing materials to direct stem-cell fate</article-title>
+          <source>Nature</source>
+          <volume>462</volume>
+          <year>2009</year>
+          <fpage>433</fpage>
+          <lpage>441</lpage>
+          <pub-id pub-id-type="pmid">19940913</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib31">
+        <element-citation publication-type="journal" id="sref31">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Markiewicz</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Lukomska</surname>
+              <given-names>B.</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of astrocytes in the physiology and pathology of the central nervous system</article-title>
+          <source>Acta Neurobiol. Exp. (Wars)</source>
+          <volume>66</volume>
+          <year>2006</year>
+          <fpage>343</fpage>
+          <lpage>358</lpage>
+          <pub-id pub-id-type="pmid">17265695</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib32">
+        <element-citation publication-type="journal" id="sref32">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McCaffery</surname>
+              <given-names>P.J.</given-names>
+            </name>
+            <name>
+              <surname>Adams</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Maden</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Rosa-Molinar</surname>
+              <given-names>E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Too much of a good thing: retinoic acid as an endogenous regulator of neural differentiation and exogenous teratogen</article-title>
+          <source>Eur. J. Neurosci.</source>
+          <volume>18</volume>
+          <year>2003</year>
+          <fpage>457</fpage>
+          <lpage>472</lpage>
+          <pub-id pub-id-type="pmid">12911743</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib33">
+        <element-citation publication-type="journal" id="sref33">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meli</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Jordan</surname>
+              <given-names>E.T.</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>D.S.</given-names>
+            </name>
+            <name>
+              <surname>Linhardt</surname>
+              <given-names>R.J.</given-names>
+            </name>
+            <name>
+              <surname>Dordick</surname>
+              <given-names>J.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Influence of a three-dimensional, microarray environment on human Cell culture in drug screening systems</article-title>
+          <source>Biomaterials</source>
+          <volume>33</volume>
+          <year>2012</year>
+          <fpage>9087</fpage>
+          <lpage>9096</lpage>
+          <pub-id pub-id-type="pmid">22998815</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib34">
+        <element-citation publication-type="journal" id="sref34">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meli</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Barbosa</surname>
+              <given-names>H.S.C.</given-names>
+            </name>
+            <name>
+              <surname>Hickey</surname>
+              <given-names>A.M.</given-names>
+            </name>
+            <name>
+              <surname>Gasimli</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Nierode</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Diogo</surname>
+              <given-names>M.M.</given-names>
+            </name>
+            <name>
+              <surname>Linhardt</surname>
+              <given-names>R.J.</given-names>
+            </name>
+            <name>
+              <surname>Cabral</surname>
+              <given-names>J.M.S.</given-names>
+            </name>
+            <name>
+              <surname>Dordick</surname>
+              <given-names>J.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Three dimensional cellular microarray platform for human neural stem cell differentiation and toxicology</article-title>
+          <source>Stem Cell Res.</source>
+          <volume>13</volume>
+          <year>2014</year>
+          <fpage>36</fpage>
+          <lpage>47</lpage>
+          <pub-id pub-id-type="pmid">24816401</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib35">
+        <element-citation publication-type="journal" id="sref35">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Momparler</surname>
+              <given-names>R.L.</given-names>
+            </name>
+          </person-group>
+          <article-title>Biochemical pharmacology of cytosine arabinoside</article-title>
+          <source>Med. Pediatr. Oncol.</source>
+          <volume>10</volume>
+          <issue>Suppl 1</issue>
+          <year>1982</year>
+          <fpage>45</fpage>
+          <lpage>48</lpage>
+        </element-citation>
+      </ref>
+      <ref id="bib36">
+        <element-citation publication-type="journal" id="sref36">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Neal</surname>
+              <given-names>A.P.</given-names>
+            </name>
+            <name>
+              <surname>Guilarte</surname>
+              <given-names>T.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanisms of lead and manganese neurotoxicity</article-title>
+          <source>Toxicol. Res. (Camb.)</source>
+          <volume>2</volume>
+          <year>2013</year>
+          <fpage>99</fpage>
+          <lpage>114</lpage>
+          <pub-id pub-id-type="pmid">25722848</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib37">
+        <element-citation publication-type="journal" id="sref37">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Park</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Xiang</surname>
+              <given-names>A.P.</given-names>
+            </name>
+            <name>
+              <surname>Mao</surname>
+              <given-names>F.F.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Di</surname>
+              <given-names>C.G.</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>X.M.</given-names>
+            </name>
+            <name>
+              <surname>Shao</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>B.F.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Ha</surname>
+              <given-names>K.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Nestin is required for the proper self-renewal of neural stem cells</article-title>
+          <source>Stem Cells</source>
+          <volume>28</volume>
+          <year>2010</year>
+          <fpage>2162</fpage>
+          <lpage>2171</lpage>
+          <pub-id pub-id-type="pmid">20963821</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib38">
+        <element-citation publication-type="journal" id="sref38">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pino-Barrio</surname>
+              <given-names>M.J.</given-names>
+            </name>
+            <name>
+              <surname>Garc&#xED;a-Garc&#xED;a</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Men&#xE9;ndez</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Mart&#xED;nez-Serrano</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>V-Myc immortalizes human neural stem cells in the absence of pluripotency- associated traits</article-title>
+          <source>PLoS One</source>
+          <volume>10</volume>
+          <year>2015</year>
+          <fpage>e0118499</fpage>
+          <pub-id pub-id-type="pmid">25764185</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib39">
+        <element-citation publication-type="journal" id="sref39">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Radovanovic</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Meier</surname>
+              <given-names>P.J.</given-names>
+            </name>
+            <name>
+              <surname>Guirguis</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Lorent</surname>
+              <given-names>J.P.</given-names>
+            </name>
+            <name>
+              <surname>Kupferschmidt</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Dose-dependent toxicity of diphenhydramine overdose</article-title>
+          <source>Hum. Exp. Toxicol.</source>
+          <volume>19</volume>
+          <year>2000</year>
+          <fpage>489</fpage>
+          <lpage>495</lpage>
+          <pub-id pub-id-type="pmid">11204550</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib40">
+        <element-citation publication-type="journal" id="sref40">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ranga</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Gobaa</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Okawa</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Mosiewicz</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Negro</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Lutolf</surname>
+              <given-names>M.P.</given-names>
+            </name>
+          </person-group>
+          <article-title>3D niche microarrays for systems-level analyses of cell fate</article-title>
+          <source>Nat. Commun.</source>
+          <volume>5</volume>
+          <year>2014</year>
+          <fpage>4324</fpage>
+          <pub-id pub-id-type="pmid">25027775</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib41">
+        <element-citation publication-type="journal" id="sref41">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raponi</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Agenes</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Delphin</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Assard</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Baudier</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Legraverend</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Deloulme</surname>
+              <given-names>J.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>S100B expression defines a state in which GFAP-expressing cells lose their neural stem cell potential and acquire a more mature developmental stage</article-title>
+          <source>Glia</source>
+          <volume>55</volume>
+          <year>2007</year>
+          <fpage>165</fpage>
+          <lpage>177</lpage>
+          <pub-id pub-id-type="pmid">17078026</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib42">
+        <element-citation publication-type="journal" id="sref42">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roskams</surname>
+              <given-names>A.J.I.</given-names>
+            </name>
+            <name>
+              <surname>Cai</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Ronnett</surname>
+              <given-names>G.V.</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression of neuron-specific beta-III tubulin during olfactory neurogenesis in the embryonic and adult rat</article-title>
+          <source>Neuroscience</source>
+          <volume>83</volume>
+          <year>1998</year>
+          <fpage>191</fpage>
+          <lpage>200</lpage>
+          <pub-id pub-id-type="pmid">9466409</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib43">
+        <element-citation publication-type="journal" id="sref43">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shi</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Kirwan</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Livesey</surname>
+              <given-names>F.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Directed differentiation of human pluripotent stem cells to cerebral cortex neurons and neural networks</article-title>
+          <source>Nat. Protoc.</source>
+          <volume>7</volume>
+          <year>2012</year>
+          <fpage>1836</fpage>
+          <lpage>1846</lpage>
+          <pub-id pub-id-type="pmid">22976355</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib44">
+        <element-citation publication-type="journal" id="sref44">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Soen</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Soen</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Palmer</surname>
+              <given-names>T.D.</given-names>
+            </name>
+            <name>
+              <surname>Palmer</surname>
+              <given-names>T.D.</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>P.O.</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>P.O.</given-names>
+            </name>
+          </person-group>
+          <article-title>Exploring the regulation of&#xA0;human neural precursor cell differentiation using arrays of signaling microenvironments</article-title>
+          <source>Mol. Syst. Biol.</source>
+          <volume>2</volume>
+          <year>2006</year>
+          <fpage>37</fpage>
+          <pub-id pub-id-type="pmid">16820778</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib45">
+        <element-citation publication-type="journal" id="sref45">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spence</surname>
+              <given-names>J.R.</given-names>
+            </name>
+            <name>
+              <surname>Mayhew</surname>
+              <given-names>C.N.</given-names>
+            </name>
+            <name>
+              <surname>Rankin</surname>
+              <given-names>S.A.</given-names>
+            </name>
+            <name>
+              <surname>Kuhar</surname>
+              <given-names>M.F.</given-names>
+            </name>
+            <name>
+              <surname>Vallance</surname>
+              <given-names>J.E.</given-names>
+            </name>
+            <name>
+              <surname>Tolle</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Hoskins</surname>
+              <given-names>E.E.</given-names>
+            </name>
+            <name>
+              <surname>Kalinichenko</surname>
+              <given-names>V.V.</given-names>
+            </name>
+            <name>
+              <surname>Wells</surname>
+              <given-names>S.I.</given-names>
+            </name>
+            <name>
+              <surname>Zorn</surname>
+              <given-names>A.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Directed differentiation of human pluripotent stem cells into intestinal tissue in&#xA0;vitro</article-title>
+          <source>Nature</source>
+          <volume>470</volume>
+          <year>2011</year>
+          <fpage>105</fpage>
+          <lpage>109</lpage>
+          <pub-id pub-id-type="pmid">21151107</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib46">
+        <element-citation publication-type="journal" id="sref46">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sprinkle</surname>
+              <given-names>T.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>2&#x2032;,3&#x2032;-Cyclic nucleotide 3&#x2032;-phosphodiesterase, an oligodendrocyte-Schwann cell and myelin-associated enzyme of the nervous system</article-title>
+          <source>Crit. Rev. Neurobiol.</source>
+          <volume>4</volume>
+          <year>1989</year>
+          <fpage>235</fpage>
+          <lpage>301</lpage>
+          <pub-id pub-id-type="pmid">2537684</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib47">
+        <element-citation publication-type="journal" id="sref47">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sun</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Pollard</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Conti</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Toselli</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Biella</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Parkin</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Willatt</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Falk</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Cattaneo</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Long-term tripotent differentiation capacity of human neural stem (NS) cells in adherent culture</article-title>
+          <source>Mol. Cell. Neurosci.</source>
+          <volume>38</volume>
+          <year>2008</year>
+          <fpage>245</fpage>
+          <lpage>258</lpage>
+          <pub-id pub-id-type="pmid">18450476</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib48">
+        <element-citation publication-type="journal" id="sref48">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takebe</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Sekine</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Enomura</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Koike</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kimura</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Ogaeri</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>R.-R.</given-names>
+            </name>
+            <name>
+              <surname>Ueno</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>Y.-W.</given-names>
+            </name>
+            <name>
+              <surname>Koike</surname>
+              <given-names>N.</given-names>
+            </name>
+          </person-group>
+          <article-title>Vascularized and functional human liver from an iPSC-derived organ bud transplant</article-title>
+          <source>Nature</source>
+          <volume>499</volume>
+          <year>2013</year>
+          <fpage>481</fpage>
+          <lpage>484</lpage>
+          <pub-id pub-id-type="pmid">23823721</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib49">
+        <element-citation publication-type="journal" id="sref49">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wetsel</surname>
+              <given-names>R.A.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Calame</surname>
+              <given-names>D.G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Therapeutic potential of lung epithelial progenitor cells derived from embryonic and induced pluripotent stem cells</article-title>
+          <source>Annu. Rev. Med.</source>
+          <volume>62</volume>
+          <year>2011</year>
+          <fpage>95</fpage>
+          <lpage>105</lpage>
+          <pub-id pub-id-type="pmid">21226612</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib50">
+        <element-citation publication-type="journal" id="sref50">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yarmush</surname>
+              <given-names>M.L.</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>K.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Living-cell microarrays</article-title>
+          <source>Annu. Rev. Biomed. Eng.</source>
+          <volume>11</volume>
+          <year>2009</year>
+          <fpage>235</fpage>
+          <lpage>257</lpage>
+          <pub-id pub-id-type="pmid">19413510</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib51">
+        <element-citation publication-type="journal" id="sref51">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zaman</surname>
+              <given-names>M.H.</given-names>
+            </name>
+            <name>
+              <surname>Trapani</surname>
+              <given-names>L.M.</given-names>
+            </name>
+            <name>
+              <surname>Sieminski</surname>
+              <given-names>A.L.</given-names>
+            </name>
+            <name>
+              <surname>Mackellar</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kamm</surname>
+              <given-names>R.D.</given-names>
+            </name>
+            <name>
+              <surname>Wells</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Lauffenburger</surname>
+              <given-names>D.A.</given-names>
+            </name>
+            <name>
+              <surname>Matsudaira</surname>
+              <given-names>P.</given-names>
+            </name>
+          </person-group>
+          <article-title>Migration of tumor cells in 3D matrices is governed by matrix stiffness along with cell-matrix adhesion and proteolysis</article-title>
+          <source>Proc. Natl. Acad. Sci. USA</source>
+          <volume>103</volume>
+          <year>2006</year>
+          <fpage>10889</fpage>
+          <lpage>10894</lpage>
+          <pub-id pub-id-type="pmid">16832052</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="bib52">
+        <element-citation publication-type="journal" id="sref52">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>S.C.</given-names>
+            </name>
+            <name>
+              <surname>Wernig</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Duncan</surname>
+              <given-names>I.D.</given-names>
+            </name>
+            <name>
+              <surname>Br&#xFC;stle</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Thomson</surname>
+              <given-names>J.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>In&#xA0;vitro differentiation of transplantable neural precursors from human embryonic stem cells</article-title>
+          <source>Nat. Biotechnol.</source>
+          <volume>19</volume>
+          <year>2001</year>
+          <fpage>1129</fpage>
+          <lpage>1133</lpage>
+          <pub-id pub-id-type="pmid">11731781</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+    <sec id="app2" sec-type="supplementary-material">
+      <title>Supplemental Information</title>
+      <p>
+        <supplementary-material content-type="local-data" id="mmc1">
+          <caption>
+            <title>Document S1. Supplemental Experimental Procedures, Figures S1&#x2013;S5, and Tables S1&#x2013;S3</title>
+          </caption>
+          <media xlink:href="mmc1.pdf"/>
+        </supplementary-material>
+        <supplementary-material content-type="local-data" id="mmc2">
+          <caption>
+            <title>Document S2. Article plus Supplemental Information</title>
+          </caption>
+          <media xlink:href="mmc2.pdf"/>
+        </supplementary-material>
+      </p>
+    </sec>
+    <ack id="ack0010">
+      <title>Acknowledgments</title>
+      <p>The authors are grateful for the technical assistance of Drs Sergey Pryschep and Brigitte Arduini. This work was supported by <funding-source id="gs1">NIH</funding-source> (ES020903) and <funding-source id="gs2">NYSTEM</funding-source> (C026717).</p>
+    </ack>
+    <fn-group>
+      <fn id="app1" fn-type="supplementary-material">
+        <p>Supplemental Information includes Supplemental Experimental Procedures, five figures, and three tables and can be found with&#xA0;this article online at <ext-link ext-link-type="doi" xlink:href="10.1016/j.stemcr.2016.10.001" id="intref0010">http://dx.doi.org/10.1016/j.stemcr.2016.10.001</ext-link>.</p>
+      </fn>
+    </fn-group>
+  </back>
+  <floats-group>
+    <fig id="fig1">
+      <label>Figure&#xA0;1</label>
+      <caption>
+        <p>Microarray Chip Platform</p>
+        <p>The platform consists of two complementary polystyrene microchips measuring 25&#xA0;&#xD7; 75&#xA0;mm, each containing 532 micropillars (PillarChip) or microwells (WellChip) arranged in a 14&#xA0;&#xD7; 38 array. The feature-to-feature distance of pillars and wells is 1.5&#xA0;mm with diameters of 750&#xA0;&#x3BC;m and 1.2&#xA0;mm, respectively. Cell spots consist of Matrigel-encapsulated cells spotted as 100 nL cultures atop micropillars and the microwells contain 850 nL of medium. Medium change is straightforward and consists of lifting a PillarChip from one WellChip and stamping into another containing fresh medium. Fluorescence-based endpoint assays are used to measure viability, proliferation, and protein expression of on-chip cultures.</p>
+      </caption>
+      <graphic xlink:href="gr1"/>
+    </fig>
+    <fig id="fig2">
+      <label>Figure&#xA0;2</label>
+      <caption>
+        <p>On-Chip Viability Assay Sensitivity and On-Chip NPC Culture Characterization</p>
+        <p>(A&#x2013;C) Representative fluorescence images of assayed cell spots, seeded with up to 1&#xA0;&#xD7; 10<sup>7</sup> cells/spot in 0.5% or 1% Matrigel (A). The background adjusted mean fluorescence intensity &#xB1; SEM (n&#xA0;= 72 biological replicates) is plotted against seeding density in both (&#x25CF;) 0.5% and (&#x25B4;) 1% (w/v) Matrigel for calcein (B) and Hoechst 33342 (C).</p>
+        <p>(D and E) Phase contrast (D) and z stack (E) reconstructed confocal images of NPCs cultured on-chip in 0.5% (i) and 1% (ii) Matrigel for 3&#xA0;days.</p>
+        <p>(F) Growth assessed by calcein staining intensity is qualitatively apparent in fluorescent image montages (compiled with Cellomics software) when comparing staining between on-chip cultures after 1 (i) and 7 (ii) days of culture.</p>
+        <p>(G) Quantified calcein intensity of ReNcell VM NPCs cultured on-chip in (&#x25A0;) 0.5% and (&#x25CF;) 1% Matrigel over time (one time-lapse experiment, where each point represents the mean &#xB1; SEM of 396 biological replicates). Scale bars, 300&#xA0;&#x3BC;m.</p>
+      </caption>
+      <graphic xlink:href="gr2"/>
+    </fig>
+    <fig id="fig3">
+      <label>Figure&#xA0;3</label>
+      <caption>
+        <p>Off-Chip Analysis of ReNcell VM NPC Protein Expression in 2D Monolayer and 3D Matrigel Cultures</p>
+        <p>(A) Western blot analysis of fate-specific protein markers in ReNcell VM 2D monolayer cultures before and after a 10-day culture without EGF and FGF2 to induce differentiation.</p>
+        <p>(B) SOX2 western blot analysis in a 2D monolayer culture with an additional antibody specific for SOX2 (Cell Signaling Technologies).</p>
+        <p>(C) SOX2 western blot analysis in 2D monolayer culture following a 6-week differentiation.</p>
+        <p>(D&#x2013;F) Western blot analysis of ReNcell VM cultured off-chip in 3D 1% Matrigel before and after growth factor withdrawal (D). Immunofluorescence analysis of undifferentiated (+EGF/FGF2) (E) and differentiating (&#x2212;EGF/FGF2). (F) ReNcell VM cultured in 2D monolayer. Merged fluorescence images of the indicated protein and Hoechst 33342 (used as a counterstain) are depicted with the exception of SOX2 (nuclear staining), where the Hoechst 33342 nuclei were used to create an overlay mask. Brightness and contrast of single-channel images were adjusted with ImageJ to eliminate background using samples stained with fluorescent secondary antibody only prior to merging. GAPDH and vinculin were used as loading controls. Scale bars, 100&#xA0;&#x3BC;m.</p>
+      </caption>
+      <graphic xlink:href="gr3"/>
+    </fig>
+    <fig id="fig4">
+      <label>Figure&#xA0;4</label>
+      <caption>
+        <p>On-Chip Analysis of ReNcell VM NPC Protein Expression in Microscale 3D Matrigel Cultures</p>
+        <p>(A) Hoechst 33342-normalized immunofluorescence detection of cell fate-specific protein markers within on-chip NPC cultures before and after a 10-day culture without EGF and FGF2. Mean &#xB1; SEM plotted for 36 independent biological replicates per marker for each condition. <sup>&#x2217;</sup>p&#xA0;&lt; 0.05 (two-tailed Student's t test) indicates the difference between undifferentiated and differentiating cultures.</p>
+        <p>(B) Representative images of immunofluorescence stained on-chip NPC cultures before and after a 10-day culture without EGF and FGF2 (green or red); Hoechst 33342-counterstained nuclei (blue). The Cellomics analysis suite was used for single-channel brightness and contrast adjustment to eliminate background signals as determined from samples stained only with fluorescently labeled secondary antibody. Scale bars, 300&#xA0;&#x3BC;m.</p>
+      </caption>
+      <graphic xlink:href="gr4"/>
+    </fig>
+    <fig id="fig5">
+      <label>Figure&#xA0;5</label>
+      <caption>
+        <p>Dose-Response Viability and Proliferation Effects of Select Compounds on Undifferentiated and Differentiating ReNcell VM NPCs</p>
+        <p>(A) Vehicle control-normalized dose-response viability of undifferentiated (&#x25CF;) and differentiating (<bold>&#x394;</bold>) NPCs plotted against log(concentration [&#x3BC;M]). Mean viability &#xB1; SEM is plotted for each concentration as determined from 30 biological replicates per dose. Sigmoidal fits to the data are plotted as solid lines.</p>
+        <p>(B) Dose-response EdU incorporation of undifferentiated (&#x25CF;, left axis) and differentiating (<bold>&#x394;</bold>, right axis except DOX) NPCs plotted against log(concentration [&#x3BC;M]). Mean % EdU positive nuclei &#xB1; SEM is plotted for each concentration as determined from ten biological replicates. Dose-response viability and proliferation results for compounds not presented herein are available in <xref rid="mmc1" ref-type="supplementary-material">Figures S4</xref> and <xref rid="mmc1" ref-type="supplementary-material">S5</xref>.</p>
+      </caption>
+      <graphic xlink:href="gr5"/>
+    </fig>
+    <table-wrap id="tbl1" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Differential Acute Toxicity Effects on Viability and Proliferation of Undifferentiated and Differentiating ReNcell VM NPCs</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th rowspan="3">Chemical</th>
+            <th colspan="4">Viability Effects<hr/></th>
+            <th colspan="4">Proliferation Effects<hr/></th>
+          </tr>
+          <tr>
+            <th colspan="2">Undifferentiated<hr/></th>
+            <th colspan="2">Differentiating<hr/></th>
+            <th colspan="2">Undifferentiating<hr/></th>
+            <th colspan="2">Differentiating<hr/></th>
+          </tr>
+          <tr>
+            <th>log(IC<sub>50</sub> &#xB1; SEM)</th>
+            <th>IC<sub>50</sub> (&#x3BC;M)</th>
+            <th>log(IC<sub>50</sub> &#xB1; SEM)</th>
+            <th>IC<sub>50</sub> (&#x3BC;M)</th>
+            <th>log(IC<sub>50</sub> &#xB1; SEM)</th>
+            <th>IC<sub>50</sub> (&#x3BC;M)</th>
+            <th>log(IC<sub>50</sub> &#xB1; SEM)</th>
+            <th>IC<sub>50</sub> (&#x3BC;M)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <bold>Acetaminophen</bold>
+              <xref rid="tblfn1" ref-type="table-fn">a</xref>
+            </td>
+            <td align="char">3.1 &#xB1; 0.21</td>
+            <td>1,400</td>
+            <td align="char">4.3 &#xB1; 0.24</td>
+            <td>18,000</td>
+            <td>3.017 &#xB1; 0.05</td>
+            <td>1,000</td>
+            <td>4.26 &#xB1; 0.52</td>
+            <td>18,200</td>
+          </tr>
+          <tr>
+            <td>
+              <bold>5-Fluorouracil</bold>
+            </td>
+            <td align="char">0.36 &#xB1; 0.31</td>
+            <td>2.3</td>
+            <td align="char">0.35 &#xB1; 0.22<xref rid="tblfn2" ref-type="table-fn">b</xref></td>
+            <td>2.3</td>
+            <td>0.14 &#xB1; 0.10</td>
+            <td>1.35</td>
+            <td>0.26 &#xB1; 0.40</td>
+            <td>1.82</td>
+          </tr>
+          <tr>
+            <td>Cytosine Arabinoside<xref rid="tblfn3" ref-type="table-fn">c</xref></td>
+            <td align="char">&#x2212;0.48 &#xB1; 0.17<xref rid="tblfn2" ref-type="table-fn">b</xref></td>
+            <td>0.33</td>
+            <td align="char">0.55 &#xB1; 0.55</td>
+            <td>3.5</td>
+            <td>&lt; &#x2212;1</td>
+            <td>&#x2013;</td>
+            <td>&lt; &#x2212;1</td>
+            <td>&#x2013;</td>
+          </tr>
+          <tr>
+            <td>
+              <bold>Retinoic Acid</bold>
+              <xref rid="tblfn1" ref-type="table-fn">a</xref>
+            </td>
+            <td align="char">&#x2212;0.13 &#xB1; 0.21</td>
+            <td>0.74</td>
+            <td align="char">1.7 &#xB1; 1.2</td>
+            <td>47</td>
+            <td>1.17 &#xB1; 0.11</td>
+            <td>15</td>
+            <td>1.35 &#xB1; 0.26</td>
+            <td>22</td>
+          </tr>
+          <tr>
+            <td>
+              <bold>Doxorubicin</bold>
+              <xref rid="tblfn1" ref-type="table-fn">a</xref>
+            </td>
+            <td align="char">&#x2212;0.1 &#xB1; 0.11</td>
+            <td>0.8</td>
+            <td align="char">0.44 &#xB1; 0.06</td>
+            <td>2.7</td>
+            <td>&lt; &#x2212;1</td>
+            <td>&#x2013;</td>
+            <td>&lt; &#x2212;1</td>
+            <td>&#x2013;</td>
+          </tr>
+          <tr>
+            <td>Cadmium Chloride</td>
+            <td align="char">0.57 &#xB1; 0.3</td>
+            <td>3.7</td>
+            <td align="char">0.88 &#xB1; 0.27</td>
+            <td>7.6</td>
+            <td>0.93</td>
+            <td>8.6</td>
+            <td>1.18</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>Paraquat</td>
+            <td align="char">1.8 &#xB1; 0.18</td>
+            <td>57</td>
+            <td align="char">1.61 &#xB1; 0.18</td>
+            <td>41</td>
+            <td>1.77 &#xB1; 0.09</td>
+            <td>59</td>
+            <td>1.48 &#xB1; 0.64</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>
+              <bold>Pitavistatin</bold>
+            </td>
+            <td align="char">0.73 &#xB1; 0.16</td>
+            <td>5.4</td>
+            <td>&#x2013;</td>
+            <td>&#x2013;</td>
+            <td>0.29 &#xB1; 0.07</td>
+            <td>2.0</td>
+            <td>&#x2212;0.01 &#xB1; 0.39</td>
+            <td>0.98</td>
+          </tr>
+          <tr>
+            <td>Diphenhydramine</td>
+            <td align="char">2.41 &#xB1; 0.37</td>
+            <td>257</td>
+            <td align="char">2.3 &#xB1; 0.24</td>
+            <td>189</td>
+            <td>&#x2013;</td>
+            <td>&#x2013;</td>
+            <td>&#x2013;</td>
+            <td>&#x2013;</td>
+          </tr>
+        </tbody>
+      </table>
+      <table-wrap-foot>
+        <fn>
+          <p>Extracted IC<sub>50</sub> values from sigmoidal fits of dose-response viability and proliferation screening displayed as log(IC<sub>50</sub> &#xB1; SEM [&#x3BC;M]) and corresponding IC<sub>50</sub> value (&#x3BC;M). Chemicals which elicited differential effects on undifferentiated and differentiating NPCs are highlighted in bold. Results are based on dose-response data from which each dose had 30 biological replicates unless indicated. Dose-response data not amenable to sigmoidal fitting are represented as a dash. Unlisted screened compounds were omitted because the dose-response screen did not capture the effective window, making them unfit for sigmoidal curve fitting.</p>
+        </fn>
+      </table-wrap-foot>
+      <table-wrap-foot>
+        <fn id="tblfn1">
+          <label>a</label>
+          <p id="ntpara0010">p&#xA0;&lt; 0.05 (two-tailed Student's t test).</p>
+        </fn>
+      </table-wrap-foot>
+      <table-wrap-foot>
+        <fn id="tblfn2">
+          <label>b</label>
+          <p id="ntpara0015">Results based on data from which each dose had 20 biological replicates.</p>
+        </fn>
+      </table-wrap-foot>
+      <table-wrap-foot>
+        <fn id="tblfn3">
+          <label>c</label>
+          <p id="ntpara0020">p&#xA0;&lt; 0.10 (two-tailed Student's t test) difference between IC<sub>50</sub> of undifferentiated and differentiating NPCs.</p>
+        </fn>
+      </table-wrap-foot>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9304532</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2286</journal-id>
+      <journal-id journal-id-type="nlm-ta">Stem Cells</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cells</journal-id>
+      <journal-title-group>
+        <journal-title>Stem cells (Dayton, Ohio)</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1066-5099</issn>
+      <issn pub-type="epub">1549-4918</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25376942</article-id>
+      <article-id pub-id-type="pmc">4410844</article-id>
+      <article-id pub-id-type="doi">10.1002/stem.1884</article-id>
+      <article-id pub-id-type="manuscript">NIHMS681392</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Proliferation and Osteogenic Differentiation of Mesenchymal Stem Cells Induced by a Short Isoform of NELL-1</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pang</surname>
+            <given-names>Shen</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref rid="FN2" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shen</surname>
+            <given-names>Jia</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref rid="FN2" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Yi</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Feng</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref ref-type="aff" rid="A4">d</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zheng</surname>
+            <given-names>Zhong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>James</surname>
+            <given-names>Aaron W.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref ref-type="aff" rid="A5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hsu</surname>
+            <given-names>Ching-Yun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Hong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref ref-type="aff" rid="A6">f</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Kevin S.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wang</surname>
+            <given-names>Chunling</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Chenshuang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Xuepeng</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jia</surname>
+            <given-names>Haichao</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref ref-type="aff" rid="A7">g</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Xinli</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Soo</surname>
+            <given-names>Chia</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A8">h</xref>
+          <xref rid="FN3" ref-type="author-notes">#</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ting</surname>
+            <given-names>Kang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+          <xref rid="FN2" ref-type="author-notes">#</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>UCLA and Orthopaedic Hospital Department of Orthopaedic Surgery and the Orthopaedic Hospital Research Center, Shandong University, Jinan, Shandong, People&#x2019;s Republic of China</aff>
+      <aff id="A2"><label>b</label>Dental and Craniofacial Research Institute and Section of Orthodontics, School of Dentistry, Shandong University, Jinan, Shandong, People&#x2019;s Republic of China</aff>
+      <aff id="A3"><label>c</label>Shandong Provincial Laboratory of Oral Biomedicine &amp; Department of Orthodontics, School and Hospital of Stomatology, Shandong University, Jinan, Shandong, People&#x2019;s Republic of China</aff>
+      <aff id="A4"><label>d</label>Central Laboratory Peking University School of Stomatology, Haidian District, Beijing, People&#x2019;s Republic of China</aff>
+      <aff id="A5"><label>e</label>Department of Pathology and Laboratory Medicine, David Geffen School of Medicine, Shandong University, Jinan, Shandong, People&#x2019;s Republic of China</aff>
+      <aff id="A6"><label>f</label>Department of Orthodontics, Guanghua School of Stomatology, Sun Yat-sen University, Guangzhou, People&#x2019;s Republic of China</aff>
+      <aff id="A7"><label>g</label>Department of Orthodontics, School of Stomatology, Capital Medical University, Beijing, People&#x2019;s Republic of China</aff>
+      <aff id="A8"><label>h</label>Division of Plastic and Reconstructive Surgery, Department of Surgery, Shandong University, Jinan, Shandong, People&#x2019;s Republic of China</aff>
+      <author-notes>
+        <corresp id="FN1">Correspondence: Chia Soo, M.D., Division of Plastic and Reconstructive Surgery, Department of Surgery, University of California, Los Angeles, Los Angeles, California 90095-6960, USA. Telephone: 310-794-5829; Fax: 310-206-7783; <email>bsoo@ucla.edu</email>; or Kang Ting, D.M.D. and D.Med.Sc., Section of Orthodontics, University of California Los Angeles, 10833 Le Conte Avenue, Los Angeles, California 90095, USA. Telephone: 310-794-5829; Fax: 310-206-7783; <email>kting@dentistry.ucla.edu</email></corresp>
+        <fn id="FN2" fn-type="equal">
+          <label>*</label>
+          <p>S. Pang and J. Shen contributed equally to this work.</p>
+        </fn>
+        <fn id="FN3" fn-type="equal">
+          <label>#</label>
+          <p>C. Soo and K. Ting are both co-senior authors and contributed equally to the manuscript.</p>
+        </fn>
+        <fn id="FN5" fn-type="conflict">
+          <p>
+            <bold>Disclosure of Potential Conflicts of Interest</bold>
+          </p>
+          <p>Drs. X. Z., K. T., and C. S. are inventors of Nell-1-related patents. Drs. X. Z., K. T., and C. S. are founders and/or board members of Bone Biologics Inc. which sublicenses NELL-1 patents from the UC Regents, which also hold equity in the company.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>18</day>
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>3</month>
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>27</day>
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>33</volume>
+      <issue>3</issue>
+      <fpage>904</fpage>
+      <lpage>915</lpage>
+      <!--elocation-id from pubmed: 10.1002/stem.1884-->
+      <permissions>
+        <copyright-statement>&#xA9; AlphaMed Press 2014</copyright-statement>
+        <copyright-year>2014</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">Neural epidermal growth factor-like (NEL)-like protein 1 (NELL-1) has been identified as an osteoinductive differentiation factor that promotes mesenchymal stem cell (MSC) osteogenic differentiation. In addition to full-length <italic>NELL-1</italic>, there are several <italic>NELL-1</italic>-related transcripts reported. We used rapid amplification of cDNA ends to recover potential cDNA of <italic>NELL-1</italic> isoforms. A NELL-1 isoform with the N-terminal 240 amino acid (aa) residues truncated was identified. While full-length NELL-1 that contains 810 aa residues (NELL-1<sub>810</sub>) plays an important role in embryologic skeletal development, the N-terminal-truncated NELL-1 isoform (NELL-1<sub>570</sub>) was expressed postnatally. Similar to NELL-1<sub>810</sub>, NELL-1<sub>570</sub> induced MSC osteogenic differentiation. In addition, NELL-1<sub>570</sub> significantly stimulated MSC proliferation in multiple MSC-like populations such as murine C3H10T1/2 MSC cell line, mouse primary MSCs, and perivascular stem cells, which is a type of stem cells proposed as the perivascular origin of MSCs. In contrast, NELL-1<sub>810</sub> demonstrated only limited stimulation of MSC proliferation. Similar to NELL-1<sub>810</sub>, NELL-1<sub>570</sub> was found to be secreted from host cells. Both NELL-1<sub>570</sub> expression lentiviral vector and column-purified recombinant protein NELL-1<sub>570</sub> demonstrated almost identical effects in MSC proliferation and osteogenic differentiation, suggesting that NELL-1<sub>570</sub> may function as a pro-osteogenic growth factor. In vivo, NELL-1<sub>570</sub> induced significant calvarial defect regeneration accompanied by increased cell proliferation. Thus, NELL-1<sub>570</sub> has the potential to be used for cell-based or hormone-based therapy of bone regeneration.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>MSC proliferation</kwd>
+        <kwd>NELL-1</kwd>
+        <kwd>Short NELL-1 isoform</kwd>
+        <kwd>Osteogenesis</kwd>
+        <kwd>Secretory protein</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

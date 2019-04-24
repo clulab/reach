@@ -1,0 +1,875 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Front Cell Neurosci</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Front Cell Neurosci</journal-id>
+      <journal-id journal-id-type="publisher-id">Front. Cell. Neurosci.</journal-id>
+      <journal-title-group>
+        <journal-title>Frontiers in Cellular Neuroscience</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1662-5102</issn>
+      <publisher>
+        <publisher-name>Frontiers Media S.A.</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24381541</article-id>
+      <article-id pub-id-type="pmc">3865447</article-id>
+      <article-id pub-id-type="doi">10.3389/fncel.2013.00258</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Neuroscience</subject>
+          <subj-group>
+            <subject>Review Article</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The role of EGFR and ErbB family related proteins in the oligodendrocyte specification in germinal niches of the adult mammalian brain</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Galvez-Contreras</surname>
+            <given-names>Alma Y.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Qui&#xF1;ones-Hinojosa</surname>
+            <given-names>Alfredo</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gonzalez-Perez</surname>
+            <given-names>Oscar</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="author-notes" rid="fn001">
+            <sup>*</sup>
+          </xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+        <sup>1</sup>
+        <institution>Laboratorio de Neurociencias, Facultad de Psicologia, Universidad de Colima</institution>
+        <country>Colima, Mexico</country>
+      </aff>
+      <aff id="aff2">
+        <sup>2</sup>
+        <institution>Department of Neurological Surgery and Oncology, School of Medicine, Johns Hopkins University</institution>
+        <country>Baltimore, MD, USA</country>
+      </aff>
+      <author-notes>
+        <fn fn-type="edited-by">
+          <p>Edited by: Jose M. Garcia-Verdugo, University of Valencia, Spain</p>
+        </fn>
+        <fn fn-type="edited-by">
+          <p>Reviewed by: Xuemin Xu, The University of Tennessee, USA; Hermona Soreq, The Hebrew University of Jerusalem, Israel</p>
+        </fn>
+        <corresp id="fn001">*Correspondence: Oscar Gonzalez-Perez, Laboratorio de Neurociencias, Facultad de Psicologia, Universidad de Colima, Av. Universidad 333, Colima, COL, 28040, Mexico e-mail: <email xlink:type="simple">osglez@ucol.mx</email></corresp>
+        <fn fn-type="other" id="fn002">
+          <p>This article was submitted to the journal Frontiers in Cellular Neuroscience.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>17</day>
+        <month>12</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2013</year>
+      </pub-date>
+      <volume>7</volume>
+      <elocation-id>258</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>18</day>
+          <month>6</month>
+          <year>2013</year>
+        </date>
+        <date date-type="accepted">
+          <day>27</day>
+          <month>11</month>
+          <year>2013</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2013 Galvez-Contreras, Qui&#xF1;ones-Hinojosa and Gonzalez-Perez.</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) or licensor are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>In the adult brain, multipotent progenitor cells have been identified in three areas: the ventricular-subventricular zone (VZ-SVZ), adjacent to the striatal wall of the lateral ventricles, the subgranular zone (SGZ), located at the dentate gyrus of the hippocampus and the subcallosal zone (SCZ), located between the corpus callosum and the CA1 and CA2 regions of the hippocampus. The neural progenitor cells of these regions express the epidermal growth factor receptor (EGFR, ErbB-1 or HER1). EGF, the most important ligand for the EGFR, is a potent mitogenic agent that stimulates proliferation, survival, migration and differentiation into the oligodendrocyte lineage. Other ErbB receptors also activate several intracellular pathways for oligodendrocyte specification, migration and survival. However, the specific downstream pathways related to oligodendrogenesis and the hierarchic interaction among intracellular signaling cascades is not well-known. We summarize the current data regarding the role of EGFR and ErbB family signaling on neural stem cells and the downstream cascades involved in oligodendrogenesis in the neurogenic niches of the adult brain. Understanding the mechanisms that regulate proliferation, differentiation, migration of oligodendrocytes and myelination is of critical importance for the field of neurobiology and constitutes a crucial step in the design of stem-cell-based therapies for demyelinating diseases.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>neural stem cell</kwd>
+        <kwd>oligodendrocyte</kwd>
+        <kwd>epidermal growth factor</kwd>
+        <kwd>platelet-derived growth factor</kwd>
+        <kwd>myelin</kwd>
+        <kwd>NG2 glia</kwd>
+      </kwd-group>
+      <counts>
+        <fig-count count="6"/>
+        <table-count count="1"/>
+        <equation-count count="0"/>
+        <ref-count count="128"/>
+        <page-count count="13"/>
+        <word-count count="9494"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Neurogenesis, the production of new neurons, occurs throughout the life of adult mammals. This finding ended the dogma that prevailed since the times of Santiago Ram&#xF3;n y Cajal (at the beginning of the 20th century). He declared that neurons cannot be generated in adult brain and that astrocytes only provided support for brain parenchyma and neurons; therefore, the first discoveries of neuronal mitosis in adult brain were not well-accepted by the scientific community. To date, adult neurogenesis has been fully demonstrated in the adult mammalian brain (Doetsch et al., <xref ref-type="bibr" rid="B25">1999b</xref>; Gritti et al., <xref ref-type="bibr" rid="B50">1999</xref>; Sanai et al., <xref ref-type="bibr" rid="B105">2004</xref>; Kriegstein and Alvarez-Buylla, <xref ref-type="bibr" rid="B74">2009</xref>) and some evidence has been observed in the human brain (Eriksson et al., <xref ref-type="bibr" rid="B28">1998</xref>; Sanai et al., <xref ref-type="bibr" rid="B105">2004</xref>; Quinones-Hinojosa et al., <xref ref-type="bibr" rid="B100">2006</xref>).</p>
+      <p>Adult neurogenesis has been extensively studied in two proliferative niches of the adult brain: the ventricular-subventricular zone (VZ-SVZ), adjacent to the striatal wall of the lateral ventricles (Kriegstein and Alvarez-Buylla, <xref ref-type="bibr" rid="B74">2009</xref>) and the subgranular zone (SGZ), located at the dentate gyrus of the hippocampus (Seri et al., <xref ref-type="bibr" rid="B110">2004</xref>). Recently, a third proliferative region referred to as the subcallosal zone (SCZ) is located between the corpus callosum and dorsal hippocampus. In these three regions, germinal cells have been isolated which produce multi-potential cellular conglomerates (neurospheres) <italic>in vitro</italic>. When seeded on adherent substrates, these multipotent neurospheres can generate neurons and glial cells (Seri et al., <xref ref-type="bibr" rid="B112">2006</xref>; Laskowski et al., <xref ref-type="bibr" rid="B76">2007</xref>). Yet, only gliogenesis has been found in the SCZ <italic>in vivo</italic>. Remarkably, the primary neural progenitor of these three regions has astrocytic characteristics, such as: clear cytoplasm, gap junctions, condensed chromatin and multiple cytoplasmic ramifications. In addition, these multipotent cells express molecular markers related to the astrocytic lineage as: glial fibrillary acidic protein (GFAP), nestin, vimentin, astrocytic glutamate transporter (GLAST) or calcium binding protein S-100&#x3B2;. Further, these cells express receptors with intra-cellular domains of tyrosine kinase receptors, such as: platelet-derived growth factor alpha (PDGFR&#x3B1;), fibroblast growth factor (FGFR) and epidermal growth factor (EGFR) (Garcia-Verdugo et al., <xref ref-type="bibr" rid="B37">1998</xref>; Doetsch et al., <xref ref-type="bibr" rid="B26">2002</xref>; Jackson et al., <xref ref-type="bibr" rid="B60">2006</xref>; Seth and Koul, <xref ref-type="bibr" rid="B113">2008</xref>; Kriegstein and Alvarez-Buylla, <xref ref-type="bibr" rid="B74">2009</xref>).</p>
+      <p>The EGFR and its main ligand, EGF, are some of the most important mitogens that also have significant effects on the survival, migration and differentiation rate of embryonic (Aguirre et al., <xref ref-type="bibr" rid="B4">2007</xref>; Chong et al., <xref ref-type="bibr" rid="B19">2008</xref>; Hu et al., <xref ref-type="bibr" rid="B55">2010</xref>; Sinor-Anderson and Lillien, <xref ref-type="bibr" rid="B115">2011</xref>) and adult neural precursors (Gonzalez-Perez and Alvarez-Buylla, <xref ref-type="bibr" rid="B44">2011</xref>). Recent studies in the adult brain indicate that EGFR stimulates the proliferation of neural precursor cells and induces their differentiation toward oligodendrocyte lineages (Gonzalez-Perez et al., <xref ref-type="bibr" rid="B47">2009</xref>; Aguirre et al., <xref ref-type="bibr" rid="B5">2010</xref>; Gonzalez-Perez and Quinones-Hinojosa, <xref ref-type="bibr" rid="B46">2010</xref>). However, the precise mechanisms by which the EGFR and its ligands can induce such cellular differentiation are not entirely understood. The EGFR effects on differentiation seem to be driven by the heteromerization between the EGFR with other receptors (ErbB family receptor) and the subsequent signaling pathways activated by dimerization of them (Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). This review summarizes the current information regarding the role of the ErbB signaling and the downstream signaling pathways involved in the oligodendrocyte specification in astrocytic neural stem cells. Additionally, we discuss neural disorders where the EGFR signaling in adult neural stem cells and oligodendrocyte precursors has been related to the pathophysiology of disease initiation and/or progression. Knowing the mechanisms that regulate proliferation, differentiation, migration and cell incorporation into the neural circuitry of stem-cell-derived oligodendrocyte progenitors is a crucial step in the design of therapies against demyelinating diseases.</p>
+    </sec>
+    <sec>
+      <title>Neurogenic regions in the adult brain</title>
+      <p>The largest neurogenic regions in the adult brain of mammals are the VZ-SVZ and the SGZ. A third region (SCZ) seems to retain predominantly glyogenic neural progenitors. In these three regions, there are neural stem cells with multi-potential and self-regenerative characteristics <italic>in vitro</italic>; however, the <italic>in vivo</italic> properties of these progenitors are quite different. The VZ-SVZ generates diverse interneurons, that incorporate into the olfactory bulb (Doetsch et al., <xref ref-type="bibr" rid="B24">1999a</xref>), and oligodendrocytes that migrate to adjacent white matter (Menn et al., <xref ref-type="bibr" rid="B89">2006</xref>). The SGZ only generates neurons that incorporate in the granular cells layer of the dentate gyrus (Seri et al., <xref ref-type="bibr" rid="B111">2001</xref>; Abrous et al., <xref ref-type="bibr" rid="B2">2005</xref>), while the SCZ appears to generate only oligodendrocyte precursors that migrate and settle in the corpus callosum (Seri et al., <xref ref-type="bibr" rid="B112">2006</xref>).</p>
+    </sec>
+    <sec>
+      <title>Ventricular-subventricular zone (VZ-SVZ)</title>
+      <p>The adult VZ-SVZ is adjacent to the lateral walls of the lateral ventricles (Figure <xref ref-type="fig" rid="F1">1</xref>). This region has a complex cytoarchitecture delimitated by a layer of ependymal cells (E1- and E2-type cells) revisiting the ventricular cavity of the brain parenchyma (Mirzadeh et al., <xref ref-type="bibr" rid="B91">2008</xref>). Adjacent to this layer of ependymal cells there are the type-B cells, which can be categorized in two subtypes: B1 cells and B2 cells. The B1 subtype are the <italic>bona fide</italic> neural stem cells (Doetsch et al., <xref ref-type="bibr" rid="B25">1999b</xref>), while the B2 astrocytes appears to be supporting cells and constitute a limit between the neurogenic niche and the brain parenchyma (Mirzadeh et al., <xref ref-type="bibr" rid="B91">2008</xref>). Type-B2 cells also form a net of glial tubes whereby the neuroblasts migrate toward the olfactory bulb (Lois and Alvarez-Buylla, <xref ref-type="bibr" rid="B84">1994</xref>; Mirzadeh et al., <xref ref-type="bibr" rid="B91">2008</xref>). Type-B1 cells have a cellular cycle of 17 h, with a 4.5-h length of S phase (Ponti et al., <xref ref-type="bibr" rid="B98">2013</xref>). B1 cells also possess morphologic and ultrastructural characteristics of astrocytes (Doetsch et al., <xref ref-type="bibr" rid="B25">1999b</xref>; Gritti et al., <xref ref-type="bibr" rid="B50">1999</xref>) and express markers for several growth factors like PDGFRa, EGFR and FGFR-1 and -2 (Jackson et al., <xref ref-type="bibr" rid="B60">2006</xref>; Frinchi et al., <xref ref-type="bibr" rid="B34">2008</xref>; Danilov et al., <xref ref-type="bibr" rid="B22">2009</xref>), as well as the class-IV intermediate filaments: vimentin, nestin and GFAP (Bonfanti and Peretto, <xref ref-type="bibr" rid="B11">2007</xref>; Danilov et al., <xref ref-type="bibr" rid="B22">2009</xref>).</p>
+      <fig id="F1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p><bold>The adult ventricular-subventricular zone (VZ-SVZ).</bold> 3-D reconstruction of this niche of neural stem cells located within the lateral wall of the lateral ventricles. Multiciliated ependymal cells, also called E2 cells, form pinwheel-like structures (in peach color) around the apical processes of type B1 cells (in blue). Biciliated ependymal cells as referred to E1 cells (in yellow). Type-C cells (in green) and type-A cells (in red). Type-B1 progenitors are neural stem cells that generate secondary progenitors (type-C cells), which in turn give rise to migrating neuroblast (type-A cells). Additionally, type-B1 cells generate oligodendrocyte progenitors <italic>in vivo</italic>. Both type-B and type-C progenitors express the EGFR. Note that type-B neural stem cells are in close contact with the cerebrospinal fluid and the adjacent blood vessels (BV).</p>
+        </caption>
+        <graphic xlink:href="fncel-07-00258-g0001"/>
+      </fig>
+      <p>The B1 cells give rise to transit-amplifying progenitor cells, also known as type-C cells (Figure <xref ref-type="fig" rid="F1">1</xref>). The type-C cells have a length of cell cycle between 18 and 25 h with a long S phase (12&#x2013;17 h) and multiple cellular divisions (3 or 4 divisions) (Doetsch et al., <xref ref-type="bibr" rid="B25">1999b</xref>; Gritti et al., <xref ref-type="bibr" rid="B50">1999</xref>; Ponti et al., <xref ref-type="bibr" rid="B98">2013</xref>). C cells express high levels of EGFR (Doetsch et al., <xref ref-type="bibr" rid="B26">2002</xref>) and can be identified by the presence of the proneural gene Ascl1 (Ponti et al., <xref ref-type="bibr" rid="B98">2013</xref>) and the transcription factor Dlx-2 (Danilov et al., <xref ref-type="bibr" rid="B22">2009</xref>; Kriegstein and Alvarez-Buylla, <xref ref-type="bibr" rid="B74">2009</xref>). Type C cells originate, in turn, type-A cells (migratory neuroblasts) that express the microtubular proteins doublecortin (DCX) and &#x3B2;-III tubulin (Tuj1), as well as the polysialylated neural cell adhesion molecule (PSA-NCAM) (Abrous et al., <xref ref-type="bibr" rid="B2">2005</xref>; Bonfanti and Peretto, <xref ref-type="bibr" rid="B11">2007</xref>). Type-A cells have a length of cell cycle of 18 h, with an S phase of 9 h (Ponti et al., <xref ref-type="bibr" rid="B98">2013</xref>). These cells migrate tangentially through the rostral migratory stream (RMS) and reach the olfactory bulb (OB), where they disperse from the main cell stream, migrate radially and incorporate into the granular and periglomerular layers of the OB (Doetsch and Alvarez-Buylla, <xref ref-type="bibr" rid="B23">1996</xref>; Alvarez-Buylla and Garcia-Verdugo, <xref ref-type="bibr" rid="B6">2002</xref>; Hagg, <xref ref-type="bibr" rid="B51">2005</xref>). Most of the SVZ-derived neuroblasts differentiate into GABAergic interneurons (Lois and Alvarez-Buylla, <xref ref-type="bibr" rid="B83">1993</xref>, <xref ref-type="bibr" rid="B84">1994</xref>), and a small percentage differentiate into dopaminergic (Basak and Taylor, <xref ref-type="bibr" rid="B10">2009</xref>) or glutamatergic juxtaglomerular neurons that express the Neurog2, Trb1 and Trb2 transcription factors, as well as the vGluT1 and 2 glutamate-transporting proteins (Brill et al., <xref ref-type="bibr" rid="B14">2009</xref>). The synaptic development and pruning of the VZ-SVZ-derived neurons are regulated by sensory activity (Saghatelyan et al., <xref ref-type="bibr" rid="B104">2005</xref>) and experience-dependent plasticity long after maturation and integration (Livneh and Mizrahi, <xref ref-type="bibr" rid="B81">2012</xref>). These newly generated neurons seem to function as neural mediators between sensory coding and brain plasticity (Adam and Mizrahi, <xref ref-type="bibr" rid="B3">2010</xref>).</p>
+    </sec>
+    <sec>
+      <title>The subgranular zone (SGZ)</title>
+      <p>The SGZ is a neurogenic niche located in the dentate gyrus within the hippocampus (Figure <xref ref-type="fig" rid="F2">2</xref>) (Abrous et al., <xref ref-type="bibr" rid="B2">2005</xref>). In the SGZ, there are two subtypes of astrocytes: the radial astrocytes and the horizontal astrocytes. The radial astrocytes, also known as type-1 cells, are the primary neuronal progenitors (Seri et al., <xref ref-type="bibr" rid="B111">2001</xref>, <xref ref-type="bibr" rid="B110">2004</xref>). Radial astrocytes express molecular markers as: GFAP, nestin, vimentin, S100&#x3B2;, musashi, 3-PGDH enzyme, and the transcription factor Sox-2 (Seri et al., <xref ref-type="bibr" rid="B111">2001</xref>, <xref ref-type="bibr" rid="B110">2004</xref>; Komitova and Eriksson, <xref ref-type="bibr" rid="B73">2004</xref>; Balu and Lucki, <xref ref-type="bibr" rid="B8">2009</xref>). SGZ astrocytes also express EGFR receptors, although in lower proportion as compared to the VZ-SVZ astrocytes (Jin et al., <xref ref-type="bibr" rid="B65">2002</xref>). Radial astrocytes give rise to type-2 cells that are also referred as to type D cells (Seri et al., <xref ref-type="bibr" rid="B110">2004</xref>). By their ultrastructural morphology, the type D cells can be subcategorized in type D1, type D2, and type D3, which express markers of immature neurons such as PSA-NCAM, DCX and Tuj1 (Seri et al., <xref ref-type="bibr" rid="B110">2004</xref>; Lledo et al., <xref ref-type="bibr" rid="B82">2006</xref>; Gonzalez-Perez et al., <xref ref-type="bibr" rid="B45">2012</xref>). Type-D1 cells are small and ovoid. These cells give rise to D2 cell sub-type that possesses a short and thick process. According to the orientation of their cell processes, type D2 progenitors can be classified in three sub-types: D2v (vertically oriented), D2h (horizontally oriented) and D2i (pointing to the hilus) (Figure <xref ref-type="fig" rid="F2">2</xref>) (Seri et al., <xref ref-type="bibr" rid="B110">2004</xref>). Type D3 cells have the morphology of immature granular neurons (Seri et al., <xref ref-type="bibr" rid="B110">2004</xref>). Finally, the differentiation of type-D3 cells generates granular neurons (type-G cells) that can be identified by the expression of NeuN, calretinin, and calbindin (Ming and Song, <xref ref-type="bibr" rid="B90">2005</xref>). Throughout this differentiation process, the new neurons of the SGZ migrate small distances (Hagg, <xref ref-type="bibr" rid="B51">2005</xref>) and project their axons to CA3 neurons and synapse axonal projections from entorhinal cortex (Abrous et al., <xref ref-type="bibr" rid="B2">2005</xref>; Balu and Lucki, <xref ref-type="bibr" rid="B8">2009</xref>). Current evidence suggests that the hippocampal neurogenesis plays an important role in the spatial memory acquisition-retention process (Barnea and Nottebohm, <xref ref-type="bibr" rid="B9">1996</xref>; Gould et al., <xref ref-type="bibr" rid="B48">1999</xref>; Feng et al., <xref ref-type="bibr" rid="B29">2001</xref>; Shors et al., <xref ref-type="bibr" rid="B114">2001</xref>) and may regulate emotional processes such as stress, social behavior and depression (Warner-Schmidt and Duman, <xref ref-type="bibr" rid="B123">2006</xref>; Gheusi et al., <xref ref-type="bibr" rid="B40">2009</xref>).</p>
+      <fig id="F2" position="float">
+        <label>Figure 2</label>
+        <caption>
+          <p><bold>The subgranular zone (SGZ) in the dentate gyrus of the adult hippocampus.</bold> Type-B1 cells (in blue) also known as type-1 cells or type-rA cells (radial astrocytes) are the neuronal progenitor cells in this region. Type-rA cells divide and produce type-D cells as referred to type-2 cells. Hippocampal neuroblasts migrate locally and incorporate into the granular layer where they differentiate in mature granular neurons (type-G cells). Type-B1 cells express EGFR and behave as putative neural stem cells <italic>in vitro</italic>.</p>
+        </caption>
+        <graphic xlink:href="fncel-07-00258-g0002"/>
+      </fig>
+    </sec>
+    <sec>
+      <title>Subcallosal zone (SCZ)</title>
+      <p>The SCZ is the most recently described germinal region and there is scarce information about it. Interestingly, its cellular composition is similar to the adult VZ-SVZ (Figure <xref ref-type="fig" rid="F3">3</xref>). During the embryonic development, the SCZ is formed by the collapsing of the ventricular zone walls. Nevertheless, in the adult brain, the SCZ is no longer associated with the ventricular system (Seri et al., <xref ref-type="bibr" rid="B112">2006</xref>). The SCZ is comprised by several cavities filled with cerebrospinal fluid that are located between the corpus callosum and the hippocampus. The cytoarchitecture of the SCZ includes a layer of ependymal cells (type-E cells) that line each cavity. Type-E cells are frequently surrounded by myelinated and unmyelinated axons. Near the type-E cells, there is a subpopulation of astrocytes (type-B cells) and a small population of type-C cells. In this region, migratory cells (type-A cells) that express PSA-NCAM have been shown to differentiate into oligodendrocytes in the adjacent corpus callosum (Seri et al., <xref ref-type="bibr" rid="B112">2006</xref>). Interestingly, the SCZ type-B cells originate multi-potential neurospheres when exposed to EGF or bFGF <italic>in vitro</italic> (Seri et al., <xref ref-type="bibr" rid="B112">2006</xref>). A recent study indicates that the SCZ can generate neurons, but they cannot reach the mature stage (Kim et al., <xref ref-type="bibr" rid="B69">2011</xref>). However, in mutant mice lacking Bax expression, the immature neurons derived from the SCZ are able to reach mature stages (Kim et al., <xref ref-type="bibr" rid="B69">2011</xref>, <xref ref-type="bibr" rid="B68">2012</xref>). In summary, the EGFR expression has been described in type B and type C cells of the VZ-SVZ and in the radial astrocytes of the SGZ. Although the SCZ cells can respond to the presence of EGF <italic>in vitro</italic> (Seri et al., <xref ref-type="bibr" rid="B112">2006</xref>), the specific cell lineage that expresses EGFR is not well defined. This ability to respond to EGF indicates that the EGFR constitutes an important signaling pathway for the adult neural stem cells found in the VZ-SVZ, the SGZ and the SCZ.</p>
+      <fig id="F3" position="float">
+        <label>Figure 3</label>
+        <caption>
+          <p><bold>The subcallosal zone (SCZ) is located between the hippocampus and the corpus callosum.</bold> The SCZ is a caudal extension of the VZ-SVZ that is no longer associated to the ventricular system. Type-B cells (in blue) generate type-C cells that, in turn, give rise to oligodendrocyte precursors (also called SCZ type-A cells) that migrate into the neighboring corpus callosum. Type-B and type-C cells isolated from the SCZ and cultured as neurospheres behave as neural stem cells <italic>in vitro</italic>. However, the cell type that expresses <italic>in vivo</italic> the ErbB family receptors is unknown.</p>
+        </caption>
+        <graphic xlink:href="fncel-07-00258-g0003"/>
+      </fig>
+    </sec>
+    <sec>
+      <title>Receptor of the epidermal growth factor (EGFR)</title>
+      <p>The EGFR, also known as erbB1 or HER-1, is a glycoprotein with a molecular weight of 170 kd that belongs to the related proteins family of c-erbB. There are three other members of this family: erbB2/HER2, erbB3/HER3 and erbB4/HER4 (Table <xref ref-type="table" rid="T1">1</xref>). The EGFR can generate homodimerization or heterodimerization with all ErbB family members (Yarden and Sliwkowski, <xref ref-type="bibr" rid="B127">2001</xref>). After homo or heterodimerization, the tyrosine kinase intracellular domains of ErbB monomers self-phosphorylate and recruit several proteins that, in turn, activate downstream signaling pathways with various cell functions (Schneider et al., <xref ref-type="bibr" rid="B109">2008</xref>). Thus, the EGFR regulates proliferation, migration, tissue invasiveness, apoptosis inhibition, cell differentiation, circadian rhythm, puberty initiation and development of cognitive functions (Herbst and Bunn, <xref ref-type="bibr" rid="B53">2003</xref>; Liu and Neufeld, <xref ref-type="bibr" rid="B79">2004</xref>; Brandes et al., <xref ref-type="bibr" rid="B13">2008</xref>).</p>
+      <table-wrap id="T1" position="float">
+        <label>Table 1</label>
+        <caption>
+          <p><bold>ErbB family members</bold>.</p>
+        </caption>
+        <table frame="hsides" rules="groups">
+          <thead>
+            <tr>
+              <th align="left" valign="top" rowspan="1" colspan="1">
+                <bold>ErbB family member</bold>
+              </th>
+              <th align="left" valign="top" rowspan="1" colspan="1">
+                <bold>Molecular weight</bold>
+              </th>
+              <th align="left" valign="top" rowspan="1" colspan="1">
+                <bold>Description</bold>
+              </th>
+              <th align="left" valign="top" rowspan="1" colspan="1">
+                <bold>Biological assembly</bold>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left" valign="top" rowspan="1" colspan="1">ErbB1, HER1 or EGFR</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">170 kDa</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">EGFR is the main member of the ERBB receptor tyrosine kinase family. It promotes protein tyrosine kinase activity due to an induced dimerization of the receptor, an essential part of the signal transduction pathway.</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">
+                <graphic xlink:href="fncel-07-00258-i0001"/>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" rowspan="1" colspan="1">ErbB2, HER2 or herstatin;</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">185 KDa</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">ErbB2 is the only ErbB family member that does not bind a known ligand. It works as a signal transducer following ligand dependent recruitment into heterodimer</td>
+              <td align="left" rowspan="2" colspan="1">
+                <graphic xlink:href="fncel-07-00258-i0002"/>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" rowspan="1" colspan="1"/>
+              <td align="left" valign="top" rowspan="1" colspan="1"/>
+              <td align="left" valign="top" rowspan="1" colspan="1">rs with ErbB1, ErbB3, or ErbB4</td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" rowspan="1" colspan="1">ERbB3 or HER3</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">140 kDa</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">ErbB3 consists of four domains with structural homology to domains found in the type I insulin-like growth factor receptor. ErbB3 has a heregulin (HRG) or neuregulin binding domain but lacks intrinsic protein tyrosine kinase activity. Therefore, it can bind to the ligand but not convey the signal into the cell through protein phosphorylation. However, ErbB3 forms heterodimers with other EGF receptor family members which do have kinase activity</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">
+                <graphic xlink:href="fncel-07-00258-i0003"/>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" rowspan="1" colspan="1">ErbB4, HER4 or V-Erb-A Erythroblastic Leukemia Viral Oncogene Homolog 4</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">200 kDa</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">ERBB4 is a unique member of the ERBB family that can undergo regulated intramembrane proteolysis. ERBB4 is a single-pass type-1 transmembrane protein with multiple furin-like cysteine rich domains, a TK domain, a PI3K binding site and a PDZ domain binding motif. This receptor is activated by neuregulins-2 and -3, heparin-binding EGF-like growth factor and betacellulin</td>
+              <td align="left" valign="top" rowspan="1" colspan="1">
+                <graphic xlink:href="fncel-07-00258-i0004"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table-wrap-foot>
+          <p>Molecular subdomains are represented by colors: L1 (blue), L2 (yellow), CR1 (green), and CR2 (red).</p>
+        </table-wrap-foot>
+      </table-wrap>
+      <p>The EGFR is synthetized as a precursor molecule that is integrated by a 1210-residue polypeptide. After cleavage in the N-terminal domain, a final fragment of 1186-amino acid protein is anchored on the cellular membrane surface (Jorissen et al., <xref ref-type="bibr" rid="B66">2003</xref>). EGFR has a small transmembrane hydrophobic region and a tyrosine kinase intracellular domain (Yarden and Sliwkowski, <xref ref-type="bibr" rid="B127">2001</xref>; Herbst and Bunn, <xref ref-type="bibr" rid="B53">2003</xref>; Scaltriti and Baselga, <xref ref-type="bibr" rid="B107">2006</xref>). The molecular structure of the EGFR is also characterized for four domains abundant in cysteine-rich (CR1 and CR2) and leucine-rich residues (L1 and L2 domains), which are the ligand binding regions (Jorissen et al., <xref ref-type="bibr" rid="B66">2003</xref>; Flynn et al., <xref ref-type="bibr" rid="B33">2009</xref>). EGFR ligands are the epidermal growth factor (EGF), heparin-binding EGF-like growth factor (HB-EGF), &#x3B2;-cellulin, transforming growth factor alpha (TGF-&#x3B1;), amphiregulin (AREG), epiregulin (EREG), epigen (EPGN) and neuroregulin (NRG). All these ligands can activate the EGFR by autocrine or paracrine signaling (Schneider et al., <xref ref-type="bibr" rid="B109">2008</xref>). The most important ligand of the EGFR is the EGF, a 5.5 kD peptide discovered in the 50s by Stanley Cohen when he was trying to purify the nerve growth factor (NGF) (Raivich and Kreutzberg, <xref ref-type="bibr" rid="B101">1994</xref>; Nathoo et al., <xref ref-type="bibr" rid="B92">2004</xref>). The EGF binds to high and low affinity sites in EGFR-expressing cells. Truncation of the CR1 domain, a loop that mediates dimerization, abolishes the high-affinity binding cell population (Jorissen et al., <xref ref-type="bibr" rid="B66">2003</xref>). Yet, the precise mechanism that regulates these affinities is still unknown.</p>
+    </sec>
+    <sec>
+      <title>Signaling cascades of the ErbB receptor family</title>
+      <p>The strength and intensity of ErbB signaling depends principally on two biological mechanisms: (1) the homodimerization or heterodimerization among ErbB family receptors, and (2) the subsequent activation of downstream proteins (Jorissen et al., <xref ref-type="bibr" rid="B66">2003</xref>; Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). The ErbB receptor family may signal through PI3K/Akt (phosphoinositide 3-kinase/ v-akt murine thymoma), MAPK (the mitogen-activated protein kinases), STAT, PLC (phospholipase C) and many other pathways (Figure <xref ref-type="fig" rid="F4">4</xref>), thereby, regulating cell proliferation, apoptosis, differentiation or migration (Nathoo et al., <xref ref-type="bibr" rid="B92">2004</xref>; Quesnelle et al., <xref ref-type="bibr" rid="B99">2007</xref>). Following activation of EGFR, the SH2 domain of Grb2 can bind to the EGFR either directly (via Y1068 and Y1086) or indirectly via tyrosine phosphorylated Shc (Sasaoka et al., <xref ref-type="bibr" rid="B106">1994</xref>). The association of Shc to EGFR through its PTB domain recruits Grb2 and constitutes one of the main steps in EGF-dependent induction of the Ras/MAPK pathway (Gong and Zhao, <xref ref-type="bibr" rid="B43">2003</xref>). Heterodimerization between different ErbB family members generates a number of cellular effects (Figure <xref ref-type="fig" rid="F5">5</xref>). For instance, heterodimerization between ErbB1 and ErbB2 triggers mitosis (Yarden, <xref ref-type="bibr" rid="B126">2001</xref>) and an undifferentiated cell stage (Ghashghaei et al., <xref ref-type="bibr" rid="B39">2007</xref>). Heterodimerization between EGFR/ErbB4 is involved in dopamine neurons development (Iwakura et al., <xref ref-type="bibr" rid="B59">2005</xref>), whereas ErbB2/ErbB3 is implicated in oligodendrocyte differentiation (Makinodan et al., <xref ref-type="bibr" rid="B87">2012</xref>) by activation of PI3K/AKT pathway (Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). Interestingly, ErbB2/ErbB3 heterodimerization can also promote glioma development (Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). ErbB2/ErbB4 promotes cell differentiation in the embryonic hippocampus (Gerecke et al., <xref ref-type="bibr" rid="B38">2004</xref>). ErbB1/ErbB4 activation mediated by betacellulin expands neural stem cells and neuroblasts in the postnatal brain (Gomez-Gaviro et al., <xref ref-type="bibr" rid="B42">2012</xref>). In summary, the ErbB receptor family is involved in a myriad of biological effects, one of them is the generation and differentiation of oligodendrocytes from neural stem cells.</p>
+      <fig id="F4" position="float">
+        <label>Figure 4</label>
+        <caption>
+          <p><bold>The ErbB family receptors and their main cell signaling pathways: the Ras/MAPK, the PI3K/AKT and the PLCy pathways</bold>.</p>
+        </caption>
+        <graphic xlink:href="fncel-07-00258-g0004"/>
+      </fig>
+      <fig id="F5" position="float">
+        <label>Figure 5</label>
+        <caption>
+          <p><bold>Biological effects reported in ErbB family proteins.</bold> The homo or heterodimerization of the ErbB proteins may generate similar effects. Homodimerization between EGFR/EGFR can originates proliferation MAPK activation and the heterodimeriizations of EGFR/ErbB2 undifferentiated state and enhanced mitogenic activity; EGFR/ErbB3 oligodendroglial cell fate via AKT and EGFR/ErbB4 neuronal and survival cell fate.</p>
+        </caption>
+        <graphic xlink:href="fncel-07-00258-g0005"/>
+      </fig>
+    </sec>
+    <sec>
+      <title>Oligodendrocyte specification mediated by ErbB family in the embryonic brain</title>
+      <p>In embryonic neural precursors, the EGFR is mainly associated with initiation of asymmetric divisions (Sun et al., <xref ref-type="bibr" rid="B117">2005</xref>). The ErbB family regulates the maturation process of oligodendrocytes and myelin production during neural development (Aguirre et al., <xref ref-type="bibr" rid="B4">2007</xref>). In rodents, gliogenesis occurs in the second week of postnatal development (Ivkovic et al., <xref ref-type="bibr" rid="B57">2008</xref>), which is associated with the EGFR expression (Aguirre et al., <xref ref-type="bibr" rid="B4">2007</xref>). ErbB1 and ErbB2 mRNAs are expressed in S100&#x3B2;+ and Olig2+ glial precursors, while ErbB3 mRNA expression coincides with the expression of 2&#x2032;,3&#x2032;-cyclic-nucleotide 3&#x2032;-fosfodiesterase (a marker associated with mature oligodendrocytes) (Abe et al., <xref ref-type="bibr" rid="B1">2009</xref>). Furthermore, ErbB2 appears to participate in the oligodendrocyte differentiation process, while the expression of ErbB3 and ErbB4 is necessary for maturation of embryonic oligodendrocyte precursors (Sussman et al., <xref ref-type="bibr" rid="B118">2005</xref>). Thus, a possible interaction between ErbB1 and ErbB3 signaling pathways may be involved in oligodendroglial specification.</p>
+      <p>AKT signaling is involved in myelination during early embryonic stages (Flores et al., <xref ref-type="bibr" rid="B32">2008</xref>). SHP2 protein is involved in the AKT activation promoted by EGFR in oligodendrocyte precursors (Liu et al., <xref ref-type="bibr" rid="B80">2011</xref>). Another targeting protein for the AKT signaling is Gab1; when Gab1 levels decrease in precursor cells of the spinal cord, the Olig-2 transcription factor expression decreases and the Pax7+ expression is inhibited (Hayakawa-Yano et al., <xref ref-type="bibr" rid="B52">2007</xref>). This suggests that ErbB1 drives the Olig-2 expression via Gab1/AKT.</p>
+      <p>Neuroregulins (NRGs) are efficient ligands for EGFR, ErbB3, and ErBb4 proteins (Talmage, <xref ref-type="bibr" rid="B119">2008</xref>; Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). NRGs support the survival of oligodendrocytes and aged oligodendrocyte precursor cells (Fernandez et al., <xref ref-type="bibr" rid="B30">2000</xref>). NRGs induce axon-associated survival in developing oligodendrocytes through the PI3-kinase/Akt pathway (Flores et al., <xref ref-type="bibr" rid="B31">2000</xref>). Inhibition of the signaling mediated by NRG/ErbB4, an important regulator of oligodendrocyte development, induces changes in the morphology, number and role of the oligodendrocytes <italic>in vivo</italic> (Roy et al., <xref ref-type="bibr" rid="B103">2007</xref>). ErbB family members also promote myelination in the peripheral nervous system by increasing the expression of myelin protein zero (P0 or MPZ) in Schwann cells (Chen et al., <xref ref-type="bibr" rid="B18">2006</xref>). Neuroregulin 1 (NRG-1) induces heterodimerization between ErbB2 and ErbB3 receptors and promotes myelination in the peripheral nervous system (Newbern and Birchmeier, <xref ref-type="bibr" rid="B93">2010</xref>). Taken together this indicates that NRGs play an important role in oligodendrogenesis and myelination during CNS and PNS development.</p>
+    </sec>
+    <sec>
+      <title>ErbB effects in the oligodendrocyte specification in adult neural stem cells</title>
+      <p>Increasing evidence indicates that EGFR ligands determine the cell fate of adult neural stem cell of the VZ-SVZ (Gonzalez-Perez and Alvarez-Buylla, <xref ref-type="bibr" rid="B44">2011</xref>). At the postnatal day 3, EGFR overexpression in the VZ-SVZ generates intense hyperplasia. These cells express oligodendrocyte-type lineage markers characterized by the expression of NG2, Olig2, and PDGFR&#x3B1; (Ivkovic et al., <xref ref-type="bibr" rid="B57">2008</xref>). In the adult VZ-SVZ, intracerebral administration of EGF induces strong cell proliferation and migration and drives differentiation into oligodendrocyte lineage (Gonzalez-Perez et al., <xref ref-type="bibr" rid="B47">2009</xref>). In cell culture, VZ-SVZ astrocytes (type B cells) strongly proliferate and generate a number of O4+PDGFR&#x3B1;+ oligodendrocyte precursors after EGF exposure (Gonzalez-Perez and Quinones-Hinojosa, <xref ref-type="bibr" rid="B46">2010</xref>). The astrocytic cells respond to the EGFR stimulation through several ligands and MAPK signaling pathway (Tournier et al., <xref ref-type="bibr" rid="B122">1994</xref>). Interestingly, after three weeks in cell culture astrocytes do not respond to EGF stimulation, but when pre-treated with IL-6, astrocytes actively respond to EGF effects (Levison et al., <xref ref-type="bibr" rid="B78">2000</xref>; Gonzalez-Perez et al., <xref ref-type="bibr" rid="B45">2012</xref>). These findings indicate a synergy between IL-6 and EGF. A similar effect is also observed in spinal cord progenitor cells, where IL-6 produces a trans-activation of EGFR (Kang and Kang, <xref ref-type="bibr" rid="B67">2008</xref>). IL-6 activates Jak/STAT signaling pathway (Scaltriti and Baselga, <xref ref-type="bibr" rid="B107">2006</xref>) and stimulates oligodendroglial differentiation via the Jak/STAT pathway (Islam et al., <xref ref-type="bibr" rid="B56">2009</xref>). STAT-3 is essential for the synergism between the chondroitin sulfate proteoglycan (CSPG) and EGF. In cell culture, CSPG and EGF activate PI3K and STAT-3 pathways, as well as promote the formation of neurospheres, cell survival and the phosphorylation of EGFR (Tham et al., <xref ref-type="bibr" rid="B120">2010</xref>). The PI3K/AKT pathway is mainly activated when EGFR dimerizes with the ErbB3 monomer (Scaltriti and Baselga, <xref ref-type="bibr" rid="B107">2006</xref>). EGFR-dependent STAT activation may be mediated by Src without JAK. Src is involved in the activation of PI3K/AKT via a p85 subunit binding (Jorissen et al., <xref ref-type="bibr" rid="B66">2003</xref>) (Figure <xref ref-type="fig" rid="F4">4</xref>). Taken together, this suggests that Jak/STAT is important for cell-cycle progression and oligodendrogenesis.</p>
+      <p>ADPbetaS and UTP nucleotides activate EGFR and induce a rapid calcium influx in SVZ progenitor cells (Grimm et al., <xref ref-type="bibr" rid="B49">2009</xref>). An increase in intracellular calcium levels promotes oligodendrocyte differentiation (Boscia et al., <xref ref-type="bibr" rid="B12">2012</xref>; Paez et al., <xref ref-type="bibr" rid="B97">2012</xref>). Oligodendrocyte differentiation and myelination is promoted by the NMDAR stimulation and by subsequent influx of calcium (Cavaliere et al., <xref ref-type="bibr" rid="B16">2012</xref>). NRG/ErbB induces oligodendroglial differentiation (Roy et al., <xref ref-type="bibr" rid="B103">2007</xref>) probably mediated by NMDAR activation (Brinkmann et al., <xref ref-type="bibr" rid="B15">2008</xref>). The interaction between the ErbB and NMDAR during oligodendrocyte differentiation is mediated by intracellular levels of calcium (Brinkmann et al., <xref ref-type="bibr" rid="B15">2008</xref>; Cavaliere et al., <xref ref-type="bibr" rid="B16">2012</xref>). This indicates that the synergism between EGF and calcium ion channels controls oligodendrocyte specification.</p>
+      <p>Polidendrocytes, also known synantocytes or NG2 glia, are characterized by the expression of the NG2 chondroitin sulfate proteoglycan (Nishiyama, <xref ref-type="bibr" rid="B94">2001</xref>). Many of the NG2-expressing cells are located in the corpus callosum and express the EGFR. In wild-type mice, re-myelination is mediated by NG2+Olig2+Mash1+ precursor cells (Aguirre et al., <xref ref-type="bibr" rid="B4">2007</xref>). In contrast, mutant mice that constitutively express the human EGFR (hEGFR) in NG2 cells show an increase in the expression of Nkx2.2, Sox-9, and Sox-10 in a demyelinated area. Thus, an increase in the activity of EGFR drives oligodendrogenesis at the expense of astrogliogenesis (Aguirre et al., <xref ref-type="bibr" rid="B4">2007</xref>). Consequently, the transcription factors Nkx2.2, Sox-9, and Sox-10 may regulate the oligodendrogenesis effects of EGFR in multipotent cells. Sox-2 is a transcription factor that has homology with the SRY protein and determines the sex of individuals (Hu et al., <xref ref-type="bibr" rid="B55">2010</xref>). Sox-2 is associated with oligodendrocyte-cell-fate commitment in the SVZ and SGZ precursor cells that express EGFR (Komitova and Eriksson, <xref ref-type="bibr" rid="B73">2004</xref>; Baer et al., <xref ref-type="bibr" rid="B7">2007</xref>; Balu and Lucki, <xref ref-type="bibr" rid="B8">2009</xref>). Interestingly, changes in EGFR gene expression and EGFR protein occur at the time of puberty in the brain (Ma et al., <xref ref-type="bibr" rid="B85">1994</xref>) and sex-dependent differences have been observed in myelination process (Kipp et al., <xref ref-type="bibr" rid="B70">2012</xref>). Nevertheless, the biological relationship between ErbB family receptors and sexual hormones in oligodendrocyte specification remains to be elucidated.</p>
+      <p>Olig1 and Olig2 transcription factors participate in oligodendrogenesis in embryonic spinal cord and ventral telencephalon (Jakovcevski and Zecevic, <xref ref-type="bibr" rid="B61">2005a</xref>,<xref ref-type="bibr" rid="B62">b</xref>). In the adult brain, a small population of type-B cells in the SVZ expresses Olig2 that may generate a discrete subpopulation of Olig2-expressing type-C cells. These Olig2+Dlx2+ type-C cells may be the oligodendroglial precursors of adult VZ-SVZ (Menn et al., <xref ref-type="bibr" rid="B89">2006</xref>; Gonzalez-Perez and Quinones-Hinojosa, <xref ref-type="bibr" rid="B46">2010</xref>). Interaction between Dlx2 and EGFR regulates proliferation and neurogenesis of type C cells in the VZ-SVZ (Suh et al., <xref ref-type="bibr" rid="B116">2009</xref>).</p>
+      <p>MAPK pathway promotes neuronal differentiation and survival through phosphorylated CREB (CREB-p) that, in turn, induces Pax6 expression (Levison et al., <xref ref-type="bibr" rid="B78">2000</xref>; Gampe et al., <xref ref-type="bibr" rid="B36">2011</xref>; Herold et al., <xref ref-type="bibr" rid="B54">2011</xref>; Yoo et al., <xref ref-type="bibr" rid="B128">2012</xref>). Pax-6 reduces the EGFR expression in neural stem cells (Jia et al., <xref ref-type="bibr" rid="B64">2011</xref>) and represses the expression of Olig-2 cells and glial lineage (Jang and Goldman, <xref ref-type="bibr" rid="B63">2011</xref>). Thus, Pax-6 induces neuronal differentiation in embryonic and adult neural precursor cells (Kohwi et al., <xref ref-type="bibr" rid="B72">2005</xref>; Osumi et al., <xref ref-type="bibr" rid="B96">2008</xref>) and determines the neuronal cell fate while decreasing the expression of NG2 (Klempin et al., <xref ref-type="bibr" rid="B71">2011</xref>). Hence, interaction between Pax-6 and Olig-2 seems to regulate the final phenotype of precursor cells by regulating EGFR activity. This intricate relationship among transcription factors and downstream signaling pathways activated by ErbB proteins regulates the oligodendrogenesis process. Therefore, molecular disruptions in any of these biological mechanisms may considerably alter the myelination process. ErbB-driven olidodendrogenesis has been implicated in psychiatric disorders and tumorigenesis.</p>
+    </sec>
+    <sec>
+      <title>ErbB receptors in psychiatric disorders</title>
+      <p>Disruption in oligodendrogenesis and myelin formation has been associated with the pathophysiology of schizophrenia. Animals deprived of ErbB signaling show psychiatric-like behaviors (Roy et al., <xref ref-type="bibr" rid="B103">2007</xref>). The brain of schizophrenic patients shows a significant alteration in myelination and oligodendrocyte generation (Chang et al., <xref ref-type="bibr" rid="B17">2007</xref>), which is associated with a decrease in EGF levels (Futamura et al., <xref ref-type="bibr" rid="B35">2002</xref>; Iwakura and Nawa, <xref ref-type="bibr" rid="B58">2013</xref>). Mature oligodendrocytes express the dopamine receptors (D2 and D3) that are involved in myelin-sheath formation and oligodendrocyte turnover. A deficiency in expression of D2 and D3 receptors reduces the number of myelinating oligodendrocytes (Lee and Fields, <xref ref-type="bibr" rid="B77">2009</xref>). In contrast, dopamine exposure promotes EGFR trans-activation, which increases the proliferation of neural precursor cells in the adult brain (Winner et al., <xref ref-type="bibr" rid="B125">2009</xref>; O'keeffe and Barker, <xref ref-type="bibr" rid="B95">2011</xref>). Therefore, ErbB receptor family is an important regulator of dopamine-induced oligodendrogenesis, which may explain some of the myelination disturbances observed in schizophrenia.</p>
+      <p>In major depression disease, a low density and reduced expression of oligodendrocyte-specific gene transcripts have been found in postmortem human brains (Edgar and Sibille, <xref ref-type="bibr" rid="B27">2012</xref>). Patients with major depression often present with decreased levels of EGF (Tian et al., <xref ref-type="bibr" rid="B121">2012</xref>). Oligodendrocyte precursor cells co-express serotonin receptors and EGF receptors (Schaumburg et al., <xref ref-type="bibr" rid="B108">2008</xref>), while EGF has been shown to transcriptionally regulate transporters of serotonin 1 and 2 via ErbB1 (Gill et al., <xref ref-type="bibr" rid="B41">2011</xref>) Taken together, this evidence suggests that ErbB receptors may be involved in the pathophysiology of mood and psychiatric disorders by controlling the oligodendrocyte cell population and serotonin brain levels.</p>
+    </sec>
+    <sec>
+      <title>EGFR role in hyperplasia and tumorigenesis</title>
+      <p>In the adult brain, long-lasting EGFR stimulation induces polyp-like growths (Kuhn and Miller, <xref ref-type="bibr" rid="B75">1996</xref>), leads to diffuse white-matter hyperplasia (Ivkovic et al., <xref ref-type="bibr" rid="B57">2008</xref>) and promotes a strong invasive pattern of VZ-SVZ precursors (Gonzalez-Perez et al., <xref ref-type="bibr" rid="B47">2009</xref>; Gonzalez-Perez and Quinones-Hinojosa, <xref ref-type="bibr" rid="B46">2010</xref>). Remarkably, in all these experiments, the EGF-transformed cells appear to be related to oligodendroglia cell lineage, such as: NG2, Olig-2, O4, and PDGFR&#x3B1;. In brain tumors, there is evidence suggesting that EGFR signaling plays a role in tumor initiation and progression. Approximately 50% of high-grade astrocytomas show EGFR amplification that leads to glioblastoma malignization (Maher et al., <xref ref-type="bibr" rid="B86">2001</xref>; Wechsler-Reya and Scott, <xref ref-type="bibr" rid="B124">2001</xref>). Low-grade and high-grade oligodendroglial tumors also show an increased expression of EGFR mRNA and protein, which in the vast majority of cases is not produced by gene amplification (Reifenberger et al., <xref ref-type="bibr" rid="B102">1996</xref>). Furthermore, EGFR overexpression is associated with mutations in the intracellular and extracellular domains, alterations in signaling cascade regulation and cross-signaling with other tyrosine kinase receptors (Schneider et al., <xref ref-type="bibr" rid="B109">2008</xref>). This indicates that the EGFR may be activated by ligand-dependent and ligand-independent mechanisms (Scaltriti and Baselga, <xref ref-type="bibr" rid="B107">2006</xref>). The amplification and overexpression of EGFR is found in approximately 50% of glioblastomas and promotes invasion, proliferation and apoptosis arrest (Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). These effects are produced by AKT and ERK 1/2 (Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). In approximately 14% of EGFR-expressing glioblastomas there is a mutation in the EGFRvIII gene, which is characterized by a lack of an extracellular domain and constitutive phosphorylation (Brandes et al., <xref ref-type="bibr" rid="B13">2008</xref>). The EGFR contributes to the tumorigenic cellular diversity of glioblastoma by participating in the expansion of diverse cell types that initiate tumors (Mazzoleni et al., <xref ref-type="bibr" rid="B88">2010</xref>). Whether <italic>stem-cell-like</italic> glioblastoma cells are initially exposed to EGF and bFGF, the EGFR-like activity continues despite the absence of a ligand. This suggests that other erbB family members, i.e., erbB2 and erBb3, may also be involved in glioblastoma cell expansion (Clark et al., <xref ref-type="bibr" rid="B20">2012</xref>). Interestingly, EGFR overstimulation by itself is not enough to drive brain tumor formation. This indicates the genetic background plays an important role in tumorigenesis and the EGFR may only induce certain aspects of a malignant phenotype (e.g., proliferation and tissue invasion).</p>
+    </sec>
+    <sec sec-type="conclusion" id="s2">
+      <title>Conclusion</title>
+      <p>EGFR has different biological effects that can be attributed to: (1) the type of ErbB ligand (Jin et al., <xref ref-type="bibr" rid="B65">2002</xref>; Cooper and Isacson, <xref ref-type="bibr" rid="B21">2004</xref>; Gonzalez-Perez et al., <xref ref-type="bibr" rid="B47">2009</xref>; Gonzalez-Perez and Quinones-Hinojosa, <xref ref-type="bibr" rid="B46">2010</xref>; Gomez-Gaviro et al., <xref ref-type="bibr" rid="B42">2012</xref>); (2) the homo or heterodimerization ErbB proteins (Iwakura and Nawa, <xref ref-type="bibr" rid="B58">2013</xref>) and (3) the downstream signaling pathway that every ligand/dimmer may stimulate. ErbB proteins are important mediators of quiescence, proliferation, differentiation, phenotype specification, survival and migration of neural stem cells. In a number of independent reports, ErbB1 and Erbb3 are frequently involved in oligodendrocyte specification. Therefore, we hypothesize that the interaction between these receptors is one of the main promoters in the oligodendrocyte lineage (Figure <xref ref-type="fig" rid="F6">6</xref>). Yet, the role of the ErbB family members in adult neural stem cells is not completely understood. Elucidating the precise role of ErbB family members in oligodendrogenesis is a crucial step for designing stem-cell-based therapies for demyelinating diseases and other neurological disorders.</p>
+      <fig id="F6" position="float">
+        <label>Figure 6</label>
+        <caption>
+          <p><bold>Hypothetical model of oligodendrocyte cell signaling, via EGFR and ErbB3 in adult neural stem and progenitors cells.</bold> Homodimerization between these two ErbB members could activate the PI3K or the STAT pathways that in turn can activate AKT and induces the expression of Olig-2, which in turn may determine oligodendroglial lineage.</p>
+        </caption>
+        <graphic xlink:href="fncel-07-00258-g0006"/>
+      </fig>
+      <sec>
+        <title>Conflict of interest statement</title>
+        <p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>This work was supported by NIH grant R01NS070024 (Oscar Gonzalez-Perez and Alfredo Qui&#xF1;ones-Hinojosa), CONACyT grant CB-2008-101476 (Oscar Gonzalez-Perez and Alma Y. Galvez-Contreras) and PROMEP grant 103.5/12/4857 (Oscar Gonzalez-Perez). The authors thank Tania V. Campos for her assistance in figures' assembly and Sean J. Dangelmajer of his editorial assistance.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Abe</surname><given-names>Y.</given-names></name><name><surname>Namba</surname><given-names>H.</given-names></name><name><surname>Zheng</surname><given-names>Y.</given-names></name><name><surname>Nawa</surname><given-names>H.</given-names></name></person-group> (<year>2009</year>). <article-title><italic>In situ</italic> hybridization reveals developmental regulation of ErbB1-4 mRNA expression in mouse midbrain: implication of ErbB receptors for dopaminergic neurons</article-title>. <source>Neuroscience</source>
+<volume>161</volume>, <fpage>95</fpage>&#x2013;<lpage>110</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroscience.2009.03.022</pub-id><pub-id pub-id-type="pmid">19298847</pub-id></mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Abrous</surname><given-names>D. N.</given-names></name><name><surname>Koehl</surname><given-names>M.</given-names></name><name><surname>Le Moal</surname><given-names>M.</given-names></name></person-group> (<year>2005</year>). <article-title>Adult neurogenesis: from precursors to network and physiology</article-title>. <source>Physiol. Rev</source>. <volume>85</volume>, <fpage>523</fpage>&#x2013;<lpage>569</lpage>
+<pub-id pub-id-type="doi">10.1152/physrev.00055.2003</pub-id><pub-id pub-id-type="pmid">15788705</pub-id></mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Adam</surname><given-names>Y.</given-names></name><name><surname>Mizrahi</surname><given-names>A.</given-names></name></person-group> (<year>2010</year>). <article-title>Circuit formation and maintenance&#x2013;perspectives from the mammalian olfactory bulb</article-title>. <source>Curr. Opin. Neurobiol</source>. <volume>20</volume>, <fpage>134</fpage>&#x2013;<lpage>140</lpage>
+<pub-id pub-id-type="doi">10.1016/j.conb.2009.11.001</pub-id><pub-id pub-id-type="pmid">20005696</pub-id></mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Aguirre</surname><given-names>A.</given-names></name><name><surname>Dupree</surname><given-names>J. L.</given-names></name><name><surname>Mangin</surname><given-names>J. M.</given-names></name><name><surname>Gallo</surname><given-names>V.</given-names></name></person-group> (<year>2007</year>). <article-title>A functional role for EGFR signaling in myelination and remyelination</article-title>. <source>Nat. Neurosci</source>. <volume>10</volume>, <fpage>990</fpage>&#x2013;<lpage>1002</lpage>
+<pub-id pub-id-type="doi">10.1038/nn1938</pub-id><pub-id pub-id-type="pmid">17618276</pub-id></mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Aguirre</surname><given-names>A.</given-names></name><name><surname>Rubio</surname><given-names>M. E.</given-names></name><name><surname>Gallo</surname><given-names>V.</given-names></name></person-group> (<year>2010</year>). <article-title>Notch and EGFR pathway interaction regulates neural stem cell number and self-renewal</article-title>. <source>Nature</source>
+<volume>467</volume>, <fpage>323</fpage>&#x2013;<lpage>327</lpage>
+<pub-id pub-id-type="doi">10.1038/nature09347</pub-id><pub-id pub-id-type="pmid">20844536</pub-id></mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name></person-group> (<year>2002</year>). <article-title>Neurogenesis in adult subventricular zone</article-title>. <source>J. Neurosci</source>. <volume>22</volume>, <fpage>629</fpage>&#x2013;<lpage>634</lpage>
+<pub-id pub-id-type="pmid">11826091</pub-id></mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Baer</surname><given-names>K.</given-names></name><name><surname>Eriksson</surname><given-names>P. S.</given-names></name><name><surname>Faull</surname><given-names>R. L.</given-names></name><name><surname>Rees</surname><given-names>M. I.</given-names></name><name><surname>Curtis</surname><given-names>M. A.</given-names></name></person-group> (<year>2007</year>). <article-title>Sox-2 is expressed by glial and progenitor cells and Pax-6 is expressed by neuroblasts in the human subventricular zone</article-title>. <source>Exp. Neurol</source>. <volume>204</volume>, <fpage>828</fpage>&#x2013;<lpage>831</lpage>
+<pub-id pub-id-type="doi">10.1016/j.expneurol.2006.12.008</pub-id><pub-id pub-id-type="pmid">17291498</pub-id></mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Balu</surname><given-names>D. T.</given-names></name><name><surname>Lucki</surname><given-names>I.</given-names></name></person-group> (<year>2009</year>). <article-title>Adult hippocampal neurogenesis: regulation, functional implications, and contribution to disease pathology</article-title>. <source>Neurosci. Biobehav. Rev</source>. <volume>33</volume>, <fpage>232</fpage>&#x2013;<lpage>252</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neubiorev.2008.08.007</pub-id><pub-id pub-id-type="pmid">18786562</pub-id></mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Barnea</surname><given-names>A.</given-names></name><name><surname>Nottebohm</surname><given-names>F.</given-names></name></person-group> (<year>1996</year>). <article-title>Recruitment and replacement of hippocampal neurons in young and adult chickadees: an addition to the theory of hippocampal learning</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>93</volume>, <fpage>714</fpage>&#x2013;<lpage>718</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.93.2.714</pub-id><pub-id pub-id-type="pmid">11607626</pub-id></mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Basak</surname><given-names>O.</given-names></name><name><surname>Taylor</surname><given-names>V.</given-names></name></person-group> (<year>2009</year>). <article-title>Stem cells of the adult mammalian brain and their niche</article-title>. <source>Cell. Mol. Life Sci</source>. <volume>66</volume>, <fpage>1057</fpage>&#x2013;<lpage>1072</lpage>
+<pub-id pub-id-type="doi">10.1007/s00018-008-8544-x</pub-id><pub-id pub-id-type="pmid">19011753</pub-id></mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bonfanti</surname><given-names>L.</given-names></name><name><surname>Peretto</surname><given-names>P.</given-names></name></person-group> (<year>2007</year>). <article-title>Radial glial origin of the adult neural stem cells in the subventricular zone</article-title>. <source>Prog. Neurobiol</source>. <volume>83</volume>, <fpage>24</fpage>&#x2013;<lpage>36</lpage>
+<pub-id pub-id-type="doi">10.1016/j.pneurobio.2006.11.002</pub-id><pub-id pub-id-type="pmid">17196731</pub-id></mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Boscia</surname><given-names>F.</given-names></name><name><surname>D'avanzo</surname><given-names>C.</given-names></name><name><surname>Pannaccione</surname><given-names>A.</given-names></name><name><surname>Secondo</surname><given-names>A.</given-names></name><name><surname>Casamassa</surname><given-names>A.</given-names></name><name><surname>Formisano</surname><given-names>L.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Silencing or knocking out the Na(+)/Ca(2+) exchanger-3 (NCX3) impairs oligodendrocyte differentiation</article-title>. <source>Cell Death Differ</source>. <volume>19</volume>, <fpage>562</fpage>&#x2013;<lpage>572</lpage>
+<pub-id pub-id-type="doi">10.1038/cdd.2011.125</pub-id><pub-id pub-id-type="pmid">21959935</pub-id></mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Brandes</surname><given-names>A. A.</given-names></name><name><surname>Franceschi</surname><given-names>E.</given-names></name><name><surname>Tosoni</surname><given-names>A.</given-names></name><name><surname>Hegi</surname><given-names>M. E.</given-names></name><name><surname>Stupp</surname><given-names>R.</given-names></name></person-group> (<year>2008</year>). <article-title>Epidermal growth factor receptor inhibitors in neuro-oncology: hopes and disappointments</article-title>. <source>Clin. Cancer Res</source>. <volume>14</volume>, <fpage>957</fpage>&#x2013;<lpage>960</lpage>
+<pub-id pub-id-type="doi">10.1158/1078-0432.CCR-07-1810</pub-id><pub-id pub-id-type="pmid">18281526</pub-id></mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Brill</surname><given-names>M. S.</given-names></name><name><surname>Ninkovic</surname><given-names>J.</given-names></name><name><surname>Winpenny</surname><given-names>E.</given-names></name><name><surname>Hodge</surname><given-names>R. D.</given-names></name><name><surname>Ozen</surname><given-names>I.</given-names></name><name><surname>Yang</surname><given-names>R.</given-names></name><etal/></person-group> (<year>2009</year>). <article-title>Adult generation of glutamatergic olfactory bulb interneurons</article-title>. <source>Nat. Neurosci</source>. <volume>12</volume>, <fpage>1524</fpage>&#x2013;<lpage>1533</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.2416</pub-id><pub-id pub-id-type="pmid">19881504</pub-id></mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Brinkmann</surname><given-names>B. G.</given-names></name><name><surname>Agarwal</surname><given-names>A.</given-names></name><name><surname>Sereda</surname><given-names>M. W.</given-names></name><name><surname>Garratt</surname><given-names>A. N.</given-names></name><name><surname>Muller</surname><given-names>T.</given-names></name><name><surname>Wende</surname><given-names>H.</given-names></name><etal/></person-group> (<year>2008</year>). <article-title>Neuregulin-1/ErbB signaling serves distinct functions in myelination of the peripheral and central nervous system</article-title>. <source>Neuron</source>
+<volume>59</volume>, <fpage>581</fpage>&#x2013;<lpage>595</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2008.06.028</pub-id><pub-id pub-id-type="pmid">18760695</pub-id></mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cavaliere</surname><given-names>F.</given-names></name><name><surname>Urra</surname><given-names>O.</given-names></name><name><surname>Alberdi</surname><given-names>E.</given-names></name><name><surname>Matute</surname><given-names>C.</given-names></name></person-group> (<year>2012</year>). <article-title>Oligodendrocyte differentiation from adult multipotent stem cells is modulated by glutamate</article-title>. <source>Cell Death Dis</source>. <volume>3</volume>: <fpage>e268</fpage>
+<pub-id pub-id-type="doi">10.1038/cddis.2011.144</pub-id><pub-id pub-id-type="pmid">22297298</pub-id></mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chang</surname><given-names>L.</given-names></name><name><surname>Friedman</surname><given-names>J.</given-names></name><name><surname>Ernst</surname><given-names>T.</given-names></name><name><surname>Zhong</surname><given-names>K.</given-names></name><name><surname>Tsopelas</surname><given-names>N. D.</given-names></name><name><surname>Davis</surname><given-names>K.</given-names></name></person-group> (<year>2007</year>). <article-title>Brain metabolite abnormalities in the white matter of elderly schizophrenic subjects: implication for glial dysfunction</article-title>. <source>Biol. Psychiatry</source>
+<volume>62</volume>, <fpage>1396</fpage>&#x2013;<lpage>1404</lpage>
+<pub-id pub-id-type="doi">10.1016/j.biopsych.2007.05.025</pub-id><pub-id pub-id-type="pmid">17693392</pub-id></mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chen</surname><given-names>S.</given-names></name><name><surname>Velardez</surname><given-names>M. O.</given-names></name><name><surname>Warot</surname><given-names>X.</given-names></name><name><surname>Yu</surname><given-names>Z. X.</given-names></name><name><surname>Miller</surname><given-names>S. J.</given-names></name><name><surname>Cros</surname><given-names>D.</given-names></name><etal/></person-group> (<year>2006</year>). <article-title>Neuregulin 1-erbB signaling is necessary for normal myelination and sensory function</article-title>. <source>J. Neurosci</source>. <volume>26</volume>, <fpage>3079</fpage>&#x2013;<lpage>3086</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.3785-05.2006</pub-id><pub-id pub-id-type="pmid">16554459</pub-id></mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Chong</surname><given-names>V. Z.</given-names></name><name><surname>Webster</surname><given-names>M. J.</given-names></name><name><surname>Rothmond</surname><given-names>D. A.</given-names></name><name><surname>Weickert</surname><given-names>C. S.</given-names></name></person-group> (<year>2008</year>). <article-title>Specific developmental reductions in subventricular zone ErbB1 and ErbB4 mRNA in the human brain</article-title>. <source>Int. J. Dev. Neurosci</source>. <volume>26</volume>, <fpage>791</fpage>&#x2013;<lpage>803</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ijdevneu.2008.06.004</pub-id><pub-id pub-id-type="pmid">18662768</pub-id></mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Clark</surname><given-names>P. A.</given-names></name><name><surname>Iida</surname><given-names>M.</given-names></name><name><surname>Treisman</surname><given-names>D. M.</given-names></name><name><surname>Kalluri</surname><given-names>H.</given-names></name><name><surname>Ezhilan</surname><given-names>S.</given-names></name><name><surname>Zorniak</surname><given-names>M.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Activation of multiple ERBB family receptors mediates glioblastoma cancer stem-like cell resistance to EGFR-targeted inhibition</article-title>. <source>Neoplasia</source>
+<volume>14</volume>, <fpage>420</fpage>&#x2013;<lpage>428</lpage>
+<pub-id pub-id-type="pmid">22745588</pub-id></mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Cooper</surname><given-names>O.</given-names></name><name><surname>Isacson</surname><given-names>O.</given-names></name></person-group> (<year>2004</year>). <article-title>Intrastriatal transforming growth factor alpha delivery to a model of Parkinson's disease induces proliferation and migration of endogenous adult neural progenitor cells without differentiation into dopaminergic neurons</article-title>. <source>J. Neurosci</source>. <volume>24</volume>, <fpage>8924</fpage>&#x2013;<lpage>8931</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.2344-04.2004</pub-id><pub-id pub-id-type="pmid">15483111</pub-id></mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Danilov</surname><given-names>A. I.</given-names></name><name><surname>Gomes-Leal</surname><given-names>W.</given-names></name><name><surname>Ahlenius</surname><given-names>H.</given-names></name><name><surname>Kokaia</surname><given-names>Z.</given-names></name><name><surname>Carlemalm</surname><given-names>E.</given-names></name><name><surname>Lindvall</surname><given-names>O.</given-names></name></person-group> (<year>2009</year>). <article-title>Ultrastructural and antigenic properties of neural stem cells and their progeny in adult rat subventricular zone</article-title>. <source>Glia</source>
+<volume>57</volume>, <fpage>136</fpage>&#x2013;<lpage>152</lpage>
+<pub-id pub-id-type="doi">10.1002/glia.20741</pub-id><pub-id pub-id-type="pmid">18709646</pub-id></mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Doetsch</surname><given-names>F.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>1996</year>). <article-title>Network of tangential pathways for neuronal migration in adult mammalian brain</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>93</volume>, <fpage>14895</fpage>&#x2013;<lpage>14900</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.93.25.14895</pub-id><pub-id pub-id-type="pmid">8962152</pub-id></mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Doetsch</surname><given-names>F.</given-names></name><name><surname>Caille</surname><given-names>I.</given-names></name><name><surname>Lim</surname><given-names>D. A.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>1999a</year>). <article-title>Subventricular zone astrocytes are neural stem cells in the adult mammalian brain</article-title>. <source>Cell</source>
+<volume>97</volume>, <fpage>703</fpage>&#x2013;<lpage>716</lpage>
+<pub-id pub-id-type="doi">10.1016/S0092-8674(00)80783-7</pub-id><pub-id pub-id-type="pmid">10380923</pub-id></mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Doetsch</surname><given-names>F.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>1999b</year>). <article-title>Regeneration of a germinal layer in the adult mammalian brain</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>96</volume>, <fpage>11619</fpage>&#x2013;<lpage>11624</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.96.20.11619</pub-id><pub-id pub-id-type="pmid">10500226</pub-id></mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Doetsch</surname><given-names>F.</given-names></name><name><surname>Petreanu</surname><given-names>L.</given-names></name><name><surname>Caille</surname><given-names>I.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2002</year>). <article-title>EGF converts transit-amplifying neurogenic precursors in the adult brain into multipotent stem cells</article-title>. <source>Neuron</source>
+<volume>36</volume>, <fpage>1021</fpage>&#x2013;<lpage>1034</lpage>
+<pub-id pub-id-type="doi">10.1016/S0896-6273(02)01133-9</pub-id><pub-id pub-id-type="pmid">12495619</pub-id></mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Edgar</surname><given-names>N.</given-names></name><name><surname>Sibille</surname><given-names>E.</given-names></name></person-group> (<year>2012</year>). <article-title>A putative functional role for oligodendrocytes in mood regulation</article-title>. <source>Transl. Psychiatry</source>
+<volume>2</volume>, <fpage>e109</fpage>
+<pub-id pub-id-type="doi">10.1038/tp.2012.34</pub-id><pub-id pub-id-type="pmid">22832953</pub-id></mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Eriksson</surname><given-names>P. S.</given-names></name><name><surname>Perfilieva</surname><given-names>E.</given-names></name><name><surname>Bjork-Eriksson</surname><given-names>T.</given-names></name><name><surname>Alborn</surname><given-names>A. M.</given-names></name><name><surname>Nordborg</surname><given-names>C.</given-names></name><name><surname>Peterson</surname><given-names>D. A.</given-names></name><etal/></person-group> (<year>1998</year>). <article-title>Neurogenesis in the adult human hippocampus</article-title>. <source>Nat. Med</source>. <volume>4</volume>, <fpage>1313</fpage>&#x2013;<lpage>1317</lpage>
+<pub-id pub-id-type="doi">10.1038/3305</pub-id><pub-id pub-id-type="pmid">9809557</pub-id></mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Feng</surname><given-names>R.</given-names></name><name><surname>Rampon</surname><given-names>C.</given-names></name><name><surname>Tang</surname><given-names>Y. P.</given-names></name><name><surname>Shrom</surname><given-names>D.</given-names></name><name><surname>Jin</surname><given-names>J.</given-names></name><name><surname>Kyin</surname><given-names>M.</given-names></name><etal/></person-group> (<year>2001</year>). <article-title>Deficient neurogenesis in forebrain-specific presenilin-1 knockout mice is associated with reduced clearance of hippocampal memory traces</article-title>. <source>Neuron</source>
+<volume>32</volume>, <fpage>911</fpage>&#x2013;<lpage>926</lpage>
+<pub-id pub-id-type="doi">10.1016/S0896-6273(01)00523-2</pub-id><pub-id pub-id-type="pmid">11738035</pub-id></mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fernandez</surname><given-names>P. A.</given-names></name><name><surname>Tang</surname><given-names>D. G.</given-names></name><name><surname>Cheng</surname><given-names>L.</given-names></name><name><surname>Prochiantz</surname><given-names>A.</given-names></name><name><surname>Mudge</surname><given-names>A. W.</given-names></name><name><surname>Raff</surname><given-names>M. C.</given-names></name></person-group> (<year>2000</year>). <article-title>Evidence that axon-derived neuregulin promotes oligodendrocyte survival in the developing rat optic nerve</article-title>. <source>Neuron</source>
+<volume>28</volume>, <fpage>81</fpage>&#x2013;<lpage>90</lpage>
+<pub-id pub-id-type="doi">10.1016/S0896-6273(00)00087-8</pub-id><pub-id pub-id-type="pmid">11086985</pub-id></mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Flores</surname><given-names>A. I.</given-names></name><name><surname>Mallon</surname><given-names>B. S.</given-names></name><name><surname>Matsui</surname><given-names>T.</given-names></name><name><surname>Ogawa</surname><given-names>W.</given-names></name><name><surname>Rosenzweig</surname><given-names>A.</given-names></name><name><surname>Okamoto</surname><given-names>T.</given-names></name><etal/></person-group> (<year>2000</year>). <article-title>Akt-mediated survival of oligodendrocytes induced by neuregulins</article-title>. <source>J. Neurosci</source>. <volume>20</volume>, <fpage>7622</fpage>&#x2013;<lpage>7630</lpage>
+<pub-id pub-id-type="pmid">11027222</pub-id></mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Flores</surname><given-names>A. I.</given-names></name><name><surname>Narayanan</surname><given-names>S. P.</given-names></name><name><surname>Morse</surname><given-names>E. N.</given-names></name><name><surname>Shick</surname><given-names>H. E.</given-names></name><name><surname>Yin</surname><given-names>X.</given-names></name><name><surname>Kidd</surname><given-names>G.</given-names></name><etal/></person-group> (<year>2008</year>). <article-title>Constitutively active Akt induces enhanced myelination in the CNS</article-title>. <source>J. Neurosci</source>. <volume>28</volume>, <fpage>7174</fpage>&#x2013;<lpage>7183</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.0150-08.2008</pub-id><pub-id pub-id-type="pmid">18614687</pub-id></mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Flynn</surname><given-names>J. F.</given-names></name><name><surname>Wong</surname><given-names>C.</given-names></name><name><surname>Wu</surname><given-names>J. M.</given-names></name></person-group> (<year>2009</year>). <article-title>Anti-EGFR Therapy: Mechanism and Advances in Clinical Efficacy in Breast Cancer</article-title>. <source>J. Oncol</source>. <volume>2009</volume>, <fpage>526963</fpage>
+<pub-id pub-id-type="doi">10.1155/2009/526963</pub-id><pub-id pub-id-type="pmid">19390622</pub-id></mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Frinchi</surname><given-names>M.</given-names></name><name><surname>Bonomo</surname><given-names>A.</given-names></name><name><surname>Trovato-Salinaro</surname><given-names>A.</given-names></name><name><surname>Condorelli</surname><given-names>D. F.</given-names></name><name><surname>Fuxe</surname><given-names>K.</given-names></name><name><surname>Spampinato</surname><given-names>M. G.</given-names></name><etal/></person-group> (<year>2008</year>). <article-title>Fibroblast growth factor-2 and its receptor expression in proliferating precursor cells of the subventricular zone in the adult rat brain</article-title>. <source>Neurosci. Lett</source>. <volume>447</volume>, <fpage>20</fpage>&#x2013;<lpage>25</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neulet.2008.09.059</pub-id><pub-id pub-id-type="pmid">18835325</pub-id></mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Futamura</surname><given-names>T.</given-names></name><name><surname>Toyooka</surname><given-names>K.</given-names></name><name><surname>Iritani</surname><given-names>S.</given-names></name><name><surname>Niizato</surname><given-names>K.</given-names></name><name><surname>Nakamura</surname><given-names>R.</given-names></name><name><surname>Tsuchiya</surname><given-names>K.</given-names></name><etal/></person-group> (<year>2002</year>). <article-title>Abnormal expression of epidermal growth factor and its receptor in the forebrain and serum of schizophrenic patients</article-title>. <source>Mol. Psychiatry</source>
+<volume>7</volume>, <fpage>673</fpage>&#x2013;<lpage>682</lpage>
+<pub-id pub-id-type="doi">10.1038/sj.mp.4001081</pub-id><pub-id pub-id-type="pmid">12192610</pub-id></mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gampe</surname><given-names>K.</given-names></name><name><surname>Brill</surname><given-names>M. S.</given-names></name><name><surname>Momma</surname><given-names>S.</given-names></name><name><surname>Gotz</surname><given-names>M.</given-names></name><name><surname>Zimmermann</surname><given-names>H.</given-names></name></person-group> (<year>2011</year>). <article-title>EGF induces CREB and ERK activation at the wall of the mouse lateral ventricles</article-title>. <source>Brain Res</source>. <volume>1376</volume>, <fpage>31</fpage>&#x2013;<lpage>41</lpage>
+<pub-id pub-id-type="doi">10.1016/j.brainres.2010.11.040</pub-id><pub-id pub-id-type="pmid">21081118</pub-id></mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Doetsch</surname><given-names>F.</given-names></name><name><surname>Wichterle</surname><given-names>H.</given-names></name><name><surname>Lim</surname><given-names>D. A.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>1998</year>). <article-title>Architecture and cell types of the adult subventricular zone: in search of the stem cells</article-title>. <source>J. Neurobiol</source>. <volume>36</volume>, <fpage>234</fpage>&#x2013;<lpage>248</lpage>
+<pub-id pub-id-type="doi">10.1002/(SICI)1097-4695(199808)36:2&lt;234::AID-NEUIO&gt;3.0.co;2-E</pub-id><pub-id pub-id-type="pmid">9712307</pub-id></mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gerecke</surname><given-names>K. M.</given-names></name><name><surname>Wyss</surname><given-names>J. M.</given-names></name><name><surname>Carroll</surname><given-names>S. L.</given-names></name></person-group> (<year>2004</year>). <article-title>Neuregulin-1beta induces neurite extension and arborization in cultured hippocampal neurons</article-title>. <source>Mol. Cell. Neurosci</source>. <volume>27</volume>, <fpage>379</fpage>&#x2013;<lpage>393</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mcn.2004.08.001</pub-id><pub-id pub-id-type="pmid">15555917</pub-id></mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ghashghaei</surname><given-names>H. T.</given-names></name><name><surname>Weimer</surname><given-names>J. M.</given-names></name><name><surname>Schmid</surname><given-names>R. S.</given-names></name><name><surname>Yokota</surname><given-names>Y.</given-names></name><name><surname>McArthy</surname><given-names>K. D.</given-names></name><name><surname>Popko</surname><given-names>B.</given-names></name><etal/></person-group> (<year>2007</year>). <article-title>Reinduction of ErbB2 in astrocytes promotes radial glial progenitor identity in adult cerebral cortex</article-title>. <source>Genes Dev</source>. <volume>21</volume>, <fpage>3258</fpage>&#x2013;<lpage>3271</lpage>
+<pub-id pub-id-type="doi">10.1101/gad.1580407</pub-id><pub-id pub-id-type="pmid">18079173</pub-id></mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gheusi</surname><given-names>G.</given-names></name><name><surname>Ortega-Perez</surname><given-names>I.</given-names></name><name><surname>Murray</surname><given-names>K.</given-names></name><name><surname>Lledo</surname><given-names>P. M.</given-names></name></person-group> (<year>2009</year>). <article-title>A niche for adult neurogenesis in social behavior</article-title>. <source>Behav. Brain Res</source>. <volume>200</volume>, <fpage>315</fpage>&#x2013;<lpage>322</lpage>
+<pub-id pub-id-type="doi">10.1016/j.bbr.2009.02.006</pub-id><pub-id pub-id-type="pmid">19374018</pub-id></mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gill</surname><given-names>R. K.</given-names></name><name><surname>Anbazhagan</surname><given-names>A. N.</given-names></name><name><surname>Esmaili</surname><given-names>A.</given-names></name><name><surname>Kumar</surname><given-names>A.</given-names></name><name><surname>Nazir</surname><given-names>S.</given-names></name><name><surname>Malakooti</surname><given-names>J.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>Epidermal growth factor upregulates serotonin transporter in human intestinal epithelial cells via transcriptional mechanisms</article-title>. <source>Am. J. Physiol. Gastrointest. Liver Physiol</source>. <volume>300</volume>, <fpage>G627</fpage>&#x2013;<lpage>G636</lpage>
+<pub-id pub-id-type="doi">10.1152/ajpgi.00563.2010</pub-id><pub-id pub-id-type="pmid">21273531</pub-id></mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gomez-Gaviro</surname><given-names>M. V.</given-names></name><name><surname>Scott</surname><given-names>C. E.</given-names></name><name><surname>Sesay</surname><given-names>A. K.</given-names></name><name><surname>Matheu</surname><given-names>A.</given-names></name><name><surname>Booth</surname><given-names>S.</given-names></name><name><surname>Galichet</surname><given-names>C.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Betacellulin promotes cell proliferation in the neural stem cell niche and stimulates neurogenesis</article-title>. <source>Proc. Natl. Acad. Sci. USA</source>. <volume>109</volume>, <fpage>1317</fpage>&#x2013;<lpage>1322</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1016199109</pub-id><pub-id pub-id-type="pmid">22232668</pub-id></mixed-citation>
+      </ref>
+      <ref id="B43">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gong</surname><given-names>Y.</given-names></name><name><surname>Zhao</surname><given-names>X.</given-names></name></person-group> (<year>2003</year>). <article-title>Shc-dependent pathway is redundant but dominant in MAPK cascade activation by EGF receptors: a modeling inference</article-title>. <source>FEBS Lett</source>. <volume>554</volume>, <fpage>467</fpage>&#x2013;<lpage>472</lpage>
+<pub-id pub-id-type="doi">10.1016/S0014-5793(03)01174-8</pub-id><pub-id pub-id-type="pmid">14623113</pub-id></mixed-citation>
+      </ref>
+      <ref id="B44">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gonzalez-Perez</surname><given-names>O.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2011</year>). <article-title>Oligodendrogenesis in the subventricular zone and the role of epidermal growth factor</article-title>. <source>Brain Res. Rev</source>. <volume>67</volume>, <fpage>147</fpage>&#x2013;<lpage>156</lpage>
+<pub-id pub-id-type="doi">10.1016/j.brainresrev.2011.01.001</pub-id><pub-id pub-id-type="pmid">21236296</pub-id></mixed-citation>
+      </ref>
+      <ref id="B45">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gonzalez-Perez</surname><given-names>O.</given-names></name><name><surname>Gutierrez-Fernandez</surname><given-names>F.</given-names></name><name><surname>Lopez-Virgen</surname><given-names>V.</given-names></name><name><surname>Collas-Aguilar</surname><given-names>J.</given-names></name><name><surname>Quinones-Hinojosa</surname><given-names>A.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name></person-group> (<year>2012</year>). <article-title>Immunological regulation of neurogenic niches in the adult brain</article-title>. <source>Neuroscience</source>
+<volume>226</volume>, <fpage>270</fpage>&#x2013;<lpage>281</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuroscience.2012.08.053</pub-id><pub-id pub-id-type="pmid">22986164</pub-id></mixed-citation>
+      </ref>
+      <ref id="B46">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gonzalez-Perez</surname><given-names>O.</given-names></name><name><surname>Quinones-Hinojosa</surname><given-names>A.</given-names></name></person-group> (<year>2010</year>). <article-title>Dose-dependent effect of EGF on migration and differentiation of adult subventricular zone astrocytes</article-title>. <source>Glia</source>
+<volume>58</volume>, <fpage>975</fpage>&#x2013;<lpage>983</lpage>
+<pub-id pub-id-type="doi">10.1002/glia.20979</pub-id><pub-id pub-id-type="pmid">20187143</pub-id></mixed-citation>
+      </ref>
+      <ref id="B47">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gonzalez-Perez</surname><given-names>O.</given-names></name><name><surname>Romero-Rodriguez</surname><given-names>R.</given-names></name><name><surname>Soriano-Navarro</surname><given-names>M.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2009</year>). <article-title>Epidermal growth factor induces the progeny of subventricular zone type B cells to migrate and differentiate into oligodendrocytes</article-title>. <source>Stem Cells</source>
+<volume>27</volume>, <fpage>2032</fpage>&#x2013;<lpage>2043</lpage>
+<pub-id pub-id-type="doi">10.1002/stem.119</pub-id><pub-id pub-id-type="pmid">19544429</pub-id></mixed-citation>
+      </ref>
+      <ref id="B48">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gould</surname><given-names>E.</given-names></name><name><surname>Beylin</surname><given-names>A.</given-names></name><name><surname>Tanapat</surname><given-names>P.</given-names></name><name><surname>Reeves</surname><given-names>A.</given-names></name><name><surname>Shors</surname><given-names>T. J.</given-names></name></person-group> (<year>1999</year>). <article-title>Learning enhances adult neurogenesis in the hipocampal formation</article-title>. <source>Nat. Neurosci</source>. <volume>2</volume>, <fpage>260</fpage>&#x2013;<lpage>265</lpage>
+<pub-id pub-id-type="doi">10.1038/6365</pub-id><pub-id pub-id-type="pmid">10195219</pub-id></mixed-citation>
+      </ref>
+      <ref id="B49">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Grimm</surname><given-names>I.</given-names></name><name><surname>Messemer</surname><given-names>N.</given-names></name><name><surname>Stanke</surname><given-names>M.</given-names></name><name><surname>Gachet</surname><given-names>C.</given-names></name><name><surname>Zimmermann</surname><given-names>H.</given-names></name></person-group> (<year>2009</year>). <article-title>Coordinate pathways for nucleotide and EGF signaling in cultured adult neural progenitor cells</article-title>. <source>J. Cell Sci</source>. <volume>122</volume>, <fpage>2524</fpage>&#x2013;<lpage>2533</lpage>
+<pub-id pub-id-type="doi">10.1242/jcs.044891</pub-id><pub-id pub-id-type="pmid">19549686</pub-id></mixed-citation>
+      </ref>
+      <ref id="B50">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Gritti</surname><given-names>A.</given-names></name><name><surname>Frolichsthal-Schoeller</surname><given-names>P.</given-names></name><name><surname>Galli</surname><given-names>R.</given-names></name><name><surname>Parati</surname><given-names>E. A.</given-names></name><name><surname>Cova</surname><given-names>L.</given-names></name><name><surname>Pagano</surname><given-names>S. F.</given-names></name><etal/></person-group> (<year>1999</year>). <article-title>Epidermal and fibroblast growth factors behave as mitogenic regulators for a single multipotent stem cell-like population from the subventricular region of the adult mouse forebrain</article-title>. <source>J. Neurosci</source>. <volume>19</volume>, <fpage>3287</fpage>&#x2013;<lpage>3297</lpage>
+<pub-id pub-id-type="pmid">10212288</pub-id></mixed-citation>
+      </ref>
+      <ref id="B51">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hagg</surname><given-names>T.</given-names></name></person-group> (<year>2005</year>). <article-title>Molecular regulation of adult CNS neurogenesis: an integrated view</article-title>. <source>Trends Neurosci</source>. <volume>28</volume>, <fpage>589</fpage>&#x2013;<lpage>595</lpage>
+<pub-id pub-id-type="doi">10.1016/j.tins.2005.08.009</pub-id><pub-id pub-id-type="pmid">16153715</pub-id></mixed-citation>
+      </ref>
+      <ref id="B52">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hayakawa-Yano</surname><given-names>Y.</given-names></name><name><surname>Nishida</surname><given-names>K.</given-names></name><name><surname>Fukami</surname><given-names>S.</given-names></name><name><surname>Gotoh</surname><given-names>Y.</given-names></name><name><surname>Hirano</surname><given-names>T.</given-names></name><name><surname>Nakagawa</surname><given-names>T.</given-names></name><etal/></person-group> (<year>2007</year>). <article-title>Epidermal growth factor signaling mediated by grb2 associated binder1 is required for the spatiotemporally regulated proliferation of olig2-expressing progenitors in the embryonic spinal cord</article-title>. <source>Stem Cells</source>
+<volume>25</volume>, <fpage>1410</fpage>&#x2013;<lpage>1422</lpage>
+<pub-id pub-id-type="doi">10.1634/stemcells.2006-0584</pub-id><pub-id pub-id-type="pmid">17332510</pub-id></mixed-citation>
+      </ref>
+      <ref id="B53">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Herbst</surname><given-names>R. S.</given-names></name><name><surname>Bunn</surname><given-names>P. A.</given-names><suffix>Jr.</suffix></name></person-group> (<year>2003</year>). <article-title>Targeting the epidermal growth factor receptor in non-small cell lung cancer</article-title>. <source>Clin. Cancer Res</source>. <volume>9</volume>, <fpage>5813</fpage>&#x2013;<lpage>5824</lpage>
+<pub-id pub-id-type="pmid">14676101</pub-id></mixed-citation>
+      </ref>
+      <ref id="B54">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Herold</surname><given-names>S.</given-names></name><name><surname>Jagasia</surname><given-names>R.</given-names></name><name><surname>Merz</surname><given-names>K.</given-names></name><name><surname>Wassmer</surname><given-names>K.</given-names></name><name><surname>Lie</surname><given-names>D. C.</given-names></name></person-group> (<year>2011</year>). <article-title>CREB signalling regulates early survival, neuronal gene expression and morphological development in adult subventricular zone neurogenesis</article-title>. <source>Mol. Cell. Neurosci</source>. <volume>46</volume>, <fpage>79</fpage>&#x2013;<lpage>88</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mcn.2010.08.008</pub-id><pub-id pub-id-type="pmid">20801218</pub-id></mixed-citation>
+      </ref>
+      <ref id="B55">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names>Q.</given-names></name><name><surname>Zhang</surname><given-names>L.</given-names></name><name><surname>Wen</surname><given-names>J.</given-names></name><name><surname>Wang</surname><given-names>S.</given-names></name><name><surname>Li</surname><given-names>M.</given-names></name><name><surname>Feng</surname><given-names>R.</given-names></name><etal/></person-group> (<year>2010</year>). <article-title>The EGF receptor-sox2-EGF receptor feedback loop positively regulates the self-renewal of neural precursor cells</article-title>. <source>Stem Cells</source>
+<volume>28</volume>, <fpage>279</fpage>&#x2013;<lpage>286</lpage>
+<pub-id pub-id-type="doi">10.1002/stem.246</pub-id><pub-id pub-id-type="pmid">19882665</pub-id></mixed-citation>
+      </ref>
+      <ref id="B56">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Islam</surname><given-names>O.</given-names></name><name><surname>Gong</surname><given-names>X.</given-names></name><name><surname>Rose-John</surname><given-names>S.</given-names></name><name><surname>Heese</surname><given-names>K.</given-names></name></person-group> (<year>2009</year>). <article-title>Interleukin-6 and neural stem cells: more than gliogenesis</article-title>. <source>Mol. Biol. Cell</source>
+<volume>20</volume>, <fpage>188</fpage>&#x2013;<lpage>199</lpage>
+<pub-id pub-id-type="doi">10.1091/mbc.E08-05-0463</pub-id><pub-id pub-id-type="pmid">18971377</pub-id></mixed-citation>
+      </ref>
+      <ref id="B57">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ivkovic</surname><given-names>S.</given-names></name><name><surname>Canoll</surname><given-names>P.</given-names></name><name><surname>Goldman</surname><given-names>J. E.</given-names></name></person-group> (<year>2008</year>). <article-title>Constitutive EGFR signaling in oligodendrocyte progenitors leads to diffuse hyperplasia in postnatal white matter</article-title>. <source>J. Neurosci</source>. <volume>28</volume>, <fpage>914</fpage>&#x2013;<lpage>922</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.4327-07.2008</pub-id><pub-id pub-id-type="pmid">18216199</pub-id></mixed-citation>
+      </ref>
+      <ref id="B58">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Iwakura</surname><given-names>Y.</given-names></name><name><surname>Nawa</surname><given-names>H.</given-names></name></person-group> (<year>2013</year>). <article-title>ErbB1-4-dependent EGF/neuregulin signals and their cross talk in the central nervous system: pathological implications in schizophrenia and Parkinson's disease</article-title>. <source>Front. Cell. Neurosci</source>. <volume>7</volume>:<issue>4</issue>
+<pub-id pub-id-type="doi">10.3389/fncel.2013.00004</pub-id><pub-id pub-id-type="pmid">23408472</pub-id></mixed-citation>
+      </ref>
+      <ref id="B59">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Iwakura</surname><given-names>Y.</given-names></name><name><surname>Piao</surname><given-names>Y. S.</given-names></name><name><surname>Mizuno</surname><given-names>M.</given-names></name><name><surname>Takei</surname><given-names>N.</given-names></name><name><surname>Kakita</surname><given-names>A.</given-names></name><name><surname>Takahashi</surname><given-names>H.</given-names></name><etal/></person-group> (<year>2005</year>). <article-title>Influences of dopaminergic lesion on epidermal growth factor-ErbB signals in Parkinson's disease and its model: neurotrophic implication in nigrostriatal neurons</article-title>. <source>J. Neurochem</source>. <volume>93</volume>, <fpage>974</fpage>&#x2013;<lpage>983</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1471-4159.2005.03073.x</pub-id><pub-id pub-id-type="pmid">15857400</pub-id></mixed-citation>
+      </ref>
+      <ref id="B60">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jackson</surname><given-names>E. L.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Gil-Perotin</surname><given-names>S.</given-names></name><name><surname>Roy</surname><given-names>M.</given-names></name><name><surname>Quinones-Hinojosa</surname><given-names>A.</given-names></name><name><surname>Vandenberg</surname><given-names>S.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2006</year>). <article-title>PDGFR alpha-positive B cells are neural stem cells in the adult SVZ that form glioma-like growths in response to increased PDGF signaling</article-title>. <source>Neuron</source>
+<volume>51</volume>, <fpage>187</fpage>&#x2013;<lpage>199</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2006.06.012</pub-id><pub-id pub-id-type="pmid">16846854</pub-id></mixed-citation>
+      </ref>
+      <ref id="B61">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jakovcevski</surname><given-names>I.</given-names></name><name><surname>Zecevic</surname><given-names>N.</given-names></name></person-group> (<year>2005a</year>). <article-title>Olig transcription factors are expressed in oligodendrocyte and neuronal cells in human fetal CNS</article-title>. <source>J. Neurosci</source>. <volume>25</volume>, <fpage>10064</fpage>&#x2013;<lpage>10073</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.2324-05.2005</pub-id><pub-id pub-id-type="pmid">16267213</pub-id></mixed-citation>
+      </ref>
+      <ref id="B62">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jakovcevski</surname><given-names>I.</given-names></name><name><surname>Zecevic</surname><given-names>N.</given-names></name></person-group> (<year>2005b</year>). <article-title>Sequence of oligodendrocyte development in the human fetal telencephalon</article-title>. <source>Glia</source>
+<volume>49</volume>, <fpage>480</fpage>&#x2013;<lpage>491</lpage>
+<pub-id pub-id-type="doi">10.1002/glia.20134</pub-id><pub-id pub-id-type="pmid">15578660</pub-id></mixed-citation>
+      </ref>
+      <ref id="B63">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jang</surname><given-names>E. S.</given-names></name><name><surname>Goldman</surname><given-names>J. E.</given-names></name></person-group> (<year>2011</year>). <article-title>Pax6 expression is sufficient to induce a neurogenic fate in glial progenitors of the neonatal subventricular zone</article-title>. <source>PLoS ONE</source>
+<volume>6</volume>:<issue>e20894</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0020894</pub-id><pub-id pub-id-type="pmid">21698109</pub-id></mixed-citation>
+      </ref>
+      <ref id="B64">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jia</surname><given-names>H.</given-names></name><name><surname>Tao</surname><given-names>H.</given-names></name><name><surname>Feng</surname><given-names>R.</given-names></name><name><surname>Li</surname><given-names>M.</given-names></name><name><surname>Bai</surname><given-names>J.</given-names></name><name><surname>Sun</surname><given-names>T.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>Pax6 regulates the epidermal growth factor-responsive neural stem cells of the subventricular zone</article-title>. <source>Neuroreport</source>
+<volume>22</volume>, <fpage>448</fpage>&#x2013;<lpage>452</lpage>
+<pub-id pub-id-type="doi">10.1097/WNR.0b013e3283476b46</pub-id><pub-id pub-id-type="pmid">21602652</pub-id></mixed-citation>
+      </ref>
+      <ref id="B65">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jin</surname><given-names>K.</given-names></name><name><surname>Mao</surname><given-names>X. O.</given-names></name><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Xie</surname><given-names>L.</given-names></name><name><surname>Jin</surname><given-names>L.</given-names></name><name><surname>Nishi</surname><given-names>E.</given-names></name><etal/></person-group> (<year>2002</year>). <article-title>Heparin-binding epidermal growth factor-like growth factor: hypoxia-inducible expression <italic>in vitro</italic> and stimulation of neurogenesis <italic>in vitro</italic> and <italic>in vivo</italic></article-title>. <source>J. Neurosci</source>. <volume>22</volume>, <fpage>5365</fpage>&#x2013;<lpage>5373</lpage>
+<pub-id pub-id-type="pmid">12097488</pub-id></mixed-citation>
+      </ref>
+      <ref id="B66">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Jorissen</surname><given-names>R. N.</given-names></name><name><surname>Walker</surname><given-names>F.</given-names></name><name><surname>Pouliot</surname><given-names>N.</given-names></name><name><surname>Garrett</surname><given-names>T. P.</given-names></name><name><surname>Ward</surname><given-names>C. W.</given-names></name><name><surname>Burgess</surname><given-names>A. W.</given-names></name></person-group> (<year>2003</year>). <article-title>Epidermal growth factor receptor: mechanisms of activation and signalling</article-title>. <source>Exp. Cell Res</source>. <volume>284</volume>, <fpage>31</fpage>&#x2013;<lpage>53</lpage>
+<pub-id pub-id-type="doi">10.1016/S0014-4827(02)00098-8</pub-id><pub-id pub-id-type="pmid">12648464</pub-id></mixed-citation>
+      </ref>
+      <ref id="B67">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kang</surname><given-names>M. K.</given-names></name><name><surname>Kang</surname><given-names>S. K.</given-names></name></person-group> (<year>2008</year>). <article-title>Interleukin-6 induces proliferation in adult spinal cord-derived neural progenitors via the JAK2/STAT3 pathway with EGF-induced MAPK phosphorylation</article-title>. <source>Cell Prolif</source>. <volume>41</volume>, <fpage>377</fpage>&#x2013;<lpage>392</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1365-2184.2008.00537.x</pub-id><pub-id pub-id-type="pmid">18485152</pub-id></mixed-citation>
+      </ref>
+      <ref id="B68">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kim</surname><given-names>H. J.</given-names></name><name><surname>Kim</surname><given-names>J. Y.</given-names></name><name><surname>Sun</surname><given-names>W.</given-names></name></person-group> (<year>2012</year>). <article-title>Age-dependent changes in the subcallosal zone neurogenesis of mice</article-title>. <source>Neurochem. Int</source>. <volume>61</volume>, <fpage>879</fpage>&#x2013;<lpage>884</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuint.2012.02.027</pub-id><pub-id pub-id-type="pmid">22417727</pub-id></mixed-citation>
+      </ref>
+      <ref id="B69">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kim</surname><given-names>W. R.</given-names></name><name><surname>Chun</surname><given-names>S. K.</given-names></name><name><surname>Kim</surname><given-names>T. W.</given-names></name><name><surname>Kim</surname><given-names>H.</given-names></name><name><surname>Ono</surname><given-names>K.</given-names></name><name><surname>Takebayashi</surname><given-names>H.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>Evidence for the spontaneous production but massive programmed cell death of new neurons in the subcallosal zone of the postnatal mouse brain</article-title>. <source>Eur. J. Neurosci</source>. <volume>33</volume>, <fpage>599</fpage>&#x2013;<lpage>611</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1460-9568.2010.07557.x</pub-id><pub-id pub-id-type="pmid">21219476</pub-id></mixed-citation>
+      </ref>
+      <ref id="B70">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kipp</surname><given-names>M.</given-names></name><name><surname>Amor</surname><given-names>S.</given-names></name><name><surname>Krauth</surname><given-names>R.</given-names></name><name><surname>Beyer</surname><given-names>C.</given-names></name></person-group> (<year>2012</year>). <article-title>Multiple sclerosis: neuroprotective alliance of estrogen-progesterone and gender</article-title>. <source>Front. Neuroendocrinol</source>. <volume>33</volume>, <fpage>1</fpage>&#x2013;<lpage>16</lpage>
+<pub-id pub-id-type="doi">10.1016/j.yfrne.2012.01.001</pub-id><pub-id pub-id-type="pmid">22289667</pub-id></mixed-citation>
+      </ref>
+      <ref id="B71">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Klempin</surname><given-names>F.</given-names></name><name><surname>Marr</surname><given-names>R.</given-names></name><name><surname>Peterson</surname><given-names>D. A.</given-names></name></person-group> (<year>2011</year>). <article-title>Modification of pax6 and olig2 expression in adult hippocampal neurogenesis selectively induces stem cell fate and alters both neuronal and glial populations</article-title>. <source>Stem Cells</source>
+<volume>30</volume>, <fpage>500</fpage>&#x2013;<lpage>509</lpage>
+<pub-id pub-id-type="doi">10.1002/stem.1005</pub-id><pub-id pub-id-type="pmid">22162276</pub-id></mixed-citation>
+      </ref>
+      <ref id="B72">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kohwi</surname><given-names>M.</given-names></name><name><surname>Osumi</surname><given-names>N.</given-names></name><name><surname>Rubenstein</surname><given-names>J. L.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2005</year>). <article-title>Pax6 is required for making specific subpopulations of granule and periglomerular neurons in the olfactory bulb</article-title>. <source>J. Neurosci</source>. <volume>25</volume>, <fpage>6997</fpage>&#x2013;<lpage>7003</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1435-05.2005</pub-id><pub-id pub-id-type="pmid">16049175</pub-id></mixed-citation>
+      </ref>
+      <ref id="B73">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Komitova</surname><given-names>M.</given-names></name><name><surname>Eriksson</surname><given-names>P. S.</given-names></name></person-group> (<year>2004</year>). <article-title>Sox-2 is expressed by neural progenitors and astroglia in the adult rat brain</article-title>. <source>Neurosci. Lett</source>. <volume>369</volume>, <fpage>24</fpage>&#x2013;<lpage>27</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neulet.2004.07.035</pub-id><pub-id pub-id-type="pmid">15380301</pub-id></mixed-citation>
+      </ref>
+      <ref id="B74">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kriegstein</surname><given-names>A.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2009</year>). <article-title>The glial nature of embryonic and adult neural stem cells</article-title>. <source>Annu. Rev. Neurosci</source>. <volume>32</volume>, <fpage>149</fpage>&#x2013;<lpage>184</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev.neuro.051508.135600</pub-id><pub-id pub-id-type="pmid">19555289</pub-id></mixed-citation>
+      </ref>
+      <ref id="B75">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Kuhn</surname><given-names>P. E.</given-names></name><name><surname>Miller</surname><given-names>M. W.</given-names></name></person-group> (<year>1996</year>). <article-title>c-neu oncoprotein in developing rostral cerebral cortex: relationship to epidermal growth factor receptor</article-title>. <source>J. Comp. Neurol</source>. <volume>372</volume>, <fpage>189</fpage>&#x2013;<lpage>203</lpage>
+<pub-id pub-id-type="doi">10.1002/(SICI)1096-9861(19960819)372:2&lt;189::AID-CNE3&gt;3.3.co;2-p</pub-id><pub-id pub-id-type="pmid">8863125</pub-id></mixed-citation>
+      </ref>
+      <ref id="B76">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Laskowski</surname><given-names>A.</given-names></name><name><surname>Howell</surname><given-names>O. W.</given-names></name><name><surname>Sosunov</surname><given-names>A. A.</given-names></name><name><surname>McKhann</surname><given-names>G.</given-names></name><name><surname>Gray</surname><given-names>W. P.</given-names></name></person-group> (<year>2007</year>). <article-title>NPY mediates basal and seizure-induced proliferation in the subcallosal zone</article-title>. <source>Neuroreport</source>
+<volume>18</volume>, <fpage>1005</fpage>&#x2013;<lpage>1008</lpage>
+<pub-id pub-id-type="doi">10.1097/WNR.0b013e32815277ab</pub-id><pub-id pub-id-type="pmid">17558285</pub-id></mixed-citation>
+      </ref>
+      <ref id="B77">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lee</surname><given-names>P. R.</given-names></name><name><surname>Fields</surname><given-names>R. D.</given-names></name></person-group> (<year>2009</year>). <article-title>Regulation of myelin genes implicated in psychiatric disorders by functional activity in axons</article-title>. <source>Front. Neuroanat</source>. <volume>3</volume>:<fpage>4</fpage>
+<pub-id pub-id-type="doi">10.3389/neuro.05.004.2009</pub-id><pub-id pub-id-type="pmid">19521541</pub-id></mixed-citation>
+      </ref>
+      <ref id="B78">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Levison</surname><given-names>S. W.</given-names></name><name><surname>Jiang</surname><given-names>F. J.</given-names></name><name><surname>Stoltzfus</surname><given-names>O. K.</given-names></name><name><surname>Ducceschi</surname><given-names>M. H.</given-names></name></person-group> (<year>2000</year>). <article-title>IL-6-type cytokines enhance epidermal growth factor-stimulated astrocyte proliferation</article-title>. <source>Glia</source>
+<volume>32</volume>, <fpage>328</fpage>&#x2013;<lpage>337</lpage>
+<pub-id pub-id-type="doi">10.1002/1098-1136(200012)32:3&lt;328::AID-GLIA110&gt;3.0.CO;2-7</pub-id><pub-id pub-id-type="pmid">11102972</pub-id></mixed-citation>
+      </ref>
+      <ref id="B79">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Liu</surname><given-names>B.</given-names></name><name><surname>Neufeld</surname><given-names>A. H.</given-names></name></person-group> (<year>2004</year>). <article-title>Activation of epidermal growth factor receptors directs astrocytes to organize in a network surrounding axons in the developing rat optic nerve</article-title>. <source>Dev. Biol</source>. <volume>273</volume>, <fpage>297</fpage>&#x2013;<lpage>307</lpage>
+<pub-id pub-id-type="doi">10.1016/j.ydbio.2004.06.006</pub-id><pub-id pub-id-type="pmid">15328014</pub-id></mixed-citation>
+      </ref>
+      <ref id="B80">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Liu</surname><given-names>X.</given-names></name><name><surname>Li</surname><given-names>Y.</given-names></name><name><surname>Zhang</surname><given-names>Y.</given-names></name><name><surname>Lu</surname><given-names>Y.</given-names></name><name><surname>Guo</surname><given-names>W.</given-names></name><name><surname>Liu</surname><given-names>P.</given-names></name><etal/></person-group> (<year>2011</year>). <article-title>SHP-2 promotes the maturation of oligodendrocyte precursor cells through Akt and ERK1/2 signaling <italic>in vitro</italic></article-title>. <source>PLoS ONE</source>
+<volume>6</volume>:<issue>e21058</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0021058</pub-id><pub-id pub-id-type="pmid">21701583</pub-id></mixed-citation>
+      </ref>
+      <ref id="B81">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Livneh</surname><given-names>Y.</given-names></name><name><surname>Mizrahi</surname><given-names>A.</given-names></name></person-group> (<year>2012</year>). <article-title>Experience-dependent plasticity of mature adult-born neurons</article-title>. <source>Nat. Neurosci</source>. <volume>15</volume>, <fpage>26</fpage>&#x2013;<lpage>28</lpage>
+<pub-id pub-id-type="doi">10.1038/nn.2980</pub-id><pub-id pub-id-type="pmid">22081159</pub-id></mixed-citation>
+      </ref>
+      <ref id="B82">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lledo</surname><given-names>P. M.</given-names></name><name><surname>Alonso</surname><given-names>M.</given-names></name><name><surname>Grubb</surname><given-names>M. S.</given-names></name></person-group> (<year>2006</year>). <article-title>Adult neurogenesis and functional plasticity in neuronal circuits</article-title>. <source>Nat. Rev. Neurosci</source>. <volume>7</volume>, <fpage>179</fpage>&#x2013;<lpage>193</lpage>
+<pub-id pub-id-type="doi">10.1038/nrn1867</pub-id><pub-id pub-id-type="pmid">16495940</pub-id></mixed-citation>
+      </ref>
+      <ref id="B83">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lois</surname><given-names>C.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>1993</year>). <article-title>Proliferating subventricular zone cells in the adult mammalian forebrain can differentiate into neurons and glia</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>90</volume>, <fpage>2074</fpage>&#x2013;<lpage>2077</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.90.5.2074</pub-id><pub-id pub-id-type="pmid">8446631</pub-id></mixed-citation>
+      </ref>
+      <ref id="B84">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Lois</surname><given-names>C.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>1994</year>). <article-title>Long-distance neuronal migration in the adult mammalian brain</article-title>. <source>Science</source>
+<volume>264</volume>, <fpage>1145</fpage>&#x2013;<lpage>1148</lpage>
+<pub-id pub-id-type="doi">10.1126/science.8178174</pub-id><pub-id pub-id-type="pmid">8178174</pub-id></mixed-citation>
+      </ref>
+      <ref id="B85">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ma</surname><given-names>Y. J.</given-names></name><name><surname>Hill</surname><given-names>D. F.</given-names></name><name><surname>Junier</surname><given-names>M. P.</given-names></name><name><surname>Costa</surname><given-names>M. E.</given-names></name><name><surname>Felder</surname><given-names>S. E.</given-names></name><name><surname>Ojeda</surname><given-names>S. R.</given-names></name></person-group> (<year>1994</year>). <article-title>Expression of epidermal growth factor receptor changes in the hypothalamus during the onset of female puberty</article-title>. <source>Mol. Cell. Neurosci</source>. <volume>5</volume>, <fpage>246</fpage>&#x2013;<lpage>262</lpage>
+<pub-id pub-id-type="doi">10.1006/mcne.1994.1029</pub-id><pub-id pub-id-type="pmid">8087423</pub-id></mixed-citation>
+      </ref>
+      <ref id="B86">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Maher</surname><given-names>E. A.</given-names></name><name><surname>Furnari</surname><given-names>F. B.</given-names></name><name><surname>Bachoo</surname><given-names>R. M.</given-names></name><name><surname>Rowitch</surname><given-names>D. H.</given-names></name><name><surname>Louis</surname><given-names>D. N.</given-names></name><name><surname>Cavenee</surname><given-names>W. K.</given-names></name><etal/></person-group> (<year>2001</year>). <article-title>Malignant glioma: genetics and biology of a grave matter</article-title>. <source>Genes Dev</source>. <volume>15</volume>, <fpage>1311</fpage>&#x2013;<lpage>1333</lpage>
+<pub-id pub-id-type="doi">10.1101/gad.891601</pub-id><pub-id pub-id-type="pmid">11390353</pub-id></mixed-citation>
+      </ref>
+      <ref id="B87">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Makinodan</surname><given-names>M.</given-names></name><name><surname>Rosen</surname><given-names>K. M.</given-names></name><name><surname>Ito</surname><given-names>S.</given-names></name><name><surname>Corfas</surname><given-names>G.</given-names></name></person-group> (<year>2012</year>). <article-title>A critical period for social experience-dependent oligodendrocyte maturation and myelination</article-title>. <source>Science</source>
+<volume>337</volume>, <fpage>1357</fpage>&#x2013;<lpage>1360</lpage>
+<pub-id pub-id-type="doi">10.1126/science.1220845</pub-id><pub-id pub-id-type="pmid">22984073</pub-id></mixed-citation>
+      </ref>
+      <ref id="B88">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mazzoleni</surname><given-names>S.</given-names></name><name><surname>Politi</surname><given-names>L. S.</given-names></name><name><surname>Pala</surname><given-names>M.</given-names></name><name><surname>Cominelli</surname><given-names>M.</given-names></name><name><surname>Franzin</surname><given-names>A.</given-names></name><name><surname>Sergi Sergi</surname><given-names>L.</given-names></name><etal/></person-group> (<year>2010</year>). <article-title>Epidermal growth factor receptor expression identifies functionally and molecularly distinct tumor-initiating cells in human glioblastoma multiforme and is required for gliomagenesis</article-title>. <source>Cancer Res</source>. <volume>70</volume>, <fpage>7500</fpage>&#x2013;<lpage>7513</lpage>
+<pub-id pub-id-type="doi">10.1158/0008-5472.CAN-10-2353</pub-id><pub-id pub-id-type="pmid">20858720</pub-id></mixed-citation>
+      </ref>
+      <ref id="B89">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Menn</surname><given-names>B.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Yaschine</surname><given-names>C.</given-names></name><name><surname>Gonzalez-Perez</surname><given-names>O.</given-names></name><name><surname>Rowitch</surname><given-names>D.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2006</year>). <article-title>Origin of oligodendrocytes in the subventricular zone of the adult brain</article-title>. <source>J. Neurosci</source>. <volume>26</volume>, <fpage>7907</fpage>&#x2013;<lpage>7918</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.1299-06.2006</pub-id><pub-id pub-id-type="pmid">16870736</pub-id></mixed-citation>
+      </ref>
+      <ref id="B90">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ming</surname><given-names>G. L.</given-names></name><name><surname>Song</surname><given-names>H.</given-names></name></person-group> (<year>2005</year>). <article-title>Adult neurogenesis in the mammalian central nervous system</article-title>. <source>Annu. Rev. Neurosci</source>. <volume>28</volume>, <fpage>223</fpage>&#x2013;<lpage>250</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev.neuro.28.051804.101459</pub-id><pub-id pub-id-type="pmid">16022595</pub-id></mixed-citation>
+      </ref>
+      <ref id="B91">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Mirzadeh</surname><given-names>Z.</given-names></name><name><surname>Merkle</surname><given-names>F. T.</given-names></name><name><surname>Soriano-Navarro</surname><given-names>M.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2008</year>). <article-title>Neural stem cells confer unique pinwheel architecture to the ventricular surface in neurogenic regions of the adult brain</article-title>. <source>Cell Stem Cell</source>
+<volume>3</volume>, <fpage>265</fpage>&#x2013;<lpage>278</lpage>
+<pub-id pub-id-type="doi">10.1016/j.stem.2008.07.004</pub-id><pub-id pub-id-type="pmid">18786414</pub-id></mixed-citation>
+      </ref>
+      <ref id="B92">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nathoo</surname><given-names>N.</given-names></name><name><surname>Goldlust</surname><given-names>S.</given-names></name><name><surname>Vogelbaum</surname><given-names>M. A.</given-names></name></person-group> (<year>2004</year>). <article-title>Epidermal growth factor receptor antagonists: novel therapy for the treatment of high-grade gliomas</article-title>. <source>Neurosurgery</source>
+<volume>54</volume>, <fpage>1480</fpage>&#x2013;<lpage>1488</lpage> discussion: 1488&#x2013;1489. <pub-id pub-id-type="doi">10.1227/01.NEU.0000125006.88478.F6</pub-id><pub-id pub-id-type="pmid">15157306</pub-id></mixed-citation>
+      </ref>
+      <ref id="B93">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Newbern</surname><given-names>J.</given-names></name><name><surname>Birchmeier</surname><given-names>C.</given-names></name></person-group> (<year>2010</year>). <article-title>Nrg1/ErbB signaling networks in Schwann cell development and myelination</article-title>. <source>Semin. Cell Dev. Biol</source>. <volume>21</volume>, <fpage>922</fpage>&#x2013;<lpage>928</lpage>
+<pub-id pub-id-type="doi">10.1016/j.semcdb.2010.08.008</pub-id><pub-id pub-id-type="pmid">20832498</pub-id></mixed-citation>
+      </ref>
+      <ref id="B94">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Nishiyama</surname><given-names>A.</given-names></name></person-group> (<year>2001</year>). <article-title>NG2 cells in the brain: a novel glial cell population</article-title>. <source>Hum. Cell</source>
+<volume>14</volume>, <fpage>77</fpage>&#x2013;<lpage>82</lpage>
+<pub-id pub-id-type="pmid">11436356</pub-id></mixed-citation>
+      </ref>
+      <ref id="B95">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>O'keeffe</surname><given-names>G. C.</given-names></name><name><surname>Barker</surname><given-names>R. A.</given-names></name></person-group> (<year>2011</year>). <article-title>Dopamine stimulates epidermal growth factor release from adult neural precursor cells derived from the subventricular zone by a disintegrin and metalloprotease</article-title>. <source>Neuroreport</source>
+<volume>22</volume>, <fpage>956</fpage>&#x2013;<lpage>958</lpage>
+<pub-id pub-id-type="doi">10.1097/WNR.0b013e32834d2f65</pub-id><pub-id pub-id-type="pmid">22027511</pub-id></mixed-citation>
+      </ref>
+      <ref id="B96">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Osumi</surname><given-names>N.</given-names></name><name><surname>Shinohara</surname><given-names>H.</given-names></name><name><surname>Numayama-Tsuruta</surname><given-names>K.</given-names></name><name><surname>Maekawa</surname><given-names>M.</given-names></name></person-group> (<year>2008</year>). <article-title>Concise review: Pax6 transcription factor contributes to both embryonic and adult neurogenesis as a multifunctional regulator</article-title>. <source>Stem Cells</source>
+<volume>26</volume>, <fpage>1663</fpage>&#x2013;<lpage>1672</lpage>
+<pub-id pub-id-type="doi">10.1634/stemcells.2007-0884</pub-id><pub-id pub-id-type="pmid">18467663</pub-id></mixed-citation>
+      </ref>
+      <ref id="B97">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Paez</surname><given-names>P. M.</given-names></name><name><surname>Cheli</surname><given-names>V. T.</given-names></name><name><surname>Ghiani</surname><given-names>C. A.</given-names></name><name><surname>Spreuer</surname><given-names>V.</given-names></name><name><surname>Handley</surname><given-names>V. W.</given-names></name><name><surname>Campagnoni</surname><given-names>A. T.</given-names></name></person-group> (<year>2012</year>). <article-title>Golli myelin basic proteins stimulate oligodendrocyte progenitor cell proliferation and differentiation in remyelinating adult mouse brain</article-title>. <source>Glia</source>
+<volume>60</volume>, <fpage>1078</fpage>&#x2013;<lpage>1093</lpage>
+<pub-id pub-id-type="doi">10.1002/glia.22336</pub-id><pub-id pub-id-type="pmid">22447683</pub-id></mixed-citation>
+      </ref>
+      <ref id="B98">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ponti</surname><given-names>G.</given-names></name><name><surname>Obernier</surname><given-names>K.</given-names></name><name><surname>Guinto</surname><given-names>C.</given-names></name><name><surname>Jose</surname><given-names>L.</given-names></name><name><surname>Bonfanti</surname><given-names>L.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2013</year>). <article-title>Cell cycle and lineage progression of neural progenitors in the ventricular-subventricular zones of adult mice</article-title>. <source>Proc. Natl. Acad. Sci. USA</source>. <volume>110</volume>, <fpage>E1045</fpage>&#x2013;<lpage>1054</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.1219563110</pub-id><pub-id pub-id-type="pmid">23431204</pub-id></mixed-citation>
+      </ref>
+      <ref id="B99">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Quesnelle</surname><given-names>K. M.</given-names></name><name><surname>Boehm</surname><given-names>A. L.</given-names></name><name><surname>Grandis</surname><given-names>J. R.</given-names></name></person-group> (<year>2007</year>). <article-title>STAT-mediated EGFR signaling in cancer</article-title>. <source>J. Cell. Biochem</source>. <volume>102</volume>, <fpage>311</fpage>&#x2013;<lpage>319</lpage>
+<pub-id pub-id-type="doi">10.1002/jcb.21475</pub-id><pub-id pub-id-type="pmid">17661350</pub-id></mixed-citation>
+      </ref>
+      <ref id="B100">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Quinones-Hinojosa</surname><given-names>A.</given-names></name><name><surname>Sanai</surname><given-names>N.</given-names></name><name><surname>Soriano-Navarro</surname><given-names>M.</given-names></name><name><surname>Gonzalez-Perez</surname><given-names>O.</given-names></name><name><surname>Mirzadeh</surname><given-names>Z.</given-names></name><name><surname>Gil-Perotin</surname><given-names>S.</given-names></name><etal/></person-group> (<year>2006</year>). <article-title>Cellular composition and cytoarchitecture of the adult human subventricular zone: a niche of neural stem cells</article-title>. <source>J. Comp. Neurol</source>. <volume>494</volume>, <fpage>415</fpage>&#x2013;<lpage>434</lpage>
+<pub-id pub-id-type="doi">10.1002/cne.20798</pub-id><pub-id pub-id-type="pmid">16320258</pub-id></mixed-citation>
+      </ref>
+      <ref id="B101">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Raivich</surname><given-names>G.</given-names></name><name><surname>Kreutzberg</surname><given-names>G. W.</given-names></name></person-group> (<year>1994</year>). <article-title>Pathophysiology of glial growth factor receptors</article-title>. <source>Glia</source>
+<volume>11</volume>, <fpage>129</fpage>&#x2013;<lpage>146</lpage>
+<pub-id pub-id-type="doi">10.1002/glia.440110208</pub-id><pub-id pub-id-type="pmid">7927643</pub-id></mixed-citation>
+      </ref>
+      <ref id="B102">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Reifenberger</surname><given-names>J.</given-names></name><name><surname>Reifenberger</surname><given-names>G.</given-names></name><name><surname>Ichimura</surname><given-names>K.</given-names></name><name><surname>Schmidt</surname><given-names>E. E.</given-names></name><name><surname>Wechsler</surname><given-names>W.</given-names></name><name><surname>Collins</surname><given-names>V. P.</given-names></name></person-group> (<year>1996</year>). <article-title>Epidermal growth factor receptor expression in oligodendroglial tumors</article-title>. <source>Am. J. Pathol</source>. <volume>149</volume>,<fpage>29</fpage>&#x2013;<lpage>35</lpage>
+<pub-id pub-id-type="pmid">8686753</pub-id></mixed-citation>
+      </ref>
+      <ref id="B103">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Roy</surname><given-names>K.</given-names></name><name><surname>Murtie</surname><given-names>J. C.</given-names></name><name><surname>El-Khodor</surname><given-names>B. F.</given-names></name><name><surname>Edgar</surname><given-names>N.</given-names></name><name><surname>Sardi</surname><given-names>S. P.</given-names></name><name><surname>Hooks</surname><given-names>B. M.</given-names></name><etal/></person-group> (<year>2007</year>). <article-title>Loss of erbB signaling in oligodendrocytes alters myelin and dopaminergic function, a potential mechanism for neuropsychiatric disorders</article-title>. <source>Proc. Natl. Acad. Sci. U.S.A</source>. <volume>104</volume>, <fpage>8131</fpage>&#x2013;<lpage>8136</lpage>
+<pub-id pub-id-type="doi">10.1073/pnas.0702157104</pub-id><pub-id pub-id-type="pmid">17483467</pub-id></mixed-citation>
+      </ref>
+      <ref id="B104">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Saghatelyan</surname><given-names>A.</given-names></name><name><surname>Roux</surname><given-names>P.</given-names></name><name><surname>Migliore</surname><given-names>M.</given-names></name><name><surname>Rochefort</surname><given-names>C.</given-names></name><name><surname>Desmaisons</surname><given-names>D.</given-names></name><name><surname>Charneau</surname><given-names>P.</given-names></name><etal/></person-group> (<year>2005</year>). <article-title>Activity-dependent adjustments of the inhibitory network in the olfactory bulb following early postnatal deprivation</article-title>. <source>Neuron</source>
+<volume>46</volume>, <fpage>103</fpage>&#x2013;<lpage>116</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2005.02.016</pub-id><pub-id pub-id-type="pmid">15820697</pub-id></mixed-citation>
+      </ref>
+      <ref id="B105">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sanai</surname><given-names>N.</given-names></name><name><surname>Tramontin</surname><given-names>A. D.</given-names></name><name><surname>Quinones-Hinojosa</surname><given-names>A.</given-names></name><name><surname>Barbaro</surname><given-names>N. M.</given-names></name><name><surname>Gupta</surname><given-names>N.</given-names></name><name><surname>Kunwar</surname><given-names>S.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name><etal/></person-group> (<year>2004</year>). <article-title>Unique astrocyte ribbon in adult human brain contains neural stem cells but lacks chain migration</article-title>. <source>Nature</source>
+<volume>427</volume>, <fpage>740</fpage>&#x2013;<lpage>744</lpage>
+<pub-id pub-id-type="doi">10.1038/nature02301</pub-id><pub-id pub-id-type="pmid">14973487</pub-id></mixed-citation>
+      </ref>
+      <ref id="B106">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sasaoka</surname><given-names>T.</given-names></name><name><surname>Langlois</surname><given-names>W. J.</given-names></name><name><surname>Leitner</surname><given-names>J. W.</given-names></name><name><surname>Draznin</surname><given-names>B.</given-names></name><name><surname>Olefsky</surname><given-names>J. M.</given-names></name></person-group> (<year>1994</year>). <article-title>The signaling pathway coupling epidermal growth factor receptors to activation of p21ras</article-title>. <source>J. Biol. Chem</source>. <volume>269</volume>, <fpage>32621</fpage>&#x2013;<lpage>32625</lpage>
+<pub-id pub-id-type="pmid">7798267</pub-id></mixed-citation>
+      </ref>
+      <ref id="B107">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Scaltriti</surname><given-names>M.</given-names></name><name><surname>Baselga</surname><given-names>J.</given-names></name></person-group> (<year>2006</year>). <article-title>The epidermal growth factor receptor pathway: a model for targeted therapy</article-title>. <source>Clin. Cancer Res</source>. <volume>12</volume>, <fpage>5268</fpage>&#x2013;<lpage>5272</lpage>
+<pub-id pub-id-type="doi">10.1158/1078-0432.CCR-05-1554</pub-id><pub-id pub-id-type="pmid">17000658</pub-id></mixed-citation>
+      </ref>
+      <ref id="B108">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schaumburg</surname><given-names>C.</given-names></name><name><surname>O'hara</surname><given-names>B. A.</given-names></name><name><surname>Lane</surname><given-names>T. E.</given-names></name><name><surname>Atwood</surname><given-names>W. J.</given-names></name></person-group> (<year>2008</year>). <article-title>Human embryonic stem cell-derived oligodendrocyte progenitor cells express the serotonin receptor and are susceptible to JC virus infection</article-title>. <source>J. Virol</source>. <volume>82</volume>, <fpage>8896</fpage>&#x2013;<lpage>8899</lpage>
+<pub-id pub-id-type="doi">10.1128/JVI.00406-08</pub-id><pub-id pub-id-type="pmid">18579595</pub-id></mixed-citation>
+      </ref>
+      <ref id="B109">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Schneider</surname><given-names>M. R.</given-names></name><name><surname>Werner</surname><given-names>S.</given-names></name><name><surname>Paus</surname><given-names>R.</given-names></name><name><surname>Wolf</surname><given-names>E.</given-names></name></person-group> (<year>2008</year>). <article-title>Beyond wavy hairs: the epidermal growth factor receptor and its ligands in skin biology and pathology</article-title>. <source>Am. J. Pathol</source>. <volume>173</volume>, <fpage>14</fpage>&#x2013;<lpage>24</lpage>
+<pub-id pub-id-type="doi">10.2353/ajpath.2008.070942</pub-id><pub-id pub-id-type="pmid">18556782</pub-id></mixed-citation>
+      </ref>
+      <ref id="B110">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Seri</surname><given-names>B.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>Collado-Morente</surname><given-names>L.</given-names></name><name><surname>McEwen</surname><given-names>B. S.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2004</year>). <article-title>Cell types, lineage, and architecture of the germinal zone in the adult dentate gyrus</article-title>. <source>J. Comp. Neurol</source>. <volume>478</volume>, <fpage>359</fpage>&#x2013;<lpage>378</lpage>
+<pub-id pub-id-type="doi">10.1002/cne.20288</pub-id><pub-id pub-id-type="pmid">15384070</pub-id></mixed-citation>
+      </ref>
+      <ref id="B111">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Seri</surname><given-names>B.</given-names></name><name><surname>Garcia-Verdugo</surname><given-names>J. M.</given-names></name><name><surname>McEwen</surname><given-names>B. S.</given-names></name><name><surname>Alvarez-Buylla</surname><given-names>A.</given-names></name></person-group> (<year>2001</year>). <article-title>Astrocytes give rise to new neurons in the adult mammalian hippocampus</article-title>. <source>J. Neurosci</source>. <volume>21</volume>, <fpage>7153</fpage>&#x2013;<lpage>7160</lpage>
+<pub-id pub-id-type="pmid">11549726</pub-id></mixed-citation>
+      </ref>
+      <ref id="B112">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Seri</surname><given-names>B.</given-names></name><name><surname>Herrera</surname><given-names>D. G.</given-names></name><name><surname>Gritti</surname><given-names>A.</given-names></name><name><surname>Ferron</surname><given-names>S.</given-names></name><name><surname>Collado</surname><given-names>L.</given-names></name><name><surname>Vescovi</surname><given-names>A.</given-names></name><etal/></person-group> (<year>2006</year>). <article-title>Composition and organization of the SCZ: a large germinal layer containing neural stem cells in the adult mammalian brain</article-title>. <source>Cereb. Cortex</source>
+<volume>16</volume>
+<issue>Suppl. 1</issue>, <fpage>i103</fpage>&#x2013;<lpage>i111</lpage>
+<pub-id pub-id-type="doi">10.1093/cercor/bhk027</pub-id><pub-id pub-id-type="pmid">16766696</pub-id></mixed-citation>
+      </ref>
+      <ref id="B113">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Seth</surname><given-names>P.</given-names></name><name><surname>Koul</surname><given-names>N.</given-names></name></person-group> (<year>2008</year>). <article-title>Astrocyte, the star avatar: redefined</article-title>. <source>J. Biosci</source>. <volume>33</volume>, <fpage>405</fpage>&#x2013;<lpage>421</lpage>
+<pub-id pub-id-type="doi">10.1007/s12038-008-0060-5</pub-id><pub-id pub-id-type="pmid">19005240</pub-id></mixed-citation>
+      </ref>
+      <ref id="B114">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Shors</surname><given-names>T. J.</given-names></name><name><surname>Miesegaes</surname><given-names>G.</given-names></name><name><surname>Beylin</surname><given-names>A.</given-names></name><name><surname>Zhao</surname><given-names>M.</given-names></name><name><surname>Rydel</surname><given-names>T.</given-names></name><name><surname>Gould</surname><given-names>E.</given-names></name></person-group> (<year>2001</year>). <article-title>Neurogenesis in the adult is involved in the formation of trace memories</article-title>. <source>Nature</source>
+<volume>410</volume>, <fpage>372</fpage>&#x2013;<lpage>376</lpage>
+<pub-id pub-id-type="doi">10.1038/35066584</pub-id><pub-id pub-id-type="pmid">11268214</pub-id></mixed-citation>
+      </ref>
+      <ref id="B115">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sinor-Anderson</surname><given-names>A.</given-names></name><name><surname>Lillien</surname><given-names>L.</given-names></name></person-group> (<year>2011</year>). <article-title>Akt1 interacts with epidermal growth factor receptors and hedgehog signaling to increase stem/transit amplifying cells in the embryonic mouse cortex</article-title>. <source>Dev. Neurobiol</source>. <volume>71</volume>, <fpage>759</fpage>&#x2013;<lpage>771</lpage>
+<pub-id pub-id-type="doi">10.1002/dneu.20878</pub-id><pub-id pub-id-type="pmid">21312341</pub-id></mixed-citation>
+      </ref>
+      <ref id="B116">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Suh</surname><given-names>Y.</given-names></name><name><surname>Obernier</surname><given-names>K.</given-names></name><name><surname>Holzl-Wenig</surname><given-names>G.</given-names></name><name><surname>Mandl</surname><given-names>C.</given-names></name><name><surname>Herrmann</surname><given-names>A.</given-names></name><name><surname>Worner</surname><given-names>K.</given-names></name><etal/></person-group> (<year>2009</year>). <article-title>Interaction between DLX2 and EGFR regulates proliferation and neurogenesis of SVZ precursors</article-title>. <source>Mol. Cell. Neurosci</source>. <volume>42</volume>, <fpage>308</fpage>&#x2013;<lpage>314</lpage>
+<pub-id pub-id-type="doi">10.1016/j.mcn.2009.08.003</pub-id><pub-id pub-id-type="pmid">19683576</pub-id></mixed-citation>
+      </ref>
+      <ref id="B117">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Goderie</surname><given-names>S. K.</given-names></name><name><surname>Temple</surname><given-names>S.</given-names></name></person-group> (<year>2005</year>). <article-title>Asymmetric distribution of EGFR receptor during mitosis generates diverse CNS progenitor cells</article-title>. <source>Neuron</source>
+<volume>45</volume>, <fpage>873</fpage>&#x2013;<lpage>886</lpage>
+<pub-id pub-id-type="doi">10.1016/j.neuron.2005.01.045</pub-id><pub-id pub-id-type="pmid">15797549</pub-id></mixed-citation>
+      </ref>
+      <ref id="B118">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Sussman</surname><given-names>C. R.</given-names></name><name><surname>Vartanian</surname><given-names>T.</given-names></name><name><surname>Miller</surname><given-names>R. H.</given-names></name></person-group> (<year>2005</year>). <article-title>The ErbB4 neuregulin receptor mediates suppression of oligodendrocyte maturation</article-title>. <source>J. Neurosci</source>. <volume>25</volume>, <fpage>5757</fpage>&#x2013;<lpage>5762</lpage>
+<pub-id pub-id-type="doi">10.1523/JNEUROSCI.4748-04.2005</pub-id><pub-id pub-id-type="pmid">15958742</pub-id></mixed-citation>
+      </ref>
+      <ref id="B119">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Talmage</surname><given-names>D. A.</given-names></name></person-group> (<year>2008</year>). <article-title>Mechanisms of neuregulin action</article-title>. <source>Novartis Found. Symp</source>. <volume>289</volume>, <fpage>74</fpage>&#x2013;<lpage>84</lpage> discussion: 84&#x2013;93. <pub-id pub-id-type="doi">10.1002/9780470751251.ch6</pub-id><pub-id pub-id-type="pmid">18497096</pub-id></mixed-citation>
+      </ref>
+      <ref id="B120">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tham</surname><given-names>M.</given-names></name><name><surname>Ramasamy</surname><given-names>S.</given-names></name><name><surname>Gan</surname><given-names>H. T.</given-names></name><name><surname>Ramachandran</surname><given-names>A.</given-names></name><name><surname>Poonepalli</surname><given-names>A.</given-names></name><name><surname>Yu</surname><given-names>Y. H.</given-names></name><etal/></person-group> (<year>2010</year>). <article-title>CSPG is a secreted factor that stimulates neural stem cell survival possibly by enhanced EGFR signaling</article-title>. <source>PLoS ONE</source>
+<volume>5</volume>:<issue>e15341</issue>
+<pub-id pub-id-type="doi">10.1371/journal.pone.0015341</pub-id><pub-id pub-id-type="pmid">21179491</pub-id></mixed-citation>
+      </ref>
+      <ref id="B121">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tian</surname><given-names>W.</given-names></name><name><surname>Zhang</surname><given-names>J.</given-names></name><name><surname>Zhang</surname><given-names>K.</given-names></name><name><surname>Yang</surname><given-names>H.</given-names></name><name><surname>Sun</surname><given-names>Y.</given-names></name><name><surname>Shen</surname><given-names>Y.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>A study of the functional significance of epidermal growth factor in major depressive disorder</article-title>. <source>Psychiatr. Genet</source>. <volume>22</volume>, <fpage>161</fpage>&#x2013;<lpage>167</lpage>
+<pub-id pub-id-type="doi">10.1097/YPG.0b013e3283539550</pub-id><pub-id pub-id-type="pmid">22504456</pub-id></mixed-citation>
+      </ref>
+      <ref id="B122">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tournier</surname><given-names>C.</given-names></name><name><surname>Pomerance</surname><given-names>M.</given-names></name><name><surname>Gavaret</surname><given-names>J. M.</given-names></name><name><surname>Pierre</surname><given-names>M.</given-names></name></person-group> (<year>1994</year>). <article-title>MAP kinase cascade in astrocytes</article-title>. <source>Glia</source>
+<volume>10</volume>, <fpage>81</fpage>&#x2013;<lpage>88</lpage>
+<pub-id pub-id-type="doi">10.1002/glia.440100202</pub-id><pub-id pub-id-type="pmid">8168869</pub-id></mixed-citation>
+      </ref>
+      <ref id="B123">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Warner-Schmidt</surname><given-names>J. L.</given-names></name><name><surname>Duman</surname><given-names>R. S.</given-names></name></person-group> (<year>2006</year>). <article-title>Hippocampal neurogenesis: opposing effects of stress and antidepressant treatment</article-title>. <source>Hippocampus</source>
+<volume>16</volume>, <fpage>239</fpage>&#x2013;<lpage>249</lpage>
+<pub-id pub-id-type="doi">10.1002/hipo.20156</pub-id><pub-id pub-id-type="pmid">16425236</pub-id></mixed-citation>
+      </ref>
+      <ref id="B124">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wechsler-Reya</surname><given-names>R.</given-names></name><name><surname>Scott</surname><given-names>M. P.</given-names></name></person-group> (<year>2001</year>). <article-title>The developmental biology of brain tumors</article-title>. <source>Annu. Rev. Neurosci</source>. <volume>24</volume>, <fpage>385</fpage>&#x2013;<lpage>428</lpage>
+<pub-id pub-id-type="doi">10.1146/annurev.neuro.24.1.385</pub-id><pub-id pub-id-type="pmid">11283316</pub-id></mixed-citation>
+      </ref>
+      <ref id="B125">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Winner</surname><given-names>B.</given-names></name><name><surname>Desplats</surname><given-names>P.</given-names></name><name><surname>Hagl</surname><given-names>C.</given-names></name><name><surname>Klucken</surname><given-names>J.</given-names></name><name><surname>Aigner</surname><given-names>R.</given-names></name><name><surname>Ploetz</surname><given-names>S.</given-names></name><etal/></person-group> (<year>2009</year>). <article-title>Dopamine receptor activation promotes adult neurogenesis in an acute Parkinson model</article-title>. <source>Exp. Neurol</source>. <volume>219</volume>, <fpage>543</fpage>&#x2013;<lpage>552</lpage>
+<pub-id pub-id-type="doi">10.1016/j.expneurol.2009.07.013</pub-id><pub-id pub-id-type="pmid">19619535</pub-id></mixed-citation>
+      </ref>
+      <ref id="B126">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yarden</surname><given-names>Y.</given-names></name></person-group> (<year>2001</year>). <article-title>Biology of HER2 and its importance in breast cancer</article-title>. <source>Oncology</source>
+<volume>61</volume>
+<issue>Suppl. 2</issue>, <fpage>1</fpage>&#x2013;<lpage>13</lpage>
+<pub-id pub-id-type="doi">10.1159/000055396</pub-id><pub-id pub-id-type="pmid">11694782</pub-id></mixed-citation>
+      </ref>
+      <ref id="B127">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yarden</surname><given-names>Y.</given-names></name><name><surname>Sliwkowski</surname><given-names>M. X.</given-names></name></person-group> (<year>2001</year>). <article-title>Untangling the ErbB signalling network</article-title>. <source>Nat. Rev. Mol. Cell Biol</source>. <volume>2</volume>, <fpage>127</fpage>&#x2013;<lpage>137</lpage>
+<pub-id pub-id-type="doi">10.1038/35052073</pub-id><pub-id pub-id-type="pmid">11252954</pub-id></mixed-citation>
+      </ref>
+      <ref id="B128">
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yoo</surname><given-names>D. Y.</given-names></name><name><surname>Kim</surname><given-names>W.</given-names></name><name><surname>Lee</surname><given-names>C. H.</given-names></name><name><surname>Shin</surname><given-names>B. N.</given-names></name><name><surname>Nam</surname><given-names>S. M.</given-names></name><name><surname>Choi</surname><given-names>J. H.</given-names></name><etal/></person-group> (<year>2012</year>). <article-title>Melatonin improves D-galactose-induced aging effects on behavior, neurogenesis, and lipid peroxidation in the mouse dentate gyrus via increasing pCREB expression</article-title>. <source>J. Pineal Res</source>. <volume>52</volume>, <fpage>21</fpage>&#x2013;<lpage>28</lpage>
+<pub-id pub-id-type="doi">10.1111/j.1600-079X.2011.00912.x</pub-id><pub-id pub-id-type="pmid">21718363</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

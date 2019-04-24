@@ -1,0 +1,814 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, CA USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27559743</article-id>
+      <article-id pub-id-type="pmc">4999211</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0161663</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-16-22980</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cell Processes</subject>
+              <subj-group>
+                <subject>Cell Proliferation</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Research and Analysis Methods</subject>
+          <subj-group>
+            <subject>Spectrum Analysis Techniques</subject>
+            <subj-group>
+              <subject>Fluorescence Spectroscopy</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Physical Sciences</subject>
+          <subj-group>
+            <subject>Chemistry</subject>
+            <subj-group>
+              <subject>Chemical Compounds</subject>
+              <subj-group>
+                <subject>Organic Compounds</subject>
+                <subj-group>
+                  <subject>Amino Acids</subject>
+                  <subj-group>
+                    <subject>Aromatic Amino Acids</subject>
+                    <subj-group>
+                      <subject>Tryptophan</subject>
+                    </subj-group>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Physical Sciences</subject>
+          <subj-group>
+            <subject>Chemistry</subject>
+            <subj-group>
+              <subject>Organic Chemistry</subject>
+              <subj-group>
+                <subject>Organic Compounds</subject>
+                <subj-group>
+                  <subject>Amino Acids</subject>
+                  <subj-group>
+                    <subject>Aromatic Amino Acids</subject>
+                    <subj-group>
+                      <subject>Tryptophan</subject>
+                    </subj-group>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Proteins</subject>
+              <subj-group>
+                <subject>Amino Acids</subject>
+                <subj-group>
+                  <subject>Aromatic Amino Acids</subject>
+                  <subj-group>
+                    <subject>Tryptophan</subject>
+                  </subj-group>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Physical Sciences</subject>
+          <subj-group>
+            <subject>Physics</subject>
+            <subj-group>
+              <subject>Electromagnetic Radiation</subject>
+              <subj-group>
+                <subject>Luminescence</subject>
+                <subj-group>
+                  <subject>Fluorescence</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Research and analysis methods</subject>
+          <subj-group>
+            <subject>Spectrum analysis techniques</subject>
+            <subj-group>
+              <subject>NMR spectroscopy</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Cell Biology</subject>
+            <subj-group>
+              <subject>Cell Processes</subject>
+              <subj-group>
+                <subject>Cell Growth</subject>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Pharmacology</subject>
+            <subj-group>
+              <subject>Drug Interactions</subject>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v3">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Biochemistry</subject>
+            <subj-group>
+              <subject>Proteins</subject>
+              <subj-group>
+                <subject>Post-Translational Modification</subject>
+                <subj-group>
+                  <subject>Phosphorylation</subject>
+                </subj-group>
+              </subj-group>
+            </subj-group>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Amlexanox Blocks the Interaction between S100A4 and Epidermal Growth Factor and Inhibits Cell Proliferation</article-title>
+        <alt-title alt-title-type="running-head">AMX Blocks the Interaction between S100A4 and EGF</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cho</surname>
+            <given-names>Ching Chang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chou</surname>
+            <given-names>Ruey-Hwang</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff002">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff003">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="corresp" rid="cor001">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yu</surname>
+            <given-names>Chin</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff001">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="corresp" rid="cor001">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff001"><label>1</label>
+<addr-line>Department of Chemistry, National Tsing Hua University, Hsinchu, Taiwan</addr-line></aff>
+      <aff id="aff002"><label>2</label>
+<addr-line>Graduate Institute of Cancer Biology and Center for Molecular Medicine, China Medical University, Taichung, Taiwan</addr-line></aff>
+      <aff id="aff003"><label>3</label>
+<addr-line>Department of Biotechnology, Asia University, Taichung, Taiwan</addr-line></aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Permyakov</surname>
+            <given-names>Eugene A.</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+        <addr-line>Russian Academy of Medical Sciences, RUSSIAN FEDERATION</addr-line>
+      </aff>
+      <author-notes>
+        <fn fn-type="COI-statement" id="coi001">
+          <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>
+            <list list-type="simple">
+              <list-item>
+                <p><bold>Conceptualization:</bold> CCC RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Data curation:</bold> CCC RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Formal analysis:</bold> CCC.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Funding acquisition:</bold> RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Investigation:</bold> CCC RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Methodology:</bold> CCC RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Resources:</bold> RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Software:</bold> CCC.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Supervision:</bold> RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Validation:</bold> CCC RHC CY.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Writing &#x2013; original draft:</bold> CCC.</p>
+              </list-item>
+              <list-item>
+                <p><bold>Writing &#x2013; review &amp; editing:</bold> CCC RHC CY.</p>
+              </list-item>
+            </list>
+          </p>
+        </fn>
+        <corresp id="cor001">* E-mail: <email>cyu.nthu@gmail.com</email> (CY); <email>rhchou@mail.cmu.edu.tw</email> (RHC)</corresp>
+      </author-notes>
+      <pub-date pub-type="epub">
+        <day>25</day>
+        <month>8</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2016</year>
+      </pub-date>
+      <volume>11</volume>
+      <issue>8</issue>
+      <elocation-id>e0161663</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>6</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>9</day>
+          <month>8</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2016 Cho et al</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <copyright-holder>Cho et al</copyright-holder>
+        <license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+        </license>
+      </permissions>
+      <self-uri content-type="pdf" xlink:href="pone.0161663.pdf"/>
+      <abstract>
+        <p>The human S100A4 protein binds calcium, resulting in a change in its conformation to promote the interaction with its target protein. Human epidermal growth factor (EGF) is the target protein of S100A4 and a critical ligand of the receptor EGFR. The EGF/EGFR system promotes cell survival, differentiation, and growth by activating several signaling pathways. Amlexanox is an anti-inflammatory and anti-allergic drug that is used to treat recurrent aphthous ulcers. In the present study, we determined that amlexanox interacts with S100A4 using heteronuclear single quantum correlation titration. We elucidated the interactions of S100A4 with EGF and amlexanox using fluorescence and nuclear magnetic resonance spectroscopy. We generated two binary models (for the S100A4-EGF and S100A4-amlexanox complexes) and observed that amlexanox and EGF share a similar binding region in mS100A4. We also used a WST-1 assay to investigate the bioactivity of S100A4, EGF, and amlexanox, and found that amlexanox blocks the binding between S100A4 and EGF, and is therefore useful for the development of new anti-proliferation drugs.</p>
+      </abstract>
+      <funding-group>
+        <award-group id="award001">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004663</institution-id>
+              <institution>Ministry of Science and Technology, Taiwan</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>MOST 103-2113-M-007 -017 -MY3</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Cho</surname>
+              <given-names>Ching Chang</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group id="award002">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004663</institution-id>
+              <institution>Ministry of Science and Technology, Taiwan</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>MOST 103-2113-M-007 -017 -MY3</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Yu</surname>
+              <given-names>Chin</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group id="award003">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004663</institution-id>
+              <institution>Ministry of Science and Technology, Taiwan</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>MOST 104-2320-B-039-031</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Chou</surname>
+              <given-names>Ruey-Hwang</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <award-group id="award004">
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100007300</institution-id>
+              <institution>China Medical University</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>CMU104-S-02</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Cho</surname>
+              <given-names>Ching Chang</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+        <funding-statement>We acknowledge the financial support from the Ministry of Science and Technology (MOST) Taiwan (Grant number MOST 103-2113-M-007 -017 -MY3); Ministry of Science and Technology (MOST) Taiwan (Grant number MOST 104-2320-B-039-031), and China Medical University (Grant number CMU104-S-02), Taiwan. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <fig-count count="7"/>
+        <table-count count="0"/>
+        <page-count count="18"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>All relevant data are within the paper and its Supporting Information files.</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>All relevant data are within the paper and its Supporting Information files.</p>
+    </notes>
+  </front>
+  <body>
+    <sec sec-type="intro" id="sec001">
+      <title>Introduction</title>
+      <p>The human S100A4 protein carries two calcium ion (Ca<sup>2+</sup>)-binding EF-hand motifs. S100A4 has intra- and extracellular biological functions that are related to Ca-induced conformational changes and cell bioactivity[<xref rid="pone.0161663.ref001" ref-type="bibr">1</xref>, <xref rid="pone.0161663.ref002" ref-type="bibr">2</xref>]. S100A4 proteins are expressed in various diseases, including cancer, vascular disorders, rheumatoid arthritis, and pulmonary disorders [<xref rid="pone.0161663.ref003" ref-type="bibr">3</xref>, <xref rid="pone.0161663.ref004" ref-type="bibr">4</xref>]; and S100A4 was found to be up-regulated after cardiac infarction and neural injury [<xref rid="pone.0161663.ref005" ref-type="bibr">5</xref>, <xref rid="pone.0161663.ref006" ref-type="bibr">6</xref>]. Furthermore, S100A4 participates in cell metastasis and tumor cell proliferation. Increased S100A4 expression has been identified in different human cancers [<xref rid="pone.0161663.ref007" ref-type="bibr">7</xref>, <xref rid="pone.0161663.ref008" ref-type="bibr">8</xref>], and previous reports indicated a relationship between the expression of S100A4 and poor prognosis [<xref rid="pone.0161663.ref009" ref-type="bibr">9</xref>, <xref rid="pone.0161663.ref010" ref-type="bibr">10</xref>]. In previous research, the S100A4 protein interacted with various ligands, including non-muscle myosin IIA [<xref rid="pone.0161663.ref011" ref-type="bibr">11</xref>], tropomyosin [<xref rid="pone.0161663.ref012" ref-type="bibr">12</xref>], liprin b1 [<xref rid="pone.0161663.ref013" ref-type="bibr">13</xref>], and the tumor suppressor protein p53 [<xref rid="pone.0161663.ref014" ref-type="bibr">14</xref>]. Previous studies indicated that extracellular S100A4 stimulates cell proliferation, invasion, motility, survival, differentiation, and angiogenesis [<xref rid="pone.0161663.ref015" ref-type="bibr">15</xref>, <xref rid="pone.0161663.ref016" ref-type="bibr">16</xref>]. Epidermal growth factor (EGF) is a hormone that was originally discovered in many human tissues, including the parotid and submandibular glands [<xref rid="pone.0161663.ref017" ref-type="bibr">17</xref>]. EGF promotes cellular survival, differentiation, and proliferation. The biological functions of EGF include the stimulation of DNA synthesis and participating in the curing of gastroesophageal and oral ulcers [<xref rid="pone.0161663.ref018" ref-type="bibr">18</xref>, <xref rid="pone.0161663.ref019" ref-type="bibr">19</xref>]. The activity of EGF family members is mediated by the EGFR/ErbB receptor tyrosine kinases. A previous report indicated that S100A4 is associated with several ligands of EGFR, such as EGF, heparin-binding epidermal growth factor, betacellulin, and amphiregulin [<xref rid="pone.0161663.ref020" ref-type="bibr">20</xref>]. The EGF/EGFR system promotes cell survival, differentiation, and growth via the activation of several integrated signaling pathways [<xref rid="pone.0161663.ref021" ref-type="bibr">21</xref>].</p>
+      <p>Amlexanox is an anti-allergic immunomodulator used to heal aphthous ulcers. Amlexanox can bind S100A13 and inhibit the heat shock-induced release of fibroblast growth factor-1 [<xref rid="pone.0161663.ref022" ref-type="bibr">22</xref>, <xref rid="pone.0161663.ref023" ref-type="bibr">23</xref>]. Amlexanox induces tyrosine phosphorylation of cortactin, which may reversibly inhibit cell migration, induce Src-dependent cell proliferation, and depolymerize actin filaments [<xref rid="pone.0161663.ref024" ref-type="bibr">24</xref>]. HSQC titration is a suitable method for identifying interfaces of protein-ligand or protein-protein interactions [<xref rid="pone.0161663.ref025" ref-type="bibr">25</xref>]. This approach provides useful information for characterizing the exchange regime of binding [<xref rid="pone.0161663.ref026" ref-type="bibr">26</xref>, <xref rid="pone.0161663.ref027" ref-type="bibr">27</xref>]. In the current report, we used heteronuclear single quantum correlation (HSQC) titration to investigate the interactions between a mutant S100A4 and amlexanox, and between a mutant S100A4 and EGF, and constructed the two High Ambiguity-Driven Docking (HADDOCK) models. The binding affinity between the mutant S100A4 and EGF was determined via fluorescence spectroscopy. A WST-1 cell proliferation assay was used to study the biological activity of S100A4, EGF, and amlexanox. We investigated two complex structure models using various biophysical techniques to characterize the interactions of S100A4 with EGF and amlexanox at the molecular level. The binding interface of amlexanox is similar to the EGF-binding site of S100A4, indicating that this molecule blocks EGF binding to S100A4 and inhibits the S100A4-EGF-mediated induction of EGFR signaling. This study may be useful for drug development, which can inhibit the diseases related to S100A4 and EGF.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="sec002">
+      <title>Materials and Methods</title>
+      <sec id="sec003">
+        <title>Reagents and chemicals</title>
+        <p>D<sub>2</sub>O and <sup>15</sup>NH<sub>4</sub>Cl were used for NMR HSQC spectroscopy and were obtained from Cambridge Isotope Laboratories. Amlexanox was purchased from Sigma-Aldrich. All other chemicals used in this study were of analytical grade.</p>
+      </sec>
+      <sec id="sec004">
+        <title>Expression and purification of mutant S100A4 (mS100A4) and EGF</title>
+        <p>S100A4 contains four free cysteine residues. We typically add 5 mM dithiothreitol (DTT) to the buffer conditions for NMR experiments as a reducing agent. However, when complex formation between S100A4 and EGF is studied using NMR, DTT should be avoided because EGF contains three disulfide bonds. We overcame this problem by creating a mutant of S100A4. All four cysteines were mutated to serines (C3S, C76S, C81S, and C86S). In this case, NMR could be carried out without the use of DTT as a reducing agent. The 3D structure of this mutant (mS100A4) is similar to that of the wild-type protein [<xref rid="pone.0161663.ref028" ref-type="bibr">28</xref>]. The cDNA of the quadruple mutant S100A4 (Cys3, Cys76, Cys81, and Cys86) was purchased from Mission Biotech Company. Using pET21b as a vector, this gene was transformed and over-expressed in <italic>Escherichia coli</italic> BL21 (DE3) (Novagen). <sup>15</sup>N-labeled samples were prepared using <sup>15</sup>NH<sub>4</sub>Cl as the nitrogen source, and were grown in M9 medium. The cells were cultured at 310 K until the optical density at 600 nm (OD<sub>600</sub>) reached 0.7. The culture was then induced using 1 mM isopropyl &#x3B2;-<sc>d</sc>-thiogalactopyranoside at 298 K. After 16 h of overnight induction, the cells were centrifuged for 30 min at 4,307 <italic>g</italic>, followed by resuspension in a buffer containing 20 mM Tris-HCl, pH 7.5. The cells were then lysed using a sonicator. A salting-out buffer (50 mM Tris pH 7.5, 300 mM KCl, 1 mM DTT, 1 mM ethylenediaminetetraacetic acid, 10% glycerol, and 4.32 M (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>) was added until the buffer contained 2.16 M (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>, and the samples were maintained at 4&#xB0;C for 12 h. The cell lysate was removed by centrifugation at 30,624 <italic>g</italic> and 277 K for 45 min. The supernatant was then purified by passage through a Hi-Prep Q XL 16/10 column and washed with an equilibrating buffer (20 mM Tris-HCl, pH 7.5). The protein was then eluted using elution buffer (20 mM Tris-HCl, 1.6 M NaCl, pH 7.5). The mS100A4-containing fraction was further purified using Hi-Prep Phenyl FF 16/10, by first exchanging the buffer for the loading buffer (20 mM Tris-HCl, 2 mM CaCl<sub>2</sub>, pH 7.5), which allows mS100A4 to bind to the column while washing out unwanted impurities. Elution buffer (20 mM Tris-HCl and 20 mM ethylenediaminetetraacetic acid, pH 7.5) was used to detach the target protein. Finally, we used a Hi-load 16/60 Superdex 75 column as a finishing column for final purification and buffer exchange.</p>
+        <p>The recombinant EGF was fused to the pET-32a (+) vector constructed into BL21 (DE3) Origami B competent cells (Novagen). We cultured the cells and purified the protein as reported previously [<xref rid="pone.0161663.ref029" ref-type="bibr">29</xref>]. Both proteins were estimated to have over 95% purity using sodium dodecyl sulfate-polyacrylamide gel electrophoresis analysis, and the molecular weights were established via mass spectrometry.</p>
+      </sec>
+      <sec id="sec005">
+        <title>NMR chemical shift assignments</title>
+        <p>NMR experiments were performed on a Varian 700 MHz NMR spectrometer operating at 298 K with a cryogenic probe. The NMR shift assignments for EGF were reported by Huang et al [<xref rid="pone.0161663.ref029" ref-type="bibr">29</xref>]. All of the chemical shifts of the mutant mS100A4 were assigned previously and deposited in Biological Magnetic Resonance Bank (BMRB). The assignments of mS100A4 were examined in 25 mM Tris-HCl, 100 mM NaCl, and 5 mM CaCl<sub>2</sub>, and <sup>1</sup>H-<sup>15</sup>N HSQC, HNCOCA, HNCA, CBCACONH HNCACB, and HCCCONH, CCCONH, HBHACONH, HCCH-TOCSY and <sup>15</sup>N-edited TOCSY-HSQC were performed. We processed the NMR data using VnmrJ 2.3 and analyzed the data using Sparky 3.1 [<xref rid="pone.0161663.ref030" ref-type="bibr">30</xref>].</p>
+      </sec>
+      <sec id="sec006">
+        <title>Chemical shift perturbation experiments</title>
+        <p>NMR HSQC experiments were performed on a Varian 700 NMR spectrometer at 298 K with a cryogenic cooled probe. All titrations were performed under the same buffer conditions (25 mM Tris-HCl, 100 mM NaCl, 5 mM CaCl<sub>2</sub>, pH 7.5, and 10% D<sub>2</sub>O). Unlabeled Ca-bound mS100A4 was uniformly added to <sup>15</sup>N-labeled EGF at molar ratios of 1:0, 1:0.33, 1:0.66, and 1:1. A reverse titration experiment for <sup>15</sup>N-labeled mS100A4 was performed at molar ratios of 1:0, 1:0.33, 1:0.66, and 1:1. Finally, the titration of mS100A4 and amlexanox was performed at molar ratios of 1:0, 1:0.5, 1:1, 1:2, and 1:3. By overlapping the HSQC titration spectrum, we could calculate the level of intensity reduction or chemical shift perturbation of each peak.</p>
+      </sec>
+      <sec id="sec007">
+        <title>Fluorescence experiments</title>
+        <p>We collected florescence experiments using Hitachi F-2500 fluorescence spectroscopy. The tryptophan of EGF showed absorption at 295 nm and maximal emission in the range of 310 to 415 nm. Increasing concentrations of mS100A4 (0&#x2013;22 &#x3BC;M) were added to EGF (8 &#x3BC;M). The changes in the emission spectrum were plotted as <italic>1/[mS100A4]</italic> versus <italic>1/ (I</italic><sub><italic>0</italic></sub><italic>&#x2013;I)</italic> and represented in the following equation [<xref rid="pone.0161663.ref031" ref-type="bibr">31</xref>]:
+<disp-formula id="pone.0161663.e001"><alternatives><graphic xlink:href="pone.0161663.e001.jpg" id="pone.0161663.e001g" mimetype="image" position="anchor" orientation="portrait"/><mml:math id="M1"><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mo>(</mml:mo><mml:mi mathvariant="normal">I</mml:mi><mml:mn>0</mml:mn><mml:mo>&#x2013;</mml:mo><mml:mi mathvariant="normal">I</mml:mi><mml:mo>)</mml:mo><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mo>(</mml:mo><mml:mi mathvariant="normal">I</mml:mi><mml:mn>0</mml:mn><mml:mo>&#x2013;</mml:mo><mml:mi mathvariant="normal">I</mml:mi><mml:mo>)</mml:mo><mml:mo>+</mml:mo><mml:mi mathvariant="normal">K</mml:mi><mml:mo>/</mml:mo><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mo>(</mml:mo><mml:mi mathvariant="normal">I</mml:mi><mml:mn>0</mml:mn><mml:mo>&#x2013;</mml:mo><mml:mi mathvariant="normal">I</mml:mi><mml:mo>)</mml:mo><mml:mo>&#xB7;</mml:mo><mml:mn>1</mml:mn><mml:mo>/</mml:mo><mml:mspace width="0.15em"/><mml:mo>[</mml:mo><mml:mi mathvariant="normal">m</mml:mi><mml:mi mathvariant="normal">S</mml:mi><mml:mn>100</mml:mn><mml:mi mathvariant="normal">A</mml:mi><mml:mn>4</mml:mn><mml:mo>]</mml:mo></mml:math></alternatives></disp-formula></p>
+        <p><italic>I</italic><sub><italic>0</italic>,</sub>
+<italic>I</italic>, and <italic>I</italic><sub><italic>1</italic></sub> represent the intensities of emission without mS100A4, at the middle concentration of mS100A4 and at the maximal concentration of mS100A4, and K indicates the dissociation constant.</p>
+      </sec>
+      <sec id="sec008">
+        <title>WST-1 cell proliferation assay</title>
+        <p>WST-1 cell proliferation assay was performed according to the manual (Roche). Cells were cultured to the logarithmic growth phase, and then trypsinized and seeded at a density of 1x104 cells/well in a 96-well plate in the day before experiments. Subsequently, cells were incubated in the serum-free medium containing 0.1% BSA for 24h. The serum-starved cells were treated with or without indicated concentrations of recombinant proteins or drugs for another 48h. Before harvest, 1/10 volume of WST-1 (4-[3-(4-iodophenyl)-2-(4-nitrophenyl)-2H-5-tetrazolio]-1,3-benzene disulfonate) cell proliferation reagent (Roche) was added into each well and cells were incubated at 37 oC for another 4h. The medium in the cell culture plate was mixed by gentle agitation on a shaker for 10 min. The absorbance was measured at 450 nm with the Synergy 2 microplate reader (BioTek Instruments, Inc.). The relative cell numbers were determined by the relative absorbance comparing to that from control treatment [<xref rid="pone.0161663.ref032" ref-type="bibr">32</xref>, <xref rid="pone.0161663.ref033" ref-type="bibr">33</xref>].</p>
+      </sec>
+      <sec id="sec009">
+        <title>Molecular docking</title>
+        <p>We docked mS100A4 and EGF (or amlexanox) to obtain an mS100A4-EGF (or mS100A4-amlexanox) tetrameric model via HADDOCK [<xref rid="pone.0161663.ref034" ref-type="bibr">34</xref>]. The NMR coordinates of mS100A4 were obtained from the Protein Data Bank (ID: 2MRD). The NMR coordinates of EGF were also obtained from the Protein Data Bank (ID:2KV4), and the input data for amlexanox were obtained from DrugBank (ID: DB01025). The cross peaks with significant chemical shift perturbations and decreasing intensity were defined as ambiguous interaction constraints of the binding interface of the mS100A4-EGF complex. We defined the active or passive residues via NACCESS [<xref rid="pone.0161663.ref035" ref-type="bibr">35</xref>]. We selected the residues with relative available solvent surface accessible areas of more than 30% for the backbone and side chain as active sites and the residues with values of less than 30% as passive sites. After calculation, the 2,000 rigid body docking models were executed by utilizing HADDOCK and induced optimized potentials for liquid simulation (OPLSX) parameters [<xref rid="pone.0161663.ref036" ref-type="bibr">36</xref>]. Two hundred lower energy structures were optimized by water refinement and used for analysis. The structural representations were generated using PyMOL [<xref rid="pone.0161663.ref037" ref-type="bibr">37</xref>].</p>
+      </sec>
+    </sec>
+    <sec sec-type="results" id="sec010">
+      <title>Results</title>
+      <sec id="sec011">
+        <title>Fluorescence measurements of proteins containing intrinsic tryptophan</title>
+        <p>The emission of protein tryptophan fluorescence was sensitive to conformational changes and the polar environment of the protein when the substrate was associated with the protein. When tryptophan was excited at 295 nm, the proteins displayed maximal emission in the range of 345 to 360 nm in high-polarity environments. Tryptophan residues exhibit maximal emission ranging from 330 to 345 nm in hydrophobic environments (28). EGF contains two tryptophan residues at positions 49 and 50, and no tryptophan residues are present in the mutant S100A4. The HSQC titrations of EGF with mS100A4 indicated that these two tryptophan residues (W49 and W50) interact with mS100A4. Furthermore, EGF displays maximal emission at 345 nm and excitation at 295 nm. The intensity change of the EGF emission at 345 nm was excited at 295 nm. The titration of EGF with mS100A4 caused a decrease in the fluorescence emission of EGF (<xref ref-type="fig" rid="pone.0161663.g001">Fig 1A</xref>). We plotted the intensity change of emission versus the concentration of mS100A4, as shown in <xref ref-type="fig" rid="pone.0161663.g001">Fig 1B</xref>. The dissociation constant (Kd) is 5.2 &#x3BC;M, which shows the binding affinity of mS100A4 for EGF. The value was in the micromolar range, which also indicated the stability and formation of the complex.</p>
+        <fig id="pone.0161663.g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g001</object-id>
+          <label>Fig 1</label>
+          <caption>
+            <title>Interactions of EGF with mS100A4 monitored using fluorescence spectroscopy.</title>
+            <p>(A) Fluorescence emission spectra of EGF illustrating the changes in the intrinsic tryptophan fluorescence that occur with increasing concentrations of mS100A4 in the micromolar range. (B) Changes in the fluorescence intensities measured at 345 nm as a function of the mS100A4 concentration were calculated according to Eq 1. The binding was fitted (solid red line) to a one-site binding model.</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g001"/>
+        </fig>
+      </sec>
+      <sec id="sec012">
+        <title>Mapping the interface between mS100A4 and EGF</title>
+        <p>The residues of the binding interface between mS100A4 and EGF were recognized by observing the perturbations and intensity changes of chemical shifts in the <sup>1</sup>H-<sup>15</sup>N HSQC spectrum of free mS100A4 in comparison to that of mS100A4 in complex with EGF. The overlapped HSQC spectra of free mS100A4 and mS100A4 in complex with unlabeled EGF are shown in <xref ref-type="fig" rid="pone.0161663.g002">Fig 2A</xref>. We observed a significant decrease in the intensity of the cross peaks in the <sup>1</sup>H-<sup>15</sup>N HSQC spectrum for mS100A4 with EGF (molar ratio of 1&#x2236;1). The residues of the binding interface were identified based on the intensity changes of the HSQC cross peak. A comparison of free mS100A4 (I<sub>0</sub>) with the mS100A4-EGF complex (I) is shown in the bar diagram in <xref ref-type="fig" rid="pone.0161663.g002">Fig 2B</xref>.</p>
+        <fig id="pone.0161663.g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g002</object-id>
+          <label>Fig 2</label>
+          <caption>
+            <title>Analysis of the <sup>1</sup>H-<sup>15</sup>N HSQC Spectra of mS100A4 in Complex with EGF.</title>
+            <p>(A) Overlaid <sup>1</sup>H-<sup>15</sup>N HSQC spectra of 0.5 mM <sup>15</sup>N-labeled free mS100A4 (red) and mS100A4: EGF, molar ratio = 1:0.3 (green), 1:0.6 (blue), and 1:1 (white), with the intensity drop indicated by green boxes. (B) Bar graph representing the changes in the cross-peak intensities (I/I<sub>0</sub>) of free mS100A4 and mS100A4 in complex with EGF versus the mS100A4 residue number (1&#x2013;101). In this plot, (I) represents the cross-peak intensity of mS100A4 in complex with EGF, and (I<sub>0</sub>) represents the initial intensity of free mS100A4. The black dashed line indicates the threshold of selected residues that exhibited a significant decrease in intensity.</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g002"/>
+        </fig>
+        <p>These results demonstrated that most of the residues that exhibited a reduction in intensity (S44, F45, L58, and I82) were distributed in loop 2 (residues 42&#x2013;49), helix 3 (residues 51&#x2013;63), and helix 4 (residues 72&#x2013;89). In reversed HSQC titrations, we used <sup>15</sup>N-labeled EGF with unlabeled mS100A4 at a ratio of 1&#x2236;1 and observed the residues of EGF that interacted with mS100A4. Some residues that revealed significant perturbations in the cross peak of EGF during mS100A4 binding, such as V35, G36, Y37, D46, L47, K48, E51, L52, R53, W49, and W50, disappeared (<xref ref-type="fig" rid="pone.0161663.g003">Fig 3A</xref>). The bar diagram of the perturbation in the HSQC cross peak of free EGF (I<sub>0</sub>) compared to that of the EGF-mS100A4 complex (I) was used to identify the residues involved in the interface of EGF with mS100A4 (<xref ref-type="fig" rid="pone.0161663.g003">Fig 3B</xref>). The observed spectral changes revealed the fast to intermediate exchange of binding between mS100A4 and EGF.</p>
+        <fig id="pone.0161663.g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g003</object-id>
+          <label>Fig 3</label>
+          <caption>
+            <title>Analysis of the <sup>1</sup>H-<sup>15</sup>N HSQC Spectra of EGF in Complex with mS100A4.</title>
+            <p>(A) Overlaid <sup>1</sup>H-<sup>15</sup>N HSQC spectra of 0.5 mM <sup>15</sup>N-labeled free EGF (red) and EGF: mS100A4, molar ratio = 1:0.3 (green), 1:0.6 (blue), and 1:1 (white), with cross-peak perturbation changes indicated by white boxes and the intensity drop indicated by blue boxes. (B) The weighted average of the chemical shift (<sup>15</sup>N and <sup>1</sup>H) variations &#x394;&#x3B4; = [(&#x3B4;<sup>1</sup>HN)<sup>2</sup> + 0.2 (&#x3B4;<sup>15</sup>N)<sup>2</sup>]<sup>1/2</sup> of residues in EGF on complex formation with mS100A4. The horizontal line is an arbitrary line drawn to demarcate residues that exhibit significant chemical shift perturbations (&gt;0.20 ppm).</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g003"/>
+        </fig>
+      </sec>
+      <sec id="sec013">
+        <title>Structural model of the mS100A4-EGF complex</title>
+        <p>The interface residues were mapped based on the results of the HSQC titrations, and we then generated a model of the mS100A4-EGF complex to describe the interactions between these two proteins. We obtained ambiguous interaction restraints (AIRs) from the cross peak perturbations and decreased intensity of the affected residues in the HSQC titration experiments. Most of these residues were clustered in the same region and formed a single binding interface between mS100A4 and EGF. The NMR restraints allowed HADDOCK to calculate the binary complex model of mS100A4 and EGF. The NMR coordinates of mS100A4 and EGF were taken from the Protein Data Bank. The 2,000 rigid body-docking models were executed using HADDOCK and induced optimized potentials for liquid simulation (OPLSX) parameters. Two hundred lower energy structures were optimized by water refinement and used for analysis. The 200 structures were divided into six clusters, with an RMSD of 0.6 &#xB1; 0.3 &#xC5; for the overall lowest energy structure. <xref ref-type="fig" rid="pone.0161663.g004">Fig 4A</xref> shows the interface of mS100A4-EGF. The hydrophobic residues F45, L58, and I82 of mS100A4 interact with V35, L47, and L52 of EGF. <xref ref-type="fig" rid="pone.0161663.g004">Fig 4B</xref> shows the 20 lowest energy structures of the binary mS100A4-EGF model. PROCHECK analysis of the structure indicated good stereochemistry for the structure. In Ramachandran plot statistics, the disallowed region was only 1.1%. The overall average of G-factors was 0.14, which is in the typical region (<xref ref-type="supplementary-material" rid="pone.0161663.s006">S1 <bold>Table</bold></xref>).</p>
+        <fig id="pone.0161663.g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g004</object-id>
+          <label>Fig 4</label>
+          <caption>
+            <title>Model of the mS100A4-EGF Complex Determined using HADDOCK.</title>
+            <p>(A) The interface between mS100A4 and EGF. The hydrophobic residues of mS100A4 are yellow, and the hydrophobic residues of EGF are red. (B) Ribbon representation of the 20 best mS100A4-EGF complex overlap, with EGF as green. The mS100A4 homodimer is cyan.</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g004"/>
+        </fig>
+      </sec>
+      <sec id="sec014">
+        <title>Mapping the binding interface between amlexanox and mS100A4</title>
+        <p>We used a set of <sup>1</sup>H-<sup>15</sup>N HSQC titrations to identify the critical residues of the interface between mS100A4 and amlexanox. When comparing the <sup>1</sup>H-<sup>15</sup>N HSQC spectra of free mS100A4 and mS100A4 in complex with amlexanox, the residues with significant chemical shift perturbations were S44, F45, G47, S80, I82, and A83 (<xref ref-type="fig" rid="pone.0161663.g005">Fig 5A</xref>). These residues were distributed in the loop 2 and helix 4 regions, which are the hydrophobic regions of mS100A4. The bar graph of the perturbation in the HSQC cross peak of free mS100A4 (I<sub>0</sub>) compared with that of the mS100A4 complex with amlexanox (I) was used to identify the residues involved in the interface of EGF with mS100A4 (<xref ref-type="fig" rid="pone.0161663.g005">Fig 5B</xref>).</p>
+        <fig id="pone.0161663.g005" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g005</object-id>
+          <label>Fig 5</label>
+          <caption>
+            <title>Analysis of the <sup>1</sup>H-<sup>15</sup>N HSQC Spectra of mS100A4 in Complex with Amlexanox.</title>
+            <p>(A) Overlaid <sup>1</sup>H-<sup>15</sup>N HSQC spectra of 0.5 mM <sup>15</sup>N-labeled free mS100A4 (red) and mS100A4: EGF, molar ratio = 1:0.3 (green), 1:0.6 (blue), and 1:1 (white), with the intensity drop indicated by blue boxes. (B) The weighted average of the chemical shift (<sup>15</sup>N and <sup>1</sup>H) variations &#x394;&#x3B4; = [(&#x3B4;<sup>1</sup>HN)<sup>2</sup> + 0.2 (&#x3B4;<sup>15</sup>N)<sup>2</sup>]<sup>1/2</sup> of residues in mS100A4 on complex formation with amlexanox. The horizontal dashed line is an arbitrary line drawn to demarcate residues that exhibit significant chemical shift perturbations. (C) Ribbon representation of mS100A4, with residues that exhibited a decrease in cross-peak intensity mapped (red) on the ribbon diagram.</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g005"/>
+        </fig>
+      </sec>
+      <sec id="sec015">
+        <title>Structural model of the mS100A4&#x2013;amlexanox complex</title>
+        <p>We used the restraints to calculate the mS100A4-amlexanox model using HADDOCK. The obtained AIRs were consistent with the significant chemical shift perturbations of residues in the <sup>15</sup>N-<sup>1</sup>H HSQC titration experiment. The amlexanox-binding region was situated in the hydrophobic cleft of mS100A4. The hydrophobic interactions of amlexanox interacted with F45, I82, and A83 of mS100A4. The docking results demonstrated that the interaction between amlexanox and mS100A4 was mediated by hydrophobic interactions (<xref ref-type="fig" rid="pone.0161663.g006">Fig 6A</xref>). Moreover, we generated the lowest-energy model of the mS100A4-amlexanox complex using HADDOCK. <xref ref-type="fig" rid="pone.0161663.g006">Fig 6B</xref> shows the 10 overlapped water refinement structures that were selected from the clusters. After PROCHECK analysis, in Ramachandran plot statistics, the disallowed region was 0.0%. The overall average of G-Factors was -0.27, which is in the typical region (<xref ref-type="supplementary-material" rid="pone.0161663.s007">S2 <bold>Table</bold></xref>).</p>
+        <fig id="pone.0161663.g006" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g006</object-id>
+          <label>Fig 6</label>
+          <caption>
+            <title>Model of the mS100A4-amlexanox Complex Determined using HADDOCK.</title>
+            <p>(A) The interface between mS100A4 and amlexanox. The hydrophobic residues of mS100A4 are colored red. (B) Ribbon representation of the mS100A4-EGF complex, with 10 overlaid amlexanox structures. The mS100A4 homodimer is blue.</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g006"/>
+        </fig>
+      </sec>
+      <sec id="sec016">
+        <title>Functional studies of mS100A4 with EGF and amlexanox</title>
+        <p>To explore the downstream effects during exogenous human mS100A4-EGF-mediated bioactivity, we used a WST-1 assay to determine the ability of cell proliferation. Cell proliferation could be affected by the interaction between mS100A4 and EGF. A431 cells are breast carcinoma cells that express endogenous functional EGFR. We observed that low concentrations of EGF (1, 5, and 10 nM) stimulated A431 cell growth in a dose-dependent manner, while high concentrations of S100A4 (50 and 100 nM) slightly promoted cell proliferation (<xref ref-type="supplementary-material" rid="pone.0161663.s005">S5 Fig</xref>). To determine the effect of S100A4 in EGF-stimulated cell growth, the cells were treated with or without 10 nM EGF in the presence or absence of increased concentrations of mS100A4 (5, 25, 50, and 100 nM). As shown in <xref ref-type="fig" rid="pone.0161663.g007">Fig 7A</xref>, we observed an increase in cell proliferation activity after co-treatment with different concentrations of mS100A4. Increasing concentrations of mS100A4 produced a significant induction of EGF-stimulated cell growth (lanes 3&#x2013;6). AG1478, a kinase inhibitor of EGFR, directly binds to the Tyrosine kinase domain of EGFR, and increases the formation of inactive untethered EGFR dimers [<xref rid="pone.0161663.ref038" ref-type="bibr">38</xref>]. Inhibition of EGFR activity by AG1478 significantly abrogated EGF- and S100A4/EGF-stimulated cell proliferation (lanes 7&#x2013;11), suggesting that S100A4 enhances EGF-stimulated cell growth might be dominantly through activation of EGF/EGFR pathway. To study the effect of amlexanox on the interaction between mS100A4 and EGF, similar experiments were performed to assess the cell proliferation activity of A431 cell line. When the concentration of amlexanox was increased, the cell proliferation activity decreased, but amlexanox alone had no significant effect on cell proliferation (<xref ref-type="fig" rid="pone.0161663.g007">Fig 7B</xref>). Thus, the results suggest that amlexanox inhibited the binding between mS100A4 and EGF and prohibited cell proliferation activity.</p>
+        <fig id="pone.0161663.g007" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0161663.g007</object-id>
+          <label>Fig 7</label>
+          <caption>
+            <title>Functional Assay.</title>
+            <p>(A) A431 cells were treated with 10 nM EGF, 10 nM EGF + 5 &#x3BC;M mS100A4, 10 nM EGF + 25 &#x3BC;M mS100A4, 10 nM EGF + 50 &#x3BC;M mS100A4, or 10 nM EGF + 100 &#x3BC;M mS100A4, and cell proliferation was assessed using the WST-1 assay. The relative cell counts after treatment with mS100A4 are plotted as the fold induction, with serum-free medium and AG1478 as the controls (lanes 7&#x2013;11). The data are expressed as the mean &#xB1; SD of 3 independent experiments. (B) Effects of amlexanox on mS100A4-mediated cell proliferation and EGFR signaling. A431 cells were treated with 10 nM EGF, 10 nM EGF + 100 &#x3BC;M mS100A4, 10 nM EGF + 100 &#x3BC;M mS100A4 + 5 &#x3BC;M amlexanox, 10 nM EGF + 100 &#x3BC;M mS100A4 + 10 &#x3BC;M amlexanox, or 10 nM EGF + 100 &#x3BC;M mS100A4 + 50 &#x3BC;M amlexanox. Cell proliferation was analyzed after 48 h. (C) Left panel: A431 cells were serum starved for 24 h and then incubated with or without 10 nM EGF in the presence or absence of 100 nM mS100A4 or 1 &#x3BC;M amlexanox for 1 h. The cell lysate was extracted from each treatment, and 1 mg of cell lysate was immunoprecipitated with an anti-EGFR antibody (Biovision). The amounts of immunoprecipitated EGF and EGFR were examined by Western blotting (upper plot). The amounts of phosphorylated and total EGFR in cell lysate were subsequently detected by Western blotting. Alpha-tubulin was used as an internal control (lower plot). Right panel: The quantitative result of EGFR-associated EGF was shown from two independent experiments.</p>
+          </caption>
+          <graphic xlink:href="pone.0161663.g007"/>
+        </fig>
+        <p>To further investigate the effects of the mS100A4-EGF-mediated signaling pathway downstream of the EGFR, we performed an immunoprecipitation assay. Cells treated with EGF alone showed a significant increase in the level of phosphorylated EGFR; nevertheless, after the addition of mS100A4, the EGFR phosphorylation level was higher than that observed in cells treated with EGF alone. Further co-treatment with amlexanox reduced the EGFR phosphorylation level by blocking the interaction of mS100A4 and EGF, reducing EGFR receptor activity (<xref ref-type="fig" rid="pone.0161663.g007">Fig 7C</xref>). These results demonstrated that mS100A4 can induce EGFR receptor signaling mediated by the interaction with EGF, and that amlexanox can block the interaction between mS100A4 and EGF in A431 cells.</p>
+      </sec>
+    </sec>
+    <sec id="sec017">
+      <title>Discussion and Conclusions</title>
+      <p>S100 proteins are associated with a large number of functions, including intra- and extracellular functions, in several cell types. EGFR is one of the primary extracellular receptors that mediate these effects. S100 proteins induced cell growth in EGF-expressing cells. In the current study, based on fluorescence measurements, we defined the dissociation constant (Kd) between human mS100A4 and EGF as 5.2 &#x3BC;M and confirmed the formation and stability of this protein complex. NMR HSQC titrations identified the critical residues in the interface between mS100A4 and EGF. Furthermore, the results were mapped onto the complex and revealed the region comprised by loop-2, helix-3, and helix-4 as the mS100A4-binding interface. In the binding site, the hydrophobic residues F45, L58, and I82 of mS100A4 were associated with the hydrophobic residues V35, L47, and L52 of EGF, respectively, via hydrophobic interactions. According to the results, we elucidated a binary complex model of mS100A4&#x2013;EGF.</p>
+      <p>The EGF-binding region in mS100A4 is located in loop-2 and helix-4. We determined that the binding region of amlexanox in mS100A4 is similar to that of EGF. The residues S44, S45, and I82 are the amlexanox-binding sites of mS100A4 involved in the mS100A4&#x2212;EGF binding interface. In HSQC competition experiments (<xref ref-type="supplementary-material" rid="pone.0161663.s004">S4 Fig</xref>), EGF and amlexanox competed for binding to S100A4. We observed that when amlexanox was added to the S100A4 protein (molar ratio of 1:1), the addition of EGF did not cause significantly chemical shift perturbations in S100A4. This finding suggested that amlexanox could block EGF-mutant S100A4 binding.</p>
+      <p>Previous study has shown that low concentration (&lt; 3 nM) of EGF stimulates cell growth, but high concentration (&gt;3 nM) of EGF inhibits cell growth of A431 cells [<xref rid="pone.0161663.ref039" ref-type="bibr">39</xref>]. However, it has also been demonstrated that EGF stimulates cell proliferation in a dose-dependent manner (1, 3, and 30 ng/ml; i.e. approximately 0.16, 0.5, and 5 nM) in accordance with EGF-stimulated phosphorylation amounts of EGFR in A431 cells, which are more sensitive to a EGFR tyrosine kinase inhibitor, Gefitinib (Iressa) [<xref rid="pone.0161663.ref040" ref-type="bibr">40</xref>]. Although the Kd for the EGF-S100A4 interaction <italic>in vitro</italic> was determined to be ~5 &#x3BC;M in our current study, the buffer condition of the <italic>in vitro</italic> Kd measurement was quite different in that of cell culture medium. In addition, the physiological concentration of S100A4 is in the nanomolar range [<xref rid="pone.0161663.ref041" ref-type="bibr">41</xref>]. Therefore, we used the concentrations of S100A4 with nanomolar range in the cell proliferation assay. Our results demonstrated that EGF stimulates cell proliferation of A431 cells depending on the concentrations (1, 5, and 10 nM) of EGF in serum-free medium containing 0.1% BSA, while high concentrations of S100A4 (50 and 100 nM) also slightly promotes cell proliferation (<xref ref-type="supplementary-material" rid="pone.0161663.s005">S5 Fig</xref>). Therefore, we can&#x2019;t exclude that S100A4 might stimulate cell proliferation in EGF-independent pathway. It has also been known that S100A4 interacts with Receptor for Advanced Glycation Endproducts (RAGE), which contributes to metastatic property [<xref rid="pone.0161663.ref042" ref-type="bibr">42</xref>]. In <xref ref-type="fig" rid="pone.0161663.g007">Fig 7A</xref>, addition of AG1478, an EGFR kinase inhibitor, significantly reduced EGF or EGF/S100A4-induced cell proliferation, suggesting that S100A4 stimulates cancer cell proliferation, at least in part, through enhancing EGF/EGFR pathway. According to the WST-1 assay results (<xref ref-type="fig" rid="pone.0161663.g007">Fig 7B</xref>), cells treated with EGF alone exhibited a significant increase in cell proliferation. However, when mS100A4 was added, the cell proliferation increased one-fold. Further co-treatment with amlexanox reduced cell proliferation because amlexanox blocks the interaction of mS100A4 and EGF. In the co-immunoprecipitation assay, we used an EGF antibody to detect EGF bound to EGFR. The results indicated that when the cells are treated with EGF alone, the detectable EGF interacting with EGFR increases (<xref ref-type="fig" rid="pone.0161663.g007">Fig 7C</xref>, second lane). The third lane in <xref ref-type="fig" rid="pone.0161663.g007">Fig 7C</xref> showed that S100A4 induces the binding of EGF to EGFR. With conducted further co-treatment with amlexanox, and found that the detectable level of EGF binding to EGFR decreased (<xref ref-type="fig" rid="pone.0161663.g007">Fig 7C</xref>, fourth lane). These results indicate that S100A4 can help EGF associate with the EGFR, and that amlexanox can block the interaction of mS100A4 with EGF, which is crucial for reducing EGFR pathway activity. This effect indicated that amlexanox may be a potential antagonist of the EGFR and may be useful for the development of new antagonists for mS100A4 and EGF.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="sec018">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0161663.s001">
+        <label>S1 Fig</label>
+        <caption>
+          <title>Properties of the EGF Protein.</title>
+          <p>(A) SDS PAGE of EGF. (B) ESI-MASS of EGF. (C) Protein sequence of EGF.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0161663.s002">
+        <label>S2 Fig</label>
+        <caption>
+          <title>Properties of the Mutant S100A4 Protein.</title>
+          <p>(A) SDS PAGE of mutant S100A4. (B) ESI-MASS of mutant S100A4. (C) Protein sequence of mutant S100A4.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s002.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0161663.s003">
+        <label>S3 Fig</label>
+        <caption>
+          <title>Structure Formula of Amlexanox</title>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s003.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0161663.s004">
+        <label>S4 Fig</label>
+        <caption>
+          <title>HSQC Competition of EGF and Amlexanox Competing for Binding to Mutant S100A4; the Interface Residues between Mutant S100A4 with Amlexanox are Boxed in White.</title>
+          <p>According to this result, when amlexanox was added to S100A4 protein (a ratio of 1:1), EGF did not cause significant chemical shifts for the perturbation of S100A4.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s004.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0161663.s005">
+        <label>S5 Fig</label>
+        <caption>
+          <title>A431 cells were treated with 1 nM EGF, 5 nM EGF, 10 nM EGF, 25 nM mS100A4, 50 nM mS100A4, 100 nM mS100A4, and cell proliferation was assessed using the WST-1 assay.</title>
+          <p>The relative cell counts after treatment with mS100A4 are plotted as the fold induction, with serum-free medium and AG1478 as the controls (lanes 7&#x2013;11). The data are expressed as the mean &#xB1; SD of 3 independent experiments. Cell proliferation was analyzed after 48 h.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s005.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0161663.s006">
+        <label>S1 Table</label>
+        <caption>
+          <title>PROCHECK Results of mS100A4- EGF Complex.</title>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s006.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0161663.s007">
+        <label>S2 Table</label>
+        <caption>
+          <title>PROCHECK Results of mS100A4- AMX Complex.</title>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0161663.s007.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0161663.ref001">
+        <label>1</label>
+        <mixed-citation publication-type="journal"><name><surname>Donato</surname><given-names>R</given-names></name>. <article-title>Intracellular and extracellular roles of S100 proteins</article-title>. <source>Microscopy research and technique</source>. <year>2003</year>;<volume>60</volume>(<issue>6</issue>):<fpage>540</fpage>&#x2013;<lpage>51</lpage>. Epub 2003/03/20. <pub-id pub-id-type="doi">10.1002/jemt.10296</pub-id> .<pub-id pub-id-type="pmid">12645002</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref002">
+        <label>2</label>
+        <mixed-citation publication-type="journal"><name><surname>Helfman</surname><given-names>DM</given-names></name>, <name><surname>Kim</surname><given-names>EJ</given-names></name>, <name><surname>Lukanidin</surname><given-names>E</given-names></name>, <name><surname>Grigorian</surname><given-names>M</given-names></name>. <article-title>The metastasis associated protein S100A4: role in tumour progression and metastasis</article-title>. <source>British journal of cancer</source>. <year>2005</year>;<volume>92</volume>(<issue>11</issue>):<fpage>1955</fpage>&#x2013;<lpage>8</lpage>. Epub 2005/05/19. <pub-id pub-id-type="doi">10.1038/sj.bjc.6602613</pub-id>
+<pub-id pub-id-type="pmid">15900299</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref003">
+        <label>3</label>
+        <mixed-citation publication-type="journal"><name><surname>Merklinger</surname><given-names>SL</given-names></name>, <name><surname>Wagner</surname><given-names>RA</given-names></name>, <name><surname>Spiekerkoetter</surname><given-names>E</given-names></name>, <name><surname>Hinek</surname><given-names>A</given-names></name>, <name><surname>Knutsen</surname><given-names>RH</given-names></name>, <name><surname>Kabir</surname><given-names>MG</given-names></name>, <etal>et al</etal>
+<article-title>Increased fibulin-5 and elastin in S100A4/Mts1 mice with pulmonary hypertension</article-title>. <source>Circulation research</source>. <year>2005</year>;<volume>97</volume>(<issue>6</issue>):<fpage>596</fpage>&#x2013;<lpage>604</lpage>. Epub 2005/08/20. <pub-id pub-id-type="doi">10.1161/01.RES.0000182425.49768.8a</pub-id> .<pub-id pub-id-type="pmid">16109920</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref004">
+        <label>4</label>
+        <mixed-citation publication-type="journal"><name><surname>Grigorian</surname><given-names>M</given-names></name>, <name><surname>Ambartsumian</surname><given-names>N</given-names></name>, <name><surname>Lukanidin</surname><given-names>E</given-names></name>. <article-title>Metastasis-inducing S100A4 protein: implication in non-malignant human pathologies</article-title>. <source>Current molecular medicine</source>. <year>2008</year>;<volume>8</volume>(<issue>6</issue>):<fpage>492</fpage>&#x2013;<lpage>6</lpage>. Epub 2008/09/11. .<pub-id pub-id-type="pmid">18781956</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref005">
+        <label>5</label>
+        <mixed-citation publication-type="journal"><name><surname>Kozlova</surname><given-names>EN</given-names></name>, <name><surname>Lukanidin</surname><given-names>E</given-names></name>. <article-title>Metastasis-associated mts1 (S100A4) protein is selectively expressed in white matter astrocytes and is up-regulated after peripheral nerve or dorsal root injury</article-title>. <source>Glia</source>. <year>1999</year>;<volume>27</volume>(<issue>3</issue>):<fpage>249</fpage>&#x2013;<lpage>58</lpage>. Epub 1999/08/24. .<pub-id pub-id-type="pmid">10457371</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref006">
+        <label>6</label>
+        <mixed-citation publication-type="journal"><name><surname>Schneider</surname><given-names>M</given-names></name>, <name><surname>Kostin</surname><given-names>S</given-names></name>, <name><surname>Strom</surname><given-names>CC</given-names></name>, <name><surname>Aplin</surname><given-names>M</given-names></name>, <name><surname>Lyngbaek</surname><given-names>S</given-names></name>, <name><surname>Theilade</surname><given-names>J</given-names></name>, <etal>et al</etal>
+<article-title>S100A4 is upregulated in injured myocardium and promotes growth and survival of cardiac myocytes</article-title>. <source>Cardiovascular research</source>. <year>2007</year>;<volume>75</volume>(<issue>1</issue>):<fpage>40</fpage>&#x2013;<lpage>50</lpage>. Epub 2007/05/01. <pub-id pub-id-type="doi">10.1016/j.cardiores.2007.03.027</pub-id> .<pub-id pub-id-type="pmid">17466960</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref007">
+        <label>7</label>
+        <mixed-citation publication-type="journal"><name><surname>Ninomiya</surname><given-names>I</given-names></name>, <name><surname>Ohta</surname><given-names>T</given-names></name>, <name><surname>Fushida</surname><given-names>S</given-names></name>, <name><surname>Endo</surname><given-names>Y</given-names></name>, <name><surname>Hashimoto</surname><given-names>T</given-names></name>, <name><surname>Yagi</surname><given-names>M</given-names></name>, <etal>et al</etal>
+<article-title>Increased expression of S100A4 and its prognostic significance in esophageal squamous cell carcinoma</article-title>. <source>International journal of oncology</source>. <year>2001</year>;<volume>18</volume>(<issue>4</issue>):<fpage>715</fpage>&#x2013;<lpage>20</lpage>. Epub 2001/03/17. .<pub-id pub-id-type="pmid">11251165</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref008">
+        <label>8</label>
+        <mixed-citation publication-type="journal"><name><surname>Gupta</surname><given-names>S</given-names></name>, <name><surname>Hussain</surname><given-names>T</given-names></name>, <name><surname>MacLennan</surname><given-names>GT</given-names></name>, <name><surname>Fu</surname><given-names>P</given-names></name>, <name><surname>Patel</surname><given-names>J</given-names></name>, <name><surname>Mukhtar</surname><given-names>H</given-names></name>. <article-title>Differential expression of S100A2 and S100A4 during progression of human prostate adenocarcinoma</article-title>. <source>Journal of clinical oncology: official journal of the American Society of Clinical Oncology</source>. <year>2003</year>;<volume>21</volume>(<issue>1</issue>):<fpage>106</fpage>&#x2013;<lpage>12</lpage>. Epub 2002/12/31. .<pub-id pub-id-type="pmid">12506178</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref009">
+        <label>9</label>
+        <mixed-citation publication-type="journal"><name><surname>Davies</surname><given-names>BR</given-names></name>, <name><surname>O'Donnell</surname><given-names>M</given-names></name>, <name><surname>Durkan</surname><given-names>GC</given-names></name>, <name><surname>Rudland</surname><given-names>PS</given-names></name>, <name><surname>Barraclough</surname><given-names>R</given-names></name>, <name><surname>Neal</surname><given-names>DE</given-names></name>, <etal>et al</etal>
+<article-title>Expression of S100A4 protein is associated with metastasis and reduced survival in human bladder cancer</article-title>. <source>The Journal of pathology</source>. <year>2002</year>;<volume>196</volume>(<issue>3</issue>):<fpage>292</fpage>&#x2013;<lpage>9</lpage>. Epub 2002/02/22. <pub-id pub-id-type="doi">10.1002/path.1051</pub-id> .<pub-id pub-id-type="pmid">11857492</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref010">
+        <label>10</label>
+        <mixed-citation publication-type="journal"><name><surname>Wang</surname><given-names>JR</given-names></name>, <name><surname>Li</surname><given-names>XH</given-names></name>, <name><surname>Gao</surname><given-names>XJ</given-names></name>, <name><surname>An</surname><given-names>SC</given-names></name>, <name><surname>Liu</surname><given-names>H</given-names></name>, <name><surname>Liang</surname><given-names>J</given-names></name>, <etal>et al</etal>
+<article-title>Expression of MMP-13 is associated with invasion and metastasis of papillary thyroid carcinoma</article-title>. <source>European review for medical and pharmacological sciences</source>. <year>2013</year>;<volume>17</volume>(<issue>4</issue>):<fpage>427</fpage>&#x2013;<lpage>35</lpage>. Epub 2013/03/08. .<pub-id pub-id-type="pmid">23467939</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref011">
+        <label>11</label>
+        <mixed-citation publication-type="journal"><name><surname>Kriajevska</surname><given-names>MV</given-names></name>, <name><surname>Cardenas</surname><given-names>MN</given-names></name>, <name><surname>Grigorian</surname><given-names>MS</given-names></name>, <name><surname>Ambartsumian</surname><given-names>NS</given-names></name>, <name><surname>Georgiev</surname><given-names>GP</given-names></name>, <name><surname>Lukanidin</surname><given-names>EM</given-names></name>. <article-title>Non-muscle myosin heavy chain as a possible target for protein encoded by metastasis-related mts-1 gene</article-title>. <source>The Journal of biological chemistry</source>. <year>1994</year>;<volume>269</volume>(<issue>31</issue>):<fpage>19679</fpage>&#x2013;<lpage>82</lpage>. Epub 1994/08/05. .<pub-id pub-id-type="pmid">8051043</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref012">
+        <label>12</label>
+        <mixed-citation publication-type="journal"><name><surname>Takenaga</surname><given-names>K</given-names></name>, <name><surname>Nakamura</surname><given-names>Y</given-names></name>, <name><surname>Sakiyama</surname><given-names>S</given-names></name>, <name><surname>Hasegawa</surname><given-names>Y</given-names></name>, <name><surname>Sato</surname><given-names>K</given-names></name>, <name><surname>Endo</surname><given-names>H</given-names></name>. <article-title>Binding of pEL98 protein, an S100-related calcium-binding protein, to nonmuscle tropomyosin</article-title>. <source>The Journal of cell biology</source>. <year>1994</year>;<volume>124</volume>(<issue>5</issue>):<fpage>757</fpage>&#x2013;<lpage>68</lpage>. Epub 1994/03/01. <pub-id pub-id-type="pmid">8120097</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref013">
+        <label>13</label>
+        <mixed-citation publication-type="journal"><name><surname>Kriajevska</surname><given-names>M</given-names></name>, <name><surname>Fischer-Larsen</surname><given-names>M</given-names></name>, <name><surname>Moertz</surname><given-names>E</given-names></name>, <name><surname>Vorm</surname><given-names>O</given-names></name>, <name><surname>Tulchinsky</surname><given-names>E</given-names></name>, <name><surname>Grigorian</surname><given-names>M</given-names></name>, <etal>et al</etal>
+<article-title>Liprin beta 1, a member of the family of LAR transmembrane tyrosine phosphatase-interacting proteins, is a new target for the metastasis-associated protein S100A4 (Mts1)</article-title>. <source>The Journal of biological chemistry</source>. <year>2002</year>;<volume>277</volume>(<issue>7</issue>):<fpage>5229</fpage>&#x2013;<lpage>35</lpage>. Epub 2002/02/12. <pub-id pub-id-type="doi">10.1074/jbc.M110976200</pub-id> .<pub-id pub-id-type="pmid">11836260</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref014">
+        <label>14</label>
+        <mixed-citation publication-type="journal"><name><surname>Grigorian</surname><given-names>M</given-names></name>, <name><surname>Andresen</surname><given-names>S</given-names></name>, <name><surname>Tulchinsky</surname><given-names>E</given-names></name>, <name><surname>Kriajevska</surname><given-names>M</given-names></name>, <name><surname>Carlberg</surname><given-names>C</given-names></name>, <name><surname>Kruse</surname><given-names>C</given-names></name>, <etal>et al</etal>
+<article-title>Tumor suppressor p53 protein is a new target for the metastasis-associated Mts1/S100A4 protein: functional consequences of their interaction</article-title>. <source>The Journal of biological chemistry</source>. <year>2001</year>;<volume>276</volume>(<issue>25</issue>):<fpage>22699</fpage>&#x2013;<lpage>708</lpage>. Epub 2001/03/30. <pub-id pub-id-type="doi">10.1074/jbc.M010231200</pub-id> .<pub-id pub-id-type="pmid">11278647</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref015">
+        <label>15</label>
+        <mixed-citation publication-type="journal"><name><surname>Novitskaya</surname><given-names>V</given-names></name>, <name><surname>Grigorian</surname><given-names>M</given-names></name>, <name><surname>Kriajevska</surname><given-names>M</given-names></name>, <name><surname>Tarabykina</surname><given-names>S</given-names></name>, <name><surname>Bronstein</surname><given-names>I</given-names></name>, <name><surname>Berezin</surname><given-names>V</given-names></name>, <etal>et al</etal>
+<article-title>Oligomeric forms of the metastasis-related Mts1 (S100A4) protein stimulate neuronal differentiation in cultures of rat hippocampal neurons</article-title>. <source>The Journal of biological chemistry</source>. <year>2000</year>;<volume>275</volume>(<issue>52</issue>):<fpage>41278</fpage>&#x2013;<lpage>86</lpage>. Epub 2000/10/06. <pub-id pub-id-type="doi">10.1074/jbc.M007058200</pub-id> .<pub-id pub-id-type="pmid">11018041</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref016">
+        <label>16</label>
+        <mixed-citation publication-type="journal"><name><surname>Ambartsumian</surname><given-names>N</given-names></name>, <name><surname>Klingelhofer</surname><given-names>J</given-names></name>, <name><surname>Grigorian</surname><given-names>M</given-names></name>, <name><surname>Christensen</surname><given-names>C</given-names></name>, <name><surname>Kriajevska</surname><given-names>M</given-names></name>, <name><surname>Tulchinsky</surname><given-names>E</given-names></name>, <etal>et al</etal>
+<article-title>The metastasis-associated Mts1(S100A4) protein could act as an angiogenic factor</article-title>. <source>Oncogene</source>. <year>2001</year>;<volume>20</volume>(<issue>34</issue>):<fpage>4685</fpage>&#x2013;<lpage>95</lpage>. Epub 2001/08/11. <pub-id pub-id-type="doi">10.1038/sj.onc.1204636</pub-id> .<pub-id pub-id-type="pmid">11498791</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref017">
+        <label>17</label>
+        <mixed-citation publication-type="journal"><name><surname>Cohen</surname><given-names>S</given-names></name>. <article-title>Isolation of a mouse submaxillary gland protein accelerating incisor eruption and eyelid opening in the new-born animal</article-title>. <source>The Journal of biological chemistry</source>. <year>1962</year>;<volume>237</volume>:<fpage>1555</fpage>&#x2013;<lpage>62</lpage>. Epub 1962/05/01. .<pub-id pub-id-type="pmid">13880319</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref018">
+        <label>18</label>
+        <mixed-citation publication-type="journal"><name><surname>Venturi</surname><given-names>S</given-names></name>, <name><surname>Venturi</surname><given-names>M</given-names></name>. <article-title>Iodine in evolution of salivary glands and in oral health</article-title>. <source>Nutrition and health</source>. <year>2009</year>;<volume>20</volume>(<issue>2</issue>):<fpage>119</fpage>&#x2013;<lpage>34</lpage>. Epub 2009/10/20. .<pub-id pub-id-type="pmid">19835108</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref019">
+        <label>19</label>
+        <mixed-citation publication-type="journal"><name><surname>Cohen</surname><given-names>S</given-names></name>, <name><surname>Carpenter</surname><given-names>G</given-names></name>. <article-title>Human epidermal growth factor: isolation and chemical and biological properties</article-title>. <source>Proceedings of the National Academy of Sciences of the United States of America</source>. <year>1975</year>;<volume>72</volume>(<issue>4</issue>):<fpage>1317</fpage>&#x2013;<lpage>21</lpage>. Epub 1975/04/01. <pub-id pub-id-type="pmid">1055407</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref020">
+        <label>20</label>
+        <mixed-citation publication-type="journal"><name><surname>Klingelhofer</surname><given-names>J</given-names></name>, <name><surname>Moller</surname><given-names>HD</given-names></name>, <name><surname>Sumer</surname><given-names>EU</given-names></name>, <name><surname>Berg</surname><given-names>CH</given-names></name>, <name><surname>Poulsen</surname><given-names>M</given-names></name>, <name><surname>Kiryushko</surname><given-names>D</given-names></name>, <etal>et al</etal>
+<article-title>Epidermal growth factor receptor ligands as new extracellular targets for the metastasis-promoting S100A4 protein</article-title>. <source>The FEBS journal</source>. <year>2009</year>;<volume>276</volume>(<issue>20</issue>):<fpage>5936</fpage>&#x2013;<lpage>48</lpage>. Epub 2009/09/11. <pub-id pub-id-type="doi">10.1111/j.1742-4658.2009.07274.x</pub-id> .<pub-id pub-id-type="pmid">19740107</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref021">
+        <label>21</label>
+        <mixed-citation publication-type="journal"><name><surname>Herbst</surname><given-names>RS</given-names></name>. <article-title>Review of epidermal growth factor receptor biology. International journal of radiation oncology, biology</article-title>, <source>physics</source>. <year>2004</year>;<volume>59</volume>(<issue>2</issue> Suppl):<fpage>21</fpage>&#x2013;<lpage>6</lpage>. Epub 2004/05/15. <pub-id pub-id-type="doi">10.1016/j.ijrobp.2003.11.041</pub-id> .<pub-id pub-id-type="pmid">15142631</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref022">
+        <label>22</label>
+        <mixed-citation publication-type="journal"><name><surname>Shishibori</surname><given-names>T</given-names></name>, <name><surname>Oyama</surname><given-names>Y</given-names></name>, <name><surname>Matsushita</surname><given-names>O</given-names></name>, <name><surname>Yamashita</surname><given-names>K</given-names></name>, <name><surname>Furuichi</surname><given-names>H</given-names></name>, <name><surname>Okabe</surname><given-names>A</given-names></name>, <etal>et al</etal>
+<article-title>Three distinct anti-allergic drugs, amlexanox, cromolyn and tranilast, bind to S100A12 and S100A13 of the S100 protein family</article-title>. <source>The Biochemical journal</source>. <year>1999</year>;<volume>338</volume> (<issue>Pt 3</issue>):<fpage>583</fpage>&#x2013;<lpage>9</lpage>. Epub 1999/03/03. ; PubMed Central PMCID: PMCPmc1220090.<pub-id pub-id-type="pmid">10051426</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref023">
+        <label>23</label>
+        <mixed-citation publication-type="journal"><name><surname>Mouta</surname><given-names>Carreira C</given-names></name>, <name><surname>LaVallee</surname><given-names>TM</given-names></name>, <name><surname>Tarantini</surname><given-names>F</given-names></name>, <name><surname>Jackson</surname><given-names>A</given-names></name>, <name><surname>Lathrop</surname><given-names>JT</given-names></name>, <name><surname>Hampton</surname><given-names>B</given-names></name>, <etal>et al</etal>
+<article-title>S100A13 is involved in the regulation of fibroblast growth factor-1 and p40 synaptotagmin-1 release in vitro</article-title>. <source>The Journal of biological chemistry</source>. <year>1998</year>;<volume>273</volume>(<issue>35</issue>):<fpage>22224</fpage>&#x2013;<lpage>31</lpage>. Epub 1998/08/26. .<pub-id pub-id-type="pmid">9712836</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref024">
+        <label>24</label>
+        <mixed-citation publication-type="journal"><name><surname>Landriscina</surname><given-names>M</given-names></name>, <name><surname>Prudovsky</surname><given-names>I</given-names></name>, <name><surname>Mouta</surname><given-names>Carreira C</given-names></name>, <name><surname>Soldi</surname><given-names>R</given-names></name>, <name><surname>Tarantini</surname><given-names>F</given-names></name>, <name><surname>Maciag</surname><given-names>T</given-names></name>. <article-title>Amlexanox reversibly inhibits cell migration and proliferation and induces the Src-dependent disassembly of actin stress fibers in vitro</article-title>. <source>The Journal of biological chemistry</source>. <year>2000</year>;<volume>275</volume>(<issue>42</issue>):<fpage>32753</fpage>&#x2013;<lpage>62</lpage>. Epub 2000/08/02. <pub-id pub-id-type="doi">10.1074/jbc.M002336200</pub-id> .<pub-id pub-id-type="pmid">10921913</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref025">
+        <label>25</label>
+        <mixed-citation publication-type="journal"><name><surname>Walters</surname><given-names>KJ</given-names></name>, <name><surname>Gassner</surname><given-names>GT</given-names></name>, <name><surname>Lippard</surname><given-names>SJ</given-names></name>, <name><surname>Wagner</surname><given-names>G</given-names></name>. <article-title>Structure of the soluble methane monooxygenase regulatory protein B</article-title>. <source>Proceedings of the National Academy of Sciences of the United States of America</source>. <year>1999</year>;<volume>96</volume>(<issue>14</issue>):<fpage>7877</fpage>&#x2013;<lpage>82</lpage>. Epub 1999/07/08. <pub-id pub-id-type="pmid">10393915</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref026">
+        <label>26</label>
+        <mixed-citation publication-type="journal"><name><surname>McInnes</surname><given-names>C</given-names></name>, <name><surname>Grothe</surname><given-names>S</given-names></name>, <name><surname>O'Connor-McCourt</surname><given-names>M</given-names></name>, <name><surname>Sykes</surname><given-names>BD</given-names></name>. <article-title>NMR study of the differential contributions of residues of transforming growth factor alpha to association with its receptor</article-title>. <source>Protein engineering</source>. <year>2000</year>;<volume>13</volume>(<issue>3</issue>):<fpage>143</fpage>&#x2013;<lpage>7</lpage>. Epub 2000/04/25. .<pub-id pub-id-type="pmid">10775655</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref027">
+        <label>27</label>
+        <mixed-citation publication-type="journal"><name><surname>Lane</surname><given-names>AN</given-names></name>, <name><surname>Lefevre</surname><given-names>JF</given-names></name>. <article-title>Nuclear magnetic resonance measurements of slow conformational dynamics in macromolecules</article-title>. <source>Methods in enzymology</source>. <year>1994</year>;<volume>239</volume>:<fpage>596</fpage>&#x2013;<lpage>619</lpage>. Epub 1994/01/01. .<pub-id pub-id-type="pmid">7830600</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref028">
+        <label>28</label>
+        <mixed-citation publication-type="journal"><name><surname>Cho</surname><given-names>CC</given-names></name>, <name><surname>Hung</surname><given-names>KW</given-names></name>, <name><surname>Gorja</surname><given-names>DR</given-names></name>, <name><surname>Yu</surname><given-names>C</given-names></name>. <article-title>The solution structure of human calcium-bound S100A4 mutated at four cysteine loci</article-title>. <source>Journal of biomolecular NMR</source>. <year>2015</year>;<volume>62</volume>(<issue>2</issue>):<fpage>233</fpage>&#x2013;<lpage>8</lpage>. Epub 2015/04/10. <pub-id pub-id-type="doi">10.1007/s10858-015-9927-6</pub-id> .<pub-id pub-id-type="pmid">25855140</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref029">
+        <label>29</label>
+        <mixed-citation publication-type="journal"><name><surname>Huang</surname><given-names>HW</given-names></name>, <name><surname>Mohan</surname><given-names>SK</given-names></name>, <name><surname>Yu</surname><given-names>C</given-names></name>. <article-title>The NMR solution structure of human epidermal growth factor (hEGF) at physiological pH and its interactions with suramin</article-title>. <source>Biochemical and biophysical research communications</source>. <year>2010</year>;<volume>402</volume>(<issue>4</issue>):<fpage>705</fpage>&#x2013;<lpage>10</lpage>. Epub 2010/10/30. <pub-id pub-id-type="doi">10.1016/j.bbrc.2010.10.089</pub-id> .<pub-id pub-id-type="pmid">21029725</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref030">
+        <label>30</label>
+        <mixed-citation publication-type="book"><name><surname>Goddard</surname><given-names>TDK</given-names></name>, <name><surname>D. G.</surname></name>
+<source>SPARKY 3 NMR software</source>; <publisher-name>University of California, San Francisco</publisher-name>,. <year>2001</year>.</mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref031">
+        <label>31</label>
+        <mixed-citation publication-type="journal"><name><surname>Hulme</surname><given-names>EC</given-names></name>, <name><surname>Trevethick</surname><given-names>MA</given-names></name>. <article-title>Ligand binding assays at equilibrium: validation and interpretation</article-title>. <source>British Journal of Pharmacology</source>. <year>2010</year>;<volume>161</volume>(<issue>6</issue>):<fpage>1219</fpage>&#x2013;<lpage>37</lpage>. <pub-id pub-id-type="doi">10.1111/j.1476-5381.2009.00604.x</pub-id>
+<pub-id pub-id-type="pmid">20132208</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref032">
+        <label>32</label>
+        <mixed-citation publication-type="journal"><name><surname>Huang</surname><given-names>YK</given-names></name>, <name><surname>Chou</surname><given-names>RH</given-names></name>, <name><surname>Yu</surname><given-names>C</given-names></name>. <article-title>Tranilast Blocks the Interaction between the Protein S100A11 and Receptor for Advanced Glycation End Products (RAGE) V Domain and Inhibits Cell Proliferation</article-title>. <source>The Journal of biological chemistry</source>. <year>2016</year>;<volume>291</volume>(<issue>27</issue>):<fpage>14300</fpage>&#x2013;<lpage>10</lpage>. Epub 2016/05/27. <pub-id pub-id-type="doi">10.1074/jbc.M116.722215</pub-id>
+<pub-id pub-id-type="pmid">27226584</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref033">
+        <label>33</label>
+        <mixed-citation publication-type="journal"><name><surname>Huang</surname><given-names>S</given-names></name>, <name><surname>Gulzar</surname><given-names>ZG</given-names></name>, <name><surname>Salari</surname><given-names>K</given-names></name>, <name><surname>Lapointe</surname><given-names>J</given-names></name>, <name><surname>Brooks</surname><given-names>JD</given-names></name>, <name><surname>Pollack</surname><given-names>JR</given-names></name>. <article-title>Recurrent deletion of CHD1 in prostate cancer with relevance to cell invasiveness</article-title>. <source>Oncogene</source>. <year>2012</year>;<volume>31</volume>(<issue>37</issue>):<fpage>4164</fpage>&#x2013;<lpage>70</lpage>. Epub 2011/12/20. <pub-id pub-id-type="doi">10.1038/onc.2011.590</pub-id> .<pub-id pub-id-type="pmid">22179824</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref034">
+        <label>34</label>
+        <mixed-citation publication-type="journal"><name><surname>de Vries</surname><given-names>SJ</given-names></name>, <name><surname>van Dijk</surname><given-names>M</given-names></name>, <name><surname>Bonvin</surname><given-names>AM</given-names></name>. <article-title>The HADDOCK web server for data-driven biomolecular docking</article-title>. <source>Nature protocols</source>. <year>2010</year>;<volume>5</volume>(<issue>5</issue>):<fpage>883</fpage>&#x2013;<lpage>97</lpage>. Epub 2010/05/01. <pub-id pub-id-type="doi">10.1038/nprot.2010.32</pub-id> .<pub-id pub-id-type="pmid">20431534</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref035">
+        <label>35</label>
+        <mixed-citation publication-type="journal"><name><surname>Murakami</surname><given-names>Y</given-names></name>, <name><surname>Jones</surname><given-names>S</given-names></name>. <article-title>SHARP2: protein-protein interaction predictions using patch analysis</article-title>. <source>Bioinformatics (Oxford, England)</source>. <year>2006</year>;<volume>22</volume>(<issue>14</issue>):<fpage>1794</fpage>&#x2013;<lpage>5</lpage>. Epub 2006/05/05. <pub-id pub-id-type="doi">10.1093/bioinformatics/btl171</pub-id> .<pub-id pub-id-type="pmid">16672257</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref036">
+        <label>36</label>
+        <mixed-citation publication-type="journal"><name><surname>Linge</surname><given-names>JP</given-names></name>, <name><surname>Williams</surname><given-names>MA</given-names></name>, <name><surname>Spronk</surname><given-names>CA</given-names></name>, <name><surname>Bonvin</surname><given-names>AM</given-names></name>, <name><surname>Nilges</surname><given-names>M</given-names></name>. <article-title>Refinement of protein structures in explicit solvent</article-title>. <source>Proteins</source>. <year>2003</year>;<volume>50</volume>(<issue>3</issue>):<fpage>496</fpage>&#x2013;<lpage>506</lpage>. Epub 2003/01/31. <pub-id pub-id-type="doi">10.1002/prot.10299</pub-id> .<pub-id pub-id-type="pmid">12557191</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref037">
+        <label>37</label>
+        <mixed-citation publication-type="journal"><name><surname>Wu</surname><given-names>HY</given-names></name>, <name><surname>Liu</surname><given-names>MS</given-names></name>, <name><surname>Lin</surname><given-names>TP</given-names></name>, <name><surname>Cheng</surname><given-names>YS</given-names></name>. <article-title>Structural and Functional Assays of AtTLP18.3 Identify Its Novel Acid Phosphatase Activity in Thylakoid Lumen</article-title>. <source>Plant Physiology</source>. <year>2011</year>;<volume>157</volume>(<issue>3</issue>):<fpage>1015</fpage>&#x2013;<lpage>25</lpage>. <pub-id pub-id-type="doi">10.1104/pp.111.184739</pub-id><pub-id pub-id-type="pmid">21908686</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref038">
+        <label>38</label>
+        <mixed-citation publication-type="journal"><name><surname>Gan</surname><given-names>HK</given-names></name>, <name><surname>Walker</surname><given-names>F</given-names></name>, <name><surname>Burgess</surname><given-names>AW</given-names></name>, <name><surname>Rigopoulos</surname><given-names>A</given-names></name>, <name><surname>Scott</surname><given-names>AM</given-names></name>, <name><surname>Johns</surname><given-names>TG</given-names></name>. <article-title>The epidermal growth factor receptor (EGFR) tyrosine kinase inhibitor AG1478 increases the formation of inactive untethered EGFR dimers. Implications for combination therapy with monoclonal antibody 806</article-title>. <source>The Journal of biological chemistry</source>. <year>2007</year>;<volume>282</volume>(<issue>5</issue>):<fpage>2840</fpage>&#x2013;<lpage>50</lpage>. Epub 2006/11/10. <pub-id pub-id-type="doi">10.1074/jbc.M605136200</pub-id> .<pub-id pub-id-type="pmid">17092939</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref039">
+        <label>39</label>
+        <mixed-citation publication-type="journal"><name><surname>Kawamoto</surname><given-names>T</given-names></name>, <name><surname>Sato</surname><given-names>JD</given-names></name>, <name><surname>Le</surname><given-names>A</given-names></name>, <name><surname>Polikoff</surname><given-names>J</given-names></name>, <name><surname>Sato</surname><given-names>GH</given-names></name>, <name><surname>Mendelsohn</surname><given-names>J</given-names></name>. <article-title>Growth stimulation of A431 cells by epidermal growth factor: identification of high-affinity receptors for epidermal growth factor by an anti-receptor monoclonal antibody</article-title>. <source>Proceedings of the National Academy of Sciences of the United States of America</source>. <year>1983</year>;<volume>80</volume>(<issue>5</issue>):<fpage>1337</fpage>&#x2013;<lpage>41</lpage>. Epub 1983/03/01. <pub-id pub-id-type="pmid">6298788</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref040">
+        <label>40</label>
+        <mixed-citation publication-type="journal"><name><surname>Lin</surname><given-names>HQ</given-names></name>, <name><surname>Katsifis</surname><given-names>A</given-names></name>, <name><surname>Meriaty</surname><given-names>H</given-names></name>. <article-title>Tumour response to gefitinib is associated with EGF- and gefitinib- but not radiation-modulated EGFR expression</article-title>. <source>Anticancer research</source>. <year>2010</year>;<volume>30</volume>(<issue>12</issue>):<fpage>4899</fpage>&#x2013;<lpage>905</lpage>. Epub 2010/12/29. .<pub-id pub-id-type="pmid">21187468</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref041">
+        <label>41</label>
+        <mixed-citation publication-type="journal"><name><surname>Plestilova</surname><given-names>L</given-names></name>, <name><surname>Mann</surname><given-names>H</given-names></name>, <name><surname>Andres Cerezo</surname><given-names>L</given-names></name>, <name><surname>Pecha</surname><given-names>O</given-names></name>, <name><surname>Vencovsky</surname><given-names>J</given-names></name>, <name><surname>Senolt</surname><given-names>L</given-names></name>. <article-title>The metastasis promoting protein S100A4 levels associate with disease activity rather than cancer development in patients with idiopathic inflammatory myopathies</article-title>. <source>Arthritis research &amp; therapy</source>. <year>2014</year>;<volume>16</volume>(<issue>5</issue>):<fpage>468</fpage> Epub 2014/11/02. <pub-id pub-id-type="doi">10.1186/s13075-014-0468-2</pub-id>
+<pub-id pub-id-type="pmid">25359220</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0161663.ref042">
+        <label>42</label>
+        <mixed-citation publication-type="journal"><name><surname>Herwig</surname><given-names>N</given-names></name>, <name><surname>Belter</surname><given-names>B</given-names></name>, <name><surname>Wolf</surname><given-names>S</given-names></name>, <name><surname>Haase-Kohn</surname><given-names>C</given-names></name>, <name><surname>Pietzsch</surname><given-names>J</given-names></name>. <article-title>Interaction of extracellular S100A4 with RAGE prompts prometastatic activation of A375 melanoma cells</article-title>. <source>Journal of cellular and molecular medicine</source>. <year>2016</year>;<volume>20</volume>(<issue>5</issue>):<fpage>825</fpage>&#x2013;<lpage>35</lpage>. Epub 2016/03/02. <pub-id pub-id-type="doi">10.1111/jcmm.12808</pub-id>
+<pub-id pub-id-type="pmid">26928771</pub-id></mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

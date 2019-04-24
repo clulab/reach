@@ -1,0 +1,1661 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Oncotarget</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Oncotarget</journal-id>
+      <journal-id journal-id-type="publisher-id">Oncotarget</journal-id>
+      <journal-id journal-id-type="publisher-id">ImpactJ</journal-id>
+      <journal-title-group>
+        <journal-title>Oncotarget</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1949-2553</issn>
+      <publisher>
+        <publisher-name>Impact Journals LLC</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27286447</article-id>
+      <article-id pub-id-type="pmc">5173139</article-id>
+      <article-id pub-id-type="publisher-id">9851</article-id>
+      <article-id pub-id-type="doi">10.18632/oncotarget.9851</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Paper</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Dual inhibition of ErbB1 and ErbB2 in cancer by recombinant human prolidase mutant hPEPD-G278D</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Lu</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Yun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="A2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bhattacharya</surname>
+            <given-names>Arup</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Yuesheng</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="A3">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><sup>1</sup> Departments of Pharmacology and Therapeutics, Roswell Park Cancer Institute, Buffalo, NY, USA</aff>
+      <aff id="A2"><sup>2</sup> Urology, Roswell Park Cancer Institute, Buffalo, NY, USA</aff>
+      <aff id="A3"><sup>3</sup> Cancer Prevention and Control, Roswell Park Cancer Institute, Buffalo, NY, USA</aff>
+      <author-notes>
+        <corresp id="cor1">
+          <bold>
+            <italic>Correspondence to:</italic>
+          </bold>
+          <italic>Yuesheng Zhang,</italic>
+          <email>yuesheng.zhang@roswellpark.org</email>
+        </corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <day>5</day>
+        <month>7</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>6</day>
+        <month>6</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>7</volume>
+      <issue>27</issue>
+      <fpage>42340</fpage>
+      <lpage>42352</lpage>
+      <history>
+        <date date-type="received">
+          <day>15</day>
+          <month>1</month>
+          <year>2016</year>
+        </date>
+        <date date-type="accepted">
+          <day>20</day>
+          <month>5</month>
+          <year>2016</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; 2016 Yang et al.</copyright-statement>
+        <copyright-year>2016</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.5/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>ErbB1 and ErbB2 are oncogenic cell surface receptor tyrosine kinases, linked to many forms of human cancer, and are major cancer therapeutic targets. Many lines of evidence indicate that targeting ErbB1 and ErbB2 is an important cancer therapeutic approach. We recently found that a recombinant enzymatically-inactive mutant of human prolidase, i.e., hPEPD-G278D, is an inhibitory ligand of ErbB2 and strongly inhibits ErbB2-overexpressing cells in vitro and in vivo. hPEPD-G278D also binds to ErbB1. Here, we show that hPEPD-G278D binds to ErbB1 with high affinity, initially activating ErbB1 but later silencing it, and that deletion of subdomain 2 in ErbB1 extracellular domain abolishes the binding. The proliferation of ErbB1-overexpressing cells is strongly inhibited by hPEPD-G278D, regardless of ErbB2 expression or cell type, whereas cells lacking ErbB1 and ErbB2 are insensitive to it. In contrast, EGF, another ErbB1 ligand, either stimulates or mildly inhibits cell proliferation. Moreover, hPEPD-G278D treatment of mice bearing ErbB1-overexpressing tumors leads to tumor regression, which is accompanied by down regulation and decreased phosphorylation of ErbB1 and ErbB2 as well as decreased phosphorylation of downstream signaling molecules and activation of apoptosis in the tumor tissues. We conclude that hPEPD-G278D is a dual inhibitor of ErbB1 and ErbB2 and selectively targets cancer cells overexpressing ErbB1 and/or ErbB2. Moreover, our finding that both receptors are silenced in cancer cells by hPEPD-G278D highlights an unusual consequence of ligand-receptor interaction.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>ErbB1</kwd>
+        <kwd>ErbB2</kwd>
+        <kwd>ErbB1 inhibitor</kwd>
+        <kwd>ErbB2 inhibitor</kwd>
+        <kwd>prolidase</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>INTRODUCTION</title>
+      <p>ErbB1 and ErbB2 are members of the ErbB family of cell surface receptor tyrosine kinases, which also include ErbB3 and ErbB4, and are important therapeutic targets in many forms of cancer [<xref rid="R1" ref-type="bibr">1</xref>, <xref rid="R2" ref-type="bibr">2</xref>]. Two main classes of agents have been developed to target ErbB1 and ErbB2, including monoclonal antibodies that bind to the extracellular domain (ECD) of the receptors (e.g., cetuximab and trastuzumab) and tyrosine kinase inhibitors that bind to their intracellular kinase domains (e.g., gefitinib and lapatinib). Notably, lapatinib targets both ErbB1 and ErbB2 [<xref rid="R3" ref-type="bibr">3</xref>]. Many lines of evidence indicate that targeting both ErbB1 and ErbB2 is an important approach in cancer treatment. For example, while ErbB2 overexpression in breast cancer is a strong predictor of poor disease prognosis [<xref rid="R4" ref-type="bibr">4</xref>, <xref rid="R5" ref-type="bibr">5</xref>], ErbB2 overexpression accompanied by ErbB1 expression is associated with worse prognosis [<xref rid="R6" ref-type="bibr">6</xref>, <xref rid="R7" ref-type="bibr">7</xref>]. Conversely, increased ErbB2 expression causes cancer resistance to ErbB1-directed therapies, e.g., cetuximab that specifically targets ErbB1 [<xref rid="R8" ref-type="bibr">8</xref>]. However, lapatinib is crippled by primary and acquired resistance [<xref rid="R9" ref-type="bibr">9</xref>]. Although it is approved for use in combination with capecitabine or letrozole for treating ErbB2-positive breast cancer, adjuvant lapatinib as a single agent for women with early-stage ErbB2-positive breast cancer shows marginal efficacy [<xref rid="R10" ref-type="bibr">10</xref>]. Moreover, adjuvant or neoadjuvant treatment of ErbB2-positive breast cancer with lapatinib and ErbB2-specific trastuzumab does not significantly improve disease-free survival, compared to trastuzumab alone [<xref rid="R11" ref-type="bibr">11</xref>, <xref rid="R12" ref-type="bibr">12</xref>]. New agents that are capable of dual inhibition of ErbB1 and ErbB2 are greatly needed.</p>
+      <p>We recently found that human prolidase, also known as peptidase D (PEPD), is a high affinity ligand of human ErbB2 (Kd = 7.3 nM) and binds to subdomain 3 of ErbB2 ECD [<xref rid="R13" ref-type="bibr">13</xref>]. This was significant, because no natural ErbB2 ligand had been previously found, while ligands for all other ErbBs had been identified [<xref rid="R1" ref-type="bibr">1</xref>]. The physiological relevance of PEPD as an ErbB2 ligand remains unclear, but we have shown that in ErbB2-overexpressing cells, recombinant human PEPD (hPEPD) is an inhibitory ligand of ErbB2; it disrupts oncogenic signaling of ErbB2 (disrupting both homodimeric and heterodimeric signaling units), down regulates its expression via internalization and degradation, and inhibits cell growth [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>]. Moreover, hPEPD treatment of mice bearing ErbB2-overexpressing tumors resulted in strong inhibition of tumor growth, which was accompanied by marked down regulation and decreased phosphorylation of ErbB2 as well as decreased phosphorylation of downstream signaling molecules, such as SRC, AKT, extracellular signal-regulated kinase (ERK) and signal transducer and activator of transcription 3 (STAT3) in the tumor tissues [<xref rid="R14" ref-type="bibr">14</xref>]. In contrast, hPEPD was ineffective against cells and tumors expressing very low ErbB2 and no other ErbBs [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>]. hPEPD is a homodimeric depeptidase (493 amino acids [aa] per subunit), involved in collagen metabolism [<xref rid="R15" ref-type="bibr">15</xref>, <xref rid="R16" ref-type="bibr">16</xref>], but its enzymatic function plays no role in hPEPD interaction with ErbB2 [<xref rid="R13" ref-type="bibr">13</xref>]. In fact, an enzymatically inactive mutant of hPEPD, i.e., hPEPD-G278D (change from glycine to aspartic acid at position 278), was significantly more effective than hPEPD in inhibiting ErbB2-overexpressing tumors in mice, and hPEPD, but not hPEPD-G278D, stimulated prosurvival hypoxia inducible factor 1&#x3B1; in the tumor tissues [<xref rid="R14" ref-type="bibr">14</xref>]. Given that hPEPD-G278D is a human protein and is unlikely to interfere with the enzymatic function of endogenous PEPD in normal cells, it is a highly promising agent for combating ErbB2-overexpressing cancer. Notably, we detected no adverse effects in mice treated with hPEPD-G278D at the dose regimen that strongly inhibited tumor growth [<xref rid="R14" ref-type="bibr">14</xref>].</p>
+      <p>Neither hPEPD-G278D nor hPEPD binds to ErbB3 or ErbB4 [<xref rid="R13" ref-type="bibr">13</xref>], but both of them also bind to ErbB1 [<xref rid="R14" ref-type="bibr">14</xref>, <xref rid="R17" ref-type="bibr">17</xref>]. Interestingly, hPEPD and its mutant do not carry an epidermal growth factor (EGF) domain which exists in all other ErbB1 ligands and is believed to be important for ligand-receptor binding [<xref rid="R18" ref-type="bibr">18</xref>]. Moreover, each subunit of the homodimeric hPEPD-G278D or hPEPD binds to one monomer of ErbB1, thereby forming a tetramer [<xref rid="R14" ref-type="bibr">14</xref>], resembling their binding to ErbB2 [<xref rid="R13" ref-type="bibr">13</xref>]. In contrast, all other ligands bind to ErbB1 at one molecule of ligand per monomer of receptor [<xref rid="R1" ref-type="bibr">1</xref>, <xref rid="R19" ref-type="bibr">19</xref>]. hPEPD-G278D and hPEPD, therefore, represent a new class of ErbB1 ligands and also show that an EGF domain is not a prerequisite for an ErbB1 ligand. In cultured cells, both proteins first stimulate and then down regulate ErbB1 at low nM concentrations [<xref rid="R14" ref-type="bibr">14</xref>, <xref rid="R17" ref-type="bibr">17</xref>]. However, when hPEPD was measured against human ErbB1 ECD fused to the Fc fragment of human IgG1, its binding affinity was unusually low (Kd = ~5 &#x3BC;M) [<xref rid="R17" ref-type="bibr">17</xref>]. In the present study, we have addressed this discrepancy by measuring the binding affinities of both hPEPD-G278D and hPEPD towards full-length human ErbB1. We have also identified the location in ErbB1 ECD to which hPEPD-G278D may bind. Most importantly, we have addressed the question of whether hPEPD-G278D interaction with ErbB1 leads to stimulation or inhibition of cell proliferation and tumor growth. Our data show that hPEPD-G278D is a potent dual inhibitor of ErbB1 and ErbB2, which is mechanistically distinct from lapatinib.</p>
+    </sec>
+    <sec id="s2">
+      <title>RESULTS</title>
+      <sec id="s2_1">
+        <title>hPEPD and hPEPD-G278D bind to ErbB1 with high affinity</title>
+        <p>We previously showed that hPEPD binds to ErbB1 ECD [<xref rid="R17" ref-type="bibr">17</xref>]. Here, the binding affinity of hPEPD and its mutants to full length ErbB1 was measured. Chinese hamster ovary CHO-K1 cells express very low ErbB2 and no other ErbBs [<xref rid="R13" ref-type="bibr">13</xref>]. Human ErbB1 was stably expressed in CHO-K1 cells (CHO-K1/ErbB1) (Figure <xref ref-type="fig" rid="F1">1A</xref>). The lysates of these cells were used to measure the binding of hPEPD and its mutants towards ErbB1 by the enzyme-linked immunosorbent assay (ELISA). hPEPD showed little non-specific binding (CHO-K1 cell lysates) but bound to ErbB1 (CHO-K1/ErbB1 cell lysates) in a dose-dependent manner with a dissociation constant (Kd) of 17.7 nM (95% confidence interval = 12.7-22.7 nM) (Figure <xref ref-type="fig" rid="F1">1B</xref>). The binding affinity of hPEPD-G278D towards ErbB1 is seemingly identical to that of hPEPD, but two deletion mutants, i.e., hPEPD-R265X (deletion of aa # 266-493) and hPEPD-X265R (deletion of aa # 1-264) (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 1</xref>), failed to bind to ErbB1 (Figure <xref ref-type="fig" rid="F1">1B</xref>). This leaves the ErbB1-binding site in hPEPD undefined, but neither deletion mutant can form homodimer [<xref rid="R13" ref-type="bibr">13</xref>], which probably renders it unable to bind to ErbB1. We ruled out a cell line-specific effect or involvement of ErbB2 in ErbB1 binding to hPEPD and hPEPD-G278D by repeating the binding experiment using the lysates of murine myeloid 32D cells (no expression of any ErbBs) and 32D/ErbB1 cells which stably express human ErbB1 [<xref rid="R20" ref-type="bibr">20</xref>]. Levels of ErbB1 and ErbB2 in these cells are shown in Figure <xref ref-type="fig" rid="F1">1A</xref>. Neither hPEPD nor hPEPD-G278D showed significant non-specific binding (32D cell lysates), but each showed dose-dependent and seemingly identical binding towards ErbB1 (Kd = 17.3-17.6 nM, 95% confidence interval =12.7-22.4 nM) (Figure <xref ref-type="fig" rid="F1">1C</xref>). The Kd values described above are more than 300-fold lower than that measured using ErbB1/ECD-Fc (the ECD is fused to the Fc fragment of human IgG1) [<xref rid="R17" ref-type="bibr">17</xref>], but are consistent with our repeated observations that both hPEPD and hPEPD-G278D stimulate and then down regulate ErbB1 in cultured cells at low nM concentrations [<xref rid="R14" ref-type="bibr">14</xref>, <xref rid="R17" ref-type="bibr">17</xref>]. Because each subunit of the homodimeric hPEPD or hPEPD-G278D binds to one monomer of ErbB1, giving rise to a tetramer [<xref rid="R14" ref-type="bibr">14</xref>], the Fc fragment in the ErbB1/ECD-Fc chimera may interfere with binding of hPEPD and its mutant to the ECD. However, the possibility that certain factor(s) in cell lysates facilitates binding of hPEPD and its mutant to ErbB1 cannot be ruled out.</p>
+        <fig id="F1" orientation="portrait" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <title>Binding of hPEPD and its mutants to human ErbB1</title>
+            <p><bold>A.</bold> Levels of ErbB1 and ErbB2 in various cell lysates, measured by IB. <bold>B, C.</bold> Binding of hPEPD and its mutants to ErbB1 in CHO-K1/ErbB1 cell lysates or 32D/ErbB1 cell lysates, measured by ELISA, using CHO-K1 cell lysates and 32D cell lysates as controls. <bold>D, E.</bold> ErbB1 deletion mutants and their expression levels in CHO-K1 cells after transient gene transfection, measured by IB, and hPEPD-G278D binding to ErbB1 and its mutants in the cell lysates, measured by ELISA. Each value in (B, C, E) is mean &#xB1; SD (n=3).</p>
+          </caption>
+          <graphic xlink:href="oncotarget-07-42340-g001"/>
+        </fig>
+      </sec>
+      <sec id="s2_2">
+        <title>Deletion of subdomain 2 in ErbB1 ECD abolishes hPEPD-G278D binding</title>
+        <p>We next tried to determine the location in ErbB1 to which hPEPD-G278D may bind. Human ErbB1 mutants with deletion of one of the four ECD subdomains [<xref rid="R21" ref-type="bibr">21</xref>] were generated by site-directed mutagenesis and expressed in CHO-K1 cells (Figure <xref ref-type="fig" rid="F1">1D</xref>). hPEPD-G278D binding to ErbB1 and its mutants in cell lysates were compared by ELISA (Figure <xref ref-type="fig" rid="F1">1E</xref>). Deletion of subdomain 1 or 3 reduced hPEPD-G278D binding affinity by 19.2-fold and 7.4-fold, respectively, on the basis of Kd value change, but full binding was achieved at high hPEPD-G278D concentration, whereas deletion of subdomain 2 totally abolished hPEPD-G278D binding. Deletion of subdomain 4 had little effect on hPEPD-G278D binding, as its binding affinity deceased by only 1.4-fold (Figure <xref ref-type="fig" rid="F1">1E</xref>). These results indicate that hPEPD-G278D may bind to ErbB1 ECD subdomain 2 but that subdomains 1 and 3 may play a significant role in facilitating the binding. However, the possibility that deletion of a specific subdomain disrupts the orientation or conformation of other subdomains, thereby abolishing or diminishing hPEPD-G278D binding to ErbB1, cannot be ruled out. Notably, we previously showed that hPEPD binds to subdomain 3 of human ErbB2 ECD [<xref rid="R13" ref-type="bibr">13</xref>], while EGF interacts with both subdomains 1 and 3 in ErbB1 ECD [<xref rid="R22" ref-type="bibr">22</xref>].</p>
+      </sec>
+      <sec id="s2_3">
+        <title>Overexpression of ErbB1 sensitizes cells to inhibition by hPEPD-G278D</title>
+        <p>We previously showed that ErbB2 overexpression sensitizes cells to inhibition by hPEPD and hPEPD-G278D [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>]. Here, hPEPD-G278D was evaluated in a panel of 7 cell lines with or without expression of ErbB1 and/or ErbB2. CHO-K1 cells express very low ErbB2 and no other ErbBs. CHO-K1/ErbB1 cells overexpress ErbB1, and CHO-K1/ErbB1+ErbB2 cells overexpress both ErbB1 and ErbB2. Human skin cancer A431 cells, which are widely used in ErbB1 research, overexpress ErbB1 and also express a low level of ErbB2. Human lung cancer HCC827 cells overexpress ErbB1 with an activating mutation in its tyrosine kinase domain [<xref rid="R23" ref-type="bibr">23</xref>, <xref rid="R24" ref-type="bibr">24</xref>] and also have significant expression of ErbB2. Murine hepatoma Hepa1c1c7 cells express moderate to low level of ErbB1 and ErbB2, whereas 32D cells have no expression of any ErbBs. The relative expression levels of ErbB1 and ErbB2 in these cell lines are shown in Figure <xref ref-type="fig" rid="F2">2A</xref> as well as Figure <xref ref-type="fig" rid="F1">1A</xref>. Cells were treated with solvent or hPEPD-G278D at 5, 25 and 250 nM for 24, 48 and 72 h, followed by measurement of cell proliferation. hPEPD-G278D inhibited the proliferation of CHO-K1/ErbB1 cells, CHO-K1/ErbB1+ErbB2 cells, A431 cells and HCC827 cells in a dose- and time-dependent manner; after 72 h treatment with 250 nM hPEPD-G278D, cell proliferation was inhibited 84.7-92.5% (Figure <xref ref-type="fig" rid="F2">2B-2E</xref>). Interestingly, hPEPD-G278D first stimulated the proliferation of Hepa1c1c7 cells (up to 21.4% after 24 h treatment) but then inhibited their proliferation (up to 66.7% inhibition after 72 h treatment) (Figure <xref ref-type="fig" rid="F2">2F</xref>). Treatment of Hepa1c1c7 cells with hPEPD for 24 h also significantly increases their proliferation [<xref rid="R17" ref-type="bibr">17</xref>]. 32D cells were insensitive to hPEPD-G278D (Figure <xref ref-type="fig" rid="F2">2G</xref>), whereas the proliferation of CHO-K1 cells was only marginally inhibited by it (Figure <xref ref-type="fig" rid="F2">2H</xref>), likely due to the presence of a small amount of ErbB2 in these cells.</p>
+        <fig id="F2" orientation="portrait" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <title>Inhibition of cell proliferation by hPEPD-G278D</title>
+            <p><bold>A.</bold> Expression of ErbB1 and ErbB2 as well as p-Y1173-ErbB1 and p-Y1221/1222-ErbB2 in cell lines prior to hPEPD-G278D treatment, measured by IB. <bold>B-H.</bold> Cells were treated with solvent or hPEPD-G278D as indicated, followed by measurement of cell density by the MTT assay. Each value is mean &#xB1; SD (n=3). *P&lt;0.05, ****P&lt;0.0001.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-07-42340-g002"/>
+        </fig>
+      </sec>
+      <sec id="s2_4">
+        <title>hPEPD-G278D silences ErbB1, ErbB2 and their downstream signaling molecules</title>
+        <p>Treatment with hPEPD-G278D at 5 and 25 nM for 48 h caused dose-dependent down regulation and decreased phosphorylation (measuring representative phosphorylation sites) of both ErbB1 and ErbB2 in all cell lines examined, including CHO-K1/ErbB1 cells, CHO-K1/ErbB1+ErbB2 cells, A431 cells, HCC827 cells and Hepa1c1c7 cells (Figure <xref ref-type="fig" rid="F3">3A</xref>). Notably, the Hepa1c1c7 result also shows that hPEPD-G278D targets murine ErbB1 and ErbB2. We next examined several important signaling or regulatory proteins that are downstream of ErbB1 and ErbB2 in A431 cells and Hepa1c1c7 cells, including AKT, ERK, STAT3, B-cell lymphoma 2 (BCL-2), BCL-2-associated X protein (BAX), and caspase-3. hPEPD-G278D had no effect on the expression of AKT, ERK and STAT3 but caused dose-dependent decrease in phosphorylation of these proteins in both cell lines (Figure <xref ref-type="fig" rid="F3">3A</xref>). The phosphorylation sites measured, including p-S473-AKT, p-T202/Y204-ERK and p-Y705-STAT3, are critical for the functions of the proteins [<xref rid="R25" ref-type="bibr">25</xref>&#x2013;<xref rid="R27" ref-type="bibr">27</xref>]. hPEPD-G278D also dose dependently up regulated BAX, down regulated BCL-2, and activated caspase-3 (Figure <xref ref-type="fig" rid="F3">3A</xref>), indicating activation of apoptosis. Indeed, 4,6-diamidino-2-phenylindole (DPAI) staining of A431 cells and Hepa1c1c7 cells after treatment with hPEPD-G278D at 25 nM for 48 h showed marked increase in apoptosis in both cell lines (chromatin condensation and nuclear fragmentation into dense granular particles known as apoptotic bodies) (Figure <xref ref-type="fig" rid="F3">3B</xref>).</p>
+        <fig id="F3" orientation="portrait" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <title>Effect of hPEPD-G278D on ErbB1, ErbB2, their downstream signaling and regulatory molecules, and cell morphology</title>
+            <p><bold>A-D.</bold> Cells were treated by solvent or hPEPD-G278D as indicated, followed by IB or DAPI staining. Measurement of protein phosphorylation by IB includes p-Y1173-ErbB1, p-Y1221/1222-ErbB2, p-S473-AKT, p-T202/Y204-ERK and p-Y705-STAT3. Cells were stained by DAPI after treatment with solvent or hPEPD-G278D for 48 h (10X magnification).</p>
+          </caption>
+          <graphic xlink:href="oncotarget-07-42340-g003"/>
+        </fig>
+        <p>To assess changes induced by hPEPD-G278D at earlier time points, A431 cells and Hepa1c1c7 cells were treated with the agent at 25 nM for 10 min to 24 h. In both cell lines treated by hPEPD-G278D, phosphorylation of ErbB1 and ErbB2 began to increase at 10-30 min, peaked at 3 h but largely returned to basal level at 24 h; ErbB1 expression did not change in the first 6 h but decreased at 24 h, whereas ErbB2 expression began to decrease as early as 1 h (Figure <xref ref-type="fig" rid="F3">3C, 3D</xref>; <xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 2</xref> shows no effect of solvent on ErbB1 and ErbB2 as well as their phosphorylation status). Similar changes were observed in other cell lines [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>, <xref rid="R17" ref-type="bibr">17</xref>], apparently resulting from ligand-receptor binding, receptor dimerization, and receptor degradation via internalization. The relatively slow onset of increased phosphorylation of ErbB1 and ErbB2 in hPEPD-G278D-treated cells is consistent with the time line of homodimerization of ErbB1 or ErbB2 induced by hPEPD-G278D or hPEPD [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>]. The marked difference between ErbB1 and ErbB2 in terms of the pace of their down regulation by hPEPD-G278D may be related to their internalization mechanism. Clathrin-mediated internalization of ErbB1 recycles it to cell surface, whereas clathrin-independent internalization of ErbB1 commits it to degradation [<xref rid="R28" ref-type="bibr">28</xref>]. ErbB2 was shown to undergo clathrin-independent internalization and degradation [<xref rid="R29" ref-type="bibr">29</xref>]. Interestingly, while hPEPD-G278D also transiently stimulated the phosphorylation of AKT, ERK and STAT3 in Hepa1c1c7 cells in a time line that matches that of phosphorylation of ErbB1 and ErbB2, indicating rapid signal transmission from the receptors (Figure <xref ref-type="fig" rid="F3">3D</xref>), only ERK showed such change in A431 cells (Figure <xref ref-type="fig" rid="F3">3C</xref>). hPEPD-G278D caused rapid decrease in phosphorylation of both AKT and STAT3 in A431 cells (Figure <xref ref-type="fig" rid="F3">3C</xref>). The reason for the change in AKT and STAT3 in A431 cells is not entirely clear, but we previously showed in other cell lines that hPEPD rapidly silences SRC signaling by disrupting its association with ErbB2 [<xref rid="R13" ref-type="bibr">13</xref>], which may silence AKT and STAT3. The different response of AKT and STAT3 to hPEPD-G278D in A431 cells and Hepa1c1c7 cells provides a clue as to why hPEPD-G278D treatment for 24 h stimulates the proliferation of Hepa1c1c7 cells but inhibited the proliferation of A431 cells (Figure <xref ref-type="fig" rid="F2">2D, 2F</xref>).</p>
+      </sec>
+      <sec id="s2_5">
+        <title>Cells respond to hPEPD-G278D and EGF differently</title>
+        <p>We also evaluated EGF in Hepa1c1c7 cells and A431 cells, and for comparison with hPEPD-G278D, the cells were treated with EGF at 5, 25 and 250 nM for 24, 48 and 72 h. EGF stimulated Hepa1c1c7 cell proliferation in a time-dependent manner but achieved maximal effect at 5 nM (Figure <xref ref-type="fig" rid="F4">4A</xref>). In contrast, EGF inhibited A431 cell proliferation (Figure <xref ref-type="fig" rid="F4">4A</xref>), but the inhibition was relatively modest, compared to that of hPEPD-G278D (Figure <xref ref-type="fig" rid="F2">2D</xref>), and plateaued at 5-25 nM with maximal inhibition of 56.7% after 72 h treatment (Figure <xref ref-type="fig" rid="F4">4A</xref>).</p>
+        <fig id="F4" orientation="portrait" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <title>Effect of EGF on cell proliferation, ErbB1, ErbB2 and their downstream signaling molecules</title>
+            <p><bold>A.</bold> Cells were treated by solvent or EGF as indicated, followed by measurement of cell density by the MTT assay. Each value is mean &#xB1; SD (n=3). ****P&lt;0.0001. <bold>B.</bold> Cells were untreated or treated by EGF as indicated, from which cell lysates were prepared and analyzed by IB. Measurement of protein phosphorylation includes p-Y1173-ErbB1, p-Y1221/1222-ErbB2, p-T202/Y204-ERK and p-S473-AKT.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-07-42340-g004"/>
+        </fig>
+        <p>We next treated A431 cells and Hepa1c1c7 cells with EGF at 25 nM for 10 min to 48 h and then analyzed ErbB1, ErbB2 and representative downstream signaling molecules. EGF caused rapid but transient phosphorylation of both ErbB1 and ErbB2 in both cell lines (peaked at 30 min and returned to basal level at 3-6 h) (Figure <xref ref-type="fig" rid="F4">4B</xref>). EGF apparently induces ErbB2 phosphorylation by stimulating ErbB1-ErbB2 heterodimerization, as EGF is not an ErbB2 ligand and has no effect on ErbB2 in cells without ErbB1 [<xref rid="R13" ref-type="bibr">13</xref>]. Notably, hPEPD-G278D disrupts ErbB1-ErbB2 association [<xref rid="R14" ref-type="bibr">14</xref>]. ErbB1 level began to decrease at 3-6 h of EGF treatment in both cell lines, and returned to basal level at 24 h in Hepa1c1c7 cells but continued to decrease gradually for at least 48 h in A431 cells (Figure <xref ref-type="fig" rid="F4">4B</xref>). However, EGF-induced ErbB1 decrease in A431 cells is less than that induced by hPEPD-G278D (Figure <xref ref-type="fig" rid="F3">3A</xref>). EGF did not cause a change in ErbB2 expression in either cell line (Figure <xref ref-type="fig" rid="F4">4B</xref>). Notably, EGF-induced ErbB1-ErbB2 heterodimers tend not to be internalized [<xref rid="R30" ref-type="bibr">30</xref>]. Both Hepa1c1c7 cells and A431 cells also show transient increase in phosphorylation of AKT and ERK after EGF treatment, in a time course that matches that of phosphorylation of ErbB1 and ErbB2 (Figure <xref ref-type="fig" rid="F4">4B</xref>). Collectively, the molecular changes induced by EGF in the two cell lines seem similar, except for ErbB1 expression level; however, to what extent the difference in ErbB1 expression change in the two cell lines may account for the differential effect of EGF on their proliferation remains unknown. Barnes suggested that EGF may induce A431 cell differentiation [<xref rid="R31" ref-type="bibr">31</xref>]. However, several changes at the molecular level clearly set EGF apart from hPEPD-G278D, including the inability of EGF to silence ErbB2 and to cause sustained and profound depletion of ErbB1.</p>
+      </sec>
+      <sec id="s2_6">
+        <title>hPEPD-G278D strongly inhibits ErbB1-overexpressing tumors in vivo</title>
+        <p>Despite inhibition of A431 cell proliferation by EGF in vitro, a previous study showed that administration of EGF (approximately 1.5 mg/kg body weight, 3 times weekly) has no effect on the growth of subcutaneous A431 tumors in athymic mice [<xref rid="R32" ref-type="bibr">32</xref>]. It was therefore of interest to test hPEPD-G278D against A431 tumors in vivo. Moreover, A431 cells overexpress ErbB1 but express a low level of ErbB2 (Figure <xref ref-type="fig" rid="F2">2A</xref>), making it a suitable model for evaluation of hPEPD-G278D against ErbB1-driven oncogenesis.</p>
+        <p>hPEPD-G278D was evaluated in combination with enoxaparin (EP), a low molecular weight heparin and a clinically used anticoagulant. We previously found that only low nM plasma levels of hPEPD-G278D or hPEPD could be achieved in mice after injecting them, but EP markedly elevated their plasma levels [<xref rid="R14" ref-type="bibr">14</xref>]. We subsequently found that EP inhibits their degradation by a plasma proteolysis pathway composed of coagulation proteases [<xref rid="R33" ref-type="bibr">33</xref>]. Although EP itself shows no effect on ErbB2 signaling and tumor growth in several mouse tumor models [<xref rid="R14" ref-type="bibr">14</xref>], it was not previously evaluated in A431 tumors in vivo. Therefore, our experiment was designed to have three experimental groups: a vehicle group, an EP only group, and a group of hPEPD-G278D in combination with EP. A431 cells were inoculated subcutaneously to athymic mice; once tumor size reached 40-50 mm<sup>3</sup>, the mice were treated with vehicle or EP at 0.5 mg/kg daily by intraperitoneal injection (i.p.). We previously showed that daily EP at 0.5 mg/kg is adequate for inhibition of hPEPD-G278D degradation in mice [<xref rid="R14" ref-type="bibr">14</xref>]. In the hPEPD-G278D plus EP group, the mice were first treated with EP daily until their tumors reached approximately 400 mm<sup>3</sup> (9 days of EP treatment) and then treated with daily EP plus hPEPD-G278D which was administered to the mice at 4 mg/kg i.p. every other day. The hPEPD-G278D dose regimen was selected based on our recent data showing that hPEPD-G278D at 2 mg/kg thrice weekly i.p., while achieving strong antitumor activity in a mouse model of human breast cancer, generated plasma drug concentration of only about 130 nM [<xref rid="R14" ref-type="bibr">14</xref>]. The A431 tumors grew exceedingly fast, but EP had no effect on tumor growth (Figure <xref ref-type="fig" rid="F5">5A</xref>). Mice treated with either vehicle or EP alone were killed when their tumors reached beyond 800 mm<sup>3</sup>, as some of the tumors began to show sign of potential necrosis. However, tumor regression occurred even after the first dose of hPEPD-G278D and became more pronounced as the treatment continued (Figure <xref ref-type="fig" rid="F5">5A</xref>). Mice treated with hPEPD-G278D plus EP were killed when the size of their tumors decreased to approximately 150 mm<sup>3</sup>, when 58.3% (7 out of 12) of the tumors became necrotic. The exact reason for the necrosis of the shrinking tumors is not known, but it is apparently treatment-related. Even though the mice treated with EP plus hPEPD-G278D were killed 12 days later than those treated with vehicle or EP alone, their tumors on average were 85% smaller than those in the latter groups (Figure <xref ref-type="fig" rid="F5">5B-5C</xref>). All mice were killed 24 h after the final treatment. No adverse effects were detected in mice treated by EP or EP plus hPEPD-G278D, and neither agent had a significant effect on body weight gain of the mice (Figure <xref ref-type="fig" rid="F5">5D</xref>). Plasma levels of endogenous mouse PEPD (mPEPD) or mPEPD plus hPEPD-G278D were measured at 24 h after the final treatment. Average plasma level of mPEPD was 1.2 nM in the vehicle-treated mice and 2.1 nM in the mice treated by EP only, whereas average plasma level of mPEPD plus hPEPD-G278D in the mice treated by EP plus hPEPD-G278D was 227.0 nM (Figure <xref ref-type="fig" rid="F5">5E</xref>). Thus, EP only slightly increased plasma mPEPD level but enables hPEPD-G278D to reach high concentration in the plasma, as shown previously [<xref rid="R14" ref-type="bibr">14</xref>].</p>
+        <fig id="F5" orientation="portrait" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <title>Inhibition of ErbB1-overexpressing tumors by hPEPD-G278D</title>
+            <p>A431 cells were inoculated subcutaneously to athymic mice; once tumor size reached 40-50 mm<sup>3</sup>, the mice were treated by vehicle or EP (0.5 mg/kg) i.p. daily. Another group of mice were also treated with EP (0.5 mg/) i.p. daily, but nine days later, while continuing EP treatment, the mice also began treatment with hPEPD-G278D (4 mg/kg) i.p. every other day. The treatment period differs among different experimental groups due to difference in tumor growth, but the mice were killed 24 h after the final treatment in each group. <bold>A.</bold> Tumor size (mean &#xB1; SEM) upon treatment with vehicle (n=8), EP only (n=8), or EP plus hPEPD-G278D (n=12). <bold>B, C.</bold> Tumor weight (mean &#xB1; SD) and image of individual tumors (scale bar: 3 cm) at 24 h following final treatment. <bold>D.</bold> Mouse body weight gain during experimental treatment (mean &#xB1; SD). <bold>E.</bold> Plasma levels of mPEPD and/or hPEPD-G278D at 24 h following final treatment (mean &#xB1; SD), measured by ELISA. <bold>F.</bold> Molecular changes induced by hPEPD-G278D in the tumors, measured by IB; each lane represents one tumor. Measurement of protein phosphorylation includes p-Y1173-ErbB1, p-Y1221/1222-ErbB2, p-S473-AKT, p-T202/Y204-ERK, and p-Y705-STAT3. ****P&lt;0.0001.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-07-42340-g005"/>
+        </fig>
+        <p>EP had no effect on any of the signaling molecules measured in the tumor tissues (Figure <xref ref-type="fig" rid="F5">5F</xref>). However, hPEPD-G278D caused down regulation and decreased phosphorylation of both ErbB1 and ErbB2 as well as decreased phosphorylation of all three downstream signaling molecules that were measured, including AKT, ERK, and STAT3. hPEPD-G278D also up regulated BAX, down regulated BCL-2 and activated caspase-3 in the tumor tissues (Figure <xref ref-type="fig" rid="F5">5F</xref>), which is consistent with marked tumor regression upon hPEPD-G278D treatment. The impact of hPEPD-G278D on the signaling molecules in A431 tumors is similar to that in cultured A431 cells (Figure <xref ref-type="fig" rid="F3">3A</xref>). Our results show that hPEPD-G278D effectively targets both ErbB1 and ErbB2 in ErbB1-overexpressing human cancer cells in vivo. hPEPD-G278D also targets both ErbB1 and ErbB2 in ErbB2-overexpressing human breast BT-474 tumors in vivo [<xref rid="R14" ref-type="bibr">14</xref>].</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>DISCUSSION</title>
+      <p>We previously showed that hPEPD-G278D is highly effective against ErbB2-overexpressing cells in vitro and in vivo [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>]. Our present study shows that cells that overexpress ErbB1, regardless of ErbB2 expression, are also strongly inhibited by this agent in vitro and in vivo, whereas cells that do not express or express very low levels of these receptors are insensitive to it. Besides directly binding and silencing ErbB1 and ErbB2, we previously showed that hPEPD-G278D also disrupts ErbB2-ErbB3 heterodimer interaction, regardless of stimulation by ErbB3 ligand neuregulin 1, and disrupts ErbB1-ErbB2 heterodimer interaction, regardless of stimulation by EGF [<xref rid="R14" ref-type="bibr">14</xref>]. However, because hPEPD-G278D binds to both ErbB1 and ErbB2, it was previously puzzling that it disrupts ErbB1-ErbB2 heterodimerization. We have now shown that deletion of subdomain 2 in ErbB1 ECD abolishes hPEPD-G278D binding to ErbB1, whereas hPEPD-G278D binds to subdomain 3 of ErbB2 ECD [<xref rid="R13" ref-type="bibr">13</xref>]. This likely prevents the two subunits of hPEPD-G278D homodimer from binding to ErbB1 and ErbB2 simultaneously on cell surface. Collectively, our data show that hPEPD-G278D is a strong dual inhibitor of ErbB1 and ErbB2 in cancer.</p>
+      <p>Lapatinib is a clinically approved dual inhibitor of ErbB1 and ErbB2 in cancer, but its mechanism differs from that of hPEPD-G278D. Lapatinib must enter cells to bind and inhibit the tyrosine kinase domain in the cytoplasmic section of the receptors, whereas hPEPD-G278D binds to the extracellular domains of ErbB1 and ErbB2, disrupting their oncogenic signaling and inducing their degradation via endocytosis. hPEPD-G278D initially stimulates tyrosine phosphorylation of both ErbB1 and ErbB2 due to receptor dimerization, which is transmitted to certain downstream signaling molecules, but lapatinib may counter such effect of hPEPD-G278D. Therefore, experiments to investigate whether the two agents may complement each other for inhibition of ErbB1 and ErbB2 in cancer cell are warranted. hPEPD-G278D may also be a candidate for combination with other inhibitors of ErbB1 and ErbB2. For example, it may be important to investigate whether hPEPD-G278D may synergize with trastuzumab to target ErbB2-overexpressing human breast cancer. Trastuzumab works in part by eliciting antibody-dependent cell mediated cytotoxicity [<xref rid="R34" ref-type="bibr">34</xref>, <xref rid="R35" ref-type="bibr">35</xref>], whereas hPEPD-G278D lacks such activity. Yet, hPEPD-G278D targets both ErbB1 and ErbB2, while trastuzumab binds only to ErbB2 and fails to abolish ErbB2 phosphorylation [<xref rid="R36" ref-type="bibr">36</xref>]. The strong antitumor activity of hPEPD-G278D in our preclinical studies also raises the possibility that hPEPD-G278D may combat cancer resistance to lapatinib, trastuzumab and other agents. For example, increased ErbB2 expression causes resistance of ErbB1-overexpressing cancer cells to cetuximab which specifically targets ErbB1 [<xref rid="R8" ref-type="bibr">8</xref>]. hPEPD-G278D may inhibit these cancers by silencing both ErbB1 and ErbB2.</p>
+      <p>Overexpression of ErbB1 and/or ErbB2 occurs in many types of human cancer, such as breast cancer, colon cancer, head and neck cancer, and lung cancer. Evaluation of hPEPD-G278D in relevant experimental models seems warranted. Indeed, our results indicate that the ability of hPEPD-G278D to inhibit both ErbB1 and ErbB2 is not limited to a specific cell type.</p>
+    </sec>
+    <sec sec-type="methods" id="s4">
+      <title>MATERIALS AND METHODS</title>
+      <sec id="s4_1">
+        <title>Biochemicals</title>
+        <p>hPEPD, hPEPD-G278D, hPEPD-R265X and hPEPD-X265R were produced in <italic>E.coli</italic> as previously described [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R17" ref-type="bibr">17</xref>]. EP and human EGF (236-EG-200) were purchased from Fresenius Kabi and R&amp;D Systems, respectively. The following antibodies were used in the study: anti-PEPD (Abcam, ab86507) which detects hPEPD, hPEPD-G278D and mPEPD, anti-ErbB1 (Cell Signaling, 2232), anti-p-ErbB1 (Y1173) (Cell Signaling, 4407), anti-ErbB2 (Cell Signaling, 2165), anti-p-ErbB2 (Y1221/1222) (Cell Signaling, 2243), anti-AKT (Cell Signaling, 4691), anti-p-AKT (Cell Signaling, 4060), anti-ERK (Cell Signaling, 9102), anti-p-ERK (Cell Signaling, 9101), anti-STAT3 (Cell Signaling, 4904), anti-p-STAT3 (Cell Signaling, 9145), anti-cleaved caspase-3 (Cell Signaling, 9661), anti-BCL-2 (Cell Signaling, 2870), anti-BAX (Cell Signaling, 2772), anti-glyceraldehyde 3-phosphate dehydrogenase (GAPDH) (Millipore, MAB374), and biotin-conjugated anti-6XHistidines (His)-tag (Bethyl, A190-113B). Horseradish peroxidase (HRP)-conjugated streptavidin (N100) was purchased from Thermo Scientific. A goat anti-rabbit IgG-HRP was purchased from Jackson ImmunoResearch (111-035-003).</p>
+      </sec>
+      <sec id="s4_2">
+        <title>Plasmid construction</title>
+        <p>To generate an expression vector of human ErbB1 with puromycin selection marker (pCMV6-A-ERBB1-Puro), pCMV6-XL5-ERBB1 [<xref rid="R14" ref-type="bibr">14</xref>] was used as a template to amplify ERBB1 by PCR using SgfI-forward primer and MIuI-reverse primer. The amplified PCR product was digested by SgfI and MIuI (Thermo Scientific) and subcloned into pCMV6-A-Puro (Origene). pCMV6-XL5-ERBB1 was also used to generate mutants lacking ErbB1 ECD subdomain 1 (aa #1-165), 2 (aa #166-310), 3 (aa #311-480) or 4 (aa #481-620), using QuikChange Lightning Site-Directed Mutagenesis Kit (Agilent Technologies). All constructs were confirmed by DNA sequence analysis. All primer sequences are provided in <xref ref-type="supplementary-material" rid="SD1">Supplementary Table 1</xref>.</p>
+      </sec>
+      <sec id="s4_3">
+        <title>Gene transfection</title>
+        <p>Cells were grown in 6-well plates and transfected with a specific plasmid at 1-2 &#x3BC;g DNA per well, using FuGENE HD (Promega).</p>
+      </sec>
+      <sec id="s4_4">
+        <title>Cell lines and cell culture</title>
+        <p>CHO-K1 cells, A431 cells, HCC827 cells were from American Type Culture Collection. Hepa1c1c7 cells, 32D cells, and 32D/ErbB1 cells have been previously described [<xref rid="R17" ref-type="bibr">17</xref>]. CHO-K1/ErbB1 cells and CHO-K1/ErbB1+ErbB2 cells were generated by transfecting CHO-K1 cells and CHO-K1/ErbB2 cells [<xref rid="R13" ref-type="bibr">13</xref>] with pCMV6-A-ERBB1-Puro and selection under puromycin. CHO-K1 cells and their derivatives were cultured in F-12K medium (Gibco) supplemented with 10% fetal bovine serum (FBS, Gibco). A431 cells were cultured in high glucose Dulbecco's modified Eagle's medium supplemented with 10% FBS. HCC827 cells were cultured in RPMI-1640 medium supplemented with 1% 4-(2-hydroxyethyl)-1-piperazineethanesulfonic acid, 1% sodium pyruvate, 0.6% glucose and 10% FBS. Hepa1c1c7 cells, 32D cells and 32D/ErbB1 cells were cultured as previously described [<xref rid="R17" ref-type="bibr">17</xref>]. All cell lines were cultured in humidified incubators at 37&#xB0;C with 5% CO<sub>2</sub>.</p>
+      </sec>
+      <sec id="s4_5">
+        <title>Immunoblotting (IB)</title>
+        <p>Sample preparation and assay protocol are the same as previously published [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R17" ref-type="bibr">17</xref>]. GAPDH was used as a loading control.</p>
+      </sec>
+      <sec id="s4_6">
+        <title>Measurement of binding of hPEPD and its mutants to ErbB1 and its mutants by ELISA</title>
+        <p>ELISA plate wells were coated with an ErbB1 antibody (binding to the cytoplasmic tail of ErbB1) by incubating with 100 &#x3BC;l/well of the antibody (10 &#x3BC;g/ml) overnight at 4&#xB0;C. After washing the wells three times with phosphate-buffered saline with tween 20 (PBST), residual protein binding sites in the wells were blocked by incubation for 2 h at room temperature (RT) with 300 &#x3BC;l/well of 1% bovine serum albumin in phosphate-buffered saline (PBS). Following addition of 60 &#x3BC;l of serially diluted hPEPD, hPEPD-G278D or other mutants to each well, 60 &#x3BC;l of cell lysates containing 25 &#x3BC;g of total protein were added to each well and incubated at 37&#xB0;C for 2 h. After three washes with PBST, 100 &#x3BC;l of a biotin-conjugated anti-His antibody (1:10,000 dilution; note that hPEPD and hPEPD-G278D as well as other mutants are His-tagged at their carboxyl termini) was added to each well and incubated for 2 h at RT. After another round of washing with PBST, 100 &#x3BC;l of streptavidin-conjugated HRP (1:10,000 dilution) was added to each well and incubated for 45 min at RT. After further washing with PBST, 100 &#x3BC;l/well of 1x substrate solution (3,3&#x2032;,5,5&#x2032;-tetramethylbenzedine) was added, and after adequate color development, 100 &#x3BC;l/well of stop solution (1 N H<sub>2</sub>SO<sub>4</sub>) was added, followed by absorbance reading at 450 nm. In the experiment comparing hPEPD-G278D binding to wild-type ErbB1 and its deletion mutants, an equal amount of ErbB1 protein and its mutants was used. CHO-K1 cells were transfected with a specific plasmid for 24 h; cell lysates were then prepared and analyzed by IB, followed by densitometry measurement of the specific protein bands and normalization by a loading control (GAPDH), in order to calculate the amount of lysates that deliver the same amount of each protein (25 &#x3BC;g of total protein/sample were used for lysates carrying the wild-type ErbB1). Cell lysates used in the assay were prepared as follows: Cells were harvested from culture by trypsin treatment and centrifugation, washed twice with PBS, lysed in M-PER buffer (Thermo Scientific) supplemented with 2 mM phenylmethanesulfonyl fluoride and a proteinase inhibitor mix (Roche Applied Science); the mixture was sonicated to enhance cell lysis and cleared of debris by centrifugation at 13,000 x g for 10 min at 4&#xB0;C. Protein concentrations of all samples were measured by the Bicinchoninic Acid Assay Kit (Pierce).</p>
+      </sec>
+      <sec id="s4_7">
+        <title>Methylthiazolyldiphenyl-tetrazolium bromide (MTT) cell proliferation assay</title>
+        <p>Cells were grown in 96-well plates (each well was seeded with 500 CHO-K1 cells, 500 CHO-K1/ErbB1, 500 CHO-K1/ErbB1+ErbB2 cells, 500 Hepa1c1c7 cells, 2,000 A431 cells or 2,000 HCC827 cells per well with 150 &#x3BC;l medium) overnight and then treated with solvent, hPEPD-G278D or EGF in 200 &#x3BC;l medium per well for 24, 48 and 72 h, respectively, followed by incubation with MTT (9.2 mM in medium) at 37&#xB0;C for 3 h. The cells were then washed with PBS and mixed with dimethyl sulfoxide (150 &#x3BC;l per well), and cell density was determined by measuring the reduction of MTT to formazan spectroscopically at 570 nm. 32D cells grew in suspension; 2,000 cells were treated with solvent or hPEPD-G278D in 200 &#x3BC;l medium per well for 24, 48 and 72 h, respectively, followed by incubation with MTT as described above. The cells were then washed with PBS with aid of centrifugation, mixed with dimethyl sulfoxide and measured for cell density as described above.</p>
+      </sec>
+      <sec id="s4_8">
+        <title>DAPI staining</title>
+        <p>Cells were cultured in 48-well plates (2000 Hepa1c1c7 cells or 6000 A431 cells per well with 0.4 ml medium) with or without hPEPD-G278D treatment (25 nM, 48 h). The cells were then washed with PBS twice, fixed in ice-cold methanol for 15 min, washed again with PBS twice, and incubated with DAPI (1 &#x3BC;g/ml PBS, 0.2 ml/well) for 15 min in the dark. After washing with PBS, the cells were examined using a fluorescence microscope (Axiovert 40 CFL, Carl Zeiss). Images were taken using A-Plan 10 &#xD7; 0.25 objective lenses (Carl Zeiss) and a Flex Camera (Spot) using the Spot advanced acquisition software.</p>
+      </sec>
+      <sec id="s4_9">
+        <title>Tumor xenograft study</title>
+        <p>The experimental protocol was approved by the Institutional Animal Care and Use Committee (IACUC) at Roswell Park Cancer Institute. A431 cells were inoculated to the flank of male athymic mice (Harlan, 5-6 weeks of age) subcutaneously at 2.5 &#xD7; 10<sup>6</sup> cells per site in 100 &#x3BC;l PBS. Tumor growth as well as mouse body weight was closely monitored. We calculated tumor size using length x width<sup>2</sup>/2. Once tumor size reached 40-50 mm<sup>3</sup> (approximately 4 days after A431 cell inoculation), the mice were treated with vehicle or EP (0.5 mg/kg) i.p. daily. Some of the EP-treated mice, once their tumor size reached approximately 400 mm<sup>3</sup> (after 9 days of EP treatment), were treated with EP (0.5 mg/kg daily) plus hPEPD-G278D (4 mg/kg) which was given i.p. every other day. EP and hPEPD-G278D were prepared in PBS at 0.1 mg/ml and 0.8 mg/ml, respectively, and each agent was administered to a mouse in approximately 100 &#x3BC;l volume. When EP and hPEPD-G278D were both given to the same mice on the same day, EP was given 1 h earlier than hPEPD-G278D. Tumors grew exceedingly fast, and the mice treated by vehicle or EP only were killed after 13 days of treatment, as some of the tumors began to show sign of potential necrosis. Mice treated by EP plus hPEPD-G278D showed pronounced tumor regression and were killed after the 8<sup>th</sup> dose of hPEPD-G278D, per IACUC guideline, as a high percentage of the tumors became necrotic at that time. All mice were killed 24 h after the final treatment; blood samples and tumors were collected from the mice when they were killed.</p>
+      </sec>
+      <sec id="s4_10">
+        <title>Measurement of plasma mPEPD and hPEPD-G278D</title>
+        <p>Plasma levels of mPEPD and/or hPEPD-G278D were measured by ELISA as previously described [<xref rid="R17" ref-type="bibr">17</xref>].</p>
+      </sec>
+      <sec id="s4_11">
+        <title>Statistical analysis</title>
+        <p>Analysis of variance was used for multi-group comparisons. P value of 0.05 or lower was considered statistically significant.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>SUPPLEMENTARY MATERIALS FIGURES AND TABLES</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <media mimetype="application" mime-subtype="pdf" xlink:href="oncotarget-07-42340-s001.pdf" orientation="portrait" xlink:type="simple" id="d35e817" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Dr. Pamela Hershberger of Roswell Park Cancer Institute for critical reading of this paper. This work was supported in part by NCI grant R01-CA164574, NCI grant P30-CA016056, a Roswell Park Cancer Institute Bridge Fund, and an award from the Roswell Park Alliance Foundation.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p>
+          <bold>CONFLICTS OF INTEREST</bold>
+        </p>
+        <p>The authors have no conflicts of interest.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hynes</surname>
+              <given-names>NE</given-names>
+            </name>
+            <name>
+              <surname>Lane</surname>
+              <given-names>HA</given-names>
+            </name>
+          </person-group>
+          <article-title>ERBB receptors and cancer: the complexity of targeted inhibitors</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2005</year>
+          <volume>5</volume>
+          <fpage>341</fpage>
+          <lpage>354</lpage>
+          <pub-id pub-id-type="pmid">15864276</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roskoski</surname>
+              <given-names>R</given-names>
+              <suffix>Jr</suffix>
+            </name>
+          </person-group>
+          <article-title>The ErbB/HER family of protein-tyrosine kinases and cancer</article-title>
+          <source>Pharmacol Res</source>
+          <year>2014</year>
+          <volume>79</volume>
+          <fpage>34</fpage>
+          <lpage>74</lpage>
+          <pub-id pub-id-type="pmid">24269963</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moy</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Goss</surname>
+              <given-names>PE</given-names>
+            </name>
+          </person-group>
+          <article-title>Lapatinib: current status and future directions in breast cancer</article-title>
+          <source>Oncologist</source>
+          <year>2006</year>
+          <volume>11</volume>
+          <fpage>1047</fpage>
+          <lpage>1057</lpage>
+          <pub-id pub-id-type="pmid">17110623</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tandon</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Chamness</surname>
+              <given-names>GC</given-names>
+            </name>
+            <name>
+              <surname>Ullrich</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>McGuire</surname>
+              <given-names>WL</given-names>
+            </name>
+          </person-group>
+          <article-title>HER-2/neu oncogene protein and prognosis in breast cancer</article-title>
+          <source>J Clin Oncol</source>
+          <year>1989</year>
+          <volume>7</volume>
+          <fpage>1120</fpage>
+          <lpage>1128</lpage>
+          <pub-id pub-id-type="pmid">2569032</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Paik</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hazan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Fisher</surname>
+              <given-names>ER</given-names>
+            </name>
+            <name>
+              <surname>Sass</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Fisher</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Redmond</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lippman</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>CR</given-names>
+            </name>
+          </person-group>
+          <article-title>Pathologic findings from the National Surgical Adjuvant Breast and Bowel Project: prognostic significance of erbB-2 protein overexpression in primary breast cancer</article-title>
+          <source>J Clin Oncol</source>
+          <year>1990</year>
+          <volume>8</volume>
+          <fpage>103</fpage>
+          <lpage>112</lpage>
+          <pub-id pub-id-type="pmid">1967301</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>DiGiovanna</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Stern</surname>
+              <given-names>DF</given-names>
+            </name>
+            <name>
+              <surname>Edgerton</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Whalen</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Moore</surname>
+              <given-names>D</given-names>
+              <suffix>2nd</suffix>
+            </name>
+            <name>
+              <surname>Thor</surname>
+              <given-names>AD</given-names>
+            </name>
+          </person-group>
+          <article-title>Relationship of epidermal growth factor receptor expression to ErbB-2 signaling activity and prognosis in breast cancer patients</article-title>
+          <source>J Clin Oncol</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <fpage>1152</fpage>
+          <lpage>1160</lpage>
+          <pub-id pub-id-type="pmid">15718311</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsutsui</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ohno</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Murakami</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kataoka</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kinoshita</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hachitanda</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Prognostic value of the combination of epidermal growth factor receptor and c-erbB-2 in breast cancer</article-title>
+          <source>Surgery</source>
+          <year>2003</year>
+          <volume>133</volume>
+          <fpage>219</fpage>
+          <lpage>221</lpage>
+          <pub-id pub-id-type="pmid">12605184</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yonesaka</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Zejnullahu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Okamoto</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Satoh</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Cappuzzo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Souglakos</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ercan</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Rogers</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Roncalli</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Takeda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fujisaka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Philips</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activation of ERBB2 signaling causes resistance to the EGFR-directed therapeutic antibody cetuximab</article-title>
+          <source>Sci Transl Med</source>
+          <year>2011</year>
+          <volume>3</volume>
+          <fpage>99ra86</fpage>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>D'Amato</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Raimondo</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Formisano</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Giuliano</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>De Placido</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Rosa</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Bianco</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanisms of lapatinib resistance in HER2-driven breast cancer</article-title>
+          <source>Cancer Treat Rev</source>
+          <year>2015</year>
+          <volume>41</volume>
+          <fpage>877</fpage>
+          <lpage>883</lpage>
+          <pub-id pub-id-type="pmid">26276735</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goss</surname>
+              <given-names>PE</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>IE</given-names>
+            </name>
+            <name>
+              <surname>O'Shaughnessy</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ejlertsen</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kaufmann</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Boyle</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Buzdar</surname>
+              <given-names>AU</given-names>
+            </name>
+            <name>
+              <surname>Fumoleau</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Gradishar</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Moy</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Piccart-Gebhart</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pritchard</surname>
+              <given-names>KI</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Adjuvant lapatinib for women with early-stage HER2-positive breast cancer: a randomised, controlled, phase 3 trial</article-title>
+          <source>Lancet Oncol</source>
+          <year>2013</year>
+          <volume>14</volume>
+          <fpage>88</fpage>
+          <lpage>96</lpage>
+          <pub-id pub-id-type="pmid">23234763</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Piccart-Gebhart</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Holmes</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Baselga</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>de Azambuja</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Dueck</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Viale</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zujewski</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Goldhirsch</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Armour</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Pritchard</surname>
+              <given-names>KI</given-names>
+            </name>
+            <name>
+              <surname>McCullough</surname>
+              <given-names>AE</given-names>
+            </name>
+            <name>
+              <surname>Dolci</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>McFadden</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Adjuvant lapatinib and trastuzumab for early human epidermal growth factor receptor 2-positive breast cancer: results from the randomized phase III adjuvant lapatinib and/or trastuzumab treatment optimization trial</article-title>
+          <source>J Clin Oncol</source>
+          <year>2016</year>
+          <volume>34</volume>
+          <fpage>1034</fpage>
+          <lpage>1042</lpage>
+          <pub-id pub-id-type="pmid">26598744</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Azambuja</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Holmes</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>Piccart-Gebhart</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Holmes</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Di Cosimo</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Swaby</surname>
+              <given-names>RF</given-names>
+            </name>
+            <name>
+              <surname>Untch</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Jackisch</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lang</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Boyle</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Barrios</surname>
+              <given-names>CH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Lapatinib with trastuzumab for HER2-positive early breast cancer (NeoALTTO): survival outcomes of a randomised, open-label, multicentre, phase 3 trial and their association with pathological complete response</article-title>
+          <source>Lancet Oncol</source>
+          <year>2014</year>
+          <volume>15</volume>
+          <fpage>1137</fpage>
+          <lpage>1146</lpage>
+          <pub-id pub-id-type="pmid">25130998</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of prolidase as a high affinity ligand of the ErbB2 receptor and its regulation of ErbB2 signaling and cell growth</article-title>
+          <source>Cell Death Dis</source>
+          <year>2014</year>
+          <volume>5</volume>
+          <fpage>e1211</fpage>
+          <pub-id pub-id-type="pmid">24810047</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Bhattacharya</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of ERBB2-overexpressing tumors by recombinant human prolidase and its enzymatically inactive mutant</article-title>
+          <source>EBioMedicine</source>
+          <year>2015</year>
+          <volume>2</volume>
+          <fpage>396</fpage>
+          <lpage>405</lpage>
+          <pub-id pub-id-type="pmid">26086037</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Endo</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Tanoue</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nakai</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hata</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Indo</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Titani</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Matsuda</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Primary structure and gene localization of human prolidase</article-title>
+          <source>J Biol Chem</source>
+          <year>1989</year>
+          <volume>264</volume>
+          <fpage>4476</fpage>
+          <lpage>4481</lpage>
+          <pub-id pub-id-type="pmid">2925654</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lupi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tenni</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Cetta</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Forlino</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Human prolidase and prolidase deficiency: an overview on the characterization of the enzyme involved in proline recycling and on the effects of its mutations</article-title>
+          <source>Amino Acids</source>
+          <year>2008</year>
+          <volume>35</volume>
+          <fpage>739</fpage>
+          <lpage>752</lpage>
+          <pub-id pub-id-type="pmid">18340504</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ding</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Choi</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Kazim</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Prolidase directly binds and activates epidermal growth factor receptor and stimulates downstream signaling</article-title>
+          <source>J Biol Chem</source>
+          <year>2013</year>
+          <volume>288</volume>
+          <fpage>2365</fpage>
+          <lpage>2375</lpage>
+          <pub-id pub-id-type="pmid">23212918</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jones</surname>
+              <given-names>JT</given-names>
+            </name>
+            <name>
+              <surname>Akita</surname>
+              <given-names>RW</given-names>
+            </name>
+            <name>
+              <surname>Sliwkowski</surname>
+              <given-names>MX</given-names>
+            </name>
+          </person-group>
+          <article-title>Binding specificities and affinities of egf domains for ErbB receptors</article-title>
+          <source>FEBS Lett</source>
+          <year>1999</year>
+          <volume>447</volume>
+          <fpage>227</fpage>
+          <lpage>231</lpage>
+          <pub-id pub-id-type="pmid">10214951</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Leahy</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Structure and function of the epidermal growth factor (EGF/ErbB) family of receptors</article-title>
+          <source>Adv Protein Chem</source>
+          <year>2004</year>
+          <volume>68</volume>
+          <fpage>1</fpage>
+          <lpage>27</lpage>
+          <pub-id pub-id-type="pmid">15500857</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fan</surname>
+              <given-names>YX</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Deb</surname>
+              <given-names>TB</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>GR</given-names>
+            </name>
+          </person-group>
+          <article-title>Ligand regulates epidermal growth factor receptor kinase specificity: activation increases preference for GAB1 and SHC versus autophosphorylation sites</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>38143</fpage>
+          <lpage>38150</lpage>
+          <pub-id pub-id-type="pmid">15231819</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wriggers</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Polymorphism of the epidermal growth factor receptor extracellular ligand binding domain: the dimer interface depends on domain stabilization</article-title>
+          <source>Biochemistry</source>
+          <year>2011</year>
+          <volume>50</volume>
+          <fpage>2144</fpage>
+          <lpage>2156</lpage>
+          <pub-id pub-id-type="pmid">21275429</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ogiso</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ishitani</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Nureki</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Fukai</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yamanaka</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Saito</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Sakamoto</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Inoue</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Shirouzu</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yokoyama</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Crystal structure of the complex of human epidermal growth factor and receptor extracellular domains</article-title>
+          <source>Cell</source>
+          <year>2002</year>
+          <volume>110</volume>
+          <fpage>775</fpage>
+          <lpage>787</lpage>
+          <pub-id pub-id-type="pmid">12297050</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lynch</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Bell</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Sordella</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Gurubhagavatula</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Okimoto</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Brannigan</surname>
+              <given-names>BW</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Haserlat</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Supko</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Haluska</surname>
+              <given-names>FG</given-names>
+            </name>
+            <name>
+              <surname>Louis</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Christiani</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Settleman</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activating mutations in the epidermal growth factor receptor underlying responsiveness of non-small-cell lung cancer to gefitinib</article-title>
+          <source>N Engl J Med</source>
+          <year>2004</year>
+          <volume>350</volume>
+          <fpage>2129</fpage>
+          <lpage>2139</lpage>
+          <pub-id pub-id-type="pmid">15118073</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Amann</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kalyankrishna</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Massion</surname>
+              <given-names>PP</given-names>
+            </name>
+            <name>
+              <surname>Ohm</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Girard</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Shigematsu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Peyton</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Juroske</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Stuart Salmon</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name>
+              <surname>Pollack</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Yanagisawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Aberrant epidermal growth factor receptor signaling and enhanced sensitivity to EGFR inhibitors in lung cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2005</year>
+          <volume>65</volume>
+          <fpage>226</fpage>
+          <lpage>235</lpage>
+          <pub-id pub-id-type="pmid">15665299</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gao</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Furnari</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Newton</surname>
+              <given-names>AC</given-names>
+            </name>
+          </person-group>
+          <article-title>PHLPP: a phosphatase that directly dephosphorylates Akt, promotes apoptosis, and suppresses tumor growth</article-title>
+          <source>Mol Cell</source>
+          <year>2005</year>
+          <volume>18</volume>
+          <fpage>13</fpage>
+          <lpage>24</lpage>
+          <pub-id pub-id-type="pmid">15808505</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spencer</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Graus-Porta</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Leng</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hynes</surname>
+              <given-names>NE</given-names>
+            </name>
+            <name>
+              <surname>Klemke</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>ErbB2 is necessary for induction of carcinoma cell invasion by ErbB family receptor tyrosine kinases</article-title>
+          <source>J Cell Biol</source>
+          <year>2000</year>
+          <volume>148</volume>
+          <fpage>385</fpage>
+          <lpage>397</lpage>
+          <pub-id pub-id-type="pmid">10648571</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ren</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Schaefer</surname>
+              <given-names>TS</given-names>
+            </name>
+          </person-group>
+          <article-title>ErbB-2 activates Stat3 alpha in a Src- and JAK2-dependent manner</article-title>
+          <source>J Biol Chem</source>
+          <year>2002</year>
+          <volume>277</volume>
+          <fpage>38486</fpage>
+          <lpage>38493</lpage>
+          <pub-id pub-id-type="pmid">11940572</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sigismund</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Argenzio</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Tosoni</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cavallaro</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Polo</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Di Fiore</surname>
+              <given-names>PP</given-names>
+            </name>
+          </person-group>
+          <article-title>Clathrin-mediated internalization is essential for sustained EGFR signaling but dispensable for degradation</article-title>
+          <source>Dev Cell</source>
+          <year>2008</year>
+          <volume>15</volume>
+          <fpage>209</fpage>
+          <lpage>219</lpage>
+          <pub-id pub-id-type="pmid">18694561</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barr</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Ostermeyer-Fay</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Matundan</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>Clathrin-independent endocytosis of ErbB2 in geldanamycin-treated human breast cancer cells</article-title>
+          <source>J Cell Sci</source>
+          <year>2008</year>
+          <volume>121</volume>
+          <fpage>3155</fpage>
+          <lpage>3166</lpage>
+          <pub-id pub-id-type="pmid">18765569</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Yeung</surname>
+              <given-names>TK</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Endocytosis deficiency of epidermal growth factor (EGF) receptor-ErbB2 heterodimers in response to EGF stimulation</article-title>
+          <source>Mol Biol Cell</source>
+          <year>1999</year>
+          <volume>10</volume>
+          <fpage>1621</fpage>
+          <lpage>1636</lpage>
+          <pub-id pub-id-type="pmid">10233167</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barnes</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor inhibits growth of A431 human epidermoid carcinoma in serum-free cell culture</article-title>
+          <source>J Cell Biol</source>
+          <year>1982</year>
+          <volume>93</volume>
+          <fpage>1</fpage>
+          <lpage>4</lpage>
+          <pub-id pub-id-type="pmid">7040412</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Masui</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kawamoto</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Wolf</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Mendelsohn</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Growth inhibition of human tumor cells in athymic mice by anti-epidermal growth factor receptor monoclonal antibodies</article-title>
+          <source>Cancer Res</source>
+          <year>1984</year>
+          <volume>44</volume>
+          <fpage>1002</fpage>
+          <lpage>1007</lpage>
+          <pub-id pub-id-type="pmid">6318979</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Bhattacharya</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>A plasma proteolysis pathway comprising blood coagulation proteases</article-title>
+          <source>Oncotarget</source>
+          <year>2016</year>
+          <pub-id pub-id-type="doi">10.18632/oncotarget.7762</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barok</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Isola</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Palyi-Krekk</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Nagy</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Juhasz</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Vereb</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Kauraniemi</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Kapanen</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tanner</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Szollosi</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Trastuzumab causes antibody-dependent cellular cytotoxicity-mediated growth inhibition of submacroscopic JIMT-1 breast cancer xenografts despite intrinsic drug resistance</article-title>
+          <source>Mol Cancer Ther</source>
+          <year>2007</year>
+          <volume>6</volume>
+          <fpage>2065</fpage>
+          <lpage>2072</lpage>
+          <pub-id pub-id-type="pmid">17620435</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spiridon</surname>
+              <given-names>CI</given-names>
+            </name>
+            <name>
+              <surname>Guinn</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Vitetta</surname>
+              <given-names>ES</given-names>
+            </name>
+          </person-group>
+          <article-title>A comparison of the in vitro and in vivo activities of IgG and F(ab')2 fragments of a mixture of three monoclonal anti-Her-2 antibodies</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2004</year>
+          <volume>10</volume>
+          <fpage>3542</fpage>
+          <lpage>3551</lpage>
+          <pub-id pub-id-type="pmid">15161714</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gijsen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Perera</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Parker</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Harris</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Larijani</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>HER2 phosphorylation is maintained by a PKB negative feedback loop in response to anti-HER2 herceptin in breast cancer</article-title>
+          <source>PLoS Biol</source>
+          <year>2010</year>
+          <volume>8</volume>
+          <fpage>e1000563</fpage>
+          <pub-id pub-id-type="pmid">21203579</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

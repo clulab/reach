@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">7506897</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">3328</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biochem Soc Trans</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Biochem. Soc. Trans.</journal-id>
+      <journal-title-group>
+        <journal-title>Biochemical Society transactions</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0300-5127</issn>
+      <issn pub-type="epub">1470-8752</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22260661</article-id>
+      <article-id pub-id-type="pmc">3621035</article-id>
+      <article-id pub-id-type="doi">10.1042/BST20110623</article-id>
+      <article-id pub-id-type="manuscript">NIHMS452708</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Regulation of signalling by microRNAs</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Avraham</surname>
+            <given-names>Roi</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yarden</surname>
+            <given-names>Yosef</given-names>
+          </name>
+          <xref rid="FN1" ref-type="author-notes">1</xref>
+        </contrib>
+        <aff id="A1">Department of Biological Regulation, The Weizmann Institute of Science, Rehovot 76100, Israel</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1"><label>1</label>To whom correspondence should be addressed (<email>yosef.yarden@weizmann.ac.il</email>)</corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>14</day>
+        <month>3</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>2</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>09</day>
+        <month>4</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>40</volume>
+      <issue>1</issue>
+      <fpage>26</fpage>
+      <lpage>30</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2012 Biochemical Society</copyright-statement>
+        <copyright-year>2012</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">Stringent regulation of biochemical signalling pathways involves feedback and feedforward loops, which underlie robust cellular responses to external stimuli. Regulation occurs in all horizontal layers of signalling networks, primarily by proteins that mediate internalization of receptor&#x2013;ligand complexes, dephosphorylation of kinases and their substrates, as well as transcriptional repression. Recent studies have unveiled the role of miRNAs (microRNAs), post-transcriptional regulators that control mRNA stability, as key modulators of signal propagation. By acting as genetic switches or fine-tuners, miRNAs can directly and multiply regulate cellular outcomes in response to diverse extracellular signals. Conversely, signalling networks temporally control stability, biogenesis and abundance of miRNAs, by regulating layers of the miRNA biogenesis pathway. In the present mini-review, we use a set of examples to illustrate the extensive interdependence between miRNAs and signalling networks.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>cancer</kwd>
+        <kwd>growth factor</kwd>
+        <kwd>microRNA (miRNA)</kwd>
+        <kwd>network</kwd>
+        <kwd>tyrosine kinase</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Cancer Institute : NCI</funding-source>
+          <award-id>R37 CA072981 || CA</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

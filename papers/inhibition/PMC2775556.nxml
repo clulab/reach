@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9201927</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1281</journal-id>
+      <journal-id journal-id-type="nlm-ta">Dev Dyn</journal-id>
+      <journal-title>Developmental dynamics : an official publication of the American Association of Anatomists</journal-title>
+      <issn pub-type="ppub">1058-8388</issn>
+      <issn pub-type="epub">1097-0177</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18729215</article-id>
+      <article-id pub-id-type="pmc">2775556</article-id>
+      <article-id pub-id-type="doi">10.1002/dvdy.21657</article-id>
+      <article-id pub-id-type="manuscript">NIHMS70258</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Fungiform papilla pattern</article-title>
+        <subtitle>EGF regulates inter - papilla lingual epithelium and decreases papilla number via PI3K/Akt, MEK/ERK and p38 MAPK signaling</subtitle>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Liu</surname>
+            <given-names>Hong-Xiang</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Henson</surname>
+            <given-names>Bradley S.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="author-notes" rid="FN1">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhou</surname>
+            <given-names>Yanqiu</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>D&#x2019;Silva</surname>
+            <given-names>Nisha J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mistretta</surname>
+            <given-names>Charlotte M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Biologic and Materials Sciences, School of Dentistry, University of Michigan, Ann Arbor, MI 48109
+</aff>
+      <aff id="A2"><label>2</label>Oral Health Sciences Ph.D. Program, School of Dentistry, University of Michigan
+</aff>
+      <aff id="A3"><label>3</label>Department of Periodontics and Oral Medicine, School of Dentistry, and Department of Pathology, Medical School, University of Michigan
+</aff>
+      <author-notes>
+        <corresp id="CR1">Author for correspondence: Dr. Charlotte M. Mistretta Room 6217 School of Dentistry University of Michigan Ann Arbor, MI 48109-1078 Telephone: 734 647-3911 FAX: 734 647-2110 Email: <email>chmist@umich.edu</email></corresp>
+        <fn id="FN1">
+          <label>4</label>
+          <p id="P1">Present address, School of Dentistry, University of California, Los Angeles, CA</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>10</day>
+        <month>11</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>9</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>10</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>237</volume>
+      <issue>9</issue>
+      <fpage>2378</fpage>
+      <lpage>2393</lpage>
+      <abstract>
+        <p id="P2">Fungiform papillae are epithelial taste organs that form on the tongue, requiring differentiation of papillae and inter-papilla epithelium. We tested roles of epidermal growth factor (EGF) and the receptor EGFR in papilla development. Developmentally, EGF was localized within and between papillae whereas EGFR was progressively restricted to inter-papilla epithelium. In tongue cultures, EGF decreased papillae and increased cell proliferation in inter-papilla epithelium in a concentration dependent manner, whereas EGFR inhibitor increased and fused papillae. EGF preincubation could over-ride disruption of Shh signaling that ordinarily would effect a doubling of fungiform papillae. With EGF-induced activation of EGFR, we demonstrated phosphorylation in PI3K/Akt, MEK/ERK, and p38 MAPK pathways; with pathway inhibitors (LY294002, U0126, SB203580) the EGF-mediated decrease in papillae was reversed, and synergistic actions were shown. Thus, EGF/EGFR signaling via PI3K/Akt, MEK/ERK, and p38 MAPK contributes to epithelial cell proliferation between papillae; this biases against papilla differentiation and reduces numbers of papillae.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>taste papilla</kwd>
+        <kwd>fungiform papilla</kwd>
+        <kwd>EGF/EGFR signaling</kwd>
+        <kwd>PI3K/Akt</kwd>
+        <kwd>MEK/ERK</kwd>
+        <kwd>p38 MAP Kinase</kwd>
+        <kwd>tongue epithelium</kwd>
+      </kwd-group>
+      <contract-num rid="DC1">R01 DC000456-20
+				||DC</contract-num>
+      <contract-sponsor id="DC1">National Institute on Deafness and Other Communication Disorders  : NIDCD</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

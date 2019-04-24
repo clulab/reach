@@ -1,0 +1,2232 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0426720</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4839</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Invest Dermatol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">J. Invest. Dermatol.</journal-id>
+      <journal-title-group>
+        <journal-title>The Journal of investigative dermatology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0022-202X</issn>
+      <issn pub-type="epub">1523-1747</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22592159</article-id>
+      <article-id pub-id-type="pmc">3423535</article-id>
+      <article-id pub-id-type="doi">10.1038/jid.2012.78</article-id>
+      <article-id pub-id-type="manuscript">NIHMS359035</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>HEPARIN-BINDING EGF-LIKE GROWTH FACTOR PROMOTES EPITHELIAL-MESENCHYMAL TRANSITION IN HUMAN KERATINOCYTES</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Stoll</surname>
+            <given-names>Stefan W.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="corresp" rid="cor1">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ritti&#xE9;</surname>
+            <given-names>Laure</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Johnson</surname>
+            <given-names>Jessica L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Elder</surname>
+            <given-names>James T.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Dermatology, University of Michigan Medical Center, Ann Arbor, MI</aff>
+      <aff id="A2"><label>2</label>Ann Arbor Veterans Affairs Health System, Ann Arbor, MI</aff>
+      <author-notes>
+        <corresp id="cor1"><label>3</label>Corresponding Author: SW Stoll, 7417 Medical Sciences Building 1, 1301 East Catherine, Ann Arbor, MI, 48109-5675, phone (734) 763-5033, fax (734) 763-4575, <email>sstoll@umich.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>20</day>
+        <month>4</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>17</day>
+        <month>5</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>9</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>3</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>132</volume>
+      <issue>9</issue>
+      <fpage>2148</fpage>
+      <lpage>2157</lpage>
+      <!--elocation-id from pubmed: 10.1038/jid.2012.78-->
+      <permissions>
+        <license xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">
+          <license-p>Users may view, print, copy, and download text and data-mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:<ext-link ext-link-type="uri" xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">http://www.nature.com/authors/editorial_policies/license.html#terms</ext-link></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p id="P1">We have shown that autocrine proliferation of human keratinocytes (KC) is strongly dependent upon amphiregulin (AREG), whereas blockade of heparin-binding EGF-like growth factor (HB-EGF) inhibits KC migration in scratch wound assays. Here we demonstrate that expression of soluble HB-EGF (sHB-EGF) or full-length transmembrane HB-EGF (proHB-EGF), but not proAREG, results in profound increases in KC migration and invasiveness in monolayer culture. Coincident with these changes, HB-EGF significantly decreases mRNA expression of several epithelial markers including keratins 1, 5, 10, and 14, while increasing expression of markers of cellular motility including SNAI1, ZEB1, COX-2 and MMP1. Immunostaining revealed HB-EGF-induced expression of the mesenchymal protein vimentin and decreased expression of E-cadherin as well as nuclear translocation of &#x3B2;-catenin. Suggestive of a trade-off between KC motility and proliferation, overexpression of HB-EGF also reduced KC growth by more than 90%. We also show that HB-EGF is strongly induced in regenerating epidermis after partial thickness wounding of human skin. Taken together, our data suggest that expression of HB-EGF in human KC triggers a migratory and invasive phenotype with many features of epithelial-mesenchymal transition (EMT), which may be beneficial in the context of cutaneous wound healing.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Heparin-binding EGF-like growth factor</kwd>
+        <kwd>epidermal growth factor receptor</kwd>
+        <kwd>epithelial-mesenchymal transition</kwd>
+        <kwd>wound healing</kwd>
+        <kwd>invasion</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro" id="S1">
+      <title>INTRODUCTION</title>
+      <p id="P2">Heparin-binding EGF-like growth factor (HB-EGF) is one of seven ligands that bind to and activate the epidermal growth factor receptor (EGFR) also known as ErbB1 (<xref rid="R40" ref-type="bibr">Sanderson <italic>et al.</italic>, 2006</xref>). HB-EGF was originally isolated from macrophage-like U937 cells as a secreted 22-kilodalton heparin-binding growth factor with mitotic activity for BALB-3T3 fibroblasts and smooth muscle cells (<xref rid="R15" ref-type="bibr">Higashiyama <italic>et al.</italic>, 1991</xref>). While the precursor of HB-EGF (proHB-EGF) is a transmembrane protein that functions as the diphtheria toxin receptor (<xref rid="R29" ref-type="bibr">Naglich <italic>et al.</italic>, 1992</xref>), its proteolytic cleavage by metalloproteinases (MPs) generates soluble HB-EGF (sHB-EGF) (<xref rid="R40" ref-type="bibr">Sanderson <italic>et al.</italic>, 2006</xref>) as well as a carboxy-terminal domain, which can bind to the nuclear proteins promyelocytic leukemia zinc finger protein (PLZF) and Bcl-6 (<xref rid="R19" ref-type="bibr">Kinugasa <italic>et al.</italic>, 2007</xref>; <xref rid="R31" ref-type="bibr">Nanba <italic>et al.</italic>, 2003</xref>).</p>
+      <p id="P3">HB-EGF is an important factor in wound healing (<xref rid="R25" ref-type="bibr">Marikovsky <italic>et al.</italic>, 1993</xref>; <xref rid="R26" ref-type="bibr">Mathay <italic>et al.</italic>, 2008</xref>; <xref rid="R42" ref-type="bibr">Shirakata <italic>et al.</italic>, 2005</xref>; <xref rid="R45" ref-type="bibr">Stoll <italic>et al.</italic>, 1997</xref>; <xref rid="R51" ref-type="bibr">Tokumaru <italic>et al.</italic>, 2000</xref>) atherosclerosis (<xref rid="R30" ref-type="bibr">Nakata <italic>et al.</italic>, 1996</xref>), blastocyst implantation (<xref rid="R5" ref-type="bibr">Das <italic>et al.</italic>, 1994</xref>), and cardiac development and function (<xref rid="R17" ref-type="bibr">Iwamoto <italic>et al.</italic>, 2003</xref>; <xref rid="R18" ref-type="bibr">Jackson <italic>et al.</italic>, 2003</xref>; <xref rid="R55" ref-type="bibr">Yamazaki <italic>et al.</italic>, 2003</xref>). Increased expression of HB-EGF has been found in multiple cancers including hepatocellular, pancreatic, gastric and breast cancer, as well as in squamous cell carcinoma of the skin (<xref rid="R35" ref-type="bibr">Raab and Klagsbrun, 1997</xref>; <xref rid="R37" ref-type="bibr">Ritti&#xE9; <italic>et al.</italic>, 2007</xref>). Together with amphiregulin (AREG), epiregulin (EREG) and TGF-&#x3B1;, HB-EGF is produced and secreted by normal human keratinocytes (KC) (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>) and acts as an autocrine growth factor in these cells (<xref rid="R3" ref-type="bibr">Coffey <italic>et al.</italic>, 1987</xref>; <xref rid="R4" ref-type="bibr">Cook <italic>et al.</italic>, 1991</xref>; <xref rid="R14" ref-type="bibr">Hashimoto <italic>et al.</italic>, 1994</xref>; <xref rid="R43" ref-type="bibr">Shirakata <italic>et al.</italic>, 2000</xref>). Similar to AREG, HB-EGF contains a heparin-binding domain immediately upstream of the conserved EGF motif (<xref rid="R40" ref-type="bibr">Sanderson <italic>et al.</italic>, 2006</xref>). Unlike AREG but similar to betacellulin (BTC) and EREG, HB-EGF can also bind ErbB4, another member of the EGFR family (<xref rid="R10" ref-type="bibr">Elenius <italic>et al.</italic>, 1997</xref>). However, in KC and skin, HB-EGF is likely to exert its biological function via binding to EGFR because KC do not express ErbB4 (<xref rid="R7" ref-type="bibr">De Potter <italic>et al.</italic>, 2001</xref>; <xref rid="R49" ref-type="bibr">Stoll <italic>et al.</italic>, 2001</xref>).</p>
+      <p id="P4">In human skin, expression of HB-EGF is relatively low, but is increased in cutaneous wounds (<xref rid="R26" ref-type="bibr">Mathay <italic>et al.</italic>, 2008</xref>; <xref rid="R27" ref-type="bibr">McCarthy <italic>et al.</italic>, 1996</xref>; <xref rid="R45" ref-type="bibr">Stoll <italic>et al.</italic>, 1997</xref>) and in psoriasis (<xref rid="R46" ref-type="bibr">Stoll and Elder, 1998</xref>). HB-EGF expression is also rapidly induced in the context of an EGFR-dependent injury response in skin organ culture (<xref rid="R45" ref-type="bibr">Stoll <italic>et al.</italic>, 1997</xref>; <xref rid="R49" ref-type="bibr">Stoll <italic>et al.</italic>, 2001</xref>). Furthermore, HB-EGF expression in KC is strongly increased by retinoids (<xref rid="R39" ref-type="bibr">Ritti&#xE9; <italic>et al.</italic>, 2006</xref>; <xref rid="R46" ref-type="bibr">Stoll and Elder, 1998</xref>) and by oxidative stress and cholesterol depletion (<xref rid="R11" ref-type="bibr">Giltaire <italic>et al.</italic>, 2011</xref>; <xref rid="R26" ref-type="bibr">Mathay <italic>et al.</italic>, 2008</xref>).</p>
+      <p id="P5">We have previously shown that AREG and HB-EGF have distinct context-dependent functions in human KC (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>). The aim of this paper was to investigate the effect of HB-EGF overexpression in KC physiology in more detail. Here we show that constitutive and conditional lentivirus-mediated expression of HB-EGF in normal and immortalized human KC promotes profound morphological, behavioral and biochemical changes that display many features of epithelial-mesenchymal transition (EMT). Indicative of <italic>in vivo</italic> relevance, we also show that HB-EGF expression is strongly upregulated in the regenerating epidermis after partial thickness wound in human skin.</p>
+    </sec>
+    <sec sec-type="results" id="S2">
+      <title>RESULTS</title>
+      <p id="P6">To gain insight into the consequences of HB-EGF overexpression in human KC, we used previously established cell lines with constitutive and TET-inducible expression of proHB-EGF or sHB-EGF and for purpose of comparison with stable expression of proAREG or sAREG (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>). Due to the limited lifespan of normal human KC (NHK), we utilized N/TERT-2G cells, an immortalized but non-transformed KC cell line (<xref rid="R9" ref-type="bibr">Dickson <italic>et al.</italic>, 2000</xref>) in order to establish stable cell lines. An overview of the various cDNA constructs used to generate these lines is shown in <xref ref-type="supplementary-material" rid="SD1">Supplemental Figure S1</xref>.</p>
+      <p id="P7">As demonstrated with the inducible cell lines in <xref ref-type="fig" rid="F1">Figure 1A</xref>, HB-EGF mRNA and secreted protein were strongly induced in N/TERT KC after TET treatment. Overexpression of HB-EGF in KC led to marked morphological and cellular changes. As shown in <xref ref-type="fig" rid="F1">Figure 1B</xref>, stably selected N/TERT KC with constitutive expression of proHB-EGF displayed a high degree of cell scattering, with most KC assuming an elongated, spindle-shaped morphology. These changes were observed in a total of 8 stably selected KC cell lines with either constitutive or conditional expression of proHB-EGF or sHB-EGF (see also <xref ref-type="supplementary-material" rid="SD1">Figure S2</xref>). In contrast, AREG-infected N/TERT KC exhibited cobblestone morphology with cell colonies growing as continuous epithelial sheet very similar to uninfected N/TERT controls. Notably, incubation of KC with various concentrations of recombinant human HB-EGF or EGF (<xref ref-type="fig" rid="F1">Figure 1B</xref>) could not fully reproduce the phenotype observed in HB-EGF expressing KC cell lines. In contrast, exposure of N/TERT KC to conditioned medium (CM) from cells expressing His-tagged HB-EGF reproduced the phenotypic changes observed in HB-EGF expressing KC cell lines, unless HB-EGF was depleted from CM prior to exposure (<xref ref-type="fig" rid="F1">Figure 1C</xref>). Phenotypic changes similar to those in N/TERT were also observed in NHK after transient infection with HB-EGF encoding lentiviruses (<xref ref-type="supplementary-material" rid="SD1">Figure S3</xref>).</p>
+      <p id="P8">We next examined whether neutralization of HB-EGF, EGFR or MP activity could prevent the effects on cell scattering and morphology (<xref ref-type="fig" rid="F1">Figure 1D</xref>). As expected, the EGFR family (ErbB) receptor tyrosine kinase inhibitor (RTKI) PD158780 strongly reversed HB-EGF-induced cell scattering. Interestingly, HB-EGF neutralizing antibodies and the MP inhibitor (MPI) GM6001 prevented HB-EGF-induced cell scattering in KC expressing proHB-EGF but not in cells expressing sHB-EGF (<xref ref-type="fig" rid="F1">Figure 1D</xref>).</p>
+      <p id="P9">To examine whether there were differences in motility between AREG and HB-EGF overexpressing KC we performed time-lapse microscopy experiments (see <xref ref-type="supplementary-material" rid="SD1">Supplementary Data/Videos</xref>). Our results show that AREG-infected KC moved as a continuous cell sheet very similar to uninfected N/TERT KC. In marked contrast, HB-EGF overexpressing cells were much more motile and less adherent to their neighboring cells with highly elongated cells unable to maintain cell-cell contacts (<xref ref-type="supplementary-material" rid="SD2">Supplementary Data, Videos 1</xref>&#x2013;<xref ref-type="supplementary-material" rid="SD4">3</xref>).</p>
+      <p id="P10">To test the effect of HB-EGF overexpression on KC growth we performed growth assays with the TET-regulated HB-EGF cell lines. As demonstrated in <xref ref-type="fig" rid="F2">Figure 2</xref>, forced HB-EGF expression (+TET) strongly reduced KC growth relative to control cells (&#x2212;TET). A marked and significant reduction of KC growth was evident as early as two days after HB-EGF induction (<xref ref-type="fig" rid="F2">Figures 2A and 2B</xref>). Six days after induction of HB-EGF expression, KC growth was reduced by more than 90% compared to control cells (<xref ref-type="fig" rid="F2">Figure 2C</xref>). In contrast, TET treatment had no effect on KC growth in control cells (N/TERT-TR, <xref ref-type="supplementary-material" rid="SD1">Figure S4</xref>).</p>
+      <p id="P11">The marked phenotypic changes observed in HB-EGF infected cells including increased migration, scattering, and elongation in cell shape are characteristic of cells undergoing EMT (<xref rid="R8" ref-type="bibr">De Wever <italic>et al.</italic>, 2008</xref>; <xref rid="R23" ref-type="bibr">Lee <italic>et al.</italic>, 2006</xref>). We therefore tested whether HB-EGF overexpressing cells display other features of this process including increased expression of the mesenchymal protein vimentin, decreased expression of E-cadherin and intracellular redistribution of &#x3B2;- catenin (<xref rid="R8" ref-type="bibr">De Wever <italic>et al.</italic>, 2008</xref>; <xref rid="R23" ref-type="bibr">Lee <italic>et al.</italic>, 2006</xref>). As shown in <xref ref-type="fig" rid="F3">Figure 3A</xref>, vimentin was strongly expressed in KC with constitutive overexpression of proHB-EGF but not in proAREG expressing KC or control cells. Moreover, vimentin staining was strongly reduced in the presence of PD158780. Addition of high concentrations of exogenous EGF increased vimentin expression in a subset of N/TERT KC, though to a much lesser extent than in HB-EGF overexpressing cells.</p>
+      <p id="P12">Constitutive overexpression of HB-EGF also led to marked changes in the cellular distribution of &#x3B2;-catenin with markedly decreased membrane staining and increased nuclear staining, which was not observed in control N/TERT or AREG expressing cells (<xref ref-type="fig" rid="F3">Figure 3B</xref>). Nuclear accumulation of &#x3B2;-catenin in HB-EGF-expressing but not in control cells was also confirmed by western blotting of nuclear extracts. Treatment of N/TERT-HB-EGF KC with the ErbB RTKI PD158780 preserved cell surface staining and prevented the nuclear localization of &#x3B2;-catenin (<xref ref-type="fig" rid="F3">Figure 3B</xref>). Similar to the results for &#x3B2;-catenin, N/TERT control cells showed a well-defined cell surface staining of the epithelial adherens junction protein E-cadherin, which was strongly decreased in response to HB-EGF overexpression or treatment of control cells with 100 ng/ml of exogenous EGF for 24 h (<xref ref-type="fig" rid="F3">Figure 3C</xref>). As shown in <xref ref-type="fig" rid="F4">Figure 4A</xref> and in agreement with a shift of HB-EGF-overexpressing KC from an epithelial to a more mesenchymal appearance, expression of several other epithelial cell-specific genes including <italic>KRT1, KRT10, KRT5 and KRT14</italic> was strongly reduced in these cells.</p>
+      <p id="P13">E-cadherin gene (<italic>CDH1</italic>) expression is regulated by several transcriptional repressors, including members of the Snail, Twist and ZEB families (for review see (<xref rid="R6" ref-type="bibr">de Herreros <italic>et al.</italic>, 2010</xref>)). As demonstrated in <xref ref-type="fig" rid="F4">Figure 4B</xref> and in agreement with the decreased immuno-detection of E-cadherin in N/TERT-HBEGF KC shown above, <italic>SNAI1</italic> and <italic>ZEB1</italic> transcript levels were markedly increased in HB-EGF overexpressing cells relative to control N/TERT. Furthermore, expression of several other genes that have been previously implicated in EMT and/or tumor invasion including <italic>COX-2</italic>, vimentin (<italic>VIM</italic>) and the matrix-metalloproteinases <italic>MMP1 and MMP10</italic> (<xref rid="R1" ref-type="bibr">Bos <italic>et al.</italic>, 2009</xref>; <xref rid="R12" ref-type="bibr">Gupta <italic>et al.</italic>, 2007</xref>; <xref rid="R23" ref-type="bibr">Lee <italic>et al.</italic>, 2006</xref>; <xref rid="R53" ref-type="bibr">Uttamsingh <italic>et al.</italic>, 2008</xref>) was markedly upregulated in HB-EGF-expressing KC (<xref ref-type="fig" rid="F4">Figure 4B</xref>).</p>
+      <p id="P14">To test whether the increased motility of HB-EGF expressing cells coincides with an increased invasive capacity, we tested them on Matrigel&#x2122; invasion assays. As can be seen in <xref ref-type="fig" rid="F5">Figure 5</xref>, HB-EGF expressing cells showed a strongly increased degree of invasiveness relative to control KC. Indeed, HB-EGF overexpressing KC were more invasive than the metastatic breast cancer cell line MDA-MB231 (<xref rid="R41" ref-type="bibr">Shimizu <italic>et al.</italic>, 2002</xref>) and very similar to the human fibrosarcoma cell line HT1080 (<xref rid="R21" ref-type="bibr">Kramer <italic>et al.</italic>, 1986</xref>).</p>
+      <p id="P15">To better delineate the potential in vivo relevance of HB-EGF in human skin wounding, we assessed the expression of HB-EGF in the regenerating epidermis of carbon dioxide laser-treated skin of human subjects by laser capture microdissection. As shown in <xref ref-type="fig" rid="F6">Figure 6</xref>, HB-EGF mRNA was strongly upregulated by one week after laser injury, and remained elevated for at least four weeks.</p>
+    </sec>
+    <sec sec-type="discussion" id="S3">
+      <title>DISCUSSION</title>
+      <p id="P16">We have previously shown that AREG is essential for human KC proliferation <italic>in vitro</italic> under autocrine and growth factor-stimulated conditions (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>; <xref rid="R48" ref-type="bibr">Stoll <italic>et al.</italic>, 2010b</xref>). Here we demonstrate that, in contrast to the proliferative function of AREG, overexpression of HB-EGF inhibits proliferation (<xref ref-type="fig" rid="F2">Figure 2</xref>) and promotes a migratory phenotype with pronounced cell scattering and elongated, spindled cell morphology (<xref ref-type="fig" rid="F1">Figure 1</xref> and <xref ref-type="supplementary-material" rid="SD4">video #3</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Data</xref>). The observed morphological changes characterized by the reduction of epithelial cell-cell adhesion in combination with spindled cell appearance are hallmarks of EMT (<xref rid="R8" ref-type="bibr">De Wever <italic>et al.</italic>, 2008</xref>; <xref rid="R23" ref-type="bibr">Lee <italic>et al.</italic>, 2006</xref>). EMT plays an important role during embryonic development and is strongly implicated in the early stages of carcinogenesis and in cancer progression including invasion, metastasis, and recurrence (<xref rid="R8" ref-type="bibr">De Wever <italic>et al.</italic>, 2008</xref>). Our data show that HB-EGF overexpressing KC have a strongly increased capacity for three-dimensional invasion through matrigel basement membrane, which is very similar to the invasive fibrosarcoma cell line HT1080 (<xref rid="R21" ref-type="bibr">Kramer <italic>et al.</italic>, 1986</xref>) (<xref ref-type="fig" rid="F5">Figure 5</xref>).</p>
+      <p id="P17">In addition to the changes in phenotype and motility, our results demonstrate that HB-EGF-overexpressing KC display many of the commonly described characteristics of EMT including decreased expression of E-cadherin, cellular redistribution of &#x3B2;-catenin, and increased expression of vimentin (<xref rid="R23" ref-type="bibr">Lee <italic>et al.</italic>, 2006</xref>) (<xref ref-type="fig" rid="F3">Figure 3</xref>). We also found markedly increased expression of several genes that have been implicated in EMT and/or during tumor progression including COX-2 (<xref rid="R12" ref-type="bibr">Gupta <italic>et al.</italic>, 2007</xref>; <xref rid="R52" ref-type="bibr">Tsujii <italic>et al.</italic>, 1997</xref>), MMP1 and MMP10 (<xref rid="R12" ref-type="bibr">Gupta <italic>et al.</italic>, 2007</xref>) (<xref ref-type="fig" rid="F4">Figure 4</xref>).</p>
+      <p id="P18">Several transcription factors have been identified as key regulators of EMT including the transcriptional repressors SNAI1, SNAI2, TWIST1 and ZEB1 (<xref rid="R6" ref-type="bibr">de Herreros <italic>et al.</italic>, 2010</xref>). These transcription factors have been shown to inhibit the expression of E-cadherin and other epithelial cell junction proteins that are important for the maintenance of the epithelial architecture (<xref rid="R2" ref-type="bibr">Cano <italic>et al.</italic>, 2000</xref>; de Herreros <italic>et al.</italic>; <xref rid="R23" ref-type="bibr">Lee <italic>et al.</italic>, 2006</xref>; <xref rid="R28" ref-type="bibr">Moreno-Bueno <italic>et al.</italic>, 2006</xref>; <xref rid="R32" ref-type="bibr">Olmeda <italic>et al.</italic>, 2007</xref>; <xref rid="R33" ref-type="bibr">Peinado <italic>et al.</italic>, 2007</xref>). Here we show that HB-EGF overexpression results in markedly increased expression of SNAI1 and ZEB1.</p>
+      <p id="P19">All EGFR ligands are produced as membrane-bound precursors, which undergo proteolytic cleavage by MPs to release soluble ligands, which bind to and activate ErbB receptors (<xref rid="R40" ref-type="bibr">Sanderson <italic>et al.</italic>, 2006</xref>). Recent findings suggest important ErbB-independent roles of the intracellular domains of these precursors in the regulation of cellular functions (<xref rid="R16" ref-type="bibr">Hirata <italic>et al.</italic>, 2009</xref>; <xref rid="R31" ref-type="bibr">Nanba <italic>et al.</italic>, 2003</xref>; <xref rid="R44" ref-type="bibr">Stoeck <italic>et al.</italic>, 2010</xref>; <xref rid="R48" ref-type="bibr">Stoll <italic>et al.</italic>, 2010b</xref>). In our study, sHB-EGF was as effective as proHB-EGF in inducing EMT-like changes in KC (<xref ref-type="fig" rid="F1">Figures 1</xref> and <xref ref-type="supplementary-material" rid="SD1">S2</xref>), suggesting that the intracellular domain of HB-EGF may be dispensable for these effects, with the caveat that low levels of endogenous HB-EGF might be sufficient to provide the intracellular domain in sHB-EGF-expressing cells. In any case, MP-mediated HB-EGF shedding is clearly necessary for induction of EMT, because the MP inhibitor GM6001 efficiently blocked the phenotypic changes in proHB-EGF-expressing, but not in sHB-EGF-expressing cells. The ErbB RTKI PD158780 strongly blocked HB-EGF-induced phenotypic changes, suggesting that activation of EGFR and/or other ErbBs is necessary for EMT. This is in agreement with findings in other epithelial systems suggesting that activation of EGFR by HB-EGF is important for this process (<xref rid="R24" ref-type="bibr">Lue <italic>et al.</italic>, 2011</xref>; <xref rid="R54" ref-type="bibr">Yagi <italic>et al.</italic>, 2008</xref>; <xref rid="R56" ref-type="bibr">Yin <italic>et al.</italic>, 2010</xref>). Our data also indicate that the HB-EGF Ab we utilized is more effective in neutralizing the motogenic activity of proHB-EGF compared to sHB-EGF (<xref ref-type="fig" rid="F1">Figure 1D</xref>). It is possible that this Ab interferes with MP-mediated shedding of membrane-bound proHB-EGF, as previously suggested for other HB-EGF Abs (<xref rid="R13" ref-type="bibr">Hamaoka <italic>et al.</italic>, 2010</xref>).</p>
+      <p id="P20">It was surprising that relatively small amounts of HB-EGF (&lt; 1 ng/ml) detected by ELISA in KC CM (<xref ref-type="fig" rid="F1">Figure 1A</xref>) could account for the pronounced EMT-like changes we observed, especially when compared to much higher concentrations of exogenously-added recombinant human (rh)HB-EGF (10 or 100 ng/ml)(<xref ref-type="fig" rid="F1">Figure 1B</xref>). Our data also demonstrate that the motogenic effects of overexpressed sHBEGF are directly due to shed HB-EGF, as removal of His-tagged sHB-EGF from KC CM by nickel chromatography completely abolishes its motogenic effect (<xref ref-type="fig" rid="F1">Figure 1C</xref>). Taken together, these results suggest that KC-derived HB-EGF is considerably more potent than rhHB-EGF, possibly due to differences in proteolytic processing or post-translational modification.</p>
+      <p id="P21">Normal and immortalized KC shed roughly ten times more AREG (5 &#x2013;10 ng/ml) (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>) than the low levels of HB-EGF (&lt; 1 ng/ml) that we observed in these experiments (<xref ref-type="fig" rid="F1">Figure 1A</xref>). Moreover, the concentration of shed AREG is increased even further in HB-EGF overexpressing cells (<xref ref-type="supplementary-material" rid="SD1">Figure S5</xref>). Surprisingly, despite this increase in AREG concentration, HB-EGF overexpression led to a large decrease in KC growth (<xref ref-type="fig" rid="F2">Figure 2</xref>). Because HB-EGF has a higher affinity for EGFR than AREG (<xref rid="R20" ref-type="bibr">Kochupurakkal <italic>et al.</italic>, 2005</xref>), it is possible that this outcome is due to receptor occupancy and/or down regulation by HB-EGF. This could also explain the relatively small amount of sHB-EGF detected in KC conditioned medium (<xref ref-type="fig" rid="F1">Figure 1A</xref>). However, because KC prefer to proliferate as colonies rather than individual cells (<xref rid="R36" ref-type="bibr">Rheinwald and Green, 1977</xref>), we suspect that the EMT-like changes induced by HB-EGF inhibit KC growth by diminishing cell-cell contact.</p>
+      <p id="P22">While these experiments have been performed in cultured cells, several lines of evidence indicate that our results are relevant to the in vivo situation. HB-EGF has been implicated in promoting metastasis of other epithelial cell types in vivo (<xref rid="R24" ref-type="bibr">Lue <italic>et al.</italic>, 2011</xref>; <xref rid="R54" ref-type="bibr">Yagi <italic>et al.</italic>, 2008</xref>; <xref rid="R56" ref-type="bibr">Yin <italic>et al.</italic>, 2010</xref>). Additionally, we and others have previously shown that HB-EGF is overexpressed in non-melanoma skin cancers (<xref rid="R35" ref-type="bibr">Raab and Klagsbrun, 1997</xref>; <xref rid="R37" ref-type="bibr">Ritti&#xE9; <italic>et al.</italic>, 2007</xref>) and in retinoid-treated human skin (<xref rid="R39" ref-type="bibr">Ritti&#xE9; <italic>et al.</italic>, 2006</xref>; <xref rid="R46" ref-type="bibr">Stoll and Elder, 1998</xref>). In normal skin, HB-EGF has been implicated in the process of re-epithelialization, during which KC must rapidly migrate to cover the wound bed (<xref rid="R14" ref-type="bibr">Hashimoto <italic>et al.</italic>, 1994</xref>; <xref rid="R51" ref-type="bibr">Tokumaru <italic>et al.</italic>, 2000</xref>). We have previously shown that HB-EGF is rapidly induced in short-term organ cultures of human skin, followed later by AREG and TGF-&#x3B1; (<xref rid="R45" ref-type="bibr">Stoll <italic>et al.</italic>, 1997</xref>). Here we show that HB-EGF is also strongly induced in healing human epidermis after laser-induced partial-thickness skin wounding <italic>in vivo</italic> (<xref ref-type="fig" rid="F6">Figure 6</xref>). Interestingly, we found that overexpression of HB-EGF in KC is accompanied by markedly decreased expression of keratins 5, 14, 1 and 10 (<xref ref-type="fig" rid="F4">Figure 4</xref>). The somewhat stronger inhibition of keratins 1 and 10 relative to keratins 5 and 14 by HB-EGF is in agreement with a previous report that these differentiation-related keratins are strongly suppressed by inclusion of EGF in the culture medium (<xref rid="R34" ref-type="bibr">Poumay and Pittelkow, 1995</xref>). Based on these findings, we propose that the role of HB-EGF in re-epithelializing wounds is to induce KC migration while inhibiting proliferation and differentiation.</p>
+      <p id="P23">In summary, our data demonstrate that HB-EGF overexpression induces an EMT-like phenotype of highly motile KC with markedly increased invasive potential. These data implicate HB-EGF as a potential mediator of the molecular mechanisms that control EMT and invasiveness in otherwise-normal KC and as such it is an attractive potential target for therapeutic exploration.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="S4">
+      <title>MATERIAL AND METHODS</title>
+      <sec id="S5">
+        <title>Reagents</title>
+        <p id="P24">The metalloproteinase inhibitors (MPI) GM6001 and the ErbB RTKI PD158780 were purchased from Calbiochem (San Diego, CA). EGF was from Peprotech (Rocky Hill, NJ) and recombinant human HB-EGF and HB-EGF antibody (Ab) was from R&amp;D Systems (Minneapolis, MN). Other Abs used in this study were mouse anti-Vimentin (Clone V9, Chemicon), rat anti-E-Cadherin (Clone ECCD-2, Invitrogen) and the anti- &#x3B2;-catenin monoclonal Ab (clone 15B8, Sigma-Aldrich). Horseradish peroxidase (HRP) or FITC conjugated secondary antibodies were purchased from Upstate Biotechnology (Lake Placid, NY) or ICN (Costa Mesa, CA). Ni-NTA agarose, antibiotics and lipofectamine 2000 were obtained from Invitrogen (Carlsbad, CA). All other chemicals including were from Sigma (St. Louis, MO).</p>
+      </sec>
+      <sec id="S6">
+        <title>In Vivo Wound Healing Studies</title>
+        <p id="P25">All procedures involving human subjects were approved by the Institutional Review Board of the University of Michigan and conducted according to the Declaration of Helsinki Principles. Written, informed consent was obtained from all participants prior to enrollment in the study. All methods have been described previously (<xref rid="R38" ref-type="bibr">Ritti&#xE9; <italic>et al.</italic>, 2011</xref>). Briefly, partial thickness wounds were performed on forearm skin using a CO<sub>2</sub> laser, which removed the entire epidermis and papillary dermis. Wounds were dressed until re-epithelialization was visually achieved (10&#x2013;14 days). Four-millimeter full thickness biopsies were taken in the center of wounded areas 1, 2, 3, and 4 weeks after laser treatment, and in an adjacent area for control. Frozen sections were prepared and interfollicular epidermis was isolated from dermis and hair follicle infundibula by laser-capture microdissection. Total RNA was extracted from microdissected tissue and reverse-transcribed in cDNA, which was in turn pre-amplified and analyzed for HB-EGF and 36B4 expression by QRT-PCR with custom primers and probe sets (<xref rid="R39" ref-type="bibr">Ritti&#xE9; et al, 2006</xref>).</p>
+      </sec>
+      <sec id="S7">
+        <title>Cell Culture</title>
+        <p id="P26">N/TERT-2G, an immortalized, non-transformed KC cell line was grown in KC serum-free medium (KFSM, Gibco) as previously described (<xref rid="R9" ref-type="bibr">Dickson <italic>et al.</italic>, 2000</xref>). Normal human KC (NHK) were cultured in serum free medium (Medium 154 CF, Cascade Biologics, Portland, OR) with 0.1 mM calcium (<xref rid="R49" ref-type="bibr">Stoll <italic>et al.</italic>, 2001</xref>). MDA-MB231, HT1080 and human embryonic kidney cells (293FT, Invitrogen), were grown in Dulbeco&#x2019;s Modified Eagle&#x2019;s medium (DMEM, Gibco) with 10% fetal bovine serum (FBS, Atlanta Biologicals, Lawrenceville, GA). For time-lapse microscopy, KC cell lines were incubated in basal KSFM medium 4 hours prior to the time-lapse experiment and filmed for 16h with photographs taken every 5 min.</p>
+      </sec>
+      <sec id="S8">
+        <title>Lentivirus-Mediated Gene Expression</title>
+        <p id="P27">cDNAs encoding the pro- or soluble forms of HB-EGF and AREG were cloned into the lentiviral expression vectors pLenti6/CMV/V5-DEST or pLenti4/TO/V5-DEST and used for lentivirus production in 293FT cells. Lentiviruses were used to transiently infect NHK or to generate stably transduced N/TERT KC cell lines with constitutive or tetracycline (TET)-inducible expression of AREG or HB-EGF as previously described (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>).</p>
+      </sec>
+      <sec id="S9">
+        <title>RNA Isolation And Quantitative Reverse Transcriptase Polymerase Chain Reaction (QRT-PCR)</title>
+        <p id="P28">RNA isolation, reverse transcription and QRT-PCR with predesigned TaqMan gene expression assays (Applied Biosystems, Foster City, CA) was done as previously described (<xref rid="R47" ref-type="bibr">Stoll <italic>et al.</italic>, 2010a</xref>). Gene expression data are expressed as percent of the control gene RPLP0 (36B4) (<xref rid="R22" ref-type="bibr">Laborda, 1991</xref>)(fold-change relative to 36B4, = 2<sup>&#x2212;(CT target &#x2212;CT 36B4)</sup> &#xD7; 100).</p>
+      </sec>
+      <sec id="S10">
+        <title>Cell Growth Assays</title>
+        <p id="P29">KC were plated at 2,500 cells/cm<sup>2</sup> in KSFM and allowed to attach for 20h followed by incubation in the presence or absence of 1 &#xB5;g/ml TET with medium changes every two to three days. KC cell numbers were assessed by trypsinization followed by hemacytometer counting, or after staining with crystal violet and imaging. For quantification of cell growth, crystal violet-stained cells were incubated with 10% acetic acid for 5 min, followed by measurement of absorbance at 590 nm.</p>
+      </sec>
+      <sec id="S11">
+        <title>Nuclear Isolation and Western Blotting</title>
+        <p id="P30">KC were grown to 40 to 50% confluence in regular growth medium, and deprived of growth factors by incubation in basal medium for 48 h. The cells were then incubated in fresh M154 in the presence or absence of PD158780 (1 &#xB5;M) or blocking Abs directed against AREG or HB-EGF (5 &#xB5;g/ml each) and processed for nuclear isolation as previously described (<xref rid="R50" ref-type="bibr">Stoll <italic>et al.</italic>, 1998</xref>). Equal amounts of protein were subjected to western blotting as previously described (<xref rid="R49" ref-type="bibr">Stoll <italic>et al.</italic>, 2001</xref>) with the &#x3B2;-catenin primary Ab.</p>
+      </sec>
+      <sec id="S12">
+        <title>Immunofluorescence</title>
+        <p id="P31">KC were plated (5,000 cells / cm<sup>2</sup>) and grown on coverslips until approximately 40% confluent, followed by incubation in basal M154 medium in the presence or absence of inhibitors with and without EGF as described above. Immunofluorescence staining was done as previously described (<xref rid="R49" ref-type="bibr">Stoll <italic>et al.</italic>, 2001</xref>) using FITC-conjugated secondary IgG Abs listed above. Nuclei were counterstained with 4&#x2019;, 6 diamidino-2-phenylindole (DAPI).</p>
+      </sec>
+      <sec id="S13">
+        <title>Enzyme-Linked Immunosorbent Assay (ELISA)</title>
+        <p id="P32">Shed HB-EGF in KC-conditioned medium were measured in duplicates by sandwich ELISA (R&amp;D Systems) according to the manufacturer&#x2019;s instructions.</p>
+      </sec>
+      <sec id="S14">
+        <title>Matrigel Invasion Assays</title>
+        <p id="P33">Growth Factor Reduced Matrigel&#x2122; Invasion Chambers (24-well plates with 8 mm pore size) were rehydrated according to the manufacturer&#x2019;s instruction (BD Bioscience, Bedford, MA). Cells were plated at 5 &#xD7; 10<sup>4</sup> cells per insert in KSFM for KC or DMEM for HT1080 and MDA-MB231 cells. 10% FBS was added as a chemoattractant to the corresponding medium in the lower chamber. Non-invading cells on the upper side of the membrane were removed by scrubbing with cotton-tipped applicators followed by staining of invading cells on the lower side of the membrane with crystal violet.</p>
+      </sec>
+      <sec id="S15">
+        <title>Statistical Analysis</title>
+        <p id="P34">Statistical significance was determined by paired or unpaired Student&#x2019;s <italic>t</italic>-tests or one-sample <italic>t</italic>-tests as indicated in the figure legends. Data are expressed as mean +/&#x2212; standard error of the mean (SEM).</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="SM">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <label>Figs S1-S5</label>
+        <media xlink:href="NIHMS359035-supplement-Figs_S1-S5.pdf" mimetype="application" mime-subtype="pdf" orientation="portrait" xlink:type="simple" id="d37e1025" position="anchor"/>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SD2">
+        <label>Video 1: N/TERT KCs</label>
+        <media xlink:href="NIHMS359035-supplement-Video_1__N_TERT_KCs.mov" mimetype="video" mime-subtype="quicktime" orientation="portrait" xlink:type="simple" id="d37e1029" position="anchor"/>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SD3">
+        <label>Video 2: N/TERT KCs with constitutive expression of AREG</label>
+        <media xlink:href="NIHMS359035-supplement-Video_2__N_TERT_KCs_with_constitutive_expression_of_AREG.mov" mimetype="video" mime-subtype="quicktime" orientation="portrait" xlink:type="simple" id="d37e1033" position="anchor"/>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="SD4">
+        <label>Video 3: N/TERT KCs with constitutive expression of HB-EGF</label>
+        <media xlink:href="NIHMS359035-supplement-Video_3__N_TERT_KCs_with_constitutive_expression_of_HB-EGF.mov" mimetype="video" mime-subtype="quicktime" orientation="portrait" xlink:type="simple" id="d37e1037" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn id="FN1" fn-type="conflict">
+        <p id="P55">
+          <bold>CONFLICT OF INTEREST:</bold>
+        </p>
+        <p id="P56">The authors state no conflict of interest.</p>
+      </fn>
+    </fn-group>
+    <ack id="S16">
+      <title>ACKNOWLEDGEMENTS</title>
+      <p id="P57">We thank Dr. Jeffrey Orringer for performing CO<sub>2</sub> laser treatments, Suzan Rehbine for biopsy procurement and Dr. James Rheinwald and the Cell Culture Core of the Harvard Skin Disease Research Center, Boston, MA for providing the TERT-immortalized human KC cell line N/TERT-2G. This work was supported by the National Institute for Arthritis, Musculoskeletal and Skin Disease (NIAMS), National Institutes of Health (NIH award K01 AR050462 and R03 AR049420 to SWS and R01 AR 052889 to JTE). JTE is supported by the Ann Arbor Veterans Affairs Hospital.</p>
+    </ack>
+    <glossary>
+      <title>Abbreviations: Abbreviations used in this paper</title>
+      <def-list>
+        <def-item>
+          <term>Ab</term>
+          <def>
+            <p id="P35">antibody</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>AREG</term>
+          <def>
+            <p id="P36">amphiregulin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>BTC</term>
+          <def>
+            <p id="P37">betacellulin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CDH1</term>
+          <def>
+            <p id="P38">E-cadherin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CDH2</term>
+          <def>
+            <p id="P39">N-cadherin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF</term>
+          <def>
+            <p id="P40">epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGFR</term>
+          <def>
+            <p id="P41">EGF receptor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ELISA</term>
+          <def>
+            <p id="P42">enzyme-linked immunosorbent assay</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EMT</term>
+          <def>
+            <p id="P43">epithelial-mesenchymal transition</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EPGN</term>
+          <def>
+            <p id="P44">epigen</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EREG</term>
+          <def>
+            <p id="P45">epiregulin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>GF</term>
+          <def>
+            <p id="P46">growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>HB-EGF</term>
+          <def>
+            <p id="P47">heparin-binding EGF-like growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>KC</term>
+          <def>
+            <p id="P48">keratinocyte</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>MP</term>
+          <def>
+            <p id="P49">metalloproteinase</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NHK</term>
+          <def>
+            <p id="P50">normal human keratinocytes</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>QRT-PCR</term>
+          <def>
+            <p id="P51">quantitative reverse transcription-polymerase chain reaction</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>RTKI</term>
+          <def>
+            <p id="P52">receptor tyrosine kinase inhibitor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TET</term>
+          <def>
+            <p id="P53">tetracycline</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TGF-&#x3B1;</term>
+          <def>
+            <p id="P54">transforming growth factor-&#x3B1;</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="R1">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bos</surname>
+              <given-names>PD</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>XH</given-names>
+            </name>
+            <name>
+              <surname>Nadal</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Shu</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Gomis</surname>
+              <given-names>RR</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>DX</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genes that mediate breast cancer metastasis to the brain</article-title>
+          <source>Nature</source>
+          <year>2009</year>
+          <volume>459</volume>
+          <fpage>1005</fpage>
+          <lpage>1009</lpage>
+          <pub-id pub-id-type="pmid">19421193</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cano</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Perez-Moreno</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Rodrigo</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Locascio</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Blanco</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>del Barrio</surname>
+              <given-names>MG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The transcription factor snail controls epithelial-mesenchymal transitions by repressing E-cadherin expression</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2000</year>
+          <volume>2</volume>
+          <fpage>76</fpage>
+          <lpage>83</lpage>
+          <pub-id pub-id-type="pmid">10655586</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Coffey</surname>
+              <given-names>RJ</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <name>
+              <surname>Derynck</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Wilcox</surname>
+              <given-names>JN</given-names>
+            </name>
+            <name>
+              <surname>Bringman</surname>
+              <given-names>TS</given-names>
+            </name>
+            <name>
+              <surname>Goustin</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Moses</surname>
+              <given-names>HL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Production and auto-induction of transforming growth factor-alpha in human keratinocytes</article-title>
+          <source>Nature</source>
+          <year>1987</year>
+          <volume>328</volume>
+          <fpage>817</fpage>
+          <lpage>820</lpage>
+          <pub-id pub-id-type="pmid">2442615</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cook</surname>
+              <given-names>PW</given-names>
+            </name>
+            <name>
+              <surname>Mattox</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Keeble</surname>
+              <given-names>WW</given-names>
+            </name>
+            <name>
+              <surname>Pittelkow</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Plowman</surname>
+              <given-names>GD</given-names>
+            </name>
+            <name>
+              <surname>Shoyab</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A heparin sulfate-regulated human keratinocyte autocrine factor is similar or identical to amphiregulin</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1991</year>
+          <volume>11</volume>
+          <fpage>2547</fpage>
+          <lpage>2557</lpage>
+          <pub-id pub-id-type="pmid">2017164</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Das</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>XN</given-names>
+            </name>
+            <name>
+              <surname>Paria</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Damm</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Abraham</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Klagsbrun</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Heparin-binding EGF-like growth factor gene is induced in the mouse uterus temporally by the blastocyst solely at the site of its apposition: a possible ligand for interaction with blastocyst EGF- receptor in implantation</article-title>
+          <source>Development</source>
+          <year>1994</year>
+          <volume>120</volume>
+          <fpage>1071</fpage>
+          <lpage>1083</lpage>
+          <pub-id pub-id-type="pmid">8026321</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Herreros</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Peiro</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nassour</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Savagner</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Snail family regulation and epithelial mesenchymal transitions in breast cancer progression</article-title>
+          <source>J Mammary Gland Biol Neoplasia</source>
+          <year>2010</year>
+          <volume>15</volume>
+          <fpage>135</fpage>
+          <lpage>147</lpage>
+          <pub-id pub-id-type="pmid">20455012</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De Potter</surname>
+              <given-names>IY</given-names>
+            </name>
+            <name>
+              <surname>Poumay</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Squillace</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Pittelkow</surname>
+              <given-names>MR</given-names>
+            </name>
+          </person-group>
+          <article-title>Human EGF receptor (HER) family and heregulin members are differentially expressed in epidermal keratinocytes and modulate differentiation</article-title>
+          <source>Exp Cell Res</source>
+          <year>2001</year>
+          <volume>271</volume>
+          <fpage>315</fpage>
+          <lpage>328</lpage>
+          <pub-id pub-id-type="pmid">11716544</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>De Wever</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Pauwels</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>De Craene</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Sabbah</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Emami</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Redeuilh</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Molecular and pathological signatures of epithelial-mesenchymal transitions at the cancer invasion front</article-title>
+          <source>Histochem Cell Biol</source>
+          <year>2008</year>
+          <volume>130</volume>
+          <fpage>481</fpage>
+          <lpage>494</lpage>
+          <pub-id pub-id-type="pmid">18648847</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dickson</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Hahn</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Ino</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ronfard</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Weinberg</surname>
+              <given-names>RA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human keratinocytes that express hTERT and also bypass a p16(INK4a)-enforced mechanism that limits life span become immortal yet retain normal growth and differentiation characteristics</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>1436</fpage>
+          <lpage>1447</lpage>
+          <pub-id pub-id-type="pmid">10648628</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Elenius</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Paul</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Allison</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Klagsbrun</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of HER4 by heparin-binding EGF-like growth factor stimulates chemotaxis but not proliferation</article-title>
+          <source>Embo J</source>
+          <year>1997</year>
+          <volume>16</volume>
+          <fpage>1268</fpage>
+          <lpage>1278</lpage>
+          <pub-id pub-id-type="pmid">9135143</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Giltaire</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Lambert</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Poumay</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>HB-EGF synthesis and release induced by cholesterol depletion of human epidermal keratinocytes is controlled by extracellular ATP and involves both p38 and ERK1/2 signaling pathways</article-title>
+          <source>J Cell Physiol</source>
+          <year>2011</year>
+          <volume>226</volume>
+          <fpage>1651</fpage>
+          <lpage>1659</lpage>
+          <pub-id pub-id-type="pmid">21413023</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gupta</surname>
+              <given-names>GP</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>DX</given-names>
+            </name>
+            <name>
+              <surname>Chiang</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Bos</surname>
+              <given-names>PD</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name>
+              <surname>Nadal</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mediators of vascular remodelling co-opted for sequential steps in lung metastasis</article-title>
+          <source>Nature</source>
+          <year>2007</year>
+          <volume>446</volume>
+          <fpage>765</fpage>
+          <lpage>770</lpage>
+          <pub-id pub-id-type="pmid">17429393</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hamaoka</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Chinen</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Murata</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Takashima</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Iwamoto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Mekada</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Anti-human HB-EGF monoclonal antibodies inhibiting ectodomain shedding of HB-EGF and diphtheria toxin binding</article-title>
+          <source>J Biochem</source>
+          <year>2010</year>
+          <volume>148</volume>
+          <fpage>55</fpage>
+          <lpage>69</lpage>
+          <pub-id pub-id-type="pmid">20332144</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hashimoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Higashiyama</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Asada</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hashimura</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sudo</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Heparin-binding epidermal growth factor-like growth factor is an autocrine growth factor for human keratinocytes</article-title>
+          <source>J Biol Chem</source>
+          <year>1994</year>
+          <volume>269</volume>
+          <fpage>20060</fpage>
+          <lpage>20066</lpage>
+          <pub-id pub-id-type="pmid">8051092</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Higashiyama</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Abraham</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Fiddes</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Klagsbrun</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>A heparin-binding growth factor secreted by macrophage-like cells that is related to EGF</article-title>
+          <source>Science</source>
+          <year>1991</year>
+          <volume>251</volume>
+          <fpage>936</fpage>
+          <lpage>939</lpage>
+          <pub-id pub-id-type="pmid">1840698</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hirata</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ogasawara</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mizushima</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shimura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Mizoshita</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BCL6 degradation caused by the interaction with the C-terminus of pro-HB-EGF induces cyclin D2 expression in gastric cancers</article-title>
+          <source>Br J Cancer</source>
+          <year>2009</year>
+          <volume>100</volume>
+          <fpage>1320</fpage>
+          <lpage>1329</lpage>
+          <pub-id pub-id-type="pmid">19337254</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Iwamoto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yamazaki</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Asakura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Takashima</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hasuwa</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Miyado</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Heparin-binding EGF-like growth factor and ErbB signaling is essential for heart function</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2003</year>
+          <volume>100</volume>
+          <fpage>3221</fpage>
+          <lpage>3226</lpage>
+          <pub-id pub-id-type="pmid">12621152</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jackson</surname>
+              <given-names>LF</given-names>
+            </name>
+            <name>
+              <surname>Qiu</surname>
+              <given-names>TH</given-names>
+            </name>
+            <name>
+              <surname>Sunnarborg</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Patterson</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Defective valvulogenesis in HB-EGF and TACE-null mice is associated with aberrant BMP signaling</article-title>
+          <source>Embo J</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>2704</fpage>
+          <lpage>2716</lpage>
+          <pub-id pub-id-type="pmid">12773386</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kinugasa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hieda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hori</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Higashiyama</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>The carboxyl-terminal fragment of pro-HB-EGF reverses Bcl6-mediated gene repression</article-title>
+          <source>J Biol Chem</source>
+          <year>2007</year>
+          <volume>282</volume>
+          <fpage>14797</fpage>
+          <lpage>14806</lpage>
+          <pub-id pub-id-type="pmid">17392284</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kochupurakkal</surname>
+              <given-names>BS</given-names>
+            </name>
+            <name>
+              <surname>Harari</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Di-Segni</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Maik-Rachline</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lyass</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gur</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epigen, the last ligand of ErbB receptors, reveals intricate relationships between affinity and mitogenicity</article-title>
+          <source>J Biol Chem</source>
+          <year>2005</year>
+          <volume>280</volume>
+          <fpage>8503</fpage>
+          <lpage>8512</lpage>
+          <pub-id pub-id-type="pmid">15611079</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kramer</surname>
+              <given-names>RH</given-names>
+            </name>
+            <name>
+              <surname>Bensch</surname>
+              <given-names>KG</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Invasion of reconstituted basement membrane matrix by metastatic human tumor cells</article-title>
+          <source>Cancer Res</source>
+          <year>1986</year>
+          <volume>46</volume>
+          <fpage>1980</fpage>
+          <lpage>1989</lpage>
+          <pub-id pub-id-type="pmid">3948175</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Laborda</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>36B4 cDNA used as an estradiol-independent mRNA control is the cDNA for human acidic ribosomal phosphoprotein PO</article-title>
+          <source>Nucleic Acids Res</source>
+          <year>1991</year>
+          <volume>19</volume>
+          <fpage>3998</fpage>
+          <pub-id pub-id-type="pmid">1861990</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Dedhar</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kalluri</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Thompson</surname>
+              <given-names>EW</given-names>
+            </name>
+          </person-group>
+          <article-title>The epithelial-mesenchymal transition: new insights in signaling, development, and disease</article-title>
+          <source>J Cell Biol</source>
+          <year>2006</year>
+          <volume>172</volume>
+          <fpage>973</fpage>
+          <lpage>981</lpage>
+          <pub-id pub-id-type="pmid">16567498</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lue</surname>
+              <given-names>HW</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Qian</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>RZ</given-names>
+            </name>
+            <name>
+              <surname>Lyles</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>LIV-1 Promotes Prostate Cancer Epithelial-to-Mesenchymal Transition and Metastasis through HB-EGF Shedding and EGFR-Mediated ERK Signaling</article-title>
+          <source>PLoS One</source>
+          <year>2011</year>
+          <volume>6</volume>
+          <fpage>e27720</fpage>
+          <pub-id pub-id-type="pmid">22110740</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Marikovsky</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Breuing</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>PY</given-names>
+            </name>
+            <name>
+              <surname>Eriksson</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Higashiyama</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Farber</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Appearance of heparin-binding EGF-like growth factor in wound fluid as a response to injury</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1993</year>
+          <volume>90</volume>
+          <fpage>3889</fpage>
+          <lpage>3893</lpage>
+          <pub-id pub-id-type="pmid">8483908</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mathay</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Giltaire</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Minner</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Bera</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Herin</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Poumay</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Heparin-binding EGF-like growth factor is induced by disruption of lipid rafts and oxidative stress in keratinocytes and participates in the epidermal response to cutaneous wounds</article-title>
+          <source>J Invest Dermatol</source>
+          <year>2008</year>
+          <volume>128</volume>
+          <fpage>717</fpage>
+          <lpage>727</lpage>
+          <pub-id pub-id-type="pmid">17928891</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McCarthy</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Downing</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Brigstock</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Luquette</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Brown</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Abad</surname>
+              <given-names>MS</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Production of heparin-binding epidermal growth factor-like growth factor (HB-EGF) at sites of thermal injury in pediatric patients</article-title>
+          <source>J Invest Dermatol</source>
+          <year>1996</year>
+          <volume>106</volume>
+          <fpage>49</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="pmid">8592081</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moreno-Bueno</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Cubillo</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Sarrio</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Peinado</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Rodriguez-Pinilla</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Villa</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genetic profiling of epithelial cells expressing E-cadherin repressors reveals a distinct role for Snail, Slug, and E47 factors in epithelial-mesenchymal transition</article-title>
+          <source>Cancer Res</source>
+          <year>2006</year>
+          <volume>66</volume>
+          <fpage>9543</fpage>
+          <lpage>9556</lpage>
+          <pub-id pub-id-type="pmid">17018611</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Naglich</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Metherall</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Russell</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Eidels</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression cloning of a diphtheria toxin receptor: identity with a heparin-binding EGF-like growth factor precursor</article-title>
+          <source>Cell</source>
+          <year>1992</year>
+          <volume>69</volume>
+          <fpage>1051</fpage>
+          <lpage>1061</lpage>
+          <pub-id pub-id-type="pmid">1606612</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nakata</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Miyagawa</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Yamashita</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nishida</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tamura</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Yamamori</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Localization of heparin-binding epidermal growth factor-like growth factor in human coronary arteries. Possible roles of HB-EGF in the formation of coronary atherosclerosis</article-title>
+          <source>Circulation</source>
+          <year>1996</year>
+          <volume>94</volume>
+          <fpage>2778</fpage>
+          <lpage>2786</lpage>
+          <pub-id pub-id-type="pmid">8941102</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nanba</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Mammoto</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hashimoto</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Higashiyama</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Proteolytic release of the carboxy-terminal fragment of proHB-EGF causes nuclear export of PLZF</article-title>
+          <source>J Cell Biol</source>
+          <year>2003</year>
+          <volume>163</volume>
+          <fpage>489</fpage>
+          <lpage>502</lpage>
+          <pub-id pub-id-type="pmid">14597771</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olmeda</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Jorda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Peinado</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fabra</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Cano</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Snail silencing effectively suppresses tumour growth and invasiveness</article-title>
+          <source>Oncogene</source>
+          <year>2007</year>
+          <volume>26</volume>
+          <fpage>1862</fpage>
+          <lpage>1874</lpage>
+          <pub-id pub-id-type="pmid">17043660</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Peinado</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Olmeda</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cano</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Snail, Zeb and bHLH factors in tumour progression: an alliance against the epithelial phenotype?</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2007</year>
+          <volume>7</volume>
+          <fpage>415</fpage>
+          <lpage>428</lpage>
+          <pub-id pub-id-type="pmid">17508028</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Poumay</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Pittelkow</surname>
+              <given-names>MR</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell density and culture factors regulate keratinocyte commitment to differentiation and expression of suprabasal K1/K10 keratins</article-title>
+          <source>J Invest Dermatol</source>
+          <year>1995</year>
+          <volume>104</volume>
+          <fpage>271</fpage>
+          <lpage>276</lpage>
+          <pub-id pub-id-type="pmid">7530273</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raab</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Klagsbrun</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Heparin-binding EGF-like growth factor</article-title>
+          <source>Biochim Biophys Acta</source>
+          <year>1997</year>
+          <volume>1333</volume>
+          <fpage>F179</fpage>
+          <lpage>F199</lpage>
+          <pub-id pub-id-type="pmid">9426203</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rheinwald</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor and the multiplication of cultured human epidermal keratinocytes</article-title>
+          <source>Nature</source>
+          <year>1977</year>
+          <volume>265</volume>
+          <fpage>421</fpage>
+          <lpage>424</lpage>
+          <pub-id pub-id-type="pmid">299924</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R37">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ritti&#xE9;</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Kansra</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Stoll</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Gudjonsson</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Shao</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differential ErbB1 signaling in squamous cell versus basal cell carcinoma of the skin</article-title>
+          <source>Am J Pathol</source>
+          <year>2007</year>
+          <volume>170</volume>
+          <fpage>2089</fpage>
+          <lpage>2099</lpage>
+          <pub-id pub-id-type="pmid">17525275</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R38">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ritti&#xE9;</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Perbal</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Castellot</surname>
+              <given-names>JJ</given-names>
+              <suffix>Jr</suffix>
+            </name>
+            <name>
+              <surname>Orringer</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Voorhees</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Fisher</surname>
+              <given-names>GJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Spatial-temporal modulation of CCN proteins during wound healing in human skin in vivo</article-title>
+          <source>J Cell Commun Signal</source>
+          <year>2011</year>
+          <volume>5</volume>
+          <fpage>69</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="pmid">21484592</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R39">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ritti&#xE9;</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Varani</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Voorhees</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Fisher</surname>
+              <given-names>GJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Retinoid-induced epidermal hyperplasia is mediated by epidermal growth factor receptor activation via specific induction of its ligands heparin-binding EGF and amphiregulin in human skin in vivo</article-title>
+          <source>J Invest Dermatol</source>
+          <year>2006</year>
+          <volume>126</volume>
+          <fpage>732</fpage>
+          <lpage>739</lpage>
+          <pub-id pub-id-type="pmid">16470170</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R40">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sanderson</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Dempsey</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Dunbar</surname>
+              <given-names>AJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Control of ErbB signaling through metalloprotease mediated ectodomain shedding of EGF-like factors</article-title>
+          <source>Growth Factors</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <fpage>121</fpage>
+          <lpage>136</lpage>
+          <pub-id pub-id-type="pmid">16801132</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R41">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Koyama</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Asada</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yoshimatsu</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Aberrant expression of integrin and erbB subunits in breast cancer cell lines</article-title>
+          <source>Int J Oncol</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>1073</fpage>
+          <lpage>1079</lpage>
+          <pub-id pub-id-type="pmid">12370757</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R42">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shirakata</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kimura</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Nanba</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Iwamoto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Tokumaru</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Morimoto</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Heparin-binding EGF-like growth factor accelerates keratinocyte migration and skin wound healing</article-title>
+          <source>J Cell Sci</source>
+          <year>2005</year>
+          <volume>118</volume>
+          <fpage>2363</fpage>
+          <lpage>2370</lpage>
+          <pub-id pub-id-type="pmid">15923649</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R43">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shirakata</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Komurasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Toyoda</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hanakawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Yamasaki</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Tokumaru</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epiregulin, a novel member of the epidermal growth factor family, is an autocrine growth factor in normal human keratinocytes</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>5748</fpage>
+          <lpage>5753</lpage>
+          <pub-id pub-id-type="pmid">10681561</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R44">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoeck</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Dempsey</surname>
+              <given-names>PJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Sequential and gamma-secretase-dependent processing of the betacellulin precursor generates a palmitoylated intracellular-domain fragment that inhibits cell growth</article-title>
+          <source>J Cell Sci</source>
+          <year>2010</year>
+          <volume>123</volume>
+          <fpage>2319</fpage>
+          <lpage>2331</lpage>
+          <pub-id pub-id-type="pmid">20530572</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R45">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoll</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Garner</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Elder</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Heparin-binding ligands mediate autocrine EGF receptor activation in skin organ culture</article-title>
+          <source>J Clin Invest</source>
+          <year>1997</year>
+          <volume>100</volume>
+          <fpage>1271</fpage>
+          <lpage>1281</lpage>
+          <pub-id pub-id-type="pmid">9276746</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R46">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoll</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Elder</surname>
+              <given-names>JT</given-names>
+            </name>
+          </person-group>
+          <article-title>Retinoid regulation of heparin-binding EGF-like growth factor expression in human keratinocytes and skin</article-title>
+          <source>Exp Dermatology</source>
+          <year>1998</year>
+          <volume>7</volume>
+          <fpage>391</fpage>
+          <lpage>397</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R47">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoll</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Bhasin</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Johnston</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gudjonsson</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Ritti&#xE9;</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Metalloproteinase-Mediated, Context-Dependent Function of Amphiregulin and HB-EGF in Human Keratinocytes and Skin</article-title>
+          <source>J Invest Dermatol</source>
+          <year>2010a</year>
+          <volume>130</volume>
+          <fpage>295</fpage>
+          <lpage>304</lpage>
+          <pub-id pub-id-type="pmid">19609315</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R48">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoll</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ritti&#xE9;</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Elder</surname>
+              <given-names>JT</given-names>
+            </name>
+          </person-group>
+          <article-title>Amphiregulin carboxy-terminal domain is required for autocrine keratinocyte growth</article-title>
+          <source>J Invest Dermatol</source>
+          <year>2010b</year>
+          <volume>130</volume>
+          <fpage>2031</fpage>
+          <lpage>2040</lpage>
+          <pub-id pub-id-type="pmid">20428186</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R49">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoll</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Kansra</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Peshick</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Fry</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Leopold</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Wiesen</surname>
+              <given-names>JF</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differential utilization and localization of ErbB receptor tyrosine kinase activities in intact skin compared to normal and malignant keratinocytes</article-title>
+          <source>Neoplasia</source>
+          <year>2001</year>
+          <volume>3</volume>
+          <fpage>339</fpage>
+          <lpage>350</lpage>
+          <pub-id pub-id-type="pmid">11571634</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R50">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stoll</surname>
+              <given-names>SW</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Elder</surname>
+              <given-names>JT</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF stimulates transcription of CaN19 (S100A2) in HaCaT keratinocytes</article-title>
+          <source>J Invest Dermatol</source>
+          <year>1998</year>
+          <volume>111</volume>
+          <fpage>1092</fpage>
+          <lpage>1097</lpage>
+          <pub-id pub-id-type="pmid">9856822</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R51">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tokumaru</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Higashiyama</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Endo</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nakagawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Miyagawa</surname>
+              <given-names>JI</given-names>
+            </name>
+            <name>
+              <surname>Yamamori</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ectodomain shedding of epidermal growth factor receptor ligands is required for keratinocyte migration in cutaneous wound healing</article-title>
+          <source>J Cell Biol</source>
+          <year>2000</year>
+          <volume>151</volume>
+          <fpage>209</fpage>
+          <lpage>220</lpage>
+          <pub-id pub-id-type="pmid">11038170</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R52">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsujii</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kawano</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>DuBois</surname>
+              <given-names>RN</given-names>
+            </name>
+          </person-group>
+          <article-title>Cyclooxygenase-2 expression in human colon cancer cells increases metastatic potential</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1997</year>
+          <volume>94</volume>
+          <fpage>3336</fpage>
+          <lpage>3340</lpage>
+          <pub-id pub-id-type="pmid">9096394</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R53">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uttamsingh</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Bao</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Nguyen</surname>
+              <given-names>KT</given-names>
+            </name>
+            <name>
+              <surname>Bhanot</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Gong</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>JL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Synergistic effect between EGF and TGF-beta1 in inducing oncogenic properties of intestinal epithelial cells</article-title>
+          <source>Oncogene</source>
+          <year>2008</year>
+          <volume>27</volume>
+          <fpage>2626</fpage>
+          <lpage>2634</lpage>
+          <pub-id pub-id-type="pmid">17982486</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R54">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yagi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Yotsumoto</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Miyamoto</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Heparin-binding epidermal growth factor-like growth factor promotes transcoelomic metastasis in ovarian cancer through epithelial-mesenchymal transition</article-title>
+          <source>Mol Cancer Ther</source>
+          <year>2008</year>
+          <volume>7</volume>
+          <fpage>3441</fpage>
+          <lpage>3451</lpage>
+          <pub-id pub-id-type="pmid">18852147</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R55">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamazaki</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Iwamoto</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Saeki</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Asakura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Takashima</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Yamazaki</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mice with defects in HB-EGF ectodomain shedding show severe developmental abnormalities</article-title>
+          <source>J Cell Biol</source>
+          <year>2003</year>
+          <volume>163</volume>
+          <fpage>469</fpage>
+          <lpage>475</lpage>
+          <pub-id pub-id-type="pmid">14597776</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R56">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yin</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Grabowska</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Clarke</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Whelband</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Robinson</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Argent</surname>
+              <given-names>RH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Helicobacter pylori potentiates epithelial:mesenchymal transition in gastric cancer: links to soluble HB-EGF, gastrin and matrix metalloproteinase-7</article-title>
+          <source>Gut</source>
+          <year>2010</year>
+          <volume>59</volume>
+          <fpage>1037</fpage>
+          <lpage>1045</lpage>
+          <pub-id pub-id-type="pmid">20584780</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p id="P58">HB-EGF overexpression strongly changes KC morphology. (A) N/TERT with inducible expression of HB-EGF were grown to approx. 40% confluence and incubated for 60 h +/&#x2212; TET. Normalized HB-EGF mRNA levels (* =<italic>p</italic>&lt; 0.05, n= 3&#x2013;6) and protein shedding (* =<italic>p</italic>&lt; 0.0005, n= 3) into CM were analyzed by QRT-PCR and ELISA, respectively. (B) N/TERT with and w/o constitutive expression of proHB-EGF or proAREG. Treatment with rhHB-EGF or EGF was for 72 h. (C) N/TERT were exposed to CM from N/TERT or cells expressing His-tagged sHB-EGF for 72h with and without prior depletion of sHB-EGF using nickel affinity chromatography. (D) N/TERT with inducible expression of sHB-EGF or proHB-EGF were incubated +/&#x2212; TET with and w/o 10 &#xB5;g/ml HB-EGF Abs, 1 &#xB5;M PD158780 or 40 &#xB5;M GM6001 for 1&#x2013;3 days.</p>
+      </caption>
+      <graphic xlink:href="nihms359035f1a"/>
+      <graphic xlink:href="nihms359035f1b"/>
+      <graphic xlink:href="nihms359035f1c"/>
+      <graphic xlink:href="nihms359035f1d"/>
+    </fig>
+    <fig id="F2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p id="P59">HB-EGF expression strongly reduces KC cell numbers <italic>in vitro</italic>. N/TERT with inducible expression HB-EGF were plated and incubated +/&#x2212; TET. (A, B): Time course of KC growth with and without HB-EGF expression (+/&#x2212; TET). Day 0 denotes the time of TET treatment. Cells were fixed and stained with crystal violet (A) and absorption at 590 nm was measured after extraction of crystal violet with 10% acetic acid (B), mean +/&#x2212;SEM, n=4 except day 0 and day 6, n=2, * =<italic>p</italic>&lt;0.05 and ** =<italic>p</italic>&lt;0.00001 (two-tailed Student&#x2019;s <italic>t</italic>-test). (C) N/TERT-KC were incubated +/&#x2212; TET for 6 days and after trypsinization, cell number was determined by hemacytometer counting. Data are expressed as percent of control, mean +/&#x2212; SEM, n=6 for sHBEGF (<italic>p</italic>&lt;0.0001, two-tailed Student&#x2019;s <italic>t</italic>-test) and n=2 for proHBEGF. Representative photos at day 6 are shown below the graph.</p>
+      </caption>
+      <graphic xlink:href="nihms359035f2a"/>
+      <graphic xlink:href="nihms359035f2b"/>
+    </fig>
+    <fig id="F3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p id="P60">A. HB-EGF induces vimentin protein expression in KC. N/TERT KC with constitutive expression of AREG or HB-EGF were treated with and without EGF or PD158780 for 24 h and vimentin immunoreactivity was detected by fluorescence microscopy. Nuclei were counterstained with DAPI. B. HB-EGF expression in KC leads to nuclear accumulation of &#x3B2;-catenin. KC were cultured in the presence or absence of EGF or PD158780. KC were stained with &#x3B2;-catenin Abs and visualized by immunofluorescence microscopy. Arrows indicate positive nuclear staining. The western blot demonstrates increased nuclear accumulation of &#x3B2;-catenin in HB-EGF-expressing cells. C. Immunofluorescence microscopy of E-cadherin staining in N/TERT KC. Please note the membranous E-cadherin staining in control cells that is strongly decreased in EGF-treated or HB-EGF expressing cells.</p>
+      </caption>
+      <graphic xlink:href="nihms359035f3a"/>
+      <graphic xlink:href="nihms359035f3b"/>
+      <graphic xlink:href="nihms359035f3c"/>
+    </fig>
+    <fig id="F4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p id="P61">HB-EGF overexpression strongly alters keratin and EMT/invasion-related gene expression in human KC. N/TERT KC were incubated in the presence or absence of TET for 60 h and gene expression was analyzed by QRT-PCR. (A) Gene expression was analyzed with TaqMan assays specific for human keratins as indicated. Data are expressed as percent of control (&#x2212; TET), mean +/&#x2212; SEM, n = 3&#x2013;6. The reduction was significant for all data points with <italic>p</italic>&lt;0.005 vs controls except for the sHB-EGF-induced reduction of K14 mRNA expression (<italic>p</italic>&lt;0.022) as assessed by two-tailed, one-sample <italic>t</italic>-test. (B) HB-EGF increases invasion-related gene expression. Data are expressed as relative mRNA levels, mean +/&#x2212; SEM, n= 3&#x2013;6, * = <italic>p</italic>&lt; 0.05, ** = <italic>p</italic>&lt;0.005 vs control (&#x2212; TET).</p>
+      </caption>
+      <graphic xlink:href="nihms359035f4a"/>
+      <graphic xlink:href="nihms359035f4b"/>
+    </fig>
+    <fig id="F5" orientation="portrait" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p id="P62">Hypermotility and invasiveness as a function of HB-EGF overexpression in human KC. N/TERT KC and HT1080 cells were seeded in serum-free medium on growth factor reduced matrigel and incubated for 36 h with serum-containing media as a chemoattractant as described in Material and Methods. Invading cells were stained with crystal violet and photographed. Photos show representative fields, invasion assays with HT1080 and MDA-MB231 cells are shown for comparison. Results shown are representative of 3 independent experiments, similar results as shown here for sHB-EGF were also obtained with proHB-EGF (not shown). The typical cell morphology of the various lines is shown in the panels above the invasion assay photos.</p>
+      </caption>
+      <graphic xlink:href="nihms359035f5"/>
+    </fig>
+    <fig id="F6" orientation="portrait" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p id="P63">HB-EGF expression in human skin wounds. HB-EGF mRNA expression was analyzed by QRT-PCR in regenerating interfollicular epidermis isolated by laser capture microdissection from skin biopsies taken one to four week after CO2 laser-generated partial thickness wounds. Data are normalized to the control gene RPLP0 (36B4) and are expressed as fold-change (log-scale) relative to unwounded skin, n=6.</p>
+      </caption>
+      <graphic xlink:href="nihms359035f6"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">9304532</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">2286</journal-id>
+      <journal-id journal-id-type="nlm-ta">Stem Cells</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Stem Cells</journal-id>
+      <journal-title-group>
+        <journal-title>Stem cells (Dayton, Ohio)</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1066-5099</issn>
+      <issn pub-type="epub">1549-4918</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23964022</article-id>
+      <article-id pub-id-type="pmc">4259462</article-id>
+      <article-id pub-id-type="doi">10.1002/stem.1520</article-id>
+      <article-id pub-id-type="manuscript">NIHMS637594</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Molecular Diversity Subdivides the Adult Forebrain Neural Stem Cell Population</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Giachino</surname>
+            <given-names>Claudio</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Basak</surname>
+            <given-names>Onur</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lugert</surname>
+            <given-names>Sebastian</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Knuckles</surname>
+            <given-names>Philip</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Obernier</surname>
+            <given-names>Kirsten</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Fiorelli</surname>
+            <given-names>Roberto</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">d</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Frank</surname>
+            <given-names>Stephan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A5">e</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Raineteau</surname>
+            <given-names>Olivier</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">d</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Alvarez&#x2013;Buylla</surname>
+            <given-names>Arturo</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Taylor</surname>
+            <given-names>Verdon</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">a</xref>
+          <xref ref-type="aff" rid="A2">b</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>Embryology and Stem Cell Biology, Department of Biomedicine, University of Basel, Basel, Switzerland</aff>
+      <aff id="A2"><label>b</label>Department of Molecular Embryology, Max Planck Institute of Immunobiology, Freiburg, Germany</aff>
+      <aff id="A3"><label>c</label>Department of Neurological Surgery, University of California San Francisco, San Francisco, California, USA</aff>
+      <aff id="A4"><label>d</label>Institut fur Hirnforschung, Universitat Zurich, Zurich, Switzerland</aff>
+      <aff id="A5"><label>e</label>Division of Neuropathology, Institute of Pathology, University of Basel, Basel, Switzerland</aff>
+      <author-notes>
+        <corresp id="FN1">Correspondence: Verdon Taylor, Ph.D., Embryology and Stem Cell Biology, Department of Biomedicine, University of Basel, Mattenstrasse 28, CH-4058 Basel, Switzerland. Telephone: +41 616953091; Fax: +41 616953090; <email>verdon.taylor@unibas.ch</email></corresp>
+        <fn id="FN2" fn-type="conflict">
+          <p>
+            <bold>Disclosure of Potential Conflicts of Interest</bold>
+          </p>
+          <p>The authors indicate no potential conflicts of interest.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>24</day>
+        <month>10</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>1</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>08</day>
+        <month>12</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>32</volume>
+      <issue>1</issue>
+      <fpage>70</fpage>
+      <lpage>84</lpage>
+      <!--elocation-id from pubmed: 10.1002/stem.1520-->
+      <permissions>
+        <copyright-statement>&#xA9; AlphaMed Press 2013</copyright-statement>
+        <copyright-year>2013</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">Neural stem cells (NSCs) in the ventricular domain of the subventricular zone (V-SVZ) of rodents produce neurons throughout life while those in humans become largely inactive or may be lost during infancy. Most adult NSCs are quiescent, express glial markers, and depend on Notch signaling for their self-renewal and the generation of neurons. Using genetic markers and lineage tracing, we identified subpopulations of adult V-SVZ NSCs (type 1, 2, and 3) indicating a striking heterogeneity including activated, brain lipid binding protein (BLBP, FABP7) expressing stem cells. BLBP<sup>+</sup> NSCs are mitotically active components of pinwheel structures in the lateral ventricle walls and persistently generate neurons in adulthood. BLBP<sup>+</sup> NSCs express epidermal growth factor (EGF) receptor, proliferate in response to EGF, and are a major clonogenic population in the SVZ. We also find BLBP expressed by proliferative ventricular and sub-ventricular progenitors in the fetal and postnatal human brain. Loss of BLBP<sup>+</sup> stem/progenitor cells correlates with reduced neurogenesis in aging rodents and postnatal humans. These findings of molecular heterogeneity and proliferative differences subdivide the NSC population and have implications for neurogenesis in the forebrain of mammals during aging.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Neurogenesis</kwd>
+        <kwd>Subventricular zone</kwd>
+        <kwd>Neural stem cells</kwd>
+        <kwd>Aging</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

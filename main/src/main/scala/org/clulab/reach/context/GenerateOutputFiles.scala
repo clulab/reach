@@ -10,11 +10,12 @@ import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, prepro
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
-    //need to figure out how annotator works
+    //need to run annotator on a few of Bachman's papers
     println("Inside generate output class")
     val config = ConfigFactory.load()
-    val paper = "PMC3032653"
-    val currentPaperPath = config.getString("papersDir").concat(s"/${paper}.nxml")
+    val paper = "PMC1586098"
+    val typeOfPaper = "inhibition"
+    val currentPaperPath = config.getString("papersDir").concat(s"/${typeOfPaper}/${paper}.nxml")
     val pathForSentences = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/sentences.txt")
     val pathForEvents = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/event_intervals.txt")
     val pathForContextMentions = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/mention_intervals.txt")

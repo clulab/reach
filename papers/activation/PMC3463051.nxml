@@ -1,0 +1,2200 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Multidiscip Respir Med</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Multidiscip Respir Med</journal-id>
+      <journal-title-group>
+        <journal-title>Multidisciplinary Respiratory Medicine</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1828-695X</issn>
+      <issn pub-type="epub">2049-6958</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22958707</article-id>
+      <article-id pub-id-type="pmc">3463051</article-id>
+      <article-id pub-id-type="publisher-id">2049-6958-5-5-305</article-id>
+      <article-id pub-id-type="doi">10.1186/2049-6958-5-5-305</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Prognostic value of epidermal growth factor receptor expression in operable non-small cell lung carcinoma</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes" id="A1">
+          <name>
+            <surname>Seyhan</surname>
+            <given-names>Ekrem Cengiz</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>drekremcs@yahoo.com</email>
+        </contrib>
+        <contrib contrib-type="author" id="A2">
+          <name>
+            <surname>Alt&#x131;n</surname>
+            <given-names>Sedat</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+        </contrib>
+        <contrib contrib-type="author" id="A3">
+          <name>
+            <surname>&#xC7;etinkaya</surname>
+            <given-names>Erdogan</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+        </contrib>
+        <contrib contrib-type="author" id="A4">
+          <name>
+            <surname>S&#xF6;k&#xFC;c&#xFC;</surname>
+            <given-names>Sinem</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+        </contrib>
+        <contrib contrib-type="author" id="A5">
+          <name>
+            <surname>Abal&#x131;</surname>
+            <given-names>H&#xFC;lya</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+        </contrib>
+        <contrib contrib-type="author" id="A6">
+          <name>
+            <surname>Buyukpinarbasili</surname>
+            <given-names>Nur</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">2</xref>
+        </contrib>
+        <contrib contrib-type="author" id="A7">
+          <name>
+            <surname>Fener</surname>
+            <given-names>Neslihan</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Department of Chest Diseases,Yedikule Teaching Hospital for Chest Diseases and Thoracic Surgery, Istanbul, Turkey</aff>
+      <aff id="I2"><label>2</label>Department of Pathology, Yedikule Teaching Hospital for Chest Diseases and Thoracic Surgery, Istanbul, Turkey</aff>
+      <pub-date pub-type="collection">
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>31</day>
+        <month>10</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>5</volume>
+      <issue>5</issue>
+      <fpage>305</fpage>
+      <lpage>311</lpage>
+      <history>
+        <date date-type="received">
+          <day>9</day>
+          <month>9</month>
+          <year>2009</year>
+        </date>
+        <date date-type="accepted">
+          <day>17</day>
+          <month>12</month>
+          <year>2009</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9;2010 Novamedia srl</copyright-statement>
+        <copyright-year>2010</copyright-year>
+        <copyright-holder>Novamedia srl</copyright-holder>
+      </permissions>
+      <self-uri xlink:href="http://www.mrmjournal.com/content/5/5/305"/>
+      <abstract>
+        <sec>
+          <title>Background and aim</title>
+          <p>Increased expression of the epidermal growth factor receptor (EGFR) in non-small cell lung cancer (NSCLC), supporting the tumor growth by a possible endocrine mechanism, affects patient survival negatively. We designed a study to test EGFR expression by immunohistochemistry (IHC) in resected stage I-II NSCLC and to correlate its overexpression with survival.</p>
+        </sec>
+        <sec>
+          <title>Methods</title>
+          <p>EGFR expression was evaluated in 98 consecutive NSCLC patients after complete resection (53 squamous cell carcinomas, 40 adenocarcinomas, 5 large cell carcinomas: stage I, 57 (58%) and stage II, 41 (42%). IHC was used to examine the expression of EGFR in resected lung tumor samples obtained from these patients, who had no pre- or post-operative chemotherapy or radiotherapy. Univariate and multivariate analyses were performed for factors influencing patient survival.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>EGFR was expressed in 51 (52%) of 98 NSCLC samples. More squamous tumors (61%) were EGFR-positive than adenocarcinomas (38%) (p = 0.038). There was a statistically significant correlation between EGFR expression and stage (p = 0.04). No difference was found between EGFR positive and negative tumors in the 5-year overall survival (57% vs. 73%, p = 0.13).</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>The level of EGFR expression in tumors was not a successful predictor of survival in resected NSCLC.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>Epidermal growth factor receptor</kwd>
+        <kwd>immunochemistry</kwd>
+        <kwd>non-small cell lung carcinoma</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Most patients with non-small cell lung cancer (NSCLC) who survive for a long time have tumors at TNM stage I or II at the time of initial diagnosis. However, the 5-year survival rates are not yet satisfactory even in these early stage patients. For pathologic stages IA, IB, IIA and IIB, 5-year survival is approximately 70%, 60%, 55%, and 40%, respectively [<xref ref-type="bibr" rid="B1">1</xref>]. Most patients with early stage NSCLC experience recurrence and die as a result of the disease, despite potentially curative treatment. Surgical resection is the standard treatment for these stages, and the efficacy of adjuvant therapy in this patient group has not been confirmed [<xref ref-type="bibr" rid="B2">2</xref>]. However, early detection of a subgroup having early stage NSCLC with a higher risk of recurrence/metastasis may create a basis for aggressive adjuvant therapy, which could help to improve the survival rate in these patients.</p>
+      <p>Many factors considered to affect the prognosis in patients with resected NSCLC have been and are still being investigated. Recent developments in cytogenetic and molecular biology have provided new ways to analyse prognosis. Biological substaging, using molecular markers, in a risk stratification strategy has been proposed. Tumor suppressor genes, proto-oncogenes and markers of metastatic propensity and proliferation are some of the different research markers [<xref ref-type="bibr" rid="B3">3</xref>,<xref ref-type="bibr" rid="B4">4</xref>]. Among them, the epidermal growth factor (EGF) family plays an important role in the formation and progression of lung cancers [<xref ref-type="bibr" rid="B5">5</xref>].</p>
+      <p>The epidermal growth factor receptor (EGFR) forms one of the best defined autocrine growth loops in human tumors. EGFR is a 170 kd receptor tyrosine kinase (TK) that dimerizes and phosphorylates several tyrosine residues upon binding of several specific ligands including epidermal growth factor and transforming growth factor alpha [<xref ref-type="bibr" rid="B6">6</xref>]. After epidermal growth factor binding, the receptor autophosphorylates tyrosine residues in its cytoplasmic domain and triggers a cascade that leads to cellular proliferation, angiogenesis, metastasis and inhibition of apoptosis [<xref ref-type="bibr" rid="B7">7</xref>]. EGFR has been reported to act as a strong prognostic marker in head and neck cancers [<xref ref-type="bibr" rid="B8">8</xref>], genito-urinary carcinomas [<xref ref-type="bibr" rid="B9">9</xref>] and esophageal cancers [<xref ref-type="bibr" rid="B10">10</xref>]. In NSCLC, however, findings have been more ambiguous. Some of the previous studies reported that EGFR overexpression predicted a poor outcome [<xref ref-type="bibr" rid="B11">11</xref>,<xref ref-type="bibr" rid="B12">12</xref>]. However, more recent studies using specimens from larger numbers of patients suggested that EGFR expression was not associated with poor outcome [<xref ref-type="bibr" rid="B13">13</xref>-<xref ref-type="bibr" rid="B15">15</xref>]. However, various differences exist in these studies, such as the use of different methods for evaluating EGFR expression, use of different cut of values for EGFR positivity, inclusion of cases with heterogeneous stages, and inclusion of cases which have been treated before. Due to these disparities the need for more studies is obvious. The present study was performed to assess the effects of the level of EGFR expression in tumoral tissue, measured by immunohistochemical methods, on the survival of patients with early stage NSCLC.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>Materials and methods</title>
+      <p>A total of 98 patients with NSCLC - tumors staged as T1 or T2 and N0 or N1- M0 (stage I-II) after pathological evaluation - who underwent successful complete resection between January 1999 and January 2007 without operative mortality (no deaths in hospital or within the first 30 days post-surgery) and without pre- or post-operative chemotherapy and/or radiotherapy were included in the study. As this was a retrospective study, institutional review board approval was not required. The Scientific Study Committee of our hospital reviewed and approved the database.</p>
+      <p>The patients (males = 89 [90%]) had a mean age of 55.6 &#xB1; 9 (36-78) years. Mediastinoscopy was performed in 94 patients (96%) as part of routine prethoracotomy mediastinal evaluation and no mediastinal metastasis was detected. In the other 4 patients, computerized tomography of the thorax or positron emission tomography was used to eliminate the risk of mediastinal lymphatic metastasis. Systematic mediastinal lymphatic dissection was performed during thoracotomy along with appropriate lung resection. Lung resection consisted of lobectomy in 72 patients and pneumonectomy in 26 patients (Table <xref ref-type="table" rid="T1">1</xref>).</p>
+      <table-wrap id="T1" position="float">
+        <label>Table 1</label>
+        <caption>
+          <p>Prognostic factors revealed by univariate and multivariate analyses in patients with completely resected non-small cell carcinoma of the lung (N = 98).</p>
+        </caption>
+        <table frame="hsides" rules="groups">
+          <thead>
+            <tr>
+              <th/>
+              <th align="center">Number of patients (n = 98)</th>
+              <th align="center">5-year survival rate (%)</th>
+              <th align="center">Univariate analysis p</th>
+              <th align="center">Multivariate analysis p HR (95% CI)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">
+                <bold>Sex</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.19</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Female</td>
+              <td align="center">9 (10%)</td>
+              <td align="center">44%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Male</td>
+              <td align="center">89 (90%)</td>
+              <td align="center">68%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Tumor size</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.48</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;&lt; 20 mm</td>
+              <td align="center">10 (10%)</td>
+              <td align="center">81%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;21-30 mm</td>
+              <td align="center">13 (13%)</td>
+              <td align="center">66%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;31-50 mm</td>
+              <td align="center">46 (47%)</td>
+              <td align="center">55%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;&gt; 50 mm</td>
+              <td align="center">29 (30%)</td>
+              <td align="center">53%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Tumor localization</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.98</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Left</td>
+              <td align="center">33 (34%)</td>
+              <td align="center">65%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Right</td>
+              <td align="center">65 (66%)</td>
+              <td align="center">67%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>T classification</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.49</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;T1</td>
+              <td align="center">23 (23%)</td>
+              <td align="center">76%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;T2</td>
+              <td align="center">76 (77%)</td>
+              <td align="center">63%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>N classification</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.018</td>
+              <td align="center">0.01</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;N0</td>
+              <td align="center">57(58%)</td>
+              <td align="center">76%</td>
+              <td/>
+              <td align="center">2.3 (1.15-4.8)</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;N1</td>
+              <td align="center">41(42%)</td>
+              <td align="center">49%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Histology</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.013</td>
+              <td align="center">0.03</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Squamous cell</td>
+              <td align="center">53 (54%)</td>
+              <td align="center">79%</td>
+              <td/>
+              <td align="center">2.2 (1.05-4.6)</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Adenocarcinoma</td>
+              <td align="center">40 (40%)</td>
+              <td align="center">49%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Others</td>
+              <td align="center">5 (6%)</td>
+              <td align="center">60%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Tumor differentiation</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.81</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Poor</td>
+              <td align="center">45 (46%)</td>
+              <td align="center">62%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Moderate</td>
+              <td align="center">39 (40%)</td>
+              <td align="center">67%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Well</td>
+              <td align="center">14 (14%)</td>
+              <td align="center">69%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Surgical procedure</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.80</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Lobectomy</td>
+              <td align="center">72 (73%)</td>
+              <td align="center">69%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Pneumonectomy</td>
+              <td align="center">26 (27%)</td>
+              <td align="center">66%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Perineural invasion</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.4</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Positive</td>
+              <td align="center">25 (26%)</td>
+              <td align="center">63%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Negative</td>
+              <td align="center">73 (74%)</td>
+              <td align="center">71%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Blood vessel invasion</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.068</td>
+              <td align="center">0.75</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Positive</td>
+              <td align="center">55 (56%)</td>
+              <td align="center">57%</td>
+              <td/>
+              <td align="center">1.14 (0.4-2.7)</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Negative</td>
+              <td align="center">43 (44%)</td>
+              <td align="center">75%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>Lymphatic vessel invasion</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.82</td>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Positive</td>
+              <td align="center">79 (80%)</td>
+              <td align="center">66%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Negative</td>
+              <td align="center">19 (20%)</td>
+              <td align="center">62%</td>
+              <td/>
+              <td/>
+            </tr>
+            <tr>
+              <td align="left">
+                <bold>EGFR expression</bold>
+              </td>
+              <td/>
+              <td/>
+              <td align="center">0.13</td>
+              <td align="center">0.23</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Positive</td>
+              <td align="center">51 (52%)</td>
+              <td align="center">57%</td>
+              <td/>
+              <td align="center">1.6 (0.7-3.6)</td>
+            </tr>
+            <tr>
+              <td align="left">&#x2003;Negative</td>
+              <td align="center">47 (48%)</td>
+              <td align="center">73%</td>
+              <td/>
+              <td/>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>Resected specimens were sent to our pathology department for histopathological and immunohistochemical examination. Specimens were fixed in 10% formalin and embedded in paraffin. The longest diameter of the tumors was measured and one or two 4 &#x3BC;m thick sections were obtained for each centimeter of tumor from the areas containing viable tumor tissue at maximum ratio with no (or minimum) hemorrhage or necrosis. Several sections were subjected to routine hematoxylin-eosin staining, while the others were kept for immunohistochemical staining. Tumors were staged after thoracotomy (pTNM) according to the International System for Staging Lung Cancer developed by the American Joint Committee for Cancer (AJCC) in 1997 [<xref ref-type="bibr" rid="B1">1</xref>]. Histopathological tumor types were determined according to the classification of the World Health Organization [<xref ref-type="bibr" rid="B16">16</xref>]. Histopathological tumor types and differentiations, T and N stages, and tumor sizes are shown in Table <xref ref-type="table" rid="T1">1</xref>.</p>
+      <sec>
+        <title>Immunohistochemical staining (IHS)</title>
+        <p>Among the prepared sections, one section containing maximum tumor tissue and minimum or no necrosis and hemorrhage was chosen for each patient. Sections were placed on adhesive (poly-Llysine)-coated slides, deparaffinized through a graduated xylene and alcohol series, and then rehydrated in distilled water. Antigen retrieval was performed by adding citrate buffer and heating in a microwave oven. Sections were incubated in a 3% hydrogen peroxide solution to remove endogen peroxidase activity and washed with a phosphatebuffered saline (PBS) solution. The UV blocking procedure was carried out to remove nonspecific immunoreactivity. IHS for EGFR to highlight EGFR expression was performed using a sensitive streptavidin-biotinylated peroxidase complex system. All procedures were performed in accordance with the antibody manufacturer's protocols. Sections were incubated with anti-EGFR mAb (Monoclonal Mouse Anti-Human, Cat. No. M7239) as primary antibodies olarak (Dako North America, Inc, 6392 Via Real Carpinteria, CA 93013 USA). Then, antigen-antibody complexes were visualized using a biotin-labeled secondary antibody and streptavidin. After this procedure, amino ethyl-carbazole chromogen (ScyTek<sup>&#xAE;</sup>) was applied to the sections. Then contrast staining was performed using Mayer's hematoxylin, and sections were covered with a water-based mounting medium (Aqueous-Mount, ScyTec<sup>&#xAE;</sup>).</p>
+      </sec>
+      <sec>
+        <title>Evaluation of the immunohistochemical staining</title>
+        <p>Two pathologists (NB and NF) who were unaware of clinical data independently evaluated EGFR staining. EGFR assessment was based on cytoplasmic staining intensity and was scored as 0 (negative, &lt; 5% of cells stained), 1+ (weak, 5-20% of cells stained), 2+ (moderate, 20-50% of cells stained), and 3+ (strong, &gt; 50% of cells stained). Only tumors exhibiting 2+ or 3+ staining were considered positive for EGFR expression [<xref ref-type="bibr" rid="B13">13</xref>].</p>
+        <p>Patients were routinely followed up with regard to survival or recurrence at 6-month intervals. Additionally, patients were called by phone and some new information was received during the preparation of the manuscript. The mean follow up period was 46.5 &#xB1; 21.5 months (2-94 months). The survival period was calculated using the day of lung resection as the first day and the day of death or the last follow up as the last day.</p>
+      </sec>
+      <sec>
+        <title>Statistical analysis</title>
+        <p>Cases were evaluated for demographic, surgical and pathological variables, and the distributions of these variables were compared using the &#x3C7;<sup>2 </sup>test or Fisher's exact test. Correlations were determined using the Spearman rank correlation test. Patient survival was analyzed by the Kaplan-Meier method, using time zero as the date of thoracotomy and death as the endpoint. Postoperative mortalities were excluded from the survival analysis. Prognostic factors were evaluated in the completely resected patients. Differences in survival were determined by log-rank test at univariate analysis and prognostic factors with p-values less than 0.15 were included in a multivariate analysis using the Cox proportional hazards regression model. Results were considered significant at p &lt; 0.05.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>Results</title>
+      <p>The overall 5-year survival rate of the patients was calculated as 65%. The 5-year survival rate was 76% for patients with stage I disease and 49% for patients with stage II disease. This difference was statistically significant (p = 0.018). The effects of histopathological type on survival were assessed, and the 5-year survival rate was found to be 79% for patients with squamous cell carcinoma, 49% for patients with adenocarcinoma, and 60% for patients with other types of NSCLC. Differences among histopathological types were statistically significant (p = 0.013). T stage, gender, tumor size, tumor differentiation, and type of lung resection did not affect survival. In addition, no significant differences were observed in the survival rates of patients with and without lymph vessel or perineural invasion (Table <xref ref-type="table" rid="T1">1</xref>). The 5-year survival rate was 57% for patients with invasion of the tumor to the tissue vasculature and 75% for patients with no vascular invasion (p = 0.069).</p>
+      <p>Staining for EGFR was strong in 19/98, moderate in 32/98, weak in 31/98, and negative in 16/98 tumor samples (Figure <xref ref-type="fig" rid="F1">1</xref>). Thus, 51/98 (52%) NSCLC tissues were positive for EGFR expression. The 5-year survival rates of patients for EGFR positive expression and EGFR negative expression were 57% and 73%, respectively; this difference was not significant (p = 0.13, Figure <xref ref-type="fig" rid="F2">2</xref>). An analysis of EGFR was frequent in squamous cell carcinoma (SCC) (61% for SCC vs. 38% for adenocarcinomas (AC), p = 0.038). EGFR overexpression according to the pathological stage was 43% in stage I patients, and 65% in stage II (p = 0.04). No statistical association was found between ERCC1 expression and age, sex, T stage, vascular invasion, tumor differentiation, or tumor size.</p>
+      <fig id="F1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p><bold>Sections showing tumor cells stained with anti-egfr antibody in nsclc tissue specimens</bold>. <italic>Definition of abbreviations: </italic>EGFR, epidermal growth factor receptor; NSCLC,non-small cell lung cancer.</p>
+        </caption>
+        <graphic xlink:href="2049-6958-5-5-305-1"/>
+      </fig>
+      <fig id="F2" position="float">
+        <label>Figure 2</label>
+        <caption>
+          <p><bold>Survival curves of nsclc patients with positive or negative expression of egfr</bold>. <italic>Definition of abbreviations: </italic>see Figure 1.</p>
+        </caption>
+        <graphic xlink:href="2049-6958-5-5-305-2"/>
+      </fig>
+      <p>Factors that were found to affect the survival rate at univariate analysis (p &lt; 0.15) (i.e. histopathological tumor type, blood invasion, tumor stage, and EGFR expression) were used in a Cox regression analysis for multivariate analysis of the factors that may affect the survival rate. The analysis showed that histopathological tumor type (p = 0.01) and pathological stage (p = 0.03) were both independent prognostic factors (Table <xref ref-type="table" rid="T1">1</xref>).</p>
+    </sec>
+    <sec sec-type="discussion">
+      <title>Discussion</title>
+      <p>Many patients with NSCLC relapse, and die as a result, despite the fact that surgical treatment is potentially curative [<xref ref-type="bibr" rid="B17">17</xref>]. Staging helps to predict the overall survival of a group of patients, but predicting the prognosis of a specific patient with NSCLC is not always reliable. Thus, new prognostic factors are required to determine the subgroup of patients in the same stage that have relatively poor prognosis. Inclusion of patients with all stages of cancer and treated with different modalities in a study designed to detect prognostic factors may impede the discovery of effective factors. The effects of these new factors may remain relatively weak compared to T, N, and M variables, which are known to strongly affect survival. We included patients with early stage tumors without mediastinal lymph node or distant organ metastasis and without pre- or post-operative chemo and/or radiotherapy to minimize the effects of these primary survival markers. This was expected to uncover the effects of other potentially useful factors.</p>
+      <p>In the literature, most of the studies searching for prognostic factors of NSCLC have been based on clinical characteristics, histological studies, or tumor markers, and in recent years on tumor and cell kinetics, or predictors for response to therapies, or oncogenes and anti-oncogenes [<xref ref-type="bibr" rid="B3">3</xref>,<xref ref-type="bibr" rid="B4">4</xref>,<xref ref-type="bibr" rid="B18">18</xref>]. Except for a few, most of the predictors did not really have significant applications in clinical practice. Benefits of gefinitib and erlotinib, which were tyrosine kinase inhibitors from anti-EGFR agents, were shown to have benefits in advanced NSCLC patients [<xref ref-type="bibr" rid="B19">19</xref>-<xref ref-type="bibr" rid="B21">21</xref>]. Due to these studies the importance of EGFR as a molecular target has increased. The presence of EGFR mutations has been proposed to be a positive prognostic factor [<xref ref-type="bibr" rid="B22">22</xref>], whereas high-EGFR copy number and the presence of KRAS mutations have both been associated to poor prognosis in resected NSCLC patients [<xref ref-type="bibr" rid="B23">23</xref>-<xref ref-type="bibr" rid="B25">25</xref>]. EGFR expression and its "decreased survival" relation with NSCLC patients has been evaluated for a number of years, but different studies have yielded controversial results.</p>
+      <p>EGFR is one of the key molecules in lung cancer initiation and progression, and EGFR is expressed or overexpressed in a wide variety of solid human tumors, including NSCLC and breast, gastric, colo rectal and bladder cancer [<xref ref-type="bibr" rid="B8">8</xref>-<xref ref-type="bibr" rid="B10">10</xref>,<xref ref-type="bibr" rid="B26">26</xref>,<xref ref-type="bibr" rid="B27">27</xref>]. Numerous studies have suggested that expression of high levels of EGFR is associated with advanced or metastatic disease and a poor prognosis in solid tumors [<xref ref-type="bibr" rid="B26">26</xref>-<xref ref-type="bibr" rid="B28">28</xref>]. Unfortunately, the reports about its relationship with survival have provided inconsistent results in NSCLC [<xref ref-type="bibr" rid="B12">12</xref>-<xref ref-type="bibr" rid="B15">15</xref>,<xref ref-type="bibr" rid="B29">29</xref>-<xref ref-type="bibr" rid="B32">32</xref>].</p>
+      <p>In the present study, in order to assess the clinical importance and survival benefit of increased EGFR expression in early stage NSCLC patients nontreated (without pre or post operative chemotherapy and/or radiotherapy), we evaluated the effect of intratumoral EGFR expression on survival in resected patients with NSCLC and showed that EGFR overexpression is not significantly predictive of a worse prognosis.</p>
+      <p>Expression of EGFR in NSCLC has been reported extensively in studies [<xref ref-type="bibr" rid="B12">12</xref>,<xref ref-type="bibr" rid="B30">30</xref>,<xref ref-type="bibr" rid="B31">31</xref>,<xref ref-type="bibr" rid="B33">33</xref>,<xref ref-type="bibr" rid="B34">34</xref>], with frequencies for EGFR overexpression between 30% and 89% in NSCLC [<xref ref-type="bibr" rid="B12">12</xref>,<xref ref-type="bibr" rid="B33">33</xref>-<xref ref-type="bibr" rid="B35">35</xref>]. Theoretically, high EGFR expression in SCC is expected because EGF promotes the proliferation and differentiation of epidermal-like tissues. Many studies have shown that significant differences in EGFR expression have been reported among histological subtypes, generally with higher EGFR expression in SCC compared with other histological types [<xref ref-type="bibr" rid="B30">30</xref>,<xref ref-type="bibr" rid="B31">31</xref>,<xref ref-type="bibr" rid="B34">34</xref>,<xref ref-type="bibr" rid="B35">35</xref>]. In our study, EGFR expression was immunohistochemically evaluated in 98 formalin-fixed and paraffin-embedded NSCLC tissues, and 51 (52%) were positive for EGFR. In agreement with previous findings [<xref ref-type="bibr" rid="B23">23</xref>,<xref ref-type="bibr" rid="B24">24</xref>,<xref ref-type="bibr" rid="B27">27</xref>], we also found that EGFR expression was more frequent in SCC than in AC of NSCLC (63% vs. 38%, p = 0.04).</p>
+      <p>Many studies attempting to correlate EGFR overexpression with NSCLC patients survival have led to conflicting results, with some studies reporting no impact on survival [<xref ref-type="bibr" rid="B13">13</xref>-<xref ref-type="bibr" rid="B15">15</xref>,<xref ref-type="bibr" rid="B34">34</xref>], some a worse survival [<xref ref-type="bibr" rid="B11">11</xref>,<xref ref-type="bibr" rid="B12">12</xref>,<xref ref-type="bibr" rid="B33">33</xref>]. In these studies both patients with local disease (stage I-III) and also stage IV patients were evaluated. Moreover, in these studies EGFR expression was evaluated by different methods like IHC, radio-immunoassay (RIA) and enzyme linked immunoassay (ELISA). Also, the cut off values for increased EGFR expression differed for each method. In the review by Nicholson et al. [<xref ref-type="bibr" rid="B11">11</xref>], EGFR overexpression confirmed its prognostic value in multiple tumor types, but evidence was weaker in NSCLC. Finally, Nakamura et al. performed a meta-analysis of studies (involving nearly 3,000 patients) evaluating the effect of increased EGFR expression on the NSCLC patients [<xref ref-type="bibr" rid="B36">36</xref>]. In most of these reported studies EGFR protein expression was evaluated by IHC methods. And in most of the studies increased expression of EGFR protein was not found to be related with poorer prognosis. In agreement with this meta-analysis, the present study demonstrated that EGFR expression was not an independent predictive factor of overall survival in early stage NSCLC patients. Intervariance between the results of the studies can be due to use of different methods in the evaluation of EGFR expression, acceptance of different threshold levels for EGFR positivity, and the inclusion of both early and late disease stages in the patient population. Despite all these limits of comparability, like most of the studies our study showed that EGFR can not be used as a prognostic factor in early stage NSCLC patients.</p>
+      <p>In most of the studies evaluating the EGFR expression in NSCLC, investigators have reported significant correlations between intra tumoral EGFR expression and more aggressive tumor features, such as tumor stage [<xref ref-type="bibr" rid="B30">30</xref>] or nodal metastases [<xref ref-type="bibr" rid="B14">14</xref>]. Increased EGFR expression in metaplastic tissue compared with normal mucosa has been reported [<xref ref-type="bibr" rid="B37">37</xref>], and Piyathilake et al. [<xref ref-type="bibr" rid="B38">38</xref>] demonstrated a statistically significant stepwise increase in EGFR expression from normal bronchial mucosa to epithelial hyperplasia to cancer, suggesting a progressive EGFR involvement in lung carcinogenesis. The present study found a significantly higher expression of EGFR in stage II compared to stage I. A tentative hypothesis could be that expression increases stepwise from precancerous lesions to more advanced stages of cancer [<xref ref-type="bibr" rid="B38">38</xref>].</p>
+      <p>Problems exist with measuring the EGFR levels in NSCLC. Marked differences in methodology exist regarding monoclonal antibodies and EGFR detection techniques. Currently, EGFR analysis has been performed by immunohistochemistry, immunoassay (RIA) and enzyme-linked immunosorbent assay (ELISA). The relationship between these techniques of EGFR assessment remains uncertain. Because the immunohistochemical method of detecting EGFR protein is simple, costs less and can be easily performed in almost any pathology laboratory, the present findings could be widely applicable in clinical practice.</p>
+      <p>Futhermore the advantages of immunohistochemistry are the maintenance of the tissue architecture, the possibility of localizing the antigen and the fact that it is probably the most applicable and cost-effective technique for routine use. A highly significant correlation between results obtained by ELISA and immunohistochemistry for the measurement of EGFR was obtained by Pfeiffer et al. [<xref ref-type="bibr" rid="B39">39</xref>] It should be noted that a previous study has shown that immunohistochemical staining in NSCLC correlates with overexpression at the level of total cellular RNA [<xref ref-type="bibr" rid="B40">40</xref>], supporting the use of this technique. However standard IHC with visual scoring in an attempt to quantify protein expression has significant technical limitations. Besides the subjective nature of the evaluation, laboratory conditions also affect the staining (e.g. the nonquantitative chemistry of routine immunoperoxidase stains and the subjective light intensity perception of the human eye). Moreover, the cut off for the number of positive cells defining an EGFR-positive tumor is also often arbitrary and varies according to the investigators, from a few per cent to 50%. Also immunohistochemical results depend on the primary antibody used. The dilution of the antibody also differs, leading to a potential problem because the sensitivity of the method can depend on the antibody concentration. Therefore it is difficult to identify an optimal cut off value for EGFR using immunohistochemistry in prospective trials.</p>
+      <p>Although EGFR expression may not be useful as a prognostic factor, it has potential clinical implications. The past few years have seen the rapid development of the EGFR inhibitors, and an increasing body of evidence suggests that selective inhibitors of EGFR are potential therapeutic agents for the treatment of NSCLC in adjuvant, metastatic and chemopreventive settings [<xref ref-type="bibr" rid="B41">41</xref>]. In conclusion, the survival of a patient with NSCLC depends on numerous factors, and accurately determining the prognosis of a specific patient is not possible. EGFR, a major factor that influences tumor formation and progression, is not a reliable predictor of the survival rates in resected NSCLC.</p>
+    </sec>
+    <sec>
+      <title>Conflict of interests statement</title>
+      <p>None of the authors has any conflict of interest to declare in relation to the subject matter of this manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="B1">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Mountain</surname>
+            <given-names>CF</given-names>
+          </name>
+          <article-title>Revisions in the international system for staging lung cancer</article-title>
+          <source>Chest</source>
+          <year>1997</year>
+          <volume>111</volume>
+          <fpage>1710</fpage>
+          <lpage>1717</lpage>
+          <pub-id pub-id-type="doi">10.1378/chest.111.6.1710</pub-id>
+          <pub-id pub-id-type="pmid">9187198</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pairolero</surname>
+            <given-names>PC</given-names>
+          </name>
+          <name>
+            <surname>Williams</surname>
+            <given-names>DE</given-names>
+          </name>
+          <name>
+            <surname>Bergstralh</surname>
+            <given-names>EJ</given-names>
+          </name>
+          <name>
+            <surname>Piehler</surname>
+            <given-names>JM</given-names>
+          </name>
+          <name>
+            <surname>Bernatz</surname>
+            <given-names>PE</given-names>
+          </name>
+          <name>
+            <surname>Payne</surname>
+            <given-names>WS</given-names>
+          </name>
+          <article-title>Postsurgical stage I bronchogenic carcinoma: morbid implications of recurrent disease</article-title>
+          <source>Ann Thorac Surg</source>
+          <year>1984</year>
+          <volume>38</volume>
+          <fpage>331</fpage>
+          <lpage>338</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0003-4975(10)62281-3</pub-id>
+          <pub-id pub-id-type="pmid">6091575</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Slebos</surname>
+            <given-names>RJ</given-names>
+          </name>
+          <name>
+            <surname>Hruban</surname>
+            <given-names>RH</given-names>
+          </name>
+          <name>
+            <surname>Dalesio</surname>
+            <given-names>O</given-names>
+          </name>
+          <name>
+            <surname>Mooi</surname>
+            <given-names>WJ</given-names>
+          </name>
+          <name>
+            <surname>Offerhaus</surname>
+            <given-names>GJ</given-names>
+          </name>
+          <name>
+            <surname>Rodenhuis</surname>
+            <given-names>S</given-names>
+          </name>
+          <article-title>Relationship between K-ras oncogene activation and smoking in adenocarcinoma of the human lung</article-title>
+          <source>J Natl Cancer Inst</source>
+          <year>1991</year>
+          <volume>83</volume>
+          <fpage>1024</fpage>
+          <lpage>1027</lpage>
+          <pub-id pub-id-type="doi">10.1093/jnci/83.14.1024</pub-id>
+          <pub-id pub-id-type="pmid">2072410</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Carbone</surname>
+            <given-names>DP</given-names>
+          </name>
+          <name>
+            <surname>Mitsudomi</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Chiba</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Piantadosi</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Rusch</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Nowak</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>McIntire</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Slamon</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Gazdar</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Minna</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>p53 immunostaining positivity is associated with reduced survival and is imperfectly correlated with gene mutations in resected non-small cell lung cancer</article-title>
+          <source>A preliminary report of LCSG 871. Chest</source>
+          <year>1994</year>
+          <volume>106</volume>
+          <fpage>377S</fpage>
+          <lpage>381S</lpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Stegelmeier</surname>
+            <given-names>BL</given-names>
+          </name>
+          <name>
+            <surname>Gillett</surname>
+            <given-names>NA</given-names>
+          </name>
+          <name>
+            <surname>Hahn</surname>
+            <given-names>FF</given-names>
+          </name>
+          <name>
+            <surname>Rebar</surname>
+            <given-names>AH</given-names>
+          </name>
+          <name>
+            <surname>Kelly</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Expression of transforming growth factor alpha and epidermal growth factor receptor in rat lung neoplasms induced by plutonium-239</article-title>
+          <source>Radiat Res</source>
+          <year>1994</year>
+          <volume>140</volume>
+          <fpage>191</fpage>
+          <lpage>198</lpage>
+          <pub-id pub-id-type="doi">10.2307/3578903</pub-id>
+          <pub-id pub-id-type="pmid">7938468</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Arteaga</surname>
+            <given-names>CL</given-names>
+          </name>
+          <article-title>Overview of epidermal growth factor receptor biology and its role as a therapeutic target in human neoplasia</article-title>
+          <source>Semin Oncol</source>
+          <year>2002</year>
+          <volume>29</volume>
+          <issue>5 Suppl 14</issue>
+          <fpage>3</fpage>
+          <lpage>9</lpage>
+          <pub-id pub-id-type="doi">10.1053/sonc.2002.35642</pub-id>
+          <pub-id pub-id-type="pmid">12422308</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Schlessinger</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Ligand-induced, receptor-mediated dimerization and activation of EGF receptor</article-title>
+          <source>Cell</source>
+          <year>2002</year>
+          <volume>110</volume>
+          <fpage>669</fpage>
+          <lpage>672</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0092-8674(02)00966-2</pub-id>
+          <pub-id pub-id-type="pmid">12297041</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Maurizi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Almadori</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Ferrandina</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Distefano</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Romanini</surname>
+            <given-names>ME</given-names>
+          </name>
+          <name>
+            <surname>Cadoni</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Benedetti-Panici</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Paludetti</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Scambia</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Mancuso</surname>
+            <given-names>S</given-names>
+          </name>
+          <article-title>Prognostic significance of epidermal growth factor receptor in laryngeal squamous cell carcinoma</article-title>
+          <source>Br J Cancer</source>
+          <year>1996</year>
+          <volume>74</volume>
+          <fpage>1253</fpage>
+          <lpage>1257</lpage>
+          <pub-id pub-id-type="doi">10.1038/bjc.1996.525</pub-id>
+          <pub-id pub-id-type="pmid">8883413</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fischer-Colbrie</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Witt</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Heinzl</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Speiser</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Czerwenka</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Sevelda</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Zeillinger</surname>
+            <given-names>R</given-names>
+          </name>
+          <article-title>EGFR and steroid receptors in ovarian carcinoma: comparison with prognostic parameters and outcome of patients</article-title>
+          <source>Anticancer Res</source>
+          <year>1997</year>
+          <volume>17</volume>
+          <fpage>613</fpage>
+          <lpage>619</lpage>
+          <pub-id pub-id-type="pmid">9066588</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Inada</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Koto</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Futami</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Arima</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Iwashita</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Evaluation of malignancy and the prognosis of esophageal cancer based on an immunohistochemical study (p53, E-cadherin, epidermal growth factor receptor)</article-title>
+          <source>Surg Today</source>
+          <year>1999</year>
+          <volume>29</volume>
+          <fpage>493</fpage>
+          <lpage>503</lpage>
+          <pub-id pub-id-type="doi">10.1007/BF02482343</pub-id>
+          <pub-id pub-id-type="pmid">10385363</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nicholson</surname>
+            <given-names>RI</given-names>
+          </name>
+          <name>
+            <surname>Gee</surname>
+            <given-names>JM</given-names>
+          </name>
+          <name>
+            <surname>Harper</surname>
+            <given-names>ME</given-names>
+          </name>
+          <article-title>EGFR and cancer prognosis</article-title>
+          <source>Eur J Cancer</source>
+          <year>2001</year>
+          <volume>37</volume>
+          <issue>Suppl 4</issue>
+          <fpage>S9</fpage>
+          <lpage>S15</lpage>
+          <pub-id pub-id-type="pmid">11597399</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tateishi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Ishida</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Mitsudomi</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Kaneko</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Sugimachi</surname>
+            <given-names>K</given-names>
+          </name>
+          <article-title>Immunohistochemical evidence of autocrine growth factors in adenocarcinoma of the human lung</article-title>
+          <source>Cancer Res</source>
+          <year>1990</year>
+          <volume>50</volume>
+          <fpage>7077</fpage>
+          <lpage>7080</lpage>
+          <pub-id pub-id-type="pmid">2208175</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Rusch</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Klimstra</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Venkatraman</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Pisters</surname>
+            <given-names>PW</given-names>
+          </name>
+          <name>
+            <surname>Langenfeld</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Dmitrovsky</surname>
+            <given-names>E</given-names>
+          </name>
+          <article-title>Overexpression of the epidermal growth factor receptor and its ligand transforming growth factor is frequent in resectable non-small cell lung cancer but does not predict tumor progression</article-title>
+          <source>Clin Cancer Res</source>
+          <year>1997</year>
+          <volume>3</volume>
+          <fpage>515</fpage>
+          <lpage>522</lpage>
+          <pub-id pub-id-type="pmid">9815714</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fontanini</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Vignati</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Bigini</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Mussi</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Lucchi</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Angeletti</surname>
+            <given-names>CA</given-names>
+          </name>
+          <name>
+            <surname>Pingitore</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Pepe</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Basolo</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Bevilacqua</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Epidermal growth factor receptor (EGFr) expression in non-small cell lung carcinomas correlates with metastatic involvement of hilar and mediastinal lymph nodes in the squamous subtype</article-title>
+          <source>Eur J Cancer</source>
+          <year>1995</year>
+          <volume>31</volume>
+          <fpage>178</fpage>
+          <lpage>183</lpage>
+          <pub-id pub-id-type="doi">10.1016/0959-8049(93)00421-M</pub-id>
+          <pub-id pub-id-type="pmid">7718322</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pfeiffer</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Clausen</surname>
+            <given-names>PP</given-names>
+          </name>
+          <name>
+            <surname>Andersen</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Rose</surname>
+            <given-names>C</given-names>
+          </name>
+          <article-title>Lack of prognostic significance of epidermal growth factor receptor and the oncoprotein p185HER-2 in patients with systemically untreated non-small-cell lung cancer: an immunohistochemical study on cryosections</article-title>
+          <source>Br J Cancer</source>
+          <year>1996</year>
+          <volume>74</volume>
+          <fpage>86</fpage>
+          <lpage>91</lpage>
+          <pub-id pub-id-type="doi">10.1038/bjc.1996.320</pub-id>
+          <pub-id pub-id-type="pmid">8679464</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Travis</surname>
+            <given-names>WD</given-names>
+          </name>
+          <name>
+            <surname>Colby</surname>
+            <given-names>TV</given-names>
+          </name>
+          <name>
+            <surname>Corrin</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Shimosato</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Brambilla</surname>
+            <given-names>E</given-names>
+          </name>
+          <person-group person-group-type="editor">Sobin LH</person-group>
+          <article-title>Histological typing of tumors of lung and pleura</article-title>
+          <source>World Health Organization. International Classification of Tumors</source>
+          <year>1999</year>
+          <publisher-name>Berlin, Germany: Springer-Verlag</publisher-name>
+        </mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="book">
+          <name>
+            <surname>Tanoue</surname>
+            <given-names>LT</given-names>
+          </name>
+          <name>
+            <surname>Matthay</surname>
+            <given-names>RA</given-names>
+          </name>
+          <person-group person-group-type="editor">Shields TW</person-group>
+          <article-title>Lung cancer: epidemiology and carcinogenesis</article-title>
+          <source>General Thoracic Surgery</source>
+          <year>2000</year>
+          <publisher-name>Philadelphia, PA: Lippincott Williams &amp; Wilkins</publisher-name>
+          <fpage>1215</fpage>
+          <lpage>1228</lpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Schiller</surname>
+            <given-names>JH</given-names>
+          </name>
+          <name>
+            <surname>Adak</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Feins</surname>
+            <given-names>RH</given-names>
+          </name>
+          <name>
+            <surname>Keller</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Fry</surname>
+            <given-names>WA</given-names>
+          </name>
+          <name>
+            <surname>Livingston</surname>
+            <given-names>RB</given-names>
+          </name>
+          <name>
+            <surname>Hammond</surname>
+            <given-names>ME</given-names>
+          </name>
+          <name>
+            <surname>Wolf</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Sabatini</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Jett</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Kohman</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Johnson</surname>
+            <given-names>DH</given-names>
+          </name>
+          <article-title>Lack of prognostic significance of p53 and Kras mutations in primary resected non-small-cell lung cancer on E4592: a Laboratory Ancillary Study on an Eastern Cooperative Oncology Group Prospective Randomized Trial of Postoperative Adjuvant Therapy</article-title>
+          <source>J Clin Oncol</source>
+          <year>2001</year>
+          <volume>19</volume>
+          <fpage>448</fpage>
+          <lpage>457</lpage>
+          <pub-id pub-id-type="pmid">11208838</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fukuoka</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Yano</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Giaccone</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Tamura</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Nakagawa</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Douillard</surname>
+            <given-names>JY</given-names>
+          </name>
+          <name>
+            <surname>Nishiwaki</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Vansteenkiste</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Kudoh</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Rischin</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Eek</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Horai</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Noda</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Takata</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Smit</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Averbuch</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Macleod</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Feyereislova</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Dong</surname>
+            <given-names>RP</given-names>
+          </name>
+          <name>
+            <surname>Baselga</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Multi-institutional randomized phase II trial of gefitinib for previously treated patients with advanced non-small-cell lung cancer (The IDEAL 1 Trial)</article-title>
+          <source>J Clin Oncol</source>
+          <year>2003</year>
+          <volume>21</volume>
+          <fpage>2237</fpage>
+          <lpage>2246</lpage>
+          <pub-id pub-id-type="doi">10.1200/JCO.2003.10.038</pub-id>
+          <pub-id pub-id-type="pmid">12748244</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kris</surname>
+            <given-names>MG</given-names>
+          </name>
+          <name>
+            <surname>Natale</surname>
+            <given-names>RB</given-names>
+          </name>
+          <name>
+            <surname>Herbst</surname>
+            <given-names>RS</given-names>
+          </name>
+          <name>
+            <surname>Lynch</surname>
+            <given-names>TJ</given-names>
+            <suffix>Jr</suffix>
+          </name>
+          <name>
+            <surname>Prager</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Belani</surname>
+            <given-names>CP</given-names>
+          </name>
+          <name>
+            <surname>Schiller</surname>
+            <given-names>JH</given-names>
+          </name>
+          <name>
+            <surname>Kelly</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Spiridonidis</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Sandler</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Albain</surname>
+            <given-names>KS</given-names>
+          </name>
+          <name>
+            <surname>Cella</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Wolf</surname>
+            <given-names>MK</given-names>
+          </name>
+          <name>
+            <surname>Averbuch</surname>
+            <given-names>SD</given-names>
+          </name>
+          <name>
+            <surname>Ochs</surname>
+            <given-names>JJ</given-names>
+          </name>
+          <name>
+            <surname>Kay</surname>
+            <given-names>AC</given-names>
+          </name>
+          <article-title>Efficacy of gefitinib, an inhibitor of the epidermal growth factor receptor tyrosine kinase, in symptomatic patients with non-small cell lung cancer: a randomized trial</article-title>
+          <source>JAMA</source>
+          <year>2003</year>
+          <volume>290</volume>
+          <fpage>2149</fpage>
+          <lpage>2158</lpage>
+          <pub-id pub-id-type="doi">10.1001/jama.290.16.2149</pub-id>
+          <pub-id pub-id-type="pmid">14570950</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Cortes-Funes</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Soto Parra</surname>
+            <given-names>H</given-names>
+          </name>
+          <article-title>Extensive experience of disease control with gefitinib and the role of prognostic markers</article-title>
+          <source>Br J Cancer</source>
+          <year>2003</year>
+          <volume>89</volume>
+          <issue>Suppl 2</issue>
+          <fpage>S3</fpage>
+          <lpage>S8</lpage>
+          <pub-id pub-id-type="pmid">14661046</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Eberhard</surname>
+            <given-names>DA</given-names>
+          </name>
+          <name>
+            <surname>Johnson</surname>
+            <given-names>BE</given-names>
+          </name>
+          <name>
+            <surname>Amler</surname>
+            <given-names>LC</given-names>
+          </name>
+          <name>
+            <surname>Goddard</surname>
+            <given-names>AD</given-names>
+          </name>
+          <name>
+            <surname>Heldens</surname>
+            <given-names>SL</given-names>
+          </name>
+          <name>
+            <surname>Herbst</surname>
+            <given-names>RS</given-names>
+          </name>
+          <name>
+            <surname>Ince</surname>
+            <given-names>WL</given-names>
+          </name>
+          <name>
+            <surname>J&#xE4;nne</surname>
+            <given-names>PA</given-names>
+          </name>
+          <name>
+            <surname>Januario</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Johnson</surname>
+            <given-names>DH</given-names>
+          </name>
+          <name>
+            <surname>Klein</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Miller</surname>
+            <given-names>VA</given-names>
+          </name>
+          <name>
+            <surname>Ostland</surname>
+            <given-names>MA</given-names>
+          </name>
+          <name>
+            <surname>Ramies</surname>
+            <given-names>DA</given-names>
+          </name>
+          <name>
+            <surname>Sebisanovic</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Stinson</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>YR</given-names>
+          </name>
+          <name>
+            <surname>Seshagiri</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Hillan</surname>
+            <given-names>KJ</given-names>
+          </name>
+          <article-title>Mutations in the epidermal growth factor receptor and in KRAS are predictive and prognostic indicators in patients with nonsmall-cell lung cancer treated with chemotherapy alone and in combination with erlotinib</article-title>
+          <source>J Clin Oncol</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <fpage>5900</fpage>
+          <lpage>5909</lpage>
+          <pub-id pub-id-type="doi">10.1200/JCO.2005.02.857</pub-id>
+          <pub-id pub-id-type="pmid">16043828</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nelson</surname>
+            <given-names>HH</given-names>
+          </name>
+          <name>
+            <surname>Christiani</surname>
+            <given-names>DC</given-names>
+          </name>
+          <name>
+            <surname>Mark</surname>
+            <given-names>EJ</given-names>
+          </name>
+          <name>
+            <surname>Wiencke</surname>
+            <given-names>JK</given-names>
+          </name>
+          <name>
+            <surname>Wain</surname>
+            <given-names>JC</given-names>
+          </name>
+          <name>
+            <surname>Kelsey</surname>
+            <given-names>KT</given-names>
+          </name>
+          <article-title>Implications and prognostic value of K-ras mutation for early-stage lung cancer in women</article-title>
+          <source>J Natl Cancer Inst</source>
+          <year>1999</year>
+          <volume>91</volume>
+          <fpage>2032</fpage>
+          <lpage>2038</lpage>
+          <pub-id pub-id-type="doi">10.1093/jnci/91.23.2032</pub-id>
+          <pub-id pub-id-type="pmid">10580029</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Hirsch</surname>
+            <given-names>FR</given-names>
+          </name>
+          <name>
+            <surname>Varella-Garcia</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Bunn</surname>
+            <given-names>PA</given-names>
+            <suffix>Jr</suffix>
+          </name>
+          <name>
+            <surname>Di Maria</surname>
+            <given-names>MV</given-names>
+          </name>
+          <name>
+            <surname>Veve</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Bremmes</surname>
+            <given-names>RM</given-names>
+          </name>
+          <name>
+            <surname>Bar&#xF3;n</surname>
+            <given-names>AE</given-names>
+          </name>
+          <name>
+            <surname>Zeng</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Franklin</surname>
+            <given-names>WA</given-names>
+          </name>
+          <article-title>Epidermal growth factor receptor in non-small-cell lung carcinomas: correlation between gene copy number and protein expression and impact on prognosis</article-title>
+          <source>J Clin Oncol</source>
+          <year>2003</year>
+          <volume>21</volume>
+          <fpage>3798</fpage>
+          <lpage>3807</lpage>
+          <pub-id pub-id-type="doi">10.1200/JCO.2003.11.069</pub-id>
+          <pub-id pub-id-type="pmid">12953099</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Massarelli</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Varella-Garcia</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Tang</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Xavier</surname>
+            <given-names>AC</given-names>
+          </name>
+          <name>
+            <surname>Ozburn</surname>
+            <given-names>NC</given-names>
+          </name>
+          <name>
+            <surname>Liu</surname>
+            <given-names>DD</given-names>
+          </name>
+          <name>
+            <surname>Bekele</surname>
+            <given-names>BN</given-names>
+          </name>
+          <name>
+            <surname>Herbst</surname>
+            <given-names>RS</given-names>
+          </name>
+          <name>
+            <surname>Wistuba</surname>
+            <given-names>II</given-names>
+          </name>
+          <article-title>KRAS mutation is an important predictor of resistance to therapy with epidermal growth factor receptor tyrosine kinase inhibitors in non-small cell lung cancer</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2007</year>
+          <volume>13</volume>
+          <fpage>2890</fpage>
+          <lpage>2896</lpage>
+          <pub-id pub-id-type="doi">10.1158/1078-0432.CCR-06-3043</pub-id>
+          <pub-id pub-id-type="pmid">17504988</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Sainsbury</surname>
+            <given-names>JR</given-names>
+          </name>
+          <name>
+            <surname>Nicholson</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Angus</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Farndon</surname>
+            <given-names>JR</given-names>
+          </name>
+          <name>
+            <surname>Malcolm</surname>
+            <given-names>AJ</given-names>
+          </name>
+          <name>
+            <surname>Harris</surname>
+            <given-names>AL</given-names>
+          </name>
+          <article-title>Epidermal growth factor receptor status of histological sub-types of breast cancer</article-title>
+          <source>Br J Cancer</source>
+          <year>1988</year>
+          <volume>58</volume>
+          <fpage>458</fpage>
+          <lpage>460</lpage>
+          <pub-id pub-id-type="doi">10.1038/bjc.1988.240</pub-id>
+          <pub-id pub-id-type="pmid">3207600</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Yasui</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Sumiyoshi</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Hata</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Kameda</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Ochiai</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Ito</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Tahara</surname>
+            <given-names>E</given-names>
+          </name>
+          <article-title>Expression of epidermal growth factor receptor in human gastric and colonic carcinomas</article-title>
+          <source>Cancer Res</source>
+          <year>1988</year>
+          <volume>48</volume>
+          <fpage>137</fpage>
+          <lpage>141</lpage>
+          <pub-id pub-id-type="pmid">2446740</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Toi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Nakamura</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Mukaida</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Wada</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Osaki</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Yamada</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Toge</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Niimoto</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Hattori</surname>
+            <given-names>T</given-names>
+          </name>
+          <article-title>Relationship between epidermal growth factor receptor status and various prognostic factors in human breast cancer</article-title>
+          <source>Cancer</source>
+          <year>1990</year>
+          <volume>65</volume>
+          <fpage>19801984</fpage>
+        </mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Volm</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Drings</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Wodrich</surname>
+            <given-names>W</given-names>
+          </name>
+          <article-title>Prognostic significance of the expression of c-fos, c-jun and c-erbB-1 oncogene products in human squamous cell lung carcinomas</article-title>
+          <source>J Cancer Res Clin Oncol</source>
+          <year>1993</year>
+          <volume>119</volume>
+          <fpage>507</fpage>
+          <lpage>510</lpage>
+          <pub-id pub-id-type="doi">10.1007/BF01686458</pub-id>
+          <pub-id pub-id-type="pmid">8100821</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Veale</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Kerr</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Gibson</surname>
+            <given-names>GJ</given-names>
+          </name>
+          <name>
+            <surname>Kelly</surname>
+            <given-names>PJ</given-names>
+          </name>
+          <name>
+            <surname>Harris</surname>
+            <given-names>AL</given-names>
+          </name>
+          <article-title>The relationship of quantitative epidermal growth factor receptor expression in non-small cell lung cancer to long term survival</article-title>
+          <source>Br J Cancer</source>
+          <year>1993</year>
+          <volume>68</volume>
+          <fpage>162</fpage>
+          <lpage>165</lpage>
+          <pub-id pub-id-type="doi">10.1038/bjc.1993.306</pub-id>
+          <pub-id pub-id-type="pmid">8391303</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fujino</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Enokibori</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Tezuka</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Asada</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Inoue</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Kato</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Mori</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>A comparison of epidermal growth factor receptor levels and other prognostic parameters in non-small cell lung cancer</article-title>
+          <source>Eur J Cancer</source>
+          <year>1996</year>
+          <volume>32A</volume>
+          <fpage>2070</fpage>
+          <lpage>2074</lpage>
+          <pub-id pub-id-type="pmid">9014747</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fu</surname>
+            <given-names>XL</given-names>
+          </name>
+          <name>
+            <surname>Zhu</surname>
+            <given-names>XZ</given-names>
+          </name>
+          <name>
+            <surname>Shi</surname>
+            <given-names>DR</given-names>
+          </name>
+          <name>
+            <surname>Xiu</surname>
+            <given-names>LZ</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>LJ</given-names>
+          </name>
+          <name>
+            <surname>Zhao</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Qian</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Lu</surname>
+            <given-names>HF</given-names>
+          </name>
+          <name>
+            <surname>Xiang</surname>
+            <given-names>YB</given-names>
+          </name>
+          <name>
+            <surname>Jiang</surname>
+            <given-names>GL</given-names>
+          </name>
+          <article-title>Study of prognostic predictors for non-small cell lung cancer</article-title>
+          <source>Lung Cancer</source>
+          <year>1999</year>
+          <volume>23</volume>
+          <fpage>143</fpage>
+          <lpage>152</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0169-5002(99)00009-4</pub-id>
+          <pub-id pub-id-type="pmid">10217618</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Selvaggi</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Novello</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Torri</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Leonardo</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>De Giuli</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Borasio</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Mossetti</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Ardissone</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Lausi</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Scagliotti</surname>
+            <given-names>GV</given-names>
+          </name>
+          <article-title>Epidermal growth factor receptor overexpression correlates with a poor prognosis in completely resected non-small-cell lung cancer</article-title>
+          <source>Ann Oncol</source>
+          <year>2004</year>
+          <volume>15</volume>
+          <fpage>28</fpage>
+          <lpage>32</lpage>
+          <pub-id pub-id-type="doi">10.1093/annonc/mdh011</pub-id>
+          <pub-id pub-id-type="pmid">14679115</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pastorino</surname>
+            <given-names>U</given-names>
+          </name>
+          <name>
+            <surname>Andreola</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Tagliabue</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Pezella</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Incarbone</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Sozzi</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Buyse</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Menard</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Pierotti</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Rilke</surname>
+            <given-names>F</given-names>
+          </name>
+          <article-title>Immunocytochemical markers in stage I lung cancers: relevance to prognosis</article-title>
+          <source>J Clin Oncol</source>
+          <year>1997</year>
+          <volume>15</volume>
+          <fpage>2858</fpage>
+          <lpage>2865</lpage>
+          <pub-id pub-id-type="pmid">9256129</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ohsaki</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Tanno</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Fujita</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Toyoshima</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Fujiuchi</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Nishigaki</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Ishida</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Nagase</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Miyokawa</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Hirata</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Kikuchi</surname>
+            <given-names>K</given-names>
+          </name>
+          <article-title>Epidermal growth factor expression correlates with poor prognosis in non-small cell lung cancer patients with p53 overexpression</article-title>
+          <source>Oncol Rep</source>
+          <year>2000</year>
+          <volume>7</volume>
+          <fpage>603</fpage>
+          <lpage>607</lpage>
+          <pub-id pub-id-type="pmid">10767376</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Nakamura</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Kawasaki</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Taguchi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Kabasawa</surname>
+            <given-names>K</given-names>
+          </name>
+          <article-title>Survival impact of epidermal growth factor receptor overexpression in patients with non-small cell lung cancer: a meta-analysis</article-title>
+          <source>Thorax</source>
+          <year>2006</year>
+          <volume>61</volume>
+          <fpage>140</fpage>
+          <lpage>145</lpage>
+          <pub-id pub-id-type="doi">10.1136/thx.2005.042275</pub-id>
+          <pub-id pub-id-type="pmid">16284218</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kurie</surname>
+            <given-names>JM</given-names>
+          </name>
+          <name>
+            <surname>Shin</surname>
+            <given-names>HJ</given-names>
+          </name>
+          <name>
+            <surname>Lee</surname>
+            <given-names>JS</given-names>
+          </name>
+          <name>
+            <surname>Morice</surname>
+            <given-names>RC</given-names>
+          </name>
+          <name>
+            <surname>Ro</surname>
+            <given-names>JY</given-names>
+          </name>
+          <name>
+            <surname>Lippman</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Hittelman</surname>
+            <given-names>WN</given-names>
+          </name>
+          <name>
+            <surname>Yu</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Lee</surname>
+            <given-names>JJ</given-names>
+          </name>
+          <name>
+            <surname>Hong</surname>
+            <given-names>WK</given-names>
+          </name>
+          <article-title>Increased epidermal growth factor receptor expression in metaplastic bronchial epithelium</article-title>
+          <source>Clin Cancer Res</source>
+          <year>1996</year>
+          <volume>2</volume>
+          <fpage>1787</fpage>
+          <lpage>1793</lpage>
+          <pub-id pub-id-type="pmid">9816131</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Piyathilake</surname>
+            <given-names>CJ</given-names>
+          </name>
+          <name>
+            <surname>Frost</surname>
+            <given-names>AR</given-names>
+          </name>
+          <name>
+            <surname>Manne</surname>
+            <given-names>U</given-names>
+          </name>
+          <name>
+            <surname>Weiss</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Bell</surname>
+            <given-names>WC</given-names>
+          </name>
+          <name>
+            <surname>Heimburger</surname>
+            <given-names>DC</given-names>
+          </name>
+          <name>
+            <surname>Grizzle</surname>
+            <given-names>WE</given-names>
+          </name>
+          <article-title>Differential expression of growth factors in squamous cell carcinoma and precancerous lesions of the lung</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2002</year>
+          <volume>8</volume>
+          <fpage>734</fpage>
+          <lpage>744</lpage>
+          <pub-id pub-id-type="pmid">11895903</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pfeiffer</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Nex&#xF8;</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Bentzen</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Clausen</surname>
+            <given-names>PP</given-names>
+          </name>
+          <name>
+            <surname>Andersen</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Rose</surname>
+            <given-names>C</given-names>
+          </name>
+          <article-title>Enzyme-linked immunosorbent assay of epidermal growth factor receptor in lung cancer: comparisons with immunohistochemistry, clinicopathological features and prognosis</article-title>
+          <source>Br J Cancer</source>
+          <year>1998</year>
+          <volume>78</volume>
+          <fpage>96</fpage>
+          <lpage>99</lpage>
+          <pub-id pub-id-type="doi">10.1038/bjc.1998.448</pub-id>
+          <pub-id pub-id-type="pmid">9662257</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Rusch</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Baselga</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Cordon-Cardo</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Orazem</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Zaman</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Hoda</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>McIntosh</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Kurie</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Dmitrovsky</surname>
+            <given-names>E</given-names>
+          </name>
+          <article-title>Differential expression of the epidermal growth factor receptor and its ligands in primary non-small cell lung cancers and adjacent benign lung</article-title>
+          <source>Cancer Res</source>
+          <year>1993</year>
+          <volume>53</volume>
+          <issue>10 Suppl</issue>
+          <fpage>2379</fpage>
+          <lpage>2385</lpage>
+          <pub-id pub-id-type="pmid">7683573</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Richardson</surname>
+            <given-names>CM</given-names>
+          </name>
+          <name>
+            <surname>Sharma</surname>
+            <given-names>RA</given-names>
+          </name>
+          <name>
+            <surname>Cox</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>O'Byrne</surname>
+            <given-names>KJ</given-names>
+          </name>
+          <article-title>Epidermal growth factor receptors and cyclooxygenase-2 in the pathogenesis of non-small cell lung cancer: potential targets for chemoprevention and systemic therapy</article-title>
+          <source>Lung Cancer</source>
+          <year>2003</year>
+          <volume>39</volume>
+          <fpage>1</fpage>
+          <lpage>13</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0169-5002(02)00382-3</pub-id>
+          <pub-id pub-id-type="pmid">12499088</pub-id>
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

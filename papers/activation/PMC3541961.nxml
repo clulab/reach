@@ -1,0 +1,1432 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Mol Biol Cell</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Mol. Biol. Cell</journal-id>
+      <journal-id journal-id-type="hwp">molbiolcell</journal-id>
+      <journal-id journal-id-type="pmc">mbc</journal-id>
+      <journal-id journal-id-type="publisher-id">Mol. Bio. Cell</journal-id>
+      <journal-title-group>
+        <journal-title>Molecular Biology of the Cell</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1059-1524</issn>
+      <issn pub-type="epub">1939-4586</issn>
+      <publisher>
+        <publisher-name>The American Society for Cell Biology</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23155002</article-id>
+      <article-id pub-id-type="pmc">3541961</article-id>
+      <article-id pub-id-type="publisher-id">E12-04-0300</article-id>
+      <article-id pub-id-type="doi">10.1091/mbc.E12-04-0300</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+          <subj-group>
+            <subject>Signaling</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>SmgGDS antagonizes BPGAP1-induced Ras/ERK activation and neuritogenesis in PC12 cell differentiation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ravichandran</surname>
+            <given-names>Aarthi</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Low</surname>
+            <given-names>Boon Chuan</given-names>
+          </name>
+          <xref ref-type="corresp" rid="cor1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <aff>Cell Signaling and Developmental Biology Laboratory, Department of Biological Sciences, National University of Singapore, Singapore 117543, Republic of Singapore; Mechanobiology Institute, National University of Singapore, Singapore 117411, Republic of Singapore</aff>
+      </contrib-group>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Adams</surname>
+            <given-names>Josephine C.</given-names>
+          </name>
+          <role>Monitoring Editor</role>
+        </contrib>
+        <aff>University of Bristol</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1"><sup>1</sup>Address correspondence to: Boon Chuan Low (<email>dbslowbc@nus.edu.sg</email>).</corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>15</day>
+        <month>1</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>24</volume>
+      <issue>2</issue>
+      <fpage>145</fpage>
+      <lpage>156</lpage>
+      <history>
+        <date date-type="received">
+          <day>17</day>
+          <month>4</month>
+          <year>2012</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>27</day>
+          <month>9</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>07</day>
+          <month>11</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2013 Ravichandran and Low. This article is distributed by The American Society for Cell Biology under license from the author(s). Two months after publication it is available to the public under an Attribution&#x2013;Noncommercial&#x2013;Share Alike 3.0 Unported Creative Commons License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-sa/3.0">http://creativecommons.org/licenses/by-nc-sa/3.0</ext-link>).</copyright-statement>
+        <copyright-year>2013</copyright-year>
+        <license license-type="creative-commons">
+          <license-p>&#x201C;ASCB&#xAE;,&#x201D; &#x201C;The American Society for Cell Biology&#xAE;,&#x201D; and &#x201C;Molecular Biology of the Cell&#xAE;&#x201D; are registered trademarks of The American Society of Cell BD; are registered trademarks of The American Society of Cell Biology.</license-p>
+        </license>
+      </permissions>
+      <self-uri xlink:title="pdf" xlink:type="simple" xlink:href="145.pdf"/>
+      <abstract abstract-type="precis">
+        <p>BPGAP1 controls morphogenesis, migration, and ERK signaling by the concerted action of its multiple domains. Its BCH domain targets K-Ras and induces robust ERK activation and neuronal differentiation in a process antagonized by SmgGDS. The results highlight unique cross-talk of two regulators of GTPases in Ras/ERK signaling and differentiation.</p>
+      </abstract>
+      <abstract>
+        <p>BPGAP1 is a Rho GTPase-activating protein (RhoGAP) that regulates cell morphogenesis, cell migration, and ERK signaling by the concerted action of its proline-rich region (PRR), RhoGAP domain, and the BNIP-2 and Cdc42GAP homology (BCH) domain. Although multiple cellular targets for the PRR and RhoGAP have been identified, and their functions delineated, the mechanism by which the BCH domain regulates functions of BPGAP1 remains unclear. Here we show that its BCH domain induced robust ERK activation leading to PC12 cell differentiation by targeting specifically to K-Ras. Such stimulatory effect was inhibited, however, by both dominant-negative mutants of Mek2 (Mek2-K101A) and K-Ras (K-Ras-S17N) and also by the small G-protein GDP dissociation stimulator (SmgGDS). Consequently SmgGDS knockdown released this inhibition and resulted in a superinduction of K-Ras activation and PC12 differentiation mediated by BCH domain. These results demonstrate the versatility of the BCH domain of BPGAP1 in regulating ERK signaling by involving K-Ras and SmgGDS and support the unique role of BPGAP1 as a dual regulator for Ras and Rho signaling in cell morphogenesis and differentiation.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body><sec><title>INTRODUCTION</title><p>Ras and Rho small GTPases function as key molecular switches regulating cell growth, proliferation, differentiation, morphogenesis, and motility by impacting immediate cytoskeletal organization and long-term modulation of gene expression (<xref ref-type="bibr" rid="B29">Takai <italic>et&#xA0;al.</italic>, 2001</xref>; <xref ref-type="bibr" rid="B32">Wennerberg <italic>et&#xA0;al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="B1">Bernards and Settleman, 2007</xref>). They cycle between an active GTP-bound form and an inactive GDP-bound form; activated by the guanine nucleotide exchange factors (GEFs), or inactivated by the GTPase-activating proteins (GAPs) or the guanine nucleotide dissociation inhibitors. Despite our good understanding of the individual signaling networks and control of Ras and Rho, little is known about how they are directly regulated by a single protein entity inside the cells and how that might impact important signaling pathways such as the Ras/ERK module that governs many aspects of cell physiology just mentioned.</p><p>BPGAP1 (<underline>B</underline>NIP-2 and Cdc42GAP homology [BCH] domain-containing, proline-rich and Cdc42<underline>GAP</underline>-like protein subtype-<underline>1</underline>) is a RhoGAP that targets the three main members of Rho GTPases&#x2014;RhoA, Cdc42, and Rac1&#x2014;in vitro but primarily inactivates RhoA inside the cells. Through the concerted action of its BCH and RhoGAP domains and proline-rich region (PRR), BPGAP1 induces extensive changes in cell morphologies and cell motility (<xref ref-type="bibr" rid="B27">Shang <italic>et&#xA0;al.</italic>, 2003</xref>). This induction is mediated in part by the binding of cortactin to the PRR of BPGAP1 promoting their translocation to the cell periphery and to enhance cell migration (<xref ref-type="bibr" rid="B13">Lua and Low, 2004</xref>), whereas binding of EEN/endophilin2 to the same motif induces epidermal growth factor (EGF) receptor (EGFR) endocytosis, leading to Ras/ERK activation (<xref ref-type="bibr" rid="B14">Lua and Low, 2005</xref>). We further showed that this proline-rich moiety is the target of peptidylprolyl isomerase Pin1 and Mek2 that act as novel scaffold proteins in regulating Rho and ERK signaling (<xref ref-type="bibr" rid="B23">Pan <italic>et&#xA0;al.</italic>, 2010</xref>). Interestingly, BPGAP1 also activates ERK1/2 independently of its interaction with EEN and Rho inactivation, perhaps implicating the involvement of its BCH domain in regulating this process (<xref ref-type="bibr" rid="B14">Lua and Low, 2005</xref>). Furthermore, our functional analyses of other closely related BCH domains reveal that this novel class of protein domain could act as regulatory scaffolds that engage Rho, Cdc42, RhoGEFs, or RhoGAPs in a context-dependent manner (<xref ref-type="bibr" rid="B22">Pan and Low, 2012</xref>; <xref ref-type="bibr" rid="B24">Pan <italic>et&#xA0;al.</italic>, 2012</xref>). For example, the homologous BCH domain of BNIP-2, BNIP-S&#x3B1;, and BNIP-XL can bind Cdc42, Rho, p115RhoGEF, or Lbc RhoGEF to regulate cell protrusions and cellular transformation (<xref ref-type="bibr" rid="B39">Zhou <italic>et&#xA0;al.</italic>, 2005</xref>, <xref ref-type="bibr" rid="B40">2006</xref>; <xref ref-type="bibr" rid="B28">Soh and Low, 2008</xref>), whereas the BCH domain of p50RhoGAP sequesters RhoA from being inactivated by the adjacent RhoGAP domain (<xref ref-type="bibr" rid="B38">Zhou <italic>et&#xA0;al.</italic>, 2010</xref>). All these observations raise the possibility that the BCH domain of BPGAP1 might also target Ras and/or its immediate Ras regulator(s).</p><p>Here we show that BPGAP1 promotes ERK activation and neurite outgrowth in PC12 differentiation by involving K-Ras and small G-protein GDP dissociation stimulator (SmgGDS). SmgGDS, or RAP1GDS1, was first characterized as a Rap GTPase regulatory protein (<xref ref-type="bibr" rid="B34">Yamamoto <italic>et&#xA0;al.</italic>, 1990</xref>), and it was believed to function like an atypical GEF, stimulating the dissociation of GDP from the small GTPases Cdc42, Rac1, RhoA, Rap1B, and K-Ras (<xref ref-type="bibr" rid="B18">Mizuno <italic>et&#xA0;al.</italic>, 1991</xref>; <xref ref-type="bibr" rid="B33">Yaku <italic>et&#xA0;al.</italic>, 1994</xref>). More recently, it was shown, with purified GTPases, that the GEF activity of SmgGDS is specific to RhoA and RhoC (<xref ref-type="bibr" rid="B9">Hamel <italic>et&#xA0;al.</italic>, 2011</xref>). Unlike canonical GEFs, SmgGDS is not deterred from binding to the GTP-bound form of GTPases (<xref ref-type="bibr" rid="B34">Yamamoto <italic>et&#xA0;al.</italic>, 1990</xref>; <xref ref-type="bibr" rid="B12">Kikuchi <italic>et&#xA0;al.</italic>, 1992</xref>; <xref ref-type="bibr" rid="B29">Takai <italic>et&#xA0;al.</italic>, 2001</xref>; <xref ref-type="bibr" rid="B31">Vikis <italic>et&#xA0;al.</italic>, 2002</xref>). Here we show that knockdown of SmgGDS alone induced K-Ras activation and that this process was further augmented when BPGAP1 was overexpressed. However, overexpression of SmgGDS attenuated the ability of this BCH domain to interact with K-Ras, leading to inhibition of ERK1/2 activation and neuritogenesis during PC12 differentiation.</p></sec><sec sec-type="results"><title>RESULTS</title><sec><title>BCH domain of BPGAP1 promotes ERK activation and differentiation of PC12 cells</title><p>We previously showed that full-length BPGAP1 interacts with EEN, enhancing EGFR endocytosis and subsequent ERK1/2 phosphorylation in a manner dependent on its GAP activity, whereas its BCH domain (BPGAP1-BCH) alone induced chronic ERK1/2 phosphorylation in an EGFR endocytosis&#x2013;independent manner (<xref ref-type="bibr" rid="B14">Lua and Low, 2005</xref>). To further delineate the mechanistic action of the BCH domain, an N-terminal region harboring the BCH domain (aa 1&#x2013;168) (<xref ref-type="fig" rid="F1">Figure 1A</xref>) was expressed in the rat pheochromocytoma cell line PC12, and its impacts on the strength and duration of ERK1/2 activation were examined under EGF stimulation. BPGAP1-BCH induced robust ERK1/2 activation that was sustained at a much higher level than the vector control for up to 15 min (<xref ref-type="fig" rid="F1">Figure 1B</xref>). In PC12, increased amplitude and duration of ERK activation by EGF lead to differentiation instead of cell proliferation (<xref ref-type="bibr" rid="B16">Marshall, 1995</xref>). To correlate the impacts of BPGAP1-BCH on sustained ERK activation and cell physiology, mCherry-tagged BPGAP1 full-length, N-terminal BPGAP1-BCH fragment, the catalytically inactive mutant of full-length BPGAP1-R232A, or vector control was expressed individually in PC12 followed by stimulation of cells with EGF for 24 h (<xref ref-type="fig" rid="F1">Figure 1C</xref>). Results show that cells expressing BPGAP1-BCH exhibited bipolar neurite structures reminiscent of nerve growth factor (NGF)-mediated differentiation of PC12, whereas the full-length protein induced multiple branched neurite protrusions. Interestingly, the catalytically inactive GAP mutant R232A exhibited morphology similar to that induced by BPGAP1-BCH (<xref ref-type="fig" rid="F1">Figure 1D</xref>). These BPGAP1-mediated morphological changes were potent, with approximately 80&#x2013;90% of transfected cells showing long protrusions in a background of &#x223C;5% for vector control (<xref ref-type="fig" rid="F1">Figure 1E</xref>). Consistent with their potency in inducing neurite outgrowth when stimulated with EGF, BPGAP1-BCH, BPGAP1, and BPGAP1-R232A also potentiated a similarly potent neurite outgrowth upon stimulation with a suboptimal level of NGF (10 ng/ml), which by itself did not induce PC12 differentiation (<xref ref-type="fig" rid="F1">Figure 1, D</xref> and <xref ref-type="fig" rid="F1">F</xref>). Data in <xref ref-type="fig" rid="F1">Figure 1, E</xref> and <xref ref-type="fig" rid="F1">F</xref>, are means of three independent experiments with fifty cells counted per construct per experiment.</p><fig id="F1" position="float"><label>FIGURE 1:</label><caption><p>BPGAP1&#x2013;BCH domain promotes differentiation of PC12 cells under EGF stimulation. (A) Schematic representation of BPGAP1 (containing the BCH domain [BCH], PRR [P], and GAP domain) and its constructs, BCH domain and arginine mutant, R232A; numbers are amino acids. (B) BCH causes sustained ERK1/2 activation upon EGF stimulation. PC12 cells transfected with BCH or vector controls were made quiescent before stimulation with EGF (100 ng/ml). Lysates were obtained at different time points and analyzed for levels of phosphorylated ERK (top panel) as described in <italic>Materials and Methods</italic>. Levels of total ERK (panERK) (middle panel) and tubulin (bottom panel) are also detected as loading controls. (C) PC12 cells transfected with mCherry-BCH, BPGAP1, BPGAP1-R232A, or vector constructs were made quiescent before stimulation with 100 ng/ml EGF and imaged every 30 min for 24 h. Representative images show the morphology of transfected cells over time. Scale bars, 20 &#x3BC;m. (D) PC12 cells were transfected with GFP vector, BCH, BPGAP1, or BPGAP1-R232A, made quiescent, and stimulated with either 100 ng/ml EGF or 10 ng/ml NGF. The observed morphological changes were consistent between the sets with BPGAP1-transfected cells showing multiple branched neurites and BCH- and BPGAP1-R232A&#x2013;transfected cells showing long bipolar neurites. White arrowheads point to the tips of the neurite extensions. Scale bars, 20 &#x3BC;m. (E and F) Statistical analysis was carried out, counting 50 transfected cells for each construct and scoring for differentiation (neurite extensions longer than 2 cell body length), and data were plotted as mean of <italic>n</italic> = 3, <italic>p</italic> &lt; 0.01, error bars represent SEM. (G) PC12 cells were transfected with Flag-BCH domain or Flag-vector, made quiescent, and stimulated with 100 ng/ml EGF for 48 h. Lysates were obtained at different time points and analyzed to detect phosphoERK and neuronal marker, GAP43. PanERK and tubulin were used as loading controls. Dotted line in second panel denotes missing lanes cut out from the same blot.</p></caption><graphic xlink:href="145fig1"/></fig><p>To further confirm that the effect of BPGAP1-BCH on PC12 extension was indeed a chronic ERK activation leading to a differentiation signal and not merely due to morphogenetic changes, we examined lysates from PC12 expressing BPGAP1-BCH for the induction profiles of ERK activation and the expression of the neuronal differentiation marker GAP43 (<xref ref-type="fig" rid="F1">Figure 1G</xref>). Results show that the expression of BPGAP1-BCH alone increased the basal level of active ERK. Stimulation by EGF further enhanced and sustained ERK activation and stimulated the expression of GAP43 as early as 12 h, instead of 36 h as seen in the control cells. These results strongly indicate that the BCH domain promotes ERK activation leading to neurite outgrowth in PC12. To further confirm that BPGAP1-BCH induced PC12 differentiation via the Ras/Mek/Erk pathway, cells were treated with Mek inhibitor U0126 or cotransfected with plasmids expressing a kinase-dead mutant of Mek2 (Mek2-K101A), together with full-length BPGAP1 or BPGAP1-BCH, and their effects were examined under EGF stimulation. On inhibitor treatment, the characteristically long bipolar neurite extensions resulting from the action of BCH were greatly reduced in length (<xref ref-type="fig" rid="F2">Figure 2A</xref>), with &#x223C;85% of transfected cells showing this reduction (<xref ref-type="fig" rid="F2">Figure 2B</xref>). Similarly, U0126 treatment in PC12 expressing full-length BPGAP1 also resulted in a significant reduction in the length of neurite outgrowth while retaining their branching phenotype (<xref ref-type="fig" rid="F2">Figure 2C</xref>) with a similar &#x223C;85% of transfected cells showing this reduction (<xref ref-type="fig" rid="F2">Figure 2D</xref>). Furthermore, expression of Mek2-K101A with the BCH domain prevented any formation of neurite outgrowth (<xref ref-type="fig" rid="F2">Figure 2E</xref>) again with &#x223C;85% of transfected cells showing this reduction (<xref ref-type="fig" rid="F2">Figure 2F</xref>). All statistical data (<xref ref-type="fig" rid="F2">Figure 2, B, D, and F</xref>) are means of three independent experiments with 80&#x2013;110 cells counted per construct per experiment. Taken together, these results revealed a novel role of the BCH domain in promoting the Ras/MAPK pathway, at least by activating the Mek2-ERK module, leading to PC12 differentiation.</p><fig id="F2" position="float"><label>FIGURE 2:</label><caption><p>BCH domain&#x2013;mediated differentiation of PC12 cells occurs via the Ras/MAPK pathway. PC12 cells transfected with BCH (A) and BPGAP1 (B) were made quiescent before treatment with dimethyl sulfoxide (DMSO; control) or U0126 (5 mm) either with or without EGF (100 ng/ml) for 48 h before they were processed by indirect immunofluorescence for confocal microscopy. (C) PC12 cells were cotransfected with BCH and Mek2-K101A, made quiescent, and stimulated with EGF (100 ng/ml) for 48 h before they were processed by indirect immunofluorescence for confocal microscopy. Red arrowheads point to the long bipolar neurites. The merged panel shows inhibition of BCH-mediated PC12 differentiation by Mek2-K101A with the white arrowheads pointing to lack of neurites. DIC, differential interference contrast. Scale bars, 20 &#x3BC;m. (D&#x2013;F) Quantitative representation of the data depicted in A&#x2013;C, respectively, as mean of <italic>n</italic> = 3, <italic>p</italic> &lt; 0.01; error bars represent SEM.</p></caption><graphic xlink:href="145fig2"/></fig></sec><sec><title>BCH domain of BPGAP1 binds K-Ras and promotes its activation and neuritogenesis</title><p>As described earlier, other homologous BCH domains have been shown to regulate Rho and Cdc42 small GTPase activities inside the cells, by binding either to them or to their immediate regulators such as GEF or GAP. To explore the possible mechanisms by which BPGAP1-BCH activates the Mek-Erk signaling node, we elected to test whether this BCH domain could interfere with the activation of Ras small GTPases. This was achieved by screening for its ability to form a physiological complex with various forms of Ras GTPases (K-Ras, H-Ras, or N-Ras; <xref ref-type="fig" rid="F3">Figure 3</xref>). Coimmunoprecipitation experiments in HEK293T show that the BCH domain of BPGAP1 was indeed capable of forming a weak, possibly transient interaction with H-Ras and N-Ras while it formed a much more stable complex with K-Ras (<xref ref-type="fig" rid="F3">Figure 3A</xref>). Particularly, it was seen that the BCH domain preferentially bound the dominant-negative form of K-Ras, K-Ras-S17N (<xref ref-type="fig" rid="F3">Figure 3B</xref>). Furthermore, coexpression of K-Ras-S17N with BCH was able to suppress the ability of BCH to promote neurite outgrowth in PC12 (<xref ref-type="fig" rid="F3">Figure 3C</xref>) in approximately 86% of the transfected population of cells (<xref ref-type="fig" rid="F3">Figure 3D</xref>; <italic>n</italic> = 3 with &#x223C;100 cells counted per experiment). A K-Ras activation assay using Raf1&#x2013;Ras-binding domain (RBD) as a reporter was carried out in HEK293T as described in <italic>Materials and Methods</italic>. The results revealed that BPGAP1-BCH promotes K-Ras activation by more than 80% (<xref ref-type="fig" rid="F3">Figure 3, E and F</xref>). This increase of K-Ras activation was recapitulated with full-length BPGAP1 (<xref ref-type="fig" rid="F3">Figure 3, G and H</xref>) with a more robust increase suggesting additional mechanisms of regulation by BPGAP1. All these results confirm our hypothesis that BCH activates K-Ras upon EGF stimulation, leading to PC12 differentiation.</p><fig id="F3" position="float"><label>FIGURE 3:</label><caption><p>BCH domain of BPGAP1 targets K-Ras and promotes its activation. (A and B) Lysates from HEK293T cells expressing relevant FLAG- and HA-tagged constructs were immunoprecipitated (IP) with anti-FLAG beads and analyzed by SDS&#x2013;PAGE and Western blotting. Appropriate antibodies were used to detect bound proteins (top panel) and loading control (bottom panel) and for verification of protein expression (middle panels). BCH domain interaction with Ras isoforms K-, H-, and N-Ras shows a strong interaction with the K-Ras isoform (A) with a preference to the dominant-negative S17N mutant (B). (C) PC12 cells overexpressing Flag-BCH and HA-K-Ras-S17N were made quiescent followed by 48 h of EGF (100 ng/ml) stimulation before they were processed by indirect immuno&#xAD;fluorescence for confocal microscopy. K-Ras-S17N blocks bipolar neurites caused by the BCH domain. Scale bars, 20 &#x3BC;m. (D) Quantitative representation of the data depicted in (C) as mean of <italic>n</italic> = 3, <italic>p</italic> &lt; 0.01, error bars represent SEM. (E and G) BCH domain (E) and full-length BPGAP1 (G) increase K-Ras activation. HEK293T cells expressing Flag-BCH (E), Flag-BPGAP1 (G), or vector control were made quiescent before stimulating with EGF (100 ng/ml) for 5 min. Lysates were incubated with Raf-1&#x2013;RBD immobilized on beads for the K-Ras activation assay and subsequent SDS&#x2013;PAGE and Western analysis as described in <italic>Materials and Methods</italic>. Bound active GTPases (top panel) and endogenous K-Ras protein expression were detected using K-Ras antibodies. Equal loading of GST fusion is observed by Amido Black staining. Experiments were performed in triplicate, and mean band intensities relative to control are plotted in (F) and (H) &#xB1;SEM, <italic>n</italic> = 3; <italic>p</italic> &lt; 0.01.</p></caption><graphic xlink:href="145fig3"/></fig></sec><sec><title>SmgGDS as a Ras suppressor and novel partner of BCH domain</title><p>To establish the novel signaling network of BPGAP1, we had previously conducted proteomics pull-down assays and identified various protein partners of BPGAP1 (<xref ref-type="bibr" rid="B13">Lua and Low, 2004</xref>), one of which was SmgGDS isoform A. Because other BCH domain-containing proteins can also target regulators of small GTPases to modulate their activities, we further hypothesized that SmgGDS could be directly involved in modulating BPGAP1 and K-Ras signaling. The physiological interaction of SmgGDS with BPGAP1 was first established by coimmunoprecipitation studies that show that endogenous SmgGDS interacted with both Flag-tagged BCH and full-length BPGAP1 (<xref ref-type="fig" rid="F4">Figure 4A</xref>). Interestingly, the interaction with the full-length protein was enhanced upon EGF stimulation, whereas the binding to BCH was already elevated at the basal state and remained constitutive, suggesting a possible intramolecular autoinhibition state of BPGAP1. SmgGDS has previously been known to possess GDP/GTP exchange activities toward Rho family small GTPases and K-Ras (<xref ref-type="bibr" rid="B18">Mizuno <italic>et&#xA0;al.</italic>, 1991</xref>; <xref ref-type="bibr" rid="B33">Yaku <italic>et&#xA0;al.</italic>, 1994</xref>). Its activity toward K-Ras inside the cells, however, remains unclear. To establish the physiological function of SmgGDS in K-Ras signaling, and specifically its role in BCH-mediated PC12 differentiation, short hairpin RNA (shRNA)-targeted SmgGDS depletion and its impact on Ras activation were examined upon EGF stimulation. Two shRNA oligonucleotides against <italic>SmgGDS</italic> were designed using small interfering RNA (siRNA) sequences published by <xref ref-type="bibr" rid="B30">Tew <italic>et&#xA0;al.</italic> (2008</xref>), and knockdown efficiency was determined by cotransfection with green fluorescent protein (GFP)-SmgGDS. When compared with the nontargeting negative control, both shRNA constructs (rS1 and rS2) successfully depleted SmgGDS by 60 and 50%, respectively (<xref ref-type="fig" rid="F4">Figure 4B</xref>). The rS1 construct was then used for subsequent experimentation as it displayed a superior knockdown effect as compared with rS2. Using the Raf-1&#x2013;RBD pulldown as the reporter for Ras activation, we saw that a knockdown of SmgGDS led to increased Ras and ERK activation upon EGF stimulation when compared with the negative control (<xref ref-type="fig" rid="F4">Figure 4C</xref>). This result suggests that SmgGDS down-regulates K-Ras signaling and could have an antagonistic effect on the stimulatory role of BPGAP1 in Ras/ERK signaling.</p><fig id="F4" position="float"><label>FIGURE 4:</label><caption><p>SmgGDS as a novel partner of BPGAP1 and suppressor of K-Ras signaling. (A) HEK293T cells were transfected with Flag-BPGAP1, vector, or BCH, made quiescent, and stimulated with 100 ng/ml of EGF. Lysates were obtained at indicated time points, subjected to immunoprecipitation (IP), and analyzed by Western blotting. Endogenous SmgGDS, bound to overexpressed BPGAP1 and BCH, was detected with anti-SmgGDS, and anti-Flag revealed equal loading of IP beads. (B) Efficiency of knockdown shRNA constructs rS1 and rS2 targeting SmgGDS were tested by transfecting HEK293T cells with shRNA constructs and HA-SmgGDS in a ratio of 1:10, and lysates were used to detect levels of SmgGDS (top panel). Tubulin was detected as a loading control (bottom panel). (C) Knockdown of SmgGDS increases K-Ras activation. HEK293T cells were transfected with pSilencer negative control or SmgGDS targeting rS1 for 48 h, made quiescent, and subjected to EGF stimulation at 100 ng/ml. Lysates obtained at indicated time points were subjected to the K-Ras activation assay.</p></caption><graphic xlink:href="145fig4"/></fig></sec><sec><title>SmgGDS antagonizes BPGAP1 activation of Ras and PC12 differentiation</title><p>Next we determined how SmgGDS could influence the action of BPGAP1 in PC12 differentiation, by coexpressing both SmgGDS and BCH. <xref ref-type="fig" rid="F5">Figure 5A</xref> shows that SmgGDS inhibits BCH-mediated differentiation of PC12 as evidenced by the loss of neurites (red arrowheads) when compared with cells expressing BCH alone (white arrowheads). Statistical analysis of three independent experiments based on such overexpression studies show that the presence of SmgGDS significantly reduced the number of cells bearing protrusions, down by more than 70% (<italic>p</italic> &lt; 0.01; <xref ref-type="fig" rid="F5">Figure 5B</xref>). To further delineate how the tripartite interaction among SmgGDS, BPGAP1-BCH, and K-Ras could lead to modulation of K-Ras activity, we set out to determine how BCH domain could interfere with the interaction between SmgGDS and K-Ras. Flag-tagged SmgGDS was coexpressed with hemagglutinin (HA)-tagged K-Ras as well as with both HA-tagged K-Ras and HA-tagged BCH. The results show that SmgGDS binds to K-Ras. This binding was abrogated, however, when BPGAP1-BCH was present at the same time as K-Ras; SmgGDS switched its binding preference from K-Ras to BCH (<xref ref-type="fig" rid="F5">Figure 5C</xref>). These results imply that, under specific stoichiometric conditions, BPGAP1-BCH is able to displace K-Ras effectively from being down-regulated by SmgGDS, thus eliciting its stimulatory effect. Alternatively, or simultaneously, SmgGDS could block BCH's stimulatory effect on K-Ras by sequestering BCH, thereby precluding K-Ras activation.</p><fig id="F5" position="float"><label>FIGURE 5:</label><caption><p>SmgGDS antagonizes BCH domain&#x2013;induced Ras/ERK activation and neuritogenesis in PC12 cell differentiation. (A) SmgGDS blocks BCH-induced differentiation of PC12 cells. PC12 cells transfected with BCH with or without SmgGDS were made quiescent and stimulated for 48 h with 100 ng/ml EGF before they were fixed for immunofluorescence analysis. Red arrows indicate double-transfected cells, and white arrows indicate single transfection. Scale bars, 20 &#x3BC;m. (B) SmgGDS reduces the percentage of transfected cells with BCH-induced protrusions by &#x223C;70%. Cells were scored for long protrusions (&gt; 2 cell body length) with at least 100 cells counted per sample per experiment. Experiments were performed in triplicate, and the means &#xB1; SEM (<italic>n</italic> = 3), <italic>p</italic> &lt; 0.01, are plotted. Bars with different letters are highly significant. (C) SmgGDS binds preferentially to BCH over K-Ras, thereby removing BCH from activating K-Ras. HEK293T cells were transfected with SmgGDS and K-Ras either with or without BCH and subjected to IP. (D) SmgGDS blocks BCH activation of K-Ras. Cells transfected with K-Ras, BCH, SmgGDS, or BCH+SmgGDS were subjected to RBD analysis. The intensities of the bound active K-Ras were then quantified using ImageJ, and the means were plotted &#xB1; SEM (<italic>n</italic> = 3). Bars with different letters are significant at <italic>p</italic> &lt; 0.01. (E) SmgGDS blocks BPGAP1 activation of endogenous K-Ras. Cells transfected with BPGAP1, SmgGDS, or BPGAP1+SmgGDS were subjected to RBD analysis. The intensities of the bound active K-Ras were then quantified using ImageJ, and the means were plotted &#xB1; SEM (<italic>n</italic> = 3). Bars with different letters are significant at <italic>p</italic> &lt; 0.01. (F) Knockdown of SmgGDS allows a potent activation of K-Ras by BCH. HEK293T cells were transfected with pSilencer negative control (neg), pSilencer rS1 (rS1), singly or together with BCH, or pSilencer rS2 (rS2) together with BCH for 48 h before lysates were subjected to RBD assay. The lysates and bound proteins were then resolved by SDS&#x2013;PAGE and subsequent Western analysis. Quantified signals were plotted as an average of three independent experiments, as fold of K-Ras activation over the (vector+neg) &#xB1; SEM (<italic>n</italic> = 3). Different letters indicate significance calculated by ANOVA; <italic>p</italic> &lt; 0.01.</p></caption><graphic xlink:href="145fig5"/></fig><p>To further confirm this dynamic modulation, the RBD assay was performed in HEK293T expressing Flag-tagged K-Ras and BPGAP1-BCH either with or without overexpressing HA-SmgGDS. Results in <xref ref-type="fig" rid="F5">Figure 5D</xref> show that although overexpression of BCH alone caused a &#x223C;50% increase in K-Ras activation, this stimulatory effect was completely suppressed in the presence of SmgGDS. The presence of SmgGDS alone did not significantly affect the basal activity of K-Ras. This result implies that the binding of SmgGDS to BCH hinders the ability of BCH in activating K-Ras. SmgGDS was also able to inhibit the increase in K-Ras activation brought about by the full-length BPGAP1 (<xref ref-type="fig" rid="F5">Figure 5E</xref>). Consequently it can be expected that the depletion of the endogenous level of SmgGDS would lead to a relief of SmgGDS suppression, and an augmentation of BCH-mediated K-Ras activation could ensue. Indeed, upon SmgGDS knockdown (with rS1), an overwhelming 10-fold increase in K-Ras activation was observed when the BCH domain was expressed in such a background, when compared to vector control (<xref ref-type="fig" rid="F5">Figure 5F</xref>). This was verified by using another shRNA construct, rS2, targeting a secondary site on SmgGDS. The BCH-mediated K-Ras activation is also augmented in this case, albeit to a lesser extent, possibly due to the lower efficiency of knockdown of SmgGDS brought about by rS2 (<xref ref-type="fig" rid="F4">Figure 4B</xref>). Consistently, knockdown of SmgGDS alone (without BCH) also produced a fourfold increase in K-Ras activation&#x2014;almost double the amount of K-Ras activation brought about by BCH. This strongly indicates a possible preexisting blockage of K-Ras mediated by SmgGDS, thus preventing an otherwise robust stimulatory effect by BCH.</p></sec><sec><title>Knockdown of SmgGDS releases its inhibition on BCH and potentiates PC12 differentiation</title><p>To elucidate how the robust increase in K-Ras activation in the absence of endogenous SmgGDS would affect the extent and nature of PC12 neurite outgrowth (<xref ref-type="fig" rid="F5">Figure 5, A</xref> and <xref ref-type="fig" rid="F5">B</xref>), we monitored and quantified morphology changes in PC12 by live imaging. PC12 was transfected with either the shRNA-negative control or shRNA construct targeting SmgGDS, together with plasmids expressing the BCH domain. The processes of initiation, extension, and maturation of neurites were then monitored for 36 h after EGF stimulation. Differentiated cells from three independent experiments were scored for their neurite lengths. It can be seen that knockdown of SmgGDS resulted in a twofold increase in their final neurite lengths (<xref ref-type="fig" rid="F6">Figure 6A</xref>). One representative cell from each experimental condition and time point (every 30 min for 36 h) was taken, and neurite length was measured. Representative images for the time course are shown in <xref ref-type="fig" rid="F6">Figure 6B</xref> (all 36 h are represented in the movies in Supplemental <xref ref-type="fig" rid="F1">Figure 1</xref>), whereas the graph in <xref ref-type="fig" rid="F6">Figure 6C</xref> shows the neurite length at each time point. It can be seen that the rate of neurite outgrowth for each cell is different. The negative control (BCH+neg) shows a gradual increase at almost a constant rate throughout. The knockdown (BCH+rS1), in contrast, shows a sharp increase in the initial neurite length, as evidenced by the sharp incline of the slope representing a burst in the initial growth rate. To make valid comparisons between the two populations, cells from all three experiments were first represented as a distribution of its final neurite length in terms of cell body (<xref ref-type="fig" rid="F6">Figure 6D</xref>). A normal distribution is observed for control and knockdown with an observable, distinct shift in the population mode from 3 cell-body (control) and 7 cell-body (knockdown) neurite length. Ten cells were then chosen from the pool, with the final neurite length equal to the mode. The neurite length for these cells was then measured every 5 h and plotted as shown in <xref ref-type="fig" rid="F6">Figure 6E</xref>. This graph resembles the trend observed in <xref ref-type="fig" rid="F6">Figure 6C</xref> for a single representative cell. It can therefore be concluded that control cells show a gradual initial increase in neurite length, whereas knockdown of SmgGDS not only advances the onset of differentiation but also shows a greater initial rate of neurite outgrowth and an increase in the final neurite length.</p><fig id="F6" position="float"><label>FIGURE 6:</label><caption><p>Knockdown of SmgGDS expression augments BCH domain&#x2013;mediated PC12 cell differentiation. PC12 cells were transfected with BCH and pSilencer negative control (BCH+neg) or BCH and pSilencer rS1 (BCH+rS1), made quiescent, subjected to 100 ng/ml EGF stimulation, and imaged every 30 min for 36 h. Three independent experiments were conducted, and differentiated cells were then analyzed for neurite length, in terms of either cell body or micrometers. (A) Average length of neurites in knockdown (BCH+rS1) is &#x223C;50% longer when compared with control (BCH+neg). Neurite lengths were measured for each cell in terms of cell body. Experiments were performed in triplicate, and the population means &#xB1; SEM (<italic>n =</italic> 3), <italic>p</italic> = 0.004, are plotted. (B) Representative cells from BCH+neg and BCH+rS1 were selected to show the neurite outgrowth over time. Images are snapshots of a time-course movie taken over 36 h, with white arrowheads indicating the tips of the neurites. (C) Neurite induction is advanced, and the initial rate of neurite outgrowth is higher for the knockdown than for the control. The graph tracks the neurite growth for one cell each from BCH+neg and BCH+rS1 and is plotted by measuring the neurite length of one representative cell per condition at each time point imaged. (D) There is a shift in the normal distribution of the population of cells with SmgGDS knockdown, to show the increased neurite length of the transfected cells. All the cells in the three experiments were plotted together to represent the population distribution of neurite lengths. (E) The population follows the same trend observed for representative cells in (C), with advanced neurite induction and a higher rate of growth for knockdown. Neurite growth of 10 cells with neurites of three cell body length (control) and 7 cell body length (knockdown) were traced every 5 h. Curves are means of neurite length at each time point &#xB1; SEM (<italic>n</italic> = 10).</p></caption><graphic xlink:href="145fig6"/></fig><p>We have revealed a novel function for the BCH domain of BPGAP1 in promoting K-Ras activation, leading to sustained ERK activation and PC12 differentiation under EGF stimulation. This effect is negatively regulated by SmgGDS, thus forming a novel signaling circuitry essential for neuronal morphogenesis and differentiation.</p></sec></sec><sec sec-type="discussion"><title>DISCUSSION</title><sec><title>BPGAP1 as a dual Rho and Ras regulator in neuritogenesis</title><p>Rho and Ras play important roles in the spatiotemporal control of multiple signaling pathways, affecting many downstream biological events from the acute protein activities to chronic gene expression levels. Understanding integration of upstream and downstream signaling networks mediated by various small GTPases in general, and Rho and Ras specifically, remains a key challenge, as it is usually unclear whether those signaling events are running in parallel or coordinated via a common set of regulators. For example, the GEF proteins RasGRF1 and RasGRF2 activate Rho and Ras GTPases (<xref ref-type="bibr" rid="B4">Fernandez-Medarde and Santos, 2011</xref>), and the GAP proteins ARAP1 and ARAP2 inactivate both Rho and Arf family GTPases (<xref ref-type="bibr" rid="B17">Miura <italic>et&#xA0;al.</italic>, 2002</xref>; <xref ref-type="bibr" rid="B35">Yoon <italic>et&#xA0;al.</italic>, 2006</xref>; <xref ref-type="bibr" rid="B25">Randazzo <italic>et&#xA0;al.</italic>, 2007</xref>). In addition, the p200RhoGAP protein not only stimulates the GTPase activities of Rac1 and RhoA in vivo to regulate neurite outgrowth (<xref ref-type="bibr" rid="B19">Moon <italic>et&#xA0;al.</italic>, 2003</xref>) but also increases the Ras-GTP levels to stimulate fibroblast cell proliferation and cell cycle progression, leading to transformation (<xref ref-type="bibr" rid="B26">Shang <italic>et&#xA0;al.</italic>, 2007</xref>). These proteins may serve as a common regulator for two different GTPase pathways or act as a control switch between specific pathways leading to coordinated changes in membrane and actin cytoskeletal dynamics. For the process of axon morphogenesis, both Rho and Ras GTPases are critical regulators of axon initiation, growth, guidance, and branching (<xref ref-type="bibr" rid="B8">Hall and Lalli, 2010</xref>). For example, R-Ras regulates phosphoinositide 3-kinase activity, inactivating GS3K via Akt leading to microtubule polarization and axon induction (<xref ref-type="bibr" rid="B21">Oinuma <italic>et&#xA0;al.</italic>, 2007</xref>). Ras also acts via Raf and Akt promoting elongation and branching (<xref ref-type="bibr" rid="B15">Markus <italic>et&#xA0;al.</italic>, 2002</xref>). The Rho GTPases, Cdc42 and Rac, promote neurite outgrowth via effector Par6 or Rac GEFs Tiam1 and Tiam2 (<xref ref-type="bibr" rid="B20">Nishimura <italic>et&#xA0;al.</italic>, 2005</xref>), aiding microtubule polarization and stabilization leading to axon extension (<xref ref-type="bibr" rid="B3">de Curtis, 2008</xref>), whereas Rho acts antagonistically via ROCK (Rho-associated protein kinase), negatively regulating neurite initiation (<xref ref-type="bibr" rid="B2">Da Silva <italic>et&#xA0;al.</italic>, 2003</xref>) and outgrowth (<xref ref-type="bibr" rid="B6">Govek <italic>et&#xA0;al.</italic>, 2005</xref>).</p><p>Here we provide further evidence that BPGAP1 serves as one such common regulator, not only acting as a RhoGAP to inactivate Rho for neurite branching, but also stimulating the Ras/ERK signaling required to drive neurite outgrowth. This concerted action, mediated by the interplay of the unique scaffolding function of its K-Ras&#x2013;activating BCH domain and the RhoA-inactivating RhoGAP domain, is visible as long, branched neurites in BPGAP1-transfected cells (<xref ref-type="fig" rid="F2">Figure 2B</xref>, top row, fourth panel). The retention of branched protrusions in U0126-treated BPGAP1-transfected cells (<xref ref-type="fig" rid="F2">Figure 2B</xref>) and induction of long, mainly unbranched protrusions by BPGAP-R232A (<xref ref-type="fig" rid="F1">Figure 1, C and D</xref>) support this. Interestingly, we further reveal that this signaling cross-talk involves SmgGDS as an additional regulator of Ras/ERK signaling to ensure a proper level of coordination.</p></sec><sec><title>SmgGDS, a novel Ras regulator that suppresses Ras-BPGAP1&#x2013;induced Ras/ERK activation</title><p>Early attempts identified SmgGDS as a GTPase regulator possessing GEF activity toward Rho and Ras GTPases (<xref ref-type="bibr" rid="B18">Mizuno <italic>et&#xA0;al.</italic>, 1991</xref>; <xref ref-type="bibr" rid="B33">Yaku <italic>et&#xA0;al.</italic>, 1994</xref>), displaying transforming activity in NIH3T3 (<xref ref-type="bibr" rid="B5">Fujioka <italic>et&#xA0;al.</italic>, 1992</xref>) and mitogenic activity in Swiss3T3 cells (<xref ref-type="bibr" rid="B36">Yoshida <italic>et&#xA0;al.</italic>, 1992</xref>) in cooperation with K-Ras. More recent work, however, shows that its GEF activity is specific to RhoA and RhoC and not toward K-Ras in vitro (<xref ref-type="bibr" rid="B9">Hamel <italic>et&#xA0;al.</italic>, 2011</xref>). Interestingly, we show that SmgGDS instead acts as a negative regulator of K-Ras in 293T and PC12 as the specific knockdown of SmgGDS robustly increases active K-Ras levels upon EGF stimulation. Overexpression of SmgGDS does not readily lead to suppression of K-Ras activation (<xref ref-type="fig" rid="F5">Figure 5D</xref>), however, indicating that the threshold effect of SmgGDS itself is also under the influence of other cellular factors. The apparent duality in roles for SmgGDS could be context-dependent, such that in fibroblast cells, SmgGDS activates K-Ras, whereas in 293T and PC12, SmgGDS could collaborate with other partners to exert an overall negative effect on K-Ras. In this context, recombinant BPGAP1 interacts with SmgGDS, in its endogenous form and when both are coexpressed inside the cells. Furthermore, a stronger interaction was observed with the BCH domain of BPGAP1, the same domain that interacts with K-Ras. Therefore it is possible that SmgGDS could suppress Ras/Erk activation induced by BPGAP1 upon EGF stimulation, by competing away the BCH domain from K-Ras activation (<xref ref-type="fig" rid="F7">Figure 7</xref>) or by recruiting other suppressors to the BPGAP1/SmgGDS complex. Alternatively, this inhibition by SmgGDS could be mediated via a yet unknown mechanism independent of their direct interaction. The detailed molecular mechanisms underlying their direct interaction or indirect effects require further investigation.</p><fig id="F7" position="float"><label>FIGURE 7:</label><caption><p>BPGAP1&#x2013;SmgGDS interplay defines a novel regulatory node in Ras signaling. BPGAP1 enhances Ras/ERK activation leading to PC12 differentiation. On EGF stimulation, BPGAP1 enhances K-Ras activation&#x2014;a process inhibited by SmgGDS. SmgGDS also negatively regulates K-Ras activation by an as yet unknown mechanism. The mechanism for BPGAP1&#x2013;SmgGDS regulation of Ras signaling is explained. On EGF stimulation, activators of Ras stimulate Ras activation to a certain low level, which is not sufficient for differentiation. BPGAP1 recruits Ras activators (possibly GEFs) to enhance this activation. Although endogenous SmgGDS could provide a level of attenuation of Ras activation by sequestering Ras activators, this effect is more pronounced in the presence of overexpressed SmgGDS, which also blocks the effect of BPGAP1 by sequestration. When SmgGDS is knocked down, the release of Ras activators leads to enhanced Ras activation albeit insufficient for differentiation. When BPGAP1 is added to this, a pronounced increase in Ras activation occurs resulting in a higher rate of differentiation, longer neurites, and an earlier induction of neurite outgrowth.</p></caption><graphic xlink:href="145fig7"/></fig><p>To activate K-Ras, we hypothesize that BPGAP1 could recruit an as yet unidentified RasGEF, as the BCH domain shows a strong preference for K-Ras-S17N, a feature shared by many GEFs (<xref ref-type="fig" rid="F3">Figure 3B</xref>). Although it was initially suspected to be a candidate RasGEF when identified in our exploratory proteomics screens, SmgGDS turned out to be a suppressor of BPGAP1&#x2019;s function as the specific knockdown of SmgGDS further potentiates Ras/ERK activation and the induction, maturation, and maintenance of neurite outgrowth by the BCH domain of BPGAP1. Such a delicate interplay of tripartite Ras&#x2013;BPGAP1&#x2013;SmgGDS signalome is likely to be sensitive to their stoichiometric perturbation in addition to their spatiotemporal distribution. This mechanism should therefore offer better control of Ras and ERK signaling, as their potency and plasticity in regulating the onset and speed of differentiation could be fine-tuned by removal of the SmgGDS block and/or increase of the presence of recruiter BPGAP1. How subsets of these signaling nodes of BPGAP1 interact in the context of SmgGDS regulation remains to be further determined.</p></sec><sec><title>BCH as a versatile regulatory scaffold protein domain</title><p>There is compelling evidence to suggest that the BCH domain is an emerging class of regulatory domain for Rho GTPases. The BCH domain is a key player in regulating the interactions between GTPases and their regulators. For example, the BNIP-2&#x2013;BCH promotes Cdc42 activation driving cell protrusion and muscle differentiation (<xref ref-type="bibr" rid="B39">Zhou <italic>et&#xA0;al.</italic>, 2005</xref>; <xref ref-type="bibr" rid="B10">Kang <italic>et&#xA0;al.</italic>, 2008</xref>), whereas BNIP-S&#x3B1;&#x2013;BCH targets RhoA, bringing about cell rounding and apoptosis by freeing RhoA from its inactivation by p50RhoGAP (<xref ref-type="bibr" rid="B39">Zhou <italic>et&#xA0;al.</italic>, 2005</xref>). BNIP-XL&#x2013;BCH also targets RhoA while separating RhoA from its proto-oncogenic RhoA-specific RhoGEF, Lbc, inhibiting Lbc-induced oncogenic transformation (<xref ref-type="bibr" rid="B28">Soh and Low, 2008</xref>), whereas p50RhoGAP&#x2013;BCH sequesters RhoA from its adjacent RhoGAP domain, thus preventing its inactivation (<xref ref-type="bibr" rid="B38">Zhou <italic>et&#xA0;al.</italic>, 2010</xref>). This work provides the first evidence for the involvement of the BCH domain of BPGAP1 in regulating K-Ras and the Ras regulator, SmgGDS. All these observations add to the significance and plasticity of BCH domain in regulating GTPase signaling (<xref ref-type="bibr" rid="B22">Pan and Low, 2012</xref>; <xref ref-type="bibr" rid="B24">Pan <italic>et&#xA0;al</italic>., 2012</xref>). To date, as many as 175 different proteins harboring BCH domains have been identified across species from slime mold to plants and humans, and the BCH domain represents a novel subclass of the CRAL-TRIO (previously named Sec14p) superfamily (<xref ref-type="bibr" rid="B7">Gupta <italic>et&#xA0;al.</italic>, 2012</xref>). It therefore remains an interesting prospect to examine how the BCH domains in these and other related proteins evolved to recognize different GTPases and their immediate regulators to achieve dynamic network control. In this context, our studies further highlight the possibilities of some of these BCH domains being involved in the Ras/MAPK pathway.</p><p>In summary, we have identified a novel function for BPGAP1 in neuritogenesis. We have revealed another role for SmgGDS as a negative regulator of Ras signaling and further showed that the SmgGDS antagonizes BPGAP1 function in regulating Ras/ERK signaling in neuronal differentiation. This should provide new insights into the intricate network of Ras, Rho, and other signaling nodes in cell dynamics control.</p></sec></sec><sec sec-type="materials|methods"><title>MATERIALS AND METHODS</title><sec><title>Plasmid construction</title><p>BPGAP1, BCH, and SmgGDS were cloned into Flag-, HA-, mCherry-, and GFP-pXJ40 mammalian expression vectors provided by E. Manser (The Institute of Medical Biology, Immunos, Singapore). The Ras constructs (K-Ras, H-Ras, N-Ras, and K-Ras-S17N) were a generous gift from Graeme Guy (Institute of Molecular and Cell Biology). HA-mMek2-K101A was provided by L. L. Chew (National University of Singapore, Singapore). Raf-1&#x2013;RBD construct was generated by PCR of human cDNA and cloned into pGEX-4T-1 vector (Amersham Biosciences, Uppsala, Sweden). Constructs were sequenced to confirm sequence fidelity.</p></sec><sec><title>Cell culture and transfection</title><p>HEK293T cells were grown in RPMI 1640 medium (HyClone, Logan, UT) supplemented with 10% (vol/vol) fetal bovine serum (PAA Cell Culture, Pasching, Austria), 10 mM HEPES (HyClone), and 2 mM <sc>l</sc>-glutamine (HyClone). Cells at 60&#x2013;80% confluence in six-well plates were transfected with 1&#x2013;2 &#x3BC;g of plasmid using FuGENE 6 (Roche Applied Science, Indianapolis, IN) or <italic>Trans</italic>IT LT1 Transfection Reagent (Mirus, Madison, WI), according to the manufacturer's instructions. PC12 cells were cultured in DMEM supplemented with 4500 mg of glucose (HyClone), 10 mM HEPES (HyClone), 5% fetal bovine serum (PAA Cell Culture), and 10% horse serum (Life Technologies, Carlsbad, CA). PC12 cells were transfected at 70&#x2013;80% confluence with Lipofectamine 2000 Reagent (Invitrogen, Carlsbad, CA), according to the manufacturer's instructions for 8 h before they were reseeded onto six-well plates or poly-<sc>d</sc>-lysine (Sigma, St. Louis, MO)-coated coverslips. All cells were maintained at 37&#xB0;C in 5% CO<sub>2</sub>. EGF (Sigma) and NGF (Sigma) stimulation was carried out after 12-h starvation (0% serum for HEK293T and 0.5% serum for PC12) at 100 and 10 ng/ml, respectively, in starvation medium. Where indicated, PC12 cells were treated with 5 &#x3BC;M Mek inhibitor, U0126 (Promega, Fitchburg, WI; <xref ref-type="bibr" rid="B11">Kasai <italic>et&#xA0;al.</italic>, 2005</xref>) concomitantly with EGF.</p></sec><sec><title>Coimmunoprecipitation</title><p>HEK293T and PC12 cells were lysed in 250 &#x3BC;l of RIPA lysis buffer (50 mM Tris-HCl, pH 7.3; 150 mM NaCl, 0.75 mM EDTA, 1% [wt/vol] sodium deoxycholate, 1% [vol/vol] Triton X-100, 0.2% [wt/vol] sodium fluoride with freshly added protease inhibitors (Roche Applied Science, Penzberg, Germany), and 5 mM sodium orthovanadate) per six-well plate. Aliquots were either directly analyzed by Western blotting or were used for protein binding studies. For coimmunoprecipitation, lysates were incubated with anti-FLAG antibody conjugated to agarose beads (Sigma, St. Louis, MO) at 4&#xB0;C for 3 h. The beads were washed with lysis buffer and analyzed by Western blotting. Primary antibodies; polyclonal anti-FLAG (Sigma), anti-HA (Zymed, South San Francisco, CA), anti-Growth Associated Protein-43 (GAP43; Millipore, Billerica, MA), monoclonal anti-phospho-ERK (Sigma), monoclonal anti-pan-Erk1/2 (BD Transduction Laboratories, Franklin Lakes, NJ), monoclonal anti-K-Ras (Santa Cruz Biotechnology, Santa Cruz, CA), polyclonal anti-&#x3B1;/&#x3B2; tubulin (Cell Signaling Technology, Danvers, MA), polyclonal SmgGDS, and polyclonal BPGAP1 were used.</p></sec><sec><title>Immunofluorescence and confocal microscopy</title><p>PC12 cells grown on poly-<sc>d</sc>-lysine&#x2013;coated glass coverslips were washed twice with PBS and fixed with 3.7% formaldehyde for 15 min at 37&#xB0;C. Fixed cells were washed twice with PBS, twice with 4 mM NH<sub>4</sub>Cl in PBS, twice with PBS, and permeabilized with 0.2% Triton X-100 (Bio-Rad Laboratories, Hercules, CA) in PBS for 15 min at room temperature. Blocking was carried out with 2% bovine serum albumin and 7% fetal bovine serum in PBS for 30&#x2013;60 min at room temperature. Cells were incubated with anti-FLAG (Sigma, St. Louis, MO) and anti-HA (Zymed) antibodies in blocking solution. Samples were washed three times with 0.1% Triton X-100&#x2013;containing PBS before incubation with Alexa Fluor 488&#x2013;conjugated donkey anti&#x2013;mouse immunoglobulin G (IgG) and Alexa Fluor 555&#x2013;conjugated donkey anti&#x2013;rabbit IgG (all Molecular Probes, Eugene, OR). Confocal fluorescence images were captured on a Zeiss (Oberkochen, Germany) LSM 510 META microscope. At least 100 transfected cells per construct were evaluated for long protrusions (&gt; 2 cell body length). Data are means &#xB1; SEM from three independent experiments. Statistical significance was analyzed using analysis of variance (ANOVA) and Student's <italic>t</italic> test (paired, two-tailed).</p></sec><sec><title>shRNA knockdown</title><p>Two shRNA oligonucleotides against rat <italic>SmgGDS</italic> were designed using siRNA sequences published by <xref ref-type="bibr" rid="B30">Tew <italic>et&#xA0;al.</italic> (2008</xref>); rS1: 5&#x2032;-AAG CAA AGA TGT TAT CAG CCG-3&#x2032; (nt 911&#x2013;931) and rS2: 5&#x2032;-ATG TTA ATA GAT GCA CAA GCA-3&#x2032; (nt 1009&#x2013;1029), synthesized (Eurofins MWG Operon, Ebersberg, Germany) and cloned into the pSilencer 2.1-U6 hygro vector (Ambion, Carlsbad, CA). Constructs were sequenced to confirm sequence fidelity, and knockdown efficiency was determined by cotransfection with GFP&#x2013;SmgGDS plasmid at a 10:1 ratio. Lysates were analyzed 48 h posttransfection. When compared with the nontargeting negative control, both shRNA constructs (rS1 and rS2) successfully depleted SmgGDS by 60 and 50%, respectively. The rS1 construct was then used for subsequent experimentation as it displayed a superior knockdown effect as compared with rS2.</p></sec><sec><title>K-Ras activation assay</title><p>HEK293T cells were lysed in lysis buffer (50 mM HEPES, pH 7.4; 150 mM NaCl, 1.5 mM MgCl<sub>2</sub>, 5 mM EDTA, 10% [vol/vol] glycerol, 1% [vol/vol] Triton X-100) with freshly added protease inhibitors (Roche Applied Science, Penzberg, Germany) and 5 mM sodium orthovanadate, and 60 &#x3BC;g of lysates was incubated with 10 &#x3BC;g of GST&#x2013;Raf-1&#x2013;RBD for 50 min at 4&#xB0;C (<xref ref-type="bibr" rid="B37">Young <italic>et&#xA0;al.</italic>, 2004</xref>). The beads were washed three times with lysis buffer, and bound proteins were separated by SDS&#x2013;PAGE for Western blot analyses. The membranes were then stained with Amido Black to reveal equal loading of GST and GST&#x2013;Raf-1&#x2013;RBD.</p></sec><sec><title>Live imaging for differentiation</title><p>Eight hours posttransfection, PC12 cells were reseeded onto poly-<sc>d</sc>-lysine-coated, six-well plates at a confluence of 0.5 &#xD7; 10<sup>5</sup> cells/ml and allowed to settle for 4 h, followed by 12-h starvation with medium containing 0.5% serum before 50% of the medium was replaced with EGF (final concentration 100 ng/ml) containing 0.5% serum medium. Cells were then imaged for 36 h with a wide field Olympus IX81 inverted microscope. Images were analyzed with the help of ImageJ.</p></sec></sec>
+<sec sec-type="supplementary-material">
+<title>Supplementary Material</title>
+<supplementary-material id="PMC_1" content-type="local-data">
+<caption>
+<title>Supplemental Materials</title>
+</caption>
+<media mimetype="text" mime-subtype="html" xlink:href="supp_24_2_145__index.html"/>
+<media xlink:role="associated-file" mimetype="application" mime-subtype="pdf" xlink:href="supp_E12-04-0300v1_CombinedSupMats.pdf"/>
+<media xlink:role="associated-file" mimetype="video" mime-subtype="quicktime" xlink:href="supp_E12-04-0300v1_mc-E12-04-0300-s01.mov"/>
+</supplementary-material>
+</sec>
+</body>
+  <back>
+    <fn-group>
+      <fn fn-type="other">
+        <p>This article was published online ahead of print in MBoC in Press (<ext-link ext-link-type="uri" xlink:href="http://www.molbiolcell.org/cgi/doi/10.1091/mbc.E12-04-0300">http://www.molbiolcell.org/cgi/doi/10.1091/mbc.E12-04-0300</ext-link>) on November 14, 2012.</p>
+      </fn>
+      <fn fn-type="other" id="FN1">
+        <p>A.R. and B.C.L. conceived the ideas, analyzed data, and wrote the manuscript.</p>
+      </fn>
+      <fn fn-type="other" id="FN2">
+        <p>A.R. performed the experiments.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <p>We thank Ed Manser (The Institute of Medical Biology, Immunos, Singapore), Graeme Guy (formerly of the Institute of Molecular and Cell Biology, Singapore), and Li Li Chew, Fu Ling Soh, and Bee Leng Lua (formerly of the National University of Singapore, Singapore) for their valuable constructs. This work was supported by a grant from the Ministry of Education, Singapore (Academic Research Fund R-154-000-236-112), and in part by the Mechanobiology Institute, cofunded by the National Research Foundation and the Ministry of Education, Singapore, to B.C.L.</p>
+    </ack>
+    <glossary>
+      <title>Abbreviations used:</title>
+      <def-list>
+        <def-item>
+          <term id="G1">ANOVA</term>
+          <def>
+            <p>analysis of variance</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G2">BCH</term>
+          <def>
+            <p>BNIP-2 and Cdc42GAP homology</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G3">EGF</term>
+          <def>
+            <p>epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G4">EGFR</term>
+          <def>
+            <p>epidermal growth factor receptor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G5">GAP</term>
+          <def>
+            <p>GTPase-activating protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G6">GEF</term>
+          <def>
+            <p>guanine nucleotide exchange factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G7">GFP</term>
+          <def>
+            <p>green fluorescent protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G8">HA</term>
+          <def>
+            <p>hemagglutinin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G9">NGF</term>
+          <def>
+            <p>nerve growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G10">PRR</term>
+          <def>
+            <p>proline-rich region</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G11">RBD</term>
+          <def>
+            <p>Ras-binding domain</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G12">RhoGAP</term>
+          <def>
+            <p>Rho GTPase-activating protein</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G13">shRNA</term>
+          <def>
+            <p>short hairpin RNA</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G14">siRNA</term>
+          <def>
+            <p>small interfering RNA</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term id="G15">SmgGDS</term>
+          <def>
+            <p>small G-protein GDP dissociation stimulator</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="B1">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bernards</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Settleman</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>GEFs in growth factor signaling</article-title>
+          <source>Growth Factors</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>355</fpage>
+          <lpage>361</lpage>
+          <pub-id pub-id-type="pmid">18236214</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Da Silva</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Medina</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zuliani</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Di Nardo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Witke</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Dotti</surname>
+              <given-names>CG</given-names>
+            </name>
+          </person-group>
+          <article-title>RhoA/ROCK regulation of neuritogenesis via profilin IIa-mediated control of actin stability</article-title>
+          <source>J Cell Biol</source>
+          <year>2003</year>
+          <volume>162</volume>
+          <fpage>1267</fpage>
+          <lpage>1279</lpage>
+          <pub-id pub-id-type="pmid">14517206</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Curtis</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Functions of Rac GTPases during neuronal development</article-title>
+          <source>Dev Neurosci</source>
+          <year>2008</year>
+          <volume>30</volume>
+          <fpage>47</fpage>
+          <lpage>58</lpage>
+          <pub-id pub-id-type="pmid">18075254</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fernandez-Medarde</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Santos</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>The RasGrf family of mammalian guanine nucleotide exchange factors</article-title>
+          <source>Biochim Biophys Acta</source>
+          <year>2011</year>
+          <volume>1815</volume>
+          <fpage>170</fpage>
+          <lpage>188</lpage>
+          <pub-id pub-id-type="pmid">21111786</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fujioka</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kaibuchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kishi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kawamura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sakoda</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Mizuno</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Transforming and c-fos promoter/enhancer-stimulating activities of a stimulatory GDP/GTP exchange protein for small GTP-binding proteins</article-title>
+          <source>J Biol Chem</source>
+          <year>1992</year>
+          <volume>267</volume>
+          <fpage>926</fpage>
+          <lpage>930</lpage>
+          <pub-id pub-id-type="pmid">1730682</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Govek</surname>
+              <given-names>EE</given-names>
+            </name>
+            <name>
+              <surname>Newey</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Van Aelst</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>The role of the Rho GTPases in neuronal development</article-title>
+          <source>Genes Dev</source>
+          <year>2005</year>
+          <volume>19</volume>
+          <fpage>1</fpage>
+          <lpage>49</lpage>
+          <pub-id pub-id-type="pmid">15630019</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gupta</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Wee</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Hortsch</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Cross-species analyses identify the BNIP-2 and Cdc42GAP homology (BCH) domain as a distinct functional subclass of the CRAL_TRIO/Sec14 superfamily</article-title>
+          <source>PLoS One</source>
+          <year>2012</year>
+          <volume>7</volume>
+          <fpage>e33863</fpage>
+          <pub-id pub-id-type="pmid">22479462</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hall</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lalli</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Rho and Ras GTPases in axon growth, guidance, and branching</article-title>
+          <source>Cold Spring Harb Perspect Biol</source>
+          <year>2010</year>
+          <volume>2</volume>
+          <fpage>a001818</fpage>
+          <pub-id pub-id-type="pmid">20182621</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hamel</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Monaghan-Benson</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Rojas</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Temple</surname>
+              <given-names>BR</given-names>
+            </name>
+            <name>
+              <surname>Marston</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Burridge</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Sondek</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>SmgGDS is a guanine nucleotide exchange factor that specifically activates RhoA and RhoC</article-title>
+          <source>J Biol Chem</source>
+          <year>2011</year>
+          <volume>286</volume>
+          <fpage>12141</fpage>
+          <lpage>12148</lpage>
+          <pub-id pub-id-type="pmid">21242305</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kang</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Bae</surname>
+              <given-names>GU</given-names>
+            </name>
+            <name>
+              <surname>Yi</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name>
+              <surname>Oh</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Takaesu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+            <name>
+              <surname>Krauss</surname>
+              <given-names>RS</given-names>
+            </name>
+          </person-group>
+          <article-title>A Cdo-Bnip-2-Cdc42 signaling pathway regulates p38alpha/beta MAPK activity and myogenic differentiation</article-title>
+          <source>J Cell Biol</source>
+          <year>2008</year>
+          <volume>182</volume>
+          <fpage>497</fpage>
+          <lpage>507</lpage>
+          <pub-id pub-id-type="pmid">18678706</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kasai</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shima</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Okada</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of Src family tyrosine kinases in the down-regulation of epidermal growth factor signaling in PC12 cells</article-title>
+          <source>Genes Cells</source>
+          <year>2005</year>
+          <volume>10</volume>
+          <fpage>1175</fpage>
+          <lpage>1187</lpage>
+          <pub-id pub-id-type="pmid">16324154</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kikuchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kaibuchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hori</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Nonaka</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sakoda</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kawamura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mizuno</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular cloning of the human cDNA for a stimulatory GDP/GTP exchange protein for c-Ki-ras p21 and smg p21</article-title>
+          <source>Oncogene</source>
+          <year>1992</year>
+          <volume>7</volume>
+          <fpage>289</fpage>
+          <lpage>293</lpage>
+          <pub-id pub-id-type="pmid">1549351</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lua</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>BPGAP1 interacts with cortactin and facilitates its translocation to cell periphery for enhanced cell migration</article-title>
+          <source>Mol Biol Cell</source>
+          <year>2004</year>
+          <volume>15</volume>
+          <fpage>2873</fpage>
+          <lpage>2883</lpage>
+          <pub-id pub-id-type="pmid">15064355</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lua</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of EGF receptor endocytosis and ERK1/2 signaling by BPGAP1 requires direct interaction with EEN/endophilin II and a functional RhoGAP domain</article-title>
+          <source>J Cell Sci</source>
+          <year>2005</year>
+          <volume>118</volume>
+          <fpage>2707</fpage>
+          <lpage>2721</lpage>
+          <pub-id pub-id-type="pmid">15944398</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Markus</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zhong</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Snider</surname>
+              <given-names>WD</given-names>
+            </name>
+          </person-group>
+          <article-title>Raf and akt mediate distinct aspects of sensory axon growth</article-title>
+          <source>Neuron</source>
+          <year>2002</year>
+          <volume>35</volume>
+          <fpage>65</fpage>
+          <lpage>76</lpage>
+          <pub-id pub-id-type="pmid">12123609</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Marshall</surname>
+              <given-names>CJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Specificity of receptor tyrosine kinase signaling: transient versus sustained extracellular signal-regulated kinase activation</article-title>
+          <source>Cell</source>
+          <year>1995</year>
+          <volume>80</volume>
+          <fpage>179</fpage>
+          <lpage>185</lpage>
+          <pub-id pub-id-type="pmid">7834738</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miura</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Jacques</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Stauffer</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kubosaki</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hirsch</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Resau</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Randazzo</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>ARAP1: a point of convergence for Arf and Rho signaling</article-title>
+          <source>Mol Cell</source>
+          <year>2002</year>
+          <volume>9</volume>
+          <fpage>109</fpage>
+          <lpage>119</lpage>
+          <pub-id pub-id-type="pmid">11804590</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mizuno</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kaibuchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kawamura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sakoda</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Fujioka</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Matsuura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>A stimulatory GDP/GTP exchange protein for smg p21 is active on the post-translationally processed form of c-Ki-ras p21 and rhoA p21</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>1991</year>
+          <volume>88</volume>
+          <fpage>6442</fpage>
+          <lpage>6446</lpage>
+          <pub-id pub-id-type="pmid">1907371</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moon</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Zang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Characterization of a brain-specific Rho GTPase-activating protein, p200RhoGAP</article-title>
+          <source>J Biol Chem</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <fpage>4151</fpage>
+          <lpage>4159</lpage>
+          <pub-id pub-id-type="pmid">12454018</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nishimura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yamaguchi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yoshizawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nabeshima</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ohno</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hoshino</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kaibuchi</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>PAR-6-PAR-3 mediates Cdc42-induced Rac activation through the Rac GEFs STEF/Tiam1</article-title>
+          <source>Nat Cell Biol</source>
+          <year>2005</year>
+          <volume>7</volume>
+          <fpage>270</fpage>
+          <lpage>277</lpage>
+          <pub-id pub-id-type="pmid">15723051</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oinuma</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Katoh</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Negishi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>R-Ras controls axon specification upstream of glycogen synthase kinase-3beta through integrin-linked kinase</article-title>
+          <source>J Biol Chem</source>
+          <year>2007</year>
+          <volume>282</volume>
+          <fpage>303</fpage>
+          <lpage>318</lpage>
+          <pub-id pub-id-type="pmid">17107957</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pan</surname>
+              <given-names>CQ</given-names>
+            </name>
+            <name>
+              <surname>Liou</surname>
+              <given-names>YC</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Active Mek2 as a regulatory scaffold that promotes Pin1 binding to BPGAP1 to suppress BPGAP1-induced acute Erk activation and cell migration</article-title>
+          <source>J Cell Sci</source>
+          <year>2010</year>
+          <volume>123</volume>
+          <fpage>903</fpage>
+          <lpage>916</lpage>
+          <pub-id pub-id-type="pmid">20179103</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pan</surname>
+              <given-names>CQ</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Functional plasticity of the BNIP-2 and Cdc42GAP Homology (BCH) domain in cell signaling and cell dynamics</article-title>
+          <source>FEBS Lett</source>
+          <year>2012</year>
+          <volume>586</volume>
+          <fpage>2674</fpage>
+          <lpage>2691</lpage>
+          <pub-id pub-id-type="pmid">22710163</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pan</surname>
+              <given-names>CQ</given-names>
+            </name>
+            <name>
+              <surname>Sudol</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sheetz</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Modularity and functional plasticity of scaffold proteins as p(l)acemakers in cell signaling</article-title>
+          <source>Cell Signal</source>
+          <year>2012</year>
+          <volume>24</volume>
+          <fpage>2143</fpage>
+          <lpage>2165</lpage>
+          <pub-id pub-id-type="pmid">22743133</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Randazzo</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Inoue</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Bharti</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Arf GAPs as regulators of the actin cytoskeleton</article-title>
+          <source>Biol Cell</source>
+          <year>2007</year>
+          <volume>99</volume>
+          <fpage>583</fpage>
+          <lpage>600</lpage>
+          <pub-id pub-id-type="pmid">17868031</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Moon</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>p200 RhoGAP promotes cell proliferation by mediating cross-talk between Ras and Rho signaling pathways</article-title>
+          <source>J Biol Chem</source>
+          <year>2007</year>
+          <volume>282</volume>
+          <fpage>8801</fpage>
+          <lpage>8811</lpage>
+          <pub-id pub-id-type="pmid">17272280</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Concerted regulation of cell dynamics by BNIP-2 and Cdc42GAP homology/Sec14p-like, proline-rich, and GTPase-activating protein domains of a novel Rho GTPase-activating protein, BPGAP1</article-title>
+          <source>J Biol Chem</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <fpage>45903</fpage>
+          <lpage>45914</lpage>
+          <pub-id pub-id-type="pmid">12944407</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Soh</surname>
+              <given-names>UJ</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>BNIP2 extra long inhibits RhoA and cellular transformation by Lbc RhoGEF via its BCH domain</article-title>
+          <source>J Cell Sci</source>
+          <year>2008</year>
+          <volume>121</volume>
+          <fpage>1739</fpage>
+          <lpage>1749</lpage>
+          <pub-id pub-id-type="pmid">18445682</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Matozaki</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Small GTP-binding proteins</article-title>
+          <source>Physiol Rev</source>
+          <year>2001</year>
+          <volume>81</volume>
+          <fpage>153</fpage>
+          <lpage>208</lpage>
+          <pub-id pub-id-type="pmid">11152757</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tew</surname>
+              <given-names>GW</given-names>
+            </name>
+            <name>
+              <surname>Lorimer</surname>
+              <given-names>EL</given-names>
+            </name>
+            <name>
+              <surname>Berg</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Zhi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>CL</given-names>
+            </name>
+          </person-group>
+          <article-title>SmgGDS regulates cell proliferation, migration, and NF-kappaB transcriptional activity in non-small cell lung carcinoma</article-title>
+          <source>J Biol Chem</source>
+          <year>2008</year>
+          <volume>283</volume>
+          <fpage>963</fpage>
+          <lpage>976</lpage>
+          <pub-id pub-id-type="pmid">17951244</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vikis</surname>
+              <given-names>HG</given-names>
+            </name>
+            <name>
+              <surname>Stewart</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Guan</surname>
+              <given-names>KL</given-names>
+            </name>
+          </person-group>
+          <article-title>SmgGDS displays differential binding and exchange activity towards different Ras isoforms</article-title>
+          <source>Oncogene</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>2425</fpage>
+          <lpage>2432</lpage>
+          <pub-id pub-id-type="pmid">11948427</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wennerberg</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Rossman</surname>
+              <given-names>KL</given-names>
+            </name>
+            <name>
+              <surname>Der</surname>
+              <given-names>CJ</given-names>
+            </name>
+          </person-group>
+          <article-title>The Ras superfamily at a glance</article-title>
+          <source>J Cell Sci</source>
+          <year>2005</year>
+          <volume>118</volume>
+          <fpage>843</fpage>
+          <lpage>846</lpage>
+          <pub-id pub-id-type="pmid">15731001</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yaku</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>The Dbl oncogene product as a GDP/GTP exchange protein for the Rho family: its properties in comparison with those of Smg GDS</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>1994</year>
+          <volume>198</volume>
+          <fpage>811</fpage>
+          <lpage>817</lpage>
+          <pub-id pub-id-type="pmid">8297393</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamamoto</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kaibuchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Mizuno</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hiroyoshi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Shirataki</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Purification and characterization from bovine brain cytosol of proteins that regulate the GDP/GTP exchange reaction of smg p21s, ras p21-like GTP-binding proteins</article-title>
+          <source>J Biol Chem</source>
+          <year>1990</year>
+          <volume>265</volume>
+          <fpage>16626</fpage>
+          <lpage>16634</lpage>
+          <pub-id pub-id-type="pmid">2118909</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoon</surname>
+              <given-names>HY</given-names>
+            </name>
+            <name>
+              <surname>Miura</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Cuthbert</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Davis</surname>
+              <given-names>KK</given-names>
+            </name>
+            <name>
+              <surname>Ahvazi</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Casanova</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Randazzo</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>ARAP2 effects on the actin cytoskeleton are dependent on Arf6-specific GTPase-activating-protein activity and binding to RhoA-GTP</article-title>
+          <source>J Cell Sci</source>
+          <year>2006</year>
+          <volume>119</volume>
+          <fpage>4650</fpage>
+          <lpage>4666</lpage>
+          <pub-id pub-id-type="pmid">17077126</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kawata</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Miura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Musha</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kikuchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Takai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Microinjection of smg/rap1/Krev-1 p21 into Swiss 3T3 cells induces DNA synthesis and morphological changes</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1992</year>
+          <volume>12</volume>
+          <fpage>3407</fpage>
+          <lpage>3414</lpage>
+          <pub-id pub-id-type="pmid">1321333</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Young</surname>
+              <given-names>TW</given-names>
+            </name>
+            <name>
+              <surname>Mei</surname>
+              <given-names>FC</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Thompson-Lanza</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of antioxidant pathways in ras-mediated oncogenic transformation of human surface ovarian epithelial cells revealed by functional proteomics and mass spectrometry</article-title>
+          <source>Cancer Res</source>
+          <year>2004</year>
+          <volume>64</volume>
+          <fpage>4577</fpage>
+          <lpage>4584</lpage>
+          <pub-id pub-id-type="pmid">15231669</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Chew</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>The BNIP-2 and Cdc42GAP homology (BCH) domain of p50RhoGAP/Cdc42GAP sequesters RhoA from inactivation by the adjacent GTPase-activating protein domain</article-title>
+          <source>Mol Biol Cell</source>
+          <year>2010</year>
+          <volume>21</volume>
+          <fpage>3232</fpage>
+          <lpage>3246</lpage>
+          <pub-id pub-id-type="pmid">20660160</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Guy</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>BNIP-2 induces cell elongation and membrane protrusions by interacting with Cdc42 via a unique Cdc42-binding motif within its BNIP-2 and Cdc42GAP homology domain</article-title>
+          <source>Exp Cell Res</source>
+          <year>2005</year>
+          <volume>303</volume>
+          <fpage>263</fpage>
+          <lpage>274</lpage>
+          <pub-id pub-id-type="pmid">15652341</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>YT</given-names>
+            </name>
+            <name>
+              <surname>Guy</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Low</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>BNIP-Salpha induces cell rounding and apoptosis by displacing p50RhoGAP and facilitating RhoA activation via its unique motifs in the BNIP-2 and Cdc42GAP homology domain</article-title>
+          <source>Oncogene</source>
+          <year>2006</year>
+          <volume>25</volume>
+          <fpage>2393</fpage>
+          <lpage>2408</lpage>
+          <pub-id pub-id-type="pmid">16331259</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

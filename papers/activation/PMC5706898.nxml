@@ -1,0 +1,2099 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Oncotarget</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Oncotarget</journal-id>
+      <journal-id journal-id-type="publisher-id">Oncotarget</journal-id>
+      <journal-id journal-id-type="publisher-id">ImpactJ</journal-id>
+      <journal-title-group>
+        <journal-title>Oncotarget</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1949-2553</issn>
+      <publisher>
+        <publisher-name>Impact Journals LLC</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">29212252</article-id>
+      <article-id pub-id-type="pmc">5706898</article-id>
+      <article-id pub-id-type="publisher-id">21813</article-id>
+      <article-id pub-id-type="doi">10.18632/oncotarget.21813</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Paper</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>C-C motif chemokine receptor 1 (CCR1) is a target of the EGF-AKT-mTOR-STAT3 signaling axis in breast cancer cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Shin</surname>
+            <given-names>Soon Young</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="A2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Da Hyun</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Jishin</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Choi</surname>
+            <given-names>Chan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A3">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Ji-Young</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">
+            <sup>4</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nam</surname>
+            <given-names>Jeong-Seok</given-names>
+          </name>
+          <xref ref-type="aff" rid="A5">
+            <sup>5</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lim</surname>
+            <given-names>Yoongho</given-names>
+          </name>
+          <xref ref-type="aff" rid="A6">
+            <sup>6</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Young Han</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="A2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <aff id="A1"><sup>1</sup> Department of Biological Sciences, Sanghuh College of Life Sciences, Konkuk University, Seoul, Republic of Korea</aff>
+        <aff id="A2"><sup>2</sup> Cancer and Metabolism Institute, Konkuk University, Seoul, Republic of Korea</aff>
+        <aff id="A3"><sup>3</sup> Department of Pathology, Chonnam National University Medical School, Gwangju, Republic of Korea</aff>
+        <aff id="A4"><sup>4</sup> Laboratory Animal Resource Center, Gwangju Institute of Science and Technology, Gwangju, Republic of Korea</aff>
+        <aff id="A5"><sup>5</sup> School of Life Sciences, Gwangju Institute of Science and Technology, Gwangju, Republic of Korea</aff>
+        <aff id="A6"><sup>6</sup> Division of Bioscience and Biotechnology, BMIC, Konkuk University, Seoul, Republic of Korea</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1">
+          <bold>
+            <italic>Correspondence to:</italic>
+          </bold>
+          <italic>Young Han Lee,</italic>
+          <email>yhlee58@konkuk.ac.kr</email>
+        </corresp>
+        <corresp id="cor2">
+          <italic>Soon Young Shin,</italic>
+          <email>shinsy@konkuk.ac.kr</email>
+        </corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <day>7</day>
+        <month>11</month>
+        <year>2017</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>10</day>
+        <month>10</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>8</volume>
+      <issue>55</issue>
+      <fpage>94591</fpage>
+      <lpage>94605</lpage>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>6</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>20</day>
+          <month>9</month>
+          <year>2017</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; 2017 Shin et al.</copyright-statement>
+        <copyright-year>2017</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open-access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</ext-link> 3.0 (CC BY 3.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>The CC motif chemokine receptor 1 (CCR1) has been implicated in tumor invasion and metastasis in numerous cancers. However, the detailed mechanism of CCR1 upregulation in metastatic tumor cells is poorly understood. The aim of this study was to clarify the regulatory mechanism underlying transcriptional activation of the <italic>CCR1</italic> gene in response to epidermal growth factor (EGF) stimulation in breast cancer cells. CCR1 was highly expressed in human breast invasive ductal carcinoma (IDC) compared to adjacent normal tissues. Upon EGF stimulation, CCR1 expression was upregulated at the transcriptional level. Promoter analysis showed that signal transducer and activator of transcription 3 (STAT3) is necessary for EGF-induced <italic>CCR1</italic> promoter activation, and STAT3 silencing abrogated EGF-induced CCR1 transcription. Pharmacological inhibition and short hairpin RNA-mediated knockdown experiments showed that AKT-dependent mammalian target of rapamycin (mTOR) activation was involved in the phosphorylation of serine-727 of STAT3, which in turn stimulated the transcription of the <italic>CCR1</italic> gene. In conclusion, the AKT-mTOR-STAT3 signaling axis contributes to EGF-induced CCR1 expression, which promotes invasion and metastasis in breast cancer cells. We propose that the AKT-mTOR-STAT3 axis is a potential therapeutic target for blocking the invasion and metastasis of breast cancers.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>CCR1</kwd>
+        <kwd>STAT3</kwd>
+        <kwd>AKT</kwd>
+        <kwd>mTOR</kwd>
+        <kwd>metastasis</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>INTRODUCTION</title>
+      <p>Metastasis is the spread of cancer cells from the original tumor to other sites of the body through the tumor vasculature and lymphatics; for most solid tumors, it is the major cause of death. Despite our increasing knowledge on tumorigenesis and metastasis, our current understanding cannot fully explain the molecular mechanisms underlying the progression of metastasis.</p>
+      <p>The tumor microenvironment comprises infiltrating immune cells, endothelial cells, and stromal fibroblasts, which may provide the growth factors and cytokines that promote tumor growth, survival, and invasion [<xref rid="R1" ref-type="bibr">1</xref>]. It has been shown that cross-talk between tumor cells and stromal cells is required for the promotion and progression of cancer [<xref rid="R2" ref-type="bibr">2</xref>]. In the tumor microenvironment, stromal cells and cancer cells produce various chemokines that control tumor growth and progression [<xref rid="R2" ref-type="bibr">2</xref>&#x2013;<xref rid="R4" ref-type="bibr">4</xref>], and emerging evidence shows that a variety of chemokine receptors are highly expressed on tumor cells and involved in tumor growth and metastasis [<xref rid="R1" ref-type="bibr">1</xref>, <xref rid="R4" ref-type="bibr">4</xref>, <xref rid="R5" ref-type="bibr">5</xref>]. In human breast cancer cells, chemokine receptors such as CXC chemokine receptor 4 (CXCR4) and CC motif chemokine receptor 7 (CCR7) are overexpressed and are involved in chemotactic and invasive responses [<xref rid="R1" ref-type="bibr">1</xref>, <xref rid="R5" ref-type="bibr">5</xref>].</p>
+      <p>CCR1, a member of the seven-transmembrane G-protein-coupled receptor family, is widely expressed in many cell types and is involved in the activation and trafficking of immune cells, including neutrophils, monocytes, and lymphocytes [<xref rid="R6" ref-type="bibr">6</xref>]. CCR1 binds to multiple cytokines, including CCL3 (or MIP-1&#x3B1;), CCL5 (or RANTES), CCL7 (or MCP-3), CCL8 (or MCP-2), CCL14, CCL15 (or Leukotactin-1), CCL16, and CCL23 (or MPIF-1). CCR1 is highly expressed in diverse cancers, including prostate cancer cells, ovarian cancer, multiple myeloma, and hematolymphoid neoplasia [<xref rid="R7" ref-type="bibr">7</xref>&#x2013;<xref rid="R11" ref-type="bibr">11</xref>]. Previous studies have demonstrated that CCR1 promotes the invasion of PC3 prostate cancer [<xref rid="R7" ref-type="bibr">7</xref>], hepatocellular carcinoma [<xref rid="R12" ref-type="bibr">12</xref>], ovarian cancer stem-like [<xref rid="R9" ref-type="bibr">9</xref>], and non-small cell lung cancer [<xref rid="R13" ref-type="bibr">13</xref>, <xref rid="R14" ref-type="bibr">14</xref>] cells. These results indicate that CCR1 is associated with the progression of tumor invasion and metastasis [<xref rid="R15" ref-type="bibr">15</xref>]. In addition, CCR1 and its ligand CCL5 are highly expressed in ovarian cancer stem-like cells, suggesting the idea of a possible autocrine loop that maintains metastatic capability [<xref rid="R9" ref-type="bibr">9</xref>]. However, it remains largely unknown whether CCR1 is overexpressed in breast cancer tissues, and whether CCR1 promotes breast metastasis.</p>
+      <p>Epidermal growth factor (EGF) is a crucial factor in mammary gland development [<xref rid="R16" ref-type="bibr">16</xref>] and EGFR-targeted therapy provides some promising effects in patients with triple-negative (estrogen receptor-, progesterone receptor-, and erb-b2 receptor tyrosine kinase 2-negative) breast cancer [<xref rid="R17" ref-type="bibr">17</xref>]. In this study, we aimed to investigate the expression status of CCR1 in breast cancer tissues, the functional relevance of CCR1 in breast cancer metastasis, and the mechanisms underlying the regulation of CCR1 expression in breast cancer cells.</p>
+    </sec>
+    <sec id="s2">
+      <title>RESULTS</title>
+      <sec id="s2_1">
+        <title>Higher expression of CCR1 in human breast cancer tissue</title>
+        <p>To investigate the role of CCR1 in human breast cancer, we first evaluated its expression in a tissue microarray composed of human breast invasive ductal carcinoma (IDC) and their adjacent peripheral normal tissues. We found that the CCR1 immunoreactivity was stronger in IDC than in adjacent normal tissues (Figure <xref ref-type="fig" rid="F1">1A</xref>). Relative CCR1 staining intensity was significantly higher in IDC than their adjacent normal tissues (mean &#xB1; SD; normal: 1.669 &#xB1; 1.886, Cancer: 5.781 &#xB1; 2.513; <italic>P</italic> &lt; 0.0001 by two-tailed paired <italic>t</italic>-test, <italic>n</italic> = 178) (Figure <xref ref-type="fig" rid="F1">1B</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Table 1</xref>). Tissue microarray samples were composed of estrogen receptor (ER) negative and positive, progesterone receptor (PR) negative and positive, human epidermal growth factor receptor 2 (HER2) negative and positive, and triple negative (TN; ER<sup>-</sup>/PR<sup>-</sup>/HER2<sup>-</sup>) specimens. Statistical analysis shows that ER, PR, and HER2 expression was not associated with CCR1 staining intensity (Figure <xref ref-type="fig" rid="F1">1C</xref>). These data suggest that CCR1 is overexpressed in breast invasive ductal carcinoma (IDC) as compared to adjacent normal tissues, regardless of ER, PR, and HER2 expression status.</p>
+        <fig id="F1" orientation="portrait" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <title>Role of CCR1 in the invasion and metastasis of breast cancer cells</title>
+            <p><bold>(A)</bold> Representative immunohistochemical staining of CCR1 in breast invasive ductal carcinoma (IDC) and adjacent normal tissue samples. Square <italic>N</italic> indicates total tissue number. <bold>(B)</bold> Relative staining scores of CCR1 immunoreactivity in IDC and adjacent normal tissues. Data are mean &#xB1; SD. Spot, individual sample; blue horizontal line, mean; red vertical line, error bar. <sup>****</sup>, <italic>P</italic> &lt; 0.0001 (n = 178, paired two-tailed <italic>t</italic>-test). <bold>(C)</bold> Relative immunohistochemical staining intensity of CCR1 in ER, PR, HER2, or TN negative (-) or positive (+) samples. Square number indicates total sample number. ER, estrogen receptor; PR, progesterone receptor; HER2, human epidermal growth factor receptor 2; TN, triple negative (ER<sup>-</sup>/PR<sup>-</sup>/HER2<sup>-</sup>). Values are expressed as mean &#xB1; SD. <italic>NS</italic>, not significant; <sup>****</sup>, <italic>P</italic> &lt; 0.0001; <sup>**</sup>, <italic>P</italic> &lt; 0.0220 by one-way ANOVA followed by Sidak&#x2019;s multiple comparisons test (comparison between normal and cancer groups).</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g001"/>
+        </fig>
+      </sec>
+      <sec id="s2_2">
+        <title>Silencing of CCR1 attenuates the invasive and metastatic capabilities of MDA-MB-231 cells</title>
+        <p>Previous studies have demonstrated that CCR1 is involved in tumor metastasis in several cancers [<xref rid="R9" ref-type="bibr">9</xref>, <xref rid="R12" ref-type="bibr">12</xref>&#x2013;<xref rid="R14" ref-type="bibr">14</xref>]. However, the functional role of CCR1 is unclear in breast cancer metastasis. The steady-state levels of CCR1 mRNA were examined in various breast cancer cell lines. RT-PCR analysis showed that CCR1 mRNA levels were readily detectable in most tested breast cancer cell lines, but not in untransformed MCF12A breast epithelial cells (Figure <xref ref-type="fig" rid="F2">2A</xref>). For further characterization, we selected the MDA-MB-231 breast cancer cell line because these cells are highly metastatic and induce cell migration upon EGF stimulation [<xref rid="R18" ref-type="bibr">18</xref>].</p>
+        <fig id="F2" orientation="portrait" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <title>Effect of CCR1 silencing on experimental tumor invasion and metastasis</title>
+            <p><bold>(A)</bold> CCR1 expression in various breast cancer cells. Steady-state CCR1 mRNA levels were examined by RT-PCR. GAPDH was used as an internal control. <bold>(B)</bold> Silencing of CCR1 by expression of lentiviral CCR1 shRNA (shCCR1). Knockdown of CCR1 expression was verified by RT-PCR. <bold>(C)</bold> Invasion assay. MDA-MB-231 transfectants expressing shCT or shCCR1 were cultured in three-dimensional spheroids in an extracellular matrix. Protrusion of invasive cells was captured with an Eclipse TS100 microscope equipped with a digital sight camera. <bold>(D)</bold> Experimental <italic>in vivo</italic> lung metastasis. Representative BLI imaging of nude mice bearing MDA-MB-231 (shCT-Luc and shCCR1-Luc) tumors with metastatic lung lesions. <bold>(E)</bold> Eight weeks after inoculation, BLI signal intensity was measured in MDA-MB-231 transfectants with Spectrum IVIS.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g002"/>
+        </fig>
+        <p>To evaluate the functional role of CCR1 in the regulation of invasion, we analyzed the invasiveness of MDA-MB-231 cells expressing either a scrambled shRNA (shCT) or CCR1 shRNA (shCCR1). Knockdown of CCR1 was verified by RT-PCR (Figure <xref ref-type="fig" rid="F2">2B</xref>). Three-dimensional (3-D) spheroid culture demonstrated that control shCT cells showed high invasiveness out of the spheroid and into the surrounding matrix as spindle-like protrusions (Figure <xref ref-type="fig" rid="F2">2C</xref>). In contrast, CCR1-silenced cells showed an obvious reduction in invasive sprouting. To determine the effect of CCR1 silencing on metastatic properties <italic>in vivo</italic>, we injected luciferase-expressing MDA-MB-231 transfectants (shCT-Luc and shCCR1-Luc cells) into the tail veins of immunodeficient mice, and metastatic activity was determined by bioluminescence imaging (Figure <xref ref-type="fig" rid="F2">2D</xref>). At 8-weeks post-injection, mice injected with shCT-Luc cells had large tumors and increased bioluminescence signals. In contrast, shCCR1-Luc cells showed decreased lung metastatic ability in the mice. Whole-body imaging revealed that silencing of CCR1 significantly reduced the bioluminescence signal (Figure <xref ref-type="fig" rid="F2">2E</xref>). These data demonstrate that CCR1 promotes the invasion and metastasis of MDA-MB-231 breast cancer cells.</p>
+      </sec>
+      <sec id="s2_3">
+        <title>EGF induces CCR1 expression in human breast cancer cells</title>
+        <p>To investigate the molecular mechanism underlying <italic>CCR1</italic> gene regulation, we tested whether EGF up-regulates CCR1 expression in MDA-MB-231 cells by RT-PCR. After serum starvation, CCR1 mRNA was undetectable; however, after EGF stimulation for 3 h, CCR1 mRNA expression was increased (Figure <xref ref-type="fig" rid="F3">3A</xref>). Quantitative real-time PCR (Q-PCR) demonstrated maximum CCR1 mRNA expression after approximately 6 h, with 20.2- and 18.7-fold increases at 6 and 12 h, respectively, compared to the basal level (Figure <xref ref-type="fig" rid="F3">3B</xref>). Elevated CCR1 protein levels were confirmed by immunoblotting (Figure <xref ref-type="fig" rid="F3">3C</xref>), flow cytometry (Figure <xref ref-type="fig" rid="F3">3D</xref>), and immunofluorescence microscopy (Figure <xref ref-type="fig" rid="F3">3E</xref>). Thus, EGF facilitates CCR1 expression in highly metastatic MDA-MB-231 cells.</p>
+        <fig id="F3" orientation="portrait" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <title>EGF enhances CCR1 expression in MDA-MB-231 breast cancer cells</title>
+            <p><bold>(A)</bold> MDA-MB-231 cells were serum-depleted overnight and treated with EGF (50 ng/mL) for 0&#x2013;24 h, and total RNA was extracted. CCR1 mRNA levels were examined by RT-PCR. GAPDH was used as an internal control. <bold>(B)</bold> Serum-starved MDA-MB-231 cells were treated as in A, and CCR1 mRNA levels were assessed by quantitative real-time PCR (<italic>Q-PCR</italic>). Values were normalized to GAPDH mRNA levels. Data are mean &#xB1; SD (<italic>n =</italic> 3). <sup>*</sup>, <italic>P =</italic> 0.0247; <sup>***</sup>, <italic>P</italic> &lt; 0.0009; <sup>****</sup>, <italic>P</italic> &lt; 0.0001 (compared to untreated control; by Sidak&#x2019;s multiple comparisons test). <bold>(C)</bold> Serum-starved MDA-MB-231 cells were treated as in A, and CCR1 protein levels were assessed by immunoblotting. GAPDH was used as an internal control. <bold>(D)</bold> Flow cytometry. After serum-starved MDA-MB-231 cells were treated with EGF (50 ng/mL) for 12 h, CCR1 protein expression on the cell surface was measured using flow cytometry. <bold>(E)</bold> MDA-MB-231 cells were treated with EGF (50 ng/mL) for 12 h, and then incubated with an antibody against CCR1, and a AlexaFluor 555-conjugated (<italic>red signal</italic>) secondary antibody for 30 min. Nuclear DNA was stained with 0.1 &#x3BC;g/mL Hoechst 33258 for 10 min (<italic>blue signal</italic>). Fluorescence-positive cells were examined under an EVOSf1<sup>&#xAE;</sup> fluorescence microscope.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g003"/>
+        </fig>
+      </sec>
+      <sec id="s2_4">
+        <title>Signal transducer and activator of transcription (STAT)-binding element stimulates EGF-induced CCR1 promoter activation</title>
+        <p>To determine the transcriptional mechanism regulating CCR1 expression, a series of 5&#x2032;-deletion constructs of human <italic>CCR1</italic> were generated and transfected into MDA-MB-231 cells. The data revealed that these deletions affected EGF stimulation-induced <italic>CCR1</italic> promoter activity (Figure <xref ref-type="fig" rid="F4">4A</xref>). Notably, deletion of the &#x2013;200 to &#x2013;111 region dramatically decreased EGF-induced <italic>CCR1</italic> promoter activity, suggesting that this region is crucial for EGF-induced <italic>CCR1</italic> transcription.</p>
+        <fig id="F4" orientation="portrait" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <title>EGF induces CCR1 expression via STAT3</title>
+            <p><bold>(A)</bold> MDA-MB-231 cells were transfected with 0.2 &#x3BC;g of the promoter-reporter plasmids along with 50 ng of the <italic>Renilla</italic> luciferase expression plasmid, pRL-null, for normalization of transfection efficiency. After 48 h, the cells were either treated with EGF (20 ng/mL) for 12 h or untreated (control), after which dual luciferase activity was measured. Data are means &#xB1; SD (<italic>n =</italic> 3). <bold>(B)</bold> The nucleotide sequence of the promoter region (&#x2212;200 to +27) of human <italic>CCR1</italic>. <bold>(C)</bold> MDA-MB-231 cells were transfected with either wild-type pCCR1-Luc(&#x2212;200/+27) or a STAT site mutant construct (mtSTAT), and with either an empty vector or a STAT3 expression plasmid. After 48 h, the cells were collected, and dual luciferase activity was measured. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>****</sup>, <italic>p</italic> &lt; 0.0001. <bold>(D)</bold> MDA-MB-231 cells were transfected with either wild-type pCCR1-Luc(&#x2212;200/+27) or mtSTAT. After 48 h, the cells were either treated with EGF (20 ng/mL) for 12 h or untreated, and then, dual luciferase activity was measured. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>****</sup>, <italic>p</italic> &lt; 0.0001 by Sidak&#x2019;s multiple comparisons test. <bold>(E)</bold> EMSA. MDA-MB-231 cells were treated with EGF (50 ng/mL) for 12 h or untreated, and nuclear extracts were prepared. EMSA was performed with biotin-labeled oligonucleotide probes containing the STAT3 binding sequence (5&#x2032;-gttaacttggcttccaggaagtggc-3&#x2032;) in the absence or presence of a 10-fold (10<italic>&#xD7;</italic>) or 50-fold (50<italic>&#xD7;</italic>) molar excess of unlabeled competitor oligonucleotides (<italic>Comp</italic>).</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g004"/>
+        </fig>
+        <p>Using the web-based transcription factor search tool MatInspector (<ext-link ext-link-type="uri" xlink:href="http://www.genomatix.de/">http://www.genomatix.de/</ext-link>), we identified two overlapping binding sites of signal transducer and activator of transcription (STAT) at &#x2013;183/&#x2013;165 and &#x2013;181/&#x2013;162 bp in the <italic>CCR1</italic> promoter (Figure <xref ref-type="fig" rid="F4">4B</xref>). To determine the possible contribution of these STAT-binding elements to EGF-induced <italic>CCR1</italic> transcription, the core sequence of the STAT-binding motif at &#x2013;183/&#x2013;162 was mutated within the &#x2013;200/+27 construct (mtStat; ttCCagga &#x2192; ttTTagga) by site-directed mutagenesis (Figure <xref ref-type="fig" rid="F4">4C</xref>). Transient transfection of STAT3 <italic>trans</italic>-activated the wild-type construct but not the STAT mutant construct. Notably, disruption of the STAT sites caused a significant reduction in EGF responsiveness (<italic>p</italic> &lt; 0.0001) compared to the wild-type construct (Figure <xref ref-type="fig" rid="F4">4D</xref>). We next determined whether the STAT-binding elements are responsive to EGF stimulation. An electrophoretic mobility shift assay (EMSA) showed that EGF increased the amount of DNA-protein complexes, which were reduced by the addition of excess unlabeled STAT-binding oligonucleotides (Figure <xref ref-type="fig" rid="F4">4E</xref>). These data suggest that STAT3 binds to the STAT binding motifs in the <italic>CCR1</italic> promoter region and is responsible for EGF signaling-mediated <italic>CCR1</italic> transcription.</p>
+      </sec>
+      <sec id="s2_5">
+        <title>Inhibition of STAT3 reduces EGF-induced <italic>CCR1</italic> transcription</title>
+        <p>Pretreatment of MDA-MB-231 cells with Stattic, a small molecule inhibitor of STAT3, dose-dependently decreased EGF-induced CCR1 mRNA accumulation (Figure <xref ref-type="fig" rid="F5">5A</xref> and <xref ref-type="fig" rid="F5">5B</xref>). To further address the role of STAT3, we established MDA-MB-231 transfectants stably expressing scrambled control shRNA (shCT) or STAT3 shRNA (shSTAT3). Reduction of STAT3 expression was confirmed by RT-PCR. Knockdown of endogenous STAT3 reduced EGF-induced CCR1 mRNA expression (Figure <xref ref-type="fig" rid="F5">5C</xref>). EGF stimulation increased CCR1 mRNA levels 22.1-fold in MDA-MB-231/shCT cells, but only 3.5-fold increase in MDA-MB-231/shSTAT3 cells (Figure <xref ref-type="fig" rid="F5">5D</xref>). Similarly, knockdown of STAT3 in T24 bladder cancer cells (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 1A and 1B</xref>) and Capan-1 pancreatic cancer cells (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 1C and 1D</xref>) dramatically decreased CCR1 mRNA levels, as revealed by RT-PCR and Q-PCR. These findings suggest that STAT3 mediates EGF-induced CCR1 expression and that the regulatory function of STAT3 in CCR1 expression is not limited to breast cancer cells.</p>
+        <fig id="F5" orientation="portrait" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <title>Effect of STAT3 silencing on CCR1 expression</title>
+            <p><bold>(A)</bold> Serum-starved MDA-MB-231 cells were treated with EGF (50 ng/mL) in the absence or presence of different concentrations of Stattic. After 12 h, total RNA was extracted, and CCR1 mRNA levels were examined by RT-PCR. <bold>(B)</bold> Serum-starved MDA-MB-231 cells were treated as in A, and CCR1 mRNA levels were assessed by quantitative real-time PCR. Values were normalized to GAPDH mRNA levels. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>****</sup>, <italic>p</italic> &lt; 0.0001 by Sidak&#x2019;s multiple comparisons test. <bold>(C)</bold> Serum-starved MDA-MB-231 transfectants expressing control scrambled shRNA (shCT) or STAT3 shRNA (shSTAT3) were treated with EGF (50 ng/mL) for 12 h, and total RNA was extracted. CCR1 mRNA levels were examined by RT-PCR. GAPDH was used as an internal control. <bold>(D)</bold> Cells were treated as in C, and CCR1 mRNA levels were determined by quantitative real-time PCR. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>*</sup>, <italic>p =</italic> 0.0157; <sup>****</sup>, <italic>p</italic> &lt; 0.0001 by Sidak&#x2019;s multiple comparisons test.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g005"/>
+        </fig>
+      </sec>
+      <sec id="s2_6">
+        <title>Inhibition of AKT suppresses EGF-induced serine-727 phosphorylation of STAT3 and CCR1 expression</title>
+        <p>To investigate the STAT3-stimulating signaling pathway responsible for CCR1 expression, serum-starved MDA-MB-231 cells were treated with EGF (50 ng/mL). In accordance with a previous study [<xref rid="R19" ref-type="bibr">19</xref>], we observed an increase in STAT3 phosphorylation by EGF; of note, tyrosine-705 phosphorylation was transient, while serine-727 phosphorylation was long-lasting over 60 min (Figure <xref ref-type="fig" rid="F6">6A</xref>), suggesting that serine phosphorylation of STAT3 may play a role in CCR1 expression. We next sought to identify the serine kinase that phosphorylates serine-727 of STAT3. One possible candidate is AKT, which is important for tumor initiation [<xref rid="R20" ref-type="bibr">20</xref>] and metastasis [<xref rid="R21" ref-type="bibr">21</xref>]. AKT and its downstream effector, mammalian target of rapamycin (mTOR), were rapidly phosphorylated by EGF (Figure <xref ref-type="fig" rid="F6">6A</xref>). To determine whether AKT participates in EGF-induced CCR1 expression, we utilized the pharmacological AKT inhibitor, API2 [<xref rid="R22" ref-type="bibr">22</xref>]. We confirmed that API2 inhibited EGF-induced AKT phosphorylation (Figure <xref ref-type="fig" rid="F6">6B</xref>). API2 also inhibited EGF-induced mTOR phosphorylation, as well as phosphorylation of serine-727 of STAT3, but had no effect on ERK1/2 phosphorylation (Figure <xref ref-type="fig" rid="F6">6B</xref>). In addition, the EGF-induced accumulation of CCR1 mRNA was decreased by API2 in a dose-dependent manner as revealed by RT-PCR (Figure <xref ref-type="fig" rid="F6">6C</xref>) and Q-PCR (Figure <xref ref-type="fig" rid="F6">6D</xref>). These data suggest that AKT signaling is involved in EGF-induced CCR1 mRNA expression.</p>
+        <fig id="F6" orientation="portrait" position="float">
+          <label>Figure 6</label>
+          <caption>
+            <title>Effect of AKT inhibition on EGF-induced STAT3 phosphorylation and CCR1 expression</title>
+            <p><bold>(A)</bold> Serum-starved MDA-MB-231 cells were treated with EGF (50 ng/mL) for different times, and phosphorylation of STAT3 (Tyr705), STAT3 (Ser727), AKT (Ser473), or mTOR (Ser2481) was analyzed by immunoblotting. GAPDH was used as an internal control. <bold>(B)</bold> Serum-starved MDA-MB-231 cells were either pretreated with API2 (10, 20, or 50 &#x3BC;M) for 30 min or untreated, and then treated with EGF (50 ng/mL). After 15 min, the cells were collected, and protein lysates were prepared. Phosphorylation of AKT (Ser473), mTOR (Ser2481), STAT3 (Ser727), or ERK1/2 (Thr201/Tyr204) was analyzed by immunoblotting. GAPDH was used as an internal control. <bold>(C)</bold> Cells were treated as in (B). After 24 h, total RNAs were extracted, and CCR1 mRNA levels were examined by RT-PCR. GAPDH was used as an internal control. <bold>(D)</bold> Serum-starved MDA-MB-231 cells were treated as in B, and CCR1 mRNA levels were assessed by quantitative real-time PCR (<italic>Q-PCR</italic>). Values were normalized to GAPDH mRNA levels. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>**</sup>, <italic>p</italic> = 0.0027; <sup>****</sup>, <italic>p</italic> &lt; 0.0001 by Sidak&#x2019;s multiple comparisons test.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g006"/>
+        </fig>
+      </sec>
+      <sec id="s2_7">
+        <title>Silencing of AKT inhibits EGF-induced serine-727 phosphorylation of STAT3 and CCR1 expression</title>
+        <p>To further address the possible involvement of AKT in the regulation of CCR1 expression, we established MDA-MB-231 transfectants in which AKT1, AKT2, or AKT1 plus AKT2 [AKT(1+2)] were stably knocked down using a lentiviral shRNA delivery system (Figure <xref ref-type="fig" rid="F7">7A</xref>). Silencing of AKT1, AKT2, or AKT(1+2) led to decreased expression of CCR1 mRNA, as revealed by RT-PCR (Figure <xref ref-type="fig" rid="F7">7B</xref>) and Q-PCR (Figure <xref ref-type="fig" rid="F7">7C</xref>). Furthermore, AKT1 silencing resulted in the inhibition of EGF-induced phosphorylation of mTOR at serine-2481 and STAT3 at serine-727 (Figure <xref ref-type="fig" rid="F7">7D</xref>), as well as CCR1 mRNA expression (Figure <xref ref-type="fig" rid="F7">7E</xref>). These data demonstrate that AKT stimulates STAT3, leading to up-regulation of CCR1 mRNA expression. Similar results were observed for STAT3 phosphorylation on serine-727 (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 2A</xref>) and CCR1 mRNA expression (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 2B and 2C</xref>) in T24 bladder and Capan-1 pancreatic cancer cells expressing AKT1 shRNA.</p>
+        <fig id="F7" orientation="portrait" position="float">
+          <label>Figure 7</label>
+          <caption>
+            <title>Effect of AKT silencing on EGF-induced STAT3 phosphorylation and CCR1 expression</title>
+            <p><bold>(A)</bold> AKT1 or AKT2 expression was examined in MDA-MB-231 cells expressing control shRNA (shCT), AKT1 shRNA (shAkt1), AKT2 shRNA (shAkt2), or AKT1 plus AKT2 [shAkt(1+2)] shRNAs. GAPDH was used as an internal control. <bold>(B)</bold> CCR1 mRNA expression was detected by RT-PCR in shCT, shAkt1, shAkt2, or shAkt(1+2)-expressing cells. GAPDH was used as an internal control. <bold>(C)</bold> CCR1 mRNA expression was detected by Q-PCR in shCT, shAkt1, shAkt2, or shAkt(1+2)-expressing cells. Values were normalized to GAPDH mRNA levels. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>****</sup>, <italic>p</italic> &lt; 0.0001 by Sidak&#x2019;s multiple comparisons test. <bold>(D)</bold> Serum-starved shCT or shAkt1 cells were either untreated or treated with EGF (50 ng/mL) for 15 or 30 min, and the phosphorylation status of mTOR (Ser2481) and STAT3 (Ser727) was analyzed by immunoblotting. GAPDH were used as internal controls. <bold>(E)</bold> Serum-starved shCT or shAkt1 cells were treated with EGF (50 ng/mL) for 24 h, and CCR1 mRNA expression was detected by RT-PCR. GAPDH was used as an internal control.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g007"/>
+        </fig>
+        <p>To extend our analysis of the role of AKT in CCR1 expression, we tested whether exogenous expression of AKT increases CCR1 expression. Exogenous expression of V5-tagged AKT1 in non-transformed MCF12A breast epithelial cells was confirmed by immunoblotting (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 3A</xref>). We selected two transfectants (clones #1 and #2), and measured CCR1 mRNA expression. CCR1 mRNA levels were strongly increased by exogenous AKT1 expression compared with that in empty vector-transfected cells (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure 3B and 3C</xref>). These data demonstrated that AKT mediates EGF-induced CCR1 mRNA expression through activation of STAT3.</p>
+      </sec>
+      <sec id="s2_8">
+        <title>mTOR is necessary for AKT-induced serine-727 phosphorylation of STAT3 and CCR1 expression</title>
+        <p>A previous study has reported that inhibition of mTOR prevents the migration and invasion of leukemia cells through the inhibition of STAT3 phosphorylation [<xref rid="R23" ref-type="bibr">23</xref>]. We next asked whether EGF-induced mTOR activation is functionally linked to serine-727 phosphorylation of STAT3 and CCR1 expression. When MDA-MB-231 cells were treated with the mTOR inhibitor rapamycin, EGF-induced mTOR phosphorylation and STAT3 serine-727 phosphorylation (Figure <xref ref-type="fig" rid="F8">8A</xref>), as well as CCR1 mRNA expression (Figure <xref ref-type="fig" rid="F8">8B</xref> and <xref ref-type="fig" rid="F8">8C</xref>) were substantially decreased, suggesting that the rapamycin-sensitive mTOR/Raptor complex (mTORC1) is involved in EGF-induced phosphorylation of STAT3 and CCR1 mRNA expression.</p>
+        <fig id="F8" orientation="portrait" position="float">
+          <label>Figure 8</label>
+          <caption>
+            <title>Role of AKT-dependent mTOR activation in EGF-induced CCR expression</title>
+            <p><bold>(A)</bold> Serum-starved MDA-MB-231 cells were either left untreated or pretreated with rapamycin (20 or 50 nM) for 30 min, and then treated with EGF (50 ng/mL). After 15 min, the cells were collected, and protein lysates were prepared. Lysates were immunoblotted with phospho-mTOR (Ser2481) and phospho-STAT3 (Ser727) antibodies. GAPDH was used as an internal control. <bold>(B)</bold> Serum-starved MDA-MB-231 cells were treated as in A. After 24 h, total RNAs were extracted, and CCR1 mRNA levels were examined by RT-PCR. GAPDH was used as an internal control. <bold>(C)</bold> Serum-starved MDA-MB-231 cells were treated as in B, and CCR1 mRNA levels were assessed by quantitative real-time PCR (<italic>Q-PCR</italic>). Values were normalized to GAPDH mRNA levels. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>*</sup>, <italic>p</italic> = 0.0343; <sup>***</sup>, <italic>p</italic> = 0.0004; <sup>****</sup>, <italic>p</italic> &lt; 0.0001 (compared with EGF-treated cells; by Sidak&#x2019;s multiple comparisons test). <bold>(D)</bold> Silencing of mTOR by expression of lentiviral mTOR shRNA (shTOR). Knockdown of mTOR expression was verified by immunoblotting. <bold>(E)</bold> Serum-starved shCT and shTOR clones #2 and #5 cells were treated with EGF (50 ng/mL) for 24 h, and CCR1 mRNA expression was detected by RT-PCR. GAPDH was used as an internal control. <bold>(F)</bold> Serum-starved shCT and shTOR clones #2 and #5 cells were treated as in E, and CCR1 mRNA levels were assessed by Q-PCR. Values were normalized to GAPDH mRNA levels. Data are means &#xB1; SD (<italic>n =</italic> 3). <sup>****</sup>, <italic>p</italic> &lt; 0.0001; <italic>NS</italic>, statistically not significant (by Sidak&#x2019;s multiple comparisons test).</p>
+          </caption>
+          <graphic xlink:href="oncotarget-08-94591-g008"/>
+        </fig>
+        <p>To confirm the requirement of mTOR for EGF-induced CCR1 expression, we established MDA-MB-231 transfectants stably expressing mTOR shRNA (shTOR). Silencing of mTOR was confirmed by immunoblotting, and two clones (clones #2 and #5) were selected for further experiments (Figure <xref ref-type="fig" rid="F8">8D</xref>). Both two clones exhibited inhibition of EGF-induced CCR1 mRNA expression as revealed by RT-PCR (Figure <xref ref-type="fig" rid="F8">8E</xref>) and Q-PCR (Figure <xref ref-type="fig" rid="F8">8F</xref>). These data suggest that mTOR participates in serine-727 phosphorylation of STAT3 and CCR1 mRNA expression in response to EGF stimulation in MDA-MB-231 breast cancer cells.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>DISCUSSION</title>
+      <p>Invasion and metastasis are central to cancer development and progression. EGF stimulates the growth, proliferation, differentiation, and survival of diverse cell types and facilitates cellular migration. Amplification or uncontrolled activation of EGFR signaling has been implicated in the invasion and metastasis of many cancers. In breast cancer cells, inhibition of EGFR signaling reduces breast cancer cell invasion [<xref rid="R24" ref-type="bibr">24</xref>]. CCR1 is involved in the invasion and metastasis of several cancer types [<xref rid="R14" ref-type="bibr">14</xref>, <xref rid="R15" ref-type="bibr">15</xref>]. Here, we show that EGF up-regulates CCR1 expression, suggesting that CCR1 may contribute to EGFR-mediated tumor invasion and metastasis. CCR1 expression is enhanced by many extracellular agents, including histamine [<xref rid="R25" ref-type="bibr">25</xref>], conditional medium collected from TNF&#x3B1;-activated mesenchymal stem cells [<xref rid="R26" ref-type="bibr">26</xref>], interleukin-2 [<xref rid="R27" ref-type="bibr">27</xref>], and insulin-like growth factor (IGF)-1 [<xref rid="R28" ref-type="bibr">28</xref>]. However, the mechanism underlying CCR1 upregulation in metastatic tumor cells is poorly characterized. Here, we found that EGF induces <italic>CCR1</italic> transcription by stimulating promoter activity, suggesting positive cross-talk between EGFR and CCR1 signaling. In this study, the transcriptional regulatory mechanism of the human <italic>CCR1</italic> gene was investigated using MDA-MB-231 breast cancer cells. The major findings of our study can be summarized as follows: (i) elevated expression of CCR1 in breast IDC; (ii) EGF-induced transcriptional upregulation of CCR1 expression; (iii) overlapping consensus STAT3-binding sequences (between &#x2013;183 and &#x2013;162) in the <italic>CCR1</italic> promoter are essential for EGF-induced <italic>CCR1</italic> transcriptional activation; (iv) knockdown of CCR1 or STAT3 expression reduces the invasive and metastatic capability of MDA-MB-231 cells; and (v) the PI3K-AKT-mTOR-STAT3 axis is required for EGF-induced CCR1 mRNA expression.</p>
+      <p>We observed that CCR1 mRNA was abundantly expressed in various breast cancer cell lines, including MDA-MB-231, MDA-MB-361, MCF7, and T47D cells, as compared with the levels in normal MCF12A breast epithelial cells. We further found that CCR1 mRNA expression in MDA-MB-231 cells was enhanced upon EGF stimulation, as revealed by RT-PCR, Q-PCR, fluorescence microscopy, and flow cytometry. In an effort to reveal the transcriptional regulatory mechanism of EGF-induced CCR1 expression, we identified the <italic>cis</italic>-acting response elements in the <italic>CCR1</italic> promoter. Using serial deletion constructs, we found that the region between &#x2013;200 and &#x2013;100 was required for EGF-induced <italic>CCR1</italic> promoter activity, and sequence analysis revealed two overlapping STAT3 elements between &#x2013;183 and &#x2013;162. The functional significance of these STAT3 binding sites was demonstrated by their mutation, which led to significantly reduced STAT3- and EGF-induced promoter activity. In addition, transfection of MDA-MB-231 cells with a STAT3-specific shRNA strongly attenuated EGF-induced <italic>CCR1</italic> transcription. STAT3 is ubiquitously expressed in most tissues, however, constitutively active STAT3 may contributes to tumor progression and metastasis in diverse cell types [<xref rid="R29" ref-type="bibr">29</xref>&#x2013;<xref rid="R32" ref-type="bibr">32</xref>]. Our data clearly indicate that CCR1 silencing inhibited the invasive capability of MDA-MB-231 cells, as revealed in 3-D spheroid culture, and significantly inhibited lung metastasis, as revealed in an <italic>in vivo</italic> experiment. These results suggest that CCR1 promotes the metastasis of breast cancer cells. Thus, we hypothesized that STAT3 contributes to tumor invasion and metastasis by regulating CCR1 expression. These findings extend the function of EGFR in the promotion of invasiveness via up-regulation of CCR1 expression.</p>
+      <p>Another key finding of this study is that CCR1 expression is induced by the AKT-mTOR-STAT3 axis upon EGF stimulation. For maximal STAT3 activation, phosphorylation at both tyrosine and serine residues is required [<xref rid="R33" ref-type="bibr">33</xref>]. Tyrosine-705 phosphorylation of STAT3 is prerequisite for homodimerization, nuclear translocation, and DNA-binding activity [<xref rid="R34" ref-type="bibr">34</xref>], whereas serine-727 phosphorylation is necessary for maximal transcriptional activity [<xref rid="R29" ref-type="bibr">29</xref>, <xref rid="R35" ref-type="bibr">35</xref>]. Tyrosine-705 is phosphorylated by several tyrosine kinases, such as EGFR, Src, and JAK family kinases [<xref rid="R36" ref-type="bibr">36</xref>, <xref rid="R37" ref-type="bibr">37</xref>], and serine-727 phosphorylation by multiple serine kinases, including MAPKs (p38, ERK, JNK), PKC&#x3B4;, mTOR, and NLK, independently of tyrosine-705 phosphorylation [<xref rid="R35" ref-type="bibr">35</xref>, <xref rid="R38" ref-type="bibr">38</xref>, <xref rid="R39" ref-type="bibr">39</xref>]. In MDA-MB-231 cells, we observed that EGF-induced tyrosine-705 phosphorylation rapidly declined after 10 min, whereas serine-727 phosphorylation was long lasting (up to 60 min). Here, we focused on the serine kinases involved in serine-727 phosphorylation of STAT3 in the regulation of CCR1 expression. Among the downstream effectors of EGFR, PI3K and AKT activities are significantly increased in triple-negative (ER&#x3B1;<sup>-</sup>/PR<sup>-</sup>/HER2<sup>-</sup>) breast cancers [<xref rid="R40" ref-type="bibr">40</xref>, <xref rid="R41" ref-type="bibr">41</xref>], and PI3K expression is associated with poor prognosis in breast cancer [<xref rid="R42" ref-type="bibr">42</xref>]. In addition, targeting EGFR/PI3K/AKT pathway significantly inhibited migration and invasion of MDA-MB-231 cells [<xref rid="R18" ref-type="bibr">18</xref>]. Here we showed that AKT was highly phosphorylated within 5 min after EGF stimulation, and treatment with API2, a pharmacological inhibitor of AKT, reduced EGF-induced STAT3 phosphorylation and CCR1 mRNA expression. Moreover, shRNA-mediated silencing of AKT1 or AKT2 in MDA-MB-231 cells strongly attenuated STAT3 phosphorylation at serine-727 and CCR1 mRNA expression. Silencing of AKT1 in T24 bladder carcinoma cells and Capan-1 pancreatic carcinoma cells yielded similar results, suggesting that CCR1 expression activation via the AKT-STAT3 pathway is not restricted to breast cancer cells. However, in diethyl nitrosamine-induced mouse hepatocellular carcinoma cells, treatment with the PI3K inhibitor LY294002 had no effect on STAT3 phosphorylation at serine-727 [<xref rid="R43" ref-type="bibr">43</xref>]. Thus, it is unclear whether the AKT-STAT3 axis drives transcriptional activation of <italic>CCR1</italic> in diverse cancer cell types.</p>
+      <p>In summary, we propose a signaling mechanism by which EGF up-regulates the expression of CCR1 through the AKT-mTOR-STAT3 axis in MDA-MB-231 breast cancer cells. It will be of great interest to determine whether targeting of AKT-mTOR-STAT3 axis-dependent CCR1 expression can be a potential therapeutic strategy for the management of triple-negative breast cancer.</p>
+    </sec>
+    <sec id="s4">
+      <title>MATERIALS AND METHODS</title>
+      <sec id="s4_1">
+        <title>Cells</title>
+        <p>Human breast non-transformed epithelial (MCF12A) and cancer cells (MDA-MB-231), bladder carcinoma (T24) and pancreatic adenocarcinoma (Capan-1) cells were obtained from the American Type Culture Collection (Manassas, VA, USA).</p>
+      </sec>
+      <sec id="s4_2">
+        <title>Human breast cancer specimens and immunohistochemical analysis</title>
+        <p>A human breast tissue microarray, containing 189 breast cancer specimens composed of invasive ductal carcinoma (189 cases) and matched peripheral normal tissues, was generated by the Chonnam National University Hwasun Hospital National Biobank of Korea, a member of the National Biobank of Korea. Samples of invasive ductal carcinoma (IDC) and adjacent normal tissues (178 cases) were analyzed for CCR1 expression. Clinicopathologic parameters, including age at diagnosis, histopathologic type, tumor size, and nodal status, were evaluated. All IDC patients had not received chemotherapy or radiotherapy. All specimens were obtained after obtaining informed consent under an institutional review board (IRB)-approved protocol of the Chonnam National University Hwasun Hospital, Korea.</p>
+        <p>Immunohistochemical staining was performed with a Bond-Max autostainer system (Leica Microsystems, Bannockburn, IL, USA) using primary antibodies against CCR1 (1:150; Novus Biologicals, Littleton, CO, USA). All steps, which are listed below, were performed by the autostainer instrument, according to the manufacturer&#x2019;s instructions, and all solutions were from Leica Microsystems: (i) deparaffinization of the tissue slides with Bond Dewax Solution at 72&#xB0;C for 30 min, (ii) heat-induced epitope retrieval (antigen unmasking) with Bond Epitope Retrieval Solution 1 for 20 min at 100&#xB0;C, (iii) peroxide blocking of the slides for 5 min at ambient temperature, (iv) incubation with the CCR1 primary antibody for 15 min at ambient temperature, (v) incubation with Post Primary reagent for 8 min at ambient temperature, followed by washing with Bond Wash solution for 6 min, (vi) incubation with Bond Polymer for 8 min at ambient temperature, followed by washing with Bond Wash and distilled water for 4 min, (vii) color development with 3,3&#x2032;-diaminobenzidine tetrahydrochloride (DAB) chromogen for 10 min at ambient temperature, and (viii) hematoxylin counterstaining for 5 min at ambient temperature, followed by mounting of the slides. Normal human serum was used as a negative control. Histology slides were scanned with an Aperio ScanScope (Aperio Technologies, Vista, CA, USA). Immunostaining intensity was assessed in a blinded manner by two board-certified oncopathologists and scored on a scale of 0 to 3 (0 = negative, 1 = weak, 2 = moderate, and 3 = strong). The extent of staining was scored based on the percentage of stained cells (0 = negative, 1 = 1&#x2013;25%, 2 = 26&#x2013;50%, and 3 = 51&#x2013;100%). Relative staining intensity was obtained by multiplying the intensity and extent scores (range, 0&#x2013;9). Some samples with defective cores were not included in the analysis.</p>
+      </sec>
+      <sec id="s4_3">
+        <title>Reverse transcription (RT)-PCR and quantitative real time (Q)-PCR</title>
+        <p>RT-PCR and Q-PCR were performed as described previously [<xref rid="R44" ref-type="bibr">44</xref>]. Total RNA was extracted using a TRIzol RNA extraction kit (Invitrogen). First-strand cDNA was synthesized with an iScript cDNA synthesis kit (Bio-Rad, Richmond, CA, USA). RT-PCR and quantitative real-time-PCR (Q-PCR) were performed as described previously. The sequences of primers for RT-PCR and Q-PCR were: forward CCR1, 5&#x2032;-gccttctggttttatggg-3&#x2032;; reverse CCR1, 5&#x2032;-ctcctagacacttttcctc-3&#x2032;; CCR1 TaqMan probe, 5&#x2032;-FAM- agttccgactgccatcttggactttg-BHQ-3&#x2032;; forward GAPDH, 5&#x2032;-tcgacagtcagccgcatcttc-3&#x2032;; reverse GAPDH, 5&#x2032;-cgcccaatacgaccacct ccg-3&#x2032;; and GAPDH TaqMan probe, 5&#x2032;-Yakima Yellow TM-cgtcgccagcccagccacgc-BHQ-1-3&#x2032;. Expression values were normalized to GAPDH mRNA using the software program provided by the manufacturer.</p>
+      </sec>
+      <sec id="s4_4">
+        <title>Three-dimensional (3-D) spheroid invasion assay</title>
+        <p>A 3-D invasion assay was performed using the Cultrex 3-D Spheroid Cell Invasion Assay kit (Trevigen, Inc., Gaithersburg, MD, USA), as described previously [<xref rid="R45" ref-type="bibr">45</xref>]. MDA-MB-231 variant cells (3 &#xD7; 10<sup>3</sup> cells/well) expressing shRNA (shCT and shCCR1) were cultured for 3 days in Spheroid Formation Extracellular matrix to drive the aggregation and spheroid formation of cells followed by the addition of the Invasion Matrix composed of basement membrane proteins and medium for 1-5 days. The morphology of 3-D cell invasion was visualized using an Eclipse TS100 microscope equipped with a digital sight camera.</p>
+      </sec>
+      <sec id="s4_5">
+        <title>Experimental pulmonary metastasis assay <italic>in vivo</italic></title>
+        <p>Balb/c-nude female mice were obtained from Orient Bio Inc. (Seungnam, Republic of Korea). All animal experiments were performed at Gachon University following IACUC (Institutional Animal Care and Use Committee)-approved protocols (No.LCDI-2012-0069). For the experimental metastatic model, MDA-MB-231-luc cells (shCT and shCCR1, 1 x 10<sup>6</sup> cells in 100 &#x3BC;l PBS) were injected into the lateral tail veins of 7-week-old Balb/c-nude mice (<italic>n</italic> = 10 each group). After 8 weeks, D-luciferin (15 mg/kg; PerkinElmer, Waltham, MA, USA) was intraperitoneally injected 10 min prior to imaging acquisition. To monitor pulmonary metastasis, <italic>in vivo</italic> bioluminescent imaging was conducted once a week using the Spectrum IVIS (PerkinElmer, Waltham, MA, USA). The BLI signal intensity (photons/sec) was quantified and calculated as the sum of all detected regions per second using Living Image software (Xenogen, Alameda, CA, USA).</p>
+      </sec>
+      <sec id="s4_6">
+        <title>Immunoblot analysis</title>
+        <p>Cells were lysed in a buffer consisting of 20 mM HEPES (pH 7.2), 1% Triton X-100, 10% glycerol, 150 mM NaCl, 10 &#x3BC;g/mL leupeptin and 1 mM PMSF. The protein extracts (20 &#x3BC;g each) were separated by SDS-polyacrylamide gel electrophoresis and transferred to nitrocellulose membranes. Primary antibody against glyceraldehyde 3-phosphate dehydrogenase (GAPDH; 1:500) was obtained from Santa Cruz Biotechnology (Santa Cruz, CA, USA). Primary antibodies against phospho-Erk1/2 (Thr202/Tyr204; 1:1000), Akt1 (1:1000), phospho-Akt (Ser473; 1:1000), phospho-Stat3 (Tyr705; 1:500), and phospho-Stat3 (Ser727; 1:500), and phospho-mTOR (Ser2481; 1:1000) were purchased from Cell Signalling Technology (Danvers, MA, USA). The blots were incubated with the appropriate primary and secondary antibodies and developed using an enhanced chemiluminescence detection system (GE Healthcare, Piscataway, NJ, USA).</p>
+      </sec>
+      <sec id="s4_7">
+        <title>CCR1 surface expression analysis via flow cytometry</title>
+        <p>CCR1 expression on the cell surface was determined using the FlowCellect Chemokine Receptor CCR1 Surface Expression Identification kit (Merck Millipore, Darmstadt, Germany) according to the manufacturer&#x2019;s instructions.</p>
+      </sec>
+      <sec id="s4_8">
+        <title>Construction and mutagenesis of human CCR1 promoter-reporter constructs</title>
+        <p>A fragment of the human <italic>CCR1</italic> gene was amplified from human genomic DNA (Promega) via PCR. The Primer sequences used to amplify the human <italic>CCR1</italic> gene spanning nucleotides &#x2013;986 to +27 (transcription start site numbered +1) were 5&#x2032;-agcaatgccgtgaggaaggt-3&#x2032; (forward; &#x2013;986F) and 5&#x2032;-tgtttctggggctttctggg-3&#x2032; (reverse; +27R). The amplified PCR products were ligated into a T&amp;A vector (RBC Bioscience), followed by digestion with <italic>Kpn</italic>I and <italic>Bgl</italic>II and subcloning into the luciferase reporter plasmid pGL4-basic (Promega), yielding pCCR1-Luc(&#x2013;982/+27). A series of deletion constructs was generated using pCCR1-Luc(&#x2013;986/+27) as a template. The forward primer sequences used to generate these constructs were 5&#x2032;-agctgggatttgaacttgctc-3&#x2032; (&#x2212;750 to +27), 5&#x2032;-agttagttttgaggaacaggactca-3&#x2032; (&#x2013;500 to +27), 5&#x2032;-cactgccacccacctcaccca-3&#x2032; (&#x2013;300 to +27), 5&#x2032;- aaatcctcgcagttaacttgg-3&#x2032; (&#x2013;200 to +27), and 5&#x2032;-tttgtcccttcttgtcattt-3&#x2032; (&#x2013;110 to +27). One reverse primer, +27R, was used for all deletion constructs. The amplified PCR products were ligated into the T&amp;A vector and then ligated into the <italic>Kpn</italic>I and <italic>Bgl</italic>II sites of the pGL4-basic vector, yielding pCCR1-Luc(&#x2212;750/+27), pCCR1-Luc(&#x2212;500/+27), pCCR1-Luc(&#x2212;300/+27), pCCR1-Luc(&#x2212;200/+27), and pCCR1-Luc(&#x2212;110/+27), respectively. Site-specific mutation of the STAT3 binding site within the CCR1 promoter (ttCCagga &#x2192; ttTTagga) was performed with a QuickChange site-directed mutagenesis system (Stratagene) using pCCR1-Luc(&#x2212;200/+27) as a template. All mutations were verified by DNA sequencing.</p>
+      </sec>
+      <sec id="s4_9">
+        <title>Luciferase promoter reporter assay</title>
+        <p>The luciferase promoter reporter assay was performed as described previously [<xref rid="R46" ref-type="bibr">46</xref>]. Firefly luciferase activity was normalized to <italic>Renilla</italic> activity, and the relative amount of luciferase activity in the untreated cells was set to &#x201C;1&#x201D;.</p>
+      </sec>
+      <sec id="s4_10">
+        <title>Electrophoretic mobility shift assay (EMSA)</title>
+        <p>EMSA was performed using a DNA-binding protein detection system kit (Affymetrix, Santa Clara, USA) with minor modifications, as described previously [<xref rid="R46" ref-type="bibr">46</xref>]. The sequence of the synthetic deoxyoligonucleotide probe corresponding to the STAT binding sequence was 5&#x2032;-biotin-gttaacttggcttccaggaagtggc-3&#x2032;.</p>
+      </sec>
+      <sec id="s4_11">
+        <title>Lentiviral shRNA-mediated gene silencing</title>
+        <p>MDA-MB-231 cells were transduced with lentiviral particles targeting Akt1, Akt2, CCR1, mTOR, or STAT3 (MISSION<sup>&#xAE;</sup> shRNA; Sigma-Aldrich, St. Louis, MO, USA), according to the manufacturer&#x2019;s instructions.</p>
+      </sec>
+      <sec id="s4_12">
+        <title>Statistical analysis</title>
+        <p>The results were expressed as the mean &#xB1; standard deviation (SD). Statistical significance of tissue microarray data was analysed by paired two-tailed <italic>t</italic>-test, <italic>in vivo</italic> metastatic BL intensity data were by unpaired <italic>t</italic>-test, and other data were analyzed by one-way ANOVA followed by Sidak&#x2019;s multiple comparisons test with the GraphPad Prism version 7.02 program (GraphPad Software, San Diego, CA, USA). A <italic>p</italic>-value &lt; 0.05 was regarded as statistically significant.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>SUPPLEMENTARY MATERIALS FIGURES AND TABLE</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <media mimetype="application" mime-subtype="pdf" xlink:href="oncotarget-08-94591-s001.pdf" orientation="portrait" id="d35e1217" position="anchor"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="con">
+        <p>
+          <bold>Author contributions</bold>
+        </p>
+        <p>SYS conducted the biochemical and animal experiments, analyzed the data, and wrote the manuscript. DHJ contributed to RT-PCR and luciferase reporter analysis; JL and CC contributed to tissue microarray analysis. JYK and JSN contributed to <italic>in vivo</italic> metastasis analysis. YL contributed to data analysis and interpretation. YHL supervised the study, analyzed the data, and edited the manuscript. All authors read and approved the final manuscript.</p>
+      </fn>
+    </fn-group>
+    <ack>
+      <p>The biospecimens and data used in this study were provided by the Biobank of Chonnam National University Hwasun Hospital, a member of the Korea Biobank Network. This paper was supported by the KU Research Professor Program of Konkuk University.</p>
+    </ack>
+    <fn-group>
+      <fn fn-type="COI-statement">
+        <p>
+          <bold>CONFLICTS OF INTEREST</bold>
+        </p>
+        <p>The authors declare no conflicts of interest.</p>
+      </fn>
+      <fn fn-type="supported-by">
+        <p>
+          <bold>GRANT SUPPORT</bold>
+        </p>
+        <p>This work was supported by grants (No. 2015R1A2A2A01004987 and No. 2016R1A2B4008570) from the Basic Science Research Program through the National Research Foundation of Korea (NRF) funded by the Ministry of Science, ICT and future Planning. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Balkwill</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Cancer and the chemokine network</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2004</year>
+          <volume>4</volume>
+          <fpage>540</fpage>
+          <lpage>550</lpage>
+          <pub-id pub-id-type="pmid">15229479</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Nagarsheth</surname>
+              <given-names>N</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wicha</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zou</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemokines in the cancer microenvironment and their relevance in cancer immunotherapy</article-title>
+          <source>Nat Rev Immunol</source>
+          <year>2017</year>
+          <volume>17</volume>
+          <fpage>559</fpage>
+          <lpage>572</lpage>
+          <pub-id pub-id-type="pmid">28555670</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Chow</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Luster</surname>
+              <given-names>AD</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemokines in cancer</article-title>
+          <source>Cancer Immunol Res</source>
+          <year>2014</year>
+          <volume>2</volume>
+          <fpage>1125</fpage>
+          <lpage>1131</lpage>
+          <pub-id pub-id-type="pmid">25480554</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Sarvaiya</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Guo</surname>
+              <given-names>D</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ulasov</surname>
+              <given-names>I</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Gabikian</surname>
+              <given-names>P</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lesniak</surname>
+              <given-names>MS</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemokines in tumor progression and metastasis</article-title>
+          <source>Oncotarget</source>
+          <year>2013</year>
+          <volume>4</volume>
+          <fpage>2171</fpage>
+          <lpage>2185</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.18632/oncotarget.1426">https://doi.org/10.18632/oncotarget.1426</ext-link>
+          </comment>
+          <pub-id pub-id-type="pmid">24259307</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Muller</surname>
+              <given-names>A</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Homey</surname>
+              <given-names>B</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Soto</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ge</surname>
+              <given-names>N</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Catron</surname>
+              <given-names>D</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Buchanan</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name name-style="western">
+              <surname>McClanahan</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Murphy</surname>
+              <given-names>E</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Yuan</surname>
+              <given-names>W</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wagner</surname>
+              <given-names>SN</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Barrera</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Mohar</surname>
+              <given-names>A</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Verastegui</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Involvement of chemokine receptors in breast cancer metastasis</article-title>
+          <source>Nature</source>
+          <year>2001</year>
+          <volume>410</volume>
+          <fpage>50</fpage>
+          <lpage>56</lpage>
+          <pub-id pub-id-type="pmid">11242036</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Schaller</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kallal</surname>
+              <given-names>LE</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lukacs</surname>
+              <given-names>NW</given-names>
+            </name>
+          </person-group>
+          <article-title>A key role for CC chemokine receptor 1 in T-cell-mediated respiratory inflammation</article-title>
+          <source>Am J Pathol</source>
+          <year>2008</year>
+          <volume>172</volume>
+          <fpage>386</fpage>
+          <lpage>394</lpage>
+          <pub-id pub-id-type="pmid">18202190</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Kato</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Fujita</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Nakane</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Mizutani</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Terazawa</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ehara</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kanimoto</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kojima</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Nozawa</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Deguchi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ito</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>CCR1/CCL5 interaction promotes invasion of taxane-resistant PC3 prostate cancer cells by increasing secretion of MMPs 2/9 and by activating ERK and Rac signaling</article-title>
+          <source>Cytokine</source>
+          <year>2013</year>
+          <volume>64</volume>
+          <fpage>251</fpage>
+          <lpage>257</lpage>
+          <pub-id pub-id-type="pmid">23876400</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Scotton</surname>
+              <given-names>C</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Milliken</surname>
+              <given-names>D</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wilson</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Raju</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Balkwill</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Analysis of CC chemokine and chemokine receptor expression in solid ovarian tumours</article-title>
+          <source>Br J Cancer</source>
+          <year>2001</year>
+          <volume>85</volume>
+          <fpage>891</fpage>
+          <lpage>897</lpage>
+          <pub-id pub-id-type="pmid">11556842</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Long</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Xie</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Xiang</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhao</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lin</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Liang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Chen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhu</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Autocrine CCL5 signaling promotes invasion and migration of CD133+ ovarian cancer stem-like cells via NF-kappaB-mediated MMP-9 upregulation</article-title>
+          <source>Stem Cells</source>
+          <year>2012</year>
+          <volume>30</volume>
+          <fpage>2309</fpage>
+          <lpage>2319</lpage>
+          <pub-id pub-id-type="pmid">22887854</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>De Vos</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Couderc</surname>
+              <given-names>G</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Tarte</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Jourdan</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Requirand</surname>
+              <given-names>G</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Delteil</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Rossi</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Mechti</surname>
+              <given-names>N</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Klein</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Identifying intercellular signaling genes expressed in malignant plasma cells by using complementary DNA arrays</article-title>
+          <source>Blood</source>
+          <year>2001</year>
+          <volume>98</volume>
+          <fpage>771</fpage>
+          <lpage>780</lpage>
+          <pub-id pub-id-type="pmid">11468178</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Anderson</surname>
+              <given-names>MW</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhao</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ai</surname>
+              <given-names>WZ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Tibshirani</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Levy</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lossos</surname>
+              <given-names>IS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Natkunam</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>C-C chemokine receptor 1 expression in human hematolymphoid neoplasia</article-title>
+          <source>Am J Clin Pathol</source>
+          <year>2010</year>
+          <volume>133</volume>
+          <fpage>473</fpage>
+          <lpage>483</lpage>
+          <pub-id pub-id-type="pmid">20154287</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Li</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhang</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>CCL15/CCR1 axis is involved in hepatocellular carcinoma cells migration and invasion</article-title>
+          <source>Tumor Biol</source>
+          <year>2016</year>
+          <volume>37</volume>
+          <fpage>4501</fpage>
+          <lpage>4507</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Akram</surname>
+              <given-names>IG</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Georges</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Hielscher</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Adwan</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Berger</surname>
+              <given-names>MR</given-names>
+            </name>
+          </person-group>
+          <article-title>The chemokines CCR1 and CCRL2 have a role in colorectal cancer liver metastasis</article-title>
+          <source>Tumor Biol</source>
+          <year>2016</year>
+          <volume>37</volume>
+          <fpage>2461</fpage>
+          <lpage>2471</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Wang</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sun</surname>
+              <given-names>BS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Tang</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhuang</surname>
+              <given-names>HQ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Cao</surname>
+              <given-names>WZ</given-names>
+            </name>
+          </person-group>
+          <article-title>CCR1 knockdown suppresses human non-small cell lung cancer cell invasion</article-title>
+          <source>J Cancer Res Clin Oncol</source>
+          <year>2009</year>
+          <volume>135</volume>
+          <fpage>695</fpage>
+          <lpage>701</lpage>
+          <pub-id pub-id-type="pmid">18972130</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Cao</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Gilchrist</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>CCR1 as a target for metastatic breast cancer</article-title>
+          <source>FASEB J</source>
+          <year>2017</year>
+          <volume>31</volume>
+          <comment>823.811-823.811</comment>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Chen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zeng</surname>
+              <given-names>F</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Forrester</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Eguchi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhang</surname>
+              <given-names>MZ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Harris</surname>
+              <given-names>RC</given-names>
+            </name>
+          </person-group>
+          <article-title>Expression and function of the epidermal growth factor receptor in physiology and disease</article-title>
+          <source>Physiol Rev</source>
+          <year>2016</year>
+          <volume>96</volume>
+          <fpage>1025</fpage>
+          <lpage>1069</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Matsuda</surname>
+              <given-names>N</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lim</surname>
+              <given-names>B</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ueno</surname>
+              <given-names>NT</given-names>
+            </name>
+          </person-group>
+          <article-title>Early clinical development of epidermal growth factor receptor targeted therapy in breast cancer</article-title>
+          <source>Expert Opinion Investig Drugs</source>
+          <year>2017</year>
+          <volume>26</volume>
+          <fpage>463</fpage>
+          <lpage>479</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Tsai</surname>
+              <given-names>PC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Fu</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Chang</surname>
+              <given-names>LS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lin</surname>
+              <given-names>SR</given-names>
+            </name>
+          </person-group>
+          <article-title>Taiwan cobra cardiotoxin III suppresses EGF/EGFR-mediated epithelial-to-mesenchymal transition and invasion of human breast cancer MDA-MB-231 cells</article-title>
+          <source>Toxicon</source>
+          <year>2016</year>
+          <volume>111</volume>
+          <fpage>108</fpage>
+          <lpage>120</lpage>
+          <pub-id pub-id-type="pmid">26774845</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Chun</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Li</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Cheng</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kim</surname>
+              <given-names>YS</given-names>
+            </name>
+          </person-group>
+          <article-title>Alantolactone selectively suppresses STAT3 activation and exhibits potent anticancer activity in MDA-MB-231 cells</article-title>
+          <source>Cancer Lett</source>
+          <year>2015</year>
+          <volume>357</volume>
+          <fpage>393</fpage>
+          <lpage>403</lpage>
+          <pub-id pub-id-type="pmid">25434800</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Smit</surname>
+              <given-names>L</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Berns</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Spence</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ryder</surname>
+              <given-names>WD</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zeps</surname>
+              <given-names>N</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Madiredjo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Beijersbergen</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Bernards</surname>
+              <given-names>R</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Clarke</surname>
+              <given-names>RB</given-names>
+            </name>
+          </person-group>
+          <article-title>An integrated genomic approach identifies that the PI3K/AKT/FOXO pathway is involved in breast cancer tumor initiation</article-title>
+          <source>Oncotarget</source>
+          <year>2016</year>
+          <volume>7</volume>
+          <fpage>2596</fpage>
+          <lpage>2610</lpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.18632/oncotarget.6354">https://doi.org/10.18632/oncotarget.6354</ext-link>
+          </comment>
+          <pub-id pub-id-type="pmid">26595803</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Pierobon</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ramos</surname>
+              <given-names>C</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wong</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Hodge</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Aldrich</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Byron</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Anthony</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Robert</surname>
+              <given-names>NJ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Northfelt</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Jahanzeb</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Enrichment of PIK3-AKT-MTOR pathway activation in hepatic metastases from breast cancer</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2017</year>
+          <volume>23</volume>
+          <fpage>4919</fpage>
+          <lpage>4928</lpage>
+          <pub-id pub-id-type="pmid">28446508</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Yang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Dan</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sun</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Liu</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sun</surname>
+              <given-names>XM</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Feldman</surname>
+              <given-names>RI</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Hamilton</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Polokoff</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Nicosia</surname>
+              <given-names>SV</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Herlyn</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sebti</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Cheng</surname>
+              <given-names>JQ</given-names>
+            </name>
+          </person-group>
+          <article-title>Akt/protein kinase B signaling inhibitor-2, a selective small molecule inhibitor of Akt signaling with antitumor activity in cancer cells overexpressing Akt</article-title>
+          <source>Cancer Res</source>
+          <year>2004</year>
+          <volume>64</volume>
+          <fpage>4394</fpage>
+          <lpage>4399</lpage>
+          <pub-id pub-id-type="pmid">15231645</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>He</surname>
+              <given-names>SQ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Gao</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Fu</surname>
+              <given-names>YF</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhang</surname>
+              <given-names>YN</given-names>
+            </name>
+          </person-group>
+          <article-title>Glycyrrhizic acid inhibits leukemia cell growth and migration via blocking AKT/mTOR/STAT3 signaling</article-title>
+          <source>Int J Clin Exp Pathol</source>
+          <year>2015</year>
+          <volume>8</volume>
+          <fpage>5175</fpage>
+          <lpage>5181</lpage>
+          <pub-id pub-id-type="pmid">26191214</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Farabegoli</surname>
+              <given-names>F</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Govoni</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Spisni</surname>
+              <given-names>E</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Papi</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>EGFR inhibition by (-)-epigallocatechin-3-gallate and IIF treatments reduces breast cancer cell invasion</article-title>
+          <source>Biosci Rep</source>
+          <year>2017</year>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1042/BSR20170168">https://doi.org/10.1042/BSR20170168</ext-link>
+          </comment>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Kordulewska</surname>
+              <given-names>NK</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kostyra</surname>
+              <given-names>E</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Cie&#x15B;li&#x144;ska</surname>
+              <given-names>A</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Matysiewicz</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Fiedorowicz</surname>
+              <given-names>E</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sienkiewicz-Sz&#x142;apka</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Changes in gene expression induced by histamine, fexofenadine and osthole: expression of histamine H 1 receptor, COX-2, NF-&#x3BA;B, CCR1, chemokine CCL5/RANTES and interleukin-1&#x3B2; in PBMC allergic and non-allergic patients</article-title>
+          <source>Immunobiology</source>
+          <year>2017</year>
+          <volume>222</volume>
+          <fpage>571</fpage>
+          <lpage>581</lpage>
+          <pub-id pub-id-type="pmid">27843000</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Chen</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Liu</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Tsang</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ye</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Chan</surname>
+              <given-names>HC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sun</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Jiang</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Human MSCs promotes colorectal cancer epithelial&#x2013;mesenchymal transition and progression via CCL5/&#x3B2;-catenin/Slug pathway</article-title>
+          <source>Cell Death Dis</source>
+          <year>2017</year>
+          <volume>8</volume>
+          <fpage>e2819</fpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/cddis.2017.138">https://doi.org/10.1038/cddis.2017.138</ext-link>
+          </comment>
+          <pub-id pub-id-type="pmid">28542126</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Cantoni</surname>
+              <given-names>C</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Huergo-Zapico</surname>
+              <given-names>L</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Parodi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Pedrazzi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Mingari</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Moretta</surname>
+              <given-names>A</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Sparatore</surname>
+              <given-names>B</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Gonzalez</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Olive</surname>
+              <given-names>D</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Bottino</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>NK cells, tumor cell transition, and tumor progression in solid malignancies: new hints for NK-based immunotherapy?</article-title>
+          <source>J Immunol Res</source>
+          <year>2016</year>
+          <volume>2016</volume>
+          <fpage>4684268</fpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1155/2016/4684268">https://doi.org/10.1155/2016/4684268</ext-link>
+          </comment>
+          <pub-id pub-id-type="pmid">27294158</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Ho</surname>
+              <given-names>KH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Chen</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Hsi</surname>
+              <given-names>E</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Shih</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Chang</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Cheng</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lin</surname>
+              <given-names>CW</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Chen</surname>
+              <given-names>KC</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of IGF-1-enhanced cytokine expressions targeted by miR-181d in glioblastomas via an integrative miRNA/mRNA regulatory network analysis</article-title>
+          <source>Sci Rep</source>
+          <year>2017</year>
+          <volume>7</volume>
+          <fpage>732</fpage>
+          <pub-id pub-id-type="pmid">28389653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Banerjee</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Resat</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Constitutive activation of STAT3 in breast cancer cells: a review</article-title>
+          <source>Int J Cancer</source>
+          <year>2016</year>
+          <volume>138</volume>
+          <fpage>2570</fpage>
+          <lpage>2578</lpage>
+          <pub-id pub-id-type="pmid">26559373</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Kitamura</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ohno</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Toyoshima</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ohtake</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Homma</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kawamura</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Takahashi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Taketomi</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>IL-6/STAT3 signaling as a promising target to improve the efficacy of cancer immunotherapy</article-title>
+          <source>Cancer Sci</source>
+          <year>2017</year>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/cas.13332">https://doi.org/10.1111/cas.13332</ext-link>
+          </comment>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Geiger</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Grandis</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Bauman</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>The STAT3 pathway as a therapeutic target in head and neck cancer: barriers and innovations</article-title>
+          <source>Oral Oncol</source>
+          <year>2016</year>
+          <volume>56</volume>
+          <fpage>84</fpage>
+          <lpage>92</lpage>
+          <pub-id pub-id-type="pmid">26733183</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Chai</surname>
+              <given-names>EZ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Shanmugam</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Arfuso</surname>
+              <given-names>F</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Dharmarajan</surname>
+              <given-names>A</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kumar</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Samy</surname>
+              <given-names>RP</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lim</surname>
+              <given-names>LH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Goh</surname>
+              <given-names>BC</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeting transcription factor STAT3 for cancer prevention and therapy</article-title>
+          <source>Pharmacol Ther</source>
+          <year>2016</year>
+          <volume>162</volume>
+          <fpage>86</fpage>
+          <lpage>97</lpage>
+          <pub-id pub-id-type="pmid">26478441</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Yuan</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhang</surname>
+              <given-names>F</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Niu</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Multiple regulation pathways and pivotal biological functions of STAT3 in cancer</article-title>
+          <source>Sci Rep</source>
+          <year>2015</year>
+          <volume>5</volume>
+          <fpage>17663</fpage>
+          <comment>
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/srep17663">https://doi.org/10.1038/srep17663</ext-link>
+          </comment>
+          <pub-id pub-id-type="pmid">26631279</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Aziz</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Manoharan</surname>
+              <given-names>HT</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Church</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Dreckschmidt</surname>
+              <given-names>NE</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Zhong</surname>
+              <given-names>W</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Oberley</surname>
+              <given-names>TD</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wilding</surname>
+              <given-names>G</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Verma</surname>
+              <given-names>AK</given-names>
+            </name>
+          </person-group>
+          <article-title>Protein kinase Cepsilon interacts with signal transducers and activators of transcription 3 (Stat3), phosphorylates Stat3Ser727, and regulates its constitutive activation in prostate cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2007</year>
+          <volume>67</volume>
+          <fpage>8828</fpage>
+          <lpage>8838</lpage>
+          <pub-id pub-id-type="pmid">17875724</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Decker</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kovarik</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Serine phosphorylation of STATs</article-title>
+          <source>Oncogene</source>
+          <year>2000</year>
+          <volume>19</volume>
+          <fpage>2628</fpage>
+          <lpage>2637</lpage>
+          <pub-id pub-id-type="pmid">10851062</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Zhong</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Wen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Darnell</surname>
+              <given-names>JE</given-names>
+              <suffix>Jr</suffix>
+            </name>
+          </person-group>
+          <article-title>Stat3: a STAT family member activated by tyrosine phosphorylation in response to epidermal growth factor and interleukin-6</article-title>
+          <source>Science</source>
+          <year>1994</year>
+          <volume>264</volume>
+          <fpage>95</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="pmid">8140422</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Ihle</surname>
+              <given-names>JN</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kerr</surname>
+              <given-names>IM</given-names>
+            </name>
+          </person-group>
+          <article-title>Jaks and Stats in signaling by the cytokine receptor superfamily</article-title>
+          <source>Trends Genet</source>
+          <year>1995</year>
+          <volume>11</volume>
+          <fpage>69</fpage>
+          <lpage>74</lpage>
+          <pub-id pub-id-type="pmid">7716810</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Ou&#xE9;draogo</surname>
+              <given-names>ZG</given-names>
+            </name>
+            <name name-style="western">
+              <surname>M&#xFC;ller-Barth&#xE9;l&#xE9;my</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kemeny</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Dedieu</surname>
+              <given-names>V</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Biau</surname>
+              <given-names>J</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Khalil</surname>
+              <given-names>T</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Raoelfils</surname>
+              <given-names>LI</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Granzotto</surname>
+              <given-names>A</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Pereira</surname>
+              <given-names>B</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Beaudoin</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>STAT3 serine 727 phosphorylation: a relevant target to radiosensitize human glioblastoma</article-title>
+          <source>Brain Pathol</source>
+          <year>2016</year>
+          <volume>26</volume>
+          <fpage>18</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="pmid">25736961</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Lim</surname>
+              <given-names>CP</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Cao</surname>
+              <given-names>X</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of Stat3 activation by MEK kinase 1</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>21004</fpage>
+          <lpage>21011</lpage>
+          <pub-id pub-id-type="pmid">11278353</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Jens</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Jorg</surname>
+              <given-names>BE</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Arnd</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Susanne</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Domenico</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Andrea</surname>
+              <given-names>L</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Nicola</surname>
+              <given-names>V</given-names>
+            </name>
+          </person-group>
+          <article-title>The PI3K/AKT/mTOR-signal transduction pathway as drug target in triple-negative breast cancer</article-title>
+          <source>Clin Cancer Drugs</source>
+          <year>2017</year>
+          <volume>4</volume>
+          <fpage>47</fpage>
+          <lpage>58</lpage>
+        </element-citation>
+      </ref>
+      <ref id="R41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Umemura</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Yoshida</surname>
+              <given-names>S</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ohta</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Naito</surname>
+              <given-names>K</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Osamura</surname>
+              <given-names>RY</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Tokuda</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Increased phosphorylation of Akt in triple-negative breast cancers</article-title>
+          <source>Cancer Sci</source>
+          <year>2007</year>
+          <volume>98</volume>
+          <fpage>1889</fpage>
+          <lpage>1892</lpage>
+          <pub-id pub-id-type="pmid">17892507</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Aleskandarany</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Rakha</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ahmed</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Powe</surname>
+              <given-names>DG</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Paish</surname>
+              <given-names>EC</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Macmillan</surname>
+              <given-names>RD</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ellis</surname>
+              <given-names>IO</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Green</surname>
+              <given-names>AR</given-names>
+            </name>
+          </person-group>
+          <article-title>PIK3CA expression in invasive breast cancer: a biomarker of poor prognosis</article-title>
+          <source>Breast Cancer Res Treat</source>
+          <year>2010</year>
+          <volume>122</volume>
+          <fpage>45</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="pmid">19701705</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Miyakoshi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Yamamoto</surname>
+              <given-names>M</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Tanaka</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ogawa</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Serine 727 phosphorylation of STAT3: an early change in mouse hepatocarcinogenesis induced by neonatal treatment with diethylnitrosamine</article-title>
+          <source>Mol Carcinog</source>
+          <year>2014</year>
+          <volume>53</volume>
+          <fpage>67</fpage>
+          <lpage>76</lpage>
+          <pub-id pub-id-type="pmid">22911886</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Shin</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kim</surname>
+              <given-names>CG</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Jung</surname>
+              <given-names>YJ</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lim</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lee</surname>
+              <given-names>YH</given-names>
+            </name>
+          </person-group>
+          <article-title>The UPR inducer DPP23 inhibits the metastatic potential of MDA-MB-231 human breast cancer cells by targeting the Akt-IKK-NF-kappaB-MMP-9 axis</article-title>
+          <source>Sci Rep</source>
+          <year>2016</year>
+          <volume>6</volume>
+          <fpage>34134</fpage>
+          <pub-id pub-id-type="pmid">27658723</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Lee da</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lee da</surname>
+              <given-names>H</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Jung</surname>
+              <given-names>JY</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Koh</surname>
+              <given-names>D</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Kim</surname>
+              <given-names>GS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Ahn</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lee</surname>
+              <given-names>YH</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lim</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Shin</surname>
+              <given-names>SY</given-names>
+            </name>
+          </person-group>
+          <article-title>A synthetic chalcone derivative, 2-hydroxy-3&#x2032;,5,5&#x2032;-trimethoxychalcone (DK-139), suppresses the TNFalpha-induced invasive capability of MDA-MB-231 human breast cancer cells by inhibiting NF-kappaB-mediated GROalpha expression</article-title>
+          <source>Bioorg Med Chem Lett</source>
+          <year>2016</year>
+          <volume>26</volume>
+          <fpage>203</fpage>
+          <lpage>208</lpage>
+          <pub-id pub-id-type="pmid">26602275</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R46">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name name-style="western">
+              <surname>Shin</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lee</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lim</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name name-style="western">
+              <surname>Lee</surname>
+              <given-names>YH</given-names>
+            </name>
+          </person-group>
+          <article-title>Transcriptional regulation of the growth-regulated oncogene alpha gene by early growth response protein-1 in response to tumor necrosis factor alpha stimulation</article-title>
+          <source>Biochim Biophys Acta</source>
+          <year>2013</year>
+          <volume>1829</volume>
+          <fpage>1066</fpage>
+          <lpage>1074</lpage>
+          <pub-id pub-id-type="pmid">23872552</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

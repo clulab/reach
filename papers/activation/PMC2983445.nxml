@@ -1,0 +1,3701 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="review-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Stem Cell Res Ther</journal-id>
+      <journal-title-group>
+        <journal-title>Stem Cell Research &amp; Therapy</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1757-6512</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">20977782</article-id>
+      <article-id pub-id-type="pmc">2983445</article-id>
+      <article-id pub-id-type="publisher-id">scrt32</article-id>
+      <article-id pub-id-type="doi">10.1186/scrt32</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Review</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Growth factor regulation of proliferation and survival of multipotential stromal cells</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" id="A1">
+          <name>
+            <surname>Rodrigues</surname>
+            <given-names>Melanie</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>mer68@pitt.edu</email>
+        </contrib>
+        <contrib contrib-type="author" id="A2">
+          <name>
+            <surname>Griffith</surname>
+            <given-names>Linda G</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">2</xref>
+          <email>griff@mit.edu</email>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes" id="A3">
+          <name>
+            <surname>Wells</surname>
+            <given-names>Alan</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>wellsa@upmc.edu</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Department of Pathology, University of Pittsburgh, S713 Scaife Hall, 3550 Terrace Street, Pittsburgh, PA 15261 USA</aff>
+      <aff id="I2"><label>2</label>Department of Biological Engineering, Massachusetts Institute of Technology, MIT16-429, 77 Massachusetts Avenue, Cambridge, MA 02139 USA</aff>
+      <pub-date pub-type="collection">
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>26</day>
+        <month>10</month>
+        <year>2010</year>
+      </pub-date>
+      <!-- PMC Release delay is 12 months and 0 days and was based on the epub date.-->
+      <pub-date pub-type="pmc-release">
+        <day>26</day>
+        <month>10</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>1</volume>
+      <issue>4</issue>
+      <fpage>32</fpage>
+      <lpage>32</lpage>
+      <history>
+        <date date-type="received">
+          <day>11</day>
+          <month>6</month>
+          <year>2010</year>
+        </date>
+        <date date-type="accepted">
+          <day>6</day>
+          <month>10</month>
+          <year>2010</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9;2010 BioMed Central Ltd</copyright-statement>
+        <copyright-year>2010</copyright-year>
+        <copyright-holder>BioMed Central Ltd</copyright-holder>
+      </permissions>
+      <self-uri xlink:href="http://stemcellres.com/content/1/4/32"/>
+      <abstract>
+        <p>Multipotential stromal cells (MSCs) have been touted to provide an alternative to conservative procedures of therapy, be it heart transplants, bone reconstruction, kidney grafts, or skin, neuronal and cartilage repair. A wide gap exists, however, between the number of MSCs that can be obtained from the donor site and the number of MSCs needed for implantation to regenerate tissue. Standard methods of MSC expansion being followed in laboratories are not fully suitable due to time and age-related constraints for autologous therapies, and transplant issues leave questions for allogenic therapies. Beyond these issues of sufficient numbers, there also exists a problem of MSC survival at the graft. Experiments in small animals have shown that MSCs do not persist well in the graft environment. Either there is no incorporation into the host tissue, or, if there is incorporation, most of the cells are lost within a month. The use of growth and other trophic factors may be helpful in counteracting these twin issues of MSC expansion and death. Growth factors are known to influence cell proliferation, motility, survival and morphogenesis. In the case of MSCs, it would be beneficial that the growth factor does not induce differentiation at an early stage since the number of early-differentiating progenitors would be very low. The present review looks at the effect of and downstream signaling of various growth factors on proliferation and survival in MSCs.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>There is a growing need for new ways to regenerate and repair injuries in organs. Most organs have limited inherent regenerative capacity, with scarring preventing full organ functioning. For instance, myocardial infarction is often followed by the myocardium being replaced with noncontractile scar tissue, which can further result in congestive heart failure [<xref ref-type="bibr" rid="B1">1</xref>,<xref ref-type="bibr" rid="B2">2</xref>]. In the case of bone, metabolic disorders such as osteoporosis cause abnormal bone loss and traumatic injuries lead to large lesions, which are incapable of self-regeneration. The search has therefore turned to novel ways to stimulate the original organogenic process and regenerate normal tissue.</p>
+      <p>Use of multipotential stromal cells (MSCs) or mesenchymal stem cells to reconstruct tissue looks extremely promising due to their trans-differentiation potential. MSCs have the ability to form cells of the connective tissue, muscle, heart, blood vessels and nerves [<xref ref-type="bibr" rid="B3">3</xref>-<xref ref-type="bibr" rid="B6">6</xref>]. These cells are easy to isolate from almost all individuals; these cells are relatively safe as they rarely form teratomas [<xref ref-type="bibr" rid="B7">7</xref>]. In addition, these stromal cells offer several advantages over conventional therapy. MSCs respond to their environment by differentiating into the needed lineages. These cells will therefore grow, remodel and adapt to changes in tissue functions over time. As MSCs derive from bone marrow, these can be isolated from most adults with the potential of autologous transplantation, not requiring immunosuppressive agents. This procedure is in contrast to traditional methods of transplantation that lead to infection, immune rejection or simply not enough material for large-scale grafts.</p>
+      <p>Preclinical animal studies have shown promise of using MSCs for tissue regeneration. Application of these cells has led to the formation of bone, the regain of ventricular function, and the restoration of renal tubular function in rodents [<xref ref-type="bibr" rid="B8">8</xref>-<xref ref-type="bibr" rid="B10">10</xref>]. Mice rendered paraplegic by spinal cord injury have recovered on MSC treatment [<xref ref-type="bibr" rid="B11">11</xref>,<xref ref-type="bibr" rid="B12">12</xref>]. The use of MSCs is limited, however, by their scarceness in the bone marrow, as they constitute only 0.001 to 0.01% of the bone marrow population. Since regeneration of large tissues requires around 10<sup>7 </sup>to 10<sup>8 </sup>MSCs [<xref ref-type="bibr" rid="B13">13</xref>], there exists a need for MSCs to be expanded prior to tissue regeneration. In culture conditions, however, proliferation of these cells is highly inconsistent - which subsequently impacts differentiation.</p>
+      <p>Even if the desired cell numbers are obtained, there is another hurdle to be crossed before differentiation of MSCs begins: the incorporation of MSCs into regenerating tissue. MSCs applied to regenerate porcine hearts following an infarct display only 5% survival in a 14-day period [<xref ref-type="bibr" rid="B14">14</xref>-<xref ref-type="bibr" rid="B16">16</xref>]. Similar results are seen on implantation of MSCs into mouse hearts with infarcts. While MSCs injected into nonischemic hearts survive better initially, one cannot find viable cells after 4 weeks [<xref ref-type="bibr" rid="B17">17</xref>-<xref ref-type="bibr" rid="B19">19</xref>]. In rat brains with cerebral artery occlusion, allogenic and human MSC transplants also show very low survival [<xref ref-type="bibr" rid="B20">20</xref>]. The failure of these cells to regenerate tissue may thus simply be that they do not survive to contribute to the new tissue.</p>
+      <p>The reasoning behind low incorporation of MSCs may be attributed to poor viability of cells caused by ischemia, anoikis, loss of trophic factors or inflammation at the graft site [<xref ref-type="bibr" rid="B21">21</xref>]. To test whether nonspecific inflammation induced death of MSCs, Griffith and colleagues subjected human MSCs to various nonspecific inflammatory cytokines <italic>in vitro</italic>. MSCs were extremely susceptible to FasL-induced cell death and also died in the presence of TRAIL [<xref ref-type="bibr" rid="B22">22</xref>]. Not only does the inflammatory response challenge transplanted MSCs - these cells are also considered for regeneration of tissues with harsh micro-environments. For example, when used to regenerate cartilage, MSCs need to adapt to an avascular, low oxygen concentration and a low pH microenvironment characteristic of chondrocytes [<xref ref-type="bibr" rid="B23">23</xref>]. Taken together, the microenvironment in which MSCs are delivered, the presence of inflammation, or the loss of trophic factors may play a role in maintaining a proliferating MSC population at the graft site (Figure <xref ref-type="fig" rid="F1">1</xref>).</p>
+      <fig id="F1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p><bold>Various threats multipotential stromal cells face at the delivery site leading to loss of cells</bold>. Leukocytes and macrophages that are brought into the multipotential stromal cell (MSC) implantation site as part of the nonspecific inflammatory response can secrete proinflammatory cytokines and chemokines, as well as increase cellular stress and generate reactive oxygen species (ROS) that might activate apoptotic cascades. Wound and ischemic sites where MSC therapy is usually required are low in vascularity and are hypoxic regions, which might add to MSC cell stress. Also, lack of attachment of MSC to the extracellular matrix (ECM) may cause MSC to detach, undergo anoikis and ultimately lead to cell death.</p>
+        </caption>
+        <graphic xlink:href="scrt32-1"/>
+      </fig>
+      <p>On the contrary, there are reports of improved healing on MSC delivery. In a rat cerebral occlusion model there is significant recovery in motor neuron function after MSC transplantation. Despite the low survival rate of MSCs in ischemic hearts, there is decreased scarring and increased neo-angiogenesis after MSC transplantation [<xref ref-type="bibr" rid="B24">24</xref>,<xref ref-type="bibr" rid="B25">25</xref>]. MSC injection has also helped to improve pulmonary emphysema [<xref ref-type="bibr" rid="B26">26</xref>]. In all these cases, secretion of various growth factors and cytokines by MSCs is thought to bring about paracrine signaling and revival of endogenous tissue cells or suppression of harmful inflammation [<xref ref-type="bibr" rid="B27">27</xref>]. The lack of demonstrated persistence of the transplanted MSCs has resulted in these affects being attributed not to MSC integration and regeneration of tissue, but to trophic effects brought about by these unique cells [<xref ref-type="bibr" rid="B28">28</xref>].</p>
+      <p>The role of growth factors in increasing proliferation and survival in MSCs has been widely studied over the past few years. Most growth factors are pleiotrophic, causing multiple biological effects. They bring about changes in motility, proliferation, morphogenesis and survival. The search for the ideal growth factor for use with MSCs is still ongoing. While some groups aim at finding a growth factor not affecting differentiation, other groups opt for a growth factor that has differentiation preference towards a specific lineage. All groups, however, attempt to find a factor that improves <italic>ex vivo </italic>expansion and heightens survival on implantation. The present review explores the effects of various growth factors on MSC expansion and survival and the signaling mechanisms behind these effects.</p>
+      <sec>
+        <title>Growth factor signaling behind MSC proliferation and population expansion</title>
+        <sec>
+          <title>Transforming growth factor beta family of growth factors</title>
+          <p>The choice of growth factors to be used on MSCs was initially determined based on previously existing knowledge about the effect of a particular growth factor on cell morphogenesis. This was done with the dual pursuit of expanding MSCs and causing them to differentiate into the lineage that it was known to favor. Transforming growth factor beta (TGF&#x3B2;), for example, is known to influence cells from the chondrogenic lineage <italic>in vivo</italic>, promoting initial stages of mesenchymal condensation, prechondrocyte proliferation, production of extracellular matrix and cartilage-specific molecule deposition, while inhibiting terminal differentiation [<xref ref-type="bibr" rid="B29">29</xref>-<xref ref-type="bibr" rid="B31">31</xref>]. When applied to MSCs <italic>in vitro </italic>to study chondrocyte regeneration, cells show increased proliferation and a bias towards the chondrogenic lineage [<xref ref-type="bibr" rid="B30">30</xref>,<xref ref-type="bibr" rid="B32">32</xref>]. TGF&#x3B2; exists as three isoforms: TGF&#x3B2;<sub>1</sub>, TGF&#x3B2;<sub>2 </sub>and TGF&#x3B2;<sub>3</sub>. While all three isoforms induce proliferation of MSCs and chondrocyte formation, TGF&#x3B2;<sub>3 </sub>has been found to have the most pronounced effect on chondrogenesis and consistently increases proliferation of MSCs [<xref ref-type="bibr" rid="B33">33</xref>,<xref ref-type="bibr" rid="B34">34</xref>], making it a prime factor for induction of chondrogenesis from implanted MSCs.</p>
+          <p>Similarly, bone morphogenetic protein (BMP)-2 through BMP-7 - factors belonging to the TGF&#x3B2; super-family - are known to affect bone formation. While BMP-2, BMP-4, BMP-6, and BMP-7 induce MSCs to form osteoblasts, BMP-2 has the greatest impact on differentiation [<xref ref-type="bibr" rid="B35">35</xref>]. MSCs overexpressing BMP-2 and implanted with the extracellular matrix protein collagen I as a hydrogel system increase proliferation of MSC differentiation into bone, and this model has been used to study cranial closures in swine [<xref ref-type="bibr" rid="B36">36</xref>,<xref ref-type="bibr" rid="B37">37</xref>]. Another member of the same family, BMP-3, increases MSC proliferation threefold [<xref ref-type="bibr" rid="B38">38</xref>]. Since these factors all affect bone formation at different rates and some have a greater effect on proliferation, synergistic pairs of these growth factors can be used at optimal doses and at specific points during the bone regeneration process. One such search for synergistic pairs led to combination treatment of TGF&#x3B2;<sub>3 </sub>with BMP-2 on MSCs; chondrogenic differentiation was found to be enhanced [<xref ref-type="bibr" rid="B39">39</xref>].</p>
+          <p>TGF&#x3B2; signaling occurs when TGF&#x3B2; or factors from the family bind a type II serine-threonine kinase receptor recruiting another such transmembrane protein (receptor I). Receptor I phosphorylates the primary intra-cellular downstream molecules SMADs, causing their translocation into the nucleus and specific gene transcription. Receptor I can be ALK-1, ALK- 2, ALK-3, or ALK-6 that signal SMAD 1, SMAD 5, and SMAD 8, or can be ALK-4, ALK-5, or ALK-7 that signal SMAD 2 and SMAD 3. Signaling via SMAD 1, SMAD 5, or SMAD 8 is required for chondrocyte differentiation while signaling through SMAD 2 or SMAD 3 blocks chondrocyte differentiation [<xref ref-type="bibr" rid="B40">40</xref>]. TGF&#x3B2; and members of this growth factor family can also signal via the mitogen-activated protein kinase (MAPK), Rho GTPase and phospho-inositide-3 kinase (PI3K) pathways [<xref ref-type="bibr" rid="B41">41</xref>]. The effect of BMP-2 on proliferation and osteogenic differentiation of MSCs has been shown to occur via sustained signaling of the MAPK Erk [<xref ref-type="bibr" rid="B42">42</xref>]. The mitogenic effects of BMP-3, on the other hand, have been found to be mediated by TGF&#x3B2;/activin signaling and not by any of the MAPK signaling pathways, with ALK-4 and SMAD 2 and SMAD 3 being the key players involved [<xref ref-type="bibr" rid="B38">38</xref>]. Figure <xref ref-type="fig" rid="F2">2</xref> shows how signaling via SMAD 2 or SMAD 3 leads to proliferation of MSCs but blocks terminal differentiation into chondrocytes, while signaling via SMAD 1, SMAD 5, or SMAD 8 potentially leads to chondrocyte differentiation in MSCs. Figure <xref ref-type="fig" rid="F2">2</xref> also shows how sustained signaling via Erk leads to osteoblast formation.</p>
+          <fig id="F2" position="float">
+            <label>Figure 2</label>
+            <caption>
+              <p><bold>Growth factor signaling pathways mediating proliferation in multipotential stromal cells</bold>. Binding of fibroblast growth factor (FGF) to fibroblast growth factor receptor (FGFR), binding of epidermal growth factor (EGF) and heparin-binding (HB)-EGF to epidermal growth factor receptor (EGFR) and binding of platelet-derived growth factor (PDGF) and vascular endothelial growth factor (VEGF) to platelet-derived growth factor receptor (PDGFR) causes phosphorylation of the respective receptors, causes recruitment of the adaptor protein Grb2 and the nucleotide exchange factor SOS, which causes activation of downstream pathways, primarily phosphoinositide-3 kinase (PI3K)-Akt/protein kinase B (PKB) and the mitogen-activated protein kinase (MAPK) Erk. Phosphorylated Erk either enters the nucleus and activates transcription of cellular proliferation genes like c-<italic>myc</italic>, or activates downstream receptors like Rsk that then activates proliferation genes. Akt similarly prevents the expression of proteins like Myt1 and Wee1, which are involved in inhibiting proliferation. Bone morphogenetic protein (BMP)-2 activates proliferation via the MAPK Erk pathway, unlike BMP-3 that activates Smad2 and Smad3 via Activin signaling. TGF&#x3B2;<sub>3 </sub>is the most potent transforming growth factor beta (TGF&#x3B2;) mitogen causing proliferation via activation of Smad2, Smad3 and Smad4. Binding of Wnt3a to the Frizzled receptor causes activation of the protein Dishevelled and inactivation of the Axin-APC-Gsk3 complex, which leads to a nuclear influx of &#x3B2;-catenin, activating the cell cycle proteins cyclin D<sub>1 </sub>and c-<italic>myc</italic>. TGF&#x3B2; also causes an influx of &#x3B2;-catenin in a Smad3-dependent manner. Binding of hepatocyte growth factor (HGF) to c-Met under low doses causes activation of Erk and Akt, but under higher doses it inhibits proliferation by activating the p38 MAPK pathway and causing the expression of cell cycle progression inhibitors p21Waf1 and p27Kip. APC, adenomatous polyposis coli protein; Gsk3, glycogen synthase kinase 3; RSK, ribosomal S6 kinase; Smad. Sma and Mad related proteins.</p>
+            </caption>
+            <graphic xlink:href="scrt32-2"/>
+          </fig>
+        </sec>
+      </sec>
+      <sec>
+        <title>Fibroblast growth factors</title>
+        <p>Fibroblast growth factors (FGFs) are a family of growth factors involved in wound healing and angiogenesis. Among the various members of this family, FGF-2 or basic fibroblast growth factor (b-FGF) has been used in MSC-related studies showing increased rabbit, canine and human MSC proliferation <italic>in vitro</italic>, with the mitogenic effect being more pronounced when MSCs are seeded at lower densities [<xref ref-type="bibr" rid="B13">13</xref>,<xref ref-type="bibr" rid="B43">43</xref>-<xref ref-type="bibr" rid="B45">45</xref>]. b-FGF not only maintains MSC proliferation potential, it also retains osteogenic, adipogenic and chondrogenic differentiation potentials through the early mitogenic cycles; eventually, however, all of the MSCs differentiate into the chondrogenic line. There is a report that b-FGF can extend the proliferation of MSCs for at least 80 population doublings, which is in excess of the Hayflick number [<xref ref-type="bibr" rid="B45">45</xref>]. Other reports, however, do not find this extension; rather, b-FGF may just decrease the doubling time [<xref ref-type="bibr" rid="B46">46</xref>] with the MSCs observing the Hayflick limitation [<xref ref-type="bibr" rid="B47">47</xref>]. This slowing and senescence of MSCs follows that seen in other cell types; as the cells reach senescence, their growth factor receptors become downregulated and signal attenuation is highly increased to bring about resistance to the growth factor stimuli [<xref ref-type="bibr" rid="B48">48</xref>,<xref ref-type="bibr" rid="B49">49</xref>].</p>
+        <p>FGF-4, another member of this growth factor family, also increases MSC proliferation at lower densities. In addition to MSC proliferation increasing five times, the number of colony-forming units - indicative of progenitor cell populations - increases by one-half [<xref ref-type="bibr" rid="B50">50</xref>]. This observation suggests not only that growth factors can drive proliferation; they could contribute to stem cell expansion and a greater number of cells undergoing differentiation. FGF signals proliferation through the MAPK cascade in various cell types. From microarray analysis, Tanavde and colleagues determined that MAPK-Erk signaling might be involved in increased growth induction by b-FGF [<xref ref-type="bibr" rid="B51">51</xref>]. The schematic mechanism is presented in Figure <xref ref-type="fig" rid="F2">2</xref>.</p>
+        <sec>
+          <title>Vascular endothelial growth factor</title>
+          <p>While investigating ways to better vascularize the MSC transplant site, it was noted that vascular endothelial growth factor (VEGF) increased MSC proliferation on its own [<xref ref-type="bibr" rid="B52">52</xref>]. Both endogenous and exogenously secreted VEGF has been found in porcine MSCs [<xref ref-type="bibr" rid="B53">53</xref>] but the amounts are too low for autocrine signaling. For <italic>in vivo </italic>transplantation studies, therefore, MSCs have been either adenovirally transduced with the VEGF gene or injected with a VEGF peptide to bring about increased cell counts [<xref ref-type="bibr" rid="B54">54</xref>]. Some signaling studies imply that MSCs do not express the VEGF receptor. This could imply that VEGF stimulates MSC proliferation by activation and downstream signaling of the platelet-derived growth factor (PDGF) receptors [<xref ref-type="bibr" rid="B55">55</xref>].</p>
+        </sec>
+        <sec>
+          <title>Platelet-derived growth factor</title>
+          <p>PDGFs are potent mitogens of MSCs [<xref ref-type="bibr" rid="B56">56</xref>] and these stromal cells express all forms of the growth factor: PDGF-A and PDGF-C at higher levels and PDGF-B and PDGF-D at lower levels. Both receptors PDGFR&#x3B1; and PDGFR&#x3B2; are also expressed [<xref ref-type="bibr" rid="B57">57</xref>]. The two receptors homodimerize or heterodimerize to generate overlapping but distinct cellular signals: PDGFR&#x3B1;&#x3B1; binds PDGF-AA, PDGF-BB, PDGF-CC and PDGF-AB; PDGFR&#x3B2;&#x3B2; binds PDGF-BB and PDGF-DD; and PDGFR&#x3B1;&#x3B2; binds PDGF-BB, PDGF-CC and PDGF-AB. Several groups have found PDGF-BB to induce both proliferation and migration in MSCs [<xref ref-type="bibr" rid="B58">58</xref>-<xref ref-type="bibr" rid="B60">60</xref>]. While PDGFR&#x3B2; inhibits osteogenesis, however, PDGFR&#x3B1; has been observed to induce osteogenesis [<xref ref-type="bibr" rid="B57">57</xref>]. Akt signaling has been proposed to mediate both the suppression and induction of osteogenesis by PDGFR signaling [<xref ref-type="bibr" rid="B58">58</xref>]. As the two receptor isoforms present quantitatively different preferences for pathway activation, due to distinct phosphotyrosine motifs, definition of critical signaling elements will await a system's approach to parse the delicate balance of competing impetuses.</p>
+          <p>Early studies with PDGF showed Erk to be responsible for MSC proliferation [<xref ref-type="bibr" rid="B60">60</xref>]. Recently, however, it was shown that while Erk gets phosphorylated in the presence of PDGF, addition of a PDGFR inhibitor does not change phosphorylation levels of Erk [<xref ref-type="bibr" rid="B61">61</xref>] - which might imply that Erk activation occurs not by direct PDGFR signaling but via a secondary pathway. The same group showed that increase of MSC proliferation occurs in a dose-dependent manner due to Akt phosphorylation. Not only was there an increase in proliferation on Akt activation, there was also secretion of VEGF [<xref ref-type="bibr" rid="B61">61</xref>]. Further, VEGF was found to act as a ligand to PDGFR in MSCs [<xref ref-type="bibr" rid="B61">61</xref>]. The mitogenic pathways operative downstream of PDGFR activation are thus still uncertain.</p>
+        </sec>
+        <sec>
+          <title>Hepatocyte growth factor</title>
+          <p>Hepatocyte growth factor (HGF) and its receptor c-Met are expressed at low levels in mouse MSCs [<xref ref-type="bibr" rid="B62">62</xref>]. While the low levels of HGF found in culture media are insufficient to activate the receptor, exogenous addition of HGF to MSCs triggers the activation of receptor, affecting proliferation, migration and differentiation. Interestingly, short-term exposure to HGF in MSCs activates Ras-ERK and PI3K-Akt; these are the main pathways activated by HGF in other cell types [<xref ref-type="bibr" rid="B63">63</xref>]. Despite activation of these pathways, long-term exposure to the growth factor inhibits mitogenesis. In addition, exposure brings about cytoskeletal rearragement, cell migration and expression of cardiac markers. The inhibition of proliferation probably occurs by activation of p38 MAPK and blockade of G<sub>0</sub>-G<sub>1 </sub>phase transition. This signaling also induces the universal cell cycle progression inhibitor p21waf1 and p27kip proteins [<xref ref-type="bibr" rid="B64">64</xref>]. HGF therefore does not seem to be an ideal factor for use with MSCs. Table <xref ref-type="table" rid="T1">1</xref> summarizes the effects of the various growth factors on MSCs.</p>
+          <table-wrap id="T1" position="float">
+            <label>Table 1</label>
+            <caption>
+              <p>Various growth factors and their effects on proliferation and survival of multipotential stromal cells.</p>
+            </caption>
+            <table frame="hsides" rules="groups">
+              <thead>
+                <tr>
+                  <th/>
+                  <th align="left">Growth factor family</th>
+                  <th align="left">Growth factor</th>
+                  <th align="left">Receptor/signaling modulator</th>
+                  <th align="left">Effects on proliferation/survival/morphogenesis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left">1</td>
+                  <td align="left">TGF-&#x3B2;</td>
+                  <td align="left">TGF&#x3B2;<sub>3</sub></td>
+                  <td align="left">ALK-1, ALK-2, ALK-3, ALK-6 [<xref ref-type="bibr" rid="B40">40</xref>]</td>
+                  <td align="left">Increases chondrogenesis [<xref ref-type="bibr" rid="B34">34</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td/>
+                  <td align="left">ALK-4, ALK-5, ALK-7 [<xref ref-type="bibr" rid="B40">40</xref>]</td>
+                  <td align="left">Increases proliferation [<xref ref-type="bibr" rid="B32">32</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td align="left">BMP-2</td>
+                  <td align="left">Erk [<xref ref-type="bibr" rid="B42">42</xref>]</td>
+                  <td align="left">Increases osteogenesis [<xref ref-type="bibr" rid="B35">35</xref>], increases proliferation [<xref ref-type="bibr" rid="B36">36</xref>,<xref ref-type="bibr" rid="B37">37</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td align="left">BMP-3</td>
+                  <td align="left">ALK-4/SMAD 2, SMAD 3 [<xref ref-type="bibr" rid="B38">38</xref>]</td>
+                  <td align="left">Increases proliferation [<xref ref-type="bibr" rid="B38">38</xref>]</td>
+                </tr>
+                <tr>
+                  <td align="left">2</td>
+                  <td align="left">FGF</td>
+                  <td align="left">FGF-2</td>
+                  <td align="left">FGFR/Erk [<xref ref-type="bibr" rid="B51">51</xref>]</td>
+                  <td align="left">Bias towards chondrogenesis on prolonged exposure [<xref ref-type="bibr" rid="B13">13</xref>], increases proliferation [<xref ref-type="bibr" rid="B13">13</xref>,<xref ref-type="bibr" rid="B43">43</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td align="left">FGF-4</td>
+                  <td align="left">FGFR/Erk (putative)</td>
+                  <td align="left">Increases proliferation [<xref ref-type="bibr" rid="B44">44</xref>]</td>
+                </tr>
+                <tr>
+                  <td align="left">3</td>
+                  <td align="left">VEGF</td>
+                  <td align="left">VEGF-A</td>
+                  <td align="left">VEGF receptor/PDGF receptor [<xref ref-type="bibr" rid="B55">55</xref>,<xref ref-type="bibr" rid="B87">87</xref>]/Erk [<xref ref-type="bibr" rid="B60">60</xref>]</td>
+                  <td align="left">Increases proliferation [<xref ref-type="bibr" rid="B52">52</xref>,<xref ref-type="bibr" rid="B53">53</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td/>
+                  <td align="left">VEGF receptor/PDGF receptor/PI3K [<xref ref-type="bibr" rid="B60">60</xref>]</td>
+                  <td align="left">Increases survival [<xref ref-type="bibr" rid="B72">72</xref>]</td>
+                </tr>
+                <tr>
+                  <td align="left">4</td>
+                  <td align="left">PDGF</td>
+                  <td align="left">PDGF-BB</td>
+                  <td align="left">PDGF receptor/Erk [<xref ref-type="bibr" rid="B60">60</xref>]</td>
+                  <td align="left">Increases proliferation [<xref ref-type="bibr" rid="B81">81</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td/>
+                  <td align="left">PDGF receptor/Erk [<xref ref-type="bibr" rid="B60">60</xref>]</td>
+                  <td align="left">Increases survival [<xref ref-type="bibr" rid="B76">76</xref>]</td>
+                </tr>
+                <tr>
+                  <td align="left">5</td>
+                  <td align="left">EGF</td>
+                  <td align="left">Soluble EGF</td>
+                  <td align="left">EGF receptor/transient Erk [<xref ref-type="bibr" rid="B22">22</xref>,<xref ref-type="bibr" rid="B78">78</xref>]</td>
+                  <td align="left">No effect on differentiation [<xref ref-type="bibr" rid="B60">60</xref>], increases proliferation [<xref ref-type="bibr" rid="B60">60</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td align="left">Tethered EGF</td>
+                  <td align="left">EGF receptor/sustained Erk [<xref ref-type="bibr" rid="B22">22</xref>,<xref ref-type="bibr" rid="B78">78</xref>]</td>
+                  <td align="left">Increases spreading and survival [<xref ref-type="bibr" rid="B22">22</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td align="left">Heparin-binding EGF</td>
+                  <td align="left">EGF receptor/Erk [<xref ref-type="bibr" rid="B64">64</xref>]</td>
+                  <td align="left">No effect on differentiation [<xref ref-type="bibr" rid="B65">65</xref>], increases proliferation [<xref ref-type="bibr" rid="B65">65</xref>]</td>
+                </tr>
+                <tr>
+                  <td align="left">6</td>
+                  <td align="left">HGF</td>
+                  <td align="left">HGF</td>
+                  <td align="left">c-Met/p38 MAPK [<xref ref-type="bibr" rid="B64">64</xref>]</td>
+                  <td align="left">Enhances survival [<xref ref-type="bibr" rid="B64">64</xref>]</td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td/>
+                  <td/>
+                  <td align="left">c-Met/PI3K [<xref ref-type="bibr" rid="B64">64</xref>]</td>
+                  <td align="left">Inhibits proliferation [<xref ref-type="bibr" rid="B64">64</xref>]</td>
+                </tr>
+                <tr>
+                  <td align="left">7</td>
+                  <td align="left">Wnt</td>
+                  <td align="left">Wnt3a</td>
+                  <td align="left">&#x3B2;-catenin</td>
+                  <td align="left">Promotes proliferation [<xref ref-type="bibr" rid="B67">67</xref>]</td>
+                </tr>
+              </tbody>
+            </table>
+            <table-wrap-foot>
+              <p>ALK, activin receptor-like kinase; BMP, bone morphogenetic protein; EGF, epidermal growth factor; Erk, extracellular signal-regulated kinase; FGF, fibroblast growth factor; HGF, hepatocyte growth factor; MAPK, mitogen-activated protein kinase; PDGF, platelet-derived growth factor; PI3K, phosphoinositide-3 kinase; TGF&#x3B2;, transforming growth factor beta; VEGF, vascular endothelial growth factor.</p>
+            </table-wrap-foot>
+          </table-wrap>
+        </sec>
+        <sec>
+          <title>Epidermal growth factor and heparin-binding epidermal growth factor</title>
+          <p>The growth factors described above facilitate MSC proliferation but bias differentiation into a particular lineage. This is helpful in generating specifically differentiated cells in culture. When injected into the body or when implanted at the site of requirement for a different or multiple lineage, however, this bias can be counter-productive. Adding to this, if the growth factors initiate differentiation, this competes with expansion and thus there may be insufficient cell numbers to completely regenerate the desired tissue. The search for a growth factor that does not cause MSC differentiation led to investigation of growth factors from the near-ubiquitous prototypal growth factor receptor family of ErbB1/epidermal growth factor receptor (EGFR). EGFR signaling induces proliferation, motility and survival of MSCs. Two of the receptor's ligands, epidermal growth factor (EGF) and heparin-binding EGF, promote <italic>ex vivo </italic>expansion of MSCs without triggering differentiation into any specific lineage [<xref ref-type="bibr" rid="B60">60</xref>,<xref ref-type="bibr" rid="B65">65</xref>]. In addition to its mitogenic effect on MSCs, EGF also increases the number of colony-forming units by 25% [<xref ref-type="bibr" rid="B15">15</xref>]. This observation indicates that treatment with EGF would also be beneficial for the maintenance of early progenitor cells.</p>
+          <p>Classical growth factors, upon binding to their cognate receptors with intrinsic tyrosine kinase activity, activate several downstream pathways that lead to proliferation: Ras GTPase through Raf and MEK to the ERK MAPKs, PI3K activation of Akt/PKB, and the STAT pathways. Tamama and colleagues showed that EGF does not activate STAT3 for proliferation in MSCs, but rather triggers ERK strongly [<xref ref-type="bibr" rid="B60">60</xref>]. Heparin-binding EGF, the other EGFR ligand implicated in MSC proliferation, shows activation of ERK1/2 as well as phosphorylation of Akt, but the activation of Akt is significantly lower than that by EGF. With activation of EGFR signaling, therefore, the overall population of both MSCs and their early progenitors will be high, leading to enough cells for tissue formation.</p>
+        </sec>
+        <sec>
+          <title>Wnt family</title>
+          <p>There have been several conflicting findings concerning Wnt signaling proliferation in MSCs. One set of studies suggests that canonical Wnt signaling maintains stem cells in an undifferentiated but self-renewing state. Addition of Wnt3a by activating the canonical Wnt pathway increases both proliferation and survival while preventing differentiation into the osteoblastic lineage in MSCs [<xref ref-type="bibr" rid="B66">66</xref>]. Frizzled 1 and Frizzled 4 are present on undifferentiated MSCs and are responsible for canonical Wnt transduction via Wnt3a. In addition, Wnt3a also increases the survival rate of MSCs. Wnt5a, a non-canonical Wnt, competes for Wnt3a binding to the Frizzled receptor and negates the positive effect of Wnt3a on MSC proliferation [<xref ref-type="bibr" rid="B67">67</xref>]. The cell cycle progression factors cyclin D<sub>1 </sub>and c-<italic>myc </italic>have been implied in both these signaling mechanisms [<xref ref-type="bibr" rid="B68">68</xref>]. Studies with Wnt4, another noncanonical Wnt, show no change in MSC proliferation [<xref ref-type="bibr" rid="B69">69</xref>]. The other set of findings connotes that canonical signaling initiated by Wnt3a inhibits human MSC proliferation [<xref ref-type="bibr" rid="B70">70</xref>]. A third set of studies, however, proposes that canonical Wnt signaling at low levels promotes proliferation while at higher levels inhibits MSC proliferation [<xref ref-type="bibr" rid="B71">71</xref>].</p>
+          <p>Part of the controversy surrounding Wnt signaling is the extensive crosstalk between Wnts and other signaling pathways that affect the fate of MSCs. TGF&#x3B2;<sub>1</sub>, for example, causes rapid nuclear translocation of &#x3B2;-catenin in a Smad3-dependent manner, causing enhanced proliferation and suppression of osteogenesis.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>MSC survival and role of growth factors</title>
+        <p>A second cell behavior critical for the successful use of MSCs in regenerative repair is the survival of transplanted cells. Various growth factors - trophic factors as they are called in other cell types - have been queried for promoting this survival. VEGF is one factor that has been extensively used in MSC survival studies. MSCs treated with VEGF <italic>in vitro </italic>and MSCs carrying the VEGF gene <italic>in </italic><italic>vivo </italic>have been shown to increase survival in these stromal cells. Rodent hearts that have undergone myocardial infarction and have been injected with MSCs along with the VEGF peptide show a higher number of MSCs at the site of injection [<xref ref-type="bibr" rid="B52">52</xref>]. The surge in survival is attributed to an increase in Akt signaling causing a reduction in infarct size, lesser fibrosis, increased vascularity and thicker ventricular walls [<xref ref-type="bibr" rid="B53">53</xref>,<xref ref-type="bibr" rid="B72">72</xref>]. Akt signaling in other cell types causes increased expression of prosurvival proteins XIAP, Bcl2 and Bcl-xl, and decreased levels of caspases and apoptotic proteins Bad, Bax and Bim. Akt signaling is also known to inhibit the transcription factors FOX01, FOX02 and FOX03 involved in causing cell cycle arrest and apoptosis [<xref ref-type="bibr" rid="B73">73</xref>].</p>
+        <p>MSCs pretreated with transforming growth factor alpha and implanted at the ischemic site after a myocardial infarction show increased survival. This improvement is also attributed to VEGF signaling, although direct signaling through the EGFR receptor cannot be discounted. Transforming growth factor alpha increases VEGF production via the p38 MAPK pathway and enhances recovery [<xref ref-type="bibr" rid="B74">74</xref>]. For the ischemic cardiac tissue, MSCs supplanted with VEGF have so far been the best choice for increased survival, leading to improved vascularity in ischemic cardiac tissue and isolated islets. The current issue of debate, however, is whether VEGF causes greater incorporation of MSCs and succeeding survival, or whether it brings about paracrine effects on surrounding endothelial cells, increasing angiogenesis and formation of more vessels.</p>
+        <p>Several other growth factors have proven to increase MSC survival. MSC transplantation with brain-derived neurotrophic factor and nerve growth factor into rodents after traumatic brain injury has shown a significantly higher number of engrafted cells compared with MSCs transplanted without any growth factor [<xref ref-type="bibr" rid="B75">75</xref>]. PDGF-BB has been found to reduce the 46% loss of cells by apoptosis seen between days 5 and week 3 in rats following acute myocardial infarction [<xref ref-type="bibr" rid="B76">76</xref>]. Contrary to its limiting effect on MSC expansion, HGF causes a slight increase in MSC survival. PI3K signaling is implicated in this increase [<xref ref-type="bibr" rid="B64">64</xref>].</p>
+        <p>Another major growth factor studied for its effects on MSC survival is EGF. Since initial studies showed that EGF in the soluble state did not cause differentiation of MSCs but enhanced expansion, it was hypothesized that soluble EGF would similarly enhance survival of MSCs subjected to prodeath cytokines such as FasL and TRAIL <italic>in vitro</italic>. Contrary to what was expected, soluble EGF did not protect MSCs, but increased cell death in the presence of FasL [<xref ref-type="bibr" rid="B22">22</xref>]. Fan and colleagues then presented EGF to MSCs tethered to a biomaterial substratum (tEGF). This mode of presentation of the same growth factor enhanced survival of MSCs in the presence of the proinflammatory cytokines. In addition to limiting cell death, tEGF also increased cell attachment and spreading, which might limit cell death by anoikis [<xref ref-type="bibr" rid="B22">22</xref>]. The survival brought about by tEGF was found to be mainly due to sustained levels of Erk activation, as opposed to transient Erk activation with soluble EGF. Furthermore, tEGF restricts the subcellular localization of activated EGFR. Unlike soluble EGF that causes the internalization and finally the degradation of EGFR, tEGF restricts EGFR and EGFR signaling to the plasma membrane, and thereby changes the spatiotemporal balance of intracellular signaling pathways [<xref ref-type="bibr" rid="B77">77</xref>]. tEGF did not interfere with subsequent differentiation into osteoblasts under inducing conditions while increasing the efficiency and the number of osteoid colonies [<xref ref-type="bibr" rid="B78">78</xref>]. As this was the first study to directly challenge MSCs with proapoptotic inflammatory stimuli, the technique holds promise as a quantal advance in protecting MSCs from death <italic>in vivo</italic>. The cross-signaling of survival by various growth factors is represented in Figure <xref ref-type="fig" rid="F3">3</xref>.</p>
+        <fig id="F3" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <p><bold>Growth factor signaling pathways mediating survival in multipotential stromal cells</bold>. Vascular endothelial growth factor (VEGF) and platelet-derived growth factor (PDGF) bind PDGFR, and hepatocyte growth factor (HGF) binds c-Met, which causes phosphoinositide-3 kinase (PI3K) to be activated, converting PIP2 to PIP3 and activating Akt/protein kinase B (PKB). This leads to the inhibition of the Fork head family of transcription factors Foxo1, Foxo3 and Foxo4, and also causes inhibition of pro-death proteins Bim, Bad and Caspase9. At the same time there is activation of pro-survival proteins XIAP, Bcl2 and Bcl-xl. In addition, Akt activation causes activation of eNOS and HSP90, causing nitric oxide synthesis and angiogenesis that promotes survival. Binding of epidermal growth factor (EGF) to epidermal growth factor receptor (EGFR), in addition to activating Akt, brings together the guanine nucleotide exchange factor SOS and the small adapter protein Grb2, which activates the mitogen-activated protein kinase (MAPK) pathway: Ras-Raf-Mek1/2-Erk1/2. Activation of Erk leads to the expression of pro-survival proteins like NF-kB, Bcl2 and Bcl-xL. EGF binding to EGFR also causes PLCg to cleave PIP2 to IP3 and DAG, which activates protein kinase C (PKC). PKC can activate Raf and further cause downstream Erk activation. All these activated receptors, however, are quickly internalized by clathrin machinery or by alternate internalization mechanisms into the endosome where they continue to signal. The figure shows internalization of the EGF-EGFR complex continuing to signal in the cytosol, but once inside the lysosome, the receptor along with the ligand completely degrades and the survival signal is lost. Both the Akt and Erk signals generated therefore are acute and transient. Tethering of growth factors near the membrane, as in the case of EGF (tEGF), however, causes a more sustained signaling of Erk and Akt since the receptor-ligand complex signals for longer from the cell membrane, leading to multipotential stromal cell (MSC) survival for a more prolonged time period. Bcl2, B-cell lymphoma 2; DAG, diacylglycerol; Erk, extracellular signal related kinase; eNOS, endothelial nitric oxide synthase; HSP90, heat shock protein 90, IP3, inositol triphosphate; NF, nuclear factor; PDGFR, platelet-derived growth factor receptor; PLCg, phospholipase C gamma; PIP2, phosphatidylinositol-4,5-bisphosphate; PIP3, phosphotidylinositol-3,4,5-trisphosphate; XIAP, X-linked inhibitor of apoptosis protein.</p>
+          </caption>
+          <graphic xlink:href="scrt32-3"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Clinical issues of using growth factors in MSCs</title>
+        <p>Current limitations to using MSCs for regeneration include providing sufficient numbers of these stromal cells in a timely manner in the challenging <italic>in vivo </italic>milieu. To bring about MSC expansion, fetal bovine serum (FBS) is currently employed since human serum does not fully support growth of MSCs <italic>in vitro</italic>. Complications arise in use of FBS for MSC transplants <italic>in vivo</italic>, however, since FBS contains undefined elements that can vary in inducing proliferation. More importantly, contaminants in FBS can cause infections, and, being of nonhuman origin, the components can trigger host immune reactions [<xref ref-type="bibr" rid="B79">79</xref>]. On the commercial front, companies have developed serum-free and animal supplement-free MSC media. These media products are comprised of synthetic supplements that are meant to replace serum, thereby reducing variability. The companies claim that MSCs grow as well in the media as in media supplanted with FBS. The proprietary composition of these products, however, goes against them for clinical use. Details of these products are summarized in Table <xref ref-type="table" rid="T2">2</xref>. The use of growth factors as culture supplements instead of FBS therefore offers the most promising alternative [<xref ref-type="bibr" rid="B80">80</xref>]. Search for a serum-free media to expand MSCs has led to combination treatments with PDGF-BB, FGF-2 and TGF&#x3B2;<sub>1 </sub>showing the most encouraging results. This treatment has not only brought about a synergistic effect on MSC proliferation, but has also retained the phenotype, differentiation and colony-forming potential of these cells [<xref ref-type="bibr" rid="B81">81</xref>].</p>
+        <table-wrap id="T2" position="float">
+          <label>Table 2</label>
+          <caption>
+            <p>Commercially available serum-free media for expansion of multipotential stromal cells.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <th/>
+                <th align="left">Serum-free media</th>
+                <th align="left">Company</th>
+                <th align="left">Properties</th>
+                <th align="left">Drawbacks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">1</td>
+                <td align="left">STEMPRO([R])MSC SFM</td>
+                <td align="left">Invitrogen</td>
+                <td align="left">Serum-free, xeno-free. Maintains MSCs for up to nine passages as compared with five passages with MSCs in MEM + 10% FBS. Cells are smaller in size [<xref ref-type="bibr" rid="B88">88</xref>]</td>
+                <td align="left">Marketed as a research product only. Proprietary composition makes it difficult to be used for preclinical and clinical purposes</td>
+              </tr>
+              <tr>
+                <td align="left">2</td>
+                <td align="left">Mesencult</td>
+                <td align="left">Stem Cell Technologies</td>
+                <td align="left">Serum free, xeno-free. Causes rapid expansion of cells in the first passage, higher than any other media(89)</td>
+                <td align="left">MSCs fail to maintain a similar growth rate beyond the first passage and stop growing altogether after the sixth passage, while MSCs grown in DMEM-KO and DMEM F12 supplanted with 10% FBS proliferate for up to 25 passages [<xref ref-type="bibr" rid="B89">89</xref>]</td>
+              </tr>
+              <tr>
+                <td align="left">3</td>
+                <td align="left">Mesengro</td>
+                <td align="left">StemRD</td>
+                <td align="left">Chemically defined, serum free and xeno-free. The company claims that the growth rate of MSCs in this media is the same as that of MSCs supplanted with 10% FBS for up to nine passages <italic>in vitro</italic></td>
+                <td align="left">No published data using this media as yet</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>DMEM, Dulbecco's modified Eagle's medium; FBS, fetal bovine serum; MSC, multipotential stromal cell.</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>In addition to using combined treatment of growth factors to improve proliferation, MSCs have been pretreated with a blend of growth factors to boost survival. Pretreatment of these stromal cells with FGF-2, BMP-2 and insulin-like growth factor-1 before delivery into the ischemic heart has shown enhanced rates of survival [<xref ref-type="bibr" rid="B82">82</xref>].</p>
+        <p>One of the reasons MSCs are preferred for regenerative use is their genetic stability. MSCs are shown to maintain their diploid karyotype without aneuploidy, polyploidy or chromosomal structural abnormalities [<xref ref-type="bibr" rid="B83">83</xref>]. There has also been a report, however, of MSCs displaying localized genetic alterations in the presence of FBS or autologous serum. The same report states that platelet lysate expands cytogenetically normal MSC colonies and that this effect may be due to the presence of growth factors such as EGF, PDGF and FGF in the platelet lysate [<xref ref-type="bibr" rid="B84">84</xref>]. In short, growth factors should be chosen not only based on expansion potential but also on not altering the MSC genome.</p>
+        <p>There still remains the scare that while growth factors increase proliferation, this proliferation and the added protection offered might let MSCs and surrounding cells escape control and lead to tumor growth. It is therefore important to have proper modes of growth factor delivery, which is localized, controlled and of a time-limited nature. Controlled release of growth factors or presentation of the growth factor in bioengineered forms, such as tEGF, are some of the ways in which this can be achieved [<xref ref-type="bibr" rid="B39">39</xref>,<xref ref-type="bibr" rid="B78">78</xref>,<xref ref-type="bibr" rid="B85">85</xref>,<xref ref-type="bibr" rid="B86">86</xref>], discussion of which lies beyond the scope of the present review.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Conclusions and future directions</title>
+      <p>Growth factors are a promising adjuvant to MSCs to circumvent problems of MSC proliferation and expansion, and survival <italic>in vivo</italic>. The choice of growth factor(s), however, depends on three major criteria. First, the growth factor needs to prolong proliferation for several population doublings, to generate a considerable number of MSCs before these cells are to be differentiated into the desired tissue. Second, the growth factor should be able to completely replace the use of animal serum for proliferation purposes, to eliminate the use of xenographic substances and reduce variability. Finally, there need to be modes of localized and controlled delivery, which will help present the mitogenic and protective signals in sustained forms without letting MSCs escape into uncontrolled proliferation. While individual growth factors like b-FGF have advantages in steering MSCs down a select lineage after several population doublings, combination treatments of growth factors currently seem to be drawing a lot of attention due to their synergistic effect on MSCs. Composite treatment with PDGF, b-FGF and TGF&#x3B2;<sub>1 </sub>appears to be a good alternative for proliferation <italic>in vitro </italic>to replace serum. More studies need to be performed, however, to look into whether such a combination would accentuate survival and encourage grafting of cells in the wound microenvironment. There also need to be ways by which such combinations can be delivered at the wound region.</p>
+      <p>While there have been several groups looking into the proliferation effects of growth factors and their effects on morphogenesis, much less attention has been paid to growth factor signaling for survival. This might partly be because MSCs were for a very long time considered to be cells with the advantage of survival. When MSCs were not observed in the body on delivery, the absence was attributed more to cells migrating away rather than to cells dying at the site. Only recently have there been studies showing that MSCs are susceptible to death by proinflammatory cytokines and reactive oxygen species, which might be the major reason for their loss at the site of delivery.</p>
+      <p>The advantage with the EGFR family of ligands is that work has been carried out on almost all aspects of MSC biology: effects on survival, proliferation, differentiation, migration and modes of delivery have been studied. This family of ligands appears to be generalized expanders and survival adjuvants while not affecting MSC differentiation. Moreover, presenting EGF in a tethered form has been studied with respect to sustained signaling, making it one of the factors of foremost importance. Taken together, the right choice of growth factors with proper modes of their delivery will help bridge the gap in MSC regenerative therapy and exploit the full potential of MSCs to regenerate tissue in the near future.</p>
+    </sec>
+    <sec>
+      <title>Abbreviations</title>
+      <p>ALK: activin receptor-like kinase; B-FGF: basic fibroblast growth factor; BMP: bone morphogenetic protein; EGF: epidermal growth factor; EGFR: epidermal growth factor receptor; ERK: extracellular signal-regulated kinase; FASL: Fas ligand; FBS: fetal bovine serum; FGF: fibroblast growth factor; HGF: hepatocyte growth factor; MSC: multipotential stromal cell; MAPK: mitogen-activated protein kinase; PDGF: platelet-derived growth factor; PDGFR: platelet-derived growth factor receptor; PI3K: phosphoinositide-3 kinase; SMAD: Sma and Mad related proteins; TEGF: tethered epidermal growth factor; TGF&#x3B2;: transforming growth factor beta; TRAIL: TNF-related apoptosis-inducing ligand; VEGF: vascular endothelial growth factor.</p>
+    </sec>
+    <sec>
+      <title>Competing interests</title>
+      <p>The authors declare that they have no competing interests.</p>
+    </sec>
+    <sec>
+      <title>Authors' contributions</title>
+      <p>MR was responsible for drafting the manuscript. AW helped design the framework, contributed to ideas, and carefully revised the manuscript. LGG contributed ideas and provided in-depth discussions. All authors gave final approval of the version to be published.</p>
+    </sec>
+  </body>
+  <back>
+    <sec>
+      <title>Acknowledgements</title>
+      <p>The authors thank members of Wells and Griffith laboratories for discussions and suggestions. The figures in the paper were drawn using the Pathway Builder software. The present work was supported by grants from the National Institute of General Medical Sciences and the National Institute of Dental and Craniofacial Research.</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lloyd-Jones</surname>
+            <given-names>DM</given-names>
+          </name>
+          <article-title>The risk of congestive heart failure: sobering lessons from the Framingham Heart Study</article-title>
+          <source>Curr Cardiol Rep</source>
+          <year>2001</year>
+          <volume>3</volume>
+          <fpage>184</fpage>
+          <lpage>190</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11886-001-0021-1</pub-id>
+          <pub-id pub-id-type="pmid">11305971</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B2">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fonarow</surname>
+            <given-names>GC</given-names>
+          </name>
+          <article-title>Heart failure: recent advances in prevention and treatment</article-title>
+          <source>Rev Cardiovasc Med</source>
+          <year>2000</year>
+          <volume>1</volume>
+          <fpage>25</fpage>
+          <lpage>33</lpage>
+          <comment>54</comment>
+          <pub-id pub-id-type="pmid">12457149</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B3">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pittenger</surname>
+            <given-names>MF</given-names>
+          </name>
+          <name>
+            <surname>Mackay</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Beck</surname>
+            <given-names>SC</given-names>
+          </name>
+          <name>
+            <surname>Jaiswal</surname>
+            <given-names>RK</given-names>
+          </name>
+          <name>
+            <surname>Douglas</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Mosca</surname>
+            <given-names>JD</given-names>
+          </name>
+          <name>
+            <surname>Moorman</surname>
+            <given-names>MA</given-names>
+          </name>
+          <name>
+            <surname>Simonetti</surname>
+            <given-names>DW</given-names>
+          </name>
+          <name>
+            <surname>Craig</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Marshak</surname>
+            <given-names>DR</given-names>
+          </name>
+          <article-title>Multilineage potential of adult human mesenchymal stem cells</article-title>
+          <source>Science</source>
+          <year>1999</year>
+          <volume>284</volume>
+          <fpage>143</fpage>
+          <lpage>147</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.284.5411.143</pub-id>
+          <pub-id pub-id-type="pmid">10102814</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B4">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Caplan</surname>
+            <given-names>AI</given-names>
+          </name>
+          <article-title>Adult mesenchymal stem cells for tissue engineering versus regenerative medicine</article-title>
+          <source>J Cell Physiol</source>
+          <year>2007</year>
+          <volume>213</volume>
+          <fpage>341</fpage>
+          <lpage>347</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcp.21200</pub-id>
+          <pub-id pub-id-type="pmid">17620285</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B5">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Makino</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Fukuda</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Miyoshi</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Konishi</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Kodama</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Pan</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Sano</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Takahashi</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Hori</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Abe</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Hata</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Umezawa</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Ogawa</surname>
+            <given-names>S</given-names>
+          </name>
+          <article-title>Cardiomyocytes can be generated from marrow stromal cells in vitro</article-title>
+          <source>J Clin Invest</source>
+          <year>1999</year>
+          <volume>103</volume>
+          <fpage>697</fpage>
+          <lpage>705</lpage>
+          <pub-id pub-id-type="doi">10.1172/JCI5298</pub-id>
+          <pub-id pub-id-type="pmid">10074487</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B6">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kopen</surname>
+            <given-names>GC</given-names>
+          </name>
+          <name>
+            <surname>Prockop</surname>
+            <given-names>DJ</given-names>
+          </name>
+          <name>
+            <surname>Phinney</surname>
+            <given-names>DG</given-names>
+          </name>
+          <article-title>Marrow stromal cells migrate throughout forebrain and cerebellum, and they differentiate into astrocytes after injection into neonatal mouse brains</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>1999</year>
+          <volume>96</volume>
+          <fpage>10711</fpage>
+          <lpage>10716</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.96.19.10711</pub-id>
+          <pub-id pub-id-type="pmid">10485891</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B7">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kumar</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Chanda</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Ponnazhagan</surname>
+            <given-names>S</given-names>
+          </name>
+          <article-title>Therapeutic potential of genetically modified mesenchymal stem cells</article-title>
+          <source>Gene Ther</source>
+          <year>2008</year>
+          <volume>15</volume>
+          <fpage>711</fpage>
+          <lpage>715</lpage>
+          <pub-id pub-id-type="doi">10.1038/gt.2008.35</pub-id>
+          <pub-id pub-id-type="pmid">18356815</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B8">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Orlic</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Kajstura</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Chimenti</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Jakoniuk</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Anderson</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Pickel</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>McKay</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Nadal-Ginard</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Bodine</surname>
+            <given-names>DM</given-names>
+          </name>
+          <name>
+            <surname>Leri</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Anversa</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>Bone marrow cells regenerate infarcted myocardium</article-title>
+          <source>Nature</source>
+          <year>2001</year>
+          <volume>410</volume>
+          <fpage>701</fpage>
+          <lpage>705</lpage>
+          <pub-id pub-id-type="doi">10.1038/35070587</pub-id>
+          <pub-id pub-id-type="pmid">11287958</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B9">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Akahane</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Shigematsu</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Tadokoro</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Ueha</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Matsumoto</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Tohma</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Kido</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Imamura</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Tanaka</surname>
+            <given-names>Y</given-names>
+          </name>
+          <article-title>Scaffold-free cell sheet injection results in bone formation</article-title>
+          <source>J Tissue Eng Regen Med</source>
+          <year>2010</year>
+          <volume>4</volume>
+          <fpage>404</fpage>
+          <lpage>411</lpage>
+          <pub-id pub-id-type="doi">10.1002/term.259</pub-id>
+          <pub-id pub-id-type="pmid">20084634</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B10">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Morigi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Imberti</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Zoja</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Corna</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Tomasoni</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Abbate</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Rottoli</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Angioletti</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Benigni</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Perico</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Alison</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Remuzzi</surname>
+            <given-names>G</given-names>
+          </name>
+          <article-title>Mesenchymal stem cells are renotropic, helping to repair the kidney and improve function in acute renal failure</article-title>
+          <source>J Am Soc Nephrol</source>
+          <year>2004</year>
+          <volume>15</volume>
+          <fpage>1794</fpage>
+          <lpage>1804</lpage>
+          <pub-id pub-id-type="doi">10.1097/01.ASN.0000128974.07460.34</pub-id>
+          <pub-id pub-id-type="pmid">15213267</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B11">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Hofstetter</surname>
+            <given-names>CP</given-names>
+          </name>
+          <name>
+            <surname>Schwarz</surname>
+            <given-names>EJ</given-names>
+          </name>
+          <name>
+            <surname>Hess</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Widenfalk</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>El Manira</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Prockop</surname>
+            <given-names>DJ</given-names>
+          </name>
+          <name>
+            <surname>Olson</surname>
+            <given-names>L</given-names>
+          </name>
+          <article-title>Marrow stromal cells form guiding strands in the injured spinal cord and promote recovery</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>2002</year>
+          <volume>99</volume>
+          <fpage>2199</fpage>
+          <lpage>2204</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.042678299</pub-id>
+          <pub-id pub-id-type="pmid">11854516</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B12">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Osaka</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Honmou</surname>
+            <given-names>O</given-names>
+          </name>
+          <name>
+            <surname>Murakami</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Nonaka</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Houkin</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Hamada</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Kocsis</surname>
+            <given-names>JD</given-names>
+          </name>
+          <article-title>Intravenous administration of mesenchymal stem cells derived from bone marrow after contusive spinal cord injury improves functional outcome</article-title>
+          <source>Brain Res</source>
+          <year>2010</year>
+          <volume>1343</volume>
+          <fpage>226</fpage>
+          <lpage>235</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.brainres.2010.05.011</pub-id>
+          <pub-id pub-id-type="pmid">20470759</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B13">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tsutsumi</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Shimazu</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Miyazaki</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Pan</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Koike</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Yoshida</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Takagishi</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Kato</surname>
+            <given-names>Y</given-names>
+          </name>
+          <article-title>Retention of multilineage differentiation potential of mesenchymal cells during proliferation in response to FGF</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2001</year>
+          <volume>288</volume>
+          <fpage>413</fpage>
+          <lpage>419</lpage>
+          <pub-id pub-id-type="doi">10.1006/bbrc.2001.5777</pub-id>
+          <pub-id pub-id-type="pmid">11606058</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B14">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pittenger</surname>
+            <given-names>MF</given-names>
+          </name>
+          <name>
+            <surname>Martin</surname>
+            <given-names>BJ</given-names>
+          </name>
+          <article-title>Mesenchymal stem cells and their potential as cardiac therapeutics</article-title>
+          <source>Circ Res</source>
+          <year>2004</year>
+          <volume>95</volume>
+          <fpage>9</fpage>
+          <lpage>20</lpage>
+          <pub-id pub-id-type="doi">10.1161/01.RES.0000135902.99383.6f</pub-id>
+          <pub-id pub-id-type="pmid">15242981</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B15">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tamama</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Kawasaki</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Epidermal growth factor (EGF) treatment on multipotential stromal cells (MSCs). Possible enhancement of therapeutic potential of MSC</article-title>
+          <source>J Biomed Biotechnol</source>
+          <year>2010</year>
+          <volume>795385</volume>
+        </mixed-citation>
+      </ref>
+      <ref id="B16">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Freyman</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Polin</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Osman</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Crary</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Lu</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Cheng</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Palasis</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Wilensky</surname>
+            <given-names>RL</given-names>
+          </name>
+          <article-title>A quantitative randomized study evaluating three methods of mesenchymal stem cell delivery following myocardial infarction</article-title>
+          <source>Eur Heart J</source>
+          <year>2006</year>
+          <volume>27</volume>
+          <fpage>1114</fpage>
+          <lpage>1122</lpage>
+          <pub-id pub-id-type="doi">10.1093/eurheartj/ehi818</pub-id>
+          <pub-id pub-id-type="pmid">16510464</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B17">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Methot</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Poppa</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Fujio</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Walsh</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Murry</surname>
+            <given-names>CE</given-names>
+          </name>
+          <article-title>Cardiomyocyte grafting for cardiac repair: graft cell death and anti-death strategies</article-title>
+          <source>J Mol Cell Cardiol</source>
+          <year>2001</year>
+          <volume>33</volume>
+          <fpage>907</fpage>
+          <lpage>921</lpage>
+          <pub-id pub-id-type="doi">10.1006/jmcc.2001.1367</pub-id>
+          <pub-id pub-id-type="pmid">11343414</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B18">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tang</surname>
+            <given-names>YL</given-names>
+          </name>
+          <name>
+            <surname>Tang</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>YC</given-names>
+          </name>
+          <name>
+            <surname>Qian</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Shen</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Phillips</surname>
+            <given-names>MI</given-names>
+          </name>
+          <article-title>Improved graft mesenchymal stem cell survival in ischemic heart with a hypoxiaregulated heme oxygenase-1 vector</article-title>
+          <source>J Am Coll Cardiol</source>
+          <year>2005</year>
+          <volume>46</volume>
+          <fpage>1339</fpage>
+          <lpage>1350</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jacc.2005.05.079</pub-id>
+          <pub-id pub-id-type="pmid">16198853</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B19">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>van der Bogt</surname>
+            <given-names>KE</given-names>
+          </name>
+          <name>
+            <surname>Schrepfer</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Yu</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Sheikh</surname>
+            <given-names>AY</given-names>
+          </name>
+          <name>
+            <surname>Hoyt</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Govaert</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>Velotta</surname>
+            <given-names>JB</given-names>
+          </name>
+          <name>
+            <surname>Contag</surname>
+            <given-names>CH</given-names>
+          </name>
+          <name>
+            <surname>Robbins</surname>
+            <given-names>RC</given-names>
+          </name>
+          <name>
+            <surname>Wu</surname>
+            <given-names>JC</given-names>
+          </name>
+          <article-title>Comparison of transplantation of adipose tissue- and bone marrow-derived mesenchymal stem cells in the infarcted heart</article-title>
+          <source>Transplantation</source>
+          <year>2009</year>
+          <volume>87</volume>
+          <fpage>642</fpage>
+          <lpage>652</lpage>
+          <pub-id pub-id-type="doi">10.1097/TP.0b013e31819609d9</pub-id>
+          <pub-id pub-id-type="pmid">19295307</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B20">
+        <mixed-citation publication-type="other">
+          <name>
+            <surname>Yang</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Wei</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Heinel</surname>
+            <given-names>LA</given-names>
+          </name>
+          <name>
+            <surname>Rosenwasser</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Iacovitti</surname>
+            <given-names>L</given-names>
+          </name>
+          <article-title>Changes in host blood factors and brain glia accompanying the functional recovery after systemic administration of bone marrow stem cells in ischemic stroke rats</article-title>
+          <source>Cell Transplant</source>
+          <year>2010</year>
+          <comment> in press </comment>
+          <pub-id pub-id-type="pmid">20412636</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B21">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Song</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Song</surname>
+            <given-names>BW</given-names>
+          </name>
+          <name>
+            <surname>Cha</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <name>
+            <surname>Choi</surname>
+            <given-names>IG</given-names>
+          </name>
+          <name>
+            <surname>Hwang</surname>
+            <given-names>KC</given-names>
+          </name>
+          <article-title>Modification of mesenchymal stem cells for cardiac regeneration</article-title>
+          <source>Expert Opin Biol Ther</source>
+          <year>2010</year>
+          <volume>10</volume>
+          <fpage>309</fpage>
+          <lpage>319</lpage>
+          <pub-id pub-id-type="doi">10.1517/14712590903455997</pub-id>
+          <pub-id pub-id-type="pmid">20132054</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B22">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fan</surname>
+            <given-names>VH</given-names>
+          </name>
+          <name>
+            <surname>Tamama</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Au</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Littrell</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Richardson</surname>
+            <given-names>LB</given-names>
+          </name>
+          <name>
+            <surname>Wright</surname>
+            <given-names>JW</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Griffith</surname>
+            <given-names>LG</given-names>
+          </name>
+          <article-title>Tethered epidermal growth factor provides a survival advantage to mesenchymal stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>1241</fpage>
+          <lpage>1251</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2006-0320</pub-id>
+          <pub-id pub-id-type="pmid">17234993</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B23">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Bibby</surname>
+            <given-names>SR</given-names>
+          </name>
+          <name>
+            <surname>Fairbank</surname>
+            <given-names>JC</given-names>
+          </name>
+          <name>
+            <surname>Urban</surname>
+            <given-names>MR</given-names>
+          </name>
+          <name>
+            <surname>Urban</surname>
+            <given-names>JP</given-names>
+          </name>
+          <article-title>Cell viability in scoliotic discs in relation to disc deformity and nutrient levels</article-title>
+          <source>Spine (Phila Pa 1976)</source>
+          <year>2002</year>
+          <volume>27</volume>
+          <fpage>2220</fpage>
+          <lpage>2228</lpage>
+          <comment>discussion 2227-2228</comment>
+          <pub-id pub-id-type="pmid">12394897</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B24">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Arminan</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Gandia</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Garcia-Verdugo</surname>
+            <given-names>JM</given-names>
+          </name>
+          <name>
+            <surname>Lledo</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Trigueros</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Ruiz-Sauri</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Minana</surname>
+            <given-names>MD</given-names>
+          </name>
+          <name>
+            <surname>Solves</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Paya</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Montero</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>Sepulveda</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>Mesenchymal stem cells provide better results than hematopoietic precursors for the treatment of myocardial infarction</article-title>
+          <source>J Am Coll Cardiol</source>
+          <year>2010</year>
+          <volume>55</volume>
+          <fpage>2244</fpage>
+          <lpage>2253</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jacc.2009.08.092</pub-id>
+          <pub-id pub-id-type="pmid">20466205</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B25">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Li</surname>
+            <given-names>Q</given-names>
+          </name>
+          <name>
+            <surname>Turdi</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Thomas</surname>
+            <given-names>DP</given-names>
+          </name>
+          <name>
+            <surname>Zhou</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Ren</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Intra-myocardial delivery of mesenchymal stem cells ameliorates left ventricular and cardiomyocyte contractile dysfunction following myocardial infarction</article-title>
+          <source>Toxicol Lett</source>
+          <year>2010</year>
+          <volume>195</volume>
+          <fpage>119</fpage>
+          <lpage>126</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.toxlet.2010.03.009</pub-id>
+          <pub-id pub-id-type="pmid">20303399</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B26">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Zhen</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Xue</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Zhao</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Gu</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Tang</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Xu</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>Z</given-names>
+          </name>
+          <article-title>Mesenchymal stem cell transplantation increases expression of vascular endothelial growth factor in papain-induced emphysematous lungs and inhibits apoptosis of lung cells</article-title>
+          <source>Cytotherapy</source>
+          <year>2010</year>
+          <volume>12</volume>
+          <fpage>605</fpage>
+          <lpage>614</lpage>
+          <pub-id pub-id-type="doi">10.3109/14653241003745888</pub-id>
+          <pub-id pub-id-type="pmid">20429787</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B27">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Caplan</surname>
+            <given-names>AI</given-names>
+          </name>
+          <article-title>Why are MSCs therapeutic? New data: new insight</article-title>
+          <source>J Pathol</source>
+          <year>2009</year>
+          <volume>217</volume>
+          <fpage>318</fpage>
+          <lpage>324</lpage>
+          <pub-id pub-id-type="doi">10.1002/path.2469</pub-id>
+          <pub-id pub-id-type="pmid">19023885</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B28">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Caplan</surname>
+            <given-names>AI</given-names>
+          </name>
+          <name>
+            <surname>Dennis</surname>
+            <given-names>JE</given-names>
+          </name>
+          <article-title>Mesenchymal stem cells as trophic mediators</article-title>
+          <source>J Cell Biochem</source>
+          <year>2006</year>
+          <volume>98</volume>
+          <fpage>1076</fpage>
+          <lpage>1084</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.20886</pub-id>
+          <pub-id pub-id-type="pmid">16619257</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B29">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Canalis</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>McCarthy</surname>
+            <given-names>TL</given-names>
+          </name>
+          <name>
+            <surname>Centrella</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Effects of platelet-derived growth factor on bone formation in vitro</article-title>
+          <source>J Cell Physiol</source>
+          <year>1989</year>
+          <volume>140</volume>
+          <fpage>530</fpage>
+          <lpage>537</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcp.1041400319</pub-id>
+          <pub-id pub-id-type="pmid">2777891</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B30">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Bonewald</surname>
+            <given-names>LF</given-names>
+          </name>
+          <name>
+            <surname>Dallas</surname>
+            <given-names>SL</given-names>
+          </name>
+          <article-title>Role of active and latent transforming growth factor beta in bone formation</article-title>
+          <source>J Cell Biochem</source>
+          <year>1994</year>
+          <volume>55</volume>
+          <fpage>350</fpage>
+          <lpage>357</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.240550312</pub-id>
+          <pub-id pub-id-type="pmid">7962167</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B31">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>van der Kraan</surname>
+            <given-names>PM</given-names>
+          </name>
+          <name>
+            <surname>Blaney Davidson</surname>
+            <given-names>EN</given-names>
+          </name>
+          <name>
+            <surname>Blom</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>van den Berg</surname>
+            <given-names>WB</given-names>
+          </name>
+          <article-title>TGF-&#x3B2; signaling in chondrocyte terminal differentiation and osteoarthritis: modulation and integration of signaling pathways through receptor- Smads</article-title>
+          <source>Osteoarthritis Cartilage</source>
+          <year>2009</year>
+          <volume>17</volume>
+          <fpage>1539</fpage>
+          <lpage>1545</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.joca.2009.06.008</pub-id>
+          <pub-id pub-id-type="pmid">19583961</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B32">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Longobardi</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>O'Rear</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Aakula</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Johnstone</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Shimer</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Chytil</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Horton</surname>
+            <given-names>WA</given-names>
+          </name>
+          <name>
+            <surname>Moses</surname>
+            <given-names>HL</given-names>
+          </name>
+          <name>
+            <surname>Spagnoli</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Effect of IGF-I in the chondrogenesis of bone marrow mesenchymal stem cells in the presence or absence of TGF-&#x3B2; signaling</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2006</year>
+          <volume>21</volume>
+          <fpage>626</fpage>
+          <lpage>636</lpage>
+          <pub-id pub-id-type="doi">10.1359/jbmr.051213</pub-id>
+          <pub-id pub-id-type="pmid">16598383</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B33">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ogawa</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Akazawa</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Tabata</surname>
+            <given-names>Y</given-names>
+          </name>
+          <article-title>In vitro proliferation and chondrogenic differentiation of rat bone marrow stem cells cultured with gelatin hydrogel microspheres for TGF-&#x3B2;1 release</article-title>
+          <source>J Biomater Sci Polym Ed</source>
+          <year>2010</year>
+          <volume>21</volume>
+          <fpage>609</fpage>
+          <lpage>621</lpage>
+          <pub-id pub-id-type="doi">10.1163/156856209X434638</pub-id>
+          <pub-id pub-id-type="pmid">20338095</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B34">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Weiss</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Hennig</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Bock</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Steck</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Richter</surname>
+            <given-names>W</given-names>
+          </name>
+          <article-title>Impact of growth factors and PTHrP on early and late chondrogenic differentiation of human mesenchymal stem cells</article-title>
+          <source>J Cell Physiol</source>
+          <year>2010</year>
+          <volume>223</volume>
+          <fpage>84</fpage>
+          <lpage>93</lpage>
+          <pub-id pub-id-type="pmid">20049852</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B35">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Luu</surname>
+            <given-names>HH</given-names>
+          </name>
+          <name>
+            <surname>Song</surname>
+            <given-names>WX</given-names>
+          </name>
+          <name>
+            <surname>Luo</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Manning</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Luo</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Deng</surname>
+            <given-names>ZL</given-names>
+          </name>
+          <name>
+            <surname>Sharff</surname>
+            <given-names>KA</given-names>
+          </name>
+          <name>
+            <surname>Montag</surname>
+            <given-names>AG</given-names>
+          </name>
+          <name>
+            <surname>Haydon</surname>
+            <given-names>RC</given-names>
+          </name>
+          <name>
+            <surname>He</surname>
+            <given-names>TC</given-names>
+          </name>
+          <article-title>Distinct roles of bone morphogenetic proteins in osteogenic differentiation of mesenchymal stem cells</article-title>
+          <source>J Orthop Res</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>665</fpage>
+          <lpage>677</lpage>
+          <pub-id pub-id-type="doi">10.1002/jor.20359</pub-id>
+          <pub-id pub-id-type="pmid">17290432</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B36">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lou</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Xu</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Merkel</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Manske</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>Gene therapy: adenovirus-mediated human bone morphogenetic protein-2 gene transfer induces mesenchymal progenitor cell proliferation and differentiation in vitro and bone formation in vivo</article-title>
+          <source>J Orthop Res</source>
+          <year>1999</year>
+          <volume>17</volume>
+          <fpage>43</fpage>
+          <lpage>50</lpage>
+          <pub-id pub-id-type="doi">10.1002/jor.1100170108</pub-id>
+          <pub-id pub-id-type="pmid">10073646</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B37">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Chang</surname>
+            <given-names>SC</given-names>
+          </name>
+          <name>
+            <surname>Chung</surname>
+            <given-names>HY</given-names>
+          </name>
+          <name>
+            <surname>Tai</surname>
+            <given-names>CL</given-names>
+          </name>
+          <name>
+            <surname>Chen</surname>
+            <given-names>PK</given-names>
+          </name>
+          <name>
+            <surname>Lin</surname>
+            <given-names>TM</given-names>
+          </name>
+          <name>
+            <surname>Jeng</surname>
+            <given-names>LB</given-names>
+          </name>
+          <article-title>Repair of large cranial defects by hBMP-2 expressing bone marrow stromal cells: comparison between alginate and collagen type I systems</article-title>
+          <source>J Biomed Mater Res A</source>
+          <year>2010</year>
+          <volume>94</volume>
+          <fpage>433</fpage>
+          <lpage>441</lpage>
+          <pub-id pub-id-type="pmid">20186742</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B38">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Stewart</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Guan</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Yang</surname>
+            <given-names>K</given-names>
+          </name>
+          <article-title>BMP-3 promotes mesenchymal stem cell proliferation through the TGF-&#x3B2;/activin signaling pathway</article-title>
+          <source>J Cell Physiol</source>
+          <year>2010</year>
+          <volume>223</volume>
+          <fpage>658</fpage>
+          <lpage>666</lpage>
+          <pub-id pub-id-type="pmid">20143330</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B39">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Simmons</surname>
+            <given-names>CA</given-names>
+          </name>
+          <name>
+            <surname>Alsberg</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Hsiong</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>WJ</given-names>
+          </name>
+          <name>
+            <surname>Mooney</surname>
+            <given-names>DJ</given-names>
+          </name>
+          <article-title>Dual growth factor delivery and controlled scaffold degradation enhance in vivo bone formation by transplanted bone marrow stromal cells</article-title>
+          <source>Bone</source>
+          <year>2004</year>
+          <volume>35</volume>
+          <fpage>562</fpage>
+          <lpage>569</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bone.2004.02.027</pub-id>
+          <pub-id pub-id-type="pmid">15268909</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B40">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Valcourt</surname>
+            <given-names>U</given-names>
+          </name>
+          <name>
+            <surname>Gouttenoire</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Moustakas</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Herbage</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Mallein-Gerin</surname>
+            <given-names>F</given-names>
+          </name>
+          <article-title>Functions of transforming growth factor-beta family type I receptors and Smad proteins in the hypertrophic maturation and osteoblastic differentiation of chondrocytes</article-title>
+          <source>J Biol Chem</source>
+          <year>2002</year>
+          <volume>277</volume>
+          <fpage>33545</fpage>
+          <lpage>33558</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M202086200</pub-id>
+          <pub-id pub-id-type="pmid">12082094</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B41">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>YE</given-names>
+          </name>
+          <article-title>Non-Smad pathways in TGF-&#x3B2; signaling</article-title>
+          <source>Cell Res</source>
+          <year>2009</year>
+          <volume>19</volume>
+          <fpage>128</fpage>
+          <lpage>139</lpage>
+          <pub-id pub-id-type="doi">10.1038/cr.2008.328</pub-id>
+          <pub-id pub-id-type="pmid">19114990</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B42">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Lou</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Tu</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Li</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Manske</surname>
+            <given-names>PR</given-names>
+          </name>
+          <article-title>Involvement of ERK in BMP-2 induced osteoblastic differentiation of mesenchymal progenitor cell line C3H10T1/2</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2000</year>
+          <volume>268</volume>
+          <fpage>757</fpage>
+          <lpage>762</lpage>
+          <pub-id pub-id-type="doi">10.1006/bbrc.2000.2210</pub-id>
+          <pub-id pub-id-type="pmid">10679278</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B43">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Stewart</surname>
+            <given-names>AA</given-names>
+          </name>
+          <name>
+            <surname>Byron</surname>
+            <given-names>CR</given-names>
+          </name>
+          <name>
+            <surname>Pondenis</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Stewart</surname>
+            <given-names>MC</given-names>
+          </name>
+          <article-title>Effect of fibroblast growth factor-2 on equine mesenchymal stem cell monolayer expansion and chondrogenesis</article-title>
+          <source>Am J Vet Res</source>
+          <year>2007</year>
+          <volume>68</volume>
+          <fpage>941</fpage>
+          <lpage>945</lpage>
+          <pub-id pub-id-type="doi">10.2460/ajvr.68.9.941</pub-id>
+          <pub-id pub-id-type="pmid">17764407</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B44">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Farre</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Roura</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Prat-Vidal</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Soler-Botija</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Llach</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Molina</surname>
+            <given-names>CE</given-names>
+          </name>
+          <name>
+            <surname>Hove-Madsen</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Cairo</surname>
+            <given-names>JJ</given-names>
+          </name>
+          <name>
+            <surname>Godia</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Bragos</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Cinca</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Bayes-Genis</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>FGF-4 increases in vitro expansion rate of human adult bone marrow-derived mesenchymal stem cells</article-title>
+          <source>Growth Factors</source>
+          <year>2007</year>
+          <volume>25</volume>
+          <fpage>71</fpage>
+          <lpage>76</lpage>
+          <pub-id pub-id-type="doi">10.1080/08977190701345200</pub-id>
+          <pub-id pub-id-type="pmid">17852409</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B45">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Yanada</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Ochi</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Kojima</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Sharman</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Yasunaga</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Hiyama</surname>
+            <given-names>E</given-names>
+          </name>
+          <article-title>Possibility of selection of chondrogenic progenitor cells by telomere length in FGF-2-expanded mesenchymal stromal cells</article-title>
+          <source>Cell Prolif</source>
+          <year>2006</year>
+          <volume>39</volume>
+          <fpage>575</fpage>
+          <lpage>584</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2184.2006.00397.x</pub-id>
+          <pub-id pub-id-type="pmid">17109640</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B46">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Bianchi</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Banfi</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Mastrogiacomo</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Notaro</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Luzzatto</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Cancedda</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Quarto</surname>
+            <given-names>R</given-names>
+          </name>
+          <article-title>Ex vivo enrichment of mesenchymal cell progenitors by fibroblast growth factor 2</article-title>
+          <source>Exp Cell Res</source>
+          <year>2003</year>
+          <volume>287</volume>
+          <fpage>98</fpage>
+          <lpage>105</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0014-4827(03)00138-1</pub-id>
+          <pub-id pub-id-type="pmid">12799186</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B47">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tarte</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Gaillard</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Lataillade</surname>
+            <given-names>JJ</given-names>
+          </name>
+          <name>
+            <surname>Fouillard</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Becker</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Mossafa</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Tchirkov</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Rouard</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Henry</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Splingard</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Dulong</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Monnier</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Gourmelon</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Gorin</surname>
+            <given-names>NC</given-names>
+          </name>
+          <name>
+            <surname>Sensebe</surname>
+            <given-names>L</given-names>
+          </name>
+          <article-title>Clinical-grade production of human mesenchymal stromal cells: occurrence of aneuploidy without transformation</article-title>
+          <source>Blood</source>
+          <year>2010</year>
+          <volume>115</volume>
+          <fpage>1549</fpage>
+          <lpage>1553</lpage>
+          <pub-id pub-id-type="doi">10.1182/blood-2009-05-219907</pub-id>
+          <pub-id pub-id-type="pmid">20032501</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B48">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tran</surname>
+            <given-names>KT</given-names>
+          </name>
+          <name>
+            <surname>Rusu</surname>
+            <given-names>SD</given-names>
+          </name>
+          <name>
+            <surname>Satish</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Aging-related attenuation of EGF receptor signaling is mediated in part by increased protein tyrosine phosphatase activity</article-title>
+          <source>Exp Cell Res</source>
+          <year>2003</year>
+          <volume>289</volume>
+          <fpage>359</fpage>
+          <lpage>367</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0014-4827(03)00287-8</pub-id>
+          <pub-id pub-id-type="pmid">14499637</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B49">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Shiraha</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Gupta</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Drabik</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Aging fibroblasts present reduced epidermal growth factor (EGF) responsiveness due to preferential loss of EGF receptors</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>19343</fpage>
+          <lpage>19351</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M000008200</pub-id>
+          <pub-id pub-id-type="pmid">10764734</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B50">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Battula</surname>
+            <given-names>VL</given-names>
+          </name>
+          <name>
+            <surname>Bareiss</surname>
+            <given-names>PM</given-names>
+          </name>
+          <name>
+            <surname>Treml</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Conrad</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Albert</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Hojak</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Abele</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Schewe</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Just</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Skutella</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Buhring</surname>
+            <given-names>HJ</given-names>
+          </name>
+          <article-title>Human placenta and bone marrow derived MSC cultured in serum-free, b-FGF-containing medium express cell surface frizzled-9 and SSEA-4 and give rise to multilineage differentiation</article-title>
+          <source>Differentiation</source>
+          <year>2007</year>
+          <volume>75</volume>
+          <fpage>279</fpage>
+          <lpage>291</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1432-0436.2006.00139.x</pub-id>
+          <pub-id pub-id-type="pmid">17288545</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B51">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ng</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Boucher</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Koh</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Sastry</surname>
+            <given-names>KS</given-names>
+          </name>
+          <name>
+            <surname>Chase</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Lakshmipathy</surname>
+            <given-names>U</given-names>
+          </name>
+          <name>
+            <surname>Choong</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Yang</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Vemuri</surname>
+            <given-names>MC</given-names>
+          </name>
+          <name>
+            <surname>Rao</surname>
+            <given-names>MS</given-names>
+          </name>
+          <name>
+            <surname>Tanavde</surname>
+            <given-names>V</given-names>
+          </name>
+          <article-title>PDGF, TGF-&#x3B2;, and FGF signaling is important for differentiation and growth of mesenchymal stem cells (MSCs): transcriptional profiling can identify markers and signaling pathways important in differentiation of MSCs into adipogenic, chondrogenic, and osteogenic lineages</article-title>
+          <source>Blood</source>
+          <year>2008</year>
+          <volume>112</volume>
+          <fpage>295</fpage>
+          <lpage>307</lpage>
+          <pub-id pub-id-type="doi">10.1182/blood-2007-07-103697</pub-id>
+          <pub-id pub-id-type="pmid">18332228</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B52">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pons</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Huang</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Arakawa-Hoyt</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Washko</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Takagawa</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Ye</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Grossman</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Su</surname>
+            <given-names>H</given-names>
+          </name>
+          <article-title>VEGF improves survival of mesenchymal stem cells in infarcted hearts</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2008</year>
+          <volume>376</volume>
+          <fpage>419</fpage>
+          <lpage>422</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bbrc.2008.09.003</pub-id>
+          <pub-id pub-id-type="pmid">18789891</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B53">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Wang</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Hu</surname>
+            <given-names>Q</given-names>
+          </name>
+          <name>
+            <surname>Mansoor</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Lee</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Lee</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>From</surname>
+            <given-names>AH</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Bioenergetic and functional consequences of stem cell-based VEGF delivery in pressure-overloaded swine hearts</article-title>
+          <source>Am J Physiol Heart Circ Physiol</source>
+          <year>2006</year>
+          <volume>290</volume>
+          <fpage>H1393</fpage>
+          <lpage>H1405</lpage>
+          <pub-id pub-id-type="doi">10.1152/ajpheart.00871.2005</pub-id>
+          <pub-id pub-id-type="pmid">16387794</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B54">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Gao</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>He</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Yu</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Yi</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Liu</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Cai</surname>
+            <given-names>Z</given-names>
+          </name>
+          <article-title>A promising strategy for the treatment of ischemic heart disease: mesenchymal stem cell-mediated vascular endothelial growth factor gene transfer in rats</article-title>
+          <source>Can J Cardiol</source>
+          <year>2007</year>
+          <volume>23</volume>
+          <fpage>891</fpage>
+          <lpage>898</lpage>
+          <pub-id pub-id-type="pmid">17876381</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B55">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ball</surname>
+            <given-names>SG</given-names>
+          </name>
+          <name>
+            <surname>Shuttleworth</surname>
+            <given-names>CA</given-names>
+          </name>
+          <name>
+            <surname>Kielty</surname>
+            <given-names>CM</given-names>
+          </name>
+          <article-title>Mesenchymal stem cells and neovascularization: role of platelet-derived growth factor receptors</article-title>
+          <source>J Cell Mol Med</source>
+          <year>2007</year>
+          <volume>11</volume>
+          <fpage>1012</fpage>
+          <lpage>1030</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1582-4934.2007.00120.x</pub-id>
+          <pub-id pub-id-type="pmid">17979880</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B56">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kang</surname>
+            <given-names>YJ</given-names>
+          </name>
+          <name>
+            <surname>Jeon</surname>
+            <given-names>ES</given-names>
+          </name>
+          <name>
+            <surname>Song</surname>
+            <given-names>HY</given-names>
+          </name>
+          <name>
+            <surname>Woo</surname>
+            <given-names>JS</given-names>
+          </name>
+          <name>
+            <surname>Jung</surname>
+            <given-names>JS</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>YK</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>JH</given-names>
+          </name>
+          <article-title>Role of c-Jun N-terminal kinase in the PDGF-induced proliferation and migration of human adipose tissue-derived mesenchymal stem cells</article-title>
+          <source>J Cell Biochem</source>
+          <year>2005</year>
+          <volume>95</volume>
+          <fpage>1135</fpage>
+          <lpage>1145</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.20499</pub-id>
+          <pub-id pub-id-type="pmid">15962287</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B57">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tokunaga</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Oya</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Ishii</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Motomura</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Nakamura</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Ishizawa</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Fujimori</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Nabeshima</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Umezawa</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Kanamori</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Kimura</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Sasahara</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>PDGF receptor beta is a potent regulator of mesenchymal stromal cell function</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2008</year>
+          <volume>23</volume>
+          <fpage>1519</fpage>
+          <lpage>1528</lpage>
+          <pub-id pub-id-type="doi">10.1359/jbmr.080409</pub-id>
+          <pub-id pub-id-type="pmid">18410236</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B58">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Kratchmarova</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Blagoev</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Haack-Sorensen</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Kassem</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Mann</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Mechanism of divergent growth factor effects in mesenchymal stem cell differentiation</article-title>
+          <source>Science</source>
+          <year>2005</year>
+          <volume>308</volume>
+          <fpage>1472</fpage>
+          <lpage>1477</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1107627</pub-id>
+          <pub-id pub-id-type="pmid">15933201</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B59">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Fierro</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Illmer</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Jing</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Schleyer</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Ehninger</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Boxberger</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Bornhauser</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Inhibition of platelet-derived growth factor receptor beta by imatinib mesylate suppresses proliferation and alters differentiation of human mesenchymal stem cells in vitro</article-title>
+          <source>Cell Prolif</source>
+          <year>2007</year>
+          <volume>40</volume>
+          <fpage>355</fpage>
+          <lpage>366</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1365-2184.2007.00438.x</pub-id>
+          <pub-id pub-id-type="pmid">17531080</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B60">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tamama</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Fan</surname>
+            <given-names>VH</given-names>
+          </name>
+          <name>
+            <surname>Griffith</surname>
+            <given-names>LG</given-names>
+          </name>
+          <name>
+            <surname>Blair</surname>
+            <given-names>HC</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Epidermal growth factor as a candidate for ex vivo expansion of bone marrow-derived mesenchymal stem cells</article-title>
+          <source>Stem Cells</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <fpage>686</fpage>
+          <lpage>695</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2005-0176</pub-id>
+          <pub-id pub-id-type="pmid">16150920</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B61">
+        <mixed-citation publication-type="other">
+          <name>
+            <surname>Ding</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Knox</surname>
+            <given-names>TR</given-names>
+          </name>
+          <name>
+            <surname>Tschumper</surname>
+            <given-names>RC</given-names>
+          </name>
+          <name>
+            <surname>Wu</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Schwager</surname>
+            <given-names>SM</given-names>
+          </name>
+          <name>
+            <surname>Boysen</surname>
+            <given-names>JC</given-names>
+          </name>
+          <name>
+            <surname>Jelinek</surname>
+            <given-names>DF</given-names>
+          </name>
+          <name>
+            <surname>Kay</surname>
+            <given-names>NE</given-names>
+          </name>
+          <article-title>Platelet derived growth factor (PDGF)-PDGF receptor interaction activates bone marrow derived mesenchymal stromal cells derived from chronic lymphocytic leukemia: implications for an angiogenic switch</article-title>
+          <source>Blood</source>
+          <year>2010</year>
+          <comment> in press </comment>
+        </mixed-citation>
+      </ref>
+      <ref id="B62">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Neuss</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Becher</surname>
+            <given-names>E</given-names>
+          </name>
+          <name>
+            <surname>Woltje</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Tietze</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Jahnen-Dechent</surname>
+            <given-names>W</given-names>
+          </name>
+          <article-title>Functional expression of HGF and HGF receptor/c-met in adult human mesenchymal stem cells suggests a role in cell mobilization, tissue repair, and wound healing</article-title>
+          <source>Stem Cells</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>405</fpage>
+          <lpage>414</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.22-3-405</pub-id>
+          <pub-id pub-id-type="pmid">15153617</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B63">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Furge</surname>
+            <given-names>KA</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>YW</given-names>
+          </name>
+          <name>
+            <surname>Vande Woude</surname>
+            <given-names>GF</given-names>
+          </name>
+          <article-title>Met receptor tyrosine kinase: enhanced signaling through adapter proteins</article-title>
+          <source>Oncogene</source>
+          <year>2000</year>
+          <volume>19</volume>
+          <fpage>5582</fpage>
+          <lpage>5589</lpage>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1203859</pub-id>
+          <pub-id pub-id-type="pmid">11114738</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B64">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Forte</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Minieri</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Cossa</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Antenucci</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Sala</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Gnocchi</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Fiaccavento</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Carotenuto</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>De Vito</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Baldini</surname>
+            <given-names>PM</given-names>
+          </name>
+          <name>
+            <surname>Prat</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Di Nardo</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>Hepatocyte growth factor effects on mesenchymal stem cells: proliferation, migration, and differentiation</article-title>
+          <source>Stem Cells</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <fpage>23</fpage>
+          <lpage>33</lpage>
+          <pub-id pub-id-type="doi">10.1634/stemcells.2004-0176</pub-id>
+          <pub-id pub-id-type="pmid">16100005</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B65">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Krampera</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Pasini</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Rigo</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Scupoli</surname>
+            <given-names>MT</given-names>
+          </name>
+          <name>
+            <surname>Tecchio</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Malpeli</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Scarpa</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Dazzi</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Pizzolo</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Vinante</surname>
+            <given-names>F</given-names>
+          </name>
+          <article-title>HB-EGF/HER-1 signaling in bone marrow mesenchymal stem cells: inducing cell expansion and reversibly preventing multilineage differentiation</article-title>
+          <source>Blood</source>
+          <year>2005</year>
+          <volume>106</volume>
+          <fpage>59</fpage>
+          <lpage>66</lpage>
+          <pub-id pub-id-type="doi">10.1182/blood-2004-09-3645</pub-id>
+          <pub-id pub-id-type="pmid">15755902</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B66">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Boland</surname>
+            <given-names>GM</given-names>
+          </name>
+          <name>
+            <surname>Perkins</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Hall</surname>
+            <given-names>DJ</given-names>
+          </name>
+          <name>
+            <surname>Tuan</surname>
+            <given-names>RS</given-names>
+          </name>
+          <article-title>Wnt 3a promotes proliferation and suppresses osteogenic differentiation of adult human mesenchymal stem cells</article-title>
+          <source>J Cell Biochem</source>
+          <year>2004</year>
+          <volume>93</volume>
+          <fpage>1210</fpage>
+          <lpage>1230</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.20284</pub-id>
+          <pub-id pub-id-type="pmid">15486964</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B67">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Baksh</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Boland</surname>
+            <given-names>GM</given-names>
+          </name>
+          <name>
+            <surname>Tuan</surname>
+            <given-names>RS</given-names>
+          </name>
+          <article-title>Cross-talk between Wnt signaling pathways in human mesenchymal stem cells leads to functional antagonism during osteogenic differentiation</article-title>
+          <source>J Cell Biochem</source>
+          <year>2007</year>
+          <volume>101</volume>
+          <fpage>1109</fpage>
+          <lpage>1124</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcb.21097</pub-id>
+          <pub-id pub-id-type="pmid">17546602</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B68">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Baksh</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Tuan</surname>
+            <given-names>RS</given-names>
+          </name>
+          <article-title>Canonical and non-canonical Wnts differentially affect the development potential of primary isolate of human bone marrow mesenchymal stem cells</article-title>
+          <source>J Cell Physiol</source>
+          <year>2007</year>
+          <volume>212</volume>
+          <fpage>817</fpage>
+          <lpage>826</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcp.21080</pub-id>
+          <pub-id pub-id-type="pmid">17458904</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B69">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Chang</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Sonoyama</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Jin</surname>
+            <given-names>Q</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Krebsbach</surname>
+            <given-names>PH</given-names>
+          </name>
+          <name>
+            <surname>Giannobile</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Shi</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>CY</given-names>
+          </name>
+          <article-title>Noncanonical Wnt-4 signaling enhances bone regeneration of mesenchymal stem cells in craniofacial defects through activation of p38 MAPK</article-title>
+          <source>J Biol Chem</source>
+          <year>2007</year>
+          <volume>282</volume>
+          <fpage>30938</fpage>
+          <lpage>30948</lpage>
+          <pub-id pub-id-type="doi">10.1074/jbc.M702391200</pub-id>
+          <pub-id pub-id-type="pmid">17720811</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B70">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Qiu</surname>
+            <given-names>W</given-names>
+          </name>
+          <name>
+            <surname>Andersen</surname>
+            <given-names>TE</given-names>
+          </name>
+          <name>
+            <surname>Bollerslev</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Mandrup</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Abdallah</surname>
+            <given-names>BM</given-names>
+          </name>
+          <name>
+            <surname>Kassem</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Patients with high bone mass phenotype exhibit enhanced osteoblast differentiation and inhibition of adipogenesis of human mesenchymal stem cells</article-title>
+          <source>J Bone Miner Res</source>
+          <year>2007</year>
+          <volume>22</volume>
+          <fpage>1720</fpage>
+          <lpage>1731</lpage>
+          <pub-id pub-id-type="doi">10.1359/jbmr.070721</pub-id>
+          <pub-id pub-id-type="pmid">17680723</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B71">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>de Boer</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Siddappa</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Gaspar</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>van Apeldoorn</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Fodde</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>van Blitterswijk</surname>
+            <given-names>C</given-names>
+          </name>
+          <article-title>Wnt signaling inhibits osteogenic differentiation of human mesenchymal stem cells</article-title>
+          <source>Bone</source>
+          <year>2004</year>
+          <volume>34</volume>
+          <fpage>818</fpage>
+          <lpage>826</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bone.2004.01.016</pub-id>
+          <pub-id pub-id-type="pmid">15121013</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B72">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Tang</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Zheng</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Kong</surname>
+            <given-names>X</given-names>
+          </name>
+          <name>
+            <surname>Guo</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Yang</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Huang</surname>
+            <given-names>Y</given-names>
+          </name>
+          <article-title>Combination of chemokine and angiogenic factor genes and mesenchymal stem cells could enhance angiogenesis and improve cardiac function after acute myocardial infarction in rats</article-title>
+          <source>Mol Cell Biochem</source>
+          <year>2010</year>
+          <volume>339</volume>
+          <fpage>107</fpage>
+          <lpage>118</lpage>
+          <pub-id pub-id-type="doi">10.1007/s11010-009-0374-0</pub-id>
+          <pub-id pub-id-type="pmid">20058054</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B73">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Brunet</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Bonni</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Zigmond</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <name>
+            <surname>Lin</surname>
+            <given-names>MZ</given-names>
+          </name>
+          <name>
+            <surname>Juo</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Hu</surname>
+            <given-names>LS</given-names>
+          </name>
+          <name>
+            <surname>Anderson</surname>
+            <given-names>MJ</given-names>
+          </name>
+          <name>
+            <surname>Arden</surname>
+            <given-names>KC</given-names>
+          </name>
+          <name>
+            <surname>Blenis</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Greenberg</surname>
+            <given-names>ME</given-names>
+          </name>
+          <article-title>Akt promotes cell survival by phosphorylating and inhibiting a Forkhead transcription factor</article-title>
+          <source>Cell</source>
+          <year>1999</year>
+          <volume>96</volume>
+          <fpage>857</fpage>
+          <lpage>868</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0092-8674(00)80595-4</pub-id>
+          <pub-id pub-id-type="pmid">10102273</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B74">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Herrmann</surname>
+            <given-names>JL</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Abarbanell</surname>
+            <given-names>AM</given-names>
+          </name>
+          <name>
+            <surname>Weil</surname>
+            <given-names>BR</given-names>
+          </name>
+          <name>
+            <surname>Tan</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Meldrum</surname>
+            <given-names>DR</given-names>
+          </name>
+          <article-title>Preconditioning mesenchymal stem cells with transforming growth factor-alpha improves mesenchymal stem cell-mediated cardioprotection</article-title>
+          <source>Shock</source>
+          <year>2010</year>
+          <volume>33</volume>
+          <fpage>24</fpage>
+          <lpage>30</lpage>
+          <pub-id pub-id-type="doi">10.1097/SHK.0b013e3181b7d137</pub-id>
+          <pub-id pub-id-type="pmid">19996917</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B75">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Mahmood</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Lu</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>L</given-names>
+          </name>
+          <name>
+            <surname>Chopp</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Intracerebral transplantation of marrow stromal cells cultured with neurotrophic factors promotes functional recovery in adult rats subjected to traumatic brain injury</article-title>
+          <source>J Neurotrauma</source>
+          <year>2002</year>
+          <volume>19</volume>
+          <fpage>1609</fpage>
+          <lpage>1617</lpage>
+          <pub-id pub-id-type="doi">10.1089/089771502762300265</pub-id>
+          <pub-id pub-id-type="pmid">12542861</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B76">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Krausgrill</surname>
+            <given-names>B</given-names>
+          </name>
+          <name>
+            <surname>Vantler</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Burst</surname>
+            <given-names>V</given-names>
+          </name>
+          <name>
+            <surname>Raths</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Halbach</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Frank</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Schynkowski</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Schenk</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Hescheler</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Rosenkranz</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Muller-Ehmsen</surname>
+            <given-names>J</given-names>
+          </name>
+          <article-title>Influence of cell treatment with PDGF-BB and reperfusion on cardiac persistence of mononuclear and mesenchymal bone marrow cells after transplantation into acute myocardial infarction in rats</article-title>
+          <source>Cell Transplant</source>
+          <year>2009</year>
+          <volume>18</volume>
+          <fpage>847</fpage>
+          <lpage>853</lpage>
+          <pub-id pub-id-type="doi">10.3727/096368909X471134</pub-id>
+          <pub-id pub-id-type="pmid">19520046</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B77">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Iyer</surname>
+            <given-names>AK</given-names>
+          </name>
+          <name>
+            <surname>Tran</surname>
+            <given-names>KT</given-names>
+          </name>
+          <name>
+            <surname>Borysenko</surname>
+            <given-names>CW</given-names>
+          </name>
+          <name>
+            <surname>Cascio</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Camacho</surname>
+            <given-names>CJ</given-names>
+          </name>
+          <name>
+            <surname>Blair</surname>
+            <given-names>HC</given-names>
+          </name>
+          <name>
+            <surname>Bahar</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <article-title>Tenascin cytotactin epidermal growth factor-like repeat binds epidermal growth factor receptor with low affinity</article-title>
+          <source>J Cell Physiol</source>
+          <year>2007</year>
+          <volume>211</volume>
+          <fpage>748</fpage>
+          <lpage>758</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcp.20986</pub-id>
+          <pub-id pub-id-type="pmid">17311283</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B78">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Platt</surname>
+            <given-names>MO</given-names>
+          </name>
+          <name>
+            <surname>Roman</surname>
+            <given-names>AJ</given-names>
+          </name>
+          <name>
+            <surname>Wells</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Lauffenburger</surname>
+            <given-names>DA</given-names>
+          </name>
+          <name>
+            <surname>Griffith</surname>
+            <given-names>LG</given-names>
+          </name>
+          <article-title>Sustained epidermal growth factor receptor levels and activation by tethered ligand binding enhances osteogenic differentiation of multi-potent marrow stromal cells</article-title>
+          <source>J Cell Physiol</source>
+          <year>2009</year>
+          <volume>221</volume>
+          <fpage>306</fpage>
+          <lpage>317</lpage>
+          <pub-id pub-id-type="doi">10.1002/jcp.21854</pub-id>
+          <pub-id pub-id-type="pmid">19544388</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B79">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Muller</surname>
+            <given-names>I</given-names>
+          </name>
+          <name>
+            <surname>Kordowich</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Holzwarth</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Spano</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Isensee</surname>
+            <given-names>G</given-names>
+          </name>
+          <name>
+            <surname>Staiber</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Viebahn</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Gieseke</surname>
+            <given-names>F</given-names>
+          </name>
+          <name>
+            <surname>Langer</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Gawaz</surname>
+            <given-names>MP</given-names>
+          </name>
+          <name>
+            <surname>Horwitz</surname>
+            <given-names>EM</given-names>
+          </name>
+          <name>
+            <surname>Conte</surname>
+            <given-names>P</given-names>
+          </name>
+          <name>
+            <surname>Handgretinger</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Dominici</surname>
+            <given-names>M</given-names>
+          </name>
+          <article-title>Animal serum-free culture conditions for isolation and expansion of multipotent mesenchymal stromal cells from human BM</article-title>
+          <source>Cytotherapy</source>
+          <year>2006</year>
+          <volume>8</volume>
+          <fpage>437</fpage>
+          <lpage>444</lpage>
+          <pub-id pub-id-type="doi">10.1080/14653240600920782</pub-id>
+          <pub-id pub-id-type="pmid">17050248</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B80">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Meuleman</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Tondreau</surname>
+            <given-names>T</given-names>
+          </name>
+          <name>
+            <surname>Delforge</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Dejeneffe</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Massy</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Libertalis</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Bron</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Lagneaux</surname>
+            <given-names>L</given-names>
+          </name>
+          <article-title>Human marrow mesenchymal stem cell culture: serum-free medium allows better expansion than classical alpha-MEM medium</article-title>
+          <source>Eur J Haematol</source>
+          <year>2006</year>
+          <volume>76</volume>
+          <fpage>309</fpage>
+          <lpage>316</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1600-0609.2005.00611.x</pub-id>
+          <pub-id pub-id-type="pmid">16519702</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B81">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Chase</surname>
+            <given-names>LG</given-names>
+          </name>
+          <name>
+            <surname>Lakshmipathy</surname>
+            <given-names>U</given-names>
+          </name>
+          <name>
+            <surname>Solchaga</surname>
+            <given-names>LA</given-names>
+          </name>
+          <name>
+            <surname>Rao</surname>
+            <given-names>MS</given-names>
+          </name>
+          <name>
+            <surname>Vemuri</surname>
+            <given-names>MC</given-names>
+          </name>
+          <article-title>A novel serumfree medium for the expansion of human mesenchymal stem cells</article-title>
+          <source>Stem Cell Res Ther</source>
+          <year>2010</year>
+          <volume>1</volume>
+          <fpage>8</fpage>
+          <pub-id pub-id-type="doi">10.1186/scrt8</pub-id>
+          <pub-id pub-id-type="pmid">20504289</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B82">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Hahn</surname>
+            <given-names>JY</given-names>
+          </name>
+          <name>
+            <surname>Cho</surname>
+            <given-names>HJ</given-names>
+          </name>
+          <name>
+            <surname>Kang</surname>
+            <given-names>HJ</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>TS</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>MH</given-names>
+          </name>
+          <name>
+            <surname>Chung</surname>
+            <given-names>JH</given-names>
+          </name>
+          <name>
+            <surname>Bae</surname>
+            <given-names>JW</given-names>
+          </name>
+          <name>
+            <surname>Oh</surname>
+            <given-names>BH</given-names>
+          </name>
+          <name>
+            <surname>Park</surname>
+            <given-names>YB</given-names>
+          </name>
+          <name>
+            <surname>Kim</surname>
+            <given-names>HS</given-names>
+          </name>
+          <article-title>Pre-treatment of mesenchymal stem cells with a combination of growth factors enhances gap junction formation, cytoprotective effect on cardiomyocytes, and therapeutic efficacy for myocardial infarction</article-title>
+          <source>J Am Coll Cardiol</source>
+          <year>2008</year>
+          <volume>51</volume>
+          <fpage>933</fpage>
+          <lpage>943</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jacc.2007.11.040</pub-id>
+          <pub-id pub-id-type="pmid">18308163</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B83">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Zhang</surname>
+            <given-names>ZX</given-names>
+          </name>
+          <name>
+            <surname>Guan</surname>
+            <given-names>LX</given-names>
+          </name>
+          <name>
+            <surname>Zhang</surname>
+            <given-names>K</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Cao</surname>
+            <given-names>PC</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>YH</given-names>
+          </name>
+          <name>
+            <surname>Wang</surname>
+            <given-names>Z</given-names>
+          </name>
+          <name>
+            <surname>Dai</surname>
+            <given-names>LJ</given-names>
+          </name>
+          <article-title>Cytogenetic analysis of human bone marrow-derived mesenchymal stem cells passaged in vitro</article-title>
+          <source>Cell Biol Int</source>
+          <year>2007</year>
+          <volume>31</volume>
+          <fpage>645</fpage>
+          <lpage>648</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.cellbi.2006.11.025</pub-id>
+          <pub-id pub-id-type="pmid">17207646</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B84">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Dahl</surname>
+            <given-names>JA</given-names>
+          </name>
+          <name>
+            <surname>Duggal</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Coulston</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Millar</surname>
+            <given-names>D</given-names>
+          </name>
+          <name>
+            <surname>Melki</surname>
+            <given-names>J</given-names>
+          </name>
+          <name>
+            <surname>Shahdadfar</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Brinchmann</surname>
+            <given-names>JE</given-names>
+          </name>
+          <name>
+            <surname>Collas</surname>
+            <given-names>P</given-names>
+          </name>
+          <article-title>Genetic and epigenetic instability of human bone marrow mesenchymal stem cells expanded in autologous serum or fetal bovine serum</article-title>
+          <source>Int J Dev Biol</source>
+          <year>2008</year>
+          <volume>52</volume>
+          <fpage>1033</fpage>
+          <lpage>1042</lpage>
+          <pub-id pub-id-type="doi">10.1387/ijdb.082663jd</pub-id>
+          <pub-id pub-id-type="pmid">18956336</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B85">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Richardson</surname>
+            <given-names>TP</given-names>
+          </name>
+          <name>
+            <surname>Peters</surname>
+            <given-names>MC</given-names>
+          </name>
+          <name>
+            <surname>Ennett</surname>
+            <given-names>AB</given-names>
+          </name>
+          <name>
+            <surname>Mooney</surname>
+            <given-names>DJ</given-names>
+          </name>
+          <article-title>Polymeric system for dual growth factor delivery</article-title>
+          <source>Nat Biotechnol</source>
+          <year>2001</year>
+          <volume>19</volume>
+          <fpage>1029</fpage>
+          <lpage>1034</lpage>
+          <pub-id pub-id-type="doi">10.1038/nbt1101-1029</pub-id>
+          <pub-id pub-id-type="pmid">11689847</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B86">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Muschler</surname>
+            <given-names>GF</given-names>
+          </name>
+          <name>
+            <surname>Nakamoto</surname>
+            <given-names>C</given-names>
+          </name>
+          <name>
+            <surname>Griffith</surname>
+            <given-names>LG</given-names>
+          </name>
+          <article-title>Engineering principles of clinical cell-based tissue engineering</article-title>
+          <source>J Bone Joint Surg Am</source>
+          <year>2004</year>
+          <volume>86-A</volume>
+          <fpage>1541</fpage>
+          <lpage>1558</lpage>
+          <pub-id pub-id-type="pmid">15252108</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B87">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Ball</surname>
+            <given-names>SG</given-names>
+          </name>
+          <name>
+            <surname>Shuttleworth</surname>
+            <given-names>CA</given-names>
+          </name>
+          <name>
+            <surname>Kielty</surname>
+            <given-names>CM</given-names>
+          </name>
+          <article-title>Vascular endothelial growth factor can signal through platelet-derived growth factor receptors</article-title>
+          <source>J Cell Biol</source>
+          <year>2007</year>
+          <volume>177</volume>
+          <fpage>489</fpage>
+          <lpage>500</lpage>
+          <pub-id pub-id-type="doi">10.1083/jcb.200608093</pub-id>
+          <pub-id pub-id-type="pmid">17470632</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B88">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Agata</surname>
+            <given-names>H</given-names>
+          </name>
+          <name>
+            <surname>Watanabe</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Ishii</surname>
+            <given-names>Y</given-names>
+          </name>
+          <name>
+            <surname>Kubo</surname>
+            <given-names>N</given-names>
+          </name>
+          <name>
+            <surname>Ohshima</surname>
+            <given-names>S</given-names>
+          </name>
+          <name>
+            <surname>Yamazaki</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Tojo</surname>
+            <given-names>A</given-names>
+          </name>
+          <name>
+            <surname>Kagami</surname>
+            <given-names>H</given-names>
+          </name>
+          <article-title>Feasibility and efficacy of bone tissue engineering using human bone marrow stromal cells cultivated in serum-free conditions</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2009</year>
+          <volume>382</volume>
+          <fpage>353</fpage>
+          <lpage>358</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.bbrc.2009.03.023</pub-id>
+          <pub-id pub-id-type="pmid">19281797</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="B89">
+        <mixed-citation publication-type="journal">
+          <name>
+            <surname>Pal</surname>
+            <given-names>R</given-names>
+          </name>
+          <name>
+            <surname>Hanwate</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Jan</surname>
+            <given-names>M</given-names>
+          </name>
+          <name>
+            <surname>Totey</surname>
+            <given-names>S</given-names>
+          </name>
+          <article-title>Phenotypic and functional comparison of optimum culture conditions for upscaling of bone marrow-derived mesenchymal stem cells</article-title>
+          <source>J Tissue Eng Regen Med</source>
+          <year>2009</year>
+          <volume>3</volume>
+          <fpage>163</fpage>
+          <lpage>174</lpage>
+          <pub-id pub-id-type="doi">10.1002/term.143</pub-id>
+          <pub-id pub-id-type="pmid">19229888</pub-id>
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

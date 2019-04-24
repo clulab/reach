@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8806785</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4226</journal-id>
+      <journal-id journal-id-type="nlm-ta">Glia</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Glia</journal-id>
+      <journal-title-group>
+        <journal-title>Glia</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0894-1491</issn>
+      <issn pub-type="epub">1098-1136</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">27472419</article-id>
+      <article-id pub-id-type="pmc">5026581</article-id>
+      <article-id pub-id-type="doi">10.1002/glia.23037</article-id>
+      <article-id pub-id-type="manuscript">NIHMS801849</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Epidermal Growth Factor Preserves Myelin and Promotes Astrogliosis after Intraventricular Hemorrhage</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vinukonda</surname>
+            <given-names>Govindaiah</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hu</surname>
+            <given-names>Furong</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mehdizadeh</surname>
+            <given-names>Rana</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dohare</surname>
+            <given-names>Preeti</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kidwai</surname>
+            <given-names>Ali</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Juneja</surname>
+            <given-names>Ankit</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Naran</surname>
+            <given-names>Vineet</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kierstead</surname>
+            <given-names>Maria</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chawla</surname>
+            <given-names>Rachit</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kayton</surname>
+            <given-names>Robert</given-names>
+          </name>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ballabh</surname>
+            <given-names>Praveen</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Department of Pediatrics, Maria Fareri Children&#x2019;s Hospital at Westchester Medical Center-New York Medical College, Valhalla, NY 10595</aff>
+      <aff id="A2"><label>2</label>Cell Biology and Anatomy, Maria Fareri Children&#x2019;s Hospital at Westchester Medical Center-New York Medical College, Valhalla, NY 10595</aff>
+      <aff id="A3"><label>3</label>Department of Physiology and Pharmacology, Oregon Health &amp; Science University, Portland, Oregon 97239</aff>
+      <author-notes>
+        <corresp id="FN1">Address for Correspondence: Praveen Ballabh, MD, Regional Neonatal Center, Maria Fareri Children&#x2019;s Hospital at Westchester Medical Center, Valhalla, NY 10595, <email>Pballabh@msn.com</email>, Phone: 914-594-4036, Fax: 914-594-4653</corresp>
+        <fn fn-type="COI-statement" id="FN3">
+          <p>Conflict of interest: Nothing to report.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>20</day>
+        <month>7</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>29</day>
+        <month>7</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2016</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>01</day>
+        <month>11</month>
+        <year>2017</year>
+      </pub-date>
+      <volume>64</volume>
+      <issue>11</issue>
+      <fpage>1987</fpage>
+      <lpage>2004</lpage>
+      <!--elocation-id from pubmed: 10.1002/glia.23037-->
+      <abstract>
+        <p id="P1">Intraventricular hemorrhage (IVH) leads to reduced myelination and astrogliosis of the white matter in premature infants. No therapeutic strategy exists to minimize white matter injury in survivors with IVH. Epidermal growth factor (EGF) enhances myelination, astrogliosis, and neurologic recovery in animal models of white matter injury. Here, we hypothesized that recombinant human (rh) EGF treatment would enhance oligodendrocyte precursor cell (OPC) maturation, myelination, and neurological recovery in preterm rabbits with IVH. In addition, rhEGF would promote astrogliosis by inducing astroglial progenitor proliferation and GFAP transcription. We tested these hypotheses in a preterm rabbit model of IVH and evaluated autopsy samples from human preterm infants. We found that EGF and EGFR expression were more abundant in the ganglionic eminence relative to the cortical plate and white matter of human infants and that the development of IVH reduced EGF levels, but not EGFR expression. Accordingly, rhEGF treatment promoted proliferation and maturation of OPCs, preserved myelin in the white matter, and enhanced neurological recovery in rabbits with IVH. rhEGF treatment inhibited Notch signaling, which conceivably contributed to OPC maturation. rhEGF treatment contributed to astrogliosis by increasing astroglial proliferation and upregulating GFAP as well as Sox9 expression. Hence, IVH results in a decline in EGF expression; and rhEGF treatment preserves myelin, restores neurological recovery, and exacerbates astrogliosis by inducing proliferation of astrocytes and enhancing transcription of GFAP and Sox9 in pups with IVH. rhEGF treatment might improve the neurological outcome of premature infants with IVH.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Epidermal growth factor</kwd>
+        <kwd>myelination</kwd>
+        <kwd>astrogliosis</kwd>
+        <kwd>oligodendrocyte progenitor cells</kwd>
+        <kwd>intraventricular hemorrhage</kwd>
+        <kwd>premature infants</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

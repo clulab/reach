@@ -1,0 +1,2745 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Acta Histochem Cytochem</journal-id>
+      <journal-id journal-id-type="publisher-id">AHC</journal-id>
+      <journal-title-group>
+        <journal-title>Acta Histochemica et Cytochemica</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0044-5991</issn>
+      <issn pub-type="epub">1347-5800</issn>
+      <publisher>
+        <publisher-name>Japan Society of Histochemistry and Cytochemistry</publisher-name>
+        <publisher-loc>Tokyo, Japan</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22096261</article-id>
+      <article-id pub-id-type="pmc">3210426</article-id>
+      <article-id pub-id-type="publisher-id">AHC11009</article-id>
+      <article-id pub-id-type="doi">10.1267/ahc.11009</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Regular Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Transplantation of Bone Marrow-Derived Mesenchymal Stem Cells into the Developing Mouse Eye</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lee</surname>
+            <given-names>Eun-Shil</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yu</surname>
+            <given-names>Song-Hee</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jang</surname>
+            <given-names>Yu-Jin</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hwang</surname>
+            <given-names>Dong-Youn</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Jeon</surname>
+            <given-names>Chang-Jin</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <xref ref-type="corresp" rid="cor1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1"><label>1</label>Department of Biology, College of Natural Sciences, and Brain Science and Engineering Institute, Kyungpook National University, Daegu 702&#x2013;701, South Korea</aff>
+      <aff id="aff2"><label>2</label>Department of Biomedical Science, College of Life Science, CHA University, Seoul 135&#x2013;81, South Korea</aff>
+      <author-notes>
+        <corresp id="cor1">Correspondence to: Prof. Chang-Jin Jeon, Neuroscience Lab., Department of Biology, College of Natural Sciences, Kyungpook National University, 1370 Sankyuk-dong, Daegu 702&#x2013;701, S. Korea. E-mail: <email>cjjeon@knu.ac.kr</email></corresp>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <day>26</day>
+        <month>10</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>6</day>
+        <month>10</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>44</volume>
+      <issue>5</issue>
+      <fpage>213</fpage>
+      <lpage>221</lpage>
+      <history>
+        <date date-type="received">
+          <day>11</day>
+          <month>2</month>
+          <year>2011</year>
+        </date>
+        <date date-type="accepted">
+          <day>6</day>
+          <month>7</month>
+          <year>2011</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2011 The Japan Society of Histochemistry andCytochemistry</copyright-statement>
+        <copyright-year>2011</copyright-year>
+        <license license-type="open-access">
+          <license-p>This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Mesenchymal stem cells (MSCs) have been studied widely for their potential to differentiate into various lineage cells including neural cells <italic>in vitro</italic> and <italic>in vivo</italic>. To investigate the influence of the developing host environment on the integration and morphological and molecular differentiation of MSCs, human bone marrow-derived mesenchymal stem cells (BM-MSCs) were transplanted into the developing mouse retina. Enhanced green fluorescent protein (GFP)-expressing BM-MSCs were transplanted by intraocular injections into mice, ranging in ages from 1 day postnatal (PN) to 10 days PN. The survival dates ranged from 7 days post-transplantation (DPT) to 28DPT, at which time an immunohistochemical analysis was performed on the eyes. The transplanted BM-MSCs survived and showed morphological differentiation into neural cells and some processes within the host retina. Some transplanted cells expressed microtubule associated protein 2 (MAP2ab, marker for mature neural cells) or glial fibrillary acid protein (GFAP, marker for glial cells) at 5PN 7DPT. In addition, some transplanted cells integrated into the developing retina. The morphological and molecular differentiation and integration within the 5PN 7DPT eye was greater than those of other-aged host eye. The present findings suggest that the age of the host environment can strongly influence the differentiation and integration of BM-MSCs.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>bone marrow-derived mesenchymal stem cells</kwd>
+        <kwd>retina</kwd>
+        <kwd>transplantation</kwd>
+        <kwd>differentiation</kwd>
+        <kwd>integration</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <label>I</label>
+      <title>Introduction</title>
+      <p>Bone marrow-derived mesenchymal stem cells (BM-MSCs) have the advantages of being easily accessible and readily available [<xref ref-type="bibr" rid="B17">17</xref>, <xref ref-type="bibr" rid="B44">44</xref>]. Unlike embryonic stem cells, BM-MSCs also have no controversies surrounding them such as ethical concerns, inflammatory response, and tumorigenesis [<xref ref-type="bibr" rid="B5">5</xref>, <xref ref-type="bibr" rid="B19">19</xref>, <xref ref-type="bibr" rid="B47">47</xref>, <xref ref-type="bibr" rid="B71">71</xref>]. Therefore, BM-MSCs have attracted considerable attention as tools for differentiation into several mesodermal lineages, including endothelial cells of the blood vessel, cardiac muscle, and skeletal muscle [<xref ref-type="bibr" rid="B21">21</xref>, <xref ref-type="bibr" rid="B41">41</xref>, <xref ref-type="bibr" rid="B53">53</xref>]. Many studies have shown that stem cells derived from a specific tissue could only differentiate into cells of the tissue of the origin, but recent studies indicated that stem cells derived from a specific tissue could also trans-differentiate into other lineages. Although neural potential in BM-MSCs was once a matter of controversy [<xref ref-type="bibr" rid="B11">11</xref>, <xref ref-type="bibr" rid="B56">56</xref>], it has been constantly reported that BM-MSCs show some neural and glial characteristics <italic>in vitro</italic> and <italic>in vivo</italic> [<xref ref-type="bibr" rid="B2">2</xref>, <xref ref-type="bibr" rid="B4">4</xref>, <xref ref-type="bibr" rid="B8">8</xref>, <xref ref-type="bibr" rid="B9">9</xref>, <xref ref-type="bibr" rid="B30">30</xref>, <xref ref-type="bibr" rid="B33">33</xref>, <xref ref-type="bibr" rid="B51">51</xref>, <xref ref-type="bibr" rid="B66">66</xref>]. BM-MSCs also have the capacity to synthesize neurotrophic factors, which have the potential to protect neural cells against degeneration or to replace deficient neurotransmitters [<xref ref-type="bibr" rid="B35">35</xref>, <xref ref-type="bibr" rid="B45">45</xref>, <xref ref-type="bibr" rid="B48">48</xref>, <xref ref-type="bibr" rid="B63">63</xref>].</p>
+      <p>The retina, which is one of the representative organs of the central nervous system (CNS), has a well-defined neuroanatomy with various cell types and a circuitry. In comparison with other CNS targets, the retina offers numerous benefits that make it significantly more favorable for transplantation of stem cells [<xref ref-type="bibr" rid="B26">26</xref>, <xref ref-type="bibr" rid="B46">46</xref>]. For this reason, numerous studies concerning the transplantation of stem cells or progenitor/precursor cells have been actively performed on the retina. For example, when brain-derived and retina-derived stem cells were transplanted into the adult retina, the cells were gradually integrated into the retinal layer [<xref ref-type="bibr" rid="B13">13</xref>, <xref ref-type="bibr" rid="B47">47</xref>, <xref ref-type="bibr" rid="B59">59</xref>, <xref ref-type="bibr" rid="B60">60</xref>, <xref ref-type="bibr" rid="B68">68</xref>]. Also, the transplanted embryonic stem cell-derived retinal cells and BM-MSCs that were incorporated into the retina were able to rescue it from retinal degeneration [<xref ref-type="bibr" rid="B2">2</xref>, <xref ref-type="bibr" rid="B29">29</xref>, <xref ref-type="bibr" rid="B36">36</xref>, <xref ref-type="bibr" rid="B37">37</xref>, <xref ref-type="bibr" rid="B58">58</xref>].</p>
+      <p>As the retinal micro-environment and the embryonic-like environment has to be favorable for the differentiation and integration of transplanted cells, the developmental stage in the host retina may be highly significant [<xref ref-type="bibr" rid="B37">37</xref>, <xref ref-type="bibr" rid="B49">49</xref>, <xref ref-type="bibr" rid="B59">59</xref>]. During the developmental stages, the various signaling and other factors involved in the determination of retinal cell fate and differentiation are actively expressed [<xref ref-type="bibr" rid="B1">1</xref>, <xref ref-type="bibr" rid="B20">20</xref>, <xref ref-type="bibr" rid="B60">60</xref>]. Many researchers hypothesize that a specific signaling factor at a particular developmental stage helps in the effective differentiation and integration of the transplanted stem cell into retina. Some groups, using Brazilian opossum pups as the retinal developing model, developed an approach to the embryonic-like environment to show the influence of transplanted cells in the developing host retinal micro-environment [<xref ref-type="bibr" rid="B49">49</xref>, <xref ref-type="bibr" rid="B59">59</xref>]. In the present study, the developing mouse was selected as the animal model because postnatal mouse eyes, which are incomplete, have yet to undergo neural and glial differentiation, as well as vascularization for functional vision [<xref ref-type="bibr" rid="B12">12</xref>, <xref ref-type="bibr" rid="B18">18</xref>]. However, there is no study until now on the influence of transplanted BM-MSCs on the developing mouse retinal micro-environment.</p>
+      <p>The goal of the present study was to investigate the BM-MSCs&#x2019; survival, integration, and differentiation after transplantation for the first time into the developing mouse retina. The study promotes the understanding of how the host micro-environment, which as adjusted differently following each developmental stage in the retina influences the differentiation of BM-MSCs. It also provides an infrastructure study for efficient stem cell transplantation therapy.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <label>II</label>
+      <title>Materials and Methods</title>
+      <sec>
+        <title>Experimental animals</title>
+        <p>The guidelines of the National Institute of Health regarding the Care and Use of Laboratory Animals were followed in all experimental procedures. The experimental animals used in this study were mice (<italic>C57BL/6J</italic>). The day of birth was designated as postnatal day 1 (1PN). Pups of ages 1PN (<italic>n</italic>=60), 5PN (<italic>n</italic>=60), and 10PN (<italic>n</italic>=60) were used in this study. Pups receiving transplantation were allowed to survive for 7, 14, and 28 days post transplantation (DPT).</p>
+      </sec>
+      <sec>
+        <title>Cell culture and labeling</title>
+        <p>For the experiment, human BM-MSCs (Cat# SV30110, Cellular Engineering Technologies (CET) Inc., Coralville, IA, USA) were used. The cells were cultured in a medium containing &#x3B1;-MEM (Invitrogen Corp., Carlsbad, CA, USA), 10% fetal bovine serum (FBS, Invitrogen), 2 mM L-Glutamine (Invitrogen), and 1% Antibiotic-Antimycotic (Invitrogen). We labeled the BM-MSCs with Lenti hCMV-GFP-IRES Puro (Macrogen Inc., Seoul, Korea) in order to chase the cell after transplantation. BM-MSCs were infected with a stock lentivirus concentration of 2&#xD7;10<sup>6</sup> infection units/&#xB5;l, corresponding to 90 multiplicities of infection (MOI) for a single cell.</p>
+      </sec>
+      <sec>
+        <title>Transplantation of BM-MSCs into the developing retina</title>
+        <p>Cultured BM-MSCs were collected as spheres within the culture medium and centrifuged at 400 <italic>g</italic> for 5 min, after which the pelleted BM-MSCs were resuspended in Earle&#x2019;s balanced salt solution (EBSS, Invitrogen). Animals were anesthetized with a mixture of ketamine hydrochloride (30&#x2013;40 mg/kg) and xylazine (3&#x2013;6 mg/kg). Pups of ages 1, 5, and 10PN received BM-MSCs. The cells were injected intraocularly through the dorsolateral aspect of the eye using a 30 gauge Hamilton syringe (Hamilton Co., Reno, NV, USA). One microliter of cell suspension (~50,000 cells/&#xB5;l) was slowly injected into the vitreous chamber of the pups. Pups receiving transplantation were allowed to survive for 7, 14, and 28DPT. The remaining cells after transplantation were plated onto a sterile culture dish and visualized with fluorescence microscopy to verify the viability and green fluorescent protein (GFP) expression of the transplanted cells (transfection efficiency &gt;80%, Fig.&#xA0;<xref ref-type="fig" rid="F1">1</xref>A, B). <italic>In vitro</italic>, the percentage of GFP-positive cells decreased gradually to 56% by 28 days after seeding (Fig.&#xA0;<xref ref-type="fig" rid="F1">1</xref>C). The decrease in the percentage of GFP-positive cells could be due to overproliferation of GFP-negative cells or GFP-positive cells that did not transfer the GFP-gene into the daughter cells after cell division.</p>
+      </sec>
+      <sec>
+        <title>Tissue preparation and immunohistochemistry</title>
+        <p>Tissue fixation, sectioning and immunohistochemistry were performed as described previously [<xref ref-type="bibr" rid="B59">59</xref>]. Briefly, heads (pups) and eyes (young mice) were removed and fixed with 4% paraformaldehyde in 0.1 M phosphate buffer and then cryoprotected in a series of 10, 20, and 30% sucrose in 0.1 M phosphate buffer. Tissue was embedded (Tissue-Tek; OCT compound; VWR International, West Chester, PA, USA), frozen, and sectioned coronally at 20 &#xB5;m thickness using a cryostat. Sections were thaw-mounted onto Superfrost microscope slides (Fisher Scientific, Pittsburgh, PA, USA) and stored at &#x2013;20&#xB0;C until processed. Primary antibodies and concentrations were mouse anti-MAP2ab antibody (mature neural cell marker, 1:300, Abcam Inc., Cambridge, MA, USA), mouse anti-GFAP antibody (glial cell marker, 1:300, Abcam), and chicken anti-GFP antibody (to increase fluorescence intensity of GFP, 1:200, Abcam) were used. For detection by immunofluorescence, the secondary antibodies used were Cy3 conjugated donkey anti-mouse (1:200, Jackson ImmunoResearch Labs, West Grove, PA, USA) and FITC conjugated goat anti-chicken (1:200, Jackson ImmunoResearch Labs). After immunohistochemistry was performed, the cell nuclei were stained with DAPI (1:500, Sigma, St. Louis, MO, USA). Labeled tissues were coverslipped with Vectashield mounting medium (Vector Labs, Burlingame, CA, USA). Negative controls were used in parallel during all immunohistologic processing by the omission of the primary or secondary antibodies. No antibody labeling was observed in the control experiment.</p>
+      </sec>
+      <sec>
+        <title>Data analysis</title>
+        <p>We compared the retinal tissues with transplanted BM-MSCs with control retinal tissues, and examined the normal development of the retina with transplanted BM-MSCs. Labeled tissues were examined and photographed on Zeiss Axioplan microscope (Carl Zeiss Meditec Inc., Jena, Germany) using high power differential interference contrast (DIC) optics. Images were viewed on a computer monitor using a Zeiss Plan-Apochromat 100&#xD7; objective and a Zeiss AxioCam HRc digital camera.</p>
+      </sec>
+    </sec>
+    <sec>
+      <label>III</label>
+      <title>Results</title>
+      <p>To investigate the ability of the BM-MSCs to survive, differentiate, and integrate into the mammalian CNS, we transplanted the cells into the developing mouse eye. BM-MSCs were transplanted via intraocular injection into host eyes of 1, 5, and 10PN. Hosts at these ages were selected based on previous studies that demonstrated significant survival and differentiation of mouse- and rat-derived neural progenitor cells (NPCs) transplanted into the eyes of young postnatal <italic>Monodelphis domestica</italic> [<xref ref-type="bibr" rid="B49">49</xref>, <xref ref-type="bibr" rid="B59">59</xref>]. The 1, 5, and 10PN mouse retinas developmentally corresponded to 12&#x2013;14, 20&#x2013;25, and 34&#x2013;35PN opossum retinas, respectively, based on cellular differentiation and lamination patterns [<xref ref-type="bibr" rid="B25">25</xref>].</p>
+      <sec>
+        <title>Cellular differentiation: Survival and morphological/molecular differentiation of the transplanted BM-MSCs in the developing mouse eye</title>
+        <p>Developing mouse retinas with transplanted BM-MSCs were reliably identified by the presence of GFP expression cells 1 week after xenotransplantation. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref> illustrates that the BM-MSCs were capable of surviving in the mouse eye. Indeed, the transplanted cells survived and were capable of morphological differentiation. In general, the transplanted BM-MSCs were observed throughout the posterior segment of the eye as aggregates and isolated cells at 1, 5, and 10PN. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>A&#x2013;C show the transplanted BM-MSCs at 1PN 7DPT. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>A shows that some aggregates of BM-MSCs labeled by GFP morphologically differentiated into the cell with very long processes. In Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>B&#x2013;C, the transplanted BM-MSCs display morphological differentiation with bidirectional processes.</p>
+        <p>Figure 2D&#x2013;G show the transplanted BM-MSCs at 5PN 7DPT. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>D shows that many aggregates of BM-MSCs in the vitreous body. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>E&#x2013;F show fusiform and round/oval cells with long processes with branches, respectively. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>G shows a multipolar stellate cell with processes oriented in multiple directions.</p>
+        <p>Figure 2H&#x2013;J show the transplanted BM-MSCs at 10PN 7DPT. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>H also shows many aggregates of BM-MSCs in the vitreous body. Figure&#xA0;<xref ref-type="fig" rid="F2">2</xref>I and <xref ref-type="fig" rid="F2">2</xref>J show morphological differentiation into cell with long processes from the soma.</p>
+        <p>Among the three groups, the transplanted cells in the 5PN 7DPT show far more morphological differentiation than other groups.</p>
+        <p>Antibodies directed against MAP2ab and GFAP were used to determine whether the transplanted BM-MSCs expressed differentiated markers within the environment of the eye. A subpopulation of GFP-expressing BM-MSCs was clearly found to co-express MAP2ab (Fig.&#xA0;<xref ref-type="fig" rid="F3">3</xref>A&#x2013;C) and GFAP (Fig.&#xA0;<xref ref-type="fig" rid="F3">3</xref>D&#x2013;I). However, GFP-expressing BM-MSCs cells which showed morphological differentiation did not co-express with MAP2ab and GFAP. In immunostaining patterns of MAP2ab, only the cell cytoplasm was clearly stained, while cell nucleus and dendrites were lightly stained [<xref ref-type="bibr" rid="B10">10</xref>, <xref ref-type="bibr" rid="B34">34</xref>, <xref ref-type="bibr" rid="B54">54</xref>, <xref ref-type="bibr" rid="B55">55</xref>].</p>
+        <p>Since the number of GFP-expressing BM-MSCs was decreased after 7DPT, only a few cells which showed very limited cellular differentiation were observed in the vitreous chamber and retina.</p>
+      </sec>
+      <sec>
+        <title>Integration of the transplanted BM-MSCs in the developing mouse eye</title>
+        <p>Figure 4 shows the integration of transplanted BM-MSCs into the developing mouse retina. Figure&#xA0;<xref ref-type="fig" rid="F4">4</xref>A&#x2013;E illustrate the transplanted BM-MSCs at 5PN 7DPT retina while Figure&#xA0;<xref ref-type="fig" rid="F4">4</xref>F&#x2013;G illustrate those at 10PN 7DPT. A modest level of integration of BM-MSCs into the host retinas was observed at 5PN 7DPT, while very low levels of integration were observed at other stages. In Figure&#xA0;<xref ref-type="fig" rid="F4">4</xref>A&#x2013;C, the transplanted cells were located in the ganglion cell layer (GCL). These cells had processes with various types of somas. In Figure&#xA0;<xref ref-type="fig" rid="F4">4</xref>D&#x2013;G, the integration and morphological differentiation were very limited in the GCL. In this study, the integrated cells were found only in the GCL and not others. In addition, no cells were fully integrated within the neural retina at 1PN 7DPT.</p>
+        <p>Figure 5 shows the most effective transplantation stage of transplanted BM-MSCs in the eye. The differentiation and integration of transplanted BM-MSCs occurred mainly at 5PN. Figure&#xA0;<xref ref-type="fig" rid="F5">5</xref>A shows an average of morphologically differentiated GFP-positive cells (6.1% (&#xB1;3) at 1PN 7DPT, 22.7% (&#xB1;7.2) at 5PN 7DPT, and 13.6% (&#xB1;4.3) at 10PN 7DPT). Figure&#xA0;<xref ref-type="fig" rid="F5">5</xref>B shows the average of molecularly differentiated GFP-positive cells. Especially, after 7 days under transplantation at 5PN, an average of 28.2% (&#xB1;4.8) of the cells were MAP2ab-positive, and 30.5% (&#xB1;5) were GFAP-positive in the GFP-labeled transplanted cells. There was no statistically significant difference between the two groups. This result contrasts sharply with that of other stages in the ability of BM-MSCs to differentiate and integrate into neural and glial cells. Figure&#xA0;<xref ref-type="fig" rid="F5">5</xref>C shows an average of integrated GFP-positive cells (0.8% (&#xB1;0.7) at 1PN 7DPT, 19.8% (&#xB1;4.8) at 5PN 7DPT, and 6.6% (&#xB1;3.3) at 10PN 7DPT). These results indicate that the host micro-environment, which is differently adjusted at various developmental stages, controls the differentiation and integration of BM-MSCs efficiently.</p>
+      </sec>
+    </sec>
+    <sec>
+      <label>IV</label>
+      <title>Discussion</title>
+      <p>Our findings demonstrated that intraocularly injected BM-MSCs were localized in the vitreous chamber and GCL in the retina. These cells were morphologically and molecularly differentiated into neural and glial cells in the developing mouse retina. Although most of the injected BM-MSCs were found in the vitreous chamber, some cells had passed through the inner limiting membrane and integrated into the GCL.</p>
+      <p>Several studies proved that BM-MSCs have the capacity to differentiate into neurons and glia [<xref ref-type="bibr" rid="B2">2</xref>, <xref ref-type="bibr" rid="B4">4</xref>, <xref ref-type="bibr" rid="B9">9</xref>, <xref ref-type="bibr" rid="B26">26</xref>, <xref ref-type="bibr" rid="B30">30</xref>, <xref ref-type="bibr" rid="B33">33</xref>, <xref ref-type="bibr" rid="B51">51</xref>, <xref ref-type="bibr" rid="B65">65</xref>], and they also have been shown to be able to respond to neural impulse by electrophysiological responses [<xref ref-type="bibr" rid="B64">64</xref>]. Furthermore, the competence of these cells as neurons has been proved through the secretion of neurotrophic growth factors [<xref ref-type="bibr" rid="B33">33</xref>, <xref ref-type="bibr" rid="B42">42</xref>, <xref ref-type="bibr" rid="B45">45</xref>, <xref ref-type="bibr" rid="B59">59</xref>]. For reasons of trans-differentiation, BM-MSCs have wide application in treating retinal disorders and for functional recovery of damaged retinal cells [<xref ref-type="bibr" rid="B2">2</xref>, <xref ref-type="bibr" rid="B58">58</xref>]. Nonetheless, the facts in our research that only a few transplanted cells were discovered in the GCL indicate that the capabilities of BM-MSCs are limited in terms of both migration and integration. It is generally assumed that BM-MSCs are incapable of penetrating the inner limiting membrane formed by M&#xFC;ller glia [<xref ref-type="bibr" rid="B28">28</xref>] and that their ability to trans-differentiate is more influenced by the host micro-environment under the damaged retina compared to normal retina [<xref ref-type="bibr" rid="B20">20</xref>, <xref ref-type="bibr" rid="B28">28</xref>, <xref ref-type="bibr" rid="B40">40</xref>, <xref ref-type="bibr" rid="B71">71</xref>].</p>
+      <p>In our study, many xenotransplanted BM-MSCs were discovered in the vitreous chamber. Also, the survival and differentiation of these cells into neural and glial cells in the developing retina appeared to be extensive. Previous studies have shown that TGF-&#x3B2;, FGF, and EGF, which act to promote survival and differentiation of retina, were observed in the vitreous fluid [<xref ref-type="bibr" rid="B3">3</xref>, <xref ref-type="bibr" rid="B7">7</xref>, <xref ref-type="bibr" rid="B43">43</xref>]. The proteomic analysis of MSC indicated that MSCs include growth factor receptors such as TGF-&#x3B2;, FGF, and EGF. These receptors have the ability to initiate the intracellular signaling cascade related to neural differentiation, such as Wnt, Notch/delta, and TGF-&#x3B2; [<xref ref-type="bibr" rid="B32">32</xref>, <xref ref-type="bibr" rid="B38">38</xref>, <xref ref-type="bibr" rid="B61">61</xref>, <xref ref-type="bibr" rid="B62">62</xref>]. Although the evidence is still lacking for the age-dependent expression profile of ocular growth factors or cytokines in the vitreous fluid, the VIGF, IGF-1, and GH related to neovascularization and development of the eye were decreased in rat vitreous fluid in proportion to advancing postnatal age [<xref ref-type="bibr" rid="B3">3</xref>, <xref ref-type="bibr" rid="B6">6</xref>, <xref ref-type="bibr" rid="B39">39</xref>]. As many ocular growth factors related to eye development exist in the vitreous chamber, it is not beyond the bounds of possibility that BM-MSCs are trans-differentiated into neural and glial cells in the vitreous chamber.</p>
+      <p>In comparison with BM-MSCs, the transplanted mBPCs (murine brain progenitor cells), mRPCs (murine retinal progenitor cells), and AHPC (adult rat hippocampal progenitor cells) by intraocular injection were better morphologically integrated into the several cell layers of the retina in the developing stage [<xref ref-type="bibr" rid="B42">42</xref>, <xref ref-type="bibr" rid="B49">49</xref>, <xref ref-type="bibr" rid="B50">50</xref>, <xref ref-type="bibr" rid="B52">52</xref>, <xref ref-type="bibr" rid="B59">59</xref>]. Notably, the transplanted mBPCs in the retina showed molecular differentiation into markers such as MAP2, calretinin, and recoverin that are used to identify neural cells. In addition, these transplanted cells were morphologically differentiated into ganglion, amacrine, bipolar, and horizontal cells. Although the transplanted BM-MSCs morphologically differentiated and expressed neural and glial cell markers, their integration was limited to the GCL and vitreous body; they did not integrate into the inner nuclear layer (INL) and outer nuclear layer (ONL). As BM-MSCs were narrowly capable of integrating into the retina, we suggest that BM-MSCs are more restrictive for various retinal diseases than other stem/progenitor cells.</p>
+      <p>It is interesting to note that the transplanted BM-MSCs at 5PN showed a better morphological and molecular differentiation and integration than those at 1 and 10PN. During the retinal development stage, diverse neurotrophins, molecules, and signal pathways are involved in the survival and differentiation of specific retinal cells. For example, BDNF and NT-3 were found to facilitate the differentiation and integration of cells in the developing chick retina [<xref ref-type="bibr" rid="B15">15</xref>, <xref ref-type="bibr" rid="B16">16</xref>]. In addition, CNTF regulates the genesis of M&#xFC;ller glia and the differentiation of photoreceptor in the postnatal mouse retina [<xref ref-type="bibr" rid="B22">22</xref>, <xref ref-type="bibr" rid="B24">24</xref>, <xref ref-type="bibr" rid="B31">31</xref>, <xref ref-type="bibr" rid="B67">67</xref>]. These retinal micro-environments in the developing stage encourage the transplanted cells to integrate and differentiate better in the host retina. In light of this advantage, many groups have made attempts to transplant stem/progenitor cells at the developmental stage [<xref ref-type="bibr" rid="B37">37</xref>, <xref ref-type="bibr" rid="B49">49</xref>, <xref ref-type="bibr" rid="B57">57</xref>, <xref ref-type="bibr" rid="B59">59</xref>]. Early postnatal development in the mouse during the first 3 weeks after birth is comparable with the retinal development in the third-trimester in humans [<xref ref-type="bibr" rid="B14">14</xref>]. Therefore, the mouse eye in early postnatal period undergoes great changes [<xref ref-type="bibr" rid="B69">69</xref>, <xref ref-type="bibr" rid="B70">70</xref>]. Six9, a homeobox gene related to differentiation and Math5, an essential gene for ganglion cell development and differentiation are highly expressed at 1 and 5PN, whereas their expressions are decreased at 10PN. The micro-environment of the 5PN mouse retina is at its peak of differentiation for the amacrine, bipolar, M&#xFC;ller glia cells, and rod photoreceptors compared to that of 1PN [<xref ref-type="bibr" rid="B12">12</xref>, <xref ref-type="bibr" rid="B18">18</xref>]. Among several genes involved in the differentiation into INL such as Mash1, Hes1, Hesr2, and Notch1, particularly Math3, which is related to the transcription factor for amacrine cell, is higher at 5PN than other-aged eyes [<xref ref-type="bibr" rid="B18">18</xref>, <xref ref-type="bibr" rid="B23">23</xref>, <xref ref-type="bibr" rid="B27">27</xref>]. Thus, it is assumed that these various factors involved in the differentiation of retina cells can influence the differentiation and integration of the transplanted BM-MSCs into the developing retina. Therefore, our research suggests that the host micro-environment at 5PN in the mouse eye should have better specific characters or strength of signal for the differentiation and integration of BM-MSCs than other stages in the present study.</p>
+      <p>Our results also obviously show not only that the BM-MSCs were capable of survival after xenotransplantation but also that the transplanted hosts had no evidence of immunosuppression. Given the results of the other xenotransplantation experiments, the outcome of our experiment may be attributable to the relative purity of the cultured BM-MSCs, which lack donor bone marrow antigen-presenting cells and passenger leukocyte induced transplant rejection [<xref ref-type="bibr" rid="B59">59</xref>].</p>
+      <p>In summary, we have shown that developing mouse eyes can incorporate BM-MSCs in the vitreous chamber and GCL. These cells can differentiate morphologically and molecularly to the recipient retinas. However, BM-MSCs have limited potential compared to other progenitor cells. We found that the best age for transplantation of BM-MSCs into the host eye in the mouse was 5PN. Regarding the effective migration, integration and differentiation into the host retina, the particular ontogenetic stage at which the stem/progenitor cells are, as well as the kind of cells and the micro-environment of the host retina, have a decisive effect on retinal cell replacement or repair by transplantation. Future studies are needed to elucidate the molecular mechanism at 5PN mouse retina for this effect.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>V.&#x2003;Acknowledgments</title>
+      <p>We thank Language Edit for proofreading the paper. This work was supported by the Korea Research Foundation Grant funded by the Korean Government, KRF-2007-313-E00326.</p>
+    </ack>
+    <ref-list>
+      <title>VI.&#x2003;References</title>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Amato</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Boy</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Perron</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Hedgehog signaling in vertebrate eye development: a growing puzzle</article-title>
+          <source>Cell. Mol. Life Sci.</source>
+          <volume>61</volume>
+          <fpage>899</fpage>
+          <lpage>910</lpage>
+          <pub-id pub-id-type="pmid">15095011</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arnhold</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Klein</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Klinz</surname>
+              <given-names>F. J.</given-names>
+            </name>
+            <name>
+              <surname>Absenger</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Schmidt</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Schink&#xF6;the</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Brixius</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kozlowski</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Desai</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Bloch</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Addicks</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Human bone marrow stroma cells display certain neural characteristics and integrate in the subventricular compartment after injection into the liquor system</article-title>
+          <source>Eur. J. Cell Biol.</source>
+          <volume>85</volume>
+          <fpage>551</fpage>
+          <lpage>565</lpage>
+          <pub-id pub-id-type="pmid">16647786</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Arnold</surname>
+              <given-names>D. R.</given-names>
+            </name>
+            <name>
+              <surname>Moshayedi</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Schoen</surname>
+              <given-names>T. J.</given-names>
+            </name>
+            <name>
+              <surname>Jones</surname>
+              <given-names>B. E.</given-names>
+            </name>
+            <name>
+              <surname>Chader</surname>
+              <given-names>G. J.</given-names>
+            </name>
+            <name>
+              <surname>Waldbillig</surname>
+              <given-names>R. J.</given-names>
+            </name>
+          </person-group>
+          <year>1993</year>
+          <article-title>Distribution of IGF-I and -II, IGF binding proteins (IGFBPs) and IGFBP mRNA in ocular fluids and tissues: potential sites of synthesis of IGFBPs in aqueous and vitreous</article-title>
+          <source>Exp. Eye Res.</source>
+          <volume>56</volume>
+          <fpage>555</fpage>
+          <lpage>565</lpage>
+          <pub-id pub-id-type="pmid">7684697</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Azizi</surname>
+              <given-names>S. A.</given-names>
+            </name>
+            <name>
+              <surname>Stokes</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Augelli</surname>
+              <given-names>B. J.</given-names>
+            </name>
+            <name>
+              <surname>DiGirolamo</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>D. J.</given-names>
+            </name>
+          </person-group>
+          <year>1998</year>
+          <article-title>Engraftment and migration of human bone marrow stromal cells implanted in the brains of albino rats-similarities to astrocyte grafts</article-title>
+          <source>Proc. Natl. Acad. Sci. U S A</source>
+          <volume>95</volume>
+          <fpage>3908</fpage>
+          <lpage>3913</lpage>
+          <pub-id pub-id-type="pmid">9520466</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baker</surname>
+              <given-names>D. E.</given-names>
+            </name>
+            <name>
+              <surname>Harrison</surname>
+              <given-names>N. J.</given-names>
+            </name>
+            <name>
+              <surname>Maltby</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Moore</surname>
+              <given-names>H. D.</given-names>
+            </name>
+            <name>
+              <surname>Shaw</surname>
+              <given-names>P. J.</given-names>
+            </name>
+            <name>
+              <surname>Heath</surname>
+              <given-names>P. R.</given-names>
+            </name>
+            <name>
+              <surname>Holden</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Andrews</surname>
+              <given-names>P. W.</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Adaptation to culture of human embryonic stem cells and oncogenesis in vivo</article-title>
+          <source>Nat. Biotechnol.</source>
+          <volume>25</volume>
+          <fpage>207</fpage>
+          <lpage>215</lpage>
+          <pub-id pub-id-type="pmid">17287758</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baudet</surname>
+              <given-names>M. L.</given-names>
+            </name>
+            <name>
+              <surname>Sanders</surname>
+              <given-names>E. J.</given-names>
+            </name>
+            <name>
+              <surname>Harvey</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Retinal growth hormone in the chick embryo</article-title>
+          <source>Endocrinology</source>
+          <volume>144</volume>
+          <fpage>5459</fpage>
+          <lpage>5468</lpage>
+          <pub-id pub-id-type="pmid">12960021</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baudouin</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Fredj-Reygrobellet</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Brignole</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>N&#xE8;gre</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Lapalus</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Gastaud</surname>
+              <given-names>P.</given-names>
+            </name>
+          </person-group>
+          <year>1993</year>
+          <article-title>Growth factors in vitreous and subretinal fluid cells from patients with proliferative vitreoretinopathy</article-title>
+          <source>Ophthalmic Res.</source>
+          <volume>25</volume>
+          <fpage>52</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="pmid">8446368</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Blondheim</surname>
+              <given-names>N. R.</given-names>
+            </name>
+            <name>
+              <surname>Levy</surname>
+              <given-names>Y. S.</given-names>
+            </name>
+            <name>
+              <surname>Ben-Zur</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Burshtein</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Cherlow</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Kan</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Barzilai</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Bahat-Stromza</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Barhum</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Bulvik</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Melamed</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Offen</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Human mesenchymal stem cells express neural genes, suggesting a neural predisposition</article-title>
+          <source>Stem Cells Dev.</source>
+          <volume>15</volume>
+          <fpage>141</fpage>
+          <lpage>164</lpage>
+          <pub-id pub-id-type="pmid">16646662</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brazelton</surname>
+              <given-names>T. R.</given-names>
+            </name>
+            <name>
+              <surname>Rossi</surname>
+              <given-names>F. M.</given-names>
+            </name>
+            <name>
+              <surname>Keshet</surname>
+              <given-names>G. I.</given-names>
+            </name>
+            <name>
+              <surname>Blau</surname>
+              <given-names>H. M.</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>From marrow to brain: expression of neuronal phenotypes in adult mice</article-title>
+          <source>Science</source>
+          <volume>290</volume>
+          <fpage>1775</fpage>
+          <lpage>1779</lpage>
+          <pub-id pub-id-type="pmid">11099418</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Canola</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Ang&#xE9;nieux</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Tekaya</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Quiambao</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Naash</surname>
+              <given-names>M. I.</given-names>
+            </name>
+            <name>
+              <surname>Munier</surname>
+              <given-names>F. L.</given-names>
+            </name>
+            <name>
+              <surname>Schorderet</surname>
+              <given-names>D. F.</given-names>
+            </name>
+            <name>
+              <surname>Arsenijevic</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Retinal stem cells transplanted into models of late stages of retinitis pigmentosa preferentially adopt a glial or a retinal ganglion cell fate</article-title>
+          <source>Invest. Ophthalmol. Vis. Sci.</source>
+          <volume>48</volume>
+          <fpage>446</fpage>
+          <lpage>454</lpage>
+          <pub-id pub-id-type="pmid">17197566</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Castro</surname>
+              <given-names>R. F.</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Goodell</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>C. S.</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Shine</surname>
+              <given-names>H. D.</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Failure of bone marrow cells to transdifferentiate into neural cells in vivo</article-title>
+          <source>Science</source>
+          <volume>297</volume>
+          <fpage>1299</fpage>
+          <pub-id pub-id-type="pmid">12193778</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cepko</surname>
+              <given-names>C. L.</given-names>
+            </name>
+            <name>
+              <surname>Austin</surname>
+              <given-names>C. P.</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Alexiades</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Ezzeddine</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <year>1996</year>
+          <article-title>Cell fate determination in the vertebrate retina</article-title>
+          <source>Proc. Natl. Acad. Sci. U S A</source>
+          <volume>93</volume>
+          <fpage>589</fpage>
+          <lpage>595</lpage>
+          <pub-id pub-id-type="pmid">8570600</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chacko</surname>
+              <given-names>D. M.</given-names>
+            </name>
+            <name>
+              <surname>Rogers</surname>
+              <given-names>J. A.</given-names>
+            </name>
+            <name>
+              <surname>Turner</surname>
+              <given-names>J. E.</given-names>
+            </name>
+            <name>
+              <surname>Ahmad</surname>
+              <given-names>I.</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Survival and differentiation of cultured retinal progenitors transplanted in the subretinal space of the rat</article-title>
+          <source>Biochem. Biophys. Res. Commun.</source>
+          <volume>268</volume>
+          <fpage>842</fpage>
+          <lpage>846</lpage>
+          <pub-id pub-id-type="pmid">10679293</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Connolly</surname>
+              <given-names>S. E.</given-names>
+            </name>
+            <name>
+              <surname>Hores</surname>
+              <given-names>T. A.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>L. E.</given-names>
+            </name>
+            <name>
+              <surname>D&#x2019;Amore</surname>
+              <given-names>P. A.</given-names>
+            </name>
+          </person-group>
+          <year>1988</year>
+          <article-title>Characterization of vascular development in the mouse retina</article-title>
+          <source>Microvasc. Res.</source>
+          <volume>36</volume>
+          <fpage>275</fpage>
+          <lpage>290</lpage>
+          <pub-id pub-id-type="pmid">2466191</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Das</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Hempstead</surname>
+              <given-names>B. L.</given-names>
+            </name>
+            <name>
+              <surname>MacLeish</surname>
+              <given-names>P. R.</given-names>
+            </name>
+            <name>
+              <surname>Sparrow</surname>
+              <given-names>J. R.</given-names>
+            </name>
+          </person-group>
+          <year>1997</year>
+          <article-title>Immunohistochemical analysis of the neurotrophins BDNF and NT-3 and their receptors trk B, trk C, and p75 in the developing chick retina</article-title>
+          <source>Vis. Neurosci.</source>
+          <volume>14</volume>
+          <fpage>835</fpage>
+          <lpage>842</lpage>
+          <pub-id pub-id-type="pmid">9364722</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de la Rosa</surname>
+              <given-names>E. J.</given-names>
+            </name>
+            <name>
+              <surname>Arribas</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Frade</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Rodr&#xED;guez-T&#xE9;bar</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <year>1994</year>
+          <article-title>Role of neurotrophins in the control of neural development: neurotrophin-3 promotes both neuron differentiation and survival of cultured chick retinal cells</article-title>
+          <source>Neuroscience</source>
+          <volume>58</volume>
+          <fpage>347</fpage>
+          <lpage>352</lpage>
+          <pub-id pub-id-type="pmid">8152543</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Devine</surname>
+              <given-names>S. M.</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Mesenchymal stem cells: will they have a role in the clinic?</article-title>
+          <source>J. Cell. Biochem. Suppl.</source>
+          <volume>38</volume>
+          <fpage>73</fpage>
+          <lpage>79</lpage>
+          <pub-id pub-id-type="pmid">12046853</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dorrell</surname>
+              <given-names>M. I.</given-names>
+            </name>
+            <name>
+              <surname>Aguilar</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Friedlander</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Global gene expression analysis of the developing postnatal mouse retina</article-title>
+          <source>Invest. Ophthalmol. Vis. Sci.</source>
+          <volume>45</volume>
+          <fpage>1009</fpage>
+          <lpage>1019</lpage>
+          <pub-id pub-id-type="pmid">14985324</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Erd&#xF6;</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>B&#xFC;hrle</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Blunk</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Hoehn</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Xia</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Fleischmann</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>F&#xF6;cking</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>K&#xFC;stermann</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kolossov</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Hescheler</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Hossmann</surname>
+              <given-names>K. A.</given-names>
+            </name>
+            <name>
+              <surname>Trapp</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Host-dependent tumorigenesis of embryonic stem cell transplantation in experimental stroke</article-title>
+          <source>J. Cereb. Blood Flow Metab.</source>
+          <volume>23</volume>
+          <fpage>780</fpage>
+          <lpage>785</lpage>
+          <pub-id pub-id-type="pmid">12843782</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Esteve</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Bovolenta</surname>
+              <given-names>P.</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Secreted inducers in vertebrate eye development: more functions for old morphogens</article-title>
+          <source>Curr. Opin. Neurobiol.</source>
+          <volume>16</volume>
+          <fpage>13</fpage>
+          <lpage>19</lpage>
+          <pub-id pub-id-type="pmid">16413771</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ferrari</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Cusella-De Angelis</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Coletta</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Paolucci</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Stornaiuolo</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Cossu</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Mavilio</surname>
+              <given-names>F.</given-names>
+            </name>
+          </person-group>
+          <year>1998</year>
+          <article-title>Muscle regeneration by bone marrow-derived myogenic progenitors</article-title>
+          <source>Science</source>
+          <volume>281</volume>
+          <fpage>923</fpage>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fuhrmann</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Kirsch</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Hofmann</surname>
+              <given-names>H. D.</given-names>
+            </name>
+          </person-group>
+          <year>1995</year>
+          <article-title>Ciliary neurotrophic factor promotes chick photoreceptor development in vitro</article-title>
+          <source>Development</source>
+          <volume>121</volume>
+          <fpage>2695</fpage>
+          <lpage>2706</lpage>
+          <pub-id pub-id-type="pmid">7671829</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Furukawa</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Mukherjee</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Bao</surname>
+              <given-names>Z. Z.</given-names>
+            </name>
+            <name>
+              <surname>Morrow</surname>
+              <given-names>E. M.</given-names>
+            </name>
+            <name>
+              <surname>Cepko</surname>
+              <given-names>C. L.</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>rax, Hes1, and notch1 promote the formation of M&#xFC;ller glia by postnatal retinal progenitor cells</article-title>
+          <source>Neuron</source>
+          <volume>26</volume>
+          <fpage>383</fpage>
+          <lpage>394</lpage>
+          <pub-id pub-id-type="pmid">10839357</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goureau</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Rhee</surname>
+              <given-names>K. D.</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>X. J.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Ciliary neurotrophic factor promotes muller glia differentiation from the postnatal retinal progenitor pool</article-title>
+          <source>Dev. Neurosci.</source>
+          <volume>26</volume>
+          <fpage>359</fpage>
+          <lpage>370</lpage>
+          <pub-id pub-id-type="pmid">15855765</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Greenlee</surname>
+              <given-names>M. H.</given-names>
+            </name>
+            <name>
+              <surname>Roosevelt</surname>
+              <given-names>C. B.</given-names>
+            </name>
+            <name>
+              <surname>Sakaguchi</surname>
+              <given-names>D. S.</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Differential localization of SNARE complex proteins SNAP-25, syntaxin, and VAMP during development of the mammalian retina</article-title>
+          <source>J. Comp. Neurol.</source>
+          <volume>12</volume>
+          <fpage>306</fpage>
+          <lpage>320</lpage>
+          <pub-id pub-id-type="pmid">11169469</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Harvey</surname>
+              <given-names>A. R.</given-names>
+            </name>
+            <name>
+              <surname>Hu</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Leaver</surname>
+              <given-names>S. G.</given-names>
+            </name>
+            <name>
+              <surname>Mellough</surname>
+              <given-names>C. B.</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Verhaagen</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Plant</surname>
+              <given-names>G. W.</given-names>
+            </name>
+            <name>
+              <surname>Cui</surname>
+              <given-names>Q.</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Gene therapy and transplantation in CNS repair: the visual system</article-title>
+          <source>Prog. Retin. Eye Res.</source>
+          <volume>25</volume>
+          <fpage>449</fpage>
+          <lpage>489</lpage>
+          <pub-id pub-id-type="pmid">16963308</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hatakeyama</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Kageyama</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Retinal cell fate determination and bHLH factors</article-title>
+          <source>Semin. Cell Dev. Biol.</source>
+          <volume>15</volume>
+          <fpage>83</fpage>
+          <lpage>89</lpage>
+          <pub-id pub-id-type="pmid">15036211</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hill</surname>
+              <given-names>A. J.</given-names>
+            </name>
+            <name>
+              <surname>Zwart</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Tam</surname>
+              <given-names>H. H.</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Navarrete</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Jen</surname>
+              <given-names>L. S.</given-names>
+            </name>
+            <name>
+              <surname>Navarrete</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Human umbilical cord blood-derived mesenchymal stem cells do not differentiate into neural cell types or integrate into the retina after intravitreal grafting in neonatal rats</article-title>
+          <source>Stem Cells Dev.</source>
+          <volume>18</volume>
+          <fpage>399</fpage>
+          <lpage>409</lpage>
+          <pub-id pub-id-type="pmid">18665766</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Inoue</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Iriyama</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Ueno</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kondo</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Tamaki</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Araie</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Yanagi</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Subretinal transplantation of bone marrow mesenchymal stem cells delays retinal degeneration in the RCS rat model of retinal degeneration</article-title>
+          <source>Exp. Eye Res.</source>
+          <volume>85</volume>
+          <fpage>234</fpage>
+          <lpage>241</lpage>
+          <pub-id pub-id-type="pmid">17570362</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kennea</surname>
+              <given-names>N. L.</given-names>
+            </name>
+            <name>
+              <surname>Waddington</surname>
+              <given-names>S. N.</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>O&#x2019;Donoghue</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Yeung</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>D. L.</given-names>
+            </name>
+            <name>
+              <surname>Al-Allaf</surname>
+              <given-names>F. A.</given-names>
+            </name>
+            <name>
+              <surname>Pirianov</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Themis</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Edwards</surname>
+              <given-names>A. D.</given-names>
+            </name>
+            <name>
+              <surname>Fisk</surname>
+              <given-names>N. M.</given-names>
+            </name>
+            <name>
+              <surname>Mehmet</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Differentiation of human fetal mesenchymal stem cells into cells with an oligodendrocyte phenotype</article-title>
+          <source>Cell Cycle</source>
+          <volume>8</volume>
+          <fpage>1069</fpage>
+          <lpage>1079</lpage>
+          <pub-id pub-id-type="pmid">19270512</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kirsch</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Fuhrmann</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Wiese</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Hofmann</surname>
+              <given-names>H. D.</given-names>
+            </name>
+          </person-group>
+          <year>1996</year>
+          <article-title>CNTF exerts opposite effects on in vitro development of rat and chick photoreceptors</article-title>
+          <source>Neuroreport</source>
+          <volume>7</volume>
+          <fpage>697</fpage>
+          <lpage>700</lpage>
+          <pub-id pub-id-type="pmid">8733724</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kondo</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Matsuoka</surname>
+              <given-names>A. J.</given-names>
+            </name>
+            <name>
+              <surname>Shimomura</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Koehler</surname>
+              <given-names>K. R.</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>R. J.</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Srour</surname>
+              <given-names>E. F.</given-names>
+            </name>
+            <name>
+              <surname>Hashino</surname>
+              <given-names>E.</given-names>
+            </name>
+          </person-group>
+          <year>2011</year>
+          <article-title>Wnt signaling promotes neuronal differentiation from mesenchymal stem cells through activation of Tlx3</article-title>
+          <source>Stem Cells</source>
+          <volume>29</volume>
+          <fpage>836</fpage>
+          <lpage>846</lpage>
+          <pub-id pub-id-type="pmid">21374761</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kopen</surname>
+              <given-names>G. C.</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>D. J.</given-names>
+            </name>
+            <name>
+              <surname>Phinney</surname>
+              <given-names>D. G.</given-names>
+            </name>
+          </person-group>
+          <year>1999</year>
+          <article-title>Marrow stromal cells migrate throughout forebrain and cerebellum, and they differentiate into astrocytes after injection into neonatal mouse brains</article-title>
+          <source>Proc. Natl. Acad. Sci. U S A</source>
+          <volume>96</volume>
+          <fpage>10711</fpage>
+          <lpage>10716</lpage>
+          <pub-id pub-id-type="pmid">10485891</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kurimoto</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Shibuki</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kaneko</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Ichikawa</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Kurokawa</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Yoshimura</surname>
+              <given-names>N.</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Transplantation of adult rat hippocampus-derived neural stem cells into retina injured by transient ischemia</article-title>
+          <source>Neurosci. Lett.</source>
+          <volume>306</volume>
+          <fpage>57</fpage>
+          <lpage>60</lpage>
+          <pub-id pub-id-type="pmid">11403957</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>X. G.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Gautam</surname>
+              <given-names>S. C.</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>Y. X.</given-names>
+            </name>
+            <name>
+              <surname>Katakowski</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L. J.</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Janakiraman</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Chopp</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Human marrow stromal cell therapy for stroke in rat: neurotrophins and functional recovery</article-title>
+          <source>Neurology</source>
+          <volume>59</volume>
+          <fpage>514</fpage>
+          <lpage>523</lpage>
+          <pub-id pub-id-type="pmid">12196642</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lund</surname>
+              <given-names>R. D.</given-names>
+            </name>
+            <name>
+              <surname>Ono</surname>
+              <given-names>S. J.</given-names>
+            </name>
+            <name>
+              <surname>Keegan</surname>
+              <given-names>D. J.</given-names>
+            </name>
+            <name>
+              <surname>Lawrence</surname>
+              <given-names>J. M.</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Retinal transplantation: progress and problems in clinical application</article-title>
+          <source>J. Leukoc. Biol.</source>
+          <volume>74</volume>
+          <fpage>151</fpage>
+          <lpage>160</lpage>
+          <pub-id pub-id-type="pmid">12885930</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>MacLaren</surname>
+              <given-names>R. E.</given-names>
+            </name>
+            <name>
+              <surname>Pearson</surname>
+              <given-names>R. A.</given-names>
+            </name>
+            <name>
+              <surname>MacNeil</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Douglas</surname>
+              <given-names>R. H.</given-names>
+            </name>
+            <name>
+              <surname>Salt</surname>
+              <given-names>T. E.</given-names>
+            </name>
+            <name>
+              <surname>Akimoto</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Swaroop</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Sowden</surname>
+              <given-names>J. C.</given-names>
+            </name>
+            <name>
+              <surname>Ali</surname>
+              <given-names>R. R.</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Retinal repair by transplantation of photoreceptor precursors</article-title>
+          <source>Nature</source>
+          <volume>444</volume>
+          <fpage>203</fpage>
+          <lpage>207</lpage>
+          <pub-id pub-id-type="pmid">17093405</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Maurer</surname>
+              <given-names>M. H.</given-names>
+            </name>
+          </person-group>
+          <year>2011</year>
+          <article-title>Proteomic definitions of mesenchymal stem cells</article-title>
+          <source>Stem Cells Int.</source>
+          <volume>3</volume>
+          <fpage>704256</fpage>
+          <pub-id pub-id-type="pmid">21437194</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Modanlou</surname>
+              <given-names>H. D.</given-names>
+            </name>
+            <name>
+              <surname>Gharraee</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Hasan</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Waltzman</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Nageotte</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Beharry</surname>
+              <given-names>K. D.</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Ontogeny of VEGF, IGF-I, and GH in neonatal rat serum, vitreous fluid, and retina from birth to weaning</article-title>
+          <source>Invest. Ophthalmol. Vis. Sci.</source>
+          <volume>47</volume>
+          <fpage>738</fpage>
+          <lpage>744</lpage>
+          <pub-id pub-id-type="pmid">16431975</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Na</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Cao</surname>
+              <given-names>K. Y.</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>G. Q.</given-names>
+            </name>
+            <name>
+              <surname>Xiang</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Hong</surname>
+              <given-names>L. Q.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>S. N.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Optimal in vitro culture conditions for murine predominant immature CD8a+ dendritic cells</article-title>
+          <source>Chin. Med. J (Engl).</source>
+          <volume>122</volume>
+          <fpage>344</fpage>
+          <lpage>348</lpage>
+          <pub-id pub-id-type="pmid">19236816</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Orlic</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Kajstura</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Chimenti</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Jakoniuk</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>S. M.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Pickel</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>McKay</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Nadal-Ginard</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Bodine</surname>
+              <given-names>D. M.</given-names>
+            </name>
+            <name>
+              <surname>Leri</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Anversa</surname>
+              <given-names>P.</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Bone marrow cells regenerate infarcted myocardium</article-title>
+          <source>Nature</source>
+          <volume>410</volume>
+          <fpage>701</fpage>
+          <lpage>705</lpage>
+          <pub-id pub-id-type="pmid">11287958</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Palmer</surname>
+              <given-names>T. D.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>F. H.</given-names>
+            </name>
+          </person-group>
+          <year>1997</year>
+          <article-title>The adult rat hippocampus contains primordial neural stem cells</article-title>
+          <source>Mol. Cell. Neurosci.</source>
+          <volume>8</volume>
+          <fpage>389</fpage>
+          <lpage>404</lpage>
+          <pub-id pub-id-type="pmid">9143557</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pfeffer</surname>
+              <given-names>B. A.</given-names>
+            </name>
+            <name>
+              <surname>Flanders</surname>
+              <given-names>K. C.</given-names>
+            </name>
+            <name>
+              <surname>Gu&#xE9;rin</surname>
+              <given-names>C. J.</given-names>
+            </name>
+            <name>
+              <surname>Danielpour</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>D. H.</given-names>
+            </name>
+          </person-group>
+          <year>1994</year>
+          <article-title>Transforming growth factor beta 2 is the predominant isoform in the neural retina, retinal pigment epithelium-choroid and vitreous of the monkey eye</article-title>
+          <source>Exp. Eye Res.</source>
+          <volume>59</volume>
+          <fpage>323</fpage>
+          <lpage>333</lpage>
+          <pub-id pub-id-type="pmid">7821377</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Phinney</surname>
+              <given-names>D. G.</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>D. J.</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Concise review: mesenchymal stem/multipotent stromal cells: the state of transdifferentiation and modes of tissue repair-current views</article-title>
+          <source>Stem Cells</source>
+          <volume>25</volume>
+          <fpage>2896</fpage>
+          <lpage>2902</lpage>
+          <pub-id pub-id-type="pmid">17901396</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pisati</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Bossolasco</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Meregalli</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Cova</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Belicchi</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Gavina</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Marchesi</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Calzarossa</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Soligo</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Lambertenghi-Deliliers</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Bresolin</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Silani</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Torrente</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Polli</surname>
+              <given-names>E.</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Induction of neurotrophin expression via human adult mesenchymal stem cells: implication for cell therapy in neurodegenerative diseases</article-title>
+          <source>Cell Transplant.</source>
+          <volume>16</volume>
+          <fpage>41</fpage>
+          <lpage>55</lpage>
+          <pub-id pub-id-type="pmid">17436854</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B46">
+        <label>46</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodieck</surname>
+              <given-names>R. W.</given-names>
+            </name>
+          </person-group>
+          <year>1998</year>
+          <article-title>The First Steps in Seeing</article-title>
+          <publisher-name>Sinauer Associates, Inc.</publisher-name>
+          <publisher-loc>Sunderland</publisher-loc>
+        </element-citation>
+      </ref>
+      <ref id="B47">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roy</surname>
+              <given-names>N. S.</given-names>
+            </name>
+            <name>
+              <surname>Cleren</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Singh</surname>
+              <given-names>S. K.</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Beal</surname>
+              <given-names>M. F.</given-names>
+            </name>
+            <name>
+              <surname>Goldman</surname>
+              <given-names>S. A.</given-names>
+            </name>
+          </person-group>
+          <year>2006</year>
+          <article-title>Functional engraftment of human ES cell-derived dopaminergic neurons enriched by coculture with telomerase-immortalized midbrain astrocytes</article-title>
+          <source>Nat. Med.</source>
+          <volume>12</volume>
+          <fpage>1259</fpage>
+          <lpage>1268</lpage>
+          <pub-id pub-id-type="pmid">17057709</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B48">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sadan</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Melamed</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Offen</surname>
+              <given-names>D.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Bone-marrow-derived mesenchymal stem cell therapy for neurodegenerative diseases</article-title>
+          <source>Expert. Opin. Biol. Ther.</source>
+          <volume>9</volume>
+          <fpage>1487</fpage>
+          <lpage>1497</lpage>
+          <pub-id pub-id-type="pmid">19821796</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B49">
+        <label>49</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sakaguchi</surname>
+              <given-names>D. S.</given-names>
+            </name>
+            <name>
+              <surname>Van Hoffelen</surname>
+              <given-names>S. J.</given-names>
+            </name>
+            <name>
+              <surname>Theusch</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Parker</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Orasky</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Harper</surname>
+              <given-names>M. M.</given-names>
+            </name>
+            <name>
+              <surname>Benediktsson</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>M. J.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Transplantation of neural progenitor cells into the developing retina of the Brazilian opossum: an in vivo system for studying stem/progenitor cell plasticity</article-title>
+          <source>Dev. Neurosci.</source>
+          <volume>26</volume>
+          <fpage>336</fpage>
+          <lpage>345</lpage>
+          <pub-id pub-id-type="pmid">15855762</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B50">
+        <label>50</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sakaguchi</surname>
+              <given-names>D. S.</given-names>
+            </name>
+            <name>
+              <surname>Van Hoffelen</surname>
+              <given-names>S. J.</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>M. J.</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Differentiation and morphological integration of neural progenitor cells transplanted into the developing mammalian eye</article-title>
+          <source>Ann. N. Y. Acad. Sci.</source>
+          <volume>995</volume>
+          <fpage>127</fpage>
+          <lpage>139</lpage>
+          <pub-id pub-id-type="pmid">12814945</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B51">
+        <label>51</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schipani</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kronenberg</surname>
+              <given-names>H. M.</given-names>
+            </name>
+          </person-group>
+          <year>2008</year>
+          <article-title>Adult Mesenchymal Stem Cells</article-title>
+          <publisher-name>StemBook</publisher-name>
+          <publisher-loc>Cambridge</publisher-loc>
+        </element-citation>
+      </ref>
+      <ref id="B52">
+        <label>52</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shatos</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Mizumoto</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Mizumoto</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Kurimoto</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>M. J.</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Multipotent Stem Cells from the Brain and Retina of Green Mice</article-title>
+          <source>J. Regen. Med.</source>
+          <volume>2</volume>
+          <fpage>13</fpage>
+          <lpage>15</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B53">
+        <label>53</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shi</surname>
+              <given-names>Q.</given-names>
+            </name>
+            <name>
+              <surname>Rafii</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>M. H.</given-names>
+            </name>
+            <name>
+              <surname>Wijelath</surname>
+              <given-names>E. S.</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Ishida</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Fujita</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Kothari</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Mohle</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Sauvage</surname>
+              <given-names>L. R.</given-names>
+            </name>
+            <name>
+              <surname>Moore</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Storb</surname>
+              <given-names>R. F.</given-names>
+            </name>
+            <name>
+              <surname>Hammond</surname>
+              <given-names>W. P.</given-names>
+            </name>
+          </person-group>
+          <year>1998</year>
+          <article-title>Evidence for circulating bone marrow-derived endothelial cells</article-title>
+          <source>Blood</source>
+          <volume>92</volume>
+          <fpage>362</fpage>
+          <lpage>367</lpage>
+          <pub-id pub-id-type="pmid">9657732</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B54">
+        <label>54</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smith</surname>
+              <given-names>J. D.</given-names>
+            </name>
+            <name>
+              <surname>Greenlee</surname>
+              <given-names>J. J.</given-names>
+            </name>
+            <name>
+              <surname>Hamir</surname>
+              <given-names>A. N.</given-names>
+            </name>
+            <name>
+              <surname>West Greenlee</surname>
+              <given-names>M. H.</given-names>
+            </name>
+          </person-group>
+          <year>2008</year>
+          <article-title>Retinal cell types are differentially affected in sheep with scrapie</article-title>
+          <source>J. Comp. Pathol.</source>
+          <volume>138</volume>
+          <fpage>12</fpage>
+          <lpage>22</lpage>
+          <pub-id pub-id-type="pmid">18061608</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B55">
+        <label>55</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Ooto</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Akagi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Amemiya</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Igarashi</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Mizushima</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Effects of prolonged delivery of brain-derived neurotrophic factor on the fate of neural stem cells transplanted into the developing rat retina</article-title>
+          <source>Biochem. Biophys. Res. Commun.</source>
+          <volume>309</volume>
+          <fpage>843</fpage>
+          <lpage>847</lpage>
+          <pub-id pub-id-type="pmid">13679050</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B56">
+        <label>56</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tai</surname>
+              <given-names>Y. T.</given-names>
+            </name>
+            <name>
+              <surname>Svendsen</surname>
+              <given-names>C. N.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Stem cells as a potential treatment of neurological disorders</article-title>
+          <source>Curr. Opin. Pharmacol.</source>
+          <volume>4</volume>
+          <fpage>98</fpage>
+          <lpage>104</lpage>
+          <pub-id pub-id-type="pmid">15018846</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B57">
+        <label>57</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Palmer</surname>
+              <given-names>T. D.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>F. H.</given-names>
+            </name>
+          </person-group>
+          <year>1998</year>
+          <article-title>Widespread integration and survival of adult-derived neural progenitor cells in the developing optic retina</article-title>
+          <source>Mol. Cell. Neurosci.</source>
+          <volume>12</volume>
+          <fpage>340</fpage>
+          <lpage>348</lpage>
+          <pub-id pub-id-type="pmid">9888988</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B58">
+        <label>58</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tomita</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Adachi</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Yamada</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kiuchi</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Oyaizu</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Ikebukuro</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Kaneda</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Matsumura</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Ikehara</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>Bone marrow-derived stem cells can differentiate into retinal cells in injured rat retina</article-title>
+          <source>Stem Cells</source>
+          <volume>20</volume>
+          <fpage>279</fpage>
+          <lpage>283</lpage>
+          <pub-id pub-id-type="pmid">12110696</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B59">
+        <label>59</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Van Hoffelen</surname>
+              <given-names>S. J.</given-names>
+            </name>
+            <name>
+              <surname>Young</surname>
+              <given-names>M. J.</given-names>
+            </name>
+            <name>
+              <surname>Shatos</surname>
+              <given-names>M. A.</given-names>
+            </name>
+            <name>
+              <surname>Sakaguchi</surname>
+              <given-names>D. S.</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>Incorporation of murine brain progenitor cells into the developing mammalian retina</article-title>
+          <source>Invest. Ophthalmol. Vis. Sci.</source>
+          <volume>44</volume>
+          <fpage>426</fpage>
+          <lpage>434</lpage>
+          <pub-id pub-id-type="pmid">12506105</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B60">
+        <label>60</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Van Raay</surname>
+              <given-names>T. J.</given-names>
+            </name>
+            <name>
+              <surname>Vetter</surname>
+              <given-names>M. L.</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Wnt/frizzled signaling during vertebrate retinal development</article-title>
+          <source>Dev. Neurosci.</source>
+          <volume>26</volume>
+          <fpage>352</fpage>
+          <lpage>358</lpage>
+          <pub-id pub-id-type="pmid">15855764</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B61">
+        <label>61</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Tu</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Lou</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Xie</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Lai</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Guo</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Deng</surname>
+              <given-names>Z.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Mesenchymal stem cells regulate the proliferation and differentiation of neural stem cells through Notch signaling</article-title>
+          <source>Cell Biol. Int.</source>
+          <volume>33</volume>
+          <fpage>1173</fpage>
+          <lpage>1179</lpage>
+          <pub-id pub-id-type="pmid">19706332</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B62">
+        <label>62</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Watabe</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Miyazono</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Roles of TGF-beta family signaling in stem cell renewal and differentiation</article-title>
+          <source>Cell Res.</source>
+          <volume>19</volume>
+          <fpage>103</fpage>
+          <lpage>115</lpage>
+          <pub-id pub-id-type="pmid">19114993</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B63">
+        <label>63</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wilkins</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Kemp</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Ginty</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Hares</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Mallam</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Scolding</surname>
+              <given-names>N.</given-names>
+            </name>
+          </person-group>
+          <year>2009</year>
+          <article-title>Human bone marrow-derived mesenchymal stem cells secrete brain-derived neurotrophic factor which promotes neuronal survival in vitro</article-title>
+          <source>Stem Cell Res.</source>
+          <volume>3</volume>
+          <fpage>63</fpage>
+          <lpage>70</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B64">
+        <label>64</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wislet-Gendebien</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Hans</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Leprince</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Rigo</surname>
+              <given-names>J. M.</given-names>
+            </name>
+            <name>
+              <surname>Moonen</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Rogister</surname>
+              <given-names>B.</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>Plasticity of cultured mesenchymal stem cells: switch from nestin-positive to excitable neuron-like phenotype</article-title>
+          <source>Stem Cells</source>
+          <volume>23</volume>
+          <fpage>392</fpage>
+          <lpage>402</lpage>
+          <pub-id pub-id-type="pmid">15749934</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B65">
+        <label>65</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wislet-Gendebien</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Wautier</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Leprince</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Rogister</surname>
+              <given-names>B.</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>Astrocytic and neuronal fate of mesenchymal stem cells expressing nestin</article-title>
+          <source>Brain Res. Bull.</source>
+          <volume>68</volume>
+          <fpage>95</fpage>
+          <lpage>102</lpage>
+          <pub-id pub-id-type="pmid">16325009</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B66">
+        <label>66</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Woodbury</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Schwarz</surname>
+              <given-names>E. J.</given-names>
+            </name>
+            <name>
+              <surname>Prockop</surname>
+              <given-names>D. J.</given-names>
+            </name>
+            <name>
+              <surname>Black</surname>
+              <given-names>I. B.</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Adult rat and human bone marrow stromal cells differentiate into neurons</article-title>
+          <source>J. Neurosci. Res.</source>
+          <volume>61</volume>
+          <fpage>364</fpage>
+          <lpage>370</lpage>
+          <pub-id pub-id-type="pmid">10931522</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B67">
+        <label>67</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xie</surname>
+              <given-names>H. Q.</given-names>
+            </name>
+            <name>
+              <surname>Adler</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Green cone opsin and rhodopsin regulation by CNTF and staurosporine in cultured chick photoreceptors</article-title>
+          <source>Invest. Ophthalmol. Vis. Sci.</source>
+          <volume>41</volume>
+          <fpage>4317</fpage>
+          <lpage>4323</lpage>
+          <pub-id pub-id-type="pmid">11095633</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B68">
+        <label>68</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Young</surname>
+              <given-names>M. J.</given-names>
+            </name>
+            <name>
+              <surname>Ray</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Whiteley</surname>
+              <given-names>S. J.</given-names>
+            </name>
+            <name>
+              <surname>Klassen</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Gage</surname>
+              <given-names>F. H.</given-names>
+            </name>
+          </person-group>
+          <year>2000</year>
+          <article-title>Neuronal differentiation and morphological integration of hippocampal progenitor cells transplanted to the retina of immature and mature dystrophic rats</article-title>
+          <source>Mol. Cell. Neurosci.</source>
+          <volume>16</volume>
+          <fpage>197</fpage>
+          <lpage>205</lpage>
+          <pub-id pub-id-type="pmid">10995547</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B69">
+        <label>69</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Young</surname>
+              <given-names>R. W.</given-names>
+            </name>
+          </person-group>
+          <year>1985</year>
+          <article-title>Cell differentiation in the retina of the mouse</article-title>
+          <source>Anat. Rec.</source>
+          <volume>212</volume>
+          <fpage>199</fpage>
+          <lpage>205</lpage>
+          <pub-id pub-id-type="pmid">3842042</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B70">
+        <label>70</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Young</surname>
+              <given-names>R. W.</given-names>
+            </name>
+          </person-group>
+          <year>1985</year>
+          <article-title>Cell proliferation during postnatal development of the retina in the mouse</article-title>
+          <source>Brain Res.</source>
+          <volume>353</volume>
+          <fpage>229</fpage>
+          <lpage>239</lpage>
+          <pub-id pub-id-type="pmid">4041905</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B71">
+        <label>71</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>W.</given-names>
+            </name>
+          </person-group>
+          <year>2010</year>
+          <article-title>Effects of bone marrow mesenchymal stem cells transplantation on light-damaged retina</article-title>
+          <source>Invest. Ophthalmol. Vis. Sci.</source>
+          <volume>51</volume>
+          <fpage>3742</fpage>
+          <lpage>3748</lpage>
+          <pub-id pub-id-type="pmid">20207980</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" position="float">
+      <label>Fig.&#xA0;1</label>
+      <caption>
+        <p>The transduction efficiency of lentiviral vector in the bone marrow-derived mesenchymal stem cells. (<bold>A</bold>) Merged image of the GFP-positive cells and DAPI staining of the bone marrow-derived mesenchymal stem cells. (<bold>B</bold>) Superimposition of images of (<bold>A</bold>) and differential interference contrast optic image. Arrowheads indicate cells that are GFP-negative. (<bold>C</bold>) The graph shows the percentage of the total number of GFP-positive human bone marrow-derived mesenchymal stem cells during the culture. The percentage of GFP-positive cells gradually decreased between days 7 and 28. There was statistically significant difference among the three group means as determined by one-way ANOVA test (P&lt;0.05). Results are mean&#xB1;SEM. Bar=100 &#xB5;m.</p>
+      </caption>
+      <graphic xlink:href="AHC11009f01"/>
+    </fig>
+    <fig id="F2" position="float">
+      <label>Fig.&#xA0;2</label>
+      <caption>
+        <p>Morphological differentiation of the transplanted bone marrow-derived mesenchymal stem cells. (<bold>A</bold>) The transplanted cells morphologically differentiated into the cell with long processes in the vitreous body. (<bold>B, C</bold>) The transplanted cells illustrate the morphological differentiation into the cells with the bidirectional dendrites in the vitreous body. (<bold>D, H</bold>) Many transplanted cells illustrate the morphological differentiation into the cell with quite a number of processes in the vitreous body. (<bold>E, F</bold>) The transplanted cells illustrate the morphological differentiation into the cells with branched processes in the vitreous body. (<bold>G</bold>) The transplanted cell morphologically differentiated into the multipolar cell in the vitreous body. (<bold>I</bold>) The transplanted cell illustrates the morphological differentiation into the cells with long dendrite-like neural shape in the vitreous body. (<bold>J</bold>) The transplanted cell morphologically differentiated into the cell with long branched process from the soma. (<bold>A&#x2013;C</bold>) 1PN 7DPT, (<bold>D&#x2013;G</bold>) 5PN 7DPT, (<bold>H&#x2013;J</bold>) 10PN 7DPT. Bars=50 &#xB5;m (<bold>A, D, H</bold>), 20 &#xB5;m (<bold>B, C, E&#x2013;G, I, J</bold>).</p>
+      </caption>
+      <graphic xlink:href="AHC11009f02"/>
+    </fig>
+    <fig id="F3" position="float">
+      <label>Fig.&#xA0;3</label>
+      <caption>
+        <p>Molecular differentiation of transplanted bone marrow-derived mesenchymal stem cells. Bone marrow-derived mesenchymal stem cells grafted at 5PN 7DPT: constitutive GFP expression (<bold>A, D, G</bold>), primary antibodies/Cy3 immunoreactivity (MAP2ab (<bold>B</bold>), and GFAP (<bold>E, H</bold>)) and merged images (<bold>C, F, I</bold>). Arrowheads indicate GFP-positive cells that co-express MAP2ab or GFAP. Asterisks indicate morphologically differentiated cells that are not immunoreactive for antibody against MAP2ab or GFAP. Bar=20 &#xB5;m.</p>
+      </caption>
+      <graphic xlink:href="AHC11009f03"/>
+    </fig>
+    <fig id="F4" position="float">
+      <label>Fig.&#xA0;4</label>
+      <caption>
+        <p>Integration of transplanted bone marrow-derived mesenchymal stem cells. (<bold>A</bold>) GFP-expressing cells integrated throughout the 5PN 7DPT host retina. (<bold>B, C</bold>) Higher magnification view of the boxed area in (<bold>A</bold>). Merged image of differential interference contrast micrograph, DAPI, and GFP staining pictures of the bone marrow-derived mesenchymal stem cells in ganglion cell layer. Asterisks indicate GFP-positive cell bodies. (<bold>D, E</bold>) The transplanted cells integrated into the ganglion cell layer at 5PN 7DPT retina. (<bold>F, G</bold>) The transplanted cell integrated into the ganglion cell layer at 10PN 7DPT retina. Bar=20 &#xB5;m.</p>
+      </caption>
+      <graphic xlink:href="AHC11009f04"/>
+    </fig>
+    <fig id="F5" position="float">
+      <label>Fig.&#xA0;5</label>
+      <caption>
+        <p>Bar graphs showing the percentage of differentiated and integrated GFP-positive human bone marrow-derived mesenchymal stem cells. GFP-positive human bone marrow-derived mesenchymal stem cells intraocularly injected in the 1PN/5PN/10PN mouse retinas. One week after transplantation, transplanted cells showed morphological and phenotypic differentiation and integration into retina. (<bold>A</bold>) Quantification of morphologically differentiated GFP-positive human bone marrow derived-mesenchymal stem cells in vitreous and retina. There was statistically significant difference among the three group means as determined by one-way ANOVA test (P&lt;0.05). (<bold>B</bold>) Quantification of GFP-positive human bone marrow derived-mesenchymal stem cells co-expressing MAP2ab or GFAP in vitreous and retina one week after intraocular transplantation. The asterisks indicate no statistically significant difference between GFP-positive cells co-expressing MAP2ab and GFP-positive cells co-expressing GFAP at the same postnatal age. (<bold>C</bold>) Quantification of integrated GFP-positive human bone marrow derived-mesenchymal stem cells into retina. There was statistically significant difference among the three groups as determined by one-way ANOVA test (P&lt;0.05). Results are mean&#xB1;SEM. Percentage of differentiated or integrated cells calculated as the number of differentiated or integrated cells that expressed GFP, divided by total number of surviving GFP-positive transplanted cells &#xD7;100.</p>
+      </caption>
+      <graphic xlink:href="AHC11009f05"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>

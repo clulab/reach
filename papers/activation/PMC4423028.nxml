@@ -1,0 +1,1379 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Dis Markers</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Dis. Markers</journal-id>
+      <journal-id journal-id-type="publisher-id">DM</journal-id>
+      <journal-title-group>
+        <journal-title>Disease Markers</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0278-0240</issn>
+      <issn pub-type="epub">1875-8630</issn>
+      <publisher>
+        <publisher-name>Hindawi Publishing Corporation</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25983373</article-id>
+      <article-id pub-id-type="pmc">4423028</article-id>
+      <article-id pub-id-type="doi">10.1155/2015/519851</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Predictive Performance of a Seven-Plex Antibody Array in Prenatal Screening for Down Syndrome</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pennings</surname>
+            <given-names>Jeroen L. A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Imholz</surname>
+            <given-names>Sandra</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zutt</surname>
+            <given-names>Ilse</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Koster</surname>
+            <given-names>Maria P. H.</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="I3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Siljee</surname>
+            <given-names>Jacqueline E.</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>de Vries</surname>
+            <given-names>Annemieke</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Schielen</surname>
+            <given-names>Peter C. J. I.</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rodenburg</surname>
+            <given-names>Wendy</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><sup>1</sup>Centre for Health Protection (GZB), National Institute for Public Health and the Environment (RIVM), P.O. Box 1, 3720 BA Bilthoven, Netherlands</aff>
+      <aff id="I2"><sup>2</sup>Centre for Infectious Diseases Research, Diagnostics and Screening (IDS), National Institute for Public Health and the Environment (RIVM), P.O. Box 1, 3720 BA Bilthoven, Netherlands</aff>
+      <aff id="I3"><sup>3</sup>Department of Obstetrics, Wilhelmina Children's Hospital, University Medical Centre Utrecht (UMCU), P.O. Box 85090, 3508 AB Utrecht, Netherlands</aff>
+      <author-notes>
+        <corresp id="cor1">*Jeroen L. A. Pennings: <email>jeroen.pennings@rivm.nl</email></corresp>
+        <fn fn-type="other">
+          <p>Academic Editor: Donald H. Chace</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year>2015</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>23</day>
+        <month>4</month>
+        <year>2015</year>
+      </pub-date>
+      <volume>2015</volume>
+      <elocation-id>519851</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>2</month>
+          <year>2015</year>
+        </date>
+        <date date-type="accepted">
+          <day>17</day>
+          <month>4</month>
+          <year>2015</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2015 Jeroen L. A. Pennings et al.</copyright-statement>
+        <copyright-year>2015</copyright-year>
+        <license xlink:href="https://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>We evaluated the use of multiplex antibody array methodology for simultaneous measurement of serum protein markers for first trimester screening of Down Syndrome (DS) and other pregnancy outcomes such as preeclampsia. For this purpose, we constructed an antibody array for indirect (&#x201C;sandwich&#x201D;) measurement of seven serum proteins: pregnancy-associated plasma protein-A (PAPP-A), free beta subunit of human chorionic gonadotropin (f<italic>&#x3B2;</italic>-hCG), alpha-fetoprotein (AFP), angiopoietin-like 3 (ANGPTL3), epidermal growth factor (EGF), insulin-like growth factor 2 (IGFII), and superoxide dismutase 1 (SOD1). This array was tested using 170 DS cases and 510 matched controls drawn during the 8th&#x2013;13th weeks of pregnancy. Data were used for prediction modelling and compared to previously obtained AutoDELFIA immunoassay data for PAPP-A and f<italic>&#x3B2;</italic>-hCG. PAPP-A and f<italic>&#x3B2;</italic>-hCG serum concentrations obtained using antibody arrays were highly correlated with AutoDELFIA data. Moreover, DS prediction modeling using (log-MoMmed) antibody array and AutoDELFIA data gave comparable results. Of the other markers, AFP and IGFII showed significant changes in concentration, although adding these markers to a prediction model based on prior risk, PAPP-A and f<italic>&#x3B2;</italic>-hCG did not improve the predictive performance. We conclude that implementation of antibody arrays in a prenatal screening setting is feasible but will require additional first trimester screening markers.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>1. Introduction</title>
+      <p>Since the introduction of prenatal screening for Down Syndrome (DS), much international research effort has been put in improving the predictive performance of prenatal screening for DS and other aneuploidies, by identifying novel serum protein biomarkers and, since more recently, the use of plasma cell-free DNA (cfDNA). Additionally, several studies have looked into serum proteins as potential biomarkers for other pregnancy outcomes, especially for preeclampsia (PE) and intrauterine growth restriction (IUGR). The underlying goal of many of these studies was to combine multiple biomarkers into a prenatal screening for DS and/or other pregnancy outcomes.</p>
+      <p>Whereas current serum screening methods require additional sample volume for each additional marker, other immunoassay methods have emerged that allow measuring multiple biomarkers in a constant and relatively small volume of sample material. More specifically, an antibody array (Ab-array) provides a high-throughput platform for protein expression profiling, allowing simultaneous measurement of several dozens of markers, while only requiring fingerprick amounts of blood [<xref rid="B1" ref-type="bibr">1</xref>]. Ab-arrays have therefore considerable potential to help increase the performance in first trimester screening for DS, as well as other pregnancy outcomes.</p>
+      <p>In previous studies, we identified candidate DS screening serum markers by human serum analysis using multiplexed immunoassays [<xref rid="B2" ref-type="bibr">2</xref>] and data mining using literature resources [<xref rid="B3" ref-type="bibr">3</xref>] and by the use of a mouse model for DS [<xref rid="B4" ref-type="bibr">4</xref>]. Additionally, we identified candidate markers for PE by data mining [<xref rid="B5" ref-type="bibr">5</xref>] and serum analysis. In parallel to biomarker identification, we developed and optimized a duplex antibody array for the two serum markers used in the first trimester combined test for DS, namely, pregnancy-associated plasma protein-A (PAPP-A) and the free beta subunit of human chorionic gonadotropin (f<italic>&#x3B2;</italic>-hCG). Serum samples from pregnant women, representing the dynamic range of both markers, were analyzed on these Ab-arrays, and the results validated to the results obtained by the, in prenatal screening routinely applied, AutoDELFIA system [<xref rid="B6" ref-type="bibr">6</xref>]. In a subsequent study, we showed that this Ab-array can also be used for serum collected by finger prick, as well as blood samples obtained by dried blood spot (DBS).</p>
+      <p>The aim of this study was to evaluate the use of a multimarker Ab-array in a prenatal screening setting. For this purpose, we expanded our previously developed Ab-array with five candidate DS and/or PE markers identified in our previous studies as suitable candidates. This marker set was composed to represent the multiple approaches used to identify candidate markers. For each approach, we selected those markers that had a high strength of evidence in one or more of our previous studies, for which commercially available antibodies could be obtained. The five selected markers were alpha-fetoprotein (AFP), angiopoietin-like 3 (ANGPTL3), epidermal growth factor (EGF), insulin-like growth factor 2 (IGFII), and superoxide dismutase 1 (SOD1). The resulting multiplex Ab-array was subsequently applied for a large-scale evaluation study using 680 serum samples obtained as part of the national DS screening program. The study comprised the evaluation of Ab-array serum analysis methodology, individual marker performance, and multimarker based risk prediction models.</p>
+    </sec>
+    <sec id="sec2">
+      <title>2. Methods</title>
+      <sec id="sec2.1">
+        <title>2.1. Serum Samples</title>
+        <p>Sera of 170 DS pregnancies and 510 unaffected control pregnancies were retrieved from &#x2212;80&#xB0;C storage at the serum bank of the Dutch National Institute for Public Health and the Environment (RIVM). These samples were collected as part of the routine first trimester Down Syndrome screening program. Each DS sample was matched to three control samples by gestational age (exact day where possible, otherwise &#xB1;2 days), maternal weight (&#xB1;10&#x2009;kg), and maternal age (&#xB1;5 year) and by closest sample date to obtain a single control group of sufficient size for statistical calculations. All blood samples were drawn during the 8th&#x2013;13th weeks of pregnancy (between 58 and 96 days of gestational age). As part of the first trimester screening, PAPP-A and f<italic>&#x3B2;</italic>-hCG concentrations were previously measured with an automated dissociation-enhanced lanthanide fluorescent immunoassay (AutoDELFIA; PerkinElmer, Turku, Finland). Prior risk values (based on maternal age) were also previously calculated as part of the first trimester screening. Women consented to the use of remnant serum for anonymous scientific purposes according to the Code of Proper Secondary Use of Tissue (2002) issued by the Dutch Federation of Biomedical Scientific Societies. The first trimester screening also included ultrasonographic measurement of fetal nuchal translucency (NT). As the focus of this paper is on evaluation of a biochemical laboratory technique and NT measurement is a different kind of technique, subject to, for example, interoperator variation, NT data were not used in this study.</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>2.2. Array Development</title>
+        <p>Analytes measured on the array were selected based on studies in our institute as well as the literature. Corresponding antibodies were initially selected based on commercial availability for ELISA purposes. For development of the Ab-array, antibody combinations per marker were first tested on an array as individual (single-plex) immunoassays, using dilutions of a reference sample. This reference sample was a mix composed of serum samples from the DS screening serum bank. This single-plex step comprised optimization of concentrations for capture as well as detection antibodies, determining a suitable serum dilution, and ensuring that in the serum dilution range the signal showed a linear agreement with the amount of serum input used. Next, we tested the antibody combinations for the absence of detectable cross-reactivity. For this, the reference serum was incubated on a multiplex Ab-array (using methods described below), followed by a detection step using various combinations of detection antibodies, to ensure the signal for each analyte was not affected in the multiplex Ab-array.</p>
+      </sec>
+      <sec id="sec2.3">
+        <title>2.3. Antibodies and Standards</title>
+        <p>We used the following monoclonal and polyclonal capture and detection antibodies: PAPP-A (capture, Hytest, Turku, Finland; detection, R&amp;D Systems, Minneapolis, MN, USA), f<italic>&#x3B2;</italic>-hCG (capture, Acris Antibodies GmbH, Herford, Germany; detection, Hytest), AFP (both from Hytest), ANGPTL3 (both from R&amp;D Systems), EGF (both from R&amp;D Systems), IGFII (capture, Abcam, Cambridge, UK; detection, R&amp;D Systems), SOD1 (capture, R&amp;D Systems; detection, Hytest), and IgG (H + L) (Invitrogen, Breda, The Netherlands). Note that IgG was added for quality control purposes. Standards for PAPP-A and f<italic>&#x3B2;</italic>-hCG were obtained from the AutoDELFIA kits. These standards were calibrated against the WHO International Reference Preparation (PAPP-A: 78/610 for SP1, f<italic>&#x3B2;</italic>-hCG: 75/551). In addition to serum samples from the serum bank, the reference serum was used to correct for interarray variation.</p>
+      </sec>
+      <sec id="sec2.4">
+        <title>2.4. Antibody Arrays and Immunoassays</title>
+        <p>Capture antibodies were diluted in 2x Protein Arraying Buffer (Maine Manufacturing, Sanford, ME, USA) to a concentration of 0.5&#x2013;1&#x2009;mg/mL. Antibodies were spotted on 64-array ONCYTE Avid nitrocellulose film-slides (GRACE Bio-Labs, Bend, Oregon) using a Piezorray Noncontact Microarraying System (PerkinElmer, Wellesley, MA, USA). Two drops per position, of an estimated 330&#x2009;pL/drop, were spotted under humidity below 40%. Three replicates of each antibody were arrayed to ensure adequate statistics. The slides were stored in a desiccator cabinet (Nalgene, Rochester, NY, USA). Each antibody array slide contained 64 array pads. Of these, 48 were used for analysis of serum samples, 14 were used for control standards (7 for PAPP-A and 7 for f<italic>&#x3B2;</italic>-hCG), and 2 for the reference serum. Small serum volumes (5&#x2013;25&#x2009;<italic>&#x3BC;</italic>L) were diluted ranging from 1&#x2009;:&#x2009;5 to 1&#x2009;:&#x2009;20.</p>
+        <p>Arrays were blocked at room temperature (RT) for 1 hour (h) with 70&#x2009;<italic>&#x3BC;</italic>L 1x Protein Array Blocking Buffer (Maine Manufacturing), then washed six times for 2.5&#x2009;min with 70&#x2009;<italic>&#x3BC;</italic>L 1x Protein Array Washing Buffer (Maine Manufacturing) using an automatic washing station, and incubated with 70&#x2009;<italic>&#x3BC;</italic>L diluted serum or pooled PAPP-A and f<italic>&#x3B2;</italic>-hCG standards, at RT for 1&#x2009;h. Next, arrays were washed six times for 2.5&#x2009;min with 70&#x2009;<italic>&#x3BC;</italic>L 1x Washing Buffer (WB) (PBS pH 7.4 with 0.05% Tween-20, Sigma). This was followed by incubation with 70&#x2009;<italic>&#x3BC;</italic>L of diluted biotinylated detection antibodies, supplemented with 0.1% bovine serum albumin Fraction V (Roche Diagnostics, Mannheim, Germany) and 2% heat-inactivated goat serum (Jackson ImmunoResearch Laboratories, West Grove, PA, USA), at RT for 1&#x2009;h. Slides were washed (six times for 2.5&#x2009;min with 70&#x2009;<italic>&#x3BC;</italic>L 1x WB) and incubated with 70&#x2009;<italic>&#x3BC;</italic>L Streptavidin-Alexa Fluor-647 (Jackson ImmunoResearch Laboratories, diluted 500x in WB) at RT for 30&#x2009;min. Finally, slides were washed six times for 2.5&#x2009;min with 70&#x2009;<italic>&#x3BC;</italic>L 1x WB and twice with 70&#x2009;<italic>&#x3BC;</italic>L deionised water and dried by vacuum.</p>
+      </sec>
+      <sec id="sec2.5">
+        <title>2.5. Data Extraction</title>
+        <p>Slides were scanned with a Confocal Microarray Scanner (PerkinElmer) at 10&#x2009;<italic>&#x3BC;</italic>m resolution. ScanArray Express software V4.0 (PerkinElmer) was used to quantify spot intensity using the adaptive circle method. Corrected median intensity values for each spot (median intensity minus local median background) were used for further analysis. Median intensity values of the three replicate spots were calculated using Microsoft Excel. For the reference serum, the median intensity values for two array pads on a slide were averaged for further analysis. After completion of all assays and quality control (based on inspection of the scan image, replicate consistency, and the signal/background ratios), data for 669 samples (170 cases and 499 controls, always at least two controls per case) were available for further processing and statistical analysis. These steps were performed in R (<ext-link ext-link-type="uri" xlink:href="http://www.r-project.org/">http://www.r-project.org/</ext-link>) and Microsoft Excel. For PAPP-A and f<italic>&#x3B2;</italic>-hCG, serum concentrations were calculated from array signal intensity using a calibration curve fitted to signal intensities obtained with PAPP-A and f<italic>&#x3B2;</italic>-hCG AutoDELFIA protein standards. Parameter fitting was performed in R based on the parameter logistic log (4PL) model <italic>Y</italic>(<italic>x</italic>) = <italic>D</italic> + ((<italic>A</italic> &#x2212; <italic>D</italic>)/(1 + (<italic>x</italic>/<italic>C</italic>)<sup><italic>B</italic></sup>)) [<xref rid="B7" ref-type="bibr">7</xref>].</p>
+      </sec>
+      <sec id="sec2.6">
+        <title>2.6. Statistical Analysis</title>
+        <p>For all analytes, relative serum levels were calculated by comparing the array signal for an analyte in a sample to that for the reference serum on a different pad on the same slide and multiplying the analyte value by the ratio of the average reference value across all arrays to the average reference value on the same array. This linear scaling correction served to remove variation due to experimental factors in array processing. This scaling calculation was also performed for PAPP-A and f<italic>&#x3B2;</italic>-hCG to allow comparisons of this calculation to the 4PL model. Next, serum concentrations for the various analytes were converted into a multiple of the gestational median value (MoM) following the method described by Cuckle and Wald [<xref rid="B8" ref-type="bibr">8</xref>]. For all analytes, the ratio between the geometric average MoMs of DS-cases and controls were calculated. Student's <italic>t</italic>-tests were performed (on log-transformed data) to calculate whether fold ratios were statistically significant. These calculations were also performed for 10, 11, and 12 weeks separately.</p>
+        <p>The value of serum analytes for a DS prediction model was further tested using logistic regression algorithms and fivefold cross-validation in R statistical software. All serum samples were divided into five groups by stratified randomization to give equal distribution of gestational ages across groups. Logistic regression models were fitted using prior risks and log-MoM data for one or multiple analytes, from 4 out of 5 groups. These models were then used to predict the remaining group using data for prior risk and the corresponding analytes. Model predictive performances were evaluated on the overall data set. The obtained prediction scores were used to calculate the overall Detection Rate (DR, sensitivity) at fixed 5% False Positive Rate (FPR, 1-specificity) as well as the Area under the Curve (AUC) in a Receiver Operating Characteristic (ROC) plot. Markers were considered as having predictive value if they improved the DR as well as AUC.</p>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>3. Results</title>
+      <sec id="sec3.1">
+        <title>3.1. Array Development</title>
+        <p>To test the signal consistency of our multimarker Ab-array, antibody pairs for each analyte were tested both individually and in combinations. No cross-hybridization was observed. Using a reference serum, we found coefficient of variation values per analyte ranging from 8% (f<italic>&#x3B2;</italic>-hCG) to 17% (IgG), with a median value of 11%.</p>
+      </sec>
+      <sec id="sec3.2">
+        <title>3.2. Methods for Marker Measurement</title>
+        <p>PAPP-A and f<italic>&#x3B2;</italic>-hCG serum concentrations obtained using Ab-arrays were compared with previously obtained AutoDELFIA data. This comparison was made for Ab-array values based on a 4PL calibration curve model as well as linear scaling compared to a reference standard. Correlations between all three methods are consistently high for both markers (<xref ref-type="table" rid="tab1">Table 1</xref>). This also applies to the log-MoMmed values that serve for prediction modelling (<xref ref-type="table" rid="tab1">Table 1</xref>), and accordingly the ROC curves based on PAPP-A and f<italic>&#x3B2;</italic>-hCG (<xref ref-type="fig" rid="fig1">Figure 1</xref>). This confirms the validity of our Ab-array measurement compared to AutoDELFIA. Moreover, it indicates scaling is a suitable alternative for a 4PL-model.</p>
+      </sec>
+      <sec id="sec3.3">
+        <title>3.3. Marker Analysis</title>
+        <p>Statistical comparison between DS and control pregnancies in our cohort, using the log-MoMmed serum concentrations, shows significant differences for PAPP-A and f<italic>&#x3B2;</italic>-hCG (<xref ref-type="table" rid="tab2">Table 2</xref>). This applies to the values obtained using 4PL calibration and scaling, as well as previously obtained AutoDELFIA data. When the results for individual weeks are compared, the effect magnitude for PAPP-A appears more pronounced at week 10, whereas the effect size and associated <italic>p</italic> value for f<italic>&#x3B2;</italic>-hCG are stronger at week 12. This finding is found across the three measurement methods used (<xref ref-type="table" rid="tab2">Table 2</xref>). It should be noted that the number of samples before week 10 (<italic>n</italic> = 7) or after week 12 (<italic>n</italic> = 18) was not sufficient to allow meaningful calculations on these subsets.</p>
+        <p>For the other Ab-array markers, concentration differences between cases and controls were less prominent. AFP concentrations showed a significant decrease, but only at week 12 (<italic>p</italic> = 0.017) (<xref ref-type="table" rid="tab2">Table 2</xref>). Also, IGFII concentrations showed a significant increase for the complete cohort (<italic>p</italic> = 0.0098), but not for any of the subgroups (<xref ref-type="table" rid="tab2">Table 2</xref>). The other markers (ANGPTL3, EGF, and SOD1) and the quality control (IgG) showed no significant difference in concentration.</p>
+      </sec>
+      <sec id="sec3.4">
+        <title>3.4. Risk Prediction Modelling</title>
+        <p>Prediction models based on prior risk, PAPP-A and f<italic>&#x3B2;</italic>-hCG, gave comparable results for the three measurement methods (<xref ref-type="table" rid="tab3">Table 3</xref>). This corroborates our findings that our Ab-array data have comparable reliability as those obtained using AutoDELFIA, as well as that scaling is a practical alternative to using a 4PL calibration curve.</p>
+        <p>Other markers were tested by determining their added value on two models: firstly to a model using only prior risk and additionally to a model using prior risk and scaled data for PAPP-A and f<italic>&#x3B2;</italic>-hCG. We opted to use scaled data for PAPP-A and f<italic>&#x3B2;</italic>-hCG in this comparison as the data used for the other markers was also obtained using scaling, thus allowing a consistent workflow for all data. Of the markers tested, AFP and IGFII improved the DR and AUC with a very small difference (1% DR, &lt;1% in AUC) when added to the prior risk model. When the comparison was made against the model based on prior risk, PAPP-A and f<italic>&#x3B2;</italic>-hCG, AFP and EGF both increased the DR by 1% but did not improve the AUC.</p>
+      </sec>
+    </sec>
+    <sec id="sec4">
+      <title>4. Discussion</title>
+      <p>Antibody arrays are a type of immunoassay that allow for the high-throughput measurement of multiple markers in small sample volumes. These properties make them of interest for population screening programs, including prenatal screening. Combining multiple markers would allow for higher sensitivity as well as specificity for pregnancy outcomes such as DS, other fetal aneuploidies, PE, and IUGR. Additionally, a multimarker array can combine different screening assays, such as those mentioned above, into a single first trimester screening test. This can lead to improved throughput at lower costs, which would be especially advantageous for fetal and maternal health care in low or middle income countries.</p>
+      <p>Previous studies at our institute have shown that Ab-arrays can be used to quantitatively measure the current DS screening serum markers (PAPP-A and f<italic>&#x3B2;</italic>-hCG) within one assay using small serum volumes [<xref rid="B6" ref-type="bibr">6</xref>]. However, to take this methodology beyond proof-of-principle studies, larger studies are necessary. Larger studies would allow for a more meaningful comparison of serum measurements obtained by Ab-arrays versus current screening practice. Moreover, larger studies allow including subsequent data analysis steps in the evaluation, such as correcting marker levels for gestational age and prediction modelling. For implementation in a screening setting, the predictive performance of an Ab-array should at least match that of current screening methodology or improve upon it by including additional markers. In this study, we performed such an evaluation of our Ab-array based on PAPP-A and f<italic>&#x3B2;</italic>-hCG, as well as other candidate markers.</p>
+      <p>The results for PAPP-A and f<italic>&#x3B2;</italic>-hCG are very encouraging. Not only were serum measurements on the Ab-array highly correlated with those obtained by AutoDELFIA (<xref ref-type="table" rid="tab1">Table 1</xref>), but also this applied to the DS prediction modelling results (<xref ref-type="table" rid="tab3">Table 3</xref>, <xref ref-type="fig" rid="fig1">Figure 1</xref>). Levels of PAPP-A were more affected at week 10, and those of f<italic>&#x3B2;</italic>-hCG were more affected at week 12. This is consistent with literature findings that predictive performance for PAPP-A is the highest at week 10 or earlier in the first trimester, whereas that of f<italic>&#x3B2;</italic>-hCG is the highest several weeks later [<xref rid="B9" ref-type="bibr">9</xref>, <xref rid="B10" ref-type="bibr">10</xref>].</p>
+      <p>To further assess the possibilities for multiplexed serum screening, we expanded our Ab-array with a set of prioritized candidate biomarkers for prenatal screening endpoints, based on previous studies in our institute as well as the literature. This resulted in five additional candidate biomarkers being added to the Ab-array. For these markers we did not use calibration standards due to unavailability or space limitations. Given the high correlations between signal calculation methods for PAPP-A and f<italic>&#x3B2;</italic>-hCG, and a linear signal response observed in the array development phase, we assume that for these markers scaling-based data are a reliably alternative.</p>
+      <p>The first of these five additional markers is AFP. This is a well-known second trimester DS screening marker, although AFP is also predictive in the first trimester [<xref rid="B11" ref-type="bibr">11</xref>, <xref rid="B12" ref-type="bibr">12</xref>]. We also found significantly decreased levels of AFP in a multimarker serum screening study [<xref rid="B2" ref-type="bibr">2</xref>], although this finding was not confirmed in the subsequent validation study. In this study, AFP serum levels were not significantly affected for the whole cohort, although there was a trend from a significant decrease in serum of 12 weeks GA, via a nonsignificant decrease in week 11, to no change in week 10 (<xref ref-type="table" rid="tab2">Table 2</xref>). This is in line with literature reports that AFP&#x2014;best known as a second trimester biomarker&#x2014;can also distinguish between DS and unaffected pregnancies in the first trimester, but that its discriminating power increases with gestational age [<xref rid="B9" ref-type="bibr">9</xref>, <xref rid="B12" ref-type="bibr">12</xref>]. In prediction risk modelling, AFP only allowed for a small increase in DR when added to the prior risk model, as well as to the model based on prior risk, PAPP-A and f<italic>&#x3B2;</italic>-hCG. Taken together, although the effects per week are in agreement with the literature on AFP as biomarker, the 1% increase in DR on the overall cohort is too small to be of practical use for adding predictive power in future implementation.</p>
+      <p>EGF was added as a second prioritized candidate marker. EGF inhibits apoptosis of trophoblasts and promotes their differentiation and invasion [<xref rid="B13" ref-type="bibr">13</xref>&#x2013;<xref rid="B15" ref-type="bibr">15</xref>]. This EGF-induced differentiation results in secretion of human chorionic gonadotropin [<xref rid="B13" ref-type="bibr">13</xref>]. As this latter marker is affected in DS pregnancies, the potential value of EGF in DS screening is conceivable. Moreover, reduced EGF levels have been reported for preeclampsia [<xref rid="B16" ref-type="bibr">16</xref>] as well as IUGR [<xref rid="B17" ref-type="bibr">17</xref>]. We previously reported decreased EGF levels in our initial serum screening study [<xref rid="B2" ref-type="bibr">2</xref>] as well as in the subsequent validation study, using serum of 12-week GA. Unfortunately, we were not able to corroborate our previous EGF findings with our Ab-array. EGF did not show a significant difference in serum levels, nor did it help to improve the prediction modelling (Tables <xref ref-type="table" rid="tab2">2</xref> and <xref ref-type="table" rid="tab3">3</xref>). This is in line with the study of Mastricci et al., who found no significant difference in EGF serum concentration in a cohort of 11 + 0 to 13 + 6 weeks' GA [<xref rid="B18" ref-type="bibr">18</xref>]. Interestingly, our data show decreased levels of EGF at 12 weeks' GA, whereas EGF levels were increased at weeks 10 and 11. This might indicate that, as for AFP, the predictive power of EGF depends on the gestational age. Nevertheless, this study, combined with that by Mastricci et al., indicates that EGF is probably not useful for improving DS serum screening.</p>
+      <p>We also added two markers which we identified as novel potential markers by data mining [<xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B5" ref-type="bibr">5</xref>], namely, ANGPTL3 (for DS) and IGFII (for both DS and PE). Of these markers, IGFII showed a significant increase for DS pregnancies in the overall cohort (<xref ref-type="table" rid="tab2">Table 2</xref>), and a small improvement to the prior risk model (<xref ref-type="table" rid="tab3">Table 3</xref>). This indicates that IGFII might be considered as a novel DS screening marker and as such supports our data mining approach. However, as IGFII does not help improve the current serum screening model (prior risk, PAPP-A, and f<italic>&#x3B2;</italic>-hCG) the added value of IGFII for a large-scale screening program setting is probably limited.</p>
+      <p>Finally, we included SOD1 on our Ab-array based on several kinds of evidence. SOD1 represents one of the best studied genes and proteins in relation to DS. The number of literature studies on SOD1 in relation to DS is comparable to that of established screening markers. A major reason for this is that SOD1 is located on human chromosome 21 in a region traditionally referred to as the &#x201C;Down Syndrome Critical Region,&#x201D; although nowadays this particular term is less accepted [<xref rid="B19" ref-type="bibr">19</xref>]. In a previous study by our groups, SOD1 showed increased gene expression in both placenta and fetal liver of the Ts1Cje mouse model for DS [<xref rid="B4" ref-type="bibr">4</xref>]. Changes in human serum SOD activity levels have also been reported for preeclampsia and the corresponding change in antioxidant activity has been associated with PE pathogenesis [<xref rid="B20" ref-type="bibr">20</xref>, <xref rid="B21" ref-type="bibr">21</xref>]. Whereas increased SOD1 protein levels have been found in human placentas of DS pregnancies [<xref rid="B22" ref-type="bibr">22</xref>] and higher numbers of SOD1 DNA fragments have been described in maternal circulation of DS pregnancies [<xref rid="B23" ref-type="bibr">23</xref>], to our knowledge the use of SOD1 protein as a serum markers for DS screening has not yet been investigated. In our data set, the SOD1 serum protein level showed no significant difference, nor did it help improve the risk prediction modelling (Tables <xref ref-type="table" rid="tab2">2</xref> and <xref ref-type="table" rid="tab3">3</xref>). This indicates that SOD1 is probably not of interest as a serum protein biomarker for DS pregnancies.</p>
+    </sec>
+    <sec id="sec5">
+      <title>5. Conclusion</title>
+      <p>Our results show that Ab-array methodology is appropriate for large-scale quantitative PAPP-A and f<italic>&#x3B2;</italic>-hCG measurements. We also show for the first time that for application in DS prediction, multiplex Ab-arrays perform as accurately as current immunoassay methods. Including additional markers on the Ab-array did not help to further improve DS predictive performance beyond current standards. Further implementation of Ab-arrays in a prenatal screening setting for fetal and maternal health will require additional other first trimester serum screening markers.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>The authors would like to thank Mark Jonker and Idder Belmouden for practical support and Jos&#xE9; Ferreira for statistical support.</p>
+    </ack>
+    <sec sec-type="conflict">
+      <title>Conflict of Interests</title>
+      <p>The authors declare that there is no conflict of interests regarding the publication of this paper.</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wingren</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Borrebaeck</surname>
+              <given-names>C. A. K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Antibody-based microarrays</article-title>
+          <source>
+            <italic>Methods in Molecular Biology</italic>
+          </source>
+          <year>2009</year>
+          <volume>509</volume>
+          <fpage>57</fpage>
+          <lpage>84</lpage>
+          <pub-id pub-id-type="other">2-s2.0-62449083668</pub-id>
+          <pub-id pub-id-type="doi">10.1007/978-1-59745-372-1_5</pub-id>
+          <pub-id pub-id-type="pmid">19212715</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Koster</surname>
+              <given-names>M. P. H.</given-names>
+            </name>
+            <name>
+              <surname>Pennings</surname>
+              <given-names>J. L. A.</given-names>
+            </name>
+            <name>
+              <surname>Imholz</surname>
+              <given-names>S.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Bead-based multiplexed immunoassays to identify new biomarkers in maternal serum to improve first trimester Down syndrome screening</article-title>
+          <source>
+            <italic>Prenatal Diagnosis</italic>
+          </source>
+          <year>2009</year>
+          <volume>29</volume>
+          <issue>9</issue>
+          <fpage>857</fpage>
+          <lpage>862</lpage>
+          <pub-id pub-id-type="doi">10.1002/pd.2294</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-69749098657</pub-id>
+          <pub-id pub-id-type="pmid">19488973</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pennings</surname>
+              <given-names>J. L. A.</given-names>
+            </name>
+            <name>
+              <surname>Koster</surname>
+              <given-names>M. P. H.</given-names>
+            </name>
+            <name>
+              <surname>Rodenburg</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Schielen</surname>
+              <given-names>P. C. J. I.</given-names>
+            </name>
+            <name>
+              <surname>de Vries</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Discovery of novel serum biomarkers for prenatal down syndrome screening by integrative data mining</article-title>
+          <source>
+            <italic>PLoS ONE</italic>
+          </source>
+          <year>2009</year>
+          <volume>4</volume>
+          <issue>11</issue>
+          <pub-id pub-id-type="publisher-id">e8010</pub-id>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0008010</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-71049180351</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pennings</surname>
+              <given-names>J. L. A.</given-names>
+            </name>
+            <name>
+              <surname>Rodenburg</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Imholz</surname>
+              <given-names>S.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gene expression profiling in a mouse model identifies fetal liver- and placenta-derived potential biomarkers for down syndrome screening</article-title>
+          <source>
+            <italic>PLoS ONE</italic>
+          </source>
+          <year>2011</year>
+          <volume>6</volume>
+          <issue>4</issue>
+          <pub-id pub-id-type="publisher-id">e18866</pub-id>
+          <pub-id pub-id-type="doi">10.1371/journal.pone.0018866</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-79955045041</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pennings</surname>
+              <given-names>J. L. A.</given-names>
+            </name>
+            <name>
+              <surname>Kuc</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Rodenburg</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Koster</surname>
+              <given-names>M. P. H.</given-names>
+            </name>
+            <name>
+              <surname>Schielen</surname>
+              <given-names>P. C. J. I.</given-names>
+            </name>
+            <name>
+              <surname>de Vries</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Integrative data mining to identify novel candidate serum biomarkers for pre-eclampsia screening</article-title>
+          <source>
+            <italic>Prenatal Diagnosis</italic>
+          </source>
+          <year>2011</year>
+          <volume>31</volume>
+          <issue>12</issue>
+          <fpage>1153</fpage>
+          <lpage>1159</lpage>
+          <pub-id pub-id-type="doi">10.1002/pd.2850</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-82255162675</pub-id>
+          <pub-id pub-id-type="pmid">21948255</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodenburg</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Reimerink</surname>
+              <given-names>J. H.</given-names>
+            </name>
+            <name>
+              <surname>Imholz</surname>
+              <given-names>S.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Quantitative performance of antibody array technology in a prenatal screening setting</article-title>
+          <source>
+            <italic>Clinical Chemistry and Laboratory Medicine</italic>
+          </source>
+          <year>2012</year>
+          <volume>50</volume>
+          <issue>2</issue>
+          <fpage>325</fpage>
+          <lpage>332</lpage>
+          <pub-id pub-id-type="doi">10.1515/cclm.2011.767</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-84860533274</pub-id>
+          <pub-id pub-id-type="pmid">22035138</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ratkowsky</surname>
+              <given-names>D. A.</given-names>
+            </name>
+            <name>
+              <surname>Reedy</surname>
+              <given-names>T. J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Choosing near-linear parameters in the four-parameter logistic model for radioligand and related assays</article-title>
+          <source>
+            <italic>Biometrics</italic>
+          </source>
+          <year>1986</year>
+          <volume>42</volume>
+          <issue>3</issue>
+          <fpage>575</fpage>
+          <lpage>582</lpage>
+          <pub-id pub-id-type="doi">10.2307/2531207</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0022770442</pub-id>
+          <pub-id pub-id-type="pmid">3567290</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cuckle</surname>
+              <given-names>H. S.</given-names>
+            </name>
+            <name>
+              <surname>Wald</surname>
+              <given-names>N.</given-names>
+            </name>
+          </person-group>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Wald</surname>
+              <given-names>N. J.</given-names>
+            </name>
+            <name>
+              <surname>Leck</surname>
+              <given-names>I.</given-names>
+            </name>
+          </person-group>
+          <article-title>Tests using single markers</article-title>
+          <source>
+            <italic>Antenatal and Neonatal Screening</italic>
+          </source>
+          <year>2000</year>
+          <publisher-loc>Oxford, UK</publisher-loc>
+          <publisher-name>Oxford University Press</publisher-name>
+          <fpage>3</fpage>
+          <lpage>22</lpage>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Spencer</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Crossley</surname>
+              <given-names>J. A.</given-names>
+            </name>
+            <name>
+              <surname>Aitken</surname>
+              <given-names>D. A.</given-names>
+            </name>
+            <name>
+              <surname>Nix</surname>
+              <given-names>A. B. J.</given-names>
+            </name>
+            <name>
+              <surname>Dunstan</surname>
+              <given-names>F. D. J.</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Temporal changes in maternal serum biochemical markers of trisomy 21 across the first and second trimester of pregnancy</article-title>
+          <source>
+            <italic>Annals of Clinical Biochemistry</italic>
+          </source>
+          <year>2002</year>
+          <volume>39</volume>
+          <issue>6</issue>
+          <fpage>567</fpage>
+          <lpage>576</lpage>
+          <pub-id pub-id-type="doi">10.1258/000456302760413342</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0036845341</pub-id>
+          <pub-id pub-id-type="pmid">12564838</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kirkegaard</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Petersen</surname>
+              <given-names>O. B.</given-names>
+            </name>
+            <name>
+              <surname>Uldbjerg</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>T&#xF8;rring</surname>
+              <given-names>N.</given-names>
+            </name>
+          </person-group>
+          <article-title>Improved performance of first-trimester combined screening for trisomy 21 with the double test taken before a gestational age of 10 weeks</article-title>
+          <source>
+            <italic>Prenatal Diagnosis</italic>
+          </source>
+          <year>2008</year>
+          <volume>28</volume>
+          <issue>9</issue>
+          <fpage>839</fpage>
+          <lpage>844</lpage>
+          <pub-id pub-id-type="doi">10.1002/pd.2057</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-55449121030</pub-id>
+          <pub-id pub-id-type="pmid">18677711</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Donalson</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Turner</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Morrison</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Liitti</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Nilsson</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Cuckle</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Maternal serum placental growth factor and <italic>&#x3B1;</italic>-fetoprotein testing in first trimester screening for Down syndrome</article-title>
+          <source>
+            <italic>Prenatal Diagnosis</italic>
+          </source>
+          <year>2013</year>
+          <volume>33</volume>
+          <issue>5</issue>
+          <fpage>457</fpage>
+          <lpage>461</lpage>
+          <pub-id pub-id-type="doi">10.1002/pd.4087</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-84877621524</pub-id>
+          <pub-id pub-id-type="pmid">23529706</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brambati</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Simoni</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Bonacchi</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Piceni</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>Fetal chromosomal aneuploidies and maternal serum alpha-fetoprotein levels in first trimester</article-title>
+          <source>
+            <italic>The Lancet</italic>
+          </source>
+          <year>1986</year>
+          <volume>2</volume>
+          <issue>8499</issue>
+          <fpage>165</fpage>
+          <lpage>166</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0023039575</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morrish</surname>
+              <given-names>D. W.</given-names>
+            </name>
+            <name>
+              <surname>Bhardwaj</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Dabbagh</surname>
+              <given-names>L. K.</given-names>
+            </name>
+            <name>
+              <surname>Marusyk</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Siy</surname>
+              <given-names>O.</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor induces differentiation and secretion of human chorionic gonadotropin and placental lactogen in normal human placenta</article-title>
+          <source>
+            <italic>Journal of Clinical Endocrinology and Metabolism</italic>
+          </source>
+          <year>1987</year>
+          <volume>65</volume>
+          <issue>6</issue>
+          <fpage>1282</fpage>
+          <lpage>1290</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0023568391</pub-id>
+          <pub-id pub-id-type="doi">10.1210/jcem-65-6-1282</pub-id>
+          <pub-id pub-id-type="pmid">3500181</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bass</surname>
+              <given-names>K. E.</given-names>
+            </name>
+            <name>
+              <surname>Morrish</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Roth</surname>
+              <given-names>I.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Human cytotrophoblast invasion is up-regulated by epidermal growth factor: evidence that paracrine factors modify this process</article-title>
+          <source>
+            <italic>Developmental Biology</italic>
+          </source>
+          <year>1994</year>
+          <volume>164</volume>
+          <issue>2</issue>
+          <fpage>550</fpage>
+          <lpage>561</lpage>
+          <pub-id pub-id-type="doi">10.1006/dbio.1994.1223</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0027967104</pub-id>
+          <pub-id pub-id-type="pmid">8045351</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garcia-Lloret</surname>
+              <given-names>M. I.</given-names>
+            </name>
+            <name>
+              <surname>Yui</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Winkler-Lowen</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Guilbert</surname>
+              <given-names>L. J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor inhibits cytokine-induced apoptosis of primary human trophoblasts</article-title>
+          <source>
+            <italic>Journal of Cellular Physiology</italic>
+          </source>
+          <year>1996</year>
+          <volume>167</volume>
+          <issue>2</issue>
+          <fpage>324</fpage>
+          <lpage>332</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0029983260</pub-id>
+          <pub-id pub-id-type="doi">10.1002/(sici)1097-4652(199605)167:2lt;324::aid-jcp17&gt;3.0.co;2-7</pub-id>
+          <pub-id pub-id-type="pmid">8613474</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Armant</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Fritz</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Kilburn</surname>
+              <given-names>B.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Reduced expression of the epidermal growth factor signaling system in preeclampsia</article-title>
+          <source>
+            <italic>Placenta</italic>
+          </source>
+          <year>2015</year>
+          <volume>36</volume>
+          <issue>3</issue>
+          <fpage>270</fpage>
+          <lpage>278</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.placenta.2014.12.006</pub-id>
+          <pub-id pub-id-type="pmid">25589361</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lindqvist</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Grennert</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Mar&#x161;&#xE1;l</surname>
+              <given-names>K.</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor in maternal urine&#x2014;a predictor of intrauterine growth restriction?</article-title>
+          <source>
+            <italic>Early Human Development</italic>
+          </source>
+          <year>1999</year>
+          <volume>56</volume>
+          <issue>2-3</issue>
+          <fpage>143</fpage>
+          <lpage>150</lpage>
+          <pub-id pub-id-type="doi">10.1016/s0378-3782(99)00037-7</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0032705055</pub-id>
+          <pub-id pub-id-type="pmid">10636593</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mastricci</surname>
+              <given-names>A. L.</given-names>
+            </name>
+            <name>
+              <surname>Akolekar</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Kuppusamy</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Ahmed</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Nicolaides</surname>
+              <given-names>K. H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Are serum protein biomarkers derived from proteomic analysis useful in screening for trisomy 21 at 11-13 weeks?</article-title>
+          <source>
+            <italic>Fetal Diagnosis and Therapy</italic>
+          </source>
+          <year>2011</year>
+          <volume>30</volume>
+          <issue>1</issue>
+          <fpage>53</fpage>
+          <lpage>59</lpage>
+          <pub-id pub-id-type="other">2-s2.0-80051780734</pub-id>
+          <pub-id pub-id-type="doi">10.1159/000324310</pub-id>
+          <pub-id pub-id-type="pmid">21422752</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lyle</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>B&#xE9;na</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Gagos</surname>
+              <given-names>S.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Genotype-phenotype correlations in Down syndrome identified by array CGH in 30 cases of partial trisomy and partial monosomy chromosome 21</article-title>
+          <source>
+            <italic>European Journal of Human Genetics</italic>
+          </source>
+          <year>2009</year>
+          <volume>17</volume>
+          <issue>4</issue>
+          <fpage>454</fpage>
+          <lpage>466</lpage>
+          <pub-id pub-id-type="other">2-s2.0-62849113692</pub-id>
+          <pub-id pub-id-type="doi">10.1038/ejhg.2008.214</pub-id>
+          <pub-id pub-id-type="pmid">19002211</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mahadik</surname>
+              <given-names>K. V.</given-names>
+            </name>
+            <name>
+              <surname>Sina</surname>
+              <given-names>S. A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Study of serum levels of superoxide dismutase in preeclampsia and eclampsia: role of the test as a predictive tool</article-title>
+          <source>
+            <italic>Journal of Obstetrics and Gynaecology Research</italic>
+          </source>
+          <year>2003</year>
+          <volume>29</volume>
+          <issue>4</issue>
+          <fpage>262</fpage>
+          <lpage>267</lpage>
+          <pub-id pub-id-type="doi">10.1046/j.1341-8076.2003.00105.x</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-0141482221</pub-id>
+          <pub-id pub-id-type="pmid">12959150</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Genc</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Uzun</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Benian</surname>
+              <given-names>A.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Evaluation of oxidative stress markers in first trimester for assessment of preeclampsia risk</article-title>
+          <source>
+            <italic>Archives of Gynecology and Obstetrics</italic>
+          </source>
+          <year>2011</year>
+          <volume>284</volume>
+          <issue>6</issue>
+          <fpage>1367</fpage>
+          <lpage>1373</lpage>
+          <pub-id pub-id-type="doi">10.1007/s00404-011-1865-2</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-84862593785</pub-id>
+          <pub-id pub-id-type="pmid">21344259</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yan</surname>
+              <given-names>L.-Y.</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>C.-J.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>X.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>W.-Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Screen and identify of differential proteins expressed in the placenta of Down's syndrome</article-title>
+          <source>
+            <italic>Zhonghua Fu Chan Ke Za Zhi</italic>
+          </source>
+          <year>2011</year>
+          <volume>46</volume>
+          <issue>3</issue>
+          <fpage>161</fpage>
+          <lpage>166</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84861431022</pub-id>
+          <pub-id pub-id-type="pmid">21575446</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thilakavathy</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Rozita</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Baskaran</surname>
+              <given-names>T. P.</given-names>
+            </name>
+          </person-group>
+          <article-title>Exploring <italic>SOD1</italic> gene for the detection of fetal Down syndrome</article-title>
+          <source>
+            <italic>Journal of Prenatal Medicine</italic>
+          </source>
+          <year>2008</year>
+          <volume>2</volume>
+          <issue>3</issue>
+          <fpage>36</fpage>
+          <lpage>39</lpage>
+          <pub-id pub-id-type="pmid">22439026</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="fig1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Receiver operating characteristic curves (ROCs) for Down Syndrome prediction models using different measurement methods for PAPP-A and f<italic>&#x3B2;</italic>-hCG.</p>
+      </caption>
+      <graphic xlink:href="DM2015-519851.001"/>
+    </fig>
+    <table-wrap id="tab1" orientation="portrait" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Correlations (<italic>R</italic>) between measurement methods for PAPP-A and f<italic>&#x3B2;</italic>-hCG. All <italic>R</italic>-values have corresponding <italic>p</italic> values &lt; 10<sup>&#x2212;8</sup>.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">&#x2009;</th>
+            <th align="center" colspan="3" rowspan="1">Serum concentrations PAPP-A</th>
+            <th align="center" colspan="3" rowspan="1">Log-MoM values PAPP-A</th>
+          </tr>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">&#x2009;</th>
+            <th align="center" rowspan="1" colspan="1">Array, 4PL</th>
+            <th align="center" rowspan="1" colspan="1">Array, scaled</th>
+            <th align="center" rowspan="1" colspan="1">AutoDELFIA</th>
+            <th align="center" rowspan="1" colspan="1">Array, 4PL</th>
+            <th align="center" rowspan="1" colspan="1">Array, scaled</th>
+            <th align="center" rowspan="1" colspan="1">AutoDELFIA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Array, 4PL</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.98</td>
+            <td align="center" rowspan="1" colspan="1">0.90</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.97</td>
+            <td align="center" rowspan="1" colspan="1">0.82</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Array, scaled</td>
+            <td align="center" rowspan="1" colspan="1">0.98</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.88</td>
+            <td align="center" rowspan="1" colspan="1">0.97</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.79</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">AutoDELFIA</td>
+            <td align="center" rowspan="1" colspan="1">0.90</td>
+            <td align="center" rowspan="1" colspan="1">0.88</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.82</td>
+            <td align="center" rowspan="1" colspan="1">0.79</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+          </tr>
+          <tr>
+            <td align="center" colspan="7" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" colspan="3" rowspan="1">Serum concentrations f<italic>&#x3B2;</italic>-hCG</td>
+            <td align="center" colspan="3" rowspan="1">Log-MoM values f<italic>&#x3B2;</italic>-hCG</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">&#x2009;</td>
+            <td align="center" rowspan="1" colspan="1">Array, 4PL</td>
+            <td align="center" rowspan="1" colspan="1">Array, scaled</td>
+            <td align="center" rowspan="1" colspan="1">AutoDELFIA</td>
+            <td align="center" rowspan="1" colspan="1">Array, 4PL</td>
+            <td align="center" rowspan="1" colspan="1">Array, scaled</td>
+            <td align="center" rowspan="1" colspan="1">AutoDELFIA</td>
+          </tr>
+          <tr>
+            <td align="center" colspan="7" rowspan="1">
+<hr/>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Array, 4PL</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.99</td>
+            <td align="center" rowspan="1" colspan="1">0.95</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.99</td>
+            <td align="center" rowspan="1" colspan="1">0.92</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Array, scaled</td>
+            <td align="center" rowspan="1" colspan="1">0.99</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.95</td>
+            <td align="center" rowspan="1" colspan="1">0.99</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.93</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">AutoDELFIA</td>
+            <td align="center" rowspan="1" colspan="1">0.95</td>
+            <td align="center" rowspan="1" colspan="1">0.95</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+            <td align="center" rowspan="1" colspan="1">0.92</td>
+            <td align="center" rowspan="1" colspan="1">0.93</td>
+            <td align="center" rowspan="1" colspan="1">1</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+    <table-wrap id="tab2" orientation="portrait" position="float">
+      <label>Table 2</label>
+      <caption>
+        <p>Ratio of MoM-adjusted serum concentrations per analyte for DS compared to controls. Significance is indicated as <sup>&#x2217;</sup>
+<italic>p</italic> &lt; 0.05; <sup>&#x2217;&#x2217;</sup>
+<italic>p</italic> &lt; 0.01; <sup>&#x2217;&#x2217;&#x2217;</sup>
+<italic>p</italic> &lt; 0.001.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">&#x2009;</th>
+            <th align="center" rowspan="1" colspan="1">Total cohort (nDS = 170)</th>
+            <th align="center" rowspan="1" colspan="1">Week 10 (nDS = 43)</th>
+            <th align="center" rowspan="1" colspan="1">Week 11 (nDS = 25)</th>
+            <th align="center" rowspan="1" colspan="1">Week 12 (nDS = 77)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">PAPP-A (4PL)</td>
+            <td align="center" rowspan="1" colspan="1">0.52<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.41<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.52<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.60<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">PAPP-A (scaled)</td>
+            <td align="center" rowspan="1" colspan="1">0.56<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.46<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.55<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.65<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">PAPP-A (AutoDELFIA)</td>
+            <td align="center" rowspan="1" colspan="1">0.43<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.30<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.42<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">0.56<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">f<italic>&#x3B2;</italic>-hCG (4PL)</td>
+            <td align="center" rowspan="1" colspan="1">1.74<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.49<sup>&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.98<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.81<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">f<italic>&#x3B2;</italic>-hCG (scaled)</td>
+            <td align="center" rowspan="1" colspan="1">1.99<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.55<sup>&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">2.38<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">2.11<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">f<italic>&#x3B2;</italic>-hCG (autoDELFIA)</td>
+            <td align="center" rowspan="1" colspan="1">1.57<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.25</td>
+            <td align="center" rowspan="1" colspan="1">1.71<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.75<sup>&#x2217;&#x2217;&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">AFP</td>
+            <td align="center" rowspan="1" colspan="1">0.90</td>
+            <td align="center" rowspan="1" colspan="1">1.01</td>
+            <td align="center" rowspan="1" colspan="1">0.85</td>
+            <td align="center" rowspan="1" colspan="1">0.83<sup>&#x2217;</sup>
+</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">ANGPTL3</td>
+            <td align="center" rowspan="1" colspan="1">0.98</td>
+            <td align="center" rowspan="1" colspan="1">1.07</td>
+            <td align="center" rowspan="1" colspan="1">0.96</td>
+            <td align="center" rowspan="1" colspan="1">0.92</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">EGF</td>
+            <td align="center" rowspan="1" colspan="1">1.12</td>
+            <td align="center" rowspan="1" colspan="1">1.17</td>
+            <td align="center" rowspan="1" colspan="1">1.39</td>
+            <td align="center" rowspan="1" colspan="1">0.93</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">IGFII</td>
+            <td align="center" rowspan="1" colspan="1">1.32<sup>&#x2217;&#x2217;</sup>
+</td>
+            <td align="center" rowspan="1" colspan="1">1.40</td>
+            <td align="center" rowspan="1" colspan="1">1.47</td>
+            <td align="center" rowspan="1" colspan="1">1.17</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">SOD1</td>
+            <td align="center" rowspan="1" colspan="1">1.04</td>
+            <td align="center" rowspan="1" colspan="1">1.11</td>
+            <td align="center" rowspan="1" colspan="1">1.14</td>
+            <td align="center" rowspan="1" colspan="1">0.93</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">IgG</td>
+            <td align="center" rowspan="1" colspan="1">1.13</td>
+            <td align="center" rowspan="1" colspan="1">1.32</td>
+            <td align="center" rowspan="1" colspan="1">1.04</td>
+            <td align="center" rowspan="1" colspan="1">1.04</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+    <table-wrap id="tab3" orientation="portrait" position="float">
+      <label>Table 3</label>
+      <caption>
+        <p>Model predicted DS detection rate (and 95% CI) for 5% False Positive Rate and corresponding Area under the Curve, for models based on prior risk and several marker combinations. DR, detection rate; CI, confidence interval; AUC, Area under the Curve.</p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">Model</th>
+            <th align="center" rowspan="1" colspan="1">DR (%)</th>
+            <th align="center" rowspan="1" colspan="1">DR 95% CI</th>
+            <th align="center" rowspan="1" colspan="1">AUC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk</td>
+            <td align="center" rowspan="1" colspan="1">27</td>
+            <td align="center" rowspan="1" colspan="1">(19&#x2013;36)</td>
+            <td align="center" rowspan="1" colspan="1">0.741</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (4PL)</td>
+            <td align="center" rowspan="1" colspan="1">58</td>
+            <td align="center" rowspan="1" colspan="1">(49&#x2013;66)</td>
+            <td align="center" rowspan="1" colspan="1">0.873</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled)</td>
+            <td align="center" rowspan="1" colspan="1">58</td>
+            <td align="center" rowspan="1" colspan="1">(49&#x2013;67)</td>
+            <td align="center" rowspan="1" colspan="1">0.870</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (AutoDelfia)</td>
+            <td align="center" rowspan="1" colspan="1">59</td>
+            <td align="center" rowspan="1" colspan="1">(51&#x2013;68)</td>
+            <td align="center" rowspan="1" colspan="1">0.880</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + AFP</td>
+            <td align="center" rowspan="1" colspan="1">28</td>
+            <td align="center" rowspan="1" colspan="1">(19&#x2013;39)</td>
+            <td align="center" rowspan="1" colspan="1">0.748</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled) + AFP</td>
+            <td align="center" rowspan="1" colspan="1">59</td>
+            <td align="center" rowspan="1" colspan="1">(49&#x2013;68)</td>
+            <td align="center" rowspan="1" colspan="1">0.869</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + ANGPTL3</td>
+            <td align="center" rowspan="1" colspan="1">26</td>
+            <td align="center" rowspan="1" colspan="1">(16&#x2013;36)</td>
+            <td align="center" rowspan="1" colspan="1">0.732</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled) + ANGPTL3</td>
+            <td align="center" rowspan="1" colspan="1">58</td>
+            <td align="center" rowspan="1" colspan="1">(48&#x2013;66)</td>
+            <td align="center" rowspan="1" colspan="1">0.869</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + EGF</td>
+            <td align="center" rowspan="1" colspan="1">25</td>
+            <td align="center" rowspan="1" colspan="1">(17&#x2013;34)</td>
+            <td align="center" rowspan="1" colspan="1">0.739</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled) + EGF</td>
+            <td align="center" rowspan="1" colspan="1">59</td>
+            <td align="center" rowspan="1" colspan="1">(50&#x2013;67)</td>
+            <td align="center" rowspan="1" colspan="1">0.870</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + IGF2</td>
+            <td align="center" rowspan="1" colspan="1">28</td>
+            <td align="center" rowspan="1" colspan="1">(18&#x2013;38)</td>
+            <td align="center" rowspan="1" colspan="1">0.742</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled) + IGF2</td>
+            <td align="center" rowspan="1" colspan="1">58</td>
+            <td align="center" rowspan="1" colspan="1">(49&#x2013;66)</td>
+            <td align="center" rowspan="1" colspan="1">0.870</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + SOD1</td>
+            <td align="center" rowspan="1" colspan="1">19</td>
+            <td align="center" rowspan="1" colspan="1">(10&#x2013;31)</td>
+            <td align="center" rowspan="1" colspan="1">0.736</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled) + SOD1</td>
+            <td align="center" rowspan="1" colspan="1">58</td>
+            <td align="center" rowspan="1" colspan="1">(49&#x2013;66)</td>
+            <td align="center" rowspan="1" colspan="1">0.870</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + IgG</td>
+            <td align="center" rowspan="1" colspan="1">19</td>
+            <td align="center" rowspan="1" colspan="1">(9&#x2013;31)</td>
+            <td align="center" rowspan="1" colspan="1">0.739</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">Prior risk + PAPP-A + f<italic>&#x3B2;</italic>-hCG (scaled) + IgG</td>
+            <td align="center" rowspan="1" colspan="1">57</td>
+            <td align="center" rowspan="1" colspan="1">(49&#x2013;66)</td>
+            <td align="center" rowspan="1" colspan="1">0.872</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>

@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Biochem J</journal-id>
+      <journal-title>Biochemical Journal</journal-title>
+      <issn pub-type="ppub">0264-6021</issn>
+      <issn pub-type="epub">1470-8728</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">10215617</article-id>
+      <article-id pub-id-type="pmc">1220214</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Nerve growth factor and epidermal growth factor stimulate clusterin gene expression in PC12 cells.</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gutacker</surname>
+            <given-names>C</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Klock</surname>
+            <given-names>G</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Diel</surname>
+            <given-names>P</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Koch-Brandt</surname>
+            <given-names>C</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <aff>Institut f&#xFC;r Biochemie, Johannes Gutenberg-Universit&#xE4;t Mainz, Becherweg 30, D-55099 Mainz, Germany.</aff>
+      <pub-date pub-type="ppub">
+        <day>1</day>
+        <month>5</month>
+        <year>1999</year>
+      </pub-date>
+      <volume>339</volume>
+      <issue>Pt 3</issue>
+      <fpage>759</fpage>
+      <lpage>766</lpage>
+      <abstract>
+        <p>Clusterin (apolipoprotein J) is an extracellular glycoprotein that might exert functions in development, cell death and lipid transport. Clusterin gene expression is elevated at sites of tissue remodelling, such as differentiation and apoptosis; however, the signals responsible for this regulation have not been identified. We use here the clusterin gene as a model system to examine expression in PC12 cells under the control of differentiation and proliferation signals produced by nerve growth factor (NGF) and by epidermal growth factor (EGF) respectively. NGF induced clusterin mRNA, which preceded neurite outgrowth typical of neuronal differentiation. EGF also activated the clusterin mRNA, demonstrating that both proliferation and differentiation signals regulate the gene. To localize NGF- and EGF-responsive elements we isolated the clusterin promoter and tested it in PC12 cell transfections. A 2.5 kb promoter fragment and two 1.5 and 0.3 kb deletion mutants were inducible by NGF and EGF. The contribution to this response of a conserved activator protein 1 (AP-1) motif located in the 0.3 kb fragment was analysed by mutagenesis. The mutant promoter was not inducible by NGF or EGF, which identifies the AP-1 motif as an element responding to both factors. Binding studies with PC12 nuclear extracts showed that AP-1 binds to this sequence in the clusterin promoter. These findings suggest that NGF and EGF, which give differential gene regulation in PC12 cells, resulting in neuronal differentiation and proliferation respectively, use the common Ras/extracellular signal-regulated kinase/AP-1 signalling pathway to activate clusterin expression.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

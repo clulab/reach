@@ -1,0 +1,924 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Sci Rep</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id>
+      <journal-title-group>
+        <journal-title>Scientific Reports</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2045-2322</issn>
+      <publisher>
+        <publisher-name>Nature Publishing Group UK</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">30127451</article-id>
+      <article-id pub-id-type="pmc">6102247</article-id>
+      <article-id pub-id-type="publisher-id">30929</article-id>
+      <article-id pub-id-type="doi">10.1038/s41598-018-30929-1</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>JAK/STAT guarantees robust neural stem cell differentiation by shutting off biological noise</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Tanaka</surname>
+            <given-names>Yoshitaro</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+          <xref ref-type="aff" rid="Aff5">5</xref>
+        </contrib>
+        <contrib contrib-type="author" equal-contrib="yes">
+          <name>
+            <surname>Yasugi</surname>
+            <given-names>Tetsuo</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nagayama</surname>
+            <given-names>Masaharu</given-names>
+          </name>
+          <xref ref-type="aff" rid="Aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Sato</surname>
+            <given-names>Makoto</given-names>
+          </name>
+          <address>
+            <email>makotos@staff.kanazawa-u.ac.jp</email>
+          </address>
+          <xref ref-type="aff" rid="Aff2">2</xref>
+          <xref ref-type="aff" rid="Aff4">4</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Ei</surname>
+            <given-names>Shin-Ichiro</given-names>
+          </name>
+          <address>
+            <email>Eichiro@math.sci.hokudai.ac.jp</email>
+          </address>
+          <xref ref-type="aff" rid="Aff1">1</xref>
+        </contrib>
+        <aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2173 7691</institution-id><institution-id institution-id-type="GRID">grid.39158.36</institution-id><institution>Department of Mathematics, </institution><institution>Faculty of Science, Hokkaido University, Kita 10, Nishi 8, Kita-Ku, </institution></institution-wrap>Sapporo, Hokkaido 060-0810 Japan </aff>
+        <aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2308 3329</institution-id><institution-id institution-id-type="GRID">grid.9707.9</institution-id><institution>Mathematical Neuroscience Unit, Institute for Frontier Science Initiative, </institution><institution>Kanazawa University, 13-1 Takaramachi, </institution></institution-wrap>Kanazawa-shi, Ishikawa 920-8640 Japan </aff>
+        <aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2173 7691</institution-id><institution-id institution-id-type="GRID">grid.39158.36</institution-id><institution>Research Institute for Electronic Science, </institution><institution>Hokkaido University, Kita 12, Nishi 7, Kita-ku, </institution></institution-wrap>Sapporo, Hokkaido 060-0812 Japan </aff>
+        <aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ISNI">0000 0001 2308 3329</institution-id><institution-id institution-id-type="GRID">grid.9707.9</institution-id><institution>Laboratory of Developmental Neurobiology, </institution><institution>Graduate School of Medical Sciences, Kanazawa University, 13-1 Takaramachi, </institution></institution-wrap>Kanazawa-shi, Ishikawa 920-8640 Japan </aff>
+        <aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="GRID">grid.440872.d</institution-id><institution>Present Address: Department of Complex and Intelligent Systems, School of Systems Information Science, </institution><institution>Future University Hakodate, 116-2 Kamedanakano-cho, </institution></institution-wrap>Hakodate, Hokkaido 041-8655 Japan </aff>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <day>20</day>
+        <month>8</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>20</day>
+        <month>8</month>
+        <year>2018</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <year>2018</year>
+      </pub-date>
+      <volume>8</volume>
+      <elocation-id>12484</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>3</day>
+          <month>10</month>
+          <year>2017</year>
+        </date>
+        <date date-type="accepted">
+          <day>8</day>
+          <month>8</month>
+          <year>2018</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s) 2018</copyright-statement>
+        <license license-type="OpenAccess">
+          <license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article&#x2019;s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article&#x2019;s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p>
+        </license>
+      </permissions>
+      <abstract id="Abs1">
+        <p id="Par1">Organismal development is precisely regulated by a sequence of gene functions even in the presence of biological noise. However, it is difficult to evaluate the effect of noise <italic>in vivo</italic>, and the mechanisms by which noise is filtered during development are largely unknown. To identify the noise-canceling mechanism, we used the fly visual system, in which the timing of differentiation of neural stem cells is spatio-temporally ordered. Our mathematical model predicts that JAK/STAT signaling contributes to noise canceling to guarantee the robust progression of the differentiation wave <italic>in silico</italic>. We further demonstrate that the suppression of JAK/STAT signaling causes stochastic and ectopic neural stem cell differentiation <italic>in vivo</italic>, suggesting an evolutionarily conserved function of JAK/STAT to regulate the robustness of stem cell differentiation.</p>
+      </abstract>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">https://doi.org/10.13039/501100001700</institution-id>
+              <institution>Ministry of Education, Culture, Sports, Science, and Technology (MEXT)</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>JP17K14228</award-id>
+          <award-id>JP18H05099</award-id>
+          <award-id>JP17H05761</award-id>
+          <award-id>JP17H03542</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>Yoshitaro</given-names>
+            </name>
+            <name>
+              <surname>Yasugi</surname>
+              <given-names>Tetsuo</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>Makoto</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+      </funding-group>
+      <funding-group>
+        <award-group>
+          <funding-source>
+            <institution-wrap>
+              <institution-id institution-id-type="FundRef">https://doi.org/10.13039/501100003382</institution-id>
+              <institution>JST | Core Research for Evolutional Science and Technology (CREST)</institution>
+            </institution-wrap>
+          </funding-source>
+          <award-id>JPMJCR14D3</award-id>
+          <award-id>JPMJCR14D3</award-id>
+          <award-id>JPMJCR14D3</award-id>
+          <principal-award-recipient>
+            <name>
+              <surname>Nagayama</surname>
+              <given-names>Masaharu</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>Makoto</given-names>
+            </name>
+            <name>
+              <surname>Ei</surname>
+              <given-names>Shin-Ichiro</given-names>
+            </name>
+          </principal-award-recipient>
+        </award-group>
+      </funding-group>
+      <custom-meta-group>
+        <custom-meta>
+          <meta-name>issue-copyright-statement</meta-name>
+          <meta-value>&#xA9; The Author(s) 2018</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="Sec1" sec-type="introduction">
+      <title>Introduction</title>
+      <p id="Par2">During development, stochastic noise arises to varying degrees. Stochastic gene expression and fluctuation of proteins occur intrinsically, caused by the probabilistic collisions between molecules. In addition, cell divisions and external forces from the environment often affect cell positioning and cell fate decisions. Any individual multicellular organism can robustly develop even under these intrinsic and extrinsic sources of noise. Therefore, noise resistance is one of the essential properties of the developing multicellular organisms<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. For robust gene expression in a cell, negative feedback is one of the major ways to reduce the effects of stochastic noise<sup><xref ref-type="bibr" rid="CR2">2</xref>,<xref ref-type="bibr" rid="CR3">3</xref></sup>. Similarly, the ratio of transcription frequency to translation frequency attenuates intrinsic noise<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>. It has been reported that intercellular Notch signaling plays the crucial role to minimize the noise for consistent coherent oscillation during somite segmentation<sup><xref ref-type="bibr" rid="CR5">5</xref></sup>. However, the specific mechanisms of the noise resistance in developing multicellular systems have rarely been identified.</p>
+      <p id="Par3">Mathematical modeling is a useful tool for estimating the effects of stochastic noises and fluctuations in biological systems. For unicellular organisms, stochastic models can be used to control and regulate the stochastic gene expression levels and the fluctuation of protein expression<sup><xref ref-type="bibr" rid="CR2">2</xref>,<xref ref-type="bibr" rid="CR6">6</xref>,<xref ref-type="bibr" rid="CR7">7</xref></sup>. These models are usually described as simple ordinary differential equations (ODEs) by assuming that the mutual interaction among networks is linear. For multicellular organisms, it is necessary to construct the mathematical model based on partial differential equations (PDEs) and/or the ODEs with intercellular interactions because intercellular signaling plays significant roles in the development of multicellular organisms. By varying the values of the parameters in the mathematical models, we can observe the behaviors of the solutions corresponding to the biological phenomena, and we can easily add small amounts of noise to the specified regions in the numerical simulations. Moreover, if we use simple biological models such as the fruit fly, we can adapt the parameters of the mathematical models to the real genes in the network systems, and we can freely manipulate them in the numerical simulations. Thus, by changing the parameters in the numerical simulations in the presence of noise and observing the numerical results of the mathematical model, we can directly identify the gene network relating to the robustness against the biological noises.</p>
+      <p id="Par4">To theoretically and experimentally investigate how multicellular organisms cope with biological noise, the developing fly visual system provides an excellent model. The wave of differentiation called the &#x201C;proneural wave&#x201D; sweeps across the surface of the brain during the third larval instar (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1A</xref>)<sup><xref ref-type="bibr" rid="CR8">8</xref>,<xref ref-type="bibr" rid="CR9">9</xref></sup>. During the progression of the proneural wave, neuroepithelial cells (NEs) sequentially differentiate into neuroblasts (NBs), neural stem-like cells. This progression starts at the medial edge of the NE sheet and extends toward the lateral edge. The differentiating cells start expressing Achaete-Scute Complex (AS-C) proneural proteins such as Scute, Lethal of Scute (L&#x2019;sc), and Asense (Ase)<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. Among them, L&#x2019;sc is transiently expressed in cells at the transition interface between NEs and NBs and acts as a trigger for NB differentiation (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1A,F&#x2013;H&#x2019;</xref>)<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. During the progression of the proneural wave, several signaling pathways, including EGF, Notch, JAK/STAT, and Hippo, play pivotal roles<sup><xref ref-type="bibr" rid="CR8">8</xref>&#x2013;<xref ref-type="bibr" rid="CR12">12</xref></sup>. The EGF and Notch signaling pathways are activated in the wavefront cells and regulate the progression of the wave positively and negatively, respectively (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1A,C</xref>)<sup><xref ref-type="bibr" rid="CR9">9</xref>,<xref ref-type="bibr" rid="CR12">12</xref></sup>. By combining mathematical modeling with genetic experiments, we have previously reported that Notch-mediated lateral inhibition is implemented within the progression of the proneural wave, though Notch activation does not show a salt and pepper pattern<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>.<fig id="Fig1"><label>Figure 1</label><caption><p>The proneural wave progresses unidirectionally during optic lobe development in <italic>Drosophila</italic>. (<bold>A</bold>) A schematic of the progression of the proneural wave. The proneural wave sweeps from medial to lateral. L&#x2019;sc is transiently expressed in the differentiating NEs and defines the timing of the NE-to-NB differentiation. EGF positively regulates the progression of the wave, while Notch and JAK/STAT negatively regulate wave progression through increasing the expression of Notch target genes. (<bold>B</bold>) Summary of the loss-of-function phenotype of the <italic>Stat92E</italic> mutant clone. (<bold>C</bold>) Schema showing the spatial profile of each signaling activity. (<bold>D</bold>) Schema showing the gene regulatory network including AS-C, EGF, Notch, Dl, and JAK/STAT. (<bold>E</bold>) Lateral inhibition mechanism of Delta/Notch signaling. (<bold>F</bold>&#x2013;<bold>H&#x2019;</bold>) The progression of the proneural wave <italic>in vivo</italic>. Control third-instar larvae at (<bold>F</bold>) 114-126, (<bold>G</bold>) 126&#x2013;138, (<bold>H</bold>) 138&#x2013;150&#x2009;hours after egg laying are shown. PatJ (blue, NE), L&#x2019;sc (green, proneural wave), Deadpan (Dpn, magenta, NB) are shown. (<bold>F&#x2019;</bold>, <bold>G&#x2019;</bold>, and <bold>H&#x2019;</bold>) L&#x2019;sc (green) and Dpn (maenta) are shown. Scale bars, 20&#x2009;&#x3BC;m.</p></caption><graphic xlink:href="41598_2018_30929_Fig1_HTML" id="d29e455"/></fig></p>
+      <p id="Par5">In this study, we show that our previous mathematical model lacks noise resistance. This raises a possibility that there is a noise-canceling mechanism during the progression of the proneural wave <italic>in vivo</italic>. To improve our previous model, we focus on the function of JAK/STAT signaling, which has been shown to negatively regulate the progression of the wave <italic>in vivo</italic><sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. The modified version of the mathematical model cancels the effect of noise and shows the robust progression of the wave. We further demonstrate that suppression of the function of <italic>Stat9</italic>2<italic>E</italic> shows ectopic and random NB differentiation <italic>in vivo</italic>. Our <italic>in silico</italic> and <italic>in vivo</italic> data indicate that JAK/STAT signaling plays a critical role in noise canceling during neural stem cell differentiation.</p>
+    </sec>
+    <sec id="Sec2" sec-type="results">
+      <title>Results</title>
+      <sec id="Sec3">
+        <title>Mild EGF noise induces ectopic neuroblast differentiation in the previous mathematical model</title>
+        <p id="Par6">To understand the complex interplay among EGF, Notch, and AS-C during the propagation of the proneural wave, we have previously developed a mathematical model based on the molecular interactions identified through a series of genetic experiments (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1D,E</xref>)<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. We have applied the diffusion model for EGF and the lateral inhibition mechanism for Notch and have represented the mutual interactions as follows:<disp-formula id="Equa"><label>1</label><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{array}{c}(Model\,\,\,1)\{\begin{array}{ccc}\frac{{\rm{\partial }}E}{{\rm{\partial }}t} &amp; = &amp; {d}_{e}{\rm{\Delta }}E-{k}_{e}E+{a}_{e}A({A}_{0}-A),\\ \frac{d{N}_{i,j}}{dt} &amp; = &amp; -{k}_{n}{N}_{i,j}+{d}_{t}\sum _{l,m\in {{\rm{\Lambda }}}_{i,j}}{D}_{l,m}-{d}_{c}{N}_{i,j}{D}_{i,j},\\ \frac{d{D}_{i,j}}{dt} &amp; = &amp; -{k}_{d}{D}_{i,j}+{a}_{d}{A}_{i,j}({A}_{0}-{A}_{i,j}),\\ \frac{d{A}_{i,j}}{dt} &amp; = &amp; {e}_{a}({A}_{0}-{A}_{i,j})max\{{E}_{i,j}-{N}_{i,j},0\}.\end{array}(x,y)\in B,\,t &gt; 0,\end{array}$$\end{document}</tex-math><mml:math id="M2" display="block"><mml:mtable columnspacing="1em" rowspacing="4pt"><mml:mtr><mml:mtd><mml:mo stretchy="false">(</mml:mo><mml:mi>M</mml:mi><mml:mi>o</mml:mi><mml:mi>d</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mspace width="thinmathspace"/><mml:mspace width="thinmathspace"/><mml:mspace width="thinmathspace"/><mml:mn>1</mml:mn><mml:mo stretchy="false">)</mml:mo><mml:mrow><mml:mo fence="false" stretchy="true">{</mml:mo><mml:mtable columnalign="center center center" columnspacing="1em" rowspacing="4pt"><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:mfrac></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:msub><mml:mrow><mml:mi>d</mml:mi></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x394;</mml:mi></mml:mrow></mml:mrow><mml:mi>E</mml:mi><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow></mml:msub><mml:mi>E</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>e</mml:mi></mml:mrow></mml:msub><mml:mi>A</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:mi>A</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi>d</mml:mi><mml:msub><mml:mrow><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:mfrac></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>d</mml:mi></mml:mrow><mml:mrow><mml:mi>t</mml:mi></mml:mrow></mml:msub><mml:munder><mml:mo>&#x2211;</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi><mml:mo>&#x2208;</mml:mo><mml:msub><mml:mrow><mml:mi mathvariant="normal">&#x39B;</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:munder><mml:msub><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mi>l</mml:mi><mml:mo>,</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>d</mml:mi></mml:mrow><mml:mrow><mml:mi>c</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi>d</mml:mi><mml:msub><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:mfrac></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi>d</mml:mi><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:mfrac></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mrow><mml:mrow><mml:mo form="prefix" movablelimits="true">max</mml:mo></mml:mrow></mml:mrow><mml:mo fence="false" stretchy="false">{</mml:mo><mml:msub><mml:mrow><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mn>0</mml:mn><mml:mo fence="false" stretchy="false">}</mml:mo><mml:mo>.</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>&#x2208;</mml:mo><mml:mi>B</mml:mi><mml:mo>,</mml:mo><mml:mspace width="thinmathspace"/><mml:mi>t</mml:mi><mml:mo>&gt;</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math><graphic xlink:href="41598_2018_30929_Article_Equa.gif" position="anchor"/></alternatives></disp-formula>Here, <italic>E</italic> is a composite variable for the EGF ligand concentration and EGF signaling at position <italic>x</italic> and time <italic>t</italic>, <italic>N</italic><sub><italic>i</italic>,<italic>j</italic></sub> and <italic>D</italic><sub><italic>i</italic>,<italic>j</italic></sub> are variables for Notch signal activity and Dl expression in the <italic>i</italic>th and <italic>j</italic>th cells at time <italic>t</italic>, respectively, <italic>A</italic><sub><italic>i</italic>, <italic>j</italic></sub> is a variable for the level of the differentiation of AS-C in the <italic>i</italic>th and <italic>j</italic>th cells at time <italic>t</italic>, and <italic>d</italic><sub><italic>e</italic></sub>, <italic>k</italic><sub><italic>e</italic></sub>, <italic>a</italic><sub><italic>e</italic></sub>, <italic>k</italic><sub><italic>n</italic></sub>, <italic>d</italic><sub><italic>t</italic></sub>, <italic>d</italic><sub><italic>c</italic></sub>, <italic>k</italic><sub><italic>d</italic></sub>, <italic>a</italic><sub><italic>d</italic></sub>, <italic>e</italic><sub><italic>a</italic></sub> are positive constants (see materials and methods for other definitions). This suggests that the combination of the reaction diffusion system of EGF and the lateral inhibition system of Notch accurately mimics <italic>in vivo</italic> situations in wild-type animals and mutants for EGF or Notch signaling components<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>.</p>
+        <p id="Par7">Although Model 1 reproduces experimental results for the progression of the proneural wave, it lacks the noise resistance. The addition of noise for EGF in the numerical simulation causes stochastic NB differentiation apart from the proneural wavefront (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref>). The numerical results of Model 1 with the addition of a small amount perturbation of the EGF level away from the wavefront at the white arrow shows the propagation of spontaneous NB differentiation in the region distant from the wavefront. In contrast, the effect of artificial activation of EGF signaling ahead of the wavefront is very limited <italic>in vivo</italic>. Although ectopic NB differentiation is induced, it does not propagate to the surrounding undifferentiated region<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. The difference between <italic>in silico</italic> and <italic>in vivo</italic> experiments suggests that there is a noise-canceling mechanism to ensure the robust progression of the differentiation wave <italic>in vivo</italic>.<fig id="Fig2"><label>Figure 2</label><caption><p>Minor perturbation of EGF signaling away from the wavefront causes spontaneous NB differentiation in Model 1. The small perturbation is imposed on <italic>E</italic> at the white arrow in the initial condition as shown in (<bold>A</bold>). The parameters are <italic>d</italic><sub><italic>e</italic></sub>&#x2009;=&#x2009;2.0, <italic>k</italic><sub><italic>e</italic></sub>&#x2009;=&#x2009;1.0, a<sub>e</sub>&#x2009;=&#x2009;4.0, <italic>k</italic><sub><italic>n</italic></sub>&#x2009;=&#x2009;3.0, <italic>d</italic><sub><italic>t</italic></sub>&#x2009;=&#x2009;2.0, <italic>d</italic><sub><italic>c</italic></sub>&#x2009;=&#x2009;0.1, <italic>k</italic><sub><italic>d</italic></sub>&#x2009;=&#x2009;3.0, <italic>a</italic><sub><italic>d</italic></sub>&#x2009;=&#x2009;4.0, <italic>e</italic><sub><italic>a</italic></sub><italic>&#x2009;=&#x2009;</italic>10.0 and <italic>A</italic><sub>0</sub>&#x2009;=&#x2009;1.0. Panels (<bold>A</bold>&#x2013;<bold>C</bold>) correspond to the profiles of <italic>A</italic> at <italic>t</italic>&#x2009;=&#x2009;1.0, <italic>t</italic>&#x2009;=&#x2009;2.0, and <italic>t</italic>&#x2009;=&#x2009;3.0, respectively. The high and low expression levels of <italic>A</italic> are shown in red and blue as indicated in the color bar.</p></caption><graphic xlink:href="41598_2018_30929_Fig2_HTML" id="d29e1182"/></fig></p>
+      </sec>
+      <sec id="Sec4">
+        <title>JAK/STAT signaling suppresses the effect of noise during the progression of the proneural wave <italic>in silico</italic></title>
+        <p id="Par8">As a candidate mechanism for the noise canceling, we focused on the function of JAK/STAT signaling based on previous findings. First, Unpaired (Upd), a ligand for JAK/STAT signaling, is expressed in lateral NEs and forms a gradient of JAK/STAT signaling, which is higher laterally and lower medially (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1C</xref>, Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S1</xref>)<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. Second, JAK/STAT signaling negatively regulates the progression of the proneural wave; therefore, suppression of JAK/STAT signaling results in faster progression of the proneural wave (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1B</xref>)<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. Third, JAK/STAT signaling positively regulates the expression of a subset of Notch target genes, including <italic>Enhancer of split m&#x3B4;</italic> (<italic>E(spl)m</italic>&#x3B4;), <italic>Enhancer of split m7</italic> (<italic>E(spl)m7</italic>), and <italic>Twin of m4</italic> (<italic>Tom</italic>), in the fly brain<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. We therefore improved Model 1 by incorporating the effect of JAK/STAT into the system. Based on previous findings, we added the following assumptions to construct the mathematical models with noise resistance:</p>
+        <p id="Par9">(A.1) JAK/STAT activates the expression of a subset of Notch target genes that inhibit the expression of the AS-C (Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1D</xref>).</p>
+        <p id="Par10">(A.2) JAK/STAT signaling forms a gradient under the control of Upd and reaches the stationary state independently of the propagation of the proneural wave.</p>
+        <p id="Par11">In Model 1, the effect of Notch corresponding to the <italic>E(spl)m</italic>&#x3B4; and <italic>E(spl)m7</italic> is imposed inside the max function of the equation of <italic>A</italic>. This term regulates the trigger of the differentiation of <italic>A</italic>. Because JAK/STAT regulates these Notch target genes, we modified the fourth equation of Model 1 according to the assumption (A.1):<disp-formula id="Equb"><label>2</label><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\frac{d{A}_{i,j}}{dt}={e}_{a}({A}_{0}-{A}_{i,j})max\{{E}_{i,j}-{N}_{i,j}-{k}_{in}{J}_{{\rm{\infty }}},0\},$$\end{document}</tex-math><mml:math id="M4" display="block"><mml:mfrac><mml:mrow><mml:mi>d</mml:mi><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>d</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:mfrac><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>e</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mrow><mml:mrow><mml:mo form="prefix" movablelimits="true">max</mml:mo></mml:mrow></mml:mrow><mml:mo fence="false" stretchy="false">{</mml:mo><mml:msub><mml:mrow><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mrow><mml:mi>J</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x221E;</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mn>0</mml:mn><mml:mo fence="false" stretchy="false">}</mml:mo><mml:mo>,</mml:mo></mml:math><graphic xlink:href="41598_2018_30929_Article_Equb.gif" position="anchor"/></alternatives></disp-formula>where <italic>J</italic> is denoted by the JAK/STAT signaling at position&#xA0;<italic>x</italic> and time <italic>t</italic> and <italic>k</italic><sub><italic>in</italic></sub> is a positive constant for the regulation rate of JAK/STAT signaling for Notch target genes. Furthermore, from the assumption (A.2), as the JAK/STAT creates the gradient of its activation strongly in the lateral region and weakly in the medial region (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S1</xref>), we impose <italic>J</italic><sub>&#x221E;</sub> as a stationary state for the following reaction-diffusion model:<disp-formula id="Equc"><label>3</label><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\{\begin{array}{ccc}\frac{{\rm{\partial }}J}{{\rm{\partial }}t} &amp; = &amp; {d}_{i}{\rm{\Delta }}J-{k}_{i}J,\,(x,y)\in B,\,\,t &gt; 0,\\ \frac{{\rm{\partial }}J}{{\rm{\partial }}y}(t,x,0) &amp; = &amp; \frac{{\rm{\partial }}J}{{\rm{\partial }}y}(t,x,{L}_{y})=0,\,x\in [0,{L}_{x}],\\ \frac{{\rm{\partial }}J}{{\rm{\partial }}x}(t,0,y) &amp; = &amp; 0,\,J(t,{L}_{x},y)={J}_{0},\,y\in [0,{L}_{y}],\end{array}$$\end{document}</tex-math><mml:math id="M6" display="block"><mml:mo fence="false" stretchy="true">{</mml:mo><mml:mtable columnalign="center center center" columnspacing="1em" rowspacing="4pt"><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>J</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:mfrac></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:msub><mml:mrow><mml:mi>d</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x394;</mml:mi></mml:mrow></mml:mrow><mml:mi>J</mml:mi><mml:mo>&#x2212;</mml:mo><mml:msub><mml:mrow><mml:mi>k</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mi>J</mml:mi><mml:mo>,</mml:mo><mml:mspace width="thinmathspace"/><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>&#x2208;</mml:mo><mml:mi>B</mml:mi><mml:mo>,</mml:mo><mml:mspace width="thinmathspace"/><mml:mspace width="thinmathspace"/><mml:mi>t</mml:mi><mml:mo>&gt;</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>J</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>y</mml:mi></mml:mrow></mml:mfrac><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mn>0</mml:mn><mml:mo stretchy="false">)</mml:mo></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>J</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>y</mml:mi></mml:mrow></mml:mfrac><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:msub><mml:mrow><mml:mi>L</mml:mi></mml:mrow><mml:mrow><mml:mi>y</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mspace width="thinmathspace"/><mml:mi>x</mml:mi><mml:mo>&#x2208;</mml:mo><mml:mo stretchy="false">[</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:msub><mml:mrow><mml:mi>L</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">]</mml:mo><mml:mo>,</mml:mo></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>J</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">&#x2202;</mml:mi><mml:mi>x</mml:mi></mml:mrow></mml:mfrac><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mo>,</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mspace width="thinmathspace"/><mml:mi>J</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mo>,</mml:mo><mml:msub><mml:mrow><mml:mi>L</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mi>J</mml:mi></mml:mrow><mml:mrow><mml:mn>0</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mspace width="thinmathspace"/><mml:mi>y</mml:mi><mml:mo>&#x2208;</mml:mo><mml:mo stretchy="false">[</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:msub><mml:mrow><mml:mi>L</mml:mi></mml:mrow><mml:mrow><mml:mi>y</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">]</mml:mo><mml:mo>,</mml:mo></mml:mtd></mml:mtr></mml:mtable></mml:math><graphic xlink:href="41598_2018_30929_Article_Equc.gif" position="anchor"/></alternatives></disp-formula>where <italic>d</italic><sub><italic>i</italic></sub> is a diffusion coefficient of the JAK/STAT signaling, <italic>k</italic><sub><italic>i</italic></sub> is a degradation rate, and <italic>J</italic><sub>0</sub> is a positive constant corresponding to the JAK/STAT activation in the lateral region. From the first equation of eq. <xref rid="Equc" ref-type="">3</xref>, the activity of JAK/STAT signaling is changed by the diffusion and the decay. We impose the zero flux boundary condition in the second formula similar to the eq. <xref rid="Equa" ref-type="">1</xref><sup><xref ref-type="bibr" rid="CR13">13</xref></sup>. This indicates that the JAK/STAT activity is dependent on the distance from the ligand source and it shows the same value along with the <italic>y</italic> axis. In the third formula, we set activation of JAK/STAT as 0 at the medial side and <italic>J</italic><sub>0</sub> at the lateral side, since JAK/STAT activation was not found in the medial most region in the optic lobe and the activation in the lateral side was always strong (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S1</xref>). We designate the improved version from eq. <xref rid="Equb" ref-type="">2</xref> as Model 2. We next performed the numerical simulations with Model 2 in a two dimensional field, <italic>B</italic> (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>). Even in the presence of a small perturbation in the initial condition and in each step of all variables, the proneural wave propagates similarly to the noise-free condition because of the cancelation of the noise. This is explained from the perspective of mathematical modeling: In Model 2, the term inhibiting the differentiation of <italic>A</italic> is reproduced by the function max{<italic>E</italic><sub><italic>i</italic>,<italic>j</italic></sub> &#x2009;&#x2212;&#x2009;<italic>N</italic><sub><italic>i</italic>, <italic>j</italic></sub>&#x2009;&#x2212;&#x2009;<italic>k</italic><sub><italic>in</italic></sub><italic>J</italic><sub>&#x221E;</sub>, 0}. If the concentration of <italic>E</italic>
+<sub><italic>i</italic>,<italic>j</italic></sub>, which can promote the propagation of the proneural wave, is larger than that of <italic>N</italic>&#x2009;+&#x2009;<italic>k</italic><sub><italic>in</italic></sub><italic>J</italic><sub>&#x221E;</sub>, which inhibits the propagation of the proneural wave in a cell, differentiation starts in that cell. On the other hand, <italic>N</italic> is not upregulated in the region distant from the wavefront<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. Thus, stimulation of a small amount of noise to <italic>E</italic> eventually causes spontaneous NB differentiation. However, as the JAK/STAT signaling positively regulates Notch targets, the value inside the max function remains negative, even if a small perturbation is added into the concentration of <italic>E</italic> away from the wavefront. Thus, the spontaneous differentiation in the region distant from the wavefront is inhibited by the cancelation of the noise resulting from the function <italic>J</italic><sub>&#x221E;</sub>. As <italic>E</italic> is the only variable that increases the value inside the max function of <italic>A</italic>, total noise from other components can be integrated in <italic>E</italic>. Thus, we can determine that the noise can be canceled if the level of the noise of <italic>E</italic> is less than that of <italic>k</italic><sub><italic>in</italic></sub><italic>J</italic><sub>&#x221E;</sub>. The revised mathematical model still mimics <italic>in vivo</italic> situations and shows the capacity for noise resistance, suggesting that JAK/STAT signaling contributes to noise canceling during the progression of the proneural wave <italic>in silico</italic>.<fig id="Fig3"><label>Figure 3</label><caption><p>JAK/STAT signaling cancels the noise <italic>in silico</italic>. The result of the numerical simulation of Model 2 in the field <italic>B</italic> with the same parameters as in Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref> and <italic>k</italic><sub><italic>in</italic></sub>&#x2009;=&#x2009;1.0, <italic>d</italic><sub><italic>i</italic></sub>&#x2009;=&#x2009;1.0, <italic>k</italic><sub><italic>i</italic></sub>&#x2009;=&#x2009;0.01, <italic>J</italic><sub>0</sub>&#x2009;=&#x2009;1.0. The five upper figures show the profiles of the <italic>E</italic>, <italic>N</italic>, <italic>D</italic>, <italic>A</italic>, and <italic>J</italic> in the field <italic>B</italic>, and the lowest panels show the longitudinal section, where red, green, blue, magenta, and light blue curves correspond to the values of <italic>E</italic>, <italic>N</italic>, <italic>D</italic>, <italic>A</italic>, and <italic>J</italic><sub>&#x221E;</sub> on [0, <italic>L</italic><sub><italic>x</italic></sub>] and <italic>y</italic>&#x2009;=&#x2009;<italic>L</italic><sub><italic>y</italic></sub><italic>/2</italic>. The columns from left to right show the profiles of <italic>t</italic>&#x2009;=&#x2009;0, <italic>t</italic>&#x2009;=&#x2009;4.0, and <italic>t</italic>&#x2009;=&#x2009;8.0, respectively. The insets in the longitudinal section at <italic>t</italic>&#x2009;=&#x2009;0 are enlarged views of <italic>E</italic>, <italic>N</italic>, <italic>D</italic>, and <italic>A</italic> at <italic>t</italic>&#x2009;=&#x2009;0, and similar noise is added in each step in the numerical simulation.</p></caption><graphic xlink:href="41598_2018_30929_Fig3_HTML" id="d29e1940"/></fig></p>
+        <p id="Par12">In the current model, the noise resistance is less prominent when the position <italic>x</italic> is near the origin (Fig.&#xA0;<xref rid="Fig3" ref-type="fig">3</xref>). However, <italic>in vivo</italic>, the NE cells are dividing rapidly. Therefore, the undifferentiated region ahead of the wavefront is initially much smaller but is expanded as the wave propagates<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. A future model that integrates the NE cell division will resolve this inconsistency.</p>
+      </sec>
+      <sec id="Sec5">
+        <title>JAK/STAT suppresses ectopic NB differentiation <italic>in vivo</italic></title>
+        <p id="Par13">Next, to confirm the possibility that JAK/STAT cancels spontaneous NB differentiation caused by biological noise <italic>in vivo</italic>, we reduced the JAK/STAT signaling activity by knocking down <italic>Stat9</italic>2<italic>E</italic>. We induced <italic>Stat9</italic>2<italic>E</italic> RNAi by using the <italic>NP3605-Gal4</italic> driver in the larval optic lobe NEs<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. Two <italic>Stat9</italic>2<italic>E</italic> RNAi lines targeting different regions of the <italic>Stat92E</italic> gene showed ectopic L&#x2019;sc-positive differentiating cells and Deadpan (Dpn)-positive NBs in a stochastic manner (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4</xref>) (n&#x2009;=&#x2009;16/18 for <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> and n&#x2009;=&#x2009;18/44 for <italic>UAS-Stat92E-RNAi</italic><sup><italic>#2</italic></sup>), suggesting that JAK/STAT does indeed cancel the biological noise. Additionally, the numerical simulation shows that the addition of noise away from the wavefront causes spontaneous NB differentiation in the opposite direction from that of the original proneural wave (Fig.&#xA0;<xref rid="Fig2" ref-type="fig">2</xref>). This numerical result was experimentally reproduced <italic>in vivo</italic>. Ectopic L&#x2019;sc-expressing cells were sometimes found in the medial region, adjacent to ectopic Dpn-expressing cells, demonstrating that the ectopic NB differentiation wave progressed from the lateral to the medial direction in <italic>STAT92E</italic> RNAi samples (Fig.&#xA0;<xref rid="Fig4" ref-type="fig">4B&#x2019;</xref>, yellow arrowhead). To exclude the possibility that the effect of RNAi was not uniform and ectopic differentiation was caused where the JAK/STAT activity was particularly reduced by <italic>Stat92E</italic> RNAi, we examined the activation level of JAK/STAT signaling. 10&#xD7;STAT-GFP, a JAK/STAT responsive reporter, was strongly expressed in the lamina and weakly in NEs in wild type optic lobes, as previously described (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S1A</xref>)<sup><xref ref-type="bibr" rid="CR8">8</xref>,<xref ref-type="bibr" rid="CR15">15</xref></sup>. Expression of 10xSTAT-GFP was uniformly decreased in <italic>Stat92E</italic> RNAi samples (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S1B</xref> and <xref rid="MOESM1" ref-type="media">S1C</xref>) (n&#x2009;=&#x2009;31/31 for <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> and n&#x2009;=&#x2009;84/84 for <italic>UAS-Stat92E-RNAi</italic><sup><italic>#2</italic></sup>). These experimental results suggest that JAK/STAT signaling is required <italic>in vivo</italic> for preventing spontaneous NB differentiation by suppressing the effects of noise.<fig id="Fig4"><label>Figure 4</label><caption><p><italic>Stat92E</italic> blocks spontaneous neuroblast differentiation <italic>in vivo</italic>. (<bold>A</bold>&#x2013;<bold>C&#x2019;</bold>) Third-instar larval optic lobes for control (<bold>A</bold>), <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> (<bold>B</bold>), and <italic>UAS-Stat92E-RNAi</italic><sup><italic>#2</italic></sup> (<bold>C</bold>). <italic>NP3605-Gal4 UAS-GFP</italic>.<italic>nls</italic> (green), L&#x2019;sc (blue) and Dpn (magenta) are shown. (<bold>A&#x2019;</bold>&#x2013;<bold>C&#x2019;</bold>) L&#x2019;sc and Dpn are shown. White arrowheads in (<bold>B&#x2019;</bold>,<bold>C&#x2019;</bold>) indicate ectopic L&#x2019;sc and Dpn expression. The yellow arrowhead indicates ectopic L&#x2019;sc expression medial to ectopic Dpn expression. Scale bars, 20&#x2009;&#x3BC;m.</p></caption><graphic xlink:href="41598_2018_30929_Fig4_HTML" id="d29e2122"/></fig></p>
+      </sec>
+      <sec id="Sec6">
+        <title>Noise canceling function by JAK/STAT is mediated by EGF and Notch signaling pathways</title>
+        <p id="Par14">In order to further dissect the noise canceling mechanism by JAK/STAT, we first asked whether activation of EGF signaling is required for ectopic NB differentiation under the <italic>Stat92E</italic> RNAi background. To reduce EGF activation, we expressed Ras<sup>N17</sup>, a dominant negative form of Ras (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5A&#x2013;D</xref>)<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Ras<sup>N17</sup> expression in the control background did not show any phenotype (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5C</xref>) (n&#x2009;=&#x2009;0/36). The phenotype of ectopic L&#x2019;sc or Dpn expression by <italic>Stat92E</italic> RNAi (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5B</xref>) (n&#x2009;=&#x2009;15/15) was suppressed by simultaneous expression of Ras<sup>N17</sup> (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5D</xref>) (n&#x2009;=&#x2009;0/58). This result suggests that EGF activation can be a source of noise which induces spontaneous NB differentiation under the decreased JAK/STAT activation condition.<fig id="Fig5"><label>Figure 5</label><caption><p>Noise canceling function of JAK/STAT is mediated by EGF and Notch signaling pathways. (<bold>A</bold>&#x2013;<bold>D</bold>) Third-instar larval optic lobes for control (<bold>A</bold>), <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> (<bold>B</bold>), <italic>UAS-Ras</italic><sup><italic>N17</italic></sup> (<bold>C</bold>) and <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup>, <italic>UAS-Ras</italic><sup><italic>N17</italic></sup> (<bold>D</bold>). (<bold>E</bold>&#x2013;<bold>H</bold>) Third-instar larval optic lobes for control (<bold>E</bold>), <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> (<bold>F</bold>), <italic>H</italic><sup><italic>2</italic></sup> heterozygous mutant (<bold>G</bold>) and <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> in the <italic>H</italic><sup><italic>2</italic></sup> heterozygous mutant background (<bold>H</bold>). <italic>NP3605-Gal4</italic> was used as a <italic>Gal4</italic> driver. L&#x2019;sc (blue) and Dpn (magenta) are shown. White arrowheads in (<bold>B</bold>,<bold>F</bold>,<bold>H</bold>) indicate ectopic L&#x2019;sc and/or Dpn expression. Scale bars, 20&#x2009;&#x3BC;m.</p></caption><graphic xlink:href="41598_2018_30929_Fig5_HTML" id="d29e2272"/></fig></p>
+        <p id="Par15">We next examined the possibility that Notch signaling is involved in noise canceling. To test whether expression of <italic>E(spl)m&#x3B4;</italic> and <italic>E(spl)m7</italic> is altered under the <italic>Stat92E</italic> RNAi condition, we checked expression pattern of E(spl)m&#x3B4;-GFP and E(spl)m7-GFP. E(spl)m&#x3B4;-GFP was expressed in cells in the lamina and in wavefront cells (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2A</xref>). E(spl)m&#x3B4;-GFP expression in the lamina was disturbed when ectopic NB differentiation was induced by <italic>Stat92E</italic> RNAi (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2B</xref>) (n&#x2009;=&#x2009;24/32). E(spl)m7-GFP was expressed in the lamina and NEs including wavefront cells (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2C</xref>). E(spl)m7-GFP was partially lost upon Stat92E knockdown (arrowhead in Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S2D</xref>) (n&#x2009;=&#x2009;6/32). In both cases, GFP expression was only partially decreased, though <italic>Stat92E</italic> RNAi reduced the JAK/STAT activity uniformly (Fig.&#xA0;<xref rid="MOESM1" ref-type="media">S1</xref>). Therefore, it is possible that JAK/STAT signaling regulates expression of these Notch target genes indirectly. To examine whether Notch signaling is involved in JAK/STAT-mediated noise canceling, we tested genetic interaction between the two signaling pathways (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5E&#x2013;H</xref>). Hairless (H) acts as an antagonist to Notch signaling<sup><xref ref-type="bibr" rid="CR17">17</xref>,<xref ref-type="bibr" rid="CR18">18</xref></sup>. The ectopic NB differentiation phenotype by <italic>Stat92E</italic> RNAi (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5F</xref>) (n&#x2009;=&#x2009;32/39) was partially suppressed in the <italic>H</italic><sup><italic>2</italic></sup> heterozygous background (Fig.&#xA0;<xref rid="Fig5" ref-type="fig">5G,H</xref>) (n&#x2009;=&#x2009;1/50 for 5&#x2009;G and n&#x2009;=&#x2009;13/45 for 5&#x2009;H). This result suggests that Notch signaling acts downstream of JAK/STAT signaling to mediate the noise canceling function, though we cannot rule out the possibility that Notch signaling acts in parallel with JAK/STAT signaling (red arrows in Fig.&#xA0;<xref rid="Fig1" ref-type="fig">1D</xref>). Importantly, however, these two alternative possibilities are equivalent in our mathematical model (eq. <xref rid="Equb" ref-type="">2</xref>).</p>
+      </sec>
+    </sec>
+    <sec id="Sec7" sec-type="discussion">
+      <title>Discussion</title>
+      <p id="Par16">Although cellular events contain stochastic fluctuations, developmental processes progress precisely, and pattern formation is spatiotemporally organized, suggesting that there are regulatory mechanisms filtering the noise. In this report, we demonstrate that JAK/STAT signaling has a noise-canceling function during neural stem cell differentiation in the <italic>Drosophila</italic> optic lobe. From our mathematical model, any molecule which shows broad expression in NEs and negatively regulates EGF activation or expression of AS-C can cancel noise. However, we assume that JAK/STAT signaling plays the major role on noise canceling because JAK/STAT signaling is the only known factor which fits to the above assumptions and because the decrease of the JAK/STAT signal activation did show the ectopic neural stem cell differentiation phenotype<sup><xref ref-type="bibr" rid="CR8">8</xref></sup>. JAK/STAT is involved in many developmental contexts and stem cell maintenance in both vertebrates and invertebrates<sup><xref ref-type="bibr" rid="CR19">19</xref>&#x2013;<xref ref-type="bibr" rid="CR22">22</xref></sup>. Recent <italic>in silico</italic> experiments predict that Stat3 is involved in noise processing in mouse embryonic stem cells<sup><xref ref-type="bibr" rid="CR23">23</xref></sup>. It is tempting to speculate that the function of JAK/STAT in noise canceling is an evolutionally conserved fundamental mechanism to regulate the robustness of stem cell maintenance and differentiation.</p>
+      <p id="Par17">Recently, a complementary strategy using both mathematical modeling and <italic>in vivo</italic> experiments has emerged as a powerful way to elucidate multiple types of biological noise within developmental systems<sup><xref ref-type="bibr" rid="CR5">5</xref>,<xref ref-type="bibr" rid="CR24">24</xref></sup>. By taking advantage of mathematical modeling, we can reveal how multicellular organisms cope with intrinsic and extrinsic noise to develop a robust system. Henceforth, by applying a combination of mathematical modeling and molecular genetics, we can solve biological questions that have previously been difficult to address.</p>
+    </sec>
+    <sec id="Sec8">
+      <title>Methods</title>
+      <sec id="Sec9">
+        <title>Mathematical modeling</title>
+        <p id="Par18">In the mathematical model, the calculation region is a two dimensional field <italic>B</italic>&#x2009;=&#x2009;[0, <italic>L</italic><sub><italic>x</italic></sub>]&#x2009;&#xD7;&#x2009;[0, <italic>L</italic><sub><italic>y</italic></sub>] for positive constants <italic>L</italic><sub><italic>x</italic></sub>, <italic>L</italic><sub><italic>y</italic></sub>&#x2009;&gt;&#x2009;0 with the zero flux boundary condition. The field <italic>B</italic> is divided into square or hexagonal meshes in the numerical calculations, and each mesh is regarded as a cell with the indexes <italic>i</italic> and <italic>j</italic> corresponding to horizontal and vertical directions, respectively. Further, the variables without the indexes of <italic>i</italic> and <italic>j</italic> in the first equation of Model 1 indicate the variable for the whole region by combining each cell in the field <italic>B</italic>, and <italic>E</italic><sub><italic>i</italic>, <italic>j</italic></sub> reproduces the averaging amount of <italic>E</italic> in the <italic>i</italic>, <italic>j</italic>th cell. Please refer the previous study<sup><xref ref-type="bibr" rid="CR13">13</xref></sup> for the detailed mathematical settings.</p>
+      </sec>
+      <sec id="Sec10">
+        <title>Fly Genetics</title>
+        <p id="Par19">Flies were grown at 25&#x2009;&#xB0;C, and <italic>w</italic> or <italic>y w</italic> flies were used as controls. <italic>NP3605-Gal4 UAS-GFP</italic>.<italic>nls</italic>, <italic>UAS-Stat92E-RNAi</italic><sup><italic>#1</italic></sup> (VDRC: 43866), <italic>UAS-Stat92E-RNAi</italic><sup><italic>#2</italic></sup> (VDRC: 106980), <italic>UAS-Ras</italic><sup><italic>N17</italic></sup> (BDSC: 4845), <italic>10xSTAT-GFP</italic> (BDSC: 26197), <italic>E(spl)m7-GFP</italic> (BDSC: 55839), <italic>E(spl)m&#x3B4;-GFP</italic> (BDSC: 68191), and <italic>H</italic><sup><italic>2</italic></sup> (BDSC: 517) flies were used.</p>
+      </sec>
+      <sec id="Sec11">
+        <title>Histology</title>
+        <p id="Par20">Third-instar wandering larvae were dissected in PBS and fixed in 4% formaldehyde in PBS. Samples were washed three times after fixation with PBS containing 0.3% Triton X-100 and transferred to blocking solution (PBS containing 5% normal donkey serum and 0.3% Triton X-100). Specimens were incubated overnight at 4&#x2009;&#xB0;C with primary antibodies diluted in blocking solution. Primary antibodies were washed four times with PBS containing 0.3% Triton X-100 before the incubation overnight at 4&#x2009;&#xB0;C with secondary antibodies. Then, the samples were washed four times with PBS containing 0.3% Triton X-100. The primary antibodies used were as follows: rabbit anti-PatJ (1:1000), rat anti-Dpn (Abcam, 1:50), and guinea pig anti-L&#x2019;sc (1:1200). The following secondary antibodies (Jackson) were used at 1:200 dilutions: FITC-conjugated donkey anti-rabbit, Cy3-conjugated donkey anti-rat, and Alexa Fluor 647-conjugated donkey anti-guinea pig. Specimens were mounted with VectaShield mounting media (Vector) and viewed on a Zeiss LSM880 confocal microscope. ZEN software (Zeiss) was used for preparing three-dimensional images.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Electronic supplementary material</title>
+      <sec id="Sec12">
+        <p>
+<supplementary-material content-type="local-data" id="MOESM1"><media xlink:href="41598_2018_30929_MOESM1_ESM.pdf"><caption><p>Supplementary&#xA0;Dataset</p></caption></media></supplementary-material>
+</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn>
+        <p><bold>Publisher's note:</bold> Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+      </fn>
+      <fn>
+        <p>Yoshitaro Tanaka and Tetsuo Yasugi contributed equally.</p>
+      </fn>
+    </fn-group>
+    <sec>
+      <title>Electronic supplementary material</title>
+      <p><bold>Supplementary information</bold> accompanies this paper at 10.1038/s41598-018-30929-1.</p>
+    </sec>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>We thank Rie Takayama and members of Sato lab for supporting fly work, and H. J. Bellen, Bloomington Drosophila Stock Center (BDSC), Vienna <italic>Drosophila</italic> Stock Center, <italic>Drosophila</italic> Genetic Resource Center, Kyoto, for flies and antibodies. This work was supported by CREST (JPMJCR14D3 to M.S. and S.E.) from JST, Grant-in-Aid for Scientific Research on Innovative Areas (JP17H05739 to M.S., JP17H05761 to M.S., and JP18H05099 to T.Y.), Grant-in-Aid for Scientific Research (B) (JP17H03542 to M.S. and JP16H03949 to M.N.), and Grant-in-Aid for Young Scientists (B) (JP17K14228 to Y.T.) from MEXT, Takeda Science Foundation (to M.S.), and Cooperative Research of &#x2018;Network Joint Research Center for Materials and Devices&#x2019; (to M.S. and M.N.).</p>
+    </ack>
+    <notes notes-type="author-contribution">
+      <title>Author Contributions</title>
+      <p>Y.T., M.N. and S.-I.E. designed and performed the modelling simulation. T.Y. and M.S. performed the genetic experiments and analyzed the data. Y.T., T.Y., M.N., M.S. and S.-I.E. wrote the manuscript.</p>
+    </notes>
+    <notes notes-type="data-availability">
+      <title>Data availability</title>
+      <p>Data presented in this manuscript are tabulated in this published article and its Supplemental Information files.</p>
+    </notes>
+    <notes notes-type="COI-statement">
+      <sec id="FPar1">
+        <title>Competing Interests</title>
+        <p>The authors declare no competing interests.</p>
+      </sec>
+    </notes>
+    <ref-list id="Bib1">
+      <title>References</title>
+      <ref id="CR1">
+        <label>1.</label>
+        <mixed-citation publication-type="other">Arias, A. M. &amp; Hayward, P. Filtering transcriptional noise during development: concepts and mechanisms. <italic>Nat. Rev. Genet.</italic><bold>7</bold>, 34&#x2013;44&#xA0;(2006).</mixed-citation>
+      </ref>
+      <ref id="CR2">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thattai</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>van Oudenaarden</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Intrinsic noise in gene regulatory networks</article-title>
+          <source>Proc. Natl. Acad. Sci. USA</source>
+          <year>2001</year>
+          <volume>98</volume>
+          <fpage>8614</fpage>
+          <lpage>8619</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.151588598</pub-id>
+          <pub-id pub-id-type="pmid">11438714</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR3">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Becskei</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Serrano</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Engineering stability in gene networks by autoregulation</article-title>
+          <source>Nature</source>
+          <year>2000</year>
+          <volume>405</volume>
+          <fpage>590</fpage>
+          <lpage>593</lpage>
+          <pub-id pub-id-type="doi">10.1038/35014651</pub-id>
+          <pub-id pub-id-type="pmid">10850721</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR4">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raser</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>O&#x2019;Shea</surname>
+              <given-names>EK</given-names>
+            </name>
+          </person-group>
+          <article-title>Noise in gene expression: origins, consequences, and control</article-title>
+          <source>Science</source>
+          <year>2005</year>
+          <volume>309</volume>
+          <fpage>2010</fpage>
+          <lpage>2013</lpage>
+          <pub-id pub-id-type="doi">10.1126/science.1105891</pub-id>
+          <pub-id pub-id-type="pmid">16179466</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR5">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Horikawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ishimatsu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yoshimoto</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kondo</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Takeda</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Noise-resistant and synchronized oscillation of the segmentation clock</article-title>
+          <source>Nature</source>
+          <year>2006</year>
+          <volume>441</volume>
+          <fpage>719</fpage>
+          <lpage>723</lpage>
+          <pub-id pub-id-type="doi">10.1038/nature04861</pub-id>
+          <pub-id pub-id-type="pmid">16760970</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR6">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kepler</surname>
+              <given-names>TB</given-names>
+            </name>
+            <name>
+              <surname>Elston</surname>
+              <given-names>TC</given-names>
+            </name>
+          </person-group>
+          <article-title>Stochasticity in transcriptional regulation: origins, consequences, and mathematical representations</article-title>
+          <source>Biophys. J.</source>
+          <year>2001</year>
+          <volume>81</volume>
+          <fpage>3116</fpage>
+          <lpage>3136</lpage>
+          <pub-id pub-id-type="doi">10.1016/S0006-3495(01)75949-8</pub-id>
+          <pub-id pub-id-type="pmid">11720979</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR7">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Paulsson</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Models of stochastic gene expression</article-title>
+          <source>Phys. Life Rev.</source>
+          <year>2005</year>
+          <volume>2</volume>
+          <fpage>157</fpage>
+          <lpage>175</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.plrev.2005.03.003</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR8">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yasugi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Umetsu</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Murakami</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tabata</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Drosophila optic lobe neuroblasts triggered by a wave of proneural gene expression that is negatively regulated by JAK/STAT</article-title>
+          <source>Development</source>
+          <year>2008</year>
+          <volume>135</volume>
+          <fpage>1471</fpage>
+          <lpage>1480</lpage>
+          <pub-id pub-id-type="doi">10.1242/dev.019117</pub-id>
+          <pub-id pub-id-type="pmid">18339672</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR9">
+        <label>9.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sato</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nakai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Waves of differentiation in the fly visual system</article-title>
+          <source>Dev. Biol.</source>
+          <year>2013</year>
+          <volume>380</volume>
+          <fpage>1</fpage>
+          <lpage>11</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.ydbio.2013.04.007</pub-id>
+          <pub-id pub-id-type="pmid">23603492</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR10">
+        <label>10.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kawamori</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tai</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sato</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yasugi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Tabata</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Fat/Hippo pathway regulates the progress of neural differentiation signaling in the Drosophila optic lobe</article-title>
+          <source>Dev. Growth Differ.</source>
+          <year>2011</year>
+          <volume>53</volume>
+          <fpage>653</fpage>
+          <lpage>667</lpage>
+          <pub-id pub-id-type="doi">10.1111/j.1440-169X.2011.01279.x</pub-id>
+          <pub-id pub-id-type="pmid">21671914</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR11">
+        <label>11.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reddy</surname>
+              <given-names>BVVG</given-names>
+            </name>
+            <name>
+              <surname>Rauskolb</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Irvine</surname>
+              <given-names>KD</given-names>
+            </name>
+          </person-group>
+          <article-title>Influence of fat-hippo and notch signaling on the proliferation and differentiation of Drosophila optic neuroepithelia</article-title>
+          <source>Development</source>
+          <year>2010</year>
+          <volume>137</volume>
+          <fpage>2397</fpage>
+          <lpage>2408</lpage>
+          <pub-id pub-id-type="doi">10.1242/dev.050013</pub-id>
+          <pub-id pub-id-type="pmid">20570939</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR12">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yasugi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sugie</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Umetsu</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Tabata</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Coordinated sequential action of EGFR and Notch signaling pathways regulates proneural wave progression in the Drosophila optic lobe</article-title>
+          <source>Development</source>
+          <year>2010</year>
+          <volume>137</volume>
+          <fpage>3193</fpage>
+          <lpage>3203</lpage>
+          <pub-id pub-id-type="doi">10.1242/dev.048058</pub-id>
+          <pub-id pub-id-type="pmid">20724446</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR13">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sato</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yasugi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Minami</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Miura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nagayama</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Notch-mediated lateral inhibition regulates proneural wave propagation when combined with EGF-mediated reaction diffusion</article-title>
+          <source>Proc. Natl. Acad. Sci. USA</source>
+          <year>2016</year>
+          <volume>113</volume>
+          <fpage>E5153</fpage>
+          <lpage>5162</lpage>
+          <pub-id pub-id-type="doi">10.1073/pnas.1602739113</pub-id>
+          <pub-id pub-id-type="pmid">27535937</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR14">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>He</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Luo</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Evidence for tissue-specific Jak/STAT target genes in Drosophila optic lobe development</article-title>
+          <source>Genetics</source>
+          <year>2013</year>
+          <volume>195</volume>
+          <fpage>1291</fpage>
+          <lpage>1306</lpage>
+          <pub-id pub-id-type="doi">10.1534/genetics.113.155945</pub-id>
+          <pub-id pub-id-type="pmid">24077308</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR15">
+        <label>15.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bach</surname>
+              <given-names>EA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>GFP reporters detect the activation of the Drosophila JAK/STAT pathway <italic>in vivo</italic></article-title>
+          <source>Gene Expr Patterns</source>
+          <year>2007</year>
+          <volume>7</volume>
+          <fpage>323</fpage>
+          <lpage>331</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.modgep.2006.08.003</pub-id>
+          <pub-id pub-id-type="pmid">17008134</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR16">
+        <label>16.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Feig</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Montell</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Two distinct roles for Ras in a developmentally regulated cell migration</article-title>
+          <source>Development</source>
+          <year>1996</year>
+          <volume>122</volume>
+          <fpage>409</fpage>
+          <lpage>418</lpage>
+          <pub-id pub-id-type="pmid">8625792</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR17">
+        <label>17.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bang</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Bailey</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Posakony</surname>
+              <given-names>JW</given-names>
+            </name>
+          </person-group>
+          <article-title>Hairless promotes stable commitment to the sensory organ precursor cell fate by negatively regulating the activity of the Notch signaling pathway</article-title>
+          <source>Dev. Biol.</source>
+          <year>1995</year>
+          <volume>172</volume>
+          <fpage>479</fpage>
+          <lpage>494</lpage>
+          <pub-id pub-id-type="doi">10.1006/dbio.1995.8033</pub-id>
+          <pub-id pub-id-type="pmid">8612965</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR18">
+        <label>18.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Furriols</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bray</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Dissecting the mechanisms of suppressor of hairless function</article-title>
+          <source>Dev. Biol.</source>
+          <year>2000</year>
+          <volume>227</volume>
+          <fpage>520</fpage>
+          <lpage>532</lpage>
+          <pub-id pub-id-type="doi">10.1006/dbio.2000.9923</pub-id>
+          <pub-id pub-id-type="pmid">11071771</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR19">
+        <label>19.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dorritie</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Redner</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>DE</given-names>
+            </name>
+          </person-group>
+          <article-title>STAT transcription factors in normal and cancer stem cells</article-title>
+          <source>Adv. Biol. Regul.</source>
+          <year>2014</year>
+          <volume>56</volume>
+          <fpage>30</fpage>
+          <lpage>44</lpage>
+          <pub-id pub-id-type="doi">10.1016/j.jbior.2014.05.004</pub-id>
+          <pub-id pub-id-type="pmid">24931719</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR20">
+        <label>20.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Dearolf</surname>
+              <given-names>CR</given-names>
+            </name>
+          </person-group>
+          <article-title>The JAK/STAT pathway and Drosophila development</article-title>
+          <source>Bioessays</source>
+          <year>2001</year>
+          <volume>23</volume>
+          <fpage>1138</fpage>
+          <lpage>1147</lpage>
+          <pub-id pub-id-type="doi">10.1002/bies.10016</pub-id>
+          <pub-id pub-id-type="pmid">11746233</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR21">
+        <label>21.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Amoyel</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bach</surname>
+              <given-names>EA</given-names>
+            </name>
+          </person-group>
+          <article-title>Functions of the Drosophila JAK-STAT pathway: Lessons from stem cells</article-title>
+          <source>JAKSTAT</source>
+          <year>2012</year>
+          <volume>1</volume>
+          <fpage>176</fpage>
+          <lpage>183</lpage>
+          <pub-id pub-id-type="pmid">24058767</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR22">
+        <label>22.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Onishi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Zandstra</surname>
+              <given-names>PW</given-names>
+            </name>
+          </person-group>
+          <article-title>LIF signaling in stem cells and development</article-title>
+          <source>Development</source>
+          <year>2015</year>
+          <volume>142</volume>
+          <fpage>2230</fpage>
+          <lpage>2236</lpage>
+          <pub-id pub-id-type="doi">10.1242/dev.117598</pub-id>
+          <pub-id pub-id-type="pmid">26130754</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR23">
+        <label>23.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kontogeorgaki</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sanchez-Garcia</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>Ewing</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Zygalakis</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>MacArthur</surname>
+              <given-names>BD</given-names>
+            </name>
+          </person-group>
+          <article-title>Noise-processing by signaling networks</article-title>
+          <source>Sci. Rep.</source>
+          <year>2017</year>
+          <volume>7</volume>
+          <fpage>532</fpage>
+          <pub-id pub-id-type="doi">10.1038/s41598-017-00659-x</pub-id>
+          <pub-id pub-id-type="pmid">28373704</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="CR24">
+        <label>24.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MicroRNA filters Hox temporal transcription noise to confer boundary formation in the spinal cord</article-title>
+          <source>Nat. Commun.</source>
+          <year>2017</year>
+          <volume>8</volume>
+          <fpage>14685</fpage>
+          <pub-id pub-id-type="doi">10.1038/ncomms14685</pub-id>
+          <pub-id pub-id-type="pmid">28337978</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
