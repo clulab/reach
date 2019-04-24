@@ -15,8 +15,8 @@ object GenerateOutputFiles extends App {
     val paper = "PMC2156142"
     val currentPaperPath = config.getString("papersDir").concat(s"/${paper}.nxml")
     val pathForSentences = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/sentences.txt")
-    val pathForEvents = config.getString("contextEngine.params.contextOutputDir").concat(s"/${paper}/event_intervals.txt")
-    val pathForContextMentions = config.getString("contextEngine.params.contextOutputDir").concat(s"/${paper}/mention_intervals.txt")
+    val pathForEvents = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/event_intervals.txt")
+    val pathForContextMentions = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/mention_intervals.txt")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
     lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
