@@ -10,6 +10,7 @@ import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, prepro
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
 object GenerateOutputFiles extends App {
+    //need to figure out how annotator works
     println("Inside generate output class")
     val config = ConfigFactory.load()
     val paper = "PMC2156142"
