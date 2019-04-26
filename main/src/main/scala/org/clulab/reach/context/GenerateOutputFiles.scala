@@ -14,18 +14,8 @@ object GenerateOutputFiles extends App {
     //need to run annotator on a few of Bachman's papers
     println("Inside generate output class")
     val config = ConfigFactory.load()
-    val paper = "PMC1590014"
     val typeOfPaper = "inhibition"
     val dirForType = config.getString("papersDir").concat(s"/${typeOfPaper}")
-    val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}")
-    // creating output directory if it doesn't already exist
-    val outputPaperDir = new File(outPaperDirPath)
-    if(!outputPaperDir.exists()) {
-        outputPaperDir.mkdirs()
-    }
-    val pathForSentences = outPaperDirPath.concat("/sentences.txt")
-    val pathForEvents = outPaperDirPath.concat("/event_intervals.txt")
-    val pathForContextMentions = outPaperDirPath.concat("/mention_intervals.txt")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
     lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
@@ -40,6 +30,18 @@ object GenerateOutputFiles extends App {
     val fileListUnfiltered = new File(dirForType)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     for(file <- fileList) {
+        val pmcid = file.getName.slice(0,file.getName.length-5)
+        val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${pmcid}")
+        // creating output directory if it doesn't already exist
+        val outputPaperDir = new File(outPaperDirPath)
+        if(!outputPaperDir.exists()) {
+            outputPaperDir.mkdirs()
+        }
+        val pathForSentences = outPaperDirPath.concat("/sentences.txt")
+        val pathForEvents = outPaperDirPath.concat("/event_intervals.txt")
+        val pathForContextMentions = outPaperDirPath.concat("/mention_intervals.txt")
+
+
         val nxmlDoc = nxmlReader.read(file)
         val document = reachSystem.mkDoc(nxmlDoc)
         val collectSent = collection.mutable.ListBuffer[String]()
