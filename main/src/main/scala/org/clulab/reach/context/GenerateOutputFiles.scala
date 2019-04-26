@@ -21,7 +21,7 @@ object GenerateOutputFiles extends App {
     // creating output directory if it doesn't already exist
     val outputPaperDir = new File(outPaperDirPath)
     if(!outputPaperDir.exists()) {
-        outputPaperDir.mkdir()
+        outputPaperDir.mkdirs()
     }
     val pathForSentences = outPaperDirPath.concat("/sentences.txt")
     val pathForEvents = outPaperDirPath.concat("/event_intervals.txt")
