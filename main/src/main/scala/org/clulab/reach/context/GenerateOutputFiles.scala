@@ -71,7 +71,9 @@ object GenerateOutputFiles extends App {
     for((sentId, ctxGroup) <- sortedContextGroups) {
         val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval, bt.sentenceObj))
         val ctxMentionStr = ctx.map(c => {
-            val trigger = c._3.words.slice(c._2.start, c._2.end+1)
+            var trigger = c._3.words.slice(c._2.start, c._2.end+1)
+            if(trigger(trigger.length-1) == "and" || trigger(trigger.length-1) == ",")
+                trigger = trigger.slice(0,trigger.length-1)
             val triggerWords = trigger.mkString("_")
             val s = s"${c._2.start}%${c._2.end}%${triggerWords}%${c._1}"
             s
