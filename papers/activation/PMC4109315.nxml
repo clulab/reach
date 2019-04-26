@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101500081</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">35769</journal-id>
+      <journal-id journal-id-type="nlm-ta">Nat Rev Nephrol</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Nat Rev Nephrol</journal-id>
+      <journal-title-group>
+        <journal-title>Nature reviews. Nephrology</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1759-5061</issn>
+      <issn pub-type="epub">1759-507X</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">24394191</article-id>
+      <article-id pub-id-type="pmc">4109315</article-id>
+      <article-id pub-id-type="doi">10.1038/nrneph.2013.274</article-id>
+      <article-id pub-id-type="manuscript">NIHMS597939</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Signal transduction in podocytes&#x2014;spotlight on receptor tyrosine kinases</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Reiser</surname>
+            <given-names>Jochen</given-names>
+          </name>
+          <aff id="A1">Department of Medicine, Rush University Medical Center, 1735 West Harrison Street, Cohn Building, Suite 724, Chicago, IL 60612, USA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sever</surname>
+            <given-names>Sanja</given-names>
+          </name>
+          <aff id="A2">Department of Medicine, Division of Nephrology, Massachusetts General Hospital and Harvard Medical School, 149 13<sup>th</sup> Street, Charlestown, MA 02129, USA</aff>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Faul</surname>
+            <given-names>Christian</given-names>
+          </name>
+          <aff id="A3">Division of Nephrology and Hypertension, University of Miami Miller School of Medicine, 1580 North West 10<sup>th</sup> Avenue (R-762), Batchelor Building 626, Miami, FL 33136, USA</aff>
+        </contrib>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">Correspondence to: J. Reiser jochen <email>reiser@rush.edu</email> C. Faul <email>cfaul@med.miami.edu</email></corresp>
+        <fn id="FN2" fn-type="conflict">
+          <p>
+            <bold>Competing interests</bold>
+          </p>
+          <p>J. Reiser has intellectual property related to this topic. See the article online for full details. S. Sever and C. Faul declare no competing interests.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>6</day>
+        <month>6</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>07</day>
+        <month>1</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>2</month>
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>24</day>
+        <month>7</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>10</volume>
+      <issue>2</issue>
+      <fpage>104</fpage>
+      <lpage>115</lpage>
+      <!--elocation-id from pubmed: 10.1038/nrneph.2013.274-->
+      <permissions>
+        <copyright-statement>&#xA9; 2014 Macmillan Publishers Limited. All rights reserved</copyright-statement>
+        <copyright-year>2014</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">The mammalian kidney filtration barrier is a complex multicellular, multicomponent structure that maintains homeostasis by regulating electrolytes, acid&#x2013;base balance, and blood pressure (via maintenance of salt and water balance). To perform these multiple functions, podocytes&#x2014;an important component of the filtration apparatus&#x2014;must process a series of intercellular signals. Integrating these signals with diverse cellular responses enables a coordinated response to various conditions. Although mature podocytes are terminally differentiated and cannot proliferate, they are able to respond to growth factors. It is possible that the initial response of podocytes to growth factors is beneficial and protective, and might include the induction of hypertrophic cell growth. However, extended and/or uncontrolled growth factor signalling might be maladaptive and could result in the induction of apoptosis and podocyte loss. Growth factors signal via the activation of receptor tyrosine kinases (RTKs) on their target cells and around a quarter of the 58 RTK family members that are encoded in the human genome have been identified in podocytes. Pharmacological inhibitors of many RTKs exist and are currently used in experimental and clinical cancer therapy. The identification of pathological RTK-mediated signal transduction pathways in podocytes could provide a starting point for the development of novel therapies for glomerular disorders.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>
