@@ -1,5 +1,5 @@
 package org.clulab.reach.context
-import org.clulab.reach.{ReachSystem}
+import org.clulab.reach.ReachSystem
 import com.typesafe.config.ConfigFactory
 import java.io._
 
@@ -9,6 +9,7 @@ import org.clulab.odin.EventMention
 import org.clulab.reach.PaperReader.{contextEngineParams, ignoreSections, preproc, procAnnotator}
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.mentions.BioTextBoundMention
+import org.clulab.struct.Interval
 object GenerateOutputFiles extends App {
     //need to run annotator on a few of Bachman's papers
     println("Inside generate output class")
@@ -71,7 +72,7 @@ object GenerateOutputFiles extends App {
         val ctx = ctxGroup.map(bt => (bt.nsId(), bt.tokenInterval, bt.sentenceObj))
         val ctxMentionStr = ctx.map(c => {
             val trigger = c._3.words.slice(c._2.start, c._2.end+1)
-            val triggerWords = trigger.mkString(" ")
+            val triggerWords = trigger.mkString("_")
             val s = s"${c._2.start}%${c._2.end}%${triggerWords}%${c._1}"
             s
         })
@@ -84,6 +85,19 @@ object GenerateOutputFiles extends App {
 
 
 
+
+    def mkIntervalStr(seq: Seq[Interval]):Seq[String] = {
+        val unprocStart = seq(0).start
+        val unprocEnd = seq(0).end
+        for(i <- 1 until seq.size) {
+            val currentIntervalStart = seq(i).start
+            val currentIntervalEnd = seq(i).end
+
+
+        }
+
+        Seq("")
+    }
 
 
 
