@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0052457</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">4592</journal-id>
+      <journal-id journal-id-type="nlm-ta">J Cell Sci</journal-id>
+      <journal-title>Journal of cell science</journal-title>
+      <issn pub-type="ppub">0021-9533</issn>
+      <issn pub-type="epub">1477-9137</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">18957511</article-id>
+      <article-id pub-id-type="pmc">2636845</article-id>
+      <article-id pub-id-type="doi">10.1242/jcs.035493</article-id>
+      <article-id pub-id-type="manuscript">NIHMS88871</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The Role of Delta-like 1 Shedding in Muscle Cell Self-Renewal and Differentiation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sun</surname>
+            <given-names>Danqiong</given-names>
+          </name>
+          <xref rid="FN2" ref-type="author-notes">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Li</surname>
+            <given-names>Hui</given-names>
+          </name>
+          <xref rid="FN2" ref-type="author-notes">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zolkiewska</surname>
+            <given-names>Anna</given-names>
+          </name>
+          <xref rid="FN1" ref-type="author-notes">2</xref>
+        </contrib>
+        <aff id="A1">Department of Biochemistry, Kansas State University, Manhattan, Kansas</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="FN1">
+<label>2</label>Corresponding author: Anna Zolkiewska, Department of Biochemistry, Kansas State University, 141 Chalmers Hall, Manhattan, KS 66506. Phone: 785-532-3082; Fax: 785-532-7278; E-mail: <email>zolkiea@ksu.edu</email></corresp>
+        <fn id="FN2" fn-type="equal">
+          <label>1</label>
+          <p>These authors contributed equally to this work.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>21</day>
+        <month>1</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>28</day>
+        <month>10</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>15</day>
+        <month>11</month>
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>15</day>
+        <month>11</month>
+        <year>2009</year>
+      </pub-date>
+      <volume>121</volume>
+      <issue>Pt 22</issue>
+      <fpage>3815</fpage>
+      <lpage>3823</lpage>
+      <abstract>
+        <title>Summary</title>
+        <p id="P2">Myogenic cells have the ability to adopt two divergent fates upon exit from the cell cycle: differentiation or self-renewal. The Notch signaling pathway is a well-known negative regulator of myogenic differentiation. Using mouse primary myoblasts cultured in vitro or C2C12 myogenic cells, we find that Notch activity is essential for maintaining the expression of Pax7, a transcription factor associated with the self-renewal lineage, in quiescent undifferentiated myoblasts after they exit the cell cycle. Stimulation of the Notch pathway by expression of a constitutively active Notch 1 or co-culture of myogenic cells with Delta like-1 (Dll1)-transfected CHO cells increases the level of Pax7. Dll1, a ligand for Notch receptor, is shed by ADAM metalloproteases in a pool of Pax7-positive C2C12 reserve cells, but it remains intact in differentiated myotubes. Dll1 shedding changes the receptor/ligand ratio and modulates the level of Notch signaling. Inhibition of Dll1 cleavage by a soluble, dominant-negative mutant form of ADAM12 leads to elevation of Notch signaling, inhibition of differentiation, and expansion of the pool of self-renewing Pax7-positive/MyoD-negative cells. These results suggest that ADAM-mediated shedding of Dll1 in a subset of cells during myogenic differentiation in vitro contributes to down-regulation of Notch signaling in neighboring cells and facilitates their progression into differentiation. We propose that the proteolytic processing of Dll1 helps achieve an asymmetry in Notch signaling in initially equivalent myogenic cells and helps sustain the balance between differentiation and self-renewal.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>proteolytic processing</kwd>
+        <kwd>Notch</kwd>
+        <kwd>Delta</kwd>
+        <kwd>disintegrin</kwd>
+        <kwd>metalloprotease</kwd>
+        <kwd>&#x3B3;-secretase</kwd>
+        <kwd>Pax7</kwd>
+        <kwd>stem cells</kwd>
+      </kwd-group>
+      <contract-num rid="GM1">R01 GM065528-04</contract-num>
+      <contract-num rid="GM1">R01 GM065528-03</contract-num>
+      <contract-num rid="GM1">R01 GM065528-02</contract-num>
+      <contract-num rid="GM1">R01 GM065528-01A2</contract-num>
+      <contract-sponsor id="GM1">National Institute of General Medical Sciences : NIGMS</contract-sponsor>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

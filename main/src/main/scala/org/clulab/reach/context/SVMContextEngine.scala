@@ -109,7 +109,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                     case _ => false
                   }
                 }
-                //val prediction = true
+
                 val tup = (aggregatedFeature.PMCID, k.toString,ctxId._2,predArrayIntForm(0))
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
                 newDataIdPairs += tup
