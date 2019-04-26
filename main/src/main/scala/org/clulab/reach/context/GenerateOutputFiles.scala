@@ -14,7 +14,7 @@ object GenerateOutputFiles extends App {
     //need to run annotator on a few of Bachman's papers
     println("Inside generate output class")
     val config = ConfigFactory.load()
-    val paper = "PMC1590014"
+    val paper = "PMC1586098"
     val typeOfPaper = "inhibition"
     val currentPaperPath = config.getString("papersDir").concat(s"/${typeOfPaper}/${paper}.nxml")
     val pathForSentences = config.getString("contextEngine.params.contextOutputDir").concat(s"${paper}/sentences.txt")
