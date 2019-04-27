@@ -12,6 +12,7 @@ import org.clulab.reach.mentions.BioTextBoundMention
 import org.clulab.struct.Interval
 object GenerateOutputFiles extends App {
     //need to run annotator on a few of Bachman's papers
+    // need to refine the code for generating intervals
     println("Inside generate output class")
     val config = ConfigFactory.load()
     val typeOfPaper = "inhibition"
