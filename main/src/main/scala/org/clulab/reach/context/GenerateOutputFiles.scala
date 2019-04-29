@@ -16,7 +16,7 @@ object GenerateOutputFiles extends App {
     // need to refine the code for generating intervals
     println("Inside generate output class")
     val config = ConfigFactory.load()
-    val typeOfPaper = "activation"
+    val typeOfPaper = "inhibition"
     val dirForType = config.getString("papersDir").concat(s"/${typeOfPaper}")
     val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
     val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
