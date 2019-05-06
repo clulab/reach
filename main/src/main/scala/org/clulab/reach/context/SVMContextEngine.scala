@@ -59,12 +59,17 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // Generate all the event/ctx mention pairs
         val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
+        val filteredPairs = pairs filter {
+          case (evt, ctx) =>
+            Math.abs(evt.sentence - ctx.sentence) <= 3
+        }
+
         // Extract features for each of the pairs
-        val features:Seq[InputRow] = pairs map extractFeatures
+        val features:Seq[InputRow] = filteredPairs map extractFeatures
 
         // Aggregate the features of all the instances of a pair
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedRow)]] =
-          (pairs zip features).groupBy{
+          (filteredPairs zip features).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
           }.mapValues{
             v =>
@@ -134,7 +139,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               // Get its ID
               val evtId = extractEvtId(evt)
               // fetch its predicted pairs
-              val contexts = predictions(evtId)
+              val contexts = predictions.getOrElse(evtId, Seq.empty)
 
               val contextMap =
                 (contexts collect {
