@@ -1,6 +1,8 @@
 package org.clulab.reach.context
 
 
+import java.io.PrintWriter
+
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils, InputRow}
@@ -59,46 +61,28 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // Generate all the event/ctx mention pairs
         val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
-        val filteredPairs = pairs filter {
+        /*val filteredPairs = pairs filter {
           case (evt, ctx) =>
             Math.abs(evt.sentence - ctx.sentence) <= 3
-        }
+        }*/
 
         // Extract features for each of the pairs
-        val features:Seq[InputRow] = filteredPairs map extractFeatures
-
+        // change to filtered pairs when you know the best value of sentence distance.
+        //val features:Seq[InputRow] = filteredPairs map extractFeatures
+        val features:Seq[InputRow] = pairs map extractFeatures
+        val freqOfSentDist = countSentDistValueFreq(features.toArray)
+        writeSentFreqToFile(freqOfSentDist)
         // Aggregate the features of all the instances of a pair
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedRow)]] =
-          (filteredPairs zip features).groupBy{
+          (pairs zip features).groupBy{
+            // change to filtered pairs when you know the best value of sentence distance.
+          //(filteredPairs zip features).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
           }.mapValues{
             v =>
               v.groupBy(r => ContextEngine.getContextKey(r._1._2)).mapValues(s =>  aggregateFeatures(s map (_._2))).toSeq
           }
 
-        val oldDataIDPairs = collection.mutable.ListBuffer[(String, String, String, Int)]()
-        oldDataSet.map(o => {
-          val evt = o.EvtID
-          val ctxId = o.CtxID
-          val intLabel = o.label match{
-            case Some(t) => if (t == true) 1 else 0
-            case _ => 0
-          }
-          val numArray = evt.split("_")
-          val sentIndStr = numArray(0)
-          val sentIndS = sentIndStr.slice(3, sentIndStr.length)
-          val sentInt = Integer.parseInt(sentIndS)
-          val tokenIntervalStart = Integer.parseInt(numArray(1))
-          val tokenIntervalEnd =Integer.parseInt(numArray(2).take(numArray(2).length-1))
-          val numericalId = sentInt+""+tokenIntervalStart+""+tokenIntervalEnd
-          val tup =(o.PMCID, numericalId,ctxId, intLabel)
-          oldDataIDPairs += tup
-        })
-
-
-        // Run the classifier for each pair and store the predictions
-        val newDataIdPairs = collection.mutable.ListBuffer[(String, String, String, Int)]()
-        val dataToPass = collection.mutable.ListBuffer[AggregatedRow]()
         val predictions:Map[EventID, Seq[(ContextID, Boolean)]] = {
           val map = collection.mutable.HashMap[EventID, Seq[(ContextID, Boolean)]]()
           for((k,a) <- aggregatedFeatures) {
@@ -106,7 +90,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             val x = a.map {
               case (ctxId, aggregatedFeature) =>
                 val predArrayIntForm = trainedSVMInstance.predict(Seq(aggregatedFeature))
-                dataToPass += aggregatedFeature
                 val prediction = {
                   predArrayIntForm(0) match {
                     case 1 => true
@@ -117,7 +100,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
                 val tup = (aggregatedFeature.PMCID, k.toString,ctxId._2,predArrayIntForm(0))
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
-                newDataIdPairs += tup
                 (ctxId, prediction)
             }
 
@@ -379,36 +361,40 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   // for a given value of sentenceDist_max, count the number of papers that have this value and return Array[(value, frequency)] only if that value appears in atleast 70% of all context mentions per paper
-  private def countSentDistValueFreq(seq: Array[AggregatedRow]): Array[(Double,Int)] = {
-    val map = collection.mutable.HashMap[Double, Int]()
-    val result = collection.mutable.ListBuffer[(Double, Int)]()
-    val toSearch = "sentenceDistance_max"
+  private def countSentDistValueFreq(seq: Array[InputRow]): Array[(Int,Int)] = {
+    val map = collection.mutable.HashMap[Int, Int]()
+    val result = collection.mutable.ListBuffer[(Int, Int)]()
     seq.map(s => {
-      val currentIndex = s.featureGroupNames.indexOf(toSearch)
-      val currentValue = s.featureGroups(currentIndex)
-      if(map.contains(currentValue)) {
-        var cur = map(currentValue)
+      val currentIndex = s.sentenceIndex
+      if(map.contains(currentIndex)) {
+        var cur = map(currentIndex)
         cur += 1
-        val entry = Map(currentValue -> cur)
+        val entry = Map(currentIndex -> cur)
         map ++= entry
       }
 
       else {
-        val tempMap = Map(currentValue -> 1)
+        val tempMap = Map(currentIndex -> 1)
         map ++= tempMap
       }
     })
 
     for((k,v) <- map) {
-
-      if(v.toDouble >= (0.7 * seq.size)) {
         val tup = (k,v)
         result += tup
-      }
-
-
     }
     result.toArray
+  }
+
+  private def writeSentFreqToFile(frequencyList: Array[(Int,Int)]):Unit = {
+    val outpath = config.getString("contextEngine.params.sentDistFreqFile")
+    val pw = new PrintWriter(outpath)
+    for((dist,freq) <- frequencyList) {
+      val strToWrite = s"${dist} : ${freq}"
+      pw.write(strToWrite)
+      pw.write("\n")
+    }
+    pw.close()
   }
 
   private def unAggregateFeatureName(features: Seq[String]): Array[String] = {
