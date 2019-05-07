@@ -1,6 +1,6 @@
 package org.clulab.reach.context
 
-
+import java.io._
 import java.io.PrintWriter
 
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
@@ -252,100 +252,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
 
-  private def compareCommonPairs(oldData: Array[(String, String,String,Int)], newData: Array[(String, String,String,Int)]): Map[String, (String, Double, Double, Double)] = {
-    val oldKeys = oldData.map(s =>(s._1, s._2, s._3))
-    val newKeys = newData.map(n => (n._1, n._2, n._3))
-    // extracts ctxID-evtID pairs for a given paper
-    val oldGroupedByPMCID = oldKeys.groupBy(_._1).mapValues(x => x.map(y => (y._2,y._3)))
-    val newGroupedByPMCID = newKeys.groupBy(_._1)
-    var modifiedNewKeys = collection.mutable.HashMap[String, Array[(String,String)]]()
-    for((pmcid,seq) <- newGroupedByPMCID) {
-      val split = pmcid.split("_")
-      val adjust = s"b'PMC${split(0)}'"
-      val tempo = seq.map(s => (s._2, s._3))
-      val entry = Map(adjust -> tempo)
-      modifiedNewKeys ++= entry
-    }
-
-    for((pmcid, arr) <- modifiedNewKeys) {
-      val oldCounterPart = oldGroupedByPMCID(pmcid)
-      logger.info(oldCounterPart.size + " : Size of old evt-ctx pairs by paper")
-      logger.info(arr.size + " : Size of new evt-ctx pairs by paper")
-      val zip = oldCounterPart zip arr
-      for((oldK, newK) <- zip) {
-        logger.info(pmcid + " : PMCID of current paper")
-        logger.info(s"Evt ID of old data: ${oldK._1} and Ctx ID of old data: ${oldK._2}")
-        logger.info(s"Evt ID of new data: ${newK._1} and Ctx ID of new data: ${newK._2}")
-      }
-      //val intersect = arr.toSet.intersect(oldCounterPart.toSet)
-
-    }
 
 
-    val oldPrediction = collection.mutable.ListBuffer[Int]()
-    val newPrediction = collection.mutable.ListBuffer[Int]()
 
 
-    val name = "SVM on new v/s old data"
-    CodeUtils.scoreMaker(name, oldPrediction.toArray, newPrediction.toArray)
-  }
 
-
-  private def crossValOnNewPairs(dataSet: Array[AggregatedRow]): Map[String, (String, Double, Double, Double)] = {
-    val giantTruthTestLabel = new mutable.ArrayBuffer[Int]()
-    val giantPredTestLabel = new mutable.ArrayBuffer[Int]()
-    val folds = prepareFolds(dataSet)
-    for((trainIndices, testIndices) <- folds) {
-      val trainingData = trainIndices.collect{case x => dataSet(x)}
-      trainingData.map(trex => logger.info(trex.PMCID))
-      val balancedTrainingData = Balancer.balanceByPaperAgg(trainingData, 1)
-      val (trainDataSet, _) = untrainedSVMInstance.dataConverter(balancedTrainingData)
-      untrainedSVMInstance.fit(trainDataSet)
-
-
-      val testingData = testIndices.collect{case trex => dataSet(trex)}
-
-      logger.info(testingData.size + " : is the size of testing data")
-      val testLabelsTruth = untrainedSVMInstance.createLabels(testingData)
-      giantTruthTestLabel ++= testLabelsTruth
-      val testLabelsPred = untrainedSVMInstance.predict(testingData)
-      giantPredTestLabel ++= testLabelsPred
-
-
-    }
-    val name = "f1 on new evt-ctx pairs"
-    CodeUtils.scoreMaker(name, giantTruthTestLabel.toArray, giantPredTestLabel.toArray)
-  }
-
-  // creates folds for data for 5 fold cross validation
-  // we will generate the folds by the following algorithm:
-  // start = 0
-  // for i in range(1,5): (5 is included in this range)
-  //   stop = (list.size/5) * i
-  //   testSlice = list.slice(start,stop)
-  //   start = stop + 1
-  //   trainSlice = list.tosSet -- testSlice.toSet
-  // generalize to k for k-fold cross validation
-
-  private def prepareFolds(data: Array[AggregatedRow], k:Int = 5):Array[(Array[Int], Array[Int])] = {
-    val list = collection.mutable.ListBuffer[(Array[Int], Array[Int])]()
-    val trainIndices = collection.mutable.ListBuffer[Int]()
-    val testIndices = collection.mutable.ListBuffer[Int]()
-    var start = 0
-    for(i<- 1 to k) {
-      val stop = (data.size/k)*i
-      val testSlice = data.slice(start,stop)
-      start = stop + 1
-      val testSliceIndex = testSlice.map(data.indexOf(_))
-      val trainSlice = data.toSet -- testSlice.toSet
-      val trainSliceIndex = trainSlice.map(data.indexOf(_))
-      trainIndices ++= trainSliceIndex.toArray
-      testIndices ++= testSliceIndex.toArray
-      val tup = (trainIndices.toArray, testIndices.toArray)
-      list += tup
-    }
-    list.toArray
-  }
 
   private def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
     val pairings = collection.mutable.ListBuffer[(String,Double)]()
@@ -387,14 +298,33 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   private def writeSentFreqToFile(frequencyList: Array[(Int,Int)]):Unit = {
-    val outpath = config.getString("contextEngine.params.sentDistFreqFile")
-    val pw = new PrintWriter(outpath)
-    for((dist,freq) <- frequencyList) {
-      val strToWrite = s"${dist} : ${freq}"
-      pw.write(strToWrite)
-      pw.write("\n")
+    val typeOfPaper = "activation"
+    val dirForType = config.getString("papersDir").concat(s"/${typeOfPaper}")
+    val fileListUnfiltered = new File(dirForType)
+    val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
+    for(file <- fileList) {
+      val pmcid = file.getName.slice(0,file.getName.length-5)
+      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${pmcid}")
+      val outputPaperDir = new File(outPaperDirPath)
+      if(!outputPaperDir.exists()) {
+        outputPaperDir.mkdirs()
+      }
+
+      val pathForSentences = outPaperDirPath.concat("/sentenceDistFreq.txt")
+
+      val sentenceDistFile = new File(pathForSentences)
+
+      if (!sentenceDistFile.exists()) {
+        sentenceDistFile.createNewFile()
+      }
+
+      val pw = new PrintWriter(sentenceDistFile)
+      for ((dist,freq) <- frequencyList) {
+        pw.write(s"${dist}:${freq}")
+        pw.write("\n")
+      }
+      pw.close()
     }
-    pw.close()
   }
 
   private def unAggregateFeatureName(features: Seq[String]): Array[String] = {
