@@ -98,8 +98,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                   }
                 }
 
-                val tup = (aggregatedFeature.PMCID, k.toString,ctxId._2,predArrayIntForm(0))
-                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+                val sentenceDistance_max = "sentenceDistance_max"
+                val index = aggregatedFeature.featureGroupNames.indexOf(sentenceDistance_max)
+                val value = aggregatedFeature.featureGroups(index)
+                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)} and max sent distance: ${value}")
                 (ctxId, prediction)
             }
 
