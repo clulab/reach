@@ -61,20 +61,20 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         // Generate all the event/ctx mention pairs
         val pairs:Seq[Pair] = for(evt <- evtMentions; ctx <- ctxMentions) yield (evt, ctx)
 
-        /*val filteredPairs = pairs filter {
+        val filteredPairs = pairs filter {
           case (evt, ctx) =>
-            Math.abs(evt.sentence - ctx.sentence) <= 3
-        }*/
+            Math.abs(evt.sentence - ctx.sentence) <= 50
+        }
 
         // Extract features for each of the pairs
         // change to filtered pairs when you know the best value of sentence distance.
-        //val features:Seq[InputRow] = filteredPairs map extractFeatures
-        val features:Seq[InputRow] = pairs map extractFeatures
+        val features:Seq[InputRow] = filteredPairs map extractFeatures
+        //val features:Seq[InputRow] = pairs map extractFeatures
         val freqOfSentDist = countSentDistValueFreq(features.toArray)
         writeSentFreqToFile(freqOfSentDist)
         // Aggregate the features of all the instances of a pair
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedRow)]] =
-          (pairs zip features).groupBy{
+          (filteredPairs zip features).groupBy{
             // change to filtered pairs when you know the best value of sentence distance.
           //(filteredPairs zip features).groupBy{
             case (pair, _) => extractEvtId(pair._1) // Group by their EventMention
