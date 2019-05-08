@@ -1,0 +1,1717 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Int J Inflam</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Int J Inflam</journal-id>
+      <journal-id journal-id-type="publisher-id">IJI</journal-id>
+      <journal-title-group>
+        <journal-title>International Journal of Inflammation</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">2090-8040</issn>
+      <issn pub-type="epub">2042-0099</issn>
+      <publisher>
+        <publisher-name>Hindawi Publishing Corporation</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25180119</article-id>
+      <article-id pub-id-type="pmc">4142739</article-id>
+      <article-id pub-id-type="doi">10.1155/2014/248240</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Neurotensin Decreases the Proinflammatory Status of Human Skin Fibroblasts and Increases Epidermal Growth Factor Expression</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0002-4889-7799</contrib-id>
+          <name>
+            <surname>Pereira da Silva</surname>
+            <given-names>Luc&#xED;lia</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Miguel Neves</surname>
+            <given-names>Bruno</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="I3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-4264-6865</contrib-id>
+          <name>
+            <surname>Moura</surname>
+            <given-names>Liane</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cruz</surname>
+            <given-names>Maria Teresa</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="I3">
+<sup>3</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Carvalho</surname>
+            <given-names>Eug&#xE9;nia</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">
+<sup>2</sup>
+</xref>
+          <xref ref-type="aff" rid="I4">
+<sup>4</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><sup>1</sup>Faculdade de Ci&#xEA;ncias e Tecnologia, Universidade de Coimbra, 3000-456 Coimbra, Portugal</aff>
+      <aff id="I2"><sup>2</sup>Centro de Neuroci&#xEA;ncias e Biologia Celular, Universidade de Coimbra, 3004-504 Coimbra, Portugal</aff>
+      <aff id="I3"><sup>3</sup>Faculdade de Farm&#xE1;cia, Universidade de Coimbra, 3000-548 Coimbra, Portugal</aff>
+      <aff id="I4"><sup>4</sup>Associa&#xE7;&#xE3;o Portuguesa de Diabetes (APDP), 1250-189 Lisboa, Portugal</aff>
+      <author-notes>
+        <corresp id="cor1">*Eug&#xE9;nia Carvalho: <email>ecarvalh@cnc.uc.pt</email></corresp>
+        <fn fn-type="other">
+          <p>Academic Editor: Francesco Maione</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>11</day>
+        <month>8</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>2014</volume>
+      <elocation-id>248240</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>30</day>
+          <month>5</month>
+          <year>2014</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>14</day>
+          <month>7</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>15</day>
+          <month>7</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2014 Luc&#xED;lia Pereira da Silva et al.</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <license xlink:href="https://creativecommons.org/licenses/by/3.0/">
+          <license-p>This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Fibroblasts colonization into injured areas during wound healing (WH) is responsible for skin remodelling and is also involved in the modulation of inflammation, as fibroblasts are immunologically active. Herein, we aimed to determine neurotensin effect on the immunomodulatory profile of fibroblasts, both in homeostatic and inflammatory conditions. Neurotensin mediated responses occurred through NTR1 or NTR3 receptors, while under inflammatory conditions NTR1 expression increase seemed to modulate neurotensin responses. Among different immunomodulatory genes, CCL11, IL-8, and IL-6 were the most expressed genes, while CCL4 and EGF were the less expressed genes. After neurotensin exposure, IL-8 mRNA expression was increased while CCL11 was decreased, suggesting a proinflammatory upregulation and chemoattractant ability downregulation of fibroblasts. Under inflammatory conditions, gene expression was significantly increased. After neurotensin exposure, CCL4 and IL-6 mRNA expression were decreased while CCL11 was increased, suggesting again a decrease in the chemoattractant capacity of fibroblasts and in their proinflammatory status. Furthermore, the expression of EGF, a crucial growth factor for skin cells proliferation and WH, was increased in all conditions. Overall, neurotensin, released by nerve fibers or skin cells, may be involved in the decrease of the chemotaxis and the proinflammatory status in the proliferation and remodelling phases of WH.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="sec1">
+      <title>1. Introduction</title>
+      <p>Neuropeptides can be produced by skin cells or be released by peripheral nerves into the skin, where they bind to respective receptors stimulating different signalling pathways and cellular responses [<xref rid="B1" ref-type="bibr">1</xref>, <xref rid="B2" ref-type="bibr">2</xref>]. Within the cellular responses and events that can be modulated in the skin by neuropeptides, inflammatory processes are some of the most important. However, the role of neurotensin (NT) in the modulation of skin inflammation is still unclear.</p>
+      <p>The first report demonstrating NT-positive fibbers in the skin was in 1983 [<xref rid="B3" ref-type="bibr">3</xref>] and it was later confirmed by Donelan et al. in 2006 [<xref rid="B4" ref-type="bibr">4</xref>]. The interest in NT first appeared when its influence on the pathogenesis of skin disorders exacerbated by stress was discovered [<xref rid="B5" ref-type="bibr">5</xref>]. In fact, it has been observed that in many skin disorders worsened by stress, the number and activation status of mast cells increase. Accordingly, NT has been shown to increase the number and activation of mast cells in a skin pathogenesis, such as psoriasis [<xref rid="B6" ref-type="bibr">6</xref>], which is in agreement with several other reports showing that mast cell degranulation is triggered by stress and via neurotensin [<xref rid="B7" ref-type="bibr">7</xref>&#x2013;<xref rid="B9" ref-type="bibr">9</xref>]. Moreover, skin vascular permeability induced by corticotropin-releasing hormone (CRH) on mast cells has been shown to occur through a neurotensin-dependent mechanism [<xref rid="B4" ref-type="bibr">4</xref>]. In fact, human mast cells are able to synthesize a neurotensin precursor, secrete bioactive NT-like peptide(s), and express NT receptor NTS1 [<xref rid="B11" ref-type="bibr">10</xref>]. Besides mast cells, neurotensin has also been shown to enhance the chemotaxis capacity of lymphocytes and to limit the growth of cutaneous T-cell lymphoma tumor cells [<xref rid="B12" ref-type="bibr">11</xref>]. Most recently, we have demonstrated that NT can modulate inflammatory events on a skin dendritic cell line [<xref rid="B13" ref-type="bibr">12</xref>]. Fetal-skin dendritic cells expressed both NTR1 and NTR3 and neurotensin was able to downregulate the activation of inflammatory signalling pathways and the expression of cytokines IL-6, TNF-<italic>&#x3B1;</italic>, and IL-10, as well as vascular endothelial growth factor (VEGF), while upregulating the survival pathway ERK and epidermal growth factor (EGF) expression [<xref rid="B13" ref-type="bibr">12</xref>].</p>
+      <p>In spite of these results not much has been studied regarding NT effects in fibroblasts. Therefore, in the present study we used a cell line established from the skin of normal newborn human foreskin fibroblasts. Fibroblasts are a heterogeneous population of cells of mesenchymal origin which support the development, repair, and homeostasis of their resident tissue. Dermal fibroblasts play a key role in extracellular matrix (ECM) deposition, epithelial-mesenchymal interactions, and wound healing [<xref rid="B14" ref-type="bibr">13</xref>]. They also contribute to the immune regulation of the skin, producing and releasing chemokines IL-8 and CCL5, cyclooxygenases, and prostanoids, after activation by inflammatory agents, such as bacterial agents [<xref rid="B15" ref-type="bibr">14</xref>]. By using this cell line, we intended to decrease the variability of the donors, although lacking the variability of skin from different body locations. Using fibroblasts from the foreskin ensures the use of cells from a skin area replenished of a rich and complex network of nerves with neurophysiologic parameters [<xref rid="B16" ref-type="bibr">15</xref>, <xref rid="B17" ref-type="bibr">16</xref>].</p>
+      <p>The main aim of this work was to unravel the effect of neurotensin and its chemoattractant capacity in newborn foreskin fibroblasts, in both homeostatic and inflammatory conditions, in order to understand the possible physiological role of this neuropeptide in skin wound healing as well as speculate about the role of this neuropeptide in other skin pathologies.</p>
+    </sec>
+    <sec id="sec2">
+      <title>2. Materials and Methods</title>
+      <sec id="sec2.1">
+        <title>2.1. Materials</title>
+        <p>Lipopolysaccharide (LPS) from<italic> Escherichia coli</italic> (serotype 026:B6) was obtained from Sigma Chemical Co. (St. Louis, MO, USA), NT was obtained from Bachem (Weil am Rhein, Germany), 30% Acrylamide/BisSolution 29&#x2009;:&#x2009;1, TEMED, and SYBR Green were obtained from Bio-Rad, and High Capacity cDNA Reverse Transcription kit was obtained from Applied Biosystems.</p>
+        <p>The protease inhibitor cocktail (Complete Mini) and the phosphatase inhibitor cocktail (PhosSTOP) were obtained from Roche (Carnaxide, Portugal). Bicinchoninic acid (BCA) kit assay was obtained from Novagen. The polyvinylidene difluoride (PVDF) membranes and the antibody against <italic>&#x3B2;</italic>-actin were purchased from Millipore Corporation (Bedford, MA, USA). The polyclonal antibodies against NTR1(H-130), NTR2(H-19), and NTR3(H-300) were purchased from Santa Cruz (Frilabo), references sc-15311, sc-31696, and sc-30217, respectively. The alkaline phosphatase-linked secondary antibody and the enhanced chemifluorescence (ECF) reagent were obtained from GE Healthcare (Carnaxide, Portugal). The Vectashield mounting medium was purchased from Vector Inc. (Burlingame, CA, USA), the Alexa Fluor 488 antibody was purchased from Molecular Probes (Eugene, OR, USA), and the Alexa Fluor 555 phalloidin antibody was purchased from Invitrogen (Barcelona, Spain). TRIzol was obtained from Invitrogen; diethyl pyrocarbonate (DEPC) was acquired from AppliChem. Methanol, ethanol, and isopropanol were obtained from Merck. All primers were obtained from MWG Biotech (Ebersberg, Germany). All other reagents were purchased from Sigma Chemical Co.</p>
+      </sec>
+      <sec id="sec2.2">
+        <title>2.2. Culture of the BJ Cell Line</title>
+        <p>The BJ cell line (ATCC number CRL-2522) was kindly supplied by Paula Marques and Jo&#xE3;o Malva (Life Sciences Department and Center for Neurosciences and Cell Biology, Coimbra University, Portugal). This cell line was established from skin taken from normal newborn human foreskin fibroblasts. The BJ cell line has the capacity to proliferate to a maximum of 72 population doublings before the onset of senescence.</p>
+        <p>BJ cells were cultured in endotoxin-free Dulbecco's modified eagle medium (DMEM) supplemented with 10% (v/v) of inactivated fetal calf serum, 3.02&#x2009;g/l sodium bicarbonate, 100&#x2009;U/mL penicillin, 100&#x2009;<italic>&#x3BC;</italic>g/mL streptomycin, and 30&#x2009;mM of glucose, in a humidified incubator with 5% CO<sub>2</sub>/95% air, at 37&#xB0;C. BJ fibroblasts have a doubling time of about 72&#x2009;h and were used after reaching 80&#x2013;90% confluence, which occurred approximately every 7 days. Along the experiments, cells were monitored by microscopic observation in order to detect any morphological change.</p>
+      </sec>
+      <sec id="sec2.3">
+        <title>2.3. Western Blot</title>
+        <p>The cells (a confluent 75&#x2009;cm<sup>2</sup> flask) were washed with ice-cold PBS and harvested in a sonication buffer. Cell lysates and protein quantification were performed as previously described [<xref rid="B13" ref-type="bibr">12</xref>]. NTR1, NTR2, and NTR3 levels were evaluated by Western blots. Proteins were separated by electrophoresis and transferred to PVDF membrane, as previously described [<xref rid="B13" ref-type="bibr">12</xref>]. The immune complexes were detected by membrane exposure to the ECF reagent, followed by scanning for blue excited fluorescence on the VersaDoc (Bio-Rad Laboratories, Amadora, Portugal). Membranes were stripped and reprobed with the antibody for <italic>&#x3B2;</italic>-actin. The generated signals were analysed using the Image-Quant TL software.</p>
+      </sec>
+      <sec id="sec2.4">
+        <title>2.4. RNA Extraction</title>
+        <p>Cells (8 &#xD7; 10<sup>5</sup>) were plated in 60&#x2009;mm dishes in a final volume of 6&#x2009;mL and were treated with 10&#x2009;nM of NT during 30&#x2009;h, or pretreated with 10&#x2009;nM of NT during 24&#x2009;h, and then stimulated with 1&#x2009;<italic>&#x3BC;</italic>g/mL of LPS during 6&#x2009;h, treated for 6&#x2009;h with LPS, or left untreated (control). Total RNA was isolated from these cells with TRIzol according to the manufacturer's instructions. The RNA concentration was determined by OD260 measurement using a Nanodrop spectrophotometer (Wilmington, DE, USA). RNA was stored in RNA Storage Solution (Ambion, Foster City, CA, USA) at &#x2212;80&#xB0;C.</p>
+      </sec>
+      <sec id="sec2.5">
+        <title>2.5. Real-Time RT-PCR</title>
+        <p>One microgram of total RNA was reverse-transcribed using High Capacity cDNA Reverse Transcription (RT), from Applied Biosystems. Real-time RT-PCR was performed in a 20&#x2009;<italic>&#x3BC;</italic>L volume containing 2.5&#x2009;<italic>&#x3BC;</italic>L cDNA (25&#x2009;ng), 10&#x2009;<italic>&#x3BC;</italic>L 2X SYBR Green Supermix, 2&#x2009;<italic>&#x3BC;</italic>L of each primer (250&#x2009;nM), and 1&#x2009;<italic>&#x3BC;</italic>L of H<sub>2</sub>O PCR grade. Samples were denatured at 95&#xB0;C for 3&#x2009;min. Subsequently, 40 cycles were run for 10&#x2009;sec at 95&#xB0;C for denaturation, 30&#x2009;sec at the appropriate annealing temperature, and 30&#x2009;sec at 72&#xB0;C for elongation. Real-time RT-PCR reactions were run in duplicate for each sample on a Bio-Rad My Cycler iQ5. After amplification, a threshold was set for each gene and Ct-values were calculated as previously described [<xref rid="B13" ref-type="bibr">12</xref>].</p>
+        <p>Primers were designed using Beacon Designer Software v7.2, from Premier Biosoft International, and thoroughly tested. Primer sequences are given in <xref ref-type="table" rid="tab1">Table 1</xref>. The results were normalized using a reference gene, hypoxanthine phosphoribosyltransferase 1 (HPRT-1). This reference gene was previously validated in our lab [<xref rid="B18" ref-type="bibr">17</xref>] and its expression did not suffer variations upon BJ cell line stimulation with LPS and NT.</p>
+      </sec>
+      <sec id="sec2.6">
+        <title>2.6. Immunocytochemistry Assay</title>
+        <p>Cells (2 &#xD7; 10<sup>5</sup>) were cultured in 24-well plates containing circular glass lamella on the bottom. Cells were washed with ice-cold PBS, fixed with 4% paraformaldehyde in PBS for 10&#x2009;min, and then permeabilized with 0.1% Triton X-100 in PBS containing 200&#x2009;mM glycine for 5&#x2009;min. After a blocking step with PBS/1% BSA for 30&#x2009;min, cells were incubated overnight with antibodies against NTR1, NTR2, and NTR3 (1&#x2009;:&#x2009;100 in PBS containing 0.1% BSA). After washing with PBS, cells were incubated with Alexa Fluor 488-conjugated goat anti-rabbit antibody (1&#x2009;:&#x2009;500) and Alexa Fluor 555 phalloidin antibody (1&#x2009;:&#x2009;500) for 30&#x2009;min at room temperature. After a washing step, cells were then incubated for 1&#x2009;min with DAPI (0.1&#x2009;<italic>&#x3BC;</italic>g/mL in PBS) and mounted with Vectashield medium to reduce photobleaching. For image acquisition, fluorescence labelling was visualized using a fluorescence microscope&#x2014;Zeiss Axiovert 200&#x2014;and images captured with a coupled AxioCam HR camera. In each experiment, the optimal acquisition parameters were defined for the control cells and maintained for all the other conditions within the same experiment.</p>
+      </sec>
+      <sec id="sec2.7">
+        <title>2.7. Statistical Analysis</title>
+        <p>The results were statistically analysed using the nonparametric Kruskall-Wallis test followed by Dunn's posttest, using Graphpad software. Results are presented as mean &#xB1; SD and the significance level was *<italic>P</italic> &lt; 0.05, **<italic>P</italic> &lt; 0.01, and ***<italic>P</italic> &lt; 0.001.</p>
+      </sec>
+    </sec>
+    <sec id="sec3">
+      <title>3. Results</title>
+      <sec id="sec3.1">
+        <title>3.1. Expression of Neurotensin and Its Receptors on Skin Fibroblasts</title>
+        <p>BJ cells do not constitutively express neurotensin, under either basal conditions or LPS stimulation (data not shown).</p>
+        <p>The expression of neurotensin receptors, namely, NTR1, NTR2, and NTR3, was determined by real-time RT-PCR, Western blot, and immunocytochemistry analyses. BJ cells constitutively express the genes for NTR1, NTR2, and NTR3, with NTR2 being the most abundant, as shown in <xref ref-type="fig" rid="fig1">Figure 1(A)</xref>. However, only the NTR1 and NTR3 were effectively transduced to protein, as observed in <xref ref-type="fig" rid="fig1">Figure 1(B)</xref>, indicating possible cellular posttranscription modification. Brain homogenates from the cortical cortex of mice were used as positive controls for NTR reactivity, since they express all neurotensin receptors, as determined by Western blot analysis (<xref ref-type="fig" rid="fig1">Figure 1(B)</xref>).</p>
+        <p>In addition, the expression of neurotensin receptors was studied under inflammatory conditions. The stimulation of BJ cells with LPS for 6&#x2009;h caused an increase in NTR1 and NTR2 gene expression of 2.9 &#xB1; 1.9- (*<italic>P</italic> &lt; 0.05, <italic>n</italic> = 3) and 0.7 &#xB1; 0.9- (<italic>n</italic> = 3) fold above control, respectively. However, the expression of NTR3 slightly diminished by 0.2 &#xB1; 0.3- (<italic>n</italic> = 3) fold, as shown in <xref ref-type="fig" rid="fig1">Figure 1(C)</xref>.</p>
+        <p>Neurotensin receptor localization was measured in these cells and it was verified that NTR1 is localized at the cell membrane, in the cytoplasm and in the nucleus, while NTR3 is mainly found in the nucleus (<xref ref-type="fig" rid="fig2">Figure 2</xref>).</p>
+      </sec>
+      <sec id="sec3.2">
+        <title>3.2. Modulation of Gene Expression in Fibroblasts by LPS</title>
+        <p>To evaluate the expression of different genes under homeostatic conditions and upon 6&#x2009;h of LPS exposure, real-time RT-PCR was performed for CCL4, CCL5, CCL11, IL-8, IL-1<italic>&#x3B2;</italic>, IL-6, and epidermal growth factor (EGF).</p>
+        <p>Nonstimulated BJ cells constitutively expressed all chemokines, cytokines, and the growth factor EGF, with IL-6, IL-8, and CCL11 being the most expressed genes, by 1.6 &#xD7; 10<sup>4</sup> &#xB1; 1.1 &#xD7; 10<sup>4</sup> (<sup>##</sup> &lt; 0.01, &#x2009;<italic>n</italic> = 4), 2.8 &#xD7; 10<sup>4</sup> &#xB1; 1.9 &#xD7; 10<sup>4</sup> (<sup>###</sup> &lt; 0.001, <italic>n</italic> = 4), and 2.5 &#xD7; 10<sup>4</sup> &#xB1; 1.7 &#xD7; 10<sup>4</sup> (<sup>###</sup> &lt; 0.01, <italic>n</italic> = 4), respectively, relative to HPRT1 gene expression, while CCL4 was barely expressed, by 6.4 &#xB1; 5.0 (<italic>n</italic> = 4), relative to HPRT1 gene expression (<xref ref-type="fig" rid="fig3">Figure 3</xref>). When stimulated with LPS, the expression levels of all these genes were highly upregulated, including the expression of chemokine CCL5 (*<italic>P</italic> &lt; 0.05), IL-1<italic>&#x3B2;</italic> (*<italic>P</italic> &lt; 0.05, <italic>n</italic> = 4), CCL4 (**<italic>P</italic> &lt; 0.01, <italic>n</italic> = 4), CCL11 (**<italic>P</italic> &lt; 0.01, <italic>n</italic> = 4), IL-8 (**<italic>P</italic> &lt; 0.01, <italic>n</italic> = 4), and IL-6 (**<italic>P</italic> &lt; 0.01, <italic>n</italic> = 4), relative to nonstimulated cells (<xref ref-type="fig" rid="fig3">Figure 3</xref>), reinforcing the role of fibroblasts as skin immunomodulators.</p>
+      </sec>
+      <sec id="sec3.3">
+        <title>3.3. Modulation of Gene Expression in Fibroblast by Neurotensin</title>
+        <p>To evaluate the effect of neurotensin on key inflammatory cytokines and chemokines, BJ cells were incubated with the neuropeptide alone, or with the inflammatory stimulus of LPS alone, or were incubated with the combination of both neurotensin and LPS (<xref ref-type="fig" rid="fig4">Figure 4</xref>). Indeed, cells were treated with (1) either 10 or 100&#x2009;nM of NT for 30&#x2009;h; (2) incubated with LPS alone for 6&#x2009;h; (3) incubated with either 10 or 100&#x2009;nM of NT for 24&#x2009;h before an additional stimulus of LPS for 6&#x2009;h; or (4) left untreated (control). To understand the role of neurotensin in the skin, specifically in skin fibroblasts, cells were subjected to different neurotensin concentrations (10 and 100&#x2009;nM) in and out of an inflammatory environment (LPS stimulus). In fact, to better comprehend the role of neurotensin in an inflammatory environment, cells were firstly pretreated with NT and subsequently stimulated with LPS. Furthermore, this protocol may simulate an<italic> in vivo</italic> NT treatment immediately after an injury (before inflammation starts). After these incubation periods, total RNA was isolated, quantified, and reverse-transcribed to cDNA to finally perform real-time RT-PCR.</p>
+        <p>BJ cells treated with NT (10&#x2009;nM) significantly increased the expression of EGF and IL-8 by 1.07 &#xB1; 0.45- (*<italic>P</italic> &lt; 0.05, <italic>n</italic> = 3) and 0.88 &#xB1; 0.48- (*<italic>P</italic> &lt; 0.01, <italic>n</italic> = 3) fold above control, respectively, while decreased CCL4 expression by &#x2212;0.59 &#xB1; 0.27- (*<italic>P</italic> &lt; 0.01, <italic>n</italic> = 3) fold below the control (<xref ref-type="fig" rid="fig4">Figure 4(a)</xref>). However, neither the cytokine nor the chemokine profile of these cells showed significant differences in expression when cells were incubated with 100&#x2009;nM of NT (<xref ref-type="fig" rid="fig4">Figure 4(a)</xref>). However, when cells were pretreated with NT (10&#x2009;nM) during 24&#x2009;h followed by a 6&#x2009;h LPS stimulus, both the cytokine and chemokine profiles of these cells were significantly modulated. When cells were stimulated with both 10&#x2009;nM of NT and LPS, the expression of CCL4 was significantly decreased by 0.59 &#xB1; 0.28- (*<italic>P</italic> &lt; 0.05, &#x2009; <italic>n</italic> = 3) fold, relative to the control, as shown in <xref ref-type="fig" rid="fig4">Figure 4(b)</xref>. In addition, when cells were incubated with 100&#x2009;nM of NT plus LPS, the expression of cytokines IL-6 was significantly reduced by 1.09 &#xB1; 0.87 (*<italic>P</italic> &lt; 0.05, <italic>n</italic> = 4), relative to cells treated with NT (10&#x2009;nM). In contrast, the chemokine CCL11 showed a significant increase in expression of 0.65 &#xB1; 0.43- (*<italic>P</italic> &lt; 0.05, &#x2009;<italic>n</italic> = 3) fold relative to cells treated with NT (10&#x2009;nM). Furthermore, EGF expression was significantly increased by 0.99 &#xB1; 0.785- (*<italic>P</italic> &lt; 0.05, &#x2009;<italic>n</italic> = 3) fold relative to the control (<xref ref-type="fig" rid="fig4">Figure 4(b)</xref>). In conclusion, we observed that, in the presence of neurotensin (10&#x2009;nM), BJ cells presented a decrease in CCL11 chemokine expression and an increase in IL-8 cytokine expression. Under inflammatory conditions and in the presence of neurotensin, BJ cells presented a decrease in CCL4 and IL-6, while an increase in CCL-11 expression. Furthermore EGF expression was increased in cells incubated with NT either alone or in combination with LPS.</p>
+      </sec>
+    </sec>
+    <sec id="sec4">
+      <title>4. Discussion</title>
+      <p>BJ cells expressed the NTR1 and NTR3; NTR1 was located at the cell membrane, cytoplasm, and nucleus while NTR3 was exclusively located in the nucleus. As NTR3 is exclusively localized in the nucleus, its mediated responses can only occur by intracellular neurotensin. Regarding that neurotensin is not expressed by BJ cells, as they do not express NT, NT-NTR3 signalling pathway can only be activated by endocytosed neurotensin previously produced by neighbouring skin cells, such as keratinocytes. Furthermore, NT-NTR3 mediated response will have a later effect in comparison to NT-NTR1 mediated response because NTR1 is located at the cell membrane and the activation of this signalling pathway does not require NT internalization. Furthermore, upon NT binding to its receptors, NT activates different signalling pathways and cell responses, such as chemokine and cytokine expression, as previously described by us for a dendritic cell line and by others [<xref rid="B4" ref-type="bibr">4</xref>, <xref rid="B9" ref-type="bibr">9</xref>, <xref rid="B19" ref-type="bibr">18</xref>&#x2013;<xref rid="B26" ref-type="bibr">25</xref>].</p>
+      <p>Neuropeptides receptor expression under an inflammatory environment has been shown to be regulated by neuropeptides, as observed in rat macrophages for substance P receptors [<xref rid="B27" ref-type="bibr">26</xref>] and in HUVECs for NPY receptors [<xref rid="B28" ref-type="bibr">27</xref>]. Indeed, we determined if the expression of neurotensin receptors differed in an inflammatory environment and, after cell exposure to LPS, the gene expression of NTR1 was induced while the expression of NTR3 decreased. These results suggest that the upregulation of neurotensin receptors in an inflammatory environment (LPS) will lead to a rise on NT-mediated effects and propagation of NT signalling pathways. Although endogenous NT was not expressed in BJ cells, exogenous NT produced by neighbouring cells can play an important role in NTR activation.</p>
+      <p>Regarding NT effects on the immunomodulatory function of BJ cells, NT downregulated the immunomodulatory ability of BJ cells under inflammatory conditions and significantly upregulated EGF expression, a crucial growth factor involved in cell growth and wound healing [<xref rid="B29" ref-type="bibr">28</xref>, <xref rid="B30" ref-type="bibr">29</xref>].</p>
+      <p>Under homeostatic conditions, exogenous NT was able to significantly upregulate IL-8 and downregulate CCL11 in these cells. These cytokines are involved in the important process of immune cell recruitment to the site of inflammation [<xref rid="B31" ref-type="bibr">30</xref>]. IL-8 is a neutrophil-activating cytokine which induces chemotaxis and the release of granule enzymes [<xref rid="B32" ref-type="bibr">31</xref>] while CCL11 (or eotaxin) is an important eosinophil chemoattractant which also recruits basophils, Th2 lymphocytes, and tryptase-chymase mast cells [<xref rid="B33" ref-type="bibr">32</xref>&#x2013;<xref rid="B36" ref-type="bibr">35</xref>]. Since fibroblasts orchestrate and respond to inflammatory cascades, NT upregulation of IL-8 could activate neutrophils while downregulation of CCL11 chemokine expression could decrease leukocyte recruitment in homeostatic conditions.</p>
+      <p>Under an inflammatory environment (LPS treatment), NT seemed to have the opposite effect in respect to chemokine/cytokine profile, significantly downregulating the chemoattractant CCL4 and proinflammatory cytokine IL-6. Meanwhile, NT also upregulated CCL11. Besides being a chemoattractant, CCL11 may also induce eosinophil degranulation [<xref rid="B37" ref-type="bibr">36</xref>] and IgE-independent degranulation of basophils [<xref rid="B38" ref-type="bibr">37</xref>], promoting adaptive immune responses, through the selective recruitment of Th2 lymphocytes, which is dependent on the expression of CCR4 and CCR8 on Th2 cells [<xref rid="B39" ref-type="bibr">38</xref>]. Indeed, the increased expression of CCL11 mediated by NT in fibroblasts could be involved in a Th2 polarized response.</p>
+      <p>Considering epidermal growth factor, a cell growth and wound healing growth factor, its expression was significantly enhanced, which is in accordance with our previous study performed in dendritic cells [<xref rid="B13" ref-type="bibr">12</xref>]. In fact, this same effect was already observed in granulation fibroblasts by the neuropeptide substance P [<xref rid="B40" ref-type="bibr">39</xref>]. EGF increase may potentially be triggering autocrine effects on BJ cells as well as paracrine effects on keratinocytes, by modulating epidermal proliferation and differentiation [<xref rid="B41" ref-type="bibr">40</xref>], also emphasising the importance of the EGF effect in the wound closure of wound healing [<xref rid="B29" ref-type="bibr">28</xref>, <xref rid="B30" ref-type="bibr">29</xref>].</p>
+    </sec>
+    <sec id="sec5">
+      <title>5. Conclusion</title>
+      <p>These results report the effect of exogenous NT under both homeostatic (without LPS) and inflammatory conditions (with LPS) in BJ cells. Under inflammatory conditions, NT was able to downregulate the chemoattractant function of fibroblasts, vital for the last phases of wound healing, which include its migration-proliferation and remodelling phases. Downregulation of chemokines triggered by exogenous NT could decrease the inflammatory status of the wound and could beneficially promote migration of fibroblasts to the wound site, with consequent expression of ECM proteins, important for skin repair. Furthermore, EGF-mediated effects on fibroblasts and keratinocytes will be fulcra for the remodelling phase of wound healing.</p>
+      <p>Indeed, delayed wounds like diabetic wound healing, characterized by a proinflammatory cytokine profile [<xref rid="B1" ref-type="bibr">1</xref>], could potentially be treated with NT, promoting the transition of the inflammatory phase to the last phases of wound healing, thus improving wound healing. Overall our results suggest that neurotensin may be of great value in therapeutic approaches for inflammatory skin diseases, through promoting wound healing. However, our<italic> in vitro</italic> model has limitations and treatment of fibroblasts<italic> in vitro</italic> with NT may not mimic its biological processes in their native environment, not taking into account the neuroendocrine, for example, sympathetic and parasympathetic, control of tissues. Thus, these findings should be confirmed with<italic> in vivo</italic> experiments. Meanwhile, we can hypothesize that<italic> in vivo</italic> NT administration, under similar conditions, may promote a decreased inflammatory response through these cells, which may be important in the later phases of healing.<italic> In vivo</italic> studies are needed to further confirm the potential application of NT as a therapy for diabetic foot ulcers.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>Acknowledgments</title>
+      <p>The authors thank Paula Marques and Jo&#xE3;o Malva (Life Sciences Department and Center for Neurosciences and Cell Biology, Coimbra University, Portugal) for the kind gift of the BJ cell line. They acknowledge Dr. Francisco Ambr&#xF3;sio for his laboratories facilities during one part of this work and Dr. Carlos Duarte for the availability of the RT-PCR equipment. They also thank Ana Tellechea and Ermelindo Leal for their help in cell culture procedures, as well as Vera Godinho for the collaboration in setting up the RNA extraction experiments. They acknowledge the financial support of SFRH/BD/60837/2009 (Liane Moura), SFRH/BD/30563/2006 (Bruno Miguel Neves), EFSD/JDRF/Novo Nordisk European Programme in Type 1 Diabetes Research (Eug&#xE9;nia Carvalho), Funda&#xE7;&#xE3;o para a Ci&#xEA;ncia e Tecnologia PTDC/SAU-MII/098567/2008 (Eug&#xE9;nia Carvalho), and Sociedade Portuguesa de Diabetologia (Eug&#xE9;nia Carvalho).</p>
+    </ack>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>NT:</term>
+          <def>
+            <p>Neurotensin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>IL:</term>
+          <def>
+            <p>Interleukin</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>EGF:</term>
+          <def>
+            <p>Epidermal growth factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ECM:</term>
+          <def>
+            <p>Extracellular matrix</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>WH:</term>
+          <def>
+            <p>Wound healing</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>LPS:</term>
+          <def>
+            <p>Lipopolysaccharide</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>CNS:</term>
+          <def>
+            <p>Central nervous system</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>NTR:</term>
+          <def>
+            <p>Neurotensin receptor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>GPCRs:</term>
+          <def>
+            <p>G protein coupled receptors</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>TNF:</term>
+          <def>
+            <p>Tumor necrosis factor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>BCA:</term>
+          <def>
+            <p>Bicinchoninic acid</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>PVDF:</term>
+          <def>
+            <p>Polyvinylidene difluoride</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>ECF:</term>
+          <def>
+            <p>Enhanced chemifluorescence</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DEPC:</term>
+          <def>
+            <p>Diethyl pyrocarbonate</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>DMEM:</term>
+          <def>
+            <p>Dulbecco's Modified Eagle Medium</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>RT-PCR:</term>
+          <def>
+            <p>Reverse transcription polymerase chain reaction</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>HPRT-1:</term>
+          <def>
+            <p>Hypoxanthine phosphoribosyltransferase 1.</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <sec sec-type="conflict">
+      <title>Conflict of Interests</title>
+      <p>The authors declare that there is no conflict of interests regarding the publishing of this paper.</p>
+    </sec>
+    <ref-list>
+      <ref id="B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>da Silva</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Carvalho</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Cruz</surname>
+              <given-names>MT</given-names>
+            </name>
+          </person-group>
+          <article-title>Role of neuropeptides in skin inflammation and its involvement in diabetic wound healing</article-title>
+          <source>
+            <italic>Expert Opinion on Biological Therapy</italic>
+          </source>
+          <year>2010</year>
+          <volume>10</volume>
+          <issue>10</issue>
+          <fpage>1427</fpage>
+          <lpage>1439</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77956664657</pub-id>
+          <pub-id pub-id-type="pmid">20738210</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tellechea</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Leal</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Veves</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Carvalho</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Inflammatory and angiogenic abnormalities in diabetic wound healing: role of neuropeptides and therapeutic perspectives</article-title>
+          <source>
+            <italic>The Open Circulation and Vascular Journal</italic>
+          </source>
+          <year>2010</year>
+          <volume>2</volume>
+          <fpage>p. 42</fpage>
+        </element-citation>
+      </ref>
+      <ref id="B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hartschuh</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Weihe</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Reinecke</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Peptidergic (neurotensin, VIP, substance P) nerve fibres in the skin: immunohistochemical evidence of an involvement of neuropeptides in nociception, pruritus and inflammation</article-title>
+          <source>
+            <italic>British Journal of Dermatology</italic>
+          </source>
+          <year>1983</year>
+          <volume>109</volume>
+          <issue>25</issue>
+          <fpage>14</fpage>
+          <lpage>17</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0020957266</pub-id>
+          <pub-id pub-id-type="pmid">6190501</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Donelan</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Boucher</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Papadopoulou</surname>
+              <given-names>N</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Corticotropin-releasing hormone induces skin vascular permeability through a neurotensin-dependent process</article-title>
+          <source>
+            <italic>Proceedings of the National Academy of Sciences of the United States of America</italic>
+          </source>
+          <year>2006</year>
+          <volume>103</volume>
+          <issue>20</issue>
+          <fpage>7759</fpage>
+          <lpage>7764</lpage>
+          <pub-id pub-id-type="other">2-s2.0-33646716658</pub-id>
+          <pub-id pub-id-type="pmid">16682628</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Singh</surname>
+              <given-names>LK</given-names>
+            </name>
+            <name>
+              <surname>Pang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Alexacos</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Letourneau</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Theoharides</surname>
+              <given-names>TC</given-names>
+            </name>
+          </person-group>
+          <article-title>Acute immobilization stress triggers skin mast cell degranulation via corticotropin releasing hormone, neurotensin, and substance P: a link to neurogenic skin disorders</article-title>
+          <source>
+            <italic>Brain, Behavior, and Immunity</italic>
+          </source>
+          <year>1999</year>
+          <volume>13</volume>
+          <issue>3</issue>
+          <fpage>225</fpage>
+          <lpage>239</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0032856498</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vasiadi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Therianou</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Alysandratos</surname>
+              <given-names>KD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Serum neurotensin (NT) is increased in psoriasis and NT induces vascular endothelial growth factor release from human mast cells</article-title>
+          <source>
+            <italic>British Journal of Dermatology</italic>
+          </source>
+          <year>2012</year>
+          <volume>166</volume>
+          <issue>6</issue>
+          <fpage>1349</fpage>
+          <lpage>1352</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84861612149</pub-id>
+          <pub-id pub-id-type="pmid">22283733</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Theoharides</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Alysandratos</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Angelidou</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Mast cells and inflammation</article-title>
+          <source>
+            <italic>Biochimica et Biophysica Acta</italic>
+          </source>
+          <year>2012</year>
+          <volume>1822</volume>
+          <issue>1</issue>
+          <fpage>21</fpage>
+          <lpage>33</lpage>
+          <pub-id pub-id-type="pmid">21185371</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Alysandratos</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Asadi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Angelidou</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neurotensin and CRH interactions augment human mast cell activation</article-title>
+          <source>
+            <italic>PLoS ONE</italic>
+          </source>
+          <year>2012</year>
+          <volume>7</volume>
+          <issue>11</issue>
+          <pub-id pub-id-type="publisher-id">e48934</pub-id>
+          <pub-id pub-id-type="other">2-s2.0-84869128804</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carraway</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Cochrane</surname>
+              <given-names>DE</given-names>
+            </name>
+            <name>
+              <surname>Lansman</surname>
+              <given-names>JB</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotensin stimulates exocytotic histamine secretion from rat mast cells and elevates plasma histamine levels</article-title>
+          <source>
+            <italic>Journal of Physiology</italic>
+          </source>
+          <year>1982</year>
+          <volume>323</volume>
+          <fpage>403</fpage>
+          <lpage>414</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0020005040</pub-id>
+          <pub-id pub-id-type="pmid">6178820</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B11">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cochrane</surname>
+              <given-names>DE</given-names>
+            </name>
+            <name>
+              <surname>Carraway</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Harrington</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Laudano</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Rawlings</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Feldberg</surname>
+              <given-names>RS</given-names>
+            </name>
+          </person-group>
+          <article-title>HMC-1 human mast cells synthesize neurotensin (NT) precursor, secrete bioactive NT-like peptide(s) and express NT receptor NTS1</article-title>
+          <source>
+            <italic>Inflammation Research</italic>
+          </source>
+          <year>2011</year>
+          <volume>60</volume>
+          <issue>12</issue>
+          <fpage>1139</fpage>
+          <lpage>1151</lpage>
+          <pub-id pub-id-type="other">2-s2.0-84855248584</pub-id>
+          <pub-id pub-id-type="pmid">21927981</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B12">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ramez</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bagot</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nikolova</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Functional characterization of neurotensin receptors in human cutaneous T cell lymphoma malignant lymphocytes</article-title>
+          <source>
+            <italic>Journal of Investigative Dermatology</italic>
+          </source>
+          <year>2001</year>
+          <volume>117</volume>
+          <issue>3</issue>
+          <fpage>687</fpage>
+          <lpage>693</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0034798056</pub-id>
+          <pub-id pub-id-type="pmid">11564178</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B13">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>da Silva</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Neves</surname>
+              <given-names>BM</given-names>
+            </name>
+            <name>
+              <surname>Moura</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Cruz</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Carvalho</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotensin downregulates the pro-inflammatory properties of skin dendritic cells and increases epidermal growth factor expression</article-title>
+          <source>
+            <italic>Biochimica et Biophysica Acta</italic>
+          </source>
+          <year>2011</year>
+          <volume>1813</volume>
+          <issue>10</issue>
+          <fpage>1863</fpage>
+          <lpage>1871</lpage>
+          <pub-id pub-id-type="other">2-s2.0-80051782996</pub-id>
+          <pub-id pub-id-type="pmid">21767580</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B14">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sorrell</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Caplan</surname>
+              <given-names>AI</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblast heterogeneity: more than skin deep</article-title>
+          <source>
+            <italic>Journal of Cell Science</italic>
+          </source>
+          <year>2004</year>
+          <volume>117</volume>
+          <issue>5</issue>
+          <fpage>667</fpage>
+          <lpage>675</lpage>
+          <pub-id pub-id-type="other">2-s2.0-1342305179</pub-id>
+          <pub-id pub-id-type="pmid">14754903</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B15">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smith</surname>
+              <given-names>RS</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Blieden</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Phipps</surname>
+              <given-names>RP</given-names>
+            </name>
+          </person-group>
+          <article-title>Fibroblasts as sentinel cells: synthesis of chemokines and regulation of inflammation</article-title>
+          <source>
+            <italic>The American Journal of Pathology</italic>
+          </source>
+          <year>1997</year>
+          <volume>151</volume>
+          <issue>2</issue>
+          <fpage>317</fpage>
+          <lpage>322</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0031201054</pub-id>
+          <pub-id pub-id-type="pmid">9250144</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B16">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Winkelmann</surname>
+              <given-names>RK</given-names>
+            </name>
+          </person-group>
+          <article-title>The cutaneous innervation of human newborn prepuce.</article-title>
+          <source>
+            <italic>The Journal of Investigative Dermatology</italic>
+          </source>
+          <year>1956</year>
+          <volume>26</volume>
+          <issue>1</issue>
+          <fpage>53</fpage>
+          <lpage>67</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0008497459</pub-id>
+          <pub-id pub-id-type="pmid">13295637</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B17">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Antony</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Kong</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Lorenz</surname>
+              <given-names>HP</given-names>
+            </name>
+          </person-group>
+          <article-title>Upregulation of neurodevelopmental genes during scarless healing</article-title>
+          <source>
+            <italic>Annals of Plastic Surgery</italic>
+          </source>
+          <year>2010</year>
+          <volume>64</volume>
+          <issue>2</issue>
+          <fpage>247</fpage>
+          <lpage>250</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77649092840</pub-id>
+          <pub-id pub-id-type="pmid">20098115</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B18">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Neves</surname>
+              <given-names>BM</given-names>
+            </name>
+            <name>
+              <surname>Cruz</surname>
+              <given-names>MT</given-names>
+            </name>
+            <name>
+              <surname>Francisco</surname>
+              <given-names>V</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differential roles of PI3-Kinase, MAPKs and NF-<italic>&#x3BA;</italic>B on the manipulation of dendritic cell Th1/Th2 cytokine/chemokine polarizing profile</article-title>
+          <source>
+            <italic>Molecular Immunology</italic>
+          </source>
+          <year>2009</year>
+          <volume>46</volume>
+          <issue>13</issue>
+          <fpage>2481</fpage>
+          <lpage>2492</lpage>
+          <pub-id pub-id-type="other">2-s2.0-67650397827</pub-id>
+          <pub-id pub-id-type="pmid">19520433</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B19">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goldman</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Shavit</surname>
+              <given-names>ZB</given-names>
+            </name>
+            <name>
+              <surname>Romeo</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotensin modulates human neutrophil locomotion and phagocytic capability</article-title>
+          <source>
+            <italic>FEBS Letters</italic>
+          </source>
+          <year>1983</year>
+          <volume>159</volume>
+          <issue>1-2</issue>
+          <fpage>63</fpage>
+          <lpage>67</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0020525319</pub-id>
+          <pub-id pub-id-type="pmid">6873304</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B20">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lemaire</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotensin enhances IL-1 production by activated alveolar macrophages</article-title>
+          <source>
+            <italic>Journal of Immunology</italic>
+          </source>
+          <year>1988</year>
+          <volume>140</volume>
+          <issue>9</issue>
+          <fpage>2983</fpage>
+          <lpage>2988</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0023922010</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B21">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garrido</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Arahuetes</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Hernanz</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>De la Fuente</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Modulation by neurotensin and neuromedin N of adherence and chemotaxis capacity of murine lymphocytes</article-title>
+          <source>
+            <italic>Regulatory Peptides</italic>
+          </source>
+          <year>1992</year>
+          <volume>41</volume>
+          <issue>1</issue>
+          <fpage>27</fpage>
+          <lpage>37</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0026644123</pub-id>
+          <pub-id pub-id-type="pmid">1333624</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B22">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Castagliuolo</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Valenick</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Neurotensin is a proinflammatory neuropeptide in colonic inflammation</article-title>
+          <source>
+            <italic>Journal of Clinical Investigation</italic>
+          </source>
+          <year>1999</year>
+          <volume>103</volume>
+          <issue>6</issue>
+          <fpage>843</fpage>
+          <lpage>849</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0033559347</pub-id>
+          <pub-id pub-id-type="pmid">10079105</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B23">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Martin</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Vincent</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Mazella</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of the neurotensin receptor-3 in the neurotensin-induced migration of human microglia</article-title>
+          <source>
+            <italic>Journal of Neuroscience</italic>
+          </source>
+          <year>2003</year>
+          <volume>23</volume>
+          <issue>4</issue>
+          <fpage>1198</fpage>
+          <lpage>1205</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0037442515</pub-id>
+          <pub-id pub-id-type="pmid">12598608</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B24">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kuhnt-Moore</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zeng</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Moyer</surname>
+              <given-names>MP</given-names>
+            </name>
+            <name>
+              <surname>Pothoulakis</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotensin stimulates IL-8 expression in human colonic epithelial cells through Rho GTPase-mediated NF-<italic>&#x3BA;</italic>B pathways</article-title>
+          <source>
+            <italic>The American Journal of Physiology&#x2014;Cell Physiology</italic>
+          </source>
+          <year>2003</year>
+          <volume>284</volume>
+          <issue>6</issue>
+          <fpage>C1397</fpage>
+          <lpage>C1404</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0037598638</pub-id>
+          <pub-id pub-id-type="pmid">12584113</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B25">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dicou</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Vincent</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Mazella</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Neurotensin receptor-3/sortilin mediates neurotensin-induced cytokine/chemokine expression in a marine microglial cell line</article-title>
+          <source>
+            <italic>Journal of Neuroscience Research</italic>
+          </source>
+          <year>2004</year>
+          <volume>78</volume>
+          <issue>1</issue>
+          <fpage>92</fpage>
+          <lpage>99</lpage>
+          <pub-id pub-id-type="other">2-s2.0-4644297206</pub-id>
+          <pub-id pub-id-type="pmid">15372498</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B26">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Assimakopoulos</surname>
+              <given-names>SF</given-names>
+            </name>
+            <name>
+              <surname>Scopa</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Nikolopoulou</surname>
+              <given-names>VN</given-names>
+            </name>
+            <name>
+              <surname>Vagianos</surname>
+              <given-names>CE</given-names>
+            </name>
+          </person-group>
+          <article-title>Pleiotropic effects of bombesin and neurotensin on intestinal mucosa: not just trefoil peptides</article-title>
+          <source>
+            <italic>World Journal of Gastroenterology</italic>
+          </source>
+          <year>2008</year>
+          <volume>14</volume>
+          <issue>22</issue>
+          <fpage>3602</fpage>
+          <lpage>3603</lpage>
+          <pub-id pub-id-type="other">2-s2.0-54349122276</pub-id>
+          <pub-id pub-id-type="pmid">18567096</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B27">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bost</surname>
+              <given-names>KL</given-names>
+            </name>
+            <name>
+              <surname>Breeding</surname>
+              <given-names>SAL</given-names>
+            </name>
+            <name>
+              <surname>Pascual</surname>
+              <given-names>DW</given-names>
+            </name>
+          </person-group>
+          <article-title>Modulation of the mRNAs encoding substance P and its receptor in rat macrophages by LPS</article-title>
+          <source>
+            <italic>Regional Immunology</italic>
+          </source>
+          <year>1992</year>
+          <volume>4</volume>
+          <issue>2</issue>
+          <fpage>105</fpage>
+          <lpage>112</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0026725160</pub-id>
+          <pub-id pub-id-type="pmid">1380279</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B28">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Silva</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>Cavadas</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Ba&#xEF;sse-Agushi</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Spertini</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Brunner</surname>
+              <given-names>HR</given-names>
+            </name>
+            <name>
+              <surname>Grouzmann</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>NPY, NPY receptors, and DPP IV activity are modulated by LPS, TNF-<italic>&#x3B1;</italic> and IFN-<italic>&#x3BA;</italic> in HUVEC</article-title>
+          <source>
+            <italic>Regulatory Peptides</italic>
+          </source>
+          <year>2003</year>
+          <volume>116</volume>
+          <issue>1&#x2013;3</issue>
+          <fpage>71</fpage>
+          <lpage>79</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0242329827</pub-id>
+          <pub-id pub-id-type="pmid">14599717</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B29">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Grzybowski</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>O&#x142;dak</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Janiak</surname>
+              <given-names>MK</given-names>
+            </name>
+          </person-group>
+          <article-title>Local application of G-CSF, GM-CSF and EGF in treatment of wounds</article-title>
+          <source>
+            <italic>Post&#x119;py Higieny i Medycyny Do&#x15B;wiadczalnej</italic>
+          </source>
+          <year>1999</year>
+          <volume>53</volume>
+          <issue>1</issue>
+          <fpage>75</fpage>
+          <lpage>86</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0032611705</pub-id>
+          <pub-id pub-id-type="pmid">10352548</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B30">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jost</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kari</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Rodeck</surname>
+              <given-names>U</given-names>
+            </name>
+          </person-group>
+          <article-title>The EGF receptor&#x2014;an essential regulator of multiple epidermal functions</article-title>
+          <source>
+            <italic>European Journal of Dermatology</italic>
+          </source>
+          <year>2000</year>
+          <volume>10</volume>
+          <issue>7</issue>
+          <fpage>505</fpage>
+          <lpage>510</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0033762498</pub-id>
+          <pub-id pub-id-type="pmid">11056418</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B31">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Esche</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Stellato</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Beck</surname>
+              <given-names>LA</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemokines: key players in innate and adaptive immunity</article-title>
+          <source>
+            <italic>Journal of Investigative Dermatology</italic>
+          </source>
+          <year>2005</year>
+          <volume>125</volume>
+          <issue>4</issue>
+          <fpage>615</fpage>
+          <lpage>628</lpage>
+          <pub-id pub-id-type="other">2-s2.0-27744531173</pub-id>
+          <pub-id pub-id-type="pmid">16185259</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B32">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Baggiolini</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Walz</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kunkel</surname>
+              <given-names>SL</given-names>
+            </name>
+          </person-group>
+          <article-title>Neutrophil-activating peptide-1/interleukin 8, a novel cytokine that activates neutrophils</article-title>
+          <source>
+            <italic>The Journal of Clinical Investigation</italic>
+          </source>
+          <year>1989</year>
+          <volume>84</volume>
+          <issue>4</issue>
+          <fpage>1045</fpage>
+          <lpage>1049</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0024421453</pub-id>
+          <pub-id pub-id-type="pmid">2677047</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B33">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garcia-Zepeda</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Rothenberg</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Ownbey</surname>
+              <given-names>RT</given-names>
+            </name>
+            <name>
+              <surname>Celestin</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Leder</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Luster</surname>
+              <given-names>AD</given-names>
+            </name>
+          </person-group>
+          <article-title>Human eotaxin is a specific chemoattractant for eosinophil cells and provides a new mechanism to explain tissue eosinophilia</article-title>
+          <source>
+            <italic>Nature Medicine</italic>
+          </source>
+          <year>1996</year>
+          <volume>2</volume>
+          <issue>4</issue>
+          <fpage>449</fpage>
+          <lpage>456</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0029944290</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B34">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Forssmann</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Uguccioni</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Loetscher</surname>
+              <given-names>P</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Eotaxin-2, a novel CC chemokine that is selective for the chemokine receptor CCR3, and acts like eotaxin on human eosinophil and basophil leukocytes</article-title>
+          <source>
+            <italic>Journal of Experimental Medicine</italic>
+          </source>
+          <year>1997</year>
+          <volume>185</volume>
+          <issue>12</issue>
+          <fpage>2171</fpage>
+          <lpage>2176</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0030980816</pub-id>
+          <pub-id pub-id-type="pmid">9182688</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B35">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sallusto</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Mackay</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Lanzavecchia</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Selective expression of the eotaxin receptor CCR3 by human T helper 2 cells</article-title>
+          <source>
+            <italic>Science</italic>
+          </source>
+          <year>1997</year>
+          <volume>277</volume>
+          <issue>5334</issue>
+          <fpage>2005</fpage>
+          <lpage>2007</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0030769920</pub-id>
+          <pub-id pub-id-type="pmid">9302298</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B36">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>de Paulis</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Annunziato</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>di Gioia</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expression of the chemokine receptor CCR3 on human mast cells</article-title>
+          <source>
+            <italic>International Archives of Allergy and Immunology</italic>
+          </source>
+          <year>2001</year>
+          <volume>124</volume>
+          <issue>1&#x2013;3</issue>
+          <fpage>146</fpage>
+          <lpage>150</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0035051013</pub-id>
+          <pub-id pub-id-type="pmid">11306952</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B37">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fujisawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kato</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Nagase</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Chemokines induce eosinophil degranulation through CCR-3</article-title>
+          <source>
+            <italic>Journal of Allergy and Clinical Immunology</italic>
+          </source>
+          <year>2000</year>
+          <volume>106</volume>
+          <issue>3</issue>
+          <fpage>507</fpage>
+          <lpage>513</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0034507891</pub-id>
+          <pub-id pub-id-type="pmid">10984371</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B38">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Uguccioni</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mackay</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Ochensberger</surname>
+              <given-names>B</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>High expression of the chemokine receptor CCR3 in human blood basophils. Role in activation by eotaxin, MCP-4, and other chemokines</article-title>
+          <source>
+            <italic>The Journal of Clinical Investigation</italic>
+          </source>
+          <year>1997</year>
+          <volume>100</volume>
+          <issue>5</issue>
+          <fpage>1137</fpage>
+          <lpage>1143</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0030884894</pub-id>
+          <pub-id pub-id-type="pmid">9276730</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B39">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ono</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Miyazaki</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Ohbayashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Dawson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Toda</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Chemokines: roles in leukocyte development, trafficking, and effector function</article-title>
+          <source>
+            <italic>Journal of Allergy and Clinical Immunology</italic>
+          </source>
+          <year>2003</year>
+          <volume>111</volume>
+          <issue>6</issue>
+          <fpage>1185</fpage>
+          <lpage>1199</lpage>
+          <pub-id pub-id-type="other">2-s2.0-0038518180</pub-id>
+          <pub-id pub-id-type="pmid">12789214</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B40">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lai</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wei</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+          </person-group>
+          <article-title>Effect of substance P released from peripheral nerve ending on endogenous expression of epidermal growth factor and its receptor in wound healing</article-title>
+          <source>
+            <italic>Chinese Journal of Traumatology</italic>
+          </source>
+          <year>2002</year>
+          <volume>5</volume>
+          <issue>3</issue>
+          <fpage>176</fpage>
+          <lpage>179</lpage>
+          <pub-id pub-id-type="other">2-s2.0-29644445733</pub-id>
+          <pub-id pub-id-type="pmid">12034083</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="B41">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shirakata</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of epidermal keratinocytes by growth factors</article-title>
+          <source>
+            <italic>Journal of Dermatological Science</italic>
+          </source>
+          <year>2010</year>
+          <volume>59</volume>
+          <issue>2</issue>
+          <fpage>73</fpage>
+          <lpage>80</lpage>
+          <pub-id pub-id-type="other">2-s2.0-77955058550</pub-id>
+          <pub-id pub-id-type="pmid">20570492</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="fig1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Neurotensin receptor mRNA and protein expression. Cells were maintained in medium (A, B) or treated with 1&#x2009;<italic>&#x3BC;</italic>g/mL of LPS for 6&#x2009;h (C), at 37&#xB0;C, with 5% CO<sub>2</sub>. Total RNA was isolated and retrotranscribed as indicated in <xref ref-type="sec" rid="sec2">Section 2</xref>. The mRNA levels were assessed by quantitative real-time RT-PCR. Gene expression is indicated as genes studied/10,000 molecules of the reference gene HPRT1 (A) or mean log2 values of fold changes relative to the control (C). Each value represents the mean &#xB1; SD from three independent experiments (*<italic>P</italic> &lt; 0.05; Kruskall-Wallis test followed by Dunn's multiple comparison posttest). Cells extracts from untreated BJ cells (BJ) and from the murine cortical cortex (CC) were subjected to Western blot analysis (B) using NTR1, NTR2, and NTR3 antibodies, with normalization to <italic>&#x3B2;</italic>-actin. The blot shown is representative of 3 independent experiments yielding similar results.</p>
+      </caption>
+      <graphic xlink:href="IJI2014-248240.001"/>
+    </fig>
+    <fig id="fig2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Neurotensin receptor localization. Cells were subjected to immunocytochemistry analysis as described in <xref ref-type="sec" rid="sec2">Section 2</xref> using NTR1, NTR2, and NTR3 antibodies.</p>
+      </caption>
+      <graphic xlink:href="IJI2014-248240.002"/>
+    </fig>
+    <fig id="fig3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Expression of cytokines, chemokines, and growth factors in BJ cells, under homeostatic and inflammatory conditions. Cells were plated at 8 &#xD7; 10<sup>5</sup> cells/dish in 60&#x2009;mm dishes in a final volume of 6&#x2009;mL of medium and treated with 1&#x2009;<italic>&#x3BC;</italic>g of LPS during 6&#x2009;h (LPS), or left untreated (Ctrl), at 37&#xB0;C, with 5% CO<sub>2</sub>. Total RNA was isolated and retrotranscribed as indicated in <xref ref-type="sec" rid="sec2">Section 2</xref>. The mRNA levels were assessed by quantitative real-time RT-PCR. Gene expression is indicated as genes studied/10 000 molecules of the reference gene HPRT1. Values represent the mean &#xB1; SD from four independent experiments. Kruskall-Wallis test followed by Dunn's posttest statistical analysis was performed between cytokines, chemokines, and growth factor expression under homeostatic and inflammatory conditions (**<italic>P</italic> &lt; 0.01; ***<italic>P</italic> &lt; 0.001) and among cytokines, chemokines, and growth factor expression under homeostatic conditions (<sup>##</sup> &lt; 0.01; <sup>###</sup> &lt; 0.001). IL: interleukin; EGF: epidermal growth factor.</p>
+      </caption>
+      <graphic xlink:href="IJI2014-248240.003"/>
+    </fig>
+    <fig id="fig4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Modulation of gene expression by neurotensin under homeostatic and inflammatory conditions in BJ cells. Cells were maintained in culture medium (Ctrl) and treated with 10&#x2009;nM of NT (white bars) or 100&#x2009;nM of NT (black bars) during 30&#x2009;h (a) or pretreated with 10&#x2009;nM (white bars) and 100&#x2009;nM (black bars) of NT during 24&#x2009;h and stimulated with 1&#x2009;<italic>&#x3BC;</italic>g of LPS during 6&#x2009;h (b), at 37&#xB0;C, with 5% CO<sub>2</sub>. Total RNA was isolated and retrotranscribed as indicated in <xref ref-type="sec" rid="sec2">Section 2</xref>. The mRNA levels were assessed by quantitative real-time RT-PCR. Gene expression is indicated as mean log2 values of fold changes relative to the control. Each value represents the mean &#xB1; SD from four independent experiments (*<italic>P</italic> &lt; 0.05; Kruskall-Wallis test followed by Dunn's posttest statistical analysis between 10 and 100&#x2009;nM of NT, 10, and 100&#x2009;nM of NT with the corresponding control, under homeostatic and inflammatory conditions).</p>
+      </caption>
+      <graphic xlink:href="IJI2014-248240.004"/>
+    </fig>
+    <table-wrap id="tab1" orientation="portrait" position="float">
+      <label>Table 1</label>
+      <caption>
+        <p>Primer sequences for targeted cDNAs. </p>
+      </caption>
+      <table frame="hsides" rules="groups">
+        <thead>
+          <tr>
+            <th align="left" rowspan="1" colspan="1">Primer</th>
+            <th align="left" rowspan="1" colspan="1">5&#x2032;-3&#x2032; sequence (F: forward; R: reverse)</th>
+            <th align="left" rowspan="1" colspan="1">RefSeqID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">HPRT1</td>
+            <td align="left" rowspan="1" colspan="1">F: TGACACTGGCAAAACAATG<break/>R: GGCTTATATCCAACACTTCG</td>
+            <td align="left" rowspan="1" colspan="1">NM_000194</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">NT</td>
+            <td align="left" rowspan="1" colspan="1">F: GCATACATCAAAGATTAGT<break/>R: TAAAGCAGTAGGAAGTTT</td>
+            <td align="left" rowspan="1" colspan="1">NM_006183</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">NTR1</td>
+            <td align="left" rowspan="1" colspan="1">F: GTCGTCATACAGGTCAAC<break/>R: GATGATGGTGTTCAGGAC</td>
+            <td align="left" rowspan="1" colspan="1">NM_002531</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">NTR2</td>
+            <td align="left" rowspan="1" colspan="1">F: GCAAGAATGAACAGAACA<break/>R: GAATGATTAGTGATGAGGTT</td>
+            <td align="left" rowspan="1" colspan="1">NM_012344</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">NTR3</td>
+            <td align="left" rowspan="1" colspan="1">F: TGGGTTGGAGATAGCACTGG<break/>R: ACGACTTCCTCCAGACACCT</td>
+            <td align="left" rowspan="1" colspan="1">NM_002959</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">IL-1<italic>&#x3B2;</italic>
+</td>
+            <td align="left" rowspan="1" colspan="1">F: GCTTGGTGATGTCTGGTC<break/>R: GCTGTAGAGTGGGCTTATC</td>
+            <td align="left" rowspan="1" colspan="1">NM_000576</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">IL-6</td>
+            <td align="left" rowspan="1" colspan="1">F: TCTGGATTCAATGAGGAGACTTG<break/>R: TCACTACTCTCAAATCTGTTCTGG</td>
+            <td align="left" rowspan="1" colspan="1">NM_000600</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">IL-8</td>
+            <td align="left" rowspan="1" colspan="1">F: CTTTCAGAGACAGCAGAG<break/>R: CTAAGTTCTTTAGCACTCC</td>
+            <td align="left" rowspan="1" colspan="1">NM_000584</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">CCL11</td>
+            <td align="left" rowspan="1" colspan="1">F: ACCAGAGCCTGAGTGTTG<break/>R: TGCCCTTTGGACTGATAATGA</td>
+            <td align="left" rowspan="1" colspan="1">NM_002986</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">CCL4</td>
+            <td align="left" rowspan="1" colspan="1">F: CGCCTGCTGCTTTTCTTACAC<break/>R: CAGACTTGCTTGCTTCTTTTGG</td>
+            <td align="left" rowspan="1" colspan="1">NM_002984 </td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">CCL5</td>
+            <td align="left" rowspan="1" colspan="1">F: CAGTGAGCTGAGATTGTG<break/>R: TTTGTTGTTGTTGTTGTGA</td>
+            <td align="left" rowspan="1" colspan="1">NM_002985</td>
+          </tr>
+          <tr>
+            <td align="left" rowspan="1" colspan="1">EGF</td>
+            <td align="left" rowspan="1" colspan="1">F: TCAGAAGATAACATTACAGAAT<break/>R: AATACACCGAGCATACAT</td>
+            <td align="left" rowspan="1" colspan="1">NM_001178130</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </floats-group>
+</article>
+</pmc-articleset>
