@@ -202,6 +202,18 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
     }
 
+    def unAggregateFeatureName(features: Seq[String]): Array[String] = {
+      val fixedFeatureNames = collection.mutable.ListBuffer[String]()
+      for(f <- features) {
+        if(f.contains("_min") || f.contains("_max") || f.contains("_avg")) {
+          val subst = f.slice(0,f.length-4)
+          fixedFeatureNames += subst
+        }
+        else fixedFeatureNames += f
+      }
+      fixedFeatureNames.toArray
+    }
+
     InputRow(sentencePos,
       PMCID,
       label,
@@ -231,6 +243,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val ctxMappings = CodeUtils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
       val evtMappings = CodeUtils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
       val specificMappings = CodeUtils.aggregateInputRowFeats(in.specificFeatureNames)
+
+
+      def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
+        val pairings = collection.mutable.ListBuffer[(String,Double)]()
+        for((key,value) <- aggr) {
+          val extendedName = CodeUtils.extendFeatureName(key)
+          val minTup = (extendedName._1, value._1)
+          val maxTup = (extendedName._2, value._2)
+          val avgTup = (extendedName._3, value._3/value._4)
+          val list = ListBuffer(minTup, maxTup, avgTup)
+          pairings ++= list
+        }
+        pairings
+      }
+
       val altPairingCtx = featureValuePairing(ctxMappings)
       val altPairingEvt = featureValuePairing(evtMappings)
       val altPairingSpec = featureValuePairing(specificMappings)
@@ -244,6 +271,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         }
       }
 
+
+
       addAggregatedOnce(altPairingSpec)
       addAggregatedOnce(altPairingCtx)
       addAggregatedOnce(altPairingEvt)
@@ -254,24 +283,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
 
-
-
-
-
-
-
-  private def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
-    val pairings = collection.mutable.ListBuffer[(String,Double)]()
-    for((key,value) <- aggr) {
-      val extendedName = CodeUtils.extendFeatureName(key)
-      val minTup = (extendedName._1, value._1)
-      val maxTup = (extendedName._2, value._2)
-      val avgTup = (extendedName._3, value._3/value._4)
-      val list = ListBuffer(minTup, maxTup, avgTup)
-      pairings ++= list
-    }
-    pairings
-  }
 
   // for a given value of sentenceDist_max, count the number of papers that have this value and return Array[(value, frequency)] only if that value appears in atleast 70% of all context mentions per paper
   private def countSentDistValueFreq(seq: Array[InputRow]): Array[(Int,Int)] = {
@@ -328,24 +339,5 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       pw.close()
     }
   }
-
-  private def unAggregateFeatureName(features: Seq[String]): Array[String] = {
-    val fixedFeatureNames = collection.mutable.ListBuffer[String]()
-    for(f <- features) {
-      if(f.contains("_min") || f.contains("_max") || f.contains("_avg")) {
-        val subst = f.slice(0,f.length-4)
-        fixedFeatureNames += subst
-      }
-      else fixedFeatureNames += f
-    }
-    fixedFeatureNames.toArray
-  }
-
-
-
-
-
-
-
 
 }
