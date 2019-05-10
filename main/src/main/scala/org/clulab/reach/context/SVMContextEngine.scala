@@ -2,13 +2,13 @@ package org.clulab.reach.context
 
 import java.io._
 import java.io.PrintWriter
-
+import org.clulab.processors.Document
 import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention}
 import org.ml4ai.data.classifiers.LinearSVMWrapper
 import org.ml4ai.data.utils.{AggregatedRow, Balancer, CodeUtils, InputRow}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-
+import scala.util.{Try, Success, Failure}
 import scala.collection.mutable.ListBuffer
 //changed ram to 62G
 import scala.collection.mutable
@@ -26,21 +26,19 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   var defaultContexts:Option[Map[String, String]] = None
 
   val svmWrapper = new LinearSVMWrapper(null)
+  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
-  val untrainedConfigPath = config.getString("contextEngine.params.untrainedSVMPath")
-  val configFeaturesFrequencyPath = config.getString("contextEngine.params.bestFeatureFrequency")
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
-  val groupedFeaturesPath = config.getString("contextEngine.params.groupedFeatures")
-
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
-  val (_,oldDataSet) = CodeUtils.loadAggregatedRowsFromFile(groupedFeaturesPath, hardCodedFeaturesPath)
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("NonDep_Context")
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
-  val untrainedSVMInstance = svmWrapper.loadFrom(untrainedConfigPath)
+  var specFeatValPair = Map[String,Double]()
+  var ctxDepFeatValPair = Map[String,Double]()
+  var evtDepFeatValPair = Map[String,Double]()
+
 
 
   logger.info(s"The SVM model has been tuned to the following settings: C: ${trainedSVMInstance.classifier.C}, Eps: ${trainedSVMInstance.classifier.eps}, Bias: ${trainedSVMInstance.classifier.bias}")
@@ -68,8 +66,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         // Extract features for each of the pairs
         // change to filtered pairs when you know the best value of sentence distance.
-        //val features:Seq[InputRow] = filteredPairs map extractFeatures
-        val features:Seq[InputRow] = pairs map extractFeatures
+        //val features:Seq[InputRow] = filteredPairs map extractFeaturesToCalcByBestFeatSet
+        val features:Seq[InputRow] = pairs map extractFeaturesToCalcByBestFeatSet
         val freqOfSentDist = countSentDistValueFreq(features.toArray)
         writeSentFreqToFile(freqOfSentDist)
         // Aggregate the features of all the instances of a pair
@@ -171,7 +169,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
-  private def extractFeatures(datum:(BioEventMention, BioTextBoundMention)):InputRow =
+  private def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention)):InputRow =
   {
 
     // val file
@@ -187,6 +185,21 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val hardCodedFeatureNames = collection.mutable.ListBuffer[String]()
     val ctxDepFeatures = collection.mutable.ListBuffer[String]()
     val evtDepFeatures = collection.mutable.ListBuffer[String]()
+
+
+    def unAggregateFeatureName(features: Seq[String]): Array[String] = {
+      val fixedFeatureNames = collection.mutable.ListBuffer[String]()
+      for(f <- features) {
+        if(f.contains("_min") || f.contains("_max") || f.contains("_avg")) {
+          val subst = f.slice(0,f.length-4)
+          fixedFeatureNames += subst
+        }
+        else fixedFeatureNames += f
+      }
+      fixedFeatureNames.toArray
+    }
+
+
     val dependencyFeatures = unAggregateFeatureName(allFeatures).toSet -- (unAggregateFeatureName(hardCodedFeatures).toSet ++ Seq(""))
     unAggregateFeatureName(numericFeaturesInputRow).map(h => {
       if(unAggregateFeatureName(featSeq).contains(h))
@@ -202,18 +215,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
     }
 
-    def unAggregateFeatureName(features: Seq[String]): Array[String] = {
-      val fixedFeatureNames = collection.mutable.ListBuffer[String]()
-      for(f <- features) {
-        if(f.contains("_min") || f.contains("_max") || f.contains("_avg")) {
-          val subst = f.slice(0,f.length-4)
-          fixedFeatureNames += subst
-        }
-        else fixedFeatureNames += f
-      }
-      fixedFeatureNames.toArray
-    }
 
+
+
+    // call feature value extractor here
+
+    specFeatValPair = calculateSpecificFeatValues(datum)
     InputRow(sentencePos,
       PMCID,
       label,
@@ -240,9 +247,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val featureSetValues = collection.mutable.ListBuffer[Double]()
     val inputRows = instances
     for(in <- inputRows) {
-      val ctxMappings = CodeUtils.aggregateInputRowFeats(in.ctx_dependencyTails.toSeq)
-      val evtMappings = CodeUtils.aggregateInputRowFeats(in.evt_dependencyTails.toSeq)
-      val specificMappings = CodeUtils.aggregateInputRowFeats(in.specificFeatureNames)
+      val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, ctxDepFeatValPair)
+      val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, evtDepFeatValPair)
+      val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specFeatValPair)
 
 
       def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
@@ -284,7 +291,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
 
-  // for a given value of sentenceDist_max, count the number of papers that have this value and return Array[(value, frequency)] only if that value appears in atleast 70% of all context mentions per paper
   private def countSentDistValueFreq(seq: Array[InputRow]): Array[(Int,Int)] = {
     val map = collection.mutable.HashMap[Int, Int]()
     val result = collection.mutable.ListBuffer[(Int, Int)]()
@@ -338,6 +344,117 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
       pw.close()
     }
+  }
+
+
+  private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
+    def pathToRoot(currentNodeIndx:Int, currentSentInd:Int, currentDoc:Document): Seq[String] = {
+      val dependencies = currentDoc.sentences(currentSentInd).dependencies.get
+      val allRoots = dependencies.roots.toSeq
+      val paths = allRoots flatMap  {
+        r =>
+          val ps = dependencies.shortestPathEdges(r, currentNodeIndx)
+          ps map (sequence => sequence map (_._3))
+      }
+
+      paths.sortBy(p => p.size).head
+    }
+    val evtShortestPath = pathToRoot(datum._1.tokenInterval.start, datum._1.sentence, datum._1.document)
+    val ctxShortestPath = pathToRoot(datum._2.tokenInterval.start, datum._2.sentence, datum._2.document)
+    val numOfJumps = Seq.fill(Math.abs(datum._1.sentence - datum._2.sentence))("sentenceJump")
+
+    val first = if(datum._1.sentence < datum._2.sentence) evtShortestPath else ctxShortestPath
+    val second = if(datum._2.sentence < datum._1.sentence) ctxShortestPath else evtShortestPath
+    val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
+
+    val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
+
+    Some(bigrams)
+  }
+
+
+  private def constructDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
+    if(datum._1.sentence == datum._2.sentence) {
+      val currentSentContents = datum._1.document.sentences(datum._1.sentence)
+      val dependencies = currentSentContents.dependencies.get
+      val (first, second) = if(datum._1.tokenInterval.start <= datum._2.tokenInterval.start) (datum._1.tokenInterval, datum._2.tokenInterval) else (datum._2.tokenInterval, datum._1.tokenInterval)
+
+      val paths = first flatMap {
+        i:Int =>
+          second flatMap  {
+            j:Int =>
+              val localPaths:Seq[Seq[String]] = dependencies.shortestPathEdges(i, j, ignoreDirection = true) map (s => s map (_._3))
+              localPaths
+          }
+      }
+      val sequence = Try(paths.filter(_.size > 0).sortBy(_.size).head.map(FeatureProcessing.clusterDependency))
+      sequence match {
+        case Success(s) =>
+          // make bigrams
+          val bigrams:Seq[String] = {
+            if(s.size == 1)
+              s
+            else{
+              val shifted = s.drop(1)
+              s.zip(shifted).map{ case (a, b) => s"${a}_${b}" }
+            }
+          }
+
+          Some(bigrams)
+        case Failure(e) =>
+          println("DEBUG: Problem when extracting dependency path for features")
+          None
+      }
+    }
+    else intersentenceDependencyPath(datum)
+  }
+
+
+
+
+
+  private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
+    val result = collection.mutable.Map[String,Double]()
+
+
+    val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
+    val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
+    result ++= sentDistEntry
+
+    val dependencyPath = constructDependencyPath(datum)
+    val dependencyDistance = dependencyPath match {
+      case Some(path) => path.size.toDouble
+      case None => 0.0
+    }
+
+    val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
+    result ++= dependencyDistEntry
+
+
+    result.toMap
+  }
+
+  def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,Double]):Map[String,(Double,Double, Double, Int)] = {
+    val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
+    for(r <- features) {
+      if(resultingMap.contains(r)) {
+
+        val valueToBeAdded = if(lookUpTable.contains(r)) lookUpTable(r) else 1.0
+        val currentFeatDetails = resultingMap(r)
+        val tupReplace = (Math.min(currentFeatDetails._1, valueToBeAdded),
+          Math.max(currentFeatDetails._2, valueToBeAdded),
+          currentFeatDetails._3 + valueToBeAdded,
+          currentFeatDetails._4+1)
+        resultingMap(r) = tupReplace
+
+      }
+      else {
+        val valForNewEntry = if(lookUpTable.contains(r)) lookUpTable(r) else 1.0
+        val entry = (r -> (valForNewEntry,valForNewEntry,valForNewEntry,1))
+        resultingMap += entry
+      }
+    }
+    resultingMap.toMap
   }
 
 }
