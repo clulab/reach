@@ -26,9 +26,10 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   var defaultContexts:Option[Map[String, String]] = None
 
   val svmWrapper = new LinearSVMWrapper(null)
-  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
+
   val config = ConfigFactory.load()
   val configPath = config.getString("contextEngine.params.svmPath")
+  val trainedSVMInstance = svmWrapper.loadFrom(configPath)
   val configAllFeaturesPath = config.getString("contextEngine.params.allFeatures")
   val hardCodedFeaturesPath = config.getString("contextEngine.params.hardCodedFeatures")
   val hardCodedFeatures = CodeUtils.readHardcodedFeaturesFromFile(hardCodedFeaturesPath)
