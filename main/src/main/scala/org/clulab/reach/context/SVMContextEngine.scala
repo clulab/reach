@@ -337,8 +337,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   private def writeSentFreqToFile(frequencyList: Array[(Int,Int)]):Unit = {
-    val typeOfPaper = "activation"
-    val dirForType = config.getString("papersDir").concat(s"/${typeOfPaper}")
+    val typeOfPaper = ""
+    val dirForType = if(typeOfPaper.length!=0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
     val fileListUnfiltered = new File(dirForType)
     val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
     for(file <- fileList) {
