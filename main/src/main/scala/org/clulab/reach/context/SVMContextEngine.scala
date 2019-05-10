@@ -36,9 +36,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   val numericFeaturesInputRow = hardCodedFeatures.drop(4)
   val (allFeatures, bestFeatureDict) = CodeUtils.featureConstructor(configAllFeaturesPath)
   val featSeq = bestFeatureDict("NonDep_Context")
-  var specFeatValPair = Map[String,Double]()
-  var ctxDepFeatValPair = Map[String,Double]()
-  var evtDepFeatValPair = Map[String,Double]()
+  var specFeatValPair = collection.mutable.Map[String,Double]()
+  var ctxDepFeatValPair = collection.mutable.Map[String,Double]()
+  var evtDepFeatValPair = collection.mutable.Map[String,Double]()
 
 
 
