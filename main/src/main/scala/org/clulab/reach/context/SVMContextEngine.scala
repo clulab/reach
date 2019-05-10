@@ -220,8 +220,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
     // call feature value extractor here
-
     specFeatValPair = calculateSpecificFeatValues(datum)
+
     InputRow(sentencePos,
       PMCID,
       label,
@@ -248,9 +248,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val featureSetValues = collection.mutable.ListBuffer[Double]()
     val inputRows = instances
     for(in <- inputRows) {
-      val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, ctxDepFeatValPair)
-      val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, evtDepFeatValPair)
-      val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specFeatValPair)
+      val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, ctxDepFeatValPair.toMap)
+      val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, evtDepFeatValPair.toMap)
+      val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specFeatValPair.toMap)
 
 
       def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
@@ -414,7 +414,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
 
-  private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
+  private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention)):collection.mutable.Map[String,Double] = {
     val result = collection.mutable.Map[String,Double]()
 
 
@@ -432,7 +432,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     result ++= dependencyDistEntry
 
 
-    result.toMap
+    result
   }
 
   def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,Double]):Map[String,(Double,Double, Double, Int)] = {
