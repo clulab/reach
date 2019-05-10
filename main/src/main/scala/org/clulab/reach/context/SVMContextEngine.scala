@@ -102,10 +102,18 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                   }
                 }
 
-                val sentenceDistance_max = "sentenceDistance_max"
-                val index = aggregatedFeature.featureGroupNames.indexOf(sentenceDistance_max)
-                val value = aggregatedFeature.featureGroups(index)
-                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)} and max sent distance: ${value}")
+
+
+                logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
+
+                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max")
+                val valueList = featureListForDebugging.map(f => {
+                  val index = aggregatedFeature.featureGroupNames.indexOf(f)
+                  val featVal = aggregatedFeature.featureGroups(index)
+                  s"${f} : ${featVal}"
+                })
+                val stringToLog = valueList.mkString("\t")
+                logger.info(stringToLog)
                 (ctxId, prediction)
             }
 
@@ -457,7 +465,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,Double]):Map[String,(Double,Double, Double, Int)] = {
-    logger.info(s"Size of lookup table: ${lookUpTable.size}")
     val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
     for(r <- features) {
       if(resultingMap.contains(r)) {

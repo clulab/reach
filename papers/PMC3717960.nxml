@@ -1,0 +1,2659 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Oncotarget</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Oncotarget</journal-id>
+      <journal-id journal-id-type="publisher-id">ImpactJ</journal-id>
+      <journal-title-group>
+        <journal-title>Oncotarget</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1949-2553</issn>
+      <publisher>
+        <publisher-name>Impact Journals LLC</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23045412</article-id>
+      <article-id pub-id-type="pmc">3717960</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Papers</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Up-regulation of c-MYC and SIRT1 expression correlates with malignant transformation in the serrated route to colorectal cancer</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kriegl</surname>
+            <given-names>Lydia</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vieth</surname>
+            <given-names>Michael</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kirchner</surname>
+            <given-names>Thomas</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Menssen</surname>
+            <given-names>Antje</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><sup>1</sup> Department of Pathology, Ludwig-Maximilians-University (LMU), Munich. Germany</aff>
+      <aff id="A2"><sup>2</sup> Department of Pathology, Klinikum Bayreuth, Bayreuth, Germany</aff>
+      <author-notes>
+        <corresp id="cor1"><bold><italic>Correspondence to:</italic></bold><italic>Antje Menssen</italic>, <email>antje.menssen@med.uni-muenchen.de</email></corresp>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <month>10</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>3</day>
+        <month>10</month>
+        <year>2012</year>
+      </pub-date>
+      <volume>3</volume>
+      <issue>10</issue>
+      <fpage>1182</fpage>
+      <lpage>1193</lpage>
+      <history>
+        <date date-type="received">
+          <day>20</day>
+          <month>8</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>1</day>
+          <month>10</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright: &#xA9; 2012 Kriegl et al.</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.5/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Approximately 7.5% of all colorectal cancers are considered to originate from the alternative, serrated route. Here, we investigate the expression of the c-MYC oncogene and the SIRT1 protein deacetylase by immunohistochemical staining in subgroups of colorectal serrated lesions that were characterized by different molecular alterations. The expression of c-MYC and SIRT1 correlated with the presence of <italic>KRAS</italic> and <italic>BRAF</italic> mutations and high expression of c-MYC and SIRT1 was strongly associated with higher grades of malignancy. In contrast, in the majority of serrated lesions without <italic>KRAS</italic> or <italic>BRAF</italic> mutations, c-MYC and SIRT1 expression was not found increased. In this group only a subset of mostly high grade intraepithelial neoplasia and carcinoma was characterized by elevated c-MYC and SIRT1 expression. This was associated with nuclear localization of beta-catenin, indicating that Wnt pathway activation may confer transcriptional induction of c-MYC. In summary, we established a link between oncogenic K-Ras and B-Raf, suggesting post-transcriptional regulation of c-MYC through MAPK/ERK1/2 pathway activation, as well as for Wnt signalling to the activation of the c-MYC oncogene, and consequently of SIRT1 in the serrated route. The increasing expressions with higher grades of malignancy suggest crucial functions for c-MYC and SIRT1 in the progression of serrated lesions to colorectal cancer. These functions may include antagonizing of apoptosis and senescence, which are characteristic features of serrated lesions.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Serrated route</kwd>
+        <kwd>colorectal cancer</kwd>
+        <kwd>SIRT1</kwd>
+        <kwd>c-MYC</kwd>
+        <kwd>BRAF</kwd>
+        <kwd>KRAS mutation</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>INTRODUCTION</title>
+      <p>Colorectal cancer is the third most common cancer in the world and is one of the leading causes of cancer-related deaths [<xref ref-type="bibr" rid="R1">1</xref>]. Malignant transformation in the classical adenoma &#x2013; carcinoma sequence is crucially associated with the activation of the Wnt/beta-catenin signaling pathway which leads to the transcriptional induction of the c-MYC oncogene [<xref ref-type="bibr" rid="R2">2</xref>].</p>
+      <p>Besides the classical adenoma &#x2013; carcinoma sequence, strong evidence for an alternative serrated pathway in the development of colorectal cancer has emerged in recent years [<xref ref-type="bibr" rid="R3">3</xref>, <xref ref-type="bibr" rid="R4">4</xref>]. The serrated pathway includes lesions with &#x201C;saw-tooth&#x201D; crypt morphology like hyperplastic polyps, sessile serrated adenoma, traditional serrated adenoma and invasive serrated adenocarcinoma [<xref ref-type="bibr" rid="R3">3</xref>]. In contrast to the classical adenoma&#x2013;carcinoma sequence, deregulation of the Wnt/beta-catenin pathway is rarely observed, whereas mutations of <italic>BRAF</italic>, and less frequently <italic>KRAS</italic> have been shown to be the initiating events in the serrated route to colorectal cancer [<xref ref-type="bibr" rid="R5">5</xref>-<xref ref-type="bibr" rid="R8">8</xref>]. Lesions with BRAF mutations are frequently located in the right colon and are strongly associated with MSI and DNA methylation abnormalities, whereas lesions initiating with KRAS mutations predominantly arise in the left colon and are characterized by microsatellite stability (MSS) or microsatellite instability low (MSI-L) [<xref ref-type="bibr" rid="R4">4</xref>, <xref ref-type="bibr" rid="R9">9</xref>, <xref ref-type="bibr" rid="R10">10</xref>]. Besides lesions with mutant KRAS or BRAF, a third subset exists which does not display any known aberrant oncogene activation.</p>
+      <p>We have shown previously that c-MYC activates the SIRT1 enzyme which critically contributes to suppression of senescence and inhibition of c-MYC-induced apoptosis [<xref ref-type="bibr" rid="R11">11</xref>]. The NAD<sup>+</sup> dependent SIRT1 protein deacetylase inhibits various pro-apoptotic factors, including p53 and is necessary for cancer cell, and as recently shown, for cancer stem cell survival [<xref ref-type="bibr" rid="R12">12</xref>]. SIRT1 has therefore been suggested to exert tumor promoting functions in human cancers ([<xref ref-type="bibr" rid="R13">13</xref>-<xref ref-type="bibr" rid="R17">17</xref>], reviewed in [<xref ref-type="bibr" rid="R16">16</xref>, <xref ref-type="bibr" rid="R18">18</xref>]). In colorectal cancer of the classical route SIRT1 is overexpressed [<xref ref-type="bibr" rid="R11">11</xref>, <xref ref-type="bibr" rid="R19">19</xref>], which correlates with high c-MYC expression [<xref ref-type="bibr" rid="R11">11</xref>].</p>
+      <p>In order to determine an involvement of c-MYC and SIRT1 in the tumorigenesis of the serrated route to colorectal cancer, we analyzed their expression in a well characterized collection of serrated polyps and carcinomas. We demonstrate that high c-MYC and SIRT1 levels are associated with oncogenic BRAF and KRAS, and with activated Wnt signalling. Furthermore, with higher grades of malignancy and invasiveness the expression of c-MYC and SIRT1 consistently increased, implicating a so far unrecognized role of c-MYC and SIRT1 in the tumorigenesis of the serrated route to colorectal cancer.</p>
+    </sec>
+    <sec id="s2">
+      <title>RESULTS</title>
+      <sec id="s2_1">
+        <title>Classification and clinical data of serrated lesions</title>
+        <p>The final case collection included 121 lesions. BRAF mutation was found in 73 cases comprising 20 hyperplastic polyps, 24 sessile serrated adenomas without intraepithelial neoplasia, 2 sessile serrated adenomas with low grade intraepithelial neoplasia, 8 sessile serrated adenomas with high grade intraepithelial neoplasia, 10 traditional serrated adenomas with low grade intraepithelial neoplasia, 1 traditional serrated adenoma with high grade intraepithelial neoplasia and 8 invasive serrated adenocarcinomas (table <xref ref-type="table" rid="T1">1</xref>). KRAS mutation was present in 22 cases including 1 hyperplastic polyp, 1 sessile serrated adenoma without intraepithelial neoplasia, 2 sessile serrated adenomas with high grade intraepithelial neoplasia, 9 traditional serrated adenomas with low grade intraepithelial neoplasia, 1 traditional serrated adenoma with high grade intraepithelial neoplasia and 8 invasive serrated adenocarcinomas. BRAF and KRAS mutations were mutually exclusive. The 26 cases without BRAF and KRAS mutation were comprised of 1 hyperplastic polyp, 7 sessile serrated adenomas without intraepithelial neoplasia, 2 sessile serrated adenomas with low grade intraepithelial neoplasia, 1 sessile serrated adenomas with high grade intraepithelial neoplasia, 2 traditional serrated adenomas with low grade intraepithelial neoplasia, 4 traditional serrated adenomas with high grade intraepithelial neoplasia and 9 invasive serrated adenocarcinomas. Table <xref ref-type="table" rid="T1">1</xref> gives a summary of the location and age of patients. Taken together, sessile serrated lesions with and without intraepithelial neoplasia were more often located in the right colon (72% right sided versus 26% left sided, table <xref ref-type="table" rid="T1">1</xref>) and frequently showed BRAF mutations (72% BRAF mutation versus 6 % KRAS mutation, table <xref ref-type="table" rid="T1">1</xref>). Traditional serrated adenomas with low and high grade intraepithelial neoplasia derived from the distal colon (19% right sided versus 67% left sided, table <xref ref-type="table" rid="T1">1</xref>) and exhibited considerably more often KRAS mutations than sessile serrated adenomas (41% BRAF mutation versus 37 % KRAS mutation, table <xref ref-type="table" rid="T1">1</xref>).</p>
+        <table-wrap id="T1" orientation="portrait" position="float">
+          <label>Table 1</label>
+          <caption>
+            <title>Distribution of location and mutational status of serrated lesions, and age of patients</title>
+          </caption>
+          <table frame="box" rules="all">
+            <thead>
+              <tr>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Histology</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Number of cases (n)</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Right sided</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Left sided</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Location n.a.</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">BRAF mutation (n)</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">KRAS mutation (n)</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">BRAF KRAS wt (n)</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Average age (y)</th>
+                <th align="center" valign="middle" rowspan="1" colspan="1">Age range (y)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">HP</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">22</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8/22 (36%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">14/22 (64%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">-----</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">20</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">64</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">47 &#x2013; 85</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">SSA</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">32</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">22/32 (69%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">10/32 (31%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">-----</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">24</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">7</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">63</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">30 &#x2013; 89</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">SSA with LGIEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3/4 (75%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1/4 (25%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">-----</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">-----</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">62</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">57 &#x2013; 69</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">SSA with HGIEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">11</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">9/11 (82%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1/11 (9%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1/11 (9%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">67</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">59 &#x2013; 77</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">TSA with LGIEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">21</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4/21 (19%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">16/21 (76%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1/21 (5%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">10</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">9</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">68</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">46 &#x2013; 89</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">TSA with HGIEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1/6 (17%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">2/6 (33%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3/6 (50%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">78</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">70 &#x2013; 84</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">invasive carcinoma</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">25</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">7/25 (28%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">14/25 (56%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4/25 (16%)</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">9</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">71</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">49 &#x2013; 84</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p>HP hyperplastic polyp; SSA sessile serrated adenoma; TSA traditional serrated adenoma; LGIEN low grade intraepithelial neoplasia; HGIEN high grade intraepithelial neoplasia; wt wild type; n.a. not applicable</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec id="s2_2">
+        <title>c-MYC and SIRT1 expression in normal colon mucosa and serrated lesions</title>
+        <p>In normal mucosa a moderate c-MYC expression was restricted to the proliferative zone in the basal third of the crypts (Figure <xref ref-type="fig" rid="F1">1a, c</xref>). Some of these cells were also positive for SIRT1 (Figure <xref ref-type="fig" rid="F1">1b, d</xref>). In hyperplastic polyps and sessile serrated adenomas without intraepithelial neoplasia c-MYC expression was mainly localized to one or two thirds of the base of the crypts, corresponding to a low or moderate expression in the majority of cases (51 of 54 cases (94%)) (table <xref ref-type="table" rid="T2">2</xref>). SIRT1 was either detected in some scattered cells in the proliferative zone or restricted also to the basal third or two thirds of the crypts (51of 54 cases (95%) (table <xref ref-type="table" rid="T2">2</xref>). Irrespective of the molecular alteration and histologic subtype, lesions with low grade intraepithelial neoplasia revealed a moderate to high expression of both, c-MYC (23 of 25 cases (93%)) and of SIRT1 (17 of 25 cases (68%), table <xref ref-type="table" rid="T2">2</xref>). Most lesions with high grade intraepithelial neoplasia and invasive carcinomas were characterized by high c-MYC and SIRT1 expression (c-MYC: 76% and 72%; respectively, SIRT1: 64% (both groups), table <xref ref-type="table" rid="T2">2</xref>). Taken together, a higher tumor grade was accompanied by a correlating, increasing expression of c-MYC and SIRT1 irrespective of the histologic subtype and side of localization.</p>
+        <fig id="F1" orientation="portrait" position="float">
+          <label>Figure 1</label>
+          <caption>
+            <title>c-MYC and SIRT1 expression in normal mucosa</title>
+            <p>c-MYC expression in normal mucosa was found in the proliferative zone in the basal third of the crypts (Figure 1a, higher magnification in c). Some of these cells were also positive for SIRT1 (b, higher magnification in d) (Original magnification a, b: 100 x, c, d: 630 x)</p>
+          </caption>
+          <graphic xlink:href="oncotarget-03-1182-g001"/>
+        </fig>
+        <table-wrap id="T2" orientation="portrait" position="float">
+          <label>Table 2</label>
+          <caption>
+            <title>SIRT1 and c-MYC expression in serrated lesions of the colon</title>
+          </caption>
+          <table frame="box" rules="all">
+            <thead>
+              <tr>
+                <th align="left" valign="middle" rowspan="1" colspan="1">Histology</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">Number of cases (n)</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">SIRT1 &lt;5%</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">SIRT1 low</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">SIRT1 mode-rate</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">SIRT1 high</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">c-MYC &lt;5%</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">c-MYC low</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">c-MYC mode-rate</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">c-MYC high</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left" valign="middle" rowspan="2" colspan="1">HP/SSA without IEN</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">10/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">22/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">19/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">3/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">1/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">32/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">19/54</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">2/54</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="1" colspan="1">19%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">41%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">35%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">5%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">2%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">59%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">35%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">4%</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="2" colspan="1">lesions with LGIEN</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">3/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">5/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">9/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">8/25</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">-----</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">2/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">9/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">14/25</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="1" colspan="1">12%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">20%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">36%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">32%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">8%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">36%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">56%</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="2" colspan="1">lesions with HGIEN</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">17</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">3/17</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">1/17</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">2/17</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">11/17</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">-----</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">-----</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">4/17</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">13/17</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="1" colspan="1">18%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">6%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">12%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">64%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">24%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">76%</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="2" colspan="1">Invasive Carcinoma</td>
+                <td align="left" valign="middle" rowspan="2" colspan="1">25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">5/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">2/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">2/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">16/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">3/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">1/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">3/25</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">18/25</td>
+              </tr>
+              <tr>
+                <td align="left" valign="middle" rowspan="1" colspan="1">20%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">8%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">8%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">64%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">12%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">4%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">12%</td>
+                <td align="left" valign="middle" rowspan="1" colspan="1">72%</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p>HP hyperplastic polyp; SSA sessile serrated adenoma; IEN intraepithelial neoplasia; LGIEN low grade intraepithelial neoplasia; HGIEN high grade intraepithelial neoplasia</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec id="s2_3">
+        <title>c-MYC and SIRT1 expression with respect to the <italic>BRAF</italic> and <italic>KRAS</italic> mutational status</title>
+        <p>In lesions with BRAF or KRAS mutation c-MYC and SIRT1 expression was low to moderate in hyperplastic polyps and sessile serrated adenomas (Figure <xref ref-type="fig" rid="F2">2a, b</xref>), moderate to high in lesions with low grade intraepithelial neoplasia (Figure <xref ref-type="fig" rid="F2">2c, d</xref>), and high in lesions with high grade intraepithelial neoplasia (Figure <xref ref-type="fig" rid="F2">2e, f</xref>) and invasive serrated carcinomas (Figure <xref ref-type="fig" rid="F2">2g, h</xref>) (summarized in Figure <xref ref-type="fig" rid="F3">3</xref>, <xref ref-type="supplementary-material" rid="SD1">supplementary tables 1 and 2</xref>).</p>
+        <fig id="F2" orientation="portrait" position="float">
+          <label>Figure 2</label>
+          <caption>
+            <title>c-MYC and SIRT1 expression in serrated lesions with <italic>BRAF</italic> mutation</title>
+            <p>In sessile serrated adenomas without intraepithelial neoplasia c-MYC (a) and SIRT1 (b) expression was frequently localized to the basal third of the base of the crypts, corresponding to a low expression pattern. In sessile serrated adenomas with low grade intraepithelial neoplasia c-MYC (c) and SIRT1 (d) were frequently found in the complete dypsplastic area corresponding to a strong expression pattern. In sessile serrated adenomas with high grade intraepithelial neoplasia strong expression of c-MYC (e) and SIRT1 (f) was found, which was defined as staining from the base to the surface of the dysplastic crypts. In invasive serrated adenocarcinomas strong expression of c-MYC (g) and SIRT1 (h) was found defined as more than 70% positive tumor cells. Serrated lesions with <italic>KRAS</italic> mutation exhibited a comparable expression pattern. (Original magnification a, b, e, f: 100 x, c, d, g, h: 200 x)</p>
+          </caption>
+          <graphic xlink:href="oncotarget-03-1182-g002"/>
+        </fig>
+        <fig id="F3" orientation="portrait" position="float">
+          <label>Figure 3</label>
+          <caption>
+            <title>Summary of c-MYC and SIRT1 expression in different groups of serrated lesions and carcinomas expressing mutant or wild type <italic>KRAS</italic> and <italic>BRAF</italic></title>
+            <p>Lesions exhibiting no detectable (0), low (1), moderate (2) and strong (3) c-MYC and SIRT1 expression are given as the percentage of the total number of cases in the respective group of serrated lesion/carcinomas (see <xref ref-type="supplementary-material" rid="SD1">supplementary tables 1-3</xref>) HP hyperplastic polyp; SSA sessile serrated adenoma; LGIEN low grade intraepithelial neoplasia; HGIEN high grade intraepithelial neoplasia, T1/3: invasive carcinomas, wt wild type, mut. mutant; n number of cases.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-03-1182-g003"/>
+        </fig>
+        <p>In contrast, lesions with wild type KRAS and BRAF displayed considerably lower c-MYC and SIRT1 levels. In sessile serrated adenomas and hyperplastic polyps, c-MYC expression was detected in the basal third of the crypts (Figure <xref ref-type="fig" rid="F4">4a</xref>). In all cases, some scattered cells at the bases of the crypts expressed SIRT1 (Figure <xref ref-type="fig" rid="F4">4b</xref>). These staining patterns and intensity for c-MYC and SIRT1 were reminiscent of normal crypts. In lesions with low grade intraepithelial neoplasia, c-MYC was expressed at low level (Figure <xref ref-type="fig" rid="F4">4c</xref>) with very few weakly positive SIRT1 expressing cells distributed throughout the lesions (Figure <xref ref-type="fig" rid="F4">4d</xref>). In lesions with high grade intraepithelial neoplasia, c-MYC expression was found at a moderate to high level, whereas SIRT1 expression was restricted to single cells. In invasive carcinomas, we identified two groups with respect to the c-MYC and SIRT1 levels: One group comprised four cases (45%) which displayed negative to low c-MYC expression (Figure <xref ref-type="fig" rid="F4">4e</xref>) and negative SIRT1 staining (Figure <xref ref-type="fig" rid="F4">4f</xref>). The other group with five cases (55%) showed moderate to high c-MYC expression (Figure <xref ref-type="fig" rid="F4">4g</xref>) and low to moderate SIRT1 expression (Figure <xref ref-type="fig" rid="F4">4h</xref>, <xref ref-type="supplementary-material" rid="SD1">supplementary table 3</xref>). All invasive carcinomas showed similar histologic features with no differences between any of the subgroups. Noteworthy, none of the serrated lesions with wild type BRAF and KRAS displayed an equivalently high c-MYC and SIRT1 expression as the lesions with oncogenic KRAS or BRAF (Figure <xref ref-type="fig" rid="F3">3</xref>).</p>
+        <fig id="F4" orientation="portrait" position="float">
+          <label>Figure 4</label>
+          <caption>
+            <title>c-MYC and SIRT1 expression in serrated lesions with wild type <italic>BRAF</italic> and <italic>KRAS</italic></title>
+            <p>In sessile serrated adenomas without intraepithelial neoplasia c-MYC (a) and SIRT1 (b) expression was restricted to the basal third of the crypts corresponding to a low expression pattern. In lesions with low grade intraepithelial neoplasia c-MYC (c) and SIRT1 (d) expression was found in some scattered cells corresponding to a low expression pattern. In invasive carcinomas two groups were found. In one group expression of c-MYC was low (e) with only few positive cells (&lt;30%) and expression of SIRT1 was frequently negative (f). In the other group c-MYC expression was high (g) and SIRT1 expression was at least low to moderate (h). (Original magnification: 100 x)</p>
+          </caption>
+          <graphic xlink:href="oncotarget-03-1182-g004"/>
+        </fig>
+      </sec>
+      <sec id="s2_4">
+        <title>Nuclear beta-catenin expression in serrated lesions</title>
+        <p>To elucidate whether activation of the Wnt pathway may be involved in c-MYC over-expression, all serrated lesions, with and without KRAS or BRAF mutations were analyzed for nuclear beta-catenin expression (table <xref ref-type="table" rid="T3">3</xref>). As documented by the lack of nuclear beta-catenin expression there was no sign of activated Wnt signalling in all sessile serrated adenomas and hyperplastic polyps, except for some cells at the base of the crypts. Nuclear beta-catenin was only found in one sessile serrated adenoma with low grade intraepithelial neoplasia out of 25 (4%) lesions with low grade intraepithelial neoplasia. In lesions with high grade intraepithelial neoplasia nuclear beta-catenin was detected in seven out of 17 cases (41%) comprising three sessile serrated adenomas with high grade intraepithelial neoplasia, and four traditional serrated adenomas with high grade intraepithelial neoplasia. In invasive carcinomas nuclear beta-catenin was found in 14 out of 25 cases (51%), whereby this was not associated with morphological changes. Therefore, nuclear beta-catenin expression does not correlate with any morphological subtype of serrated lesions.</p>
+        <table-wrap id="T3" orientation="portrait" position="float">
+          <label>Table 3</label>
+          <caption>
+            <title>Correlation of nuclear beta-catenin expression with <italic>KRAS, BRAF</italic> mutation and intraepithelial neoplasia in serrated lesions of the colon</title>
+          </caption>
+          <table frame="box" rules="all">
+            <thead>
+              <tr>
+                <th align="center" valign="middle" rowspan="1" colspan="1"/>
+                <th align="center" valign="middle" rowspan="1" colspan="1"/>
+                <th align="center" valign="middle" colspan="3" rowspan="1">nuclear localization beta-catenin (number of cases and percent of total)</th>
+              </tr>
+              <tr>
+                <th align="left" valign="middle" rowspan="1" colspan="1"/>
+                <th align="left" valign="middle" rowspan="1" colspan="1">Histology</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">BRAF mutation</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">KRAS mutation</th>
+                <th align="left" valign="middle" rowspan="1" colspan="1">KRAS and BRAF wild type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" valign="middle" rowspan="8" colspan="1">serrated lesions</td>
+                <td align="center" valign="middle" rowspan="2" colspan="1">without IEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0/44</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0/2</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0/8</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0%</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="2" colspan="1">with LGIEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0/12</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0/9</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">1/4</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">25%</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="2" colspan="1">with HGIEN</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3/9</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0/3</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">4/5</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">33%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">0%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">80%</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="2" colspan="1">invasive carcinoma</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">3/8</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6/8</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">5/9</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1">38%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">75%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">55%</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1"/>
+                <td align="center" valign="middle" rowspan="2" colspan="1">total</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6/73</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">6/22</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">10/26</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" rowspan="1" colspan="1"/>
+                <td align="center" valign="middle" rowspan="1" colspan="1">8%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">27%</td>
+                <td align="center" valign="middle" rowspan="1" colspan="1">38%</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <fn>
+              <p>IEN intraepithelial neoplasia; LGIEN low grade intraepithelial neoplasia; HGIEN high grade intraepithelial neoplasia</p>
+            </fn>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec id="s2_5">
+        <title>Nuclear beta-catenin in relation to the <italic>BRAF/KRAS</italic> mutational status, c-MYC and SIRT1 expression</title>
+        <p>Nuclear beta-catenin expression occurred in all three categories of lesions, with increasing prevalence with higher grade of malignancy (table <xref ref-type="table" rid="T3">3</xref>). However, the percentage of cases positive for nuclear beta-catenin differed strongly depending on the BRAF/KRAS mutational status: Compared to 38% in the BRAF/KRAS wild type group, and 27% in the mutant KRAS group, nuclear beta-catenin was notably lower in lesions with BRAF mutation (8% (table <xref ref-type="table" rid="T3">3</xref>)). Interestingly, high grade intraepithelial lesions with wild type BRAF/KRAS revealed a marked predominance of nuclear beta-catenin (80% versus 27% in the BRAF/KRAS mutant cases).</p>
+        <p>In lesions with BRAF or KRAS mutations, high c-MYC and SIRT1 expression was independent of nuclear beta-catenin expression as the expression level did not differ between beta-catenin positive and negative cases. For instance in some lesions with high grade intraepithelial neoplasia and KRAS mutation that displayed high c-MYC and SIRT1 expression (Figure <xref ref-type="fig" rid="F5">5a, b</xref>), no nuclear beta-catenin was detected (Figure <xref ref-type="fig" rid="F5">5c</xref>), whereas other lesions with equally high c-MYC and SIRT1 levels were positive for nuclear beta-catenin (data not shown). In the majority of cases with KRAS or BRAF mutations, high c-MYC expression was consistently observed in lesions with low grade intraepithelial neoplasia to invasive carcinomas (summarized in Figure <xref ref-type="fig" rid="F3">3</xref>). This did not correlate with nuclear beta-catenin, which was only detected in higher grade lesions (Figure <xref ref-type="fig" rid="F6">6</xref>). Interestingly, in wild type BRAF and KRAS lesions with high grade intraepithelial neoplasia, moderate to strong c-MYC expression correlated with nuclear beta-catenin localization (Figure <xref ref-type="fig" rid="F6">6</xref>). In wild type KRAS/BRAF invasive adenocarcinomas with nuclear beta-catenin, increased c-MYC expression was associated with an up-regulation of SIRT1 (Figure <xref ref-type="fig" rid="F5">5d, e, f</xref>). Conversely, invasive adenocarcinomas negative for nuclear beta-catenin did not reveal any substantial c-MYC and SIRT1 staining (data not shown). Thus, transcriptional activation through the beta-catenin/TCF complex may result in increased c-MYC, and consequently elevated SIRT1 protein levels in serrated lesions without constitutive K-Ras or B-Raf activation. Generally, however the molecular differences between the invasive serrated carcinomas were not associated with any overt morphological alteration.</p>
+        <fig id="F5" orientation="portrait" position="float">
+          <label>Figure 5</label>
+          <caption>
+            <title>Expression of c-MYC and SIRT1 in correlation with beta-catenin localization</title>
+            <p>High c-MYC (a) and SIRT1 (b) expression in lesions with <italic>BRAF</italic> (shown here) or <italic>KRAS</italic> mutation, in the absence of nuclear beta-catenin staining (c, inset shows higher magnification of negative nuclear staining). In invasive serrated adenocarcinoms with wild type <italic>KRAS</italic> and <italic>BRAF</italic>, c-MYC expression was high (d) and SIRT1 expression was frequently moderate (e) only in those cases which showed nuclear beta-catenin expression (f). (Original magnification a, b, c: 200 x, Inset c 630 x, d, e, f: 100 x)</p>
+          </caption>
+          <graphic xlink:href="oncotarget-03-1182-g005"/>
+        </fig>
+        <fig id="F6" orientation="portrait" position="float">
+          <label>Figure 6</label>
+          <caption>
+            <title>Nuclear beta-catenin expression in <italic>KRAS</italic> and <italic>BRAF</italic> wild type and mutated serrated lesions with high c-MYC expression</title>
+            <p>Percentage of cases with nuclear beta-catenin that exhibit strong (staining: 3) c-MYC expression in wild type and mutant <italic>BRAF</italic> and <italic>KRAS</italic> serrated lesions and invasive carcinomas. HP hyperplastic polyp; SSA sessile serrated adenoma; LGIEN low grade intraepithelial neoplasia; HGIEN high grade intraepithelial neoplasia.</p>
+          </caption>
+          <graphic xlink:href="oncotarget-03-1182-g006"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>DISCUSSION</title>
+      <p>The evolving concept of serrated lesions of the colon comprises the notion of a sessile and traditional serrated pathway. Sessile serrated adenomas are more frequently found in the proximal colon, initiate through BRAF mutations and are commonly MSI. In contrast, traditional serrated adenomas are more often found in the distal colon, harbour KRAS mutations and are MSI-L or MSS [<xref ref-type="bibr" rid="R4">4</xref>, <xref ref-type="bibr" rid="R9">9</xref>, <xref ref-type="bibr" rid="R10">10</xref>]. In our collection the distribution and mutation status of cases reflects this concept. But despite the clear preferences of location and mutation status of serrated lesions, c-MYC and SIRT1 expression was unrelated to the morphologic subtype and side distribution.</p>
+      <p>A characteristic feature of serrated lesions of the colon is the resistance to apoptosis that has been linked to mutational activation of KRAS and BRAF [<xref ref-type="bibr" rid="R7">7</xref>, <xref ref-type="bibr" rid="R24">24</xref>-<xref ref-type="bibr" rid="R29">29</xref>]. However, the molecular events downstream of oncogenic KRAS and BRAF responsible for the anti-apoptotic function in serrated lesions have not been completely defined. The pleiotropic SIRT1 deacetylase negatively regulates various pro-apoptotic factors, including p53, thereby antagonizing senescence and apoptosis in cancer cells [<xref ref-type="bibr" rid="R13">13</xref>-<xref ref-type="bibr" rid="R15">15</xref>, <xref ref-type="bibr" rid="R30">30</xref>, <xref ref-type="bibr" rid="R31">31</xref>] and in cells immortalized by c-MYC [<xref ref-type="bibr" rid="R11">11</xref>]. Here, we provide evidence that SIRT1 expression is elevated and correlates with c-MYC in serrated lesions. Furthermore, the expression levels of both proteins increased with higher malignancy of tumors. This is in accordance with recent observations, that c-MYC induces an increase in the level and activity of the NAD<sup>+</sup>-dependent SIRT1 protein deacetylase [<xref ref-type="bibr" rid="R11">11</xref>, <xref ref-type="bibr" rid="R32">32</xref>-<xref ref-type="bibr" rid="R34">34</xref>] (reviewed in [<xref ref-type="bibr" rid="R35">35</xref>]). In this context we have previously identified a positive feedback loop, in which two processes involving the induction of nicotinamide phosphoribosyltransferase (NAMPT) and the sequestration of the endogenous SIRT1 inhibitor protein, deleted in breast cancer 1 (DBC1) mediate the c-MYC-induced activation of SIRT1. Finally, SIRT1 itself potentiates these effects by reducing the rate of degradation of c-MYC [<xref ref-type="bibr" rid="R11">11</xref>].</p>
+      <p>In lesions and invasive carcinomas of the serrated route, high c-MYC and SIRT1 levels were associated with K-Ras, B-Raf, or in a minor fraction, with Wnt pathway activation. Oncogenic mutations of KRAS and BRAF result in constitutive activation of the MAPK/ERK1/2 pathway and c-MYC phosphorylation [<xref ref-type="bibr" rid="R36">36</xref>, <xref ref-type="bibr" rid="R37">37</xref>]. Upon phosphorylation by ERK1/2, degradation of c-MYC is inhibited through the K-Ras-induced activation of PI3K [<xref ref-type="bibr" rid="R38">38</xref>, <xref ref-type="bibr" rid="R39">39</xref>]. Thus, the association with mutant KRAS and BRAF suggests that the up-regulation of c-MYC may be mediated by protein stabilization through MAPK/ERK1/2 pathway activation. In a smaller group of more advanced lesions without these mutations, c-MYC may be transcriptionally induced by the beta-catenin/TCF complex [<xref ref-type="bibr" rid="R2">2</xref>], since high levels of c-MYC were associated with the nuclear localization of beta-catenin. Aberrant nuclear accumulation of beta-catenin has been reported previously for serrated lesions [<xref ref-type="bibr" rid="R40">40</xref>-<xref ref-type="bibr" rid="R42">42</xref>]. Whereas mutations of the APC gene are very rare in serrated lesions, and mutations in the gene encoding for beta-catenin have not been observed so far [<xref ref-type="bibr" rid="R41">41</xref>, <xref ref-type="bibr" rid="R43">43</xref>], hypermethylation of the APC promoter has been described for a subset of serrated adenomas [<xref ref-type="bibr" rid="R43">43</xref>]. Intriguingly, nuclear beta-catenin displayed the highest prevalence in wild type KRAS and BRAF lesions. Therefore, our data suggest, that enabling c-MYC activation either through oncogenic K-Ras or B-Raf, or transcriptionally by deregulation of Wnt signalling is crucial in both, the serrated route as well as in the classical route to colorectal cancer [<xref ref-type="bibr" rid="R2">2</xref>].</p>
+      <p>Higher levels of c-MYC can induce activation of p53 and apoptosis [<xref ref-type="bibr" rid="R44">44</xref>, <xref ref-type="bibr" rid="R45">45</xref>]. However, as we have shown before, the c-MYC-mediated SIRT1 activation interferes therewith, since it suppresses p53-dependent and -independent apoptosis and antagonized senescence [<xref ref-type="bibr" rid="R11">11</xref>]. Hence, unscheduled c-MYC expression together with elevated SIRT1 activity in serrated lesions and invasive carcinomas may repress the two major tumor suppressive mechanisms, apoptosis and senescence and thus support cell survival, expansion and cancer progression. In line with such a role of SIRT1, only 17% of colorectal carcinomas with BRAF mutations and MSI, which are believed to originate from serrated precursor lesions, display p53 mutations [<xref ref-type="bibr" rid="R46">46</xref>]. Our previous studies of human samples and of a mouse model have revealed that serrated polyps and adenomas display high expression of the CDK inhibitor p16INK4a, a characteristic mark for senescence, which is lost in invasive carcinomas by CDKN2A promoter hypermethylation [<xref ref-type="bibr" rid="R7">7</xref>, <xref ref-type="bibr" rid="R8">8</xref>, <xref ref-type="bibr" rid="R47">47</xref>, <xref ref-type="bibr" rid="R48">48</xref>]. SIRT1 localizes to promoters of aberrantly methylated genes [<xref ref-type="bibr" rid="R49">49</xref>] and it is weakly expressed in senescent, but high in immortalized cells [<xref ref-type="bibr" rid="R50">50</xref>]. In serrated lesions SIRT1 may therefore also be involved in antagonizing oncogene-induced senescence. This may be mediated through effects of SIRT1 on DNA methyltransferase 1 (DNMT1) activity, a key enzyme in DNA methylation [<xref ref-type="bibr" rid="R51">51</xref>]. Deacetylation of DNMT1 at specific lysines by SIRT1 enhances its methyltransferase activity. In line with these findings, increased SIRT1 expression was found significantly associated with CpG island methylator phenotype (CIMP)-high, MSI-high phenotype, and a high tumor grade in colorectal carcinoma [<xref ref-type="bibr" rid="R19">19</xref>]. Future studies will reveal the relevance of the effects in this novel crosstalk of the epigenetic regulators DNMT1 and the histone deacetylase SIRT1 in different cellular contexts and especially in serrated lesions of the colon. Interestingly, recent studies revealed that in chronic myelogenous leukemia (CML) SIRT1 inhibition can prevent the acquisition of mutations and may therefore represent a treatment to overcome drug resistance [<xref ref-type="bibr" rid="R52">52</xref>]. In addition, in a BCR-ABL transgenic mouse model inhibition of SIRT1 in combination with the tyrosine kinase inhibitor Imatinib leads to p53 activation-mediated elimination of cancer stem cells, indicating that SIRT1 inhibition may represent a strategy for targeting cancer stem cells [<xref ref-type="bibr" rid="R12">12</xref>].</p>
+      <p>Taken together, we provide evidence that c-MYC and SIRT1 are crucially involved in the alternative, serrated pathway to colorectal cancer. Thereby, oncogenic functions of c-MYC and properties of SIRT1, such as antagonizing apoptosis and senescence and/or epigentic regulation may contribute to tumorigenesis and may represent a novel target for future therapies. However, further studies will have to elucidate the exact functional role of SIRT1 in serrated lesions and determine the signalling pathways involved in the development of lesions without oncogenic BRAF or KRAS mutations.</p>
+    </sec>
+    <sec sec-type="methods" id="s4">
+      <title>METHODS</title>
+      <sec id="s4_1">
+        <title>Specimens</title>
+        <p>Patient material was taken from the archives of the Department of Pathology, Ludwig-Maximillians-University, Munich. In total, formalin-fixed paraffin-embedded tissue from 121 serrated lesions was obtained. Two independent observers (T.K. and L.K.) classified all samples by applying the criteria of Torlakovic et al. [<xref ref-type="bibr" rid="R9">9</xref>]. Our study enrolled hyperplastic polyps, sessile serrated adenomas without intraepithelial neoplasia, sessile serrated adenomas with low grade intraepithelial neoplasia, traditional serrated adenomas with low grade intraepithelial neoplasia, traditional serrated adenomas and sessile serrated adenomas with high grade intraepithelial neoplasia and invasive serrated adenocarcinomas (Table <xref ref-type="table" rid="T1">1</xref>).</p>
+        <p>All cases were classified with regard to BRAF and KRAS mutational status. KRAS was mutated in 22 (18%) cases, and BRAF mutations were detected in 73 (60%) cases, respectively. In 26 (22%) cases, neither KRAS nor BRAF was mutated.</p>
+      </sec>
+      <sec id="s4_2">
+        <title>Immunohistochemistry</title>
+        <p>Immunohistochemical staining was done on 5 &#x3BC;m tissue sections of FFPE tumor samples. For SIRT1 and c-MYC, consecutive tissue sections were used for immunohistochemistry. SIRT1 monoclonal rabbit antibody (Epitomics, CA, USA, dilution 1: 80, Cat. No. 1104-1), c-MYC monoclonal rabbit antibody (Epitomics, CA, USA, dilution 1: 150, Cat. No. 1472-1), and beta-catenin monoclonal mouse antibody (BD Biosciences, NJ, USA, dilution 1:300, Cat. No. 610154) were used as primary antibodies. For detection of SIRT1 and c-MYC, sections were pre-treated for antigen retrieval by boiling in a microwave oven, twice for 15 min at 750 W in Target Unmasking Fluid (Pan Path, Budel, Netherlands). For the beta-catenin staining, antigen retrieval was done by pre-treatment in ProTaqs IV Antigen-Enhancer (Quartett, Berlin, Germany). Endogenous peroxidase was blocked using 7.5% hydrogen peroxide for 10 minutes. Vectastain ABC-Kit Elite Universal (Vector Laboratories, CA, USA) was used for beta-catenin detection. AEC<italic>+</italic> high sensitivity substrate chromogen (Dako, Glostrup, Denmark) was used as a chromogen for SIRT1, DAB<italic>+</italic> substrate chromogen system (Dako, Glostrup, Denmark) for c-MYC and beta-catenin. All slides were counterstained with Hematoxylin (Vector Laboratories, CA, USA). To confirm staining specificity, system controls without primary antibodies, as well as immunoglobulin isotype control antibodies were included.</p>
+      </sec>
+      <sec id="s4_3">
+        <title>Evaluation of c-MYC, SIRT1 and beta-catenin staining</title>
+        <p>c-MYC and SIRT1 expression were evaluated regarding nuclear expression pattern ranging from 0 &#x2013; 3, for negative, low, moderate and strong staining. In hyperplastic polyps and sessile serrated adenomas, positive staining of the basal third of the crypts was defined as low. Moderate was defined as staining of the basal two thirds of the crypts, and strong was defined as staining from the base to the surface of the crypts. In sessile serrated adenomas with low grade and high grade intraepithelial neoplasia, only areas with intraepithelial neoplasia were taken into account. In traditional serrated adenomas and invasive adenocarcinomas, the percentage of positive cells was evaluated including negative (0%), low (1-30%), moderate (31-70%) and strong (71-100%) expression.</p>
+        <p>Regarding beta-catenin staining, only nuclear beta-catenin expression was taken into account. beta-catenin, c-MYC and SIRT1 staining that was confined to some nuclei of scattered cells at the bases of crypts (&lt;5% positive cells) was considered as a normal mucosa staining pattern (Figure <xref ref-type="fig" rid="F1">1</xref>), which is consistent with the proliferative zone due to physiologically active Wnt signalling within the progenitor population of intestinal epithelium [<xref ref-type="bibr" rid="R20">20</xref>].</p>
+      </sec>
+      <sec id="s4_4">
+        <title>Analyses of <italic>KRAS-/ BRAF</italic> mutations</title>
+        <p>For the analyses of KRAS exon 2 codon 12/13 and BRAF(V600E) exon 15 mutations, genomic DNA was extracted from microdissected serrated lesions, as previously described for KRAS [<xref ref-type="bibr" rid="R21">21</xref>]. Pyro-sequencing was done using the Pyro-Gold kit (Qiagen, Germany) and HotStar Taq-Polymerase (Qiagen, Germany). The PF2 primer was used to determine anti-sense sequences. The PyroMark Q24 device (Qiagen, Germany) and the PyroMark&#x2122; Q24 software were used for sequencing, and sequence analyses [<xref ref-type="bibr" rid="R22">22</xref>, <xref ref-type="bibr" rid="R23">23</xref>].</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material">
+      <title>Supplementary Tables</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <media xlink:href="oncotarget-03-1182-s001.doc" orientation="portrait" xlink:type="simple" id="d35e1164" position="anchor" mimetype="application" mime-subtype="msword"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank A. Sendelhofert, A. Heier, and M. Melz for their expert support and experimental assistance, and Jens Neumann for providing material. This study was supported in part by the K. L. Weigand'schen Stiftung, Germany (2010, support to LK) and by the Friedrich Baur Stiftung Germany (2010, support to AM)</p>
+    </ack>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="R1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Vogelstein</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Fearon</surname>
+              <given-names>ER</given-names>
+            </name>
+            <name>
+              <surname>Hamilton</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>Kern</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Preisinger</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Leppert</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>White</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Smits</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Bos</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <article-title>Genetic alterations during colorectal-tumor development</article-title>
+          <source>N Engl J Med</source>
+          <year>1988</year>
+          <volume>319</volume>
+          <issue>9</issue>
+          <fpage>525</fpage>
+          <lpage>532</lpage>
+          <pub-id pub-id-type="pmid">2841597</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>He</surname>
+              <given-names>TC</given-names>
+            </name>
+            <name>
+              <surname>Sparks</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Rago</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hermeking</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zawel</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>da Costa</surname>
+              <given-names>LT</given-names>
+            </name>
+            <name>
+              <surname>Morin</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Vogelstein</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kinzler</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of c-MYC as a target of the APC pathway</article-title>
+          <source>Science</source>
+          <year>1998</year>
+          <volume>281</volume>
+          <issue>5382</issue>
+          <fpage>1509</fpage>
+          <lpage>1512</lpage>
+          <pub-id pub-id-type="pmid">9727977</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Snover</surname>
+              <given-names>DC</given-names>
+            </name>
+          </person-group>
+          <article-title>Update on the serrated pathway to colorectal carcinoma</article-title>
+          <source>Hum Pathol</source>
+          <year>2011</year>
+          <volume>42</volume>
+          <issue>1</issue>
+          <fpage>1</fpage>
+          <lpage>10</lpage>
+          <pub-id pub-id-type="pmid">20869746</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Noffsinger</surname>
+              <given-names>AE</given-names>
+            </name>
+          </person-group>
+          <article-title>Serrated polyps and colorectal cancer: new pathway to malignancy</article-title>
+          <source>Annu Rev Pathol</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>343</fpage>
+          <lpage>364</lpage>
+          <pub-id pub-id-type="pmid">19400693</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Rosenberg</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Pleau</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Greenspan</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Stevens</surname>
+              <given-names>RG</given-names>
+            </name>
+            <name>
+              <surname>Rajan</surname>
+              <given-names>TV</given-names>
+            </name>
+            <name>
+              <surname>Heinen</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Levine</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhou</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>O'Brien</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Mutations in BRAF and KRAS differentially distinguish serrated versus non-serrated hyperplastic aberrant crypt foci in humans</article-title>
+          <source>Cancer Res</source>
+          <year>2007</year>
+          <volume>67</volume>
+          <issue>8</issue>
+          <fpage>3551</fpage>
+          <lpage>3554</lpage>
+          <pub-id pub-id-type="pmid">17440063</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Velho</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Moutinho</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Cirnes</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Albuquerque</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Hamelin</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Schmitt</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Carneiro</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Oliveira</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Seruca</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>BRAF, KRAS and PIK3CA mutations in colorectal serrated polyps and cancer: primary or secondary genetic events in colorectal carcinogenesis?</article-title>
+          <source>BMC Cancer</source>
+          <year>2008</year>
+          <volume>8</volume>
+          <fpage>255</fpage>
+          <pub-id pub-id-type="pmid">18782444</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Bennecke</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kriegl</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Bajbouj</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Retzlaff</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Robine</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Arkan</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Kirchner</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Greten</surname>
+              <given-names>FR</given-names>
+            </name>
+          </person-group>
+          <article-title>Ink4a/Arf and oncogene-induced senescence prevent tumor progression during alternative colorectal tumorigenesis</article-title>
+          <source>Cancer Cell</source>
+          <year>2010</year>
+          <volume>18</volume>
+          <issue>2</issue>
+          <fpage>135</fpage>
+          <lpage>146</lpage>
+          <pub-id pub-id-type="pmid">20708155</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Carragher</surname>
+              <given-names>LA</given-names>
+            </name>
+            <name>
+              <surname>Snell</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Giblett</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Aldridge</surname>
+              <given-names>VS</given-names>
+            </name>
+            <name>
+              <surname>Patel</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Cook</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Winton</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Marais</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Pritchard</surname>
+              <given-names>CA</given-names>
+            </name>
+          </person-group>
+          <article-title>V600EBRAF induces gastrointestinal crypt senescence and promotes tumour progression through enhanced CpG methylation of p16INK4a</article-title>
+          <source>EMBO Mol Med</source>
+          <year>2010</year>
+          <volume>2</volume>
+          <issue>11</issue>
+          <fpage>458</fpage>
+          <lpage>471</lpage>
+          <pub-id pub-id-type="pmid">20941790</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Torlakovic</surname>
+              <given-names>EE</given-names>
+            </name>
+            <name>
+              <surname>Gomez</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Driman</surname>
+              <given-names>DK</given-names>
+            </name>
+            <name>
+              <surname>Parfitt</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Benerjee</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Snover</surname>
+              <given-names>DC</given-names>
+            </name>
+          </person-group>
+          <article-title>Sessile serrated adenoma (SSA) vs. traditional serrated adenoma (TSA)</article-title>
+          <source>Am J Surg Pathol</source>
+          <year>2008</year>
+          <volume>32</volume>
+          <issue>1</issue>
+          <fpage>21</fpage>
+          <lpage>29</lpage>
+          <pub-id pub-id-type="pmid">18162766</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>O'Brien</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Hyperplastic and serrated polyps of the colorectum</article-title>
+          <source>Gastroenterol Clin North Am</source>
+          <year>2007</year>
+          <volume>36</volume>
+          <issue>4</issue>
+          <fpage>947</fpage>
+          <lpage>968</lpage>
+          <comment>viii</comment>
+          <pub-id pub-id-type="pmid">17996799</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Menssen</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hydbring</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Kapelle</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Vervoorts</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Diebold</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Luscher</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Larsson</surname>
+              <given-names>LG</given-names>
+            </name>
+            <name>
+              <surname>Hermeking</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>The c-MYC oncoprotein, the NAMPT enzyme, the SIRT1-inhibitor DBC1, and the SIRT1 deacetylase form a positive feedback loop</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2012</year>
+          <volume>109</volume>
+          <issue>4</issue>
+          <fpage>E187</fpage>
+          <lpage>196</lpage>
+          <pub-id pub-id-type="pmid">22190494</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Li</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ho</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>McDonald</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Holyoake</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Bhatia</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of p53 by SIRT1 Inhibition Enhances Elimination of CML Leukemia Stem Cells in Combination with Imatinib</article-title>
+          <source>Cancer Cell</source>
+          <year>2012</year>
+          <volume>21</volume>
+          <issue>2</issue>
+          <fpage>266</fpage>
+          <lpage>281</lpage>
+          <pub-id pub-id-type="pmid">22340598</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Langley</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Pearson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Faretta</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bauer</surname>
+              <given-names>UM</given-names>
+            </name>
+            <name>
+              <surname>Frye</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Minucci</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Pelicci</surname>
+              <given-names>PG</given-names>
+            </name>
+            <name>
+              <surname>Kouzarides</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Human SIR2 deacetylates p53 and antagonizes PML/p53-induced cellular senescence</article-title>
+          <source>Embo J</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <issue>10</issue>
+          <fpage>2383</fpage>
+          <lpage>2396</lpage>
+          <pub-id pub-id-type="pmid">12006491</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Vaziri</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Dessain</surname>
+              <given-names>SK</given-names>
+            </name>
+            <name>
+              <surname>Ng Eaton</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Imai</surname>
+              <given-names>SI</given-names>
+            </name>
+            <name>
+              <surname>Frye</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Pandita</surname>
+              <given-names>TK</given-names>
+            </name>
+            <name>
+              <surname>Guarente</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Weinberg</surname>
+              <given-names>RA</given-names>
+            </name>
+          </person-group>
+          <article-title>hSIR2(SIRT1) functions as an NAD-dependent p53 deacetylase</article-title>
+          <source>Cell</source>
+          <year>2001</year>
+          <volume>107</volume>
+          <issue>2</issue>
+          <fpage>149</fpage>
+          <lpage>159</lpage>
+          <pub-id pub-id-type="pmid">11672523</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Luo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nikolaev</surname>
+              <given-names>AY</given-names>
+            </name>
+            <name>
+              <surname>Imai</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Su</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Shiloh</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Guarente</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Gu</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Negative control of p53 by Sir2alpha promotes cell survival under stress</article-title>
+          <source>Cell</source>
+          <year>2001</year>
+          <volume>107</volume>
+          <issue>2</issue>
+          <fpage>137</fpage>
+          <lpage>148</lpage>
+          <pub-id pub-id-type="pmid">11672522</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Brooks</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Gu</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>How does SIRT1 affect metabolism, senescence and cancer?</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2009</year>
+          <volume>9</volume>
+          <issue>2</issue>
+          <fpage>123</fpage>
+          <lpage>128</lpage>
+          <pub-id pub-id-type="pmid">19132007</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Heltweg</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Gatbonton</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Schuler</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Posakony</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Goehle</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kollipara</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Depinho</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Gu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Simon</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Bedalov</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Antitumor activity of a small-molecule inhibitor of human silent information regulator 2 enzymes</article-title>
+          <source>Cancer Res</source>
+          <year>2006</year>
+          <volume>66</volume>
+          <issue>8</issue>
+          <fpage>4368</fpage>
+          <lpage>4377</lpage>
+          <pub-id pub-id-type="pmid">16618762</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <label>18</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Liu</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>PY</given-names>
+            </name>
+            <name>
+              <surname>Marshall</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <article-title>The critical role of the class III histone deacetylase SIRT1 in cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <issue>5</issue>
+          <fpage>1702</fpage>
+          <lpage>1705</lpage>
+          <pub-id pub-id-type="pmid">19244112</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <label>19</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Nosho</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Shima</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Irahara</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kure</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Firestein</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Baba</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Toyoda</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Hazra</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Giovannucci</surname>
+              <given-names>EL</given-names>
+            </name>
+            <name>
+              <surname>Fuchs</surname>
+              <given-names>CS</given-names>
+            </name>
+            <name>
+              <surname>Ogino</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>SIRT1 histone deacetylase expression is associated with microsatellite instability and CpG island methylator phenotype in colorectal cancer</article-title>
+          <source>Mod Pathol</source>
+          <year>2009</year>
+          <volume>22</volume>
+          <issue>7</issue>
+          <fpage>922</fpage>
+          <lpage>932</lpage>
+          <pub-id pub-id-type="pmid">19430421</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <label>20</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Clevers</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Wnt/beta-catenin signaling in development and disease</article-title>
+          <source>Cell</source>
+          <year>2006</year>
+          <volume>127</volume>
+          <issue>3</issue>
+          <fpage>469</fpage>
+          <lpage>480</lpage>
+          <pub-id pub-id-type="pmid">17081971</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <label>21</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zeindl-Eberhart</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kirchner</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Frequency and type of KRAS mutations in routine diagnostic analysis of metastatic colorectal cancer</article-title>
+          <source>Pathol Res Pract</source>
+          <year>2009</year>
+          <volume>205</volume>
+          <issue>12</issue>
+          <fpage>858</fpage>
+          <lpage>862</lpage>
+          <pub-id pub-id-type="pmid">19679400</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <label>22</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Ogino</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Kawasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Brahmandam</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yan</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Cantor</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Namgyal</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Mino-Kenudson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Lauwers</surname>
+              <given-names>GY</given-names>
+            </name>
+            <name>
+              <surname>Loda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fuchs</surname>
+              <given-names>CS</given-names>
+            </name>
+          </person-group>
+          <article-title>Sensitive sequencing method for KRAS mutation detection by Pyrosequencing</article-title>
+          <source>J Mol Diagn</source>
+          <year>2005</year>
+          <volume>7</volume>
+          <issue>3</issue>
+          <fpage>413</fpage>
+          <lpage>421</lpage>
+          <pub-id pub-id-type="pmid">16049314</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <label>23</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Poehlmann</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kuester</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Meyer</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Lippert</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Roessner</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Schneider-Stock</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>K-ras mutation detection in colorectal cancer using the Pyrosequencing technique</article-title>
+          <source>Pathol Res Pract</source>
+          <year>2007</year>
+          <volume>203</volume>
+          <issue>7</issue>
+          <fpage>489</fpage>
+          <lpage>497</lpage>
+          <pub-id pub-id-type="pmid">17629419</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <label>24</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Tateyama</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Miura</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sugiura</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Eimoto</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Apoptosis index and apoptosis-related antigen expression in serrated adenoma of the colorectum: the saw-toothed structure may be related to inhibition of apoptosis</article-title>
+          <source>Am J Surg Pathol</source>
+          <year>2002</year>
+          <volume>26</volume>
+          <issue>2</issue>
+          <fpage>249</fpage>
+          <lpage>256</lpage>
+          <pub-id pub-id-type="pmid">11812948</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <label>25</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Horkko</surname>
+              <given-names>TT</given-names>
+            </name>
+            <name>
+              <surname>Makinen</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Colorectal proliferation and apoptosis in serrated versus conventional adenoma-carcinoma pathway: growth, progression and survival</article-title>
+          <source>Scand J Gastroenterol</source>
+          <year>2003</year>
+          <volume>38</volume>
+          <issue>12</issue>
+          <fpage>1241</fpage>
+          <lpage>1248</lpage>
+          <pub-id pub-id-type="pmid">14750644</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <label>26</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Komori</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ajioka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Watanabe</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Oda</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nimura</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Proliferation kinetics and apoptosis of serrated adenoma of the colorectum</article-title>
+          <source>Pathol Int</source>
+          <year>2003</year>
+          <volume>53</volume>
+          <issue>5</issue>
+          <fpage>277</fpage>
+          <lpage>283</lpage>
+          <pub-id pub-id-type="pmid">12713561</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <label>27</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Guerrero</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Casanova</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Farre</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Mazo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Capella</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Mangues</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>K-ras codon 12 mutation induces higher level of resistance to apoptosis and predisposition to anchorage-independent growth than codon 13 mutation or proto-oncogene overexpression</article-title>
+          <source>Cancer Res</source>
+          <year>2000</year>
+          <volume>60</volume>
+          <issue>23</issue>
+          <fpage>6750</fpage>
+          <lpage>6756</lpage>
+          <pub-id pub-id-type="pmid">11118062</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <label>28</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Yang</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Farraye</surname>
+              <given-names>FA</given-names>
+            </name>
+            <name>
+              <surname>Mack</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Posnik</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>O'Brien</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>BRAF and KRAS Mutations in hyperplastic polyps and serrated adenomas of the colorectum: relationship to histology and CpG island methylation status</article-title>
+          <source>Am J Surg Pathol</source>
+          <year>2004</year>
+          <volume>28</volume>
+          <issue>11</issue>
+          <fpage>1452</fpage>
+          <lpage>1459</lpage>
+          <pub-id pub-id-type="pmid">15489648</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <label>29</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Mitomi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sada</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Igarashi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kanazawa</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nishiyama</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ihara</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Otani</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Different apoptotic activity and p21(WAF1/CIP1), but not p27(Kip1), expression in serrated adenomas as compared with traditional adenomas and hyperplastic polyps of the colorectum</article-title>
+          <source>J Cancer Res Clin Oncol</source>
+          <year>2003</year>
+          <volume>129</volume>
+          <issue>8</issue>
+          <fpage>449</fpage>
+          <lpage>455</lpage>
+          <pub-id pub-id-type="pmid">12884030</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <label>30</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Huang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gan</surname>
+              <given-names>Q</given-names>
+            </name>
+            <name>
+              <surname>Han</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Tong</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>SIRT1 overexpression antagonizes cellular senescence with activated ERK/S6k1 signaling in human diploid fibroblasts</article-title>
+          <source>PLoS ONE</source>
+          <year>2008</year>
+          <volume>3</volume>
+          <issue>3</issue>
+          <fpage>e1710</fpage>
+          <pub-id pub-id-type="pmid">18320031</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <label>31</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Ota</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Tokunaga</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Chang</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hikasa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Iijima</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Eto</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kozaki</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Akishita</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ouchi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kaneki</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Sirt1 inhibitor, Sirtinol, induces senescence-like growth arrest with attenuated Ras-MAPK signaling in human cancer cells</article-title>
+          <source>Oncogene</source>
+          <year>2006</year>
+          <volume>25</volume>
+          <issue>2</issue>
+          <fpage>176</fpage>
+          <lpage>185</lpage>
+          <pub-id pub-id-type="pmid">16170353</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <label>32</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Mao</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lv</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>HZ</given-names>
+            </name>
+            <name>
+              <surname>Xue</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>DP</given-names>
+            </name>
+            <name>
+              <surname>Liang</surname>
+              <given-names>CC</given-names>
+            </name>
+          </person-group>
+          <article-title>Sirt1 deacetylates c-Myc and promotes c-Myc/Max association</article-title>
+          <source>Int J Biochem Cell Biol</source>
+          <year>2011</year>
+          <volume>43</volume>
+          <issue>11</issue>
+          <fpage>1573</fpage>
+          <lpage>1581</lpage>
+          <pub-id pub-id-type="pmid">21807113</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <label>33</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Marshall</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>PY</given-names>
+            </name>
+            <name>
+              <surname>Gherardi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Scarlett</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Bedalov</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Iraci</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Valli</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Ling</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>van Bekkum</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Sekyere</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Jankowski</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Trahair</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Mackenzie</surname>
+              <given-names>KL</given-names>
+            </name>
+            <name>
+              <surname>Haber</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>SIRT1 Promotes N-Myc Oncogenesis through a Positive Feedback Loop Involving the Effects of MKP3 and ERK on N-Myc Protein Stability</article-title>
+          <source>PLoS Genet</source>
+          <year>2011</year>
+          <volume>7</volume>
+          <issue>6</issue>
+          <fpage>e1002135</fpage>
+          <pub-id pub-id-type="pmid">21698133</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <label>34</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Minter-Dykhouse</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Lou</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>A c-Myc-SIRT1 feedback loop regulates cell growth and transformation</article-title>
+          <source>J Cell Biol</source>
+          <year>2009</year>
+          <volume>185</volume>
+          <issue>2</issue>
+          <fpage>203</fpage>
+          <lpage>211</lpage>
+          <pub-id pub-id-type="pmid">19364925</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <label>35</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Menssen</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hermeking</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>c-MYC and SIRT1 locked in a vicious cycle</article-title>
+          <source>Oncotarget</source>
+          <year>2012</year>
+          <volume>3</volume>
+          <issue>2</issue>
+          <fpage>116</fpage>
+          <lpage>117</lpage>
+          <pub-id pub-id-type="pmid">22416072</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <label>36</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Sears</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Leone</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>DeGregori</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Nevins</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Ras enhances Myc protein stability</article-title>
+          <source>Mol Cell</source>
+          <year>1999</year>
+          <volume>3</volume>
+          <issue>2</issue>
+          <fpage>169</fpage>
+          <lpage>179</lpage>
+          <pub-id pub-id-type="pmid">10078200</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R37">
+        <label>37</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Sears</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Nuckolls</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Haura</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Taya</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Tamai</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nevins</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>Multiple Ras-dependent phosphorylation pathways regulate Myc protein stability</article-title>
+          <source>Genes Dev</source>
+          <year>2000</year>
+          <volume>14</volume>
+          <issue>19</issue>
+          <fpage>2501</fpage>
+          <lpage>2514</lpage>
+          <pub-id pub-id-type="pmid">11018017</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R38">
+        <label>38</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Benassi</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Fanciulli</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fiorentino</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Porrello</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Chiorino</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Loda</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zupi</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Biroccio</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>c-Myc phosphorylation is required for cellular response to oxidative stress</article-title>
+          <source>Mol Cell</source>
+          <year>2006</year>
+          <volume>21</volume>
+          <issue>4</issue>
+          <fpage>509</fpage>
+          <lpage>519</lpage>
+          <pub-id pub-id-type="pmid">16483932</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R39">
+        <label>39</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Gregory</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Qi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hann</surname>
+              <given-names>SR</given-names>
+            </name>
+          </person-group>
+          <article-title>Phosphorylation by glycogen synthase kinase-3 controls c-myc proteolysis and subnuclear localization</article-title>
+          <source>J Biol Chem</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <issue>51</issue>
+          <fpage>51606</fpage>
+          <lpage>51612</lpage>
+          <pub-id pub-id-type="pmid">14563837</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R40">
+        <label>40</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Wu</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Montgomery</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Iacobuzio-Donahue</surname>
+              <given-names>CA</given-names>
+            </name>
+          </person-group>
+          <article-title>Frequent beta-catenin nuclear labeling in sessile serrated polyps of the colorectum with neoplastic potential</article-title>
+          <source>Am J Clin Pathol</source>
+          <year>2008</year>
+          <volume>129</volume>
+          <issue>3</issue>
+          <fpage>416</fpage>
+          <lpage>423</lpage>
+          <pub-id pub-id-type="pmid">18285264</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R41">
+        <label>41</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Yachida</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mudali</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Montgomery</surname>
+              <given-names>EA</given-names>
+            </name>
+            <name>
+              <surname>Iacobuzio-Donahue</surname>
+              <given-names>CA</given-names>
+            </name>
+          </person-group>
+          <article-title>Beta-catenin nuclear labeling is a common feature of sessile serrated adenomas and correlates with early neoplastic progression after BRAF activation</article-title>
+          <source>Am J Surg Pathol</source>
+          <year>2009</year>
+          <volume>33</volume>
+          <issue>12</issue>
+          <fpage>1823</fpage>
+          <lpage>1832</lpage>
+          <pub-id pub-id-type="pmid">19745699</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R42">
+        <label>42</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Jiao</surname>
+              <given-names>YF</given-names>
+            </name>
+            <name>
+              <surname>Nakamura</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Sugai</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yamada</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Habano</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Serrated adenoma of the colorectum undergoes a proliferation versus differentiation process: new conceptual interpretation of morphogenesis</article-title>
+          <source>Oncology</source>
+          <year>2008</year>
+          <volume>74</volume>
+          <issue>3-4</issue>
+          <fpage>127</fpage>
+          <lpage>134</lpage>
+          <pub-id pub-id-type="pmid">18708730</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R43">
+        <label>43</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Fu</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Tian</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Hypermethylation of APC promoter 1A is associated with moderate activation of Wnt signalling pathway in a subset of colorectal serrated adenomas</article-title>
+          <source>Histopathology</source>
+          <year>2009</year>
+          <volume>55</volume>
+          <issue>5</issue>
+          <fpage>554</fpage>
+          <lpage>563</lpage>
+          <pub-id pub-id-type="pmid">19912361</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R44">
+        <label>44</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Finch</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Soucek</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Junttila</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Swigart</surname>
+              <given-names>LB</given-names>
+            </name>
+            <name>
+              <surname>Evan</surname>
+              <given-names>GI</given-names>
+            </name>
+          </person-group>
+          <article-title>Acute overexpression of Myc in intestinal epithelium recapitulates some but not all the changes elicited by Wnt/beta-catenin pathway activation</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2009</year>
+          <volume>29</volume>
+          <issue>19</issue>
+          <fpage>5306</fpage>
+          <lpage>5315</lpage>
+          <pub-id pub-id-type="pmid">19635809</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R45">
+        <label>45</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Hermeking</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Eick</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Mediation of c-Myc-induced apoptosis by p53</article-title>
+          <source>Science</source>
+          <year>1994</year>
+          <volume>265</volume>
+          <issue>5181</issue>
+          <fpage>2091</fpage>
+          <lpage>2093</lpage>
+          <pub-id pub-id-type="pmid">8091232</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R46">
+        <label>46</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Bond</surname>
+              <given-names>CE</given-names>
+            </name>
+            <name>
+              <surname>Umapathy</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ramsnes</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Greco</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Zhen Zhao</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Mallitt</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Buttenshaw</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Montgomery</surname>
+              <given-names>GW</given-names>
+            </name>
+            <name>
+              <surname>Leggett</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Whitehall</surname>
+              <given-names>VL</given-names>
+            </name>
+          </person-group>
+          <article-title>p53 mutation is common in microsatellite stable, BRAF mutant colorectal cancers</article-title>
+          <source>Int J Cancer</source>
+          <year>2012</year>
+          <volume>130</volume>
+          <issue>7</issue>
+          <fpage>1567</fpage>
+          <lpage>1576</lpage>
+          <pub-id pub-id-type="pmid">21557216</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R47">
+        <label>47</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Kriegl</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Neumann</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Vieth</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Greten</surname>
+              <given-names>FR</given-names>
+            </name>
+            <name>
+              <surname>Reu</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Jung</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Kirchner</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Up and downregulation of p16(Ink4a) expression in BRAF-mutated polyps/adenomas indicates a senescence barrier in the serrated route to colon cancer</article-title>
+          <source>Mod Pathol</source>
+          <year>2011</year>
+          <volume>24</volume>
+          <issue>7</issue>
+          <fpage>1015</fpage>
+          <lpage>1022</lpage>
+          <pub-id pub-id-type="pmid">21423154</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R48">
+        <label>48</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Park</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Rashid</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>SG</given-names>
+            </name>
+            <name>
+              <surname>Hamilton</surname>
+              <given-names>SR</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>TT</given-names>
+            </name>
+          </person-group>
+          <article-title>Frequent CpG island methylation in serrated adenomas of the colorectum</article-title>
+          <source>Am J Pathol</source>
+          <year>2003</year>
+          <volume>162</volume>
+          <issue>3</issue>
+          <fpage>815</fpage>
+          <lpage>822</lpage>
+          <pub-id pub-id-type="pmid">12598316</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R49">
+        <label>49</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Pruitt</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Zinn</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Ohm</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>McGarvey</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Watkins</surname>
+              <given-names>DN</given-names>
+            </name>
+            <name>
+              <surname>Herman</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Baylin</surname>
+              <given-names>SB</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of SIRT1 reactivates silenced cancer genes without loss of promoter DNA hypermethylation</article-title>
+          <source>PLoS Genet</source>
+          <year>2006</year>
+          <volume>2</volume>
+          <issue>3</issue>
+          <fpage>e40</fpage>
+          <pub-id pub-id-type="pmid">16596166</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R50">
+        <label>50</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Maier</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Bartke</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Scrable</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Progressive loss of SIRT1 with cell cycle withdrawal</article-title>
+          <source>Aging Cell</source>
+          <year>2006</year>
+          <volume>5</volume>
+          <issue>5</issue>
+          <fpage>413</fpage>
+          <lpage>422</lpage>
+          <pub-id pub-id-type="pmid">16939484</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R51">
+        <label>51</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Peng</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ling</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Fukasawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Olashaw</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Koomen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lane</surname>
+              <given-names>WS</given-names>
+            </name>
+            <name>
+              <surname>Seto</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>SIRT1 Deacetylates the DNA Methyltransferase 1 (DNMT1) Protein and Alters Its Activities</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2011</year>
+          <volume>31</volume>
+          <issue>23</issue>
+          <fpage>4720</fpage>
+          <lpage>4734</lpage>
+          <pub-id pub-id-type="pmid">21947282</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R52">
+        <label>52</label>
+        <element-citation publication-type="journal">
+          <person-group>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Yuan</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Roth</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Stark</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Bhatia</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>WY</given-names>
+            </name>
+          </person-group>
+          <article-title>SIRT1 deacetylase promotes acquisition of genetic mutations for drug resistance in CML cells</article-title>
+          <source>Oncogene</source>
+          <year>2012</year>
+          <month>3</month>
+          <day>12</day>
+          <comment>(doi: 10.1038/onc.2012.83)</comment>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
