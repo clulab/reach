@@ -1,0 +1,1871 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8711562</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">6325</journal-id>
+      <journal-id journal-id-type="nlm-ta">Oncogene</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Oncogene</journal-id>
+      <journal-title-group>
+        <journal-title>Oncogene</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0950-9232</issn>
+      <issn pub-type="epub">1476-5594</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">22120714</article-id>
+      <article-id pub-id-type="pmc">3378484</article-id>
+      <article-id pub-id-type="doi">10.1038/onc.2011.532</article-id>
+      <article-id pub-id-type="manuscript">UKMS36996</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Regulation of lipid binding underlies the activation mechanism of class IA PI3-kinases</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hon</surname>
+            <given-names>Wai-Ching</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Berndt</surname>
+            <given-names>Alex</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Williams</surname>
+            <given-names>Roger L.</given-names>
+          </name>
+        </contrib>
+        <aff id="A1">MRC Laboratory of Molecular Biology, Hills Road, Cambridge CB2 0QH, UK</aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="CR1">Correspondence: Dr. Roger L Williams, MRC Laboratory of Molecular Biology, Hills Road, Cambridge CB2 0QH, UK</corresp>
+        <fn id="FN1">
+          <p id="P1">Highest degree obtained: WCH, AB, RLW: Ph.D.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>25</day>
+        <month>10</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>28</day>
+        <month>11</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>9</day>
+        <month>8</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>09</day>
+        <month>2</month>
+        <year>2013</year>
+      </pub-date>
+      <volume>31</volume>
+      <issue>32</issue>
+      <fpage>3655</fpage>
+      <lpage>3666</lpage>
+      <permissions>
+        <license>
+          <license-p>Users may view, print, copy, download and text and data- mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:
+<uri xlink:type="simple" xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">http://www.nature.com/authors/editorial_policies/license.html#terms</uri></license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p id="P2">Somatic missense mutations in <italic>PIK3CA</italic>, which encodes the p110&#x3B1; catalytic subunit of phosphoinositide 3-kinases (PI3Ks), occur frequently in human cancers. Activating mutations spread across multiple domains, some of which are located at inhibitory contact sites formed with the regulatory subunit p85&#x3B1;. <italic>PIK3R1</italic>, which encodes p85&#x3B1;, also has activating somatic mutations. We find a strong correlation between lipid kinase and lipid binding activities, for both wild-type (WT) and a representative set of oncogenic mutant complexes of p110&#x3B1;/p85&#x3B1;. Lipid binding involves both electrostatic and hydrophobic interactions. Activation caused by a phosphorylated receptor tyrosine kinase (RTK) peptide binding to the p85&#x3B1; N-terminal SH2 domain (nSH2) induces lipid binding. This depends on the polybasic activation loop as well as a conserved hydrophobic motif in the C-terminal region of the kinase domain. The hotspot E545K mutant largely mimics the activated WT p110&#x3B1;. It shows the highest basal activity and lipid binding, and is not significantly activated by an RTK phosphopeptide. Both the hotspot H1047R mutant and rare mutations (C420R, M1043I, H1047L, G1049R and p85&#x3B1;-N564D) also show increased basal kinase activities and lipid binding. However, their activities are further enhanced by an RTK phosphopeptide to levels markedly exceeding that of activated WT p110&#x3B1;. Phosphopeptide binding to p110&#x3B2;/p85&#x3B1; and p110&#x3B4;/p85&#x3B1; complexes also induces their lipid binding. We present a crystal structure of WT p110&#x3B1; complexed with the p85&#x3B1; inter-SH2 domain (iSH2) and the inhibitor PIK-108. Additional to the ATP-binding pocket, an unexpected, second PIK-108 binding site is observed in the kinase C-lobe. We show a global conformational change in p110&#x3B1; consistent with allosteric regulation of the kinase domain by nSH2. These findings broaden our understanding of the differential biological outputs exhibited by distinct types of mutations regarding growth factor dependence, and suggest a two-tier classification scheme relating p110&#x3B1; and p85&#x3B1; mutations with signalling potential.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>PIK3CA mutations</kwd>
+        <kwd>p110alpha</kwd>
+        <kwd>lipid binding</kwd>
+        <kwd>crystal structure</kwd>
+        <kwd>inhibitor</kwd>
+        <kwd>growth factor signalling</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United Kingdom">Medical Research Council : </funding-source>
+          <award-id>U.1051.03.014(78824) || MRC_</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro" id="S1">
+      <title>Introduction</title>
+      <p id="P3">Class IA PI3Ks transduce growth factor signalling by phosphorylating phosphatidylinositol 4,5-bisphosphate (PtdIns(4,5)P<sub>2</sub>) to produce PtdIns(3,4,5)P<sub>3</sub> on the plasma membrane. Recruitment to membrane receptors and enzyme activation are coordinated by engagement of the p85 SH2 domains to regions bearing phosphorylated &#x2018;YXXM&#x2019; motifs on activated RTKs or RTK-associated adaptors (<xref ref-type="bibr" rid="R2">Backer et al., 1992</xref>; <xref ref-type="bibr" rid="R6">Carpenter et al., 1993</xref>). PtdIns(3,4,5)P<sub>3</sub> serves as docking sites for downstream signalling molecules that harbour pleckstrin homology domains. Central among these are PDK1 and PKB/AKT, which orchestrate signalling cascades promoting cell growth, proliferation, survival, metabolism and migration (<xref ref-type="bibr" rid="R26">Manning and Cantley, 2007</xref>; <xref ref-type="bibr" rid="R15">Franke, 2008</xref>; <xref ref-type="bibr" rid="R3">Bayascas, 2010</xref>). Cellular levels of PtdIns(3,4,5)P<sub>3</sub> are tightly regulated. PTEN down-regulates p110 signalling by removing the 3&#x2032;-phosphate of PtdIns(3,4,5)P<sub>3</sub> (<xref ref-type="bibr" rid="R7">Carracedo and Pandolfi, 2008</xref>). Up-regulation of PI3K signalling, through amplification or gain-of-function mutations of RTKs, p110&#x3B1; and AKTs, as well as loss of PTEN function and expression, occurs frequently in human cancers (<xref ref-type="bibr" rid="R47">Yuan and Cantley, 2008</xref>; <xref ref-type="bibr" rid="R10">Chalhoub and Baker, 2009</xref>).</p>
+      <p id="P4">Uniquely among the four class I PI3K isoforms that produce PtdIns(3,4,5)P<sub>3</sub>, p110&#x3B1; has been identified with activating cancer-linked somatic mutations (<xref ref-type="bibr" rid="R38">Samuels et al., 2004</xref>). Over 80% of the missense mutations cluster in two &#x2018;hotspots&#x2019; commonly represented by E545K in the helical domain, and H1047R in the kinase domain. Both display transforming activities in cell culture (<xref ref-type="bibr" rid="R50">Zhao et al., 2005</xref>; <xref ref-type="bibr" rid="R19">Gymnopoulos et al., 2007</xref>). The ability to initiate tumorigenesis in transgenic mouse models has been demonstrated for the H1047R mutant (<xref ref-type="bibr" rid="R14">Engelman et al., 2008</xref>; <xref ref-type="bibr" rid="R1">Adams et al., 2011</xref>; <xref ref-type="bibr" rid="R28">Meyer et al., 2011</xref>).</p>
+      <p id="P5">Crystal structures of p110&#x3B1;/85&#x3B1; complexes have provided molecular details of p85-mediated inhibition (<xref ref-type="bibr" rid="R21">Huang et al., 2007</xref>; <xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>), revealing that many activating mutations, including ones occurring at low frequencies (<xref ref-type="bibr" rid="R22">Ikenoue et al., 2005</xref>; <xref ref-type="bibr" rid="R19">Gymnopoulos et al., 2007</xref>; <xref ref-type="bibr" rid="R32">Oda et al., 2008</xref>; <xref ref-type="bibr" rid="R48">Zhang et al., 2008</xref>; <xref ref-type="bibr" rid="R23">Jaiswal et al., 2009</xref>; <xref ref-type="bibr" rid="R36">Rudd et al., 2011</xref>), are located in inter-domain contact sites. These sites include the inhibitory interfaces between the p110&#x3B1; C2/helical/kinase domains and the p85&#x3B1; nSH2 domain (<xref ref-type="bibr" rid="R29">Miled et al., 2007</xref>; <xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>), and between the p110&#x3B1; C2 domain and the p85&#x3B1; iSH2 domain (<xref ref-type="bibr" rid="R45">Wu et al., 2009</xref>). Phosphopeptide-binding to nSH2 competes with its inhibitory interaction with p110, constituting the dominant activation mechanism for p110&#x3B1;, and E545K mimics this activation (<xref ref-type="bibr" rid="R46">Yu et al., 1998</xref>; <xref ref-type="bibr" rid="R29">Miled et al., 2007</xref>; <xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>). Since p110&#x3B1; adaptor binding domain (ABD) binds to p85&#x3B1; iSH2 tightly, the often-mutated interface between ABD and the kinase domain can be viewed as an extension of the p85 inhibitory network. Mutations in the kinase C-terminal region do not appear to interfere with p85 inhibition since p85&#x3B1; cSH2 does not play an inhibitory role in p110&#x3B1; regulation (<xref ref-type="bibr" rid="R46">Yu et al., 1998</xref>), although it does for p110&#x3B2; and p110&#x3B4; <italic>via</italic> direct contact with this region (<xref ref-type="bibr" rid="R5">Burke et al., 2011</xref>; <xref ref-type="bibr" rid="R49">Zhang et al., 2011</xref>).</p>
+      <p id="P6">Some of the cancer-linked mutations confer a positive charge, such as C420R and H1047R in p110&#x3B1;, and have been suggested to enhance membrane binding (<xref ref-type="bibr" rid="R19">Gymnopoulos et al., 2007</xref>; <xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>). However, direct membrane-binding measurements are lacking. A common assumption is that these mutations directly facilitate electrostatic interaction with phospholipid headgroups. However, this has limited applicability to other activating mutations, notably H1047L. The E545K and H1047R mutants were first reported to have similar biological activities, in terms of promoting cell growth and resisting apoptosis under growth factor limiting conditions (<xref ref-type="bibr" rid="R37">Samuels et al., 2005</xref>). More recent studies showed that they can have differential functional outcomes, in terms of chemotactic and metastatic phenotypes (<xref ref-type="bibr" rid="R33">Pang et al., 2009</xref>) and transforming potential (<xref ref-type="bibr" rid="R9">Chakrabarty et al., 2010</xref>) of isogenic human breast cancer cells. Transforming ability of chicken embryonic fibroblasts differs between the E545K and the H1047R mutants, invoking the suggestion that these two mutants operate via different activation mechanisms (<xref ref-type="bibr" rid="R51">Zhao and Vogt, 2008</xref>).</p>
+      <p id="P7">Previously, the E545K and H1047R mutants were found to be more active than the WT enzyme, but their similar affinities for ATP did not explain the differences in lipid kinase activities (<xref ref-type="bibr" rid="R8">Carson et al., 2008</xref>). Here, we investigated the premise that enhanced lipid binding forms a general mechanism for p110 activation, particularly regarding cancer mutations. We dissected the structural elements important for lipid binding. Our results show that p85&#x3B1; nSH2, a key regulatory element for p110&#x3B1; lipid kinase activity, controls access of the catalytic subunit lipid binding sites to membrane. We examined a set of p110&#x3B1;/p85&#x3B1; cancer-linked mutants of diverse structural and chemical types, and find a strong correlation linking their elevated lipid kinase activities to their lipid binding levels. We present a crystal structure of WT p110&#x3B1;/p85&#x3B1;-iSH2 in complex with an inhibitor. Its structural features in the kinase domain resemble those of the H1047R mutant (<xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>), instead of the WT apo structure (<xref ref-type="bibr" rid="R21">Huang et al., 2007</xref>). We also noted unusual structural features of the kinase C-terminal tail and tested their function. We observe global conformational changes that might be of relevance to allosteric regulation of p110&#x3B1;, and provide a structural context to understand the functional data presented here.</p>
+    </sec>
+    <sec sec-type="results" id="S2">
+      <title>Results</title>
+      <sec id="S3">
+        <title>Structure of a wildtype p110&#x3B1;/p85&#x3B1;-iSH2 complex</title>
+        <p id="P8">A crystal structure of mouse WT p110&#x3B1; in complex with human p85&#x3B1; niSH2 fragment and the p110&#x3B2;/p110&#x3B4; selective inhibitor PIK-108 has been determined and refined to 3.5 &#xC5; (R<sub>work</sub>/R<sub>free</sub>=0.184/0.228) (acronyms of p110&#x3B1; and p85&#x3B1; domain structures and mutations are illustrated in <xref ref-type="fig" rid="F1">Figure 1</xref>). Details of crystallographic statistics are provided in <xref ref-type="supplementary-material" rid="SD1">Supplementary Table S1</xref>. Although other compounds that inhibit p110&#x3B1; more specifically were surveyed for co-crystallization, the p110&#x3B2;/&#x3B4; selective PIK-108 produced the best crystals. As in the structure of human WT p110&#x3B1;/p85&#x3B1;-iSH2 (<xref ref-type="bibr" rid="R21">Huang et al., 2007</xref>), the nSH2 of the p85&#x3B1; niSH2 fragment is not observed in the electron density map. The high salt concentration in the crystallization cocktail might have competed off nSH2 binding to p110&#x3B1;. As such, our structure represents an alternative view of p110&#x3B1; not constrained by nSH2 binding. Unlike previous structures of p110&#x3B1;/p85&#x3B1; complexes, our structure shows clear electron density for the entire activation loop (<xref ref-type="fig" rid="F2">Figure 2a</xref>). However, key conserved activation loop residues, K942 and R949, previously identified to be important for p110&#x3B3; recognising the substrate PtdIns(4,5)P<sub>2</sub> head group (<xref ref-type="bibr" rid="R35">Pirola et al., 2001</xref>), point away from the ATP binding site (<xref ref-type="fig" rid="F2">Figure 2d</xref>). Hence, although structure of a p110&#x3B1;/p85&#x3B1;-iSH2 complex should mimic an RTK-activated state (see below), the observed conformation of this loop does not appear to be compatible with positioning the lipid headgroup for phosphoryl transfer. The activation loop is also involved in crystal contacts (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S1</xref>), which likely influenced the conformation we observe.</p>
+        <p id="P9">PIK-108 belongs to the class of propeller-shaped PI3K inhibitors. In our structure, the PIK-108 phenyl substituent occupies what has been coined the &#x2018;specificity pocket&#x2019;, which is gated by the P-loop M772, in the kinase ATP-binding site (<xref ref-type="fig" rid="F2">Figure 2b</xref>). Opening of this pocket by propeller-shaped compounds appears to be more favourable in p110&#x3B4; than in other p110 isotypes (<xref ref-type="bibr" rid="R4">Berndt et al., 2010</xref>). This could be the reason for the PIK-108 selectivity for p110&#x3B2; and p110&#x3B4;. There is also complete density for what we interpret as a second PIK-108, snuggling in a hydrophobic pocket in the kinase C-lobe, surrounded by helices k&#x3B1;6-8, k&#x3B1;11 and the C-terminal end of the activation loop (<xref ref-type="fig" rid="F2">Figure 2c</xref>). This pocket is partially occupied by the activation loop residues 954-956 (or their equivalents) in other p110 structures. The presence of the compound in this induced pocket may have contributed to the ordering of the activation loop, which is involved in crystal packing, and might explain why this crystal form is specific to PIK-108, out of twenty tested p110 selective inhibitors.</p>
+      </sec>
+      <sec id="S4">
+        <title>The kinase C-terminal region of p110&#x3B1; exhibits intrinsic flexibility</title>
+        <p id="P10">Our structure is for the WT p110&#x3B1;, but the kinase C-terminal tail more closely resembles those in the structures of the oncogenic mutant H1047R p110&#x3B1;/p85&#x3B1;-niSH2 (<xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>), than that in the WT apo p110&#x3B1;/p85&#x3B1;-iSH2 structure (<xref ref-type="bibr" rid="R21">Huang et al., 2007</xref>). In the WT apo p110&#x3B1;/p85&#x3B1;-iSH2 structure, helix k&#x3B1;11 is complete to residue 1048, and the rest of the C-terminal sequence is largely disordered (<xref ref-type="bibr" rid="R21">Huang et al., 2007</xref>) [hereafter all p110 secondary structure nomenclature is according to that of p110&#x3B3; (<xref ref-type="bibr" rid="R42">Walker et al., 1999</xref>)]. The kinase C-terminal tail in our structure adopts an extended conformation from residue 1045 to 1061, with the last helical turn of k&#x3B1;11 appearing to be distorted (<xref ref-type="fig" rid="F2">Figure 2a</xref>). A striking feature in this region is the WIF motif (1057-1059), whose side-chains stack against each other (<xref ref-type="fig" rid="F2">Figure 2d</xref>). This motif is conserved as a triplet of hydrophobic residues in class I and class II PI3Ks, with W1057 being invariant in class I p110 (<xref ref-type="fig" rid="F1">Figure 1</xref>). The equivalent &#x2018;WFL&#x2019; (1086-1088) in p110&#x3B3; is part of helix k&#x3B1;12 (<xref ref-type="fig" rid="F2">Figure 2e</xref>), which corresponds to residues 1050-1061 in p110&#x3B1;. Helix k&#x3B1;12 also exists in the crystal structures of p110&#x3B2; and Vps34 (<xref ref-type="bibr" rid="R30">Miller et al., 2010</xref>; <xref ref-type="bibr" rid="R49">Zhang et al., 2011</xref>). This C-terminal region in our structure, and also in the H1047R p110&#x3B1;/p85&#x3B1;-niSH2 structures, is involved in crystal packing with the Ras-binding domain (RBD) of a symmetry-related molecule (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S1</xref>). Therefore, the conformations of the C-terminal tail among the current p110&#x3B1; structures appear to be dictated by the crystalline environments. It is likely fortuitous that the RBD and the kinase domain pack against each other in different crystal forms of p110&#x3B1;. We would not ascribe any functional significance to these crystal contacts, particularly with regard to Ras activation.</p>
+        <p id="P11">Deletion of helix k&#x3B1;12 in Vps34, p110&#x3B2; and p110&#x3B4; abrogated lipid kinase activity and lipid binding (<xref ref-type="bibr" rid="R30">Miller et al., 2010</xref>; <xref ref-type="bibr" rid="R5">Burke et al., 2011</xref>; <xref ref-type="bibr" rid="R49">Zhang et al., 2011</xref>). This region is also of functional importance for p110&#x3B1; (see below). Deletion of k&#x3B1;12 in Vps34 and in p110&#x3B2; resulted in increased intrinsic ATPase activity in the absence of lipid substrate (<xref ref-type="bibr" rid="R30">Miller et al., 2010</xref>; <xref ref-type="bibr" rid="R49">Zhang et al., 2011</xref>), an observation replicated by deletion of residues 1051-1068 in p110&#x3B1; (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S2</xref>, &#x394;cterm mutant). Interactions between helix k&#x3B1;12 and the catalytic loop (illustrated for p110&#x3B3; in <xref ref-type="fig" rid="F2">Figure 2e</xref>) were suggested to shield the conserved catalytic DRH motif from performing futile ATP hydrolysis (<xref ref-type="bibr" rid="R30">Miller et al., 2010</xref>; <xref ref-type="bibr" rid="R49">Zhang et al., 2011</xref>). These interactions are not observed in the current p110&#x3B1; crystal structures, suggesting that in solution, p110&#x3B1; could also have a helix k&#x3B1;12, similar to p110&#x3B3;, p110&#x3B2; and Vps34. The extended conformations observed in current crystal structures of p110&#x3B1; suggest an intrinsic flexibility in this region.</p>
+      </sec>
+      <sec id="S5">
+        <title>Correlation of lipid kinase activity with lipid binding</title>
+        <p id="P12">To test whether lipid binding forms the basis of p110 activation, we compared lipid kinase with lipid binding activities for three sets of p110&#x3B1;/p85&#x3B1; complexes: SH2 deletions in p85&#x3B1;, engineered mutations in the p110&#x3B1; kinase domain and cancer-linked mutations in both p110&#x3B1; and p85&#x3B1; (<xref ref-type="fig" rid="F3">Figure 3</xref>). We evaluated activation by RTK phosphopeptide for all complexes, using the doubly tyrosine-phosphorylated peptide (pY2-peptide) derived from PDGFR&#x3B2;. We used liposomes of defined compositions generally mimicking that of plasma membranes (<xref ref-type="bibr" rid="R31">Narayan and Lemmon, 2006</xref>). The substrate PtdIns(4,5)P<sub>2</sub> was used at 2% (close to the physiological concentration), and the anionic lipid phosphatidylserine (PS) was tested at two concentrations, 10% and 20%. Cancer-linked mutations and nSH2 deletion in p85&#x3B1; severely suppressed expression of p110/p85 in insect cells. To obtain sufficient materials for lipid binding analyses, we produced activating p110&#x3B1;/p85&#x3B1; proteins in the catalytically dead (CD) background, bearing the D915N mutation in the catalytic DRH motif of p110&#x3B1;.</p>
+        <p id="P13">We employed surface plasmon resonance (SPR) to measure lipid binding (schematics shown in <xref ref-type="fig" rid="F3">Figure 3d,e</xref>). We examined the electrostatic and the hydrophobic components of lipid binding explicitly, since both are important properties for many membrane-binding proteins (<xref ref-type="bibr" rid="R11">Cho and Stahelin, 2005</xref>; <xref ref-type="bibr" rid="R24">Lemmon, 2008</xref>). We immobilized liposomes of different compositions in each of the four serially connected flow cells on the sensor chip. Flow cell one (Fc1) of the chip contained only neutral lipids phosphatidylcholine (PC), phosphatidylethanolamine (PE) and cholesterol, while Fc2, Fc3 and Fc4 contained additionally negatively-charged lipids PS (Fc2), or PS with PtdIns(4,5)P<sub>2</sub> (Fc3 and Fc4). As such, Fc1 subtracted signals represent the electrostatic component of binding. We attribute any binding signals on Fc1 that are significantly above background (estimated as the averaged signal on Fc1 produced by the lipid kinase dead mutants) to be the hydrophobic component of lipid binding.</p>
+      </sec>
+      <sec id="S6">
+        <title>p85&#x3B1; nSH2, but not cSH2, regulates both lipid kinase activity and membrane binding of p110&#x3B1;</title>
+        <p id="P14">The nSH2 plays a dominant role in regulating the lipid kinase activity of p110&#x3B1;. The basal activities of p110&#x3B1;/p85&#x3B1;-nicSH2 and p110&#x3B1;/p85&#x3B1;-niSH2 complexes are very low using liposome substrate mimicking physiological concentrations of PS and PtdIns(4,5)P<sub>2</sub>. Activation, whether by binding of RTK phosphopeptide to nSH2-containing complexes, or by nSH2 deletion, increases the activity by 25-50 fold (<xref ref-type="fig" rid="F3">Figure 3f</xref>). Qualitatively, our results recapitulate those of previous studies performed with pure phosphatidylinositol (PtdIns) as substrate (<xref ref-type="bibr" rid="R46">Yu et al., 1998</xref>). Correspondingly, RTK phosphopeptide binding to nSH2-containing complexes induces lipid binding (<xref ref-type="fig" rid="F3">Figure 3g</xref>). Binding of RTK phosphopeptide to cSH2 does not affect either the kinase activity or membrane binding (<xref ref-type="fig" rid="F3">Figure 3f,g</xref>). Total negative charge on the liposomes positively influenced lipid binding. Liposome compositions differing by 10% in PS confer up to two-fold increases in lipid binding levels. Hence, it appears that for p110&#x3B1;, the nSH2-p110&#x3B1; inhibitory contact, which is relieved by phosphopeptide binding, suppresses the basal lipid kinase activity by inhibiting membrane binding.</p>
+      </sec>
+      <sec id="S7">
+        <title>Both kinase activation loop and C-terminal tail are necessary for binding to anionic lipids</title>
+        <p id="P15">Using PtdIns(4,5)P<sub>2</sub>-containing liposomes, no kinase activity could be detected for three engineered kinase domain mutants: (i) the activation loop mutant R949D, (ii) the kinase helix k&#x3B1;12 deletion mutant (&#x394;cterm), nor (iii) a helix k&#x3B1;12 triple mutant with much reduced hydrophobicity (WIF-AAA(1057-1059)), with protein concentration as high as 500 nM and incubation time up to an hour. These mutants, however, are catalytically active in terms of intrinsic ATPase activity (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S2</xref>). In lipid binding experiments, correspondingly, the R949D mutant showed much reduced binding to anionic lipids (<xref ref-type="fig" rid="F3">Figure 3h</xref>). The same result was observed for K942Q (data not shown). These results are consistent with the observation that mutations removing the positive charges of the equivalent residues in p110&#x3B3; prevent PtdIns(4,5)P<sub>2</sub>, but not PtdIns or PtdIns4P, from acting as a substrate (<xref ref-type="bibr" rid="R35">Pirola et al., 2001</xref>). The kinase C-terminal mutants, &#x394;cterm and WIF-AAA, did not show any detectable binding to anionic lipids at concentration up to 1 &#x3BC;M. This establishes the WIF motif as a key determinant for lipid binding in the C-terminal region. These results indicate that there are at least two lipid-binding sites in the kinase domain: one is in the polybasic activation loop, electrostatic in nature, and the other in the C-terminal region, hydrophobic in nature.</p>
+      </sec>
+      <sec id="S8">
+        <title>Effects of cancer-linked mutations in p110&#x3B1;/p85&#x3B1; on lipid binding</title>
+        <p id="P16">To gain a broader view of the effects of cancer-linked mutations, we studied seven mutations that have previously been characterized to be activating (<xref ref-type="bibr" rid="R22">Ikenoue et al., 2005</xref>; <xref ref-type="bibr" rid="R19">Gymnopoulos et al., 2007</xref>; <xref ref-type="bibr" rid="R48">Zhang et al., 2008</xref>; <xref ref-type="bibr" rid="R23">Jaiswal et al., 2009</xref>). They cover three structurally distinct regions (<xref ref-type="fig" rid="F3">Figure 3a-c</xref>), namely, the C2-iSH2 interface (p110&#x3B1; C420R and p85&#x3B1; N564D), the helical-nSH2 interface (p110&#x3B1; E545K) and the kinase domain (M1043I, H1047L, H1047R and G1049R), and represent different chemical property changes.</p>
+        <p id="P17">Overall, there is a strong correlation between lipid kinase activity and lipid binding (<xref ref-type="fig" rid="F3">Figure 3i,j</xref>, total lipid binding on Fc4 is shown in <xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S3</xref>), underscoring enhanced lipid binding as a general mechanism for cancer-linked activating mutations. All mutants have increased basal activity, and other than E545K, can be significantly further activated by phosphopeptide binding. This affirms that the C2-iSH2 inhibitory contact site does not function identically to the nSH2 inhibitory site, which includes both C2 and helical domains in the crystal structure (<xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>). The degree of activation is enhanced by increase in negative charges on the liposomes. Both anionic lipids PS and PtdIns(4,5)P<sub>2</sub> enhance lipid binding.</p>
+        <p id="P18">There is a pattern correlating the location of the mutations with their hydrophobic component of lipid binding (<xref ref-type="fig" rid="F3">Figure 3j</xref>): non-kinase domain mutants (C420R, E545K and p85&#x3B1;-N564D) display high levels of hydrophobic interaction with neutral lipids in the basal state, whereas the kinase C-terminal mutants require phosphopeptide activation to achieve the same level of hydrophobic binding. We will consider the two groups separately.</p>
+        <p id="P19">Despite their different chemical properties, the kinase domain mutants, H1047L, H1047R and G1049R, exhibit similarly high levels of hydrophobic binding to neutral lipids, and electrostatic binding to PS/PtdIns(4,5)P<sub>2</sub>-containing lipids upon phosphopeptide activation. These binding levels are a few fold higher than those of the activated WT enzyme. We have shown that the kinase helix k&#x3B1;12 constitutes a lipid-binding site. It is likely that helix k&#x3B1;11 and the k&#x3B1;11-k&#x3B1;12 &#x201C;elbow&#x201D;, on which these mutations reside, is an extension of the same site.</p>
+        <p id="P20">For non-kinase domain mutants, the nature of the effects of hydrophobicity is not immediately obvious. Disruption of the C2-iSH2 (C420R and p85&#x3B1;-N564D) or the C2/helical-nSH2 contacts (E545K) could expose hydrophobic regions in the C2 domain that are normally inaccessible to lipid binding. The iSH2 N564 forms polar contacts with the C2 N345, which is in the C2&#x3B2;1-&#x3B2;2 loop. The C2 C420, which is in the C2&#x3B2;5-&#x3B2;6 loop, forms van der Waals contacts with iSH2 P568 (<xref ref-type="fig" rid="F3">Figure 3a</xref>). These two C2 loops in p110&#x3B1; are equivalent to the lipid-binding loops in the C2 domains of PKC&#x3B1;, which binds PS (<xref ref-type="bibr" rid="R18">Guerrero-Valero et al., 2009</xref>), and of cPLA<sub>2</sub>, which binds PC (<xref ref-type="bibr" rid="R34">Perisic et al., 1999</xref>; <xref ref-type="bibr" rid="R39">Stahelin et al., 2003</xref>). Superposition of the PKC&#x3B1; C2 structure, which has a bound short acyl-chain PS molecule (PDB ID: 1dsy), onto the C2 domain of our p110&#x3B1;/p85&#x3B1;-iSH2 structure reveals that both N564D and C420R would be compatible with accessing phospholipid headgroups (<xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S4a</xref>). This interpretation would account for the observed increase in electrostatic interaction with anionic lipids (<xref ref-type="fig" rid="F3">Figure 3j</xref>).</p>
+      </sec>
+      <sec id="S9">
+        <title>Global conformational change in p110&#x3B1; accompanies nSH2 disengagement</title>
+        <p id="P21">The p85&#x3B1; nSH2 does not contact the lipid binding elements in the kinase C-lobe (<xref ref-type="fig" rid="F4">Figure 4a</xref>) but appears to control their access to membrane (<xref ref-type="fig" rid="F3">Figure 3f-j</xref>). This suggests the activation mechanism by nSH2 to be allosteric. By performing structural alignments on the iSH2 of p110&#x3B1;/p85&#x3B1; structures, we observe a global conformational difference between those lacking the inhibitory contacts with nSH2 (as represented by the WT p110&#x3B1;/p85&#x3B1;-iSH2 structures) and those with the nSH2 interactions (as represented by the H1047R p110&#x3B1;/p85&#x3B1;-niSH2 structures) (<xref ref-type="fig" rid="F4">Figure 4b,c</xref>). Viewing down the iSH2 coiled coil axis from the nSH2 side, the p110&#x3B1; subunit rotates clockwise from the state with an ordered nSH2 to the state lacking the nSH2 (<xref ref-type="fig" rid="F4">Figure 4c</xref>). The ABD and the C2, which are anchored on the iSH2, form the pivot points of the movement (<xref ref-type="fig" rid="F4">Figure 4d</xref>). The movement appears to be transmitted from the helical domain to the RBD and the kinase C-lobe, which exhibit the greatest degree of displacement (<xref ref-type="fig" rid="F4">Figure 4d</xref>). This global conformational change suggests how nSH2 disengagement from p110&#x3B1; could allosterically cause local conformational change in the kinase C-lobe that might impact on activity. This is noteworthy considering that our WT p110&#x3B1;/p85&#x3B1;-iSH2/PIK-108 structure and the apo WT p110&#x3B1;/p85&#x3B1;-iSH2 structure experience very different crystal packing environments but superimpose well (<xref ref-type="fig" rid="F4">Figure 4b</xref>).</p>
+      </sec>
+      <sec id="S10">
+        <title>Activation of all class IA PI3Ks by phosphopeptide increases lipid binding</title>
+        <p id="P22">Activation of p110&#x3B2;/p85&#x3B1;-nicSH2 and p110&#x3B4;/p85&#x3B1;-nicSH2 complexes by phosphopeptide also induces lipid binding (<xref ref-type="fig" rid="F5">Figure 5a</xref>). This is in agreement with the recent report for p110&#x3B4; in a complex with full-length p85&#x3B1; (<xref ref-type="bibr" rid="R5">Burke et al., 2011</xref>). The relative contributions of electrostatic and hydrophobic components of binding differ among the three p110 isoforms, probably reflecting their sequence variability in the key lipid binding sites (<xref ref-type="fig" rid="F1">Figure 1</xref>). In the primary sequences, the equivalent of H1047 in p110&#x3B1; is a Leu in p110&#x3B2; and p110&#x3B4;. For PS/PtdIns(4,5)P<sub>2</sub>-containing liposomes, the total lipid binding level of activated H1047L p110&#x3B1; is a few fold higher than those of activated p110&#x3B2; and p110&#x3B4; (<xref ref-type="fig" rid="F5">Figure 5b</xref>). These results indicate that there is more than this hotspot position that differentiates the lipid binding capabilities among the three p110 isoforms.</p>
+      </sec>
+    </sec>
+    <sec sec-type="discussion" id="S11">
+      <title>Discussion</title>
+      <p id="P23">We have directly demonstrated that phosphopeptide-induced lipid binding underlies the activation mechanism for WT p110&#x3B1;/p85&#x3B1;. For most cancer-linked mutants of p110&#x3B1;/p85&#x3B1;, both basal and phosphopeptide-induced membrane binding is enhanced. For WT p110&#x3B1;, the primary lipid binding sites reside in the kinase domain, comprising the polybasic activation loop and hydrophobic elements in the C-terminal tail. We have identified activating cancer-linked mutants in the kinase C-terminal tail (H1047L, H1047R, G1049R) as well as mutants affecting the C2-iSH2 interaction (C420R and p85&#x3B1;-N564D) that enhance intrinsic lipid binding. Our binding data and structural analysis support the dual roles of C420R and N564D in disrupting C2-iSH2 contact and enhancing lipid binding. It is likely that this occurs <italic>via</italic> direct interactions between the C2 and/or the iSH2 domains with membranes. This additional membrane-binding site could both enhance total lipid binding and influence the choice of the membrane used by the WT enzyme or by particular p110&#x3B1;/p85&#x3B1; mutants in a cellular context.</p>
+      <p id="P24">Our data indicate that the inhibitory contact formed between the nSH2 and p110&#x3B1; C2/helical/kinase domains suppresses the basal kinase activity by inhibiting membrane binding. This is consistent with previous biochemical results for enzyme activity (<xref ref-type="bibr" rid="R46">Yu et al., 1998</xref>), in that the p85&#x3B1; nSH2, but not the cSH2, plays a principal role in regulating the activity of p110&#x3B1;. Mechanistically, we postulate that relieving the nSH2 inhibitory contact from p110&#x3B1; could result in a concerted conformational change propagating from the helical domain to the kinase C-lobe, as suggested by our structural comparison of activated and inhibited forms of p110&#x3B1;/p85&#x3B1; (<xref ref-type="fig" rid="F4">Figure 4</xref>). This might trigger the activation loop and the C-terminal region to adopt lipid-binding competent conformations. The polybasic activation loop both facilitates long range electrostatic attraction to anionic lipids, and positions the PtdIns(4,5)P<sub>2</sub> headgroup to the bound ATP for phosphoryl transfer. Since the ATP binding pocket is recessed in the kinase domain, partial membrane penetration by the C-terminal region would facilitate approach of the ATP &#x3B3;-phosphate to the inositol ring of PtdIns(4,5)P<sub>2</sub> (<xref ref-type="fig" rid="F6">Figure 6</xref>).</p>
+      <p id="P25">We have demonstrated that binding of activated p110/p85&#x3B1; to lipid membrane has both an electrostatic and a hydrophobic component. Basic residues in the activation loop contribute to the electrostatic component. The C-terminal tail is clearly important for membrane interaction, but its contribution is complex. SPR measurements show that mutating the hydrophobic WIF motif to &#x201C;AAA&#x201D; abolishes measureable electrostatic interactions with anionic lipids. Conversely, the activated H1047L, H1047R and G1049R mutants increase both hydrophobic and electrostatic interactions with lipids. These observations attest to the importance of cooperation between the electrostatic and the hydrophobic membrane-binding elements in p110&#x3B1;/p85&#x3B1;, as seen for other membrane-binding proteins (<xref ref-type="bibr" rid="R11">Cho and Stahelin, 2005</xref>). Our data also elucidate the influence of lipid composition on lipid kinase activities for both WT and mutant p110/p85 complexes (<xref ref-type="bibr" rid="R25">Mandelker et al., 2009</xref>).</p>
+      <p id="P26">Our structure reveals an alternative, small molecule binding site in the kinase C-lobe. Current inhibitors for class I PI3K are all ATP-competitive compounds (<xref ref-type="bibr" rid="R27">Marone et al., 2008</xref>). This induced binding pocket might be exploited to develop a novel class of inhibitors that are not ATP competitive but could interfere with membrane binding. Although we could not detect any inhibition of lipid binding with PIK-108 (up to 50 &#x3BC;M for the CD_E545K mutant, assayed in the same manner described in <xref ref-type="fig" rid="F3">Figure 3i,j</xref>, data not shown), it might be that compounds with enhanced affinity for this site could act as PI3K inhibitors. An example of a membrane-binding inhibitor that is in clinical trials is Perifosine, an alkylphospholipid that targets the PH domain of AKT (<xref ref-type="bibr" rid="R16">Gills and Dennis, 2009</xref>).</p>
+      <p id="P27">It appears that the p110&#x3B1; and p85&#x3B1; mutations can be classified as two basic types: (I) those that relieve p85-mediated inhibition and (II) those that lead to additional lipid binding capability (<xref ref-type="fig" rid="F6">Figure 6</xref>). Type I mutations up-regulate kinase activity by unmasking the intrinsic lipid-binding potential of WT p110&#x3B1;/p85&#x3B1;. These mutants have elevated basal activities and binding of RTK phosphopeptides does not significantly enhance their activities beyond that of activated WT enzyme. We have shown that the hotspot mutant E545K belongs to this class, in accordance with previous work (<xref ref-type="bibr" rid="R29">Miled et al., 2007</xref>; <xref ref-type="bibr" rid="R8">Carson et al., 2008</xref>). Several other activating mutations that are distant from the putative membrane interface, such as R38C/H, R88Q, P539R, and deletion of residues 449-455 in the C2&#x3B2;7-&#x3B2;8 loop (<xref ref-type="bibr" rid="R22">Ikenoue et al., 2005</xref>; <xref ref-type="bibr" rid="R32">Oda et al., 2008</xref>; <xref ref-type="bibr" rid="R36">Rudd et al., 2011</xref>), could also belong to this class (<xref ref-type="fig" rid="F6">Figure 6</xref>). Type II mutations are still subjected to p85&#x3B1; nSH2-mediated inhibition. We and others have shown that H1047R belongs to this type, which can be significantly activated by a phosphorylated RTK peptide (this study) or the adaptor protein IRS (<xref ref-type="bibr" rid="R8">Carson et al., 2008</xref>). Although basal activities of type II mutants are higher than that of WT enzyme, their maximal lipid binding and kinase activities achieved by RTK phosphopeptide binding greatly exceed those of the activated WT enzyme (3-7 fold with our experimental setup).</p>
+      <p id="P28">Our <italic>in vitro</italic> results imply that the biological outputs of the type II mutants can be greatly augmented by growth factor/RTK signalling. This notion is supported by reports that compared the E545K and H1047R mutants in cells. Human cancer cell lines bearing helical domain mutations showed lower AKT phosphorylation level and AKT-dependent signalling than cell lines bearing kinase domain mutations coupled with either <italic>HER2</italic> amplification or EGFR hyperactivation (<xref ref-type="bibr" rid="R40">Vasudevan et al., 2009</xref>). H1047R, but not E545K, was found to enhance <italic>HER2</italic>-mediated transformation of breast cancer cells <italic>via</italic> autocrine proliferative stimulation (<xref ref-type="bibr" rid="R9">Chakrabarty et al., 2010</xref>). Therefore, cancers with the type II mutations might be better treated by co-inhibition of p110&#x3B1; and RTKs, because these mutants strongly depend on RTK stimulation to reach a critical threshold of membrane binding/activity necessary for transformation. For E545K to achieve a similar level of transforming activity as H1047R in chicken embryonic fibroblasts, it required additionally Ras binding (<xref ref-type="bibr" rid="R51">Zhao and Vogt, 2008</xref>). It is likely that Ras could increase recruitment of p110&#x3B1; to lipid membrane. Cancers with type I mutations such as E545K might be better treated by co-inhibition of the p110&#x3B1; and the Ras pathway, because these mutants could be more dependent on &#x201C;topping-up&#x201D; by Ras to achieve the membrane binding threshold necessary for transformation. Type I and type II mutants could also confer distinct functional significance during different stages of cancer biology. For example, the E545K mutant was found to have a stronger metastatic phenotype than the H1047R mutant in tumor xenograft models using isogenic, human breast cancer cells (<xref ref-type="bibr" rid="R33">Pang et al., 2009</xref>). The ability to induce tumour formation thus far has been demonstrated only for the H1047R mutant, but not yet for the E545K mutant, in engineered mouse models of cancers (<xref ref-type="bibr" rid="R14">Engelman et al., 2008</xref>; <xref ref-type="bibr" rid="R1">Adams et al., 2011</xref>; <xref ref-type="bibr" rid="R28">Meyer et al., 2011</xref>).</p>
+      <p id="P29">Both growth factor independence and growth factor signalling manipulation are traits that enable cancer cells to sustain proliferative signalling (<xref ref-type="bibr" rid="R44">Witsch et al., 2010</xref>; <xref ref-type="bibr" rid="R20">Hanahan and Weinberg, 2011</xref>). Investigating the influence of upstream RTK signalling could elucidate the yet unclear roles of the different PI3K mutations in cancer initiation, progression and maintenance, and in identifying suitable biomarkers for cancer therapy targeting the PI3K pathway (<xref ref-type="bibr" rid="R13">Engelman, 2009</xref>) .</p>
+    </sec>
+    <sec sec-type="methods" id="S12">
+      <title>Materials and methods</title>
+      <sec id="S13">
+        <title>Plasmids</title>
+        <p id="P30">Details of expression constructs for p110&#x3B1;, p110&#x3B2;, p110&#x3B4; (all mouse), p85&#x3B1; (mouse, except for the &#x2018;ni&#x2019; fragment which is human), and Grp1-PH (human) are provided in <xref ref-type="supplementary-material" rid="SD1">Supplementary materials and methods</xref>. Domain boundaries of p85&#x3B1; fragments are shown in <xref ref-type="fig" rid="F1">Figure 1</xref>.</p>
+      </sec>
+      <sec id="S14">
+        <title>Protein expression and purification</title>
+        <p id="P31">All p110/p85 complexes were co-expressed in <italic>Sf9</italic> insect cells. The N-terminal His<sub>6</sub>-tag on p110&#x3B1; was kept for proteins used for crystallization but was cleaved off for those used for functional analyses. GST-Grp1-PH was expressed in <italic>E coli.</italic> Details of expression and purification are described in <xref ref-type="supplementary-material" rid="SD1">Supplementary materials and methods</xref>.</p>
+      </sec>
+      <sec id="S15">
+        <title>Crystallization and structure determination</title>
+        <p id="P32">The complex of His<sub>6</sub>-(TEV)-tagged mouse p110&#x3B1; with human p85&#x3B1;-niSH2 was co-crystallized with PIK-108. The crystals diffracted to 3.5 &#xC5;, and belong to the spacegroup I222 with one heterodimer per asymmetric unit. The human apo WT p110&#x3B1;/p85&#x3B1;-iSH2 structure ((<xref ref-type="bibr" rid="R21">Huang et al., 2007</xref>), PDB ID: 2rd0) was used as the search model for molecular replacement. Details of crystallization and structure determination are described in <xref ref-type="supplementary-material" rid="SD1">Supplementary materials and methods</xref>. Crystallographic statistics are presented in <xref ref-type="supplementary-material" rid="SD1">Supplementary Table S1</xref>. All structural graphics were prepared with <italic>PyMOL</italic> (<ext-link ext-link-type="uri" xlink:href="http://www.pymol.org">www.pymol.org</ext-link>).</p>
+      </sec>
+      <sec id="S16">
+        <title>Lipid kinase activity assay</title>
+        <p id="P33">Liposomes comprising PC/PE/PS/PtdIns(4,5)P<sub>2</sub>/cholesterol were in mol% ratios of either 38:25:20:2:15 or 38:35:10:2:15. PtdIns(3,4,5)P<sub>3</sub> production was measured by a modified fluorescence polarization assay (Echelon Biosciences) originally developed for use with diC8-PtdIns(4,5)P<sub>2</sub> as a substrate (<xref ref-type="bibr" rid="R12">Drees et al., 2003</xref>). Reactions were carried out at room temperature (25 &#xB0;C) in 384-well microtitre plates. A 10 &#x3BC;l reaction consisted of 50 &#x3BC;M PtdIns(4,5)P<sub>2</sub> in 2.5 mM liposomes, p110/p85 (500 nM for non-activated WT p110&#x3B1;/p85&#x3B1;-nicSH2, 5 nM for the rest), 100 &#x3BC;M ATP, 1 mM MgCl<sub>2</sub>, and with or without 1 &#x3BC;M pY2-peptide. The reactions were quenched with 5 &#x3BC;l buffer containing 20 mM Hepes (pH 7.5), 150 mM NaCl, 20 mM EDTA, and 400 nM GST-Grp1-PH, followed by addition of 5 &#x3BC;l of 40 nM TAMRA-Ins(1,3,4,5)P<sub>4</sub> in HNT buffer. The plates were read in a PHERAstar spectrofluorometer (BMG Labtech, Germany) using the FP/540-20/590-20/590-20 optical module. Standard curves were performed with diC8-PtdIns(3,4,5)P<sub>3</sub> with or without pY2-peptide. Only a minor difference due to presence of pY2-peptide was observed under our assay condition, which is different from that published previously (<xref ref-type="bibr" rid="R8">Carson et al., 2008</xref>).</p>
+      </sec>
+      <sec id="S17">
+        <title>SPR measurement of lipid binding</title>
+        <p id="P34">Liposome binding experiments were performed at 25 &#xB0;C on a BIAcore2000, using the L1 sensor chip (GE Healthcare). HNT was used as the running buffer. Liposomes comprising PC/PE/PS/PtdIns(4,5)P<sub>2</sub>/cholesterol were in mol% ratios of either 60:25:0:0:15 (Fc1), 50:25:10:0:15 (Fc2), 48:25:10:2:15 (Fc3) or 38:25:20:2:15 (Fc4). Liposomes (0.1 &#x2013; 0.2 mM) were injected onto each flow-cell at 5 &#x3BC;l/min flow rate to achieve ~3400 RU immobilization level. This was followed by two injections of 0.2 M Na<sub>2</sub>CO<sub>3</sub> to remove loosely bound liposomes. Chicken egg white albumin (0.2 mg/ml) was injected over the flow-cells to mask any residual hydrophobic surface not covered by the liposomes, followed by multiple injections of 0.2 M Na<sub>2</sub>CO<sub>3</sub> to stabilize the baseline. Steady-state binding was measured by injecting p110/p85 complexes (concentration at either 500 nM or 1 &#x3BC;M) at 2 &#x3BC;l/min flow rate for 5 min. Each measurement was followed by injections of 0.2 M Na<sub>2</sub>CO<sub>3</sub> to regenerate the liposome surface. Independent experiments were carried out with freshly immobilized liposomes after stripping the sensor surface sequentially with 0.1 N NaOH, isopropanol:0.1 N NaOH (2:3) and 6 M guanidinium HCl.</p>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="SM">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <label>1</label>
+        <media xlink:href="NIHMS36996-supplement-1.doc" orientation="portrait" xlink:type="simple" id="d35e819" position="anchor" mimetype="application" mime-subtype="msword"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack id="S18">
+      <title>Acknowledgements</title>
+      <p>We are grateful to Kevan Shokat and co-workers (UCSF, USA), including Beth Apsel, Benjamin Houseman, Eli Zunder, Morri Feldman and Zachary Knight, for their generous gift of PI3K inhibitors, which were crucial for crystallization screening. We would like to thank the beamline scientists and members of staff at the ESRF beamlines ID14-1, ID14-2, ID14-4, ID23-1, ID23-2, and ID29 (Grenoble, France) and Diamond Light Source beamlines I02 and I03 (United Kingdom). We also thank past and present members of the Williams&#x2019;s group, particularly Simon Miller, for assistance with remote crystal data collection, Olga Perisic for providing baculovirus of mouse p110&#x3B2;, Alexey Murzin for his structural insight of the WIF motif conformation, Andrew Leslie and Nicolas Soler for providing scripts to create <xref ref-type="fig" rid="F4">Figure 4d</xref>. This work was supported by the Medical Research Council, UK.</p>
+    </ack>
+    <fn-group>
+      <fn id="FN2">
+        <p id="P35"><bold>Conflict of interest</bold> The authors declare that there are no competing financial interests in relation to the work described.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>References</title>
+      <ref id="R1">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Adams</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Agamez</surname>
+              <given-names>NM</given-names>
+            </name>
+            <name>
+              <surname>Loch</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>RG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Cooperation between Pik3ca and p53 mutations in mouse mammary tumor formation</article-title>
+          <source>Cancer Res</source>
+          <year>2011</year>
+          <volume>71</volume>
+          <fpage>2706</fpage>
+          <lpage>2717</lpage>
+          <pub-id pub-id-type="pmid">21324922</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R2">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Backer</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Myers</surname>
+              <given-names>MGJ</given-names>
+            </name>
+            <name>
+              <surname>Shoelson</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Chin</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Sun</surname>
+              <given-names>XJ</given-names>
+            </name>
+            <name>
+              <surname>Miralpeix</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Phosphatidylinositol 3&#x2032;-kinase is activated by association with IRS-1 during insulin stimulation</article-title>
+          <source>EMBO J</source>
+          <year>1992</year>
+          <volume>11</volume>
+          <fpage>3469</fpage>
+          <lpage>3479</lpage>
+          <pub-id pub-id-type="pmid">1380456</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R3">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bayascas</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>PDK1: the major transducer of PI 3-kinase actions</article-title>
+          <source>Curr Top Microbiol Immunol</source>
+          <year>2010</year>
+          <volume>346</volume>
+          <fpage>9</fpage>
+          <lpage>29</lpage>
+          <pub-id pub-id-type="pmid">20563709</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R4">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Berndt</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Le</surname>
+              <given-names>DD</given-names>
+            </name>
+            <name>
+              <surname>Houseman</surname>
+              <given-names>BT</given-names>
+            </name>
+            <name>
+              <surname>Pacold</surname>
+              <given-names>JI</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The p110 delta structure: mechanisms for selectivity and potency of new PI(3)K inhibitors</article-title>
+          <source>Nat Chem Biol</source>
+          <year>2010</year>
+          <volume>6</volume>
+          <fpage>117</fpage>
+          <lpage>124</lpage>
+          <pub-id pub-id-type="pmid">20081827</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R5">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burke</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Vadas</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Berndt</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Finnegan</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Perisic</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Dynamics of the phosphoinositide 3-kinase p110&#x3B4; interaction with p85&#x3B1; and membranes reveals aspects of regulation distinct from p110&#x3B1;</article-title>
+          <source>Structure</source>
+          <year>2011</year>
+          <comment>in press</comment>
+          <pub-id pub-id-type="pmid">21827948</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R6">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carpenter</surname>
+              <given-names>CL</given-names>
+            </name>
+            <name>
+              <surname>Auger</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Chanudhuri</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yoakim</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schaffhausen</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Shoelson</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Phosphoinositide 3-kinase is activated by phosphopeptides that bind to the SH2 domains of the 85-kDa subunit</article-title>
+          <source>J Biol Chem</source>
+          <year>1993</year>
+          <volume>268</volume>
+          <fpage>9478</fpage>
+          <lpage>9483</lpage>
+          <pub-id pub-id-type="pmid">7683653</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R7">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carracedo</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Pandolfi</surname>
+              <given-names>PP</given-names>
+            </name>
+          </person-group>
+          <article-title>The PTEN-PI3K pathway: of feedbacks and cross-talks</article-title>
+          <source>Oncogene</source>
+          <year>2008</year>
+          <volume>27</volume>
+          <fpage>5527</fpage>
+          <lpage>5541</lpage>
+          <pub-id pub-id-type="pmid">18794886</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R8">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carson</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Van Aller</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lehr</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Sinnamon</surname>
+              <given-names>RH</given-names>
+            </name>
+            <name>
+              <surname>Kirkpatrick</surname>
+              <given-names>RB</given-names>
+            </name>
+            <name>
+              <surname>Auger</surname>
+              <given-names>KR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effects of oncogenic p110alpha subunit mutations on the lipid kinase activity of phosphoinositide 3-kinase</article-title>
+          <source>Biochem J</source>
+          <year>2008</year>
+          <volume>409</volume>
+          <fpage>519</fpage>
+          <lpage>524</lpage>
+          <pub-id pub-id-type="pmid">17877460</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R9">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chakrabarty</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Rexer</surname>
+              <given-names>BN</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Cook</surname>
+              <given-names>RS</given-names>
+            </name>
+            <name>
+              <surname>Engelman</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Arteaga</surname>
+              <given-names>CL</given-names>
+            </name>
+          </person-group>
+          <article-title>H1047R phosphatidylinositol 3-kinase mutant enhances HER2-mediated transformation by heregulin production and activation of HER3</article-title>
+          <source>Oncogene</source>
+          <year>2010</year>
+          <volume>29</volume>
+          <fpage>5193</fpage>
+          <lpage>5203</lpage>
+          <pub-id pub-id-type="pmid">20581867</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R10">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chalhoub</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Baker</surname>
+              <given-names>SJ</given-names>
+            </name>
+          </person-group>
+          <article-title>PTEN and the PI3-kinase pathway in cancer</article-title>
+          <source>Annu Rev Pathol</source>
+          <year>2009</year>
+          <volume>4</volume>
+          <fpage>127</fpage>
+          <lpage>150</lpage>
+          <pub-id pub-id-type="pmid">18767981</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R11">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cho</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Stahelin</surname>
+              <given-names>RV</given-names>
+            </name>
+          </person-group>
+          <article-title>Membrane-protein interactions in cell signaling and membrane trafficking</article-title>
+          <source>Annu Rev Biophys Biomol Struct</source>
+          <year>2005</year>
+          <volume>34</volume>
+          <fpage>119</fpage>
+          <lpage>151</lpage>
+          <pub-id pub-id-type="pmid">15869386</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R12">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Drees</surname>
+              <given-names>BE</given-names>
+            </name>
+            <name>
+              <surname>Weipert</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hudson</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ferguson</surname>
+              <given-names>CG</given-names>
+            </name>
+            <name>
+              <surname>Chakravarty</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Prestwich</surname>
+              <given-names>GD</given-names>
+            </name>
+          </person-group>
+          <article-title>Competitive fluorescence polarization assays for the detection of phosphoinositide kinase and phosphatase activity</article-title>
+          <source>Comb Chem High Throughput Screen</source>
+          <year>2003</year>
+          <volume>6</volume>
+          <fpage>321</fpage>
+          <lpage>330</lpage>
+          <pub-id pub-id-type="pmid">12769675</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R13">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Engelman</surname>
+              <given-names>JA</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeting PI3K signalling in cancer: opportunities, challenges and limitations</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2009</year>
+          <volume>9</volume>
+          <fpage>550</fpage>
+          <lpage>562</lpage>
+          <pub-id pub-id-type="pmid">19629070</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R14">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Engelman</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Tan</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Crosby</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Guimaraes</surname>
+              <given-names>AR</given-names>
+            </name>
+            <name>
+              <surname>Upadhyay</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Effective use of PI3K and MEK inhibitors to treat mutant Kras G12D and PIK3CA H1047R murine lung cancers</article-title>
+          <source>Nat Med</source>
+          <year>2008</year>
+          <volume>14</volume>
+          <fpage>1351</fpage>
+          <lpage>1356</lpage>
+          <pub-id pub-id-type="pmid">19029981</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R15">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Franke</surname>
+              <given-names>TF</given-names>
+            </name>
+          </person-group>
+          <article-title>PI3K/Akt: getting it right matters</article-title>
+          <source>Oncogene</source>
+          <year>2008</year>
+          <volume>27</volume>
+          <fpage>6473</fpage>
+          <lpage>6488</lpage>
+          <pub-id pub-id-type="pmid">18955974</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R16">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gills</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Dennis</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>Perifosine: update on a novel Akt inhibitor</article-title>
+          <source>Curr Oncol Rep</source>
+          <year>2009</year>
+          <volume>11</volume>
+          <fpage>102</fpage>
+          <lpage>110</lpage>
+          <pub-id pub-id-type="pmid">19216841</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R17">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gonzalez</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Schell</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Letcher</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Veprintsev</surname>
+              <given-names>DB</given-names>
+            </name>
+            <name>
+              <surname>Irvine</surname>
+              <given-names>RF</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Structure of a human inositol 1,4,5-trisphosphate 3-kinase: substrate binding reveals why it is not a phosphoinositide 3-kinase</article-title>
+          <source>Mol Cell</source>
+          <year>2004</year>
+          <volume>15</volume>
+          <fpage>689</fpage>
+          <lpage>701</lpage>
+          <pub-id pub-id-type="pmid">15350214</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R18">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Guerrero-Valero</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ferrer-Orta</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Querol-Audi</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Marin-Vicente</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Fita</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Gomez-Fernandez</surname>
+              <given-names>JC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Structural and mechanistic insights into the association of PKCalpha-C2 domain to PtdIns(4,5)P2</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2009</year>
+          <volume>106</volume>
+          <fpage>6603</fpage>
+          <lpage>6607</lpage>
+          <pub-id pub-id-type="pmid">19346474</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R19">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gymnopoulos</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Elsliger</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Vogt</surname>
+              <given-names>PK</given-names>
+            </name>
+          </person-group>
+          <article-title>Rare cancer-specific mutations in PIK3CA show gain of function</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2007</year>
+          <volume>104</volume>
+          <fpage>5569</fpage>
+          <lpage>5574</lpage>
+          <pub-id pub-id-type="pmid">17376864</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R20">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hanahan</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Weinberg</surname>
+              <given-names>RA</given-names>
+            </name>
+          </person-group>
+          <article-title>Hallmarks of cancer: the next generation</article-title>
+          <source>Cell</source>
+          <year>2011</year>
+          <volume>144</volume>
+          <fpage>646</fpage>
+          <lpage>674</lpage>
+          <pub-id pub-id-type="pmid">21376230</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R21">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Mandelker</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Schmidt-Kittler</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Samuels</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Velculescu</surname>
+              <given-names>VE</given-names>
+            </name>
+            <name>
+              <surname>Kinzler</surname>
+              <given-names>KW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The structure of a human p110alpha/p85alpha complex elucidates the effects of oncogenic PI3Kalpha mutations</article-title>
+          <source>Science</source>
+          <year>2007</year>
+          <volume>318</volume>
+          <fpage>1744</fpage>
+          <lpage>1748</lpage>
+          <pub-id pub-id-type="pmid">18079394</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R22">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ikenoue</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kanai</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Hikiba</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Obata</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Tanaka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Imamura</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Functional analysis of PIK3CA gene mutations in human colorectal cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2005</year>
+          <volume>65</volume>
+          <fpage>4562</fpage>
+          <lpage>4567</lpage>
+          <pub-id pub-id-type="pmid">15930273</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R23">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jaiswal</surname>
+              <given-names>BS</given-names>
+            </name>
+            <name>
+              <surname>Janakiraman</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Kljavin</surname>
+              <given-names>NM</given-names>
+            </name>
+            <name>
+              <surname>Chaudhuri</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Stern</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>W</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Somatic mutations in p85alpha promote tumorigenesis through class IA PI3K activation</article-title>
+          <source>Cancer Cell</source>
+          <year>2009</year>
+          <volume>16</volume>
+          <fpage>463</fpage>
+          <lpage>474</lpage>
+          <pub-id pub-id-type="pmid">19962665</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R24">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lemmon</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <article-title>Membrane recognition by phospholipid-binding domains</article-title>
+          <source>Nat Rev Mol Cell Biol</source>
+          <year>2008</year>
+          <volume>9</volume>
+          <fpage>99</fpage>
+          <lpage>111</lpage>
+          <pub-id pub-id-type="pmid">18216767</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R25">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mandelker</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Gabelli</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Schmidt-Kittler</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Cheong</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>CH</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A frequent kinase domain mutation that changes the interaction between PI3Kalpha and the membrane</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2009</year>
+          <volume>106</volume>
+          <fpage>16996</fpage>
+          <lpage>17001</lpage>
+          <pub-id pub-id-type="pmid">19805105</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R26">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Manning</surname>
+              <given-names>BD</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>LC</given-names>
+            </name>
+          </person-group>
+          <article-title>AKT/PKB signaling: navigating downstream</article-title>
+          <source>Cell</source>
+          <year>2007</year>
+          <volume>129</volume>
+          <fpage>1261</fpage>
+          <lpage>1274</lpage>
+          <pub-id pub-id-type="pmid">17604717</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R27">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Marone</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Cmiljanovic</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Giese</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Wymann</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeting phosphoinositide 3-kinase: moving towards therapy</article-title>
+          <source>Biochim Biophys Acta</source>
+          <year>2008</year>
+          <volume>1784</volume>
+          <fpage>159</fpage>
+          <lpage>185</lpage>
+          <pub-id pub-id-type="pmid">17997386</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R28">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Meyer</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Brinkhaus</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Muller</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Muller</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Cardiff</surname>
+              <given-names>RD</given-names>
+            </name>
+            <name>
+              <surname>Bentires-Alj</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Luminal Expression of PIK3CA Mutant H1047R in the Mammary Gland Induces Heterogeneous Tumors</article-title>
+          <source>Cancer Res</source>
+          <year>2011</year>
+          <volume>71</volume>
+          <fpage>4344</fpage>
+          <lpage>4351</lpage>
+          <pub-id pub-id-type="pmid">21482677</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R29">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miled</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Yan</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hon</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Perisic</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Zvelebil</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Inbar</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mechanism of two classes of cancer mutations in the phosphoinositide 3-kinase catalytic subunit</article-title>
+          <source>Science</source>
+          <year>2007</year>
+          <volume>317</volume>
+          <fpage>239</fpage>
+          <lpage>242</lpage>
+          <pub-id pub-id-type="pmid">17626883</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R30">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miller</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tavshanjian</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Oleksy</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Perisic</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Houseman</surname>
+              <given-names>BT</given-names>
+            </name>
+            <name>
+              <surname>Shokat</surname>
+              <given-names>KM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Shaping development of autophagy inhibitors with the structure of the lipid kinase Vps34</article-title>
+          <source>Science</source>
+          <year>2010</year>
+          <volume>327</volume>
+          <fpage>1638</fpage>
+          <lpage>1642</lpage>
+          <pub-id pub-id-type="pmid">20339072</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R31">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Narayan</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Lemmon</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <article-title>Determining selectivity of phosphoinositide-binding domains</article-title>
+          <source>Methods</source>
+          <year>2006</year>
+          <volume>39</volume>
+          <fpage>122</fpage>
+          <lpage>133</lpage>
+          <pub-id pub-id-type="pmid">16829131</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R32">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Oda</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Okada</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Timmerman</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Rodriguez-Viciana</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Stokoe</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Shoji</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>PIK3CA cooperates with other phosphatidylinositol 3&#x2032;-kinase pathway mutations to effect oncogenic transformation</article-title>
+          <source>Cancer Res</source>
+          <year>2008</year>
+          <volume>68</volume>
+          <fpage>8127</fpage>
+          <lpage>8136</lpage>
+          <pub-id pub-id-type="pmid">18829572</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R33">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Flinn</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Patsialou</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Wyckoff</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Roussos</surname>
+              <given-names>ET</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Differential enhancement of breast cancer cell motility and metastasis by helical and kinase domain mutations of class IA phosphoinositide 3-kinase</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <fpage>8868</fpage>
+          <lpage>8876</lpage>
+          <pub-id pub-id-type="pmid">19903845</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R34">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Perisic</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Paterson</surname>
+              <given-names>HF</given-names>
+            </name>
+            <name>
+              <surname>Mosedale</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lara-Gonzalez</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Mapping the phospholipid-binding surface and translocation determinants of the C2 domain from cytosolic phospholipase A2</article-title>
+          <source>J Biol Chem</source>
+          <year>1999</year>
+          <volume>274</volume>
+          <fpage>14979</fpage>
+          <lpage>14987</lpage>
+          <pub-id pub-id-type="pmid">10329700</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R35">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pirola</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Zvelebil</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Bulgarelli-Leva</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Van Obberghen</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Waterfield</surname>
+              <given-names>MD</given-names>
+            </name>
+            <name>
+              <surname>Wymann</surname>
+              <given-names>MP</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation loop sequences confer substrate specificity to phosphoinositide 3-kinase a (PI3Ka)</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>21544</fpage>
+          <lpage>21554</lpage>
+          <pub-id pub-id-type="pmid">11278889</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R36">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rudd</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Price</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Fogoros</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Godwin</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Sgroi</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Merino</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A unique spectrum of somatic PIK3CA (p110alpha) mutations within primary endometrial carcinomas</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2011</year>
+          <volume>17</volume>
+          <fpage>1331</fpage>
+          <lpage>1340</lpage>
+          <pub-id pub-id-type="pmid">21266528</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R37">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Samuels</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Diaz</surname>
+              <given-names>LAJ</given-names>
+            </name>
+            <name>
+              <surname>Schmidt-Kittler</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Cummins</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Delong</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Cheong</surname>
+              <given-names>I</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mutant PIK3CA promotes cell growth and invasion of human cancer cells</article-title>
+          <source>Cancer Cell</source>
+          <year>2005</year>
+          <volume>7</volume>
+          <fpage>561</fpage>
+          <lpage>573</lpage>
+          <pub-id pub-id-type="pmid">15950905</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R38">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Samuels</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Bardelli</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Silliman</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Ptak</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Szabo</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>High frequency of mutations of the PIK3CA gene in human cancers</article-title>
+          <source>Science</source>
+          <year>2004</year>
+          <volume>304</volume>
+          <fpage>554</fpage>
+          <pub-id pub-id-type="pmid">15016963</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R39">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stahelin</surname>
+              <given-names>RV</given-names>
+            </name>
+            <name>
+              <surname>Rafter</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Das</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Cho</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>The molecular basis of differential subcellular localization of C2 domains of protein kinase C-alpha and group IVa cytosolic phospholipase A2</article-title>
+          <source>J Biol Chem</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <fpage>12452</fpage>
+          <lpage>12460</lpage>
+          <pub-id pub-id-type="pmid">12531893</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R40">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vasudevan</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Barbie</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Davies</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Rabinovsky</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>McNear</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>AKT-independent signaling downstream of oncogenic PIK3CA mutations in human cancer</article-title>
+          <source>Cancer Cell</source>
+          <year>2009</year>
+          <volume>16</volume>
+          <fpage>21</fpage>
+          <lpage>32</lpage>
+          <pub-id pub-id-type="pmid">19573809</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R41">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Verdaguer</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Corbalan-Garcia</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Ochoa</surname>
+              <given-names>WF</given-names>
+            </name>
+            <name>
+              <surname>Fita</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Gomez-Fernandez</surname>
+              <given-names>JC</given-names>
+            </name>
+          </person-group>
+          <article-title>Ca(2+) bridges the C2 membrane-binding domain of protein kinase Calpha directly to phosphatidylserine</article-title>
+          <source>EMBO J</source>
+          <year>1999</year>
+          <volume>18</volume>
+          <fpage>6329</fpage>
+          <lpage>6338</lpage>
+          <pub-id pub-id-type="pmid">10562545</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R42">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Walker</surname>
+              <given-names>EH</given-names>
+            </name>
+            <name>
+              <surname>Perisic</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Ried</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Stephens</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>RL</given-names>
+            </name>
+          </person-group>
+          <article-title>Structural insights into phosphoinositide 3-kinase catalysis and signalling</article-title>
+          <source>Nature</source>
+          <year>1999</year>
+          <volume>402</volume>
+          <fpage>313</fpage>
+          <lpage>320</lpage>
+          <pub-id pub-id-type="pmid">10580505</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R43">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Waterhouse</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Procter</surname>
+              <given-names>JB</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>DM</given-names>
+            </name>
+            <name>
+              <surname>Clamp</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Barton</surname>
+              <given-names>GJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Jalview Version 2--a multiple sequence alignment editor and analysis workbench</article-title>
+          <source>Bioinformatics</source>
+          <year>2009</year>
+          <volume>25</volume>
+          <fpage>1189</fpage>
+          <lpage>1191</lpage>
+          <pub-id pub-id-type="pmid">19151095</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R44">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Witsch</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Sela</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yarden</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>Roles for growth factors in cancer progression</article-title>
+          <source>Physiology (Bethesda)</source>
+          <year>2010</year>
+          <volume>25</volume>
+          <fpage>85</fpage>
+          <lpage>101</lpage>
+          <pub-id pub-id-type="pmid">20430953</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R45">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Shekar</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Flinn</surname>
+              <given-names>RJ</given-names>
+            </name>
+            <name>
+              <surname>El-Sibai</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Jaiswal</surname>
+              <given-names>BS</given-names>
+            </name>
+            <name>
+              <surname>Sen</surname>
+              <given-names>KI</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Regulation of Class IA PI 3-kinases: C2 domain-iSH2 domain contacts inhibit p85/p110alpha and are disrupted in oncogenic p85 mutants</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2009</year>
+          <volume>106</volume>
+          <fpage>20258</fpage>
+          <lpage>20263</lpage>
+          <pub-id pub-id-type="pmid">19915146</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R46">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Wjasow</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Backer</surname>
+              <given-names>JM</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of the p85/p110alpha phosphatidylinositol 3&#x2032;-kinase. Distinct roles for the n-terminal and c-terminal SH2 domains</article-title>
+          <source>J Biol Chem</source>
+          <year>1998</year>
+          <volume>273</volume>
+          <fpage>30199</fpage>
+          <lpage>30203</lpage>
+          <pub-id pub-id-type="pmid">9804776</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R47">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yuan</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>LC</given-names>
+            </name>
+          </person-group>
+          <article-title>PI3K pathway alterations in cancer: variations on a theme</article-title>
+          <source>Oncogene</source>
+          <year>2008</year>
+          <volume>27</volume>
+          <fpage>5497</fpage>
+          <lpage>5510</lpage>
+          <pub-id pub-id-type="pmid">18794884</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R48">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Dziubinski</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ethier</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>G</given-names>
+            </name>
+          </person-group>
+          <article-title>Comprehensive analysis of oncogenic effects of PIK3CA mutations in human mammary epithelial cells</article-title>
+          <source>Breast Cancer Res Treat</source>
+          <year>2008</year>
+          <volume>112</volume>
+          <fpage>217</fpage>
+          <lpage>227</lpage>
+          <pub-id pub-id-type="pmid">18074223</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R49">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>X</given-names>
+            </name>
+            <name>
+              <surname>Vadas</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Perisic</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Anderson</surname>
+              <given-names>KE</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hawkins</surname>
+              <given-names>PT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Structure of lipid kinase p110beta/p85beta elucidates an unusual SH2-domain-mediated inhibitory mechanism</article-title>
+          <source>Mol Cell</source>
+          <year>2011</year>
+          <volume>41</volume>
+          <fpage>567</fpage>
+          <lpage>578</lpage>
+          <pub-id pub-id-type="pmid">21362552</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R50">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>JJ</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Shin</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Loda</surname>
+              <given-names>MF</given-names>
+            </name>
+            <name>
+              <surname>Roberts</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>The oncogenic properties of mutant p110alpha and p110beta phosphatidylinositol 3-kinases in human mammary epithelial cells</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2005</year>
+          <volume>102</volume>
+          <fpage>18443</fpage>
+          <lpage>18448</lpage>
+          <pub-id pub-id-type="pmid">16339315</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="R51">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhao</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Vogt</surname>
+              <given-names>PK</given-names>
+            </name>
+          </person-group>
+          <article-title>Helical domain and kinase domain mutations in p110alpha of phosphatidylinositol 3-kinase induce gain of function by different mechanisms</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2008</year>
+          <volume>105</volume>
+          <fpage>2652</fpage>
+          <lpage>2657</lpage>
+          <pub-id pub-id-type="pmid">18268322</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+  <floats-group>
+    <fig id="F1" orientation="portrait" position="float">
+      <label>Figure 1</label>
+      <caption>
+        <p>Schematics of p110&#x3B1; and p85&#x3B1; domain structures. Substitution and deletion mutants used in this study are illustrated. Sequence alignment display was prepared with Jalview (<xref ref-type="bibr" rid="R43">Waterhouse et al., 2009</xref>). Basic residues in the activation loop (which binds the lipid substrate headgroup) and hydrophobic residues in the C-terminal tail are highlighted.</p>
+      </caption>
+      <graphic xlink:href="ukmss-36996-f0001"/>
+    </fig>
+    <fig id="F2" orientation="portrait" position="float">
+      <label>Figure 2</label>
+      <caption>
+        <p>Structure of the kinase domain in WT p110&#x3B1;/p85&#x3B1;-iSH2 complexed with the inhibitor PIK-108. (<bold>a)</bold> Omit maps. The &#x3C3;<sub>A</sub> weighted <italic>F<sub>o</sub>-F<sub>c</sub></italic> electron density maps (contoured at 3.5&#x3C3;) were calculated separately with the activation loop and the C-terminal tail omitted from the refined model. (<bold>b,c</bold>) PIK-108 binding sites in the ATP-binding pocket of the kinase domain (<bold>b</bold>) and a novel site in the kinase C-lobe (<bold>c</bold>). The PIK-108 omit maps are contoured at 3.5&#x3C3;. PIK-108 interacting residues (&#x2264; 3.8 &#xC5; inter-atomic distances) are shown as stick models. <bold>(d)</bold> Functional elements in the kinase domain. <bold>(e)</bold> Kinase domain of p110&#x3B3; catalytic core, shown for comparison with respect to secondary structure in the C-terminal tail. Note the interactions between the conserved W1086 in helix k&#x3B1;12 and the conserved catalytic residues DRH.</p>
+      </caption>
+      <graphic xlink:href="ukmss-36996-f0002"/>
+    </fig>
+    <fig id="F3" orientation="portrait" position="float">
+      <label>Figure 3</label>
+      <caption>
+        <p>Lipid kinase and lipid binding activities. (<bold>a-c</bold>) Structural views of the mutant positions in our WT p110&#x3B1;/p85&#x3B1;-iSH2 complex. A global view is shown in (<bold>b)</bold> with C-alpha atoms of the mutated residues displayed as pink spheres. (<bold>a,c)</bold> Detailed views of mutant positions at the C2 domain/iSH2 interface and the helical domain (<bold>a</bold>) and in the kinase C-lobe (<bold>c</bold>). (<bold>a</bold>) The C2 C420 contacts the iSH2 P568, and the iSH2 N564 contacts the C2 N345 (N345K is a cancer-linked mutant, not analysed in this study). (<bold>d</bold>) Schematics of the SPR lipid binding experiment. Liposome vesicles are captured <italic>via</italic> the lipophilic groups attached to the dextran matrix on the flow cells. (<bold>e</bold>) Example (C420R/nic + pY2-peptide) of a steady-state binding sensogram before (left) and after (right) signal subtraction from flow cell 1 (Fc1). (<bold>f,i</bold>) Lipid kinase activities. The initial rates of PtdIns(3,4,5)P<sub>3</sub> production were measured with fixed substrate concentration (50 &#x3BC;M PtdIns(4,5)P<sub>2</sub> and 100 &#x3BC;M ATP) using liposomes of the indicated compositions. No lipid kinase activity was detected for the lipid kinase-dead mutants, which were active in hydrolysing ATP in the absence of lipid substrate. (<bold>g,h,j</bold>) Lipid binding measured by SPR. Binding levels were compared at identical protein concentration in each set (<bold>g,j</bold>: 500 nM, <bold>h</bold>: 1 &#x3BC;M). Averaged binding levels of the lipid kinase-dead mutants on Fc1, ~35 RU, were taken as the estimated bulk contribution, i.e. refractive index change due to the presence of proteins in the buffer (<bold>h</bold>). Data in <bold>f-j</bold> represent the mean &#xB1; s.d. of two to three independent experiments. (Abbreviations: PC= phosphatidylcholine; PE=phosphatidylethanolamine; PS=phosphatidylserine; PIP2=PtdIns(4,5)P<sub>2</sub>; PIP3=PtdIns(3,4,5)P<sub>3</sub>; pY2=pY2-peptide with two pYXXM motifs from PDGFR&#x3B2;; CD=&#x2019;catalytically dead&#x2019; D915N mutation in p110&#x3B1;)</p>
+      </caption>
+      <graphic xlink:href="ukmss-36996-f0003"/>
+    </fig>
+    <fig id="F4" orientation="portrait" position="float">
+      <label>Figure 4</label>
+      <caption>
+        <p>Global conformational change in p110&#x3B1;. (<bold>a</bold>) Spatial relationship between the nSH2 inhibitory contact site and the lipid binding elements in the kinase C-lobe. (<bold>b,c</bold>) Pairwise superposition of the p110&#x3B1;/p85&#x3B1; structures was performed by aligning the main-chain atoms of p85&#x3B1; iSH2 domain. Structures without p85&#x3B1; nSH2 represent the &#x2018;activated&#x2019; form, the p110&#x3B1;/p85&#x3B1;-niSH2 structure represents the &#x2018;inhibited&#x2019; form. The arrow indicates the direction of p110&#x3B1; domain movement around the p85&#x3B1; iSH2 coiled coil axis. (<bold>d</bold>) Representation of the r.m.s.d. calculated between main-chain atoms of the superposed p110&#x3B1; subunits shown in (<bold>c</bold>), as projected on the coordinates of 2rd0. To assist domain recognition, the lower panel shows the enzyme in the same orientation but coloured by domains.</p>
+      </caption>
+      <graphic xlink:href="ukmss-36996-f0004"/>
+    </fig>
+    <fig id="F5" orientation="portrait" position="float">
+      <label>Figure 5</label>
+      <caption>
+        <p>Lipid binding activities of class IA PI3-kinases. (<bold>a</bold>) Comparison of the three isoforms (protein concentration=1 &#x3BC;M). (<bold>b</bold>) Comparison of total lipid binding of the three isoforms with the p110&#x3B1; H1047L mutant (protein concentration=0.5 &#x3BC;M). The data represent the mean &#xB1; s.d. of two independent experiments.</p>
+      </caption>
+      <graphic xlink:href="ukmss-36996-f0005"/>
+    </fig>
+    <fig id="F6" orientation="portrait" position="float">
+      <label>Figure 6</label>
+      <caption>
+        <p>Summary and modelling of membrane binding. The grey line approximates the putative membrane surface and is drawn collinear with the phosphate in the PS and P1 in the Ins(1,4,5)P<sub>3</sub> (IP3). Positions of PS, IP3 and ATP are derived from the following structures: 1dsy (<xref ref-type="bibr" rid="R41">Verdaguer et al., 1999</xref>), 1w2c (<xref ref-type="bibr" rid="R17">Gonzalez et al., 2004</xref>) and 1e8x (<xref ref-type="bibr" rid="R42">Walker et al., 1999</xref>). Details of how PS, IP3 and ATP were docked, and modelling of the kinase C-terminal helices are illustrated in <xref ref-type="supplementary-material" rid="SD1">Supplementary Figure S4</xref>. The C&#x3B1; atoms of the labelled residues are represented in spheres. For clarity, the kinase domain N-lobe is colored red in the right panel only, and the helical domain is green on the left panel only. Type I activating cancer-linked mutations that are shown or predicted to relieve the p85&#x3B1;/ABD-mediated inhibition are highlighted in orange (the mutations that we predict would be type I, but have not been tested are underlined). The type II mutants, which are RTK hyperactivatable, are highlighted in pink. Note that docking of PS is solely for the purpose of approximating the lipid-binding site in the p110&#x3B1; C2 domain, and does not imply that this domain binds PS specifically.</p>
+      </caption>
+      <graphic xlink:href="ukmss-36996-f0006"/>
+    </fig>
+  </floats-group>
+</article>
+</pmc-articleset>
