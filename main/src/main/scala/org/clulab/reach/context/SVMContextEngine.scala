@@ -10,6 +10,7 @@ import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import scala.util.{Try, Success, Failure}
 import scala.collection.mutable.ListBuffer
+import org.clulab.struct.Interval
 //changed ram to 62G
 import scala.collection.mutable
 
@@ -49,6 +50,20 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       // If we have already run infer
       case Some(ctxMentions) =>
 
+        val contextFrequencyMap = collection.mutable.Map[String, Double]()
+        ctxMentions.map(f => {
+          val id = f.nsId()
+          if(contextFrequencyMap.contains(id)) {
+            val get = contextFrequencyMap(id)
+            contextFrequencyMap(id) = get + 1
+          }
+
+          else {
+            val newEntry = Map(id -> 1.0)
+            contextFrequencyMap ++= newEntry
+          }
+        })
+
         // Collect the event mentions
         val evtMentions = mentions collect  {
           case evt:BioEventMention => evt
@@ -68,7 +83,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
         // here, we will use a Seq(Map), where each map has InputRow as a key, and as value, we have a tuple of feature values
         // so for a given InputRow, I can look up the table and return the values of the features present in the InputRow.
-        val tempo = pairs map extractFeaturesToCalcByBestFeatSet
+        val tempo = pairs.map{p =>
+          extractFeaturesToCalcByBestFeatSet(p, ctxMentions, contextFrequencyMap.toMap)
+        }
+
+        //pairs map extractFeaturesToCalcByBestFeatSet
         val flattenedMap = tempo.flatMap(t=>t).toMap
         val features:Seq[InputRow] = tempo.flatMap(t => t.keySet)
         val freqOfSentDist = countSentDistValueFreq(features.toArray)
@@ -106,7 +125,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
-                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max")
+                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max")
                 val valueList = featureListForDebugging.map(f => {
                   val index = aggregatedFeature.featureGroupNames.indexOf(f)
                   val featVal = aggregatedFeature.featureGroups(index)
@@ -183,7 +202,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   // we have to take a slight detour of using InputRow and then AggregatedRowNew, instead of using AggregatedRowNew directly, as ml4ai does.
   // please contact the authors of the ml4ai package if you experience a roadblock while using the utilities it provides.
 
-  private def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention)):Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])] =
+  private def extractFeaturesToCalcByBestFeatSet(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxFreqMap:Map[String,Double]):Map[InputRow, (Map[String,Double],Map[String,Double],Map[String,Double])] =
   {
 
     // val file
@@ -233,7 +252,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
     // call feature value extractor here
-    val specFeatVal = calculateSpecificFeatValues(datum)
+    val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, ctxFreqMap)
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
 
@@ -290,14 +309,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val altPairingSpec = featureValuePairing(specificMappings)
 
 
-      // look at the previous code again and make sure the values are the same
       def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
         for((name,value) <- input) {
           featureSetNames += name
           featureSetValues += value
         }
       }
-
 
 
       addAggregatedOnce(altPairingSpec)
@@ -429,14 +446,128 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     else intersentenceDependencyPath(datum)
   }
 
+  def sentenceContainsPRP(doc:Document, ix:Int):Boolean = {
+    val targetWords = Set("we", "us", "our", "ours", "ourselves", "i", "me", "my", "mine", "myself")
+    val sentence = doc.sentences(ix)
+    val tags = sentence.tags.get
+    val lemmas = sentence.lemmas.get
+
+    val x = (tags zip lemmas) filter {
+      case (tag, lemma) =>
+        if(tag == "PRP" && targetWords.contains(lemma))
+          true
+        else
+          false
+    }
+
+    !x.isEmpty
+  }
+
+  def dependencyTails(sentence:Int, interval:Interval, doc:Document):Seq[Seq[String]] = {
+
+    val deps = doc.sentences(sentence).dependencies.get
+
+    def helper(nodeIx:Int, depth:Int, maxDepth:Int):List[List[String]] = {
+
+      // Get all the edges connected to the current node as long as they don't incide into another token of the
+      val incoming = Try(deps.getIncomingEdges(nodeIx)) match {
+        case Success(edges) => edges.filter(e => !interval.contains(e._1)).toList
+        case Failure(e) => Nil
+      }
+
+      val outgoing = Try(deps.getOutgoingEdges(nodeIx)) match {
+        case Success(edges) => edges.filter(e => !interval.contains(e._1)).toList
+        case Failure(e) => Nil
+      }
+
+      val edges = incoming ++ outgoing
+
+      if(depth == maxDepth)
+        Nil
+      else{
+        edges.toList flatMap {
+          e =>
+            val label = FeatureProcessing.clusterDependency(e._2)
+            val further = helper(e._1, depth+1, maxDepth)
+
+            further match {
+              case Nil => List(List(label))
+              case list:List[List[String]] => list map (l => label::l)
+            }
+        }
+      }
+    }
+
+    helper(interval.start, 0, 2) ++ helper(interval.end, 0, 2)
+  }
+
+  def sentenceContainsSimplePRP(doc:Document, ix:Int):Boolean = sentenceContainsSimpleTags(doc, ix, Set("PRP"))
+
+  def sentenceContainsSimplePastTense(doc:Document, ix:Int):Boolean = sentenceContainsSimpleTags(doc, ix, Set("VBD", "VBN"))
+
+  def sentenceContainsSimplePresentTense(doc:Document, ix:Int):Boolean = sentenceContainsSimpleTags(doc, ix, Set("VBG", "VBP", "VBZ"))
+
+  def sentenceContainsSimpleTags(doc:Document, ix:Int, tags:Set[String]):Boolean = {
+    val sentence = doc.sentences(ix)
+    val tags = sentence.tags.get.toSet
+    val evidence:Iterable[Boolean] = tags map {
+      tag =>
+        tags contains tag
+    }
+
+    evidence.exists(identity)
+  }
+
+  def eventSentenceContainsPRP(doc:Document, event:BioEventMention):Boolean = sentenceContainsPRP(doc, event.sentence)
+  def contextSentenceContainsPRP(doc:Document, context:BioTextBoundMention):Boolean = sentenceContainsPRP(doc, context.sentence)
+  def eventSentenceContainsPastTense(doc:Document, event:BioEventMention):Boolean = sentenceContainsSimplePastTense(doc, event.sentence)
+  def contextSentenceContainsPastTense(doc:Document, context:BioTextBoundMention):Boolean = sentenceContainsSimplePastTense(doc, context.sentence)
+  def eventSentenceContainsPresentTense(doc:Document, event:BioEventMention):Boolean = sentenceContainsSimplePresentTense(doc, event.sentence)
+  def contextSentenceContainsPresentTense(doc:Document, context:BioTextBoundMention):Boolean = sentenceContainsSimplePresentTense(doc, context.sentence)
+  def isItClosestContextOfSameCategory(event:BioEventMention,
+                                       context:BioTextBoundMention,
+                                       otherContexts:Iterable[BioTextBoundMention]):Boolean = {
+    val bounds = Seq(event.sentence, context.sentence)
+    val (start, end) = (bounds.min, bounds.max)
+
+
+    val filteredContexts = otherContexts.filter{
+      c =>
+        (!(c.sentence == context.sentence &&  c.tokenInterval == context.tokenInterval && c.nsId() == context.nsId()))
+
+    }
+    assert(filteredContexts.size == otherContexts.size -1)
+    val interval = start to end
+
+    if(interval.length >= 3){
+      val contextCategory = context.nsId().split(":")(0)
+
+      val contextClasses = filteredContexts.collect{
+        case c if interval.contains(c.sentence) =>
+          c.nsId().split(":")(0)
+      }.toList.toSet
+
+      //println(s"$contextCategory || ${contextClasses.toSet}")
+      val ret = !contextClasses.contains(contextCategory)
+
+      ret
+    }
+    else
+      true
 
 
 
+  }
 
-  private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
+  private def calculateSpecificFeatValues(datum:(BioEventMention, BioTextBoundMention), contextMentions:Seq[BioTextBoundMention], ctxTypeFreq:Map[String,Double]):Map[String,Double] = {
+    val event = datum._1
+    val context = datum._2
+    val doc = event.document
     val result = collection.mutable.Map[String,Double]()
 
 
+
+    // ****************INTEGER VALUE FEATURES BEGIN****************
     val sentenceDistance = Math.abs(datum._1.sentence - datum._2.sentence)
     val sentDistEntry = Map("sentenceDistance" -> sentenceDistance.toDouble)
     result ++= sentDistEntry
@@ -450,6 +581,53 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val dependencyDistEntry = Map("dependencyDistance" -> dependencyDistance)
     result ++= dependencyDistEntry
 
+    val context_frequency = ctxTypeFreq(context.nsId())
+    result ++= Map("context_frequency" -> context_frequency)
+
+
+    // Dependency tails
+    val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
+    val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
+    // ****************INTEGER VALUE FEATURES END****************
+
+
+
+    // ****************BOOLEAN VALUE FEATURES BEGIN****************
+    val evtSentenceFirstPerson = if(eventSentenceContainsPRP(doc, event)) 1.0 else 0.0
+    val evtSentenceFirstPersonEntry = Map("evtSentenceFirstPerson" -> evtSentenceFirstPerson)
+    result ++= evtSentenceFirstPersonEntry
+
+    val ctxSentenceFirstPerson = if(contextSentenceContainsPRP(doc, context)) 1.0 else 0.0
+    val ctxSentenceFirstPersonEntry = Map("ctxSentenceFirstPerson" -> ctxSentenceFirstPerson)
+    result ++= ctxSentenceFirstPersonEntry
+
+
+    val evtSentencePastTense = if(eventSentenceContainsPastTense(doc, event)) 1.0 else 0.0
+    result ++= Map("evtSentencePastTense" -> evtSentencePastTense)
+
+
+    val ctxSentencePastTense = if(contextSentenceContainsPastTense(doc, context)) 1.0 else 0.0
+    result ++= Map("ctxSentencePastTense" -> ctxSentencePastTense)
+
+
+    val evtSentencePresentTense = if(eventSentenceContainsPresentTense(doc, event)) 1.0 else 0.0
+    result ++= Map("evtSentencePresentTense" -> evtSentencePresentTense)
+
+    val ctxSentencePresentTense = if(contextSentenceContainsPresentTense(doc, context)) 1.0 else 0.0
+    result ++= Map("ctxSentencePresentTense" -> ctxSentencePresentTense)
+
+    val closesCtxOfClass = if(isItClosestContextOfSameCategory(event, context, contextMentions)) 1.0 else 0.0
+    result ++= Map("closesCtxOfClass" -> closesCtxOfClass)
+
+
+    // Negation in context mention
+    val ctxNegationInTail = if(ctxDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
+    result ++= Map("ctxNegationInTail" -> ctxNegationInTail)
+
+
+    val evtNegationInTail = if(evtDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
+    result ++= Map("evtNegationInTail" -> evtNegationInTail)
+    // ****************BOOLEAN VALUE FEATURES END****************
 
     result.toMap
   }
