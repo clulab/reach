@@ -629,16 +629,25 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     result ++= Map("evtNegationInTail" -> evtNegationInTail)
     // ****************BOOLEAN VALUE FEATURES END****************
 
+
     result.toMap
   }
 
   private def calculateEvtDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
+    val event = datum._1
+    val doc = event.document
     val result = collection.mutable.Map[String,Double]()
+    val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
+    result ++= evtDependencyTails.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
   }
 
   private def calculateCtxDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
+    val context = datum._2
+    val doc = context.document
     val result = collection.mutable.Map[String,Double]()
+    val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
+    result ++= ctxDependencyTails.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
   }
 
