@@ -127,10 +127,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
                 val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "ctxNegationInTail_max", "evtSentenceFirstPerson_max", "ctxSentencePastTense_max","evtSentencePresentTense_max")
                 val valueList = featureListForDebugging.map(f => {
+                  if(aggregatedFeature.featureGroupNames.contains(f)) {
                   val index = aggregatedFeature.featureGroupNames.indexOf(f)
                   val featVal = aggregatedFeature.featureGroups(index)
                   s"${f} : ${featVal}"
-                })
+                }
+                  else logger.info(s"This feature is not contained in the aggregated feature: ${f}")})
                 val stringToLog = valueList.mkString("\t")
                 logger.info(stringToLog)
                 (ctxId, prediction)
