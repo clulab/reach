@@ -579,11 +579,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     // Negation in context mention
     val ctxNegationInTail = if(ctxDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
-    result ++= Map("ctxNegationInTail" -> ctxNegationInTail)
+    result ++= Map("ctxNegationIntTail" -> ctxNegationInTail)
 
 
     val evtNegationInTail = if(evtDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
-    result ++= Map("evtNegationInTail" -> evtNegationInTail)
+    result ++= Map("evtNegationIntTail" -> evtNegationInTail)
     // ****************BOOLEAN VALUE FEATURES END****************
 
 
@@ -604,7 +604,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val doc = context.document
     val result = collection.mutable.Map[String,Double]()
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
-    result ++= ctxDependencyTails.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
+    result ++= ctxDependencyTails.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
   }
 
