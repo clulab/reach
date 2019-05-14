@@ -125,7 +125,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
-                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "ctxNegationInTail_max", "evtSentenceFirstPerson_max", "ctxSentencePastTense_max","evtSentencePresentTense_max")
+                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "ctxNegationIntTail_max", "evtSentenceFirstPerson_max", "ctxSentencePastTense_max","evtSentencePresentTense_max")
                 val valueList = featureListForDebugging.map(f => {
                   if(aggregatedFeature.featureGroupNames.contains(f)) {
                   val index = aggregatedFeature.featureGroupNames.indexOf(f)
@@ -271,7 +271,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       label,
       evntId,
       ctxId._2,
-      hardCodedFeatureNames.toArray,
+      hardCodedFeatureNames.toSet.toArray,
       ctxDepFeatures.toSet,
       evtDepFeatures.toSet)
 
