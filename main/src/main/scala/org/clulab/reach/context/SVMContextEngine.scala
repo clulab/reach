@@ -583,7 +583,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
     val evtNegationInTail = if(evtDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
-    result ++= Map("evtNegationIntTail" -> evtNegationInTail)
+    result ++= Map("evtNegationInTail" -> evtNegationInTail)
     // ****************BOOLEAN VALUE FEATURES END****************
 
 
