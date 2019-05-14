@@ -125,7 +125,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
                 logger.info(s"For the paper ${aggregatedFeature.PMCID}, event ID: ${k.toString} and context ID: ${ctxId._2}, we have prediction: ${predArrayIntForm(0)}")
 
-                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "evtNegationInTail_max", "ctxNegationInTail_max", "ctxSentenceFirstPerson_max", "evtSentenceFirstPerson_max", "evtSentencePastTense_max", "ctxSentencePastTense_max","evtSentencePresentTense_max", "ctxSentencePresentTense_max", "ctxDepTail_ccomp_aux_min", "evtDepTail_obj_conj_min", "ctxDepTail_appos_min")
+                val featureListForDebugging = Seq("sentenceDistance_max", "dependencyDistance_max", "context_frequency_max", "closesCtxOfClass_max", "ctxNegationInTail_max", "evtSentenceFirstPerson_max", "ctxSentencePastTense_max","evtSentencePresentTense_max", "ctxDepTail_ccomp_aux_min", "evtDepTail_obj_conj_min", "ctxDepTail_appos_min")
                 val valueList = featureListForDebugging.map(f => {
                   val index = aggregatedFeature.featureGroupNames.indexOf(f)
                   val featVal = aggregatedFeature.featureGroups(index)
@@ -405,6 +405,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
 
     val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
+    logger.info("Inside intersentence-dependency path function")
+    logger.info(bigrams.mkString(" "))
 
     Some(bigrams)
   }
@@ -414,6 +416,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     if(datum._1.sentence == datum._2.sentence) {
       val currentSentContents = datum._1.document.sentences(datum._1.sentence)
       val dependencies = currentSentContents.dependencies.get
+      logger.info(s"current sentence index: ${datum._1.sentence}")
       val (first, second) = if(datum._1.tokenInterval.start <= datum._2.tokenInterval.start) (datum._1.tokenInterval, datum._2.tokenInterval) else (datum._2.tokenInterval, datum._1.tokenInterval)
 
       val paths = first flatMap {
@@ -436,6 +439,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
               s.zip(shifted).map{ case (a, b) => s"${a}_${b}" }
             }
           }
+
+          logger.info("Inside dependency path function: within sentence")
+          logger.info(bigrams.mkString(" "))
 
           Some(bigrams)
         case Failure(e) =>
