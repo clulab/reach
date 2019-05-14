@@ -415,10 +415,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
   private def constructDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
-    logger.info(s"Current event ID in dependency path, within sentence: ${extractEvtId(datum._1)}")
-    logger.info(s"Current context ID in dependency path, within sentence: ${datum._2.nsId()}")
+
 
     if(datum._1.sentence == datum._2.sentence) {
+      logger.info(s"Current event ID in dependency path, within sentence: ${extractEvtId(datum._1)}")
+      logger.info(s"Current context ID in dependency path, within sentence: ${datum._2.nsId()}")
       val currentSentContents = datum._1.document.sentences(datum._1.sentence)
       val dependencies = currentSentContents.dependencies.get
       logger.info(s"current sentence index: ${datum._1.sentence}")
