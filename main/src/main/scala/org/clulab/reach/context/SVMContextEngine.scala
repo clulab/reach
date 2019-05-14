@@ -90,8 +90,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         //pairs map extractFeaturesToCalcByBestFeatSet
         val flattenedMap = tempo.flatMap(t=>t).toMap
         val features:Seq[InputRow] = tempo.flatMap(t => t.keySet)
-        val freqOfSentDist = countSentDistValueFreq(features.toArray)
-        writeSentFreqToFile(freqOfSentDist)
         // Aggregate the features of all the instances of a pair
         val aggregatedFeatures:Map[EventID, Seq[(ContextID, AggregatedRow)]] =
           (pairs zip features).groupBy{
@@ -250,16 +248,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
     }
 
-    logger.info("Inside Input row function")
     val hardcodedFeaturesString = hardCodedFeatureNames.mkString(" ")
     val ctxDepFeaturesString = ctxDepFeatures.mkString(" ")
     val evtDepFeaturesString = evtDepFeatures.mkString(" ")
-    logger.info(s"Printing hardcoded features present in input row: ${hardcodedFeaturesString}")
-    logger.info(s"Printing ctxDep features present in input row: ${ctxDepFeaturesString}")
-    logger.info(s"Printing evtDep features present in input row: ${evtDepFeaturesString}")
-
-
-
 
     // call feature value extractor here
     val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, ctxFreqMap)
@@ -336,65 +327,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     newAggRow
   }
 
-
-
-  private def countSentDistValueFreq(seq: Array[InputRow]): Array[(Int,Int)] = {
-    val map = collection.mutable.HashMap[Int, Int]()
-    val result = collection.mutable.ListBuffer[(Int, Int)]()
-    seq.map(s => {
-      val currentIndex = s.sentenceIndex
-      if(map.contains(currentIndex)) {
-        var cur = map(currentIndex)
-        cur += 1
-        val entry = Map(currentIndex -> cur)
-        map ++= entry
-      }
-
-      else {
-        val tempMap = Map(currentIndex -> 1)
-        map ++= tempMap
-      }
-    })
-
-    for((k,v) <- map) {
-        val tup = (k,v)
-        result += tup
-    }
-    result.toArray
-  }
-
-  private def writeSentFreqToFile(frequencyList: Array[(Int,Int)]):Unit = {
-    val typeOfPaper = "activation"
-    val dirForType = if(typeOfPaper.length!=0) config.getString("papersDir").concat(s"/${typeOfPaper}") else config.getString("papersDir")
-    val fileListUnfiltered = new File(dirForType)
-    val fileList = fileListUnfiltered.listFiles().filter(x => x.getName.endsWith(".nxml"))
-    for(file <- fileList) {
-      val pmcid = file.getName.slice(0,file.getName.length-5)
-      val outPaperDirPath = config.getString("contextEngine.params.contextOutputDir").concat(s"${pmcid}")
-      val outputPaperDir = new File(outPaperDirPath)
-      if(!outputPaperDir.exists()) {
-        outputPaperDir.mkdirs()
-      }
-
-      val pathForSentences = outPaperDirPath.concat("/sentenceDistFreq.txt")
-
-      val sentenceDistFile = new File(pathForSentences)
-
-      if (!sentenceDistFile.exists()) {
-        sentenceDistFile.createNewFile()
-      }
-
-      val pw = new PrintWriter(sentenceDistFile)
-      for ((dist,freq) <- frequencyList) {
-        pw.write(s"${dist}:${freq}")
-        pw.write("\n")
-      }
-      pw.close()
-    }
-  }
-
-
   private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
+    logger.info(s"Current PMCID: ${datum._1.document.id}")
     logger.info(s"Current event ID in dependency path, outside sentence: ${extractEvtId(datum._1)}")
     logger.info(s"Current context ID in dependency path, outside sentence: ${datum._2.nsId()}")
     def pathToRoot(currentNodeIndx:Int, currentSentInd:Int, currentDoc:Document): Seq[String] = {
@@ -428,6 +362,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
     if(datum._1.sentence == datum._2.sentence) {
+      logger.info(s"Current PMCID: ${datum._1.document.id}")
       logger.info(s"Current event ID in dependency path, within sentence: ${extractEvtId(datum._1)}")
       logger.info(s"Current context ID in dependency path, within sentence: ${datum._2.nsId()}")
       val currentSentContents = datum._1.document.sentences(datum._1.sentence)
