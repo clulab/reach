@@ -286,7 +286,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val inputRows = instances
     for(in <- inputRows) {
       val valuesToClub = featValLookUp(in)
+      val ctxDepFeatures = Seq("ctxDepTail_obj_nn_max","ctxDepTail_xcomp_appos_min","ctxDepTail_xcomp_appos_max")
       val (specific, event, context) = (valuesToClub._1, valuesToClub._2, valuesToClub._3)
+      ctxDepFeatures.map(c => if(specific.contains(c)) {
+        logger.info(s"I have found the value for ${c}, so I'll use this value")
+      }
+      else {
+        logger.info(s"no value found for ${c}, so I'll use 1")
+      })
       val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, context)
       val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, event)
       val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specific)
