@@ -248,10 +248,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
     }
 
-    val hardcodedFeaturesString = hardCodedFeatureNames.mkString(" ")
-    val ctxDepFeaturesString = ctxDepFeatures.mkString(" ")
-    val evtDepFeaturesString = evtDepFeatures.mkString(" ")
-
     // call feature value extractor here
     val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, ctxFreqMap)
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
@@ -286,13 +282,17 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val inputRows = instances
     for(in <- inputRows) {
       val valuesToClub = featValLookUp(in)
-      val ctxDepFeatures = Seq("ctxDepTail_obj_nn_max","ctxDepTail_xcomp_appos_min","ctxDepTail_xcomp_appos_max")
+      val ctxDepFeatures = Seq("ctxDepTail_obj_nn","ctxDepTail_xcomp_appos","ctxDepTail_xcomp_appos", "ctxDepTail_mod_aux")
       val (specific, event, context) = (valuesToClub._1, valuesToClub._2, valuesToClub._3)
-      ctxDepFeatures.map(c => if(specific.contains(c)) {
+
+      ctxDepFeatures.map(c => if(context.contains(c)) {
         logger.info(s"I have found the value for ${c}, so I'll use this value")
+
       }
       else {
-        logger.info(s"no value found for ${c}, so I'll use 1")
+        logger.info(s"no value found for ${c}, so I'll use 0")
+
+
       })
       val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, context)
       val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, event)
@@ -599,7 +599,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val doc = event.document
     val result = collection.mutable.Map[String,Double]()
     val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
-    val evtDepStrings = evtDependencyTails.map(e => e.mkString("_"))
+    val evtDepStrings = constructFeatureSubParts(evtDependencyTails)
     result ++= evtDepStrings.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
   }
@@ -646,7 +646,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     for(r <- features) {
       if(resultingMap.contains(r)) {
 
-        val valueToBeAdded = if(lookUpTable.contains(r)) lookUpTable(r) else 1.0
+        val valueToBeAdded = if(lookUpTable.contains(r)) lookUpTable(r) else 0.0
         val currentFeatDetails = resultingMap(r)
         val tupReplace = (Math.min(currentFeatDetails._1, valueToBeAdded),
           Math.max(currentFeatDetails._2, valueToBeAdded),
@@ -656,7 +656,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
       }
       else {
-        val valForNewEntry = if(lookUpTable.contains(r)) lookUpTable(r) else 1.0
+        val valForNewEntry = if(lookUpTable.contains(r)) lookUpTable(r) else 0.0
         val entry = (r -> (valForNewEntry,valForNewEntry,valForNewEntry,1))
         resultingMap += entry
       }
