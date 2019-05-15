@@ -609,7 +609,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val doc = context.document
     val result = collection.mutable.Map[String,Double]()
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
-    val ctxDepStrings = ctxDependencyTails.map(e => e.mkString("_"))
+    val ctxDepStrings = constructFeatureSubParts(ctxDependencyTails)
     logger.info("inside context dep tail function")
     ctxDependencyTails.map(c => {
       val str = c.mkString(" ")
@@ -617,6 +617,28 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     })
     result ++= ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
+  }
+
+  private def constructFeatureSubParts(seqOfSeq:Seq[Seq[String]]): Seq[String] = {
+    val res = collection.mutable.ListBuffer[String]()
+
+    for(seq<- seqOfSeq) {
+      if(seq.size==1)
+      {
+          val splitAtUnder = seq(0).split("_")
+          val stringNeeded = splitAtUnder(0)
+          res += stringNeeded
+      }
+
+      else{
+            val firstSplit = seq(0).split("_")(0)
+            val secondSplit = seq(1).split("_")(0)
+            val stringNeeded = s"${firstSplit}_${secondSplit}"
+            res += stringNeeded
+      }
+
+    }
+    res
   }
 
   def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,Double]):Map[String,(Double,Double, Double, Int)] = {
