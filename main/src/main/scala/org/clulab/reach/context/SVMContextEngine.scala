@@ -608,6 +608,11 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val doc = context.document
     val result = collection.mutable.Map[String,Double]()
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
+    logger.info("inside context dep tail function")
+    ctxDependencyTails.map(c => {
+      val str = c.mkString(" ")
+      logger.info(str)
+    })
     result ++= ctxDependencyTails.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
   }
