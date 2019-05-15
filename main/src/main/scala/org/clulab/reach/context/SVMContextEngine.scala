@@ -351,7 +351,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
 
     val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
-    logger.info("Inside intersentence-dependency path function")
     logger.info(bigrams.mkString(" "))
 
     Some(bigrams)
@@ -367,7 +366,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       logger.info(s"Current context ID in dependency path, within sentence: ${datum._2.nsId()}")
       val currentSentContents = datum._1.document.sentences(datum._1.sentence)
       val dependencies = currentSentContents.dependencies.get
-      logger.info(s"current sentence index: ${datum._1.sentence}")
       val (first, second) = if(datum._1.tokenInterval.start <= datum._2.tokenInterval.start) (datum._1.tokenInterval, datum._2.tokenInterval) else (datum._2.tokenInterval, datum._1.tokenInterval)
 
       val paths = first flatMap {
@@ -391,7 +389,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             }
           }
 
-          logger.info("Inside dependency path function: within sentence")
           logger.info(bigrams.mkString(" "))
 
           Some(bigrams)
