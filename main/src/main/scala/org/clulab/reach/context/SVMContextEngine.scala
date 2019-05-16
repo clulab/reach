@@ -248,10 +248,13 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
     }
 
+
+
     // call feature value extractor here
     val specFeatVal = calculateSpecificFeatValues(datum, contextMentions, ctxFreqMap)
     val evtDepFeatVal = calculateEvtDepFeatureVals(datum)
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
+
 
     val row = InputRow(sentencePos,
       PMCID,
@@ -415,10 +418,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     val x = (tags zip lemmas) filter {
       case (tag, lemma) =>
-        if(tag == "PRP" && targetWords.contains(lemma))
-          true
-        else
-          false
+       tag == "PRP" && targetWords.contains(lemma)
+
     }
 
     !x.isEmpty
@@ -599,7 +600,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val doc = event.document
     val result = collection.mutable.Map[String,Double]()
     val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
-    val evtDepStrings = constructFeatureSubParts(evtDependencyTails)
+    val evtDepStrings = evtDependencyTails.map(e => e.mkString("_"))
     result ++= evtDepStrings.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
     result.toMap
   }
@@ -609,7 +610,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val doc = context.document
     val result = collection.mutable.Map[String,Double]()
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
-    val ctxDepStrings = constructFeatureSubParts(ctxDependencyTails)
+    val ctxDepStrings = ctxDependencyTails.map(c => c.mkString("_"))
     logger.info("inside context dep tail function")
     ctxDependencyTails.map(c => {
       val str = c.mkString(" ")
@@ -619,27 +620,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     result.toMap
   }
 
-  private def constructFeatureSubParts(seqOfSeq:Seq[Seq[String]]): Seq[String] = {
-    val res = collection.mutable.ListBuffer[String]()
-
-    for(seq<- seqOfSeq) {
-      if(seq.size==1)
-      {
-          val splitAtUnder = seq(0).split("_")
-          val stringNeeded = splitAtUnder(0)
-          res += stringNeeded
-      }
-
-      else{
-            val firstSplit = seq(0).split("_")(0)
-            val secondSplit = seq(1).split("_")(0)
-            val stringNeeded = s"${firstSplit}_${secondSplit}"
-            res += stringNeeded
-      }
-
-    }
-    res
-  }
 
   def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,Double]):Map[String,(Double,Double, Double, Int)] = {
     val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
