@@ -598,13 +598,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   private def calculateCtxDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
     val context = datum._2
     val doc = context.document
-    logger.info("inside calculate dep value function")
+    logger.info("inside calculate dep tail function")
     logger.info(s"Current event ID: ${extractEvtId(datum._1)}")
     logger.info(s"current context ID: ${datum._2.nsId()}")
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
     val ctxDepStrings = ctxDependencyTails.map(c => c.mkString("_"))
-    logger.info("inside context dep tail function")
-    ctxDependencyTails.map(c => {
+    ctxDepStrings.map(c => {
       val str = c.mkString(" ")
       logger.info(str)
     })
