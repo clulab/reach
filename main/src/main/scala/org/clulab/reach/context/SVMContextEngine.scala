@@ -131,6 +131,14 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                   s"${f} : ${featVal}"
                 }
                   else logger.info(s"This feature is not contained in the aggregated feature: ${f}")})
+                val possibleNonZeroDepTails = aggregatedFeature.featureGroups.filter(x => {
+                  val index = aggregatedFeature.featureGroups.indexOf(x)
+                  val featName = aggregatedFeature.featureGroupNames(index)
+                  (x > 0.0 && featName.startsWith("ctxDepTail"))
+                })
+                val stringedOutNonZero = possibleNonZeroDepTails.mkString(" ")
+                if(stringedOutNonZero.length > 0) logger.info(stringedOutNonZero)
+                else logger.info("There were no non-zero dep tail features found")
                 val stringToLog = valueList.mkString("\t")
                 logger.info(stringToLog)
                 (ctxId, prediction)
@@ -285,18 +293,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val inputRows = instances
     for(in <- inputRows) {
       val valuesToClub = featValLookUp(in)
-      val ctxDepFeatures = Seq("ctxDepTail_obj_nn","ctxDepTail_xcomp_appos","ctxDepTail_xcomp_appos", "ctxDepTail_mod_aux")
       val (specific, event, context) = (valuesToClub._1, valuesToClub._2, valuesToClub._3)
-
-      ctxDepFeatures.map(c => if(context.contains(c)) {
-        logger.info(s"I have found the value for ${c}, so I'll use this value")
-
-      }
-      else {
-        logger.info(s"no value found for ${c}, so I'll use 0")
-
-
-      })
       val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, context)
       val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, event)
       val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specific)
@@ -338,9 +335,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
   private def intersentenceDependencyPath(datum:(BioEventMention, BioTextBoundMention)): Option[Seq[String]] = {
-    logger.info(s"Current PMCID: ${datum._1.document.id}")
-    logger.info(s"Current event ID in dependency path, outside sentence: ${extractEvtId(datum._1)}")
-    logger.info(s"Current context ID in dependency path, outside sentence: ${datum._2.nsId()}")
     def pathToRoot(currentNodeIndx:Int, currentSentInd:Int, currentDoc:Document): Seq[String] = {
       val dependencies = currentDoc.sentences(currentSentInd).dependencies.get
       val allRoots = dependencies.roots.toSeq
@@ -361,7 +355,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val selectedPath = (first.reverse ++ numOfJumps ++ second).map(FeatureProcessing.clusterDependency)
 
     val bigrams = (selectedPath zip selectedPath.drop(1)).map{ case (a, b) => s"${a}_${b}" }
-    logger.info(bigrams.mkString(" "))
 
     Some(bigrams)
   }
@@ -371,9 +364,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
 
     if(datum._1.sentence == datum._2.sentence) {
-      logger.info(s"Current PMCID: ${datum._1.document.id}")
-      logger.info(s"Current event ID in dependency path, within sentence: ${extractEvtId(datum._1)}")
-      logger.info(s"Current context ID in dependency path, within sentence: ${datum._2.nsId()}")
       val currentSentContents = datum._1.document.sentences(datum._1.sentence)
       val dependencies = currentSentContents.dependencies.get
       val (first, second) = if(datum._1.tokenInterval.start <= datum._2.tokenInterval.start) (datum._1.tokenInterval, datum._2.tokenInterval) else (datum._2.tokenInterval, datum._1.tokenInterval)
@@ -399,7 +389,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
             }
           }
 
-          logger.info(bigrams.mkString(" "))
 
           Some(bigrams)
         case Failure(e) =>
@@ -584,6 +573,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     // Negation in context mention
     val ctxNegationInTail = if(ctxDependencyTails.filter(tail => tail.contains("neg")).size > 0) 1.0 else 0.0
+    logger.info("inside calculate feature value function")
+    logger.info(s"Current event ID: ${extractEvtId(event)}")
+    logger.info(s"Current context ID: ${context.nsId()}")
     result ++= Map("ctxNegationIntTail" -> ctxNegationInTail)
 
 
@@ -598,17 +590,17 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   private def calculateEvtDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
     val event = datum._1
     val doc = event.document
-    val result = collection.mutable.Map[String,Double]()
     val evtDependencyTails = dependencyTails(event.sentence,event.tokenInterval, doc)
     val evtDepStrings = evtDependencyTails.map(e => e.mkString("_"))
-    result ++= evtDepStrings.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
-    result.toMap
+    evtDepStrings.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
   }
 
   private def calculateCtxDepFeatureVals(datum:(BioEventMention, BioTextBoundMention)):Map[String,Double] = {
     val context = datum._2
     val doc = context.document
-    val result = collection.mutable.Map[String,Double]()
+    logger.info("inside calculate dep value function")
+    logger.info(s"Current event ID: ${extractEvtId(datum._1)}")
+    logger.info(s"current context ID: ${datum._2.nsId()}")
     val ctxDependencyTails = dependencyTails(context.sentence, context.tokenInterval, doc)
     val ctxDepStrings = ctxDependencyTails.map(c => c.mkString("_"))
     logger.info("inside context dep tail function")
@@ -616,8 +608,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val str = c.mkString(" ")
       logger.info(str)
     })
-    result ++= ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
-    result.toMap
+    ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
   }
 
 
