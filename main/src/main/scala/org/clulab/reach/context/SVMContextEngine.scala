@@ -264,6 +264,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val ctxDepFeatVal = calculateCtxDepFeatureVals(datum)
 
 
+
     val row = InputRow(sentencePos,
       PMCID,
       label,
@@ -294,6 +295,12 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     for(in <- inputRows) {
       val valuesToClub = featValLookUp(in)
       val (specific, event, context) = (valuesToClub._1, valuesToClub._2, valuesToClub._3)
+      val featSet = in.ctx_dependencyTails.intersect(context.keySet)
+      logger.info("The following are features that we should expect to find values for")
+      featSet.map(logger.info(_))
+      for((featName, value) <- context) {
+        logger.info(s"The feature ${featName} has value ${value}")
+      }
       val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, context)
       val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, event)
       val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specific)
