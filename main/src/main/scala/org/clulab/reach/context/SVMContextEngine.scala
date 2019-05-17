@@ -311,7 +311,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
       for((name,value) <- input) {
-        if(name == "ctxDepTail_subj_mod")
+        if(name == "ctxDepTail_subj_mod_max")
           logger.info(s"Checking max tup: ${name} has value ${value}")
         featureSetNames += name
         featureSetValues += value
