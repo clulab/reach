@@ -349,21 +349,18 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
           featNameToVals ++= Map(spec -> toAddVal)
         }
       }
-
-
-      val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
-      val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
-      val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
-
-      val specFeatVal = featureValuePairing(aggregatedSpecVals)
-      val ctxFeatVal = featureValuePairing(aggregatedctxDepVals)
-      val evtFeatVal = featureValuePairing(aggregatedevtDepVals)
-
-      addAggregatedOnce(specFeatVal)
-      addAggregatedOnce(ctxFeatVal)
-      addAggregatedOnce(evtFeatVal)
-
     }
+    val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
+    val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
+    val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
+
+    val specFeatVal = featureValuePairing(aggregatedSpecVals)
+    val ctxFeatVal = featureValuePairing(aggregatedctxDepVals)
+    val evtFeatVal = featureValuePairing(aggregatedevtDepVals)
+
+    addAggregatedOnce(specFeatVal)
+    addAggregatedOnce(ctxFeatVal)
+    addAggregatedOnce(evtFeatVal)
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
     newAggRow
   }

@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">8100316</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">1138</journal-id>
+      <journal-id journal-id-type="nlm-ta">Biomaterials</journal-id>
+      <journal-title-group>
+        <journal-title>Biomaterials</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0142-9612</issn>
+      <issn pub-type="epub">1878-5905</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19540579</article-id>
+      <article-id pub-id-type="pmc">3119364</article-id>
+      <article-id pub-id-type="doi">10.1016/j.biomaterials.2009.05.061</article-id>
+      <article-id pub-id-type="manuscript">NIHMS121324</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The influence of tethered epidermal growth factor on connective tissue progenitor colony formation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Marcantonio</surname>
+            <given-names>Nicholas A.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Boehm</surname>
+            <given-names>Cynthia A.</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Rozic</surname>
+            <given-names>Richard</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">b</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Au</surname>
+            <given-names>Ada</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wells</surname>
+            <given-names>Alan</given-names>
+          </name>
+          <xref rid="A3" ref-type="aff">c</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Muschler</surname>
+            <given-names>George F.</given-names>
+          </name>
+          <xref rid="A2" ref-type="aff">b</xref>
+          <xref rid="FN1" ref-type="author-notes">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Griffith</surname>
+            <given-names>Linda G.</given-names>
+          </name>
+          <xref rid="A1" ref-type="aff">a</xref>
+          <xref rid="A4" ref-type="aff">d</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>a</label>Department of Biological Engineering, Massachusetts Institute of Technology, Cambridge, Massachusetts 02139, USA</aff>
+      <aff id="A2"><label>b</label>Department of Orthopaedic Surgery and Biomedical Engineering, Cleveland Clinic Foundation, Cleveland, Ohio 44195, USA</aff>
+      <aff id="A3"><label>c</label>Department of Pathology, University of Pittsburgh, Pittsburgh, Pennsylvania 15213, USA</aff>
+      <aff id="A4"><label>d</label>Department of Mechanical Engineering, Massachusetts Institute of Technology, Cambridge, Massachusetts 02139, USA</aff>
+      <author-notes>
+        <corresp id="FN1">
+<label>*</label>Corresponding Author Linda G. Griffith, Biological Engineering Department, MIT Room 16-429, 77 Massachusetts Avenue, Cambridge MA 02139, Fax: 617-253-2400, <email>griff@mit.edu</email></corresp>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>13</day>
+        <month>5</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>21</day>
+        <month>6</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>9</month>
+        <year>2009</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>21</day>
+        <month>6</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>30</volume>
+      <issue>27</issue>
+      <fpage>4629</fpage>
+      <lpage>4638</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; 2009 Elsevier Ltd. All rights reserved.</copyright-statement>
+        <copyright-year>2009</copyright-year>
+      </permissions>
+      <abstract>
+        <p id="P1">Strategies to combine aspirated marrow cells with scaffolds to treat connective tissue defects are gaining increasing clinical attention and use. In situations such as large defects where initial survival and proliferation of transplanted connective tissue progenitors (CTPs) is limiting, therapeutic outcomes might be improved by using the scaffold to deliver growth factors that promote the early stages of cell function in the graft. Signaling by the epidermal growth factor receptor (EGFR) plays a role in cell survival and has been implicated in bone development and homeostasis. Providing epidermal growth factor (EGF) in a scaffold-tethered format may sustain local delivery and shift EGFR signaling to pro-survival modes compared to soluble ligand. We therefore examined the effect of tethered EGF on osteogenic colony formation from human bone marrow aspirates in the context of three different adhesion environments using a total of 39 donors. We found that tethered EGF, but not soluble EGF, increased the numbers of colonies formed regardless of adhesion background, and that tethered EGF did not impair early stages of osteogenic differentiation.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Connective tissue</kwd>
+        <kwd>Mesenchymal stem cell</kwd>
+        <kwd>Stem cell</kwd>
+        <kwd>Bone tissue engineering</kwd>
+        <kwd>Growth factors</kwd>
+        <kwd>Adhesion molecule</kwd>
+      </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">National Institute of General Medical Sciences  : NIGMS</funding-source>
+          <award-id>U54 GM064346-02S19008 || GM</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of General Medical Sciences  : NIGMS</funding-source>
+          <award-id>R01 GM059870-08 || GM</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of General Medical Sciences  : NIGMS</funding-source>
+          <award-id>R01 GM059870-07 || GM</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of General Medical Sciences  : NIGMS</funding-source>
+          <award-id>R01 GM059870-06 || GM</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Dental and Craniofacial Research  : NIDCR</funding-source>
+          <award-id>R01 DE019523-09 || DE</award-id>
+        </award-group>
+        <award-group>
+          <funding-source country="United States">National Institute of Arthritis and Musculoskeletal and Skin Diseases  : NIAMS</funding-source>
+          <award-id>R01 AR042997-07 || AR</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>
