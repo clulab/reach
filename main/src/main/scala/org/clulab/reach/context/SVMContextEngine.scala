@@ -298,9 +298,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       val featSet = in.ctx_dependencyTails.intersect(context.keySet)
       logger.info("The following are features that we should expect to find values for")
       featSet.map(logger.info(_))
-      for((featName, value) <- context) {
-        logger.info(s"The feature ${featName} has value ${value}")
-      }
       val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, context)
       val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, event)
       val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specific)
@@ -613,11 +610,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     ctxDepStrings.map(c => {
       logger.info(c)
     })
-    val map = ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length).mapValues(_.toDouble)
-    for((featName, value) <- map) {
-      logger.info(s"The feature ${featName} has value ${value}")
-    }
-    map
+   ctxDepStrings.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length).mapValues(_.toDouble)
   }
 
 
