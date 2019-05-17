@@ -131,14 +131,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                   logger.info(s"${f} : ${featVal}")
                 }
                   else logger.info(s"This feature is not contained in the aggregated feature: ${f}")})
-                val possibleNonZeroDepTails = aggregatedFeature.featureGroups.filter(x => {
-                  val index = aggregatedFeature.featureGroups.indexOf(x)
-                  val featName = aggregatedFeature.featureGroupNames(index)
-                  (x > 0.0 && featName.startsWith("ctxDepTail"))
-                })
-                val stringedOutNonZero = possibleNonZeroDepTails.mkString(" ")
-                if(stringedOutNonZero.length > 0) logger.info(stringedOutNonZero)
-                else logger.info("There were no non-zero dep tail features found")
                 (ctxId, prediction)
             }
 
@@ -311,8 +303,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
       for((name,value) <- input) {
-        if(name == "ctxDepTail_subj_mod_max")
-          logger.info(s"Checking max tup: ${name} has value ${value}")
         featureSetNames += name
         featureSetValues += value
       }
@@ -361,17 +351,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       }
 
 
-      logger.info("We can expect to find values for the following features")
-      val inter = featNameToVals.keySet.intersect(ctxFeatureNamesToUse)
-      inter.map(logger.info(_))
-      val seqOfPossibleNonZeroVals = Seq("ctxDepTail_subj_auxpass", "ctxDepTail_cc_cc", "ctxDepTail_subj_subj", "ctxDepTail_subj_mod")
-      logger.info("In aggregated feature function")
-      seqOfPossibleNonZeroVals.map(s => {
-        if(featNameToVals.contains(s))
-        {val listOfVals = featNameToVals(s)
-        logger.info(s"The feature ${s} has values ${listOfVals.mkString(" ")} over all input rows")}
-        else{logger.info(s"The feature name ${s} was not found")}
-      })
       val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
       val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
       val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
