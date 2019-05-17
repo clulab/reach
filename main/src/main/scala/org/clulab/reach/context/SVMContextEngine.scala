@@ -292,46 +292,84 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
     val featureSetNames = collection.mutable.ListBuffer[String]()
     val featureSetValues = collection.mutable.ListBuffer[Double]()
     val inputRows = instances
+    val featNameToVals = collection.mutable.Map[String,mutable.ListBuffer[Double]]()
+    val specfeatureNamesToUse = instances(0).specificFeatureNames
+    val ctxFeatureNamesToUse = instances(0).ctx_dependencyTails
+    val evtFeatureNamesToUse = instances(0).evt_dependencyTails
+
+    def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
+      val pairings = collection.mutable.ListBuffer[(String,Double)]()
+      for((key,value) <- aggr) {
+        val extendedName = CodeUtils.extendFeatureName(key)
+        val minTup = (extendedName._1, value._1)
+        val maxTup = (extendedName._2, value._2)
+        val avgTup = (extendedName._3, value._3/value._4)
+        val list = ListBuffer(minTup, maxTup, avgTup)
+        pairings ++= list
+      }
+      pairings
+    }
+
+    def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
+      for((name,value) <- input) {
+        featureSetNames += name
+        featureSetValues += value
+      }
+    }
+
+    //aggregateInputRowFeatValues
+    // we read through the input row values and add them to a name -> list of features map.
+    // So for a given feature name as key, we will have a list of double as values, where the doubles are the values to the feature in a given input row.
+
     for(in <- inputRows) {
-      val valuesToClub = featValLookUp(in)
-      val (specific, event, context) = (valuesToClub._1, valuesToClub._2, valuesToClub._3)
-      val featSet = in.ctx_dependencyTails.intersect(context.keySet)
-      logger.info("The following are features that we should expect to find values for")
-      featSet.map(logger.info(_))
-      val ctxMappings = aggregateInputRowFeatValues(in.ctx_dependencyTails.toSeq, context)
-      val evtMappings = aggregateInputRowFeatValues(in.evt_dependencyTails.toSeq, event)
-      val specificMappings = aggregateInputRowFeatValues(in.specificFeatureNames, specific)
-
-
-      def featureValuePairing(aggr:Map[String,(Double,Double, Double, Int)]): Seq[(String,Double)] = {
-        val pairings = collection.mutable.ListBuffer[(String,Double)]()
-        for((key,value) <- aggr) {
-          val extendedName = CodeUtils.extendFeatureName(key)
-          val minTup = (extendedName._1, value._1)
-          val maxTup = (extendedName._2, value._2)
-          val avgTup = (extendedName._3, value._3/value._4)
-          val list = ListBuffer(minTup, maxTup, avgTup)
-          pairings ++= list
+      val (specificVals, evtVals, ctxVals) = featValLookUp(in)
+      for((spec,value)<-specificVals) {
+        if(featNameToVals.contains(spec)) {
+          val currentList = featNameToVals(spec)
+          currentList += value
         }
-        pairings
-      }
-
-      val altPairingCtx = featureValuePairing(ctxMappings)
-      val altPairingEvt = featureValuePairing(evtMappings)
-      val altPairingSpec = featureValuePairing(specificMappings)
-
-
-      def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
-        for((name,value) <- input) {
-          featureSetNames += name
-          featureSetValues += value
+        else {
+          val toAddVal = collection.mutable.ListBuffer[Double]()
+          toAddVal += value
+          featNameToVals ++= Map(spec -> toAddVal)
         }
       }
 
+      for((spec,value)<-evtVals) {
+        if(featNameToVals.contains(spec)) {
+          val currentList = featNameToVals(spec)
+          currentList += value
+        }
+        else {
+          val toAddVal = collection.mutable.ListBuffer[Double]()
+          toAddVal += value
+          featNameToVals ++= Map(spec -> toAddVal)
+        }
+      }
 
-      addAggregatedOnce(altPairingSpec)
-      addAggregatedOnce(altPairingCtx)
-      addAggregatedOnce(altPairingEvt)
+      for((spec,value)<-ctxVals) {
+        if(featNameToVals.contains(spec)) {
+          val currentList = featNameToVals(spec)
+          currentList += value
+        }
+        else {
+          val toAddVal = collection.mutable.ListBuffer[Double]()
+          toAddVal += value
+          featNameToVals ++= Map(spec -> toAddVal)
+        }
+      }
+
+      val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
+      val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
+      val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
+
+      val specFeatVal = featureValuePairing(aggregatedSpecVals)
+      val ctxFeatVal = featureValuePairing(aggregatedctxDepVals)
+      val evtFeatVal = featureValuePairing(aggregatedevtDepVals)
+
+      addAggregatedOnce(specFeatVal)
+      addAggregatedOnce(ctxFeatVal)
+      addAggregatedOnce(evtFeatVal)
 
     }
     val newAggRow = AggregatedRow(0, instances(0).PMCID, "", "", label, featureSetValues.toArray,featureSetNames.toArray)
@@ -614,24 +652,23 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
   }
 
 
-  def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,Double]):Map[String,(Double,Double, Double, Int)] = {
+
+
+  def aggregateInputRowFeatValues(features:Seq[String], lookUpTable: Map[String,mutable.ListBuffer[Double]]):Map[String,(Double,Double, Double, Int)] = {
     val resultingMap = collection.mutable.Map[String,(Double,Double, Double, Int)]()
     for(r <- features) {
-      if(resultingMap.contains(r)) {
-
-        val valueToBeAdded = if(lookUpTable.contains(r)) lookUpTable(r) else 0.0
-        val currentFeatDetails = resultingMap(r)
-        val tupReplace = (Math.min(currentFeatDetails._1, valueToBeAdded),
-          Math.max(currentFeatDetails._2, valueToBeAdded),
-          currentFeatDetails._3 + valueToBeAdded,
-          currentFeatDetails._4+1)
-        resultingMap(r) = tupReplace
-
+      if(lookUpTable.contains(r)) {
+        val valueList = lookUpTable(r)
+        val min = valueList.foldLeft(Double.MaxValue)(Math.min(_,_))
+        val max = valueList.foldLeft(Double.MinValue)(Math.max(_,_))
+        val sum = valueList.foldLeft(0.0)(_ + _)
+        val tup = (min,max,sum,valueList.size)
+        resultingMap ++= Map(r -> tup)
       }
+
       else {
-        val valForNewEntry = if(lookUpTable.contains(r)) lookUpTable(r) else 0.0
-        val entry = (r -> (valForNewEntry,valForNewEntry,valForNewEntry,1))
-        resultingMap += entry
+        val tup = (0.0, 0.0, 0.0, 1)
+        resultingMap ++= Map(r -> tup)
       }
     }
     resultingMap.toMap
