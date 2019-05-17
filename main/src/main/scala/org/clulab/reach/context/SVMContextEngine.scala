@@ -363,7 +363,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
       logger.info("We can expect to find values for the following features")
       val inter = featNameToVals.keySet.intersect(ctxFeatureNamesToUse)
       inter.map(logger.info(_))
-      val seqOfPossibleNonZeroVals = Seq("ctxDepTail_mark_mod", "ctxDepTail_mark_conj", "ctxDepTail_mark_obj", "ctxDepTail_mark_mark")
+      val seqOfPossibleNonZeroVals = Seq("ctxDepTail_subj_auxpass", "ctxDepTail_cc_cc", "ctxDepTail_subj_subj", "ctxDepTail_subj_mod")
       logger.info("In aggregated feature function")
       seqOfPossibleNonZeroVals.map(s => {
         if(featNameToVals.contains(s))
