@@ -139,8 +139,6 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
                 val stringedOutNonZero = possibleNonZeroDepTails.mkString(" ")
                 if(stringedOutNonZero.length > 0) logger.info(stringedOutNonZero)
                 else logger.info("There were no non-zero dep tail features found")
-                val stringToLog = valueList.mkString("\t")
-                logger.info(stringToLog)
                 (ctxId, prediction)
             }
 
@@ -304,6 +302,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         val minTup = (extendedName._1, value._1)
         val maxTup = (extendedName._2, value._2)
         val avgTup = (extendedName._3, value._3/value._4)
+        if(key == "ctxDepTail_subj_mod")
+          logger.info(s"Checking max tup: ${maxTup._1} has value ${maxTup._2}")
         val list = ListBuffer(minTup, maxTup, avgTup)
         pairings ++= list
       }
