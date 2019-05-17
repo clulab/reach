@@ -359,6 +359,9 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         }
       }
 
+      val inter = featNameToVals.keySet.intersect(specfeatureNamesToUse.toSet ++ ctxFeatureNamesToUse)
+      inter.map(logger.info(_))
+
       val aggregatedSpecVals = aggregateInputRowFeatValues(specfeatureNamesToUse, featNameToVals.toMap)
       val aggregatedctxDepVals = aggregateInputRowFeatValues(ctxFeatureNamesToUse.toSeq, featNameToVals.toMap)
       val aggregatedevtDepVals = aggregateInputRowFeatValues(evtFeatureNamesToUse.toSeq, featNameToVals.toMap)
