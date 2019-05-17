@@ -302,8 +302,7 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
         val minTup = (extendedName._1, value._1)
         val maxTup = (extendedName._2, value._2)
         val avgTup = (extendedName._3, value._3/value._4)
-        if(key == "ctxDepTail_subj_mod")
-          logger.info(s"Checking max tup: ${maxTup._1} has value ${maxTup._2}")
+
         val list = ListBuffer(minTup, maxTup, avgTup)
         pairings ++= list
       }
@@ -312,6 +311,8 @@ class SVMContextEngine extends ContextEngine with LazyLogging {
 
     def addAggregatedOnce(input: Seq[(String, Double)]):Unit = {
       for((name,value) <- input) {
+        if(name == "ctxDepTail_subj_mod")
+          logger.info(s"Checking max tup: ${name} has value ${value}")
         featureSetNames += name
         featureSetValues += value
       }
