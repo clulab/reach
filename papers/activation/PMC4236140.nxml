@@ -1,0 +1,671 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+      <journal-id journal-id-type="iso-abbrev">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title-group>
+        <journal-title>PLoS ONE</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">25405629</article-id>
+      <article-id pub-id-type="pmc">4236140</article-id>
+      <article-id pub-id-type="publisher-id">PONE-D-14-21532</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0113175</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Biology and Life Sciences</subject>
+          <subj-group>
+            <subject>Anatomy</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Cell Biology</subject>
+          </subj-group>
+        </subj-group>
+        <subj-group subj-group-type="Discipline-v2">
+          <subject>Medicine and Health Sciences</subject>
+          <subj-group>
+            <subject>Endocrinology</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Oncology</subject>
+          </subj-group>
+          <subj-group>
+            <subject>Women's Health</subject>
+          </subj-group>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Differential Roles of ER&#x3B1; and ER&#x3B2; in Normal and Neoplastic Development in the Mouse Mammary Gland</article-title>
+        <alt-title alt-title-type="running-head">EGF Can Replace Estradiol for Mammary Gland Ductal Expansion</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mehta</surname>
+            <given-names>Rajendra G.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+          <xref ref-type="corresp" rid="cor1">
+<sup>*</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hawthorne</surname>
+            <given-names>Michael</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Mehta</surname>
+            <given-names>Rajeshwari R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Torres</surname>
+            <given-names>Karen E. O.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2">
+<sup>2</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Peng</surname>
+            <given-names>Xinjian</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>McCormick</surname>
+            <given-names>David L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+<sup>1</sup>
+</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kopelovich</surname>
+            <given-names>Levy</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+<sup>3</sup>
+</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+<label>1</label>
+<addr-line>IIT Research Institute, Chicago, Illinois, United States of America</addr-line>
+</aff>
+      <aff id="aff2">
+<label>2</label>
+<addr-line>GenUs Biosystems, Northbrook, Illinois, United States of America</addr-line>
+</aff>
+      <aff id="aff3">
+<label>3</label>
+<addr-line>Division of Cancer Prevention, National Cancer Institute, Rockville, Maryland, United States of America</addr-line>
+</aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>He</surname>
+            <given-names>Bin</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+<addr-line>Baylor College of Medicine, United States of America</addr-line>
+</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>RMehta@iitri.org</email></corresp>
+        <fn fn-type="COI-statement">
+          <p><bold>Competing Interests: </bold>DLM is a Section Editor for PLOS ONE. KT is employed by GenUs Biosystems. She was involved in the microarray work included in the manuscript. Inclusion of her name does not alter the authors&#x2019; adherence to PLOS ONE policies on sharing data and materials.</p>
+        </fn>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: RGM LK. Performed the experiments: MH XP KEOT. Analyzed the data: RRM XP KEOT. Contributed to the writing of the manuscript: RGM DM KEOT.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2014</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>18</day>
+        <month>11</month>
+        <year>2014</year>
+      </pub-date>
+      <volume>9</volume>
+      <issue>11</issue>
+      <elocation-id>e113175</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>20</day>
+          <month>5</month>
+          <year>2014</year>
+        </date>
+        <date date-type="accepted">
+          <day>27</day>
+          <month>8</month>
+          <year>2014</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-year>2014</copyright-year>
+        <license xlink:href="https://creativecommons.org/publicdomain/zero/1.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Public Domain declaration, which stipulates that, once placed in the public domain, this work may be freely reproduced, distributed, transmitted, modified, built upon, or otherwise used by anyone for any lawful purpose.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>The present experiments were performed to determine the roles of estrogen receptors &#x3B1; and &#x3B2; (ER&#x3B1; and ER&#x3B2;) in normal and neoplastic development in the mouse mammary gland. In wild-type mice, <italic>in</italic>
+<italic>vivo</italic> administration of estradiol (E) + progesterone (P) stimulated mammary ductal growth and alveolar differentiation. Mammary glands from mice in which the ER&#x3B2; gene has been deleted (&#x3B2;ERKO mice) demonstrated normal ductal growth and differentiation in response to E + P. By contrast, mammary glands from mice in which the ER&#x3B1; gene has been deleted (&#x3B1;ERKO mice) demonstrated only rudimentary ductal structures that did not differentiate in response to E + P. EGF demonstrates estrogen-like activity in the mammary glands of &#x3B1;ERKO mice: treatment of &#x3B1;ERKO mice with EGF + P (without E) supported normal mammary gland development, induced expression of progesterone receptor (PR), and increased levels of G-protein-coupled receptor (GPR30) protein. Mammary gland development in &#x3B2;ERKO mice treated with EGF + P was comparable to that of wild-type mice receiving EGF + P; EGF had no statistically significant effects on the induction of PR or expression of GPR30 in mammary glands harvested from either wild-type mice or &#x3B2;ERKO mice. <italic>In</italic>
+<italic>vitro</italic> exposure of mammary glands to 7,12-dimethylbenz[a]anthracene (DMBA) induced preneoplastic mammary alveolar lesions (MAL) in glands from wild-type mice and &#x3B2;ERKO mice, but failed to induce MAL in mammary glands from &#x3B1;ERKO mice. Microarray analysis of DMBA-treated mammary glands identified 28 functional pathways whose expression was significantly different in &#x3B1;ERKO mice versus both &#x3B2;ERKO and wild-type mice; key functions that were differentially expressed in &#x3B1;ERKO mice included cell division, cell proliferation, and apoptosis. The data demonstrate distinct roles for ER&#x3B1; and ER&#x3B2; in normal and neoplastic development in the mouse mammary gland, and suggest that EGF can mimic the ER&#x3B1;-mediated effects of E in this organ.</p>
+      </abstract>
+      <funding-group>
+        <funding-statement>Funding provided by Division of Cancer Prevention, National Cancer Institute (NCI), Bethesda, Maryland NO1-CN-43301 (RGM) and LK, Division of Cancer Prevention Branch, NCI. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+      </funding-group>
+      <counts>
+        <page-count count="8"/>
+      </counts>
+      <custom-meta-group>
+        <custom-meta id="data-availability">
+          <meta-name>Data Availability</meta-name>
+          <meta-value>The authors confirm that all data underlying the findings are fully available without restriction. Data are deposited in the GEO database under the accession number GSE62451 (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62451">http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62451</ext-link>).</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+    <notes>
+      <title>Data Availability</title>
+      <p>The authors confirm that all data underlying the findings are fully available without restriction. Data are deposited in the GEO database under the accession number GSE62451 (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62451">http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62451</ext-link>).</p>
+    </notes>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Estrogen action in target tissues is mediated by binding to specific nuclear receptors, estrogen receptors &#x3B1; and &#x3B2; (ER&#x3B1; and ER&#x3B2;) <xref rid="pone.0113175-Higa1" ref-type="bibr">[1]</xref>. ER&#x3B1; and ER&#x3B2; are ligand-regulated transcription factors, and each has several isoforms; these receptors play key roles in the regulation of cell proliferation and differentiation in the breast, uterus, and other tissues <xref rid="pone.0113175-Jonsson1" ref-type="bibr">[2]</xref>. Following estrogen binding, ERs bind to estrogen response elements (EREs) in the promoter regions of estrogen-responsive genes <xref rid="pone.0113175-Leitman1" ref-type="bibr">[3]</xref>, resulting in a cascade of downstream responses.</p>
+      <p>Although murine ER&#x3B1; and ER&#x3B2; demonstrate 97% sequence homology at the DNA binding domain <xref rid="pone.0113175-Tremblay1" ref-type="bibr">[4]</xref>, the two receptors are clearly distinct. The genes for ER&#x3B1; and ER&#x3B2; are located on different chromosomes <xref rid="pone.0113175-Zhao1" ref-type="bibr">[5]</xref>; the two receptors demonstrate different distribution patterns in estrogen target tissues; and the receptors appear to regulate transcription via different mechanisms. ER&#x3B1; and ER&#x3B2; also have different ligand binding affinities and respond independently to ligand binding <xref rid="pone.0113175-Paige1" ref-type="bibr">[6]</xref>. Most importantly, activation of ER&#x3B1; results in substantially different effects in estrogen target tissues than does activation of ER&#x3B2;).</p>
+      <p>The contrasting effects of ER&#x3B1; activation and ER&#x3B2; activation appear to be both organ-specific and context-dependent <xref rid="pone.0113175-Paige1" ref-type="bibr">[6]</xref>. In the normal breast, ER&#x3B2; is more abundant than is ER&#x3B1;; recent data suggest that high levels of ER&#x3B2; can down-regulate the expression of ER&#x3B1; <xref rid="pone.0113175-Stope1" ref-type="bibr">[7]</xref>. Activation of ER&#x3B1; supports cell proliferation in the breast and other tissues <xref rid="pone.0113175-Mathews1" ref-type="bibr">[8]</xref>; ER&#x3B1; content has been proposed as a marker to distinguish hormone-dependent breast cancers from hormone-independent breast cancers <xref rid="pone.0113175-Zhao1" ref-type="bibr">[5]</xref>. By contrast, activation of ER&#x3B2; is antiproliferative in the breast and other tissues <xref rid="pone.0113175-Cotrim1" ref-type="bibr">[9]</xref>. Because ER&#x3B1; and ER&#x3B2; demonstrate both qualitative and quantitative differences in activity, understanding their distinct roles in normal and neoplastic mammary growth and development may provide insight into estrogen action in breast cancer, and may also identify useful molecular targets for breast cancer prevention and therapy.</p>
+      <p>Previous studies have demonstrated cross-talk between the ER and EGFR pathways in both normal and neoplastic development in the mammary gland <xref rid="pone.0113175-Harrison1" ref-type="bibr">[10]</xref>. Implantation of EGF pellets supports normal mammary gland differentiation in ovariectomized mice, as demonstrated by the development of terminal end buds <xref rid="pone.0113175-Ankrapp1" ref-type="bibr">[11]</xref>. In addition, EGF upregulates the expression of G-protein-coupled receptor 30. (GPR30) in two human breast cancer cell lines (SK-BR-3 and BT20) that are negative for ER&#x3B1;; GPR30 has been proposed to play a key role in the development of tamoxifen resistance in breast cancer cells <xref rid="pone.0113175-Mo1" ref-type="bibr">[12]</xref>. In the uterus, estrogen upregulates EGFR, and EGF mimics the growth stimulatory activity of E <xref rid="pone.0113175-Skandalis1" ref-type="bibr">[13]</xref>, <xref rid="pone.0113175-IgnarTrowbridge1" ref-type="bibr">[14]</xref>. When considered as a whole, these data suggest that EGF mimicry of estrogen-mediated function(s) may result from (or be associated with) EGF up-regulation of GPR30 <xref rid="pone.0113175-Albanito1" ref-type="bibr">[15]</xref>.</p>
+      <p>Although comparative studies of the roles of ER&#x3B1; and ER&#x3B2; in breast cancer have most commonly been performed using ER+ and ER&#x2013; cell lines as experimental models, &#x3B1;ERKO and &#x3B2;ERKO mice have been used to understand differential functions of ER&#x3B1; and ER&#x3B2; <xref rid="pone.0113175-Course1" ref-type="bibr">[16]</xref>. Previous studies have indicated that in the absence of ER&#x3B1; mammary glands do not develop, only rudimentary primary duct is observed in mice, whereas mammary glands from young 3&#x2013;4 week old female &#x3B2;ERKO mice were indistinguishable from the control wild-type mice <xref rid="pone.0113175-Cheng1" ref-type="bibr">[17]</xref>, <xref rid="pone.0113175-Krege1" ref-type="bibr">[18]</xref>. However in &#x3B2;ERKO mice where ER&#x3B1; is intact there is no adverse effect on the development of mammary glands <xref rid="pone.0113175-Cheng1" ref-type="bibr">[17]</xref>. Mammary carcinogenesis studies in ERKO mice have not been previously reported. Studies in mammary glands harvested from ER&#x3B1; knockout mice and ER&#x3B2; knockout mice may provide additional insights into the distinct roles of ER&#x3B1; and ER&#x3B2; in the development of normal and neoplastic mammary gland <xref rid="pone.0113175-Tremblay1" ref-type="bibr">[4]</xref>.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="s2">
+      <title>Materials and Methods</title>
+      <sec id="s2a">
+        <title>Estrogen Receptor Knockout (ERKO) Mice</title>
+        <p>Colonies of &#x3B1;ERKO and &#x3B2;ERKO mice were developed and maintained in our laboratories using breeding pairs provided through the courtesy of Dr. Dennis Lubahn (University of Missouri, Columbia, MO). Both ERKO models were originally developed on a C57BL6/129SV background; C57/BL6 mice were used in the present studies as wild-type (WT) controls. All mice were genotyped prior to use in order to confirm their ER status. This study was carried out in accordance with the recommendations in the Guide for the Care and Use of laboratory animals of the National Institute of health. The experimental design and protocol were approved by the IIT Research Institute&#x2019;s Institutional Animal Care and Use Committee (IACUC).</p>
+      </sec>
+      <sec id="s2b">
+        <title>Mammary Gland Organ Culture (MMOC)</title>
+        <p>Procedures used to evaluate the effects of hormones, growth factors, and other agents on the <italic>in</italic>
+<italic>vitro</italic> differentiation of the mouse mammary gland and on the induction of preneoplastic lesions have been described in detail <xref rid="pone.0113175-Mehta1" ref-type="bibr">[19]</xref>, <xref rid="pone.0113175-Mehta2" ref-type="bibr">[20]</xref>. Briefly, 4-week-old female mice (C57/BL, &#x3B1;ERKO, or &#x3B2;ERKO) that had been pretreated with 1 &#xB5;g estrogen and 1 mg progesterone for 9 days were sacrificed by CO2 asphyxiation and thoracic pairs of mammary glands were excised aseptically. Mammary glands were then incubated on silk rafts in serum-free organ culture using chemically defined Waymouth medium.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Effects of <italic>in</italic>
+<italic>vivo</italic> preconditioning with EGF on mammary gland differentiation in ERKO mice</title>
+        <p>In WT mice, <italic>in</italic>
+<italic>vivo</italic> pre-treatment with E (1 &#xB5;g) and P (1 mg) is required to support mammary gland responsiveness to hormones in organ culture <xref rid="pone.0113175-Course1" ref-type="bibr">[16]</xref>. Because mammary ducts from &#x3B1;ERKO mice are rudimentary and do not respond to hormones, we evaluated the effects of EGF (as a substitute for estrogen) on the <italic>in</italic>
+<italic>vivo</italic> expansion of mammary ducts in the empty fat pad. WT and ERKO mice were treated with 25 ng EGF+1 mg P daily for 5 consecutive days; mammary glands were collected and processed as whole mounts for evaluations of morphology (structural expansion of mammary ducts and formation of end buds). The effects of EGF + P on mammary gland morphology were compared to the effects of E + P.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Effects of Hormones on Induction of Preneoplastic Mammary Lesions (Mammary Alveolar Lesions; MAL) by a Chemical Carcinogen</title>
+        <p>To study the effects of hormones on MAL development, freshly harvested mammary glands were incubated in Waymouth&#x2019;s MB 752/1 medium supplemented with insulin (I; 5 &#xB5;g/ml), prolactin (PRL; 5 &#xB5;g/ml), aldosterone (A; 1 &#xB5;g/ml), and hydrocortisone (F; 1 &#xB5;g/ml) for 10 days (defined as the growth promotion phase). On Day 3 of the growth promotion phase, glands were exposed to the polycyclic aromatic hydrocarbon carcinogen, 7,12-dimethylbenz[a]anthracene (DMBA; 2 &#xB5;g/ml) for 24 h. After completion of the 10-day growth promotion phase, glands were grown for an additional 14 days in medium containing insulin only (5 &#xB5;g/ml; regression phase); the regression phase permits microscopic visualization of preneoplastic mammary alveolar lesions (MAL). At the end of the 24 day culture period, glands were fixed in formalin, stained with alum carmine, cleared in xylene, and evaluated microscopically <xref rid="pone.0113175-Course1" ref-type="bibr">[16]</xref>. Glands were scored for the incidence and multiplicity of MAL.</p>
+      </sec>
+      <sec id="s2e">
+        <title>Immunohistochemistry</title>
+        <p>Formalin-fixed, paraffin-embedded tissue sections (4 &#xB5;m) were deparaffinized and rehydrated for immunohistochemistry. Antigen retrieval was performed by microwaving tissue sections in 10 mM citrate buffer for 6 min. After rinsing with PBS, nonspecific staining was blocked by incubating slides in blocking reagent (Vector Laboratories, Burlingame, CA). Tissue sections were incubated with primary GPR30 antibodies (Santa Cruz Biotechnology, Santa Cruz, CA), rinsed with PBS, and incubated with the appropriate biotinylated goat anti-rabbit/anti-mouse antibody (Vectashield Elite, Vector). Immunoreactivity was visualized using diaminobenzidine (Sigma-Aldrich, St Louis, MO) as a chromogen. Sections were counterstained with hematoxylin, and were examined microscopically.</p>
+      </sec>
+      <sec id="s2f">
+        <title>Microarray analyses</title>
+        <p>Mammary glands were collected from five mice per group (WT, &#x3B1;ERKO, &#x3B2;ERKO) and snap-frozen in liquid N2 for microarray evaluations using the Codelink Mouse Whole Genome Array (Applied Microarrays, Tempe, AZ). Mammary glands containing DMBA-induced MAL were harvested from WT and &#x3B2;ERKO mice; because glands from &#x3B1;ERKO mice were MAL-free, no samples could be harvested for molecular analysis.</p>
+        <p>Purified total RNA was extracted individually from each gland using the Ambion RiboPure RNA isolation kit (Life Technologies, Carlsbad, CA) and was quantitated using the OD260/280 ratio for each sample. Equal mass amounts of total RNA from each gland were pooled to yield a sample representing RNA from mammary glands from every mouse in each group. Arrays were hybridized at 37&#xB0;C for 18 h in a shaking incubator, washed, and stained with Cy5-Streptavidin dye conjugate (Amersham Biosciences, Piscataway, NJ) for 30 min. Rinsed and dried arrays were scanned with a G2565.</p>
+        <p>Microarray Scanner (Agilent Technologies, Santa Clara, CA) at 5 &#xB5;m resolution. Scanned images from arrays were processed using CodeLink Expression Analysis software (Applied Microarrays, Tempe AZ); data was analyzed using GeneSpring GX v7.3 software (Agilent Technologies, Santa Clara, CA). To compare individual expression values across arrays, raw intensity data from each probe were normalized to the median intensity of the array. Genes with values greater than background intensity in at least one group were evaluated using Principal Component Analysis (PCA) and hierarchical clustering to identify differences in global gene expression between groups. Genes were further filtered for &gt;2 fold differential expression in each comparison (&#x3B1;ERKO/WT, &#x3B2;ERKO/WT, and &#x3B1;ERKO/&#x3B2;ERKO). Venn diagram analysis was used to identify overlaps of differentially expressed genes, and to identify MAL-specific genes that were responsive to ER&#x3B1; or ER&#x3B2;. Signaling pathways enriched with differentially expressed genes were identified as those with overlap p values of &lt;0.001 on a hypergeometric distribution.</p>
+        <p>Microarray data were also analyzed using Ingenuity Pathway Analysis software (Ingenuity Systems, Redwood City, CA). Comparative gene expression ratios were calculated for &#x3B1;ERKO/WT, &#x3B2;ERKO/WT, and &#x3B1;ERKO/&#x3B2;ERKO in order to identify ER&#x3B1;- and ER&#x3B2;-responsive genes and enriched canonical pathways. Nodal networks containing ER or including cellular growth and proliferation functions were separated for each ER&#x3B1;-responsive and ER&#x3B2;-responsive gene.</p>
+      </sec>
+      <sec id="s2g">
+        <title>qRT-PCR</title>
+        <p>Quantitative RT-PCR was performed as previously described <xref rid="pone.0113175-Peng1" ref-type="bibr">[21]</xref>, using the MyiQ real-time PCR detection system (Bio-Rad, Hercules, CA) and iQ SYBR Green PCR Supermix (Bio-Rad, Hercules, CA); assays were performed using manufacturer&#x2019;s instructions. Progesterone receptor (PR) expression was analyzed by normalizing PR expression to the quantity of total RNA used for RT-PCR analysis. Primers used for PCR analysis of PR were <named-content content-type="gene">5&#x2032;-ATGAAGCATCTGGCTGTCACTA-3&#x2032;</named-content> (forward) and <named-content content-type="gene">5&#x2032;-AAATAGTTATGCTGCCCTTCCA-3&#x2032;</named-content> (reverse).</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>Mammary gland development in response to estrogen + progresterone requires ER&#x3B1; but not ER&#x3B2;</title>
+        <p>Previous studies have demonstrated that mammary gland development in untreated &#x3B1;ERKO mice is rudimentary in comparison to mammary gland development in either WT mice or untreated &#x3B2;ERKO mice <xref rid="pone.0113175-Ankrapp1" ref-type="bibr">[11]</xref>. To determine the effects of mammotropic hormones on mammary gland development in these mice, WT mice, &#x3B1;ERKO mice, and &#x3B2;ERKO mice were pretreated with E (1 &#xB5;g) plus P (1 mg) for 9 days, and then cultured <italic>in</italic>
+<italic>vitro</italic> in the presence of growth promoting hormones. <italic>In</italic>
+<italic>vivo</italic> administration of E + P followed by the 10 days of <italic>in</italic>
+<italic>vitro</italic> incubation in organ culture induced mammary ductal expansion and formation of alveoli in both WT C57/BL6 mice (<xref ref-type="fig" rid="pone-0113175-g001">Figure 1</xref>, panel A) and &#x3B2;ERKO mice (<xref ref-type="fig" rid="pone-0113175-g001">Figure 1</xref>, panel C). By contrast, pretreatment with E + P followed by <italic>in</italic>
+<italic>vitro</italic> incubation with growth promoting hormones failed to induce ductal expansion or end bud development in the mammary glands of &#x3B1;ERKO mice (<xref ref-type="fig" rid="pone-0113175-g001">Figure 1</xref>, panel B). These results demonstrate that ER&#x3B1; is required to support the induction of normal mammary gland growth and development by E + P; by contrast, induction of mammary ductal expansion and end bud development land in response to pretreatment with E + P can occur in the absence of ER&#x3B2;.</p>
+        <fig id="pone-0113175-g001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0113175.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>Effects of pretreatment with estradiol and progesterone on the mammary gland development in MMOC.</title>
+            <p>WT, &#x3B1;ERKO and &#x3B2;ERKO mice were treated with 1 &#xB5;g estradiol and 1 mg Progesterone subcutaneously for 9 days. The thoracic pairs of glands were dissected and cultured in serum free Weymouth&#x2019;s medium for 10 days in the presence of insulin (1 &#xB5;g/ml), prolactin (5 &#xB5;g/ml), aldosterone (1 &#xB5;g/ml) and hydrocortisone (1 &#xB5;g/ml). Results show that &#x3B1;ERKO mice pretreated with E and P do not respond to hormones, no ductal expansion or alveolar development is observed (panel B), whereas WT and &#x3B2;ERKO mice respond to E plus P treatment and to hormones in MMOC.</p>
+          </caption>
+          <graphic xlink:href="pone.0113175.g001"/>
+        </fig>
+      </sec>
+      <sec id="s3b">
+        <title>EGF can replace E in supporting normal mammary gland development</title>
+        <p>In consideration of the reported crosstalk between ER and EGFR in mammary epithelial cells <xref rid="pone.0113175-Skandalis1" ref-type="bibr">[13]</xref> we hypothesized that EGF + P could replace E + P in stimulating mammary gland development <italic>in</italic>
+<italic>vivo</italic>. This hypothesis was addressed by comparing the effects of EGF + P on ductal expansion in mammary glands from WT mice, &#x3B2;ERKO mice, and &#x3B1;ERKO mice. As shown in <xref ref-type="fig" rid="pone-0113175-g002">Figure 2</xref>, WT mice (panel A) and &#x3B2;ERKO mice (Panel C) responded to <italic>in</italic>
+<italic>vivo</italic> treatment with 25 ng EGF+1 mg P in a manner that was similar to their responses to E + P (<xref ref-type="fig" rid="pone-0113175-g001">Figure 1</xref>). Although the effects of EGF + P in &#x3B1;ERKO mice were less prominent than were seen in either WT or &#x3B2;ERKO mice, ductal expansion throughout the mammary fat pat was also seen in &#x3B1;ERKO mice treated with EGF + P (<xref ref-type="fig" rid="pone-0113175-g002">Figure 2</xref>, panel B). This finding is in contrast to the lack of ductal expansion &#x3B1;ERKO mice receiving <italic>in</italic>
+<italic>vivo</italic> treatment with E + P (<xref ref-type="fig" rid="pone-0113175-g001">Figure 1</xref>, panel B). These data suggest that EGF + P can substitute for E + P in inducing normal mammary gland growth and differentiation in both WT mice and in mice lacking ER&#x3B1; or ER&#x3B2;.</p>
+        <fig id="pone-0113175-g002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0113175.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>Effects of pretreatment with EGF and progesterone on the mammary gland development in MMOC.</title>
+            <p>WT, &#x3B1;ERKO and &#x3B2;ERKO mice were treated with 25 ng EGF and 1 mg Progesterone for 5 days s.c. The glands were dissected and cultured in serum free Weymouth&#x2019;s medium for 10 days in the presence of insulin (1 &#xB5;g/ml), prolactin (5 &#xB5;g/ml), aldosterone (1 &#xB5;g/ml) and hydrocortisone (1 &#xB5;g/ml). Results show that mice pretreated with EGF and P can replace pretreatment with Estradiol and progesterone for ERKO mice. A. WT, B. &#x3B1;ERKO, C. &#x3B2;ERKO Mice.</p>
+          </caption>
+          <graphic xlink:href="pone.0113175.g002"/>
+        </fig>
+      </sec>
+      <sec id="s3c">
+        <title>EGF induces expression of progesterone receptor and GPR30 in &#x3B1;ERKO mice</title>
+        <p>PR is an estradiol-inducible target gene <xref rid="pone.0113175-Daniel1" ref-type="bibr">[22]</xref>. To determine whether EGF can replace E in inducing <italic>in</italic>
+<italic>vivo</italic> expression of PR in the mammary gland, groups of WT, &#x3B1;ERKO, and &#x3B2;ERKO mice received daily subcutaneous injections of EGF (25 ng/dose) for five days. As seen in <xref ref-type="fig" rid="pone-0113175-g003">Figure 3</xref>, EGF induced a &#x223C;4.5-fold increase in mammary PR expression in &#x3B1;ERKO mice (p&lt;0.01), but had no statistically significant effect on PR expression in mammary glands of either WT mice or &#x3B2;ERKO mice. These data demonstrate that EGF can replace estradiol in supporting mammary gland development and the induction of estrogen-inducible genes (such as PR) in mice that lack ER&#x3B1;. By contrast, EGF had no significant effect on mammary gland development or PR induction in mice with intact ER&#x3B1; (WT mice and &#x3B2;ERKO mice); this difference is likely to be the result of the near maximal stimulation of mammary gland development by ER&#x3B1;-mediated effects of E.</p>
+        <fig id="pone-0113175-g003" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0113175.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>Effect of EGF treatment of mice on the progesterone receptor (PR) mRNA expression in the mammary glands.</title>
+            <p>Mammary glands were isolated from WT, &#x3B1;ERKO and &#x3B2;ERKO mice pretreated with or without EGF (25 ng/mouse/day, 5 days) and homogenized in Trizol (Invitrogen). Total RNA was isolated and subjected to quantitative RT-PCR analysis. Primers were designed to recognize both PR-A and PR-B. PR mRNA levels in the control samples were set as 1 after normalized to the amount of total RNA. The results are expressed as a mean &#xB1; SEM, &#x3B1;ERKO**p&lt;0.0005 (n&#x200A;=&#x200A;22) in comparison to control, whereas the induction of PR mRNA in WT and &#x3B2;ERKO mice was not statistically significant between EGF treated and untreated glands (one-way ANOVA).</p>
+          </caption>
+          <graphic xlink:href="pone.0113175.g003"/>
+        </fig>
+        <p>GPR30 is involved in EGF transactivation, and has been shown to mediate cell proliferation and other responses to estrogen <xref rid="pone.0113175-Albanito2" ref-type="bibr">[23]</xref>. To determine if EGF can substitute for E in inducing the expression of GPR30, groups of WT mice, &#x3B1;ERKO mice, and &#x3B2;ERKO mice received daily subcutaneous injections of EGF (25 ng/dose) for 5 days. As shown in <xref ref-type="fig" rid="pone-0113175-g004">Figure 4</xref>, while mammary glands from WT showed some expression of GPR30, both &#x3B1;ERKO and &#x3B2;ERKO mice did not show any immunostaining (brown) for GPR30. Despite a basal difference in GPR expression between the glands derived from WT and &#x3B2;ERKO mice, administration of EGF to either WT or &#x3B2;ERKO mice did not have any effect on the enhancement of GPR30 expression. By contrast, administration of EGF to &#x3B1;ERKO mice resulted in enhanced immunostaining suggesting a substantial upregulation of GPR30 protein expression in mammary ducts<underline> and alveoli.</underline> These results are consistent with our results for the effects of EGF on PR expression (<xref ref-type="fig" rid="pone-0113175-g003">Figure 3</xref>), and provide further evidence that, in the absence of functional ER&#x3B1;, EGF may substitute for estradiol mediated action in the mammary gland.</p>
+        <fig id="pone-0113175-g004" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0113175.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>Effects of EGF on the induction of GPR30 by immunohistochemistry.</title>
+            <p>C57 wild type, &#x3B1;ERKO and &#x3B2;ERKO mice were either injected with 25 ng EGF or vehicle subcutaneously daily for 5 days. The glands were dissected, fixed in formalin and 5 micron sections were processed for immunohistochemical staining. The sections were incubated with blocking reagent followed by GPR30 primary antibody and biotinylated secondary antibody. Antigen specific staining was visualized using DAB (brown) as a chromogen and nuclear counterstaining was done using hematoxylin (blue). Negative controls (sections not incubated with GPR30 antibodies) are shown as an inset for each condition. Results show that EGF induces GPR30 (brown) in the mammary glands of &#x3B1;ERKO mice. A. Vehicle, Control; B. Vehicle, &#x3B1;ERKO; C Vehicle, &#x3B2;ERKO; D. EGF, Control; E. EGF, &#x3B1;ERKO; F. EGF, &#x3B2;ERKO.</p>
+          </caption>
+          <graphic xlink:href="pone.0113175.g004"/>
+        </fig>
+      </sec>
+      <sec id="s3d">
+        <title>Functional ER&#x3B1; is necessary for the development of mammary preneoplastic lesions</title>
+        <p>In view of the activity of EGF in supporting normal mammary growth and development, it was of interest to determine whether EGF can replace E in supporting the induction of mammary preneoplastic lesions (MAL) by the chemical carcinogen, DMBA. The gross appearance of MAL induced in organ culture by DMBA in WT mice pretreated with EGF + P was very similar to MAL induced by DMBA in WT mice pretreated with E + P. Furthermore, as seen in <xref ref-type="table" rid="pone-0113175-t001">Table 1</xref>, the number of MAL induced in WT mice receiving E + P or EGF + P (13.3&#xB1;7.8 lesions per gland in WT mice treated with E + P versus 12.8&#xB1;6.8 lesions per gland in WT mice treated with EGF + P) was similar, once again suggesting that EGF can substitute for estrogen pretreatment in these mice.</p>
+        <table-wrap id="pone-0113175-t001" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0113175.t001</object-id>
+          <label>Table 1</label>
+          <caption>
+            <title>Effects of EGF on the induction of DMBA-induced MAL in mammary glands.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0113175-t001-1" xlink:href="pone.0113175.t001"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Genotype</td>
+                  <td align="left" rowspan="1" colspan="1">Treatment</td>
+                  <td align="left" rowspan="1" colspan="1">Number ofGlands</td>
+                  <td align="left" rowspan="1" colspan="1">Glands withMAL (%)</td>
+                  <td align="left" rowspan="1" colspan="1">MAL/Gland(Multiplicity &#xB1; SD)</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">WT</td>
+                  <td align="left" rowspan="1" colspan="1">E + P</td>
+                  <td align="left" rowspan="1" colspan="1">3</td>
+                  <td align="left" rowspan="1" colspan="1">3 (100)</td>
+                  <td align="left" rowspan="1" colspan="1">13.4+7.8</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">EGF + P</td>
+                  <td align="left" rowspan="1" colspan="1">4</td>
+                  <td align="left" rowspan="1" colspan="1">4 (100)</td>
+                  <td align="left" rowspan="1" colspan="1">12.8+6.8</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">&#x3B1;ERKO</td>
+                  <td align="left" rowspan="1" colspan="1">EGF + P</td>
+                  <td align="left" rowspan="1" colspan="1">6</td>
+                  <td align="left" rowspan="1" colspan="1">0</td>
+                  <td align="left" rowspan="1" colspan="1">0</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">&#x3B2;ERKO</td>
+                  <td align="left" rowspan="1" colspan="1">E + P</td>
+                  <td align="left" rowspan="1" colspan="1">7</td>
+                  <td align="left" rowspan="1" colspan="1">5 (71)</td>
+                  <td align="left" rowspan="1" colspan="1">4.7+3.9</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1"/>
+                  <td align="left" rowspan="1" colspan="1">EGF + P</td>
+                  <td align="left" rowspan="1" colspan="1">5</td>
+                  <td align="left" rowspan="1" colspan="1">4 (80)</td>
+                  <td align="left" rowspan="1" colspan="1">3.8+3.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+        <p>Although fewer mammary preneoplastic lesions were seen in &#x3B2;ERKO mice than in WT mice, MAL were identified in DMBA-treated glands collected from &#x3B2;ERKO mice that had been pretreated with EGF + P (<xref ref-type="table" rid="pone-0113175-t001">Table 1</xref>). By contrast, no MAL were identified in mammary glands from &#x3B1;ERKO mice pretreated with EGF + P. These results indicate that a functional ER&#x3B1; is necessary for MAL formation, and suggest that although EGF can support normal mammary ductal extension in the absence of E, EGF cannot support MAL formation.</p>
+      </sec>
+      <sec id="s3e">
+        <title>Differential Gene Expression in Mammary Glands from WT mice, &#x3B1;ERKO mice, and &#x3B2;ERKO mice</title>
+        <p>Patterns of gene expression in pooled RNA samples from cultured mammary glands from wild-type mice, &#x3B1;ERKO mice, and &#x3B2;ERKO mice pretreated with EGF + P were compared by microarray analysis. Of 28,665 genes that were expressed above background levels, 8,141 genes were differentially expressed in mammary glands from &#x3B1;ERKO mice versus mammary glands from &#x3B2;ERKO mice (<xref ref-type="supplementary-material" rid="pone.0113175.s001">Figure S1</xref>). In addition, 7,190 genes were differentially expressed in mammary glands from &#x3B1;ERKO mice versus WT mice, and 4,218 genes were differentially expressed in mammary glands derived from &#x3B2;ERKO mice versus WT mice.</p>
+        <p>Hierarchical clustering was performed for 11,588 genes that were differentially expressed in at least one comparison (<xref ref-type="supplementary-material" rid="pone.0113175.s002">Figure S2</xref>, Panel A) and 3927 genes that were identified as ER&#x3B1; responsive (<xref ref-type="supplementary-material" rid="pone.0113175.s002">Figure S2</xref>, Panel B). Principal Component Analysis (PCA) across samples was also performed using the 11,588 genes that were differentially expressed in at least one comparison (<xref ref-type="supplementary-material" rid="pone.0113175.s003">Figure S3</xref>).</p>
+        <p>Pathway analysis of the 11,588 differentially expressed genes demonstrated significant enrichment of 28 pathways (hypergeometric p values of &lt;0.001). Of these, differential expression of 9 pathways was specific to &#x3B1;ERKO mice. These included MAP kinase signaling pathway as well as signaling molecules affecting apoptosis. On the other hand, differential expression of 4 pathways was specific to &#x3B2;ERKO mice, which included C-21 steroid metabolism (<xref ref-type="table" rid="pone-0113175-t002">Table 2</xref>). The signaling molecules regulating cell proliferation were differentially regulated in these ER&#x3B1; and ER&#x3B2; knockout conditions (data not shown).</p>
+        <table-wrap id="pone-0113175-t002" orientation="portrait" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0113175.t002</object-id>
+          <label>Table 2</label>
+          <caption>
+            <title>Analysis of EGF dependent &#x3B1;ERKO and &#x3B2;ERKO selective pathways in mouse mammary gland organ culture.</title>
+          </caption>
+          <alternatives>
+            <graphic id="pone-0113175-t002-2" xlink:href="pone.0113175.t002"/>
+            <table frame="hsides" rules="groups">
+              <colgroup span="1">
+                <col align="left" span="1"/>
+                <col align="center" span="1"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Differentially Expressed Pathway</td>
+                  <td align="left" rowspan="1" colspan="1">p-Value</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>&#x3B1;ERKO Selective Pathways</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1"/>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">MAPK signaling pathway</td>
+                  <td align="left" rowspan="1" colspan="1">2.28E-05</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Cytokine-cytokine receptor interaction</td>
+                  <td align="left" rowspan="1" colspan="1">2.29E-05</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Cell adhesion molecules (CAMs)</td>
+                  <td align="left" rowspan="1" colspan="1">1.79E-04</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Adherence junction</td>
+                  <td align="left" rowspan="1" colspan="1">1.05E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Focal adhesion</td>
+                  <td align="left" rowspan="1" colspan="1">2.21E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Regulation of actin cytoskeleton</td>
+                  <td align="left" rowspan="1" colspan="1">3.50E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">TGF-beta signaling pathway</td>
+                  <td align="left" rowspan="1" colspan="1">3.98E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Tight junction</td>
+                  <td align="left" rowspan="1" colspan="1">5.25E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Apoptosis</td>
+                  <td align="left" rowspan="1" colspan="1">7.62E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">
+<bold>&#x3B2;ERKO Selective Pathways</bold>
+</td>
+                  <td align="left" rowspan="1" colspan="1"/>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Taurine and hypotaurine metabolism</td>
+                  <td align="left" rowspan="1" colspan="1">6.24E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">C21-Steroid hormone metabolism</td>
+                  <td align="left" rowspan="1" colspan="1">8.97E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Atrazine degradation</td>
+                  <td align="left" rowspan="1" colspan="1">9.37E-03</td>
+                </tr>
+                <tr>
+                  <td align="left" rowspan="1" colspan="1">Retinol metabolism</td>
+                  <td align="left" rowspan="1" colspan="1">9.37E-03</td>
+                </tr>
+              </tbody>
+            </table>
+          </alternatives>
+        </table-wrap>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>Although ER&#x3B1; and ER&#x3B2; functions have been extensively studied in various organs <xref rid="pone.0113175-Deroo1" ref-type="bibr">[24]</xref>, <xref rid="pone.0113175-Heldering1" ref-type="bibr">[25]</xref>, studies in ER&#x3B1; and ER&#x3B2; knockout mice can provide additional insight into the roles of these ligand regulated transcription factors in both normal and neoplastic mammary development. For example, the primary mammary ducts, which are essential for the complete lobuloalveolar development of the mammary gland and for the initiation of lactation, are grossly underdeveloped in &#x3B1;ERKO mice. By contrast, mammary development in &#x3B2;ERKO mice is similar to that seen in wild-type mice, demonstrating the essential role of ER&#x3B1; (but not ER&#x3B2;) in normal mammary gland growth and differentiation. Similar differential role of ER&#x3B1; and ER&#x3B2; in mammary gland development has previously been reported <xref rid="pone.0113175-Course1" ref-type="bibr">[16]</xref>, <xref rid="pone.0113175-Cheng1" ref-type="bibr">[17]</xref>.</p>
+      <p>Pretreatment of &#x3B1;ERKO mice with EGF + P supports the normal extension of mammary ducts throughout the fat pad when mammary glands are maintained in organ culture; this observation clearly demonstrates that EGF can substitute for estrogen-mediated ER&#x3B1; functions in normal mammary gland development and differentiation. However, although pretreatment with EGF can support normal ductal expansion in &#x3B1;ERKO mice, it does not support the development of preneoplastic mammary lesions induced by DMBA. These data suggest that, despite clear evidence of interactions/cross-talk between E-dependent and EGF-dependent signaling pathways in normal mammary development, neoplastic development in the mouse mammary glands requires a functional ER&#x3B1;.</p>
+      <p>In addition to its effects in supporting normal mammary development and differentiation, EGF induced PR in the mammary glands of &#x3B1;ERKO mice, supporting the results of previous studies in which findings where loss of ER&#x3B1; is often correlated with overexpression of EGFR <xref rid="pone.0113175-Silva1" ref-type="bibr">[26]</xref>, <xref rid="pone.0113175-Daniel1" ref-type="bibr">[22]</xref>. Moreover, it has been reported that GPR30, can mediate estrogen dependent signaling and EGFR transactivation by estradiol <xref rid="pone.0113175-Albanito3" ref-type="bibr">[27]</xref>, This is consistent with our results showing that 5 day treatment of &#x3B1;ERKO mice with EGF induced GPR30 in the mammary glands. However, present study suggests that there may be estrogen-specific molecular switch that may be required for transformation of mammary epithelial cells, which cannot be turned on by EGF by itself in the absence of estrogen-ER&#x3B1; interactions. Collectively these studies show that EGF can replace estradiol in the absence of ER&#x3B1; and may provide a basis for studies on the ER&#x3B1; and EGFR cross talk in normal mammal mammary gland development.</p>
+      <p>We analyzed microarray data generated from pooled RNA samples obtained from the mammary glands containing MAL derived from wild-type and &#x3B2;ERKO mice and compared these with the RNA samples obtained from mammary glands (without MAL) from &#x3B1;ERKO mice. PCA analysis showed major difference in the genomic profile between the RNA from MAL-negative glands of &#x3B1;ERKO and MAL-positive glands of WT or &#x3B2;ERKO mice. The PCA analysis also indicated that there is a close similarity between the glands containing MAL of &#x3B2;ERKO and WT mice (<xref ref-type="supplementary-material" rid="pone.0113175.s003">Figure S3</xref>). This was further evident by selective differential expression by RNA isolated from the mammary glands of &#x3B1;ERKO and &#x3B2;ERKO mice as shown in <xref ref-type="table" rid="pone-0113175-t002">Table 2</xref>.</p>
+      <p>In summary, the results described in this report provide direct evidence for the importance of ER&#x3B1; in normal mammary gland development and during neoplastic transformation. We showed that estrogen can be replaced by EGF for ER mediated function in the absence of ER&#x3B1; for the normal mammary gland development. However EGF in the absence of ER&#x3B1; was ineffective for the development of MAL. The results also indicated that like estrogen, in vivo treatment with EGF can also induce estrogen responsive gene, PR and EGF responsive GPR30 in the glands providing evidence for a cross talk between EGF and estrogen in normal mammary gland development. Finally the results from the microarray analyses indicated that the MAP Kinase signaling as well as estrogen dependent signaling resulting in reduced cyclin D and EGF dependent SRF, c-Jun and c-Fos expressions were responsible for the differences in cell proliferation between &#x3B1;ERKO and WT or &#x3B2;ERKO mice (data not shown). This is the first report to employ MMOC of the ERKO mice to delineate functional differences among &#x3B1;ERKO, &#x3B2;ERKO and wild type genotypes.</p>
+    </sec>
+    <sec sec-type="supplementary-material" id="s5">
+      <title>Supporting Information</title>
+      <supplementary-material content-type="local-data" id="pone.0113175.s001">
+        <label>Figure S1</label>
+        <caption>
+          <p>
+<bold>Microarray analyses of RNA obtained from MAL containing glands from WT, &#x3B1;ERKO and &#x3B2;ERKO mice after MMOC.</bold> Mammary glands were dissected from WT, &#x3B1;ERKO or &#x3B2;ERKO mice pretreated with 1 mg Progesterone and 25 ng EGF for 5 days. The glands were incubated with sequential combinations of hormones and carcinogen for 24 days as described in the Methods. This treatment schedule induces MAL in these glands. The glands were snap-frozen individually and RNA was extracted and Microarray analyses were performed on pooled RNA samples as described in the Methods. A. Venn diagram of genes &gt;2-Fold in ERKO comparisons (Total 11,588 genes). The diagram indicates the number of genes that 723 genes are differentially expressed in all three comparisons. There are various distributions of number of genes that overlap between each combination.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0113175.s001.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0113175.s002">
+        <label>Figure S2</label>
+        <caption>
+          <p>
+<bold>Differentially expressed genes in WT, &#x3B1;ERKO and &#x3B2;ERKO mice.</bold> Genes (11588 genes) that are different in at least one comparison among the three genotypes (B) and 3927 genes &gt;2-Fold in [&#x3B1;KO vs. WT] and [&#x3B1;KO vs. &#x3B2;KO] not [&#x3B2;KO vs. WT] (C). Genes are displayed as normalized to the median intensity of each array. Red&#x200A;=&#x200A;High expression, Yellow&#x200A;=&#x200A;Medium expression, Blue&#x200A;=&#x200A;Low expression. Results show that there is a close similarity between the expression of genes between WT and &#x3B2;ERKO mice. However there are major differences between the &#x3B1;ERKO mice and the two other genotypes. These results suggest that &#x3B1;ER may be significantly more crucial for estradiol function as compared to ER&#x3B2; (D).</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0113175.s002.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+      <supplementary-material content-type="local-data" id="pone.0113175.s003">
+        <label>Figure S3</label>
+        <caption>
+          <p>
+<bold>Principal Component Analysis.</bold> Samples are displayed in respect to the two principal components present in 11,588 genes differentially expressed in at least one of three comparisons. Normalized expression differences between the &#x3B1;KO sample and the other two samples comprise the most differences in the data as PCA component 1. Normalized expression differences between WT and the two KO samples comprise the remainder of the differences in the data as PCA component 2.</p>
+          <p>(TIF)</p>
+        </caption>
+        <media xlink:href="pone.0113175.s003.tif">
+          <caption>
+            <p>Click here for additional data file.</p>
+          </caption>
+        </media>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Dr. Nishant Tiwari, Dr. Amit Kalra and Ms. Sarbani Roy for technical assistance. We thank Dr. Dennis Lubahn for supplying breeding pairs of ER knockout mice.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0113175-Higa1">
+        <label>1</label>
+        <mixed-citation publication-type="other">Higa GM, Fell RG (2013) Sex hormone receptor repertoire in breast cancer Int. J. Cancer: EPub 284036, 2013.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Jonsson1">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Jonsson</surname><given-names>P</given-names></name>, <name><surname>Katchy</surname><given-names>A</given-names></name>, <name><surname>Williams</surname><given-names>C</given-names></name> (<year>2014</year>) <article-title>Support of a bi-faceted role of estrogen receptor beta (ER&#x3B2;) in ER&#x3B1;-positive breast cancer cells Endocrine related Cancer</article-title>. <volume>21</volume>: <fpage>143</fpage>&#x2013;<lpage>160</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Leitman1">
+        <label>3</label>
+        <mixed-citation publication-type="other">Leitman DC, Paruthiyil S, Yuan C, Herber CB, Olshansky M, <etal>et al</etal>.. (2012) Tissue specific regulation of genes by estrogen receptors Sem. Reprod. Med. Doi:10.1055/s-0031-1299593 14-22.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Tremblay1">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Tremblay</surname><given-names>GB</given-names></name>, <name><surname>Tremblay</surname><given-names>A</given-names></name>, <name><surname>Copeland</surname><given-names>NG</given-names></name>, <name><surname>Gilbert</surname><given-names>DJ</given-names></name>, <name><surname>Jenkins</surname><given-names>NA</given-names></name>, <etal>et al</etal> (<year>1997</year>) <article-title>chromosomal localization and functional analysis of the murine estrogen receptor beta Mol. Endocrinol</article-title>. <volume>11</volume>: <fpage>353</fpage>&#x2013;<lpage>365</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Zhao1">
+        <label>5</label>
+        <mixed-citation publication-type="other">Zhao C, Dahlman-Wright K, Gustafsson JA (2008) Estrogen receptor beta: an overview and update Nucl. Receptor Signal doi:10.1621/inrs.06003.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Paige1">
+        <label>6</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Paige</surname><given-names>LA</given-names></name>, <name><surname>Christensen</surname><given-names>DJ</given-names></name>, <name><surname>Gron</surname><given-names>H</given-names></name>, <name><surname>Norris</surname><given-names>JD</given-names></name>, <name><surname>Gotlin</surname><given-names>EB</given-names></name>, <etal>et al</etal> (<year>1997</year>) <article-title>Estrogen receptor modulators each induce disctinvt conformational changes in ERalpha and ER beta. Proc. Natl. Acad Sci</article-title>. <source>USA</source>
+<volume>30</volume>: <fpage>3999</fpage>&#x2013;<lpage>4004</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Stope1">
+        <label>7</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Stope</surname><given-names>MB</given-names></name>, <name><surname>Popp</surname><given-names>SL</given-names></name>, <name><surname>Knabbe</surname><given-names>C</given-names></name>, <name><surname>Buck</surname><given-names>MB</given-names></name> (<year>2010</year>) <article-title>Estrogen receptor alpha attenuates transforming growth factor beta signaling in breast cancer cells independent from agonistic and antagonistic ligands Breast Cancer Res. Treat</article-title>. <volume>120</volume>: <fpage>353</fpage>&#x2013;<lpage>367</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Mathews1">
+        <label>8</label>
+        <mixed-citation publication-type="other">Mathews J, Gustafsson J-A (2003) Estrogen signaling A subtle balance between ER&#x3B1; and ER&#x3B2; Mol. Interven 3, 281&#x2013;292.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Cotrim1">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cotrim</surname><given-names>CZ</given-names></name>, <name><surname>Fabris</surname><given-names>V</given-names></name>, <name><surname>Doria</surname><given-names>ML</given-names></name>, <name><surname>Lindberg</surname><given-names>K</given-names></name>, <name><surname>Gustafsson</surname><given-names>J-A</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>Estrogen receptor beta growth inhibitory effects are repressed through activation of MAPK and PI3K signaling in mammary epithelial and breast cancer cells Oncogene</article-title>. <volume>32</volume>: <fpage>2390</fpage>&#x2013;<lpage>2402</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Harrison1">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Harrison</surname><given-names>H</given-names></name>, <name><surname>Simoes</surname><given-names>BM</given-names></name>, <name><surname>Rogerson</surname><given-names>L</given-names></name>, <name><surname>Howell</surname><given-names>SJ</given-names></name>, <name><surname>Landberg</surname><given-names>G</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>Oestrogen increases the activity of estrogen receptor negative breast cancer stem cells through paracrine EGFR and Notch signaling Breast Cancer res</article-title>. <volume>15</volume>: <fpage>R21</fpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Ankrapp1">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ankrapp</surname><given-names>DP</given-names></name>, <name><surname>Bennett</surname><given-names>JM</given-names></name>, <name><surname>Haslam</surname><given-names>SZ</given-names></name> (<year>1998</year>) <article-title>Role of epidermal growth factor in the acquisition of ovarian steroid hormone responsiveness in the normal mouse mammary gland</article-title>. <source>J Cell</source>
+<volume>Physiol174</volume>: <fpage>251</fpage>&#x2013;<lpage>260</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Mo1">
+        <label>12</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mo</surname><given-names>Z</given-names></name>, <name><surname>Liu</surname><given-names>M</given-names></name>, <name><surname>Yang</surname><given-names>F</given-names></name>, <name><surname>Luo</surname><given-names>H</given-names></name>, <name><surname>Li</surname><given-names>Z</given-names></name>, <etal>et al</etal> (<year>2013</year>) <article-title>GPR30 as an initiator of Tamoxifen resistance in hormone dependent breast cancer Breast Cancer Res</article-title>. <volume>15</volume>: <fpage>R114</fpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Skandalis1">
+        <label>13</label>
+        <mixed-citation publication-type="other">Skandalis SS, Afratis N, Smirlaki G, Nikitovic D, Theocharis AD, <etal>et al</etal>.. (2013) Cross talk between estrogen receptors and EGF/IGF-IR signaling pathways in estrogen responsive breast cancers: Focus on the role and impact of proteoglycans Matrix Biol. Doi:10.1016.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-IgnarTrowbridge1">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Ignar-Trowbridge</surname><given-names>DM</given-names></name>, <name><surname>Nelson</surname><given-names>KG</given-names></name>, <name><surname>Bidwell</surname><given-names>MC</given-names></name>, <name><surname>Curtis</surname><given-names>SW</given-names></name>, <name><surname>Washburn</surname><given-names>TF</given-names></name>, <etal>et al</etal> (<year>1992</year>) <article-title>Coupling of dual signaling pathways: epidermal growth factor action involves the estrogen receptor</article-title>. <source>Proc Natl Acad Sci USA</source>
+<volume>89</volume>: <fpage>4658</fpage>&#x2013;<lpage>4662</lpage>.<pub-id pub-id-type="pmid">1584801</pub-id></mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Albanito1">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Albanito</surname><given-names>L</given-names></name>, <name><surname>Sisci</surname><given-names>D</given-names></name>, <name><surname>Aquila</surname><given-names>E</given-names></name>, <name><surname>Vivacqua</surname><given-names>A</given-names></name>, <name><surname>Madeo</surname><given-names>A</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Epidermal growth factor induces G protein-coupled receptor 30 expression in estrogen receptor negative breast cancer cells Endocrinology</article-title>. <volume>149</volume>: <fpage>3799</fpage>&#x2013;<lpage>3808</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Course1">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Course</surname><given-names>JF</given-names></name>, <name><surname>Korach</surname><given-names>KS</given-names></name> (<year>1999</year>) <article-title>Estrogen receptor null mice: what have we learned and where will they lead us? Endocr Rev</article-title>. <volume>20</volume>: <fpage>358</fpage>&#x2013;<lpage>417</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Cheng1">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Cheng</surname><given-names>G</given-names></name>, <name><surname>Weihua</surname><given-names>Z</given-names></name>, <name><surname>Warner</surname><given-names>M</given-names></name>, <name><surname>Gustafsson</surname><given-names>JA</given-names></name> (<year>2004</year>) <article-title>Estrogen receptors ER&#x3B1; and ER&#x3B2; in proliferation in the rodent mammary gland Proc. Natl. Acad Sci</article-title>. <source>USA</source>
+<volume>101</volume>: <fpage>3739</fpage>&#x2013;<lpage>3746</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Krege1">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Krege</surname><given-names>JH</given-names></name>, <name><surname>Hodgin</surname><given-names>JB</given-names></name>, <name><surname>Couse</surname><given-names>JF</given-names></name>, <name><surname>Enmark</surname><given-names>E</given-names></name>, <name><surname>Warner</surname><given-names>M</given-names></name>, <etal>et al</etal> (<year>1998</year>) <article-title>Generation and reproductive phenotypes of mice lacking estrogen receptor beta. Proc. Natl. Acad. Sci</article-title>. <volume>95</volume>: <fpage>15677</fpage>&#x2013;<lpage>15682</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Mehta1">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mehta</surname><given-names>RG</given-names></name>, <name><surname>Naithani</surname><given-names>R</given-names></name>, <name><surname>Huma</surname><given-names>L</given-names></name>, <name><surname>Hawthorne</surname><given-names>ME</given-names></name>, <name><surname>Moriarty</surname><given-names>RM</given-names></name>, <etal>et al</etal> (<year>2008</year>) <article-title>Efficacy of chemopreventive agents in mouse mammary gland organ culture (MMOC) model: A Comprehensive Review Curr. Med. Chem</article-title>. <volume>15</volume>: <fpage>2785</fpage>&#x2013;<lpage>2825</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Mehta2">
+        <label>20</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Mehta</surname><given-names>RG</given-names></name>, <name><surname>Williamson</surname><given-names>E</given-names></name>, <name><surname>Patel</surname><given-names>M</given-names></name>, <name><surname>Koeffler</surname><given-names>HP</given-names></name> (<year>2000</year>) <article-title>PPAR (Ligand and retinoids prevent preneoplastic mammary lesions J. Natl. Cancer Inst</article-title>. <volume>92</volume>: <fpage>418</fpage>&#x2013;<lpage>423</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Peng1">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Peng</surname><given-names>X</given-names></name>, <name><surname>Mehta</surname><given-names>R</given-names></name>, <name><surname>Wang</surname><given-names>S</given-names></name>, <name><surname>Chellappan</surname><given-names>S</given-names></name>, <name><surname>Mehta</surname><given-names>RG</given-names></name> (<year>2006</year>) <article-title>Prohibitin is a novel target gene of vitamin D involved in its antiproliferative action in breast cancer cells. Cancer Res</article-title>. <volume>66</volume>: <fpage>7361</fpage>&#x2013;<lpage>739</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Daniel1">
+        <label>22</label>
+        <mixed-citation publication-type="other">Daniel AR, Gaviglio AL, Knutson TP, Ostrander JH, D&#x2019;Assoro AB, <etal>et al</etal>.. (2014) Progesterone receptor B enhances estrogen responsiveness of breast cancer eclls via scaffolding PELP1 and androgen receptor containing transcription complexes Oncogene doi:10.1038.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Albanito2">
+        <label>23</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Albanito</surname><given-names>L</given-names></name>, <name><surname>Madeo</surname><given-names>A</given-names></name>, <name><surname>Lappano</surname><given-names>R</given-names></name>, <name><surname>Vivacqua</surname><given-names>A</given-names></name>, <name><surname>Rago</surname><given-names>V</given-names></name>, <etal>et al</etal> (<year>2007</year>) <article-title>G protein coupled receptor 30 (GPR30) mediates gene expression changes and growth response to estradiol 17&#x3B2; and selective GPR30 ligandG-1 in ovarian cancer cells. Cancer Res</article-title>. <volume>67</volume>: <fpage>1859</fpage>&#x2013;<lpage>1866</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Deroo1">
+        <label>24</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Deroo</surname><given-names>BJ</given-names></name>, <name><surname>Korach</surname><given-names>KS</given-names></name> (<year>2006</year>) <article-title>Estrogen receptors and human disease J. Clin. Invest</article-title>. <volume>116</volume>: <fpage>561</fpage>&#x2013;<lpage>570</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Heldering1">
+        <label>25</label>
+        <mixed-citation publication-type="other">Heldering N, Pike A, Anderson S, Matthews J, Cheng G, <etal>et al</etal>.. (2007) Estrogen Receptors: How Do They Signal and What Are Their Targets Physiol. Rev. 37, 905&#x2013;935.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Silva1">
+        <label>26</label>
+        <mixed-citation publication-type="journal">
+<name><surname>Silva</surname><given-names>E</given-names></name>, <name><surname>Kabil</surname><given-names>A</given-names></name>, <name><surname>Korten</surname><given-names>A</given-names></name> (<year>2010</year>) <article-title>Cross-talk between non-genomic and genomic signaling pathways distinct effect profiles of environmental estrogens Toxicol. Appl. Pharmacol</article-title>. <volume>45</volume>: <fpage>160</fpage>&#x2013;<lpage>170</lpage>.</mixed-citation>
+      </ref>
+      <ref id="pone.0113175-Albanito3">
+        <label>27</label>
+        <mixed-citation publication-type="other">Albanito L, Sisci D, Aquila S, Brunelli E, Vivacqua A, <etal>et al</etal>.. (2008) Epidermal growth factor induces G protein-coupled receptor 30 expression in estrogen receptor negative breast cancer cells Endocrinology 149: 3799&#x2013;3808, 2008.</mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
